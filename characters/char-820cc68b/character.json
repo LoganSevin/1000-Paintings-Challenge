@@ -1,0 +1,43 @@
+{
+  "id": "char-820cc68b",
+  "name": "Crissy",
+  "prompt": "High Fidelity Hyper Realistic Creature",
+  "archetype": "human",
+  "sliders": {
+    "head": 1,
+    "body": 1,
+    "limbs": 1
+  },
+  "colors": {
+    "skin": "#e8b896",
+    "hair": "#602020",
+    "eyes": "#2a5a8a",
+    "clothes": "#604040"
+  },
+  "spells": [
+    64,
+    193,
+    673,
+    740,
+    936
+  ],
+  "spell_palette": [
+    "#604040",
+    "#602020",
+    "#804040",
+    "#806060",
+    "#402020",
+    "#202020"
+  ],
+  "pattern": "solid",
+  "aura_style": "painterly",
+  "shirt_pattern": "spell-weave",
+  "art_style": "stencil",
+  "views": {},
+  "sheet_url": "/generated/1994.jpg",
+  "frame_count": 8,
+  "pan_rows": 3,
+  "image_url": "",
+  "continuity_id": "ch-draft-1783715033871",
+  "saved_at": 1783715444.2010028
+}

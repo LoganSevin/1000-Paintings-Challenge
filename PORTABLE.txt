@@ -1,0 +1,43 @@
+1000 Paintings Gallery — portable / flash drive
+==============================================
+
+This folder is self-contained. Copy the whole "gallery" folder to a USB
+flash drive (or any path). No OneDrive required on the target PC.
+
+RUN ON ANY PC
+-------------
+1. Install Python 3 (python.org) — check "Add to PATH"
+2. Double-click start_server.bat inside this folder
+3. Browser opens http://localhost:8765/
+
+The server uses relative paths (%~dp0). Drive letter does not matter.
+
+FREE DISK SPACE BEFORE COPYING
+------------------------------
+- cleanup_disk_space.bat  — removes dev junk + Grok CLI caches (~1.5+ GB)
+- cleanup_disk_space.ps1 -Aggressive  — also clears generated/ + saved-stasis/
+  (AI output that can be recreated; keeps paintings + data)
+
+COPY TO FLASH DRIVE
+-------------------
+- copy_to_flash_drive.bat — guided robocopy to E:\gallery (or any path)
+- Slim mode (~200 MB core): paintings + data + code only
+- Full mode (~2+ GB): includes generated spells + saved fallout/stasis art
+
+DUPLICATE ON DESKTOP (optional delete)
+--------------------------------------
+If you still have:
+  Desktop\1000 Paintings Challenge\1000 Paintings Challenge\*.jpg
+those duplicate gallery\paintings\ and can be deleted AFTER you confirm
+gallery\paintings\ has all 1000 images (prepare_deploy.py used the parent
+folder once; the gallery copy is what the server uses).
+
+DO NOT DELETE
+-------------
+scripts\__pycache__\app_server_impl.cpython-314.pyc
+scripts\__pycache__\app_server.cpython-314.pyc
+(required for the local API server)
+
+API KEYS
+--------
+Keep .env or API keys on each machine separately — do not commit secrets.

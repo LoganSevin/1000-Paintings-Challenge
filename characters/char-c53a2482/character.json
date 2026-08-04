@@ -1,0 +1,61 @@
+{
+  "id": "char-c53a2482",
+  "name": "Maizy Amalon",
+  "prompt": "Macy Avalon",
+  "archetype": "human",
+  "sliders": {
+    "head": 1,
+    "body": 1,
+    "limbs": 1
+  },
+  "colors": {
+    "skin": "#226704",
+    "hair": "#204060",
+    "eyes": "#86c2fd",
+    "clothes": "#406080"
+  },
+  "spells": [
+    {
+      "url": "/generated/1557.jpg",
+      "label": "1557.jpg",
+      "paintingNum": null,
+      "lod1Num": 1557,
+      "source": "lod1s"
+    },
+    {
+      "url": "http://localhost:8765/paintings/739.jpg",
+      "label": "#739",
+      "paintingNum": 739,
+      "lod1Num": null,
+      "source": "paintings"
+    },
+    {
+      "url": "/generated/230.jpg",
+      "label": "230.jpg",
+      "paintingNum": null,
+      "lod1Num": 230,
+      "source": "lod1s"
+    }
+  ],
+  "spell_palette": [
+    "#406080",
+    "#204060",
+    "#606060",
+    "#404040",
+    "#406060",
+    "#606080",
+    "#404060",
+    "#202040"
+  ],
+  "pattern": "solid",
+  "aura_style": "painterly",
+  "shirt_pattern": "spell-weave",
+  "art_style": "stencil",
+  "views": {},
+  "sheet_url": "/generated/1953.jpg",
+  "frame_count": 8,
+  "pan_rows": 3,
+  "image_url": "/generated/1953.jpg",
+  "continuity_id": "ch-draft-1783591881978",
+  "saved_at": 1783592111.9083233
+}

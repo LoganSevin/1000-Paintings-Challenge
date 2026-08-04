@@ -1,0 +1,55 @@
+{
+  "id": "room-5ec29cc7",
+  "kind": "room",
+  "name": "Alien Bug Farm",
+  "prompt": "Insect Farm",
+  "mood": "mysterious",
+  "lighting": "dramatic",
+  "time_of_day": "dawn",
+  "spells": [
+    {
+      "url": "http://localhost:8765/paintings/839.jpg",
+      "label": "#839",
+      "paintingNum": 839,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8765/paintings/578.jpg",
+      "label": "#578",
+      "paintingNum": 578,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8765/paintings/429.jpg",
+      "label": "#429",
+      "paintingNum": 429,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8765/paintings/502.jpg",
+      "label": "#502",
+      "paintingNum": 502,
+      "source": ""
+    },
+    {
+      "url": "http://localhost:8765/paintings/213.jpg",
+      "label": "#213",
+      "paintingNum": 213,
+      "source": ""
+    }
+  ],
+  "spell_palette": [
+    "#a08060",
+    "#806040",
+    "#808060",
+    "#a0a060",
+    "#606040",
+    "#606060",
+    "#a08040",
+    "#c0a060"
+  ],
+  "art_style": "toon",
+  "image_url": "/generated/1981.jpg",
+  "continuity_id": "room-draft-1783672636602",
+  "saved_at": 1783672931.4524224
+}

@@ -1,0 +1,123 @@
+{
+  "balance": 582.5,
+  "platform_earned": 5.6,
+  "funded_total": 614.0,
+  "paid_out_total": 0.0,
+  "player_share_pct": 80,
+  "save_reward_usd": 1.0,
+  "orbs_per_usd": 100,
+  "history": [
+    {
+      "type": "distribute",
+      "reason": "orb_convert",
+      "gross": 17.0,
+      "player_usd": 13.6,
+      "platform_usd": 3.4,
+      "meta": {
+        "orbs": 1700
+      },
+      "at": 1780807569
+    },
+    {
+      "type": "fund",
+      "amount": 32.0,
+      "note": "operator deposit",
+      "at": 1780807631
+    },
+    {
+      "type": "fund",
+      "amount": 32.0,
+      "note": "operator deposit",
+      "at": 1780807631
+    },
+    {
+      "type": "fund",
+      "amount": 500.0,
+      "note": "operator deposit",
+      "at": 1780808393
+    },
+    {
+      "type": "distribute",
+      "reason": "orb_convert",
+      "gross": 1.0,
+      "player_usd": 0.8,
+      "platform_usd": 0.2,
+      "meta": {
+        "orbs": 100
+      },
+      "at": 1780808481
+    },
+    {
+      "type": "distribute",
+      "reason": "orb_convert",
+      "gross": 10.0,
+      "player_usd": 8.0,
+      "platform_usd": 2.0,
+      "meta": {
+        "orbs": 1000
+      },
+      "at": 1780808485
+    },
+    {
+      "type": "ghost_send",
+      "event": "save",
+      "amount": 0.5,
+      "cashtag": "Logan7in",
+      "spells": [
+        836,
+        824,
+        25
+      ],
+      "at": 1780874781
+    },
+    {
+      "type": "ghost_send",
+      "event": "save",
+      "amount": 0.5,
+      "cashtag": "Logan7in",
+      "spells": [
+        434,
+        999,
+        118
+      ],
+      "at": 1780875535
+    },
+    {
+      "type": "ghost_send",
+      "event": "save",
+      "amount": 0.5,
+      "cashtag": "Logan7in",
+      "spells": [
+        377,
+        348,
+        112
+      ],
+      "at": 1780876986
+    },
+    {
+      "type": "ghost_send",
+      "event": "save",
+      "amount": 0.5,
+      "cashtag": "Logan7in",
+      "spells": [
+        484,
+        230,
+        667
+      ],
+      "at": 1780878184
+    },
+    {
+      "type": "ghost_send",
+      "event": "save",
+      "amount": 0.5,
+      "cashtag": "Logan7in",
+      "spells": [
+        484,
+        230,
+        667
+      ],
+      "at": 1780878184
+    }
+  ],
+  "updated": 1780878184
+}

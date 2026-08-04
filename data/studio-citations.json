@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "updated": "2026-07-31",
+  "artist": "Logan Sevin",
+  "note": "Inventory of studio tools (in-app) and external services/libraries used by this gallery. Art authorship remains Logan Sevin — tools assist; they are not the author.",
+  "categories": [
+    {
+      "id": "studio-tabs",
+      "title": "Studio tools (in this app)",
+      "description": "Tabs and features built into the gallery. These are your creative surfaces.",
+      "items": [
+        { "name": "Gallery", "role": "Browse, search, filter, and sell the 1000 paintings and other collections", "uses_api": false },
+        { "name": "Pulse", "role": "Social-style feed for WIPs and reactions", "uses_api": false },
+        { "name": "Spellforge", "role": "Spellbook — equip paintings, fuse stasis text, generate visions, timelapse", "uses_api": true },
+        { "name": "Muralwalk", "role": "Walk a mural floor of your paintings; collect and channel", "uses_api": true },
+        { "name": "Fleeting Idea", "role": "Overhead-projector style layering of acetates / stills", "uses_api": true },
+        { "name": "Conceptualizer", "role": "Slot-reel spin of paintings into new visions", "uses_api": true },
+        { "name": "Mobile Art Gen", "role": "Phone-friendly spell compose and refine", "uses_api": true },
+        { "name": "Animate", "role": "Turn stills/spells into short motion clips on a timeline", "uses_api": true },
+        { "name": "Characters", "role": "Studio characters, turntable, continuity for Animate", "uses_api": true },
+        { "name": "Objects", "role": "Props and inanimate studio assets", "uses_api": true },
+        { "name": "Places", "role": "Environments and scene assets", "uses_api": true },
+        { "name": "API", "role": "Chain spells into callable pipelines", "uses_api": true },
+        { "name": "Spells", "role": "Cast gallery DNA into images", "uses_api": true },
+        { "name": "Prompt", "role": "Image-to-prompt lab for editable generation text", "uses_api": true },
+        { "name": "Gab", "role": "Letter finishers and spell-driven vision play", "uses_api": true },
+        { "name": "Glimpse", "role": "Live camera with spell grit / color filters", "uses_api": false },
+        { "name": "Brew", "role": "A–Z stanza weights into visual blends", "uses_api": true },
+        { "name": "Ears", "role": "Spell-driven imagined audio / equalizer", "uses_api": true },
+        { "name": "Viral", "role": "Multi-chain spell fusions and photo-to-life", "uses_api": true },
+        { "name": "Logan", "role": "Face-locked self scenes fused with gallery style", "uses_api": true },
+        { "name": "Movie", "role": "Long-form multi-clip reels from bulk spells", "uses_api": true },
+        { "name": "Book", "role": "Page-by-page script for stills and video beats", "uses_api": true },
+        { "name": "Game", "role": "Brush Dash — fuse paintings into bosses, play offline combat", "uses_api": true },
+        { "name": "Commercial", "role": "Brand / title / celebrity campaign fantasy stills", "uses_api": true },
+        { "name": "Income", "role": "Cash App tips, X posts, real income tracking", "uses_api": false },
+        { "name": "Market (sim)", "role": "Practice sales and paper trades (not real money)", "uses_api": false },
+        { "name": "Supermarket", "role": "Art supermarket game → receipts into generate", "uses_api": true },
+        { "name": "Ideal", "role": "Prompt-only image/video without spell loadout", "uses_api": true },
+        { "name": "Match", "role": "Match-3 game", "uses_api": false },
+        { "name": "Transfer", "role": "PC ↔ phone photo transfer", "uses_api": false },
+        { "name": "Fight", "role": "Arena fighters, multi-frame anims, training, LAN", "uses_api": true },
+        { "name": "Citations", "role": "This tab — inventory of tools and external services", "uses_api": false },
+        { "name": "Plasma", "role": "Interactive plasma ball + 35 circular Spellforge-quality casts, color chips, conveyor rings", "uses_api": true },
+        { "name": "Spell Shop", "role": "35 conveyor visions from paintings + generated; prompts; animate all; credit-retry with $ floats", "uses_api": true }
+      ]
+    },
+    {
+      "id": "local-stack",
+      "title": "Local stack (your machine)",
+      "description": "Software you run to host the studio.",
+      "items": [
+        { "name": "Python 3", "role": "Runs app_server.py and analysis scripts", "url": "https://www.python.org/", "kind": "runtime" },
+        { "name": "app_server.py", "role": "Gallery static files + /api/* (generate, fight, jobs, payments config)", "kind": "server" },
+        { "name": "start_server.bat", "role": "Starts the gallery on port 8765 and loads XAI_API_KEY", "kind": "launcher" },
+        { "name": "httpx", "role": "Python HTTP client for xAI and other HTTPS calls", "url": "https://www.python-httpx.org/", "kind": "library", "version_note": "requirements.txt ≥0.27" },
+        { "name": "Pillow", "role": "Python image processing (alpha, crops, exports)", "url": "https://python-pillow.org/", "kind": "library", "version_note": "requirements.txt ≥10" },
+        { "name": "Browser (Chrome / Edge / Firefox / Safari)", "role": "Receiver UI — canvas, WebGL-free 2D, gamepad, camera APIs", "kind": "client" }
+      ]
+    },
+    {
+      "id": "cloud-ai",
+      "title": "Cloud generation & API",
+      "description": "Services that spend credits when you generate images/video. Author of the art is still Logan Sevin.",
+      "items": [
+        { "name": "xAI / Grok image & vision APIs", "role": "Stasis vision, fight stills/frames, animate jobs, analyses (via server key)", "url": "https://console.x.ai/", "kind": "api", "billing": "https://console.x.ai/team/default/billing" },
+        { "name": "XAI_API_KEY / data/xai-api-key.txt", "role": "Your private key held on server — never embed in public static HTML", "kind": "secret" }
+      ]
+    },
+    {
+      "id": "hosting",
+      "title": "Hosting & share delivery",
+      "description": "How others receive the site.",
+      "items": [
+        { "name": "Local host :8765", "role": "Primary studio delivery on your PC / LAN", "kind": "host" },
+        { "name": "Netlify", "role": "Optional static public URL (gallery shell; AI needs API elsewhere)", "url": "https://www.netlify.com/", "kind": "host", "example": "https://1000-l7in.netlify.app/" },
+        { "name": "Render", "role": "Optional full-stack host for site + app_server.py + API key", "url": "https://render.com/", "kind": "host" },
+        { "name": "GitHub", "role": "Optional source upload for Render/Netlify pipelines", "url": "https://github.com/", "kind": "host" }
+      ]
+    },
+    {
+      "id": "payments-social",
+      "title": "Payments & social",
+      "description": "Money and posting rails (not art authors).",
+      "items": [
+        { "name": "Cash App", "role": "Tips and sales to $Logan7in", "url": "https://cash.app/$Logan7in", "kind": "payment" },
+        { "name": "X (Twitter)", "role": "Share for-sale posts, tip asks, viral links", "url": "https://x.com/", "kind": "social" }
+      ]
+    },
+    {
+      "id": "frontend-deps",
+      "title": "Front-end libraries & third-party scripts",
+      "description": "Loaded by the browser alongside your studio code.",
+      "items": [
+        { "name": "Google Fonts — Cormorant Garamond, DM Sans", "role": "Site typography", "url": "https://fonts.google.com/", "kind": "cdn" },
+        { "name": "Google Identity Services (GSI)", "role": "Optional Google sign-in client script", "url": "https://accounts.google.com/gsi/client", "kind": "cdn" },
+        { "name": "Browser Gamepad API", "role": "Fight / game controllers", "kind": "browser-api" },
+        { "name": "Browser MediaDevices / getUserMedia", "role": "Glimpse camera and some capture tools", "kind": "browser-api" },
+        { "name": "localStorage", "role": "Roster, tips UI state, equipped spells, etc. (per browser)", "kind": "browser-api" },
+        { "name": "Canvas 2D", "role": "Fight arena, alpha tools, previews, many studio surfaces", "kind": "browser-api" }
+      ]
+    },
+    {
+      "id": "data-assets",
+      "title": "Your data & assets (owned by you)",
+      "description": "Content authored/owned by Logan Sevin — not third-party tools.",
+      "items": [
+        { "name": "paintings/", "role": "1000 painting archive", "kind": "asset" },
+        { "name": "data/analyses.json", "role": "Titles, descriptions, tags for paintings", "kind": "asset" },
+        { "name": "data/manifest.json", "role": "Painting file index", "kind": "asset" },
+        { "name": "data/artist-identity.json", "role": "Canonical author: Logan Sevin", "kind": "asset" },
+        { "name": "generated / characters / videos / …", "role": "Studio outputs saved on disk or server", "kind": "asset" }
+      ]
+    }
+  ]
+}

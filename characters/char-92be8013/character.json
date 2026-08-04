@@ -1,0 +1,47 @@
+{
+  "id": "char-92be8013",
+  "name": "Francisco",
+  "prompt": "A Medium-Sized Bog Frog",
+  "archetype": "human",
+  "sliders": {
+    "head": 0.5,
+    "body": 0.5,
+    "limbs": 0.5
+  },
+  "colors": {
+    "skin": "#226704",
+    "hair": "#e04020",
+    "eyes": "#010509",
+    "clothes": "#c04020"
+  },
+  "spells": [
+    {
+      "url": "/generated/779.jpg",
+      "label": "779.jpg",
+      "paintingNum": null,
+      "lod1Num": 779,
+      "source": "lod1s"
+    }
+  ],
+  "spell_palette": [
+    "#c04020",
+    "#e04020",
+    "#60a060",
+    "#e04040",
+    "#c04040",
+    "#c02020",
+    "#e0a080",
+    "#202020"
+  ],
+  "pattern": "solid",
+  "aura_style": "painterly",
+  "shirt_pattern": "spell-weave",
+  "art_style": "toon",
+  "views": {},
+  "sheet_url": "/generated/1955.jpg",
+  "frame_count": 8,
+  "pan_rows": 3,
+  "image_url": "/generated/1955.jpg",
+  "continuity_id": "ch-draft-1783591881978",
+  "saved_at": 1783595977.4747627
+}

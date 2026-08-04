@@ -1,0 +1,2175 @@
+{
+  "version": 2,
+  "description": "Celebrities as brand ambassadors who showcase movie/TV entertainment brands (showcases + equipped titles).",
+  "categories": [
+    "acting",
+    "activism",
+    "art",
+    "fashion",
+    "food",
+    "influencer",
+    "lifestyle",
+    "media",
+    "music",
+    "science",
+    "sports",
+    "tech",
+    "world"
+  ],
+  "celebrities": [
+    {
+      "id": "andrew-garfield",
+      "name": "Andrew Garfield",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "empath-eyes intensity, broadway-raw nerve",
+      "icons": [
+        "vulnerable intensity",
+        "theater stage raw",
+        "web-heart energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Spider-Man",
+        "Tick, Tick... Boom!",
+        "The Social Network"
+      ]
+    },
+    {
+      "id": "anya-taylor-joy",
+      "name": "Anya Taylor-Joy",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "porcelain-fey intensity, chess-queen stillness, otherworldly eyes",
+      "icons": [
+        "pale porcelain glow",
+        "sharp chess-board geometry",
+        "wide-set intense gaze energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "The Queen's Gambit",
+        "The Menu",
+        "Furiosa"
+      ]
+    },
+    {
+      "id": "audrey-hepburn",
+      "name": "Audrey Hepburn",
+      "category": "acting",
+      "era": "1950s-1960s",
+      "vibe": "little-black-dress eternal, gamine grace, roman-holiday light",
+      "icons": [
+        "little black dress",
+        "tiara breakfast elegance",
+        "bicycle roman street"
+      ],
+      "known_for": "acting",
+      "showcases": []
+    },
+    {
+      "id": "austin-butler",
+      "name": "Austin Butler",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "velvet-drawl rockabilly lightning, sculpted old-hollywood return",
+      "icons": [
+        "pompadour silhouette",
+        "leather and satin",
+        "stage hips energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Elvis",
+        "Dune: Part Two",
+        "Once Upon a Time in Hollywood"
+      ]
+    },
+    {
+      "id": "chris-evans",
+      "name": "Chris Evans",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "all-american shield calm, soft-hero decency",
+      "icons": [
+        "shield circle energy",
+        "all-american hero",
+        "quiet courage"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Captain America",
+        "Knives Out"
+      ]
+    },
+    {
+      "id": "chris-hemsworth",
+      "name": "Chris Hemsworth",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "sun-god muscle myth, storm-hammer thunder, beach-hero ease",
+      "icons": [
+        "storm sky",
+        "muscular hero silhouette",
+        "mythic hammer energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Thor",
+        "Extraction"
+      ]
+    },
+    {
+      "id": "cillian-murphy",
+      "name": "Cillian Murphy",
+      "category": "acting",
+      "era": "2000s-2020s",
+      "vibe": "ice-blue haunted intellect, quiet-bomb intensity, peaky silhouette",
+      "icons": [
+        "piercing pale eyes energy",
+        "lean sharp silhouette",
+        "smoke-and-shadow mood"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Oppenheimer",
+        "Peaky Blinders",
+        "28 Days Later"
+      ]
+    },
+    {
+      "id": "denzel-washington",
+      "name": "Denzel Washington",
+      "category": "acting",
+      "era": "1990s-2020s",
+      "vibe": "commanding gravitas, preacher-to-king voice, moral-steel presence",
+      "icons": [
+        "sharp tailored suit",
+        "commanding stance",
+        "stormy dignity"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Training Day",
+        "Glory",
+        "Fences"
+      ]
+    },
+    {
+      "id": "florence-pugh",
+      "name": "Florence Pugh",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "earthy firebrand, raw theatrical force, modern classic face",
+      "icons": [
+        "bold lip",
+        "period-to-modern wardrobe shifts",
+        "fierce gaze"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Midsommar",
+        "Little Women",
+        "Don't Worry Darling"
+      ]
+    },
+    {
+      "id": "gal-gadot",
+      "name": "Gal Gadot",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "amazonian light, warrior-crown grace, desert-gold strength",
+      "icons": [
+        "warrior tiara energy",
+        "golden armor light",
+        "desert heroism"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Wonder Woman",
+        "Red Notice"
+      ]
+    },
+    {
+      "id": "henry-cavill",
+      "name": "Henry Cavill",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "super-man jawline myth, witcher-white-hair warrior",
+      "icons": [
+        "hero jawline energy",
+        "fantasy warrior armor",
+        "old-world steel"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "The Witcher",
+        "Man of Steel",
+        "Mission: Impossible – Fallout"
+      ]
+    },
+    {
+      "id": "idris-elba",
+      "name": "Idris Elba",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "velvet bass-voice command, tailored king energy, nightclub-to-throne range",
+      "icons": [
+        "impeccable suit",
+        "deep presence",
+        "night-city cool"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Luther",
+        "The Wire",
+        "Thor"
+      ]
+    },
+    {
+      "id": "james-dean",
+      "name": "James Dean",
+      "category": "acting",
+      "era": "1950s",
+      "vibe": "red-jacket rebel, cigarette-dusk cool, forever-young myth",
+      "icons": [
+        "red windbreaker",
+        "motorcycle dusk",
+        "brooding cool"
+      ],
+      "known_for": "acting",
+      "showcases": []
+    },
+    {
+      "id": "jason-momoa",
+      "name": "Jason Momoa",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "aquaman ocean-king, rock-and-braid wildness",
+      "icons": [
+        "ocean king silhouette",
+        "braided warrior",
+        "rock-and-roll beach"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Aquaman",
+        "See",
+        "Game of Thrones"
+      ]
+    },
+    {
+      "id": "jenna-ortega",
+      "name": "Jenna Ortega",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "wednesday-black ballet of doom, gen-z gothic icon",
+      "icons": [
+        "black ballet dress energy",
+        "deadpan gothic",
+        "cello shadow"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Wednesday",
+        "Scream VI",
+        "Beetlejuice Beetlejuice"
+      ]
+    },
+    {
+      "id": "jennifer-lawrence",
+      "name": "Jennifer Lawrence",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "unruly star honesty, huntress spark, red-carpet mischief",
+      "icons": [
+        "braided huntress energy",
+        "candid laugh",
+        "fiery presence"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "The Hunger Games",
+        "Silver Linings Playbook",
+        "Don't Look Up"
+      ]
+    },
+    {
+      "id": "john-boyega",
+      "name": "John Boyega",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "storm-of-conscience hero heat, london-to-galaxy fire",
+      "icons": [
+        "rebel heat",
+        "stormtrooper-white contrast energy",
+        "fierce loyalty"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Star Wars: The Force Awakens",
+        "Attack the Block"
+      ]
+    },
+    {
+      "id": "keanu-reeves",
+      "name": "Keanu Reeves",
+      "category": "acting",
+      "era": "1990s-2020s",
+      "vibe": "gentle immortal stoicism, black-coat myth, city-night melancholy cool",
+      "icons": [
+        "long black coat",
+        "motorcycle night",
+        "calm warrior stance"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "John Wick",
+        "The Matrix",
+        "Constantine"
+      ]
+    },
+    {
+      "id": "leonardo-dicaprio",
+      "name": "Leonardo DiCaprio",
+      "category": "acting",
+      "era": "1990s-2020s",
+      "vibe": "eco-prince intensity, ocean-eyes obsession, prestige-epic fire",
+      "icons": [
+        "intense blue-eyed stare energy",
+        "period adventure coat",
+        "ship-deck wind"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Inception",
+        "The Revenant",
+        "Once Upon a Time in Hollywood"
+      ]
+    },
+    {
+      "id": "letitia-wright",
+      "name": "Letitia Wright",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "vibranium-sister genius spark, wakanda-bright hope",
+      "icons": [
+        "tech genius energy",
+        "bright hope stance",
+        "futurist lab"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Black Panther",
+        "Surrounded"
+      ]
+    },
+    {
+      "id": "lupita-nyong-o",
+      "name": "Lupita Nyong'o",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "sculptural elegance, luminous dark-skin glow, activist-artist poise",
+      "icons": [
+        "sculptural gown",
+        "radiant skin light",
+        "poised regal stance"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Black Panther",
+        "12 Years a Slave",
+        "Us"
+      ]
+    },
+    {
+      "id": "margot-robbie",
+      "name": "Margot Robbie",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "platinum bombshell craft, ice-pink wit, blockbuster polish",
+      "icons": [
+        "platinum wave hair",
+        "pink power suit",
+        "movie-star smile energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Barbie",
+        "Babylon",
+        "I, Tonya"
+      ]
+    },
+    {
+      "id": "marilyn-monroe",
+      "name": "Marilyn Monroe",
+      "category": "acting",
+      "era": "1950s",
+      "vibe": "subway-grate blonde myth, diamond-breath glamour, soft-focus legend",
+      "icons": [
+        "white subway dress energy",
+        "platinum curls",
+        "diamond smile"
+      ],
+      "known_for": "acting",
+      "showcases": []
+    },
+    {
+      "id": "meryl-streep",
+      "name": "Meryl Streep",
+      "category": "acting",
+      "era": "1980s-2020s",
+      "vibe": "chameleon mastery, diamond-sharp wit, awards-season goddess",
+      "icons": [
+        "transformation wardrobe",
+        "knowing smile",
+        "stage-and-screen gravity"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "The Devil Wears Prada",
+        "Sophie's Choice",
+        "The Iron Lady"
+      ]
+    },
+    {
+      "id": "michael-b-jordan",
+      "name": "Michael B. Jordan",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "sculpted intensity, creed-fire, smoke-and-muscle poetry",
+      "icons": [
+        "boxing training haze",
+        "sculpted silhouette",
+        "smoldering stare"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Black Panther",
+        "Creed",
+        "Fruitvale Station"
+      ]
+    },
+    {
+      "id": "millie-bobby-brown",
+      "name": "Millie Bobby Brown",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "eleven-fuzz-//-fashion-grown glow",
+      "icons": [
+        "shaved-head light energy",
+        "waffle motif soft",
+        "growing-star polish"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Stranger Things",
+        "Enola Holmes"
+      ]
+    },
+    {
+      "id": "oscar-isaac",
+      "name": "Oscar Isaac",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "velvet-latin intensity, scoundrel-poet eyes",
+      "icons": [
+        "poet scoundrel gaze",
+        "leather adventure coat",
+        "starfield mystery"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Dune",
+        "Moon Knight",
+        "Ex Machina"
+      ]
+    },
+    {
+      "id": "pedro-pascal",
+      "name": "Pedro Pascal",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "warm rogue charisma, silver-fox tenderness, found-family hero glow",
+      "icons": [
+        "weathered smile",
+        "adventure coat",
+        "protective stance"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "The Last of Us",
+        "The Mandalorian"
+      ]
+    },
+    {
+      "id": "rami-malek",
+      "name": "Rami Malek",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "sharp-angular intensity, bohemian-rhapsody micro-expressions",
+      "icons": [
+        "angular face energy",
+        "stage Freddie-myth pose energy",
+        "intense stillness"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Bohemian Rhapsody",
+        "Mr. Robot",
+        "No Time to Die"
+      ]
+    },
+    {
+      "id": "robert-downey-jr",
+      "name": "Robert Downey Jr.",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "arc-reactor showman, snark-genius armor, hollywood resurrection",
+      "icons": [
+        "arc reactor glow energy",
+        "showman suit",
+        "genius workshop"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Iron Man",
+        "Oppenheimer",
+        "Sherlock Holmes"
+      ]
+    },
+    {
+      "id": "ryan-gosling",
+      "name": "Ryan Gosling",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "cool-blue stoic charm, drive-night jacket myth, soft-spoken heat",
+      "icons": [
+        "scorpion-jacket energy",
+        "cool blue night",
+        "quiet intensity"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Barbie",
+        "Blade Runner 2049",
+        "The Notebook"
+      ]
+    },
+    {
+      "id": "scarlett-johansson",
+      "name": "Scarlett Johansson",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "ice-glass glamour, spy-elegance, voice-of-AI mystery",
+      "icons": [
+        "sleek black tactical chic",
+        "icy blonde glamour",
+        "cool spy silhouette"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Her",
+        "Lost in Translation",
+        "Marriage Story"
+      ]
+    },
+    {
+      "id": "scarlett-witch-energy",
+      "name": "Scarlett Witch energy",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "chaos magic red",
+      "icons": [
+        "red chaos energy"
+      ],
+      "known_for": "acting",
+      "showcases": []
+    },
+    {
+      "id": "sydney-sweeney",
+      "name": "Sydney Sweeney",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "blonde bombshell return, euphoria glitter residue, american-sweetheart heat",
+      "icons": [
+        "glitter tears energy",
+        "blonde classic glamour",
+        "red carpet heat"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Euphoria",
+        "The White Lotus",
+        "Immaculate"
+      ]
+    },
+    {
+      "id": "the-rock",
+      "name": "The Rock",
+      "category": "acting",
+      "era": "2000s-2020s",
+      "vibe": "eyebrow-raise thunder, people-champion grin, muscle-island myth",
+      "icons": [
+        "raised eyebrow energy",
+        "blockbuster muscle silhouette",
+        "island adventure"
+      ],
+      "known_for": "acting sports",
+      "showcases": [
+        "Jumanji",
+        "Fast & Furious",
+        "Moana"
+      ]
+    },
+    {
+      "id": "timoth-e-chalamet",
+      "name": "Timothée Chalamet",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "waif-poet heartthrob, velvet youth, art-house magnetism",
+      "icons": [
+        "tousled hair silhouette",
+        "velvet suit",
+        "soft tragic eyes energy"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Dune",
+        "Wonka",
+        "Call Me by Your Name"
+      ]
+    },
+    {
+      "id": "tom-cruise",
+      "name": "Tom Cruise",
+      "category": "acting",
+      "era": "1990s-2020s",
+      "vibe": "impossible stunt grin, aviator-sun adrenaline, running-toward-camera legend",
+      "icons": [
+        "aviator sunglasses",
+        "sprint toward camera",
+        "fighter-jet sky"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Top Gun: Maverick",
+        "Mission: Impossible",
+        "Edge of Tomorrow"
+      ]
+    },
+    {
+      "id": "tom-holland",
+      "name": "Tom Holland",
+      "category": "acting",
+      "era": "2010s-2020s",
+      "vibe": "boy-next-door web-sling charm, stage-musical spark",
+      "icons": [
+        "friendly neighborhood energy",
+        "stage dance spark",
+        "youthful hero"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Spider-Man: No Way Home",
+        "The Crowded Room"
+      ]
+    },
+    {
+      "id": "vin-diesel",
+      "name": "Vin Diesel",
+      "category": "acting",
+      "era": "2000s-2020s",
+      "vibe": "family-table diesel myth, bald-chrome intensity",
+      "icons": [
+        "fast family table",
+        "chrome bald intensity",
+        "muscle car night"
+      ],
+      "known_for": "acting",
+      "showcases": [
+        "Fast & Furious",
+        "Guardians of the Galaxy",
+        "xXx"
+      ]
+    },
+    {
+      "id": "zendaya",
+      "name": "Zendaya",
+      "category": "acting",
+      "era": "2020s",
+      "vibe": "silk-red carpet architecture, young-icon gravity, fashion-future elegance",
+      "icons": [
+        "architectural gown",
+        "red carpet statuesque pose",
+        "futurist chic"
+      ],
+      "known_for": "acting fashion",
+      "showcases": [
+        "Dune",
+        "Euphoria",
+        "Challengers"
+      ]
+    },
+    {
+      "id": "greta-thunberg",
+      "name": "Greta Thunberg",
+      "category": "activism",
+      "era": "2020s",
+      "vibe": "climate-prophet braids, quiet rage of future",
+      "icons": [
+        "braided determination",
+        "protest sign energy",
+        "stormy seacoast"
+      ],
+      "known_for": "activism",
+      "showcases": []
+    },
+    {
+      "id": "malala-yousafzai",
+      "name": "Malala Yousafzai",
+      "category": "activism",
+      "era": "2010s-2020s",
+      "vibe": "book-and-bravery light, education-halo courage",
+      "icons": [
+        "books and light",
+        "schoolroom hope",
+        "quiet courage"
+      ],
+      "known_for": "activism",
+      "showcases": []
+    },
+    {
+      "id": "andy-warhol",
+      "name": "Andy Warhol",
+      "category": "art",
+      "era": "1960s-1980s",
+      "vibe": "silver-factory pop saint, soup-can oracle, white-wig cool",
+      "icons": [
+        "silver factory",
+        "screenprint colors",
+        "white wig silhouette"
+      ],
+      "known_for": "art",
+      "showcases": []
+    },
+    {
+      "id": "banksy",
+      "name": "Banksy",
+      "category": "art",
+      "era": "2000s-2020s",
+      "vibe": "anonymous stencil ghost, rat-and-balloon myth, street-oracle",
+      "icons": [
+        "stencil wall rat",
+        "balloon girl energy",
+        "anonymous hood"
+      ],
+      "known_for": "art",
+      "showcases": []
+    },
+    {
+      "id": "frida-kahlo",
+      "name": "Frida Kahlo",
+      "category": "art",
+      "era": "1930s-1950s",
+      "vibe": "unibrow flower-crown pain-and-power, surreal self-altar",
+      "icons": [
+        "flower crown",
+        "self-portrait studio",
+        "bold color folk"
+      ],
+      "known_for": "art",
+      "showcases": []
+    },
+    {
+      "id": "rihanna-fenty",
+      "name": "Rihanna Fenty",
+      "category": "fashion",
+      "era": "2020s",
+      "vibe": "beauty-mogul empire glow, Savage runway body-joy",
+      "icons": [
+        "beauty desk glow",
+        "runway swagger",
+        "red lipstick empire"
+      ],
+      "known_for": "fashion beauty",
+      "showcases": []
+    },
+    {
+      "id": "zendaya-fashion",
+      "name": "Zendaya Fashion",
+      "category": "fashion",
+      "era": "2020s",
+      "vibe": "shape-shifting red-carpet architecture",
+      "icons": [
+        "sculptural gown"
+      ],
+      "known_for": "fashion",
+      "showcases": []
+    },
+    {
+      "id": "anthony-bourdain",
+      "name": "Anthony Bourdain",
+      "category": "food",
+      "era": "2000s-2010s",
+      "vibe": "travel-noir food pilgrim, cigarette-and-street-table honesty",
+      "icons": [
+        "street food night",
+        "travel journal",
+        "noir kitchen"
+      ],
+      "known_for": "food",
+      "showcases": [
+        "Parts Unknown",
+        "No Reservations"
+      ]
+    },
+    {
+      "id": "gordon-ramsay",
+      "name": "Gordon Ramsay",
+      "category": "food",
+      "era": "2000s-2020s",
+      "vibe": "hells-kitchen inferno chef, roaring perfectionism",
+      "icons": [
+        "flames kitchen",
+        "chef whites fury energy",
+        "perfect plate"
+      ],
+      "known_for": "food",
+      "showcases": [
+        "Hell's Kitchen",
+        "Kitchen Nightmares",
+        "MasterChef"
+      ]
+    },
+    {
+      "id": "charli-d-amelio",
+      "name": "Charli D'Amelio",
+      "category": "influencer",
+      "era": "2020s",
+      "vibe": "tiktok-dance clean-cut fame, soft-gen-z polish",
+      "icons": [
+        "dance studio lights",
+        "phone-camera frame",
+        "clean aesthetic"
+      ],
+      "known_for": "creator",
+      "showcases": []
+    },
+    {
+      "id": "emma-chamberlain",
+      "name": "Emma Chamberlain",
+      "category": "influencer",
+      "era": "2020s",
+      "vibe": "messy-cool internet darling, iced-coffee candid, thrift-chic chaos",
+      "icons": [
+        "iced coffee",
+        "candid vlog energy",
+        "thrift layers"
+      ],
+      "known_for": "creator",
+      "showcases": []
+    },
+    {
+      "id": "kim-kardashian",
+      "name": "Kim Kardashian",
+      "category": "influencer",
+      "era": "2010s-2020s",
+      "vibe": "contour-sculpt fame architecture, desert-met-gala myth, reality-empire gloss",
+      "icons": [
+        "sculpted glam silhouette",
+        "desert gown",
+        "flash photography storm"
+      ],
+      "known_for": "media",
+      "showcases": [
+        "Keeping Up with the Kardashians",
+        "American Horror Story"
+      ]
+    },
+    {
+      "id": "mrbeast",
+      "name": "MrBeast",
+      "category": "influencer",
+      "era": "2020s",
+      "vibe": "spectacle philanthropy carnival, green-logo chaos, challenge-empire kinetic",
+      "icons": [
+        "giant challenge set",
+        "crowd spectacle",
+        "logo-green energy"
+      ],
+      "known_for": "creator",
+      "showcases": [
+        "Beast Games",
+        "YouTube Originals"
+      ]
+    },
+    {
+      "id": "gwyneth-paltrow",
+      "name": "Gwyneth Paltrow",
+      "category": "lifestyle",
+      "era": "2010s-2020s",
+      "vibe": "goop-candle mysticism, pale wellness temple",
+      "icons": [
+        "candlelit wellness",
+        "pale linen temple",
+        "luxury cleanse aesthetic"
+      ],
+      "known_for": "lifestyle",
+      "showcases": []
+    },
+    {
+      "id": "martha-stewart",
+      "name": "Martha Stewart",
+      "category": "lifestyle",
+      "era": "1990s-2020s",
+      "vibe": "perfect-home oracle, linen-and-garden empire",
+      "icons": [
+        "immaculate kitchen",
+        "garden harvest",
+        "crisp lifestyle set"
+      ],
+      "known_for": "lifestyle",
+      "showcases": []
+    },
+    {
+      "id": "david-attenborough",
+      "name": "David Attenborough",
+      "category": "media",
+      "era": "1990s-2020s",
+      "vibe": "whisper-of-earth documentary god, green-planet awe",
+      "icons": [
+        "lush jungle",
+        "whispered wonder",
+        "wildlife cathedral"
+      ],
+      "known_for": "media",
+      "showcases": [
+        "Planet Earth",
+        "Blue Planet",
+        "Our Planet"
+      ]
+    },
+    {
+      "id": "ellen-degeneres",
+      "name": "Ellen DeGeneres",
+      "category": "media",
+      "era": "2000s-2010s",
+      "vibe": "daytime dance host sparkle",
+      "icons": [
+        "dance stage"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "jimmy-fallon",
+      "name": "Jimmy Fallon",
+      "category": "media",
+      "era": "2010s-2020s",
+      "vibe": "boyish variety-show sparkle, lip-sync chaos joy",
+      "icons": [
+        "variety show stage",
+        "house band lights",
+        "playful chaos"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "joe-rogan",
+      "name": "Joe Rogan",
+      "category": "media",
+      "era": "2010s-2020s",
+      "vibe": "smoke-filled longform cave, hunt-and-discourse energy",
+      "icons": [
+        "podcast cave red lights",
+        "long-form desk",
+        "hunt-lodge vibe"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "oprah",
+      "name": "Oprah",
+      "category": "media",
+      "era": "1990s-2020s",
+      "vibe": "empath-empress",
+      "icons": [
+        "talk show throne"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "oprah-winfrey",
+      "name": "Oprah Winfrey",
+      "category": "media",
+      "era": "1990s-2020s",
+      "vibe": "empath-empress talk-show sun, book-club gospel, generosity light",
+      "icons": [
+        "talk-show chair throne",
+        "warm golden key light",
+        "audience sea"
+      ],
+      "known_for": "media",
+      "showcases": [
+        "The Color Purple",
+        "The Oprah Winfrey Show",
+        "Greenleaf"
+      ]
+    },
+    {
+      "id": "stephen-colbert",
+      "name": "Stephen Colbert",
+      "category": "media",
+      "era": "2010s-2020s",
+      "vibe": "satire-host grin, desk-and-stars patriotism parody",
+      "icons": [
+        "late-night desk",
+        "stars and stripes energy",
+        "ironic grin"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "trevor-noah",
+      "name": "Trevor Noah",
+      "category": "media",
+      "era": "2010s-2020s",
+      "vibe": "sharp global wit, late-night desk cool, immigrant-polyglot sparkle",
+      "icons": [
+        "late-night desk",
+        "world map energy",
+        "sharp suit wit"
+      ],
+      "known_for": "media",
+      "showcases": []
+    },
+    {
+      "id": "adele",
+      "name": "Adele",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "velvet torch-song cathedral, black gown gravity, tear-glitter intimacy",
+      "icons": [
+        "grand piano",
+        "black evening gown",
+        "spotlight haze"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "aretha-franklin",
+      "name": "Aretha Franklin",
+      "category": "music",
+      "era": "1960s-1980s",
+      "vibe": "queen-of-soul cathedral, fur-and-gospel power",
+      "icons": [
+        "fur coat majesty",
+        "gospel piano",
+        "crown of soul"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "bad-bunny",
+      "name": "Bad Bunny",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "carnival futurism, Puerto Rican heat, gender-fluid fashion riot",
+      "icons": [
+        "color-block street couture",
+        "stadium confetti",
+        "reggaeton pulse lights"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Bullet Train",
+        "Cassandro"
+      ]
+    },
+    {
+      "id": "beyonc",
+      "name": "Beyoncé",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "regal stage divinity, liquid gold couture, cathedral-scale choreography light",
+      "icons": [
+        "gold armor gown",
+        "halo spotlights",
+        "formation silhouettes"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Black Is King",
+        "Homecoming",
+        "Renaissance"
+      ]
+    },
+    {
+      "id": "billie-eilish",
+      "name": "Billie Eilish",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "oversized street gothic, neon-green whisper, dream-pop shadow",
+      "icons": [
+        "baggy streetwear",
+        "green hair streak",
+        "whispering stage"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "No Time to Die",
+        "Barbie"
+      ]
+    },
+    {
+      "id": "blackpink",
+      "name": "BLACKPINK",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "pink-black hyper-glam, diamond-hard choreography, global girl-group fire",
+      "icons": [
+        "pink and black couture",
+        "explosive stage pyro",
+        "diamond stage"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Born Pink",
+        "The Movie"
+      ]
+    },
+    {
+      "id": "bob-marley",
+      "name": "Bob Marley",
+      "category": "music",
+      "era": "1970s",
+      "vibe": "lion-of-zion smoke-and-sun, dreadlock freedom myth",
+      "icons": [
+        "rasta colors",
+        "dreadlock silhouette",
+        "sunlit smoke"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "bruno-mars",
+      "name": "Bruno Mars",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "retro funk showman, silk-and-brass party engine",
+      "icons": [
+        "fedora and silk shirt",
+        "brass section blaze",
+        "dance-floor glitter"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Anderson .Paak Silk Sonic",
+        "Saturday Night Live"
+      ]
+    },
+    {
+      "id": "bts",
+      "name": "BTS",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "synchronized purple army, ARMY lightstick ocean, K-pop cosmic polish",
+      "icons": [
+        "purple lightstick sea",
+        "sharp coordinated looks",
+        "stadium ocean waves"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Butter",
+        "Permission to Dance On Stage"
+      ]
+    },
+    {
+      "id": "cardi-b",
+      "name": "Cardi B",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "bronx-glam thunder, nail-dagger wit, invincible confidence",
+      "icons": [
+        "extravagant nails",
+        "bold glam",
+        "money-rain energy"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "chappell-roan",
+      "name": "Chappell Roan",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "midwest-princess drag-pop maximalism, neon-pink camp",
+      "icons": [
+        "neon pink hair",
+        "drag-pop costume",
+        "midwest carnival"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "david-bowie",
+      "name": "David Bowie",
+      "category": "music",
+      "era": "1970s-1990s",
+      "vibe": "starman chameleon, lightning-bolt face, cosmic fashion lab",
+      "icons": [
+        "lightning bolt makeup",
+        "thin white duke suit",
+        "starman cosmos"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "doja-cat",
+      "name": "Doja Cat",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "shapeshifting meme-glam, paint-and-fur surreal pop",
+      "icons": [
+        "body paint patterns",
+        "hyper-color stage",
+        "feline glamour"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Planet Her visual universe",
+        "Saturday Night Live"
+      ]
+    },
+    {
+      "id": "dolly-parton",
+      "name": "Dolly Parton",
+      "category": "music",
+      "era": "1970s-2020s",
+      "vibe": "rhinestone country goddess, butterfly-coat joy, generosity sparkle",
+      "icons": [
+        "rhinestone gown",
+        "butterfly motif",
+        "blonde tower glamour"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "drake",
+      "name": "Drake",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "nocturnal city-king luxury, owl-sigil night, champagne rain",
+      "icons": [
+        "OVO owl motif energy",
+        "Toronto skyline night",
+        "stadium hoodie throne"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Euphoria",
+        "Top Boy"
+      ]
+    },
+    {
+      "id": "dua-lipa",
+      "name": "Dua Lipa",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "disco-ball modernity, mirrored dancefloor glamour",
+      "icons": [
+        "mirrorball light",
+        "sleek catsuit",
+        "retro-future dance floor"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Barbie",
+        "Anora"
+      ]
+    },
+    {
+      "id": "ed-sheeran",
+      "name": "Ed Sheeran",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "loop-pedal campfire bard, ginger-folk stadium intimacy",
+      "icons": [
+        "loop pedals",
+        "acoustic guitar",
+        "fairy lights"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "elvis-presley",
+      "name": "Elvis Presley",
+      "category": "music",
+      "era": "1950s-1970s",
+      "vibe": "rhinestone jumpsuit sun-king, hip-shake thunder, neon Vegas chapel",
+      "icons": [
+        "white jumpsuit",
+        "gold microphone",
+        "Vegas neon"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "frank-ocean",
+      "name": "Frank Ocean",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "blonde-album night drive, queer-ocean melancholy, orange-haze confessional",
+      "icons": [
+        "night drive neon",
+        "orange aesthetic",
+        "confessional booth"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "freddie-mercury",
+      "name": "Freddie Mercury",
+      "category": "music",
+      "era": "1970s-1980s",
+      "vibe": "mustache-god opera rock, yellow-jacket forever, crowd-wave command",
+      "icons": [
+        "yellow military jacket",
+        "half-mic stand",
+        "stadium arms wide"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "harry-styles",
+      "name": "Harry Styles",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "velvet peacock romance, floral masculinity, arena confetti joy",
+      "icons": [
+        "floral suit",
+        "pearl earring glint",
+        "feather boa energy"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Don't Worry Darling",
+        "My Policeman",
+        "Dunkirk"
+      ]
+    },
+    {
+      "id": "ice-spice",
+      "name": "Ice Spice",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "munch-cat soft-drill, baddie-bang aesthetic",
+      "icons": [
+        "bangs and soft glam",
+        "drill-pop stage",
+        "pink-black palette"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "j-cole",
+      "name": "J. Cole",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "dreamville earnest, forest-hills storyteller",
+      "icons": [
+        "storyteller mic",
+        "carolina night",
+        "earnest stage"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "jay-z",
+      "name": "Jay-Z",
+      "category": "music",
+      "era": "2000s-2020s",
+      "vibe": "blueprint mogul cool, diamond dynasty, brooklyn-to-boardroom",
+      "icons": [
+        "diamond hand signs energy",
+        "black tuxedo cool",
+        "skyline empire"
+      ],
+      "known_for": "music business",
+      "showcases": []
+    },
+    {
+      "id": "johnny-cash",
+      "name": "Johnny Cash",
+      "category": "music",
+      "era": "1960s-1970s",
+      "vibe": "man-in-black pilgrimage, railroad righteousness",
+      "icons": [
+        "black suit",
+        "acoustic guitar",
+        "prison-concert myth"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "kanye-west",
+      "name": "Kanye West",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "yeezy-minimal prophet, industrial-church fashion, storm-cloud genius myth",
+      "icons": [
+        "neutral yeezy palette",
+        "industrial stage",
+        "masked silhouette"
+      ],
+      "known_for": "music fashion",
+      "showcases": [
+        "jeen-yuhs",
+        "The Life of Pablo film loops"
+      ]
+    },
+    {
+      "id": "kendrick-lamar",
+      "name": "Kendrick Lamar",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "compton-poet crown, jazz-rap cathedral, superbowl sermon fire",
+      "icons": [
+        "poet crown energy",
+        "compton mural",
+        "mic-sermon stage"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Black Panther: The Album",
+        "Mr. Morale"
+      ]
+    },
+    {
+      "id": "kurt-cobain",
+      "name": "Kurt Cobain",
+      "category": "music",
+      "era": "1990s",
+      "vibe": "grunge-angel thrift, mothball cardigan myth, raw-nerve quiet",
+      "icons": [
+        "striped sweater",
+        "blonde grunge hair",
+        "smashed guitar energy"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "lady-gaga",
+      "name": "Lady Gaga",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "avant-garde fashion theater, meat-dress myth, opera-pop spectacle",
+      "icons": [
+        "crystalline costume",
+        "theatrical mask",
+        "piano in flames energy"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "A Star Is Born",
+        "House of Gucci",
+        "Joker: Folie à Deux"
+      ]
+    },
+    {
+      "id": "lizzo",
+      "name": "Lizzo",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "flute-body-positive glitter joy, disco-self-love explosion",
+      "icons": [
+        "crystal flute",
+        "body-positive glam",
+        "disco confetti"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "lorde",
+      "name": "Lorde",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "melodrama pure-heroine cool, tennis-court emptiness, art-pop frost",
+      "icons": [
+        "tennis court empty",
+        "cool art-pop minimal",
+        "youthful frost"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "madonna",
+      "name": "Madonna",
+      "category": "music",
+      "era": "1980s-2000s",
+      "vibe": "reinvention machine, cone-bra iconoclasm, disco-to-oracle glamour",
+      "icons": [
+        "cone bra silhouette",
+        "crucifix chic",
+        "reinvention wardrobe"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "megan-thee-stallion",
+      "name": "Megan Thee Stallion",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "hot-girl summer titan, metallic amazon, Houston heat",
+      "icons": [
+        "metallic bodysuit",
+        "powerful stance",
+        "summer heat haze"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "michael-jackson",
+      "name": "Michael Jackson",
+      "category": "music",
+      "era": "1980s-1990s",
+      "vibe": "moonwalk myth, sequined glove lightning, thriller-fog iconography",
+      "icons": [
+        "sparkling glove",
+        "fedora tilt",
+        "moonlit sidewalk"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "nicki-minaj",
+      "name": "Nicki Minaj",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "barbie-rap shapeshifter, pink-wig supernova",
+      "icons": [
+        "pink wig explosion",
+        "Barbie-pink chaos",
+        "rap-queen throne"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "olivia-rodrigo",
+      "name": "Olivia Rodrigo",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "sour-pop heartbreak diary, purple teen rage glitter",
+      "icons": [
+        "purple sour aesthetic",
+        "diary confessional",
+        "teen-angst glitter"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "pharrell-williams",
+      "name": "Pharrell Williams",
+      "category": "music",
+      "era": "2000s-2020s",
+      "vibe": "hat-mountain joy, pastel-happy genius, Louis Vuitton futurism",
+      "icons": [
+        "oversized hat energy",
+        "pastel joy",
+        "futurist fashion lab"
+      ],
+      "known_for": "music fashion",
+      "showcases": [
+        "Piece by Piece",
+        "Hidden Figures"
+      ]
+    },
+    {
+      "id": "post-malone",
+      "name": "Post Malone",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "tattooed folk-trap bard, face-ink constellation, campfire arena",
+      "icons": [
+        "face tattoos constellation",
+        "acoustic stadium",
+        "diamond grills glint"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Spider-Man: Into the Spider-Verse",
+        "Tommy Boy"
+      ]
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "category": "music",
+      "era": "1980s",
+      "vibe": "purple rain mysticism, androgynous guitar god, paisley temple",
+      "icons": [
+        "purple rain",
+        "cloud guitar shape",
+        "paisley palace"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "rihanna",
+      "name": "Rihanna",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "futurist glamour, Fenty-red power, runway-alien chic",
+      "icons": [
+        "red carpet sculpture dress",
+        "umbrella silhouette",
+        "beauty empire glow"
+      ],
+      "known_for": "music beauty",
+      "showcases": [
+        "Ocean's 8",
+        "Battleship",
+        "Guava Island"
+      ]
+    },
+    {
+      "id": "sabrina-carpenter",
+      "name": "Sabrina Carpenter",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "short-n-sweet coquette pop, espresso wit, blonde-stage sparkle",
+      "icons": [
+        "coquette bows",
+        "espresso cup motif",
+        "sparkly mini stage"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "sza",
+      "name": "SZA",
+      "category": "music",
+      "era": "2020s",
+      "vibe": "neo-soul garden melancholy, soft thorns, dusk-purple haze",
+      "icons": [
+        "garden of soft chaos",
+        "silk slip dress",
+        "twilight haze"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "One of Them Days",
+        "Ctrl era films"
+      ]
+    },
+    {
+      "id": "taylor-swift",
+      "name": "Taylor Swift",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "fairy-tale stadium sparkle, eras wardrobe montage, confetti rain romance",
+      "icons": [
+        "sparkly microphone",
+        "cardigan folklore cottage",
+        "stadium friendship bracelets"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "The Eras Tour",
+        "Miss Americana",
+        "Cats"
+      ]
+    },
+    {
+      "id": "the-notorious-b-i-g",
+      "name": "The Notorious B.I.G.",
+      "category": "music",
+      "era": "1990s",
+      "vibe": "brooklyn crown, coogi-knit king, smoke-cloud baritone",
+      "icons": [
+        "coogi sweater",
+        "brooklyn crown",
+        "smoke lounge"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "the-weeknd",
+      "name": "The Weeknd",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "after-hours neon noir, bandaged ballad tragedy, red-light cathedral",
+      "icons": [
+        "red blazer silhouette",
+        "neon cross motif",
+        "smoke-filled stage"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "The Idol",
+        "Uncut Gems"
+      ]
+    },
+    {
+      "id": "travis-scott",
+      "name": "Travis Scott",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "astro-rave dystopia, rollercoaster myth, cactus-jack neon storm",
+      "icons": [
+        "festival night throng",
+        "rollercoaster silhouette",
+        "neon storm clouds"
+      ],
+      "known_for": "music",
+      "showcases": [
+        "Utopia",
+        "Astroworld"
+      ]
+    },
+    {
+      "id": "tupac-shakur",
+      "name": "Tupac Shakur",
+      "category": "music",
+      "era": "1990s",
+      "vibe": "bandana prophet, thug-life poetry, west-coast sunset fire",
+      "icons": [
+        "bandana forehead",
+        "cross necklace",
+        "sunset mural energy"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "tyler-the-creator",
+      "name": "Tyler, the Creator",
+      "category": "music",
+      "era": "2010s-2020s",
+      "vibe": "golf-wang color chaos, flower-boy garden, call-me-if-you-get-lost travel",
+      "icons": [
+        "flower boy garden",
+        "bold color blocks",
+        "odd-future energy"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "whitney-houston",
+      "name": "Whitney Houston",
+      "category": "music",
+      "era": "1980s-1990s",
+      "vibe": "voice-of-angels stadium, white-gown divine",
+      "icons": [
+        "white gown spotlight",
+        "soaring vocal energy",
+        "stadium hush"
+      ],
+      "known_for": "music",
+      "showcases": []
+    },
+    {
+      "id": "neil-degrasse-tyson",
+      "name": "Neil deGrasse Tyson",
+      "category": "science",
+      "era": "2010s-2020s",
+      "vibe": "cosmic-explainer starfield, bowtie-of-science energy",
+      "icons": [
+        "starfield cosmos",
+        "planetarium glow",
+        "explainer chalkboard"
+      ],
+      "known_for": "science",
+      "showcases": []
+    },
+    {
+      "id": "cristiano-ronaldo",
+      "name": "Cristiano Ronaldo",
+      "category": "sports",
+      "era": "2010s-2020s",
+      "vibe": "sculpted goal-machine, SIUUU sky-point, brand-empire athleticism",
+      "icons": [
+        "sky-point celebration",
+        "ripped athletic form",
+        "stadium lights"
+      ],
+      "known_for": "soccer",
+      "showcases": [
+        "Ronaldo",
+        "Siuuu documentaries"
+      ]
+    },
+    {
+      "id": "john-cena",
+      "name": "John Cena",
+      "category": "sports",
+      "era": "2000s-2020s",
+      "vibe": "you-cant-see-me wrestle-myth, blue-fringe patriotism",
+      "icons": [
+        "wrestling ring",
+        "invisible wave gesture energy",
+        "blue fringe jacket"
+      ],
+      "known_for": "wrestling",
+      "showcases": []
+    },
+    {
+      "id": "lebron-james",
+      "name": "LeBron James",
+      "category": "sports",
+      "era": "2010s-2020s",
+      "vibe": "skyline athlete-king, crown-of-Akron myth, championship gravity",
+      "icons": [
+        "basketball arena lights",
+        "crown motif energy",
+        "mid-flight dunk silhouette"
+      ],
+      "known_for": "basketball",
+      "showcases": [
+        "Space Jam: A New Legacy",
+        "Winning Time"
+      ]
+    },
+    {
+      "id": "lionel-messi",
+      "name": "Lionel Messi",
+      "category": "sports",
+      "era": "2010s-2020s",
+      "vibe": "magician-left-foot poetry, Barcelona-to-world pilgrimage",
+      "icons": [
+        "soccer ball levitation",
+        "number 10 aura",
+        "stadium ocean"
+      ],
+      "known_for": "soccer",
+      "showcases": [
+        "Messi",
+        "Take the Ball Pass the Ball"
+      ]
+    },
+    {
+      "id": "michael-jordan",
+      "name": "Michael Jordan",
+      "category": "sports",
+      "era": "1990s",
+      "vibe": "tongue-out flight myth, red-and-black dynasty, sneaker-temple legend",
+      "icons": [
+        "airborne dunk silhouette",
+        "red black jersey energy",
+        "sneaker temple"
+      ],
+      "known_for": "basketball",
+      "showcases": []
+    },
+    {
+      "id": "muhammad-ali",
+      "name": "Muhammad Ali",
+      "category": "sports",
+      "era": "1960s-1970s",
+      "vibe": "butterfly-and-bee poetry, rope-a-dope legend, civil-rights thunder",
+      "icons": [
+        "boxing ring lights",
+        "victory arms raised",
+        "poetic fighter stance"
+      ],
+      "known_for": "boxing",
+      "showcases": []
+    },
+    {
+      "id": "naomi-osaka",
+      "name": "Naomi Osaka",
+      "category": "sports",
+      "era": "2020s",
+      "vibe": "quiet-storm champion, anime-mask art activism, precision power",
+      "icons": [
+        "tennis hardcourt",
+        "artistic face-mask energy",
+        "focused champion stare"
+      ],
+      "known_for": "tennis",
+      "showcases": []
+    },
+    {
+      "id": "pele",
+      "name": "Pele",
+      "category": "sports",
+      "era": "1960s-1970s",
+      "vibe": "eternal football saint, Santos sun",
+      "icons": [
+        "golden era soccer",
+        "number 10 myth"
+      ],
+      "known_for": "soccer",
+      "showcases": []
+    },
+    {
+      "id": "ronaldo-naz-rio",
+      "name": "Ronaldo Nazário",
+      "category": "sports",
+      "era": "1990s-2000s",
+      "vibe": "original R9 lightning",
+      "icons": [
+        "soccer brilliance"
+      ],
+      "known_for": "soccer",
+      "showcases": []
+    },
+    {
+      "id": "serena-williams",
+      "name": "Serena Williams",
+      "category": "sports",
+      "era": "2000s-2020s",
+      "vibe": "court-queen power, catsuit defiance, champion roar",
+      "icons": [
+        "tennis court throne",
+        "champion roar",
+        "powerful serve freeze"
+      ],
+      "known_for": "tennis",
+      "showcases": [
+        "King Richard",
+        "Being Serena"
+      ]
+    },
+    {
+      "id": "sha-carri-richardson",
+      "name": "Sha'Carri Richardson",
+      "category": "sports",
+      "era": "2020s",
+      "vibe": "orange-flame sprint, nail-art thunder, unapologetic velocity",
+      "icons": [
+        "orange hair flame",
+        "sprint explosion",
+        "track spikes lightning"
+      ],
+      "known_for": "track",
+      "showcases": []
+    },
+    {
+      "id": "simone-biles",
+      "name": "Simone Biles",
+      "category": "sports",
+      "era": "2010s-2020s",
+      "vibe": "defying-gravity vault goddess, glitter-leotard comet",
+      "icons": [
+        "gymnastics vault midair",
+        "glitter leotard",
+        "impossible twist"
+      ],
+      "known_for": "gymnastics",
+      "showcases": [
+        "The Simone Biles Story",
+        "Full Out"
+      ]
+    },
+    {
+      "id": "tom-brady",
+      "name": "Tom Brady",
+      "category": "sports",
+      "era": "2000s-2020s",
+      "vibe": "dynasty quarterback ice, GOAT aura, late-game comeback calm",
+      "icons": [
+        "football spiral",
+        "super bowl confetti",
+        "ice-vein calm"
+      ],
+      "known_for": "football",
+      "showcases": [
+        "80 for Brady",
+        "Man in the Arena"
+      ]
+    },
+    {
+      "id": "usain-bolt",
+      "name": "Usain Bolt",
+      "category": "sports",
+      "era": "2010s",
+      "vibe": "lightning-bolt sprint god, to-the-world pose, pure speed streak",
+      "icons": [
+        "lightning sprint blur",
+        "victory pose",
+        "track stadium"
+      ],
+      "known_for": "track",
+      "showcases": []
+    },
+    {
+      "id": "bill-gates",
+      "name": "Bill Gates",
+      "category": "tech",
+      "era": "1990s-2020s",
+      "vibe": "philanthropy-nerd sweater empire, soft-spoken planet scale",
+      "icons": [
+        "sweater tech sage",
+        "philanthropy globe",
+        "quiet boardroom"
+      ],
+      "known_for": "tech",
+      "showcases": []
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "category": "tech",
+      "era": "2020s",
+      "vibe": "meme-lord industrialist, rocket-and-robot myth, cybertruck angles",
+      "icons": [
+        "rocket launch sky",
+        "futurist vehicle angles",
+        "mission-control glow"
+      ],
+      "known_for": "tech",
+      "showcases": [
+        "Iron Man inspiration lore",
+        "documentary cameos"
+      ]
+    },
+    {
+      "id": "jeff-bezos",
+      "name": "Jeff Bezos",
+      "category": "tech",
+      "era": "2010s-2020s",
+      "vibe": "rocket-and-logistics titan, bald-empire grin",
+      "icons": [
+        "rocket blue origin energy",
+        "logistics empire",
+        "yacht-scale ambition"
+      ],
+      "known_for": "tech",
+      "showcases": []
+    },
+    {
+      "id": "mark-zuckerberg",
+      "name": "Mark Zuckerberg",
+      "category": "tech",
+      "era": "2010s-2020s",
+      "vibe": "metaverse grey-tee oracle, VR-horizon bland-king energy",
+      "icons": [
+        "VR headset world",
+        "infinite grey office",
+        "digital double motif"
+      ],
+      "known_for": "tech",
+      "showcases": []
+    },
+    {
+      "id": "steve-jobs",
+      "name": "Steve Jobs",
+      "category": "tech",
+      "era": "2000s",
+      "vibe": "black-turtleneck zen, product-reveal temple, reality-distortion glow",
+      "icons": [
+        "black turtleneck",
+        "glass stage product pedestal",
+        "keynote spotlight"
+      ],
+      "known_for": "tech",
+      "showcases": [
+        "Steve Jobs",
+        "Jobs",
+        "Pirates of Silicon Valley"
+      ]
+    },
+    {
+      "id": "tim-cook",
+      "name": "Tim Cook",
+      "category": "tech",
+      "era": "2010s-2020s",
+      "vibe": "quiet apple-temple steward, glass-cube calm",
+      "icons": [
+        "glass cube store",
+        "minimal product altar",
+        "clean white light"
+      ],
+      "known_for": "tech",
+      "showcases": []
+    },
+    {
+      "id": "jackie-kennedy",
+      "name": "Jackie Kennedy",
+      "category": "world",
+      "era": "1960s",
+      "vibe": "pillbox-hat elegy, camelot pink myth",
+      "icons": [
+        "pillbox hat",
+        "pink suit icon energy",
+        "camelot grace"
+      ],
+      "known_for": "world",
+      "showcases": []
+    },
+    {
+      "id": "king-charles-iii",
+      "name": "King Charles III",
+      "category": "world",
+      "era": "2020s",
+      "vibe": "royal pageantry, crown-and-carriage ceremony",
+      "icons": [
+        "crown jewels ceremony",
+        "carriage procession",
+        "royal pageant"
+      ],
+      "known_for": "world",
+      "showcases": []
+    },
+    {
+      "id": "pope-francis",
+      "name": "Pope Francis",
+      "category": "world",
+      "era": "2010s-2020s",
+      "vibe": "white-robed humility spectacle, global-balcony grace",
+      "icons": [
+        "white robes",
+        "vatican balcony energy",
+        "humble procession"
+      ],
+      "known_for": "world",
+      "showcases": []
+    },
+    {
+      "id": "princess-diana",
+      "name": "Princess Diana",
+      "category": "world",
+      "era": "1980s-1990s",
+      "vibe": "people's princess myth, revenge-dress lightning, humanitarian glow",
+      "icons": [
+        "revenge dress energy",
+        "tiara soft light",
+        "crowd of flashbulbs"
+      ],
+      "known_for": "world",
+      "showcases": []
+    }
+  ]
+}

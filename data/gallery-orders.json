@@ -1,0 +1,88 @@
+[
+  {
+    "id": "cc8f0c61-71fa-4815-93bf-6e5bd944946d",
+    "items": [
+      {
+        "id": "painting:1",
+        "collection": "paintings",
+        "title": "Swirling Pink and Blue Loops",
+        "subtitle": "Painting #1",
+        "imageUrl": "http://localhost:8765/paintings/1.jpg",
+        "price": 89,
+        "number": 1,
+        "assetId": null,
+        "version": null,
+        "addedAt": 1783809776183
+      }
+    ],
+    "total": 89,
+    "cashtag": "$Logan7in",
+    "created_at": "2026-07-11T22:43:00.578Z",
+    "status": "pending"
+  },
+  {
+    "id": "21f3becc-aff0-42ca-aa15-2f3feddd9729",
+    "items": [
+      {
+        "id": "generated:generated/2368",
+        "collection": "generated",
+        "title": "Generated #2368",
+        "subtitle": "G#2368",
+        "imageUrl": "http://127.0.0.1:8765/generated/2368.jpg",
+        "price": 45,
+        "number": 2368,
+        "assetId": "generated/2368",
+        "version": 2368,
+        "addedAt": 1784331484655
+      }
+    ],
+    "item_count": 1,
+    "total": 45,
+    "cashtag": "$Logan7in",
+    "created_at": "2026-07-17T23:38:04.676Z",
+    "status": "completed",
+    "completed_at": "2026-07-17T23:39:42Z"
+  },
+  {
+    "id": "f46dfb57-4e3a-41bd-a7f2-b4a0608d21e4",
+    "items": [
+      {
+        "id": "painting:4",
+        "collection": "paintings",
+        "title": "Swirling Purple Vortex",
+        "subtitle": "Painting #4",
+        "imageUrl": "http://192.168.1.171:8765/paintings/4.jpg",
+        "price": 89,
+        "number": 4,
+        "assetId": null,
+        "version": null,
+        "addedAt": 1784471006724
+      }
+    ],
+    "item_count": 1,
+    "total": 89,
+    "cashtag": "$Logan7in",
+    "created_at": "2026-07-19T14:23:26.735Z",
+    "status": "pending"
+  },
+  {
+    "id": "7b60b19c-4c54-4294-a1b5-959ac41a70c4",
+    "items": [
+      {
+        "id": "tip:1785377554787",
+        "collection": "tip",
+        "title": "Artist tip",
+        "subtitle": "Support · xAI credits fuel",
+        "imageUrl": "",
+        "price": 50
+      }
+    ],
+    "item_count": 1,
+    "total": 50,
+    "cashtag": "$Logan7in",
+    "payment_method": "cash_app",
+    "order_type": "tip",
+    "created_at": "2026-07-30T02:12:34.787Z",
+    "status": "pending"
+  }
+]

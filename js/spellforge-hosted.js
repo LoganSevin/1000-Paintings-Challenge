@@ -1,0 +1,1 @@
+/** Deprecated — removed from index.html (caused page freeze via body MutationObserver). */

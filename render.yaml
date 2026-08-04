@@ -1,0 +1,17 @@
+# Optional: host Spellforge API (blend + stasis image) on Render.
+# Static site: deploy gallery/ to Netlify (deploy_live.bat).
+# Then set Spellforge API URL in index.html or use same Render service for both.
+
+services:
+  - type: web
+    name: paintings-gallery-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/app_server.py
+    envVars:
+      - key: XAI_API_KEY
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+    healthCheckPath: /api/health

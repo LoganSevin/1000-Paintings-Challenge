@@ -1,0 +1,69 @@
+# Free public URL (included with Netlify — no domain purchase):
+#   https://1000-l7in.netlify.app/
+
+[build]
+  command = "npm install"
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."generate-stasis-vision"]
+  timeout = 120
+
+[functions."blend-spells"]
+  timeout = 60
+
+[functions."redefine-stasis"]
+  timeout = 60
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/blend-spells"
+  to = "/.netlify/functions/blend-spells"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/redefine-stasis"
+  to = "/.netlify/functions/redefine-stasis"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/generate-stasis-vision"
+  to = "/.netlify/functions/generate-stasis-vision"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/jobs/:jobId"
+  to = "/.netlify/functions/job-status/:jobId"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "paintings/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"

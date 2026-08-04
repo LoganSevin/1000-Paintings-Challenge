@@ -1,0 +1,508 @@
+/* Pulse — social feed for the gallery community */
+
+body.pulse-tab-active .site-header,
+body.pulse-tab-active #panel-pulse {
+  position: relative;
+  z-index: 1;
+}
+
+.pulse-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.pulse-compose {
+  position: sticky;
+  top: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  padding: 1.25rem;
+}
+
+.pulse-compose h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.pulse-compose-lead {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.pulse-auth {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pulse-auth-label {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pulse-auth-user {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.pulse-auth-avatar {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.pulse-auth-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pulse-auth-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.pulse-auth-email {
+  margin: 0.1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.pulse-sign-out-btn {
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.pulse-sign-out-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.pulse-setup-note {
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.pulse-setup-note code {
+  color: var(--accent);
+  font-size: 0.78rem;
+}
+
+.pulse-field {
+  margin-bottom: 0.85rem;
+}
+
+.pulse-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pulse-field input,
+.pulse-field textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.pulse-field input:focus,
+.pulse-field textarea:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.pulse-field textarea {
+  min-height: 96px;
+}
+
+.pulse-attach-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pulse-attach-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pulse-attach-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.pulse-preview {
+  margin-top: 0.75rem;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.pulse-preview img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.pulse-preview-clear {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 14, 13, 0.75);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pulse-compose-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.pulse-post-btn {
+  padding: 0.55rem 1.1rem;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #1a1816;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pulse-post-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pulse-status {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  min-height: 1.2em;
+}
+
+.pulse-status.error {
+  color: #e8a0a0;
+}
+
+.pulse-feed-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pulse-feed-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.pulse-refresh-btn {
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.pulse-refresh-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.pulse-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pulse-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  padding: 1.1rem 1.15rem;
+}
+
+.pulse-card-header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.pulse-avatar {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.pulse-avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pulse-card-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.pulse-card-user {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.pulse-card-time {
+  margin: 0.1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.pulse-card-delete {
+  flex-shrink: 0;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.pulse-card:hover .pulse-card-delete {
+  opacity: 1;
+}
+
+.pulse-card-delete:hover {
+  color: #e8a0a0;
+}
+
+.pulse-card-body {
+  margin: 0.85rem 0 0 3.25rem;
+}
+
+.pulse-card-text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.55;
+}
+
+.pulse-card-image {
+  margin-top: 0.85rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.pulse-card-image img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  background: var(--bg-elevated);
+}
+
+.pulse-card-painting-ref {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.pulse-card-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 0.85rem 0 0 3.25rem;
+}
+
+.pulse-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pulse-action-btn:hover,
+.pulse-action-btn.liked {
+  color: var(--accent);
+}
+
+.pulse-comments {
+  margin: 0.75rem 0 0 3.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.pulse-comment {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.88rem;
+}
+
+.pulse-comment-user {
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pulse-comment-text {
+  color: var(--text);
+  word-break: break-word;
+}
+
+.pulse-comment-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pulse-comment-form input {
+  flex: 1;
+  padding: 0.45rem 0.65rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.pulse-comment-form button {
+  padding: 0.45rem 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.pulse-comment-form button:hover {
+  border-color: var(--accent);
+}
+
+.pulse-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: calc(var(--radius) + 2px);
+}
+
+.pulse-empty h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+@media (max-width: 860px) {
+  .pulse-layout {
+    grid-template-columns: 1fr;
+    padding: 1rem 1rem 2.5rem;
+  }
+
+  .pulse-compose {
+    position: static;
+  }
+
+  .pulse-card-body,
+  .pulse-card-actions,
+  .pulse-comments {
+    margin-left: 0;
+  }
+}

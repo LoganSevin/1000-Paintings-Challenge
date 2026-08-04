@@ -1,0 +1,151 @@
+/* Primary tabs + optional More overflow (public hosts only) */
+.site-tabs .tab.tab-overflow {
+  display: none !important;
+}
+
+/* Local studio: every tab stays in the strip; scroll horizontally */
+.site-tabs.site-tabs-scroll-all,
+body.is-local-studio .site-tabs {
+  max-width: min(92vw, 70rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+}
+
+body.is-local-studio .site-tabs .tab.tab-overflow {
+  display: inline-flex !important;
+}
+
+body.is-local-studio .site-tabs-more {
+  display: none !important;
+}
+
+.site-tabs-more {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.site-tabs-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.site-tabs-more-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.site-tabs-more-caret {
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.site-tabs-more-menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 10060;
+  min-width: 11rem;
+  max-width: min(18rem, 90vw);
+  max-height: min(70vh, 24rem);
+  overflow-y: auto;
+  padding: 0.35rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.site-tabs-more-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.site-tabs-more-item:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.site-tabs-more-item.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+/* Public site — hide studio-only HUD clutter */
+body.is-public-site #xai-credits-hud,
+body.is-public-site .money-hud-pay,
+body.is-public-site .money-hud-income,
+body.is-public-site .money-hud-payout,
+body.is-public-site .money-hud-goal {
+  display: none !important;
+}
+
+body.is-public-site .site-header {
+  padding-top: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .site-tabs-more-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: none;
+    max-height: 55vh;
+    border-radius: 12px 12px 0 0;
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
+  }
+
+  .site-tabs-more.is-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 10055;
+  }
+
+  .site-tabs-more-menu {
+    z-index: 10060;
+  }
+
+  .site-tabs-more-item {
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+
+  .gallery-collections {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-left: max(0.65rem, env(safe-area-inset-left, 0.65rem));
+    padding-right: max(0.65rem, env(safe-area-inset-right, 0.65rem));
+  }
+
+  .gallery-collections::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-collection {
+    flex: 0 0 auto;
+  }
+
+  body.is-local-studio .site-header {
+    padding-top: 2.5rem;
+  }
+}

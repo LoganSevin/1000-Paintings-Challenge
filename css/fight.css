@@ -1,0 +1,811 @@
+/* Fight — arena / create / training / map / LAN */
+.ft-shell {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem 2rem;
+  color: #e8eef4;
+}
+
+.ft-top h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.35rem;
+  color: #ffb4a2;
+}
+
+.ft-hint {
+  margin: 0 0 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(200, 210, 220, 0.88);
+  max-width: 48rem;
+}
+
+.ft-mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.ft-mode-tab {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 140, 120, 0.35);
+  background: rgba(20, 14, 16, 0.85);
+  color: #e8c8c0;
+  cursor: pointer;
+}
+
+.ft-mode-tab.active {
+  background: linear-gradient(180deg, #6a3030, #3a1818);
+  border-color: rgba(255, 160, 120, 0.65);
+  color: #ffe8e0;
+  font-weight: 700;
+}
+
+.ft-pane {
+  display: none;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ft-pane.active {
+  display: flex;
+}
+
+.ft-create-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .ft-create-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ft-card {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 120, 100, 0.28);
+  background: rgba(16, 12, 14, 0.92);
+  padding: 0.85rem 1rem;
+}
+
+.ft-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: #ffc8b8;
+}
+
+.ft-subh {
+  margin: 0.85rem 0 0.4rem;
+  font-size: 0.88rem;
+  color: #e0a090;
+}
+
+.ft-muted {
+  margin: 0 0 0.55rem;
+  font-size: 0.8rem;
+  color: rgba(180, 190, 200, 0.8);
+  line-height: 1.4;
+}
+
+.ft-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #c8b0a8;
+  margin: 0.45rem 0 0.2rem;
+}
+
+.ft-input,
+.ft-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 140, 120, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: #f0e8e4;
+}
+
+.ft-textarea {
+  resize: vertical;
+  min-height: 4rem;
+}
+
+.ft-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.45rem 0;
+}
+
+.ft-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 140, 120, 0.4);
+  background: rgba(40, 24, 28, 0.95);
+  color: #f0d8d0;
+  cursor: pointer;
+}
+
+.ft-btn.accent {
+  background: linear-gradient(180deg, #8a3830, #4a1818);
+  border-color: rgba(255, 160, 120, 0.55);
+  font-weight: 700;
+}
+
+.ft-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ft-src-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.55rem;
+}
+
+.ft-src-tab {
+  font: inherit;
+  font-size: 0.76rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 140, 120, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #e0c8c0;
+  cursor: pointer;
+}
+
+.ft-src-tab.active {
+  background: rgba(120, 50, 40, 0.75);
+  border-color: rgba(255, 170, 130, 0.65);
+  font-weight: 700;
+}
+
+.ft-src-tools {
+  margin-bottom: 0.35rem;
+}
+
+.ft-src-tools .ft-input {
+  flex: 1;
+  min-width: 8rem;
+}
+
+.ft-src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.8rem, 1fr));
+  gap: 0.4rem;
+  max-height: 16rem;
+  overflow: auto;
+  padding: 0.15rem;
+  margin-bottom: 0.55rem;
+}
+
+.ft-src-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  background: #111;
+  font: inherit;
+  color: inherit;
+}
+
+.ft-src-item:hover,
+.ft-src-item:focus-visible {
+  border-color: rgba(255, 180, 140, 0.7);
+}
+
+.ft-src-item.selected {
+  border-color: #6dffb0;
+  box-shadow: 0 0 0 2px rgba(100, 255, 180, 0.35);
+}
+
+.ft-src-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ft-src-item span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 0.55rem;
+  padding: 0.15rem 0.2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: #f0e8e4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ft-drop {
+  border: 1.5px dashed rgba(255, 150, 120, 0.4);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  color: rgba(200, 180, 170, 0.75);
+  font-size: 0.85rem;
+  margin-bottom: 0.45rem;
+  cursor: pointer;
+}
+
+.ft-drop.drag {
+  border-color: #ffb090;
+  background: rgba(80, 30, 20, 0.25);
+}
+
+.ft-preview-wrap {
+  margin-top: 0.55rem;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Checkerboard so clean identity alpha is visible in Create */
+.ft-preview-wrap.ft-preview-alpha {
+  background: repeating-conic-gradient(#1a1e28 0% 25%, #0e1118 0% 50%) 50% / 16px 16px;
+}
+
+.ft-preview {
+  max-width: 100%;
+  max-height: 16rem;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ft-status {
+  min-height: 1.2em;
+  font-size: 0.82rem;
+  color: #9ec8f0;
+  margin: 0.35rem 0;
+}
+
+.ft-status.err {
+  color: #ffb0a8;
+}
+
+.ft-status.ok {
+  color: #7dffb3;
+}
+
+.ft-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: 0.4rem;
+}
+
+.ft-roster-card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  padding: 0;
+  background: #111;
+}
+
+.ft-roster-card.selected {
+  border-color: #6dffb0;
+  box-shadow: 0 0 0 2px rgba(100, 255, 180, 0.3);
+}
+
+.ft-roster-card.has-anim:hover {
+  border-color: rgba(120, 200, 255, 0.65);
+  box-shadow: 0 0 0 2px rgba(80, 160, 255, 0.25);
+}
+
+.ft-roster-card.has-anim .ft-roster-thumb {
+  transition: opacity 0.12s ease;
+}
+
+.ft-roster-card.has-anim:hover .ft-roster-thumb {
+  object-fit: contain;
+  object-position: center bottom;
+  background: #0a0c10;
+}
+
+.ft-roster-pick {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+}
+
+.ft-roster-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ft-roster-card span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 0.62rem;
+  padding: 0.2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+.ft-roster-del {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 2;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(20, 8, 10, 0.85);
+  color: #ff8a9a;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ft-roster-del:hover {
+  background: #c03048;
+  color: #fff;
+}
+
+#ft-canvas,
+#ft-train-canvas,
+#ft-map-canvas {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 120, 100, 0.35);
+  background: #0a0c12;
+  touch-action: none;
+}
+
+.ft-arena-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: flex-end;
+}
+
+.ft-arena-bar .ft-label {
+  margin: 0;
+}
+
+.ft-arena-bar .ft-input {
+  width: auto;
+  min-width: 7rem;
+  margin-top: 0.15rem;
+}
+
+.ft-hud {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ft-timer {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffe8a0;
+  text-shadow: 0 0 12px rgba(255, 200, 80, 0.45);
+}
+
+.ft-bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .ft-bars {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.ft-bar-slot {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-bar-slot .name {
+  font-size: 0.72rem;
+  color: #d0c0b8;
+  margin-bottom: 0.15rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ft-bar-track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(40, 20, 20, 0.9);
+  overflow: hidden;
+}
+
+.ft-bar-fill {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c03030, #f07050);
+  transition: width 0.12s linear;
+}
+
+.ft-bar-fill.meter {
+  background: linear-gradient(90deg, #2050a0, #60c0ff);
+  margin-top: 0.2rem;
+}
+
+.ft-controls-help {
+  font-size: 0.75rem;
+  color: rgba(180, 190, 200, 0.75);
+  line-height: 1.4;
+}
+
+.ft-pad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0;
+}
+
+.ft-pad-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.45rem 0.7rem;
+  min-width: 3.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 150, 120, 0.45);
+  background: rgba(40, 22, 24, 0.95);
+  color: #f8e8e0;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.ft-pad-btn.accent {
+  background: linear-gradient(180deg, #9a4038, #501818);
+  border-color: rgba(255, 170, 120, 0.65);
+}
+
+.ft-pad-btn:active,
+.ft-pad-btn.held {
+  transform: scale(0.96);
+  filter: brightness(1.15);
+}
+
+.ft-combo-log {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.85rem;
+  color: #f0d080;
+  min-height: 1.4em;
+}
+
+.ft-lan-slots {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.ft-lan-slots li {
+  padding: 0.4rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.3);
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+}
+
+body.ft-tab-active .site-header .stats {
+  display: none;
+}
+
+/* —— Bake studio (live multi-frame progress) —— */
+.ft-bake-studio {
+  margin: 0.85rem 0 1rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 200, 255, 0.22);
+  background: linear-gradient(165deg, rgba(18, 28, 42, 0.95), rgba(10, 12, 18, 0.98));
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.ft-bake-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.ft-bake-progress-wrap {
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.ft-bake-bar {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #3d8cff, #6dffb0);
+  transition: width 0.35s ease;
+}
+
+.ft-bake-label {
+  font-size: 0.78rem;
+  color: #a8c0d8;
+  margin: 0.35rem 0 0.55rem;
+}
+
+.ft-bake-grid {
+  display: grid;
+  grid-template-columns: minmax(5rem, 7rem) 1fr;
+  gap: 0.55rem;
+}
+
+.ft-bake-panel {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.4rem;
+  min-height: 4rem;
+}
+
+.ft-bake-cap {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8aa0b8;
+  margin-bottom: 0.3rem;
+}
+
+.ft-bake-panel img {
+  display: block;
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #0a0c10;
+}
+
+.ft-bake-wide img {
+  max-height: 120px;
+}
+
+.ft-bake-frames {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0;
+  min-height: 3.5rem;
+}
+
+.ft-bake-frames canvas,
+.ft-bake-frames img {
+  width: 56px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: repeating-conic-gradient(#1a1e28 0% 25%, #12151c 0% 50%) 50% / 12px 12px;
+}
+
+.ft-bake-preview-wrap {
+  margin: 0.4rem auto 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(109, 255, 176, 0.28);
+  background: #0a0c10;
+}
+
+.ft-bake-preview {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0;
+  border: 0;
+  background: #0a0c10;
+  image-rendering: auto;
+  touch-action: none;
+  cursor: default;
+  vertical-align: middle;
+}
+
+.ft-alpha-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.45rem 0 0.25rem;
+  padding: 0.35rem 0.4rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 180, 80, 0.2);
+}
+
+.ft-alpha-tools .ft-bake-cap {
+  width: 100%;
+  margin-bottom: 0.15rem;
+  color: #ffd9a0;
+}
+
+.ft-alpha-zoom-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.15rem;
+  padding-left: 0.4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ft-alpha-zoom-label {
+  min-width: 2.6rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #c8e0ff;
+  font-variant-numeric: tabular-nums;
+}
+
+#ft-alpha-undo {
+  border-color: rgba(140, 200, 255, 0.4);
+  color: #b8dfff;
+}
+
+.ft-bake-log {
+  margin-top: 0.55rem;
+  max-height: 7.5rem;
+  overflow-y: auto;
+  font-size: 0.72rem;
+  font-family: ui-monospace, Consolas, monospace;
+  color: #9ab0c4;
+  line-height: 1.45;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.4rem;
+}
+
+.ft-bake-log .ok {
+  color: #7dffb3;
+}
+
+.ft-bake-log .err {
+  color: #ff9a90;
+}
+
+.ft-bake-log .work {
+  color: #8ec8ff;
+}
+
+.ft-bake-clip-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.25rem 0 0.45rem;
+}
+
+.ft-bake-clip-tabs button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: #c8d8e8;
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.ft-bake-clip-tabs button:hover {
+  border-color: rgba(109, 255, 176, 0.35);
+}
+
+.ft-bake-clip-tabs button.active {
+  background: rgba(61, 140, 255, 0.35);
+  border-color: rgba(109, 255, 176, 0.5);
+  color: #fff;
+}
+
+.ft-bake-clip-tabs button.missing {
+  opacity: 0.55;
+  border-style: dashed;
+  color: #8aa0b8;
+}
+
+.ft-bake-clip-tabs button.baking {
+  border-color: rgba(255, 200, 80, 0.65);
+  box-shadow: 0 0 0 1px rgba(255, 180, 60, 0.35);
+  animation: ft-bake-pulse 1s ease-in-out infinite;
+}
+
+@keyframes ft-bake-pulse {
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.ft-bake-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+#ft-bake-retry {
+  border-color: rgba(255, 180, 80, 0.45);
+  color: #ffd9a0;
+}
+
+#ft-bake-retry:hover {
+  border-color: rgba(255, 200, 100, 0.7);
+  background: rgba(80, 50, 10, 0.45);
+}
+
+.ft-bake-clip-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e8f4ff;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.ft-btn.danger {
+  background: rgba(160, 40, 50, 0.55);
+  border-color: rgba(255, 100, 110, 0.35);
+  color: #ffc8c8;
+}
+
+@media (max-width: 640px) {
+  .ft-bake-grid {
+    grid-template-columns: 1fr;
+  }
+}

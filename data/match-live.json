@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "skins": {
+    "version": 1785457551602,
+    "gems": [
+      {
+        "num": 125,
+        "silhouette": 3,
+        "hue": 261.0,
+        "hues": [
+          261.0,
+          288.0,
+          309.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": 401140805,
+        "title": "Cosmic Orbs in Retro Orbit"
+      },
+      {
+        "num": 689,
+        "silhouette": 5,
+        "hue": 321.0,
+        "hues": [
+          321.0,
+          331.0,
+          9.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": -905973528,
+        "title": "Green Alien Portrait"
+      },
+      {
+        "num": 131,
+        "silhouette": 0,
+        "hue": 21.0,
+        "hues": [
+          21.0,
+          39.0,
+          69.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": -1173859078,
+        "title": "Swirling Cosmic Vortex"
+      },
+      {
+        "num": 75,
+        "silhouette": 2,
+        "hue": 81.0,
+        "hues": [
+          81.0,
+          94.0,
+          129.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": -592112781,
+        "title": "Vibrant Color Vortex"
+      },
+      {
+        "num": 574,
+        "silhouette": 4,
+        "hue": 141.0,
+        "hues": [
+          141.0,
+          175.0,
+          189.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": 443969850,
+        "title": "Explosive Floral Burst"
+      },
+      {
+        "num": 430,
+        "silhouette": 1,
+        "hue": 201.0,
+        "hues": [
+          201.0,
+          239.0,
+          249.0
+        ],
+        "sat": 72,
+        "lit": 52,
+        "seed": 1231052236,
+        "title": "Golden Fox Portrait"
+      }
+    ],
+    "updatedAt": 1785457551.6303434
+  },
+  "players": {
+    "c8e23cb7-00f5-48df-a234-fa449286453b": {
+      "id": "c8e23cb7-00f5-48df-a234-fa449286453b",
+      "name": "Logan",
+      "score": 0,
+      "playing": false,
+      "updatedAt": 1785824221.1323538,
+      "bestScore": 50790,
+      "online": false,
+      "idleSec": 0
+    }
+  }
+}

@@ -1,0 +1,169 @@
+/* Citations / studio inventory tab */
+
+#panel-citations {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.cite-hero h2 {
+  margin: 0 0 0.4rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #f2f4f8;
+}
+
+.cite-lead {
+  margin: 0 0 0.5rem;
+  color: #a8b4c4;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.cite-updated {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  color: #7a8a9a;
+}
+
+.cite-filter-row {
+  margin: 0 0 1.25rem;
+}
+
+.cite-filter input {
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  color: #e8eef6;
+  font-size: 0.9rem;
+}
+
+.cite-category {
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(165deg, rgba(22, 28, 38, 0.9), rgba(10, 12, 18, 0.95));
+}
+
+.cite-category h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  color: #d8e8ff;
+  letter-spacing: 0.02em;
+}
+
+.cite-cat-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: #8a9aab;
+  line-height: 1.45;
+}
+
+.cite-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cite-item {
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cite-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.cite-item-head strong,
+.cite-link {
+  color: #eef4ff;
+  font-size: 0.92rem;
+}
+
+.cite-link {
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(120, 180, 255, 0.35);
+}
+
+.cite-link:hover {
+  color: #fff;
+  border-bottom-color: rgba(160, 210, 255, 0.7);
+}
+
+.cite-role {
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+  color: #9aabbc;
+  line-height: 1.4;
+}
+
+.cite-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.72rem;
+  color: #7a8c9e;
+}
+
+.cite-meta a {
+  color: #9ec8ff;
+}
+
+.cite-mono {
+  font-family: ui-monospace, Consolas, monospace;
+  word-break: break-all;
+  font-size: 0.75rem;
+}
+
+.cite-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.cite-badge {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #a0b4c8;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cite-badge.cite-ok {
+  color: #7dffb3;
+  border-color: rgba(100, 255, 180, 0.35);
+}
+
+.cite-badge.cite-err {
+  color: #ff9a90;
+  border-color: rgba(255, 120, 100, 0.35);
+}
+
+.cite-loading,
+.cite-err {
+  color: #a8b4c4;
+  padding: 1rem 0;
+}
+
+.cite-err code {
+  color: #c8d8e8;
+}
+
+body.ct-tab-active .site-footer {
+  /* keep footer visible on citations */
+}

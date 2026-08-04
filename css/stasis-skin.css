@@ -1,0 +1,356 @@
+/* Stasis lure screen — hypnotic vision display, not browser chrome */
+
+body[data-stasis-skin-active]::before {
+  opacity: 0 !important;
+}
+
+@keyframes sis-lure-drift {
+  0% {
+    transform: scale(1.12) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.24) translate(var(--sis-lure-drift-x, -1%), var(--sis-lure-drift-y, -1%));
+  }
+}
+
+@keyframes sis-lure-breathe {
+  0%,
+  100% {
+    opacity: calc(var(--sis-lure-bloom, 0.62) * 0.82);
+    transform: scale(1);
+  }
+  50% {
+    opacity: var(--sis-lure-bloom, 0.62);
+    transform: scale(1.06);
+  }
+}
+
+@keyframes sis-portal-ring {
+  0%,
+  100% {
+    opacity: 0.42;
+    box-shadow:
+      0 0 40px rgba(var(--sis-glow-rgb), 0.35),
+      0 0 100px rgba(var(--sis-accent-rgb), 0.18),
+      inset 0 0 30px rgba(var(--sis-accent-rgb), 0.08);
+  }
+  50% {
+    opacity: 0.92;
+    box-shadow:
+      0 0 70px rgba(var(--sis-glow-rgb), 0.55),
+      0 0 160px rgba(var(--sis-accent-rgb), 0.32),
+      inset 0 0 50px rgba(var(--sis-accent-rgb), 0.14);
+  }
+}
+
+@keyframes sis-iris-pull {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes sis-grain-flicker {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ── Full-screen lure layers (injected by JS) ── */
+#stasis-lure-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#stasis-lure-root[hidden] {
+  display: none !important;
+}
+
+#stasis-lure-root > * {
+  position: absolute;
+  inset: 0;
+}
+
+.stasis-lure-vision {
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, var(--sis-lure-deep, #121018), #060508);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.22) contrast(1.08);
+  transform-origin: 50% 42%;
+  animation: sis-lure-drift var(--sis-lure-drift, 48s) ease-in-out infinite alternate;
+}
+
+.stasis-lure-vision.has-vision {
+  opacity: 0.88;
+}
+
+.stasis-lure-bloom {
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 40%, rgba(var(--sis-glow-rgb), 0.38), transparent 72%),
+    radial-gradient(ellipse 90% 80% at 50% 50%, rgba(var(--sis-accent-rgb), 0.14), transparent 68%);
+  mix-blend-mode: screen;
+  animation: sis-lure-breathe var(--sis-lure-breathe, 9s) ease-in-out infinite;
+}
+
+.stasis-lure-vignette {
+  background: radial-gradient(
+    ellipse 68% 58% at 50% 44%,
+    transparent 0%,
+    transparent 42%,
+    rgba(0, 0, 0, 0.45) 68%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+.stasis-lure-grain {
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: sis-grain-flicker 3.6s steps(2) infinite;
+}
+
+.stasis-lure-chroma {
+  background:
+    radial-gradient(ellipse 100% 90% at 48% 44%, rgba(var(--sis-accent-rgb), 0.07), transparent 55%),
+    radial-gradient(ellipse 100% 90% at 52% 46%, rgba(var(--sis-accent2-rgb), 0.06), transparent 55%);
+  mix-blend-mode: color-dodge;
+  opacity: 0.55;
+}
+
+.stasis-lure-iris {
+  background: radial-gradient(
+    circle at 50% 42%,
+    transparent 0%,
+    transparent 26%,
+    rgba(var(--sis-glow-rgb), 0.06) 32%,
+    transparent 38%
+  );
+  animation: sis-iris-pull calc(var(--sis-lure-breathe, 9s) * 1.4) ease-in-out infinite;
+}
+
+/* ── Tab atmosphere: UI dissolves into the vision ── */
+body[data-stasis-skin-active][data-sis-tab="muralwalk"] #panel-muralwalk,
+body[data-stasis-skin-active][data-sis-tab="spellforge"] #panel-spellforge {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-stasis-skin-active][data-sis-tab="muralwalk"] .site-header,
+body[data-stasis-skin-active][data-sis-tab="spellforge"] .site-header {
+  background: rgba(var(--sis-bg-rgb), 0.28);
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  border-bottom: 1px solid rgba(var(--sis-glow-rgb), 0.12);
+  box-shadow: none;
+}
+
+body[data-stasis-skin-active] .brand h1,
+body[data-stasis-skin-active] .subtitle {
+  text-shadow: 0 0 24px rgba(var(--sis-glow-rgb), 0.35);
+}
+
+body[data-stasis-skin-active] .site-tabs {
+  background: rgba(var(--sis-deep-rgb), 0.35);
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.14);
+  backdrop-filter: blur(8px);
+}
+
+body[data-stasis-skin-active] .site-tabs .tab {
+  color: rgba(245, 240, 232, 0.55);
+}
+
+body[data-stasis-skin-active] .site-tabs .tab.active {
+  color: var(--sis-glow);
+  background: rgba(var(--sis-accent-rgb), 0.22);
+  text-shadow: 0 0 12px rgba(var(--sis-glow-rgb), 0.45);
+}
+
+/* ── Ghost glass panels — no boxed web UI ── */
+body[data-stasis-skin-active] .muralwalk-hud,
+body[data-stasis-skin-active] .mw-score-wrap,
+body[data-stasis-skin-active] .mw-spell-box,
+body[data-stasis-skin-active] .mw-fused-meta,
+body[data-stasis-skin-active] .mw-stasis-strip,
+body[data-stasis-skin-active] .mw-menu-panel,
+body[data-stasis-skin-active] .spellbook-panel,
+body[data-stasis-skin-active] .spell-fusion-panel,
+body[data-stasis-skin-active] .spell-slot,
+body[data-stasis-skin-active] .spell-stasis-vision-wrap,
+body[data-stasis-skin-active] .spell-loop-wrap {
+  background: rgba(var(--sis-deep-rgb), 0.32) !important;
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.14) !important;
+  box-shadow:
+    0 0 40px rgba(var(--sis-accent-rgb), 0.06),
+    inset 0 0 24px rgba(var(--sis-glow-rgb), 0.04) !important;
+}
+
+body[data-stasis-skin-active] .mw-stasis-readout,
+body[data-stasis-skin-active] .spell-stasis,
+body[data-stasis-skin-active] .spell-prompt-inline,
+body[data-stasis-skin-active] #spell-search {
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.16) !important;
+  color: rgba(245, 240, 232, 0.92);
+  box-shadow: inset 0 0 20px rgba(var(--sis-accent-rgb), 0.06) !important;
+}
+
+body[data-stasis-skin-active] .mw-stasis-box-label,
+body[data-stasis-skin-active] .mw-spell-box-label,
+body[data-stasis-skin-active] .spell-fusion-label {
+  color: var(--sis-glow);
+  text-shadow: 0 0 16px rgba(var(--sis-glow-rgb), 0.4);
+}
+
+/* ── Portal frame: the game IS the screen you're lured to watch ── */
+body[data-stasis-skin-active] .muralwalk-stage {
+  isolation: isolate;
+}
+
+body[data-stasis-skin-active] .muralwalk-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(96%, 920px);
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 4px;
+  animation: sis-portal-ring var(--sis-lure-breathe, 9s) ease-in-out infinite;
+}
+
+body[data-stasis-skin-active] .mw-pixel-frame {
+  position: relative;
+  z-index: 1;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow:
+    0 0 60px rgba(var(--sis-glow-rgb), 0.4),
+    0 0 140px rgba(var(--sis-accent-rgb), 0.22),
+    0 24px 80px rgba(0, 0, 0, 0.65) !important;
+}
+
+body[data-stasis-skin-active] .mw-pixel-frame::before {
+  inset: -2px;
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.55);
+  border-radius: 3px;
+  box-shadow:
+    0 0 20px rgba(var(--sis-glow-rgb), 0.5),
+    inset 0 0 40px rgba(0, 0, 0, 0.55);
+  animation: sis-portal-ring var(--sis-lure-breathe, 9s) ease-in-out infinite;
+  z-index: 7;
+}
+
+body[data-stasis-skin-active] .mw-pixel-frame::after {
+  content: none;
+}
+
+body[data-stasis-skin-active] #mw-guy {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body[data-stasis-skin-active] .mw-painting-id {
+  background: rgba(var(--sis-deep-rgb), 0.55);
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.45);
+  color: var(--sis-glow);
+  text-shadow: 0 0 10px rgba(var(--sis-glow-rgb), 0.6);
+  backdrop-filter: blur(6px);
+}
+
+body[data-stasis-skin-active] .muralwalk-stage::after {
+  content: none;
+}
+
+/* Spellforge vision = same lure portal */
+body[data-stasis-skin-active] .spell-stasis-vision-frame {
+  border: 1px solid rgba(var(--sis-glow-rgb), 0.5) !important;
+  background: transparent !important;
+  box-shadow:
+    0 0 50px rgba(var(--sis-glow-rgb), 0.38),
+    0 0 120px rgba(var(--sis-accent-rgb), 0.2),
+    inset 0 0 40px rgba(0, 0, 0, 0.45) !important;
+  animation: sis-portal-ring var(--sis-lure-breathe, 9s) ease-in-out infinite;
+}
+
+body[data-stasis-skin-active] .spell-stasis-vision-frame img,
+body[data-stasis-skin-active] .spell-loop-video,
+body[data-stasis-skin-active] .spell-loop-canvas {
+  filter: saturate(1.1) contrast(1.04);
+}
+
+/* Play mode: pull harder toward the canvas */
+body[data-stasis-skin-active].mw-playing .muralwalk-hud {
+  opacity: 0.72;
+  transition: opacity 0.6s ease;
+}
+
+body[data-stasis-skin-active].mw-playing .mw-stasis-strip {
+  opacity: 0.55;
+}
+
+body[data-stasis-skin-active].mw-playing .muralwalk-stage::before {
+  width: min(100%, 980px);
+  animation-duration: calc(var(--sis-lure-breathe, 9s) * 0.85);
+}
+
+body[data-stasis-skin-active].mw-playing .mw-fallout-hud,
+body[data-stasis-skin-active].mw-playing .mw-slot-hud-bubble,
+body[data-stasis-skin-active].mw-playing .mw-orb-counter,
+body[data-stasis-skin-active].mw-playing .mw-move-hud {
+  background: rgba(var(--sis-deep-rgb), 0.42) !important;
+  backdrop-filter: blur(10px);
+  border-color: rgba(var(--sis-glow-rgb), 0.22) !important;
+}
+
+/* Mode moods */
+body[data-stasis-skin="haze"] .stasis-lure-vision,
+body[data-stasis-skin="dream"] .stasis-lure-vision {
+  filter: saturate(0.95) contrast(0.98) blur(0.3px);
+}
+
+body[data-stasis-skin="glitch"] .stasis-lure-chroma {
+  opacity: 0.85;
+  animation: sis-grain-flicker 0.8s steps(3) infinite;
+}
+
+body[data-stasis-skin="ember"] .stasis-lure-bloom,
+body[data-stasis-skin="lava"] .stasis-lure-bloom {
+  mix-blend-mode: plus-lighter;
+}
+
+body[data-stasis-skin="cosmic"] .stasis-lure-iris {
+  opacity: 0.65;
+}
+
+body[data-stasis-skin="neon"] .stasis-lure-bloom {
+  mix-blend-mode: color-dodge;
+}
+
+/* Muralwalk layout breathes with the vision */
+body[data-stasis-skin-active][data-sis-tab="muralwalk"] .muralwalk-layout {
+  gap: 1rem;
+}
+
+body[data-stasis-skin-active][data-sis-tab="muralwalk"] .muralwalk-stage {
+  filter: drop-shadow(0 0 48px rgba(var(--sis-glow-rgb), 0.2));
+}

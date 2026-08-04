@@ -1,0 +1,192 @@
+/* Ideal — prompt-only image/video generator */
+.id-shell {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0.85rem 1rem 2rem;
+  color: #e6ebe8;
+}
+
+.id-top h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+  color: #c8e8f0;
+}
+
+.id-hint {
+  margin: 0 0 1rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(190, 210, 220, 0.88);
+  max-width: 40rem;
+}
+
+.id-card {
+  border-radius: 12px;
+  border: 1px solid rgba(100, 160, 180, 0.35);
+  background: rgba(12, 18, 22, 0.92);
+  padding: 0.85rem 1rem 1rem;
+  box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.35);
+}
+
+.id-label {
+  display: block;
+  font-size: 0.74rem;
+  color: rgba(160, 190, 200, 0.9);
+  margin: 0 0 0.3rem;
+}
+
+.id-prompt {
+  width: 100%;
+  min-height: 9rem;
+  resize: vertical;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 160, 180, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  color: #e8f0f4;
+  margin-bottom: 0.65rem;
+}
+
+.id-prompt:focus {
+  outline: none;
+  border-color: rgba(140, 210, 230, 0.7);
+  box-shadow: 0 0 0 2px rgba(80, 140, 160, 0.25);
+}
+
+.id-char {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: rgba(160, 190, 200, 0.75);
+  margin: -0.35rem 0 0.65rem;
+}
+
+.id-char.warn {
+  color: #ffc98a;
+}
+
+.id-char.over {
+  color: #ff8a8a;
+  font-weight: 700;
+}
+
+.id-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+  align-items: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.id-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 7rem;
+}
+
+.id-field select {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid rgba(100, 160, 180, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  color: #e8f0f4;
+}
+
+.id-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.id-actions button,
+.id-card button.id-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 7px;
+  border: 1px solid rgba(100, 160, 180, 0.45);
+  background: rgba(20, 36, 44, 0.95);
+  color: #e0f0f4;
+  cursor: pointer;
+}
+
+.id-actions button.accent,
+.id-card button.id-btn.accent {
+  background: linear-gradient(180deg, #2a5a6b, #1a3840);
+  border-color: rgba(120, 200, 220, 0.55);
+  font-weight: 700;
+}
+
+.id-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.id-status {
+  font-size: 0.8rem;
+  min-height: 1.25em;
+  color: #9ec8f0;
+  margin: 0 0 0.65rem;
+}
+
+.id-status.err {
+  color: #ffb0a8;
+}
+
+.id-status.ok {
+  color: #7dffb3;
+}
+
+.id-preview-wrap {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.id-preview-wrap img,
+.id-preview-wrap video {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000;
+  display: none;
+}
+
+.id-preview-wrap img.show,
+.id-preview-wrap video.show {
+  display: block;
+}
+
+.id-save-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.id-muted {
+  font-size: 0.75rem;
+  color: rgba(160, 180, 190, 0.75);
+  line-height: 1.4;
+  margin: 0.5rem 0 0;
+}
+
+#id-focus-hint {
+  color: #9ec8e0;
+  font-size: 0.78rem;
+}
+
+.id-muted code {
+  font-size: 0.85em;
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #b8e0f0;
+}

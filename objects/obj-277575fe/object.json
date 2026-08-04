@@ -1,0 +1,36 @@
+{
+  "id": "obj-277575fe",
+  "kind": "object",
+  "name": "Rusty Race Car",
+  "prompt": "Race Car",
+  "category": "object",
+  "material": "metal",
+  "scale": "oversized",
+  "colors": {
+    "primary": "#a06040",
+    "accent": "#202020"
+  },
+  "spells": [
+    {
+      "url": "/generated/48.jpg",
+      "label": "48.jpg",
+      "paintingNum": null,
+      "lod1Num": 48,
+      "source": "lod1s"
+    }
+  ],
+  "spell_palette": [
+    "#a06040",
+    "#202020",
+    "#404040",
+    "#604040",
+    "#c06060",
+    "#e08080",
+    "#a0c040",
+    "#804040"
+  ],
+  "art_style": "stencil",
+  "image_url": "/generated/1967.jpg",
+  "continuity_id": "obj-draft-1783671071080",
+  "saved_at": 1783671197.087383
+}

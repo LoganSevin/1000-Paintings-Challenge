@@ -1,0 +1,54 @@
+{
+  "id": "char-b6b6ba2a",
+  "name": "Bippy",
+  "prompt": "A genuine Field Mouse",
+  "archetype": "human",
+  "sliders": {
+    "head": 1,
+    "body": 1,
+    "limbs": 1
+  },
+  "colors": {
+    "skin": "#9d6339",
+    "hair": "#a06040",
+    "eyes": "#8dc2f7",
+    "clothes": "#c08020"
+  },
+  "spells": [
+    {
+      "url": "/generated/762.jpg",
+      "label": "762.jpg",
+      "paintingNum": null,
+      "lod1Num": 762,
+      "source": "lod1s"
+    },
+    {
+      "url": "http://localhost:8765/paintings/957.jpg",
+      "label": "#957",
+      "paintingNum": 957,
+      "lod1Num": null,
+      "source": "paintings"
+    }
+  ],
+  "spell_palette": [
+    "#c08020",
+    "#a06040",
+    "#a04040",
+    "#a06060",
+    "#a08020",
+    "#c06060",
+    "#804060",
+    "#804040"
+  ],
+  "pattern": "solid",
+  "aura_style": "painterly",
+  "shirt_pattern": "spell-weave",
+  "art_style": "stencil",
+  "views": {},
+  "sheet_url": "/generated/1985.jpg",
+  "frame_count": 8,
+  "pan_rows": 3,
+  "image_url": "/generated/1985.jpg",
+  "continuity_id": "ch-draft-1783678720310",
+  "saved_at": 1783679168.6985178
+}

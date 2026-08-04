@@ -1,0 +1,19 @@
+# Faster deploys — not needed on the CDN
+node_modules
+.netlify
+.git
+**/.git
+scripts/__pycache__
+**/__pycache__
+*.pyc
+.env
+.env.*
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store
+scripts/app_server_disasm.txt
+scripts/app_server_recovered.py
+scripts/pycdc_errors.txt
+scripts/recovered
+scripts/tools

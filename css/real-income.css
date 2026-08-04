@@ -1,0 +1,252 @@
+/* Real income — spendable Cash App money only */
+.ri-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.1rem 2rem;
+  color: #e6eee8;
+}
+
+.ri-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.ri-top h2 {
+  margin: 0 0 0.3rem;
+  color: #9dffb8;
+  font-size: 1.35rem;
+}
+
+.ri-hint {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(210, 220, 214, 0.9);
+}
+
+.ri-alert {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 120, 100, 0.45);
+  background: rgba(60, 18, 14, 0.75);
+  color: #ffc8c0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ri-alert strong {
+  color: #fff;
+}
+
+.ri-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .ri-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ri-card {
+  border-radius: 12px;
+  border: 1px solid rgba(100, 200, 130, 0.3);
+  background: linear-gradient(165deg, rgba(12, 32, 22, 0.96), rgba(8, 12, 10, 0.98));
+  padding: 0.9rem 1rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.ri-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.98rem;
+  color: #a8f0c0;
+}
+
+.ri-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.45rem;
+}
+
+.ri-stats > div {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ri-stats span {
+  display: block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(180, 200, 190, 0.65);
+}
+
+.ri-stats strong {
+  font-size: 1rem;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.ri-balance-big {
+  font-size: 1.6rem !important;
+  color: #9dffb8 !important;
+}
+
+.ri-bar {
+  margin-top: 0.55rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.ri-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #3d9a5c, #9dffb8);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.ri-need {
+  margin-bottom: 0.65rem;
+  padding: 0.5rem 0.55rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.ri-need header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.ri-need .ri-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: rgba(190, 200, 195, 0.75);
+  margin-top: 0.2rem;
+}
+
+.ri-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.45rem 0;
+}
+
+.ri-form-row input,
+.ri-form-row select {
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(100, 180, 120, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #e8f0ea;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.ri-form-row input[type="number"] {
+  width: 6.5rem;
+}
+
+.ri-form-row input[type="text"] {
+  flex: 1 1 10rem;
+  min-width: 8rem;
+}
+
+.ri-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.ri-how {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: rgba(210, 220, 214, 0.92);
+}
+
+.ri-how li {
+  margin-bottom: 0.35rem;
+}
+
+.ri-ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 16rem;
+  overflow: auto;
+  font-size: 0.8rem;
+}
+
+.ri-ledger li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ri-up {
+  color: #6ecf8a;
+  font-weight: 700;
+}
+
+.ri-down {
+  color: #e88a8a;
+  font-weight: 700;
+}
+
+.ri-muted {
+  color: rgba(170, 185, 178, 0.75);
+  font-size: 0.82rem;
+}
+
+.ri-status {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: #a8e0b8;
+}
+
+.ri-status-err {
+  color: #ffb0a8;
+}
+
+.ri-goals-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+  margin-top: 0.5rem;
+}
+
+.ri-goals-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.72rem;
+  color: rgba(180, 200, 190, 0.75);
+}
+
+.ri-goals-row input {
+  width: 5.5rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(100, 180, 120, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: #e8f0ea;
+  font: inherit;
+}

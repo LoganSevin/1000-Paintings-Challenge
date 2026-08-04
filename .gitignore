@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Python caches (keep server bytecode if present, ignore noise)
+scripts/__pycache__/analyze*.pyc
+scripts/__pycache__/rename_*.pyc
+scripts/__pycache__/build_*.pyc
+__pycache__/
+*.py[cod]
+*.log
+
+# Dev / recovery artifacts
+scripts/app_server_disasm.txt
+scripts/app_server_recovered.py
+scripts/pycdc_errors.txt
+scripts/recovered/
+scripts/tools/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Secrets — never push API keys
+.env
+.env.*
+.xai-api-key
+data/xai-api-key.txt
+**/xai-api-key.txt
+*.pem
+
+# Netlify local cache (huge, not source)
+.netlify/
+
+# Large local-only media (keep on PC; too big for GitHub)
+generated/
+saved-stasis/
+saved-videos/
+saved-fallout/
+saved-game-bosses/
+phone-uploads/
+transfer-to-phone/
+
+# Optional local IDE / tooling
+.vscode/
+.idea/
+
+# Local service configs with possible secrets
+data/pulse-google-config.json
+

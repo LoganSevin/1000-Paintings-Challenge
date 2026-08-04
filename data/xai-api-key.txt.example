@@ -1,0 +1,8 @@
+# Copy this file to xai-api-key.txt (same folder) and put your real key on its own line.
+# Easiest: double-click set_xai_key.bat in the gallery folder and paste the key.
+#
+# Create a key: https://console.x.ai/team/default/api-keys
+# Line should look like:
+# xai-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#
+# Do NOT commit xai-api-key.txt. Restart start_server.bat after saving.

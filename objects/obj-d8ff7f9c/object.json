@@ -1,0 +1,36 @@
+{
+  "id": "obj-d8ff7f9c",
+  "kind": "object",
+  "name": "Bug Taxidermy",
+  "prompt": "Bugs in an Insectarium",
+  "category": "object",
+  "material": "glass",
+  "scale": "set-dressing",
+  "colors": {
+    "primary": "#404020",
+    "accent": "#402020"
+  },
+  "spells": [
+    {
+      "url": "http://localhost:8765/paintings/338.jpg",
+      "label": "#338",
+      "paintingNum": 338,
+      "lod1Num": null,
+      "source": "paintings"
+    }
+  ],
+  "spell_palette": [
+    "#404020",
+    "#402020",
+    "#604020",
+    "#202020",
+    "#404040",
+    "#604040",
+    "#804020",
+    "#a06040"
+  ],
+  "art_style": "painterly",
+  "image_url": "/generated/1983.jpg",
+  "continuity_id": "obj-draft-1783672999455",
+  "saved_at": 1783673072.2313952
+}

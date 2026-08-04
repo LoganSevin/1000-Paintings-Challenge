@@ -1,0 +1,569 @@
+{
+  "version": 5,
+  "styles": [
+    {
+      "id": "impressionism",
+      "name": "Impressionism",
+      "category": "painting",
+      "description": "Broken color, outdoor light, soft edges, fleeting moments of atmosphere.",
+      "keywords": [
+        "impression",
+        "impressionist",
+        "monet",
+        "plein air"
+      ],
+      "refUrl": "assets/commercial-style-refs/impressionism.jpg",
+      "paintingNum": 570,
+      "templatePainting": 570,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "expressionism",
+      "name": "Expressionism",
+      "category": "painting",
+      "description": "Emotional color, distorted form, bold psychological energy.",
+      "keywords": [
+        "expression",
+        "expressionist",
+        "emotional"
+      ],
+      "refUrl": "assets/commercial-style-refs/expressionism.jpg",
+      "paintingNum": 359,
+      "templatePainting": 359,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "abstract",
+      "name": "Abstract",
+      "category": "painting",
+      "description": "Non-literal shape, pure color fields, rhythm without figurative anchors.",
+      "keywords": [
+        "abstract",
+        "nonobjective",
+        "non-representational"
+      ],
+      "refUrl": "assets/commercial-style-refs/abstract.jpg",
+      "paintingNum": 166,
+      "templatePainting": 166,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "abstract-expressionism",
+      "name": "Abstract Expressionism",
+      "category": "painting",
+      "description": "Gestural force, action paint, large emotional fields.",
+      "keywords": [
+        "abstract expression",
+        "action painting",
+        "gestural"
+      ],
+      "refUrl": "assets/commercial-style-refs/abstract-expressionism.jpg",
+      "paintingNum": 359,
+      "templatePainting": 359,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "surrealism",
+      "name": "Surrealism",
+      "category": "painting",
+      "description": "Dream logic, uncanny juxtapositions, floating symbols.",
+      "keywords": [
+        "surreal",
+        "dream",
+        "uncanny"
+      ],
+      "refUrl": "assets/commercial-style-refs/surrealism.jpg",
+      "paintingNum": 1000,
+      "templatePainting": 1000,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "cubism",
+      "name": "Cubism",
+      "category": "painting",
+      "description": "Faceted planes, multiple viewpoints, geometric structure.",
+      "keywords": [
+        "cubism",
+        "cubist",
+        "faceted"
+      ],
+      "refUrl": "assets/commercial-style-refs/cubism.jpg",
+      "paintingNum": 166,
+      "templatePainting": 166,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "pop-art",
+      "name": "Pop Art",
+      "category": "commercial",
+      "description": "Bold brands-friendly color blocks, graphic punch, cultural icons.",
+      "keywords": [
+        "pop",
+        "warhol",
+        "graphic",
+        "comic"
+      ],
+      "refUrl": "assets/commercial-style-refs/pop-art.jpg",
+      "paintingNum": 997,
+      "templatePainting": 997,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "street-art",
+      "name": "Street Art / Graffiti",
+      "category": "commercial",
+      "description": "Urban walls, spray texture, mural scale, public energy.",
+      "keywords": [
+        "street",
+        "graffiti",
+        "mural",
+        "urban"
+      ],
+      "refUrl": "assets/commercial-style-refs/street-art.jpg",
+      "paintingNum": 19,
+      "templatePainting": 19,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "art-deco",
+      "name": "Art Deco",
+      "category": "design",
+      "description": "Sleek geometry, luxury lines, chrome and gold elegance.",
+      "keywords": [
+        "deco",
+        "art deco",
+        "geometric luxury"
+      ],
+      "refUrl": "assets/commercial-style-refs/art-deco.jpg",
+      "paintingNum": 938,
+      "templatePainting": 938,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "art-nouveau",
+      "name": "Art Nouveau",
+      "category": "design",
+      "description": "Flowing organic curves, botanical ornament, elegant line.",
+      "keywords": [
+        "nouveau",
+        "organic line",
+        "botanical"
+      ],
+      "refUrl": "assets/commercial-style-refs/art-nouveau.jpg",
+      "paintingNum": 938,
+      "templatePainting": 938,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "minimalism",
+      "name": "Minimalism",
+      "category": "design",
+      "description": "Restraint, negative space, few shapes, quiet precision.",
+      "keywords": [
+        "minimal",
+        "minimalist",
+        "sparse"
+      ],
+      "refUrl": "assets/commercial-style-refs/minimalism.jpg",
+      "paintingNum": 493,
+      "templatePainting": 493,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "brutalism",
+      "name": "Brutalism",
+      "category": "design",
+      "description": "Raw mass, concrete weight, bold block forms.",
+      "keywords": [
+        "brutal",
+        "concrete",
+        "monumental"
+      ],
+      "refUrl": "assets/commercial-style-refs/brutalism.jpg",
+      "paintingNum": 680,
+      "templatePainting": 680,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "photorealism",
+      "name": "Photorealism",
+      "category": "painting",
+      "description": "Camera-sharp detail, reflective surfaces, hyperreal light.",
+      "keywords": [
+        "photoreal",
+        "hyperreal",
+        "realistic"
+      ],
+      "refUrl": "assets/commercial-style-refs/photorealism.jpg",
+      "paintingNum": 172,
+      "templatePainting": 172,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "watercolor",
+      "name": "Watercolor",
+      "category": "medium",
+      "description": "Transparent washes, paper tooth, soft blooms of pigment.",
+      "keywords": [
+        "watercolor",
+        "watercolour",
+        "wash"
+      ],
+      "refUrl": "assets/commercial-style-refs/watercolor.jpg",
+      "paintingNum": 999,
+      "templatePainting": 999,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "oil-painting",
+      "name": "Oil Painting",
+      "category": "medium",
+      "description": "Rich impasto, layered glaze, classical paint body.",
+      "keywords": [
+        "oil",
+        "impasto",
+        "glaze"
+      ],
+      "refUrl": "assets/commercial-style-refs/oil-painting.jpg",
+      "paintingNum": 828,
+      "templatePainting": 828,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "acrylic",
+      "name": "Acrylic",
+      "category": "medium",
+      "description": "Vivid opaque color, modern flat-to-textured paint.",
+      "keywords": [
+        "acrylic"
+      ],
+      "refUrl": "assets/commercial-style-refs/acrylic.jpg",
+      "paintingNum": 359,
+      "templatePainting": 359,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "ink-line",
+      "name": "Ink Line / Illustration",
+      "category": "medium",
+      "description": "Clean contour, high contrast black line, graphic clarity.",
+      "keywords": [
+        "ink",
+        "line art",
+        "illustration",
+        "pen"
+      ],
+      "refUrl": "assets/commercial-style-refs/ink-line.jpg",
+      "paintingNum": 257,
+      "templatePainting": 257,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "charcoal",
+      "name": "Charcoal / Graphite",
+      "category": "medium",
+      "description": "Smoky values, soft edges, monochrome drama.",
+      "keywords": [
+        "charcoal",
+        "graphite",
+        "sketch"
+      ],
+      "refUrl": "assets/commercial-style-refs/charcoal.jpg",
+      "paintingNum": 680,
+      "templatePainting": 680,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "digital-paint",
+      "name": "Digital Painterly",
+      "category": "digital",
+      "description": "Soft brush sims, cinematic lighting, modern concept polish.",
+      "keywords": [
+        "digital",
+        "concept art",
+        "cinematic"
+      ],
+      "refUrl": "assets/commercial-style-refs/digital-paint.jpg",
+      "paintingNum": 1000,
+      "templatePainting": 1000,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "3d-render",
+      "name": "3D Render / CGI",
+      "category": "digital",
+      "description": "Clean geometry, studio light, product-commercial sheen.",
+      "keywords": [
+        "3d",
+        "render",
+        "cgi",
+        "product"
+      ],
+      "refUrl": "assets/commercial-style-refs/3d-render.jpg",
+      "paintingNum": 493,
+      "templatePainting": 493,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "pixel-art",
+      "name": "Pixel Art",
+      "category": "digital",
+      "description": "Retro grid, limited palette, crisp blocky charm.",
+      "keywords": [
+        "pixel",
+        "8-bit",
+        "retro game"
+      ],
+      "refUrl": "assets/commercial-style-refs/pixel-art.jpg",
+      "paintingNum": 257,
+      "templatePainting": 257,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "anime",
+      "name": "Anime / Manga",
+      "category": "illustration",
+      "description": "Stylized eyes, cel shading, bold contour energy.",
+      "keywords": [
+        "anime",
+        "manga",
+        "cel"
+      ],
+      "refUrl": "assets/commercial-style-refs/anime.jpg",
+      "paintingNum": 257,
+      "templatePainting": 257,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "comic-book",
+      "name": "Comic Book",
+      "category": "illustration",
+      "description": "Halftone, ink outlines, panel drama, heroic pose.",
+      "keywords": [
+        "comic",
+        "halftone",
+        "superhero"
+      ],
+      "refUrl": "assets/commercial-style-refs/comic-book.jpg",
+      "paintingNum": 257,
+      "templatePainting": 257,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "noir",
+      "name": "Film Noir",
+      "category": "cinematic",
+      "description": "High contrast shadow, wet streets, mystery atmosphere.",
+      "keywords": [
+        "noir",
+        "shadow",
+        "moody"
+      ],
+      "refUrl": "assets/commercial-style-refs/noir.jpg",
+      "paintingNum": 680,
+      "templatePainting": 680,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "neon-noir",
+      "name": "Neon Noir",
+      "category": "cinematic",
+      "description": "Night city glow, magenta-cyan light, wet reflections.",
+      "keywords": [
+        "neon",
+        "cyber",
+        "night city"
+      ],
+      "refUrl": "assets/commercial-style-refs/neon-noir.jpg",
+      "paintingNum": 680,
+      "templatePainting": 680,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "golden-hour",
+      "name": "Golden Hour",
+      "category": "cinematic",
+      "description": "Warm low sun, long shadows, honeyed air.",
+      "keywords": [
+        "golden hour",
+        "sunset",
+        "warm light"
+      ],
+      "refUrl": "assets/commercial-style-refs/golden-hour.jpg",
+      "paintingNum": 265,
+      "templatePainting": 265,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "baroque",
+      "name": "Baroque",
+      "category": "classical",
+      "description": "Dramatic chiaroscuro, rich fabric, ornate depth.",
+      "keywords": [
+        "baroque",
+        "chiaroscuro",
+        "caravaggio"
+      ],
+      "refUrl": "assets/commercial-style-refs/baroque.jpg",
+      "paintingNum": 828,
+      "templatePainting": 828,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "renaissance",
+      "name": "Renaissance",
+      "category": "classical",
+      "description": "Balanced composition, soft modeling, classical grace.",
+      "keywords": [
+        "renaissance",
+        "classical",
+        "sfumato"
+      ],
+      "refUrl": "assets/commercial-style-refs/renaissance.jpg",
+      "paintingNum": 172,
+      "templatePainting": 172,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "ukiyo-e",
+      "name": "Ukiyo-e",
+      "category": "classical",
+      "description": "Flat color planes, woodblock line, Japanese print rhythm.",
+      "keywords": [
+        "ukiyo",
+        "woodblock",
+        "japanese print"
+      ],
+      "refUrl": "assets/commercial-style-refs/ukiyo-e.jpg",
+      "paintingNum": 938,
+      "templatePainting": 938,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "bauhaus",
+      "name": "Bauhaus",
+      "category": "design",
+      "description": "Primary shapes, functional modernism, bold type-adjacent forms.",
+      "keywords": [
+        "bauhaus",
+        "modernist",
+        "primary color"
+      ],
+      "refUrl": "assets/commercial-style-refs/bauhaus.jpg",
+      "paintingNum": 166,
+      "templatePainting": 166,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "vaporwave",
+      "name": "Vaporwave",
+      "category": "digital",
+      "description": "Pastel neon, retro-futurist haze, dreamy grid nostalgia.",
+      "keywords": [
+        "vaporwave",
+        "synthwave",
+        "retro futur"
+      ],
+      "refUrl": "assets/commercial-style-refs/vaporwave.jpg",
+      "paintingNum": 997,
+      "templatePainting": 997,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "brutalist-poster",
+      "name": "Brutalist Poster",
+      "category": "commercial",
+      "description": "Loud type-space, raw layouts, high-impact commercial punch.",
+      "keywords": [
+        "poster",
+        "advertising",
+        "graphic design"
+      ],
+      "refUrl": "assets/commercial-style-refs/brutalist-poster.jpg",
+      "paintingNum": 19,
+      "templatePainting": 19,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "pastel-soft",
+      "name": "Pastel Soft",
+      "category": "commercial",
+      "description": "Gentle pastels, airy product-friendly softness.",
+      "keywords": [
+        "pastel",
+        "soft",
+        "gentle"
+      ],
+      "refUrl": "assets/commercial-style-refs/pastel-soft.jpg",
+      "paintingNum": 999,
+      "templatePainting": 999,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "high-fashion",
+      "name": "High Fashion Editorial",
+      "category": "commercial",
+      "description": "Sleek styling, magazine light, luxury campaign pose.",
+      "keywords": [
+        "fashion",
+        "editorial",
+        "luxury",
+        "vogue"
+      ],
+      "refUrl": "assets/commercial-style-refs/high-fashion.jpg",
+      "paintingNum": 80,
+      "templatePainting": 80,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    },
+    {
+      "id": "product-hero",
+      "name": "Product Hero Shot",
+      "category": "commercial",
+      "description": "Clean studio stage, hero object lighting, ad-ready clarity.",
+      "keywords": [
+        "product",
+        "studio",
+        "commercial photo"
+      ],
+      "refUrl": "assets/commercial-style-refs/product-hero.jpg",
+      "paintingNum": 493,
+      "templatePainting": 493,
+      "refBaked": true,
+      "refMode": "gallery-crop"
+    }
+  ]
+}

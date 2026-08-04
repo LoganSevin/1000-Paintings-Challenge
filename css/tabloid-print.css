@@ -1,0 +1,116 @@
+/* Tabloid print prep — 11×17 in @ 300 DPI */
+
+.tabloid-print-dialog {
+  width: min(96vw, 720px);
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  color: var(--text);
+  overflow: hidden;
+}
+
+.tabloid-print-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.tabloid-print-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tabloid-print-head h3 {
+  margin: 0;
+  font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.tabloid-print-close {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.tabloid-print-close:hover {
+  color: var(--accent);
+}
+
+.tabloid-print-lead {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.tabloid-print-preview-wrap {
+  background: #f4f4f2;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  max-height: min(52vh, 520px);
+  overflow: auto;
+}
+
+.tabloid-print-preview {
+  max-width: 100%;
+  max-height: min(50vh, 500px);
+  width: auto;
+  height: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.tabloid-print-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.tabloid-print-orient-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tabloid-print-orient-btns .btn-secondary.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tabloid-print-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.tabloid-print-actions .btn-secondary:first-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-tabloid-print {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .tabloid-print-actions .btn-secondary {
+    flex: 1 1 calc(50% - 0.25rem);
+    text-align: center;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "version": 3,
+  "business_name": "Logan Sevin — 1000 Paintings Challenge",
+  "artist_name": "Logan Sevin",
+  "author": "Logan Sevin",
+  "copyright_notice": "© Logan Sevin. All rights reserved.",
+  "ownership_statement": "All artworks authored and owned by Logan Sevin. Studio tools assist; they are not the author.",
+  "cash_app": "Logan7in",
+  "public_url": "https://1000-l7in.netlify.app/",
+  "public_url_note": "FREE public share link (Netlify subdomain). No domain purchase. Fans open this URL. Change only if you rename the Netlify site.",
+  "x_handle": "",
+  "venmo": "",
+  "paypal_me": "",
+  "tip_presets_usd": [5, 10, 25, 50],
+  "tip_default_usd": 10,
+  "tip_label": "Fans tip artist Logan Sevin on Cash App $Logan7in — post the tip link on X, do not tip yourself",
+  "order_note_prefix": "Logan Sevin · 1000 Paintings Challenge",
+  "monthly_revenue_goal_usd": 10000,
+  "creator_payout": {
+    "name": "Logan Sevin",
+    "role": "Human artist, author, and owner of all gallery works",
+    "cash_app": "Logan7in",
+    "monthly_usd": 300,
+    "note": "Monthly creator stipend for Logan Sevin — website + art. All art credited to Logan Sevin, not AI. Do NOT store bank/card numbers in this repo.",
+    "credits_path": "https://console.x.ai/team/default/billing"
+  },
+  "prices_usd": {
+    "paintings": 89,
+    "generated": 45,
+    "commercial": 55,
+    "characters": 35,
+    "objects": 29,
+    "places": 39,
+    "rooms": 39,
+    "stasis": 19,
+    "fallout": 15,
+    "videos": 29,
+    "game-bosses": 25,
+    "tabloid-print": 49,
+    "custom": 35
+  },
+  "price_gauging": {
+    "enabled": true,
+    "max_premium_pct": 35,
+    "max_discount_pct": 12,
+    "marketing_hooks": true
+  },
+  "notes": "NEVER put card numbers, CVV, PIN, or full bank account numbers in this file. Only public cashtags / Venmo / PayPal.me handles. Market desk uses simulated sales + paper trading — no credentials. Restart server after edits."
+}

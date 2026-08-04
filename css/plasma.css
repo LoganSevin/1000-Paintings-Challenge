@@ -1,0 +1,761 @@
+/* Plasma — horizontal conveyor + plasma ball on a stand */
+
+.plasma-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem 2.5rem;
+  color: #e8f0ff;
+}
+
+.plasma-top {
+  margin-bottom: 0.75rem;
+}
+
+.plasma-top h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  color: #b8e8ff;
+}
+
+.plasma-hint {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #9ab0c8;
+}
+
+.plasma-prompt-block {
+  margin: 0.65rem 0 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 160, 220, 0.22);
+  background: rgba(10, 16, 28, 0.55);
+}
+
+.plasma-prompt-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.plasma-prompt {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.4);
+  color: #e8f0ff;
+  font: inherit;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.plasma-prompt:focus {
+  outline: none;
+  border-color: rgba(140, 200, 255, 0.45);
+}
+
+.plasma-prompt-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  color: #7a90a8;
+}
+
+.plasma-chips-row {
+  margin: 0.5rem 0 0.5rem;
+}
+
+.plasma-chips-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8aa8c8;
+  margin: 0 0 0.35rem;
+}
+
+.plasma-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.plasma-chip-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.plasma-chip-wrap.is-dirty {
+  border-color: rgba(255, 200, 80, 0.45);
+  background: rgba(80, 60, 10, 0.2);
+}
+
+.plasma-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.55rem 0.28rem 0.28rem;
+  border-radius: 999px;
+  border: 1px solid rgba(160, 200, 255, 0.35);
+  background: rgba(20, 30, 48, 0.85);
+  color: #e8f0ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plasma-chip:hover {
+  border-color: rgba(180, 230, 255, 0.65);
+  background: rgba(35, 50, 75, 0.95);
+}
+
+/* Visible color match — filled with the real hex */
+.plasma-chip-swatch {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  background-color: #888888;
+}
+
+.plasma-chip-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.plasma-chip-hex {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
+.plasma-chip input[type="color"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plasma-chip-apply {
+  padding: 0.2rem 0.5rem !important;
+  font-size: 0.68rem !important;
+  border-radius: 999px !important;
+  white-space: nowrap;
+}
+
+.plasma-chip-apply:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.plasma-chip-wrap.is-dirty .plasma-chip-apply:not(:disabled) {
+  border-color: rgba(255, 200, 80, 0.55) !important;
+  color: #ffe08a !important;
+}
+
+.plasma-gallery-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.4rem;
+}
+
+.plasma-gallery-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c0e0ff;
+}
+
+.plasma-gallery-sub {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #8098b0;
+}
+
+/* Orb above center of conveyor — current image sits under the orb */
+.plasma-focus-stack {
+  position: relative;
+  margin: 0.35rem 0 1rem;
+  padding: 0.5rem 0 0.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(80, 140, 200, 0.2);
+  background: radial-gradient(ellipse at 50% 0%, #152030 0%, #0a0e16 55%);
+}
+
+.plasma-orb-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 0.35rem 0 0.15rem;
+}
+
+.plasma-stand-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(200px, 46vw);
+}
+
+.plasma-orb-wrap {
+  position: relative;
+  width: min(168px, 40vw);
+  height: min(168px, 40vw);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 3px rgba(160, 200, 230, 0.35),
+    0 0 0 7px rgba(25, 35, 50, 0.9),
+    0 0 40px rgba(60, 140, 255, 0.35),
+    0 10px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(0, 30, 60, 0.35);
+  background: #02060c;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* Generated orb photo — positioned by rim detection so glass rims match */
+.plasma-orb-backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+  max-width: none;
+  border-radius: 0;
+  filter: saturate(1.08) contrast(1.04);
+  /* default until rim-fit runs */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.plasma-orb-backdrop.is-rim-fit {
+  object-fit: fill;
+  object-position: 0 0;
+}
+
+.plasma-orb-backdrop[hidden] {
+  display: none !important;
+}
+
+.plasma-orb-wrap canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.plasma-aspect-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: #9ab8d4;
+}
+
+.plasma-aspect {
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.28rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 170, 220, 0.35);
+  background: rgba(0, 0, 0, 0.4);
+  color: #e8f0ff;
+}
+
+.plasma-orb-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.4rem;
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(180, 220, 255, 0.6);
+  pointer-events: none;
+  text-shadow: 0 1px 3px #000;
+}
+
+.plasma-stem {
+  position: relative;
+  width: 0.85rem;
+  height: 1.5rem;
+  margin-top: -2px;
+  border-radius: 0.15rem;
+  background: linear-gradient(90deg, #2a3038, #c8d0d8 50%, #1e242c);
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.plasma-stem::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.28rem;
+  transform: translateX(-50%);
+  width: 1.35rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #b0b8c0, #3a424c);
+}
+
+.plasma-base-plate {
+  width: 2.2rem;
+  height: 0.4rem;
+  background: linear-gradient(180deg, #3a424c, #12161c);
+  border-radius: 0.12rem;
+}
+
+.plasma-base {
+  width: 5.2rem;
+  height: 1.65rem;
+  margin-top: -1px;
+  border-radius: 50% / 42%;
+  background: radial-gradient(ellipse at 50% 30%, #4a5560, #0c0e12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.plasma-current-label {
+  margin: 0.35rem 0 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a8d0f0;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+/* Vertical guide from orb down to center of belt */
+.plasma-center-guide {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  bottom: 1.2rem;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(120, 200, 255, 0.35),
+    rgba(80, 160, 255, 0.12) 70%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Horizontal conveyor — left → right, snap to center under orb */
+.plasma-conveyor {
+  position: relative;
+  overflow: hidden;
+  min-height: 8rem;
+  margin: 0 0.5rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid rgba(80, 140, 200, 0.28);
+  background:
+    linear-gradient(180deg, rgba(20, 35, 55, 0.9) 0%, #0a0e16 100%);
+  box-shadow: inset 0 1px 0 rgba(120, 180, 255, 0.08);
+  z-index: 2;
+}
+
+.plasma-belt-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.55rem;
+  height: 0.35rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 140, 200, 0.25) 10%,
+    rgba(80, 140, 200, 0.25) 90%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Center notch under orb */
+.plasma-conveyor::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.35rem;
+  bottom: 0.9rem;
+  width: 0;
+  border-left: 1px dashed rgba(140, 200, 255, 0.35);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.plasma-ring {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.65rem;
+  /* Side padding so first/last can sit under center orb */
+  padding: 0.85rem 0 1.15rem;
+  min-height: 8rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 0.85s cubic-bezier(0.4, 0.05, 0.2, 1), opacity 0.75s ease;
+  will-change: transform, opacity;
+  scrollbar-width: thin;
+}
+
+.plasma-ring.is-leaving {
+  transform: translateX(110%);
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.plasma-ring.is-entering {
+  animation: plasma-enter 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes plasma-enter {
+  from {
+    transform: translateX(-35%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.plasma-cell {
+  position: relative;
+  flex: 0 0 auto;
+  width: 4.6rem;
+  height: 4.6rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0a1018;
+  box-shadow:
+    0 0 0 2px rgba(120, 180, 255, 0.28),
+    0 4px 12px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s, opacity 0.15s;
+  scroll-snap-align: center;
+  opacity: 0.72;
+}
+
+.plasma-cell.is-center {
+  opacity: 1;
+  transform: scale(1.18);
+  box-shadow:
+    0 0 0 3px rgba(160, 230, 255, 0.85),
+    0 0 22px rgba(80, 180, 255, 0.55);
+  z-index: 2;
+}
+
+.plasma-cell:hover,
+.plasma-cell:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(160, 230, 255, 0.7),
+    0 0 18px rgba(80, 180, 255, 0.45);
+  transform: scale(1.12);
+  outline: none;
+  z-index: 2;
+  opacity: 1;
+}
+
+.plasma-cell.is-center:hover,
+.plasma-cell.is-center:focus-visible {
+  transform: scale(1.22);
+}
+
+.plasma-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.plasma-cell.is-pending {
+  background: radial-gradient(circle at 40% 35%, #1a3050, #0a1018);
+}
+
+.plasma-cell.is-pending::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #60d0ff;
+  animation: plasma-spin 0.9s linear infinite;
+}
+
+.plasma-cell.is-err {
+  box-shadow: 0 0 0 2px rgba(255, 100, 100, 0.55);
+}
+
+.plasma-cell-label {
+  position: absolute;
+  left: 50%;
+  bottom: 0.15rem;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+  pointer-events: none;
+}
+
+@keyframes plasma-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Controls + progress above the stand */
+.plasma-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0.5rem;
+}
+
+.plasma-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.plasma-status {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #a8c0d8;
+  min-height: 1.2em;
+}
+
+.plasma-status.is-err {
+  color: #f09090;
+}
+
+.plasma-status.is-ok {
+  color: #90e0b0;
+}
+
+.plasma-progress-wrap {
+  display: none;
+}
+
+.plasma-progress-wrap.is-on {
+  display: block;
+}
+
+.plasma-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #8ab0d0;
+  margin-bottom: 0.3rem;
+}
+
+.plasma-progress-track {
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(100, 180, 255, 0.25);
+  overflow: hidden;
+}
+
+.plasma-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1a6cff, #40e0ff 45%, #a070ff 90%);
+  box-shadow: 0 0 12px rgba(80, 200, 255, 0.55);
+  transition: width 0.25s ease;
+}
+
+/* Lightbox viewer with prompt + arrow nav */
+.plasma-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  padding: 1rem;
+}
+
+.plasma-lightbox[hidden] {
+  display: none !important;
+}
+
+.plasma-lightbox-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  gap: 1rem;
+  max-width: min(1100px, 96vw);
+  max-height: 90vh;
+  align-items: stretch;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .plasma-lightbox-stage {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    max-height: 92vh;
+  }
+}
+
+.plasma-lightbox-stage > img {
+  max-width: 100%;
+  max-height: min(82vh, 720px);
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #0a0e14;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+.plasma-lightbox-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 0;
+  background: rgba(12, 18, 28, 0.92);
+  border: 1px solid rgba(120, 170, 220, 0.25);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.plasma-lightbox-meta-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.plasma-lightbox-index {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b8e0ff;
+}
+
+.plasma-lightbox-prompt {
+  flex: 1;
+  min-height: 10rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.45);
+  color: #d0e0f0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.plasma-lightbox-keys {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #7a90a8;
+}
+
+.plasma-lightbox-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+}
+
+.plasma-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 200, 255, 0.35);
+  background: rgba(20, 30, 48, 0.85);
+  color: #e8f0ff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0.15rem;
+}
+
+.plasma-lightbox-nav:hover {
+  background: rgba(40, 70, 110, 0.95);
+  border-color: rgba(180, 220, 255, 0.55);
+}
+
+.plasma-lightbox-prev {
+  left: 0.65rem;
+}
+
+.plasma-lightbox-next {
+  right: 0.65rem;
+}
+
+@media (max-width: 800px) {
+  .plasma-lightbox-nav {
+    top: auto;
+    bottom: 0.75rem;
+    transform: none;
+  }
+  .plasma-lightbox-prev {
+    left: 1rem;
+  }
+  .plasma-lightbox-next {
+    right: 1rem;
+  }
+}

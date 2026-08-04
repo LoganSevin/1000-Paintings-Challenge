@@ -1,0 +1,5405 @@
+{
+  "version": 1,
+  "description": "Movies & TV catalog for Commercial placement (iconic elements from IMDb-famous titles).",
+  "genres": [
+    "action",
+    "adventure",
+    "animation",
+    "biography",
+    "comedy",
+    "crime",
+    "drama",
+    "family",
+    "fantasy",
+    "horror",
+    "musical",
+    "mystery",
+    "romance",
+    "sci-fi",
+    "thriller",
+    "war",
+    "western"
+  ],
+  "kinds": [
+    "movie",
+    "tv"
+  ],
+  "titles": [
+    {
+      "id": "aliens",
+      "name": "Aliens",
+      "kind": "movie",
+      "year": 1986,
+      "genre": "action",
+      "imdb_id": "tt0090605",
+      "icons": [
+        "power loader",
+        "pulse rifle",
+        "Newt"
+      ],
+      "description": "Film (1986) — iconic elements for world placement."
+    },
+    {
+      "id": "avengers-endgame",
+      "name": "Avengers: Endgame",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "action",
+      "imdb_id": "tt4154796",
+      "icons": [
+        "Infinity Gauntlet",
+        "time heist",
+        "Avengers assemble"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "avengers-infinity-war",
+      "name": "Avengers: Infinity War",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "action",
+      "imdb_id": "tt4154756",
+      "icons": [
+        "Thanos",
+        "Infinity Stones",
+        "spaceship"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "baby-driver",
+      "name": "Baby Driver",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "action",
+      "imdb_id": "tt3890160",
+      "icons": [
+        "iPod earbuds",
+        "getaway car",
+        "coffee run"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "black-panther",
+      "name": "Black Panther",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "action",
+      "imdb_id": "tt1825683",
+      "icons": [
+        "vibranium suit",
+        "Wakanda skyline",
+        "kimoyo beads"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "casino-royale",
+      "name": "Casino Royale",
+      "kind": "movie",
+      "year": 2006,
+      "genre": "action",
+      "imdb_id": "tt0381061",
+      "icons": [
+        "poker table",
+        "Aston Martin",
+        "martini"
+      ],
+      "description": "Film (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "crouching-tiger-hidden-dragon",
+      "name": "Crouching Tiger, Hidden Dragon",
+      "kind": "movie",
+      "year": 2000,
+      "genre": "action",
+      "imdb_id": "tt0190332",
+      "icons": [
+        "green sword",
+        "bamboo forest",
+        "rooftop fight"
+      ],
+      "description": "Film (2000) — iconic elements for world placement."
+    },
+    {
+      "id": "deadpool",
+      "name": "Deadpool",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "action",
+      "imdb_id": "tt1431045",
+      "icons": [
+        "red suit",
+        "katana",
+        "fourth wall"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "die-hard",
+      "name": "Die Hard",
+      "kind": "movie",
+      "year": 1988,
+      "genre": "action",
+      "imdb_id": "tt0095016",
+      "icons": [
+        "Nakatomi Plaza",
+        "undershirt",
+        "walkie-talkie"
+      ],
+      "description": "Film (1988) — iconic elements for world placement."
+    },
+    {
+      "id": "drive",
+      "name": "Drive",
+      "kind": "movie",
+      "year": 2011,
+      "genre": "action",
+      "imdb_id": "tt0780504",
+      "icons": [
+        "scorpion jacket",
+        "getaway car",
+        "LA night neon"
+      ],
+      "description": "Film (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "gladiator",
+      "name": "Gladiator",
+      "kind": "movie",
+      "year": 2000,
+      "genre": "action",
+      "imdb_id": "tt0172495",
+      "icons": [
+        "Maximus armor",
+        "Colosseum",
+        "Are you not entertained"
+      ],
+      "description": "Film (2000) — iconic elements for world placement."
+    },
+    {
+      "id": "guardians-of-the-galaxy",
+      "name": "Guardians of the Galaxy",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "action",
+      "imdb_id": "tt2015381",
+      "icons": [
+        "Awesome Mix tape",
+        "star-lord mask",
+        "Groot"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "kind": "movie",
+      "year": 2002,
+      "genre": "action",
+      "imdb_id": "tt0299977",
+      "icons": [
+        "colored chapters",
+        "calligraphy",
+        "arrows"
+      ],
+      "description": "Film (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "iron-man",
+      "name": "Iron Man",
+      "kind": "movie",
+      "year": 2008,
+      "genre": "action",
+      "imdb_id": "tt0371746",
+      "icons": [
+        "Iron Man armor",
+        "arc reactor",
+        "JARVIS"
+      ],
+      "description": "Film (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "john-wick",
+      "name": "John Wick",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "action",
+      "imdb_id": "tt2911666",
+      "icons": [
+        "pencil",
+        "Continental hotel",
+        "gold coins"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "kill-bill-vol-1",
+      "name": "Kill Bill: Vol. 1",
+      "kind": "movie",
+      "year": 2003,
+      "genre": "action",
+      "imdb_id": "tt0266697",
+      "icons": [
+        "yellow tracksuit",
+        "Hattori Hanzo sword",
+        "Pussy Wagon"
+      ],
+      "description": "Film (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "mad-max-fury-road",
+      "name": "Mad Max: Fury Road",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "action",
+      "imdb_id": "tt1392190",
+      "icons": [
+        "War Rig",
+        "desert chase",
+        "guitar doof warrior"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "mission-impossible-fallout",
+      "name": "Mission: Impossible – Fallout",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "action",
+      "imdb_id": "tt4912910",
+      "icons": [
+        "HALO jump",
+        "motorcycle chase",
+        "IMF mask"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "no-time-to-die",
+      "name": "No Time to Die",
+      "kind": "movie",
+      "year": 2021,
+      "genre": "action",
+      "imdb_id": "tt2382320",
+      "icons": [
+        "Aston Martin",
+        "Q gadgets"
+      ],
+      "description": "Film (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "rrr",
+      "name": "RRR",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt8178634",
+      "icons": [
+        "bridge fight",
+        "animals",
+        "dance sequence"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "skyfall",
+      "name": "Skyfall",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "action",
+      "imdb_id": "tt1074638",
+      "icons": [
+        "DB5",
+        "Scotland lodge",
+        "M's office"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "spider-man-no-way-home",
+      "name": "Spider-Man: No Way Home",
+      "kind": "movie",
+      "year": 2021,
+      "genre": "action",
+      "imdb_id": "tt10872600",
+      "icons": [
+        "multiverse spiders",
+        "Daily Bugle",
+        "web shooters"
+      ],
+      "description": "Film (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "terminator-2-judgment-day",
+      "name": "Terminator 2: Judgment Day",
+      "kind": "movie",
+      "year": 1991,
+      "genre": "action",
+      "imdb_id": "tt0103064",
+      "icons": [
+        "T-800 sunglasses",
+        "liquid metal",
+        "motorcycle"
+      ],
+      "description": "Film (1991) — iconic elements for world placement."
+    },
+    {
+      "id": "the-avengers",
+      "name": "The Avengers",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "action",
+      "imdb_id": "tt0848228",
+      "icons": [
+        "Stark Tower",
+        "Chitauri",
+        "shawarma"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "the-batman",
+      "name": "The Batman",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt1877830",
+      "icons": [
+        "Riddler cipher",
+        "Batmobile",
+        "rain Gotham"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-bourne-identity",
+      "name": "The Bourne Identity",
+      "kind": "movie",
+      "year": 2002,
+      "genre": "action",
+      "imdb_id": "tt0258463",
+      "icons": [
+        "red bag",
+        "passports",
+        "Paris chase"
+      ],
+      "description": "Film (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "the-dark-knight",
+      "name": "The Dark Knight",
+      "kind": "movie",
+      "year": 2008,
+      "genre": "action",
+      "imdb_id": "tt0468569",
+      "icons": [
+        "Batman cowl",
+        "Joker makeup",
+        "bat-signal",
+        "Tumbler"
+      ],
+      "description": "Film (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "the-hunger-games",
+      "name": "The Hunger Games",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "action",
+      "imdb_id": "tt1392170",
+      "icons": [
+        "mockingjay pin",
+        "bow",
+        "Cornucopia"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "top-gun",
+      "name": "Top Gun",
+      "kind": "movie",
+      "year": 1986,
+      "genre": "action",
+      "imdb_id": "tt0092099",
+      "icons": [
+        "aviator sunglasses",
+        "F-14",
+        "volleyball"
+      ],
+      "description": "Film (1986) — iconic elements for world placement."
+    },
+    {
+      "id": "top-gun-maverick",
+      "name": "Top Gun: Maverick",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt1745960",
+      "icons": [
+        "fighter jets",
+        "helmet",
+        "carrier deck"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "cast-away",
+      "name": "Cast Away",
+      "kind": "movie",
+      "year": 2000,
+      "genre": "adventure",
+      "imdb_id": "tt0162222",
+      "icons": [
+        "Wilson volleyball",
+        "island raft",
+        "FedEx packages"
+      ],
+      "description": "Film (2000) — iconic elements for world placement."
+    },
+    {
+      "id": "jurassic-park",
+      "name": "Jurassic Park",
+      "kind": "movie",
+      "year": 1993,
+      "genre": "adventure",
+      "imdb_id": "tt0107290",
+      "icons": [
+        "T. rex",
+        "Jeep",
+        "DNA amber",
+        "gates"
+      ],
+      "description": "Film (1993) — iconic elements for world placement."
+    },
+    {
+      "id": "jurassic-world",
+      "name": "Jurassic World",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "adventure",
+      "imdb_id": "tt0369610",
+      "icons": [
+        "Indominus",
+        "gyrosphere",
+        "park gates"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "life-of-pi",
+      "name": "Life of Pi",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "adventure",
+      "imdb_id": "tt0454876",
+      "icons": [
+        "tiger Richard Parker",
+        "lifeboat",
+        "ocean"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "the-revenant",
+      "name": "The Revenant",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "adventure",
+      "imdb_id": "tt1663202",
+      "icons": [
+        "bear attack snow",
+        "frontier fort",
+        "fur coat"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "akira",
+      "name": "Akira",
+      "kind": "movie",
+      "year": 1988,
+      "genre": "animation",
+      "imdb_id": "tt0094625",
+      "icons": [
+        "Neo-Tokyo",
+        "motorcycle",
+        "capsule"
+      ],
+      "description": "Film (1988) — iconic elements for world placement."
+    },
+    {
+      "id": "aladdin",
+      "name": "Aladdin",
+      "kind": "movie",
+      "year": 1992,
+      "genre": "animation",
+      "imdb_id": "tt0103639",
+      "icons": [
+        "magic lamp",
+        "flying carpet",
+        "Genie"
+      ],
+      "description": "Film (1992) — iconic elements for world placement."
+    },
+    {
+      "id": "beauty-and-the-beast",
+      "name": "Beauty and the Beast",
+      "kind": "movie",
+      "year": 1991,
+      "genre": "animation",
+      "imdb_id": "tt0101414",
+      "icons": [
+        "enchanted rose",
+        "ballroom",
+        "Beast castle"
+      ],
+      "description": "Film (1991) — iconic elements for world placement."
+    },
+    {
+      "id": "coco",
+      "name": "Coco",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "animation",
+      "imdb_id": "tt2380307",
+      "icons": [
+        "guitar",
+        "marigold bridge",
+        "alebrije"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "finding-nemo",
+      "name": "Finding Nemo",
+      "kind": "movie",
+      "year": 2003,
+      "genre": "animation",
+      "imdb_id": "tt0266543",
+      "icons": [
+        "clownfish",
+        "scuba mask",
+        "Sydney harbor"
+      ],
+      "description": "Film (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "frozen",
+      "name": "Frozen",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "animation",
+      "imdb_id": "tt2294629",
+      "icons": [
+        "ice palace",
+        "Olaf",
+        "Elsa gown"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "ghost-in-the-shell",
+      "name": "Ghost in the Shell",
+      "kind": "movie",
+      "year": 1995,
+      "genre": "animation",
+      "imdb_id": "tt0113568",
+      "icons": [
+        "cyborg Major",
+        "thermor-optic camo"
+      ],
+      "description": "Film (1995) — iconic elements for world placement."
+    },
+    {
+      "id": "inside-out",
+      "name": "Inside Out",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "animation",
+      "imdb_id": "tt2096673",
+      "icons": [
+        "emotion consoles",
+        "memory orbs",
+        "Headquarters"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "moana",
+      "name": "Moana",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "animation",
+      "imdb_id": "tt3521164",
+      "icons": [
+        "ocean canoe",
+        "heart of Te Fiti",
+        "Maui hook"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "my-neighbor-totoro",
+      "name": "My Neighbor Totoro",
+      "kind": "movie",
+      "year": 1988,
+      "genre": "animation",
+      "imdb_id": "tt0096283",
+      "icons": [
+        "Totoro",
+        "catbus",
+        "umbrella"
+      ],
+      "description": "Film (1988) — iconic elements for world placement."
+    },
+    {
+      "id": "princess-mononoke",
+      "name": "Princess Mononoke",
+      "kind": "movie",
+      "year": 1997,
+      "genre": "animation",
+      "imdb_id": "tt0119698",
+      "icons": [
+        "forest spirit",
+        "iron town",
+        "wolf clan"
+      ],
+      "description": "Film (1997) — iconic elements for world placement."
+    },
+    {
+      "id": "spider-man-into-the-spider-verse",
+      "name": "Spider-Man: Into the Spider-Verse",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "animation",
+      "imdb_id": "tt4633694",
+      "icons": [
+        "Miles Morales",
+        "comic halftone",
+        "spider-suit"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "spirited-away",
+      "name": "Spirited Away",
+      "kind": "movie",
+      "year": 2001,
+      "genre": "animation",
+      "imdb_id": "tt0245429",
+      "icons": [
+        "No-Face",
+        "bathhouse",
+        "train over water"
+      ],
+      "description": "Film (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "the-incredibles",
+      "name": "The Incredibles",
+      "kind": "movie",
+      "year": 2004,
+      "genre": "animation",
+      "imdb_id": "tt0317705",
+      "icons": [
+        "super suits",
+        "Incredibile car",
+        "Syndrome cape"
+      ],
+      "description": "Film (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "the-lion-king",
+      "name": "The Lion King",
+      "kind": "movie",
+      "year": 1994,
+      "genre": "animation",
+      "imdb_id": "tt0110357",
+      "icons": [
+        "Pride Rock",
+        "circle of life",
+        "Hakuna Matata"
+      ],
+      "description": "Film (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "the-super-mario-bros-movie",
+      "name": "The Super Mario Bros. Movie",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "animation",
+      "imdb_id": "tt6718170",
+      "icons": [
+        "Mario hat",
+        "Kart",
+        "Mushroom Kingdom"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "toy-story",
+      "name": "Toy Story",
+      "kind": "movie",
+      "year": 1995,
+      "genre": "animation",
+      "imdb_id": "tt0114709",
+      "icons": [
+        "Woody",
+        "Buzz Lightyear",
+        "Andy room"
+      ],
+      "description": "Film (1995) — iconic elements for world placement."
+    },
+    {
+      "id": "toy-story-3",
+      "name": "Toy Story 3",
+      "kind": "movie",
+      "year": 2010,
+      "genre": "animation",
+      "imdb_id": "tt0435761",
+      "icons": [
+        "daycare",
+        "incinerator",
+        "lotso"
+      ],
+      "description": "Film (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "up",
+      "name": "Up",
+      "kind": "movie",
+      "year": 2009,
+      "genre": "animation",
+      "imdb_id": "tt1049413",
+      "icons": [
+        "balloon house",
+        "Wilderness Explorer badge",
+        "dog cones"
+      ],
+      "description": "Film (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "wall-e",
+      "name": "WALL·E",
+      "kind": "movie",
+      "year": 2008,
+      "genre": "animation",
+      "imdb_id": "tt0910970",
+      "icons": [
+        "WALL-E robot",
+        "plant in boot",
+        "Axiom ship"
+      ],
+      "description": "Film (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "your-name",
+      "name": "Your Name",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "animation",
+      "imdb_id": "tt5311514",
+      "icons": [
+        "comet",
+        "braided cord",
+        "Tokyo skyline"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "bohemian-rhapsody",
+      "name": "Bohemian Rhapsody",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "biography",
+      "imdb_id": "tt1727824",
+      "icons": [
+        "Live Aid stage",
+        "Freddie mic",
+        "Queen logo"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "rocketman",
+      "name": "Rocketman",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "biography",
+      "imdb_id": "tt2066051",
+      "icons": [
+        "Elton glasses",
+        "piano",
+        "feathers"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "barbie",
+      "name": "Barbie",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "comedy",
+      "imdb_id": "tt1517268",
+      "icons": [
+        "Barbie Dreamhouse",
+        "pink convertible",
+        "rollerblades"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "don-t-look-up",
+      "name": "Don't Look Up",
+      "kind": "movie",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt11286314",
+      "icons": [
+        "comet",
+        "news desk",
+        "White House"
+      ],
+      "description": "Film (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "jojo-rabbit",
+      "name": "Jojo Rabbit",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "comedy",
+      "imdb_id": "tt2584384",
+      "icons": [
+        "imaginary Hitler",
+        "Hitler Youth",
+        "butterfly"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "moonrise-kingdom",
+      "name": "Moonrise Kingdom",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "comedy",
+      "imdb_id": "tt1748122",
+      "icons": [
+        "khaki scouts",
+        "record player",
+        "binoculars"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "once-upon-a-time-in-hollywood",
+      "name": "Once Upon a Time in Hollywood",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "comedy",
+      "imdb_id": "tt7131622",
+      "icons": [
+        "Cadillac",
+        "Spahn Ranch",
+        "1969 LA"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "poor-things",
+      "name": "Poor Things",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "comedy",
+      "imdb_id": "tt14230458",
+      "icons": [
+        "steampunk city",
+        "Bella Baxter",
+        "balloon"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "the-grand-budapest-hotel",
+      "name": "The Grand Budapest Hotel",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "comedy",
+      "imdb_id": "tt2278388",
+      "icons": [
+        "pink hotel",
+        "lobby boy hat",
+        "pastry box"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "the-holdovers",
+      "name": "The Holdovers",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "comedy",
+      "imdb_id": "tt14849194",
+      "icons": [
+        "boarding school",
+        "winter campus",
+        "professor coat"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "the-nice-guys",
+      "name": "The Nice Guys",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt3799694",
+      "icons": [
+        "1970s LA",
+        "turtleneck",
+        "porn star case"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-wolf-of-wall-street",
+      "name": "The Wolf of Wall Street",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "comedy",
+      "imdb_id": "tt0993846",
+      "icons": [
+        "yacht",
+        "phone sales floor",
+        "Quaaludes"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "goodfellas",
+      "name": "Goodfellas",
+      "kind": "movie",
+      "year": 1990,
+      "genre": "crime",
+      "imdb_id": "tt0099685",
+      "icons": [
+        "Copacabana entrance",
+        "mob dinner",
+        "garlic slicing"
+      ],
+      "description": "Film (1990) — iconic elements for world placement."
+    },
+    {
+      "id": "pulp-fiction",
+      "name": "Pulp Fiction",
+      "kind": "movie",
+      "year": 1994,
+      "genre": "crime",
+      "imdb_id": "tt0110912",
+      "icons": [
+        "briefcase glow",
+        "dance contest",
+        "Royale with Cheese",
+        "black suits"
+      ],
+      "description": "Film (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "reservoir-dogs",
+      "name": "Reservoir Dogs",
+      "kind": "movie",
+      "year": 1992,
+      "genre": "crime",
+      "imdb_id": "tt0105236",
+      "icons": [
+        "black suits",
+        "orange balloon",
+        "warehouse"
+      ],
+      "description": "Film (1992) — iconic elements for world placement."
+    },
+    {
+      "id": "the-godfather",
+      "name": "The Godfather",
+      "kind": "movie",
+      "year": 1972,
+      "genre": "crime",
+      "imdb_id": "tt0068646",
+      "icons": [
+        "orange peel",
+        "horse head",
+        "Corleone office",
+        "Sicilian wedding"
+      ],
+      "description": "Film (1972) — iconic elements for world placement."
+    },
+    {
+      "id": "the-irishman",
+      "name": "The Irishman",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "crime",
+      "imdb_id": "tt1302006",
+      "icons": [
+        "Teamsters",
+        "Cadillac",
+        "nursing home"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "a-clockwork-orange",
+      "name": "A Clockwork Orange",
+      "kind": "movie",
+      "year": 1971,
+      "genre": "drama",
+      "imdb_id": "tt0066921",
+      "icons": [
+        "bowler hat",
+        "korova milk",
+        "eye makeup"
+      ],
+      "description": "Film (1971) — iconic elements for world placement."
+    },
+    {
+      "id": "a-star-is-born",
+      "name": "A Star Is Born",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "drama",
+      "imdb_id": "tt1517451",
+      "icons": [
+        "stage lights",
+        "guitar",
+        "Gaga mic"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "citizen-kane",
+      "name": "Citizen Kane",
+      "kind": "movie",
+      "year": 1941,
+      "genre": "drama",
+      "imdb_id": "tt0033467",
+      "icons": [
+        "Rosebud sled",
+        "Xanadu",
+        "newsreel"
+      ],
+      "description": "Film (1941) — iconic elements for world placement."
+    },
+    {
+      "id": "fight-club",
+      "name": "Fight Club",
+      "kind": "movie",
+      "year": 1999,
+      "genre": "drama",
+      "imdb_id": "tt0137523",
+      "icons": [
+        "soap",
+        "Project Mayhem",
+        "basement fight ring",
+        "Narrator apartment"
+      ],
+      "description": "Film (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "forrest-gump",
+      "name": "Forrest Gump",
+      "kind": "movie",
+      "year": 1994,
+      "genre": "drama",
+      "imdb_id": "tt0109830",
+      "icons": [
+        "box of chocolates",
+        "park bench",
+        "running shoes",
+        "ping-pong paddle"
+      ],
+      "description": "Film (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "joker",
+      "name": "Joker",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "drama",
+      "imdb_id": "tt7286456",
+      "icons": [
+        "Joker stairs",
+        "makeup",
+        "cigarette"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "oppenheimer",
+      "name": "Oppenheimer",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "drama",
+      "imdb_id": "tt15398776",
+      "icons": [
+        "Trinity test",
+        "fedora",
+        "blackboard physics"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "schindler-s-list",
+      "name": "Schindler's List",
+      "kind": "movie",
+      "year": 1993,
+      "genre": "drama",
+      "imdb_id": "tt0108052",
+      "icons": [
+        "girl in red coat",
+        "list papers",
+        "factory"
+      ],
+      "description": "Film (1993) — iconic elements for world placement."
+    },
+    {
+      "id": "slumdog-millionaire",
+      "name": "Slumdog Millionaire",
+      "kind": "movie",
+      "year": 2008,
+      "genre": "drama",
+      "imdb_id": "tt1010048",
+      "icons": [
+        "Who Wants to Be a Millionaire",
+        "Mumbai trains",
+        "Taj Mahal"
+      ],
+      "description": "Film (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "the-green-mile",
+      "name": "The Green Mile",
+      "kind": "movie",
+      "year": 1999,
+      "genre": "drama",
+      "imdb_id": "tt0120689",
+      "icons": [
+        "death row",
+        "mouse Mr. Jingles",
+        "electric chair"
+      ],
+      "description": "Film (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "the-prestige",
+      "name": "The Prestige",
+      "kind": "movie",
+      "year": 2006,
+      "genre": "drama",
+      "imdb_id": "tt0482571",
+      "icons": [
+        "bird cage",
+        "Tesla coils",
+        "top hat"
+      ],
+      "description": "Film (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "the-shawshank-redemption",
+      "name": "The Shawshank Redemption",
+      "kind": "movie",
+      "year": 1994,
+      "genre": "drama",
+      "imdb_id": "tt0111161",
+      "icons": [
+        "rock hammer",
+        "poster of Rita Hayworth",
+        "prison yard",
+        "chess pieces"
+      ],
+      "description": "Film (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "the-social-network",
+      "name": "The Social Network",
+      "kind": "movie",
+      "year": 2010,
+      "genre": "drama",
+      "imdb_id": "tt1285016",
+      "icons": [
+        "Facebook office",
+        "hoodie",
+        "rowers"
+      ],
+      "description": "Film (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "the-truman-show",
+      "name": "The Truman Show",
+      "kind": "movie",
+      "year": 1998,
+      "genre": "drama",
+      "imdb_id": "tt0120382",
+      "icons": [
+        "Seahaven dome",
+        "hidden cameras",
+        "boat exit"
+      ],
+      "description": "Film (1998) — iconic elements for world placement."
+    },
+    {
+      "id": "the-whale",
+      "name": "The Whale",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt13833688",
+      "icons": [
+        "apartment",
+        "essay",
+        "pizza"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "there-will-be-blood",
+      "name": "There Will Be Blood",
+      "kind": "movie",
+      "year": 2007,
+      "genre": "drama",
+      "imdb_id": "tt0469494",
+      "icons": [
+        "oil derrick",
+        "milkshake",
+        "bowling alley"
+      ],
+      "description": "Film (2007) — iconic elements for world placement."
+    },
+    {
+      "id": "whiplash",
+      "name": "Whiplash",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "drama",
+      "imdb_id": "tt2582802",
+      "icons": [
+        "drum kit",
+        "bloodied sticks",
+        "practice room"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "e-t-the-extra-terrestrial",
+      "name": "E.T. the Extra-Terrestrial",
+      "kind": "movie",
+      "year": 1982,
+      "genre": "family",
+      "imdb_id": "tt0083866",
+      "icons": [
+        "E.T. bike moon",
+        "Reese's Pieces",
+        "glow finger"
+      ],
+      "description": "Film (1982) — iconic elements for world placement."
+    },
+    {
+      "id": "harry-potter-and-the-deathly-hallows-part-2",
+      "name": "Harry Potter and the Deathly Hallows: Part 2",
+      "kind": "movie",
+      "year": 2011,
+      "genre": "fantasy",
+      "imdb_id": "tt1201607",
+      "icons": [
+        "Elder Wand",
+        "Horcruxes",
+        "Battle of Hogwarts"
+      ],
+      "description": "Film (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "harry-potter-and-the-prisoner-of-azkaban",
+      "name": "Harry Potter and the Prisoner of Azkaban",
+      "kind": "movie",
+      "year": 2004,
+      "genre": "fantasy",
+      "imdb_id": "tt0304141",
+      "icons": [
+        "Time-Turner",
+        "dementors",
+        "Firebolt"
+      ],
+      "description": "Film (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "harry-potter-and-the-sorcerer-s-stone",
+      "name": "Harry Potter and the Sorcerer's Stone",
+      "kind": "movie",
+      "year": 2001,
+      "genre": "fantasy",
+      "imdb_id": "tt0241527",
+      "icons": [
+        "Hogwarts",
+        "wand",
+        "Sorting Hat",
+        "Platform 9¾"
+      ],
+      "description": "Film (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "pan-s-labyrinth",
+      "name": "Pan's Labyrinth",
+      "kind": "movie",
+      "year": 2006,
+      "genre": "fantasy",
+      "imdb_id": "tt0457430",
+      "icons": [
+        "faun",
+        "pale man",
+        "labyrinth"
+      ],
+      "description": "Film (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "the-hobbit-an-unexpected-journey",
+      "name": "The Hobbit: An Unexpected Journey",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "fantasy",
+      "imdb_id": "tt0903624",
+      "icons": [
+        "Bilbo",
+        "Smaug gold",
+        "dwarves"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "name": "The Lord of the Rings: The Fellowship of the Ring",
+      "kind": "movie",
+      "year": 2001,
+      "genre": "fantasy",
+      "imdb_id": "tt0120737",
+      "icons": [
+        "One Ring",
+        "Sting sword",
+        "Hobbiton",
+        "Fellowship"
+      ],
+      "description": "Film (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "the-lord-of-the-rings-the-return-of-the-king",
+      "name": "The Lord of the Rings: The Return of the King",
+      "kind": "movie",
+      "year": 2003,
+      "genre": "fantasy",
+      "imdb_id": "tt0167260",
+      "icons": [
+        "Minas Tirith",
+        "One Ring destroyed",
+        "eagles"
+      ],
+      "description": "Film (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "the-lord-of-the-rings-the-two-towers",
+      "name": "The Lord of the Rings: The Two Towers",
+      "kind": "movie",
+      "year": 2002,
+      "genre": "fantasy",
+      "imdb_id": "tt0167261",
+      "icons": [
+        "Helm's Deep",
+        "Gollum",
+        " Ents"
+      ],
+      "description": "Film (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "the-shape-of-water",
+      "name": "The Shape of Water",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "fantasy",
+      "imdb_id": "tt5580390",
+      "icons": [
+        "amphibian man",
+        "lab tank",
+        "eggs"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "the-wizard-of-oz",
+      "name": "The Wizard of Oz",
+      "kind": "movie",
+      "year": 1939,
+      "genre": "fantasy",
+      "imdb_id": "tt0032138",
+      "icons": [
+        "ruby slippers",
+        "yellow brick road",
+        "Emerald City"
+      ],
+      "description": "Film (1939) — iconic elements for world placement."
+    },
+    {
+      "id": "a-quiet-place",
+      "name": "A Quiet Place",
+      "kind": "movie",
+      "year": 2018,
+      "genre": "horror",
+      "imdb_id": "tt6644200",
+      "icons": [
+        "barefoot path",
+        "lights signal",
+        "creatures"
+      ],
+      "description": "Film (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "alien",
+      "name": "Alien",
+      "kind": "movie",
+      "year": 1979,
+      "genre": "horror",
+      "imdb_id": "tt0078748",
+      "icons": [
+        "xenomorph",
+        "Nostromo",
+        "facehugger"
+      ],
+      "description": "Film (1979) — iconic elements for world placement."
+    },
+    {
+      "id": "get-out",
+      "name": "Get Out",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "horror",
+      "imdb_id": "tt5052448",
+      "icons": [
+        "teacup stir",
+        "sunken place",
+        "bingo hall"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "kind": "movie",
+      "year": 1978,
+      "genre": "horror",
+      "imdb_id": "tt0077651",
+      "icons": [
+        "Michael Myers mask",
+        "kitchen knife",
+        "suburb night"
+      ],
+      "description": "Film (1978) — iconic elements for world placement."
+    },
+    {
+      "id": "it",
+      "name": "It",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "horror",
+      "imdb_id": "tt1396484",
+      "icons": [
+        "red balloon",
+        "Pennywise",
+        "sewer drain"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "psycho",
+      "name": "Psycho",
+      "kind": "movie",
+      "year": 1960,
+      "genre": "horror",
+      "imdb_id": "tt0054215",
+      "icons": [
+        "Bates Motel",
+        "shower scene",
+        "taxidermy"
+      ],
+      "description": "Film (1960) — iconic elements for world placement."
+    },
+    {
+      "id": "scream",
+      "name": "Scream",
+      "kind": "movie",
+      "year": 1996,
+      "genre": "horror",
+      "imdb_id": "tt0117571",
+      "icons": [
+        "Ghostface mask",
+        "phone call",
+        "knife"
+      ],
+      "description": "Film (1996) — iconic elements for world placement."
+    },
+    {
+      "id": "the-conjuring",
+      "name": "The Conjuring",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "horror",
+      "imdb_id": "tt1457767",
+      "icons": [
+        "Annabelle case",
+        "farmhouse",
+        "holy water"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "the-exorcist",
+      "name": "The Exorcist",
+      "kind": "movie",
+      "year": 1973,
+      "genre": "horror",
+      "imdb_id": "tt0070047",
+      "icons": [
+        "pea soup",
+        "crucifix",
+        "bedroom stairs"
+      ],
+      "description": "Film (1973) — iconic elements for world placement."
+    },
+    {
+      "id": "the-shining",
+      "name": "The Shining",
+      "kind": "movie",
+      "year": 1980,
+      "genre": "horror",
+      "imdb_id": "tt0081505",
+      "icons": [
+        "Overlook Hotel",
+        "trike hallway",
+        "REDRUM",
+        "axe"
+      ],
+      "description": "Film (1980) — iconic elements for world placement."
+    },
+    {
+      "id": "train-to-busan",
+      "name": "Train to Busan",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "horror",
+      "imdb_id": "tt5700672",
+      "icons": [
+        "zombie train",
+        "KTX",
+        "businessman"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "chicago",
+      "name": "Chicago",
+      "kind": "movie",
+      "year": 2002,
+      "genre": "musical",
+      "imdb_id": "tt0299658",
+      "icons": [
+        "jazz clubs",
+        "prison cell",
+        "spotlight"
+      ],
+      "description": "Film (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "grease",
+      "name": "Grease",
+      "kind": "movie",
+      "year": 1978,
+      "genre": "musical",
+      "imdb_id": "tt0077631",
+      "icons": [
+        "leather jacket",
+        "pink ladies",
+        "cars"
+      ],
+      "description": "Film (1978) — iconic elements for world placement."
+    },
+    {
+      "id": "la-la-land",
+      "name": "La La Land",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "musical",
+      "imdb_id": "tt3783958",
+      "icons": [
+        "yellow dress",
+        "Griffith Observatory",
+        "piano"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-greatest-showman",
+      "name": "The Greatest Showman",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "musical",
+      "imdb_id": "tt1485796",
+      "icons": [
+        "circus tent",
+        "top hat",
+        "ringmaster"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "the-sound-of-music",
+      "name": "The Sound of Music",
+      "kind": "movie",
+      "year": 1965,
+      "genre": "musical",
+      "imdb_id": "tt0059742",
+      "icons": [
+        "Alps meadow",
+        "nun habit",
+        "puppet show"
+      ],
+      "description": "Film (1965) — iconic elements for world placement."
+    },
+    {
+      "id": "wonka",
+      "name": "Wonka",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "musical",
+      "imdb_id": "tt6166392",
+      "icons": [
+        "chocolate shop",
+        "top hat",
+        "Oompa"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "glass-onion",
+      "name": "Glass Onion",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "mystery",
+      "imdb_id": "tt11564570",
+      "icons": [
+        "glass onion set",
+        "island villa",
+        "puzzle box"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "knives-out",
+      "name": "Knives Out",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "mystery",
+      "imdb_id": "tt8946378",
+      "icons": [
+        "Thrombey mansion",
+        "donut hole",
+        "detective coat"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "casablanca",
+      "name": "Casablanca",
+      "kind": "movie",
+      "year": 1942,
+      "genre": "romance",
+      "imdb_id": "tt0034583",
+      "icons": [
+        "Rick's Café",
+        "letters of transit",
+        "piano"
+      ],
+      "description": "Film (1942) — iconic elements for world placement."
+    },
+    {
+      "id": "her",
+      "name": "Her",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "romance",
+      "imdb_id": "tt1798709",
+      "icons": [
+        "high-waist pants",
+        "earpiece OS",
+        "future LA"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "past-lives",
+      "name": "Past Lives",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "romance",
+      "imdb_id": "tt13238346",
+      "icons": [
+        "bar reunion",
+        "New York",
+        "In-Yun"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "pretty-woman",
+      "name": "Pretty Woman",
+      "kind": "movie",
+      "year": 1990,
+      "genre": "romance",
+      "imdb_id": "tt0100405",
+      "icons": [
+        "red dress",
+        "Rodeo Drive",
+        "fire escape"
+      ],
+      "description": "Film (1990) — iconic elements for world placement."
+    },
+    {
+      "id": "the-notebook",
+      "name": "The Notebook",
+      "kind": "movie",
+      "year": 2004,
+      "genre": "romance",
+      "imdb_id": "tt0332280",
+      "icons": [
+        "rowboat",
+        "rain kiss",
+        "blue shutters house"
+      ],
+      "description": "Film (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "the-twilight-saga-breaking-dawn-part-2",
+      "name": "The Twilight Saga: Breaking Dawn – Part 2",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "romance",
+      "imdb_id": "tt1673434",
+      "icons": [
+        "Volturi",
+        "wedding",
+        "imprint"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "titanic",
+      "name": "Titanic",
+      "kind": "movie",
+      "year": 1997,
+      "genre": "romance",
+      "imdb_id": "tt0120338",
+      "icons": [
+        "Heart of the Ocean",
+        "ship bow",
+        "lifeboats"
+      ],
+      "description": "Film (1997) — iconic elements for world placement."
+    },
+    {
+      "id": "twilight",
+      "name": "Twilight",
+      "kind": "movie",
+      "year": 2008,
+      "genre": "romance",
+      "imdb_id": "tt1099212",
+      "icons": [
+        "apple cover vibe",
+        "Forks forest",
+        "vampire baseball"
+      ],
+      "description": "Film (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "when-harry-met-sally",
+      "name": "When Harry Met Sally",
+      "kind": "movie",
+      "year": 1989,
+      "genre": "romance",
+      "imdb_id": "tt0098635",
+      "icons": [
+        "deli scene",
+        "New Year's party",
+        "bookstore"
+      ],
+      "description": "Film (1989) — iconic elements for world placement."
+    },
+    {
+      "id": "2001-a-space-odyssey",
+      "name": "2001: A Space Odyssey",
+      "kind": "movie",
+      "year": 1968,
+      "genre": "sci-fi",
+      "imdb_id": "tt0062622",
+      "icons": [
+        "monolith",
+        "HAL 9000 eye",
+        "space station"
+      ],
+      "description": "Film (1968) — iconic elements for world placement."
+    },
+    {
+      "id": "arrival",
+      "name": "Arrival",
+      "kind": "movie",
+      "year": 2016,
+      "genre": "sci-fi",
+      "imdb_id": "tt2543164",
+      "icons": [
+        "heptapod ship",
+        "ink circles",
+        "military camp"
+      ],
+      "description": "Film (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar",
+      "kind": "movie",
+      "year": 2009,
+      "genre": "sci-fi",
+      "imdb_id": "tt0499549",
+      "icons": [
+        "Na'vi",
+        "floating mountains",
+        "Tree of Souls"
+      ],
+      "description": "Film (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "avatar-the-way-of-water",
+      "name": "Avatar: The Way of Water",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt1630029",
+      "icons": [
+        "reef village",
+        "tulkun",
+        "skimming"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "back-to-the-future",
+      "name": "Back to the Future",
+      "kind": "movie",
+      "year": 1985,
+      "genre": "sci-fi",
+      "imdb_id": "tt0088763",
+      "icons": [
+        "DeLorean",
+        "flux capacitor",
+        "hoverboard",
+        "clock tower"
+      ],
+      "description": "Film (1985) — iconic elements for world placement."
+    },
+    {
+      "id": "blade-runner",
+      "name": "Blade Runner",
+      "kind": "movie",
+      "year": 1982,
+      "genre": "sci-fi",
+      "imdb_id": "tt0083658",
+      "icons": [
+        "origami unicorn",
+        "neon rain",
+        "Voight-Kampff"
+      ],
+      "description": "Film (1982) — iconic elements for world placement."
+    },
+    {
+      "id": "blade-runner-2049",
+      "name": "Blade Runner 2049",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "sci-fi",
+      "imdb_id": "tt1856101",
+      "icons": [
+        "hologram Joi",
+        "neon Los Angeles",
+        "origami"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "dune",
+      "name": "Dune",
+      "kind": "movie",
+      "year": 2021,
+      "genre": "sci-fi",
+      "imdb_id": "tt1160419",
+      "icons": [
+        "stillsuits",
+        "sandworms",
+        "spice",
+        "ornithopter"
+      ],
+      "description": "Film (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "dune-part-two",
+      "name": "Dune: Part Two",
+      "kind": "movie",
+      "year": 2024,
+      "genre": "sci-fi",
+      "imdb_id": "tt15239678",
+      "icons": [
+        "Fremen stillsuits",
+        "sandworm ride",
+        "Arrakis desert"
+      ],
+      "description": "Film (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "everything-everywhere-all-at-once",
+      "name": "Everything Everywhere All at Once",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt6710474",
+      "icons": [
+        "googly eyes",
+        "laundry mat",
+        "hot dog hands"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "eeaao",
+      "name": "Everything Everywhere All at Once",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt6710474",
+      "icons": [
+        "googly eyes"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "ex-machina",
+      "name": "Ex Machina",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "sci-fi",
+      "imdb_id": "tt0470752",
+      "icons": [
+        "AI robot Ava",
+        "glass house",
+        "keycard"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "gravity",
+      "name": "Gravity",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "sci-fi",
+      "imdb_id": "tt1454468",
+      "icons": [
+        "spacesuit",
+        "ISS",
+        "debris field"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "inception",
+      "name": "Inception",
+      "kind": "movie",
+      "year": 2010,
+      "genre": "sci-fi",
+      "imdb_id": "tt1375666",
+      "icons": [
+        "spinning top",
+        "folding city",
+        "Penrose stairs",
+        "dream levels"
+      ],
+      "description": "Film (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "interstellar",
+      "name": "Interstellar",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "sci-fi",
+      "imdb_id": "tt0816692",
+      "icons": [
+        "TARS robot",
+        "black hole Gargantua",
+        "cornfield",
+        "space suit"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "return-of-the-jedi",
+      "name": "Return of the Jedi",
+      "kind": "movie",
+      "year": 1983,
+      "genre": "sci-fi",
+      "imdb_id": "tt0086190",
+      "icons": [
+        "Endor forest",
+        "Ewoks",
+        "Emperor throne"
+      ],
+      "description": "Film (1983) — iconic elements for world placement."
+    },
+    {
+      "id": "star-wars-a-new-hope",
+      "name": "Star Wars: A New Hope",
+      "kind": "movie",
+      "year": 1977,
+      "genre": "sci-fi",
+      "imdb_id": "tt0076759",
+      "icons": [
+        "lightsaber",
+        "Death Star",
+        "X-wing",
+        "Millennium Falcon"
+      ],
+      "description": "Film (1977) — iconic elements for world placement."
+    },
+    {
+      "id": "star-wars-the-force-awakens",
+      "name": "Star Wars: The Force Awakens",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "sci-fi",
+      "imdb_id": "tt2488496",
+      "icons": [
+        "BB-8",
+        "lightsaber crossguard",
+        "Starkiller"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "the-empire-strikes-back",
+      "name": "The Empire Strikes Back",
+      "kind": "movie",
+      "year": 1980,
+      "genre": "sci-fi",
+      "imdb_id": "tt0080684",
+      "icons": [
+        "AT-AT walkers",
+        "cloud city",
+        "I am your father"
+      ],
+      "description": "Film (1980) — iconic elements for world placement."
+    },
+    {
+      "id": "the-martian",
+      "name": "The Martian",
+      "kind": "movie",
+      "year": 2015,
+      "genre": "sci-fi",
+      "imdb_id": "tt3659388",
+      "icons": [
+        "potato farm",
+        "Mars habitat",
+        "duct tape"
+      ],
+      "description": "Film (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "the-matrix",
+      "name": "The Matrix",
+      "kind": "movie",
+      "year": 1999,
+      "genre": "sci-fi",
+      "imdb_id": "tt0133093",
+      "icons": [
+        "green code rain",
+        "sunglasses",
+        "bullet time",
+        "red/blue pill"
+      ],
+      "description": "Film (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "anatomy-of-a-fall",
+      "name": "Anatomy of a Fall",
+      "kind": "movie",
+      "year": 2023,
+      "genre": "thriller",
+      "imdb_id": "tt17009710",
+      "icons": [
+        "chalet",
+        "courtroom",
+        "dog Snoop"
+      ],
+      "description": "Film (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "gone-girl",
+      "name": "Gone Girl",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "thriller",
+      "imdb_id": "tt2267998",
+      "icons": [
+        "wanted poster",
+        "diary",
+        "suburban house"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "jaws",
+      "name": "Jaws",
+      "kind": "movie",
+      "year": 1975,
+      "genre": "thriller",
+      "imdb_id": "tt0073195",
+      "icons": [
+        "shark fin",
+        "beach",
+        "Orca boat"
+      ],
+      "description": "Film (1975) — iconic elements for world placement."
+    },
+    {
+      "id": "memento",
+      "name": "Memento",
+      "kind": "movie",
+      "year": 2000,
+      "genre": "thriller",
+      "imdb_id": "tt0209144",
+      "icons": [
+        "Polaroids",
+        "tattoos",
+        "motel room"
+      ],
+      "description": "Film (2000) — iconic elements for world placement."
+    },
+    {
+      "id": "nightcrawler",
+      "name": "Nightcrawler",
+      "kind": "movie",
+      "year": 2014,
+      "genre": "thriller",
+      "imdb_id": "tt2872718",
+      "icons": [
+        "news van",
+        "camera",
+        "LA night"
+      ],
+      "description": "Film (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "no-country-for-old-men",
+      "name": "No Country for Old Men",
+      "kind": "movie",
+      "year": 2007,
+      "genre": "thriller",
+      "imdb_id": "tt0477348",
+      "icons": [
+        "captive bolt pistol",
+        "briefcase money",
+        "desert motel"
+      ],
+      "description": "Film (2007) — iconic elements for world placement."
+    },
+    {
+      "id": "oldboy",
+      "name": "Oldboy",
+      "kind": "movie",
+      "year": 2003,
+      "genre": "thriller",
+      "imdb_id": "tt0364569",
+      "icons": [
+        "hammer corridor",
+        "hypnosis",
+        "prison room"
+      ],
+      "description": "Film (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "parasite",
+      "name": "Parasite",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "thriller",
+      "imdb_id": "tt6751668",
+      "icons": [
+        "semi-basement",
+        "scholar's rock",
+        "rain flood"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "prisoners",
+      "name": "Prisoners",
+      "kind": "movie",
+      "year": 2013,
+      "genre": "thriller",
+      "imdb_id": "tt1392214",
+      "icons": [
+        "RV",
+        "maze",
+        "whistle"
+      ],
+      "description": "Film (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "se7en",
+      "name": "Se7en",
+      "kind": "movie",
+      "year": 1995,
+      "genre": "thriller",
+      "imdb_id": "tt0114369",
+      "icons": [
+        "seven deadly sins boxes",
+        "rain city",
+        "detective notebooks"
+      ],
+      "description": "Film (1995) — iconic elements for world placement."
+    },
+    {
+      "id": "shutter-island",
+      "name": "Shutter Island",
+      "kind": "movie",
+      "year": 2010,
+      "genre": "thriller",
+      "imdb_id": "tt1130884",
+      "icons": [
+        "lighthouse",
+        "cliff",
+        "patient files"
+      ],
+      "description": "Film (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "the-menu",
+      "name": "The Menu",
+      "kind": "movie",
+      "year": 2022,
+      "genre": "thriller",
+      "imdb_id": "tt9764362",
+      "icons": [
+        "fine dining plate",
+        "island restaurant",
+        "chef whites"
+      ],
+      "description": "Film (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-silence-of-the-lambs",
+      "name": "The Silence of the Lambs",
+      "kind": "movie",
+      "year": 1991,
+      "genre": "thriller",
+      "imdb_id": "tt0102926",
+      "icons": [
+        "Hannibal mask",
+        "moth",
+        "FBI badge"
+      ],
+      "description": "Film (1991) — iconic elements for world placement."
+    },
+    {
+      "id": "the-sixth-sense",
+      "name": "The Sixth Sense",
+      "kind": "movie",
+      "year": 1999,
+      "genre": "thriller",
+      "imdb_id": "tt0167404",
+      "icons": [
+        "red door knob",
+        "tent",
+        "I see dead people"
+      ],
+      "description": "Film (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "zodiac",
+      "name": "Zodiac",
+      "kind": "movie",
+      "year": 2007,
+      "genre": "thriller",
+      "imdb_id": "tt0443706",
+      "icons": [
+        "cipher letters",
+        "taxi cab",
+        "newspaper desk"
+      ],
+      "description": "Film (2007) — iconic elements for world placement."
+    },
+    {
+      "id": "1917",
+      "name": "1917",
+      "kind": "movie",
+      "year": 2019,
+      "genre": "war",
+      "imdb_id": "tt8579674",
+      "icons": [
+        "trenches",
+        "flare light",
+        "single-take front"
+      ],
+      "description": "Film (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "braveheart",
+      "name": "Braveheart",
+      "kind": "movie",
+      "year": 1995,
+      "genre": "war",
+      "imdb_id": "tt0112573",
+      "icons": [
+        "blue face paint",
+        "claymore",
+        "Scottish highlands"
+      ],
+      "description": "Film (1995) — iconic elements for world placement."
+    },
+    {
+      "id": "dunkirk",
+      "name": "Dunkirk",
+      "kind": "movie",
+      "year": 2017,
+      "genre": "war",
+      "imdb_id": "tt5013056",
+      "icons": [
+        "Spitfire",
+        "Mole pier",
+        "civilian boats"
+      ],
+      "description": "Film (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "inglourious-basterds",
+      "name": "Inglourious Basterds",
+      "kind": "movie",
+      "year": 2009,
+      "genre": "war",
+      "imdb_id": "tt0361748",
+      "icons": [
+        "cinema fire",
+        "strudel cream",
+        "basterds knives"
+      ],
+      "description": "Film (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "saving-private-ryan",
+      "name": "Saving Private Ryan",
+      "kind": "movie",
+      "year": 1998,
+      "genre": "war",
+      "imdb_id": "tt0120815",
+      "icons": [
+        "D-Day beach",
+        "dog tags",
+        "typewriter"
+      ],
+      "description": "Film (1998) — iconic elements for world placement."
+    },
+    {
+      "id": "django-unchained",
+      "name": "Django Unchained",
+      "kind": "movie",
+      "year": 2012,
+      "genre": "western",
+      "imdb_id": "tt1853728",
+      "icons": [
+        "Django glasses",
+        "Candyland",
+        "horses"
+      ],
+      "description": "Film (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "24",
+      "name": "24",
+      "kind": "tv",
+      "year": 2001,
+      "genre": "action",
+      "imdb_id": "tt0285331",
+      "icons": [
+        "split screen",
+        "CTU",
+        "ticking clock"
+      ],
+      "description": "TV series (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "gen-v",
+      "name": "Gen V",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "action",
+      "imdb_id": "tt13159924",
+      "icons": [
+        "Godolkin University",
+        "super college"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "hawkeye",
+      "name": "Hawkeye",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "action",
+      "imdb_id": "tt10160804",
+      "icons": [
+        "arrows",
+        "Ronin",
+        "Christmas NYC"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "moon-knight",
+      "name": "Moon Knight",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt10234724",
+      "icons": [
+        "Mr. Knight suit",
+        "Khonshu",
+        "Cairo"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "ms-marvel",
+      "name": "Ms. Marvel",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt10857164",
+      "icons": [
+        "bangle",
+        "Jersey City",
+        "Kamala"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "prison-break",
+      "name": "Prison Break",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "action",
+      "imdb_id": "tt0455275",
+      "icons": [
+        "tattoos map",
+        "Fox River",
+        "blueprints"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "reacher",
+      "name": "Reacher",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "action",
+      "imdb_id": "tt9288030",
+      "icons": [
+        "Jack Reacher",
+        "small town",
+        "hand-to-hand"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "spartacus",
+      "name": "Spartacus",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "action",
+      "imdb_id": "tt1442449",
+      "icons": [
+        "arena",
+        "gladiators",
+        "blood spray"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "the-boys",
+      "name": "The Boys",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "action",
+      "imdb_id": "tt1190634",
+      "icons": [
+        "Homelander cape",
+        "Vought tower",
+        "compound V"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "vikings",
+      "name": "Vikings",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "action",
+      "imdb_id": "tt2306299",
+      "icons": [
+        "longships",
+        "Ragnar",
+        "Valhalla"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "lost",
+      "name": "Lost",
+      "kind": "tv",
+      "year": 2004,
+      "genre": "adventure",
+      "imdb_id": "tt0411008",
+      "icons": [
+        "Oceanic 815",
+        "hatch",
+        "smoke monster",
+        "numbers"
+      ],
+      "description": "TV series (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "adventure-time",
+      "name": "Adventure Time",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "animation",
+      "imdb_id": "tt1305826",
+      "icons": [
+        "Finn hat",
+        "Jake dog",
+        "Land of Ooo"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "arcane",
+      "name": "Arcane",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "animation",
+      "imdb_id": "tt11126994",
+      "icons": [
+        "Piltover",
+        "Zaun",
+        "hextech",
+        "Jinx"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "avatar-the-last-airbender",
+      "name": "Avatar: The Last Airbender",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "animation",
+      "imdb_id": "tt0417299",
+      "icons": [
+        "Appa",
+        "bending elements",
+        "Aang arrows"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "bojack-horseman",
+      "name": "BoJack Horseman",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "animation",
+      "imdb_id": "tt3398228",
+      "icons": [
+        "Hollywoo",
+        "horse head",
+        "D-list celebrity"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "family-guy",
+      "name": "Family Guy",
+      "kind": "tv",
+      "year": 1999,
+      "genre": "animation",
+      "imdb_id": "tt0182576",
+      "icons": [
+        "Griffin house",
+        "cutaway gags",
+        "Peter"
+      ],
+      "description": "TV series (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "gravity-falls",
+      "name": "Gravity Falls",
+      "kind": "tv",
+      "year": 2012,
+      "genre": "animation",
+      "imdb_id": "tt1865718",
+      "icons": [
+        "Mystery Shack",
+        "Journal 3",
+        "pine tree hat"
+      ],
+      "description": "TV series (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "invincible",
+      "name": "Invincible",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "animation",
+      "imdb_id": "tt6741278",
+      "icons": [
+        "Omni-Man",
+        "superhero blood",
+        "Guardians"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "regular-show",
+      "name": "Regular Show",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "animation",
+      "imdb_id": "tt1710308",
+      "icons": [
+        "park groundskeeper",
+        "Mordecai",
+        "Rigby"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "rick-and-morty",
+      "name": "Rick and Morty",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "animation",
+      "imdb_id": "tt2861424",
+      "icons": [
+        "portal gun",
+        "spaceship garage",
+        "Pickle Rick"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "south-park",
+      "name": "South Park",
+      "kind": "tv",
+      "year": 1997,
+      "genre": "animation",
+      "imdb_id": "tt0121955",
+      "icons": [
+        "Colorado town",
+        "cutout style",
+        "Kenny dead"
+      ],
+      "description": "TV series (1997) — iconic elements for world placement."
+    },
+    {
+      "id": "spongebob-squarepants",
+      "name": "SpongeBob SquarePants",
+      "kind": "tv",
+      "year": 1999,
+      "genre": "animation",
+      "imdb_id": "tt0206512",
+      "icons": [
+        "pineapple house",
+        "Krabby Patty",
+        "Jellyfish fields"
+      ],
+      "description": "TV series (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "the-legend-of-korra",
+      "name": "The Legend of Korra",
+      "kind": "tv",
+      "year": 2012,
+      "genre": "animation",
+      "imdb_id": "tt1695360",
+      "icons": [
+        "Republic City",
+        "pro-bending"
+      ],
+      "description": "TV series (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "the-legend-of-vox-machina",
+      "name": "The Legend of Vox Machina",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "animation",
+      "imdb_id": "tt11247158",
+      "icons": [
+        "Critical Role",
+        "fantasy party"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-simpsons",
+      "name": "The Simpsons",
+      "kind": "tv",
+      "year": 1989,
+      "genre": "animation",
+      "imdb_id": "tt0096697",
+      "icons": [
+        "yellow family",
+        "Springfield",
+        "couch gag"
+      ],
+      "description": "TV series (1989) — iconic elements for world placement."
+    },
+    {
+      "id": "what-if",
+      "name": "What If...?",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "animation",
+      "imdb_id": "tt10168312",
+      "icons": [
+        "Watcher",
+        "multiverse shorts"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "abbott-elementary",
+      "name": "Abbott Elementary",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt14218830",
+      "icons": [
+        "Philadelphia school",
+        "teachers",
+        "mockumentary"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "arrested-development",
+      "name": "Arrested Development",
+      "kind": "tv",
+      "year": 2003,
+      "genre": "comedy",
+      "imdb_id": "tt0367279",
+      "icons": [
+        "banana stand",
+        "blue man group",
+        "stair car"
+      ],
+      "description": "TV series (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "atlanta",
+      "name": "Atlanta",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt4288182",
+      "icons": [
+        "Atlanta streets",
+        "Earn",
+        "Paper Boi"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "beef",
+      "name": "Beef",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "comedy",
+      "imdb_id": "tt14403178",
+      "icons": [
+        "road rage",
+        "LA",
+        "therapy"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "blackadder",
+      "name": "Blackadder",
+      "kind": "tv",
+      "year": 1983,
+      "genre": "comedy",
+      "imdb_id": "tt0084988",
+      "icons": [
+        "historical eras",
+        "cunning plans"
+      ],
+      "description": "TV series (1983) — iconic elements for world placement."
+    },
+    {
+      "id": "brooklyn-nine-nine",
+      "name": "Brooklyn Nine-Nine",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "comedy",
+      "imdb_id": "tt2467372",
+      "icons": [
+        "99th precinct",
+        "Holt mustache",
+        "Die Hard poster"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "cheers",
+      "name": "Cheers",
+      "kind": "tv",
+      "year": 1982,
+      "genre": "comedy",
+      "imdb_id": "tt0083399",
+      "icons": [
+        "Boston bar",
+        "Norm!",
+        "where everybody knows your name"
+      ],
+      "description": "TV series (1982) — iconic elements for world placement."
+    },
+    {
+      "id": "community",
+      "name": "Community",
+      "kind": "tv",
+      "year": 2009,
+      "genre": "comedy",
+      "imdb_id": "tt1439629",
+      "icons": [
+        "study room table",
+        "Greendale",
+        "paintball"
+      ],
+      "description": "TV series (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "emily-in-paris",
+      "name": "Emily in Paris",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "comedy",
+      "imdb_id": "tt8962124",
+      "icons": [
+        "Paris fashion",
+        "Instagram",
+        "croissants"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "fawlty-towers",
+      "name": "Fawlty Towers",
+      "kind": "tv",
+      "year": 1975,
+      "genre": "comedy",
+      "imdb_id": "tt0072500",
+      "icons": [
+        "hotel",
+        "Basil Fawlty",
+        "Manuel"
+      ],
+      "description": "TV series (1975) — iconic elements for world placement."
+    },
+    {
+      "id": "fleabag",
+      "name": "Fleabag",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt5687612",
+      "icons": [
+        "fourth wall",
+        "guinea pig café",
+        "Hot Priest"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "frasier",
+      "name": "Frasier",
+      "kind": "tv",
+      "year": 1993,
+      "genre": "comedy",
+      "imdb_id": "tt0106004",
+      "icons": [
+        "radio booth",
+        "Seattle condo",
+        "Niles"
+      ],
+      "description": "TV series (1993) — iconic elements for world placement."
+    },
+    {
+      "id": "friends",
+      "name": "Friends",
+      "kind": "tv",
+      "year": 1994,
+      "genre": "comedy",
+      "imdb_id": "tt0108778",
+      "icons": [
+        "Central Perk couch",
+        "purple door",
+        "ugly naked guy"
+      ],
+      "description": "TV series (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "girls",
+      "name": "Girls",
+      "kind": "tv",
+      "year": 2012,
+      "genre": "comedy",
+      "imdb_id": "tt1723816",
+      "icons": [
+        "Brooklyn apartments",
+        "twenty-somethings"
+      ],
+      "description": "TV series (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "hacks",
+      "name": "Hacks",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt11815682",
+      "icons": [
+        "Las Vegas",
+        "standup",
+        "Jean Smart"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "how-i-met-your-mother",
+      "name": "How I Met Your Mother",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "comedy",
+      "imdb_id": "tt0460649",
+      "icons": [
+        "blue French horn",
+        "MacLaren's",
+        "yellow umbrella"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "i-love-lucy",
+      "name": "I Love Lucy",
+      "kind": "tv",
+      "year": 1951,
+      "genre": "comedy",
+      "imdb_id": "tt0043208",
+      "icons": [
+        "chocolate factory",
+        "Vitameatavegamin",
+        "Ricky club"
+      ],
+      "description": "TV series (1951) — iconic elements for world placement."
+    },
+    {
+      "id": "insecure",
+      "name": "Insecure",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt5024912",
+      "icons": [
+        "LA friendships",
+        "Issa"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "it-s-always-sunny-in-philadelphia",
+      "name": "It's Always Sunny in Philadelphia",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "comedy",
+      "imdb_id": "tt0472954",
+      "icons": [
+        "Paddy's Pub",
+        "kitten mittens",
+        "rum ham"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "kim-s-convenience",
+      "name": "Kim's Convenience",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt5709236",
+      "icons": [
+        "convenience store",
+        "Toronto",
+        "Appa"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "letterkenny",
+      "name": "Letterkenny",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt5156426",
+      "icons": [
+        "hicks vs skids",
+        "hockey",
+        "problems"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "m-a-s-h",
+      "name": "M*A*S*H",
+      "kind": "tv",
+      "year": 1972,
+      "genre": "comedy",
+      "imdb_id": "tt0068098",
+      "icons": [
+        "army hospital",
+        "helicopters",
+        "Hawkeye"
+      ],
+      "description": "TV series (1972) — iconic elements for world placement."
+    },
+    {
+      "id": "master-of-none",
+      "name": "Master of None",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "comedy",
+      "imdb_id": "tt4635276",
+      "icons": [
+        "NYC dating",
+        "Dev"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "modern-family",
+      "name": "Modern Family",
+      "kind": "tv",
+      "year": 2009,
+      "genre": "comedy",
+      "imdb_id": "tt1442437",
+      "icons": [
+        "mockumentary family",
+        "Pritchett-Dunphy-Tucker"
+      ],
+      "description": "TV series (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "monk",
+      "name": "Monk",
+      "kind": "tv",
+      "year": 2002,
+      "genre": "comedy",
+      "imdb_id": "tt0312172",
+      "icons": [
+        "OCD detective",
+        "wipes",
+        "Captain Stottlemeyer"
+      ],
+      "description": "TV series (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "monty-python-s-flying-circus",
+      "name": "Monty Python's Flying Circus",
+      "kind": "tv",
+      "year": 1969,
+      "genre": "comedy",
+      "imdb_id": "tt0063929",
+      "icons": [
+        "dead parrot",
+        "ministry of silly walks"
+      ],
+      "description": "TV series (1969) — iconic elements for world placement."
+    },
+    {
+      "id": "mythic-quest",
+      "name": "Mythic Quest",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "comedy",
+      "imdb_id": "tt8879940",
+      "icons": [
+        "game studio",
+        "Ian and Poppy"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "only-murders-in-the-building",
+      "name": "Only Murders in the Building",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt11691774",
+      "icons": [
+        "Arconia",
+        "podcast mics",
+        "Steve Martin"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "our-flag-means-death",
+      "name": "Our Flag Means Death",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "comedy",
+      "imdb_id": "tt14094206",
+      "icons": [
+        "pirate ship",
+        "Blackbeard",
+        "Stede Bonnet"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "parks-and-recreation",
+      "name": "Parks and Recreation",
+      "kind": "tv",
+      "year": 2009,
+      "genre": "comedy",
+      "imdb_id": "tt1266020",
+      "icons": [
+        "Pawnee",
+        "waffles",
+        "Lil Sebastian",
+        "treat yo self"
+      ],
+      "description": "TV series (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "psych",
+      "name": "Psych",
+      "kind": "tv",
+      "year": 2006,
+      "genre": "comedy",
+      "imdb_id": "tt0491738",
+      "icons": [
+        "pineapple",
+        "fake psychic",
+        "Santa Barbara"
+      ],
+      "description": "TV series (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "ramy",
+      "name": "Ramy",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "comedy",
+      "imdb_id": "tt9012876",
+      "icons": [
+        "Muslim American",
+        "New Jersey"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "reservation-dogs",
+      "name": "Reservation Dogs",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt13623580",
+      "icons": [
+        "Oklahoma reservation",
+        "teens",
+        "spirits"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "russian-doll",
+      "name": "Russian Doll",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "comedy",
+      "imdb_id": "tt7961060",
+      "icons": [
+        "time loop party",
+        "subway",
+        "death reset"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "schitt-s-creek",
+      "name": "Schitt's Creek",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "comedy",
+      "imdb_id": "tt3526078",
+      "icons": [
+        "Rosebud Motel",
+        "town of Schitt's Creek",
+        "Ew, David"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "seinfeld",
+      "name": "Seinfeld",
+      "kind": "tv",
+      "year": 1989,
+      "genre": "comedy",
+      "imdb_id": "tt0098904",
+      "icons": [
+        "puffy shirt",
+        "soup Nazi",
+        "apartment 5A",
+        "Festivus pole"
+      ],
+      "description": "TV series (1989) — iconic elements for world placement."
+    },
+    {
+      "id": "sex-and-the-city",
+      "name": "Sex and the City",
+      "kind": "tv",
+      "year": 1998,
+      "genre": "comedy",
+      "imdb_id": "tt0159206",
+      "icons": [
+        "Manolo Blahnik",
+        "NYC brunch",
+        "Carrie notebook"
+      ],
+      "description": "TV series (1998) — iconic elements for world placement."
+    },
+    {
+      "id": "she-hulk-attorney-at-law",
+      "name": "She-Hulk: Attorney at Law",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "comedy",
+      "imdb_id": "tt10857160",
+      "icons": [
+        "courtroom",
+        "green She-Hulk"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "silicon-valley",
+      "name": "Silicon Valley",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "comedy",
+      "imdb_id": "tt2575988",
+      "icons": [
+        "Pied Piper",
+        "incubator house",
+        "compression"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "ted-lasso",
+      "name": "Ted Lasso",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "comedy",
+      "imdb_id": "tt10986410",
+      "icons": [
+        "Believe sign",
+        "biscuits with the boss",
+        "AFC Richmond"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "the-big-bang-theory",
+      "name": "The Big Bang Theory",
+      "kind": "tv",
+      "year": 2007,
+      "genre": "comedy",
+      "imdb_id": "tt0898266",
+      "icons": [
+        "couch spots",
+        "whiteboard equations",
+        "Bazinga"
+      ],
+      "description": "TV series (2007) — iconic elements for world placement."
+    },
+    {
+      "id": "the-good-place",
+      "name": "The Good Place",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "comedy",
+      "imdb_id": "tt4955642",
+      "icons": [
+        "neighborhood",
+        "Jeremy Bearimy",
+        "ethics chalkboard"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-great",
+      "name": "The Great",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "comedy",
+      "imdb_id": "tt2235759",
+      "icons": [
+        "Russian court",
+        "Catherine the Great"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "the-marvelous-mrs-maisel",
+      "name": "The Marvelous Mrs. Maisel",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "comedy",
+      "imdb_id": "tt5788792",
+      "icons": [
+        "1950s standup",
+        "Upper West Side",
+        "gowns"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "the-office",
+      "name": "The Office",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "comedy",
+      "imdb_id": "tt0386676",
+      "icons": [
+        "Dunder Mifflin",
+        "world's best boss mug",
+        "conference room"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "the-thick-of-it",
+      "name": "The Thick of It",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "comedy",
+      "imdb_id": "tt0459159",
+      "icons": [
+        "spin doctor",
+        "Westminster"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "the-white-lotus",
+      "name": "The White Lotus",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "comedy",
+      "imdb_id": "tt13406094",
+      "icons": [
+        "luxury resort",
+        "white lotus flower",
+        "vacation guests"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "trailer-park-boys",
+      "name": "Trailer Park Boys",
+      "kind": "tv",
+      "year": 2001,
+      "genre": "comedy",
+      "imdb_id": "tt0290988",
+      "icons": [
+        "Sunnyvale",
+        "Rickyisms",
+        "Cheeseburger Picnic"
+      ],
+      "description": "TV series (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "upload",
+      "name": "Upload",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "comedy",
+      "imdb_id": "tt7826376",
+      "icons": [
+        "digital afterlife",
+        "Lakeview"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "veep",
+      "name": "Veep",
+      "kind": "tv",
+      "year": 2012,
+      "genre": "comedy",
+      "imdb_id": "tt1759761",
+      "icons": [
+        "White House",
+        "Selina Meyer",
+        "profanity"
+      ],
+      "description": "TV series (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "what-we-do-in-the-shadows",
+      "name": "What We Do in the Shadows",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "comedy",
+      "imdb_id": "tt7908628",
+      "icons": [
+        "Staten Island vampires",
+        "documentary crew"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "will-grace",
+      "name": "Will & Grace",
+      "kind": "tv",
+      "year": 1998,
+      "genre": "comedy",
+      "imdb_id": "tt0157246",
+      "icons": [
+        "NYC apartment",
+        "Karen walk"
+      ],
+      "description": "TV series (1998) — iconic elements for world placement."
+    },
+    {
+      "id": "yes-minister",
+      "name": "Yes Minister",
+      "kind": "tv",
+      "year": 1980,
+      "genre": "comedy",
+      "imdb_id": "tt0080306",
+      "icons": [
+        "Whitehall",
+        "civil service"
+      ],
+      "description": "TV series (1980) — iconic elements for world placement."
+    },
+    {
+      "id": "better-call-saul",
+      "name": "Better Call Saul",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "crime",
+      "imdb_id": "tt3032476",
+      "icons": [
+        "Saul suit",
+        "nail salon",
+        "Cinnabon end"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "bones",
+      "name": "Bones",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "crime",
+      "imdb_id": "tt0460627",
+      "icons": [
+        "Jeffersonian",
+        "skeleton lab",
+        "Booth and Bones"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "breaking-bad",
+      "name": "Breaking Bad",
+      "kind": "tv",
+      "year": 2008,
+      "genre": "crime",
+      "imdb_id": "tt0903747",
+      "icons": [
+        "RV lab",
+        "blue meth crystals",
+        "pork pie hat",
+        "Los Pollos Hermanos"
+      ],
+      "description": "TV series (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "broadchurch",
+      "name": "Broadchurch",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "crime",
+      "imdb_id": "tt2249364",
+      "icons": [
+        "English seaside",
+        "murder investigation"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "castle",
+      "name": "Castle",
+      "kind": "tv",
+      "year": 2009,
+      "genre": "crime",
+      "imdb_id": "tt1219024",
+      "icons": [
+        "mystery novelist",
+        "NYPD",
+        "murder board"
+      ],
+      "description": "TV series (2009) — iconic elements for world placement."
+    },
+    {
+      "id": "columbo",
+      "name": "Columbo",
+      "kind": "tv",
+      "year": 1971,
+      "genre": "crime",
+      "imdb_id": "tt1466074",
+      "icons": [
+        "trench coat",
+        "cigar",
+        "just one more thing"
+      ],
+      "description": "TV series (1971) — iconic elements for world placement."
+    },
+    {
+      "id": "criminal-minds",
+      "name": "Criminal Minds",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "crime",
+      "imdb_id": "tt0452046",
+      "icons": [
+        "BAU jet",
+        "profile boards",
+        "unsubs"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "csi-crime-scene-investigation",
+      "name": "CSI: Crime Scene Investigation",
+      "kind": "tv",
+      "year": 2000,
+      "genre": "crime",
+      "imdb_id": "tt0346336",
+      "icons": [
+        "Las Vegas lab",
+        "UV light",
+        "evidence"
+      ],
+      "description": "TV series (2000) — iconic elements for world placement."
+    },
+    {
+      "id": "dahmer-monster",
+      "name": "Dahmer – Monster",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "crime",
+      "imdb_id": "tt13207736",
+      "icons": [
+        "apartment",
+        "70s/80s Milwaukee"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "dexter",
+      "name": "Dexter",
+      "kind": "tv",
+      "year": 2006,
+      "genre": "crime",
+      "imdb_id": "tt0773262",
+      "icons": [
+        "blood slide boxes",
+        "kill room plastic",
+        "Miami Metro"
+      ],
+      "description": "TV series (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "fargo",
+      "name": "Fargo",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "crime",
+      "imdb_id": "tt2802850",
+      "icons": [
+        "Minnesota winter",
+        "woodchipper homage",
+        "accent"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "happy-valley",
+      "name": "Happy Valley",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "crime",
+      "imdb_id": "tt3428912",
+      "icons": [
+        "Yorkshire",
+        "sergeant Catherine Cawood"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "justified",
+      "name": "Justified",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "crime",
+      "imdb_id": "tt1489428",
+      "icons": [
+        "cowboy hat",
+        "Harlan County",
+        "Raylan Givens"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "law-order",
+      "name": "Law & Order",
+      "kind": "tv",
+      "year": 1990,
+      "genre": "crime",
+      "imdb_id": "tt0098844",
+      "icons": [
+        "dun-dun",
+        "courtroom",
+        "SVU crossover"
+      ],
+      "description": "TV series (1990) — iconic elements for world placement."
+    },
+    {
+      "id": "law-order-svu",
+      "name": "Law & Order: SVU",
+      "kind": "tv",
+      "year": 1999,
+      "genre": "crime",
+      "imdb_id": "tt0203259",
+      "icons": [
+        "Special Victims",
+        "Olivia Benson"
+      ],
+      "description": "TV series (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "line-of-duty",
+      "name": "Line of Duty",
+      "kind": "tv",
+      "year": 2012,
+      "genre": "crime",
+      "imdb_id": "tt2303687",
+      "icons": [
+        "AC-12",
+        "bent coppers",
+        "interview room"
+      ],
+      "description": "TV series (2012) — iconic elements for world placement."
+    },
+    {
+      "id": "mayans-m-c",
+      "name": "Mayans M.C.",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "crime",
+      "imdb_id": "tt6932880",
+      "icons": [
+        "motorcycle club",
+        "Santo Padre"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "mindhunter",
+      "name": "Mindhunter",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "crime",
+      "imdb_id": "tt5290382",
+      "icons": [
+        "FBI behavioral science",
+        "tape recorder",
+        "interview room"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "miss-marple",
+      "name": "Miss Marple",
+      "kind": "tv",
+      "year": 1984,
+      "genre": "crime",
+      "imdb_id": "tt0086765",
+      "icons": [
+        "English village",
+        "knitting"
+      ],
+      "description": "TV series (1984) — iconic elements for world placement."
+    },
+    {
+      "id": "money-heist",
+      "name": "Money Heist",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "crime",
+      "imdb_id": "tt6468322",
+      "icons": [
+        "Dalí masks",
+        "red jumpsuits",
+        "Bella Ciao"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "narcos",
+      "name": "Narcos",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "crime",
+      "imdb_id": "tt2707408",
+      "icons": [
+        "Medellín",
+        "cocaine empire",
+        "DEA"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "narcos-mexico",
+      "name": "Narcos: Mexico",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "crime",
+      "imdb_id": "tt8714904",
+      "icons": [
+        "Guadalajara",
+        "DEA"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "ncis",
+      "name": "NCIS",
+      "kind": "tv",
+      "year": 2003,
+      "genre": "crime",
+      "imdb_id": "tt0364845",
+      "icons": [
+        "Gibbs rules",
+        "Navy Yard",
+        "autopsy"
+      ],
+      "description": "TV series (2003) — iconic elements for world placement."
+    },
+    {
+      "id": "nypd-blue",
+      "name": "NYPD Blue",
+      "kind": "tv",
+      "year": 1993,
+      "genre": "crime",
+      "imdb_id": "tt0106004",
+      "icons": [
+        "precinct",
+        "detectives"
+      ],
+      "description": "TV series (1993) — iconic elements for world placement."
+    },
+    {
+      "id": "ozark",
+      "name": "Ozark",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "crime",
+      "imdb_id": "tt5071412",
+      "icons": [
+        "lake house",
+        "cash cartels",
+        "Byrde family"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "peaky-blinders",
+      "name": "Peaky Blinders",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "crime",
+      "imdb_id": "tt2442560",
+      "icons": [
+        "flat caps",
+        "Shelby Company Ltd",
+        "razor blades"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "poirot",
+      "name": "Poirot",
+      "kind": "tv",
+      "year": 1989,
+      "genre": "crime",
+      "imdb_id": "tt0094525",
+      "icons": [
+        "mustache",
+        "little grey cells",
+        "Art Dec"
+      ],
+      "description": "TV series (1989) — iconic elements for world placement."
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "crime",
+      "imdb_id": "tt1475582",
+      "icons": [
+        "Belstaff coat",
+        "221B Baker Street",
+        "skull wallpaper"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "sons-of-anarchy",
+      "name": "Sons of Anarchy",
+      "kind": "tv",
+      "year": 2008,
+      "genre": "crime",
+      "imdb_id": "tt1124373",
+      "icons": [
+        "SAMCRO kuttes",
+        "motorcycles",
+        "Charming"
+      ],
+      "description": "TV series (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "the-night-of",
+      "name": "The Night Of",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "crime",
+      "imdb_id": "tt2401256",
+      "icons": [
+        "Rikers",
+        "courtroom",
+        "Nasir Khan"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-shield",
+      "name": "The Shield",
+      "kind": "tv",
+      "year": 2002,
+      "genre": "crime",
+      "imdb_id": "tt0285331",
+      "icons": [
+        "Strike Team",
+        "Farmington"
+      ],
+      "description": "TV series (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "the-sopranos",
+      "name": "The Sopranos",
+      "kind": "tv",
+      "year": 1999,
+      "genre": "crime",
+      "imdb_id": "tt0141842",
+      "icons": [
+        "Satriale's",
+        "Bada Bing",
+        "therapy couch",
+        "ducks"
+      ],
+      "description": "TV series (1999) — iconic elements for world placement."
+    },
+    {
+      "id": "the-wire",
+      "name": "The Wire",
+      "kind": "tv",
+      "year": 2002,
+      "genre": "crime",
+      "imdb_id": "tt0306414",
+      "icons": [
+        "Baltimore corners",
+        "wiretap",
+        "chess lesson"
+      ],
+      "description": "TV series (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "true-detective",
+      "name": "True Detective",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "crime",
+      "imdb_id": "tt2356777",
+      "icons": [
+        "Yellow King",
+        "Louisiana bayou",
+        "car confessions"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "1883",
+      "name": "1883",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "drama",
+      "imdb_id": "tt13991232",
+      "icons": [
+        "wagon train",
+        "frontier"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "1923",
+      "name": "1923",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt18335752",
+      "icons": [
+        "Dutton ranch origin",
+        "Montana winter"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "baby-reindeer",
+      "name": "Baby Reindeer",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "drama",
+      "imdb_id": "tt18967472",
+      "icons": [
+        "comedy club",
+        "stalking",
+        "pub"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "chernobyl",
+      "name": "Chernobyl",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "drama",
+      "imdb_id": "tt7366338",
+      "icons": [
+        "reactor",
+        "lead suits",
+        "Pripyat"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "downton-abbey",
+      "name": "Downton Abbey",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "drama",
+      "imdb_id": "tt1606375",
+      "icons": [
+        "manor house",
+        "servants' bells",
+        "tea service"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "er",
+      "name": "ER",
+      "kind": "tv",
+      "year": 1994,
+      "genre": "drama",
+      "imdb_id": "tt0108757",
+      "icons": [
+        "trauma bay",
+        "Chicago hospital",
+        "gurneys"
+      ],
+      "description": "TV series (1994) — iconic elements for world placement."
+    },
+    {
+      "id": "euphoria",
+      "name": "Euphoria",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "drama",
+      "imdb_id": "tt8772296",
+      "icons": [
+        "glitter makeup",
+        "high school",
+        "special episode look"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "grey-s-anatomy",
+      "name": "Grey's Anatomy",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "drama",
+      "imdb_id": "tt0413573",
+      "icons": [
+        "scrubs",
+        "operating room",
+        "Seattle Grace"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "house",
+      "name": "House",
+      "kind": "tv",
+      "year": 2004,
+      "genre": "drama",
+      "imdb_id": "tt0412142",
+      "icons": [
+        "cane",
+        " Vicodin",
+        "whiteboard differential"
+      ],
+      "description": "TV series (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "inventing-anna",
+      "name": "Inventing Anna",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt8740976",
+      "icons": [
+        "scammer socialite",
+        "NYC society"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "mad-men",
+      "name": "Mad Men",
+      "kind": "tv",
+      "year": 2007,
+      "genre": "drama",
+      "imdb_id": "tt0804503",
+      "icons": [
+        "Sterling Cooper office",
+        "cigarettes",
+        "old fashioned",
+        "elevator"
+      ],
+      "description": "TV series (2007) — iconic elements for world placement."
+    },
+    {
+      "id": "maid",
+      "name": "Maid",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "drama",
+      "imdb_id": "tt11311302",
+      "icons": [
+        "cleaning cart",
+        "DV shelter",
+        "Washington coast"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "pachinko",
+      "name": "Pachinko",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt8888462",
+      "icons": [
+        "Korea/Japan saga",
+        "generations"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "pam-tommy",
+      "name": "Pam & Tommy",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt14016500",
+      "icons": [
+        "Pamela Anderson",
+        "90s tape scandal"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "drama",
+      "imdb_id": "tt0384766",
+      "icons": [
+        "Roman forum",
+        "legion armor",
+        "senate"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "shogun-tv",
+      "name": "Shogun",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "drama",
+      "imdb_id": "tt2788316",
+      "icons": [
+        "Japan"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "sh-gun",
+      "name": "Shōgun",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "drama",
+      "imdb_id": "tt2788316",
+      "icons": [
+        "katana",
+        "Japan 1600s",
+        "black ship"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "succession",
+      "name": "Succession",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "drama",
+      "imdb_id": "tt7660850",
+      "icons": [
+        "Waystar Royco",
+        "private jet",
+        "boardroom"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "super-pumped",
+      "name": "Super Pumped",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt10839422",
+      "icons": [
+        "Uber",
+        "Travis Kalanick"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-bear",
+      "name": "The Bear",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt14452776",
+      "icons": [
+        "kitchen tickets",
+        "YES CHEF",
+        "beef sandwich"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-crown",
+      "name": "The Crown",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "drama",
+      "imdb_id": "tt4786824",
+      "icons": [
+        "Buckingham",
+        "crown jewels",
+        "state carriages"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-dropout",
+      "name": "The Dropout",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt11362202",
+      "icons": [
+        "Theranos",
+        "black turtleneck",
+        "lab"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-good-doctor",
+      "name": "The Good Doctor",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "drama",
+      "imdb_id": "tt6470478",
+      "icons": [
+        "autism surgeon",
+        "hospital"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "the-last-of-us",
+      "name": "The Last of Us",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "drama",
+      "imdb_id": "tt3581920",
+      "icons": [
+        "cordyceps",
+        "Ellie backpack",
+        "Boston QZ"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "the-morning-show",
+      "name": "The Morning Show",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "drama",
+      "imdb_id": "tt7203552",
+      "icons": [
+        "news desk",
+        "broadcast studio"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "the-queen-s-gambit",
+      "name": "The Queen's Gambit",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "drama",
+      "imdb_id": "tt10048342",
+      "icons": [
+        "chess board",
+        "green dress",
+        "orphange"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "wecrashed",
+      "name": "WeCrashed",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "drama",
+      "imdb_id": "tt9737326",
+      "icons": [
+        "WeWork",
+        "Adam Neumann"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "when-they-see-us",
+      "name": "When They See Us",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "drama",
+      "imdb_id": "tt7137906",
+      "icons": [
+        "Central Park Five",
+        "courtroom"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "yellowstone",
+      "name": "Yellowstone",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "drama",
+      "imdb_id": "tt4236770",
+      "icons": [
+        "Dutton ranch",
+        "cowboy hats",
+        "Montana"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "american-gods",
+      "name": "American Gods",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "fantasy",
+      "imdb_id": "tt1898069",
+      "icons": [
+        "old gods",
+        "new gods",
+        "Road trip"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "buffy-the-vampire-slayer",
+      "name": "Buffy the Vampire Slayer",
+      "kind": "tv",
+      "year": 1997,
+      "genre": "fantasy",
+      "imdb_id": "tt0118276",
+      "icons": [
+        "stake",
+        "Sunnydale High",
+        "Scooby Gang"
+      ],
+      "description": "TV series (1997) — iconic elements for world placement."
+    },
+    {
+      "id": "game-of-thrones",
+      "name": "Game of Thrones",
+      "kind": "tv",
+      "year": 2011,
+      "genre": "fantasy",
+      "imdb_id": "tt0944947",
+      "icons": [
+        "Iron Throne",
+        "dragons",
+        "Winter is Coming",
+        "direwolves"
+      ],
+      "description": "TV series (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "good-omens",
+      "name": "Good Omens",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "fantasy",
+      "imdb_id": "tt1869454",
+      "icons": [
+        "angel/demon",
+        "bookshop",
+        "Apocalypse"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "good-omens-2",
+      "name": "Good Omens",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "fantasy",
+      "imdb_id": "tt1869454",
+      "icons": [
+        "Crowley Bentley"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "his-dark-materials",
+      "name": "His Dark Materials",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "fantasy",
+      "imdb_id": "tt5607976",
+      "icons": [
+        "daemons",
+        "alethiometer",
+        "armored bears"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "house-of-the-dragon",
+      "name": "House of the Dragon",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "fantasy",
+      "imdb_id": "tt11198330",
+      "icons": [
+        "dragons",
+        "Iron Throne",
+        "Valyrian steel"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "locke-key",
+      "name": "Locke & Key",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "fantasy",
+      "imdb_id": "tt3007572",
+      "icons": [
+        "magical keys",
+        "Keyhouse"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "shadow-and-bone",
+      "name": "Shadow and Bone",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "fantasy",
+      "imdb_id": "tt2403776",
+      "icons": [
+        "Grisha",
+        "Fold",
+        "stag"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "supernatural",
+      "name": "Supernatural",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "fantasy",
+      "imdb_id": "tt0460681",
+      "icons": [
+        "Impala",
+        "salt lines",
+        "anti-possession tattoo"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "the-lord-of-the-rings-the-rings-of-power",
+      "name": "The Lord of the Rings: The Rings of Power",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "fantasy",
+      "imdb_id": "tt7631058",
+      "icons": [
+        "Númenor",
+        "mithril",
+        "Sauron"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-magicians",
+      "name": "The Magicians",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "fantasy",
+      "imdb_id": "tt4254242",
+      "icons": [
+        "Brakebills",
+        "hands magic",
+        "Fillory"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "the-sandman",
+      "name": "The Sandman",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "fantasy",
+      "imdb_id": "tt1751634",
+      "icons": [
+        "Dream",
+        "ruby",
+        "The Dreaming"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "the-wheel-of-time",
+      "name": "The Wheel of Time",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "fantasy",
+      "imdb_id": "tt7462410",
+      "icons": [
+        "One Power",
+        "Aes Sedai",
+        "ta'veren"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "the-witcher",
+      "name": "The Witcher",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "fantasy",
+      "imdb_id": "tt5180504",
+      "icons": [
+        "silver sword",
+        "medallion",
+        "Roach horse"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "true-blood",
+      "name": "True Blood",
+      "kind": "tv",
+      "year": 2008,
+      "genre": "fantasy",
+      "imdb_id": "tt0844441",
+      "icons": [
+        "True Blood bottles",
+        "Bon Temps",
+        "fangs"
+      ],
+      "description": "TV series (2008) — iconic elements for world placement."
+    },
+    {
+      "id": "wednesday",
+      "name": "Wednesday",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "fantasy",
+      "imdb_id": "tt13443470",
+      "icons": [
+        "Nevermore Academy",
+        "black dress",
+        "cello",
+        "Thing hand"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "american-horror-story",
+      "name": "American Horror Story",
+      "kind": "tv",
+      "year": 2011,
+      "genre": "horror",
+      "imdb_id": "tt1844624",
+      "icons": [
+        "anthology horror",
+        "Murder House"
+      ],
+      "description": "TV series (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "from",
+      "name": "From",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "horror",
+      "imdb_id": "tt9813792",
+      "icons": [
+        "trapped town",
+        "night creatures",
+        "talismans"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "hannibal",
+      "name": "Hannibal",
+      "kind": "tv",
+      "year": 2013,
+      "genre": "horror",
+      "imdb_id": "tt2243973",
+      "icons": [
+        "plated meals",
+        "therapy office",
+        "Chesapeake Ripper"
+      ],
+      "description": "TV series (2013) — iconic elements for world placement."
+    },
+    {
+      "id": "interview-with-the-vampire",
+      "name": "Interview with the Vampire",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "horror",
+      "imdb_id": "tt14746824",
+      "icons": [
+        "Louis",
+        "Lestat",
+        "New Orleans"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "mayfair-witches",
+      "name": "Mayfair Witches",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "horror",
+      "imdb_id": "tt15384586",
+      "icons": [
+        "Mayfair house",
+        "Lasher"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "midnight-mass",
+      "name": "Midnight Mass",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "horror",
+      "imdb_id": "tt10574558",
+      "icons": [
+        "island church",
+        "vampirism",
+        "homilies"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "the-haunting-of-bly-manor",
+      "name": "The Haunting of Bly Manor",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "horror",
+      "imdb_id": "tt8510385",
+      "icons": [
+        "Bly Manor",
+        "lady in the lake"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "the-haunting-of-hill-house",
+      "name": "The Haunting of Hill House",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "horror",
+      "imdb_id": "tt6763664",
+      "icons": [
+        "Hill House",
+        "red room",
+        "siblings"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "the-walking-dead",
+      "name": "The Walking Dead",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "horror",
+      "imdb_id": "tt1520211",
+      "icons": [
+        "walkers",
+        "Lucille bat",
+        "Alexandria walls"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    },
+    {
+      "id": "twin-peaks",
+      "name": "Twin Peaks",
+      "kind": "tv",
+      "year": 1990,
+      "genre": "mystery",
+      "imdb_id": "tt0098936",
+      "icons": [
+        "cherry pie",
+        "coffee",
+        "red room",
+        "Log Lady"
+      ],
+      "description": "TV series (1990) — iconic elements for world placement."
+    },
+    {
+      "id": "bridgerton",
+      "name": "Bridgerton",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "romance",
+      "imdb_id": "tt8740790",
+      "icons": [
+        "ball gowns",
+        "regency London",
+        "Lady Whistledown"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "outlander",
+      "name": "Outlander",
+      "kind": "tv",
+      "year": 2014,
+      "genre": "romance",
+      "imdb_id": "tt3006802",
+      "icons": [
+        "standing stones",
+        "kilts",
+        "Scotland highlands"
+      ],
+      "description": "TV series (2014) — iconic elements for world placement."
+    },
+    {
+      "id": "3-body-problem",
+      "name": "3 Body Problem",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "sci-fi",
+      "imdb_id": "tt13016388",
+      "icons": [
+        "sophons",
+        "VR game",
+        "nanofibers"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "ahsoka",
+      "name": "Ahsoka",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "sci-fi",
+      "imdb_id": "tt13622776",
+      "icons": [
+        "white lightsabers",
+        "T-6 Jedi shuttle"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "andor",
+      "name": "Andor",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt9253284",
+      "icons": [
+        "rebellion",
+        "Coruscant",
+        "prison Narkina"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "battlestar-galactica",
+      "name": "Battlestar Galactica",
+      "kind": "tv",
+      "year": 2004,
+      "genre": "sci-fi",
+      "imdb_id": "tt0407362",
+      "icons": [
+        "vipers",
+        "Cylons",
+        "so say we all"
+      ],
+      "description": "TV series (2004) — iconic elements for world placement."
+    },
+    {
+      "id": "black-mirror",
+      "name": "Black Mirror",
+      "kind": "tv",
+      "year": 2011,
+      "genre": "sci-fi",
+      "imdb_id": "tt2085059",
+      "icons": [
+        "tech dystopia",
+        "screens",
+        "anthology title card"
+      ],
+      "description": "TV series (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "dark",
+      "name": "Dark",
+      "kind": "tv",
+      "year": 2017,
+      "genre": "sci-fi",
+      "imdb_id": "tt5753856",
+      "icons": [
+        "caves",
+        "time travel",
+        "Winden nuclear plant"
+      ],
+      "description": "TV series (2017) — iconic elements for world placement."
+    },
+    {
+      "id": "devs",
+      "name": "Devs",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "sci-fi",
+      "imdb_id": "tt8134186",
+      "icons": [
+        "quantum lab",
+        "golden pavilion",
+        "determinism"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "doctor-who",
+      "name": "Doctor Who",
+      "kind": "tv",
+      "year": 2005,
+      "genre": "sci-fi",
+      "imdb_id": "tt0436992",
+      "icons": [
+        "TARDIS",
+        "sonic screwdriver",
+        "Daleks"
+      ],
+      "description": "TV series (2005) — iconic elements for world placement."
+    },
+    {
+      "id": "fallout",
+      "name": "Fallout",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "sci-fi",
+      "imdb_id": "tt12637874",
+      "icons": [
+        "Vault suit",
+        "Nuka-Cola",
+        "power armor",
+        "Pip-Boy"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "firefly",
+      "name": "Firefly",
+      "kind": "tv",
+      "year": 2002,
+      "genre": "sci-fi",
+      "imdb_id": "tt0303461",
+      "icons": [
+        "Serenity",
+        "browncoats",
+        "I aim to misbehave"
+      ],
+      "description": "TV series (2002) — iconic elements for world placement."
+    },
+    {
+      "id": "for-all-mankind",
+      "name": "For All Mankind",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "sci-fi",
+      "imdb_id": "tt7772588",
+      "icons": [
+        "alt-history NASA",
+        "moon base"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "foundation",
+      "name": "Foundation",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "sci-fi",
+      "imdb_id": "tt0804484",
+      "icons": [
+        "Empire",
+        "psychohistory",
+        "Terminus"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "halo-tv",
+      "name": "Halo",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt2934286",
+      "icons": [
+        "Master Chief armor",
+        "Covenant",
+        "Energy sword"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "loki",
+      "name": "Loki",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "sci-fi",
+      "imdb_id": "tt9140554",
+      "icons": [
+        "TVA",
+        "tempad",
+        "Variants"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "maniac",
+      "name": "Maniac",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "sci-fi",
+      "imdb_id": "tt5580146",
+      "icons": [
+        "pharma trial",
+        "Jonah Hill",
+        "Emma Stone"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "obi-wan-kenobi",
+      "name": "Obi-Wan Kenobi",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt8466564",
+      "icons": [
+        "lightsaber",
+        "Tatooine",
+        "Inquisitors"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "raised-by-wolves",
+      "name": "Raised by Wolves",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "sci-fi",
+      "imdb_id": "tt9170108",
+      "icons": [
+        "androids",
+        "Kepler-22b"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "severance",
+      "name": "Severance",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "sci-fi",
+      "imdb_id": "tt11280740",
+      "icons": [
+        "severed floor",
+        "Lumon",
+        "waffle party",
+        "blue suits"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "silo",
+      "name": "Silo",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "sci-fi",
+      "imdb_id": "tt14688458",
+      "icons": [
+        "underground silo",
+        "sheriff",
+        "generator"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "star-trek-picard",
+      "name": "Star Trek: Picard",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "sci-fi",
+      "imdb_id": "tt8806524",
+      "icons": [
+        "Picard vineyard",
+        "Starfleet"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "star-trek-the-next-generation",
+      "name": "Star Trek: The Next Generation",
+      "kind": "tv",
+      "year": 1987,
+      "genre": "sci-fi",
+      "imdb_id": "tt0092455",
+      "icons": [
+        "Enterprise-D",
+        "communicator badge",
+        "holodeck"
+      ],
+      "description": "TV series (1987) — iconic elements for world placement."
+    },
+    {
+      "id": "stranger-things",
+      "name": "Stranger Things",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "sci-fi",
+      "imdb_id": "tt4574334",
+      "icons": [
+        "Eggo waffles",
+        "Upside Down",
+        "bike lights",
+        "Hellfire Club"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "the-book-of-boba-fett",
+      "name": "The Book of Boba Fett",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "sci-fi",
+      "imdb_id": "tt13668894",
+      "icons": [
+        "Boba armor",
+        "Freetown",
+        "rancor"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "the-expanse",
+      "name": "The Expanse",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "sci-fi",
+      "imdb_id": "tt3230854",
+      "icons": [
+        "Rocinante",
+        "Belter tattoos",
+        "protomolecule"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "the-mandalorian",
+      "name": "The Mandalorian",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "sci-fi",
+      "imdb_id": "tt8111088",
+      "icons": [
+        "Grogu",
+        "beskar armor",
+        "razor crest",
+        "This is the Way"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "the-umbrella-academy",
+      "name": "The Umbrella Academy",
+      "kind": "tv",
+      "year": 2019,
+      "genre": "sci-fi",
+      "imdb_id": "tt1312171",
+      "icons": [
+        "Academy uniforms",
+        "time travel",
+        "Hargreeves"
+      ],
+      "description": "TV series (2019) — iconic elements for world placement."
+    },
+    {
+      "id": "the-x-files",
+      "name": "The X-Files",
+      "kind": "tv",
+      "year": 1993,
+      "genre": "sci-fi",
+      "imdb_id": "tt0106179",
+      "icons": [
+        "I Want to Believe poster",
+        "flashlights",
+        "Mulder badge"
+      ],
+      "description": "TV series (1993) — iconic elements for world placement."
+    },
+    {
+      "id": "torchwood",
+      "name": "Torchwood",
+      "kind": "tv",
+      "year": 2006,
+      "genre": "sci-fi",
+      "imdb_id": "tt0485301",
+      "icons": [
+        "Cardiff rift",
+        "Captain Jack"
+      ],
+      "description": "TV series (2006) — iconic elements for world placement."
+    },
+    {
+      "id": "wandavision",
+      "name": "WandaVision",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "sci-fi",
+      "imdb_id": "tt9140560",
+      "icons": [
+        "sitcom sets",
+        "hex",
+        "Westview"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "westworld",
+      "name": "Westworld",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "sci-fi",
+      "imdb_id": "tt0475784",
+      "icons": [
+        "hosts",
+        "maze",
+        "Wild West park"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "alice-in-borderland",
+      "name": "Alice in Borderland",
+      "kind": "tv",
+      "year": 2020,
+      "genre": "thriller",
+      "imdb_id": "tt10795658",
+      "icons": [
+        "Tokyo empty",
+        "playing cards games"
+      ],
+      "description": "TV series (2020) — iconic elements for world placement."
+    },
+    {
+      "id": "bodyguard",
+      "name": "Bodyguard",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "thriller",
+      "imdb_id": "tt7493974",
+      "icons": [
+        "protection detail",
+        "Parliament",
+        "suicide vest threat"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "homeland",
+      "name": "Homeland",
+      "kind": "tv",
+      "year": 2011,
+      "genre": "thriller",
+      "imdb_id": "tt1796960",
+      "icons": [
+        "Carrie notebook",
+        "Langley",
+        "surveillance"
+      ],
+      "description": "TV series (2011) — iconic elements for world placement."
+    },
+    {
+      "id": "killing-eve",
+      "name": "Killing Eve",
+      "kind": "tv",
+      "year": 2018,
+      "genre": "thriller",
+      "imdb_id": "tt7016936",
+      "icons": [
+        "assassin fashion",
+        "Villanelle",
+        "Eve"
+      ],
+      "description": "TV series (2018) — iconic elements for world placement."
+    },
+    {
+      "id": "mr-robot",
+      "name": "Mr. Robot",
+      "kind": "tv",
+      "year": 2015,
+      "genre": "thriller",
+      "imdb_id": "tt4158110",
+      "icons": [
+        "fsociety mask",
+        "hoodie",
+        "hack terminals"
+      ],
+      "description": "TV series (2015) — iconic elements for world placement."
+    },
+    {
+      "id": "ripley-2024",
+      "name": "Ripley",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "thriller",
+      "imdb_id": "tt1606375",
+      "icons": [
+        "Italy",
+        "Tom Ripley",
+        "black and white"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "slow-horses",
+      "name": "Slow Horses",
+      "kind": "tv",
+      "year": 2022,
+      "genre": "thriller",
+      "imdb_id": "tt5875444",
+      "icons": [
+        "Slough House",
+        "MI5 rejects",
+        "Jackson Lamb"
+      ],
+      "description": "TV series (2022) — iconic elements for world placement."
+    },
+    {
+      "id": "squid-game",
+      "name": "Squid Game",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "thriller",
+      "imdb_id": "tt10919420",
+      "icons": [
+        "green tracksuits",
+        "masks",
+        "honeycomb dalgona",
+        "giant doll"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "the-night-agent",
+      "name": "The Night Agent",
+      "kind": "tv",
+      "year": 2023,
+      "genre": "thriller",
+      "imdb_id": "tt13918776",
+      "icons": [
+        "White House basement phone",
+        "FBI"
+      ],
+      "description": "TV series (2023) — iconic elements for world placement."
+    },
+    {
+      "id": "the-night-manager",
+      "name": "The Night Manager",
+      "kind": "tv",
+      "year": 2016,
+      "genre": "thriller",
+      "imdb_id": "tt1399664",
+      "icons": [
+        "luxury hotels",
+        "arms dealer",
+        "Hugh Laurie"
+      ],
+      "description": "TV series (2016) — iconic elements for world placement."
+    },
+    {
+      "id": "yellowjackets",
+      "name": "Yellowjackets",
+      "kind": "tv",
+      "year": 2021,
+      "genre": "thriller",
+      "imdb_id": "tt11041332",
+      "icons": [
+        "wilderness survivors",
+        "high school soccer",
+        "cabin"
+      ],
+      "description": "TV series (2021) — iconic elements for world placement."
+    },
+    {
+      "id": "band-of-brothers",
+      "name": "Band of Brothers",
+      "kind": "tv",
+      "year": 2001,
+      "genre": "war",
+      "imdb_id": "tt0185906",
+      "icons": [
+        "Easy Company",
+        "paratroopers",
+        " Normandy"
+      ],
+      "description": "TV series (2001) — iconic elements for world placement."
+    },
+    {
+      "id": "masters-of-the-air",
+      "name": "Masters of the Air",
+      "kind": "tv",
+      "year": 2024,
+      "genre": "war",
+      "imdb_id": "tt2934286",
+      "icons": [
+        "B-17 bombers",
+        "100th Bomb Group"
+      ],
+      "description": "TV series (2024) — iconic elements for world placement."
+    },
+    {
+      "id": "the-pacific",
+      "name": "The Pacific",
+      "kind": "tv",
+      "year": 2010,
+      "genre": "war",
+      "imdb_id": "tt0374463",
+      "icons": [
+        "Pacific islands",
+        "marines"
+      ],
+      "description": "TV series (2010) — iconic elements for world placement."
+    }
+  ]
+}

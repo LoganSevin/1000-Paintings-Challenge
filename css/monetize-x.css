@@ -1,0 +1,206 @@
+/* X monetize + fan tips (you get paid — you don't tip yourself) */
+.mx-desk {
+  margin: 0 0 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 200, 255, 0.35);
+  background: linear-gradient(160deg, rgba(12, 24, 40, 0.96), rgba(8, 14, 22, 0.98));
+  padding: 1rem 1.1rem 1.15rem;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.mx-desk.mx-pulse {
+  animation: mx-glow 0.85s ease;
+}
+
+@keyframes mx-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0.55);
+    transform: scale(1);
+  }
+  40% {
+    box-shadow: 0 0 0 8px rgba(100, 200, 255, 0.15);
+    transform: scale(1.01);
+  }
+  100% {
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+    transform: scale(1);
+  }
+}
+
+.mx-desk h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: #9ed4ff;
+}
+
+.mx-lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(210, 224, 240, 0.92);
+}
+
+.mx-lead strong {
+  color: #fff;
+}
+
+.mx-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .mx-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mx-pane {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mx-pane h4 {
+  margin: 0 0 0.45rem;
+  font-size: 0.88rem;
+  color: #b8e0ff;
+}
+
+.mx-pane.mx-you h4 {
+  color: #9ed4ff;
+}
+
+.mx-pane.mx-fans h4 {
+  color: #9dffb8;
+}
+
+.mx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.mx-btn-x {
+  background: linear-gradient(180deg, #1d9bf0, #0c7abf) !important;
+  border-color: rgba(100, 200, 255, 0.5) !important;
+  color: #fff !important;
+}
+
+.mx-btn-x:hover {
+  filter: brightness(1.08);
+}
+
+.mx-fan-tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.mx-fan-tip-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mx-fan-tip-btn:hover,
+.mx-fan-tip-btn.mx-pulse {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(80, 200, 120, 0.35);
+}
+
+.mx-templates {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+  max-height: 22rem;
+  overflow: auto;
+}
+
+.mx-template-card {
+  background: rgba(0, 0, 0, 0.32);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(120, 180, 220, 0.15);
+  transition: border-color 0.25s ease;
+}
+
+.mx-template-card.mx-pulse {
+  border-color: rgba(100, 200, 255, 0.55);
+  animation: mx-glow 0.7s ease;
+}
+
+.mx-template-card strong {
+  font-size: 0.82rem;
+  color: #c8e8ff;
+}
+
+.mx-template-text {
+  margin: 0.3rem 0 0.45rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(200, 214, 230, 0.88);
+  white-space: pre-wrap;
+}
+
+.mx-template-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mx-status {
+  margin: 0.65rem 0 0;
+  font-size: 0.84rem;
+  color: #9ed4ff;
+  min-height: 1.2em;
+}
+
+.mx-status.mx-pulse {
+  animation: mx-glow 0.7s ease;
+}
+
+.mx-status-err {
+  color: #ffb0a8;
+}
+
+.mx-muted {
+  font-size: 0.78rem;
+  color: rgba(170, 190, 210, 0.75);
+  margin: 0.35rem 0 0;
+}
+
+/* Footer: fan tips only (motion) */
+.site-footer-support .tip-presets .tip-preset-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-footer-support .tip-presets .tip-preset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(80, 200, 120, 0.3);
+}
+
+.mx-footer-note {
+  font-size: 0.75rem;
+  color: rgba(180, 200, 190, 0.8);
+  margin: 0.35rem 0 0;
+}
+
+.sax-err {
+  color: #ffb0a8 !important;
+}
+
+#sax-post-all-toolbar {
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
