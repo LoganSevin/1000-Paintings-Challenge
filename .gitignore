@@ -1,12 +1,15 @@
 # Dependencies
 node_modules/
 
-# Python caches (keep server bytecode if present, ignore noise)
+# Python caches — ignore by default, but KEEP app_server bytecode (required to run)
 scripts/__pycache__/analyze*.pyc
 scripts/__pycache__/rename_*.pyc
 scripts/__pycache__/build_*.pyc
 __pycache__/
 *.py[cod]
+# Required for Render / cloud: recovered server implementation
+!scripts/__pycache__/
+!scripts/__pycache__/app_server*.pyc
 *.log
 
 # Dev / recovery artifacts

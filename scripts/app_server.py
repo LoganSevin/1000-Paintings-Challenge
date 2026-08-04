@@ -8002,5 +8002,69 @@ print(
 )
 
 
+def main():
+    """
+    Cloud-safe entrypoint (Render/Railway/etc.):
+    - Bind 0.0.0.0 and honor $PORT
+    - Serve static files from gallery root (index.html, paintings/, js/, …)
+    """
+    global PORT
+    gallery_root = Path(globals().get("GALLERY") or Path(__file__).resolve().parent.parent)
+    if not (gallery_root / "index.html").is_file():
+        raise SystemExit(
+            f"[gallery] index.html not found under {gallery_root} — "
+            "is the start command run from the repo root?"
+        )
+    pyc = Path(__file__).resolve().parent / "__pycache__" / "app_server_impl.cpython-314.pyc"
+    if not pyc.is_file():
+        # also accept any app_server_impl*.pyc
+        alts = list((Path(__file__).resolve().parent / "__pycache__").glob("app_server_impl*.pyc"))
+        if not alts:
+            raise SystemExit(
+                "[gallery] Missing scripts/__pycache__/app_server_impl*.pyc — "
+                "this file is required to run the API. Commit it to GitHub "
+                "(see .gitignore exceptions) and redeploy."
+            )
+
+    try:
+        PORT = int(os.environ.get("PORT") or os.environ.get("GALLERY_PORT") or PORT or 8765)
+    except (TypeError, ValueError):
+        PORT = 8765
+    globals()["PORT"] = PORT
+
+    # Serve HTML/JS/paintings from gallery root, not scripts/
+    os.chdir(gallery_root)
+    print(f"[gallery] cwd={os.getcwd()}  PORT={PORT}  GALLERY={gallery_root}", flush=True)
+
+    # Prefer explicit 0.0.0.0 so cloud load balancers can reach us
+    server_cls = globals().get("ThreadedTCPServer")
+    handler = globals().get("AppHandler")
+    if server_cls is None or handler is None:
+        raise SystemExit("[gallery] Server classes not loaded — bytecode bootstrap failed.")
+
+    # Allow address reuse on quick restarts
+    try:
+        server_cls.allow_reuse_address = True
+    except Exception:
+        pass
+
+    httpd = server_cls(("0.0.0.0", PORT), handler)
+    print_fn = globals().get("print_startup_urls")
+    if callable(print_fn):
+        try:
+            print_fn()
+        except Exception as e:
+            print(f"[gallery] startup urls: {e}", flush=True)
+    print(f"[gallery] Listening on http://0.0.0.0:{PORT}/  (cloud-ready)", flush=True)
+    print("Press Ctrl+C to stop.", flush=True)
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nStopped.", flush=True)
+
+
+globals()["main"] = main
+
+
 if __name__ == "__main__":
     main()
