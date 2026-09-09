@@ -1130,3 +1130,90 @@
   max-height: 4.5em;
   overflow: hidden;
 }
+
+
+/* In-GE Animate (no tab switch) */
+.ge-animate {
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 2px solid #5a4a28;
+}
+.ge-animate-title {
+  margin: 0 0 0.2rem;
+  color: #ffe066;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.ge-animate-hint {
+  margin: 0 0 0.45rem;
+  color: #a89878;
+  font-size: 0.68rem;
+}
+.ge-animate-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+.ge-animate-controls label {
+  color: #d8c8a8;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.ge-animate-controls select {
+  background: #1a1610;
+  color: #f0e6c8;
+  border: 1px solid #7a6a40;
+  border-radius: 4px;
+  padding: 0.2rem 0.35rem;
+}
+.ge-animate-cancel {
+  border: 1px solid #a44;
+  background: #3a1818;
+  color: #f88;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.72rem;
+}
+.ge-animate-status {
+  min-height: 1.1em;
+  margin: 0 0 0.35rem;
+  color: #c8b890;
+  font-size: 0.72rem;
+}
+.ge-animate-status.err { color: #f88; }
+.ge-animate-status.ok { color: #8d8; }
+.ge-animate-progress {
+  height: 6px;
+  border-radius: 4px;
+  background: #2a2418;
+  overflow: hidden;
+  margin-bottom: 0.45rem;
+}
+.ge-animate-progress-fill {
+  height: 100%;
+  width: 8%;
+  background: linear-gradient(90deg, #c9a227, #ffe066);
+  transition: width 0.35s ease;
+}
+.ge-animate-stage {
+  position: relative;
+  min-height: 120px;
+  border: 2px solid #5a4a28;
+  border-radius: 6px;
+  background: #0e0c0a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ge-animate-still,
+.ge-animate-video {
+  max-width: 100%;
+  max-height: 220px;
+  display: block;
+}

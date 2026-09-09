@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=15" />
+  <link rel="stylesheet" href="css/exchange.css?v=16" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3047,7 +3047,7 @@
           <button type="button" role="menuitem" data-forge-pick="2">Slot 3</button>
           <div class="ge-forge-menu-divider" role="separator"></div>
           <button type="button" role="menuitem" data-ge-action="view">View fullscreen</button>
-          <button type="button" role="menuitem" data-ge-action="animate">Animate</button>
+          <button type="button" role="menuitem" data-ge-action="animate">Animate here</button>
           <button type="button" role="menuitem" data-ge-action="sell">Sell on GE</button>
           <button type="button" role="menuitem" data-ge-action="deposit" id="ge-menu-deposit">Deposit</button>
           <button type="button" role="menuitem" data-ge-action="withdraw" id="ge-menu-withdraw">Withdraw 1</button>
@@ -3103,11 +3103,34 @@
               <div class="ge-forge-result-actions">
                 <button type="button" id="ge-forge-bank">Bank</button>
                 <button type="button" id="ge-forge-sell">Sell on GE</button>
-                <button type="button" id="ge-forge-to-animate" class="ge-forge-to-animate">Send to Animate</button>
+                <button type="button" id="ge-forge-to-animate" class="ge-forge-to-animate">Animate here</button>
               </div>
             </div>
           </div>
           <p class="ge-forge-status" id="ge-forge-status"></p>
+
+          <div class="ge-animate" id="ge-animate">
+            <h4 class="ge-animate-title">ANIMATE (IN GE)</h4>
+            <p class="ge-animate-hint">Stays on Grand Exchange — no tab switch</p>
+            <div class="ge-animate-controls">
+              <label>Length
+                <select id="ge-animate-dur" aria-label="Clip length">
+                  <option value="6">6s</option>
+                  <option value="10">10s</option>
+                  <option value="15" selected>15s</option>
+                </select>
+              </label>
+              <button type="button" id="ge-animate-cancel" class="ge-animate-cancel" hidden>Cancel</button>
+            </div>
+            <p class="ge-animate-status" id="ge-animate-status" aria-live="polite"></p>
+            <div class="ge-animate-progress" id="ge-animate-progress" hidden>
+              <div class="ge-animate-progress-fill" id="ge-animate-progress-fill"></div>
+            </div>
+            <div class="ge-animate-stage">
+              <img id="ge-animate-still" class="ge-animate-still" alt="" hidden />
+              <video id="ge-animate-video" class="ge-animate-video" controls playsinline hidden></video>
+            </div>
+          </div>
         </div>
       </aside>
       </div>
@@ -6514,7 +6537,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=15"></script>
+  <script defer src="js/exchange.js?v=16"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

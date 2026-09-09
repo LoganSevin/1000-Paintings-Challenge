@@ -1761,31 +1761,226 @@
     return { ok: true };
   }
 
-  function sendItemToAnimate(itemId) {
+  var geAnimate = {
+    busy: false,
+    cancel: false,
+    jobId: null,
+  };
+
+  function setGeAnimateStatus(msg, kind) {
+    var el = $("ge-animate-status");
+    if (!el) {
+      setStatus(msg, kind === "err");
+      return;
+    }
+    el.textContent = msg || "";
+    el.className = "ge-animate-status" + (kind === "err" ? " err" : kind === "ok" ? " ok" : "");
+  }
+
+  function setGeAnimateProgress(pct) {
+    var wrap = $("ge-animate-progress");
+    var fill = $("ge-animate-progress-fill");
+    if (!wrap || !fill) return;
+    if (pct == null) {
+      wrap.hidden = true;
+      return;
+    }
+    wrap.hidden = false;
+    fill.style.width = Math.max(4, Math.min(100, Number(pct) || 4)) + "%";
+  }
+
+  function geAnimateDuration() {
+    var sel = $("ge-animate-dur");
+    var n = sel ? Number(sel.value) : 15;
+    if (n === 6 || n === 10 || n === 15) return n;
+    return 15;
+  }
+
+  function absoluteAssetUrl(path) {
+    if (!path) return "";
+    if (/^https?:\/\//i.test(path) || path.indexOf("data:") === 0) return path;
+    try {
+      return new URL(path, location.href).href;
+    } catch (e) {
+      return path;
+    }
+  }
+
+  function pollGeAnimateJob(jobId, startedAt) {
+    startedAt = startedAt || Date.now();
+    if (geAnimate.cancel) return Promise.reject(new Error("Cancelled."));
+    if (Date.now() - startedAt > 12 * 60 * 1000) {
+      return Promise.reject(new Error("Timed out after 12 minutes."));
+    }
+    return fetch(geApiUrl("/api/jobs/" + encodeURIComponent(jobId)), { cache: "no-store" })
+      .then(function (r) {
+        return r.json().then(function (d) {
+          return { ok: r.ok, status: r.status, d: d };
+        });
+      })
+      .then(function (res) {
+        if (geAnimate.cancel) return Promise.reject(new Error("Cancelled."));
+        if (res.status === 404) throw new Error("Job lost — try again.");
+        var d = res.d || {};
+        var st = String(d.status || "").toLowerCase();
+        var pct = d.progress_pct != null ? d.progress_pct : d.progress != null ? Number(d.progress) * 100 : null;
+        if (pct == null) {
+          var elapsed = Math.round((Date.now() - startedAt) / 1000);
+          pct = Math.min(92, 8 + elapsed / 2);
+        }
+        setGeAnimateProgress(pct);
+        setGeAnimateStatus("Animating… " + st + (d.elapsed_sec != null ? " · " + d.elapsed_sec + "s" : ""));
+        if (st === "done" || st === "completed" || st === "success") {
+          var vid = d.video || {};
+          var url = vid.url || vid.download_url || vid.uri || d.url || "";
+          if (url) return url;
+          throw new Error("Job finished but no video URL.");
+        }
+        if (st === "failed" || st === "error" || st === "expired") {
+          throw new Error((d.error && (d.error.message || d.error)) || "Video generation failed.");
+        }
+        var wait = st === "queued" ? 800 : 1500;
+        return new Promise(function (resolve) {
+          setTimeout(resolve, wait);
+        }).then(function () {
+          return pollGeAnimateJob(jobId, startedAt);
+        });
+      });
+  }
+
+  function showGeAnimateVideo(url) {
+    var video = $("ge-animate-video");
+    var still = $("ge-animate-still");
+    if (still) still.hidden = true;
+    if (!video) return;
+    video.hidden = false;
+    video.src = absoluteAssetUrl(url);
+    video.controls = true;
+    try {
+      video.play();
+    } catch (e) {}
+  }
+
+  function endGeAnimateBusy() {
+    geAnimate.busy = false;
+    geAnimate.jobId = null;
+    var cancel = $("ge-animate-cancel");
+    if (cancel) cancel.hidden = true;
+  }
+
+  function startGeAnimateForItem(itemId) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
-    var prompt = String(fullDescFor(itemId) || titleFor(itemId) || "").trim();
-    var url = noteOf(itemId) ? "" : thumb(itemId);
+    if (geAnimate.busy) return { ok: false, error: "Already animating — wait or Cancel." };
+    if (noteOf(itemId)) {
+      return { ok: false, error: "Notes are text fillers — pick an image item to animate." };
+    }
+    if (!exchangeOpen) openExchangeUi();
+
+    var prompt =
+      "Cinematic subtle motion of this artwork. Keep composition and subject identity. " +
+      String(titleFor(itemId) || "");
+    var stasis = String(fullDescFor(itemId) || descFor(itemId) || titleFor(itemId) || "").trim();
+    if (stasis.length > 3500) stasis = stasis.slice(0, 3500);
     var aspect = selectedForgeAspect();
-    openAnimateTab();
-    setTimeout(function () {
-      try {
-        if (window.Animate && typeof window.Animate.seedFromSpellforge === "function") {
-          window.Animate.seedFromSpellforge({
-            prompt: prompt,
-            stasis: prompt,
-            imageUrl: url,
-            aspect: aspect,
-          });
-          setStatus("Sent " + kindLabel(itemId) + " to Animate.");
-        } else {
-          setStatus("Animate is not ready yet — open the Animate tab.", true);
+    var duration = geAnimateDuration();
+    var spells = itemId >= 1 && itemId <= 1000 ? [itemId] : [];
+    var stillUrl = thumb(itemId);
+
+    var still = $("ge-animate-still");
+    var video = $("ge-animate-video");
+    if (video) {
+      video.hidden = true;
+      video.removeAttribute("src");
+    }
+    if (still) {
+      still.hidden = false;
+      still.src = stillUrl;
+      still.alt = titleFor(itemId);
+    }
+
+    geAnimate.busy = true;
+    geAnimate.cancel = false;
+    var cancelBtn = $("ge-animate-cancel");
+    if (cancelBtn) cancelBtn.hidden = false;
+    setGeAnimateProgress(6);
+    setGeAnimateStatus("Starting animation of " + kindLabel(itemId) + " (" + duration + "s)…");
+    setStatus("Animating in Grand Exchange — stay here while it processes.");
+
+    var body = {
+      stasis: stasis || prompt,
+      prompt: prompt,
+      duration: duration,
+      spells: spells,
+      resolution: "720p",
+      morph_chain: false,
+      video_url: "",
+      aspect_ratio: aspect === "1:1" ? "16:9" : aspect,
+      source: "grand-exchange",
+      reference_image: absoluteAssetUrl(stillUrl),
+    };
+
+    fetch(geApiUrl("/api/animate-cast"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      cache: "no-store",
+    })
+      .then(function (r) {
+        return r.json().then(function (d) {
+          return { ok: r.ok, status: r.status, d: d };
+        });
+      })
+      .then(function (res) {
+        if (geAnimate.cancel) throw new Error("Cancelled.");
+        var d = res.d || {};
+        if (!res.ok) {
+          throw new Error((d.error && (d.error.message || d.error)) || "Animate cast failed.");
         }
-      } catch (e) {
-        setStatus("Could not seed Animate.", true);
-      }
-    }, 60);
+        if (res.status === 202 && d.job_id) {
+          geAnimate.jobId = d.job_id;
+          return pollGeAnimateJob(d.job_id);
+        }
+        var vid = d.video || {};
+        var url = vid.url || vid.download_url || vid.uri || "";
+        if (url) return url;
+        if (d.job_id) {
+          geAnimate.jobId = d.job_id;
+          return pollGeAnimateJob(d.job_id);
+        }
+        throw new Error("No job id returned.");
+      })
+      .then(function (url) {
+        endGeAnimateBusy();
+        setGeAnimateProgress(100);
+        showGeAnimateVideo(url);
+        setGeAnimateStatus("Done — playing clip in Grand Exchange.", "ok");
+        setStatus("Animation ready in GE.");
+        try {
+          grantXp(Math.max(10, Math.round(FORGE_XP / 2)));
+        } catch (eXp) {}
+      })
+      .catch(function (err) {
+        endGeAnimateBusy();
+        setGeAnimateProgress(null);
+        var msg = (err && err.message) || String(err || "failed");
+        setGeAnimateStatus(msg, "err");
+        setStatus("GE animate failed: " + msg, true);
+      });
+
     return { ok: true };
+  }
+
+  function cancelGeAnimate() {
+    geAnimate.cancel = true;
+    setGeAnimateStatus("Cancelling…");
+    endGeAnimateBusy();
+    setGeAnimateProgress(null);
+    setGeAnimateStatus("Cancelled.", "err");
+  }
+
+  function sendItemToAnimate(itemId) {
+    return startGeAnimateForItem(itemId);
   }
 
   function openSellForItem(itemId) {
@@ -1828,30 +2023,12 @@
 
   function sendForgeResultToAnimate() {
     if (!lastForgeResult) {
-      setForgeStatus("No forged result to send.", true);
+      setForgeStatus("No forged result to animate.", true);
       return;
     }
-    var url = thumb(lastForgeResult);
-    var prompt = String(fullDescFor(lastForgeResult) || titleFor(lastForgeResult) || "").trim();
-    var aspect = selectedForgeAspect();
-    openAnimateTab();
-    setTimeout(function () {
-      try {
-        if (window.Animate && typeof window.Animate.seedFromSpellforge === "function") {
-          window.Animate.seedFromSpellforge({
-            prompt: prompt,
-            stasis: prompt,
-            imageUrl: url,
-            aspect: aspect,
-          });
-          setForgeStatus("Sent forged #" + lastForgeResult + " to Animate.");
-        } else {
-          setForgeStatus("Animate is not ready yet — open Animate and paste the prompt.", true);
-        }
-      } catch (e) {
-        setForgeStatus("Could not seed Animate.", true);
-      }
-    }, 60);
+    var res = startGeAnimateForItem(lastForgeResult);
+    if (!res.ok) setForgeStatus(res.error, true);
+    else setForgeStatus("Animating forged #" + lastForgeResult + " in Grand Exchange…");
   }
 
   function clearForgeSlot(slotIndex) {
@@ -2679,6 +2856,7 @@
           if (action === "animate") {
             var anRes = sendItemToAnimate(id);
             if (!anRes.ok) setStatus(anRes.error, true);
+            else setStatus("Animating in Grand Exchange…");
             return;
           }
           if (action === "sell") {
@@ -2731,6 +2909,10 @@
         },
         true
       );
+    }
+    if ($("ge-animate-cancel") && !$("ge-animate-cancel").dataset.bound) {
+      $("ge-animate-cancel").dataset.bound = "1";
+      $("ge-animate-cancel").addEventListener("click", cancelGeAnimate);
     }
     if ($("ge-lightbox-close") && !$("ge-lightbox-close").dataset.bound) {
       $("ge-lightbox-close").dataset.bound = "1";
