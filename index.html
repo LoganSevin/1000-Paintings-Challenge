@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=31" />
+  <link rel="stylesheet" href="css/exchange.css?v=32" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3101,9 +3101,12 @@
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-2" data-forge-slot="2" title="Clear slot"><span class="ge-forge-num">3</span></button>
           </div>
           <div class="ge-forge-notes" id="ge-forge-notes">
-            <label class="ge-forge-notes-label" for="ge-note-text">Note filler</label>
+            <div class="ge-forge-notes-label">Note filler</div>
+            <label class="ge-forge-notes-field-label" for="ge-note-title">Title</label>
+            <input type="text" id="ge-note-title" class="ge-note-title" maxlength="80" placeholder="Short display name for inventory / slots…" autocomplete="off" spellcheck="true" />
+            <label class="ge-forge-notes-field-label" for="ge-note-text">Prompt</label>
             <p class="ge-color-chips-hint">Type a color name (e.g. scarlet, cyan) — a chip pops up. Click it to lock Name (#HEX).</p>
-            <textarea id="ge-note-text" class="ge-note-text" rows="3" placeholder="Write influence text… type color names to sprout chips…" spellcheck="true"></textarea>
+            <textarea id="ge-note-text" class="ge-note-text" rows="3" placeholder="Influence / generation text… type color names to sprout chips…" spellcheck="true"></textarea>
             <div id="ge-note-color-hits" class="ge-note-color-hits" aria-live="polite"></div>
             <div class="ge-forge-notes-actions">
               <button type="button" id="ge-note-slot-0" data-ge-note-slot="0">Put in slot 1</button>
@@ -6572,7 +6575,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=32"></script>
+  <script defer src="js/exchange.js?v=33"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
@@ -6621,7 +6624,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=89"></script>
+  <script defer src="js/spellforge.js?v=90"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

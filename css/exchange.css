@@ -973,6 +973,7 @@
   background: rgba(0, 0, 0, 0.22);
 }
 .ge-forge-notes-label,
+.ge-forge-notes-field-label,
 .ge-forge-aspect-label {
   display: block;
   font-size: 0.72rem;
@@ -981,11 +982,18 @@
   color: #c9b896;
   margin-bottom: 0.3rem;
 }
+.ge-forge-notes-field-label {
+  margin-top: 0.35rem;
+  margin-bottom: 0.2rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.7rem;
+  color: #b8a878;
+}
+.ge-note-title,
 .ge-note-text {
   width: 100%;
   box-sizing: border-box;
-  min-height: 3.4rem;
-  resize: vertical;
   border: 1px solid #4a3f2a;
   border-radius: 4px;
   background: #12100c;
@@ -993,6 +1001,14 @@
   font: inherit;
   font-size: 0.8rem;
   padding: 0.4rem 0.45rem;
+}
+.ge-note-title {
+  min-height: 0;
+  margin-bottom: 0.1rem;
+}
+.ge-note-text {
+  min-height: 3.4rem;
+  resize: vertical;
 }
 .ge-forge-notes-actions {
   display: flex;

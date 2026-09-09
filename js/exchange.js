@@ -144,6 +144,81 @@
     return !!noteOf(n) || (n > NOTE_BASE && n < NOTE_BASE + 100000);
   }
 
+  /** Short inventory/slot label from prompt text (legacy single-string notes). */
+  function deriveNoteTitle(prompt) {
+    var t = String(prompt || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!t) return "Note";
+    if (t.length <= 40) return t;
+    return t.slice(0, 40) + "…";
+  }
+
+  /** Prompt body used for forge/Spellforge generation. */
+  function notePromptOf(note) {
+    if (note == null) return "";
+    if (typeof note === "string") return String(note);
+    if (note.text != null) return String(note.text);
+    if (note.prompt != null) return String(note.prompt);
+    // Legacy: only title existed — treat it as the prompt body
+    if (note.title != null) return String(note.title);
+    return "";
+  }
+
+  function noteTitleOf(note) {
+    if (note == null) return "Note";
+    if (typeof note === "string") return deriveNoteTitle(note);
+    var title = String(note.title || "").replace(/\s+/g, " ").trim();
+    var prompt = notePromptOf(note);
+    // If title missing, or title was dumped as the full long prompt, derive a short one.
+    if (!title) return deriveNoteTitle(prompt) || "Note";
+    if (prompt && title === prompt && prompt.length > 40) return deriveNoteTitle(prompt);
+    return title.slice(0, 80) || "Note";
+  }
+
+  /** Normalize legacy/plain-string notes into {id,title,text,createdAt}. */
+  function normalizeNoteEntry(raw, idHint) {
+    var id = Number(
+      (raw && typeof raw === "object" && raw.id != null ? raw.id : idHint) || 0
+    );
+    if (typeof raw === "string") {
+      var promptS = String(raw);
+      return {
+        id: id || undefined,
+        title: deriveNoteTitle(promptS),
+        text: promptS,
+        createdAt: Date.now(),
+      };
+    }
+    if (!raw || typeof raw !== "object") return null;
+    var prompt = notePromptOf(raw);
+    var title = noteTitleOf(raw);
+    // If title was the only field and equaled prompt, notePromptOf already recovered it.
+    if (!prompt && title && title !== "Note") {
+      // title-only legacy: treat as prompt and re-derive display title
+      prompt = String(raw.title || "");
+      title = deriveNoteTitle(prompt);
+    }
+    return {
+      id: id || Number(raw.id) || undefined,
+      title: title || "Note",
+      text: String(prompt || ""),
+      createdAt: raw.createdAt || Date.now(),
+    };
+  }
+
+  function normalizeAllNotes(notesMap) {
+    var out = {};
+    if (!notesMap || typeof notesMap !== "object") return out;
+    Object.keys(notesMap).forEach(function (k) {
+      var norm = normalizeNoteEntry(notesMap[k], Number(k));
+      if (!norm) return;
+      if (norm.id == null) norm.id = Number(k);
+      out[String(norm.id)] = norm;
+    });
+    return out;
+  }
+
   function normalizeGeHex(raw) {
     var s = String(raw || "").trim();
     if (!s) return "";
@@ -1131,11 +1206,12 @@
       var raw = localStorage.getItem("spellforge_notes_v1");
       var store = raw ? JSON.parse(raw) : { notes: {}, nextNoteId: NOTE_BASE + 1 };
       if (!store.notes) store.notes = {};
+      var norm = normalizeNoteEntry(note, note.id);
       store.notes[String(note.id)] = {
         id: note.id,
-        title: note.title || "Note",
-        text: note.text || "",
-        createdAt: note.createdAt || Date.now(),
+        title: (norm && norm.title) || "Note",
+        text: (norm && norm.text) || "",
+        createdAt: (norm && norm.createdAt) || Date.now(),
       };
       var next = Math.max(
         Number(store.nextNoteId) || NOTE_BASE + 1,
@@ -1455,7 +1531,7 @@
     var chip = colorChipOf(n);
     if (chip) return colorChipLabel(chip.name, chip.hex);
     var note = noteOf(n);
-    if (note) return note.title || "Note";
+    if (note) return noteTitleOf(note);
     var f = forgedOf(n);
     if (f && f.title) return f.title;
     var ex = extraOf(n);
@@ -1472,7 +1548,7 @@
   function originalDescFor(n) {
     n = Number(n);
     var note = noteOf(n);
-    if (note) return String(note.text || "");
+    if (note) return notePromptOf(note);
     var f = forgedOf(n);
     if (f) {
       if (f._originalDescription != null) return String(f._originalDescription);
@@ -1500,7 +1576,7 @@
       return String(state.descOverrides[String(n)] || "");
     }
     var note = noteOf(n);
-    if (note) return String(note.text || "");
+    if (note) return notePromptOf(note);
     var f = forgedOf(n);
     if (f && f.description) return String(f.description);
     var ex = extraOf(n);
@@ -1808,7 +1884,7 @@
     s.guideMult = Number(s.guideMult) || 1;
     s.itemStats = s.itemStats || {};
     s.forged = s.forged || {};
-    s.notes = s.notes || {};
+    s.notes = normalizeAllNotes(s.notes || {});
     s.descOverrides = s.descOverrides || {};
     s.colorChips = s.colorChips || {};
     s.nextColorId = Math.max(COLOR_BASE + 1, Number(s.nextColorId) || COLOR_BASE + 1);
@@ -1971,11 +2047,11 @@
 
     var notes = {};
     Object.keys(state.notes || {}).forEach(function (k) {
-      var n = state.notes[k];
+      var n = normalizeNoteEntry(state.notes[k], Number(k));
       if (!n) return;
-      notes[k] = {
-        id: n.id,
-        title: String(n.title || "").slice(0, 80),
+      notes[String(n.id != null ? n.id : k)] = {
+        id: n.id != null ? n.id : Number(k),
+        title: String(n.title || "Note").slice(0, 80),
         text: String(n.text || "").slice(0, 4000),
         createdAt: n.createdAt,
       };
@@ -3582,9 +3658,19 @@
     menu.dataset.openedAt = String(Date.now());
   }
 
-  function placeNoteInForge(slot, text) {
-    text = String(text || "").trim();
-    if (!text) return { ok: false, error: "Write a note first." };
+  function placeNoteInForge(slot, title, prompt) {
+    // Back-compat: placeNoteInForge(slot, promptOnly)
+    if (prompt == null && title != null && arguments.length < 3) {
+      prompt = title;
+      title = "";
+    }
+    prompt = String(prompt || "").trim();
+    title = String(title || "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 80);
+    if (!prompt) return { ok: false, error: "Write a prompt first." };
+    if (!title) title = deriveNoteTitle(prompt);
     slot = Number(slot);
     if (slot < 0 || slot > 2 || isNaN(slot)) {
       return { ok: false, error: "Pick slot 1–3." };
@@ -3599,12 +3685,10 @@
       }
     } catch (eShared) {}
     state.nextNoteId = id + 1;
-    var title = text.replace(/\s+/g, " ").slice(0, 40);
-    if (text.length > 40) title += "…";
     var entry = {
       id: id,
       title: title || "Note",
-      text: text,
+      text: prompt,
       createdAt: Date.now(),
     };
     state.notes[String(id)] = entry;
@@ -5315,13 +5399,22 @@
         if (noteBtn && !noteBtn.dataset.bound) {
           noteBtn.dataset.bound = "1";
           noteBtn.addEventListener("click", function () {
+            var titleEl = $("ge-note-title");
             var ta = $("ge-note-text");
-            var res = placeNoteInForge(slot, ta && ta.value);
+            var res = placeNoteInForge(
+              slot,
+              titleEl && titleEl.value,
+              ta && ta.value
+            );
             renderForgeSlots();
             if (!res.ok) setForgeStatus(res.error, true);
             else {
-              setForgeStatus("Note placed in Spellforge slot " + (slot + 1) + ".");
+              setForgeStatus(
+                "Note placed in Spellforge slot " + (slot + 1) + "."
+              );
+              if (titleEl) titleEl.value = "";
               if (ta) ta.value = "";
+              renderNoteColorHits();
             }
           });
         }

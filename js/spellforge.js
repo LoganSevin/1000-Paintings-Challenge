@@ -952,6 +952,54 @@
     saveDisplayOrder();
   }
 
+  function deriveNoteTitle(prompt) {
+    var t = String(prompt || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!t) return "Note";
+    if (t.length <= 40) return t;
+    return t.slice(0, 40) + "…";
+  }
+
+  function normalizeSpellNoteEntry(raw, idHint) {
+    var id = Number(
+      (raw && typeof raw === "object" && raw.id != null ? raw.id : idHint) || 0
+    );
+    if (typeof raw === "string") {
+      return {
+        id: id || undefined,
+        title: deriveNoteTitle(raw),
+        text: String(raw),
+        createdAt: Date.now(),
+      };
+    }
+    if (!raw || typeof raw !== "object") return null;
+    var prompt =
+      raw.text != null && String(raw.text) !== ""
+        ? String(raw.text)
+        : raw.prompt != null && String(raw.prompt) !== ""
+          ? String(raw.prompt)
+          : raw.title != null && raw.text == null && raw.prompt == null
+            ? String(raw.title)
+            : String(raw.text || raw.prompt || "");
+    var title = String(raw.title || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!title || (prompt && title === prompt && prompt.length > 40)) {
+      title = deriveNoteTitle(prompt);
+    }
+    if (!prompt && title && title !== "Note") {
+      prompt = title;
+      title = deriveNoteTitle(prompt);
+    }
+    return {
+      id: id || Number(raw.id) || undefined,
+      title: title || "Note",
+      text: String(prompt || ""),
+      createdAt: raw.createdAt || Date.now(),
+    };
+  }
+
   function loadSpellNotes() {
     try {
       var raw = localStorage.getItem(NOTES_KEY);
@@ -960,8 +1008,16 @@
         return;
       }
       var parsed = JSON.parse(raw);
+      var notesIn = (parsed && parsed.notes) || {};
+      var notesOut = {};
+      Object.keys(notesIn).forEach(function (k) {
+        var norm = normalizeSpellNoteEntry(notesIn[k], Number(k));
+        if (!norm) return;
+        if (norm.id == null) norm.id = Number(k);
+        notesOut[String(norm.id)] = norm;
+      });
       spellNotes = {
-        notes: (parsed && parsed.notes) || {},
+        notes: notesOut,
         nextNoteId: Math.max(
           NOTE_BASE + 1,
           Number(parsed && parsed.nextNoteId) || NOTE_BASE + 1
@@ -1028,10 +1084,11 @@
     num = parseInt(num, 10);
     var note = noteOf(num);
     if (note) {
+      var notePrompt = String(note.text || note.prompt || "");
       return {
-        title: note.title || "Note",
-        description: String(note.text || ""),
-        prompt: String(note.text || ""),
+        title: note.title || deriveNoteTitle(notePrompt) || "Note",
+        description: notePrompt,
+        prompt: notePrompt,
         tags: ["note"],
         style: "text note",
       };
