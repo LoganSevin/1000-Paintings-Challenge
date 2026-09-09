@@ -4,11 +4,12 @@
 (function () {
   "use strict";
 
-  var STORAGE = "gallery.grand-exchange.v2";
-  var STORAGE_LEGACY = "gallery.grand-exchange.v1";
+  var STORAGE = "gallery.grand-exchange.v3";
+  var STORAGE_LEGACY = "gallery.grand-exchange.v2";
+  var STORAGE_LEGACY2 = "gallery.grand-exchange.v1";
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
-  var NPC_TICK_MS = 2800;
+  var NPC_TICK_MS = 1200;
   var GUIDE_BASE = 89;
 
   var state = null;
@@ -108,7 +109,7 @@
 
   function defaultState() {
     return {
-      version: 2,
+      version: 3,
       cashDelta: {},
       inventory: {},
       bank: {},
@@ -119,13 +120,16 @@
       itemStats: {},
       npcSeededOffers: false,
       _npcSeeded: false,
+      packReady: true, // do not auto-fill inventory with gallery art
+      _starterCash: false,
       createdAt: Date.now(),
     };
   }
 
   function migrate(s) {
     if (!s || typeof s !== "object") return defaultState();
-    s.version = 2;
+    var wasOld = (Number(s.version) || 0) < 3;
+    s.version = 3;
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
@@ -151,12 +155,19 @@
         s.itemStats[k] = st;
       });
     }
+    if (wasOld || !s.packReady) {
+      // Old builds auto-stuffed #1–28 into inventory. Wipe that false start once.
+      // Bank is left alone (you may have deposited for real).
+      s.inventory = s.inventory || {};
+      s.inventory[String(100)] = {};
+      s.packReady = true;
+    }
     return s;
   }
 
   function loadState() {
     try {
-      var raw = localStorage.getItem(STORAGE) || localStorage.getItem(STORAGE_LEGACY);
+      var raw = localStorage.getItem(STORAGE) || localStorage.getItem(STORAGE_LEGACY) || localStorage.getItem(STORAGE_LEGACY2);
       if (!raw) return defaultState();
       return migrate(JSON.parse(raw));
     } catch (e) {
@@ -297,11 +308,15 @@
   }
 
   function depositAll() {
-    var list = invList(PLAYER_ID);
+    var list = invList(PLAYER_ID).slice();
     list.forEach(function (it) {
-      depositItem(it.id, it.qty);
+      var have = qtyOf(PLAYER_ID, it.id);
+      if (have > 0) depositItem(it.id, have);
     });
+    // Hard-clear any leftovers
+    state.inventory[String(PLAYER_ID)] = {};
     selectedInvItem = null;
+    saveState();
   }
 
   function withdrawAllPage() {
@@ -329,13 +344,14 @@
   }
 
   function ensurePlayerStock() {
-    var inv = invOf(PLAYER_ID);
-    if (Object.keys(inv).length) return;
-    // Fill 28 inventory slots; overflow starter art goes to bank.
-    var n;
-    for (n = 1; n <= 28; n++) inv[String(n)] = 1;
-    for (n = 29; n <= 40; n++) addBank(PLAYER_ID, n, 1);
-    for (var m = 50; m <= 1000; m += 25) addBank(PLAYER_ID, m, 1);
+    // Inventory starts empty — you buy on the GE or withdraw from bank.
+    // Never auto-fill from the gallery catalogue.
+    state.packReady = true;
+    if (cashOf(PLAYER_ID) < 1 && !state._starterCash) {
+      state.cashDelta[String(PLAYER_ID)] = (Number(state.cashDelta[String(PLAYER_ID)]) || 0) + 5000;
+      state._starterCash = true;
+      saveState();
+    }
   }
 
   function ensureNpcSeedStock() {
@@ -552,15 +568,50 @@
     saveState();
   }
 
+  function hitPlayerOffers(npc) {
+    // Actively take the other side of the player's open offers for momentum.
+    var mine = playerSlotOffers().filter(function (o) {
+      return !o.complete && (Number(o.qtyLeft) || 0) > 0;
+    });
+    if (!mine.length) return false;
+    var o = mine[Math.floor(Math.random() * mine.length)];
+    var qty = Math.min(Number(o.qtyLeft) || 1, 1 + (Math.random() < 0.25 ? 1 : 0));
+    if (o.side === "buy") {
+      // Player is buying → NPC sells into them at player's price (or slightly under guide)
+      if (qtyOf(npc.id, o.itemId) < qty) addInv(npc.id, o.itemId, qty);
+      placeOffer({
+        side: "sell",
+        itemId: o.itemId,
+        qty: qty,
+        price: o.price,
+        traderId: npc.id,
+        silent: true,
+      });
+    } else {
+      // Player is selling → NPC buys at player's price
+      placeOffer({
+        side: "buy",
+        itemId: o.itemId,
+        qty: qty,
+        price: o.price,
+        traderId: npc.id,
+        silent: true,
+      });
+    }
+    return true;
+  }
+
   function npcTick() {
     if (!roster.length) return;
     tickN++;
-    var actions = 2 + (tickN % 3);
+    var actions = 4 + (tickN % 4);
     for (var a = 0; a < actions; a++) {
       var p = roster[Math.floor(Math.random() * roster.length)];
       if (!p || p.is_player || Number(p.id) === PLAYER_ID) continue;
       var roll = Math.random();
-      if (roll < 0.18) {
+      // ~45% of actions: directly fill a player offer for visible momentum
+      if (roll < 0.45 && hitPlayerOffers(p)) continue;
+      if (roll < 0.55) {
         var mine = activeOffers().filter(function (o) {
           return Number(o.traderId) === Number(p.id) && !o.isPlayer;
         });
@@ -571,11 +622,11 @@
       var guide = guidePrice(item);
       var side = Math.random() < 0.5 ? "buy" : "sell";
       if (side === "sell" && qtyOf(p.id, item) < 1) {
-        if (Math.random() < 0.5) addInv(p.id, item, 1);
-        else side = "buy";
+        addInv(p.id, item, 1 + Math.floor(Math.random() * 2));
       }
-      var qty = 1 + (Math.random() < 0.2 ? 1 : 0);
-      var slip = side === "buy" ? 0.82 + Math.random() * 0.2 : 0.98 + Math.random() * 0.2;
+      var qty = 1 + (Math.random() < 0.35 ? 1 : 0);
+      // Tighter prices around guide so books cross more often
+      var slip = side === "buy" ? 0.92 + Math.random() * 0.1 : 0.95 + Math.random() * 0.12;
       placeOffer({
         side: side,
         itemId: item,
@@ -585,6 +636,7 @@
         silent: true,
       });
     }
+    matchOffers();
     saveState();
     if (view === "home" || view === "history") render();
   }
@@ -1086,7 +1138,7 @@
         seedNpcOffers();
         saveState();
         tickN = 0;
-        setStatus("Exchange reset.");
+        setStatus("Exchange reset — empty pack. Buy or withdraw to fill it.");
         showView("home");
         render();
       });
