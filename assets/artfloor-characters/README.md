@@ -1,15 +1,18 @@
 # Art Floor characters
 
-Gallery patrons are built procedurally in `js/ge-artfloor-3d.js` as **continuous**
-sculpted humanoids:
+Primary: offline **Mixamo-style human GLBs** under `glb/` loaded with Three.js
+`GLTFLoader` + `AnimationMixer` (Walk / Idle).
 
-- Lathe torso that flares into shoulders and blends into the neck (one skin line)
-- Arms / legs as tapered tube structures with overlapping elbow/knee joins (no Lego ball joints)
-- Hands with thumb + 4 fingers (tapered segments), not spheres
-- Outfit volumes (suit, coat, dress, streetwear, beret) layered on the body with calm solids
+- `glb/Soldier.glb` — Mixamo Soldier (adult human proportions, Idle/Walk/Run)
+- `glb/Xbot.glb` — Mixamo X Bot (adult human proportions, idle/walk/run)
 
-Photo cutouts / prism cards are intentionally not used.
+Materials are recolored at runtime toward calm gallery attire solids (navy, camel,
+charcoal, burgundy, slate, …) so patrons are not identical military clones.
 
-- `glb/` — optional offline Mixamo human GLBs (Soldier / Xbot) kept for reference;
-  the live Art Floor uses the procedural continuous mesh so outfit variety and hall
-  calm stay under local control.
+Procedural fallback (if GLBs fail to load): MetaHuman-like proportions
+(head ≈ 1/7.5 body height), continuous lathe torso (hips→waist→chest→shoulder→neck),
+tapered limbs, 5-finger hands, plain suit/coat/dress/hoodie volumes.
+
+Intentionally **not** used: green waffle “player uniform”, white collar plates,
+chest badge / pencil graphics, photo-cube / Lego ball-joint people, Epic MetaHumans
+(not embeddable in a browser without the MetaHuman runtime).

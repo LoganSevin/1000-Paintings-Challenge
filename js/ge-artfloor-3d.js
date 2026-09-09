@@ -3,11 +3,14 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player + NPCs = continuous sculpted humanoids (tapered limbs, 5-finger hands; no Lego joint balls / photo cubes)
- * - Outfit colors eyedropper-sampled from fashion refs onto solid materials (calm palette)
+ * - Player + NPCs prefer offline Mixamo-style human GLBs (MetaHuman-like adult proportions + walk mixer)
+ * - Procedural fallback = continuous MetaHuman proportions (head ~1/7.5 body), 5-finger hands, calm gallery attire
+ * - NO green waffle "player uniform", NO white collar plates, NO chest badge/pencil graphics
  * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
  */
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js";
 
 var LOADER_ID = "ge-world-loader";
 var ZOOM_MIN = 2.0;
@@ -57,6 +60,8 @@ var api = {
   _disposed: false,
   _facingArrow: null,
   _wasRunningBeforeHide: false,
+  _mixers: [],
+  _charLibrary: null,
 };
 
 function trackGeo(g) { api._geos.push(g); return g; }
@@ -606,30 +611,36 @@ function buildFacingArrow() {
 }
 
 /**
- * Sculpted gallery patrons — continuous body silhouette (no Lego joint balls),
- * 5-finger hands, tapered limb structures, calm solid outfit materials.
- * NOT photo-on-cube / prism / billboard.
+ * Gallery patrons — prefer offline Mixamo human GLBs (adult MetaHuman-like proportions).
+ * Procedural fallback keeps continuous head→neck→shoulder→torso funnel, 5-finger hands,
+ * calm solid gallery attire. Never: green waffle uniform, white collar plates, chest badge/pencil.
  */
 var MAX_NPCS = 8;
+var CHAR_ASSET_BASE = "assets/artfloor-characters/";
+var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
-/** Calm solid palettes derived from fashion-ref eyedrops (muted for hall calm). */
+/** Calm solid gallery attire palettes (no costume graphics). */
 var NPC_PALETTES = [
-  // teal blazer street (punk_teal)
-  { id: "teal_blazer", silhouette: "street", coat: 0x2a5a58, pants: 0x1a1c22, shirt: 0xd8cfc4, skin: 0xc4a890, hair: 0x3a3428, tie: 0x8a4038, beret: false },
-  // burgundy / dark rose wool
-  { id: "dark_rose", silhouette: "coat", coat: 0x6a3040, pants: 0x1a1418, shirt: 0xe8ddd0, skin: 0xd0b090, hair: 0x4a3828, tie: 0x2a3040, beret: false, longCoat: true },
-  // elder navy suit
-  { id: "elder_navy", silhouette: "suit", coat: 0x1e2a44, pants: 0x141820, shirt: 0xeee6da, skin: 0xc8a888, hair: 0x6a5850, tie: 0x8a3030, beret: false },
-  // camel overcoat
-  { id: "camel_coat", silhouette: "coat", coat: 0xb89a6a, pants: 0x2a2418, shirt: 0xf2ebe0, skin: 0xd4b496, hair: 0x5a4838, tie: 0x4a3830, beret: false, longCoat: true },
-  // violet dress silhouette
-  { id: "violet_dress", silhouette: "dress", coat: 0x5a3a68, pants: 0x5a3a68, shirt: 0x5a3a68, skin: 0xc4a090, hair: 0x1a1818, tie: 0x5a3a68, beret: false, dress: true },
-  // green gallery suit
-  { id: "green_suit", silhouette: "suit", coat: 0x2d5a45, pants: 0x1a3328, shirt: 0xf0e8dc, skin: 0xc8a878, hair: 0x4a3828, tie: 0xc9a227, beret: true, beretColor: 0xe8c030 },
-  // cyan fashion blazer
-  { id: "cyan_blazer", silhouette: "street", coat: 0x2a6a78, pants: 0x222830, shirt: 0xe8e0d4, skin: 0xb89878, hair: 0x2a2828, tie: 0x203040, beret: false, hoodie: true },
-  // tailor charcoal + gold
-  { id: "tailor_gold", silhouette: "suit", coat: 0x2a2a30, pants: 0x1a1a1e, shirt: 0xf4efe6, skin: 0xd4b090, hair: 0x3a3028, tie: 0xc9a227, beret: false, tuxedo: false },
+  { id: "navy_suit", silhouette: "suit", coat: 0x1e2a44, pants: 0x141820, shirt: 0xeee6da, skin: 0xc8a888, hair: 0x6a5850, tie: 0x8a3030 },
+  { id: "camel_coat", silhouette: "coat", coat: 0xb89a6a, pants: 0x2a2418, shirt: 0xf2ebe0, skin: 0xd4b496, hair: 0x5a4838, tie: 0x4a3830, longCoat: true },
+  { id: "charcoal_suit", silhouette: "suit", coat: 0x2a2a30, pants: 0x1a1a1e, shirt: 0xf4efe6, skin: 0xd4b090, hair: 0x3a3028, tie: 0x5a4050 },
+  { id: "burgundy_coat", silhouette: "coat", coat: 0x6a3040, pants: 0x1a1418, shirt: 0xe8ddd0, skin: 0xd0b090, hair: 0x4a3828, tie: 0x2a3040, longCoat: true },
+  { id: "violet_dress", silhouette: "dress", coat: 0x5a3a68, pants: 0x5a3a68, shirt: 0x5a3a68, skin: 0xc4a090, hair: 0x1a1818, tie: 0x5a3a68, dress: true },
+  { id: "teal_blazer", silhouette: "street", coat: 0x2a5a58, pants: 0x1a1c22, shirt: 0xd8cfc4, skin: 0xc4a890, hair: 0x3a3428, tie: 0x8a4038 },
+  { id: "slate_hoodie", silhouette: "street", coat: 0x3a4a58, pants: 0x222830, shirt: 0xe8e0d4, skin: 0xb89878, hair: 0x2a2828, tie: 0x203040, hoodie: true },
+  { id: "olive_casual", silhouette: "street", coat: 0x4a5a40, pants: 0x2a3028, shirt: 0xe6ddd0, skin: 0xc4a878, hair: 0x4a3828, tie: 0x3a4030 },
+];
+
+/** Gallery-attire solid tints applied onto Mixamo GLB materials (variety without chaotic textures). */
+var GLB_ATTIRE_TINTS = [
+  0x2a3448, // navy
+  0xb89a6a, // camel
+  0x2a2a30, // charcoal
+  0x6a3040, // burgundy
+  0x3a4a58, // slate
+  0x4a5a40, // olive muted
+  0x5a3a68, // violet
+  0x2a5a58, // teal
 ];
 
 function matStd(hex, rough, metal) {
@@ -650,112 +661,238 @@ function addMesh(parent, geo, mat, px, py, pz, sx, sy, sz) {
   return m;
 }
 
-/** Lathe profile: hips → waist → chest → shoulder flare → neck blend (one skin line). */
+function loadGltfAsync(url) {
+  return new Promise(function (resolve) {
+    var loader = new GLTFLoader();
+    loader.load(
+      url,
+      function (gltf) { resolve(gltf); },
+      undefined,
+      function () { resolve(null); }
+    );
+  });
+}
+
+async function loadCharacterLibrary() {
+  if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
+    return api._charLibrary;
+  }
+  showLoader(true, "Loading gallery patrons…");
+  var lib = { glbs: [] };
+  var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
+  for (var gi = 0; gi < glbFiles.length; gi++) {
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi]);
+    if (g && g.scene) lib.glbs.push({ id: glbFiles[gi], gltf: g });
+  }
+  api._charLibrary = lib;
+  return lib;
+}
+
+/**
+ * Recolor Mixamo GLB materials toward calm gallery attire solids.
+ * Keeps skin-like materials warmer; pushes clothing toward palette hex.
+ */
+function applyGalleryAttireTint(root, attireHex, skinBias) {
+  var attire = new THREE.Color(attireHex);
+  var warm = new THREE.Color(skinBias != null ? skinBias : 0xd4b896);
+  root.traverse(function (o) {
+    if (!o.isMesh || !o.material) return;
+    var mats = Array.isArray(o.material) ? o.material : [o.material];
+    for (var i = 0; i < mats.length; i++) {
+      var m = mats[i];
+      if (!m || !m.color) continue;
+      m = m.clone();
+      trackMat(m);
+      mats[i] = m;
+      var name = ((m.name || "") + " " + (o.name || "")).toLowerCase();
+      var isSkin = /skin|face|head|hand|arm|leg|body(?!mat)|flesh|beta_highlimbs|limb/i.test(name);
+      var isVisor = /visor|eye|glass/i.test(name);
+      if (isVisor) {
+        m.color.setHex(0x1a1a22);
+        m.metalness = Math.max(m.metalness || 0, 0.4);
+        m.roughness = Math.min(m.roughness != null ? m.roughness : 0.5, 0.35);
+      } else if (isSkin) {
+        m.color.lerp(warm, 0.55);
+        m.roughness = Math.max(m.roughness != null ? m.roughness : 0.6, 0.55);
+        m.metalness = Math.min(m.metalness || 0, 0.08);
+      } else {
+        // Clothing / armor / joints → calm attire solid with slight map keep
+        m.color.copy(attire);
+        if (m.map) {
+          // Mute textured military look toward solid gallery cloth
+          m.color.lerp(new THREE.Color(0xffffff), 0.15);
+          m.roughness = Math.max(m.roughness != null ? m.roughness : 0.7, 0.62);
+        } else {
+          m.roughness = 0.72;
+        }
+        m.metalness = Math.min(m.metalness || 0, 0.12);
+        m.emissive && m.emissive.setHex(0x000000);
+        if (m.emissiveIntensity != null) m.emissiveIntensity = 0;
+      }
+    }
+    o.material = Array.isArray(o.material) ? mats : mats[0];
+    o.castShadow = true;
+    o.receiveShadow = true;
+  });
+}
+
+function buildGltfCharacter(entry, opts) {
+  opts = opts || {};
+  var root = new THREE.Group();
+  // Skinned Mixamo meshes need SkeletonUtils.clone (plain clone breaks bindings)
+  var model = SkeletonUtils.clone(entry.gltf.scene);
+  applyGalleryAttireTint(
+    model,
+    opts.attire != null ? opts.attire : GLB_ATTIRE_TINTS[0],
+    opts.skin != null ? opts.skin : 0xd4b896
+  );
+
+  // Normalize adult height (~1.78m) — MetaHuman-like standing scale
+  model.updateMatrixWorld(true);
+  var box = new THREE.Box3().setFromObject(model);
+  var size = new THREE.Vector3();
+  box.getSize(size);
+  var s = (TARGET_HUMAN_HEIGHT * (opts.scale || 1)) / Math.max(0.001, size.y);
+  model.scale.setScalar(s);
+  model.updateMatrixWorld(true);
+  box.setFromObject(model);
+  model.position.y = -box.min.y;
+  root.add(model);
+
+  var mixer = null;
+  var actions = {};
+  if (entry.gltf.animations && entry.gltf.animations.length) {
+    mixer = new THREE.AnimationMixer(model);
+    var walkClip = entry.gltf.animations.find(function (c) { return /walk/i.test(c.name); });
+    var idleClip = entry.gltf.animations.find(function (c) { return /idle/i.test(c.name); });
+    var clip = walkClip || idleClip || entry.gltf.animations[0];
+    if (walkClip) actions.walk = mixer.clipAction(walkClip);
+    if (idleClip) actions.idle = mixer.clipAction(idleClip);
+    if (!actions.walk) actions.walk = mixer.clipAction(clip);
+    if (actions.idle) {
+      actions.idle.play();
+      actions.idle.setEffectiveWeight(1);
+    }
+    if (actions.walk) {
+      actions.walk.play();
+      actions.walk.setEffectiveWeight(actions.idle ? 0 : 0.35);
+      actions.walk.setLoop(THREE.LoopRepeat, Infinity);
+    }
+    root.userData.mixer = mixer;
+    root.userData.actions = actions;
+    api._mixers.push(mixer);
+  }
+
+  if (opts.isPlayer) {
+    var arrow = buildFacingArrow();
+    // Place arrow at feet in front — not a chest badge
+    arrow.position.set(0, 0.02, 0);
+    root.add(arrow);
+    api._facingArrow = arrow;
+  }
+
+  root.updateMatrixWorld(true);
+  var bb = new THREE.Box3().setFromObject(root);
+  var groundY = isFinite(bb.min.y) ? -bb.min.y : 0;
+  if (groundY) root.position.y += groundY;
+
+  root.userData.charKind = "gltf";
+  root.userData.walkAmp = 0;
+  root.userData.limbs = { phase: 0, groundY: root.position.y };
+  root.userData.isPlayer = !!opts.isPlayer;
+  root.userData.modelId = entry.id;
+  return root;
+}
+
+/**
+ * MetaHuman-ish lathe: hips → waist → chest → shoulder flare → continuous neck stump.
+ * Head is ~1/7.5 of standing height (NOT bobblehead).
+ */
 function makeTorsoShellGeo() {
   var pts = [
     new THREE.Vector2(0.01, 0.00),
-    new THREE.Vector2(0.19, 0.02),
-    new THREE.Vector2(0.21, 0.12),
-    new THREE.Vector2(0.18, 0.28),
-    new THREE.Vector2(0.17, 0.40),
-    new THREE.Vector2(0.20, 0.52),
-    new THREE.Vector2(0.24, 0.64),
-    new THREE.Vector2(0.29, 0.74), // shoulder flare
-    new THREE.Vector2(0.22, 0.80),
-    new THREE.Vector2(0.11, 0.86), // neck root
-    new THREE.Vector2(0.075, 0.94),
-    new THREE.Vector2(0.068, 1.04),
-    new THREE.Vector2(0.01, 1.06),
+    new THREE.Vector2(0.17, 0.02),   // hips
+    new THREE.Vector2(0.18, 0.10),
+    new THREE.Vector2(0.15, 0.26),   // waist
+    new THREE.Vector2(0.16, 0.38),
+    new THREE.Vector2(0.19, 0.50),   // lower chest
+    new THREE.Vector2(0.22, 0.62),   // chest
+    new THREE.Vector2(0.26, 0.72),   // shoulder flare
+    new THREE.Vector2(0.20, 0.78),
+    new THREE.Vector2(0.10, 0.84),   // neck root (continuous funnel)
+    new THREE.Vector2(0.068, 0.92),
+    new THREE.Vector2(0.062, 1.00),  // neck top blends into head
+    new THREE.Vector2(0.01, 1.02),
   ];
-  return new THREE.LatheGeometry(pts, 20);
+  return new THREE.LatheGeometry(pts, 24);
 }
 
 /** Palm + thumb + 4 fingers (tapered segments). side: -1 left, +1 right. */
 function buildHand(skinMat, side) {
   var g = new THREE.Group();
-  // palm plate — flat continuous from wrist, not a ball
-  addMesh(g, new THREE.BoxGeometry(0.072, 0.095, 0.032), skinMat, 0, -0.048, 0.008);
-  addMesh(g, new THREE.CapsuleGeometry(0.028, 0.05, 4, 8), skinMat, 0, -0.042, 0.002, 1.25, 1, 0.65);
+  addMesh(g, new THREE.BoxGeometry(0.068, 0.088, 0.028), skinMat, 0, -0.045, 0.006);
+  addMesh(g, new THREE.CapsuleGeometry(0.026, 0.045, 4, 8), skinMat, 0, -0.040, 0.002, 1.2, 1, 0.6);
 
   var specs = [
-    { x: -0.028, z: 0.008, len: 0.052, r: 0.0085 }, // pinky
-    { x: -0.010, z: 0.014, len: 0.062, r: 0.0095 }, // ring
-    { x: 0.010, z: 0.015, len: 0.066, r: 0.010 },  // middle
-    { x: 0.028, z: 0.010, len: 0.058, r: 0.009 },  // index
+    { x: -0.026, z: 0.006, len: 0.048, r: 0.0078 },
+    { x: -0.009, z: 0.012, len: 0.058, r: 0.0088 },
+    { x: 0.009, z: 0.013, len: 0.062, r: 0.0092 },
+    { x: 0.026, z: 0.008, len: 0.054, r: 0.0084 },
   ];
   for (var i = 0; i < specs.length; i++) {
     var s = specs[i];
     var fg = new THREE.Group();
-    fg.position.set(s.x * side, -0.092, s.z);
-    // proximal + distal taper (reads as one finger, not a ball tip kit)
+    fg.position.set(s.x * side, -0.088, s.z);
     addMesh(fg, new THREE.CylinderGeometry(s.r * 0.72, s.r, s.len * 0.55, 6), skinMat, 0, -s.len * 0.28, 0);
     addMesh(fg, new THREE.CylinderGeometry(s.r * 0.55, s.r * 0.72, s.len * 0.45, 6), skinMat, 0, -s.len * 0.72, 0);
-    addMesh(fg, new THREE.SphereGeometry(s.r * 0.55, 6, 5), skinMat, 0, -s.len, 0);
+    addMesh(fg, new THREE.SphereGeometry(s.r * 0.5, 6, 5), skinMat, 0, -s.len, 0);
     g.add(fg);
   }
-  // thumb — angled out from palm edge
   var thumb = new THREE.Group();
-  thumb.position.set(0.036 * side, -0.035, 0.018);
+  thumb.position.set(0.034 * side, -0.032, 0.016);
   thumb.rotation.z = side * 0.85;
   thumb.rotation.x = -0.55;
   thumb.rotation.y = side * 0.25;
-  addMesh(thumb, new THREE.CylinderGeometry(0.0075, 0.011, 0.028, 6), skinMat, 0, -0.012, 0);
-  addMesh(thumb, new THREE.CylinderGeometry(0.006, 0.0075, 0.024, 6), skinMat, 0, -0.036, 0);
-  addMesh(thumb, new THREE.SphereGeometry(0.007, 6, 5), skinMat, 0, -0.05, 0);
+  addMesh(thumb, new THREE.CylinderGeometry(0.007, 0.010, 0.026, 6), skinMat, 0, -0.012, 0);
+  addMesh(thumb, new THREE.CylinderGeometry(0.0055, 0.007, 0.022, 6), skinMat, 0, -0.034, 0);
+  addMesh(thumb, new THREE.SphereGeometry(0.0065, 6, 5), skinMat, 0, -0.048, 0);
   g.add(thumb);
   return g;
 }
 
-/**
- * Continuous limb arm: shoulder sleeve blends into one tapered tube through the
- * elbow (heavy overlap, no joint sphere), forearm continues to wrist, 5-finger hand.
- * Hierarchy kept only so walk can bend the elbow without breaking silhouette.
- */
 function buildArm(sleeveMat, skinMat, side) {
   var arm = new THREE.Group();
-  arm.position.set(side * 0.30, 0.70, 0);
-  // shoulder mass blends into torso flare (elongated, not a Lego ball)
-  addMesh(arm, new THREE.CapsuleGeometry(0.085, 0.08, 6, 12), sleeveMat, side * -0.02, 0.02, 0, 1.35, 0.75, 1.05);
-  // upper arm — single tapered structure toward elbow
-  addMesh(arm, new THREE.CylinderGeometry(0.052, 0.078, 0.38, 12), sleeveMat, 0, -0.18, 0);
-  // elbow flesh: same sleeve material, buried in overlap (no ball silhouette)
-  addMesh(arm, new THREE.CapsuleGeometry(0.055, 0.05, 4, 10), sleeveMat, 0, -0.36, 0, 1.05, 0.7, 1.05);
+  arm.position.set(side * 0.28, 0.72, 0);
+  addMesh(arm, new THREE.CapsuleGeometry(0.078, 0.07, 6, 12), sleeveMat, side * -0.02, 0.02, 0, 1.3, 0.72, 1.0);
+  addMesh(arm, new THREE.CylinderGeometry(0.048, 0.072, 0.36, 12), sleeveMat, 0, -0.17, 0);
+  addMesh(arm, new THREE.CapsuleGeometry(0.05, 0.04, 4, 10), sleeveMat, 0, -0.34, 0, 1.05, 0.7, 1.05);
 
   var fore = new THREE.Group();
-  fore.position.set(0, -0.38, 0);
-  // forearm starts inside upper arm for continuity
-  addMesh(fore, new THREE.CylinderGeometry(0.040, 0.054, 0.36, 12), sleeveMat, 0, -0.12, 0);
-  addMesh(fore, new THREE.CylinderGeometry(0.036, 0.042, 0.08, 10), sleeveMat, 0, -0.30, 0);
-  // wrist skin peek into hand
-  addMesh(fore, new THREE.CylinderGeometry(0.032, 0.036, 0.04, 10), skinMat, 0, -0.34, 0);
+  fore.position.set(0, -0.36, 0);
+  addMesh(fore, new THREE.CylinderGeometry(0.038, 0.050, 0.34, 12), sleeveMat, 0, -0.12, 0);
+  addMesh(fore, new THREE.CylinderGeometry(0.034, 0.040, 0.07, 10), sleeveMat, 0, -0.28, 0);
+  addMesh(fore, new THREE.CylinderGeometry(0.030, 0.034, 0.035, 10), skinMat, 0, -0.32, 0);
 
   var hand = buildHand(skinMat, side);
-  hand.position.set(0, -0.38, 0);
+  hand.position.set(0, -0.36, 0);
   fore.add(hand);
   arm.add(fore);
   return { arm: arm, fore: fore };
 }
 
-/**
- * Continuous leg: hip→thigh→shin→shoe as overlapping tapers (no ball joints).
- */
 function buildLeg(pantsMat, shoeMat, side, hideMeshes) {
   var leg = new THREE.Group();
-  leg.position.set(side * 0.11, 0.92, 0);
-  // hip blend into pelvis
-  addMesh(leg, new THREE.CapsuleGeometry(0.095, 0.06, 5, 10), pantsMat, side * -0.01, -0.02, 0, 1.15, 0.7, 1.05);
-  // thigh taper
-  addMesh(leg, new THREE.CylinderGeometry(0.072, 0.095, 0.40, 12), pantsMat, 0, -0.24, 0);
-  // knee overlap (pants material — not a joint ball)
-  addMesh(leg, new THREE.CapsuleGeometry(0.07, 0.045, 4, 10), pantsMat, 0, -0.44, 0, 1.05, 0.65, 1.05);
+  leg.position.set(side * 0.10, 0.94, 0);
+  addMesh(leg, new THREE.CapsuleGeometry(0.088, 0.05, 5, 10), pantsMat, side * -0.01, -0.02, 0, 1.12, 0.7, 1.05);
+  addMesh(leg, new THREE.CylinderGeometry(0.066, 0.088, 0.42, 12), pantsMat, 0, -0.24, 0);
+  addMesh(leg, new THREE.CapsuleGeometry(0.064, 0.04, 4, 10), pantsMat, 0, -0.45, 0, 1.05, 0.65, 1.05);
 
   var shin = new THREE.Group();
-  shin.position.set(0, -0.46, 0);
-  addMesh(shin, new THREE.CylinderGeometry(0.055, 0.072, 0.38, 12), pantsMat, 0, -0.16, 0);
-  addMesh(shin, new THREE.CylinderGeometry(0.048, 0.055, 0.08, 10), pantsMat, 0, -0.34, 0);
-  // shoe volume
-  addMesh(shin, new THREE.BoxGeometry(0.12, 0.065, 0.26), shoeMat, 0, -0.40, 0.05);
-  addMesh(shin, new THREE.BoxGeometry(0.11, 0.05, 0.08), shoeMat, 0, -0.36, -0.08);
+  shin.position.set(0, -0.47, 0);
+  addMesh(shin, new THREE.CylinderGeometry(0.050, 0.066, 0.40, 12), pantsMat, 0, -0.17, 0);
+  addMesh(shin, new THREE.CylinderGeometry(0.044, 0.050, 0.07, 10), pantsMat, 0, -0.36, 0);
+  addMesh(shin, new THREE.BoxGeometry(0.11, 0.06, 0.24), shoeMat, 0, -0.42, 0.045);
+  addMesh(shin, new THREE.BoxGeometry(0.10, 0.045, 0.07), shoeMat, 0, -0.38, -0.07);
   leg.add(shin);
 
   if (hideMeshes) {
@@ -765,19 +902,17 @@ function buildLeg(pantsMat, shoeMat, side, hideMeshes) {
 }
 
 /**
- * Carve a continuous human silhouette. Outfit volumes (suit/coat/dress/street)
- * sit on the connected body; limbs are structures with 5-finger hands.
+ * Procedural MetaHuman-proportion humanoid (fallback when GLB missing).
+ * Continuous silhouette; plain gallery clothing volumes — no collar tabs / badge / pencil art.
  */
 function buildHumanoid(opts) {
   opts = opts || {};
-  var coatHex = opts.coat != null ? opts.coat : 0x2c3f5e;
-  var pantsHex = opts.pants != null ? opts.pants : 0x1a2230;
+  var coatHex = opts.coat != null ? opts.coat : 0x2a2a30;
+  var pantsHex = opts.pants != null ? opts.pants : 0x1a1a1e;
   var skinHex = opts.skin != null ? opts.skin : 0xd4b896;
   var shirtHex = opts.shirt != null ? opts.shirt : 0xf0e6d8;
   var hairHex = opts.hair != null ? opts.hair : 0x3a2918;
-  var tieHex = opts.tie != null ? opts.tie : 0x8a2030;
-  var withBeret = !!opts.beret;
-  var beretHex = opts.beretColor != null ? opts.beretColor : 0xe8c030;
+  var tieHex = opts.tie != null ? opts.tie : 0x5a4050;
   var isDress = !!opts.dress;
   var isLongCoat = !!opts.longCoat;
   var isHoodie = !!opts.hoodie;
@@ -794,119 +929,97 @@ function buildHumanoid(opts) {
   var shirtMat = matStd(shirtHex, 0.88, 0);
   var hairMat = matStd(hairHex, 0.92, 0);
   var shoeMat = matStd(0x1a1410, 0.55, 0.15);
-  var beretMat = matStd(beretHex, 0.7, 0.05);
   var tieMat = matStd(tieHex, 0.65, 0.05);
 
-  // —— Legs (continuous hip→foot) ——
   var Lleg = buildLeg(pantsMat, shoeMat, -1, isDress);
   var Rleg = buildLeg(pantsMat, shoeMat, 1, isDress);
   rig.add(Lleg.leg);
   rig.add(Rleg.leg);
   if (isDress) {
-    var lShoe = addMesh(rig, new THREE.BoxGeometry(0.11, 0.055, 0.22), shoeMat, -0.11, 0.04, 0.04);
+    var lShoe = addMesh(rig, new THREE.BoxGeometry(0.10, 0.05, 0.20), shoeMat, -0.10, 0.035, 0.035);
     lShoe.userData.dressShoe = "L";
-    var rShoe = addMesh(rig, new THREE.BoxGeometry(0.11, 0.055, 0.22), shoeMat, 0.11, 0.04, 0.04);
+    var rShoe = addMesh(rig, new THREE.BoxGeometry(0.10, 0.05, 0.20), shoeMat, 0.10, 0.035, 0.035);
     rShoe.userData.dressShoe = "R";
   }
 
-  // —— Torso: connected hips–chest–shoulders–neck shell ——
   var torso = new THREE.Group();
-  torso.position.y = 0.90;
+  torso.position.y = 0.92;
 
-  // Underlying continuous body (skin line under clothing)
+  // Continuous body shell (skin or dress fabric)
   addMesh(torso, makeTorsoShellGeo(), isDress ? coatMat : skinMat, 0, 0, 0);
 
   if (isDress) {
-    addMesh(torso, new THREE.CapsuleGeometry(0.21, 0.40, 8, 14), coatMat, 0, 0.40, 0, 1.08, 1, 0.92);
-    var skirt = addMesh(torso, new THREE.CylinderGeometry(0.36, 0.20, 0.58, 18), coatMat, 0, 0.02, 0);
-    skirt.position.y = -0.02;
-    addMesh(torso, new THREE.SphereGeometry(0.15, 14, 10), shirtMat, 0, 0.62, 0.08, 1.15, 0.5, 0.7);
+    addMesh(torso, new THREE.CapsuleGeometry(0.20, 0.38, 8, 14), coatMat, 0, 0.38, 0, 1.06, 1, 0.92);
+    addMesh(torso, new THREE.CylinderGeometry(0.34, 0.19, 0.55, 18), coatMat, 0, 0.00, 0);
+    // soft neckline only — no collar plates
+    addMesh(torso, new THREE.SphereGeometry(0.12, 14, 10), shirtMat, 0, 0.58, 0.06, 1.1, 0.45, 0.65);
   } else if (isLongCoat) {
-    addMesh(torso, new THREE.CapsuleGeometry(0.23, 0.48, 8, 14), coatMat, 0, 0.40, 0, 1.08, 1.02, 0.95);
-    addMesh(torso, new THREE.CylinderGeometry(0.28, 0.22, 0.55, 14), coatMat, 0, 0.00, 0.02);
-    addMesh(torso, new THREE.BoxGeometry(0.16, 0.28, 0.05), shirtMat, 0, 0.60, 0.17);
-    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.52, 0.20);
-    var lapL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, -0.12, 0.50, 0.18);
-    lapL.rotation.z = 0.15;
-    var lapR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, 0.12, 0.50, 0.18);
-    lapR.rotation.z = -0.15;
+    addMesh(torso, new THREE.CapsuleGeometry(0.21, 0.46, 8, 14), coatMat, 0, 0.38, 0, 1.06, 1.02, 0.95);
+    addMesh(torso, new THREE.CylinderGeometry(0.26, 0.20, 0.52, 14), coatMat, 0, -0.02, 0.02);
+    // plain shirt slit + slim tie (not a pencil graphic)
+    addMesh(torso, new THREE.BoxGeometry(0.12, 0.24, 0.04), shirtMat, 0, 0.56, 0.16);
+    addMesh(torso, new THREE.BoxGeometry(0.035, 0.22, 0.025), tieMat, 0, 0.50, 0.185);
+    var lapL = addMesh(torso, new THREE.BoxGeometry(0.08, 0.36, 0.04), coatMat, -0.11, 0.48, 0.17);
+    lapL.rotation.z = 0.12;
+    var lapR = addMesh(torso, new THREE.BoxGeometry(0.08, 0.36, 0.04), coatMat, 0.11, 0.48, 0.17);
+    lapR.rotation.z = -0.12;
   } else if (isHoodie) {
-    addMesh(torso, new THREE.CapsuleGeometry(0.24, 0.46, 8, 14), coatMat, 0, 0.40, 0, 1.1, 1, 0.98);
-    addMesh(torso, new THREE.BoxGeometry(0.28, 0.14, 0.08), coatMat, 0, 0.26, 0.19);
-    addMesh(torso, new THREE.TorusGeometry(0.12, 0.035, 8, 14), coatMat, 0, 0.86, -0.08);
-    addMesh(torso, new THREE.BoxGeometry(0.2, 0.18, 0.04), shirtMat, 0, 0.56, 0.21);
+    addMesh(torso, new THREE.CapsuleGeometry(0.22, 0.44, 8, 14), coatMat, 0, 0.38, 0, 1.08, 1, 0.98);
+    addMesh(torso, new THREE.BoxGeometry(0.26, 0.12, 0.07), coatMat, 0, 0.24, 0.18);
+    addMesh(torso, new THREE.TorusGeometry(0.11, 0.03, 8, 14), coatMat, 0, 0.82, -0.06);
   } else {
-    // suit / blazer over continuous torso
-    addMesh(torso, new THREE.CapsuleGeometry(0.22, 0.44, 8, 14), coatMat, 0, 0.40, 0, 1.1, 1.0, 0.92);
-    addMesh(torso, new THREE.BoxGeometry(0.16, 0.3, 0.05), shirtMat, 0, 0.56, 0.17);
-    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.50, 0.20);
-    var lpl = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, -0.12, 0.48, 0.18);
-    lpl.rotation.z = 0.12;
-    var lpr = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, 0.12, 0.48, 0.18);
-    lpr.rotation.z = -0.12;
-    var cL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, -0.07, 0.76, 0.15);
-    cL.rotation.z = 0.45;
-    var cR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, 0.07, 0.76, 0.15);
-    cR.rotation.z = -0.45;
+    // plain suit / blazer — continuous torso, soft shirt V, slim tie; NO collar tabs / badge
+    addMesh(torso, new THREE.CapsuleGeometry(0.205, 0.42, 8, 14), coatMat, 0, 0.38, 0, 1.08, 1.0, 0.92);
+    addMesh(torso, new THREE.BoxGeometry(0.12, 0.26, 0.04), shirtMat, 0, 0.54, 0.16);
+    addMesh(torso, new THREE.BoxGeometry(0.035, 0.22, 0.025), tieMat, 0, 0.48, 0.185);
+    var lpl = addMesh(torso, new THREE.BoxGeometry(0.08, 0.34, 0.035), coatMat, -0.11, 0.46, 0.17);
+    lpl.rotation.z = 0.10;
+    var lpr = addMesh(torso, new THREE.BoxGeometry(0.08, 0.34, 0.035), coatMat, 0.11, 0.46, 0.17);
+    lpr.rotation.z = -0.10;
   }
 
-  // Soft shoulder pads — elongated into sleeve line (NOT discrete spheres)
-  addMesh(torso, new THREE.CapsuleGeometry(0.09, 0.1, 6, 12), coatMat, -0.26, 0.70, 0, 1.4, 0.7, 1.05);
-  addMesh(torso, new THREE.CapsuleGeometry(0.09, 0.1, 6, 12), coatMat, 0.26, 0.70, 0, 1.4, 0.7, 1.05);
+  // Soft shoulder pads elongated into sleeve line
+  addMesh(torso, new THREE.CapsuleGeometry(0.082, 0.09, 6, 12), coatMat, -0.24, 0.68, 0, 1.35, 0.68, 1.0);
+  addMesh(torso, new THREE.CapsuleGeometry(0.082, 0.09, 6, 12), coatMat, 0.24, 0.68, 0, 1.35, 0.68, 1.0);
 
-  if (isPlayer) {
-    var pin = addMesh(torso, new THREE.SphereGeometry(0.035, 10, 8), matStd(0xffe066, 0.3, 0.55), 0.14, 0.48, 0.21);
-    pin.material = trackMat(new THREE.MeshStandardMaterial({
-      color: 0xffe066, emissive: 0xaa8800, emissiveIntensity: 0.65, metalness: 0.55, roughness: 0.3,
-    }));
-  }
+  // NOTE: intentionally NO gold chest badge / pin / pencil / white collar plates
 
-  // —— Arms with 5-finger hands ——
   var Larm = buildArm(coatMat, skinMat, -1);
   var Rarm = buildArm(coatMat, skinMat, 1);
   torso.add(Larm.arm);
   torso.add(Rarm.arm);
 
-  // —— Head continuous with neck stump (already in lathe); chin overlaps neck ——
+  // Head ~1/7.5 body: skull radius ~0.11 on ~1.75m figure
   var headG = new THREE.Group();
-  headG.position.set(0, 1.05, 0);
-  // neck→jaw blend volume (same skin as head — kills floating cylinder look)
-  addMesh(headG, new THREE.CylinderGeometry(0.07, 0.09, 0.14, 14), skinMat, 0, -0.12, 0.01);
-  addMesh(headG, new THREE.SphereGeometry(0.095, 16, 12), skinMat, 0, -0.06, 0.02, 1.15, 0.7, 1.0);
-  // skull
-  addMesh(headG, new THREE.SphereGeometry(0.155, 24, 20), skinMat, 0, 0.02, 0.01, 1, 1.12, 0.95);
-  addMesh(headG, new THREE.SphereGeometry(0.11, 16, 12), skinMat, 0, -0.04, 0.03, 1.15, 0.8, 0.95);
-  // hair cap
-  addMesh(headG, new THREE.SphereGeometry(0.16, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), hairMat, 0, 0.05, -0.01, 1.02, 1.05, 1.0);
-  addMesh(headG, new THREE.SphereGeometry(0.03, 10, 8), skinMat, -0.15, 0.0, 0, 0.7, 1.1, 0.55);
-  addMesh(headG, new THREE.SphereGeometry(0.03, 10, 8), skinMat, 0.15, 0.0, 0, 0.7, 1.1, 0.55);
+  headG.position.set(0, 1.00, 0);
+  // Continuous neck→jaw blend (same skin — funnel into shoulders via torso lathe)
+  addMesh(headG, new THREE.CylinderGeometry(0.055, 0.072, 0.12, 14), skinMat, 0, -0.10, 0.01);
+  addMesh(headG, new THREE.SphereGeometry(0.07, 14, 12), skinMat, 0, -0.05, 0.015, 1.1, 0.65, 0.95);
+  addMesh(headG, new THREE.SphereGeometry(0.112, 24, 20), skinMat, 0, 0.02, 0.01, 1, 1.12, 0.95);
+  addMesh(headG, new THREE.SphereGeometry(0.08, 14, 12), skinMat, 0, -0.03, 0.025, 1.1, 0.75, 0.9);
+  addMesh(headG, new THREE.SphereGeometry(0.116, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), hairMat, 0, 0.04, -0.01, 1.02, 1.05, 1.0);
+  addMesh(headG, new THREE.SphereGeometry(0.022, 10, 8), skinMat, -0.11, 0.0, 0, 0.7, 1.1, 0.55);
+  addMesh(headG, new THREE.SphereGeometry(0.022, 10, 8), skinMat, 0.11, 0.0, 0, 0.7, 1.1, 0.55);
 
   var eyeWhite = matStd(0xf5f2ea, 0.35, 0);
   var irisMat = matStd(0x3a4a5a, 0.35, 0);
   var pupilMat = matStd(0x101018, 0.25, 0);
   function eye(ox) {
     var eg = new THREE.Group();
-    eg.position.set(ox, 0.03, 0.13);
-    addMesh(eg, new THREE.SphereGeometry(0.024, 12, 10), eyeWhite, 0, 0, 0);
-    addMesh(eg, new THREE.SphereGeometry(0.014, 10, 8), irisMat, 0, 0, 0.014);
-    addMesh(eg, new THREE.SphereGeometry(0.006, 8, 6), pupilMat, 0, 0, 0.022);
-    addMesh(eg, new THREE.BoxGeometry(0.055, 0.01, 0.014), hairMat, 0, 0.03, 0.008);
+    eg.position.set(ox, 0.025, 0.10);
+    addMesh(eg, new THREE.SphereGeometry(0.018, 12, 10), eyeWhite, 0, 0, 0);
+    addMesh(eg, new THREE.SphereGeometry(0.011, 10, 8), irisMat, 0, 0, 0.011);
+    addMesh(eg, new THREE.SphereGeometry(0.005, 8, 6), pupilMat, 0, 0, 0.017);
+    addMesh(eg, new THREE.BoxGeometry(0.042, 0.008, 0.012), hairMat, 0, 0.022, 0.006);
     headG.add(eg);
   }
-  eye(-0.048);
-  eye(0.048);
+  eye(-0.038);
+  eye(0.038);
 
-  addMesh(headG, new THREE.BoxGeometry(0.026, 0.042, 0.038), skinMat, 0, -0.012, 0.145);
-  addMesh(headG, new THREE.SphereGeometry(0.015, 10, 8), skinMat, 0, -0.032, 0.165);
+  addMesh(headG, new THREE.BoxGeometry(0.02, 0.032, 0.03), skinMat, 0, -0.01, 0.11);
+  addMesh(headG, new THREE.SphereGeometry(0.012, 10, 8), skinMat, 0, -0.026, 0.125);
   var lipMat = matStd(0xb07070, 0.55, 0.04);
-  addMesh(headG, new THREE.BoxGeometry(0.048, 0.01, 0.015), lipMat, 0, -0.075, 0.14);
-
-  if (withBeret) {
-    var beret = addMesh(headG, new THREE.SphereGeometry(0.185, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), beretMat, -0.02, 0.14, -0.02, 1.15, 0.42, 1.15);
-    beret.rotation.z = -0.18;
-    beret.rotation.x = -0.12;
-    addMesh(headG, new THREE.SphereGeometry(0.05, 12, 10), beretMat, -0.05, 0.19, -0.02, 1, 0.45, 1);
-  }
+  addMesh(headG, new THREE.BoxGeometry(0.038, 0.008, 0.012), lipMat, 0, -0.058, 0.105);
 
   torso.add(headG);
   rig.add(torso);
@@ -918,8 +1031,6 @@ function buildHumanoid(opts) {
   }
 
   root.scale.setScalar(scale);
-
-  // Ground soles to y=0 so NPCs / player never half-clip the marble
   root.updateMatrixWorld(true);
   var bb = new THREE.Box3().setFromObject(root);
   if (isFinite(bb.min.y)) root.position.y -= bb.min.y;
@@ -933,15 +1044,35 @@ function buildHumanoid(opts) {
   };
   root.userData.isPlayer = isPlayer;
   root.userData.walkAmp = 0;
-  root.userData.charKind = "sculpt-continuous";
+  root.userData.charKind = "sculpt-metahuman";
   return root;
 }
 
 function animateHumanoid(root, moving, dt) {
-  var L = root && root.userData && root.userData.limbs;
-  if (!L) return;
-  var target = moving ? 1 : 0;
-  root.userData.walkAmp += (target - root.userData.walkAmp) * Math.min(1, dt * 8);
+  if (!root || !root.userData) return;
+
+  if (root.userData.charKind === "gltf" && root.userData.mixer) {
+    var actions = root.userData.actions || {};
+    var w = root.userData.walkAmp || 0;
+    var target = moving ? 1 : 0;
+    root.userData.walkAmp = w + (target - w) * Math.min(1, dt * 6);
+    w = root.userData.walkAmp;
+    if (actions.walk && actions.idle) {
+      actions.walk.setEffectiveWeight(w);
+      actions.idle.setEffectiveWeight(1 - w);
+      actions.walk.timeScale = 0.85 + w * 0.35;
+    } else if (actions.walk) {
+      actions.walk.setEffectiveWeight(0.3 + w * 0.7);
+      actions.walk.timeScale = 0.7 + w * 0.6;
+    }
+    root.userData.mixer.update(dt);
+    return;
+  }
+
+  var L = root.userData.limbs;
+  if (!L || !L.lLeg) return;
+  var targetP = moving ? 1 : 0;
+  root.userData.walkAmp += (targetP - root.userData.walkAmp) * Math.min(1, dt * 8);
   var amp = root.userData.walkAmp;
   L.phase += dt * (6.5 + amp * 4);
   var sw = Math.sin(L.phase) * amp;
@@ -954,47 +1085,69 @@ function animateHumanoid(root, moving, dt) {
   L.rArm.rotation.x = sw * 0.5;
   L.lFore.rotation.x = -0.12 - Math.max(0, sw2) * 0.22;
   L.rFore.rotation.x = -0.12 - Math.max(0, sw) * 0.22;
-  L.torso.position.y = 0.90 + Math.abs(sw) * 0.03;
+  L.torso.position.y = 0.92 + Math.abs(sw) * 0.03;
   L.head.rotation.y = sw * 0.04;
   if (L.dress) {
     root.traverse(function (o) {
-      if (o.userData && o.userData.dressShoe === "L") o.position.z = 0.04 + sw * 0.06;
-      if (o.userData && o.userData.dressShoe === "R") o.position.z = 0.04 + sw2 * 0.06;
+      if (o.userData && o.userData.dressShoe === "L") o.position.z = 0.035 + sw * 0.06;
+      if (o.userData && o.userData.dressShoe === "R") o.position.z = 0.035 + sw2 * 0.06;
     });
   }
 }
 
+function pickGlbEntry(index) {
+  var lib = api._charLibrary;
+  if (!lib || !lib.glbs || !lib.glbs.length) return null;
+  return lib.glbs[index % lib.glbs.length];
+}
+
 function buildPlayer() {
+  var entry = pickGlbEntry(0);
+  if (entry) {
+    return buildGltfCharacter(entry, {
+      isPlayer: true,
+      scale: 1.0,
+      attire: 0x2a2a30, // charcoal gallery suit — NOT green waffle uniform
+      skin: 0xd4b896,
+    });
+  }
   return buildHumanoid({
-    coat: 0x2d6a4f,
-    pants: 0x1a3328,
-    shirt: 0xf2ebe0,
+    coat: 0x2a2a30,
+    pants: 0x1a1a1e,
+    shirt: 0xf4efe6,
     skin: 0xd4b896,
     hair: 0x3a2918,
-    tie: 0xc9a227,
-    beret: true,
-    beretColor: 0xe8c030,
+    tie: 0x5a4050,
     isPlayer: true,
-    scale: 1.02,
+    scale: 1.0,
   });
 }
 
-function buildNpc(x, z, palette) {
+function buildNpc(x, z, palette, index) {
   var p = palette || NPC_PALETTES[0];
-  var g = buildHumanoid({
-    coat: p.coat,
-    pants: p.pants,
-    skin: p.skin,
-    shirt: p.shirt,
-    hair: p.hair,
-    tie: p.tie,
-    beret: p.beret,
-    beretColor: p.beretColor,
-    dress: !!p.dress,
-    longCoat: !!p.longCoat,
-    hoodie: !!p.hoodie,
-    scale: 0.96 + Math.random() * 0.08,
-  });
+  var idx = index != null ? index : 0;
+  var entry = pickGlbEntry(idx + 1);
+  var g;
+  if (entry) {
+    g = buildGltfCharacter(entry, {
+      scale: 0.96 + (idx % 5) * 0.02,
+      attire: (p && p.coat) || GLB_ATTIRE_TINTS[idx % GLB_ATTIRE_TINTS.length],
+      skin: (p && p.skin) || 0xd4b896,
+    });
+  } else {
+    g = buildHumanoid({
+      coat: p.coat,
+      pants: p.pants,
+      skin: p.skin,
+      shirt: p.shirt,
+      hair: p.hair,
+      tie: p.tie,
+      dress: !!p.dress,
+      longCoat: !!p.longCoat,
+      hoodie: !!p.hoodie,
+      scale: 0.96 + Math.random() * 0.08,
+    });
+  }
   var gy = (g.userData.limbs && g.userData.limbs.groundY) || g.position.y || 0;
   g.position.set(x, gy, z);
   return {
@@ -1008,6 +1161,7 @@ function buildNpc(x, z, palette) {
     pathT: 0,
   };
 }
+
 
 /** Looping walk paths — fewer patrons for a calmer hall. */
 function makeNpcPaths() {
@@ -1160,7 +1314,7 @@ function buildHall() {
     var path = paths[ni];
     var start = path[0];
     if (collidesAt(start[0], start[1], 0.55)) continue;
-    var npc = buildNpc(start[0], start[1], NPC_PALETTES[spawned % NPC_PALETTES.length]);
+    var npc = buildNpc(start[0], start[1], NPC_PALETTES[spawned % NPC_PALETTES.length], spawned);
     npc.path = path;
     npc.pathI = 0;
     npc.yaw = Math.atan2(-(path[1][0] - start[0]), -(path[1][1] - start[1]));
@@ -1320,7 +1474,7 @@ function loop(ts) {
   step(dt);
   if (api._renderer && api._scene && api._camera) {
     api._renderer.render(api._scene, api._camera);
-    if (!api._firstFrameDone) {
+    if (!api._firstFrameDone && api._ready && api._player) {
       api._firstFrameDone = true;
       showLoader(false);
       var splash = document.getElementById("ge-world-splash");
@@ -1507,14 +1661,8 @@ function mount(container, options) {
   api._scene.background = new THREE.Color(0xd4c8b4);
   api._scene.fog = new THREE.Fog(0xd8cfc0, 28, 55);
   api._camera = new THREE.PerspectiveCamera(55, w / Math.max(1, h), 0.1, 100);
-
-  buildHall();
-  var urls = (api._opts && api._opts.getPaintingUrls && api._opts.getPaintingUrls()) || defaultPaintingUrls();
-  setPaintingUrls(urls);
-  updateCamera(0.016);
-  try { api._renderer.render(api._scene, api._camera); } catch (eR) {}
-
-  preloadCritical(urls, function () {});
+  api._mixers = [];
+  api._charLibrary = null;
 
   api._onResize = function () { resize(); };
   window.addEventListener("resize", api._onResize);
@@ -1533,7 +1681,27 @@ function mount(container, options) {
   };
   document.addEventListener("visibilitychange", api._onVis);
   api._mounted = true;
-  api._ready = true;
+  api._ready = false;
+
+  function finishMount() {
+    if (api._disposed) return;
+    buildHall();
+    var urls = (api._opts && api._opts.getPaintingUrls && api._opts.getPaintingUrls()) || defaultPaintingUrls();
+    setPaintingUrls(urls);
+    updateCamera(0.016);
+    try { api._renderer.render(api._scene, api._camera); } catch (eR) {}
+    preloadCritical(urls, function () {});
+    api._ready = true;
+    if (!api._firstFrameDone) showLoader(true, "Loading Art Floor…");
+  }
+
+  loadCharacterLibrary().then(function () {
+    finishMount();
+  }).catch(function () {
+    api._charLibrary = { glbs: [] };
+    finishMount();
+  });
+
   return true;
 }
 
@@ -1590,6 +1758,7 @@ function dispose() {
   api._mounted = false; api._ready = false; api._firstFrameDone = false;
   api._colliders = []; api._easelMeshes = []; api._npcs = [];
   api._textures = []; api._mats = []; api._geos = [];
+  api._mixers = []; api._charLibrary = null; api._facingArrow = null;
 }
 
 window.GeArtFloor3D = {
