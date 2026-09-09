@@ -4,17 +4,26 @@
 (function () {
   "use strict";
 
-  var STORAGE = "gallery.grand-exchange.v3";
-  var STORAGE_LEGACY = "gallery.grand-exchange.v2";
-  var STORAGE_LEGACY2 = "gallery.grand-exchange.v1";
+  var STORAGE = "gallery.grand-exchange.v4";
+  var STORAGE_LEGACY = "gallery.grand-exchange.v3";
+  var STORAGE_LEGACY2 = "gallery.grand-exchange.v2";
+  var STORAGE_LEGACY3 = "gallery.grand-exchange.v1";
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
   var NPC_TICK_MS = 1200;
   var GUIDE_BASE = 89;
+  var PAINTING_TOTAL = 1000;
+  /** Match Spellforge ID spaces */
+  var GEN_BASE = 100000;
+  var SKETCH_BASE = 200000;
+  var INV_SKETCH_BASE = 300000;
 
   var state = null;
   var roster = [];
   var analyses = {};
+  /** Spellforge extras: gen / phone / sketch / inverted — id -> {url,title,source,genNum,analysis} */
+  var extraItems = {};
+  var arsenalExtraNums = [];
   var selected = 1;
   var tickTimer = null;
   var tickN = 0;
@@ -27,6 +36,8 @@
   var BANK_PAGE = 96; // 8×12 visible; bank itself is unlimited
   var selectedInvItem = null;
   var selectedBankItem = null;
+  var forgeSlots = [null, null, null];
+  var lastForgeResult = null;
 
   function $(id) {
     return document.getElementById(id);
@@ -53,20 +64,95 @@
     return "ge_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 8);
   }
 
+  function assetUrl(path) {
+    if (!path) return path;
+    if (/^(https?:|data:|blob:)/i.test(path)) return path;
+    try {
+      if (typeof window.galleryApiUrl === "function" && path.charAt(0) === "/") {
+        return window.galleryApiUrl(path);
+      }
+    } catch (e) {}
+    var base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
+    if (base && path.charAt(0) === "/") return base + path;
+    try {
+      return new URL(path, window.location.href).href;
+    } catch (e2) {
+      return path;
+    }
+  }
+
+  function apiUrl(path) {
+    try {
+      if (typeof window.galleryApiUrl === "function") return window.galleryApiUrl(path);
+    } catch (e) {}
+    var base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
+    return base ? base + path : path;
+  }
+
+  function forgedOf(n) {
+    n = Number(n);
+    if (!state || !state.forged) return null;
+    return state.forged[String(n)] || state.forged[n] || null;
+  }
+
+  function extraOf(n) {
+    n = Number(n);
+    return extraItems[n] || extraItems[String(n)] || null;
+  }
+
+  function kindLabel(n) {
+    n = Number(n);
+    var f = forgedOf(n);
+    if (f) return "Forged #" + n;
+    var ex = extraOf(n);
+    if (!ex) return "#" + n;
+    var g = ex.genNum != null ? ex.genNum : n;
+    if (ex.source === "phone-upload") return "Phone G#" + g;
+    if (ex.source === "sketch") return "Sketch S#" + g;
+    if (ex.source === "sketch-inverted") return "Inv sketch SI#" + g;
+    return "Gen G#" + g;
+  }
+
   function thumb(n) {
-    return "paintings/" + n + ".jpg";
+    n = Number(n);
+    var f = forgedOf(n);
+    if (f && f.thumb) return assetUrl(f.thumb);
+    var ex = extraOf(n);
+    if (ex && ex.url) return assetUrl(ex.url);
+    if (f && f.parents && f.parents[0]) return thumb(f.parents[0]);
+    if (n >= 1 && n <= PAINTING_TOTAL) return "paintings/" + n + ".jpg";
+    return "paintings/1.jpg";
   }
 
   function titleFor(n) {
+    n = Number(n);
+    var f = forgedOf(n);
+    if (f && f.title) return f.title;
+    var ex = extraOf(n);
+    if (ex) {
+      if (ex.analysis && ex.analysis.title) return ex.analysis.title;
+      if (ex.title) return ex.title;
+      return kindLabel(n);
+    }
     var a = analyses[String(n)];
     if (a && a.title) return a.title;
     return "Painting #" + n;
   }
 
-  function descFor(n) {
+  function fullDescFor(n) {
+    n = Number(n);
+    var f = forgedOf(n);
+    if (f && f.description) return String(f.description);
+    var ex = extraOf(n);
+    if (ex && ex.analysis && ex.analysis.description) return String(ex.analysis.description);
     var a = analyses[String(n)];
-    if (a && a.description) return String(a.description).slice(0, 90);
+    if (a && a.description) return String(a.description);
+    if (ex) return "A " + kindLabel(n) + " from the Spellforge arsenal.";
     return "A painting from the 1000 Paintings Challenge.";
+  }
+
+  function descFor(n) {
+    return String(fullDescFor(n)).slice(0, 90);
   }
 
   function autoGuide(n) {
@@ -74,9 +160,19 @@
     var x = (n * 9301 + 49297) % 233280;
     var jitter = (x / 233280) * 0.5 - 0.15;
     var g = GUIDE_BASE * (1 + jitter);
-    if (n % 100 === 0) g *= 1.35;
-    else if (n % 50 === 0) g *= 1.18;
-    else if (n % 10 === 0) g *= 1.08;
+    if (forgedOf(n)) g *= 1.45;
+    else {
+      var ex = extraOf(n);
+      if (ex) {
+        if (ex.source === "phone-upload") g *= 1.22;
+        else if (ex.source === "sketch" || ex.source === "sketch-inverted") g *= 1.12;
+        else g *= 1.18;
+      } else {
+        if (n % 100 === 0) g *= 1.35;
+        else if (n % 50 === 0) g *= 1.18;
+        else if (n % 10 === 0) g *= 1.08;
+      }
+    }
     var mult = Number(state && state.guideMult) || 1;
     return Math.max(1, Math.round(g * mult));
   }
@@ -86,6 +182,8 @@
     if (state && state.guideOverrides && state.guideOverrides[String(n)] != null) {
       return Math.max(1, Math.round(Number(state.guideOverrides[String(n)]) || 1));
     }
+    var f = forgedOf(n);
+    if (f && f.guide != null) return Math.max(1, Math.round(Number(f.guide) || 1));
     return autoGuide(n);
   }
 
@@ -109,7 +207,7 @@
 
   function defaultState() {
     return {
-      version: 3,
+      version: 4,
       cashDelta: {},
       inventory: {},
       bank: {},
@@ -118,6 +216,8 @@
       guideOverrides: {},
       guideMult: 1,
       itemStats: {},
+      forged: {},
+      nextForgeId: 10001,
       npcSeededOffers: false,
       _npcSeeded: false,
       packReady: true, // do not auto-fill inventory with gallery art
@@ -129,7 +229,7 @@
   function migrate(s) {
     if (!s || typeof s !== "object") return defaultState();
     var wasOld = (Number(s.version) || 0) < 3;
-    s.version = 3;
+    s.version = 4;
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
@@ -138,11 +238,9 @@
     s.guideOverrides = s.guideOverrides || {};
     s.guideMult = Number(s.guideMult) || 1;
     s.itemStats = s.itemStats || {};
+    s.forged = s.forged || {};
+    s.nextForgeId = Math.max(10001, Number(s.nextForgeId) || 10001);
     if (!Object.keys(s.itemStats).length && s.history.length) {
-      s.history.forEach(function (h) {
-        recordTrade.call({ itemStats: s.itemStats }, h);
-      });
-      // fix: recordTrade uses state - rebuild manually
       s.itemStats = {};
       s.history.forEach(function (h) {
         var k = String(h.itemId);
@@ -167,7 +265,11 @@
 
   function loadState() {
     try {
-      var raw = localStorage.getItem(STORAGE) || localStorage.getItem(STORAGE_LEGACY) || localStorage.getItem(STORAGE_LEGACY2);
+      var raw =
+        localStorage.getItem(STORAGE) ||
+        localStorage.getItem(STORAGE_LEGACY) ||
+        localStorage.getItem(STORAGE_LEGACY2) ||
+        localStorage.getItem(STORAGE_LEGACY3);
       if (!raw) return defaultState();
       return migrate(JSON.parse(raw));
     } catch (e) {
@@ -343,6 +445,151 @@
     });
   }
 
+
+  function ingestSpellAssets(items) {
+    extraItems = {};
+    arsenalExtraNums = [];
+    (items || []).forEach(function (it) {
+      if (!it) return;
+      var genNum = parseInt(it.number, 10);
+      if (!genNum || genNum < 1) return;
+      var url = it.url || it.generatedUrl || it.phoneUrl || "";
+      if (!url) return;
+      var source =
+        it.source === "phone-upload" || it.kind === "phone-upload"
+          ? "phone-upload"
+          : it.source === "sketch-inverted" || it.kind === "sketch-inverted"
+            ? "sketch-inverted"
+            : it.source === "sketch" || it.kind === "sketch"
+              ? "sketch"
+              : "generated";
+      var base =
+        source === "sketch" ? SKETCH_BASE : source === "sketch-inverted" ? INV_SKETCH_BASE : GEN_BASE;
+      var num = base + genNum;
+      var analysis = it.analysis || null;
+      if (analysis && !analysis.title && it.title) analysis.title = it.title;
+      var defaultTitle =
+        source === "phone-upload"
+          ? "Phone G#" + genNum
+          : source === "sketch"
+            ? "Sketch S#" + genNum
+            : source === "sketch-inverted"
+              ? "Inv sketch SI#" + genNum
+              : "Gen G#" + genNum;
+      extraItems[num] = {
+        number: num,
+        genNum: genNum,
+        sketchNum: source === "sketch" || source === "sketch-inverted" ? genNum : null,
+        url: url,
+        title: (analysis && analysis.title) || it.title || defaultTitle,
+        source: source,
+        name: it.name || "",
+        analysis: analysis,
+      };
+      extraItems[String(num)] = extraItems[num];
+      if (analysis) {
+        analyses[String(num)] = analysis;
+        analyses[num] = analysis;
+      }
+      arsenalExtraNums.push(num);
+    });
+    arsenalExtraNums.sort(function (a, b) {
+      return a - b;
+    });
+  }
+
+  function loadArsenal() {
+    var url = apiUrl("/api/transfer/spell-assets?t=" + Date.now());
+    return fetch(url, { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) return null;
+        return r.json().catch(function () {
+          return null;
+        });
+      })
+      .then(function (d) {
+        if (d && d.ok && Array.isArray(d.items)) {
+          ingestSpellAssets(d.items);
+          if (d.painting_total) PAINTING_TOTAL = Number(d.painting_total) || PAINTING_TOTAL;
+        } else if (window.SpellforgeAPI && typeof window.SpellforgeAPI.getDisplayOrder === "function") {
+          // Fallback: reuse Spellforge display order if API already booted
+          try {
+            var order = window.SpellforgeAPI.getDisplayOrder() || [];
+            order.forEach(function (n) {
+              n = Number(n);
+              if (n > PAINTING_TOTAL && arsenalExtraNums.indexOf(n) < 0) arsenalExtraNums.push(n);
+            });
+          } catch (e) {}
+        }
+        return arsenalExtraNums.length;
+      })
+      .catch(function () {
+        return 0;
+      });
+  }
+
+  function forgedIds() {
+    if (!state || !state.forged) return [];
+    return Object.keys(state.forged)
+      .map(function (k) {
+        return Number(k);
+      })
+      .filter(function (n) {
+        return n > 0;
+      })
+      .sort(function (a, b) {
+        return a - b;
+      });
+  }
+
+  /** Full tradable arsenal: paintings + generated + phone + sketches + inverted + forged */
+  function arsenalList() {
+    var list = [];
+    var i;
+    for (i = 1; i <= PAINTING_TOTAL; i++) list.push(i);
+    for (i = 0; i < arsenalExtraNums.length; i++) list.push(arsenalExtraNums[i]);
+    forgedIds().forEach(function (id) {
+      if (list.indexOf(id) < 0) list.push(id);
+    });
+    return list;
+  }
+
+  function randomArsenalItem(seedHint) {
+    var list = arsenalList();
+    if (!list.length) return 1 + Math.floor(Math.random() * PAINTING_TOTAL);
+    if (seedHint != null) {
+      var idx = Math.abs(Number(seedHint) || 0) % list.length;
+      return list[idx];
+    }
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function ownedQty(itemId) {
+    return qtyOf(PLAYER_ID, itemId) + bankQty(PLAYER_ID, itemId);
+  }
+
+  function consumeOwned(itemId, qty) {
+    itemId = Number(itemId);
+    qty = Math.max(1, Math.floor(Number(qty) || 1));
+    var fromInv = Math.min(qty, qtyOf(PLAYER_ID, itemId));
+    if (fromInv) addInv(PLAYER_ID, itemId, -fromInv);
+    var left = qty - fromInv;
+    if (left > 0) {
+      if (bankQty(PLAYER_ID, itemId) < left) return false;
+      addBank(PLAYER_ID, itemId, -left);
+    }
+    return true;
+  }
+
+  function setForgeStatus(msg, isErr) {
+    var el = $("ge-forge-status");
+    if (el) {
+      el.textContent = msg || "";
+      el.className = "ge-forge-status" + (isErr ? " err" : "");
+    }
+    if (msg) setStatus(msg, isErr);
+  }
+
   function ensurePlayerStock() {
     // Inventory starts empty — you buy on the GE or withdraw from bank.
     // Never auto-fill from the gallery catalogue.
@@ -357,13 +604,16 @@
   function ensureNpcSeedStock() {
     if (state._npcSeeded) return;
     state._npcSeeded = true;
+    var pool = arsenalList();
     for (var i = 0; i < roster.length; i++) {
       var p = roster[i];
       if (!p || p.is_player || Number(p.id) === PLAYER_ID) continue;
       var inv = invOf(p.id);
       var count = 3 + (Number(p.id) % 5);
       for (var k = 0; k < count; k++) {
-        var item = 1 + ((Number(p.id) * 17 + k * 97) % 1000);
+        var item = pool.length
+          ? pool[(Number(p.id) * 17 + k * 97) % pool.length]
+          : 1 + ((Number(p.id) * 17 + k * 97) % PAINTING_TOTAL);
         inv[String(item)] = (Number(inv[String(item)]) || 0) + 1;
       }
     }
@@ -540,8 +790,17 @@
     if (state.npcSeededOffers) return;
     if (!roster.length) return;
     state.npcSeededOffers = true;
-    var items = [];
-    for (var n = 1; n <= 1000; n += 7) items.push(n);
+    var items = arsenalList();
+    if (!items.length) {
+      for (var n = 1; n <= PAINTING_TOTAL; n += 7) items.push(n);
+    } else {
+      // Thin sample across full arsenal for seed book density
+      var sampled = [];
+      for (var si = 0; si < items.length; si += Math.max(1, Math.floor(items.length / 140))) {
+        sampled.push(items[si]);
+      }
+      items = sampled.length ? sampled : items;
+    }
     for (var i = 0; i < roster.length; i++) {
       var p = roster[i];
       if (!p || p.is_player || Number(p.id) === PLAYER_ID) continue;
@@ -618,7 +877,7 @@
         if (mine.length) cancelOffer(mine[Math.floor(Math.random() * mine.length)].id);
         continue;
       }
-      var item = 1 + Math.floor(Math.random() * 1000);
+      var item = randomArsenalItem();
       var guide = guidePrice(item);
       var side = Math.random() < 0.5 ? "buy" : "sell";
       if (side === "sell" && qtyOf(p.id, item) < 1) {
@@ -703,7 +962,8 @@
     }
     wrap.innerHTML = html.join("");
     if ($("ge-inv-meta")) {
-      $("ge-inv-meta").textContent = list.length + " / " + INV_SLOTS + " used · click Deposit";
+      $("ge-inv-meta").textContent =
+        list.length + " / " + INV_SLOTS + " used · click Deposit · right-click → Spellforge";
     }
   }
 
@@ -752,8 +1012,9 @@
     if (bankP) bankP.hidden = bagView !== "bank";
     if ($("ge-bag-inv")) $("ge-bag-inv").classList.toggle("active", bagView === "inv");
     if ($("ge-bag-bank")) $("ge-bag-bank").classList.toggle("active", bagView === "bank");
-    if (bagView === "inv") renderInvGrid();
-    else renderBankGrid();
+    // Always rebuild both grids so deposit/withdraw stay fresh even when a panel is hidden
+    renderInvGrid();
+    renderBankGrid();
   }
 
   function renderSlots() {
@@ -846,16 +1107,36 @@
     if (!wrap) return;
     var html = [];
     var shown = 0;
-    for (var n = 1; n <= 1000 && shown < 160; n++) {
+    var list = arsenalList();
+    for (var i = 0; i < list.length && shown < 200; i++) {
+      var n = list[i];
       var title = titleFor(n);
-      if (q && (title + " #" + n).toLowerCase().indexOf(q) === -1) continue;
+      var label = kindLabel(n);
+      var hay = (title + " " + label + " #" + n).toLowerCase();
+      if (q) {
+        var qLow = q;
+        if (
+          hay.indexOf(qLow) === -1 &&
+          !(qLow === "phone" && extraOf(n) && extraOf(n).source === "phone-upload") &&
+          !(qLow === "gen" && extraOf(n) && extraOf(n).source === "generated") &&
+          !(
+            (qLow === "sketch" || qLow === "sketches") &&
+            extraOf(n) &&
+            (extraOf(n).source === "sketch" || extraOf(n).source === "sketch-inverted")
+          ) &&
+          !(qLow === "inverted" && extraOf(n) && extraOf(n).source === "sketch-inverted") &&
+          !(qLow === "forged" && forgedOf(n))
+        ) {
+          continue;
+        }
+      }
       html.push(
         '<button type="button" class="ge-pick-item" data-ge-item="' +
           n +
           '"><img src="' +
           esc(thumb(n)) +
-          '" alt="" loading="lazy" /><span>#' +
-          n +
+          '" alt="" loading="lazy" /><span>' +
+          esc(label) +
           " · " +
           money(guidePrice(n)) +
           "</span></button>"
@@ -936,6 +1217,200 @@
     if (view === "setup") renderSetup();
     if (view === "pick") renderCatalog();
     if (view === "history") renderHistory();
+    renderBags();
+    renderForgeSlots();
+  }
+
+
+  function syncForgeToSpellforge() {
+    try {
+      if (!window.SpellforgeAPI) return;
+      if (typeof window.SpellforgeAPI.equipSlots === "function") {
+        window.SpellforgeAPI.equipSlots(forgeSlots.slice(), { skipAutoVision: true });
+        return;
+      }
+      if (typeof window.SpellforgeAPI.equipToSlot === "function") {
+        for (var i = 0; i < 3; i++) {
+          if (forgeSlots[i] != null) window.SpellforgeAPI.equipToSlot(forgeSlots[i], i);
+        }
+      }
+    } catch (e) {}
+  }
+
+  function renderForgeSlots() {
+    for (var i = 0; i < 3; i++) {
+      var btn = $("ge-forge-slot-" + i);
+      if (!btn) continue;
+      var id = forgeSlots[i];
+      btn.classList.toggle("filled", !!id);
+      btn.title = id ? "Clear slot · " + kindLabel(id) : "Clear slot";
+      var num = btn.querySelector(".ge-forge-num");
+      var img = btn.querySelector("img");
+      if (id) {
+        if (!img) {
+          img = document.createElement("img");
+          img.alt = "";
+          btn.appendChild(img);
+        }
+        img.src = thumb(id);
+        if (num) num.style.display = "none";
+      } else {
+        if (img) img.remove();
+        if (num) {
+          num.style.display = "";
+          num.textContent = String(i + 1);
+        }
+      }
+    }
+  }
+
+  function placeInForge(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    if (ownedQty(itemId) < 1) return { ok: false, error: "You do not own that item." };
+    var slot = -1;
+    for (var i = 0; i < 3; i++) {
+      if (forgeSlots[i] == null) {
+        slot = i;
+        break;
+      }
+    }
+    if (slot < 0) return { ok: false, error: "Spellforge slots are full — clear one first." };
+    forgeSlots[slot] = itemId;
+    try {
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.equipToSlot === "function") {
+        window.SpellforgeAPI.equipToSlot(itemId, slot);
+      } else {
+        syncForgeToSpellforge();
+      }
+    } catch (e) {}
+    return { ok: true, slot: slot, itemId: itemId };
+  }
+
+  function clearForgeSlot(slotIndex) {
+    slotIndex = Number(slotIndex);
+    if (slotIndex < 0 || slotIndex > 2) return;
+    forgeSlots[slotIndex] = null;
+    syncForgeToSpellforge();
+    renderForgeSlots();
+    setForgeStatus("Cleared Spellforge slot " + (slotIndex + 1) + ".");
+  }
+
+  function showForgeResult(id) {
+    var panel = $("ge-forge-result");
+    if (!panel) return;
+    panel.hidden = false;
+    if ($("ge-forge-result-img")) $("ge-forge-result-img").src = thumb(id);
+    if ($("ge-forge-result-title")) $("ge-forge-result-title").textContent = titleFor(id);
+    if ($("ge-forge-result-desc")) $("ge-forge-result-desc").textContent = descFor(id);
+  }
+
+  function hideForgeResult() {
+    var panel = $("ge-forge-result");
+    if (panel) panel.hidden = true;
+  }
+
+  function openSpellforgeTab() {
+    syncForgeToSpellforge();
+    var tab = document.querySelector('.tab[data-tab="spellforge"]');
+    if (tab) {
+      tab.click();
+      return;
+    }
+    try {
+      window.dispatchEvent(new Event("spellforge-show"));
+      if (window.SpellforgeAPI && window.SpellforgeAPI.onShow) window.SpellforgeAPI.onShow();
+    } catch (e) {}
+  }
+
+  function combineForge() {
+    var a = forgeSlots[0];
+    var b = forgeSlots[1];
+    var c = forgeSlots[2];
+    if (a == null || b == null || c == null) {
+      setForgeStatus("Fill all 3 Spellforge slots before combining.", true);
+      return;
+    }
+    var parents = [Number(a), Number(b), Number(c)];
+    for (var i = 0; i < 3; i++) {
+      if (ownedQty(parents[i]) < 1) {
+        setForgeStatus("Missing stock for " + kindLabel(parents[i]) + " (need 1 in inv or bank).", true);
+        return;
+      }
+    }
+
+    var titles = parents.map(titleFor);
+    var descs = parents.map(fullDescFor);
+    var title = titles.join(" / ");
+    var description =
+      descs
+        .map(function (d) {
+          return String(d || "").trim();
+        })
+        .filter(Boolean)
+        .join(" ") +
+      " Forged amalgam of " +
+      parents.map(kindLabel).join(", ") +
+      ".";
+
+    var id = Number(state.nextForgeId) || 10001;
+    state.nextForgeId = id + 1;
+    var entry = {
+      id: id,
+      parents: parents.slice(),
+      title: title,
+      description: description,
+      thumb: thumb(parents[0]),
+      guide: Math.max(
+        1,
+        Math.round((guidePrice(parents[0]) + guidePrice(parents[1]) + guidePrice(parents[2])) / 2)
+      ),
+      createdAt: Date.now(),
+    };
+    if (!state.forged) state.forged = {};
+    state.forged[String(id)] = entry;
+
+    function finish(visionUrl) {
+      if (visionUrl) entry.thumb = visionUrl;
+      for (var j = 0; j < 3; j++) {
+        if (!consumeOwned(parents[j], 1)) {
+          setForgeStatus("Could not consume materials after forge.", true);
+          return;
+        }
+      }
+      addInv(PLAYER_ID, id, 1);
+      forgeSlots = [null, null, null];
+      syncForgeToSpellforge();
+      lastForgeResult = id;
+      saveState();
+      showForgeResult(id);
+      setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") — added to inventory.");
+      render();
+    }
+
+    setForgeStatus("Combining…");
+    var api = window.SpellforgeAPI;
+    if (api && typeof api.generateFromSlots === "function") {
+      Promise.resolve()
+        .then(function () {
+          return api.generateFromSlots(parents.slice(), { forceCloud: true });
+        })
+        .then(function (url) {
+          var vision = url;
+          try {
+            if (!vision && api.getFusion) {
+              var f = api.getFusion() || {};
+              vision = f.visionUrl || "";
+            }
+          } catch (e) {}
+          finish(vision || null);
+        })
+        .catch(function () {
+          finish(null);
+        });
+    } else {
+      finish(null);
+    }
   }
 
   function openSetup(side, slot) {
@@ -1176,6 +1651,16 @@
         setStatus(res.ok ? "Deposited #" + id : res.error, !res.ok);
         render();
       });
+      invGrid.addEventListener("contextmenu", function (e) {
+        var btn = e.target.closest("[data-ge-inv]");
+        if (!btn) return;
+        e.preventDefault();
+        var id = Number(btn.getAttribute("data-ge-inv"));
+        var res = placeInForge(id);
+        renderForgeSlots();
+        if (!res.ok) setForgeStatus(res.error, true);
+        else setForgeStatus("Placed " + kindLabel(id) + " in Spellforge slot " + (res.slot + 1) + ".");
+      });
     }
     var bankGrid = $("ge-bank-grid");
     if (bankGrid && !bankGrid.dataset.bound) {
@@ -1194,6 +1679,16 @@
         var res = withdrawItem(id, 1);
         setStatus(res.ok ? "Withdrew #" + id : res.error, !res.ok);
         render();
+      });
+      bankGrid.addEventListener("contextmenu", function (e) {
+        var btn = e.target.closest("[data-ge-bank]");
+        if (!btn) return;
+        e.preventDefault();
+        var id = Number(btn.getAttribute("data-ge-bank"));
+        var res = placeInForge(id);
+        renderForgeSlots();
+        if (!res.ok) setForgeStatus(res.error, true);
+        else setForgeStatus("Placed " + kindLabel(id) + " in Spellforge slot " + (res.slot + 1) + ".");
       });
     }
     if ($("ge-dep-one") && !$("ge-dep-one").dataset.bound) {
@@ -1249,6 +1744,53 @@
       $("ge-bank-next").addEventListener("click", function () {
         bankPage += 1;
         renderBankGrid();
+      });
+    }
+
+    for (var fi = 0; fi < 3; fi++) {
+      (function (slot) {
+        var el = $("ge-forge-slot-" + slot);
+        if (el && !el.dataset.bound) {
+          el.dataset.bound = "1";
+          el.addEventListener("click", function () {
+            if (forgeSlots[slot] == null) {
+              setForgeStatus("Slot " + (slot + 1) + " empty — right-click inv/bank to fill.");
+              return;
+            }
+            clearForgeSlot(slot);
+          });
+        }
+      })(fi);
+    }
+    if ($("ge-forge-combine") && !$("ge-forge-combine").dataset.bound) {
+      $("ge-forge-combine").dataset.bound = "1";
+      $("ge-forge-combine").addEventListener("click", combineForge);
+    }
+    if ($("ge-forge-open") && !$("ge-forge-open").dataset.bound) {
+      $("ge-forge-open").dataset.bound = "1";
+      $("ge-forge-open").addEventListener("click", openSpellforgeTab);
+    }
+    if ($("ge-forge-bank") && !$("ge-forge-bank").dataset.bound) {
+      $("ge-forge-bank").dataset.bound = "1";
+      $("ge-forge-bank").addEventListener("click", function () {
+        if (!lastForgeResult) {
+          setForgeStatus("No forged result to bank.", true);
+          return;
+        }
+        var res = depositItem(lastForgeResult, 1);
+        setForgeStatus(res.ok ? "Banked forged #" + lastForgeResult : res.error, !res.ok);
+        render();
+      });
+    }
+    if ($("ge-forge-sell") && !$("ge-forge-sell").dataset.bound) {
+      $("ge-forge-sell").dataset.bound = "1";
+      $("ge-forge-sell").addEventListener("click", function () {
+        if (!lastForgeResult) {
+          setForgeStatus("No forged result to sell.", true);
+          return;
+        }
+        selected = lastForgeResult;
+        openSetup("sell", 0);
       });
     }
   }
@@ -1311,7 +1853,7 @@
 
   function onShow() {
     bind();
-    Promise.all([loadAnalyses(), loadRoster()]).then(function () {
+    Promise.all([loadAnalyses(), loadRoster(), loadArsenal()]).then(function () {
       ensurePlayerStock();
       ensureNpcSeedStock();
       seedNpcOffers();
@@ -1319,7 +1861,14 @@
       showView("home");
       render();
       startTicks();
-      setStatus("Welcome to the Grand Exchange.");
+      var extras = arsenalExtraNums.length;
+      setStatus(
+        "Welcome to the Grand Exchange · arsenal " +
+          arsenalList().length +
+          " (paintings + gen/phone/sketches" +
+          (extras ? " · " + extras + " extras" : "") +
+          ")."
+      );
     });
   }
 
