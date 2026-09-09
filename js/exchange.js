@@ -464,7 +464,15 @@
 
   function playerSlotOffers() {
     return state.offers.filter(function (o) {
-      return o && o.isPlayer && !o.cancelled && (o.complete || (Number(o.qtyLeft) || 0) > 0);
+      return (
+        o &&
+        o.isPlayer &&
+        !o.cancelled &&
+        (o.complete ||
+          (Number(o.qtyLeft) || 0) > 0 ||
+          (Number(o.readyItems) || 0) > 0 ||
+          (Number(o.readyCash) || 0) > 0)
+      );
     });
   }
 
@@ -790,9 +798,20 @@
           var px = sell.price;
           var total = qty * px;
           var refund = qty * (buy.price - px);
-          if (refund) addCash(buy.traderId, refund);
-          addCash(sell.traderId, total);
-          addInv(buy.traderId, buy.itemId, qty);
+          // RuneScape-style: player goods/cash sit on the offer until Collect.
+          // NPCs settle immediately.
+          if (buy.isPlayer) {
+            buy.readyItems = (Number(buy.readyItems) || 0) + qty;
+            if (refund) buy.readyCash = (Number(buy.readyCash) || 0) + refund;
+          } else {
+            if (refund) addCash(buy.traderId, refund);
+            addInv(buy.traderId, buy.itemId, qty);
+          }
+          if (sell.isPlayer) {
+            sell.readyCash = (Number(sell.readyCash) || 0) + total;
+          } else {
+            addCash(sell.traderId, total);
+          }
           buy.qtyLeft -= qty;
           sell.qtyLeft -= qty;
           var h = {
@@ -825,6 +844,7 @@
     // Drop finished NPC offers; keep completed player offers until collected
     state.offers = state.offers.filter(function (o) {
       if (!o || o.cancelled) return false;
+      if (o.isPlayer && ((Number(o.readyItems) || 0) > 0 || (Number(o.readyCash) || 0) > 0)) return true;
       if (o.isPlayer && o.complete) return true;
       return (Number(o.qtyLeft) || 0) > 0;
     });
@@ -866,6 +886,8 @@
       traderName: personName(traderId),
       isPlayer: isPlayer,
       complete: false,
+      readyItems: 0,
+      readyCash: 0,
       createdAt: Date.now(),
       slot: isPlayer ? setupSlot : -1,
     });
@@ -885,14 +907,21 @@
     if (!o || o.cancelled) return;
     var left = Number(o.qtyLeft) || 0;
     if (!o.complete) {
+      // Return only the unfilled reservation; filled portion stays for Collect.
       if (o.side === "buy") addCash(o.traderId, left * o.price);
       else addInv(o.traderId, o.itemId, left);
     }
-    o.cancelled = true;
     o.qtyLeft = 0;
+    var pending = (Number(o.readyItems) || 0) > 0 || (Number(o.readyCash) || 0) > 0;
+    if (o.isPlayer && pending) {
+      o.complete = true;
+      saveState();
+      return;
+    }
+    o.cancelled = true;
     o.complete = false;
     state.offers = state.offers.filter(function (x) {
-      return x && !x.cancelled && ((x.isPlayer && x.complete) || (Number(x.qtyLeft) || 0) > 0);
+      return x && !x.cancelled && ((x.isPlayer && x.complete) || (Number(x.qtyLeft) || 0) > 0 || (Number(x.readyItems) || 0) > 0 || (Number(x.readyCash) || 0) > 0);
     });
     saveState();
   }
@@ -906,13 +935,22 @@
       }
     }
     if (!o || !o.isPlayer) return;
-    // Settlement already applied during matches; collecting frees the slot.
-    o.cancelled = true;
-    o.complete = false;
-    o.qtyLeft = 0;
-    state.offers = state.offers.filter(function (x) {
-      return x && !x.cancelled && ((x.isPlayer && x.complete) || (Number(x.qtyLeft) || 0) > 0);
-    });
+    var readyItems = Number(o.readyItems) || 0;
+    var readyCash = Number(o.readyCash) || 0;
+    if (readyItems < 1 && readyCash < 1 && !o.complete) return;
+    if (readyItems > 0) addInv(PLAYER_ID, o.itemId, readyItems);
+    if (readyCash > 0) addCash(PLAYER_ID, readyCash);
+    o.readyItems = 0;
+    o.readyCash = 0;
+    // Free the slot only when the offer is fully filled (or was marked complete).
+    if (o.complete || (Number(o.qtyLeft) || 0) <= 0) {
+      o.cancelled = true;
+      o.complete = false;
+      o.qtyLeft = 0;
+      state.offers = state.offers.filter(function (x) {
+        return x && !x.cancelled && ((x.isPlayer && x.complete) || (Number(x.qtyLeft) || 0) > 0 || (Number(x.readyItems) || 0) > 0 || (Number(x.readyCash) || 0) > 0);
+      });
+    }
     grantXp(COLLECT_XP);
     saveState();
   }
@@ -1191,7 +1229,9 @@
           esc(o.id) +
           '">' +
           '<div class="ge-slot-label">' +
-          (o.complete ? "Done — " : "") +
+          (o.complete || (Number(o.readyItems) || 0) > 0 || (Number(o.readyCash) || 0) > 0
+            ? "Collect — "
+            : "") +
           (o.side === "buy" ? "Buy" : "Sell") +
           "</div>" +
           '<div class="ge-slot-row">' +
@@ -1217,9 +1257,12 @@
           pct +
           '%"></span></div>' +
           '<div class="ge-slot-foot">' +
-          (o.complete
+          ((Number(o.readyItems) || 0) > 0 || (Number(o.readyCash) || 0) > 0 || o.complete
             ? '<button type="button" data-ge-collect="' + esc(o.id) + '">Collect</button>'
-            : '<button type="button" data-ge-abort="' + esc(o.id) + '">Abort</button>') +
+            : '') +
+          ((Number(o.qtyLeft) || 0) > 0 && !o.complete
+            ? '<button type="button" data-ge-abort="' + esc(o.id) + '">Abort</button>'
+            : '') +
           "</div></div>"
       );
     }
@@ -1374,11 +1417,16 @@
   function syncForgeToSpellforge() {
     try {
       if (!window.SpellforgeAPI) return;
+      var panel = document.getElementById("panel-spellforge");
+      var visible = panel && !panel.hidden;
       if (typeof window.SpellforgeAPI.equipSlots === "function") {
-        window.SpellforgeAPI.equipSlots(forgeSlots.slice(), { skipAutoVision: true });
+        window.SpellforgeAPI.equipSlots(forgeSlots.slice(), {
+          skipAutoVision: true,
+          skipRender: !visible,
+        });
         return;
       }
-      if (typeof window.SpellforgeAPI.equipToSlot === "function") {
+      if (visible && typeof window.SpellforgeAPI.equipToSlot === "function") {
         for (var i = 0; i < 3; i++) {
           if (forgeSlots[i] != null) window.SpellforgeAPI.equipToSlot(forgeSlots[i], i);
         }
@@ -1426,13 +1474,8 @@
     }
     if (slot < 0) return { ok: false, error: "Spellforge slots are full — clear one first." };
     forgeSlots[slot] = itemId;
-    try {
-      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.equipToSlot === "function") {
-        window.SpellforgeAPI.equipToSlot(itemId, slot);
-      } else {
-        syncForgeToSpellforge();
-      }
-    } catch (e) {}
+    // Do NOT call SpellforgeAPI here — live equip re-renders Spellforge and can blank its UI
+    // while you're still on Grand Exchange. Sync happens on Open Spellforge / Combine.
     return { ok: true, slot: slot, itemId: itemId };
   }
 
@@ -1440,7 +1483,6 @@
     slotIndex = Number(slotIndex);
     if (slotIndex < 0 || slotIndex > 2) return;
     forgeSlots[slotIndex] = null;
-    syncForgeToSpellforge();
     renderForgeSlots();
     setForgeStatus("Cleared Spellforge slot " + (slotIndex + 1) + ".");
   }
@@ -1460,15 +1502,23 @@
   }
 
   function openSpellforgeTab() {
-    syncForgeToSpellforge();
     var tab = document.querySelector('.tab[data-tab="spellforge"]');
     if (tab) {
       tab.click();
+      // Sync after the Spellforge tab is visible so renderSlots paints into a live panel.
+      setTimeout(function () {
+        try {
+          syncForgeToSpellforge();
+          if (window.SpellforgeAPI && typeof window.SpellforgeAPI.refresh === "function") {
+            window.SpellforgeAPI.refresh();
+          }
+        } catch (e) {}
+      }, 50);
       return;
     }
     try {
+      syncForgeToSpellforge();
       window.dispatchEvent(new Event("spellforge-show"));
-      if (window.SpellforgeAPI && window.SpellforgeAPI.onShow) window.SpellforgeAPI.onShow();
     } catch (e) {}
   }
 
@@ -1702,6 +1752,21 @@
     worldKeys = Object.create(null);
   }
 
+  function bindWorldKeys() {
+    if (bindWorldKeys._on) return;
+    bindWorldKeys._on = true;
+    window.addEventListener("keydown", onWorldKeyDown, true);
+    window.addEventListener("keyup", onWorldKeyUp, true);
+  }
+
+  function unbindWorldKeys() {
+    if (!bindWorldKeys._on) return;
+    bindWorldKeys._on = false;
+    window.removeEventListener("keydown", onWorldKeyDown, true);
+    window.removeEventListener("keyup", onWorldKeyUp, true);
+    worldKeys = Object.create(null);
+  }
+
   function onWorldKeyDown(e) {
     if (exchangeOpen) return;
     var panel = $("panel-exchange");
@@ -1741,6 +1806,7 @@
   function openExchangeUi() {
     exchangeOpen = true;
     stopWorldLoop();
+    unbindWorldKeys();
     var world = $("ge-world");
     var ui = $("ge-exchange-ui");
     if (world) world.hidden = true;
@@ -1760,6 +1826,7 @@
     if (world) world.hidden = false;
     applyPlayerDom();
     updateLevelHud();
+    bindWorldKeys();
     startWorldLoop();
     if ($("ge-world-stage")) {
       try {
@@ -1861,8 +1928,7 @@
     }
     if (!window.__geWorldKeysBound) {
       window.__geWorldKeysBound = true;
-      window.addEventListener("keydown", onWorldKeyDown, true);
-      window.addEventListener("keyup", onWorldKeyUp, true);
+      bindWorldKeys();
     }
     document.querySelectorAll("[data-ge-qty]").forEach(function (btn) {
       if (btn.dataset.bound) return;
@@ -2255,6 +2321,7 @@
   function onHide() {
     stopTicks();
     stopWorldLoop();
+    unbindWorldKeys();
   }
 
   function init() {
