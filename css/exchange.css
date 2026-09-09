@@ -1389,3 +1389,122 @@
   object-fit: contain;
   padding: 4px;
 }
+
+
+.ge-note-color-hits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 8px;
+  min-height: 0;
+}
+.ge-note-color-hits:empty {
+  display: none;
+}
+.ge-color-hit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px 3px 4px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--swatch, #888) 55%, #5a4a2e);
+  background: #1a1510;
+  color: #f0e6d2;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+  max-width: 100%;
+}
+.ge-color-hit:hover {
+  filter: brightness(1.08);
+  border-color: var(--swatch, #c9a227);
+}
+.ge-color-hit-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--swatch, #888);
+  border: 1px solid rgba(0,0,0,0.4);
+  flex: 0 0 auto;
+}
+.ge-color-hit-hex {
+  opacity: 0.75;
+  font-style: normal;
+  font-size: 0.68rem;
+}
+.ge-lightbox-desc-rich {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #e8dcc8;
+  max-height: 40vh;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.ge-lightbox-desc-rich .ge-color-hit {
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.ge-color-popover {
+  position: fixed;
+  z-index: 13000;
+  width: min(280px, calc(100vw - 24px));
+  background: #1a1510;
+  border: 2px solid #c9a227;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.55);
+  color: #e8dcc8;
+}
+.ge-color-popover-title {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: #e8c547;
+}
+.ge-color-popover-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.ge-color-popover-row input[type="color"] {
+  width: 40px;
+  height: 32px;
+  border: 1px solid #5a4a2e;
+  background: transparent;
+  cursor: pointer;
+}
+.ge-color-popover-row input[type="text"] {
+  flex: 1;
+  background: #0f0c09;
+  border: 1px solid #5a4a2e;
+  color: #f0e6d2;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font: inherit;
+}
+.ge-color-popover-preview {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  color: #c8b890;
+}
+.ge-color-popover-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.ge-color-popover-actions button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: 1px solid #5a4a2e;
+  background: #2a2218;
+  color: #e8dcc8;
+}
+.ge-color-popover-actions .ge-color-popover-apply {
+  background: #3d6b2e;
+  border-color: #5a9a3e;
+  color: #e8ffe0;
+  font-weight: 600;
+}

@@ -226,136 +226,336 @@
     return !!colorChipOf(n) || (n > COLOR_BASE && n < COLOR_BASE + 100000);
   }
 
-  function ensureColorChipCatalog() {
-    if (!state.colorChips) state.colorChips = {};
-    if (!state.nextColorId) state.nextColorId = COLOR_BASE + 1;
-    var defaults = [
-      { name: "Violet", hex: "#A855F7" },
-      { name: "Cyan", hex: "#06B6D4" },
-      { name: "Magenta", hex: "#FF00AA" },
-      { name: "Blue", hex: "#3B82F6" },
-      { name: "White", hex: "#E0F2FE" },
-      { name: "Lavender", hex: "#C084FC" },
-    ];
-    if (!state._colorChipCatalogReady) {
-      defaults.forEach(function (d, i) {
-        var id = COLOR_BASE + 1 + i;
-        if (!state.colorChips[String(id)]) {
-          state.colorChips[String(id)] = {
-            id: id,
-            name: d.name,
-            hex: normalizeGeHex(d.hex),
-            createdAt: Date.now(),
-          };
-        }
-        state.nextColorId = Math.max(state.nextColorId, id + 1);
-      });
-      state._colorChipCatalogReady = true;
-    }
-  }
 
-  function seedColorChipsIntoPack() {
-    ensureColorChipCatalog();
-    if (state._colorChipsSeeded) return;
-    var pid = String(PLAYER_ID);
-    if (!state.inventory[pid]) state.inventory[pid] = {};
-    Object.keys(state.colorChips).forEach(function (k) {
-      var id = Number(k);
-      if (!id) return;
-      if ((Number(state.inventory[pid][k]) || 0) < 1 && (Number((state.bank[pid] || {})[k]) || 0) < 1) {
-        state.inventory[pid][k] = 1;
+  function scanGeColorSpans(text) {
+    text = String(text || "");
+    var occupied = new Array(text.length);
+    var spans = [];
+    var m;
+    function mark(from, to) {
+      for (var i = from; i < to; i++) occupied[i] = true;
+    }
+    function free(from, to) {
+      for (var j = from; j < to; j++) {
+        if (occupied[j]) return false;
       }
-    });
-    state._colorChipsSeeded = true;
-  }
-
-  function createColorChip(hex, name) {
-    ensureColorChipCatalog();
-    var h = normalizeGeHex(hex);
-    if (!h) return { ok: false, error: "Pick a valid color." };
-    var n = String(name || geHexToNearestName(h)).trim() || geHexToNearestName(h);
-    var id = Number(state.nextColorId) || COLOR_BASE + 1;
-    state.nextColorId = id + 1;
-    state.colorChips[String(id)] = {
-      id: id,
-      name: n,
-      hex: h,
-      createdAt: Date.now(),
-    };
-    return { ok: true, id: id, chip: state.colorChips[String(id)] };
-  }
-
-  function addColorChipToPack(hex) {
-    var res = createColorChip(hex);
-    if (!res.ok) return res;
-    var free = INV_SLOTS - inventoryCount(PLAYER_ID);
-    var already = qtyOf(PLAYER_ID, res.id) > 0;
-    if (!already && free < 1) {
-      addBank(PLAYER_ID, res.id, 1);
-      saveState();
-      return { ok: true, id: res.id, where: "bank", chip: res.chip };
+      return true;
     }
-    addInv(PLAYER_ID, res.id, 1);
-    saveState();
-    return { ok: true, id: res.id, where: "inv", chip: res.chip };
-  }
-
-  function insertColorLockIntoNote(name, hex) {
-    var ta = $("ge-note-text");
-    if (!ta) return { ok: false, error: "Note box missing." };
-    var token = colorChipLabel(name, hex);
-    var start = ta.selectionStart != null ? ta.selectionStart : ta.value.length;
-    var end = ta.selectionEnd != null ? ta.selectionEnd : ta.value.length;
-    var before = ta.value.slice(0, start);
-    var after = ta.value.slice(end);
-    var padL = before && !/\s$/.test(before) ? " " : "";
-    var padR = after && !/^\s/.test(after) ? " " : "";
-    ta.value = before + padL + token + padR + after;
-    var caret = (before + padL + token + padR).length;
-    ta.focus();
-    try {
-      ta.setSelectionRange(caret, caret);
-    } catch (e) {}
-    return { ok: true, token: token };
-  }
-
-  function insertColorChipIntoNote(itemId) {
-    var c = colorChipOf(itemId);
-    if (!c) return { ok: false, error: "Not a color chip." };
-    return insertColorLockIntoNote(c.name, c.hex);
-  }
-
-  function renderGeColorChips() {
-    var host = $("ge-color-chips");
-    if (!host) return;
-    ensureColorChipCatalog();
-    var html = [];
-    Object.keys(state.colorChips)
-      .map(Number)
-      .sort(function (a, b) {
-        return a - b;
-      })
-      .forEach(function (id) {
-        var c = colorChipOf(id);
-        if (!c) return;
-        var label = colorChipLabel(c.name, c.hex);
-        html.push(
-          '<button type="button" class="ge-color-chip" data-ge-color-id="' +
-            id +
-            '" title="Insert ' +
-            esc(label) +
-            ' into note">' +
-            '<span class="ge-color-chip-swatch" style="background:' +
-            esc(normalizeGeHex(c.hex) || "#888") +
-            '"></span>' +
-            '<span class="ge-color-chip-label">' +
-            esc(label) +
-            "</span></button>"
-        );
+    var labeledRe =
+      /\b((?:vivid\s+)?[A-Za-z][A-Za-z\s\-]{0,28}?)\s*\(#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\)/g;
+    while ((m = labeledRe.exec(text))) {
+      var hxL = normalizeGeHex("#" + m[2]);
+      if (!hxL) continue;
+      if (!free(m.index, m.index + m[0].length)) continue;
+      mark(m.index, m.index + m[0].length);
+      spans.push({
+        start: m.index,
+        end: m.index + m[0].length,
+        kind: "labeled",
+        value: m[0],
+        hex: hxL,
+        name: String(m[1] || "").replace(/^vivid\s+/i, "").trim(),
       });
-    host.innerHTML = html.join("") || '<span class="ge-color-chips-hint">No chips yet — pick a color and Add to pack.</span>';
+    }
+    var hexRe = /#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/g;
+    while ((m = hexRe.exec(text))) {
+      var hx = normalizeGeHex(m[0]);
+      if (!hx) continue;
+      if (!free(m.index, m.index + m[0].length)) continue;
+      mark(m.index, m.index + m[0].length);
+      spans.push({
+        start: m.index,
+        end: m.index + m[0].length,
+        kind: "hex",
+        value: m[0],
+        hex: hx,
+        name: geHexToNearestName(hx),
+      });
+    }
+    var names = Object.keys(GE_COLOR_NAME_HEX).sort(function (a, b) {
+      return b.length - a.length;
+    });
+    for (var n = 0; n < names.length; n++) {
+      var name = names[n];
+      if (name === "grey") continue;
+      var re = new RegExp("\\b" + name + "\\b", "gi");
+      var mm;
+      while ((mm = re.exec(text))) {
+        if (!free(mm.index, mm.index + mm[0].length)) continue;
+        mark(mm.index, mm.index + mm[0].length);
+        spans.push({
+          start: mm.index,
+          end: mm.index + mm[0].length,
+          kind: "name",
+          value: mm[0],
+          hex: GE_COLOR_NAME_HEX[name],
+          name: name.charAt(0).toUpperCase() + name.slice(1),
+        });
+      }
+    }
+    spans.sort(function (a, b) {
+      return a.start - b.start;
+    });
+    return spans;
   }
 
+  function buildGeColorHitHtml(text, opts) {
+    opts = opts || {};
+    var source = opts.source || "note";
+    var spans = scanGeColorSpans(text);
+    if (!spans.length) return esc(text);
+    var html = "";
+    var pos = 0;
+    spans.forEach(function (sp, idx) {
+      if (sp.start > pos) html += esc(text.slice(pos, sp.start));
+      var title =
+        "Click to set pigment → Apply writes “" + colorChipLabel(sp.name, sp.hex) + "”";
+      html +=
+        '<button type="button" class="ge-color-hit" data-ge-color-source="' +
+        esc(source) +
+        '" data-start="' +
+        sp.start +
+        '" data-end="' +
+        sp.end +
+        '" data-kind="' +
+        sp.kind +
+        '" data-hex="' +
+        esc(sp.hex) +
+        '" data-name="' +
+        esc(sp.name || "") +
+        '" data-value="' +
+        esc(sp.value) +
+        '" data-index="' +
+        idx +
+        '" title="' +
+        esc(title) +
+        '" style="--swatch:' +
+        esc(sp.hex) +
+        '">' +
+        '<i class="ge-color-hit-swatch" aria-hidden="true"></i>' +
+        "<span>" +
+        esc(sp.value) +
+        "</span>" +
+        (sp.kind === "name"
+          ? '<em class="ge-color-hit-hex">' + esc(sp.hex) + "</em>"
+          : sp.kind === "hex"
+            ? '<em class="ge-color-hit-hex">' + esc(sp.name || "") + "</em>"
+            : "") +
+        "</button>";
+      pos = sp.end;
+    });
+    if (pos < text.length) html += esc(text.slice(pos));
+    return html;
+  }
+
+  function renderNoteColorHits() {
+    var host = $("ge-note-color-hits");
+    var ta = $("ge-note-text");
+    if (!host) return;
+    var text = ta ? ta.value : "";
+    var spans = scanGeColorSpans(text);
+    if (!spans.length) {
+      host.innerHTML = "";
+      return;
+    }
+    host.innerHTML = spans
+      .map(function (sp, idx) {
+        return (
+          '<button type="button" class="ge-color-hit" data-ge-color-source="note" data-start="' +
+          sp.start +
+          '" data-end="' +
+          sp.end +
+          '" data-kind="' +
+          sp.kind +
+          '" data-hex="' +
+          esc(sp.hex) +
+          '" data-name="' +
+          esc(sp.name || "") +
+          '" data-value="' +
+          esc(sp.value) +
+          '" data-index="' +
+          idx +
+          '" title="Lock ' +
+          esc(colorChipLabel(sp.name, sp.hex)) +
+          '" style="--swatch:' +
+          esc(sp.hex) +
+          '">' +
+          '<i class="ge-color-hit-swatch" aria-hidden="true"></i>' +
+          "<span>" +
+          esc(sp.value) +
+          "</span>" +
+          (sp.kind === "name"
+            ? '<em class="ge-color-hit-hex">' + esc(sp.hex) + "</em>"
+            : "") +
+          "</button>"
+        );
+      })
+      .join("");
+  }
+
+  function closeGeColorPopover() {
+    var old = document.getElementById("ge-color-popover");
+    if (old) old.remove();
+  }
+
+  function applyGeColorRewrite(source, start, end, hex, name) {
+    hex = normalizeGeHex(hex);
+    if (!hex) return { ok: false, error: "Invalid hex." };
+    var label = colorChipLabel(name || geHexToNearestName(hex), hex);
+    if (source === "note") {
+      var ta = $("ge-note-text");
+      if (!ta) return { ok: false, error: "Note missing." };
+      var text = ta.value || "";
+      start = Number(start);
+      end = Number(end);
+      if (!(start >= 0 && end > start && end <= text.length)) {
+        return { ok: false, error: "Color span moved — type again." };
+      }
+      ta.value = text.slice(0, start) + label + text.slice(end);
+      ta.focus();
+      try {
+        ta.setSelectionRange(start + label.length, start + label.length);
+      } catch (e) {}
+      renderNoteColorHits();
+      return { ok: true, label: label };
+    }
+    if (source === "desc") {
+      // Description view is read-only display of item text — rewrite copies lock into note filler
+      var ta2 = $("ge-note-text");
+      if (!ta2) return { ok: false, error: "Note missing." };
+      var pad = ta2.value && !/\s$/.test(ta2.value) ? " " : "";
+      ta2.value = (ta2.value || "") + pad + label;
+      renderNoteColorHits();
+      setForgeStatus("Copied color lock " + label + " into note filler.");
+      return { ok: true, label: label };
+    }
+    return { ok: false, error: "Unknown source." };
+  }
+
+  function openGeColorPopover(anchorBtn) {
+    closeGeColorPopover();
+    if (!anchorBtn) return;
+    var startHex = normalizeGeHex(anchorBtn.getAttribute("data-hex")) || "#888888";
+    var startName = anchorBtn.getAttribute("data-name") || geHexToNearestName(startHex);
+    var source = anchorBtn.getAttribute("data-ge-color-source") || "note";
+    var start = anchorBtn.getAttribute("data-start");
+    var end = anchorBtn.getAttribute("data-end");
+    var pop = document.createElement("div");
+    pop.id = "ge-color-popover";
+    pop.className = "ge-color-popover";
+    pop.innerHTML =
+      '<div class="ge-color-popover-title">Color chip</div>' +
+      '<div class="ge-color-popover-row">' +
+      '<input type="color" class="ge-color-pop-swatch" value="' +
+      esc(startHex) +
+      '" />' +
+      '<input type="text" class="ge-color-pop-hex" value="' +
+      esc(startHex) +
+      '" maxlength="7" />' +
+      "</div>" +
+      '<div class="ge-color-popover-preview">Writes: <strong class="ge-color-pop-label">' +
+      esc(colorChipLabel(startName, startHex)) +
+      "</strong></div>" +
+      '<p class="ge-color-chips-hint" style="margin:0 0 8px">' +
+      (source === "desc"
+        ? "Apply copies the lock into the note filler."
+        : "Apply rewrites this color in the note as Name (#HEX).") +
+      "</p>" +
+      '<div class="ge-color-popover-actions">' +
+      '<button type="button" class="ge-color-popover-cancel">Cancel</button>' +
+      '<button type="button" class="ge-color-popover-apply">Apply</button>' +
+      "</div>";
+    document.body.appendChild(pop);
+    var rect = anchorBtn.getBoundingClientRect();
+    var left = Math.min(rect.left, window.innerWidth - pop.offsetWidth - 12);
+    var top = Math.min(rect.bottom + 6, window.innerHeight - pop.offsetHeight - 12);
+    pop.style.left = Math.max(8, left) + "px";
+    pop.style.top = Math.max(8, top) + "px";
+
+    var sw = pop.querySelector(".ge-color-pop-swatch");
+    var hx = pop.querySelector(".ge-color-pop-hex");
+    var lab = pop.querySelector(".ge-color-pop-label");
+    function syncPreview() {
+      var h = normalizeGeHex(hx.value) || normalizeGeHex(sw.value) || startHex;
+      sw.value = h;
+      hx.value = h;
+      var n = geHexToNearestName(h);
+      if (lab) lab.textContent = colorChipLabel(n, h);
+    }
+    sw.addEventListener("input", function () {
+      hx.value = sw.value;
+      syncPreview();
+    });
+    hx.addEventListener("input", syncPreview);
+    pop.querySelector(".ge-color-popover-cancel").addEventListener("click", closeGeColorPopover);
+    pop.querySelector(".ge-color-popover-apply").addEventListener("click", function () {
+      var h = normalizeGeHex(hx.value) || normalizeGeHex(sw.value);
+      var n = geHexToNearestName(h);
+      var res = applyGeColorRewrite(source, start, end, h, n);
+      closeGeColorPopover();
+      if (!res.ok) setForgeStatus(res.error, true);
+      else if (source === "note") setForgeStatus("Locked " + res.label + " in note.");
+    });
+  }
+
+  function openItemDescription(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    if (noteOf(itemId)) {
+      return openItemFullscreen(itemId);
+    }
+    var lb = $("ge-lightbox");
+    if (!lb) return { ok: false, error: "Viewer missing." };
+    var img = $("ge-lightbox-img");
+    var noteEl = $("ge-lightbox-note");
+    var plain = $("ge-lightbox-desc");
+    var rich = $("ge-lightbox-desc-rich");
+    if (noteEl) {
+      noteEl.hidden = true;
+      noteEl.textContent = "";
+    }
+    if (img) {
+      img.hidden = false;
+      img.src = thumb(itemId);
+      img.alt = titleFor(itemId);
+    }
+    var body = String(fullDescFor(itemId) || descFor(itemId) || "").trim();
+    if ($("ge-lightbox-title")) {
+      $("ge-lightbox-title").textContent = kindLabel(itemId) + " · " + titleFor(itemId);
+    }
+    if (plain) {
+      plain.hidden = true;
+      plain.textContent = "";
+    }
+    if (rich) {
+      rich.hidden = false;
+      rich.innerHTML =
+        (body
+          ? buildGeColorHitHtml(body, { source: "desc" })
+          : "<em>No description text.</em>") +
+        '<p class="ge-color-chips-hint" style="margin-top:10px">Color names above become chips — click to lock into the note filler.</p>';
+    }
+    lb.hidden = false;
+    return { ok: true };
+  }
+
+  /** One-time: remove old preset color-chip items from pack/bank. */
+  function purgePresetColorChips() {
+    if (state._purgedPresetColorChips) return;
+    var pid = String(PLAYER_ID);
+    var inv = (state.inventory && state.inventory[pid]) || {};
+    var bank = (state.bank && state.bank[pid]) || {};
+    // Defaults were COLOR_BASE+1 .. +6
+    for (var i = 1; i <= 6; i++) {
+      var k = String(COLOR_BASE + i);
+      delete inv[k];
+      delete bank[k];
+      if (state.colorChips) delete state.colorChips[k];
+    }
+    state._purgedPresetColorChips = true;
+    state._colorChipsSeeded = true; // never re-seed
+    state._colorChipCatalogReady = true;
+  }
 
 
   function syncNoteToSpellforgeStore(note) {
@@ -2302,7 +2502,7 @@
     if (view === "history") renderHistory();
     renderBags();
     renderForgeSlots();
-    renderGeColorChips();
+    renderNoteColorHits();
   }
 
 
@@ -2428,14 +2628,14 @@
     }
     var dep = menu.querySelector('[data-ge-action="deposit"]');
     var wd = menu.querySelector('[data-ge-action="withdraw"]');
-    var insertNote = menu.querySelector('[data-ge-action="insert-note"]');
+    var descBtn = menu.querySelector('[data-ge-action="description"]');
     var forceLoad = menu.querySelector('[data-ge-action="force-load"]');
     var animateBtn = menu.querySelector('[data-ge-action="animate"]');
     var isChip = !!colorChipOf(itemId);
     var isNote = !!noteOf(itemId);
     if (dep) dep.hidden = source !== "inv";
     if (wd) wd.hidden = source !== "bank";
-    if (insertNote) insertNote.hidden = !(isChip || isNote);
+    if (descBtn) descBtn.hidden = isNote; // notes already text
     if (forceLoad) forceLoad.hidden = isChip || isNote;
     if (animateBtn) animateBtn.hidden = isChip || isNote;
     menu.hidden = false;
@@ -2495,6 +2695,14 @@
   function hideGeLightbox() {
     var lb = $("ge-lightbox");
     if (lb) lb.hidden = true;
+    closeGeColorPopover();
+    var rich = $("ge-lightbox-desc-rich");
+    if (rich) {
+      rich.hidden = true;
+      rich.innerHTML = "";
+    }
+    var plain = $("ge-lightbox-desc");
+    if (plain) plain.hidden = false;
   }
 
   function openItemFullscreen(itemId) {
@@ -3875,20 +4083,9 @@
             if (!viewRes.ok) setStatus(viewRes.error, true);
             return;
           }
-          if (action === "insert-note") {
-            var ins;
-            if (colorChipOf(id)) ins = insertColorChipIntoNote(id);
-            else if (noteOf(id)) {
-              var ta = $("ge-note-text");
-              if (ta) {
-                var text = fullDescFor(id);
-                ta.value = (ta.value ? ta.value.replace(/\s+$/, "") + "\n" : "") + text;
-                ta.focus();
-                ins = { ok: true };
-              } else ins = { ok: false, error: "Note box missing." };
-            } else ins = { ok: false, error: "Not a color chip or note." };
-            if (ins.ok) setStatus("Inserted into note filler.");
-            else setStatus(ins.error || "Insert failed.", true);
+          if (action === "description") {
+            var dRes = openItemDescription(id);
+            if (!dRes.ok) setStatus(dRes.error, true);
             return;
           }
           if (action === "force-load") {
@@ -3955,6 +4152,7 @@
             if ($("ge-animate-prompt") && !$("ge-animate-prompt").hidden) {
               cancelGeAnimatePrompt();
             }
+            closeGeColorPopover();
           }
         },
         true
@@ -4140,37 +4338,32 @@
         }
       })(ni);
     }
-    if ($("ge-color-chips") && !$("ge-color-chips").dataset.bound) {
-      $("ge-color-chips").dataset.bound = "1";
-      $("ge-color-chips").addEventListener("click", function (e) {
-        var btn = e.target.closest("[data-ge-color-id]");
-        if (!btn) return;
-        var id = Number(btn.getAttribute("data-ge-color-id"));
-        var res = insertColorChipIntoNote(id);
-        if (res.ok) setForgeStatus("Inserted " + res.token + " into note.");
-        else setForgeStatus(res.error || "Insert failed.", true);
+    if ($("ge-note-text") && !$("ge-note-text").dataset.colorBound) {
+      $("ge-note-text").dataset.colorBound = "1";
+      $("ge-note-text").addEventListener("input", function () {
+        renderNoteColorHits();
       });
+      renderNoteColorHits();
     }
-    if ($("ge-color-add-pack") && !$("ge-color-add-pack").dataset.bound) {
-      $("ge-color-add-pack").dataset.bound = "1";
-      $("ge-color-add-pack").addEventListener("click", function () {
-        var picker = $("ge-color-picker");
-        var hex = picker ? picker.value : "#A855F7";
-        var res = addColorChipToPack(hex);
-        if (!res.ok) {
-          setForgeStatus(res.error || "Could not add chip.", true);
-          return;
-        }
-        renderGeColorChips();
-        renderBags();
-        setForgeStatus(
-          "Added " +
-            colorChipLabel(res.chip.name, res.chip.hex) +
-            " to " +
-            (res.where === "bank" ? "bank (pack full)" : "pack") +
-            "."
-        );
-      });
+    if (!$("body").dataset.geColorHitBound) {
+      // use document
+    }
+    if (!document.documentElement.dataset.geColorHitBound) {
+      document.documentElement.dataset.geColorHitBound = "1";
+      document.addEventListener(
+        "click",
+        function (e) {
+          var hit = e.target.closest(".ge-color-hit");
+          if (hit) {
+            e.preventDefault();
+            e.stopPropagation();
+            openGeColorPopover(hit);
+            return;
+          }
+          if (!e.target.closest("#ge-color-popover")) closeGeColorPopover();
+        },
+        true
+      );
     }
   }
 
@@ -4274,8 +4467,7 @@
     state = loadState();
     npcRuntime = { inventory: {}, bank: {} };
     try {
-      ensureColorChipCatalog();
-      seedColorChipsIntoPack();
+      purgePresetColorChips();
     } catch (eChip) {}
     try {
       var moved = enforcePlayerInvCap();

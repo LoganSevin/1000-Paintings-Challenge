@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=24" />
+  <link rel="stylesheet" href="css/exchange.css?v=25" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3050,8 +3050,8 @@
           <button type="button" role="menuitem" data-forge-pick="1">Slot 2</button>
           <button type="button" role="menuitem" data-forge-pick="2">Slot 3</button>
           <div class="ge-forge-menu-divider" role="separator"></div>
+          <button type="button" role="menuitem" data-ge-action="description">Description</button>
           <button type="button" role="menuitem" data-ge-action="view">View fullscreen</button>
-          <button type="button" role="menuitem" data-ge-action="insert-note" id="ge-menu-insert-note">Insert into note</button>
           <button type="button" role="menuitem" data-ge-action="force-load">Force load (correct image)</button>
           <button type="button" role="menuitem" data-ge-action="animate">Animate here</button>
           <button type="button" role="menuitem" data-ge-action="sell">Sell on GE</button>
@@ -3066,7 +3066,8 @@
           </div>
           <div class="ge-lightbox-meta">
             <strong id="ge-lightbox-title"></strong>
-            <p id="ge-lightbox-desc"></p>
+            <p id="ge-lightbox-desc" class="ge-lightbox-desc-plain"></p>
+            <div id="ge-lightbox-desc-rich" class="ge-lightbox-desc-rich" hidden></div>
           </div>
         </div>
         <div id="ge-animate-prompt" class="ge-animate-prompt" hidden role="dialog" aria-modal="true" aria-labelledby="ge-animate-prompt-title">
@@ -3083,22 +3084,17 @@
         </div>
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
-          <p class="ge-forge-hint">Right-click → Slot / Color→note / View / Animate / Sell · Chips · Combine</p>
+          <p class="ge-forge-hint">Right-click → Slot / Description (color chips) / View / Animate / Sell · Notes · Combine</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-1" data-forge-slot="1" title="Clear slot"><span class="ge-forge-num">2</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-2" data-forge-slot="2" title="Clear slot"><span class="ge-forge-num">3</span></button>
           </div>
           <div class="ge-forge-notes" id="ge-forge-notes">
-            <label class="ge-forge-notes-label">Color chips</label>
-            <p class="ge-color-chips-hint">Click a chip to insert into the note · Add to pack for inventory</p>
-            <div id="ge-color-chips" class="ge-color-chips" aria-label="Color chips"></div>
-            <div class="ge-color-chip-make">
-              <input type="color" id="ge-color-picker" value="#A855F7" aria-label="Pick color" />
-              <button type="button" id="ge-color-add-pack" class="ge-color-add-pack">Add chip to pack</button>
-            </div>
-            <label class="ge-forge-notes-label" for="ge-note-text">Note filler (text + color locks)</label>
-            <textarea id="ge-note-text" class="ge-note-text" rows="3" placeholder="Write precise prompt control — or click a color chip to insert Name (#HEX)…" spellcheck="true"></textarea>
+            <label class="ge-forge-notes-label" for="ge-note-text">Note filler</label>
+            <p class="ge-color-chips-hint">Type a color name (e.g. scarlet, cyan) — a chip pops up. Click it to lock Name (#HEX).</p>
+            <textarea id="ge-note-text" class="ge-note-text" rows="3" placeholder="Write influence text… type color names to sprout chips…" spellcheck="true"></textarea>
+            <div id="ge-note-color-hits" class="ge-note-color-hits" aria-live="polite"></div>
             <div class="ge-forge-notes-actions">
               <button type="button" id="ge-note-slot-0" data-ge-note-slot="0">Put in slot 1</button>
               <button type="button" id="ge-note-slot-1" data-ge-note-slot="1">Put in slot 2</button>
@@ -6566,7 +6562,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=24"></script>
+  <script defer src="js/exchange.js?v=25"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
