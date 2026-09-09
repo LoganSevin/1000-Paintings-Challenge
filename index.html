@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=12" />
+  <link rel="stylesheet" href="css/exchange.css?v=13" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2927,7 +2927,10 @@
                 <div class="name" id="ge-setup-name">Choose an item…</div>
                 <div class="desc" id="ge-setup-desc">Pick a gallery painting to trade.</div>
                 <div class="guide" id="ge-setup-guide">Guide price $0</div>
-                <button type="button" class="ge-back" id="ge-choose-item" style="margin-top:0.4rem">Choose item…</button>
+                <div class="ge-setup-pick-row" style="margin-top:0.4rem;display:flex;flex-wrap:wrap;gap:0.4rem">
+                  <button type="button" class="ge-back" id="ge-choose-item">Choose item…</button>
+                  <button type="button" class="ge-back" id="ge-random-item" title="Random from arsenal (respects tag filter on pick screen)">Random</button>
+                </div>
               </div>
             </div>
             <div class="ge-setup-grid">
@@ -2970,6 +2973,9 @@
               <select id="ge-tag-filter" class="ge-tag-filter" aria-label="Filter by tag">
                 <option value="">All tags</option>
               </select>
+            </div>
+            <div class="ge-pick-actions" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.4rem 0">
+              <button type="button" class="ge-back" id="ge-random-pick">Random from results</button>
             </div>
             <div class="ge-pick-grid" id="ge-catalog"></div>
             <button type="button" class="ge-back" id="ge-pick-back">← Back</button>
@@ -6457,7 +6463,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=12"></script>
+  <script defer src="js/exchange.js?v=13"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

@@ -1269,6 +1269,83 @@
     wrap.innerHTML = html.join("");
   }
 
+
+  function catalogFilterList() {
+    var q = (($("ge-search") && $("ge-search").value) || "").trim().toLowerCase();
+    var tagSel = (($("ge-tag-filter") && $("ge-tag-filter").value) || "").trim().toLowerCase();
+    var out = [];
+    var list = arsenalList();
+    for (var i = 0; i < list.length; i++) {
+      var n = list[i];
+      var title = titleFor(n);
+      var label = kindLabel(n);
+      var hay = (title + " " + label + " #" + n).toLowerCase();
+      if (tagSel) {
+        var itemTags = tagsFor(n).map(function (t) {
+          return String(t).toLowerCase();
+        });
+        if (itemTags.indexOf(tagSel) === -1) continue;
+      }
+      if (q) {
+        var qLow = q;
+        if (
+          hay.indexOf(qLow) === -1 &&
+          !(qLow === "phone" && extraOf(n) && extraOf(n).source === "phone-upload") &&
+          !(qLow === "gen" && extraOf(n) && extraOf(n).source === "generated") &&
+          !(
+            (qLow === "sketch" || qLow === "sketches") &&
+            extraOf(n) &&
+            (extraOf(n).source === "sketch" || extraOf(n).source === "sketch-inverted")
+          ) &&
+          !(qLow === "inverted" && extraOf(n) && extraOf(n).source === "sketch-inverted") &&
+          !(qLow === "forged" && forgedOf(n))
+        ) {
+          continue;
+        }
+      }
+      out.push(n);
+    }
+    return out;
+  }
+
+  function pickRandomTradeItem() {
+    var pool;
+    if (setupSide === "sell") {
+      pool = invList(PLAYER_ID).map(function (it) {
+        return it.id;
+      });
+      if (!pool.length) {
+        // Fall back to bank for sell random
+        pool = bankList(PLAYER_ID).map(function (it) {
+          return it.id;
+        });
+      }
+    } else {
+      pool = catalogFilterList();
+      if (!pool.length) pool = arsenalList();
+    }
+    if (!pool.length) return null;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function applyRandomItem() {
+    var n = pickRandomTradeItem();
+    if (n == null) {
+      setStatus(
+        setupSide === "sell"
+          ? "Nothing in inventory/bank to randomize."
+          : "No items match the current filters.",
+        true
+      );
+      return false;
+    }
+    selected = Number(n);
+    if ($("ge-price")) $("ge-price").value = String(guidePrice(selected));
+    renderSetup();
+    setStatus("Random: " + kindLabel(selected) + " · " + titleFor(selected) + " @ " + money(guidePrice(selected)));
+    return true;
+  }
+
   function renderSetup() {
     if ($("ge-setup-side")) $("ge-setup-side").textContent = setupSide === "buy" ? "Buy offer" : "Sell offer";
     if ($("ge-setup-slot-label")) $("ge-setup-slot-label").textContent = "Slot " + (setupSlot + 1);
@@ -2047,6 +2124,21 @@
       $("ge-choose-item").addEventListener("click", function () {
         showView("pick");
         renderCatalog();
+      });
+    }
+    if ($("ge-random-item") && !$("ge-random-item").dataset.bound) {
+      $("ge-random-item").dataset.bound = "1";
+      $("ge-random-item").addEventListener("click", function () {
+        applyRandomItem();
+      });
+    }
+    if ($("ge-random-pick") && !$("ge-random-pick").dataset.bound) {
+      $("ge-random-pick").dataset.bound = "1";
+      $("ge-random-pick").addEventListener("click", function () {
+        if (applyRandomItem()) {
+          showView("setup");
+          renderSetup();
+        }
       });
     }
     if ($("ge-pick-back") && !$("ge-pick-back").dataset.bound) {
