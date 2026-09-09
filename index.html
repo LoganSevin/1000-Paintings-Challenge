@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=36" />
+  <link rel="stylesheet" href="css/exchange.css?v=37" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2892,7 +2892,8 @@
         </div>
         <div class="ge-world-stage ge-world-stage--artfloor3d" id="ge-world-stage" tabindex="0" aria-label="Grand Exchange Art Floor 3D">
           <div class="ge-world-splash" id="ge-world-splash" aria-hidden="true">
-            <img src="assets/grand-exchange-art-floor.jpg" alt="" decoding="async" fetchpriority="high" />
+            <!-- Loading backdrop only — Art Floor painting is a style reference, not a wall mural -->
+            <div class="ge-world-splash-hall" aria-hidden="true"></div>
           </div>
           <canvas id="ge-world-canvas" class="ge-world-canvas" aria-hidden="true"></canvas>
           <div class="ge-world-loader" id="ge-world-loader" role="status" aria-live="polite" aria-busy="true">
@@ -6578,7 +6579,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script type="module" src="js/ge-artfloor-3d.js?v=3"></script>
+  <script type="module" src="js/ge-artfloor-3d.js?v=4"></script>
   <script defer src="js/exchange.js?v=37"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>

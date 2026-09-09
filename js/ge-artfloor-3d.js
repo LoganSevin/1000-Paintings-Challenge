@@ -1,27 +1,14 @@
 /**
- * Grand Exchange Art Floor — high-fidelity third-person walkaround.
- * Styled after assets/grand-exchange-art-floor.jpg.
+ * Grand Exchange Art Floor — third-person walkaround.
+ * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
- * - High-res mural / marble / easel paintings (not prototype grey)
- * - People = high-res textured cards from Art Floor painting crops (not capsules / low-poly blocks)
- * - Camera locked behind player; mouse look turns facing; WASD relative to facing; wheel zoom
+ * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
+ * - Player + NPCs = proper 3D human meshes (suits/coats, optional yellow berets, walk cycles)
+ * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
  */
 import * as THREE from "three";
 
-var MURAL_URL = "assets/grand-exchange-art-floor-hi.jpg";
-var MURAL_FALLBACK = "assets/grand-exchange-art-floor.jpg";
-var PEOPLE_URLS = [
-  "assets/artfloor-people/p1.jpg",
-  "assets/artfloor-people/p2.jpg",
-  "assets/artfloor-people/p3.jpg",
-  "assets/artfloor-people/p4.jpg",
-  "assets/artfloor-people/p5.jpg",
-  "assets/artfloor-people/p6.jpg",
-  "assets/artfloor-people/p7.jpg",
-  "assets/artfloor-people/p8.jpg",
-];
 var LOADER_ID = "ge-world-loader";
-
 var ZOOM_MIN = 2.0;
 var ZOOM_MAX = 16.0;
 var ZOOM_DEFAULT = 4.6;
@@ -66,9 +53,9 @@ var api = {
   _onClick: null,
   _onVis: null,
   _easelMeshes: [],
-  _peopleTex: [],
   _disposed: false,
   _facingArrow: null,
+  _wasRunningBeforeHide: false,
 };
 
 function trackGeo(g) { api._geos.push(g); return g; }
@@ -99,8 +86,7 @@ function showLoader(visible, msg) {
 function makeMarbleTexture(size) {
   size = size || 2048;
   var c = document.createElement("canvas");
-  c.width = size;
-  c.height = size;
+  c.width = size; c.height = size;
   var ctx = c.getContext("2d");
   var grd = ctx.createLinearGradient(0, 0, size, size);
   grd.addColorStop(0, "#f2ebe0");
@@ -110,7 +96,6 @@ function makeMarbleTexture(size) {
   ctx.fillStyle = grd;
   ctx.fillRect(0, 0, size, size);
   var tile = size / 8;
-  // Soft per-tile variation
   for (var ty = 0; ty < 8; ty++) {
     for (var tx = 0; tx < 8; tx++) {
       var n = Math.random();
@@ -120,7 +105,6 @@ function makeMarbleTexture(size) {
       ctx.fillRect(tx * tile + 2, ty * tile + 2, tile - 4, tile - 4);
     }
   }
-  // Veining
   for (var v = 0; v < 90; v++) {
     ctx.strokeStyle = "rgba(140,125,105," + (0.08 + Math.random() * 0.22).toFixed(3) + ")";
     ctx.lineWidth = 1 + Math.random() * 3 * (size / 1024);
@@ -135,7 +119,6 @@ function makeMarbleTexture(size) {
     }
     ctx.stroke();
   }
-  // Grout
   ctx.strokeStyle = "rgba(110,95,75,0.38)";
   ctx.lineWidth = Math.max(2, size / 512);
   for (var i = 0; i <= size; i += tile) {
@@ -260,112 +243,44 @@ function makeBannerTexture(text) {
   return trackTex(tex);
 }
 
-/** High-res painted player card (front) — readable gallery patron, not a pill. */
-function makePlayerCardTexture(back) {
+/** Soft exterior city haze for arched windows (not solid white flats). */
+function makeExteriorViewTexture() {
   var c = document.createElement("canvas");
-  c.width = 768; c.height = 1536;
+  c.width = 1024; c.height = 1024;
   var ctx = c.getContext("2d");
-  // Transparent bg
-  ctx.clearRect(0, 0, 768, 1536);
-  // Soft contact shadow
-  ctx.fillStyle = "rgba(0,0,0,0.22)";
-  ctx.beginPath();
-  ctx.ellipse(384, 1480, 160, 28, 0, 0, Math.PI * 2);
-  ctx.fill();
-
-  var suit = back ? "#1e4a36" : "#2d6a4f";
-  var pants = "#1a3328";
-  var skin = "#d4b896";
-  var shirt = "#f2ebe0";
-
-  // Legs
-  ctx.fillStyle = pants;
-  ctx.fillRect(280, 900, 90, 420);
-  ctx.fillRect(400, 900, 90, 420);
-  // Shoes
-  ctx.fillStyle = "#1a1410";
-  ctx.fillRect(265, 1300, 110, 50);
-  ctx.fillRect(395, 1300, 110, 50);
-  // Coat / torso
-  ctx.fillStyle = suit;
-  roundRect(ctx, 230, 480, 310, 460, 24);
-  ctx.fill();
-  // Shirt
-  ctx.fillStyle = shirt;
-  ctx.beginPath();
-  ctx.moveTo(384, 500);
-  ctx.lineTo(340, 700);
-  ctx.lineTo(428, 700);
-  ctx.closePath();
-  ctx.fill();
-  // Arms
-  ctx.fillStyle = suit;
-  ctx.save();
-  ctx.translate(230, 520);
-  ctx.rotate(0.18);
-  roundRect(ctx, -70, 0, 80, 380, 20); ctx.fill();
-  ctx.restore();
-  ctx.save();
-  ctx.translate(540, 520);
-  ctx.rotate(-0.18);
-  roundRect(ctx, -10, 0, 80, 380, 20); ctx.fill();
-  ctx.restore();
-  // Hands
-  ctx.fillStyle = skin;
-  ctx.beginPath(); ctx.arc(175, 900, 36, 0, Math.PI * 2); ctx.fill();
-  ctx.beginPath(); ctx.arc(595, 900, 36, 0, Math.PI * 2); ctx.fill();
-  // Neck + head
-  ctx.fillStyle = skin;
-  ctx.fillRect(350, 400, 68, 90);
-  ctx.beginPath(); ctx.ellipse(384, 320, 110, 130, 0, 0, Math.PI * 2); ctx.fill();
-  if (!back) {
-    // Face
-    ctx.fillStyle = "rgba(60,40,30,0.55)";
-    ctx.beginPath(); ctx.ellipse(345, 310, 12, 10, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(423, 310, 12, 10, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = "rgba(90,60,45,0.45)";
-    ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.arc(384, 355, 28, 0.15, Math.PI - 0.15); ctx.stroke();
-    // Nose
-    ctx.fillStyle = "rgba(180,140,110,0.5)";
-    ctx.beginPath(); ctx.ellipse(384, 335, 10, 14, 0, 0, Math.PI * 2); ctx.fill();
-  } else {
-    // Hair back
-    ctx.fillStyle = "#3a2918";
-    ctx.beginPath(); ctx.ellipse(384, 280, 100, 70, 0, Math.PI, Math.PI * 2); ctx.fill();
+  var sky = ctx.createLinearGradient(0, 0, 0, 1024);
+  sky.addColorStop(0, "#c8d8ea");
+  sky.addColorStop(0.45, "#e8dcc8");
+  sky.addColorStop(0.72, "#d4c4a8");
+  sky.addColorStop(1, "#b8a888");
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, 1024, 1024);
+  // Hazy city blocks
+  for (var i = 0; i < 28; i++) {
+    var bw = 40 + Math.random() * 90;
+    var bh = 80 + Math.random() * 280;
+    var bx = Math.random() * 1024;
+    var by = 520 + Math.random() * 120;
+    ctx.fillStyle = "rgba(90,85,95," + (0.18 + Math.random() * 0.28).toFixed(3) + ")";
+    ctx.fillRect(bx, by - bh, bw, bh);
+    // windows
+    ctx.fillStyle = "rgba(255,230,180," + (0.08 + Math.random() * 0.2).toFixed(3) + ")";
+    for (var wy = by - bh + 12; wy < by - 20; wy += 22) {
+      for (var wx = bx + 8; wx < bx + bw - 8; wx += 16) {
+        if (Math.random() > 0.35) ctx.fillRect(wx, wy, 8, 10);
+      }
+    }
   }
-  // Yellow beret (flat, painting style)
-  ctx.fillStyle = "#e8c030";
-  ctx.beginPath();
-  ctx.ellipse(370, 200, 130, 48, -0.2, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = "#f0d060";
-  ctx.beginPath();
-  ctx.ellipse(355, 175, 50, 22, -0.2, 0, Math.PI * 2);
-  ctx.fill();
-  // Gold chest pin (you-marker)
-  if (!back) {
-    ctx.fillStyle = "#ffe066";
-    ctx.beginPath(); ctx.arc(470, 620, 16, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = "#c9a227";
-    ctx.lineWidth = 3;
-    ctx.stroke();
-  }
-
+  // Soft sun glow
+  var glow = ctx.createRadialGradient(780, 220, 20, 780, 220, 280);
+  glow.addColorStop(0, "rgba(255,245,210,0.55)");
+  glow.addColorStop(1, "rgba(255,245,210,0)");
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, 1024, 1024);
   var tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 8;
   return trackTex(tex);
-}
-
-function roundRect(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
 }
 
 function makeWoodMat(hex) {
@@ -400,16 +315,33 @@ function loadTex(url, onLoad, onErr) {
 
 function buildColumn(x, z, h, mat) {
   var g = new THREE.Group();
-  var shaft = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.15, h - 0.6, 1.15)), mat);
-  shaft.position.y = (h - 0.6) / 2 + 0.3;
+  var shaft = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.05, h - 0.85, 1.05)), mat);
+  shaft.position.y = (h - 0.85) / 2 + 0.4;
   shaft.castShadow = true; shaft.receiveShadow = true;
   g.add(shaft);
-  var cap = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.5, 0.28, 1.5)), mat);
-  cap.position.y = h - 0.05;
-  cap.castShadow = true; g.add(cap);
-  var base = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.55, 0.35, 1.55)), mat);
-  base.position.y = 0.175;
-  base.receiveShadow = true; g.add(base);
+  // Base plinth
+  var base = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.55, 0.28, 1.55)), mat);
+  base.position.y = 0.14; base.receiveShadow = true; g.add(base);
+  var base2 = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.35, 0.18, 1.35)), mat);
+  base2.position.y = 0.35; g.add(base2);
+  // Capital — abacus + echinus rings
+  var abacus = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.55, 0.18, 1.55)), mat);
+  abacus.position.y = h - 0.08; abacus.castShadow = true; g.add(abacus);
+  var ech = new THREE.Mesh(trackGeo(new THREE.CylinderGeometry(0.72, 0.58, 0.28, 16)), mat);
+  ech.position.y = h - 0.32; ech.castShadow = true; g.add(ech);
+  var neck = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.15, 0.12, 1.15)), mat);
+  neck.position.y = h - 0.5; g.add(neck);
+  // Corner volute nubs (reads as ornate capital from distance)
+  var gold = trackMat(new THREE.MeshStandardMaterial({
+    color: 0xc9b896, roughness: 0.45, metalness: 0.15,
+  }));
+  for (var i = 0; i < 4; i++) {
+    var ang = (i / 4) * Math.PI * 2 + Math.PI / 4;
+    var vol = new THREE.Mesh(trackGeo(new THREE.TorusGeometry(0.12, 0.045, 8, 12)), gold);
+    vol.position.set(Math.cos(ang) * 0.62, h - 0.28, Math.sin(ang) * 0.62);
+    vol.rotation.x = Math.PI / 2;
+    g.add(vol);
+  }
   g.position.set(x, 0, z);
   addCollider(x, z, 0.75, 0.75);
   return g;
@@ -609,55 +541,52 @@ function buildBust(bx, bz) {
   return p;
 }
 
-function buildArchedWindow(x, y, z) {
+function buildArchedWindow(x, y, z, exteriorTex) {
   var g = new THREE.Group();
   var frameMat = trackMat(new THREE.MeshStandardMaterial({ color: 0xd4c8b4, roughness: 0.5, metalness: 0.08 }));
-  var glassMat = trackMat(new THREE.MeshStandardMaterial({
-    color: 0xb0cce8, emissive: 0xfff2d0, emissiveIntensity: 0.65,
-    roughness: 0.3, metalness: 0.05, transparent: true, opacity: 0.9,
+  var sillMat = trackMat(new THREE.MeshStandardMaterial({ color: 0xc8bca8, roughness: 0.4, metalness: 0.1 }));
+  // Deep recess into wall
+  var recess = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(2.05, 3.7, 0.55)), frameMat);
+  recess.position.z = -0.15; g.add(recess);
+  // Exterior view plane (city haze) behind glass
+  var viewMat = trackMat(new THREE.MeshStandardMaterial({
+    map: exteriorTex || null,
+    color: exteriorTex ? 0xffffff : 0xb8c8d8,
+    emissive: 0xfff0d0,
+    emissiveIntensity: 0.35,
+    roughness: 0.85,
+    metalness: 0,
   }));
-  var recess = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.9, 3.5, 0.3)), frameMat);
-  recess.position.z = -0.05; g.add(recess);
-  var glass = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.5, 2.8, 0.05)), glassMat);
-  glass.position.set(0, -0.1, 0.1); g.add(glass);
-  var arch = new THREE.Mesh(trackGeo(new THREE.CircleGeometry(0.78, 20, 0, Math.PI)), glassMat);
-  arch.position.set(0, 1.4, 0.11); g.add(arch);
-  var mullion = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.07, 2.8, 0.07)), frameMat);
-  mullion.position.set(0, -0.1, 0.12); g.add(mullion);
-  g.position.set(x, y, z);
-  return g;
-}
-
-/**
- * High-res person card from Art Floor painting crop.
- * Rotates with yaw (NOT camera billboard) so facing is readable.
- */
-function buildPersonCard(tex, opts) {
-  opts = opts || {};
-  var g = new THREE.Group();
-  var w = opts.w || 0.95;
-  var h = opts.h || 1.85;
-  var mat = trackMat(new THREE.MeshStandardMaterial({
-    map: tex || null,
-    color: tex ? 0xffffff : 0x445566,
-    roughness: 0.65,
+  var view = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(1.55, 2.85)), viewMat);
+  view.position.set(0, -0.05, -0.38); g.add(view);
+  var archView = new THREE.Mesh(trackGeo(new THREE.CircleGeometry(0.8, 24, 0, Math.PI)), viewMat);
+  archView.position.set(0, 1.35, -0.37); g.add(archView);
+  // Glass overlay
+  var glassMat = trackMat(new THREE.MeshPhysicalMaterial({
+    color: 0xd8e8f8,
+    roughness: 0.12,
     metalness: 0.05,
+    transmission: 0.55,
     transparent: true,
-    alphaTest: 0.12,
-    side: THREE.DoubleSide,
+    opacity: 0.55,
+    thickness: 0.2,
   }));
-  var plane = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(w, h)), mat);
-  plane.position.y = h / 2;
-  plane.castShadow = true;
-  plane.receiveShadow = true;
-  g.add(plane);
-  // Thin "body depth" so silhouette reads in profile
-  var edge = new THREE.Mesh(
-    trackGeo(new THREE.BoxGeometry(w * 0.08, h * 0.92, 0.12)),
-    trackMat(new THREE.MeshStandardMaterial({ color: 0x2a3038, roughness: 0.8 }))
-  );
-  edge.position.y = h / 2; edge.castShadow = true; g.add(edge);
-  g.userData.facePlane = plane;
+  var glass = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.52, 2.75, 0.04)), glassMat);
+  glass.position.set(0, -0.08, 0.08); g.add(glass);
+  var archGlass = new THREE.Mesh(trackGeo(new THREE.CircleGeometry(0.78, 24, 0, Math.PI)), glassMat);
+  archGlass.position.set(0, 1.35, 0.09); g.add(archGlass);
+  // Mullions + arch frame
+  var mullion = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.08, 2.75, 0.1)), frameMat);
+  mullion.position.set(0, -0.08, 0.12); g.add(mullion);
+  var cross = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(1.52, 0.08, 0.1)), frameMat);
+  cross.position.set(0, 0.55, 0.12); g.add(cross);
+  var sill = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(2.15, 0.12, 0.45)), sillMat);
+  sill.position.set(0, -1.9, 0.05); g.add(sill);
+  // Soft window light spilling inward
+  var winGlow = new THREE.PointLight(0xfff2dc, 0.55, 9, 2);
+  winGlow.position.set(0, 0.2, 0.6);
+  g.add(winGlow);
+  g.position.set(x, y, z);
   return g;
 }
 
@@ -675,39 +604,322 @@ function buildFacingArrow() {
   return g;
 }
 
-function buildPlayer() {
-  var g = new THREE.Group();
-  var frontTex = makePlayerCardTexture(false);
-  var backTex = makePlayerCardTexture(true);
-  var front = buildPersonCard(frontTex, { w: 1.0, h: 1.9 });
-  // Remove inner edge from nested group — re-parent plane only feel
-  g.add(front);
-  var backMat = trackMat(new THREE.MeshStandardMaterial({
-    map: backTex, roughness: 0.65, transparent: true, alphaTest: 0.12, side: THREE.FrontSide,
+/**
+ * Realistic-enough 3D gallery patron.
+ * Continuous head mesh (no horizontal jaw hinge / South Park Canadian split).
+ * Face features are small front-mounted meshes; beret optional.
+ */
+function buildHumanoid(opts) {
+  opts = opts || {};
+  var coatHex = opts.coat != null ? opts.coat : 0x2c3f5e;
+  var pantsHex = opts.pants != null ? opts.pants : 0x1a2230;
+  var skinHex = opts.skin != null ? opts.skin : 0xd4b896;
+  var shirtHex = opts.shirt != null ? opts.shirt : 0xf0e6d8;
+  var hairHex = opts.hair != null ? opts.hair : 0x3a2918;
+  var tieHex = opts.tie != null ? opts.tie : 0x8a2030;
+  var withBeret = opts.beret !== false;
+  var beretHex = opts.beretColor != null ? opts.beretColor : 0xe8c030;
+  var isPlayer = !!opts.isPlayer;
+  var scale = opts.scale || 1;
+
+  var root = new THREE.Group();
+  var rig = new THREE.Group();
+  root.add(rig);
+
+  var skinMat = trackMat(new THREE.MeshStandardMaterial({
+    color: skinHex, roughness: 0.55, metalness: 0.02,
   }));
-  var back = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(1.0, 1.9)), backMat);
-  back.position.set(0, 0.95, -0.04);
-  back.rotation.y = Math.PI;
-  back.castShadow = true;
-  g.add(back);
-  // Facing arrow on ground — always shows forward
-  var arrow = buildFacingArrow();
-  g.add(arrow);
-  api._facingArrow = arrow;
-  g.userData.isPlayer = true;
-  return g;
+  var coatMat = trackMat(new THREE.MeshStandardMaterial({
+    color: coatHex, roughness: 0.72, metalness: 0.05,
+  }));
+  var pantsMat = trackMat(new THREE.MeshStandardMaterial({
+    color: pantsHex, roughness: 0.78, metalness: 0.04,
+  }));
+  var shirtMat = trackMat(new THREE.MeshStandardMaterial({
+    color: shirtHex, roughness: 0.85, metalness: 0,
+  }));
+  var hairMat = trackMat(new THREE.MeshStandardMaterial({
+    color: hairHex, roughness: 0.9, metalness: 0,
+  }));
+  var shoeMat = trackMat(new THREE.MeshStandardMaterial({
+    color: 0x1a1410, roughness: 0.55, metalness: 0.15,
+  }));
+  var beretMat = trackMat(new THREE.MeshStandardMaterial({
+    color: beretHex, roughness: 0.7, metalness: 0.05,
+  }));
+
+  function mesh(geo, mat, px, py, pz, sx, sy, sz) {
+    var m = new THREE.Mesh(trackGeo(geo), mat);
+    m.position.set(px || 0, py || 0, pz || 0);
+    if (sx != null) m.scale.set(sx, sy != null ? sy : sx, sz != null ? sz : sx);
+    m.castShadow = true;
+    m.receiveShadow = true;
+    return m;
+  }
+
+  // —— Legs (hip → thigh → shin → foot) ——
+  var lLeg = new THREE.Group();
+  lLeg.position.set(-0.13, 0.95, 0);
+  var lThigh = mesh(new THREE.CapsuleGeometry(0.09, 0.32, 6, 10), pantsMat, 0, -0.22, 0);
+  lLeg.add(lThigh);
+  var lShinG = new THREE.Group();
+  lShinG.position.set(0, -0.44, 0);
+  var lShin = mesh(new THREE.CapsuleGeometry(0.075, 0.3, 6, 10), pantsMat, 0, -0.2, 0);
+  lShinG.add(lShin);
+  var lFoot = mesh(new THREE.BoxGeometry(0.14, 0.08, 0.28), shoeMat, 0, -0.42, 0.05);
+  lShinG.add(lFoot);
+  lLeg.add(lShinG);
+  rig.add(lLeg);
+
+  var rLeg = new THREE.Group();
+  rLeg.position.set(0.13, 0.95, 0);
+  var rThigh = mesh(new THREE.CapsuleGeometry(0.09, 0.32, 6, 10), pantsMat, 0, -0.22, 0);
+  rLeg.add(rThigh);
+  var rShinG = new THREE.Group();
+  rShinG.position.set(0, -0.44, 0);
+  var rShin = mesh(new THREE.CapsuleGeometry(0.075, 0.3, 6, 10), pantsMat, 0, -0.2, 0);
+  rShinG.add(rShin);
+  var rFoot = mesh(new THREE.BoxGeometry(0.14, 0.08, 0.28), shoeMat, 0, -0.42, 0.05);
+  rShinG.add(rFoot);
+  rLeg.add(rShinG);
+  rig.add(rLeg);
+
+  // —— Torso / coat ——
+  var torso = new THREE.Group();
+  torso.position.y = 0.95;
+  var hips = mesh(new THREE.BoxGeometry(0.42, 0.18, 0.28), pantsMat, 0, 0.05, 0);
+  torso.add(hips);
+  var coat = mesh(new THREE.BoxGeometry(0.48, 0.72, 0.32), coatMat, 0, 0.48, 0);
+  torso.add(coat);
+  // Coat flare / lapels
+  var lapelL = mesh(new THREE.BoxGeometry(0.1, 0.42, 0.06), coatMat, -0.14, 0.55, 0.16);
+  lapelL.rotation.z = 0.12; torso.add(lapelL);
+  var lapelR = mesh(new THREE.BoxGeometry(0.1, 0.42, 0.06), coatMat, 0.14, 0.55, 0.16);
+  lapelR.rotation.z = -0.12; torso.add(lapelR);
+  // Shirt triangle + collar
+  var shirt = mesh(new THREE.BoxGeometry(0.18, 0.28, 0.06), shirtMat, 0, 0.68, 0.15);
+  torso.add(shirt);
+  var collarL = mesh(new THREE.BoxGeometry(0.1, 0.06, 0.08), shirtMat, -0.08, 0.84, 0.14);
+  collarL.rotation.z = 0.4; torso.add(collarL);
+  var collarR = mesh(new THREE.BoxGeometry(0.1, 0.06, 0.08), shirtMat, 0.08, 0.84, 0.14);
+  collarR.rotation.z = -0.4; torso.add(collarR);
+  var tie = mesh(new THREE.BoxGeometry(0.06, 0.28, 0.03), trackMat(new THREE.MeshStandardMaterial({
+    color: tieHex, roughness: 0.65, metalness: 0.05,
+  })), 0, 0.62, 0.18);
+  torso.add(tie);
+  // Shoulders
+  var shL = mesh(new THREE.SphereGeometry(0.12, 12, 10), coatMat, -0.28, 0.78, 0);
+  torso.add(shL);
+  var shR = mesh(new THREE.SphereGeometry(0.12, 12, 10), coatMat, 0.28, 0.78, 0);
+  torso.add(shR);
+
+  if (isPlayer) {
+    var pin = mesh(new THREE.SphereGeometry(0.045, 10, 8), trackMat(new THREE.MeshStandardMaterial({
+      color: 0xffe066, emissive: 0xaa8800, emissiveIntensity: 0.6, metalness: 0.6, roughness: 0.3,
+    })), 0.16, 0.55, 0.18);
+    torso.add(pin);
+  }
+
+  // —— Arms ——
+  var lArm = new THREE.Group();
+  lArm.position.set(-0.3, 0.78, 0);
+  var lUpper = mesh(new THREE.CapsuleGeometry(0.07, 0.28, 6, 10), coatMat, 0, -0.2, 0);
+  lArm.add(lUpper);
+  var lFore = new THREE.Group();
+  lFore.position.set(0, -0.4, 0);
+  var lForeMesh = mesh(new THREE.CapsuleGeometry(0.06, 0.26, 6, 10), coatMat, 0, -0.16, 0);
+  lFore.add(lForeMesh);
+  var lHand = mesh(new THREE.SphereGeometry(0.07, 10, 8), skinMat, 0, -0.34, 0);
+  lFore.add(lHand);
+  lArm.add(lFore);
+  torso.add(lArm);
+
+  var rArm = new THREE.Group();
+  rArm.position.set(0.3, 0.78, 0);
+  var rUpper = mesh(new THREE.CapsuleGeometry(0.07, 0.28, 6, 10), coatMat, 0, -0.2, 0);
+  rArm.add(rUpper);
+  var rFore = new THREE.Group();
+  rFore.position.set(0, -0.4, 0);
+  var rForeMesh = mesh(new THREE.CapsuleGeometry(0.06, 0.26, 6, 10), coatMat, 0, -0.16, 0);
+  rFore.add(rForeMesh);
+  var rHand = mesh(new THREE.SphereGeometry(0.07, 10, 8), skinMat, 0, -0.34, 0);
+  rFore.add(rHand);
+  rArm.add(rFore);
+  torso.add(rArm);
+
+  // —— Neck + continuous head (NO jaw hinge plane) ——
+  var neck = mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.14, 12), skinMat, 0, 0.92, 0);
+  torso.add(neck);
+
+  var headG = new THREE.Group();
+  headG.position.set(0, 1.12, 0);
+  // Slightly elongated continuous skull — one mesh, no mouth split
+  var skull = mesh(new THREE.SphereGeometry(0.175, 24, 20), skinMat, 0, 0.02, 0.01, 1, 1.12, 0.95);
+  headG.add(skull);
+  // Soft cheek fill (still continuous look)
+  var jawFill = mesh(new THREE.SphereGeometry(0.12, 16, 12), skinMat, 0, -0.06, 0.04, 1.15, 0.85, 0.95);
+  headG.add(jawFill);
+
+  // Hair cap
+  var hair = mesh(new THREE.SphereGeometry(0.178, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), hairMat, 0, 0.04, -0.01, 1.02, 1.05, 1.0);
+  headG.add(hair);
+
+  // Ears
+  headG.add(mesh(new THREE.SphereGeometry(0.035, 10, 8), skinMat, -0.17, 0.0, 0, 0.7, 1.1, 0.6));
+  headG.add(mesh(new THREE.SphereGeometry(0.035, 10, 8), skinMat, 0.17, 0.0, 0, 0.7, 1.1, 0.6));
+
+  // Eyes — proper sockets, not a face card
+  var eyeWhite = trackMat(new THREE.MeshStandardMaterial({ color: 0xf5f2ea, roughness: 0.35 }));
+  var irisMat = trackMat(new THREE.MeshStandardMaterial({ color: 0x3a4a5a, roughness: 0.35 }));
+  var pupilMat = trackMat(new THREE.MeshStandardMaterial({ color: 0x101018, roughness: 0.25 }));
+  function eye(ox) {
+    var eg = new THREE.Group();
+    eg.position.set(ox, 0.03, 0.145);
+    eg.add(mesh(new THREE.SphereGeometry(0.028, 12, 10), eyeWhite, 0, 0, 0));
+    eg.add(mesh(new THREE.SphereGeometry(0.016, 10, 8), irisMat, 0, 0, 0.016));
+    eg.add(mesh(new THREE.SphereGeometry(0.008, 8, 6), pupilMat, 0, 0, 0.026));
+    // brow
+    var brow = mesh(new THREE.BoxGeometry(0.07, 0.012, 0.02), hairMat, 0, 0.038, 0.01);
+    eg.add(brow);
+    return eg;
+  }
+  headG.add(eye(-0.055));
+  headG.add(eye(0.055));
+
+  // Nose — small bridge, not a cartoon wedge across the face
+  var nose = mesh(new THREE.BoxGeometry(0.03, 0.05, 0.045), skinMat, 0, -0.02, 0.165);
+  headG.add(nose);
+  var tip = mesh(new THREE.SphereGeometry(0.018, 10, 8), skinMat, 0, -0.04, 0.185);
+  headG.add(tip);
+
+  // Mouth — tiny lip strip ONLY (never a head-wide hinge)
+  var lipMat = trackMat(new THREE.MeshStandardMaterial({
+    color: 0xb07070, roughness: 0.55, metalness: 0.05,
+  }));
+  var mouth = mesh(new THREE.BoxGeometry(0.055, 0.012, 0.018), lipMat, 0, -0.085, 0.155);
+  headG.add(mouth);
+  // Soft lip shade under (reads as closed mouth, not jaw seam)
+  var mouthShade = mesh(new THREE.BoxGeometry(0.048, 0.006, 0.012), trackMat(new THREE.MeshStandardMaterial({
+    color: 0x8a5050, roughness: 0.7,
+  })), 0, -0.095, 0.152);
+  headG.add(mouthShade);
+
+  if (withBeret) {
+    var beret = mesh(new THREE.SphereGeometry(0.2, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), beretMat, -0.02, 0.16, -0.02, 1.15, 0.45, 1.15);
+    beret.rotation.z = -0.18;
+    beret.rotation.x = -0.12;
+    headG.add(beret);
+    var beretTop = mesh(new THREE.SphereGeometry(0.06, 12, 10), beretMat, -0.06, 0.22, -0.02, 1, 0.5, 1);
+    headG.add(beretTop);
+  }
+
+  torso.add(headG);
+  rig.add(torso);
+
+  if (isPlayer) {
+    var arrow = buildFacingArrow();
+    root.add(arrow);
+    api._facingArrow = arrow;
+  }
+
+  root.scale.setScalar(scale);
+  root.userData.limbs = {
+    lLeg: lLeg, rLeg: rLeg, lShin: lShinG, rShin: rShinG,
+    lArm: lArm, rArm: rArm, lFore: lFore, rFore: rFore,
+    torso: torso, head: headG, phase: Math.random() * Math.PI * 2,
+  };
+  root.userData.isPlayer = isPlayer;
+  root.userData.walkAmp = 0;
+  return root;
 }
 
-function buildNpcFromTex(tex, x, z) {
-  var card = buildPersonCard(tex, { w: 0.9 + Math.random() * 0.15, h: 1.7 + Math.random() * 0.25 });
-  card.position.set(x, 0, z);
+function animateHumanoid(root, moving, dt) {
+  var L = root && root.userData && root.userData.limbs;
+  if (!L) return;
+  var target = moving ? 1 : 0;
+  root.userData.walkAmp += (target - root.userData.walkAmp) * Math.min(1, dt * 8);
+  var amp = root.userData.walkAmp;
+  L.phase += dt * (6.5 + amp * 4);
+  var sw = Math.sin(L.phase) * amp;
+  var sw2 = Math.sin(L.phase + Math.PI) * amp;
+  L.lLeg.rotation.x = sw * 0.7;
+  L.rLeg.rotation.x = sw2 * 0.7;
+  L.lShin.rotation.x = Math.max(0, -sw) * 0.55;
+  L.rShin.rotation.x = Math.max(0, -sw2) * 0.55;
+  L.lArm.rotation.x = sw2 * 0.55;
+  L.rArm.rotation.x = sw * 0.55;
+  L.lFore.rotation.x = -0.15 - Math.max(0, sw2) * 0.25;
+  L.rFore.rotation.x = -0.15 - Math.max(0, sw) * 0.25;
+  L.torso.position.y = 0.95 + Math.abs(sw) * 0.035;
+  L.head.rotation.y = sw * 0.04;
+}
+
+var NPC_PALETTES = [
+  { coat: 0x2c3f5e, pants: 0x1a2230, beret: true, beretColor: 0xe8c030, tie: 0x8a2030 },
+  { coat: 0x3a2450, pants: 0x241828, beret: true, beretColor: 0xe8c030, tie: 0x2a5080 },
+  { coat: 0x2a2a2e, pants: 0x18181c, beret: false, tie: 0x4a3020 },
+  { coat: 0x1e4a36, pants: 0x142820, beret: true, beretColor: 0xf0d050, tie: 0xc9a227 },
+  { coat: 0x4a3420, pants: 0x2a1c10, beret: true, beretColor: 0xe8c030, tie: 0x303850 },
+  { coat: 0x243048, pants: 0x141820, beret: false, tie: 0x803030 },
+  { coat: 0x503028, pants: 0x281818, beret: true, beretColor: 0xd4a820, skin: 0xc4a070, tie: 0x203060 },
+  { coat: 0x1a3048, pants: 0x101820, beret: true, beretColor: 0xe8c030, skin: 0xb89070, tie: 0x805020 },
+];
+
+function buildPlayer() {
+  return buildHumanoid({
+    coat: 0x2d6a4f,
+    pants: 0x1a3328,
+    shirt: 0xf2ebe0,
+    tie: 0xc9a227,
+    beret: true,
+    beretColor: 0xe8c030,
+    isPlayer: true,
+    scale: 1.02,
+  });
+}
+
+function buildNpc(x, z, palette) {
+  var p = palette || NPC_PALETTES[0];
+  var g = buildHumanoid({
+    coat: p.coat,
+    pants: p.pants,
+    skin: p.skin,
+    shirt: p.shirt,
+    hair: p.hair,
+    tie: p.tie,
+    beret: p.beret,
+    beretColor: p.beretColor,
+    scale: 0.95 + Math.random() * 0.1,
+  });
+  g.position.set(x, 0, z);
   return {
-    group: card,
+    group: g,
     x: x, z: z,
     vx: 0, vz: 0,
     idle: Math.random() * 2,
     yaw: Math.random() * Math.PI * 2,
+    path: null,
+    pathI: 0,
+    pathT: 0,
   };
+}
+
+/** Simple looping walk paths around the hall (avoids random jitter into props). */
+function makeNpcPaths() {
+  return [
+    [[-7, 2], [-4, 3], [-2, 6], [-5, 8], [-8, 5], [-7, 2]],
+    [[6, -3], [8, 0], [7, 4], [4, 5], [3, 1], [6, -3]],
+    [[2, 4], [-1, 5], [-3, 3], [0, 1], [3, 2], [2, 4]],
+    [[-8, -2], [-6, -4], [-3, -3], [-5, 0], [-9, 1], [-8, -2]],
+    [[5, 7], [2, 8], [-1, 7], [1, 5], [4, 5], [5, 7]],
+    [[8, 3], [9, 6], [6, 8], [4, 6], [6, 3], [8, 3]],
+    [[-4, 7], [-7, 6], [-9, 4], [-6, 2], [-3, 4], [-4, 7]],
+    [[1, -4], [4, -2], [2, 0], [-1, -2], [1, -4]],
+    [[-2, 8], [2, 9], [5, 8], [3, 6], [-2, 8]],
+    [[7, -1], [5, -4], [8, -4], [9, -1], [7, -1]],
+    [[-5, 4], [-2, 2], [0, 4], [-3, 6], [-5, 4]],
+    [[3, 3], [6, 2], [8, 5], [5, 6], [3, 3]],
+  ];
 }
 
 function buildHall() {
@@ -721,8 +933,10 @@ function buildHall() {
     map: makeColumnMarbleTexture(), roughness: 0.4, metalness: 0.08, color: 0xffffff,
   }));
   var clothMap = makeClothTexture();
+  var exteriorTex = makeExteriorViewTexture();
   var wallMat = trackMat(new THREE.MeshStandardMaterial({ color: 0xe8dcc8, roughness: 0.65, metalness: 0.04 }));
   var ceilingMat = trackMat(new THREE.MeshStandardMaterial({ color: 0xd8ccb8, roughness: 0.8 }));
+  var trimMat = trackMat(new THREE.MeshStandardMaterial({ color: 0xc9b896, roughness: 0.5, metalness: 0.1 }));
 
   var floor = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(24, 28)), marbleMat);
   floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
@@ -730,6 +944,7 @@ function buildHall() {
   var ceiling = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(24, 28)), ceilingMat);
   ceiling.rotation.x = Math.PI / 2; ceiling.position.y = 7.2; scene.add(ceiling);
 
+  // Cream walls ONLY — no mural / photo wallpaper planes
   var back = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(24, 7.2)), wallMat);
   back.position.set(0, 3.6, -14); back.receiveShadow = true; scene.add(back);
   var front = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(24, 7.2)), wallMat);
@@ -739,35 +954,22 @@ function buildHall() {
   var right = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(28, 7.2)), wallMat);
   right.position.set(12, 3.6, 0); right.rotation.y = -Math.PI / 2; right.receiveShadow = true; scene.add(right);
 
-  // Large curved mural cylinder segment (immersive painting plate)
-  loadTex(MURAL_URL, function (tex) {
-    placeMural(tex);
-  }, function () {
-    loadTex(MURAL_FALLBACK, function (tex) { placeMural(tex); });
-  });
-  function placeMural(tex) {
-    var muralMat = trackMat(new THREE.MeshStandardMaterial({
-      map: tex, roughness: 0.85, metalness: 0,
-      emissive: 0x1a1410, emissiveIntensity: 0.12,
-    }));
-    var mural = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(20, 6.2)), muralMat);
-    mural.position.set(0, 3.9, -13.7);
-    scene.add(mural);
-    // Side wrap plates for immersion
-    var leftM = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(10, 5.5)), muralMat.clone());
-    leftM.position.set(-11.6, 3.7, -8);
-    leftM.rotation.y = Math.PI / 2;
-    scene.add(leftM);
-    var rightM = new THREE.Mesh(trackGeo(new THREE.PlaneGeometry(10, 5.5)), muralMat.clone());
-    rightM.position.set(11.6, 3.7, -8);
-    rightM.rotation.y = -Math.PI / 2;
-    scene.add(rightM);
+  // Cornice trim
+  function cornice(px, pz, w, d, ry) {
+    var m = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(w, 0.22, d)), trimMat);
+    m.position.set(px, 7.0, pz);
+    if (ry) m.rotation.y = ry;
+    scene.add(m);
   }
+  cornice(0, -13.85, 24, 0.25, 0);
+  cornice(0, 13.85, 24, 0.25, 0);
+  cornice(-11.85, 0, 28, 0.25, Math.PI / 2);
+  cornice(11.85, 0, 28, 0.25, Math.PI / 2);
 
-  for (var wi = -2; wi <= 2; wi++) scene.add(buildArchedWindow(wi * 3.6, 3.95, -13.65));
+  for (var wi = -2; wi <= 2; wi++) scene.add(buildArchedWindow(wi * 3.6, 3.95, -13.65, exteriorTex));
   for (var si = -1; si <= 1; si++) {
-    var lw = buildArchedWindow(-11.65, 3.95, si * 5); lw.rotation.y = Math.PI / 2; scene.add(lw);
-    var rw = buildArchedWindow(11.65, 3.95, si * 5); rw.rotation.y = -Math.PI / 2; scene.add(rw);
+    var lw = buildArchedWindow(-11.65, 3.95, si * 5, exteriorTex); lw.rotation.y = Math.PI / 2; scene.add(lw);
+    var rw = buildArchedWindow(11.65, 3.95, si * 5, exteriorTex); rw.rotation.y = -Math.PI / 2; scene.add(rw);
   }
 
   var colXs = [-8.5, -3.2, 3.2, 8.5];
@@ -838,54 +1040,35 @@ function buildHall() {
   sun.shadow.camera.bottom = -18;
   sun.shadow.bias = -0.0006;
   scene.add(sun);
-  var winLight = new THREE.DirectionalLight(0xfff6e8, 0.5);
+  var winLight = new THREE.DirectionalLight(0xfff6e8, 0.55);
   winLight.position.set(0, 4, -18); scene.add(winLight);
   var fill = new THREE.DirectionalLight(0xffd8b0, 0.25);
   fill.position.set(-8, 6, 8); scene.add(fill);
 
-  // Player first so camera works even before NPC tex load
   api._player = buildPlayer();
   api._player.position.set(0, 0, 10);
-  api._playerYaw = Math.PI; // face toward desk / windows (-Z)
+  api._playerYaw = Math.PI;
   api._player.rotation.y = api._playerYaw;
   scene.add(api._player);
 
   api._npcs = [];
-  var npcSpawns = [
-    [-7.2, 2.2], [6.2, -3.5], [3.2, 4.2], [-3.5, 7.2],
-    [8.2, 3.2], [-8.5, -2.5], [1.5, 6.5], [-5.5, 4.0],
-    [4.0, 0.5], [-1.5, -4.0], [7.0, 8.0], [-9.0, 5.5],
-  ];
-  // Load high-res people from painting crops
-  PEOPLE_URLS.forEach(function (url, idx) {
-    loadTex(url, function (tex) {
-      api._peopleTex.push(tex);
-      // Place 1–2 NPCs per texture
-      for (var k = 0; k < 2; k++) {
-        var si = (idx * 2 + k) % npcSpawns.length;
-        var sp = npcSpawns[si];
-        var ox = sp[0] + (k ? 0.8 : 0);
-        var oz = sp[1] + (k ? -0.6 : 0);
-        if (collidesAt(ox, oz, 0.5)) continue;
-        var npc = buildNpcFromTex(tex, ox, oz);
-        npc.yaw = Math.random() * Math.PI * 2;
-        npc.group.rotation.y = npc.yaw;
-        scene.add(npc.group);
-        api._npcs.push(npc);
-      }
-    });
-  });
+  var paths = makeNpcPaths();
+  for (var ni = 0; ni < paths.length; ni++) {
+    var path = paths[ni];
+    var start = path[0];
+    if (collidesAt(start[0], start[1], 0.55)) continue;
+    var npc = buildNpc(start[0], start[1], NPC_PALETTES[ni % NPC_PALETTES.length]);
+    npc.path = path;
+    npc.pathI = 0;
+    npc.yaw = Math.atan2(-(path[1][0] - start[0]), -(path[1][1] - start[1]));
+    npc.group.rotation.y = npc.yaw;
+    scene.add(npc.group);
+    api._npcs.push(npc);
+  }
 }
 
-/**
- * RuneScape / Toontown-style third person:
- * - Camera locked BEHIND the player's back (along facing yaw)
- * - Mouse look rotates facing yaw + pitch
- * - Zoom via wheel on cam distance
- */
 function updateCamera(dt) {
   if (!api._player || !api._camera) return;
-  // Smooth zoom toward target
   var lerp = 1 - Math.exp(-(dt || 0.016) * 10);
   api._camDist += (api._camDistTarget - api._camDist) * lerp;
 
@@ -893,11 +1076,6 @@ function updateCamera(dt) {
   var yaw = api._playerYaw;
   var pitch = api._lookPitch;
   var dist = api._camDist;
-  // Behind the back: offset opposite to facing forward
-  // Facing forward in XZ is (-sin(yaw), -cos(yaw)) when rotation.y = yaw with Three default...
-  // We set player.rotation.y = yaw, and move with (-sin, -cos) for forward.
-  // Camera sits behind: opposite of forward = (+sin, +cos) * dist? 
-  // If forward = (-sin(yaw), -cos(yaw)), behind = (sin(yaw), cos(yaw)).
   var behindX = Math.sin(yaw);
   var behindZ = Math.cos(yaw);
   var cp = Math.cos(pitch);
@@ -905,7 +1083,6 @@ function updateCamera(dt) {
   var cx = p.x + behindX * dist * cp;
   var cy = p.y + 1.55 + dist * sp * 0.85 + 0.35;
   var cz = p.z + behindZ * dist * cp;
-  // Keep camera inside hall soft clamp
   cx = Math.max(-11.5, Math.min(11.5, cx));
   cz = Math.max(-13.8, Math.min(13.8, cz));
   cy = Math.max(0.8, Math.min(6.5, cy));
@@ -918,11 +1095,62 @@ function updateHint() {
   api._hintEl.hidden = !(api._nearBooth && api._running);
 }
 
+function stepNpc(n, dt) {
+  if (n.path && n.path.length > 1) {
+    var a = n.path[n.pathI % n.path.length];
+    var b = n.path[(n.pathI + 1) % n.path.length];
+    var dx = b[0] - a[0];
+    var dz = b[1] - a[1];
+    var len = Math.sqrt(dx * dx + dz * dz) || 1;
+    var spd = 0.85 + (n.pathI % 3) * 0.15;
+    n.pathT += (spd * dt) / len;
+    if (n.pathT >= 1) {
+      n.pathT = 0;
+      n.pathI = (n.pathI + 1) % n.path.length;
+      a = n.path[n.pathI % n.path.length];
+      b = n.path[(n.pathI + 1) % n.path.length];
+      dx = b[0] - a[0]; dz = b[1] - a[1];
+    }
+    n.x = a[0] + dx * n.pathT;
+    n.z = a[1] + dz * n.pathT;
+    n.yaw = Math.atan2(-dx, -dz);
+    n.group.position.set(n.x, 0, n.z);
+    n.group.rotation.y = n.yaw;
+    animateHumanoid(n.group, true, dt);
+    return;
+  }
+  // Fallback wander
+  n.idle -= dt;
+  if (n.idle <= 0) {
+    if (Math.random() < 0.4) {
+      n.vx = 0; n.vz = 0; n.idle = 1.2 + Math.random() * 2.5;
+    } else {
+      var ang = Math.random() * Math.PI * 2;
+      var spd2 = 0.7 + Math.random() * 1.0;
+      n.vx = Math.cos(ang) * spd2;
+      n.vz = Math.sin(ang) * spd2;
+      n.yaw = Math.atan2(-n.vx, -n.vz);
+      n.idle = 1.5 + Math.random() * 3;
+    }
+  }
+  var nxx = n.x + n.vx * dt;
+  var nzz = n.z + n.vz * dt;
+  var moving = !!(n.vx || n.vz);
+  if (collidesAt(nxx, nzz, 0.45) || Math.abs(nxx) > 10.5 || Math.abs(nzz) > 12.5) {
+    n.vx *= -1; n.vz *= -1;
+    n.yaw = Math.atan2(-n.vx, -n.vz);
+  } else {
+    n.x = nxx; n.z = nzz;
+  }
+  n.group.position.set(n.x, 0, n.z);
+  n.group.rotation.y = n.yaw;
+  animateHumanoid(n.group, moving, dt);
+}
+
 function step(dt) {
   if (!api._running || !api._player) return;
   var mx = 0, mz = 0;
   var k = api._keys;
-  // W/S forward/back along facing; A/D strafe — classic third-person
   if (k.KeyW || k.ArrowUp) mz -= 1;
   if (k.KeyS || k.ArrowDown) mz += 1;
   if (k.KeyA || k.ArrowLeft) mx -= 1;
@@ -934,15 +1162,10 @@ function step(dt) {
     var len = Math.sqrt(mx * mx + mz * mz) || 1;
     mx /= len; mz /= len;
     var speed = 5.0;
-    // Forward vector (where chest/face points): (-sin yaw, -cos yaw)
     var fx = -Math.sin(yaw);
     var fz = -Math.cos(yaw);
-    // Right vector: cross with up → (cos yaw, -sin? ) : right = (cos(yaw), -sin? wait)
-    // right = (fz, -fx)? Standard: right = (cos(yaw), -sin(yaw)) when forward=(-sin,-cos)
     var rx = Math.cos(yaw);
     var rz = -Math.sin(yaw);
-    // mz negative is forward (W), so move += forward * (-mz) ... with mz=-1 for W:
-    // desire: W → along fx,fz. Our mz=-1 when W, so contrib = fx * (-mz) when using mz as "back amount"
     var dx = (fx * -mz + rx * mx) * speed * dt;
     var dz = (fz * -mz + rz * mx) * speed * dt;
     var nx = api._player.position.x + dx;
@@ -962,9 +1185,8 @@ function step(dt) {
     }
   }
 
-  // Body always matches look/facing yaw (critical for readable direction)
   api._player.rotation.y = yaw;
-  // Bob facing arrow slightly when moving
+  animateHumanoid(api._player, !!(mx || mz), dt);
   if (api._facingArrow) {
     api._facingArrow.visible = true;
     api._facingArrow.position.y = (mx || mz) ? 0.02 : 0;
@@ -972,31 +1194,7 @@ function step(dt) {
 
   api._walkPhase += dt;
   for (var i = 0; i < api._npcs.length; i++) {
-    var n = api._npcs[i];
-    n.idle -= dt;
-    if (n.idle <= 0) {
-      if (Math.random() < 0.45) {
-        n.vx = 0; n.vz = 0; n.idle = 1.2 + Math.random() * 2.5;
-      } else {
-        var ang = Math.random() * Math.PI * 2;
-        var spd = 0.7 + Math.random() * 1.2;
-        n.vx = Math.cos(ang) * spd;
-        n.vz = Math.sin(ang) * spd;
-        n.yaw = Math.atan2(-n.vx, -n.vz);
-        n.idle = 1.5 + Math.random() * 3;
-      }
-    }
-    var nxx = n.x + n.vx * dt;
-    var nzz = n.z + n.vz * dt;
-    if (collidesAt(nxx, nzz, 0.45) || Math.abs(nxx) > 10.5 || Math.abs(nzz) > 12.5) {
-      n.vx *= -1; n.vz *= -1;
-      n.yaw = Math.atan2(-n.vx, -n.vz);
-    } else {
-      n.x = nxx; n.z = nzz;
-    }
-    n.group.position.set(n.x, 0, n.z);
-    // NPC cards face their walk yaw (readable facing)
-    n.group.rotation.y = n.yaw;
+    stepNpc(api._npcs[i], dt);
   }
 
   var bx = api._booth ? api._booth.x : 0;
@@ -1019,6 +1217,8 @@ function loop(ts) {
     if (!api._firstFrameDone) {
       api._firstFrameDone = true;
       showLoader(false);
+      var splash = document.getElementById("ge-world-splash");
+      if (splash) splash.hidden = true;
     }
   }
   api._raf = requestAnimationFrame(loop);
@@ -1050,10 +1250,7 @@ function bindInput() {
   api._onMouseMove = function (e) {
     if (!api._running || !api._pointerLocked) return;
     var sens = 0.0024;
-    // Mouse X rotates facing (and thus camera behind)
     api._playerYaw -= e.movementX * sens;
-    // Mouse Y pitch (not inverted): look up = negative movementY typically → decrease pitch? 
-    // Standard FPS: movementY>0 (mouse down) → look down → increase pitch toward floor.
     api._lookPitch += e.movementY * sens;
     api._lookPitch = Math.max(-0.15, Math.min(0.55, api._lookPitch));
   };
@@ -1061,7 +1258,6 @@ function bindInput() {
     if (!api._running) return;
     var panel = document.getElementById("panel-exchange");
     if (panel && panel.hidden) return;
-    // Only zoom when pointer over stage / locked
     var stage = api._container;
     if (!api._pointerLocked && stage) {
       var t = e.target;
@@ -1069,10 +1265,8 @@ function bindInput() {
     }
     e.preventDefault();
     var delta = e.deltaY;
-    // Trackpad pinch often surfaces as ctrl+wheel
     if (e.ctrlKey) delta *= 3;
     var stepZ = delta > 0 ? 0.55 : -0.55;
-    // Larger notches for big deltas
     stepZ *= Math.min(3, Math.abs(delta) / 100);
     api._camDistTarget = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, api._camDistTarget + stepZ));
   };
@@ -1094,7 +1288,6 @@ function bindInput() {
   window.addEventListener("keyup", api._onKeyUp, true);
   document.addEventListener("mousemove", api._onMouseMove, false);
   document.addEventListener("pointerlockchange", api._onPointerLockChange, false);
-  // Wheel on canvas + container (non-passive so preventDefault works)
   if (api._canvas) {
     api._canvas.addEventListener("click", api._onClick, false);
     api._canvas.addEventListener("wheel", api._onWheel, { passive: false });
@@ -1140,20 +1333,21 @@ function defaultPaintingUrls() {
 }
 
 function preloadCritical(urls, done) {
-  var list = [MURAL_URL, MURAL_FALLBACK].concat(PEOPLE_URLS.slice(0, 4)).concat((urls || []).slice(0, 6));
-  var left = list.length;
+  var list = (urls || []).slice(0, 8);
+  var left = list.length || 1;
   var finished = false;
   function one() {
     left--;
     if (left <= 0 && !finished) { finished = true; done && done(); }
   }
+  if (!list.length) { done && done(); return; }
   list.forEach(function (u) {
     var img = new Image();
     img.onload = one; img.onerror = one; img.src = u;
   });
   setTimeout(function () {
     if (!finished) { finished = true; done && done(); }
-  }, 2800);
+  }, 2200);
 }
 
 function mount(container, options) {
@@ -1173,7 +1367,6 @@ function mount(container, options) {
   api._textures = [];
   api._mats = [];
   api._geos = [];
-  api._peopleTex = [];
   api._firstFrameDone = false;
   api._camDist = ZOOM_DEFAULT;
   api._camDistTarget = ZOOM_DEFAULT;
@@ -1290,7 +1483,7 @@ function dispose() {
   api._scene = null; api._camera = null; api._renderer = null; api._player = null;
   api._mounted = false; api._ready = false; api._firstFrameDone = false;
   api._colliders = []; api._easelMeshes = []; api._npcs = [];
-  api._textures = []; api._mats = []; api._geos = []; api._peopleTex = [];
+  api._textures = []; api._mats = []; api._geos = [];
 }
 
 window.GeArtFloor3D = {
