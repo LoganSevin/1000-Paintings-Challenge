@@ -143,60 +143,175 @@
   }
 
   var GE_COLOR_NAME_HEX = {
-    pink: "#FF4FA3", magenta: "#FF00AA", purple: "#A855F7", violet: "#7C3AED",
-    indigo: "#4338CA", blue: "#2563EB", cyan: "#06B6D4", teal: "#0D9488",
-    green: "#16A34A", emerald: "#059669", lime: "#84CC16", yellow: "#FACC15",
-    gold: "#EAB308", amber: "#F59E0B", orange: "#F97316", coral: "#FF6B4A",
-    red: "#EF4444", scarlet: "#FF2400", crimson: "#DC143C", rose: "#F43F5E",
-    brown: "#92400E", cream: "#FFF5E0", white: "#F8FAFC", silver: "#C0C0C0",
-    gray: "#6B7280", black: "#0A0A0C", navy: "#1E3A5F", lavender: "#C084FC",
-    sky: "#38BDF8",
+    red: "#EF4444", scarlet: "#FF2400", crimson: "#DC143C", vermilion: "#E34234",
+    cadmiumred: "#E30022", alizarin: "#E32636", tomato: "#FF6347", brick: "#B22222",
+    carmine: "#960018", cardinal: "#C41E3A", ruby: "#E0115F", cherry: "#DE3163",
+    rose: "#F43F5E", pink: "#FF4FA3", hotpink: "#FF69B4", fuchsia: "#FF00CC",
+    magenta: "#FF00AA", salmon: "#FA8072", coral: "#FF6B4A", blush: "#DE5D83",
+    raspberry: "#E30B5D", watermelon: "#FC6C85",
+    orange: "#F97316", tangerine: "#FF8C00", persimmon: "#EC5800", apricot: "#FBCEB1",
+    peach: "#FFAB70", cantaloupe: "#FFA07A", amber: "#F59E0B", gold: "#EAB308",
+    yellow: "#FACC15", lemon: "#FFF44F", canary: "#FFEF00", mustard: "#E1AD01",
+    honey: "#EB9605", saffron: "#F4C430",
+    ochre: "#CC7722", sienna: "#A0522D", umber: "#635147", rust: "#B7410E",
+    brown: "#92400E", chocolate: "#7B3F00", coffee: "#6F4E37", espresso: "#3C1414",
+    mahogany: "#C04000", chestnut: "#954535", bronze: "#CD7F32", copper: "#B87333",
+    cinnamon: "#D2691E", tan: "#D2B48C", khaki: "#C3B091", sand: "#C2B280", taupe: "#483C32",
+    green: "#16A34A", forest: "#228B22", hunter: "#355E3B", emerald: "#059669",
+    jade: "#00A86B", mint: "#34D399", seafoam: "#93E9BE", sage: "#9CAF88",
+    moss: "#8A9A5B", olive: "#6B8E23", lime: "#84CC16", chartreuse: "#B8FF00",
+    pine: "#01796F", fern: "#4F7942", malachite: "#0BDA51",
+    teal: "#0D9488", turquoise: "#14B8A6", cyan: "#06B6D4", aqua: "#00FFFF",
+    sky: "#38BDF8", azure: "#0080FF", cerulean: "#007BA7", blue: "#2563EB",
+    sapphire: "#0B5FFF", cobalt: "#0047AB", ultramarine: "#1E3A8A", royal: "#4169E1",
+    periwinkle: "#CCCCFF", indigo: "#4338CA", navy: "#1E3A5F", midnight: "#191970",
+    denim: "#1560BD", ice: "#A5F2F3", powderblue: "#B0E0E6",
+    purple: "#A855F7", violet: "#7C3AED", lavender: "#C084FC", lilac: "#C8A2C8",
+    orchid: "#DA70D6", mauve: "#C26B9A", plum: "#9B2D8A", eggplant: "#614051",
+    amethyst: "#9966CC", grape: "#6F2DA8", wine: "#722F37", burgundy: "#7F1D1D",
+    maroon: "#9F1239", mulberry: "#C54B8C",
+    white: "#F8FAFC", ivory: "#FFFFF0", cream: "#FFF5E0", bone: "#E3DAC9",
+    beige: "#F5F0DC", linen: "#FAF0E6", pearl: "#EAE0C8", silver: "#C0C0C0",
+    gray: "#6B7280", grey: "#6B7280", slate: "#64748B", steel: "#71797E",
+    ash: "#B2BEB5", charcoal: "#374151", graphite: "#383838", black: "#0A0A0C",
+    ebony: "#555D50",
   };
 
-  function normalizeGeHex(raw) {
-    var s = String(raw || "").trim();
-    if (!s) return "";
-    if (s.charAt(0) !== "#") s = "#" + s;
-    if (/^#[0-9a-fA-F]{3}$/.test(s)) {
-      s = "#" + s.charAt(1) + s.charAt(1) + s.charAt(2) + s.charAt(2) + s.charAt(3) + s.charAt(3);
+  var GE_COLOR_NEUTRAL_NAMES = {
+    white: 1, ivory: 1, cream: 1, bone: 1, beige: 1, linen: 1, pearl: 1,
+    silver: 1, gray: 1, grey: 1, slate: 1, steel: 1, ash: 1, charcoal: 1,
+    graphite: 1, black: 1, ebony: 1, tan: 1, khaki: 1, sand: 1, taupe: 1,
+  };
+
+  function geRgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h = 0, s = 0, l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+      else if (max === g) h = ((b - r) / d + 2) / 6;
+      else h = ((r - g) / d + 4) / 6;
     }
-    if (!/^#[0-9a-fA-F]{6}$/.test(s)) return "";
-    return s.toUpperCase();
+    return { h: h * 360, s: s * 100, l: l * 100 };
   }
 
-  function geHexToRgb(hex) {
+  function geRgbToLab(r, g, b) {
+    function lin(c) {
+      c = c / 255;
+      return c > 0.04045 ? Math.pow((c + 0.055) / 1.055, 2.4) : c / 12.92;
+    }
+    var R = lin(r), G = lin(g), B = lin(b);
+    var x = (R * 0.4124564 + G * 0.3575761 + B * 0.1804375) / 0.95047;
+    var y = (R * 0.2126729 + G * 0.7151522 + B * 0.072175) / 1.0;
+    var z = (R * 0.0193339 + G * 0.119192 + B * 0.9503041) / 1.08883;
+    function f(tv) {
+      return tv > 0.008856 ? Math.pow(tv, 1 / 3) : 7.787 * tv + 16 / 116;
+    }
+    var fx = f(x), fy = f(y), fz = f(z);
+    return { L: 116 * fy - 16, a: 500 * (fx - fy), b: 200 * (fy - fz) };
+  }
+
+  function geLabDistanceSq(A, B) {
+    if (!A || !B) return 1e12;
+    var dL = A.L - B.L, da = A.a - B.a, db = A.b - B.b;
+    return dL * dL + da * da + db * db;
+  }
+
+  function geIsNeutralSample(hsl, lab) {
+    if (!hsl) return true;
+    var chroma = lab ? Math.sqrt(lab.a * lab.a + lab.b * lab.b) : hsl.s;
+    if (hsl.s < 12 || chroma < 10) return true;
+    if (hsl.s < 22 && (hsl.l < 10 || hsl.l > 93)) return true;
+    if (hsl.s < 18 && hsl.l > 78 && chroma < 18) return true;
+    return false;
+  }
+
+  function geTitleCaseColorName(name) {
+    return String(name || "color")
+      .replace(/^vivid\s+/i, "")
+      .replace(/hotpink/gi, "Hot Pink")
+      .replace(/cadmiumred/gi, "Cadmium Red")
+      .replace(/powderblue/gi, "Powder Blue")
+      .split(/[\s\-_]+/)
+      .filter(Boolean)
+      .map(function (w) {
+        return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+      })
+      .join(" ");
+  }
+
+  function geHexToNearestBaseName(hex) {
     var h = normalizeGeHex(hex);
-    if (!h) return null;
-    return {
-      r: parseInt(h.slice(1, 3), 16),
-      g: parseInt(h.slice(3, 5), 16),
-      b: parseInt(h.slice(5, 7), 16),
-    };
-  }
-
-  function geHexToNearestName(hex) {
-    var rgb = geHexToRgb(hex);
-    if (!rgb) return "Color";
+    if (!h) return "color";
+    var rgb = geHexToRgb(h);
+    if (!rgb) return "color";
+    var lab = geRgbToLab(rgb.r, rgb.g, rgb.b);
+    var hsl = geRgbToHsl(rgb.r, rgb.g, rgb.b);
+    var sampleNeutral = geIsNeutralSample(hsl, lab);
     var best = "color";
     var bestD = Infinity;
-    Object.keys(GE_COLOR_NAME_HEX).forEach(function (name) {
-      var o = geHexToRgb(GE_COLOR_NAME_HEX[name]);
-      if (!o) return;
-      var d =
-        (rgb.r - o.r) * (rgb.r - o.r) +
-        (rgb.g - o.g) * (rgb.g - o.g) +
-        (rgb.b - o.b) * (rgb.b - o.b);
+    var keys = Object.keys(GE_COLOR_NAME_HEX);
+    for (var i = 0; i < keys.length; i++) {
+      var name = keys[i];
+      if (name === "grey") continue;
+      var refHex = GE_COLOR_NAME_HEX[name];
+      if (refHex === h) return name;
+      var ref = geHexToRgb(refHex);
+      if (!ref) continue;
+      var refLab = geRgbToLab(ref.r, ref.g, ref.b);
+      var refHsl = geRgbToHsl(ref.r, ref.g, ref.b);
+      var refNeutral = !!GE_COLOR_NEUTRAL_NAMES[name] || geIsNeutralSample(refHsl, refLab);
+      if (sampleNeutral !== refNeutral) continue;
+      var d = geLabDistanceSq(lab, refLab);
+      if (!sampleNeutral) {
+        var dh = Math.abs(hsl.h - refHsl.h);
+        if (dh > 180) dh = 360 - dh;
+        d += (dh / 180) * (dh / 180) * 140;
+        if (hsl.s > 45 && refHsl.s < 30) d += 80;
+        var dL = lab.L - refLab.L;
+        d += dL * dL * 0.15;
+      } else {
+        var dLn = lab.L - refLab.L;
+        d =
+          dLn * dLn * 1.35 +
+          (lab.a - refLab.a) * (lab.a - refLab.a) * 0.6 +
+          (lab.b - refLab.b) * (lab.b - refLab.b) * 0.6;
+      }
       if (d < bestD) {
         bestD = d;
         best = name;
       }
-    });
-    return best.charAt(0).toUpperCase() + best.slice(1);
+    }
+    return best;
+  }
+
+  function geHexToNearestName(hex) {
+    var h = normalizeGeHex(hex);
+    var base = geHexToNearestBaseName(h);
+    if (!base || base === "color") return "Color";
+    if (GE_COLOR_NEUTRAL_NAMES[base]) return geTitleCaseColorName(base);
+    var rgb = geHexToRgb(h);
+    var ref = geHexToRgb(GE_COLOR_NAME_HEX[base]);
+    if (!rgb || !ref) return geTitleCaseColorName(base);
+    var lab = geRgbToLab(rgb.r, rgb.g, rgb.b);
+    var refLab = geRgbToLab(ref.r, ref.g, ref.b);
+    var hsl = geRgbToHsl(rgb.r, rgb.g, rgb.b);
+    var refHsl = geRgbToHsl(ref.r, ref.g, ref.b);
+    var L = lab.L, refL = refLab.L, dL = L - refL, prefix = "";
+    if (hsl.s > refHsl.s + 28 && hsl.s > 70 && L > 28 && L < 72) prefix = "vivid ";
+    else if (dL > 18 && L > 62) prefix = "light ";
+    else if (dL > 12 && L > 78) prefix = "pale ";
+    else if (dL < -18 && L < 42) prefix = "deep ";
+    else if (dL < -12 && L < 28) prefix = "dark ";
+    else if (hsl.s + 25 < refHsl.s && hsl.s < 40 && !geIsNeutralSample(hsl, lab)) prefix = "muted ";
+    return geTitleCaseColorName(prefix + base);
   }
 
   function colorChipLabel(name, hex) {
     var h = normalizeGeHex(hex) || "#888888";
-    var n = String(name || geHexToNearestName(h)).trim() || geHexToNearestName(h);
+    var n = geHexToNearestName(h) || String(name || "").trim() || "Color";
     return n + " (" + h + ")";
   }
 
@@ -272,13 +387,25 @@
         name: geHexToNearestName(hx),
       });
     }
+    var nameAliases = {
+      hotpink: "hot pink",
+      cadmiumred: "cadmium red",
+      powderblue: "powder blue",
+    };
     var names = Object.keys(GE_COLOR_NAME_HEX).sort(function (a, b) {
       return b.length - a.length;
     });
+    var tone = "(?:pale|light|deep|dark|vivid|muted|bright|soft)\\s+";
     for (var n = 0; n < names.length; n++) {
       var name = names[n];
       if (name === "grey") continue;
-      var re = new RegExp("\\b" + name + "\\b", "gi");
+      var display = nameAliases[name] || name;
+      var escName = display.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+      var pattern = "(?:" + tone + ")?" + escName;
+      if (display.indexOf(" ") >= 0) {
+        pattern = "(?:" + pattern + "|(?:" + tone + ")?" + name + ")";
+      }
+      var re = new RegExp("\\b" + pattern + "\\b", "gi");
       var mm;
       while ((mm = re.exec(text))) {
         if (!free(mm.index, mm.index + mm[0].length)) continue;
@@ -289,7 +416,7 @@
           kind: "name",
           value: mm[0],
           hex: GE_COLOR_NAME_HEX[name],
-          name: name.charAt(0).toUpperCase() + name.slice(1),
+          name: geTitleCaseColorName(mm[0]),
         });
       }
     }
