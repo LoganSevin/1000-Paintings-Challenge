@@ -24,6 +24,7 @@
   var SKETCH_BASE = 200000;
   var INV_SKETCH_BASE = 300000;
   var NOTE_BASE = 400000;
+  var COLOR_BASE = 500000;
   var NOTE_THUMB =
     "data:image/svg+xml," +
     encodeURIComponent(
@@ -141,6 +142,222 @@
     return !!noteOf(n) || (n > NOTE_BASE && n < NOTE_BASE + 100000);
   }
 
+  var GE_COLOR_NAME_HEX = {
+    pink: "#FF4FA3", magenta: "#FF00AA", purple: "#A855F7", violet: "#7C3AED",
+    indigo: "#4338CA", blue: "#2563EB", cyan: "#06B6D4", teal: "#0D9488",
+    green: "#16A34A", emerald: "#059669", lime: "#84CC16", yellow: "#FACC15",
+    gold: "#EAB308", amber: "#F59E0B", orange: "#F97316", coral: "#FF6B4A",
+    red: "#EF4444", scarlet: "#FF2400", crimson: "#DC143C", rose: "#F43F5E",
+    brown: "#92400E", cream: "#FFF5E0", white: "#F8FAFC", silver: "#C0C0C0",
+    gray: "#6B7280", black: "#0A0A0C", navy: "#1E3A5F", lavender: "#C084FC",
+    sky: "#38BDF8",
+  };
+
+  function normalizeGeHex(raw) {
+    var s = String(raw || "").trim();
+    if (!s) return "";
+    if (s.charAt(0) !== "#") s = "#" + s;
+    if (/^#[0-9a-fA-F]{3}$/.test(s)) {
+      s = "#" + s.charAt(1) + s.charAt(1) + s.charAt(2) + s.charAt(2) + s.charAt(3) + s.charAt(3);
+    }
+    if (!/^#[0-9a-fA-F]{6}$/.test(s)) return "";
+    return s.toUpperCase();
+  }
+
+  function geHexToRgb(hex) {
+    var h = normalizeGeHex(hex);
+    if (!h) return null;
+    return {
+      r: parseInt(h.slice(1, 3), 16),
+      g: parseInt(h.slice(3, 5), 16),
+      b: parseInt(h.slice(5, 7), 16),
+    };
+  }
+
+  function geHexToNearestName(hex) {
+    var rgb = geHexToRgb(hex);
+    if (!rgb) return "Color";
+    var best = "color";
+    var bestD = Infinity;
+    Object.keys(GE_COLOR_NAME_HEX).forEach(function (name) {
+      var o = geHexToRgb(GE_COLOR_NAME_HEX[name]);
+      if (!o) return;
+      var d =
+        (rgb.r - o.r) * (rgb.r - o.r) +
+        (rgb.g - o.g) * (rgb.g - o.g) +
+        (rgb.b - o.b) * (rgb.b - o.b);
+      if (d < bestD) {
+        bestD = d;
+        best = name;
+      }
+    });
+    return best.charAt(0).toUpperCase() + best.slice(1);
+  }
+
+  function colorChipLabel(name, hex) {
+    var h = normalizeGeHex(hex) || "#888888";
+    var n = String(name || geHexToNearestName(h)).trim() || geHexToNearestName(h);
+    return n + " (" + h + ")";
+  }
+
+  function colorChipThumb(hex) {
+    var h = normalizeGeHex(hex) || "#888888";
+    return (
+      "data:image/svg+xml," +
+      encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
+          '<rect width="64" height="64" rx="10" fill="' +
+          h +
+          '"/>' +
+          '<rect x="3" y="3" width="58" height="58" rx="8" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/>' +
+          "</svg>"
+      )
+    );
+  }
+
+  function colorChipOf(n) {
+    n = Number(n);
+    if (!state || !state.colorChips) return null;
+    return state.colorChips[String(n)] || state.colorChips[n] || null;
+  }
+
+  function isColorChipId(n) {
+    n = Number(n);
+    return !!colorChipOf(n) || (n > COLOR_BASE && n < COLOR_BASE + 100000);
+  }
+
+  function ensureColorChipCatalog() {
+    if (!state.colorChips) state.colorChips = {};
+    if (!state.nextColorId) state.nextColorId = COLOR_BASE + 1;
+    var defaults = [
+      { name: "Violet", hex: "#A855F7" },
+      { name: "Cyan", hex: "#06B6D4" },
+      { name: "Magenta", hex: "#FF00AA" },
+      { name: "Blue", hex: "#3B82F6" },
+      { name: "White", hex: "#E0F2FE" },
+      { name: "Lavender", hex: "#C084FC" },
+    ];
+    if (!state._colorChipCatalogReady) {
+      defaults.forEach(function (d, i) {
+        var id = COLOR_BASE + 1 + i;
+        if (!state.colorChips[String(id)]) {
+          state.colorChips[String(id)] = {
+            id: id,
+            name: d.name,
+            hex: normalizeGeHex(d.hex),
+            createdAt: Date.now(),
+          };
+        }
+        state.nextColorId = Math.max(state.nextColorId, id + 1);
+      });
+      state._colorChipCatalogReady = true;
+    }
+  }
+
+  function seedColorChipsIntoPack() {
+    ensureColorChipCatalog();
+    if (state._colorChipsSeeded) return;
+    var pid = String(PLAYER_ID);
+    if (!state.inventory[pid]) state.inventory[pid] = {};
+    Object.keys(state.colorChips).forEach(function (k) {
+      var id = Number(k);
+      if (!id) return;
+      if ((Number(state.inventory[pid][k]) || 0) < 1 && (Number((state.bank[pid] || {})[k]) || 0) < 1) {
+        state.inventory[pid][k] = 1;
+      }
+    });
+    state._colorChipsSeeded = true;
+  }
+
+  function createColorChip(hex, name) {
+    ensureColorChipCatalog();
+    var h = normalizeGeHex(hex);
+    if (!h) return { ok: false, error: "Pick a valid color." };
+    var n = String(name || geHexToNearestName(h)).trim() || geHexToNearestName(h);
+    var id = Number(state.nextColorId) || COLOR_BASE + 1;
+    state.nextColorId = id + 1;
+    state.colorChips[String(id)] = {
+      id: id,
+      name: n,
+      hex: h,
+      createdAt: Date.now(),
+    };
+    return { ok: true, id: id, chip: state.colorChips[String(id)] };
+  }
+
+  function addColorChipToPack(hex) {
+    var res = createColorChip(hex);
+    if (!res.ok) return res;
+    var free = INV_SLOTS - inventoryCount(PLAYER_ID);
+    var already = qtyOf(PLAYER_ID, res.id) > 0;
+    if (!already && free < 1) {
+      addBank(PLAYER_ID, res.id, 1);
+      saveState();
+      return { ok: true, id: res.id, where: "bank", chip: res.chip };
+    }
+    addInv(PLAYER_ID, res.id, 1);
+    saveState();
+    return { ok: true, id: res.id, where: "inv", chip: res.chip };
+  }
+
+  function insertColorLockIntoNote(name, hex) {
+    var ta = $("ge-note-text");
+    if (!ta) return { ok: false, error: "Note box missing." };
+    var token = colorChipLabel(name, hex);
+    var start = ta.selectionStart != null ? ta.selectionStart : ta.value.length;
+    var end = ta.selectionEnd != null ? ta.selectionEnd : ta.value.length;
+    var before = ta.value.slice(0, start);
+    var after = ta.value.slice(end);
+    var padL = before && !/\s$/.test(before) ? " " : "";
+    var padR = after && !/^\s/.test(after) ? " " : "";
+    ta.value = before + padL + token + padR + after;
+    var caret = (before + padL + token + padR).length;
+    ta.focus();
+    try {
+      ta.setSelectionRange(caret, caret);
+    } catch (e) {}
+    return { ok: true, token: token };
+  }
+
+  function insertColorChipIntoNote(itemId) {
+    var c = colorChipOf(itemId);
+    if (!c) return { ok: false, error: "Not a color chip." };
+    return insertColorLockIntoNote(c.name, c.hex);
+  }
+
+  function renderGeColorChips() {
+    var host = $("ge-color-chips");
+    if (!host) return;
+    ensureColorChipCatalog();
+    var html = [];
+    Object.keys(state.colorChips)
+      .map(Number)
+      .sort(function (a, b) {
+        return a - b;
+      })
+      .forEach(function (id) {
+        var c = colorChipOf(id);
+        if (!c) return;
+        var label = colorChipLabel(c.name, c.hex);
+        html.push(
+          '<button type="button" class="ge-color-chip" data-ge-color-id="' +
+            id +
+            '" title="Insert ' +
+            esc(label) +
+            ' into note">' +
+            '<span class="ge-color-chip-swatch" style="background:' +
+            esc(normalizeGeHex(c.hex) || "#888") +
+            '"></span>' +
+            '<span class="ge-color-chip-label">' +
+            esc(label) +
+            "</span></button>"
+        );
+      });
+    host.innerHTML = html.join("") || '<span class="ge-color-chips-hint">No chips yet — pick a color and Add to pack.</span>';
+  }
+
+
+
   function syncNoteToSpellforgeStore(note) {
     if (!note || note.id == null) return;
     try {
@@ -170,6 +387,7 @@
 
   function kindLabel(n) {
     n = Number(n);
+    if (colorChipOf(n)) return "Color " + colorChipLabel(colorChipOf(n).name, colorChipOf(n).hex);
     if (noteOf(n)) return "Note #" + n;
     var f = forgedOf(n);
     if (f) return "Forged #" + n;
@@ -184,6 +402,7 @@
 
   function thumb(n) {
     n = Number(n);
+    if (colorChipOf(n)) return colorChipThumb(colorChipOf(n).hex);
     if (noteOf(n)) return NOTE_THUMB;
     if (thumbOverrides[String(n)]) return thumbOverrides[String(n)];
     var f = forgedOf(n);
@@ -390,6 +609,9 @@
     if (noteOf(itemId)) {
       return Promise.resolve({ ok: false, error: "Notes are text — nothing to load." });
     }
+    if (colorChipOf(itemId)) {
+      return Promise.resolve({ ok: false, error: "Color chips are solid swatches — nothing to force-load." });
+    }
     setStatus("Force loading correct image for " + kindLabel(itemId) + "…");
     setForgeStatus("Force loading #" + itemId + "…");
     var f = forgedOf(itemId);
@@ -463,6 +685,8 @@
 
   function titleFor(n) {
     n = Number(n);
+    var chip = colorChipOf(n);
+    if (chip) return colorChipLabel(chip.name, chip.hex);
     var note = noteOf(n);
     if (note) return note.title || "Note";
     var f = forgedOf(n);
@@ -480,6 +704,14 @@
 
   function fullDescFor(n) {
     n = Number(n);
+    var chip = colorChipOf(n);
+    if (chip) {
+      return (
+        "MANDATORY BOLD COLOR LOCK — use pigment " +
+        colorChipLabel(chip.name, chip.hex) +
+        " exactly. Repaint conflicting source colors into this lock."
+      );
+    }
     var note = noteOf(n);
     if (note) return String(note.text || "");
     var f = forgedOf(n);
@@ -501,7 +733,8 @@
     var x = (n * 9301 + 49297) % 233280;
     var jitter = (x / 233280) * 0.5 - 0.15;
     var g = GUIDE_BASE * (1 + jitter);
-    if (noteOf(n)) g *= 0.55;
+    if (colorChipOf(n)) g *= 0.4;
+    else if (noteOf(n)) g *= 0.55;
     else if (forgedOf(n)) g *= 1.45;
     else {
       var ex = extraOf(n);
@@ -560,8 +793,12 @@
       itemStats: {},
       forged: {},
       notes: {},
+      colorChips: {},
       nextForgeId: 10001,
       nextNoteId: NOTE_BASE + 1,
+      nextColorId: COLOR_BASE + 1,
+      _colorChipCatalogReady: false,
+      _colorChipsSeeded: false,
       npcSeededOffers: false,
       _npcSeeded: false,
       packReady: true, // do not auto-fill inventory with gallery art
@@ -613,6 +850,10 @@
     s.itemStats = s.itemStats || {};
     s.forged = s.forged || {};
     s.notes = s.notes || {};
+    s.colorChips = s.colorChips || {};
+    s.nextColorId = Math.max(COLOR_BASE + 1, Number(s.nextColorId) || COLOR_BASE + 1);
+    s._colorChipCatalogReady = !!s._colorChipCatalogReady;
+    s._colorChipsSeeded = !!s._colorChipsSeeded;
     s.nextForgeId = Math.max(10001, Number(s.nextForgeId) || 10001);
     s.nextNoteId = Math.max(NOTE_BASE + 1, Number(s.nextNoteId) || NOTE_BASE + 1);
     s.level = Math.max(1, Number(s.level) || 1);
@@ -769,6 +1010,18 @@
       };
     });
 
+    var colorChips = {};
+    Object.keys(state.colorChips || {}).forEach(function (k) {
+      var c = state.colorChips[k];
+      if (!c) return;
+      colorChips[k] = {
+        id: c.id,
+        name: String(c.name || "").slice(0, 40),
+        hex: normalizeGeHex(c.hex) || "#888888",
+        createdAt: c.createdAt,
+      };
+    });
+
     // Keep player offers + a small NPC book sample so the market isn't empty on reload
     var offers = (state.offers || [])
       .filter(function (o) {
@@ -788,8 +1041,12 @@
       itemStats: state.itemStats || {},
       forged: forged,
       notes: notes,
+      colorChips: colorChips,
       nextForgeId: state.nextForgeId,
       nextNoteId: state.nextNoteId,
+      nextColorId: state.nextColorId || COLOR_BASE + 1,
+      _colorChipCatalogReady: !!state._colorChipCatalogReady,
+      _colorChipsSeeded: !!state._colorChipsSeeded,
       npcSeededOffers: !!state.npcSeededOffers,
       // Force NPC packs to reseed in memory each session (not persisted)
       _npcSeeded: false,
@@ -2045,6 +2302,7 @@
     if (view === "history") renderHistory();
     renderBags();
     renderForgeSlots();
+    renderGeColorChips();
   }
 
 
@@ -2075,23 +2333,34 @@
       var id = forgeSlots[i];
       btn.classList.toggle("filled", !!id);
       btn.classList.toggle("note-slot", !!(id && noteOf(id)));
+      btn.classList.toggle("color-slot", !!(id && colorChipOf(id)));
       btn.title = id ? "Clear slot · " + kindLabel(id) : "Clear slot";
       var num = btn.querySelector(".ge-forge-num");
       var img = btn.querySelector("img:not(.ge-note-icon)");
       var badge = btn.querySelector(".ge-note-badge");
-      if (id && noteOf(id)) {
+      if (id && (noteOf(id) || colorChipOf(id))) {
         if (img) img.remove();
         if (!badge) {
           badge = document.createElement("span");
           badge.className = "ge-note-badge";
           btn.appendChild(badge);
         }
-        badge.innerHTML =
-          '<img class="ge-note-icon" src="' +
-          NOTE_THUMB +
-          '" alt="" /><span>' +
-          esc(String(titleFor(id)).slice(0, 28)) +
-          "</span>";
+        var chip = colorChipOf(id);
+        if (chip) {
+          badge.innerHTML =
+            '<img class="ge-note-icon" src="' +
+            colorChipThumb(chip.hex) +
+            '" alt="" /><span>' +
+            esc(String(titleFor(id)).slice(0, 28)) +
+            "</span>";
+        } else {
+          badge.innerHTML =
+            '<img class="ge-note-icon" src="' +
+            NOTE_THUMB +
+            '" alt="" /><span>' +
+            esc(String(titleFor(id)).slice(0, 28)) +
+            "</span>";
+        }
         if (num) num.style.display = "none";
       } else if (id) {
         if (badge) badge.remove();
@@ -2159,8 +2428,16 @@
     }
     var dep = menu.querySelector('[data-ge-action="deposit"]');
     var wd = menu.querySelector('[data-ge-action="withdraw"]');
+    var insertNote = menu.querySelector('[data-ge-action="insert-note"]');
+    var forceLoad = menu.querySelector('[data-ge-action="force-load"]');
+    var animateBtn = menu.querySelector('[data-ge-action="animate"]');
+    var isChip = !!colorChipOf(itemId);
+    var isNote = !!noteOf(itemId);
     if (dep) dep.hidden = source !== "inv";
     if (wd) wd.hidden = source !== "bank";
+    if (insertNote) insertNote.hidden = !(isChip || isNote);
+    if (forceLoad) forceLoad.hidden = isChip || isNote;
+    if (animateBtn) animateBtn.hidden = isChip || isNote;
     menu.hidden = false;
     // Position inside viewport
     var pad = 8;
@@ -2223,6 +2500,26 @@
   function openItemFullscreen(itemId) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
+    // Color chips: show swatch + lock text in GE lightbox
+    if (colorChipOf(itemId)) {
+      var lbC = $("ge-lightbox");
+      if (!lbC) return { ok: false, error: "Viewer missing." };
+      var imgC = $("ge-lightbox-img");
+      var noteC = $("ge-lightbox-note");
+      if (noteC) {
+        noteC.hidden = false;
+        noteC.textContent = fullDescFor(itemId);
+      }
+      if (imgC) {
+        imgC.hidden = false;
+        imgC.src = thumb(itemId);
+        imgC.alt = titleFor(itemId);
+      }
+      if ($("ge-lightbox-title")) $("ge-lightbox-title").textContent = kindLabel(itemId);
+      if ($("ge-lightbox-desc")) $("ge-lightbox-desc").textContent = titleFor(itemId);
+      lbC.hidden = false;
+      return { ok: true };
+    }
     // Paintings 1–1000: reuse gallery lightbox when available
     if (itemId >= 1 && itemId <= 1000 && typeof window.openLightbox === "function") {
       try {
@@ -2456,6 +2753,9 @@
     if (geAnimate.busy) return { ok: false, error: "Already animating — wait or Cancel." };
     if (noteOf(itemId)) {
       return { ok: false, error: "Notes are text fillers — pick an image item to animate." };
+    }
+    if (colorChipOf(itemId)) {
+      return { ok: false, error: "Color chips are pigments — insert into note or forge slots." };
     }
     if (!exchangeOpen) openExchangeUi();
 
@@ -2802,6 +3102,15 @@
       "This is NOT a remake, collage, or near-copy of any source.",
     ];
     parents.forEach(function (id, idx) {
+      if (colorChipOf(id)) {
+        lines.push(
+          "COLOR LOCK " +
+            (idx + 1) +
+            ": " +
+            String(fullDescFor(id) || "").trim()
+        );
+        return;
+      }
       lines.push(
         "Influence " +
           (idx + 1) +
@@ -2922,7 +3231,7 @@
     }
     var parents = [Number(a), Number(b), Number(c)];
     for (var i = 0; i < 3; i++) {
-      if (noteOf(parents[i])) continue;
+      if (noteOf(parents[i]) || colorChipOf(parents[i])) continue;
       if (ownedQty(parents[i]) < 1) {
         setForgeStatus("Missing stock for " + kindLabel(parents[i]) + " (need 1 in inv or bank).", true);
         return;
@@ -2974,7 +3283,8 @@
         thumbOverrides[String(id)] = assetUrl(visionUrl);
       }
       for (var j = 0; j < 3; j++) {
-        if (noteOf(parents[j])) continue;
+        // Notes + color chips are reusable influences — do not consume from pack
+        if (noteOf(parents[j]) || colorChipOf(parents[j])) continue;
         if (!consumeOwned(parents[j], 1)) {
           setForgeStatus("Could not consume materials after forge.", true);
           return;
@@ -3565,6 +3875,22 @@
             if (!viewRes.ok) setStatus(viewRes.error, true);
             return;
           }
+          if (action === "insert-note") {
+            var ins;
+            if (colorChipOf(id)) ins = insertColorChipIntoNote(id);
+            else if (noteOf(id)) {
+              var ta = $("ge-note-text");
+              if (ta) {
+                var text = fullDescFor(id);
+                ta.value = (ta.value ? ta.value.replace(/\s+$/, "") + "\n" : "") + text;
+                ta.focus();
+                ins = { ok: true };
+              } else ins = { ok: false, error: "Note box missing." };
+            } else ins = { ok: false, error: "Not a color chip or note." };
+            if (ins.ok) setStatus("Inserted into note filler.");
+            else setStatus(ins.error || "Insert failed.", true);
+            return;
+          }
           if (action === "force-load") {
             forceLoadItemImage(id);
             return;
@@ -3814,6 +4140,38 @@
         }
       })(ni);
     }
+    if ($("ge-color-chips") && !$("ge-color-chips").dataset.bound) {
+      $("ge-color-chips").dataset.bound = "1";
+      $("ge-color-chips").addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-ge-color-id]");
+        if (!btn) return;
+        var id = Number(btn.getAttribute("data-ge-color-id"));
+        var res = insertColorChipIntoNote(id);
+        if (res.ok) setForgeStatus("Inserted " + res.token + " into note.");
+        else setForgeStatus(res.error || "Insert failed.", true);
+      });
+    }
+    if ($("ge-color-add-pack") && !$("ge-color-add-pack").dataset.bound) {
+      $("ge-color-add-pack").dataset.bound = "1";
+      $("ge-color-add-pack").addEventListener("click", function () {
+        var picker = $("ge-color-picker");
+        var hex = picker ? picker.value : "#A855F7";
+        var res = addColorChipToPack(hex);
+        if (!res.ok) {
+          setForgeStatus(res.error || "Could not add chip.", true);
+          return;
+        }
+        renderGeColorChips();
+        renderBags();
+        setForgeStatus(
+          "Added " +
+            colorChipLabel(res.chip.name, res.chip.hex) +
+            " to " +
+            (res.where === "bank" ? "bank (pack full)" : "pack") +
+            "."
+        );
+      });
+    }
   }
 
   function loadAnalyses() {
@@ -3916,8 +4274,14 @@
     state = loadState();
     npcRuntime = { inventory: {}, bank: {} };
     try {
+      ensureColorChipCatalog();
+      seedColorChipsIntoPack();
+    } catch (eChip) {}
+    try {
       var moved = enforcePlayerInvCap();
       if (moved > 0) {
+        saveState();
+      } else {
         saveState();
       }
     } catch (eCap) {}

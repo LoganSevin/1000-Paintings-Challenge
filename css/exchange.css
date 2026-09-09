@@ -1310,3 +1310,82 @@
 .ge-animate-prompt-go:hover {
   filter: brightness(1.08);
 }
+
+
+.ge-color-chips-hint {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  color: #a89878;
+}
+.ge-color-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.ge-color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 8px 4px 4px;
+  border-radius: 999px;
+  border: 1px solid #5a4a2e;
+  background: #1a1510;
+  color: #e8dcc8;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.ge-color-chip:hover {
+  border-color: #c9a227;
+  filter: brightness(1.06);
+}
+.ge-color-chip-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.45);
+  flex: 0 0 auto;
+}
+.ge-color-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
+}
+.ge-color-chip-make {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.ge-color-chip-make input[type="color"] {
+  width: 36px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #5a4a2e;
+  background: transparent;
+  cursor: pointer;
+}
+.ge-color-add-pack {
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #5a4a2e;
+  background: #2a2218;
+  color: #e8dcc8;
+  cursor: pointer;
+}
+.ge-color-add-pack:hover {
+  border-color: #c9a227;
+}
+.ge-forge-slot.color-slot {
+  box-shadow: inset 0 0 0 2px #c9a22788;
+}
+.ge-inv-slot.color-item img,
+.ge-bank-slot.color-item img {
+  object-fit: contain;
+  padding: 4px;
+}
