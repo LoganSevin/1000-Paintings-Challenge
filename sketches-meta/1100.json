@@ -1,0 +1,42 @@
+{
+  "number": 1100,
+  "title": "Line sketch: Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a dog with a heavily scarred and stitched face, one glowing eye with visible veins, and the other a star-shaped pupil. Vibrant paint drips in,, and flow down from the top and around poppy-like flowers against a dark background (derived from generated still #312).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a dog with a heavily scarred and stitched face, one glowing eye with visible veins, and the other a star-shaped pupil. Vibrant paint drips in,, and flow down from the top and around poppy-like flowers against a dark background",
+  "inverted_title": "Inverted sketch: Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a dog with a heavily scarred and stitched face, one glowing eye with visible veins, and the other a star-shaped pupil. Vibrant paint drips in,, and flow down from the top and around poppy-like flowers against a dark background (from generated still #312).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a dog with a heavily scarred and stitched face, one glowing eye with visible veins, and the other a star-shaped pupil. Vibrant paint drips in,, and flow down from the top and around poppy-like flowers against a dark background",
+  "source_description": "A surreal portrait of a lime green dog with a heavily scarred and stitched face, one glowing red eye with visible veins, and the other a yellow star-shaped pupil. Vibrant paint drips in red, blue, orange, and purple flow down from the top and around purple poppy-like flowers against a dark background.",
+  "source_prompt": "",
+  "source_title": "Neon Green Dog Portrait",
+  "style": "surreal pop art",
+  "mood": "chaotic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "surreal",
+    "dripping paint",
+    "poppies",
+    "stitched face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 312,
+  "source_url": "/generated/312.jpg",
+  "image_url": "/sketches/1100.png",
+  "inverted_image_url": "/sketches-inverted/1100.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:40Z"
+}

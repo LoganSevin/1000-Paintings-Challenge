@@ -1,0 +1,42 @@
+{
+  "number": 3185,
+  "title": "Line sketch: Slime Monster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, glossy slime creature with two eyes and an smiling mouth dominates the center of the frame. It has multiple dripping tentacles and stands before a dark industrial complex with rusted towers and pipes set against a twilight forest under a and sky (derived from generated still #2532).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, glossy slime creature with two eyes and an smiling mouth dominates the center of the frame. It has multiple dripping tentacles and stands before a dark industrial complex with rusted towers and pipes set against a twilight forest under a and sky",
+  "inverted_title": "Inverted sketch: Slime Monster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, glossy slime creature with two eyes and an smiling mouth dominates the center of the frame. It has multiple dripping tentacles and stands before a dark industrial complex with rusted towers and pipes set against a twilight forest under a and sky (from generated still #2532).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, glossy slime creature with two eyes and an smiling mouth dominates the center of the frame. It has multiple dripping tentacles and stands before a dark industrial complex with rusted towers and pipes set against a twilight forest under a and sky",
+  "source_description": "A large, glossy purple slime creature with two bright green eyes and an orange smiling mouth dominates the center of the frame. It has multiple dripping tentacles and stands before a dark industrial complex with rusted towers and pipes set against a twilight forest under a purple and orange sky.",
+  "source_prompt": "A large glossy purple slime monster with big round green eyes and a wide orange smile, multiple thick dripping tentacles, wet glistening surface, standing in front of a decaying industrial factory complex with rusted towers and pipes, dark pine forest in the background, dramatic purple and orange twilight sky with floating arcane symbols, moody atmospheric lighting, dark fantasy style",
+  "source_title": "Purple Slime Monster",
+  "style": "fantasy illustration",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "slime monster",
+    "industrial ruin",
+    "tentacle creature",
+    "twilight sky",
+    "surreal fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2532,
+  "source_url": "/generated/2532.jpg",
+  "image_url": "/sketches/3185.png",
+  "inverted_image_url": "/sketches-inverted/3185.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:45Z"
+}

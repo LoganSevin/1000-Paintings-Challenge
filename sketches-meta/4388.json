@@ -1,0 +1,42 @@
+{
+  "number": 4388,
+  "title": "Line sketch: Witch and Melting Clock",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a robe with symbols stands in a mystical laboratory, reaching toward a large swirling clock on the wall that appears to be melting with vibrant paint drips. The room contains shelves filled with glowing potion bottles, an open book on the counter with visible text, hanging lanterns, and a butterfly near the clock (derived from generated still #3807).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a robe with symbols stands in a mystical laboratory, reaching toward a large swirling clock on the wall that appears to be melting with vibrant paint drips. The room contains shelves filled with glowing potion bottles, an open book on the counter with visible text, hanging lanterns, and a butterfly near the clock",
+  "inverted_title": "Inverted sketch: Witch and Melting Clock",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a robe with symbols stands in a mystical laboratory, reaching toward a large swirling clock on the wall that appears to be melting with vibrant paint drips. The room contains shelves filled with glowing potion bottles, an open book on the counter with visible text, hanging lanterns, and a butterfly near the clock (from generated still #3807).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a robe with symbols stands in a mystical laboratory, reaching toward a large swirling clock on the wall that appears to be melting with vibrant paint drips. The room contains shelves filled with glowing potion bottles, an open book on the counter with visible text, hanging lanterns, and a butterfly near the clock",
+  "source_description": "A woman in a dark purple robe with golden symbols stands in a mystical laboratory, reaching toward a large swirling clock on the wall that appears to be melting with vibrant colorful paint drips. The room contains shelves filled with glowing potion bottles, an open book on the counter with visible text, hanging lanterns, and a green butterfly near the clock.",
+  "source_prompt": "A woman in a long dark purple robe covered in golden alchemical symbols stands in profile reaching with her hand toward a large melting clock on the wall. The clock has golden numbers and black hands, surrounded by swirling colorful paint strokes in green, red, blue and purple that drip down the wall. A green butterfly flies nearby. The scene is set in a mystical laboratory with wooden shelves holding many glowing potion jars, an open spellbook on the marble counter, hanging lanterns with clock faces, and an hourglass with red ribbon.",
+  "source_title": "Witch and Melting Clock",
+  "style": "fantasy illustration",
+  "mood": "mystical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "melting clock",
+    "alchemy lab",
+    "surreal",
+    "magic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3807,
+  "source_url": "/generated/3807.jpg",
+  "image_url": "/sketches/4388.png",
+  "inverted_image_url": "/sketches-inverted/4388.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:48Z"
+}

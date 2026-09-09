@@ -1,0 +1,42 @@
+{
+  "number": 4600,
+  "title": "Line sketch: Spell Fusion Wizard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female wizard with hair kneels on cracked stone, wielding a glowing hammer crackling with lightning while holding a smartphone. Behind her, a giant dragon coils across the scene toward a menacing gothic castle with glowing windows, under a swirling sky with a crowned smiling moon, a sun, floating jellyfish, and small figures running (derived from generated still #4022).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female wizard with hair kneels on cracked stone, wielding a glowing hammer crackling with lightning while holding a smartphone. Behind her, a giant dragon coils across the scene toward a menacing gothic castle with glowing windows, under a swirling sky with a crowned smiling moon, a sun, floating jellyfish, and small figures running",
+  "inverted_title": "Inverted sketch: Spell Fusion Wizard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female wizard with hair kneels on cracked stone, wielding a glowing hammer crackling with lightning while holding a smartphone. Behind her, a giant dragon coils across the scene toward a menacing gothic castle with glowing windows, under a swirling sky with a crowned smiling moon, a sun, floating jellyfish, and small figures running (from generated still #4022).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female wizard with hair kneels on cracked stone, wielding a glowing hammer crackling with lightning while holding a smartphone. Behind her, a giant dragon coils across the scene toward a menacing gothic castle with glowing windows, under a swirling sky with a crowned smiling moon, a sun, floating jellyfish, and small figures running",
+  "source_description": "A blue-skinned female wizard with pink hair kneels on cracked purple stone, wielding a glowing hammer crackling with blue lightning while holding a smartphone. Behind her, a giant red dragon coils across the scene toward a menacing gothic castle with glowing windows, under a swirling sky with a crowned smiling moon, a sun, floating jellyfish, and small figures running.",
+  "source_prompt": "A vibrant fantasy scene featuring a blue-skinned female wizard with pink hair kneeling on broken stone, holding a glowing smartphone in one hand and swinging a large hammer that emits powerful blue lightning. A massive red dragon flies across the middle ground. In the background stands a dark gothic castle with glowing pink windows and a monstrous face on its facade. The swirling sky contains a smiling crowned crescent moon, a sun, and several floating jellyfish. Small human figures run across the scene. Highly detailed, colorful, dynamic composition.",
+  "source_title": "Spell Fusion Wizard",
+  "style": "fantasy illustration",
+  "mood": "whimsical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "dragon",
+    "fantasy castle",
+    "lightning hammer",
+    "surreal sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4022,
+  "source_url": "/generated/4022.jpg",
+  "image_url": "/sketches/4600.png",
+  "inverted_image_url": "/sketches-inverted/4600.png",
+  "curve_count": 156,
+  "built_at": "2026-08-17T00:09:48Z"
+}

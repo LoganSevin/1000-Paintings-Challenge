@@ -1,0 +1,42 @@
+{
+  "number": 3083,
+  "title": "Line sketch: Alien Over Ruined World",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A tall, emaciated grey alien with large black eyes and exposed ribcage stands in the foreground of a desolate landscape. Behind it, ancient stone ruins sit under a cosmic sky featuring a large moon, multiple black celestial bodies in eclipse alignment, and a vibrant nebula (derived from generated still #2415).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A tall, emaciated grey alien with large black eyes and exposed ribcage stands in the foreground of a desolate landscape. Behind it, ancient stone ruins sit under a cosmic sky featuring a large moon, multiple black celestial bodies in eclipse alignment, and a vibrant nebula",
+  "inverted_title": "Inverted sketch: Alien Over Ruined World",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A tall, emaciated grey alien with large black eyes and exposed ribcage stands in the foreground of a desolate landscape. Behind it, ancient stone ruins sit under a cosmic sky featuring a large moon, multiple black celestial bodies in eclipse alignment, and a vibrant nebula (from generated still #2415).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A tall, emaciated grey alien with large black eyes and exposed ribcage stands in the foreground of a desolate landscape. Behind it, ancient stone ruins sit under a cosmic sky featuring a large moon, multiple black celestial bodies in eclipse alignment, and a vibrant nebula",
+  "source_description": "A tall, emaciated grey alien with large black eyes and exposed ribcage stands in the foreground of a desolate landscape. Behind it, ancient stone ruins sit under a cosmic sky featuring a large purple moon, multiple black celestial bodies in eclipse alignment, and a vibrant magenta nebula.",
+  "source_prompt": "A skeletal grey alien with large glossy black eyes and exposed ribcage stands in the foreground of a ruined landscape with broken classical columns and dead trees. In the dramatic sky above, a large purple moon, several black planets or moons in perfect alignment, and a swirling magenta and purple nebula dominate the scene, surreal cosmic horror atmosphere, cinematic lighting",
+  "source_title": "Alien Over Ruined World",
+  "style": "surreal",
+  "mood": "eerie cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "apocalypse",
+    "ruins",
+    "celestial event",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2415,
+  "source_url": "/generated/2415.jpg",
+  "image_url": "/sketches/3083.png",
+  "inverted_image_url": "/sketches-inverted/3083.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

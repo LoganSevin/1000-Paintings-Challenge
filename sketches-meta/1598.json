@@ -1,0 +1,42 @@
+{
+  "number": 1598,
+  "title": "Line sketch: Surreal Eye Metropolis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large close-up portrait of a woman's face with her right eye transformed into a swirling and vortex containing a miniature cityscape, stars, and floating figures. The background features a fiery and sky above damaged high-rise buildings, while her hair is filled with intricate spiral patterns (derived from generated still #813).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large close-up portrait of a woman's face with her right eye transformed into a swirling and vortex containing a miniature cityscape, stars, and floating figures. The background features a fiery and sky above damaged high-rise buildings, while her hair is filled with intricate spiral patterns",
+  "inverted_title": "Inverted sketch: Surreal Eye Metropolis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large close-up portrait of a woman's face with her right eye transformed into a swirling and vortex containing a miniature cityscape, stars, and floating figures. The background features a fiery and sky above damaged high-rise buildings, while her hair is filled with intricate spiral patterns (from generated still #813).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large close-up portrait of a woman's face with her right eye transformed into a swirling and vortex containing a miniature cityscape, stars, and floating figures. The background features a fiery and sky above damaged high-rise buildings, while her hair is filled with intricate spiral patterns",
+  "source_description": "A large close-up portrait of a woman's face with her right eye transformed into a swirling green and yellow vortex containing a miniature cityscape, stars, and floating figures. The background features a fiery red and orange sky above damaged high-rise buildings, while her hair is filled with intricate yellow spiral patterns.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Metropolis",
+  "style": "surrealism",
+  "mood": "psychedelic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "cityscape",
+    "vortex",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 813,
+  "source_url": "/generated/813.jpg",
+  "image_url": "/sketches/1598.png",
+  "inverted_image_url": "/sketches-inverted/1598.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:41Z"
+}

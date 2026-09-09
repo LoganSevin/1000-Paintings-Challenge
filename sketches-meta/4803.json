@@ -1,0 +1,42 @@
+{
+  "number": 4803,
+  "title": "Line sketch: Sorceress of the Spiral Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A female sorceress in a flowing dress stands dynamically at the center of a vibrant, swirling spiral platform composed of ornate patterns. She casts energy from both hands while winged lion-like creatures and spiked orbs float around her within a vast hall featuring intricate circular architectural designs and floating coins (derived from generated still #4238).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A female sorceress in a flowing dress stands dynamically at the center of a vibrant, swirling spiral platform composed of ornate patterns. She casts energy from both hands while winged lion-like creatures and spiked orbs float around her within a vast hall featuring intricate circular architectural designs and floating coins",
+  "inverted_title": "Inverted sketch: Sorceress of the Spiral Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A female sorceress in a flowing dress stands dynamically at the center of a vibrant, swirling spiral platform composed of ornate patterns. She casts energy from both hands while winged lion-like creatures and spiked orbs float around her within a vast hall featuring intricate circular architectural designs and floating coins (from generated still #4238).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A female sorceress in a flowing dress stands dynamically at the center of a vibrant, swirling spiral platform composed of ornate patterns. She casts energy from both hands while winged lion-like creatures and spiked orbs float around her within a vast hall featuring intricate circular architectural designs and floating coins",
+  "source_description": "A female sorceress in a flowing purple dress stands dynamically at the center of a vibrant, swirling spiral platform composed of colorful ornate patterns. She casts bright purple energy from both hands while golden winged lion-like creatures and green spiked orbs float around her within a vast purple hall featuring intricate circular architectural designs and floating golden coins.",
+  "source_prompt": "A powerful female sorceress with flowing dark hair wearing a purple dress stands in a dynamic pose at the center of a colorful swirling spiral floor, casting bright purple magical energy from both hands. Golden winged lion creatures and green spiked orbs float around her inside a grand purple hall with intricate circular patterns and floating golden coins, vibrant fantasy scene, detailed digital painting",
+  "source_title": "Sorceress of the Spiral Vortex",
+  "style": "fantasy illustration",
+  "mood": "magical dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "magic",
+    "spiral",
+    "fantasy",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4238,
+  "source_url": "/generated/4238.jpg",
+  "image_url": "/sketches/4803.png",
+  "inverted_image_url": "/sketches-inverted/4803.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:49Z"
+}

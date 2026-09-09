@@ -1,0 +1,42 @@
+{
+  "number": 1668,
+  "title": "Line sketch: Psychedelic Bubble Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal digital artwork featuring multiple bubbles floating against a background. Each bubble contains stylized female profiles with intricate and swirling patterns in their hair, connected by flowing - liquid forms and drips (derived from generated still #884).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal digital artwork featuring multiple bubbles floating against a background. Each bubble contains stylized female profiles with intricate and swirling patterns in their hair, connected by flowing - liquid forms and drips",
+  "inverted_title": "Inverted sketch: Psychedelic Bubble Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal digital artwork featuring multiple bubbles floating against a background. Each bubble contains stylized female profiles with intricate and swirling patterns in their hair, connected by flowing - liquid forms and drips (from generated still #884).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal digital artwork featuring multiple bubbles floating against a background. Each bubble contains stylized female profiles with intricate and swirling patterns in their hair, connected by flowing - liquid forms and drips",
+  "source_description": "A surreal digital artwork featuring multiple iridescent bubbles floating against a dark teal background. Each bubble contains stylized female profiles with intricate green and gold swirling patterns in their hair, connected by flowing lime-green liquid forms and drips.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Bubble Portrait",
+  "style": "surreal digital art",
+  "mood": "ethereal psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bubbles",
+    "female portraits",
+    "psychedelic",
+    "surreal",
+    "dripping liquid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 884,
+  "source_url": "/generated/884.jpg",
+  "image_url": "/sketches/1668.png",
+  "inverted_image_url": "/sketches-inverted/1668.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4842,
+  "title": "Line sketch: Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A chaotic surreal composition featuring a giant female figure screaming on the left, a large central eye emitting energy beams, a devil riding a flaming motorcycle through the sky, two horses galloping with multiple figures riding them, and a dark city skyline with a JLX3 sign in the background (derived from generated still #4277).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A chaotic surreal composition featuring a giant female figure screaming on the left, a large central eye emitting energy beams, a devil riding a flaming motorcycle through the sky, two horses galloping with multiple figures riding them, and a dark city skyline with a JLX3 sign in the background",
+  "inverted_title": "Inverted sketch: Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A chaotic surreal composition featuring a giant female figure screaming on the left, a large central eye emitting energy beams, a devil riding a flaming motorcycle through the sky, two horses galloping with multiple figures riding them, and a dark city skyline with a JLX3 sign in the background (from generated still #4277).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A chaotic surreal composition featuring a giant female figure screaming on the left, a large central eye emitting energy beams, a devil riding a flaming motorcycle through the sky, two horses galloping with multiple figures riding them, and a dark city skyline with a JLX3 sign in the background",
+  "source_description": "A chaotic surreal painting featuring a giant blue female figure screaming on the left, a large central eye emitting blue energy beams, a red devil riding a flaming motorcycle through the sky, two green horses galloping with multiple green figures riding them, and a dark city skyline with a JLX3 sign in the background.",
+  "source_prompt": "Surreal psychedelic painting with a giant screaming blue female spirit on the left emitting energy beams from her mouth, a massive central eye with red veins shooting blue laser beams across the scene, a red devil riding a flaming motorcycle in the sky, two vibrant green horses with swirling patterns galloping forward carrying multiple green humanoid figures, red flames at the bottom, a dark futuristic city with neon signs in the background, swirling patterns and floating eye symbols throughout, highly detailed symbolic composition",
+  "source_title": "Stasis",
+  "style": "surrealism",
+  "mood": "chaotic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "apocalyptic",
+    "fantasy",
+    "symbolic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4277,
+  "source_url": "/generated/4277.jpg",
+  "image_url": "/sketches/4842.png",
+  "inverted_image_url": "/sketches-inverted/4842.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:49Z"
+}

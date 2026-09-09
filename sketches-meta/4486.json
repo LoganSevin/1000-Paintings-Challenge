@@ -1,0 +1,42 @@
+{
+  "number": 4486,
+  "title": "Line sketch: Kundalini's Coil & Print",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical scene inside a shop where a woman in a headscarf and black robe holds a glowing orb. A large and dragon with accents coils through the room, its body forming a loop near a large circular sign covered in paw prints. The shop features shelves with potions, a table with printed dragon designs, and a starry night sky above (derived from generated still #3905).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical scene inside a shop where a woman in a headscarf and black robe holds a glowing orb. A large and dragon with accents coils through the room, its body forming a loop near a large circular sign covered in paw prints. The shop features shelves with potions, a table with printed dragon designs, and a starry night sky above",
+  "inverted_title": "Inverted sketch: Kundalini's Coil & Print",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical scene inside a shop where a woman in a headscarf and black robe holds a glowing orb. A large and dragon with accents coils through the room, its body forming a loop near a large circular sign covered in paw prints. The shop features shelves with potions, a table with printed dragon designs, and a starry night sky above (from generated still #3905).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical scene inside a shop where a woman in a headscarf and black robe holds a glowing orb. A large and dragon with accents coils through the room, its body forming a loop near a large circular sign covered in paw prints. The shop features shelves with potions, a table with printed dragon designs, and a starry night sky above",
+  "source_description": "A mystical scene inside a shop where a woman in a red headscarf and black robe holds a glowing green orb. A large teal and green dragon with red accents coils through the room, its body forming a loop near a large red circular sign covered in colorful paw prints. The shop features shelves with potions, a table with printed dragon designs, and a starry night sky above.",
+  "source_prompt": "A mystical woman wearing a red headscarf and black robe stands inside a fantasy shop at night, holding a glowing green orb. A large teal dragon with red spines coils through the blue room, its body arching toward the ceiling. A large red circular sign covered in colorful paw prints hangs on the wall. Shelves display potions and jars, a table shows printed designs with dragons and serpents, candles and scales sit on a counter, under a swirling starry night sky.",
+  "source_title": "Kundalini's Coil & Print",
+  "style": "fantasy illustration",
+  "mood": "mystical, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "magic shop",
+    "fantasy",
+    "woman with orb",
+    "paw prints"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3905,
+  "source_url": "/generated/3905.jpg",
+  "image_url": "/sketches/4486.png",
+  "inverted_image_url": "/sketches-inverted/4486.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3159,
+  "title": "Line sketch: Surreal Horse Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large stylized woman's face occupies the right side of the frame, her skin covered in a vibrant geometric mosaic of,, and triangles. Her long flowing black hair merges with a lush landscape on the left, where a man in a coat stands on a hill watching several horses gallop through fields of oversized flowers (derived from generated still #2501).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large stylized woman's face occupies the right side of the frame, her skin covered in a vibrant geometric mosaic of,, and triangles. Her long flowing black hair merges with a lush landscape on the left, where a man in a coat stands on a hill watching several horses gallop through fields of oversized flowers",
+  "inverted_title": "Inverted sketch: Surreal Horse Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large stylized woman's face occupies the right side of the frame, her skin covered in a vibrant geometric mosaic of,, and triangles. Her long flowing black hair merges with a lush landscape on the left, where a man in a coat stands on a hill watching several horses gallop through fields of oversized flowers (from generated still #2501).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large stylized woman's face occupies the right side of the frame, her skin covered in a vibrant geometric mosaic of,, and triangles. Her long flowing black hair merges with a lush landscape on the left, where a man in a coat stands on a hill watching several horses gallop through fields of oversized flowers",
+  "source_description": "A large stylized woman's face occupies the right side of the frame, her skin covered in a vibrant geometric mosaic of pink, green, yellow, and purple triangles. Her long flowing black hair merges with a lush green landscape on the left, where a man in a dark blue coat stands on a hill watching several orange horses gallop through fields of oversized pink flowers.",
+  "source_prompt": "Surreal painting of a giant woman's face on the right with skin made of colorful geometric triangular mosaic in pink, green, yellow and purple. Her long black hair transforms into a rolling green hillside landscape. A man in a dark blue coat stands on a hill watching several fiery orange horses galloping through the scene. Large pink flowers with yellow centers fill the foreground, dramatic cloudy sky above, painterly style with rich textures and vibrant contrasting colors.",
+  "source_title": "Surreal Horse Portrait",
+  "style": "surrealism",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portrait",
+    "horses",
+    "geometric",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2501,
+  "source_url": "/generated/2501.jpg",
+  "image_url": "/sketches/3159.png",
+  "inverted_image_url": "/sketches-inverted/3159.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

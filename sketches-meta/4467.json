@@ -1,0 +1,42 @@
+{
+  "number": 4467,
+  "title": "Line sketch: Mirror of Arcane Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and robe stands in a mystical room, holding a glowing orb while touching an ornate magical mirror that reflects her image and the surrounding laboratory. An open spellbook with runes, potion bottles, scrolls, and a hanging lantern fill the detailed scene (derived from generated still #3886).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and robe stands in a mystical room, holding a glowing orb while touching an ornate magical mirror that reflects her image and the surrounding laboratory. An open spellbook with runes, potion bottles, scrolls, and a hanging lantern fill the detailed scene",
+  "inverted_title": "Inverted sketch: Mirror of Arcane Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and robe stands in a mystical room, holding a glowing orb while touching an ornate magical mirror that reflects her image and the surrounding laboratory. An open spellbook with runes, potion bottles, scrolls, and a hanging lantern fill the detailed scene (from generated still #3886).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and robe stands in a mystical room, holding a glowing orb while touching an ornate magical mirror that reflects her image and the surrounding laboratory. An open spellbook with runes, potion bottles, scrolls, and a hanging lantern fill the detailed scene",
+  "source_description": "A woman in a red and green robe stands in a mystical purple room, holding a glowing orb while touching an ornate magical mirror that reflects her image and the surrounding laboratory. An open spellbook with runes, potion bottles, scrolls, and a hanging lantern fill the detailed scene.",
+  "source_prompt": "A sorceress in flowing red and green robes stands in a mystical purple laboratory filled with potion bottles, scrolls, and hanging lanterns. She holds a glowing orb in one hand while touching an ornate golden mirror with intricate designs. The mirror reflects her image and the room with magical teal light emanating from it. An open spellbook with glowing runes lies in the foreground. Highly detailed fantasy illustration with rich colors and magical atmosphere.",
+  "source_title": "Mirror of Arcane Reflection",
+  "style": "fantasy illustration",
+  "mood": "mystical enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "magic mirror",
+    "arcane laboratory",
+    "potion bottles",
+    "spellbook"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3886,
+  "source_url": "/generated/3886.jpg",
+  "image_url": "/sketches/4467.png",
+  "inverted_image_url": "/sketches-inverted/4467.png",
+  "curve_count": 66,
+  "built_at": "2026-08-17T00:09:48Z"
+}

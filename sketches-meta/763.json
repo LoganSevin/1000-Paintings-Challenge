@@ -1,0 +1,42 @@
+{
+  "number": 763,
+  "title": "Line sketch: Skeletal Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal anatomical study of a human skull and spine merging with organic cellular structures. The composition features intricate bone details against a dark void, with floral accents along the vertebrae (derived from painting #964).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal anatomical study of a human skull and spine merging with organic cellular structures. The composition features intricate bone details against a dark void, with floral accents along the vertebrae",
+  "inverted_title": "Inverted sketch: Skeletal Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal anatomical study of a human skull and spine merging with organic cellular structures. The composition features intricate bone details against a dark void, with floral accents along the vertebrae (from painting #964).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal anatomical study of a human skull and spine merging with organic cellular structures. The composition features intricate bone details against a dark void, with floral accents along the vertebrae",
+  "source_description": "A surreal anatomical study of a human skull and spine merging with organic cellular structures. The composition features intricate bone details against a dark void, with golden floral accents along the vertebrae.",
+  "source_prompt": "",
+  "source_title": "Skeletal Dreamscape",
+  "style": "Surrealism",
+  "mood": "Ethereal, contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anatomy",
+    "surreal",
+    "skull",
+    "bones",
+    "cellular"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 964,
+  "source_url": "/paintings/964.jpg",
+  "image_url": "/sketches/763.png",
+  "inverted_image_url": "/sketches-inverted/763.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:39Z"
+}

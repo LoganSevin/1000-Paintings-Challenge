@@ -1,0 +1,42 @@
+{
+  "number": 2341,
+  "title": "Line sketch: Veil Cabbage Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a large cabbage-like flower with a glowing drop at its dark center. Above it, stylized female profiles with intricate spiral patterns emerge from layered leaf bands that drip downward against a fluid background (derived from generated still #1569).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a large cabbage-like flower with a glowing drop at its dark center. Above it, stylized female profiles with intricate spiral patterns emerge from layered leaf bands that drip downward against a fluid background",
+  "inverted_title": "Inverted sketch: Veil Cabbage Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a large cabbage-like flower with a glowing drop at its dark center. Above it, stylized female profiles with intricate spiral patterns emerge from layered leaf bands that drip downward against a fluid background (from generated still #1569).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a large cabbage-like flower with a glowing drop at its dark center. Above it, stylized female profiles with intricate spiral patterns emerge from layered leaf bands that drip downward against a fluid background",
+  "source_description": "A surreal watercolor painting featuring a large green cabbage-like flower with a glowing red drop at its dark center. Above it, stylized teal female profiles with intricate spiral patterns emerge from layered gold leaf bands that drip downward against a fluid blue background.",
+  "source_prompt": "",
+  "source_title": "Golden Veil Cabbage Bloom",
+  "style": "surreal symbolic",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and gold leaf on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage",
+    "female profiles",
+    "leaf",
+    "spiral patterns",
+    "symbolic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1569,
+  "source_url": "/generated/1569.jpg",
+  "image_url": "/sketches/2341.png",
+  "inverted_image_url": "/sketches-inverted/2341.png",
+  "curve_count": 126,
+  "built_at": "2026-08-17T00:09:43Z"
+}

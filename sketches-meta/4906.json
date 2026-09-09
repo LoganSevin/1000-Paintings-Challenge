@@ -1,0 +1,42 @@
+{
+  "number": 4906,
+  "title": "Line sketch: Moonlit Dream Weaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene features a giant ornate moon with a glowing -eyed face and intricate patterns dominating the starry sky. In the foreground, a man sits at a wooden table reading an open book beside a teacup, while a large fairy with flower-crowned head and translucent wings emerges from swirling figures and butterflies under a glowing crescent moon (derived from generated still #4341).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene features a giant ornate moon with a glowing -eyed face and intricate patterns dominating the starry sky. In the foreground, a man sits at a wooden table reading an open book beside a teacup, while a large fairy with flower-crowned head and translucent wings emerges from swirling figures and butterflies under a glowing crescent moon",
+  "inverted_title": "Inverted sketch: Moonlit Dream Weaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene features a giant ornate moon with a glowing -eyed face and intricate patterns dominating the starry sky. In the foreground, a man sits at a wooden table reading an open book beside a teacup, while a large fairy with flower-crowned head and translucent wings emerges from swirling figures and butterflies under a glowing crescent moon (from generated still #4341).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene features a giant ornate moon with a glowing -eyed face and intricate patterns dominating the starry sky. In the foreground, a man sits at a wooden table reading an open book beside a teacup, while a large fairy with flower-crowned head and translucent wings emerges from swirling figures and butterflies under a glowing crescent moon",
+  "source_description": "A surreal cosmic scene features a giant ornate moon with a glowing yellow-eyed face and intricate green patterns dominating the starry sky. In the foreground, a man sits at a wooden table reading an open book beside a teacup, while a large silver fairy with flower-crowned head and translucent wings emerges from swirling figures and colorful butterflies under a glowing pink crescent moon.",
+  "source_prompt": "Surreal fantasy scene with a massive ancient moon face with glowing yellow eyes and intricate green Celtic patterns filling the starry cosmos. In the foreground a man in a brown sweater sits at a wooden table reading an open book next to a blue teacup and saucer. To the right a majestic silver-skinned fairy with large translucent wings, flower crown, and flowing white dress emerges from swirling green-skinned female faces. Pink glowing crescent moon, colorful butterflies, dramatic red drapery, ancient ruins in the distance, highly detailed digital painting.",
+  "source_title": "Moonlit Dream Weaver",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "moon",
+    "fairy",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4341,
+  "source_url": "/generated/4341.jpg",
+  "image_url": "/sketches/4906.png",
+  "inverted_image_url": "/sketches-inverted/4906.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:49Z"
+}

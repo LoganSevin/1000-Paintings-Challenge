@@ -1,0 +1,42 @@
+{
+  "number": 671,
+  "title": "Line sketch: Floral Mandala",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized close-up of a vibrant flower with layered petals and a center. This captures intricate floral symmetry with bold, flat colors (derived from painting #851).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized close-up of a vibrant flower with layered petals and a center. This captures intricate floral symmetry with bold, flat colors",
+  "inverted_title": "Inverted sketch: Floral Mandala",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized close-up of a vibrant flower with layered petals and a center. This captures intricate floral symmetry with bold, flat colors (from painting #851).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized close-up of a vibrant flower with layered petals and a center. This captures intricate floral symmetry with bold, flat colors",
+  "source_description": "A stylized close-up of a vibrant purple flower with layered petals and a green center. This digital painting captures intricate floral symmetry with bold, flat colors.",
+  "source_prompt": "",
+  "source_title": "Purple Floral Mandala",
+  "style": "Digital Illustration",
+  "mood": "Calm and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "floral",
+    "flower",
+    "mandala",
+    "botanical art",
+    "symmetry"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 851,
+  "source_url": "/paintings/851.jpg",
+  "image_url": "/sketches/671.png",
+  "inverted_image_url": "/sketches-inverted/671.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

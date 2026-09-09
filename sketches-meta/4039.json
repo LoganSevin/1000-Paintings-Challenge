@@ -1,0 +1,42 @@
+{
+  "number": 4039,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce female character with voluminous hair stands in a dynamic pose, holding a spray can emitting a vibrant energy beam from its nozzle. She wears a crop top, shorts, platform boots, and has dramatic makeup with an open-mouthed expression (derived from generated still #3456).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce female character with voluminous hair stands in a dynamic pose, holding a spray can emitting a vibrant energy beam from its nozzle. She wears a crop top, shorts, platform boots, and has dramatic makeup with an open-mouthed expression",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce female character with voluminous hair stands in a dynamic pose, holding a spray can emitting a vibrant energy beam from its nozzle. She wears a crop top, shorts, platform boots, and has dramatic makeup with an open-mouthed expression (from generated still #3456).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce female character with voluminous hair stands in a dynamic pose, holding a spray can emitting a vibrant energy beam from its nozzle. She wears a crop top, shorts, platform boots, and has dramatic makeup with an open-mouthed expression",
+  "source_description": "A fierce female character with voluminous bright red hair stands in a dynamic pose, holding a spray can emitting a vibrant purple energy beam from its nozzle. She wears a red crop top, red shorts, red platform boots, and has dramatic makeup with an open-mouthed expression.",
+  "source_prompt": "A dynamic full-body illustration of a punk rock girl with massive flowing bright red hair, wearing a red leather crop top, red shorts, red platform boots, and gold accessories. She holds a spray paint can that is shooting a glowing purple energy beam upwards. She has dramatic blue eyeshadow, an open mouth shouting expression, and stands in an aggressive wide stance against a plain gray background.",
+  "source_title": "Graffiti Punk Girl",
+  "style": "digital illustration",
+  "mood": "energetic, rebellious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "punk girl",
+    "spray can",
+    "hair",
+    "street art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3456,
+  "source_url": "/generated/3456.jpg",
+  "image_url": "/sketches/4039.png",
+  "inverted_image_url": "/sketches-inverted/4039.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:47Z"
+}

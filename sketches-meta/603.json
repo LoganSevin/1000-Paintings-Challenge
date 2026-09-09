@@ -1,0 +1,42 @@
+{
+  "number": 603,
+  "title": "Line sketch: Ethereal Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous -skinned woman with glowing eyes emerges from swirling cosmic clouds and nebulae. Her elegant updo and mask contrast against the vibrant energy vortex surrounding her (derived from painting #769).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous -skinned woman with glowing eyes emerges from swirling cosmic clouds and nebulae. Her elegant updo and mask contrast against the vibrant energy vortex surrounding her",
+  "inverted_title": "Inverted sketch: Ethereal Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous -skinned woman with glowing eyes emerges from swirling cosmic clouds and nebulae. Her elegant updo and mask contrast against the vibrant energy vortex surrounding her (from painting #769).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous -skinned woman with glowing eyes emerges from swirling cosmic clouds and nebulae. Her elegant updo and mask contrast against the vibrant energy vortex surrounding her",
+  "source_description": "A luminous green-skinned woman with glowing eyes emerges from swirling cosmic clouds and nebulae. Her elegant updo and purple mask contrast against the vibrant emerald energy vortex surrounding her.",
+  "source_prompt": "",
+  "source_title": "Ethereal Green Sorceress",
+  "style": "Digital Fantasy Art",
+  "mood": "Mysterious Enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "cosmic",
+    "portrait",
+    "glowing",
+    "ethereal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 769,
+  "source_url": "/paintings/769.jpg",
+  "image_url": "/sketches/603.png",
+  "inverted_image_url": "/sketches-inverted/603.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3325,
+  "title": "Line sketch: Wolf and Steampunk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large wolf with glowing eyes and liquid dripping from its muzzle dominates the left foreground. To the right, a young woman with long flowing hair, steampunk goggles, and a cape stands on an ornate metal balcony attached to a massive industrial structure featuring a giant central eye and multiple smokestacks (derived from generated still #2719).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large wolf with glowing eyes and liquid dripping from its muzzle dominates the left foreground. To the right, a young woman with long flowing hair, steampunk goggles, and a cape stands on an ornate metal balcony attached to a massive industrial structure featuring a giant central eye and multiple smokestacks",
+  "inverted_title": "Inverted sketch: Wolf and Steampunk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large wolf with glowing eyes and liquid dripping from its muzzle dominates the left foreground. To the right, a young woman with long flowing hair, steampunk goggles, and a cape stands on an ornate metal balcony attached to a massive industrial structure featuring a giant central eye and multiple smokestacks (from generated still #2719).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large wolf with glowing eyes and liquid dripping from its muzzle dominates the left foreground. To the right, a young woman with long flowing hair, steampunk goggles, and a cape stands on an ornate metal balcony attached to a massive industrial structure featuring a giant central eye and multiple smokestacks",
+  "source_description": "A large green wolf with glowing orange eyes and red liquid dripping from its muzzle dominates the left foreground. To the right, a young woman with long flowing brown hair, steampunk goggles, and a green cape stands on an ornate metal balcony attached to a massive industrial structure featuring a giant central green eye and multiple smokestacks.",
+  "source_prompt": "A massive green wolf with glowing orange eyes and red liquid dripping from its jaws stands in the foreground, beside a steampunk girl with long flowing brown hair, aviator goggles, and green cape standing on an ornate balcony. Behind them is a colossal circular industrial machine with a giant glowing green mechanical eye at its center and multiple smokestacks emitting smoke into a stormy sky, dramatic fantasy painting",
+  "source_title": "Wolf and Steampunk Girl",
+  "style": "fantasy illustration",
+  "mood": "ominous surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "fantasy",
+    "wolf",
+    "industrial",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2719,
+  "source_url": "/generated/2719.jpg",
+  "image_url": "/sketches/3325.png",
+  "inverted_image_url": "/sketches-inverted/3325.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

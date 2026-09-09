@@ -1,0 +1,42 @@
+{
+  "number": 3901,
+  "title": "Line sketch: -haired Punk Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four nearly identical side-by-side poses of a female character with long hair in a high ponytail, wearing a black corset, skirt, cape, and heavy black boots. She stands in a dynamic combat stance with clenched fists against a plain gray gradient background (derived from generated still #3318).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four nearly identical side-by-side poses of a female character with long hair in a high ponytail, wearing a black corset, skirt, cape, and heavy black boots. She stands in a dynamic combat stance with clenched fists against a plain gray gradient background",
+  "inverted_title": "Inverted sketch: -haired Punk Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four nearly identical side-by-side poses of a female character with long hair in a high ponytail, wearing a black corset, skirt, cape, and heavy black boots. She stands in a dynamic combat stance with clenched fists against a plain gray gradient background (from generated still #3318).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four nearly identical side-by-side poses of a female character with long hair in a high ponytail, wearing a black corset, skirt, cape, and heavy black boots. She stands in a dynamic combat stance with clenched fists against a plain gray gradient background",
+  "source_description": "Four nearly identical side-by-side poses of a female character with long dark red hair in a high ponytail, wearing a black corset, red skirt, red cape, and heavy black boots. She stands in a dynamic combat stance with clenched fists against a plain gray gradient background.",
+  "source_prompt": "A fierce young woman with long flowing dark red hair in a high ponytail and bangs, wearing a black corset top, short red skirt with red cape, fingerless gloves, and heavy black combat boots. She stands in an aggressive wide stance with clenched fists ready for battle, pale skin, dramatic makeup, multiple identical poses arranged horizontally, clean studio lighting on a solid gray background, digital character sheet style",
+  "source_title": "Red-haired Punk Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, edgy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "punk style",
+    "hair",
+    "multiple poses",
+    "goth fashion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3318,
+  "source_url": "/generated/3318.jpg",
+  "image_url": "/sketches/3901.png",
+  "inverted_image_url": "/sketches-inverted/3901.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:46Z"
+}

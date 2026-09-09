@@ -1,0 +1,42 @@
+{
+  "number": 150,
+  "title": "Line sketch: Vibrant Cosmic Spiral Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic abstract composition featuring swirling and forms twisting into a deep cosmic center. The composition evokes a sense of galactic motion with celestial orbs and fluid energy trails against a starry background (derived from painting #189).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic abstract composition featuring swirling and forms twisting into a deep cosmic center. The composition evokes a sense of galactic motion with celestial orbs and fluid energy trails against a starry background",
+  "inverted_title": "Inverted sketch: Vibrant Cosmic Spiral Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic abstract composition featuring swirling and forms twisting into a deep cosmic center. The composition evokes a sense of galactic motion with celestial orbs and fluid energy trails against a starry background (from painting #189).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic abstract composition featuring swirling and forms twisting into a deep cosmic center. The composition evokes a sense of galactic motion with celestial orbs and fluid energy trails against a starry background",
+  "source_description": "A dynamic abstract painting featuring swirling orange and yellow forms twisting into a deep cosmic center. The composition evokes a sense of galactic motion with celestial orbs and fluid energy trails against a starry background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Cosmic Spiral Vortex",
+  "style": "Abstract Expressionism",
+  "mood": "Energetic and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "swirl",
+    "vortex",
+    "abstract",
+    "galactic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 189,
+  "source_url": "/paintings/189.jpg",
+  "image_url": "/sketches/150.png",
+  "inverted_image_url": "/sketches-inverted/150.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:38Z"
+}

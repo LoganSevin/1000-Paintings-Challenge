@@ -1,0 +1,42 @@
+{
+  "number": 2533,
+  "title": "Line sketch: Film Reel Column",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A classical fluted column stands in a derelict hall, wrapped in a spiraling film strip containing fragmented cinematic images including an eye, flowers, a newspaper, and a heart. Scattered 35mm film reels and torn film strips lie on the cracked marble floor amid dark liquid pools and small sprouts (derived from generated still #1769).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A classical fluted column stands in a derelict hall, wrapped in a spiraling film strip containing fragmented cinematic images including an eye, flowers, a newspaper, and a heart. Scattered 35mm film reels and torn film strips lie on the cracked marble floor amid dark liquid pools and small sprouts",
+  "inverted_title": "Inverted sketch: Film Reel Column",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A classical fluted column stands in a derelict hall, wrapped in a spiraling film strip containing fragmented cinematic images including an eye, flowers, a newspaper, and a heart. Scattered 35mm film reels and torn film strips lie on the cracked marble floor amid dark liquid pools and small sprouts (from generated still #1769).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A classical fluted column stands in a derelict hall, wrapped in a spiraling film strip containing fragmented cinematic images including an eye, flowers, a newspaper, and a heart. Scattered 35mm film reels and torn film strips lie on the cracked marble floor amid dark liquid pools and small sprouts",
+  "source_description": "A classical fluted column stands in a derelict hall, wrapped in a spiraling film strip containing fragmented cinematic images including an eye, flowers, a newspaper, and a red heart. Scattered 35mm film reels and torn film strips lie on the cracked marble floor amid dark liquid pools and small green sprouts.",
+  "source_prompt": "",
+  "source_title": "Film Reel Column",
+  "style": "surrealism",
+  "mood": "melancholic decay",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "ruins",
+    "film reels",
+    "classical column"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1769,
+  "source_url": "/generated/1769.jpg",
+  "image_url": "/sketches/2533.png",
+  "inverted_image_url": "/sketches-inverted/2533.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:43Z"
+}

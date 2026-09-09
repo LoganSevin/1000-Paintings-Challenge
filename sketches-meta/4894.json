@@ -1,0 +1,42 @@
+{
+  "number": 4894,
+  "title": "Line sketch: Surreal Mirror Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central woman with large fairy wings and a pixelated mirrored dress stands in a dark surreal landscape, raising one hand toward a beam of light. Behind her, an ornate mirror reveals a modern interior where an identical woman in a suit stands, surrounded by floating jellyfish, demonic eyes, melting staircases, Christmas ornaments, and gothic ruins under a blood- sky (derived from generated still #4329).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central woman with large fairy wings and a pixelated mirrored dress stands in a dark surreal landscape, raising one hand toward a beam of light. Behind her, an ornate mirror reveals a modern interior where an identical woman in a suit stands, surrounded by floating jellyfish, demonic eyes, melting staircases, Christmas ornaments, and gothic ruins under a blood- sky",
+  "inverted_title": "Inverted sketch: Surreal Mirror Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central woman with large fairy wings and a pixelated mirrored dress stands in a dark surreal landscape, raising one hand toward a beam of light. Behind her, an ornate mirror reveals a modern interior where an identical woman in a suit stands, surrounded by floating jellyfish, demonic eyes, melting staircases, Christmas ornaments, and gothic ruins under a blood- sky (from generated still #4329).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central woman with large fairy wings and a pixelated mirrored dress stands in a dark surreal landscape, raising one hand toward a beam of light. Behind her, an ornate mirror reveals a modern interior where an identical woman in a suit stands, surrounded by floating jellyfish, demonic eyes, melting staircases, Christmas ornaments, and gothic ruins under a blood- sky",
+  "source_description": "A central woman with large green fairy wings and a pixelated mirrored dress stands in a dark surreal landscape, raising one hand toward a beam of light. Behind her, an ornate mirror reveals a modern interior where an identical woman in a red suit stands, surrounded by floating jellyfish, demonic eyes, melting staircases, Christmas ornaments, and gothic ruins under a blood-red sky.",
+  "source_prompt": "A beautiful woman with large translucent green fairy wings wears a form-fitting dress covered in mirrored pixel tiles and floral patterns, standing dramatically in a dark surreal dreamscape. She raises one hand as light beams down from above. An ornate mirror behind her shows another version of herself in a red pantsuit inside a modern room. Floating jellyfish, black holes, demonic eyeballs, melting golden staircases, a poisoned apple, Christmas baubles, pink demons, and gothic ruins fill the chaotic scene under a vivid red sky.",
+  "source_title": "Surreal Mirror Portal",
+  "style": "surreal fantasy",
+  "mood": "ethereal dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairy",
+    "surreal",
+    "mirror portal",
+    "pixel dress",
+    "jellyfish"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4329,
+  "source_url": "/generated/4329.jpg",
+  "image_url": "/sketches/4894.png",
+  "inverted_image_url": "/sketches-inverted/4894.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:49Z"
+}

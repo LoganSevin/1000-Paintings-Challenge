@@ -1,0 +1,42 @@
+{
+  "number": 3430,
+  "title": "Line sketch: Surreal Cosmic Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition divided into multiple distinct scenes. The top features a futuristic city with glowing highways at sunset, floating planets, and a large translucent sphere containing a bright white glowing square. A woman's face with skin and eyes appears in the upper right. The bottom left shows a vibrant wolf-like creature with black eyes surrounded by flowers. The bottom right depicts a small boat with two figures on calm water at sunset, with a large portrait of a cartoonish older man in a suit positioned centrally below the glowing square (derived from generated still #2831).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition divided into multiple distinct scenes. The top features a futuristic city with glowing highways at sunset, floating planets, and a large translucent sphere containing a bright white glowing square. A woman's face with skin and eyes appears in the upper right. The bottom left shows a vibrant wolf-like creature with black eyes surrounded by flowers. The bottom right depicts a small boat with two figures on calm water at sunset, with a large portrait of a cartoonish older man in a suit positioned centrally below the glowing square",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition divided into multiple distinct scenes. The top features a futuristic city with glowing highways at sunset, floating planets, and a large translucent sphere containing a bright white glowing square. A woman's face with skin and eyes appears in the upper right. The bottom left shows a vibrant wolf-like creature with black eyes surrounded by flowers. The bottom right depicts a small boat with two figures on calm water at sunset, with a large portrait of a cartoonish older man in a suit positioned centrally below the glowing square (from generated still #2831).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition divided into multiple distinct scenes. The top features a futuristic city with glowing highways at sunset, floating planets, and a large translucent sphere containing a bright white glowing square. A woman's face with skin and eyes appears in the upper right. The bottom left shows a vibrant wolf-like creature with black eyes surrounded by flowers. The bottom right depicts a small boat with two figures on calm water at sunset, with a large portrait of a cartoonish older man in a suit positioned centrally below the glowing square",
+  "source_description": "A surreal painting divided into multiple distinct scenes. The top features a futuristic city with glowing highways at sunset, floating planets, and a large translucent sphere containing a bright white glowing square. A woman's face with blue skin and golden eyes appears in the upper right. The bottom left shows a vibrant green wolf-like creature with black eyes surrounded by pink flowers. The bottom right depicts a small boat with two figures on calm water at sunset, with a large portrait of a cartoonish older man in a green suit positioned centrally below the glowing square.",
+  "source_prompt": "Highly detailed surreal painting featuring a complex collage of scenes: upper left shows a cyberpunk city highway at sunset with floating spheres, center has a large blue planet and a blinding white glowing square portal, upper right a translucent blue woman's face with golden eyes, lower left a bright green wolf creature with pink flowers, lower right a lone boat on water at sunset with orange clouds, and a central circular portrait of a cartoonish middle-aged man with exaggerated features wearing a green outfit, all blended together in a dreamlike cosmic composition.",
+  "source_title": "Surreal Cosmic Collage",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "collage",
+    "psychedelic",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2831,
+  "source_url": "/generated/2831.jpg",
+  "image_url": "/sketches/3430.png",
+  "inverted_image_url": "/sketches-inverted/3430.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:45Z"
+}

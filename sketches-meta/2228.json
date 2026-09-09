@@ -1,0 +1,42 @@
+{
+  "number": 2228,
+  "title": "Line sketch: Cosmic Alien",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition features a large alien with oversized eyes and a slight smile, emerging from behind a planet. The scene is filled with floating orbs containing smaller figures, swirling patterns, and a fiery and cosmic background (derived from generated still #1453).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition features a large alien with oversized eyes and a slight smile, emerging from behind a planet. The scene is filled with floating orbs containing smaller figures, swirling patterns, and a fiery and cosmic background",
+  "inverted_title": "Inverted sketch: Cosmic Alien",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition features a large alien with oversized eyes and a slight smile, emerging from behind a planet. The scene is filled with floating orbs containing smaller figures, swirling patterns, and a fiery and cosmic background (from generated still #1453).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition features a large alien with oversized eyes and a slight smile, emerging from behind a planet. The scene is filled with floating orbs containing smaller figures, swirling patterns, and a fiery and cosmic background",
+  "source_description": "A vibrant psychedelic painting features a large green alien with oversized red eyes and a slight smile, emerging from behind a blue planet. The scene is filled with floating blue orbs containing smaller yellow figures, swirling patterns, and a fiery orange and yellow cosmic background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Green Alien",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "psychedelic",
+    "cosmic",
+    "surreal",
+    "planet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1453,
+  "source_url": "/generated/1453.jpg",
+  "image_url": "/sketches/2228.png",
+  "inverted_image_url": "/sketches-inverted/2228.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:43Z"
+}

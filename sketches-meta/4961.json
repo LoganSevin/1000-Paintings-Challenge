@@ -1,0 +1,42 @@
+{
+  "number": 4961,
+  "title": "Line sketch: Rainy Museum Corridor",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit museum hall with a large surreal composition dominating the right wall, depicting a long flooded hallway with emergency lights and an exit sign. Rain pours through a broken skylight onto the wet floor where puddles reflect the glow, while a wooden desk in the foreground holds a lit banker's lamp, a steaming cup, and a vintage radio (derived from generated still #4398).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit museum hall with a large surreal composition dominating the right wall, depicting a long flooded hallway with emergency lights and an exit sign. Rain pours through a broken skylight onto the wet floor where puddles reflect the glow, while a wooden desk in the foreground holds a lit banker's lamp, a steaming cup, and a vintage radio",
+  "inverted_title": "Inverted sketch: Rainy Museum Corridor",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit museum hall with a large surreal composition dominating the right wall, depicting a long flooded hallway with emergency lights and an exit sign. Rain pours through a broken skylight onto the wet floor where puddles reflect the glow, while a wooden desk in the foreground holds a lit banker's lamp, a steaming cup, and a vintage radio (from generated still #4398).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit museum hall with a large surreal composition dominating the right wall, depicting a long flooded hallway with emergency lights and an exit sign. Rain pours through a broken skylight onto the wet floor where puddles reflect the glow, while a wooden desk in the foreground holds a lit banker's lamp, a steaming cup, and a vintage radio",
+  "source_description": "A dimly lit museum hall with a large surreal painting dominating the right wall, depicting a long flooded hallway with red emergency lights and an exit sign. Rain pours through a broken skylight onto the wet floor where puddles reflect the crimson glow, while a wooden desk in the foreground holds a lit green banker's lamp, a steaming cup, and a vintage radio.",
+  "source_prompt": "A moody cinematic scene inside a dark abandoned museum gallery at night. Rain falls heavily through a broken skylight onto the wet floor creating reflective puddles. On the right wall hangs a massive surreal painting showing an endless flooded green hallway with glowing red exit signs and emergency lights. In the left foreground, a wooden desk holds a glowing green banker's lamp, steaming coffee cup, and old radio. Atmospheric lighting, eerie and melancholic mood, highly detailed digital painting.",
+  "source_title": "Rainy Museum Corridor",
+  "style": "cinematic",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "rain",
+    "museum",
+    "liminal space",
+    "noir"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4398,
+  "source_url": "/generated/4398.jpg",
+  "image_url": "/sketches/4961.png",
+  "inverted_image_url": "/sketches-inverted/4961.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:49Z"
+}

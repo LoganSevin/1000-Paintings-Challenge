@@ -1,0 +1,42 @@
+{
+  "number": 3968,
+  "title": "Line sketch: Mage Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with armored accents, glowing magical energy swirling around her raised left hand and a circular magical chain held in her right (derived from generated still #3385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with armored accents, glowing magical energy swirling around her raised left hand and a circular magical chain held in her right",
+  "inverted_title": "Inverted sketch: Mage Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with armored accents, glowing magical energy swirling around her raised left hand and a circular magical chain held in her right (from generated still #3385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with armored accents, glowing magical energy swirling around her raised left hand and a circular magical chain held in her right",
+  "source_description": "A young woman with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and purple traditional-inspired outfit with armored accents, glowing purple magical energy swirling around her raised left hand and a circular magical chain held in her right.",
+  "source_prompt": "A young East Asian woman with short white hair and purple eyes in a dynamic combat stance, wearing a white and purple traditional fantasy outfit with corset details and flowing sleeves, casting a spell with glowing purple magical energy swirling around her left hand while holding a circular glowing purple chain weapon in her right, intricate purple halo above her head, detailed digital painting, solid gray background",
+  "source_title": "Purple Mage Warrior",
+  "style": "digital illustration",
+  "mood": "powerful, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "magic",
+    "white hair",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3385,
+  "source_url": "/generated/3385.jpg",
+  "image_url": "/sketches/3968.png",
+  "inverted_image_url": "/sketches-inverted/3968.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:47Z"
+}

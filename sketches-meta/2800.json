@@ -1,0 +1,42 @@
+{
+  "number": 2800,
+  "title": "Line sketch: Potted Plant Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up view of a leafy potted plant with rounded, heart-shaped leaves showing variations of, and blueish tones. The plant sits in a pot against a soft, blurred background with hints of more foliage (derived from generated still #2084).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up view of a leafy potted plant with rounded, heart-shaped leaves showing variations of, and blueish tones. The plant sits in a pot against a soft, blurred background with hints of more foliage",
+  "inverted_title": "Inverted sketch: Potted Plant Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up view of a leafy potted plant with rounded, heart-shaped leaves showing variations of, and blueish tones. The plant sits in a pot against a soft, blurred background with hints of more foliage (from generated still #2084).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up view of a leafy potted plant with rounded, heart-shaped leaves showing variations of, and blueish tones. The plant sits in a pot against a soft, blurred background with hints of more foliage",
+  "source_description": "A close-up view of a leafy potted plant with rounded, heart-shaped green leaves showing variations of light green, yellow, and blueish tones. The plant sits in a dark brown pot against a soft, blurred background with hints of more foliage.",
+  "source_prompt": "Close-up realistic oil painting of a lush potted plant with rounded heart-shaped leaves in varying shades of green, lime, and yellow with subtle blue undertones, visible dark brown pot at the base, soft blurred background, detailed leaf textures and veins, natural lighting, serene botanical study",
+  "source_title": "Potted Plant Study",
+  "style": "realistic composition",
+  "mood": "serene, natural",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "botanical",
+    "foliage",
+    "plant study",
+    "still life",
+    "tones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2084,
+  "source_url": "/generated/2084.jpg",
+  "image_url": "/sketches/2800.png",
+  "inverted_image_url": "/sketches-inverted/2800.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

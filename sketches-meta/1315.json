@@ -1,0 +1,42 @@
+{
+  "number": 1315,
+  "title": "Line sketch: Skeleton Conjuring Orbs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal figure with long flowing black hair sits in the center of a swirling and black vortex. It reaches out with both hands, manipulating glowing bubbles that float around it against a smoky gray background (derived from generated still #530).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal figure with long flowing black hair sits in the center of a swirling and black vortex. It reaches out with both hands, manipulating glowing bubbles that float around it against a smoky gray background",
+  "inverted_title": "Inverted sketch: Skeleton Conjuring Orbs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal figure with long flowing black hair sits in the center of a swirling and black vortex. It reaches out with both hands, manipulating glowing bubbles that float around it against a smoky gray background (from generated still #530).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal figure with long flowing black hair sits in the center of a swirling and black vortex. It reaches out with both hands, manipulating glowing bubbles that float around it against a smoky gray background",
+  "source_description": "A skeletal figure with long flowing black hair sits in the center of a swirling red and black vortex. It reaches out with both hands, manipulating glowing iridescent bubbles that float around it against a smoky gray background.",
+  "source_prompt": "",
+  "source_title": "Skeleton Conjuring Orbs",
+  "style": "fantasy illustration",
+  "mood": "ethereal, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "vortex",
+    "bubbles",
+    "magic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 530,
+  "source_url": "/generated/530.jpg",
+  "image_url": "/sketches/1315.png",
+  "inverted_image_url": "/sketches-inverted/1315.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:41Z"
+}

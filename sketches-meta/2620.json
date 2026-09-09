@@ -1,0 +1,42 @@
+{
+  "number": 2620,
+  "title": "Line sketch: Vortex of Loops",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition featuring swirling, interlocking loops and spirals in thick, textured strokes of, black, and white. The composition has a distressed, cracked surface with prominent paint drips running downward from the forms (derived from generated still #1859).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition featuring swirling, interlocking loops and spirals in thick, textured strokes of, black, and white. The composition has a distressed, cracked surface with prominent paint drips running downward from the forms",
+  "inverted_title": "Inverted sketch: Vortex of Loops",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition featuring swirling, interlocking loops and spirals in thick, textured strokes of, black, and white. The composition has a distressed, cracked surface with prominent paint drips running downward from the forms (from generated still #1859).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition featuring swirling, interlocking loops and spirals in thick, textured strokes of, black, and white. The composition has a distressed, cracked surface with prominent paint drips running downward from the forms",
+  "source_description": "An abstract painting featuring swirling, interlocking loops and spirals in thick, textured strokes of red, yellow, black, and white. The composition has a distressed, cracked surface with prominent paint drips running downward from the forms.",
+  "source_prompt": "",
+  "source_title": "Vortex of Crimson Loops",
+  "style": "abstract expressionism",
+  "mood": "chaotic, visceral",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "swirls",
+    "dripping paint",
+    "vortex",
+    "textured",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1859,
+  "source_url": "/generated/1859.jpg",
+  "image_url": "/sketches/2620.png",
+  "inverted_image_url": "/sketches-inverted/2620.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:43Z"
+}

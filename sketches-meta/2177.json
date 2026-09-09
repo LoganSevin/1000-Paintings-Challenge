@@ -1,0 +1,42 @@
+{
+  "number": 2177,
+  "title": "Line sketch: Psychedelic Mermaid Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition of a woman's profile with a large sphere for a body, her hair flowing as swirling patterns filled with fish and bubbles. The foreground features a fantastical underwater garden with mushrooms and -like plants (derived from generated still #1402).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition of a woman's profile with a large sphere for a body, her hair flowing as swirling patterns filled with fish and bubbles. The foreground features a fantastical underwater garden with mushrooms and -like plants",
+  "inverted_title": "Inverted sketch: Psychedelic Mermaid Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition of a woman's profile with a large sphere for a body, her hair flowing as swirling patterns filled with fish and bubbles. The foreground features a fantastical underwater garden with mushrooms and -like plants (from generated still #1402).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition of a woman's profile with a large sphere for a body, her hair flowing as swirling patterns filled with fish and bubbles. The foreground features a fantastical underwater garden with mushrooms and -like plants",
+  "source_description": "A vibrant surreal painting of a woman's profile with a large magenta sphere for a body, her hair flowing as colorful swirling patterns filled with fish and bubbles. The foreground features a fantastical underwater garden with colorful mushrooms and coral-like plants.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mermaid Portrait",
+  "style": "Psychedelic Surrealism",
+  "mood": "whimsical trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "mermaid",
+    "surreal",
+    "swirls",
+    "underwater"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1402,
+  "source_url": "/generated/1402.jpg",
+  "image_url": "/sketches/2177.png",
+  "inverted_image_url": "/sketches-inverted/2177.png",
+  "curve_count": 62,
+  "built_at": "2026-08-17T00:09:42Z"
+}

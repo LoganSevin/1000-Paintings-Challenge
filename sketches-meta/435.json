@@ -1,0 +1,42 @@
+{
+  "number": 435,
+  "title": "Line sketch: Palm Up Hand Drawing",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed sketch of a right hand with palm facing forward, showing natural skin lines and shading. Part of a daily composition challenge with simple yet expressive illustration (derived from painting #521).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed sketch of a right hand with palm facing forward, showing natural skin lines and shading. Part of a daily composition challenge with simple yet expressive illustration",
+  "inverted_title": "Inverted sketch: Palm Up Hand Drawing",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed sketch of a right hand with palm facing forward, showing natural skin lines and shading. Part of a daily composition challenge with simple yet expressive illustration (from painting #521).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed sketch of a right hand with palm facing forward, showing natural skin lines and shading. Part of a daily composition challenge with simple yet expressive illustration",
+  "source_description": "A detailed sketch of a right hand with palm facing forward, showing natural skin lines and shading. Part of a daily painting challenge with simple yet expressive illustration.",
+  "source_prompt": "",
+  "source_title": "Palm Up Hand Drawing",
+  "style": "Realistic Sketch",
+  "mood": "Neutral Study",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hand drawing",
+    "anatomy study",
+    "palm view",
+    "daily challenge",
+    "skin tones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 521,
+  "source_url": "/paintings/521.jpg",
+  "image_url": "/sketches/435.png",
+  "inverted_image_url": "/sketches-inverted/435.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1248,
+  "title": "Line sketch: Eldritch Eclipse Cathedral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark fantasy composition featuring a colossal woman's face with glowing eyes and flowing tentacles for hair, merged with a gothic cathedral. In the apocalyptic sky, a black sun with a glowing corona hangs above a massive tentacled eye with a vertical slit pupil, overlooking a volcanic landscape with lava rivers and spired buildings (derived from generated still #460).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark fantasy composition featuring a colossal woman's face with glowing eyes and flowing tentacles for hair, merged with a gothic cathedral. In the apocalyptic sky, a black sun with a glowing corona hangs above a massive tentacled eye with a vertical slit pupil, overlooking a volcanic landscape with lava rivers and spired buildings",
+  "inverted_title": "Inverted sketch: Eldritch Eclipse Cathedral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark fantasy composition featuring a colossal woman's face with glowing eyes and flowing tentacles for hair, merged with a gothic cathedral. In the apocalyptic sky, a black sun with a glowing corona hangs above a massive tentacled eye with a vertical slit pupil, overlooking a volcanic landscape with lava rivers and spired buildings (from generated still #460).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark fantasy composition featuring a colossal woman's face with glowing eyes and flowing tentacles for hair, merged with a gothic cathedral. In the apocalyptic sky, a black sun with a glowing corona hangs above a massive tentacled eye with a vertical slit pupil, overlooking a volcanic landscape with lava rivers and spired buildings",
+  "source_description": "A surreal dark fantasy painting featuring a colossal woman's face with glowing orange eyes and flowing purple tentacles for hair, merged with a gothic cathedral. In the apocalyptic red sky, a black sun with a glowing corona hangs above a massive tentacled eye with a vertical slit pupil, overlooking a volcanic landscape with lava rivers and spired buildings.",
+  "source_prompt": "",
+  "source_title": "Eldritch Eclipse Cathedral",
+  "style": "surreal dark fantasy",
+  "mood": "apocalyptic, eldritch, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tentacles",
+    "gothic cathedral",
+    "eldritch horror",
+    "volcanic landscape",
+    "eclipse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 460,
+  "source_url": "/generated/460.jpg",
+  "image_url": "/sketches/1248.png",
+  "inverted_image_url": "/sketches-inverted/1248.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:40Z"
+}

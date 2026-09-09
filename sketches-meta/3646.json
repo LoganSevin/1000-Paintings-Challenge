@@ -1,0 +1,42 @@
+{
+  "number": 3646,
+  "title": "Line sketch: Kneeling in Paris",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an elaborate and black dress with matching boots kneels on a stone plaza, holding a rosary and looking down. Behind her stands a large gothic cathedral, while an oversized stained glass window arches above showing the same woman in a different pose against a and background. A surreal Parisian street with cafes and a domed building extends into the distance under a sunset sky (derived from generated still #3054).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an elaborate and black dress with matching boots kneels on a stone plaza, holding a rosary and looking down. Behind her stands a large gothic cathedral, while an oversized stained glass window arches above showing the same woman in a different pose against a and background. A surreal Parisian street with cafes and a domed building extends into the distance under a sunset sky",
+  "inverted_title": "Inverted sketch: Kneeling in Paris",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an elaborate and black dress with matching boots kneels on a stone plaza, holding a rosary and looking down. Behind her stands a large gothic cathedral, while an oversized stained glass window arches above showing the same woman in a different pose against a and background. A surreal Parisian street with cafes and a domed building extends into the distance under a sunset sky (from generated still #3054).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an elaborate and black dress with matching boots kneels on a stone plaza, holding a rosary and looking down. Behind her stands a large gothic cathedral, while an oversized stained glass window arches above showing the same woman in a different pose against a and background. A surreal Parisian street with cafes and a domed building extends into the distance under a sunset sky",
+  "source_description": "A woman in an elaborate pink and black dress with matching boots kneels on a stone plaza, holding a rosary and looking down. Behind her stands a large pink gothic cathedral, while an oversized stained glass window arches above showing the same woman in a different pose against a blue and gold background. A surreal Parisian street with cafes and a domed building extends into the distance under a sunset sky.",
+  "source_prompt": "A surreal scene of a woman with short dark hair wearing an ornate pink and black frilled dress and pink boots, kneeling on stone pavement while holding a rosary. Behind her is a massive pink gothic cathedral. A giant stained glass arch shows the same woman inside it. Parisian street with cafes, striped awnings, and a domed building in the distance under a colorful sunset sky with a visible moon, dreamlike atmosphere, highly detailed digital painting.",
+  "source_title": "Kneeling in Pink Paris",
+  "style": "surreal",
+  "mood": "dreamlike melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "gothic",
+    "aesthetic",
+    "stained glass",
+    "parisian street"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3054,
+  "source_url": "/generated/3054.jpg",
+  "image_url": "/sketches/3646.png",
+  "inverted_image_url": "/sketches-inverted/3646.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:46Z"
+}

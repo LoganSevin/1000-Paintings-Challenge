@@ -1,0 +1,42 @@
+{
+  "number": 3664,
+  "title": "Line sketch: Dragon in Parisian Street",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive black dragon with glowing eyes and fiery accents crawls across a wet cobblestone street in a European city. Behind it, a large semi-circular stained glass window depicting a dragon is mounted between buildings resembling Montmartre with the Sacré-Cœur Basilica visible in the background (derived from generated still #3072).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive black dragon with glowing eyes and fiery accents crawls across a wet cobblestone street in a European city. Behind it, a large semi-circular stained glass window depicting a dragon is mounted between buildings resembling Montmartre with the Sacré-Cœur Basilica visible in the background",
+  "inverted_title": "Inverted sketch: Dragon in Parisian Street",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive black dragon with glowing eyes and fiery accents crawls across a wet cobblestone street in a European city. Behind it, a large semi-circular stained glass window depicting a dragon is mounted between buildings resembling Montmartre with the Sacré-Cœur Basilica visible in the background (from generated still #3072).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive black dragon with glowing eyes and fiery accents crawls across a wet cobblestone street in a European city. Behind it, a large semi-circular stained glass window depicting a dragon is mounted between buildings resembling Montmartre with the Sacré-Cœur Basilica visible in the background",
+  "source_description": "A massive black dragon with glowing green eyes and orange fiery accents crawls across a wet cobblestone street in a European city. Behind it, a large semi-circular stained glass window depicting a colorful green dragon is mounted between buildings resembling Montmartre with the Sacré-Cœur Basilica visible in the background.",
+  "source_prompt": "A gigantic black dragon with glowing green eyes and fiery orange highlights crawling on a wet Parisian cobblestone street, massive semi-circular stained glass window above it showing a detailed green dragon, Sacré-Cœur Basilica and classic Parisian buildings in the background, dramatic cloudy sky, people fleeing in the distance, cinematic lighting, highly detailed fantasy artwork",
+  "source_title": "Dragon in Parisian Street",
+  "style": "fantasy illustration",
+  "mood": "dramatic, epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "paris",
+    "stained glass",
+    "montmartre",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3072,
+  "source_url": "/generated/3072.jpg",
+  "image_url": "/sketches/3664.png",
+  "inverted_image_url": "/sketches-inverted/3664.png",
+  "curve_count": 104,
+  "built_at": "2026-08-17T00:09:46Z"
+}

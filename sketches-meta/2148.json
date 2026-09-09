@@ -1,0 +1,42 @@
+{
+  "number": 2148,
+  "title": "Line sketch: Stasis Fusion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal still life composition featuring a large cracked white eggshell with a egg inside, a massive black bear paw print emerging from the shell, and a vibrant chrysanthemum flower at the base. The background displays a gradient with overlapping circular patterns and silhouettes of stylized female faces in and (derived from generated still #1373).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal still life composition featuring a large cracked white eggshell with a egg inside, a massive black bear paw print emerging from the shell, and a vibrant chrysanthemum flower at the base. The background displays a gradient with overlapping circular patterns and silhouettes of stylized female faces in and",
+  "inverted_title": "Inverted sketch: Stasis Fusion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal still life composition featuring a large cracked white eggshell with a egg inside, a massive black bear paw print emerging from the shell, and a vibrant chrysanthemum flower at the base. The background displays a gradient with overlapping circular patterns and silhouettes of stylized female faces in and (from generated still #1373).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal still life composition featuring a large cracked white eggshell with a egg inside, a massive black bear paw print emerging from the shell, and a vibrant chrysanthemum flower at the base. The background displays a gradient with overlapping circular patterns and silhouettes of stylized female faces in and",
+  "source_description": "A surreal still life painting featuring a large cracked white eggshell with a golden egg inside, a massive black bear paw print emerging from the shell, and a vibrant red chrysanthemum flower at the base. The background displays a green gradient with overlapping circular patterns and silhouettes of stylized female faces in yellow and purple.",
+  "source_prompt": "",
+  "source_title": "Stasis Fusion",
+  "style": "surrealism",
+  "mood": "mysterious, symbolic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eggshell",
+    "bear paw",
+    "chrysanthemum",
+    "egg"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1373,
+  "source_url": "/generated/1373.jpg",
+  "image_url": "/sketches/2148.png",
+  "inverted_image_url": "/sketches-inverted/2148.png",
+  "curve_count": 217,
+  "built_at": "2026-08-17T00:09:42Z"
+}

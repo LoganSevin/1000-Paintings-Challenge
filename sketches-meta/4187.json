@@ -1,0 +1,42 @@
+{
+  "number": 4187,
+  "title": "Line sketch: Fallen Angel in Ruins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A ram-horned humanoid figure with large feathered wings stands centrally amid ancient stone ruins. The character wears a long white coat over and dark garments, with papers scattered across the broken stone floor around its feet (derived from generated still #3605).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A ram-horned humanoid figure with large feathered wings stands centrally amid ancient stone ruins. The character wears a long white coat over and dark garments, with papers scattered across the broken stone floor around its feet",
+  "inverted_title": "Inverted sketch: Fallen Angel in Ruins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A ram-horned humanoid figure with large feathered wings stands centrally amid ancient stone ruins. The character wears a long white coat over and dark garments, with papers scattered across the broken stone floor around its feet (from generated still #3605).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A ram-horned humanoid figure with large feathered wings stands centrally amid ancient stone ruins. The character wears a long white coat over and dark garments, with papers scattered across the broken stone floor around its feet",
+  "source_description": "A ram-horned humanoid figure with large feathered wings stands centrally amid ancient stone ruins. The character wears a long white coat over red and dark garments, with papers scattered across the broken stone floor around its feet.",
+  "source_prompt": "A majestic ram-horned humanoid with massive white and golden feathered wings stands in the center of ancient ruined stone architecture. It has dark skin, wears an open long white coat over a red vest and dark robes, with intricate golden patterns on its legs. Scattered papers and broken stone tiles cover the ground. A glowing halo with radiating spikes floats behind its head. Dramatic sunset lighting with volumetric fog and hanging lightbulb above, cinematic fantasy style.",
+  "source_title": "Fallen Angel in Ruins",
+  "style": "digital fantasy illustration",
+  "mood": "epic, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fallen angel",
+    "ram horns",
+    "ruins",
+    "wings",
+    "mystical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3605,
+  "source_url": "/generated/3605.jpg",
+  "image_url": "/sketches/4187.png",
+  "inverted_image_url": "/sketches-inverted/4187.png",
+  "curve_count": 165,
+  "built_at": "2026-08-17T00:09:47Z"
+}

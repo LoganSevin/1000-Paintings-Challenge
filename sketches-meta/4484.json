@@ -1,0 +1,42 @@
+{
+  "number": 4484,
+  "title": "Line sketch: Mundicuae's Spell Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant nighttime festival scene featuring a -skinned elf wizard with a crown, laughing while holding a glowing potion bottle. He stands behind a decorated market stall filled with magical items, an open spellbook, lit candles, coins, a glass cloche containing butterflies, floating lanterns, and theatrical masks (derived from generated still #3903).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant nighttime festival scene featuring a -skinned elf wizard with a crown, laughing while holding a glowing potion bottle. He stands behind a decorated market stall filled with magical items, an open spellbook, lit candles, coins, a glass cloche containing butterflies, floating lanterns, and theatrical masks",
+  "inverted_title": "Inverted sketch: Mundicuae's Spell Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant nighttime festival scene featuring a -skinned elf wizard with a crown, laughing while holding a glowing potion bottle. He stands behind a decorated market stall filled with magical items, an open spellbook, lit candles, coins, a glass cloche containing butterflies, floating lanterns, and theatrical masks (from generated still #3903).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant nighttime festival scene featuring a -skinned elf wizard with a crown, laughing while holding a glowing potion bottle. He stands behind a decorated market stall filled with magical items, an open spellbook, lit candles, coins, a glass cloche containing butterflies, floating lanterns, and theatrical masks",
+  "source_description": "A vibrant nighttime festival scene featuring a purple-skinned elf wizard with a crown, laughing while holding a glowing green potion bottle. He stands behind a decorated market stall filled with magical items, an open spellbook, lit candles, coins, a glass cloche containing red butterflies, floating lanterns, and theatrical masks.",
+  "source_prompt": "A cheerful purple-skinned elf wizard wearing a crown and cream robes stands behind a festive market stall at night. He holds up a glowing green potion with one hand while laughing. The stall is covered in purple and teal cloth, an open spellbook, scattered gold coins, red candles, and a large glass cloche with red butterflies inside. Floating purple and red paper lanterns hang above, theatrical masks and potion bottles fill the shelves behind him, magical sparkles and green banners complete the lively celebration atmosphere.",
+  "source_title": "Mundicuae's Spell Shop",
+  "style": "fantasy illustration",
+  "mood": "festive magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "magic shop",
+    "fantasy market",
+    "elf mage",
+    "celebration night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3903,
+  "source_url": "/generated/3903.jpg",
+  "image_url": "/sketches/4484.png",
+  "inverted_image_url": "/sketches-inverted/4484.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:48Z"
+}

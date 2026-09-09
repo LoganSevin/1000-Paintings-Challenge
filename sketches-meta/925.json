@@ -1,0 +1,42 @@
+{
+  "number": 925,
+  "title": "Line sketch: Cosmic Mechanical Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal profile portrait of a female cyborg with an exposed mechanical skull, vibrant paint dripping from her glowing eye and open mouth. She emerges from a hellish burning forest under a swirling cosmic vortex filled with stars, planets, and nebulae (derived from generated still #135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal profile portrait of a female cyborg with an exposed mechanical skull, vibrant paint dripping from her glowing eye and open mouth. She emerges from a hellish burning forest under a swirling cosmic vortex filled with stars, planets, and nebulae",
+  "inverted_title": "Inverted sketch: Cosmic Mechanical Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal profile portrait of a female cyborg with an exposed mechanical skull, vibrant paint dripping from her glowing eye and open mouth. She emerges from a hellish burning forest under a swirling cosmic vortex filled with stars, planets, and nebulae (from generated still #135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal profile portrait of a female cyborg with an exposed mechanical skull, vibrant paint dripping from her glowing eye and open mouth. She emerges from a hellish burning forest under a swirling cosmic vortex filled with stars, planets, and nebulae",
+  "source_description": "A surreal profile portrait of a female cyborg with an exposed mechanical skull, vibrant multicolored paint dripping from her glowing orange eye and open mouth. She emerges from a hellish burning forest under a swirling cosmic vortex filled with stars, planets, and rainbow nebulae.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mechanical Muse",
+  "style": "surrealism",
+  "mood": "apocalyptic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyborg",
+    "surreal",
+    "cosmic",
+    "apocalypse",
+    "mechanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 135,
+  "source_url": "/generated/135.jpg",
+  "image_url": "/sketches/925.png",
+  "inverted_image_url": "/sketches-inverted/925.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:40Z"
+}

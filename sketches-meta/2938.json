@@ -1,0 +1,42 @@
+{
+  "number": 2938,
+  "title": "Line sketch: Bells in the Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark surreal scene featuring a grid of black wooden beams with numerous glowing bells hanging from strings. The background is deep black with swirling - ethereal shapes, ghostly handprints, circular ripples, and luminous particles floating in the darkness (derived from generated still #2242).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark surreal scene featuring a grid of black wooden beams with numerous glowing bells hanging from strings. The background is deep black with swirling - ethereal shapes, ghostly handprints, circular ripples, and luminous particles floating in the darkness",
+  "inverted_title": "Inverted sketch: Bells in the Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark surreal scene featuring a grid of black wooden beams with numerous glowing bells hanging from strings. The background is deep black with swirling - ethereal shapes, ghostly handprints, circular ripples, and luminous particles floating in the darkness (from generated still #2242).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark surreal scene featuring a grid of black wooden beams with numerous glowing bells hanging from strings. The background is deep black with swirling - ethereal shapes, ghostly handprints, circular ripples, and luminous particles floating in the darkness",
+  "source_description": "A dark surreal scene featuring a grid of black wooden beams with numerous glowing golden bells hanging from strings. The background is deep black with swirling yellow-green ethereal shapes, ghostly handprints, circular ripples, and luminous particles floating in the darkness.",
+  "source_prompt": "Surreal dark painting of numerous glowing golden bells hanging from a grid of black wooden beams and strings, set against a deep black void with swirling yellow-green ethereal mist, ghostly luminous handprints, circular ripples emanating from the bells, and floating golden particles, mysterious and haunting atmosphere",
+  "source_title": "Bells in the Abyss",
+  "style": "surreal composition",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bells",
+    "surreal",
+    "ethereal",
+    "dark fantasy",
+    "ghostly hands"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2242,
+  "source_url": "/generated/2242.jpg",
+  "image_url": "/sketches/2938.png",
+  "inverted_image_url": "/sketches-inverted/2938.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:44Z"
+}

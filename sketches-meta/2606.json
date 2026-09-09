@@ -1,0 +1,42 @@
+{
+  "number": 2606,
+  "title": "Line sketch: Fairy Keyhole Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three glowing fairies with and wings interact with a large ornate keyhole mechanism covered in moss and gears. The keyhole emits a magical light while the surrounding enchanted forest floor is dotted with glowing mushrooms and flora (derived from generated still #1844).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three glowing fairies with and wings interact with a large ornate keyhole mechanism covered in moss and gears. The keyhole emits a magical light while the surrounding enchanted forest floor is dotted with glowing mushrooms and flora",
+  "inverted_title": "Inverted sketch: Fairy Keyhole Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three glowing fairies with and wings interact with a large ornate keyhole mechanism covered in moss and gears. The keyhole emits a magical light while the surrounding enchanted forest floor is dotted with glowing mushrooms and flora (from generated still #1844).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three glowing fairies with and wings interact with a large ornate keyhole mechanism covered in moss and gears. The keyhole emits a magical light while the surrounding enchanted forest floor is dotted with glowing mushrooms and flora",
+  "source_description": "Three glowing fairies with purple and pink wings interact with a large ornate keyhole mechanism covered in moss and gears. The keyhole emits a bright pink magical light while the surrounding enchanted forest floor is dotted with colorful glowing mushrooms and flora.",
+  "source_prompt": "",
+  "source_title": "Fairy Keyhole Portal",
+  "style": "fantasy illustration",
+  "mood": "magical, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairies",
+    "keyhole",
+    "mushrooms",
+    "gears",
+    "forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1844,
+  "source_url": "/generated/1844.jpg",
+  "image_url": "/sketches/2606.png",
+  "inverted_image_url": "/sketches-inverted/2606.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:43Z"
+}

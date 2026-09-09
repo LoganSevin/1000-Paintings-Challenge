@@ -1,0 +1,42 @@
+{
+  "number": 2995,
+  "title": "Line sketch: Surreal Moonlit Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark fantasy scene featuring a central menacing figure with large bulging white eyes, sharp teeth, and a fur-lined hood, surrounded by flowing black ink-like tendrils. To the left a reptilian creature with eyes emerges from a swirling orb, while a dark mountain with a Japanese pagoda stands under a glowing moon on the right, with white flowers and plants in the foreground (derived from generated still #2317).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark fantasy scene featuring a central menacing figure with large bulging white eyes, sharp teeth, and a fur-lined hood, surrounded by flowing black ink-like tendrils. To the left a reptilian creature with eyes emerges from a swirling orb, while a dark mountain with a Japanese pagoda stands under a glowing moon on the right, with white flowers and plants in the foreground",
+  "inverted_title": "Inverted sketch: Surreal Moonlit Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark fantasy scene featuring a central menacing figure with large bulging white eyes, sharp teeth, and a fur-lined hood, surrounded by flowing black ink-like tendrils. To the left a reptilian creature with eyes emerges from a swirling orb, while a dark mountain with a Japanese pagoda stands under a glowing moon on the right, with white flowers and plants in the foreground (from generated still #2317).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark fantasy scene featuring a central menacing figure with large bulging white eyes, sharp teeth, and a fur-lined hood, surrounded by flowing black ink-like tendrils. To the left a reptilian creature with eyes emerges from a swirling orb, while a dark mountain with a Japanese pagoda stands under a glowing moon on the right, with white flowers and plants in the foreground",
+  "source_description": "A surreal dark fantasy scene featuring a central menacing figure with large bulging white eyes, sharp teeth, and a fur-lined hood, surrounded by flowing black ink-like tendrils. To the left a green reptilian creature with red eyes emerges from a swirling blue orb, while a dark mountain with a Japanese pagoda stands under a glowing red moon on the right, with white flowers and plants in the foreground.",
+  "source_prompt": "Surreal dark fantasy painting of a menacing central figure with huge bulging white eyes and sharp teeth wearing a fur hood, flowing black ink tendrils swirling around him, a green reptilian creature with glowing red eyes emerging from a swirling blue orb on the left, a dark mountain topped with a Japanese pagoda under a large blood red moon on the right, white flowers and plants in the foreground, ethereal and grotesque atmosphere, intricate details",
+  "source_title": "Surreal Moonlit Vision",
+  "style": "surreal fantasy",
+  "mood": "eerie, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dark fantasy",
+    "moon",
+    "Japanese pagoda",
+    "ethereal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2317,
+  "source_url": "/generated/2317.jpg",
+  "image_url": "/sketches/2995.png",
+  "inverted_image_url": "/sketches-inverted/2995.png",
+  "curve_count": 215,
+  "built_at": "2026-08-17T00:09:44Z"
+}

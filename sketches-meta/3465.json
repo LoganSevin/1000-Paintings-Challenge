@@ -1,0 +1,42 @@
+{
+  "number": 3465,
+  "title": "Line sketch: Surreal Mechanical Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant detailed eye with exposed mechanical gears and clockwork inside dominates the foreground. In the background, a woman with dark hair appears in profile beside an horse standing on a hill covered in flowers, with a silhouetted cloaked figure on a hill in front of a massive moon under a starry night sky (derived from generated still #2866).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant detailed eye with exposed mechanical gears and clockwork inside dominates the foreground. In the background, a woman with dark hair appears in profile beside an horse standing on a hill covered in flowers, with a silhouetted cloaked figure on a hill in front of a massive moon under a starry night sky",
+  "inverted_title": "Inverted sketch: Surreal Mechanical Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant detailed eye with exposed mechanical gears and clockwork inside dominates the foreground. In the background, a woman with dark hair appears in profile beside an horse standing on a hill covered in flowers, with a silhouetted cloaked figure on a hill in front of a massive moon under a starry night sky (from generated still #2866).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant detailed eye with exposed mechanical gears and clockwork inside dominates the foreground. In the background, a woman with dark hair appears in profile beside an horse standing on a hill covered in flowers, with a silhouetted cloaked figure on a hill in front of a massive moon under a starry night sky",
+  "source_description": "A giant detailed green eye with exposed mechanical gears and clockwork inside dominates the foreground. In the background, a woman with dark hair appears in profile beside an orange horse standing on a hill covered in pink flowers, with a silhouetted cloaked figure on a hill in front of a massive red moon under a starry night sky.",
+  "source_prompt": "Surreal fantasy landscape at night featuring a massive highly detailed green human eye with intricate exposed clockwork gears and mechanical parts in the foreground. Behind it, a beautiful dark-haired woman in profile, an orange horse standing on a rolling green hill covered with glowing pink flowers, and a mysterious cloaked silhouette standing before an enormous blood-red full moon in a starry sky.",
+  "source_title": "Surreal Mechanical Eye",
+  "style": "surrealism",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical eye",
+    "moon",
+    "fantasy landscape",
+    "clockwork"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2866,
+  "source_url": "/generated/2866.jpg",
+  "image_url": "/sketches/3465.png",
+  "inverted_image_url": "/sketches-inverted/3465.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:45Z"
+}

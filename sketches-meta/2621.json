@@ -1,0 +1,42 @@
+{
+  "number": 2621,
+  "title": "Line sketch: Serpent Vortex Graffiti",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal abstract composition featuring a central swirling vortex of intertwined, and serpents with a metallic eyeball at its core. The composition is surrounded by dripping, concentric circular patterns, and against a textured concrete-like background, with the word 'NIA' visible in an splatter at the bottom right (derived from generated still #1860).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal abstract composition featuring a central swirling vortex of intertwined, and serpents with a metallic eyeball at its core. The composition is surrounded by dripping, concentric circular patterns, and against a textured concrete-like background, with the word 'NIA' visible in an splatter at the bottom right",
+  "inverted_title": "Inverted sketch: Serpent Vortex Graffiti",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal abstract composition featuring a central swirling vortex of intertwined, and serpents with a metallic eyeball at its core. The composition is surrounded by dripping, concentric circular patterns, and against a textured concrete-like background, with the word 'NIA' visible in an splatter at the bottom right (from generated still #1860).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal abstract composition featuring a central swirling vortex of intertwined, and serpents with a metallic eyeball at its core. The composition is surrounded by dripping, concentric circular patterns, and against a textured concrete-like background, with the word 'NIA' visible in an splatter at the bottom right",
+  "source_description": "A surreal abstract painting featuring a central swirling vortex of intertwined green, orange, and blue serpents with a metallic eyeball at its core. The composition is surrounded by dripping, concentric circular patterns in dark reds, greens, and yellows against a textured concrete-like background, with the word 'NIA' visible in an orange splatter at the bottom right.",
+  "source_prompt": "",
+  "source_title": "Serpent Vortex Graffiti",
+  "style": "urban surrealism",
+  "mood": "chaotic hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "spray paint and acrylic on concrete",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "graffiti",
+    "serpents",
+    "vortex",
+    "eyeball",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1860,
+  "source_url": "/generated/1860.jpg",
+  "image_url": "/sketches/2621.png",
+  "inverted_image_url": "/sketches-inverted/2621.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:43Z"
+}

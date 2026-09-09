@@ -1,0 +1,42 @@
+{
+  "number": 1076,
+  "title": "Line sketch: Stasis in the Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal mechanical creature with a giant central eye and smaller googly eyes stands on a cracked desert road. Behind it, a large circular signpost reads 'STASIS 17 MILES' against a backdrop of dunes and a massive sun (derived from generated still #288).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal mechanical creature with a giant central eye and smaller googly eyes stands on a cracked desert road. Behind it, a large circular signpost reads 'STASIS 17 MILES' against a backdrop of dunes and a massive sun",
+  "inverted_title": "Inverted sketch: Stasis in the Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal mechanical creature with a giant central eye and smaller googly eyes stands on a cracked desert road. Behind it, a large circular signpost reads 'STASIS 17 MILES' against a backdrop of dunes and a massive sun (from generated still #288).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal mechanical creature with a giant central eye and smaller googly eyes stands on a cracked desert road. Behind it, a large circular signpost reads 'STASIS 17 MILES' against a backdrop of dunes and a massive sun",
+  "source_description": "A surreal mechanical creature with a giant central eye and smaller googly eyes stands on a cracked desert road. Behind it, a large circular signpost reads 'STASIS 17 MILES' against a backdrop of orange dunes and a massive red sun.",
+  "source_prompt": "",
+  "source_title": "Stasis in the Desert",
+  "style": "surrealism",
+  "mood": "whimsical dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical creature",
+    "desert road",
+    "giant eyeball",
+    "stasis sign"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 288,
+  "source_url": "/generated/288.jpg",
+  "image_url": "/sketches/1076.png",
+  "inverted_image_url": "/sketches-inverted/1076.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:40Z"
+}

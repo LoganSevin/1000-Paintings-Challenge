@@ -1,0 +1,42 @@
+{
+  "number": 2091,
+  "title": "Line sketch: Surreal Cosmic Wheel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large ornate wheel with eight spokes dominates the scene, featuring a central eye and various symbolic images along its rim. In the foreground, a vibrant and bird perches on a ginkgo branch, while planets, stars, and clouds float against a gradient sky above an desert landscape (derived from generated still #1316).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large ornate wheel with eight spokes dominates the scene, featuring a central eye and various symbolic images along its rim. In the foreground, a vibrant and bird perches on a ginkgo branch, while planets, stars, and clouds float against a gradient sky above an desert landscape",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Wheel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large ornate wheel with eight spokes dominates the scene, featuring a central eye and various symbolic images along its rim. In the foreground, a vibrant and bird perches on a ginkgo branch, while planets, stars, and clouds float against a gradient sky above an desert landscape (from generated still #1316).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large ornate wheel with eight spokes dominates the scene, featuring a central eye and various symbolic images along its rim. In the foreground, a vibrant and bird perches on a ginkgo branch, while planets, stars, and clouds float against a gradient sky above an desert landscape",
+  "source_description": "A large ornate brown wheel with eight spokes dominates the scene, featuring a central purple eye and various symbolic images along its rim. In the foreground, a vibrant blue and orange bird perches on a ginkgo branch, while colorful planets, stars, and clouds float against a gradient sky above an orange desert landscape.",
+  "source_prompt": "",
+  "source_title": "Surreal Cosmic Wheel",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "wheel",
+    "bird",
+    "planets"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1316,
+  "source_url": "/generated/1316.jpg",
+  "image_url": "/sketches/2091.png",
+  "inverted_image_url": "/sketches-inverted/2091.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:42Z"
+}

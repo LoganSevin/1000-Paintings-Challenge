@@ -1,0 +1,42 @@
+{
+  "number": 4006,
+  "title": "Line sketch: Female Warrior with Magic Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with long dark hair in a topknot stands in a dynamic combat pose, smirking confidently. She holds a large warhammer in her left hand while her right hand emits a swirling and magical energy effect (derived from generated still #3423).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with long dark hair in a topknot stands in a dynamic combat pose, smirking confidently. She holds a large warhammer in her left hand while her right hand emits a swirling and magical energy effect",
+  "inverted_title": "Inverted sketch: Female Warrior with Magic Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with long dark hair in a topknot stands in a dynamic combat pose, smirking confidently. She holds a large warhammer in her left hand while her right hand emits a swirling and magical energy effect (from generated still #3423).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with long dark hair in a topknot stands in a dynamic combat pose, smirking confidently. She holds a large warhammer in her left hand while her right hand emits a swirling and magical energy effect",
+  "source_description": "A young woman with long dark hair in a topknot stands in a dynamic combat pose, smirking confidently. She holds a large purple warhammer in her left hand while her right hand emits a swirling purple and orange magical energy effect.",
+  "source_prompt": "A confident young East Asian woman with long dark hair tied in a topknot with bone ornaments, wearing a cropped tribal top, dark pants with orange patterns, and purple boots. She stands in a wide combat stance holding a massive purple warhammer with intricate designs, her other hand glowing with swirling purple and orange magical flames. She has a cocky smirk, wearing leather straps and belts, detailed digital fantasy illustration on a solid dark gray background.",
+  "source_title": "Female Warrior with Magic Hammer",
+  "style": "digital illustration",
+  "mood": "confident, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "magic user",
+    "warhammer",
+    "fantasy character",
+    "energy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3423,
+  "source_url": "/generated/3423.jpg",
+  "image_url": "/sketches/4006.png",
+  "inverted_image_url": "/sketches-inverted/4006.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:47Z"
+}

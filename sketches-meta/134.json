@@ -1,0 +1,42 @@
+{
+  "number": 134,
+  "title": "Line sketch: Smiling Character Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cheerful -skinned figure with rosy cheeks and a wide grin beams directly at the viewer. The character has stylized hair buns and wears a simple garment against a warm circular background (derived from painting #171).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cheerful -skinned figure with rosy cheeks and a wide grin beams directly at the viewer. The character has stylized hair buns and wears a simple garment against a warm circular background",
+  "inverted_title": "Inverted sketch: Smiling Character Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cheerful -skinned figure with rosy cheeks and a wide grin beams directly at the viewer. The character has stylized hair buns and wears a simple garment against a warm circular background (from painting #171).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cheerful -skinned figure with rosy cheeks and a wide grin beams directly at the viewer. The character has stylized hair buns and wears a simple garment against a warm circular background",
+  "source_description": "A cheerful green-skinned figure with rosy cheeks and a wide grin beams directly at the viewer. The character has stylized hair buns and wears a simple yellow garment against a warm circular background.",
+  "source_prompt": "",
+  "source_title": "Smiling Green Character Portrait",
+  "style": "Digital Cartoon",
+  "mood": "Joyful and Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "cartoon portrait",
+    "skin",
+    "cheerful expression",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 171,
+  "source_url": "/paintings/171.jpg",
+  "image_url": "/sketches/134.png",
+  "inverted_image_url": "/sketches-inverted/134.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:38Z"
+}

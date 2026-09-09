@@ -1,0 +1,41 @@
+{
+  "number": 184,
+  "title": "Line sketch: Paw Print in",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bold paw print surrounded by heart-shaped cutouts creates a striking pattern. The metallic surface with deep shadows gives a modern, industrial feel (derived from painting #227).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bold paw print surrounded by heart-shaped cutouts creates a striking pattern. The metallic surface with deep shadows gives a modern, industrial feel",
+  "inverted_title": "Inverted sketch: Paw Print in",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bold paw print surrounded by heart-shaped cutouts creates a striking pattern. The metallic surface with deep shadows gives a modern, industrial feel (from painting #227).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bold paw print surrounded by heart-shaped cutouts creates a striking pattern. The metallic surface with deep shadows gives a modern, industrial feel",
+  "source_description": "A bold paw print surrounded by heart-shaped cutouts creates a striking pattern. The metallic red surface with deep shadows gives a modern, industrial feel.",
+  "source_prompt": "",
+  "source_title": "Paw Print in Red",
+  "style": "3D relief sculpture",
+  "mood": "bold and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted metal or resin",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "paw print",
+    "hearts",
+    "relief art",
+    "graphic design"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 227,
+  "source_url": "/paintings/227.jpg",
+  "image_url": "/sketches/184.png",
+  "inverted_image_url": "/sketches-inverted/184.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:38Z"
+}

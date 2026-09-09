@@ -1,0 +1,42 @@
+{
+  "number": 2328,
+  "title": "Line sketch: Floral Women Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring overlapping profiles of women's faces in, and hues. A large peony with detailed center dominates the composition, surrounded by swirling patterns, dots, and smaller floral motifs (derived from generated still #1556).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring overlapping profiles of women's faces in, and hues. A large peony with detailed center dominates the composition, surrounded by swirling patterns, dots, and smaller floral motifs",
+  "inverted_title": "Inverted sketch: Floral Women Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring overlapping profiles of women's faces in, and hues. A large peony with detailed center dominates the composition, surrounded by swirling patterns, dots, and smaller floral motifs (from generated still #1556).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring overlapping profiles of women's faces in, and hues. A large peony with detailed center dominates the composition, surrounded by swirling patterns, dots, and smaller floral motifs",
+  "source_description": "A vibrant psychedelic artwork featuring overlapping profiles of women's faces in yellow, green, and purple hues. A large pink peony with detailed center dominates the composition, surrounded by swirling patterns, dots, and smaller floral motifs.",
+  "source_prompt": "",
+  "source_title": "Floral Women Portrait",
+  "style": "psychedelic",
+  "mood": "vibrant ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "women profiles",
+    "peony flower",
+    "psychedelic art",
+    "overlapping faces",
+    "floral patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1556,
+  "source_url": "/generated/1556.jpg",
+  "image_url": "/sketches/2328.png",
+  "inverted_image_url": "/sketches-inverted/2328.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:43Z"
+}

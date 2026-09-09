@@ -1,0 +1,42 @@
+{
+  "number": 3954,
+  "title": "Line sketch: Mage Fighter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body illustration of a young female warrior with white hair in buns and a spiky halo. She wears a white and martial arts outfit with armored plates, stands in a dynamic combat pose, and casts glowing magical energy from both hands (derived from generated still #3371).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body illustration of a young female warrior with white hair in buns and a spiky halo. She wears a white and martial arts outfit with armored plates, stands in a dynamic combat pose, and casts glowing magical energy from both hands",
+  "inverted_title": "Inverted sketch: Mage Fighter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body illustration of a young female warrior with white hair in buns and a spiky halo. She wears a white and martial arts outfit with armored plates, stands in a dynamic combat pose, and casts glowing magical energy from both hands (from generated still #3371).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body illustration of a young female warrior with white hair in buns and a spiky halo. She wears a white and martial arts outfit with armored plates, stands in a dynamic combat pose, and casts glowing magical energy from both hands",
+  "source_description": "A full-body illustration of a young female warrior with white hair in buns and a spiky purple halo. She wears a white and purple martial arts outfit with armored plates, stands in a dynamic combat pose, and casts glowing purple magical energy from both hands.",
+  "source_prompt": "A young East Asian female warrior with pale lavender-white hair styled in two buns and long flowing strands, wearing an intricate white and purple traditional martial arts outfit with armored shoulder plates, a wide purple sash, and matching boots. She has a glowing purple spiked halo floating above her head. She stands in a powerful combat stance, casting swirling purple arcane energy from her right hand and a crescent-shaped magic orb from her left hand. Dynamic anime-inspired digital illustration, clean lines, vibrant colors, dark gray background.",
+  "source_title": "Purple Mage Fighter",
+  "style": "digital illustration",
+  "mood": "fierce, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "magic",
+    "fantasy character",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3371,
+  "source_url": "/generated/3371.jpg",
+  "image_url": "/sketches/3954.png",
+  "inverted_image_url": "/sketches-inverted/3954.png",
+  "curve_count": 235,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2579,
+  "title": "Line sketch: LODI #89 Pause State",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pixel art scene from the game L.O.D.I. shows a knight in armor standing on a platform with a sword, surrounded by a tiled floor. In the foreground, a large pause menu is open displaying RESUME, INVENTORY, MAP, and QUIT options alongside an HP bar and item icons (derived from generated still #1815).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pixel art scene from the game L.O.D.I. shows a knight in armor standing on a platform with a sword, surrounded by a tiled floor. In the foreground, a large pause menu is open displaying RESUME, INVENTORY, MAP, and QUIT options alongside an HP bar and item icons",
+  "inverted_title": "Inverted sketch: LODI #89 Pause State",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pixel art scene from the game L.O.D.I. shows a knight in armor standing on a platform with a sword, surrounded by a tiled floor. In the foreground, a large pause menu is open displaying RESUME, INVENTORY, MAP, and QUIT options alongside an HP bar and item icons (from generated still #1815).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pixel art scene from the game L.O.D.I. shows a knight in armor standing on a platform with a sword, surrounded by a tiled floor. In the foreground, a large pause menu is open displaying RESUME, INVENTORY, MAP, and QUIT options alongside an HP bar and item icons",
+  "source_description": "A pixel art scene from the game L.O.D.I. shows a knight in blue armor standing on a purple platform with a sword, surrounded by a colorful tiled floor. In the foreground, a large pause menu is open displaying RESUME, INVENTORY, MAP, and QUIT options alongside an HP bar and item icons.",
+  "source_prompt": "",
+  "source_title": "LODI #89 Pause State",
+  "style": "pixel art",
+  "mood": "retro adventurous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital video game screenshot",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pixel art",
+    "knight",
+    "pause menu",
+    "video game",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1815,
+  "source_url": "/generated/1815.jpg",
+  "image_url": "/sketches/2579.png",
+  "inverted_image_url": "/sketches-inverted/2579.png",
+  "curve_count": 180,
+  "built_at": "2026-08-17T00:09:43Z"
+}

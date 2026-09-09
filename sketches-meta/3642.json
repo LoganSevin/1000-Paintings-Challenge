@@ -1,0 +1,42 @@
+{
+  "number": 3642,
+  "title": "Line sketch: Shattered Fleur-de-Lis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A broken stained glass panel featuring a central and fleur-de-lis with ornate scrolling acanthus leaves on both sides, set against a background of fragmented clear and glass pieces. The entire composition is fractured with visible cracks and loose shards, some displaced from the main design (derived from generated still #3050).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A broken stained glass panel featuring a central and fleur-de-lis with ornate scrolling acanthus leaves on both sides, set against a background of fragmented clear and glass pieces. The entire composition is fractured with visible cracks and loose shards, some displaced from the main design",
+  "inverted_title": "Inverted sketch: Shattered Fleur-de-Lis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A broken stained glass panel featuring a central and fleur-de-lis with ornate scrolling acanthus leaves on both sides, set against a background of fragmented clear and glass pieces. The entire composition is fractured with visible cracks and loose shards, some displaced from the main design (from generated still #3050).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A broken stained glass panel featuring a central and fleur-de-lis with ornate scrolling acanthus leaves on both sides, set against a background of fragmented clear and glass pieces. The entire composition is fractured with visible cracks and loose shards, some displaced from the main design",
+  "source_description": "A broken stained glass panel featuring a central turquoise and blue fleur-de-lis with ornate scrolling acanthus leaves on both sides, set against a background of fragmented clear and gold glass pieces. The entire composition is fractured with visible cracks and loose shards, some displaced from the main design.",
+  "source_prompt": "Close-up of a shattered stained glass panel, prominent central turquoise and cobalt blue fleur-de-lis with intricate dark outlines and ornate blue scrolling foliage and acanthus leaves symmetrically flanking it, background composed of fragmented gold and clear textured glass pieces, dramatic cracks running through the entire piece, some shards displaced and hanging, strong leading lines from fractures, natural daylight illumination from behind, realistic broken glass texture with visible lead lines, aged and damaged appearance, documentary photographic style",
+  "source_title": "Shattered Fleur-de-Lis",
+  "style": "stained glass",
+  "mood": "fragile decayed",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "stained glass",
+    "shattered",
+    "ornate",
+    "and"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3050,
+  "source_url": "/generated/3050.jpg",
+  "image_url": "/sketches/3642.png",
+  "inverted_image_url": "/sketches-inverted/3642.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:46Z"
+}

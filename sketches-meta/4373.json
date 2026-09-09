@@ -1,0 +1,42 @@
+{
+  "number": 4373,
+  "title": "Line sketch: Weeping Eye Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent spherical orb rests on a pedestal in the rain. Inside the orb a surreal scene shows a vibrant and human eye with lightning-like energy streams flowing downward from the pupil, merging into a swirling pool of, and light at the base. Raindrops cover the orb's surface while liquid drips from the eye and the sphere (derived from generated still #3792).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent spherical orb rests on a pedestal in the rain. Inside the orb a surreal scene shows a vibrant and human eye with lightning-like energy streams flowing downward from the pupil, merging into a swirling pool of, and light at the base. Raindrops cover the orb's surface while liquid drips from the eye and the sphere",
+  "inverted_title": "Inverted sketch: Weeping Eye Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent spherical orb rests on a pedestal in the rain. Inside the orb a surreal scene shows a vibrant and human eye with lightning-like energy streams flowing downward from the pupil, merging into a swirling pool of, and light at the base. Raindrops cover the orb's surface while liquid drips from the eye and the sphere (from generated still #3792).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent spherical orb rests on a pedestal in the rain. Inside the orb a surreal scene shows a vibrant and human eye with lightning-like energy streams flowing downward from the pupil, merging into a swirling pool of, and light at the base. Raindrops cover the orb's surface while liquid drips from the eye and the sphere",
+  "source_description": "A large transparent spherical orb rests on a golden pedestal in the rain. Inside the orb a surreal scene shows a vibrant green and blue human eye with colorful lightning-like energy streams flowing downward from the pupil, merging into a swirling pool of pink, purple and yellow light at the base. Raindrops cover the orb's surface while liquid drips from the eye and the sphere.",
+  "source_prompt": "surreal digital painting of a large transparent crystal sphere on a golden pedestal during heavy rain, inside the sphere a giant detailed human eye with bright green iris and blue pupil, colorful pink yellow and blue lightning energy flows from the eye down into a swirling glowing pool of liquid light at the bottom, raindrops and dripping paint on the surface, dramatic moody atmosphere, intricate details",
+  "source_title": "Weeping Eye Orb",
+  "style": "surrealism",
+  "mood": "ethereal melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "orb",
+    "rain",
+    "energy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3792,
+  "source_url": "/generated/3792.jpg",
+  "image_url": "/sketches/4373.png",
+  "inverted_image_url": "/sketches-inverted/4373.png",
+  "curve_count": 218,
+  "built_at": "2026-08-17T00:09:48Z"
+}

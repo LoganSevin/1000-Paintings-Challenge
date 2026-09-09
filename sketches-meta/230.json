@@ -1,0 +1,42 @@
+{
+  "number": 230,
+  "title": "Line sketch: Crystal Spire in Mountain Lake",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering translucent crystal formation rises from a serene lake, with mountains in the background under a starry twilight sky (derived from painting #277).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering translucent crystal formation rises from a serene lake, with mountains in the background under a starry twilight sky",
+  "inverted_title": "Inverted sketch: Crystal Spire in Mountain Lake",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering translucent crystal formation rises from a serene lake, with mountains in the background under a starry twilight sky (from painting #277).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering translucent crystal formation rises from a serene lake, with mountains in the background under a starry twilight sky",
+  "source_description": "A towering translucent crystal formation rises from a serene blue lake, with green mountains in the background under a starry twilight sky.",
+  "source_prompt": "",
+  "source_title": "Crystal Spire in Mountain Lake",
+  "style": "digital illustration",
+  "mood": "ethereal serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal spire",
+    "mountain landscape",
+    "fantasy art",
+    "lake scene",
+    "starry sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 277,
+  "source_url": "/paintings/277.jpg",
+  "image_url": "/sketches/230.png",
+  "inverted_image_url": "/sketches-inverted/230.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

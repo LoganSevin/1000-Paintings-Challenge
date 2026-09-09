@@ -427,15 +427,24 @@
       if (i >= nums.length) return Promise.resolve();
       var n = nums[i++];
       var urls = [
+        "generated-meta/" + n + ".json",
+        "/generated-meta/" + n + ".json",
         "generated/" + n + ".json",
         "/generated/" + n + ".json",
       ];
-      return fetch(urls[0], { cache: "force-cache" })
-        .catch(function () {
-          return fetch(urls[1], { cache: "force-cache" });
-        })
-        .then(function (r) {
-          return r && r.ok ? r.json() : null;
+      function tryFetch(i) {
+        if (i >= urls.length) return Promise.resolve(null);
+        return fetch(urls[i], { cache: "force-cache" })
+          .then(function (r) {
+            return r && r.ok ? r.json() : tryFetch(i + 1);
+          })
+          .catch(function () {
+            return tryFetch(i + 1);
+          });
+      }
+      return tryFetch(0)
+        .then(function (a) {
+          return a;
         })
         .then(function (a) {
           if (a && typeof a === "object") {
@@ -501,7 +510,7 @@
   /**
    * Fast pool build: lightweight refs only.
    * Does NOT download the multi‑MB lod1-analyses dump.
-   * Text is filled per-cast via painting analyses + generated/N.json.
+   * Text is filled per-cast via painting analyses + generated-meta/N.json.
    */
   function loadPool() {
     if (state.poolReady && state.pool.length) {
@@ -1368,7 +1377,7 @@
         state.items = items;
         setStatus("Loading text for picked sources…");
         return prefetchGeneratedTexts(items).then(function () {
-          // hydrate sources now that generated/N.json may be cached
+          // hydrate sources now that generated-meta/N.json may be cached
           items.forEach(function (it) {
             it.sources = (it.sources || []).map(hydrateSource).filter(Boolean);
           });

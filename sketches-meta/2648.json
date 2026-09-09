@@ -1,0 +1,42 @@
+{
+  "number": 2648,
+  "title": "Line sketch: Mirror Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features an ornate oval frame containing two women with long dark hair and floral elements, one holding a bird. The frame is set against a dark stone arch with dramatic liquid dripping down from above, surrounded by scattered petals and floating hexagonal shapes (derived from generated still #1888).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features an ornate oval frame containing two women with long dark hair and floral elements, one holding a bird. The frame is set against a dark stone arch with dramatic liquid dripping down from above, surrounded by scattered petals and floating hexagonal shapes",
+  "inverted_title": "Inverted sketch: Mirror Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features an ornate oval frame containing two women with long dark hair and floral elements, one holding a bird. The frame is set against a dark stone arch with dramatic liquid dripping down from above, surrounded by scattered petals and floating hexagonal shapes (from generated still #1888).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features an ornate oval frame containing two women with long dark hair and floral elements, one holding a bird. The frame is set against a dark stone arch with dramatic liquid dripping down from above, surrounded by scattered petals and floating hexagonal shapes",
+  "source_description": "A surreal painting features an ornate oval frame containing two women with long dark hair and red floral elements, one holding a red bird. The frame is set against a dark stone arch with dramatic red liquid dripping down from above, surrounded by scattered red petals and floating hexagonal shapes.",
+  "source_prompt": "",
+  "source_title": "Crimson Mirror Portrait",
+  "style": "surrealism",
+  "mood": "dark dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dual portrait",
+    "drips",
+    "ornate frame",
+    "stone arch"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1888,
+  "source_url": "/generated/1888.jpg",
+  "image_url": "/sketches/2648.png",
+  "inverted_image_url": "/sketches-inverted/2648.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2320,
+  "title": "Line sketch: Lotus Bowl by the Sea",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition features a giant lotus flower with silhouetted female figures in its petals, emerging from a bowl filled with blueberries. On a wooden pier overlooking a ocean, three stylized women with flower headdresses stand beside a bouquet of and white flowers under a pixelated sky (derived from generated still #1547).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition features a giant lotus flower with silhouetted female figures in its petals, emerging from a bowl filled with blueberries. On a wooden pier overlooking a ocean, three stylized women with flower headdresses stand beside a bouquet of and white flowers under a pixelated sky",
+  "inverted_title": "Inverted sketch: Lotus Bowl by the Sea",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition features a giant lotus flower with silhouetted female figures in its petals, emerging from a bowl filled with blueberries. On a wooden pier overlooking a ocean, three stylized women with flower headdresses stand beside a bouquet of and white flowers under a pixelated sky (from generated still #1547).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition features a giant lotus flower with silhouetted female figures in its petals, emerging from a bowl filled with blueberries. On a wooden pier overlooking a ocean, three stylized women with flower headdresses stand beside a bouquet of and white flowers under a pixelated sky",
+  "source_description": "A vibrant surreal painting features a giant red lotus flower with silhouetted female figures in its petals, emerging from a green bowl filled with blueberries. On a wooden pier overlooking a blue ocean, three stylized women with flower headdresses stand beside a bouquet of purple and white flowers under a colorful pixelated sky.",
+  "source_prompt": "",
+  "source_title": "Lotus Bowl by the Sea",
+  "style": "surreal folk art",
+  "mood": "vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lotus flower",
+    "blueberries",
+    "ocean pier",
+    "female figures",
+    "sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1547,
+  "source_url": "/generated/1547.jpg",
+  "image_url": "/sketches/2320.png",
+  "inverted_image_url": "/sketches-inverted/2320.png",
+  "curve_count": 189,
+  "built_at": "2026-08-17T00:09:43Z"
+}

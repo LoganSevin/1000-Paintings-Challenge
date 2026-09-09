@@ -1,0 +1,42 @@
+{
+  "number": 754,
+  "title": "Line sketch: Abandoned Piano in Ruins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grand piano stands alone on a reflective tiled floor within a derelict glass structure overgrown with vines. The scene is bathed in a vibrant gradient of and light with a distant city skyline visible at sunset (derived from painting #951).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grand piano stands alone on a reflective tiled floor within a derelict glass structure overgrown with vines. The scene is bathed in a vibrant gradient of and light with a distant city skyline visible at sunset",
+  "inverted_title": "Inverted sketch: Abandoned Piano in Ruins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grand piano stands alone on a reflective tiled floor within a derelict glass structure overgrown with vines. The scene is bathed in a vibrant gradient of and light with a distant city skyline visible at sunset (from painting #951).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grand piano stands alone on a reflective tiled floor within a derelict glass structure overgrown with vines. The scene is bathed in a vibrant gradient of and light with a distant city skyline visible at sunset",
+  "source_description": "A grand piano stands alone on a reflective tiled floor within a derelict glass structure overgrown with vines. The scene is bathed in a vibrant gradient of orange and magenta light with a distant city skyline visible at sunset.",
+  "source_prompt": "",
+  "source_title": "Abandoned Piano in Neon Ruins",
+  "style": "Cyberpunk",
+  "mood": "Melancholy surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ruins",
+    "piano",
+    "futuristic",
+    "sunset",
+    "reflection"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 951,
+  "source_url": "/paintings/951.jpg",
+  "image_url": "/sketches/754.png",
+  "inverted_image_url": "/sketches-inverted/754.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:39Z"
+}

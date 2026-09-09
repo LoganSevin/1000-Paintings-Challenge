@@ -1,0 +1,42 @@
+{
+  "number": 2076,
+  "title": "Line sketch: Bear Pond Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composition depicts a large bear's head adorned with a flower crown of blossoms and leaves, positioned above a pond with lily pads that reflects the bear's face. The vibrant scene includes bananas, and silhouettes of figures, swirling patterns, and paint drips against a background (derived from generated still #1301).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composition depicts a large bear's head adorned with a flower crown of blossoms and leaves, positioned above a pond with lily pads that reflects the bear's face. The vibrant scene includes bananas, and silhouettes of figures, swirling patterns, and paint drips against a background",
+  "inverted_title": "Inverted sketch: Bear Pond Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composition depicts a large bear's head adorned with a flower crown of blossoms and leaves, positioned above a pond with lily pads that reflects the bear's face. The vibrant scene includes bananas, and silhouettes of figures, swirling patterns, and paint drips against a background (from generated still #1301).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composition depicts a large bear's head adorned with a flower crown of blossoms and leaves, positioned above a pond with lily pads that reflects the bear's face. The vibrant scene includes bananas, and silhouettes of figures, swirling patterns, and paint drips against a background",
+  "source_description": "A colorful painting depicts a large brown bear's head adorned with a flower crown of pink blossoms and green leaves, positioned above a blue pond with lily pads that reflects the bear's face. The vibrant scene includes yellow bananas, purple and yellow silhouettes of figures, swirling patterns, and paint drips against a bright blue background.",
+  "source_prompt": "",
+  "source_title": "Bear Pond Reflection",
+  "style": "whimsical surrealism",
+  "mood": "playful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic paint",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "flower crown",
+    "pond reflection",
+    "banana",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1301,
+  "source_url": "/generated/1301.jpg",
+  "image_url": "/sketches/2076.png",
+  "inverted_image_url": "/sketches-inverted/2076.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4243,
+  "title": "Line sketch: Sphere of Mystic Realms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted figure stands on a floating platform inside a large transparent sphere, reaching toward glowing lightning and swirling ribbons. Within the sphere is a surreal night landscape featuring a glowing portal with a crescent moon, a small castle, trees, and reflective water (derived from generated still #3662).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted figure stands on a floating platform inside a large transparent sphere, reaching toward glowing lightning and swirling ribbons. Within the sphere is a surreal night landscape featuring a glowing portal with a crescent moon, a small castle, trees, and reflective water",
+  "inverted_title": "Inverted sketch: Sphere of Mystic Realms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted figure stands on a floating platform inside a large transparent sphere, reaching toward glowing lightning and swirling ribbons. Within the sphere is a surreal night landscape featuring a glowing portal with a crescent moon, a small castle, trees, and reflective water (from generated still #3662).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted figure stands on a floating platform inside a large transparent sphere, reaching toward glowing lightning and swirling ribbons. Within the sphere is a surreal night landscape featuring a glowing portal with a crescent moon, a small castle, trees, and reflective water",
+  "source_description": "A silhouetted figure stands on a floating platform inside a large transparent sphere, reaching toward glowing purple lightning and swirling magenta ribbons. Within the sphere is a surreal night landscape featuring a green glowing portal with a crescent moon, a small castle, pink trees, and reflective water.",
+  "source_prompt": "A silhouetted human figure standing on a grassy platform inside a giant transparent bubble, reaching out to touch bright purple lightning bolts and flowing magenta ribbons that swirl around them. Inside the bubble is a dreamy fantasy landscape with a glowing green circular portal containing a crescent moon, a small castle, pink cherry blossom trees, and reflective water below, all set against a dark cosmic background.",
+  "source_title": "Sphere of Mystic Realms",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "magic sphere",
+    "lightning",
+    "fantasy landscape",
+    "portal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3662,
+  "source_url": "/generated/3662.jpg",
+  "image_url": "/sketches/4243.png",
+  "inverted_image_url": "/sketches-inverted/4243.png",
+  "curve_count": 62,
+  "built_at": "2026-08-17T00:09:47Z"
+}

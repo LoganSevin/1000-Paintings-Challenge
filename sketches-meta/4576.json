@@ -1,0 +1,42 @@
+{
+  "number": 4576,
+  "title": "Line sketch: Fleur-de-Lis Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and white patterned dress stands on rocky shore holding a orb with a fleur-de-lis. An astronaut walks along a glowing white path across water toward a large cluster of transparent bubbles containing miniature scenes, all dominated by a giant fleur-de-lis symbol in the sky. Pyramids and a distant figure appear in the background (derived from generated still #3997).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and white patterned dress stands on rocky shore holding a orb with a fleur-de-lis. An astronaut walks along a glowing white path across water toward a large cluster of transparent bubbles containing miniature scenes, all dominated by a giant fleur-de-lis symbol in the sky. Pyramids and a distant figure appear in the background",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and white patterned dress stands on rocky shore holding a orb with a fleur-de-lis. An astronaut walks along a glowing white path across water toward a large cluster of transparent bubbles containing miniature scenes, all dominated by a giant fleur-de-lis symbol in the sky. Pyramids and a distant figure appear in the background (from generated still #3997).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and white patterned dress stands on rocky shore holding a orb with a fleur-de-lis. An astronaut walks along a glowing white path across water toward a large cluster of transparent bubbles containing miniature scenes, all dominated by a giant fleur-de-lis symbol in the sky. Pyramids and a distant figure appear in the background",
+  "source_description": "A woman in a blue and white patterned dress stands on rocky shore holding a red orb with a golden fleur-de-lis. An astronaut walks along a glowing white path across turquoise water toward a large cluster of transparent bubbles containing miniature scenes, all dominated by a giant golden fleur-de-lis symbol in the sky. Pyramids and a distant figure appear in the background.",
+  "source_prompt": "Surreal fantasy scene of a woman in a long blue and white dress standing on rocky shore holding a red orb with golden fleur-de-lis, while an astronaut in purple suit walks along a glowing path across turquoise water toward a massive cluster of transparent bubbles filled with tiny worlds, centered around a giant golden fleur-de-lis symbol floating in a purple sky with clouds, distant orange pyramids and a small figure visible on a mountain, whimsical and dreamlike atmosphere",
+  "source_title": "Fleur-de-Lis Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "dreamlike wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fleur-de-lis",
+    "astronaut",
+    "bubbles",
+    "pyramids"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3997,
+  "source_url": "/generated/3997.jpg",
+  "image_url": "/sketches/4576.png",
+  "inverted_image_url": "/sketches-inverted/4576.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:48Z"
+}

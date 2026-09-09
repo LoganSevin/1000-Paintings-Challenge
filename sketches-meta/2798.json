@@ -1,0 +1,42 @@
+{
+  "number": 2798,
+  "title": "Line sketch: Mushroom Friends in Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large mushroom creature with a glossy and spotted cap stands in a shallow pond, smiling with wide white eyes and rosy cheeks. A smaller mushroom creature stands beside it, both surrounded by forest trees, grass and reflective water under a sky (derived from generated still #2081).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large mushroom creature with a glossy and spotted cap stands in a shallow pond, smiling with wide white eyes and rosy cheeks. A smaller mushroom creature stands beside it, both surrounded by forest trees, grass and reflective water under a sky",
+  "inverted_title": "Inverted sketch: Mushroom Friends in Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large mushroom creature with a glossy and spotted cap stands in a shallow pond, smiling with wide white eyes and rosy cheeks. A smaller mushroom creature stands beside it, both surrounded by forest trees, grass and reflective water under a sky (from generated still #2081).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large mushroom creature with a glossy and spotted cap stands in a shallow pond, smiling with wide white eyes and rosy cheeks. A smaller mushroom creature stands beside it, both surrounded by forest trees, grass and reflective water under a sky",
+  "source_description": "A large dark blue mushroom creature with a glossy red and blue spotted cap stands in a shallow pond, smiling with wide white eyes and rosy cheeks. A smaller yellow mushroom creature stands beside it, both surrounded by forest trees, green grass and reflective water under a bright blue sky.",
+  "source_prompt": "A large cute dark blue mushroom-like creature with a shiny red cap covered in blue spots, big white eyes, open smiling mouth and purple spots on its body stands in a forest pond next to a smaller yellow mushroom creature, both have rosy cheeks, surrounded by lush green trees and grass under a bright blue sky with white clouds, water reflections, vibrant colors, whimsical anime style",
+  "source_title": "Mushroom Friends in Pond",
+  "style": "whimsical anime",
+  "mood": "cheerful serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom creature",
+    "forest pond",
+    "cute characters",
+    "anime style",
+    "nature scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2081,
+  "source_url": "/generated/2081.jpg",
+  "image_url": "/sketches/2798.png",
+  "inverted_image_url": "/sketches-inverted/2798.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:44Z"
+}

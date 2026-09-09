@@ -1,0 +1,42 @@
+{
+  "number": 3713,
+  "title": "Line sketch: Montmartre Parade",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy street scene of Montmartre in Paris with the Sacré-Cœur Basilica visible in the background. The cobblestone street is filled with blooming fields and mounted medieval knights on armored horses riding through an outdoor art market with stalls and shoppers (derived from generated still #3121).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy street scene of Montmartre in Paris with the Sacré-Cœur Basilica visible in the background. The cobblestone street is filled with blooming fields and mounted medieval knights on armored horses riding through an outdoor art market with stalls and shoppers",
+  "inverted_title": "Inverted sketch: Montmartre Parade",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy street scene of Montmartre in Paris with the Sacré-Cœur Basilica visible in the background. The cobblestone street is filled with blooming fields and mounted medieval knights on armored horses riding through an outdoor art market with stalls and shoppers (from generated still #3121).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy street scene of Montmartre in Paris with the Sacré-Cœur Basilica visible in the background. The cobblestone street is filled with blooming fields and mounted medieval knights on armored horses riding through an outdoor art market with stalls and shoppers",
+  "source_description": "A vibrant fantasy street scene of Montmartre in Paris with the Sacré-Cœur Basilica visible in the background. The cobblestone street is filled with blooming lavender fields and mounted medieval knights on armored horses riding through an outdoor art market with colorful stalls and shoppers.",
+  "source_prompt": "",
+  "source_title": "Montmartre Lavender Parade",
+  "style": "impressionistic fantasy",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Montmartre",
+    "fields",
+    "medieval knights",
+    "Paris street",
+    "art market"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3121,
+  "source_url": "/generated/3121.jpg",
+  "image_url": "/sketches/3713.png",
+  "inverted_image_url": "/sketches-inverted/3713.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:46Z"
+}

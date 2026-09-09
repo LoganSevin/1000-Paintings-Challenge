@@ -1,0 +1,42 @@
+{
+  "number": 2893,
+  "title": "Line sketch: Capybara's Cosmic Codex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene depicts a large capybara floating above cracked desert ground, adorned with flowers, a eye, and a cracked egg on its back from which liquid drips. In the foreground, a human hand reaches toward an open ancient book emitting swirling smoke while two smaller eggs and strange rock formations appear in the barren landscape under a sky (derived from generated still #2180).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene depicts a large capybara floating above cracked desert ground, adorned with flowers, a eye, and a cracked egg on its back from which liquid drips. In the foreground, a human hand reaches toward an open ancient book emitting swirling smoke while two smaller eggs and strange rock formations appear in the barren landscape under a sky",
+  "inverted_title": "Inverted sketch: Capybara's Cosmic Codex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene depicts a large capybara floating above cracked desert ground, adorned with flowers, a eye, and a cracked egg on its back from which liquid drips. In the foreground, a human hand reaches toward an open ancient book emitting swirling smoke while two smaller eggs and strange rock formations appear in the barren landscape under a sky (from generated still #2180).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene depicts a large capybara floating above cracked desert ground, adorned with flowers, a eye, and a cracked egg on its back from which liquid drips. In the foreground, a human hand reaches toward an open ancient book emitting swirling smoke while two smaller eggs and strange rock formations appear in the barren landscape under a sky",
+  "source_description": "A surreal scene depicts a large brown capybara floating above cracked desert ground, adorned with flowers, a golden eye, and a cracked egg on its back from which golden liquid drips. In the foreground, a human hand reaches toward an open ancient book emitting swirling colorful smoke while two smaller eggs and strange rock formations appear in the barren landscape under a purple sky.",
+  "source_prompt": "Surreal desert landscape at dusk with purple sky and swirling colorful smoke, a giant brown capybara with a glowing golden eye floats in the center adorned with colorful flowers and a cracked egg on its back leaking golden liquid, small eggs and rock formations in background, in the foreground a human hand reaching toward an open ancient grimoire with glowing pages and symbols, highly detailed symbolic painting in the style of Dali and Giger",
+  "source_title": "Capybara's Cosmic Codex",
+  "style": "surrealism",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "capybara",
+    "surreal",
+    "desert",
+    "floating",
+    "magical book"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2180,
+  "source_url": "/generated/2180.jpg",
+  "image_url": "/sketches/2893.png",
+  "inverted_image_url": "/sketches-inverted/2893.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

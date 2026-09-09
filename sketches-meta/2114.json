@@ -1,0 +1,42 @@
+{
+  "number": 2114,
+  "title": "Line sketch: Surreal Eye with Watering Plants",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large stylized human eye with a and patterned iris dominates the composition, its pupil reflecting a small figure watering plants. Water streams from the eye into a vibrant vase overflowing with lush houseplants and flowers, while a row of smaller stylized female figures with hair appears along the bottom (derived from generated still #1339).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large stylized human eye with a and patterned iris dominates the composition, its pupil reflecting a small figure watering plants. Water streams from the eye into a vibrant vase overflowing with lush houseplants and flowers, while a row of smaller stylized female figures with hair appears along the bottom",
+  "inverted_title": "Inverted sketch: Surreal Eye with Watering Plants",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large stylized human eye with a and patterned iris dominates the composition, its pupil reflecting a small figure watering plants. Water streams from the eye into a vibrant vase overflowing with lush houseplants and flowers, while a row of smaller stylized female figures with hair appears along the bottom (from generated still #1339).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large stylized human eye with a and patterned iris dominates the composition, its pupil reflecting a small figure watering plants. Water streams from the eye into a vibrant vase overflowing with lush houseplants and flowers, while a row of smaller stylized female figures with hair appears along the bottom",
+  "source_description": "A large stylized human eye with a pink and yellow patterned iris dominates the composition, its pupil reflecting a small figure watering plants. Water streams from the eye into a vibrant blue vase overflowing with lush green houseplants and pink flowers, while a row of smaller stylized female figures with colorful hair appears along the bottom.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye with Watering Plants",
+  "style": "surreal pop art",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "houseplants",
+    "water splash",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1339,
+  "source_url": "/generated/1339.jpg",
+  "image_url": "/sketches/2114.png",
+  "inverted_image_url": "/sketches-inverted/2114.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3330,
+  "title": "Line sketch: Siren of the Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up profile of a -skinned female figure with intricate patterns covering her face and forehead, featuring a striking and eye. She emerges from a turbulent ocean with crashing waves, flowers, and dark rocks, while a massive fiery and black swirling vortex dominates the stormy sky above (derived from generated still #2725).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up profile of a -skinned female figure with intricate patterns covering her face and forehead, featuring a striking and eye. She emerges from a turbulent ocean with crashing waves, flowers, and dark rocks, while a massive fiery and black swirling vortex dominates the stormy sky above",
+  "inverted_title": "Inverted sketch: Siren of the Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up profile of a -skinned female figure with intricate patterns covering her face and forehead, featuring a striking and eye. She emerges from a turbulent ocean with crashing waves, flowers, and dark rocks, while a massive fiery and black swirling vortex dominates the stormy sky above (from generated still #2725).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up profile of a -skinned female figure with intricate patterns covering her face and forehead, featuring a striking and eye. She emerges from a turbulent ocean with crashing waves, flowers, and dark rocks, while a massive fiery and black swirling vortex dominates the stormy sky above",
+  "source_description": "A close-up profile of a green-skinned female figure with intricate golden patterns covering her face and forehead, featuring a striking green and yellow eye. She emerges from a turbulent ocean with crashing waves, purple flowers, and dark rocks, while a massive fiery orange and black swirling vortex dominates the stormy sky above.",
+  "source_prompt": "Profile view of a mystical green-skinned woman with elaborate golden filigree and patterns covering her face and forehead, large detailed green eye with yellow accents, emerging from a wild stormy ocean with crashing waves, dark rocks, and floating purple flowers, a massive fiery orange swirling vortex with dark clouds filling the dramatic sky, ethereal smoke and hair flowing, dark fantasy atmosphere, cinematic lighting",
+  "source_title": "Emerald Siren of the Storm",
+  "style": "fantasy surrealism",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy portrait",
+    "stormy sea",
+    "filigree",
+    "skin",
+    "cosmic vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2725,
+  "source_url": "/generated/2725.jpg",
+  "image_url": "/sketches/3330.png",
+  "inverted_image_url": "/sketches-inverted/3330.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1116,
+  "title": "Line sketch: Psychedelic Zombie Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a dog with exposed veins across its head and a large bulging bloodshot eye on its forehead. The dog cries streams of paint from its eyes and nose against a dark background filled with vibrant and hibiscus flowers with dripping paint effects (derived from generated still #328).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a dog with exposed veins across its head and a large bulging bloodshot eye on its forehead. The dog cries streams of paint from its eyes and nose against a dark background filled with vibrant and hibiscus flowers with dripping paint effects",
+  "inverted_title": "Inverted sketch: Psychedelic Zombie Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a dog with exposed veins across its head and a large bulging bloodshot eye on its forehead. The dog cries streams of paint from its eyes and nose against a dark background filled with vibrant and hibiscus flowers with dripping paint effects (from generated still #328).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a dog with exposed veins across its head and a large bulging bloodshot eye on its forehead. The dog cries streams of paint from its eyes and nose against a dark background filled with vibrant and hibiscus flowers with dripping paint effects",
+  "source_description": "A surreal portrait of a lime green dog with exposed red veins across its head and a large bulging bloodshot eye on its forehead. The dog cries streams of multicolored paint from its eyes and nose against a dark background filled with vibrant pink and magenta hibiscus flowers with dripping paint effects.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Zombie Dog",
+  "style": "surreal pop art",
+  "mood": "hallucinatory grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "psychedelic",
+    "horror art",
+    "dripping paint",
+    "hibiscus flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 328,
+  "source_url": "/generated/328.jpg",
+  "image_url": "/sketches/1116.png",
+  "inverted_image_url": "/sketches-inverted/1116.png",
+  "curve_count": 228,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3237,
+  "title": "Line sketch: Cosmic Eye Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive stylized cosmic eye dominates the surreal night sky, featuring a iris with lightning patterns and a black pupil. A unicorn with a flowing mane leaps from the left toward the eye while carrying a small rider, set against swirling and energy waves above a patterned landscape containing a small statue (derived from generated still #2595).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive stylized cosmic eye dominates the surreal night sky, featuring a iris with lightning patterns and a black pupil. A unicorn with a flowing mane leaps from the left toward the eye while carrying a small rider, set against swirling and energy waves above a patterned landscape containing a small statue",
+  "inverted_title": "Inverted sketch: Cosmic Eye Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive stylized cosmic eye dominates the surreal night sky, featuring a iris with lightning patterns and a black pupil. A unicorn with a flowing mane leaps from the left toward the eye while carrying a small rider, set against swirling and energy waves above a patterned landscape containing a small statue (from generated still #2595).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive stylized cosmic eye dominates the surreal night sky, featuring a iris with lightning patterns and a black pupil. A unicorn with a flowing mane leaps from the left toward the eye while carrying a small rider, set against swirling and energy waves above a patterned landscape containing a small statue",
+  "source_description": "A massive stylized cosmic eye dominates the surreal night sky, featuring a green iris with yellow lightning patterns and a black pupil. A pink unicorn with a flowing blue mane leaps from the left toward the eye while carrying a small rider, set against swirling green and purple energy waves above a patterned green landscape containing a small statue.",
+  "source_prompt": "Surreal psychedelic scene of a giant cosmic eye floating in a starry purple sky, vibrant green iris with yellow lightning bolts, black pupil, pink unicorn with long flowing blue mane leaping out from the left carrying a small rider, swirling green and turquoise energy trails, patterned rolling hills below with a small statue, dramatic fantasy atmosphere, vibrant colors, intricate details",
+  "source_title": "Cosmic Eye Portal",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic eye",
+    "unicorn",
+    "psychedelic",
+    "surreal",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2595,
+  "source_url": "/generated/2595.jpg",
+  "image_url": "/sketches/3237.png",
+  "inverted_image_url": "/sketches-inverted/3237.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

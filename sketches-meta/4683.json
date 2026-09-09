@@ -1,0 +1,42 @@
+{
+  "number": 4683,
+  "title": "Line sketch: Storm Over Metal Shed",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A metal shed with an open carport stands in a lush field under a dramatic, turbulent sky. Stone pavers lead toward the structure where various tools, equipment and clutter are visible beneath the shelter as lightning flashes in the and clouds (derived from generated still #4110).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A metal shed with an open carport stands in a lush field under a dramatic, turbulent sky. Stone pavers lead toward the structure where various tools, equipment and clutter are visible beneath the shelter as lightning flashes in the and clouds",
+  "inverted_title": "Inverted sketch: Storm Over Metal Shed",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A metal shed with an open carport stands in a lush field under a dramatic, turbulent sky. Stone pavers lead toward the structure where various tools, equipment and clutter are visible beneath the shelter as lightning flashes in the and clouds (from generated still #4110).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A metal shed with an open carport stands in a lush field under a dramatic, turbulent sky. Stone pavers lead toward the structure where various tools, equipment and clutter are visible beneath the shelter as lightning flashes in the and clouds",
+  "source_description": "A beige metal shed with an open carport stands in a lush green field under a dramatic, turbulent sky. Stone pavers lead toward the structure where various tools, equipment and clutter are visible beneath the shelter as lightning flashes in the dark purple and green clouds.",
+  "source_prompt": "A lonely beige metal shed with white door and open carport filled with tools and clutter sits in the middle of a bright green grassy field. Stone pavers lead to the building. The sky is filled with massive, dramatic storm clouds in dark purple, black and sickly green hues with visible lightning, creating an ominous atmosphere, realistic digital painting style",
+  "source_title": "Storm Over Metal Shed",
+  "style": "composition",
+  "mood": "ominous, foreboding",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "storm",
+    "shed",
+    "dramatic sky",
+    "rural"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4110,
+  "source_url": "/generated/4110.jpg",
+  "image_url": "/sketches/4683.png",
+  "inverted_image_url": "/sketches-inverted/4683.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3774,
+  "title": "Line sketch: Female Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical side-by-side panels show a woman with short hair in a combat stance. She wears a leather and metal armored top, dark tactical pants with stripes, matching knee pads, and boots, with fists raised in a fighting pose against a solid black background (derived from generated still #3190).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical side-by-side panels show a woman with short hair in a combat stance. She wears a leather and metal armored top, dark tactical pants with stripes, matching knee pads, and boots, with fists raised in a fighting pose against a solid black background",
+  "inverted_title": "Inverted sketch: Female Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical side-by-side panels show a woman with short hair in a combat stance. She wears a leather and metal armored top, dark tactical pants with stripes, matching knee pads, and boots, with fists raised in a fighting pose against a solid black background (from generated still #3190).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical side-by-side panels show a woman with short hair in a combat stance. She wears a leather and metal armored top, dark tactical pants with stripes, matching knee pads, and boots, with fists raised in a fighting pose against a solid black background",
+  "source_description": "Four identical side-by-side panels show a woman with short silver hair in a combat stance. She wears a brown leather and metal armored top, dark tactical pants with orange stripes, matching knee pads, and brown boots, with fists raised in a fighting pose against a solid black background.",
+  "source_prompt": "A tough young woman with short silver hair and intense expression stands in a dynamic fighting stance with fists raised, wearing a fitted brown leather and metal chest armor, black tactical pants with orange accent stripes, copper knee pads, and brown combat boots, shown in four identical side-by-side panels on a solid black background, highly detailed realistic 3D character render",
+  "source_title": "Female Warrior Poses",
+  "style": "realistic 3D render",
+  "mood": "intense, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital character study",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "combat pose",
+    "armored outfit",
+    "multiple views",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3190,
+  "source_url": "/generated/3190.jpg",
+  "image_url": "/sketches/3774.png",
+  "inverted_image_url": "/sketches-inverted/3774.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

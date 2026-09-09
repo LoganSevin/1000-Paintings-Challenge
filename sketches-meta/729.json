@@ -1,0 +1,42 @@
+{
+  "number": 729,
+  "title": "Line sketch: Fleur-de-Lis Graffiti Drip",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant and fleur-de-lis symbol is boldly painted against a textured background. Paint drips in multiple colors cascade from the edges, creating a dynamic street-art effect (derived from painting #923).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant and fleur-de-lis symbol is boldly painted against a textured background. Paint drips in multiple colors cascade from the edges, creating a dynamic street-art effect",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis Graffiti Drip",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant and fleur-de-lis symbol is boldly painted against a textured background. Paint drips in multiple colors cascade from the edges, creating a dynamic street-art effect (from painting #923).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant and fleur-de-lis symbol is boldly painted against a textured background. Paint drips in multiple colors cascade from the edges, creating a dynamic street-art effect",
+  "source_description": "A vibrant yellow and green fleur-de-lis symbol is boldly painted against a textured purple background. Paint drips in multiple colors cascade from the edges, creating a dynamic street-art effect.",
+  "source_prompt": "",
+  "source_title": "Fleur-de-Lis Graffiti Drip",
+  "style": "Street Art",
+  "mood": "Bold and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "graffiti",
+    "drip composition",
+    "street art",
+    "symbolic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 923,
+  "source_url": "/paintings/923.jpg",
+  "image_url": "/sketches/729.png",
+  "inverted_image_url": "/sketches-inverted/729.png",
+  "curve_count": 255,
+  "built_at": "2026-08-17T00:09:39Z"
+}

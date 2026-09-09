@@ -1,0 +1,42 @@
+{
+  "number": 3922,
+  "title": "Line sketch: Jester Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three separate illustrations of a stylized and white jester-like character shown in standing combat pose, mid-air falling pose, and lying defeated on the ground (derived from generated still #3339).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three separate illustrations of a stylized and white jester-like character shown in standing combat pose, mid-air falling pose, and lying defeated on the ground",
+  "inverted_title": "Inverted sketch: Jester Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three separate illustrations of a stylized and white jester-like character shown in standing combat pose, mid-air falling pose, and lying defeated on the ground (from generated still #3339).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three separate illustrations of a stylized and white jester-like character shown in standing combat pose, mid-air falling pose, and lying defeated on the ground",
+  "source_description": "Three separate illustrations of a stylized purple and white jester-like character shown in standing combat pose, mid-air falling pose, and lying defeated on the ground.",
+  "source_prompt": "A stylized purple and white jester character with skull motifs, skeletal face paint, and swirling patterns on his outfit. He wears a jester hat with bells, bandages on his legs, and purple ribbons. Shown in three distinct views: dynamic standing combat stance on the left, mid-air falling pose in the center, and lying defeated on the ground on the right, all against a plain gray background, digital character concept art",
+  "source_title": "Jester Pose Sequence",
+  "style": "digital character concept art",
+  "mood": "dynamic, theatrical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "jester",
+    "skeleton motif",
+    "character",
+    "pose study",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3339,
+  "source_url": "/generated/3339.jpg",
+  "image_url": "/sketches/3922.png",
+  "inverted_image_url": "/sketches-inverted/3922.png",
+  "curve_count": 90,
+  "built_at": "2026-08-17T00:09:47Z"
+}

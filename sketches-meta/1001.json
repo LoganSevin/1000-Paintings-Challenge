@@ -1,0 +1,42 @@
+{
+  "number": 1001,
+  "title": "Line sketch: Mosaic Mermaid Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a woman's face and shoulders composed of fish scales in, and. Her long flowing dark hair merges with an underwater reef scene populated by many small tropical fish swimming around her (derived from generated still #211).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a woman's face and shoulders composed of fish scales in, and. Her long flowing dark hair merges with an underwater reef scene populated by many small tropical fish swimming around her",
+  "inverted_title": "Inverted sketch: Mosaic Mermaid Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a woman's face and shoulders composed of fish scales in, and. Her long flowing dark hair merges with an underwater reef scene populated by many small tropical fish swimming around her (from generated still #211).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a woman's face and shoulders composed of fish scales in, and. Her long flowing dark hair merges with an underwater reef scene populated by many small tropical fish swimming around her",
+  "source_description": "A close-up portrait of a woman's face and shoulders composed of colorful iridescent fish scales in teal, orange, and gold. Her long flowing dark hair merges with an underwater coral reef scene populated by many small tropical fish swimming around her.",
+  "source_prompt": "",
+  "source_title": "Mosaic Mermaid Portrait",
+  "style": "fantasy illustration",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mermaid",
+    "fish scales",
+    "reef",
+    "underwater",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 211,
+  "source_url": "/generated/211.jpg",
+  "image_url": "/sketches/1001.png",
+  "inverted_image_url": "/sketches-inverted/1001.png",
+  "curve_count": 88,
+  "built_at": "2026-08-17T00:09:40Z"
+}

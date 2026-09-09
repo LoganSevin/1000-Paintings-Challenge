@@ -1,0 +1,42 @@
+{
+  "number": 1225,
+  "title": "Line sketch: Surreal Desert Moon Child",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a -skinned child's face with one normal eye and one circular eye, paint dripping down the face. The child is framed within a cracked circular border adorned with flowers and branches, set against a desert landscape with sand dunes, a large moon, and a rat standing nearby (derived from generated still #437).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a -skinned child's face with one normal eye and one circular eye, paint dripping down the face. The child is framed within a cracked circular border adorned with flowers and branches, set against a desert landscape with sand dunes, a large moon, and a rat standing nearby",
+  "inverted_title": "Inverted sketch: Surreal Desert Moon Child",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a -skinned child's face with one normal eye and one circular eye, paint dripping down the face. The child is framed within a cracked circular border adorned with flowers and branches, set against a desert landscape with sand dunes, a large moon, and a rat standing nearby (from generated still #437).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a -skinned child's face with one normal eye and one circular eye, paint dripping down the face. The child is framed within a cracked circular border adorned with flowers and branches, set against a desert landscape with sand dunes, a large moon, and a rat standing nearby",
+  "source_description": "A surreal painting depicts a green-skinned child's face with one normal yellow eye and one dark red circular eye, colorful paint dripping down the face. The child is framed within a cracked circular border adorned with purple flowers and red branches, set against a desert landscape with sand dunes, a large orange moon, and a red rat standing nearby.",
+  "source_prompt": "",
+  "source_title": "Surreal Desert Moon Child",
+  "style": "surrealism",
+  "mood": "eerie, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child portrait",
+    "desert landscape",
+    "full moon",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 437,
+  "source_url": "/generated/437.jpg",
+  "image_url": "/sketches/1225.png",
+  "inverted_image_url": "/sketches-inverted/1225.png",
+  "curve_count": 103,
+  "built_at": "2026-08-17T00:09:40Z"
+}

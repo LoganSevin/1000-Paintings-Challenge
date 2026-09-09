@@ -137,6 +137,17 @@
     set("mk-real-rev", money(v.real_month_sales_usd));
     set("mk-goal", money(v.monthly_goal_usd));
     set("mk-sim-pct", (v.sim_progress_pct || 0) + "% sim");
+    var split = (state && state.banker_split) || {};
+    set("mk-banker-share", money(split.share_each_usd, 2) + " each");
+    var note = $("mk-banker-note");
+    if (note) {
+      note.textContent =
+        "Sim $" +
+        (Number(split.sim_month_revenue_usd) || 0).toLocaleString() +
+        " ÷ 100 supermarket people (50♀ + 49♂ + you) = " +
+        money(split.share_each_usd, 2) +
+        " on each debit line. Banker tab holds the cards.";
+    }
     var bar = $("mk-goal-bar");
     if (bar) bar.style.width = Math.min(100, Number(v.sim_progress_pct) || 0) + "%";
     var bar2 = $("mk-combined-bar");

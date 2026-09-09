@@ -1,0 +1,42 @@
+{
+  "number": 1087,
+  "title": "Line sketch: Hybrid Child Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned child with a dog's head emerging from the left side of their face, eyes, and a third eye on the forehead. The figure is framed by a circular wreath of flowers against a black background with dripping, and paint effects (derived from generated still #299).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned child with a dog's head emerging from the left side of their face, eyes, and a third eye on the forehead. The figure is framed by a circular wreath of flowers against a black background with dripping, and paint effects",
+  "inverted_title": "Inverted sketch: Hybrid Child Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned child with a dog's head emerging from the left side of their face, eyes, and a third eye on the forehead. The figure is framed by a circular wreath of flowers against a black background with dripping, and paint effects (from generated still #299).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned child with a dog's head emerging from the left side of their face, eyes, and a third eye on the forehead. The figure is framed by a circular wreath of flowers against a black background with dripping, and paint effects",
+  "source_description": "A surreal portrait of a green-skinned child with a dog's head emerging from the left side of their face, golden eyes, and a third eye on the forehead. The figure is framed by a circular wreath of magenta flowers against a black background with dripping blue, purple, and orange paint effects.",
+  "source_prompt": "",
+  "source_title": "Hybrid Child Portrait",
+  "style": "surreal street art",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "portrait",
+    "floral frame",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 299,
+  "source_url": "/generated/299.jpg",
+  "image_url": "/sketches/1087.png",
+  "inverted_image_url": "/sketches-inverted/1087.png",
+  "curve_count": 86,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4255,
+  "title": "Line sketch: Cosmic Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A transparent spherical orb floats in deep space, its interior filled with glowing electrical arcs and energy nodes. Surrounding the orb are multiple swirling rings of luminous, and light trails with small floating particles against a starry black background (derived from generated still #3674).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A transparent spherical orb floats in deep space, its interior filled with glowing electrical arcs and energy nodes. Surrounding the orb are multiple swirling rings of luminous, and light trails with small floating particles against a starry black background",
+  "inverted_title": "Inverted sketch: Cosmic Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A transparent spherical orb floats in deep space, its interior filled with glowing electrical arcs and energy nodes. Surrounding the orb are multiple swirling rings of luminous, and light trails with small floating particles against a starry black background (from generated still #3674).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A transparent spherical orb floats in deep space, its interior filled with glowing electrical arcs and energy nodes. Surrounding the orb are multiple swirling rings of luminous, and light trails with small floating particles against a starry black background",
+  "source_description": "A transparent spherical orb floats in deep space, its interior filled with glowing blue electrical arcs and pink energy nodes. Surrounding the orb are multiple swirling rings of luminous purple, magenta and pink light trails with small floating particles against a starry black background.",
+  "source_prompt": "A transparent glowing spherical orb floating in deep space, filled with bright blue branching electrical plasma arcs connecting to pink glowing nodes at its core. Multiple large swirling energy rings in vibrant purple, magenta and pink orbit around the sphere creating dynamic light trails and particle effects, dark starry space background, luminous and ethereal digital art",
+  "source_title": "Cosmic Plasma Orb",
+  "style": "digital surrealism",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "energy orb",
+    "plasma sphere",
+    "cosmic art",
+    "electric arcs",
+    "swirling rings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3674,
+  "source_url": "/generated/3674.jpg",
+  "image_url": "/sketches/4255.png",
+  "inverted_image_url": "/sketches-inverted/4255.png",
+  "curve_count": 122,
+  "built_at": "2026-08-17T00:09:47Z"
+}

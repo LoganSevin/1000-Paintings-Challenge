@@ -1,0 +1,42 @@
+{
+  "number": 4159,
+  "title": "Line sketch: Stained Glass Sunrise",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black and white line drawing of a bald man with a surprised expression, shown from the shoulders up, facing a vibrant stained glass sun with radiating rays. The background consists of a mosaic of stained glass panels featuring flowers with petals and black centers (derived from generated still #3577).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black and white line drawing of a bald man with a surprised expression, shown from the shoulders up, facing a vibrant stained glass sun with radiating rays. The background consists of a mosaic of stained glass panels featuring flowers with petals and black centers",
+  "inverted_title": "Inverted sketch: Stained Glass Sunrise",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black and white line drawing of a bald man with a surprised expression, shown from the shoulders up, facing a vibrant stained glass sun with radiating rays. The background consists of a mosaic of stained glass panels featuring flowers with petals and black centers (from generated still #3577).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black and white line drawing of a bald man with a surprised expression, shown from the shoulders up, facing a vibrant stained glass sun with radiating rays. The background consists of a mosaic of stained glass panels featuring flowers with petals and black centers",
+  "source_description": "A black and white line drawing of a bald man with a surprised expression, shown from the shoulders up, facing a vibrant stained glass sun with radiating green rays. The background consists of a colorful mosaic of stained glass panels featuring flowers with teal petals and black centers.",
+  "source_prompt": "A surreal mixed media artwork on lined notebook paper featuring a stark black and white line drawing of a bald man with wide eyes and open mouth looking toward the right. He is surrounded by a vibrant stained glass composition with a large yellow sun, radiating lime green rays, and teal flowers with black centers set against a fragmented mosaic background of orange, blue, and brown glass pieces.",
+  "source_title": "Stained Glass Sunrise",
+  "style": "stained glass",
+  "mood": "surreal wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "sunrise",
+    "line drawing",
+    "mosaic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3577,
+  "source_url": "/generated/3577.jpg",
+  "image_url": "/sketches/4159.png",
+  "inverted_image_url": "/sketches-inverted/4159.png",
+  "curve_count": 178,
+  "built_at": "2026-08-17T00:09:47Z"
+}

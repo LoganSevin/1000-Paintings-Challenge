@@ -1,0 +1,42 @@
+{
+  "number": 3676,
+  "title": "Line sketch: Elder Scholar and Demon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring an elderly white-bearded man in a suit with a ghostly duplicate of his face, standing on cracked earth as a horned demon holding a glowing book emerges from a stone archway while a smaller version of the old man walks toward him with a ribbon flowing between them (derived from generated still #3084).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring an elderly white-bearded man in a suit with a ghostly duplicate of his face, standing on cracked earth as a horned demon holding a glowing book emerges from a stone archway while a smaller version of the old man walks toward him with a ribbon flowing between them",
+  "inverted_title": "Inverted sketch: Elder Scholar and Demon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring an elderly white-bearded man in a suit with a ghostly duplicate of his face, standing on cracked earth as a horned demon holding a glowing book emerges from a stone archway while a smaller version of the old man walks toward him with a ribbon flowing between them (from generated still #3084).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring an elderly white-bearded man in a suit with a ghostly duplicate of his face, standing on cracked earth as a horned demon holding a glowing book emerges from a stone archway while a smaller version of the old man walks toward him with a ribbon flowing between them",
+  "source_description": "A surreal scene featuring an elderly white-bearded man in a suit with a ghostly duplicate of his face, standing on cracked earth as a blue horned demon holding a glowing book emerges from a stone archway while a smaller version of the old man walks toward him with a red ribbon flowing between them.",
+  "source_prompt": "",
+  "source_title": "Elder Scholar and Blue Demon",
+  "style": "fantasy realism",
+  "mood": "surreal ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "demon",
+    "elderly man",
+    "cracked earth",
+    "stone archway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3084,
+  "source_url": "/generated/3084.jpg",
+  "image_url": "/sketches/3676.png",
+  "inverted_image_url": "/sketches-inverted/3676.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:46Z"
+}

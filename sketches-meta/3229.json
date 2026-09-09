@@ -1,0 +1,42 @@
+{
+  "number": 3229,
+  "title": "Line sketch: Cosmic Butterfly Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal creature with a large central eye containing a crescent moon, topped by a smiling orb with spots. It has wide butterfly wings decorated with multiple small figures wearing headwraps. The being has two long trailing legs and floats against a swirling cosmic nebula background (derived from generated still #2582).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal creature with a large central eye containing a crescent moon, topped by a smiling orb with spots. It has wide butterfly wings decorated with multiple small figures wearing headwraps. The being has two long trailing legs and floats against a swirling cosmic nebula background",
+  "inverted_title": "Inverted sketch: Cosmic Butterfly Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal creature with a large central eye containing a crescent moon, topped by a smiling orb with spots. It has wide butterfly wings decorated with multiple small figures wearing headwraps. The being has two long trailing legs and floats against a swirling cosmic nebula background (from generated still #2582).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal creature with a large central eye containing a crescent moon, topped by a smiling orb with spots. It has wide butterfly wings decorated with multiple small figures wearing headwraps. The being has two long trailing legs and floats against a swirling cosmic nebula background",
+  "source_description": "A surreal creature with a large central green eye containing a crescent moon, topped by a purple smiling orb with orange spots. It has wide orange butterfly wings decorated with multiple small green figures wearing yellow headwraps. The being has two long green trailing legs and floats against a swirling cosmic nebula background.",
+  "source_prompt": "Surreal fantasy creature featuring a large detailed green eye with a crescent moon pupil, topped by a round purple smiling face with orange dots. It possesses wide orange butterfly wings covered in small green figures with yellow headwraps. The being has two long flowing green legs trailing below. Set against a vibrant swirling cosmic nebula background with purple and green clouds and stars, whimsical and colorful style.",
+  "source_title": "Cosmic Butterfly Eye",
+  "style": "surreal fantasy",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "butterfly",
+    "cosmic",
+    "eye creature",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2582,
+  "source_url": "/generated/2582.jpg",
+  "image_url": "/sketches/3229.png",
+  "inverted_image_url": "/sketches-inverted/3229.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:45Z"
+}

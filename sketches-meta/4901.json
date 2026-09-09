@@ -1,0 +1,42 @@
+{
+  "number": 4901,
+  "title": "Line sketch: Surreal Mosaic Fairy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central woman stands in a vibrant, dreamlike scene wearing a mirrored disco-ball mosaic bodysuit with floral patterns and large butterfly wings. She raises one hand while surrounded by floating eyes, jellyfish, a snake with a melting clock, a retriever, an elderly couple on a couch, and various symbolic objects in a fantastical night landscape (derived from generated still #4336).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central woman stands in a vibrant, dreamlike scene wearing a mirrored disco-ball mosaic bodysuit with floral patterns and large butterfly wings. She raises one hand while surrounded by floating eyes, jellyfish, a snake with a melting clock, a retriever, an elderly couple on a couch, and various symbolic objects in a fantastical night landscape",
+  "inverted_title": "Inverted sketch: Surreal Mosaic Fairy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central woman stands in a vibrant, dreamlike scene wearing a mirrored disco-ball mosaic bodysuit with floral patterns and large butterfly wings. She raises one hand while surrounded by floating eyes, jellyfish, a snake with a melting clock, a retriever, an elderly couple on a couch, and various symbolic objects in a fantastical night landscape (from generated still #4336).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central woman stands in a vibrant, dreamlike scene wearing a mirrored disco-ball mosaic bodysuit with floral patterns and large butterfly wings. She raises one hand while surrounded by floating eyes, jellyfish, a snake with a melting clock, a retriever, an elderly couple on a couch, and various symbolic objects in a fantastical night landscape",
+  "source_description": "A central woman stands in a vibrant, dreamlike scene wearing a mirrored disco-ball mosaic bodysuit with floral patterns and large yellow butterfly wings. She raises one hand while surrounded by floating eyes, jellyfish, a red snake with a melting clock, a golden retriever, an elderly couple on a couch, and various symbolic objects in a fantastical night landscape.",
+  "source_prompt": "A surreal dreamlike scene featuring a woman in a mirrored disco ball mosaic bodysuit covered in flowers, with large bright yellow butterfly wings. She stands in an enigmatic night landscape filled with floating eyeballs, glowing jellyfish, a large red snake coiled around a melting clock, a golden retriever, an elderly couple sitting on a vintage couch with a lamp, stone ruins, and various symbolic objects under a dark cosmic sky.",
+  "source_title": "Surreal Mosaic Fairy",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mosaic",
+    "fairy",
+    "symbolism",
+    "fantastical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4336,
+  "source_url": "/generated/4336.jpg",
+  "image_url": "/sketches/4901.png",
+  "inverted_image_url": "/sketches-inverted/4901.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:49Z"
+}

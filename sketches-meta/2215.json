@@ -1,0 +1,42 @@
+{
+  "number": 2215,
+  "title": "Line sketch: Melting Clock Painters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two women in patterned dresses and wide-brimmed hats sit on stools composition a large melting clock page in a vibrant, psychedelic landscape. The scene features swirling hills, distant mountains, floating clouds, and a sky with multiple small clocks scattered in the grass (derived from generated still #1440).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two women in patterned dresses and wide-brimmed hats sit on stools composition a large melting clock page in a vibrant, psychedelic landscape. The scene features swirling hills, distant mountains, floating clouds, and a sky with multiple small clocks scattered in the grass",
+  "inverted_title": "Inverted sketch: Melting Clock Painters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two women in patterned dresses and wide-brimmed hats sit on stools composition a large melting clock page in a vibrant, psychedelic landscape. The scene features swirling hills, distant mountains, floating clouds, and a sky with multiple small clocks scattered in the grass (from generated still #1440).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two women in patterned dresses and wide-brimmed hats sit on stools composition a large melting clock page in a vibrant, psychedelic landscape. The scene features swirling hills, distant mountains, floating clouds, and a sky with multiple small clocks scattered in the grass",
+  "source_description": "Two women in patterned dresses and wide-brimmed green hats sit on stools painting a large melting clock canvas in a vibrant, psychedelic landscape. The scene features swirling green hills, distant purple mountains, floating clouds, and a pastel sky with multiple small clocks scattered in the grass.",
+  "source_prompt": "",
+  "source_title": "Melting Clock Painters",
+  "style": "surreal psychedelic",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "melting clock",
+    "artists composition",
+    "surreal landscape",
+    "psychedelic art",
+    "wide-brim hats"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1440,
+  "source_url": "/generated/1440.jpg",
+  "image_url": "/sketches/2215.png",
+  "inverted_image_url": "/sketches-inverted/2215.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:42Z"
+}

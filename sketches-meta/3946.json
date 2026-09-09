@@ -1,0 +1,42 @@
+{
+  "number": 3946,
+  "title": "Line sketch: Hammer Girl Triptych",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three-panel comic-style sequence showing a -haired female character in a and black outfit. Left panel: she stands confidently holding a giant and black mallet. Middle panel: she swings the mallet with motion lines and impact stars. Right panel: she lies on the ground defeated as the mallet rests beside her (derived from generated still #3363).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three-panel comic-style sequence showing a -haired female character in a and black outfit. Left panel: she stands confidently holding a giant and black mallet. Middle panel: she swings the mallet with motion lines and impact stars. Right panel: she lies on the ground defeated as the mallet rests beside her",
+  "inverted_title": "Inverted sketch: Hammer Girl Triptych",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three-panel comic-style sequence showing a -haired female character in a and black outfit. Left panel: she stands confidently holding a giant and black mallet. Middle panel: she swings the mallet with motion lines and impact stars. Right panel: she lies on the ground defeated as the mallet rests beside her (from generated still #3363).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three-panel comic-style sequence showing a -haired female character in a and black outfit. Left panel: she stands confidently holding a giant and black mallet. Middle panel: she swings the mallet with motion lines and impact stars. Right panel: she lies on the ground defeated as the mallet rests beside her",
+  "source_description": "Three-panel comic-style sequence showing a pink-haired female character in a pink and black outfit. Left panel: she stands confidently holding a giant purple and black mallet. Middle panel: she swings the mallet with motion lines and yellow impact stars. Right panel: she lies on the ground defeated as the mallet rests beside her.",
+  "source_prompt": "Comic book triptych sequence on three separate grey panels. A confident punk girl with long bright pink hair in a high ponytail, wearing a pink and black outfit with gloves and boots, poses with a massive purple and black sledgehammer. In the center panel she swings the hammer powerfully with yellow starburst impact effects. In the final panel she is lying on her back on the ground, defeated, with the hammer resting beside her. Bold line art, vibrant colors, dynamic action pose sequence.",
+  "source_title": "Hammer Girl Triptych",
+  "style": "comic book",
+  "mood": "playful action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "hair",
+    "giant hammer",
+    "action sequence",
+    "comic panels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3363,
+  "source_url": "/generated/3363.jpg",
+  "image_url": "/sketches/3946.png",
+  "inverted_image_url": "/sketches-inverted/3946.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:47Z"
+}

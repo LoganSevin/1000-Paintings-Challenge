@@ -1,0 +1,42 @@
+{
+  "number": 3243,
+  "title": "Line sketch: Crystal Waterfall Citadel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic glowing crystal formation stands atop a rocky outcrop, cascading multiple streams of water into a misty pool below. In the background, a massive dark mountain with a tall waterfall rises under a dramatic, stormy sky filled with heavy clouds (derived from generated still #2603).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic glowing crystal formation stands atop a rocky outcrop, cascading multiple streams of water into a misty pool below. In the background, a massive dark mountain with a tall waterfall rises under a dramatic, stormy sky filled with heavy clouds",
+  "inverted_title": "Inverted sketch: Crystal Waterfall Citadel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic glowing crystal formation stands atop a rocky outcrop, cascading multiple streams of water into a misty pool below. In the background, a massive dark mountain with a tall waterfall rises under a dramatic, stormy sky filled with heavy clouds (from generated still #2603).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic glowing crystal formation stands atop a rocky outcrop, cascading multiple streams of water into a misty pool below. In the background, a massive dark mountain with a tall waterfall rises under a dramatic, stormy sky filled with heavy clouds",
+  "source_description": "A majestic glowing blue crystal formation stands atop a rocky outcrop, cascading multiple streams of bright turquoise water into a misty pool below. In the background, a massive dark mountain with a tall waterfall rises under a dramatic, stormy sky filled with heavy clouds.",
+  "source_prompt": "A glowing translucent blue crystal citadel perched on a rocky ledge, pouring multiple bright turquoise waterfalls into a misty pool with floating ice chunks in the foreground. Behind it rises a towering dark mountain with another large waterfall, surrounded by pine trees and green hills under a dramatic stormy sky with heavy clouds and god rays.",
+  "source_title": "Crystal Waterfall Citadel",
+  "style": "epic fantasy landscape",
+  "mood": "awe-inspiring, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "crystal formation",
+    "mountain",
+    "fantasy landscape",
+    "dramatic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2603,
+  "source_url": "/generated/2603.jpg",
+  "image_url": "/sketches/3243.png",
+  "inverted_image_url": "/sketches-inverted/3243.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:45Z"
+}

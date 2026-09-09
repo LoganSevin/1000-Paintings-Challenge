@@ -1,0 +1,42 @@
+{
+  "number": 2307,
+  "title": "Line sketch: Cowboy at the Stasis Fence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cowboy in a hat and floral shirt leans on a wooden fence overlooking the ocean, holding a bucket of vibrant flowers. Behind him a stylized horse with mane gallops across the waves under a dramatic sunset sky, with the word STASIS visible on the fence (derived from generated still #1534).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cowboy in a hat and floral shirt leans on a wooden fence overlooking the ocean, holding a bucket of vibrant flowers. Behind him a stylized horse with mane gallops across the waves under a dramatic sunset sky, with the word STASIS visible on the fence",
+  "inverted_title": "Inverted sketch: Cowboy at the Stasis Fence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cowboy in a hat and floral shirt leans on a wooden fence overlooking the ocean, holding a bucket of vibrant flowers. Behind him a stylized horse with mane gallops across the waves under a dramatic sunset sky, with the word STASIS visible on the fence (from generated still #1534).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cowboy in a hat and floral shirt leans on a wooden fence overlooking the ocean, holding a bucket of vibrant flowers. Behind him a stylized horse with mane gallops across the waves under a dramatic sunset sky, with the word STASIS visible on the fence",
+  "source_description": "A cowboy in a green hat and floral shirt leans on a wooden fence overlooking the ocean, holding a bucket of vibrant flowers. Behind him a stylized blue horse with red mane gallops across the waves under a dramatic sunset sky, with the word STASIS visible on the fence.",
+  "source_prompt": "",
+  "source_title": "Cowboy at the Stasis Fence",
+  "style": "surreal folk art",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "horse",
+    "ocean",
+    "sunset",
+    "fence"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1534,
+  "source_url": "/generated/1534.jpg",
+  "image_url": "/sketches/2307.png",
+  "inverted_image_url": "/sketches-inverted/2307.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 990,
+  "title": "Line sketch: Cosmic Dragon Mind",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal profile portrait of a - human head with a vibrant and serpentine dragon emerging from the cranium. The dragon's head breathes a burst of galaxies and cosmic energy into a swirling nebula-filled space background (derived from generated still #200).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal profile portrait of a - human head with a vibrant and serpentine dragon emerging from the cranium. The dragon's head breathes a burst of galaxies and cosmic energy into a swirling nebula-filled space background",
+  "inverted_title": "Inverted sketch: Cosmic Dragon Mind",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal profile portrait of a - human head with a vibrant and serpentine dragon emerging from the cranium. The dragon's head breathes a burst of galaxies and cosmic energy into a swirling nebula-filled space background (from generated still #200).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal profile portrait of a - human head with a vibrant and serpentine dragon emerging from the cranium. The dragon's head breathes a burst of galaxies and cosmic energy into a swirling nebula-filled space background",
+  "source_description": "A surreal profile portrait of a blue-purple human head with a vibrant green and yellow serpentine dragon emerging from the cranium. The dragon's head breathes a burst of colorful galaxies and cosmic energy into a swirling nebula-filled space background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dragon Mind",
+  "style": "surreal psychedelic",
+  "mood": "ethereal visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "cosmic",
+    "surreal",
+    "nebula",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 200,
+  "source_url": "/generated/200.jpg",
+  "image_url": "/sketches/990.png",
+  "inverted_image_url": "/sketches-inverted/990.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:40Z"
+}

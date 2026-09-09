@@ -1,0 +1,42 @@
+{
+  "number": 427,
+  "title": "Line sketch: Alien Head with Claws",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grotesque alien with large starry eyes and sharp teeth emerges from a spherical portal. Two mechanical clawed arms reach menacingly from the sides against a background (derived from painting #510).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grotesque alien with large starry eyes and sharp teeth emerges from a spherical portal. Two mechanical clawed arms reach menacingly from the sides against a background",
+  "inverted_title": "Inverted sketch: Alien Head with Claws",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grotesque alien with large starry eyes and sharp teeth emerges from a spherical portal. Two mechanical clawed arms reach menacingly from the sides against a background (from painting #510).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grotesque alien with large starry eyes and sharp teeth emerges from a spherical portal. Two mechanical clawed arms reach menacingly from the sides against a background",
+  "source_description": "A grotesque green alien with large starry eyes and sharp teeth emerges from a spherical portal. Two mechanical clawed arms reach menacingly from the sides against a deep red background.",
+  "source_prompt": "",
+  "source_title": "Alien Head with Claws",
+  "style": "Surrealism",
+  "mood": "Eerie and menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "sci-fi",
+    "surreal",
+    "horror",
+    "mechanical claws"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 510,
+  "source_url": "/paintings/510.jpg",
+  "image_url": "/sketches/427.png",
+  "inverted_image_url": "/sketches-inverted/427.png",
+  "curve_count": 125,
+  "built_at": "2026-08-17T00:09:39Z"
+}

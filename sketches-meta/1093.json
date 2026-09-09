@@ -1,0 +1,42 @@
+{
+  "number": 1093,
+  "title": "Line sketch: Wolf Spirit Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a wolf's head merged with a human-like face, featuring hair, a glowing eye, and paint drips. Set against a cracked circular backdrop with black crosses, poppy flowers on branches, and a vibrant - background with dripping effects (derived from generated still #305).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a wolf's head merged with a human-like face, featuring hair, a glowing eye, and paint drips. Set against a cracked circular backdrop with black crosses, poppy flowers on branches, and a vibrant - background with dripping effects",
+  "inverted_title": "Inverted sketch: Wolf Spirit Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a wolf's head merged with a human-like face, featuring hair, a glowing eye, and paint drips. Set against a cracked circular backdrop with black crosses, poppy flowers on branches, and a vibrant - background with dripping effects (from generated still #305).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a wolf's head merged with a human-like face, featuring hair, a glowing eye, and paint drips. Set against a cracked circular backdrop with black crosses, poppy flowers on branches, and a vibrant - background with dripping effects",
+  "source_description": "A surreal portrait of a wolf's head merged with a human-like face, featuring green hair, a glowing orange eye, and colorful paint drips. Set against a cracked circular backdrop with black crosses, red poppy flowers on branches, and a vibrant pink-purple background with dripping effects.",
+  "source_prompt": "",
+  "source_title": "Wolf Spirit Portrait",
+  "style": "surreal street art",
+  "mood": "ethereal chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "surreal",
+    "dripping paint",
+    "poppies",
+    "hybrid creature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 305,
+  "source_url": "/generated/305.jpg",
+  "image_url": "/sketches/1093.png",
+  "inverted_image_url": "/sketches-inverted/1093.png",
+  "curve_count": 88,
+  "built_at": "2026-08-17T00:09:40Z"
+}

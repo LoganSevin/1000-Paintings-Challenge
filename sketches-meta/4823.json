@@ -1,0 +1,42 @@
+{
+  "number": 4823,
+  "title": "Line sketch: Circuitry Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic metallic face mask with a feminine appearance rests against a dark gradient background. The surface is covered in intricate circuit board patterns, microchip components, and solder points, and engraved details around the eyes, lips, and cheeks (derived from generated still #4258).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic metallic face mask with a feminine appearance rests against a dark gradient background. The surface is covered in intricate circuit board patterns, microchip components, and solder points, and engraved details around the eyes, lips, and cheeks",
+  "inverted_title": "Inverted sketch: Circuitry Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic metallic face mask with a feminine appearance rests against a dark gradient background. The surface is covered in intricate circuit board patterns, microchip components, and solder points, and engraved details around the eyes, lips, and cheeks (from generated still #4258).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic metallic face mask with a feminine appearance rests against a dark gradient background. The surface is covered in intricate circuit board patterns, microchip components, and solder points, and engraved details around the eyes, lips, and cheeks",
+  "source_description": "A realistic metallic face mask with a feminine appearance rests against a dark gradient background. The surface is covered in intricate purple circuit board patterns, microchip components, gold and yellow solder points, and engraved details around the eyes, lips, and cheeks.",
+  "source_prompt": "highly detailed realistic metallic face mask with feminine features, covered in intricate purple circuit board patterns, embedded microchips, gold and yellow solder points, engraved details around eyes and lips, reflective gunmetal surface with patina, artistic object photography, dramatic studio lighting on dark gradient background",
+  "source_title": "Circuitry Mask",
+  "style": "cyberpunk sculpture",
+  "mood": "futuristic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media metal mask",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mask",
+    "circuit board",
+    "cyberpunk",
+    "metallic",
+    "sculpture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4258,
+  "source_url": "/generated/4258.jpg",
+  "image_url": "/sketches/4823.png",
+  "inverted_image_url": "/sketches-inverted/4823.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:49Z"
+}

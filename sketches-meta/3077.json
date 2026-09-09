@@ -1,0 +1,42 @@
+{
+  "number": 3077,
+  "title": "Line sketch: Overhead Projector Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a shimmering one-shoulder gown stands amid the ruins of a derelict theater, holding a film slide and conductor's baton. Behind her, a large overhead projector casts a radiant burst of light and floating images onto a decaying screen while the dilapidated room is littered with popcorn, film reels, and broken frames (derived from generated still #2405).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a shimmering one-shoulder gown stands amid the ruins of a derelict theater, holding a film slide and conductor's baton. Behind her, a large overhead projector casts a radiant burst of light and floating images onto a decaying screen while the dilapidated room is littered with popcorn, film reels, and broken frames",
+  "inverted_title": "Inverted sketch: Overhead Projector Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a shimmering one-shoulder gown stands amid the ruins of a derelict theater, holding a film slide and conductor's baton. Behind her, a large overhead projector casts a radiant burst of light and floating images onto a decaying screen while the dilapidated room is littered with popcorn, film reels, and broken frames (from generated still #2405).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a shimmering one-shoulder gown stands amid the ruins of a derelict theater, holding a film slide and conductor's baton. Behind her, a large overhead projector casts a radiant burst of light and floating images onto a decaying screen while the dilapidated room is littered with popcorn, film reels, and broken frames",
+  "source_description": "A woman in a shimmering one-shoulder gown stands amid the ruins of a derelict theater, holding a film slide and conductor's baton. Behind her, a large overhead projector casts a radiant burst of light and floating images onto a decaying screen while the dilapidated room is littered with popcorn, film reels, and broken frames.",
+  "source_prompt": "",
+  "source_title": "Overhead Projector Stasis",
+  "style": "cinematic digital art",
+  "mood": "dramatic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ruins",
+    "theater",
+    "projector",
+    "film",
+    "elegant woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2405,
+  "source_url": "/generated/2405.jpg",
+  "image_url": "/sketches/3077.png",
+  "inverted_image_url": "/sketches-inverted/3077.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:44Z"
+}

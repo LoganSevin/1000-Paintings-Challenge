@@ -1,0 +1,42 @@
+{
+  "number": 92,
+  "title": "Line sketch: Smiling Winged Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cheerful circular head with black eyes, cheek, and curved smile floats at center, framed by large segmented wing or skirt shapes and thin legs casting shadows. Scattered circles hover in the upper background against a pale field. Bold flat color fields and crisp outlines create a graphic, stylized composition (derived from painting #123).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cheerful circular head with black eyes, cheek, and curved smile floats at center, framed by large segmented wing or skirt shapes and thin legs casting shadows. Scattered circles hover in the upper background against a pale field. Bold flat color fields and crisp outlines create a graphic, stylized composition",
+  "inverted_title": "Inverted sketch: Smiling Winged Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cheerful circular head with black eyes, cheek, and curved smile floats at center, framed by large segmented wing or skirt shapes and thin legs casting shadows. Scattered circles hover in the upper background against a pale field. Bold flat color fields and crisp outlines create a graphic, stylized composition (from painting #123).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cheerful circular head with black eyes, cheek, and curved smile floats at center, framed by large segmented wing or skirt shapes and thin legs casting shadows. Scattered circles hover in the upper background against a pale field. Bold flat color fields and crisp outlines create a graphic, stylized composition",
+  "source_description": "A cheerful purple circular head with black eyes, orange cheek, and curved smile floats at center, framed by large segmented orange wing or skirt shapes and thin brown legs casting green shadows. Scattered brown circles hover in the upper background against a pale cream field. Bold flat color fields and crisp outlines create a graphic, stylized composition.",
+  "source_prompt": "",
+  "source_title": "Smiling Purple Winged Orb",
+  "style": "Graphic Surrealism",
+  "mood": "Whimsical playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "creature",
+    "face",
+    "wings",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 123,
+  "source_url": "/paintings/123.jpg",
+  "image_url": "/sketches/92.png",
+  "inverted_image_url": "/sketches-inverted/92.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:38Z"
+}

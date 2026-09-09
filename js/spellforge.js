@@ -5,10 +5,18 @@
   var PAGE_SIZE = 25;
   var PAGE_COUNT = 40;
   var TOTAL = PAGE_SIZE * PAGE_COUNT;
-  var DISPLAY_ORDER_KEY = "spellforge_display_order_v9";
+  var DISPLAY_ORDER_KEY = "spellforge_display_order_v11";
   var SHUFFLE_VERSION_KEY = "spellforge_shuffle_version";
-  var SHUFFLE_VERSION = "v9-phone-uploads";
+  var SHUFFLE_VERSION = "v11-full-arsenal-pages";
   var EQUIP_SAVE_KEY = "spellforge_equipped_v1";
+  var ASPECT_KEY = "spellforge_aspect_v1";
+  /** Generated/phone arsenal IDs are GEN_BASE + generated file number (avoids clobbering paintings 1–1000). */
+  var GEN_BASE = 100000;
+  /** Sketch arsenal IDs are SKETCH_BASE + sketch number (avoids clobbering gen). */
+  var SKETCH_BASE = 200000;
+  /** Inverted chalk sketches use INV_SKETCH_BASE + number. */
+  var INV_SKETCH_BASE = 300000;
+  var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
 
   var canonicalList = [];
   var displayOrder = [];
@@ -16,9 +24,21 @@
   var manifest = [];
   var manifestByNumber = {};
   var analyses = {};
-  /** Phone uploads promoted to generated/ — num → { url, analysis, title, source } */
+  /** Phone + generated extras — arsenalNum → { url, analysis, title, source, genNum } */
   var extraSpells = {};
+  /** Arsenal numbers for extras only (GEN_BASE + G#) */
+  var arsenalExtraNums = [];
+  /** @deprecated alias kept for a few UI notes */
   var phoneSpellNums = [];
+  /** Live counts from /api/transfer/spell-assets */
+  var arsenalStats = {
+    paintings: TOTAL,
+    generated: 0,
+    phone: 0,
+    extras: 0,
+    total: TOTAL,
+    pages: PAGE_COUNT,
+  };
   var spells = [null, null, null];
   var activePage = 0;
   var pickerQuery = "";
@@ -40,66 +60,133 @@
   var lastHealth = null;
   var spellforgeStarted = false;
   var spellforgeReady = false;
+  var suppressAutoVision = false;
+  var skipLocalFuse = false;
   /**
    * Per-slot spell text overrides (color name → hex edits).
    * null = use default analysis text for that painting.
    */
   var spellSlotBodyOverride = [null, null, null];
-  /** Named hues — saturated enough that name→swatch and nearest-name are bold, not muddy. */
+  /**
+   * Named hues for bold color rewrite / nearest-name.
+   * Keep reference hexes fairly pure so Lab matching does not collapse to beige/navy.
+   */
   var COLOR_NAME_HEX = {
-    pink: "#FF4FA3",
-    magenta: "#FF00AA",
-    fuchsia: "#FF00CC",
-    purple: "#A855F7",
-    violet: "#7C3AED",
-    plum: "#9B2D8A",
-    indigo: "#4338CA",
-    blue: "#2563EB",
-    sapphire: "#0B5FFF",
-    cobalt: "#0047AB",
-    ultramarine: "#1E3A8A",
-    cyan: "#06B6D4",
-    turquoise: "#14B8A6",
-    teal: "#0D9488",
-    green: "#16A34A",
-    emerald: "#059669",
-    lime: "#84CC16",
-    chartreuse: "#B8FF00",
-    mint: "#34D399",
-    yellow: "#FACC15",
-    gold: "#EAB308",
-    amber: "#F59E0B",
-    orange: "#F97316",
-    coral: "#FF6B4A",
-    peach: "#FFAB70",
+    // Reds / pinks
     red: "#EF4444",
     scarlet: "#FF2400",
     crimson: "#DC143C",
     vermilion: "#E34234",
+    tomato: "#FF6347",
+    brick: "#B22222",
+    carmine: "#960018",
     rose: "#F43F5E",
-    burgundy: "#7F1D1D",
-    maroon: "#9F1239",
+    pink: "#FF4FA3",
+    hotpink: "#FF69B4",
+    salmon: "#FA8072",
+    blush: "#DE5D83",
+    // Oranges / yellows
+    orange: "#F97316",
+    tangerine: "#FF8C00",
+    apricot: "#FBCEB1",
+    coral: "#FF6B4A",
+    peach: "#FFAB70",
+    amber: "#F59E0B",
+    gold: "#EAB308",
+    yellow: "#FACC15",
+    lemon: "#FFF44F",
+    mustard: "#E1AD01",
+    // Earths
+    ochre: "#CC7722",
+    sienna: "#A0522D",
     rust: "#B7410E",
     brown: "#92400E",
-    tan: "#D2B48C",
-    beige: "#F5F0DC",
-    cream: "#FFF5E0",
-    ivory: "#FFFFF0",
-    white: "#F8FAFC",
-    black: "#0A0A0C",
-    gray: "#6B7280",
-    grey: "#6B7280",
-    silver: "#C0C0C0",
-    charcoal: "#374151",
-    navy: "#1E3A5F",
-    olive: "#6B8E23",
-    lavender: "#C084FC",
-    mauve: "#C26B9A",
-    sky: "#38BDF8",
-    azure: "#0080FF",
+    chocolate: "#7B3F00",
+    coffee: "#6F4E37",
+    mahogany: "#C04000",
     bronze: "#CD7F32",
     copper: "#B87333",
-    ochre: "#CC7722",
+    tan: "#D2B48C",
+    khaki: "#C3B091",
+    sand: "#C2B280",
+    // Greens
+    green: "#16A34A",
+    forest: "#228B22",
+    emerald: "#059669",
+    jade: "#00A86B",
+    mint: "#34D399",
+    seafoam: "#93E9BE",
+    sage: "#9CAF88",
+    moss: "#8A9A5B",
+    olive: "#6B8E23",
+    lime: "#84CC16",
+    chartreuse: "#B8FF00",
+    // Cyans / blues
+    teal: "#0D9488",
+    turquoise: "#14B8A6",
+    cyan: "#06B6D4",
+    aqua: "#00FFFF",
+    sky: "#38BDF8",
+    azure: "#0080FF",
+    cerulean: "#007BA7",
+    blue: "#2563EB",
+    sapphire: "#0B5FFF",
+    cobalt: "#0047AB",
+    ultramarine: "#1E3A8A",
+    royal: "#4169E1",
+    periwinkle: "#CCCCFF",
+    indigo: "#4338CA",
+    navy: "#1E3A5F",
+    midnight: "#191970",
+    // Purples
+    purple: "#A855F7",
+    violet: "#7C3AED",
+    lavender: "#C084FC",
+    lilac: "#C8A2C8",
+    mauve: "#C26B9A",
+    magenta: "#FF00AA",
+    fuchsia: "#FF00CC",
+    plum: "#9B2D8A",
+    eggplant: "#614051",
+    wine: "#722F37",
+    burgundy: "#7F1D1D",
+    maroon: "#9F1239",
+    // Neutrals (only win when chroma is low)
+    white: "#F8FAFC",
+    ivory: "#FFFFF0",
+    cream: "#FFF5E0",
+    bone: "#E3DAC9",
+    beige: "#F5F0DC",
+    linen: "#FAF0E6",
+    silver: "#C0C0C0",
+    gray: "#6B7280",
+    grey: "#6B7280",
+    slate: "#64748B",
+    steel: "#71797E",
+    ash: "#B2BEB5",
+    charcoal: "#374151",
+    black: "#0A0A0C",
+  };
+
+  /** Low-chroma dictionary names — only matched when the sample is also neutral. */
+  var COLOR_NEUTRAL_NAMES = {
+    white: 1,
+    ivory: 1,
+    cream: 1,
+    bone: 1,
+    beige: 1,
+    linen: 1,
+    silver: 1,
+    gray: 1,
+    grey: 1,
+    slate: 1,
+    steel: 1,
+    ash: 1,
+    charcoal: 1,
+    black: 1,
+    tan: 1,
+    khaki: 1,
+    sand: 1,
   };
 
   /** Same heuristic set as Commercial — terms that often trip image-API moderation. */
@@ -353,6 +440,11 @@
     return (location.hostname || "").toLowerCase().indexOf("netlify.app") >= 0;
   }
 
+  function isRenderSite() {
+    var h = (location.hostname || "").toLowerCase();
+    return h.indexOf("onrender.com") >= 0 || h.indexOf("render.com") >= 0;
+  }
+
   /** Never tell Netlify visitors to run start_server.bat */
   function hostedMsg(localMsg, publicMsg) {
     return isLocalHost() ? localMsg : publicMsg;
@@ -455,6 +547,18 @@
       prompt: spellPrompt,
     };
     window.spellforgeFusion = payload;
+    try {
+      if (stasisVisionUrl) {
+        localStorage.setItem(
+          "spellforge_last_vision_v1",
+          JSON.stringify({
+            url: stasisVisionUrl,
+            slots: nums,
+            t: Date.now(),
+          })
+        );
+      }
+    } catch (eVis) {}
     window.dispatchEvent(
       new CustomEvent("spellforge-fusion", { detail: payload })
     );
@@ -462,6 +566,7 @@
   }
 
   function scheduleAutoVision(nums) {
+    if (suppressAutoVision) return;
     var physical = getGenerationStasisPayload();
     if (
       nums.length < 2 ||
@@ -537,6 +642,131 @@
     return document.querySelector(sel);
   }
 
+  function getAspectRatio() {
+    var sel = document.getElementById("spell-aspect");
+    var v = sel && sel.value ? String(sel.value).trim() : "";
+    if (!v) {
+      try {
+        v = localStorage.getItem(ASPECT_KEY) || "";
+      } catch (e) {
+        v = "";
+      }
+    }
+    if (ASPECT_OPTIONS.indexOf(v) < 0) v = "16:9";
+    return v;
+  }
+
+  function setAspectRatio(ratio) {
+    var v = String(ratio || "").trim();
+    if (ASPECT_OPTIONS.indexOf(v) < 0) v = "16:9";
+    var sel = document.getElementById("spell-aspect");
+    if (sel) sel.value = v;
+    try {
+      localStorage.setItem(ASPECT_KEY, v);
+    } catch (e) {}
+    applyAspectPreview(v);
+    return v;
+  }
+
+  /**
+   * Strip aspect / frame-shape talk from prompts so the model does not fight
+   * the UI-chosen aspect_ratio (API field only). Keeps composition consistent.
+   */
+  function stripAspectTalkFromPrompt(text) {
+    var s = String(text || "");
+    if (!s) return s;
+    // Explicit Spellforge / pipeline frame directives
+    s = s.replace(
+      /\n*\s*OUTPUT FRAME\s*:[^\n]*(?:\n(?!\n)[^\n]*)*/gi,
+      "\n"
+    );
+    s = s.replace(
+      /\b(?:output\s+)?(?:frame|canvas|image)\s*(?:shape|size|format)?\s*(?:at|in|as|to)?\s*aspect(?:\s*ratio)?\s*[:\-]?\s*\d+\s*[:/]\s*\d+\b[^.!?\n]*/gi,
+      ""
+    );
+    s = s.replace(
+      /\baspect(?:\s*ratio)?\s*[:\-]?\s*\d+\s*[:/]\s*\d+\b/gi,
+      ""
+    );
+    s = s.replace(
+      /\b(?:at|in|for|as)\s+(?:a\s+)?(?:\d+\s*[:/]\s*\d+)\s*(?:aspect(?:\s*ratio)?|frame|canvas|format)?\b/gi,
+      ""
+    );
+    // Common ratio tokens (with optional landscape/portrait/widescreen labels)
+    s = s.replace(
+      /\b(?:widescreen|ultrawide|cinematic|vertical|horizontal)?\s*(?:aspect\s*)?(?:ratio\s*)?(?:of\s*)?(?:1\s*[:/]\s*1|4\s*[:/]\s*3|3\s*[:/]\s*4|16\s*[:/]\s*9|9\s*[:/]\s*16|3\s*[:/]\s*2|2\s*[:/]\s*3)\b(?:\s*(?:landscape|portrait|widescreen|vertical|horizontal|frame|canvas|format|aspect(?:\s*ratio)?))?/gi,
+      ""
+    );
+    s = s.replace(
+      /\b(?:landscape|portrait|widescreen|vertical|horizontal)\s+(?:format|orientation|frame|canvas|aspect(?:\s*ratio)?)\b/gi,
+      ""
+    );
+    s = s.replace(
+      /\b(?:letterbox(?:ed|ing)?|pillarbox(?:ed|ing)?|do not letterbox|full-?bleed still at aspect[^.!?\n]*)\b/gi,
+      ""
+    );
+    s = s.replace(
+      /\bbuzz[^.\n]*aspect\s+\d+\s*[:/]\s*\d+/gi,
+      function (m) {
+        return m.replace(/aspect\s+\d+\s*[:/]\s*\d+/gi, "").trim();
+      }
+    );
+    // Cleanup leftover punctuation / empty lines
+    s = s.replace(/[ \t]{2,}/g, " ");
+    s = s.replace(/ ?([,;:])\s*([,;:])/g, "$1");
+    s = s.replace(/\(\s*\)/g, "");
+    s = s.replace(/\n{3,}/g, "\n\n");
+    return s.trim();
+  }
+
+  /** Drop aspect-ish buzz tokens; frame is controlled only by aspect_ratio API field. */
+  function filterBuzzNoAspect(list) {
+    return (list || []).filter(function (b) {
+      var t = String(b || "").trim();
+      if (!t) return false;
+      if (/aspect/i.test(t)) return false;
+      if (/^\d+\s*[:/]\s*\d+$/.test(t)) return false;
+      if (/full[-\s]?bleed/i.test(t)) return false;
+      if (/letterbox|pillarbox/i.test(t)) return false;
+      if (/^(landscape|portrait|widescreen|vertical|horizontal)$/i.test(t)) {
+        return false;
+      }
+      return true;
+    });
+  }
+
+  function applyAspectPreview(ratio) {
+    var r = String(ratio || getAspectRatio());
+    var css = r.replace(":", " / ");
+    var frame = document.getElementById("spell-stasis-vision-view");
+    var img = document.getElementById("spell-stasis-vision-img");
+    var wrap = document.getElementById("spell-stasis-vision-wrap");
+    if (frame) frame.style.setProperty("--spell-vision-aspect", css);
+    if (img) img.style.setProperty("--spell-vision-aspect", css);
+    if (wrap) wrap.dataset.aspect = r;
+  }
+
+  function bindAspectControl() {
+    var sel = document.getElementById("spell-aspect");
+    if (!sel || sel.dataset.bound) return;
+    sel.dataset.bound = "1";
+    var saved = "";
+    try {
+      saved = localStorage.getItem(ASPECT_KEY) || "";
+    } catch (e) {}
+    if (ASPECT_OPTIONS.indexOf(saved) >= 0) sel.value = saved;
+    applyAspectPreview(sel.value || "16:9");
+    sel.addEventListener("change", function () {
+      setAspectRatio(sel.value || "16:9");
+      var statusEl = document.getElementById("spell-generate-status");
+      if (statusEl && !generatingVision) {
+        statusEl.hidden = false;
+        statusEl.className = "spell-generate-status";
+        statusEl.textContent = "Aspect set to " + getAspectRatio() + " — next Generate uses this frame.";
+      }
+    });
+  }
+
   function shuffleArray(arr) {
     var a = arr.slice();
     var i = a.length;
@@ -554,55 +784,69 @@
     for (var n = 1; n <= TOTAL; n++) canonicalList.push(n);
   }
 
-  function paintingOrderOnly(order) {
-    return (order || []).filter(function (n) {
-      n = parseInt(n, 10);
-      return n >= 1 && n <= TOTAL;
-    });
+  function buildFullArsenalList() {
+    buildCanonicalList();
+    var list = canonicalList.slice();
+    var seen = {};
+    for (var i = 0; i < list.length; i++) seen[list[i]] = true;
+    for (var j = 0; j < arsenalExtraNums.length; j++) {
+      var x = arsenalExtraNums[j];
+      if (!seen[x]) {
+        list.push(x);
+        seen[x] = true;
+      }
+    }
+    return list;
   }
 
-  function mergePhoneIntoDisplayOrder(paintingOrder) {
-    var phone = phoneSpellNums.slice();
-    var seen = {};
-    phone.forEach(function (n) {
-      seen[n] = true;
-    });
-    var rest = (paintingOrder || []).filter(function (n) {
+  /** Keep saved order, drop missing, insert new phone/generated at random positions. */
+  function reconcileDisplayOrder(order, fullSet) {
+    var full = fullSet || buildFullArsenalList();
+    var want = {};
+    for (var i = 0; i < full.length; i++) want[full[i]] = true;
+    var kept = [];
+    var keptSet = {};
+    (order || []).forEach(function (n) {
       n = parseInt(n, 10);
-      return n >= 1 && n <= TOTAL && !seen[n];
+      if (!n || !want[n] || keptSet[n]) return;
+      kept.push(n);
+      keptSet[n] = true;
     });
-    // Phone uploads first so they show on page 1 with thumbnails + analysis
-    return phone.concat(rest);
+    var missing = [];
+    for (var j = 0; j < full.length; j++) {
+      if (!keptSet[full[j]]) missing.push(full[j]);
+    }
+    // Shuffle missing, then insert each at a random index so they mix into the book
+    missing = shuffleArray(missing);
+    for (var m = 0; m < missing.length; m++) {
+      var idx = Math.floor(Math.random() * (kept.length + 1));
+      kept.splice(idx, 0, missing[m]);
+    }
+    return kept;
   }
 
   function saveDisplayOrder() {
     try {
-      // Persist only the painting shuffle; phone spells are re-prefixed each load
-      localStorage.setItem(
-        DISPLAY_ORDER_KEY,
-        JSON.stringify(paintingOrderOnly(displayOrder))
-      );
+      localStorage.setItem(DISPLAY_ORDER_KEY, JSON.stringify(displayOrder || []));
       localStorage.setItem(SHUFFLE_VERSION_KEY, SHUFFLE_VERSION);
     } catch (e) {}
   }
 
   function buildDisplayOrder(forceNew) {
-    buildCanonicalList();
-    var paintingOrder = null;
+    var full = buildFullArsenalList();
     if (!forceNew) {
       try {
         if (localStorage.getItem(SHUFFLE_VERSION_KEY) === SHUFFLE_VERSION) {
           var saved = JSON.parse(localStorage.getItem(DISPLAY_ORDER_KEY) || "null");
-          if (saved && saved.length === TOTAL) {
-            paintingOrder = saved;
+          if (saved && saved.length) {
+            displayOrder = reconcileDisplayOrder(saved, full);
+            saveDisplayOrder();
+            return;
           }
         }
       } catch (e) {}
     }
-    if (!paintingOrder) {
-      paintingOrder = shuffleArray(canonicalList);
-    }
-    displayOrder = mergePhoneIntoDisplayOrder(paintingOrder);
+    displayOrder = shuffleArray(full);
     saveDisplayOrder();
   }
 
@@ -611,6 +855,16 @@
     if (!n || n < 1) return false;
     if (n <= TOTAL) return true;
     return !!extraSpells[n] || !!extraSpells[String(n)];
+  }
+
+  function spellKindLabel(num) {
+    var extra = extraSpells[num] || extraSpells[String(num)];
+    if (!extra) return "#" + num;
+    var g = extra.genNum != null ? extra.genNum : num;
+    if (extra.source === "phone-upload") return "Phone G#" + g;
+    if (extra.source === "sketch") return "Sketch S#" + g;
+    if (extra.source === "sketch-inverted") return "Inv sketch SI#" + g;
+    return "Gen G#" + g;
   }
 
   function buildManifestMap() {
@@ -630,63 +884,140 @@
   }
 
   function getAnalysis(num) {
+    num = parseInt(num, 10);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.analysis) return extra.analysis;
-    return analyses[String(num)] || analyses[num] || null;
+    var a = analyses[String(num)] || analyses[num] || null;
+    if (a) return a;
+    try {
+      var ga = window.getGalleryAnalyses
+        ? window.getGalleryAnalyses()
+        : window.galleryAnalyses;
+      if (ga) {
+        a = ga[String(num)] || ga[num] || null;
+        if (a) {
+          analyses[String(num)] = a;
+          analyses[num] = a;
+        }
+      }
+    } catch (e) {}
+    return a || null;
   }
 
   function analysisSpellText(num) {
     var a = getAnalysis(num);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!a) {
-      if (extra) return (extra.title || "Phone upload #" + num) + "\n\n(no analysis yet — open Transfer or wait for describe)";
+      if (extra) {
+        return (
+          (extra.title || spellKindLabel(num)) +
+          "\n\n(Description pending — run analyze_missing_descriptions.bat on the PC, then refresh Spellforge.)"
+        );
+      }
       return "Painting #" + num + " (no analysis yet)";
     }
     var parts = [];
     if (a.title) parts.push(a.title);
-    if (extra) parts.push("Phone upload · Generated #" + num);
-    if (a.description) parts.push(a.description);
-    if (a.prompt) parts.push("Prompt weight: " + a.prompt);
+    if (extra) {
+      var kindLabel =
+        extra.source === "phone-upload"
+          ? "Phone upload"
+          : extra.source === "sketch"
+            ? "Line sketch (black on white)"
+            : extra.source === "sketch-inverted"
+              ? "Inverted sketch (white on black)"
+              : "Generated still";
+      var idLabel =
+        extra.source === "sketch" || extra.source === "sketch-inverted"
+          ? (extra.source === "sketch-inverted" ? "SI#" : "S#") +
+            (extra.sketchNum != null ? extra.sketchNum : extra.genNum)
+          : "G#" + (extra.genNum != null ? extra.genNum : num);
+      parts.push(kindLabel + " · " + idLabel);
+    }
+    if (a.description) {
+      parts.push(a.description);
+    } else if (extra || a.needs_description) {
+      parts.push(
+        "(Description pending — run analyze_missing_descriptions.bat, then hard-refresh.)"
+      );
+    }
+    if (a.prompt) parts.push("Generation prompt: " + a.prompt);
+    if (a.source_description && a.source_description !== a.description) {
+      parts.push("Source (verbatim): " + a.source_description);
+    }
     if (a.style) parts.push("Style: " + a.style);
     if (a.tags && a.tags.length) parts.push("Tags: " + a.tags.join(", "));
     return parts.join("\n\n");
   }
 
-  function ingestPhoneSpellAssets(items) {
+  function ingestSpellAssets(items) {
     extraSpells = {};
+    arsenalExtraNums = [];
     phoneSpellNums = [];
     (items || []).forEach(function (it) {
       if (!it) return;
-      var num = parseInt(it.number, 10);
-      if (!num || num < 1) return;
+      var genNum = parseInt(it.number, 10);
+      if (!genNum || genNum < 1) return;
       var url = it.url || it.generatedUrl || it.phoneUrl || "";
       if (!url) return;
+      var source =
+        it.source === "phone-upload" || it.kind === "phone-upload"
+          ? "phone-upload"
+          : it.source === "sketch-inverted" || it.kind === "sketch-inverted"
+            ? "sketch-inverted"
+            : it.source === "sketch" || it.kind === "sketch"
+              ? "sketch"
+              : "generated";
+      // Offset so paintings 1–1000 stay intact; sketches / inverted use own bases
+      var base =
+        source === "sketch"
+          ? SKETCH_BASE
+          : source === "sketch-inverted"
+            ? INV_SKETCH_BASE
+            : GEN_BASE;
+      var num = base + genNum;
       var analysis = it.analysis || null;
       if (analysis && !analysis.title && it.title) analysis.title = it.title;
+      var defaultTitle =
+        source === "phone-upload"
+          ? "Phone G#" + genNum
+          : source === "sketch"
+            ? "Sketch S#" + genNum
+            : source === "sketch-inverted"
+              ? "Inv sketch SI#" + genNum
+              : "Gen G#" + genNum;
       extraSpells[num] = {
         number: num,
+        genNum: genNum,
+        sketchNum:
+          source === "sketch" || source === "sketch-inverted" ? genNum : null,
         url: url,
-        title: (analysis && analysis.title) || it.title || "Phone #" + num,
-        source: "phone-upload",
+        title: (analysis && analysis.title) || it.title || defaultTitle,
+        source: source,
         name: it.name || "",
         analysis: analysis,
       };
       extraSpells[String(num)] = extraSpells[num];
-      // Also merge into analyses map so search / fusion pick it up
       if (analysis) {
         analyses[String(num)] = analysis;
         analyses[num] = analysis;
       }
-      phoneSpellNums.push(num);
+      arsenalExtraNums.push(num);
+      if (source === "phone-upload") phoneSpellNums.push(num);
+    });
+    arsenalExtraNums.sort(function (a, b) {
+      return b - a;
     });
     phoneSpellNums.sort(function (a, b) {
       return b - a;
     });
   }
 
-  function loadPhoneSpellAssets() {
-    // Optional enhancement — never block Spellforge if offline / route missing
-    var url = apiUrl("/api/transfer/spell-assets?t=" + Date.now());
+  function loadSpellAssets(opts) {
+    // Optional — never block Spellforge if offline / route missing
+    var q = "?t=" + Date.now();
+    if (opts && opts.skipSketches) q += "&skip_sketches=1";
+    var url = apiUrl("/api/transfer/spell-assets" + q);
     return fetch(url, { cache: "no-store" })
       .then(function (r) {
         if (!r.ok) return null;
@@ -696,13 +1027,27 @@
       })
       .then(function (d) {
         if (d && d.ok && Array.isArray(d.items)) {
-          ingestPhoneSpellAssets(d.items);
+          ingestSpellAssets(d.items);
+          if (d.painting_total) arsenalStats.paintings = d.painting_total;
+          if (typeof d.generated_count === "number") {
+            /* server counts pure generated; phone counted separately */
+          }
+          refreshArsenalStats();
+          if (d.pages && d.pages > arsenalStats.pages) {
+            arsenalStats.pages = d.pages;
+          }
+          if (d.arsenal_total) arsenalStats.total = d.arsenal_total;
         }
-        return phoneSpellNums.length;
+        return arsenalExtraNums.length;
       })
       .catch(function () {
         return 0;
       });
+  }
+
+  /** @deprecated name — use loadSpellAssets */
+  function loadPhoneSpellAssets() {
+    return loadSpellAssets();
   }
 
   function escapeHtml(s) {
@@ -716,8 +1061,55 @@
   }
 
   function totalPageCount() {
-    var n = displayOrder.length || TOTAL;
+    // Always derive from real arsenal length (paintings + gen + phone), never hard-cap at 40
+    var n = (displayOrder && displayOrder.length) || arsenalStats.total || TOTAL;
     return Math.max(1, Math.ceil(n / PAGE_SIZE));
+  }
+
+  function refreshArsenalStats() {
+    var extras = arsenalExtraNums.length;
+    var phone = 0;
+    var gen = 0;
+    var sketches = 0;
+    var invSketches = 0;
+    for (var i = 0; i < arsenalExtraNums.length; i++) {
+      var ex = extraSpells[arsenalExtraNums[i]];
+      if (ex && ex.source === "phone-upload") phone++;
+      else if (ex && ex.source === "sketch") sketches++;
+      else if (ex && ex.source === "sketch-inverted") invSketches++;
+      else gen++;
+    }
+    arsenalStats = {
+      paintings: TOTAL,
+      generated: gen,
+      sketches: sketches,
+      invertedSketches: invSketches,
+      phone: phone,
+      extras: extras,
+      total: TOTAL + extras,
+      pages: Math.max(1, Math.ceil((TOTAL + extras) / PAGE_SIZE)),
+    };
+    return arsenalStats;
+  }
+
+  function arsenalSummaryText() {
+    var s = refreshArsenalStats();
+    return (
+      s.total +
+      " spells · " +
+      s.pages +
+      " pages · " +
+      s.paintings +
+      " paintings + " +
+      s.generated +
+      " generated + " +
+      (s.sketches || 0) +
+      " sketches + " +
+      (s.invertedSketches || 0) +
+      " inverted + " +
+      s.phone +
+      " phone"
+    );
   }
 
   function itemsOnPage(pageIndex) {
@@ -739,21 +1131,70 @@
   function filterBySearch(query) {
     var qRaw = String(query || "").trim();
     if (!qRaw) return null;
+    var qLow = qRaw.toLowerCase();
     var hits = [];
     for (var i = 0; i < displayOrder.length; i++) {
       var num = displayOrder[i];
       var a = getAnalysis(num);
-      if (window.paintingMatchesSearch) {
+      var extra = extraSpells[num] || extraSpells[String(num)];
+      // Kind filters: phone / generated / gen / sketch
+      if (extra) {
+        if (qLow === "phone" && extra.source === "phone-upload") {
+          hits.push(num);
+          continue;
+        }
+        if (
+          (qLow === "gen" || qLow === "generated") &&
+          extra.source === "generated"
+        ) {
+          hits.push(num);
+          continue;
+        }
+        if (
+          (qLow === "sketch" || qLow === "sketches" || qLow === "line") &&
+          (extra.source === "sketch" || extra.source === "sketch-inverted")
+        ) {
+          hits.push(num);
+          continue;
+        }
+        if (
+          (qLow === "inverted" ||
+            qLow === "invert" ||
+            qLow === "chalk" ||
+            qLow === "si") &&
+          extra.source === "sketch-inverted"
+        ) {
+          hits.push(num);
+          continue;
+        }
+      }
+      if (window.paintingMatchesSearch && !extra) {
         if (window.paintingMatchesSearch(num, a, qRaw)) hits.push(num);
         continue;
       }
-      var text = "";
+      var text = spellKindLabel(num) + " ";
+      if (extra && extra.genNum != null) {
+        if (extra.source === "sketch") {
+          text += "s#" + extra.genNum + " " + extra.genNum + " sketch ";
+        } else if (extra.source === "sketch-inverted") {
+          text +=
+            "si#" +
+            extra.genNum +
+            " " +
+            extra.genNum +
+            " inverted chalk sketch ";
+        } else {
+          text += "g#" + extra.genNum + " " + extra.genNum + " ";
+        }
+      }
       if (a) {
         if (a.title) text += a.title + " ";
         if (a.description) text += a.description + " ";
+        if (a.prompt) text += a.prompt + " ";
+        if (a.source_description) text += a.source_description + " ";
         if (a.tags) text += a.tags.join(" ");
       }
-      if (text.toLowerCase().indexOf(qRaw.toLowerCase()) >= 0) hits.push(num);
+      if (text.toLowerCase().indexOf(qLow) >= 0) hits.push(num);
     }
     if (window.paintingNumericSearchRank && window.numericQueryDigits(qRaw)) {
       hits.sort(function (a, b) {
@@ -773,19 +1214,27 @@
     if (options.exactMatch) card.className += " search-exact";
     if (spells.indexOf(paintingNum) >= 0) card.className += " equipped";
     var extra = extraSpells[paintingNum] || extraSpells[String(paintingNum)];
-    if (extra) card.className += " spell-pick-phone";
+    if (extra) {
+      card.className +=
+        extra.source === "phone-upload"
+          ? " spell-pick-phone"
+          : extra.source === "sketch"
+            ? " spell-pick-sketch"
+            : extra.source === "sketch-inverted"
+              ? " spell-pick-sketch-inverted"
+              : " spell-pick-generated";
+    }
     card.setAttribute("role", "listitem");
     card.tabIndex = 0;
     card.dataset.number = String(paintingNum);
 
     var url = paintingUrl(paintingNum);
     var a = getAnalysis(paintingNum);
+    var kind = spellKindLabel(paintingNum);
     var label =
       a && a.title
-        ? (extra ? "Phone · " : "#") + (extra ? a.title : paintingNum + " — " + a.title)
-        : extra
-          ? "Phone · G#" + paintingNum
-          : "#" + paintingNum;
+        ? (extra ? kind + " · " + a.title : "#" + paintingNum + " — " + a.title)
+        : kind;
     card.title = label;
 
     card.innerHTML =
@@ -798,7 +1247,7 @@
       "</div>" +
       '<div class="card-meta spell-pick-meta">' +
       '<div class="card-number">' +
-      (extra ? "Phone G#" + paintingNum : "#" + paintingNum) +
+      escapeHtml(kind) +
       "</div>" +
       (a && a.title
         ? '<div class="card-title spell-pick-title">' + escapeHtml(a.title) + "</div>"
@@ -816,47 +1265,37 @@
     var prev = document.getElementById("spell-page-prev");
     var next = document.getElementById("spell-page-next");
     var pageJump = document.getElementById("spell-page-jump");
+    var pages = totalPageCount();
 
     if (bar) bar.hidden = searching;
     if (gridNav) gridNav.hidden = false;
 
     if (indicator && !searching) {
-      var start = activePage * PAGE_SIZE;
-      var pages = totalPageCount();
-      var sample =
-        displayOrder.length >= start + 3
-          ? " · #" +
-            displayOrder[start] +
-            ", #" +
-            displayOrder[start + 1] +
-            ", #" +
-            displayOrder[start + 2]
-          : "";
-      var phoneNote =
-        phoneSpellNums.length && activePage === 0
-          ? " · " + phoneSpellNums.length + " phone"
-          : "";
       indicator.textContent =
-        "Page " + (activePage + 1) + " of " + pages + sample + phoneNote;
+        "Page " + (activePage + 1) + " of " + pages + " · " + arsenalSummaryText();
     }
-    if (pageJump && !searching) pageJump.value = String(activePage + 1);
+    if (pageJump && !searching) {
+      pageJump.max = String(pages);
+      pageJump.value = String(activePage + 1);
+      pageJump.setAttribute("max", String(pages));
+    }
     if (prev) prev.disabled = searching || activePage <= 0;
-    if (next) next.disabled = searching || activePage >= totalPageCount() - 1;
+    if (next) next.disabled = searching || activePage >= pages - 1;
   }
 
   function updatePickerCount(count) {
     var el = document.getElementById("spell-picker-count");
     if (!el) return;
     if (pickerQuery.trim()) {
-      el.textContent = count + " matches";
+      el.textContent = count + " matches · " + arsenalSummaryText();
     } else {
       el.textContent =
         "Page " +
         (activePage + 1) +
         "/" +
         totalPageCount() +
-        " · 25 tiles" +
-        (phoneSpellNums.length ? " · phone uploads on page 1" : "");
+        " · " +
+        arsenalSummaryText();
     }
   }
 
@@ -1039,6 +1478,68 @@
     };
   }
 
+  function rgbToHsl(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    var max = Math.max(r, g, b);
+    var min = Math.min(r, g, b);
+    var h = 0;
+    var s = 0;
+    var l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+      else if (max === g) h = ((b - r) / d + 2) / 6;
+      else h = ((r - g) / d + 4) / 6;
+    }
+    return { h: h * 360, s: s * 100, l: l * 100 };
+  }
+
+  /** sRGB 0–255 → CIE Lab (D65) for perceptually better nearest-name matching. */
+  function rgbToLab(r, g, b) {
+    function lin(c) {
+      c = c / 255;
+      return c > 0.04045 ? Math.pow((c + 0.055) / 1.055, 2.4) : c / 12.92;
+    }
+    var R = lin(r);
+    var G = lin(g);
+    var B = lin(b);
+    var x = (R * 0.4124564 + G * 0.3575761 + B * 0.1804375) / 0.95047;
+    var y = (R * 0.2126729 + G * 0.7151522 + B * 0.072175) / 1.0;
+    var z = (R * 0.0193339 + G * 0.119192 + B * 0.9503041) / 1.08883;
+    function f(t) {
+      return t > 0.008856 ? Math.pow(t, 1 / 3) : 7.787 * t + 16 / 116;
+    }
+    var fx = f(x);
+    var fy = f(y);
+    var fz = f(z);
+    return {
+      L: 116 * fy - 16,
+      a: 500 * (fx - fy),
+      b: 200 * (fy - fz),
+    };
+  }
+
+  function labDistanceSq(A, B) {
+    if (!A || !B) return 1e12;
+    var dL = A.L - B.L;
+    var da = A.a - B.a;
+    var db = A.b - B.b;
+    return dL * dL + da * da + db * db;
+  }
+
+  function isNeutralSample(hsl, lab) {
+    if (!hsl) return true;
+    // Low saturation, or very light/dark with modest chroma
+    var chroma = lab ? Math.sqrt(lab.a * lab.a + lab.b * lab.b) : hsl.s;
+    if (hsl.s < 12 || chroma < 10) return true;
+    if (hsl.s < 22 && (hsl.l < 10 || hsl.l > 93)) return true;
+    if (hsl.s < 18 && hsl.l > 78 && chroma < 18) return true;
+    return false;
+  }
+
   function nameToHex(name) {
     var key = String(name || "")
       .toLowerCase()
@@ -1059,39 +1560,62 @@
   function titleCaseColorName(name) {
     return String(name || "color")
       .replace(/^vivid\s+/i, "")
+      .replace(/hotpink/i, "Hot Pink")
       .split(/[\s\-_]+/)
       .filter(Boolean)
       .map(function (w) {
+        if (/^hotpink$/i.test(w)) return "Hot Pink";
         return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
       })
       .join(" ");
   }
 
   /**
-   * Nearest dictionary name for a hex — so Apply always writes "Scarlet (#FF2400)",
-   * not a bare code the model can ignore.
+   * Nearest dictionary name for a hex — Lab distance + neutral/chroma separation
+   * so light pinks do not become "Beige" and rich blues do not become "Navy".
    */
   function hexToNearestName(hex) {
     var h = normalizeHex(hex);
     if (!h) return "color";
     var rgb = hexToRgb(h);
     if (!rgb) return "color";
+    var lab = rgbToLab(rgb.r, rgb.g, rgb.b);
+    var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+    var sampleNeutral = isNeutralSample(hsl, lab);
+
     var best = "color";
     var bestD = Infinity;
     var keys = Object.keys(COLOR_NAME_HEX);
     for (var i = 0; i < keys.length; i++) {
       var name = keys[i];
-      // Prefer American spelling key when both grey/gray exist
+      // Prefer American spelling when both grey/gray exist
       if (name === "grey") continue;
-      var ref = hexToRgb(COLOR_NAME_HEX[name]);
+      var refHex = COLOR_NAME_HEX[name];
+      if (refHex === h) return name;
+      var ref = hexToRgb(refHex);
       if (!ref) continue;
-      // Exact dictionary hit
-      if (COLOR_NAME_HEX[name] === h) return name;
-      var dr = rgb.r - ref.r;
-      var dg = rgb.g - ref.g;
-      var db = rgb.b - ref.b;
-      // Slight weight on chroma so bold hues win over muddy neutrals
-      var d = dr * dr * 1.1 + dg * dg + db * db * 1.05;
+      var refLab = rgbToLab(ref.r, ref.g, ref.b);
+      var refHsl = rgbToHsl(ref.r, ref.g, ref.b);
+      var refNeutral = !!COLOR_NEUTRAL_NAMES[name] || isNeutralSample(refHsl, refLab);
+
+      // Chromatic samples only match chromatic names; neutrals only match neutrals
+      if (sampleNeutral !== refNeutral) continue;
+
+      var d = labDistanceSq(lab, refLab);
+      // Soft hue preference for chromatics (avoid sand-beige winning over peach)
+      if (!sampleNeutral) {
+        var dh = Math.abs(hsl.h - refHsl.h);
+        if (dh > 180) dh = 360 - dh;
+        d += (dh / 180) * (dh / 180) * 140;
+        // Prefer more saturated dictionary swatches when sample is bold
+        if (hsl.s > 45 && refHsl.s < 30) d += 80;
+      } else {
+        // Neutrals: weight lightness more than tiny a/b noise
+        var dL = lab.L - refLab.L;
+        d = dL * dL * 1.35 + (lab.a - refLab.a) * (lab.a - refLab.a) * 0.6 +
+          (lab.b - refLab.b) * (lab.b - refLab.b) * 0.6;
+      }
+
       if (d < bestD) {
         bestD = d;
         best = name;
@@ -1100,12 +1624,39 @@
     return best;
   }
 
+  /**
+   * Optional light/deep/pale prefix when sample L differs a lot from the named swatch.
+   */
+  function hexToNearestNameWithTone(hex) {
+    var base = hexToNearestName(hex);
+    if (!base || base === "color") return base;
+    if (COLOR_NEUTRAL_NAMES[base]) return base;
+    var rgb = hexToRgb(hex);
+    var ref = hexToRgb(COLOR_NAME_HEX[base]);
+    if (!rgb || !ref) return base;
+    var L = rgbToLab(rgb.r, rgb.g, rgb.b).L;
+    var refL = rgbToLab(ref.r, ref.g, ref.b).L;
+    var dL = L - refL;
+    if (dL > 18 && L > 62) return "light " + base;
+    if (dL > 12 && L > 78) return "pale " + base;
+    if (dL < -18 && L < 42) return "deep " + base;
+    if (dL < -12 && L < 28) return "dark " + base;
+    return base;
+  }
+
   /** Final token written into spell text + sent to xAI. */
   function formatBoldColorLabel(hex) {
     var h = normalizeHex(hex);
     if (!h) return "";
-    var name = titleCaseColorName(hexToNearestName(h));
+    var name = titleCaseColorName(hexToNearestNameWithTone(h));
     return name + " (" + h + ")";
+  }
+
+  /** Display name only (for popover title). */
+  function formatBoldColorNameOnly(hex) {
+    var h = normalizeHex(hex);
+    if (!h) return "Color";
+    return titleCaseColorName(hexToNearestNameWithTone(h));
   }
 
   function colorDistanceSq(hexA, hexB) {
@@ -1580,10 +2131,16 @@
     pop.id = "spell-color-popover";
     pop.className = "spell-color-popover";
     pop.setAttribute("role", "dialog");
-    pop.setAttribute("aria-label", "Edit color " + startHex);
+    pop.setAttribute(
+      "aria-label",
+      "Bold color rewrite: " + formatBoldColorNameOnly(startHex)
+    );
 
     pop.innerHTML =
-      '<div class="spell-color-popover-title">Bold color rewrite</div>' +
+      '<div class="spell-color-popover-title">' +
+      'Bold color rewrite: <span class="spell-color-popover-name" aria-live="polite">' +
+      escapeHtml(formatBoldColorNameOnly(startHex)) +
+      "</span></div>" +
       '<div class="spell-color-popover-row">' +
       '<input type="color" class="spell-color-popover-swatch" value="' +
       startHex +
@@ -1607,12 +2164,16 @@
     var swatch = pop.querySelector(".spell-color-popover-swatch");
     var hexIn = pop.querySelector(".spell-color-popover-hex");
     var labelEl = pop.querySelector(".spell-color-popover-label");
+    var nameEl = pop.querySelector(".spell-color-popover-name");
     var applyBtn = pop.querySelector(".spell-color-popover-apply");
     var cancelBtn = pop.querySelector(".spell-color-popover-cancel");
 
     function syncPreview() {
       var h = normalizeHex(hexIn.value) || normalizeHex(swatch.value) || startHex;
+      var nameOnly = formatBoldColorNameOnly(h);
       if (labelEl) labelEl.textContent = formatBoldColorLabel(h);
+      if (nameEl) nameEl.textContent = nameOnly;
+      pop.setAttribute("aria-label", "Bold color rewrite: " + nameOnly);
       if (normalizeHex(hexIn.value)) {
         try {
           swatch.value = normalizeHex(hexIn.value);
@@ -2118,18 +2679,18 @@
     var lines = [];
     if (compact) {
       lines.push(
-        "BOLD COLOR LOCKS (each family once): " +
+        "MANDATORY PRODUCT PALETTE (override all source colors): " +
           colorLocks
             .map(function (lock) {
               return lock.label;
             })
             .join("; ") +
-          "."
+          ". Paint with these hex pigments as dominant hues."
       );
       return lines.join("\n");
     }
     lines.push(
-      "BOLD COLOR LOCKS — each pigment family once only (do not restate the same hue under multiple names):"
+      "MANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:"
     );
     for (var ci = 0; ci < colorLocks.length; ci++) {
       var lock = colorLocks[ci];
@@ -2156,22 +2717,23 @@
         "  • " +
           lock.label +
           times +
-          " — saturated " +
+          " — use this exact " +
           titleCaseColorName(lock.name) +
-          " " +
+          " at " +
           lock.hex +
-          ", not a shy tint."
+          " as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette)."
       );
     }
     lines.push(
-      "Same color family mentioned multiple times = one consistent pigment, never competing variants."
+      "If a source description names a different color, REPAINT it into the locked pigments above. Product palette = locks only."
     );
     return lines.join("\n");
   }
 
   /**
    * The real generation prompt: Spell I–III bodies + merge rules, always ≤ 8000 chars.
-   * Shrinks spell bodies / notes / meta first so header, colors, and merge stay.
+   * Product goal = brand-new fused artwork (not a remake of equipped paintings).
+   * Color locks + originality lead; source texts are motif DNA only.
    */
   function buildPhysicalGenerationPrompt(nums, meta) {
     nums = nums || getEquippedInOrder();
@@ -2185,11 +2747,13 @@
       var num = spells[s];
       var a = getAnalysis(num) || {};
       var title = a.title || "Painting #" + num;
-      var body = String(getSpellSlotBody(s) || "").trim();
+      var body = stripAspectTalkFromPrompt(
+        String(getSpellSlotBody(s) || "").trim()
+      );
       if (!body) body = "(no description)";
       spellParts.push({
         header:
-          "── SPELL " + roman[s] + " (#" + num + " · " + title + ") ──",
+          "── INFLUENCE " + roman[s] + " (motif DNA only · ref #" + num + ") ──",
         body: body,
       });
     }
@@ -2198,39 +2762,49 @@
     var artist =
       (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin";
     var head =
-      "UNIFIED STASIS VISION — ONE complete image that reflects ALL " +
-      spellParts.length +
-      " equipped spells as a single coherent world " +
-      "(not three separate panels, not a collage grid, not three unrelated subjects).\n" +
+      "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\n" +
+      "This is NOT a remake, restage, collage, or near-copy of any equipped painting. " +
+      "Do not preserve any source composition, figure pose, camera angle, or layout.\n" +
+      "Borrow only abstract motifs, mood, and texture ideas from the influence texts below, " +
+      "then invent a fourth original scene that has never existed.\n" +
       "Studio author: " +
       artist +
       ".";
     var merge =
-      "MERGE DIRECTIVE: Interweave forms, atmosphere, textures, motifs, and palette cues from every source spell into ONE painting — a fourth singular description made physical.";
+      "FUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. " +
+      "One coherent painting — not three panels, not a grid, not a stacked photo-fusion of the source works.";
+    // No aspect-ratio wording — frame comes only from aspect_ratio API field
     var output =
-      "Output: one full-frame finished artwork embodying the fusion of every source spell listed above.";
+      "Output: one original finished artwork (product-ready). Fill the canvas fully; no letterboxing; no collage panels of source paintings.";
 
     var styles =
       meta.styles && meta.styles.length
-        ? "Combined styles: " + meta.styles.slice(0, 8).join(", ") + "."
+        ? "Style DNA (interpret freely, invent the scene): " +
+          meta.styles.slice(0, 8).join(", ") +
+          "."
         : "";
     var moods =
       meta.moods && meta.moods.length
-        ? "Mood: " + meta.moods.slice(0, 6).join(" + ") + "."
+        ? "Mood DNA: " + meta.moods.slice(0, 6).join(" + ") + "."
         : "";
     var tagsList = (meta.tags || []).slice(0, 12);
-    var tags = tagsList.length ? "Tags: " + tagsList.join(", ") + "." : "";
-    var buzzList = getActiveBuzz().slice(0, 16);
+    var tags = tagsList.length
+      ? "Motif tags (not a checklist of the original paintings): " +
+        tagsList.join(", ") +
+        "."
+      : "";
+    var buzzList = filterBuzzNoAspect(getActiveBuzz().slice(0, 16));
     var buzz = buzzList.length
       ? "Buzz words: " + buzzList.join(", ") + "."
       : "";
-    var extra = String(spellPrompt || "").trim();
+    var extra = stripAspectTalkFromPrompt(String(spellPrompt || "").trim());
     if (extra) extra = "Extra direction: " + extra;
-    var notes = String(spellStasis || "").trim();
+    var notes = stripAspectTalkFromPrompt(String(spellStasis || "").trim());
     if (
       notes &&
       (notes.indexOf("SOURCE SPELLS") >= 0 ||
         notes.indexOf("UNIFIED STASIS VISION") >= 0 ||
+        notes.indexOf("SPELLFORGE PRODUCT") >= 0 ||
         notes.length <= 8)
     ) {
       notes = "";
@@ -2246,14 +2820,18 @@
         }
         return sp.header + "\n" + b;
       });
-      var parts = [
-        head,
-        "",
-        "SOURCE SPELLS (honor each):",
-        bodies.join("\n\n"),
-        "",
-        merge,
-      ];
+      // Color locks first so they survive length pressure and beat source palette text
+      var parts = [head, ""];
+      if (colorSec) {
+        parts.push(colorSec);
+        parts.push("");
+      }
+      parts.push(
+        "INFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):"
+      );
+      parts.push(bodies.join("\n\n"));
+      parts.push("");
+      parts.push(merge);
       if (!trimMeta) {
         if (styles) parts.push(styles);
         if (moods) parts.push(moods);
@@ -2261,10 +2839,6 @@
       } else {
         if (styles) parts.push(clipPromptText(styles, 180));
         if (moods) parts.push(clipPromptText(moods, 120));
-      }
-      if (colorSec) {
-        parts.push("");
-        parts.push(colorSec);
       }
       if (buzz) parts.push(trimMeta ? clipPromptText(buzz, 200) : buzz);
       if (extra) {
@@ -2284,6 +2858,7 @@
     }
 
     // Progressive fit into PROMPT_BODY_MAX (leaves room for server framing ≤8000)
+    // Prefer keeping color locks + originality head over long source prose
     var attempts = [
       function () {
         return assemble(null, false, false, false);
@@ -2292,19 +2867,19 @@
         return assemble(null, true, false, false);
       },
       function () {
-        return assemble(null, true, true, true);
+        return assemble(1400, false, true, true);
       },
       function () {
-        return assemble(2000, true, true, true);
+        return assemble(900, false, true, true);
       },
       function () {
-        return assemble(1200, true, true, true);
+        return assemble(600, true, true, true);
       },
       function () {
-        return assemble(800, true, true, true);
+        return assemble(400, true, true, true);
       },
       function () {
-        return assemble(450, true, true, true);
+        return assemble(280, true, true, true);
       },
     ];
     var best = "";
@@ -2319,7 +2894,7 @@
     var nums = getEquippedInOrder();
     var meta = collectCombinedMeta(nums);
     return clipPromptText(
-      buildPhysicalGenerationPrompt(nums, meta),
+      stripAspectTalkFromPrompt(buildPhysicalGenerationPrompt(nums, meta)),
       PROMPT_BODY_MAX
     );
   }
@@ -2585,6 +3160,13 @@
           "<strong>AI key not set.</strong> Generate still uses the cloud path and will error until you add " +
           "<code>XAI_API_KEY</code> on Netlify (see <code>NETLIFY_API_KEY.md</code>). " +
           "Free local fuse is opt-in only (<code>SPELLFORGE_LOCAL_GENERATE</code>).";
+      } else if (isRenderSite()) {
+        banner.innerHTML =
+          "<strong>AI key not set on Render.</strong> In the Render dashboard open this Web Service → " +
+          "Environment → add <code>XAI_API_KEY</code> (value from " +
+          '<a href="https://console.x.ai/team/default/api-keys" target="_blank" rel="noopener">console.x.ai</a>' +
+          ") → Save Changes → wait for redeploy. Then hard-refresh this page. " +
+          "Check <code>/api/health</code> shows <code>api_configured: true</code>.";
       } else {
         banner.innerHTML =
           "AI server not ready — add an API key or run <code>start_server.bat</code>. " +
@@ -3052,7 +3634,9 @@
       if (attemptsLeft <= 0) {
         reject(
           new Error(
-            "Timed out waiting for xAI (3+ min). Check start_server.bat is running and try again."
+            isLocalHost()
+              ? "Timed out waiting for xAI (3+ min). Check start_server.bat is running and try again."
+              : "Timed out waiting for xAI from your phone. Keep the PC awake with start_server.bat open, Tailscale connected, then try Generate again."
           )
         );
         return;
@@ -3125,6 +3709,103 @@
     });
   }
 
+  /**
+   * Hand finished stills to Studio 3D printers.
+   * Prefer same-origin absolute URLs; for remote CDNs, try proxy or data URL so
+   * the parent page never hits a bare CORS "Failed to fetch".
+   */
+  function notifyStudioPrinters(url, nums) {
+    var resolved = resolveStasisVisionUrl(url) || "";
+    if (!resolved) return;
+
+    function send(imageUrl) {
+      if (!imageUrl) return;
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage(
+            {
+              type: "spellforge-job-done",
+              imageUrl: imageUrl,
+              stasis: String(spellStasis || "").slice(0, 400),
+              spells: (nums || []).slice(),
+              source: "spellforge",
+            },
+            "*"
+          );
+        }
+        window.dispatchEvent(
+          new CustomEvent("spellforge-job-done", {
+            detail: { imageUrl: imageUrl, spells: (nums || []).slice() },
+          })
+        );
+      } catch (e) {}
+    }
+
+    // Rebase localhost absolute → current origin (phone/Tailscale)
+    try {
+      var u = new URL(resolved, location.href);
+      var host = (u.hostname || "").toLowerCase();
+      if (
+        host === "localhost" ||
+        host === "127.0.0.1" ||
+        host === "0.0.0.0" ||
+        host === "[::1]"
+      ) {
+        resolved = location.origin + u.pathname + u.search + u.hash;
+      } else {
+        resolved = u.href;
+      }
+    } catch (e0) {}
+
+    // data: / blob: / same-origin path — send immediately
+    if (
+      resolved.indexOf("data:") === 0 ||
+      resolved.indexOf("blob:") === 0 ||
+      resolved.indexOf(location.origin) === 0 ||
+      resolved.charAt(0) === "/"
+    ) {
+      send(resolved);
+      return;
+    }
+
+    // Remote CDN: try fetch via same-origin proxy, then data URL, else raw URL
+    var proxyPath = apiUrl("/api/proxy-media?url=" + encodeURIComponent(resolved));
+    var proxyAbs =
+      proxyPath.indexOf("http") === 0
+        ? proxyPath
+        : new URL(proxyPath, location.href).href;
+    fetch(proxyAbs, { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("proxy");
+        return r.blob();
+      })
+      .then(function (blob) {
+        if (blob.size > 6 * 1024 * 1024) {
+          // Too large for data URL postMessage — send proxy URL instead
+          send(proxyAbs);
+          return "sent";
+        }
+        return new Promise(function (resolve) {
+          var reader = new FileReader();
+          reader.onload = function () {
+            resolve(reader.result);
+          };
+          reader.onerror = function () {
+            resolve(null);
+          };
+          reader.readAsDataURL(blob);
+        });
+      })
+      .then(function (dataUrl) {
+        if (dataUrl === "sent") return;
+        if (dataUrl) send(dataUrl);
+        else send(proxyAbs);
+      })
+      .catch(function () {
+        send(resolved);
+      });
+  }
+
   function applyGeneratedVision(url, nums, statusEl) {
     stasisVisionUrl = url;
     applyFusedUi._lastVisionSlots = nums.join(",");
@@ -3137,6 +3818,10 @@
     syncSpellLoop(nums, null, meta);
     publishFusion();
     refreshSpellforgeInterfaceSkin();
+    // Notify Studio 3D printers (parent window when embedded as Spellforge Plane)
+    try {
+      notifyStudioPrinters(url, nums);
+    } catch (ePost) {}
     var timelapse = window.SpellTimelapse
       ? window.SpellTimelapse.setStasisVision(url, spellStasis)
       : Promise.resolve();
@@ -3146,20 +3831,26 @@
   }
 
   function generateStasisVisionLocal(nums, statusEl) {
+    var aspect = getAspectRatio();
+    var paletteHex = getPaletteHexList();
     if (statusEl) {
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
-      statusEl.textContent = "Fusing your paintings (no API credits)…";
+      statusEl.textContent =
+        "Local fuse at " + aspect + " with locked palette (no API credits)…";
     }
-    var stasisSend = getGenerationStasisPayload();
+    var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
     updatePhysicalPromptPreview();
     return window
       .composeStasisVisionLocal({
         spells: nums,
         stasis: stasisSend,
-        buzz_words: getActiveBuzz(),
+        buzz_words: filterBuzzNoAspect(getActiveBuzz()),
+        aspect_ratio: aspect,
+        palette_hex: paletteHex,
       })
       .then(function (dataUrl) {
+        applyAspectPreview(aspect);
         return applyGeneratedVision(dataUrl, nums, statusEl);
       });
   }
@@ -3171,8 +3862,12 @@
         : "job-" + Date.now();
 
     var paletteHex = getPaletteHexList();
-    // Physical prompt = full Spell I–III texts + merge rules (capped under API 8000)
-    var stasisSend = getGenerationStasisPayload();
+    var colorLocks = getCanonicalColorLocks();
+    var aspect = getAspectRatio();
+    applyAspectPreview(aspect);
+    // Physical prompt includes bold color locks + originality directive.
+    // Aspect ratio is API-only; mag_fresh invents a new product (not image-to-image of your pieces).
+    var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
     if (!String(stasisSend || "").trim()) {
       return Promise.reject(
         new Error("Physical prompt is empty — equip 2–3 spells and rebuild.")
@@ -3184,45 +3879,81 @@
     lastFusedPrompt = stasisSend;
     updatePhysicalPromptPreview();
 
+    // Text DNA only — no painting URLs as visual references (those pull the model toward remakes)
     var spellPayloads = [];
     for (var s = 0; s < 3; s++) {
       if (!spells[s]) continue;
       var n = spells[s];
       var a = getAnalysis(n) || {};
-      // Keep spell_details short — full text is already in stasis
-      var desc = String(getSpellSlotBody(s) || a.description || "").trim();
-      if (desc.length > 400) desc = clipPromptText(desc, 400);
+      var desc = stripAspectTalkFromPrompt(
+        String(getSpellSlotBody(s) || a.description || a.prompt || "").trim()
+      );
+      if (desc.length > 1800) desc = clipPromptText(desc, 1800);
       spellPayloads.push({
         number: n,
-        url: paintingUrl(n),
+        // omit url on purpose — product is text-fused original, not img2img of sources
         title: a.title || "",
         description: desc,
-        prompt: clipPromptText(a.prompt || "", 200),
+        prompt: clipPromptText(
+          stripAspectTalkFromPrompt(a.prompt || a.description || ""),
+          800
+        ),
         style: a.style || "",
         mood: a.mood || "",
         tags: (a.tags || []).slice(0, 8),
-        colors: paletteHex.length ? paletteHex : (a.colors || []).slice(0, 6),
-        source: extraSpells[n] || extraSpells[String(n)] ? "phone-upload" : "painting",
+        colors: paletteHex.length
+          ? paletteHex
+          : (a.colors || []).slice(0, 6),
+        source: "influence-text",
         slot: s,
       });
     }
+
+    var buzz = filterBuzzNoAspect(getActiveBuzz().slice(0, 12));
+    // Reinforce product goals without aspect-ratio words
+    ["original painting", "brand new composition", "invented scene"].forEach(
+      function (w) {
+        if (buzz.indexOf(w) < 0) buzz.push(w);
+      }
+    );
+    colorLocks.slice(0, 6).forEach(function (lock) {
+      var token = String(lock.name || "").replace(/\s+/g, " ").trim();
+      if (token && buzz.indexOf(token) < 0) buzz.push(token);
+    });
 
     if (statusEl) {
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
       statusEl.textContent =
-        "Sending to xAI… (" + stasisSend.length + " char body)";
+        "New product still · frame " +
+        aspect +
+        " · " +
+        (paletteHex.length ? paletteHex.length + " locked colors · " : "") +
+        stasisSend.length +
+        " char body";
     }
 
+    // Phone + Tailscale can be slow; 45s was aborting valid queues mid-handshake.
+    var acceptMs = isLocalHost() ? 90000 : 180000;
     var controller =
       typeof AbortController !== "undefined" ? new AbortController() : null;
     var abortTimer = null;
+    var acceptTick = null;
+    var acceptStarted = Date.now();
     if (controller) {
       abortTimer = setTimeout(function () {
         try {
           controller.abort();
         } catch (e) {}
-      }, 45000);
+      }, acceptMs);
+    }
+    if (statusEl) {
+      acceptTick = setInterval(function () {
+        if (!statusEl || generatingVision === false) return;
+        var sec = Math.round((Date.now() - acceptStarted) / 1000);
+        statusEl.textContent =
+          "Contacting your PC server… " + sec + "s (keep Tailscale on, PC awake)";
+      }, 2000);
     }
 
     return fetch(apiUrl("/api/generate-stasis-vision"), {
@@ -3231,24 +3962,40 @@
       body: JSON.stringify({
         job_id: jobId,
         stasis: stasisSend,
-        buzz_words: getActiveBuzz().slice(0, 16),
-        spells: nums,
+        prompt: stasisSend,
+        buzz_words: buzz.slice(0, 16),
+        // Painting-range IDs only — arsenal 100000+ / 300000+ must not become source stills
+        spells: nums.filter(function (id) {
+          return id >= 1 && id <= 1000;
+        }),
         spell_details: spellPayloads,
         fused_prompt: stasisSend,
         palette_hex: paletteHex,
+        aspect_ratio: aspect,
+        // Fresh original product — do not attach source painting images
+        mag_fresh: true,
+        fresh_variation: true,
+        spell_cast: false,
+        attach_references: false,
+        reference_image: "",
+        spell_reference_image: "",
+        source: "spellforge",
+        product_mode: "original_fusion",
       }),
       signal: controller ? controller.signal : undefined,
       cache: "no-store",
     })
       .then(function (r) {
         if (abortTimer) clearTimeout(abortTimer);
+        if (acceptTick) clearInterval(acceptTick);
         if (r.status === 202) {
           return parseApiResponse(r).then(function (d) {
             var id = (d && d.job_id) || jobId;
             if (statusEl) {
-              statusEl.textContent = "Queued — waiting for xAI…";
+              statusEl.textContent = "Queued on PC — waiting for xAI…";
             }
-            return pollImageJob(id, statusEl, 90);
+            // More poll attempts for phone (slow DERP path)
+            return pollImageJob(id, statusEl, isLocalHost() ? 100 : 150);
           });
         }
         return parseApiResponse(r).then(function (d) {
@@ -3263,14 +4010,14 @@
           }
           // Sync completion
           if (d && (d.status === "queued" || d.status === "pending") && d.job_id) {
-            if (statusEl) statusEl.textContent = "Queued — waiting for xAI…";
-            return pollImageJob(d.job_id, statusEl, 90);
+            if (statusEl) statusEl.textContent = "Queued on PC — waiting for xAI…";
+            return pollImageJob(d.job_id, statusEl, isLocalHost() ? 100 : 150);
           }
           var img = d.image || (d.images && d.images[0]);
           if (img && img.url) return [{ url: img.url }];
           if (d && d.job_id) {
-            if (statusEl) statusEl.textContent = "Queued — waiting for xAI…";
-            return pollImageJob(d.job_id, statusEl, 90);
+            if (statusEl) statusEl.textContent = "Queued on PC — waiting for xAI…";
+            return pollImageJob(d.job_id, statusEl, isLocalHost() ? 100 : 150);
           }
           throw new Error("No image returned");
         });
@@ -3285,12 +4032,19 @@
       })
       .catch(function (err) {
         if (abortTimer) clearTimeout(abortTimer);
+        if (acceptTick) clearInterval(acceptTick);
         var msg = (err && err.message) || String(err || "");
         if (err && err.name === "AbortError") {
-          msg =
-            "Server did not accept the job in time. Restart start_server.bat and hard-refresh.";
+          msg = isLocalHost()
+            ? "PC server did not accept the job in time. Close extra server windows, run start_server.bat once, hard-refresh, try again."
+            : "Phone could not reach your PC in time. Check: (1) Tailscale Connected on phone + PC, (2) start_server.bat still open, (3) PC not asleep, (4) open http://desktop-khpuv0r.tail51fce6.ts.net:8765/api/health — should say ok. Then hard-refresh Spellforge and try Generate again.";
         }
-        if (isCreditsError(msg) && allowLocalCreditsFallback()) {
+        if (/failed to fetch|networkerror|load failed/i.test(msg)) {
+          msg = isLocalHost()
+            ? msg
+            : "Lost connection to your PC (Tailscale or server). Reconnect Tailscale, confirm start_server.bat is running, hard-refresh, try again.";
+        }
+        if (isCreditsError(msg) && allowLocalCreditsFallback() && !skipLocalFuse) {
           if (statusEl) {
             statusEl.hidden = false;
             statusEl.className = "spell-generate-status";
@@ -3303,30 +4057,55 @@
       });
   }
 
-  function generateStasisVision() {
+  function generateStasisVision(opts) {
+    opts = opts || {};
+    var forceCloud = !!opts.forceCloud;
+    skipLocalFuse = forceCloud;
+    if (opts.extraPrompt != null) {
+      spellPrompt = String(opts.extraPrompt || "").trim();
+      var extraEl = document.getElementById("spell-prompt");
+      if (extraEl) extraEl.value = spellPrompt;
+    }
     var nums = getEquippedInOrder();
     var stasisElLive = document.getElementById("spell-stasis");
     if (stasisElLive) {
       spellStasis = stasisElLive.value;
-      lastFusedPrompt = (spellStasis + " " + spellPrompt).trim();
     }
+    // Always rebuild from current slot bodies (bold color rewrites) + aspect preview
+    applyAspectPreview(getAspectRatio());
+    updatePhysicalPromptPreview();
+    var physical = getGenerationStasisPayload();
+    lastFusedPrompt = physical || (spellStasis + " " + spellPrompt).trim();
     var btn = document.getElementById("spell-generate-stasis");
     var statusEl = document.getElementById("spell-generate-status");
-    var physical = getGenerationStasisPayload();
+    if (forceCloud && nums.filter(slotHasPromptText).length < 2) {
+      return Promise.reject(
+        new Error(
+          "Need descriptions for at least 2 equipped spells before generating."
+        )
+      );
+    }
     // Notes optional — physical Spell I–III merge prompt is enough for xAI.
     if (nums.length < 2 || (!String(physical || "").trim() && !spellStasis.trim())) {
+      var emptyMsg =
+        nums.length < 2
+          ? "Equip at least 2 spells, then generate."
+          : "Spell descriptions are still loading — wait a moment, then generate again.";
+      if (forceCloud) return Promise.reject(new Error(emptyMsg));
       return Promise.resolve();
     }
 
-    if (!canGenerateVision()) {
+    if (!canGenerateVision() || (forceCloud && location.protocol === "file:")) {
+      var blocked = hostedMsg(
+        "Cannot generate — run start_server.bat and open http://localhost:8765/#spellforge (not file://).",
+        "Cannot reach the PC gallery server. On phone: Tailscale ON, open the MagicDNS link (not Netlify/Render unless that has a key). On PC: start_server.bat must stay open."
+      );
       if (statusEl) {
         statusEl.hidden = false;
         statusEl.className = "spell-generate-status error";
-        statusEl.textContent = hostedMsg(
-          "Cannot generate — run start_server.bat and open http://localhost:8765/#spellforge (not file://).",
-          "Generate unavailable — hard-refresh the page."
-        );
+        statusEl.textContent = blocked;
       }
+      if (forceCloud) return Promise.reject(new Error(blocked));
       return Promise.resolve();
     }
 
@@ -3337,19 +4116,25 @@
     }
     setStasisVisionLoading(true);
 
-    if (statusEl && !useLocalGenerate()) {
+    var localOk = !forceCloud && useLocalGenerate();
+    if (statusEl && !localOk) {
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
       statusEl.textContent = "Calling xAI for stasis vision…";
     }
 
-    var work = useLocalGenerate()
+    var work = localOk
       ? generateStasisVisionLocal(nums, statusEl)
       : generateStasisVisionCloud(nums, statusEl, btn);
 
+    var failed = null;
     return work
       .catch(function (err) {
-        if (isCreditsError(err && err.message) && allowLocalCreditsFallback()) {
+        if (
+          !forceCloud &&
+          isCreditsError(err && err.message) &&
+          allowLocalCreditsFallback()
+        ) {
           if (statusEl) {
             statusEl.hidden = false;
             statusEl.className = "spell-generate-status";
@@ -3358,6 +4143,7 @@
           }
           return generateStasisVisionLocal(nums, statusEl);
         }
+        failed = err;
         updateStasisVisionView(stasisVisionUrl);
         if (statusEl) {
           statusEl.hidden = false;
@@ -3373,12 +4159,17 @@
       })
       .finally(function () {
         generatingVision = false;
+        skipLocalFuse = false;
         setStasisVisionLoading(false);
         if (btn) {
           btn.disabled = nums.length < 2;
           updateGenerateButton();
         }
         updateMuralwalkButton();
+      })
+      .then(function (result) {
+        if (failed && forceCloud) return Promise.reject(failed);
+        return stasisVisionUrl || result;
       });
   }
 
@@ -3460,9 +4251,9 @@
       }
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
-      var title = a && a.title ? a.title : extra ? "Phone G#" + num : "Painting #" + num;
+      var title = a && a.title ? a.title : extra ? spellKindLabel(num) : "Painting #" + num;
       var body = getSpellSlotBody(s);
-      var head = (extra ? "Phone G#" : "#") + num + " · " + title;
+      var head = spellKindLabel(num) + " · " + title;
       el.classList.add("filled");
       el.innerHTML =
         '<div class="spell-slot-inner">' +
@@ -3501,6 +4292,109 @@
     renderSlots();
     renderGrid();
     saveEquippedSpells();
+  }
+
+  function setEquippedSlots(next, opts) {
+    opts = opts || {};
+    var skipAuto = !!opts.skipAutoVision;
+    if (skipAuto) {
+      clearTimeout(autoVisionTimer);
+      suppressAutoVision = true;
+    }
+    try {
+      var i;
+      for (i = 0; i < 3; i++) {
+        var n = next && next[i] != null ? parseInt(next[i], 10) : 0;
+        spells[i] = n && !isNaN(n) ? n : null;
+        clearSpellSlotBody(i);
+      }
+      saveEquippedSpells();
+      if (spellforgeReady && !opts.skipRender) {
+        renderSlots();
+        renderGrid();
+      }
+    } finally {
+      if (skipAuto) suppressAutoVision = false;
+    }
+  }
+
+  function slotHasPromptText(num) {
+    var a = getAnalysis(num);
+    if (a && String(a.description || a.prompt || a.source_description || "").trim()) {
+      return true;
+    }
+    var extra = extraSpells[num] || extraSpells[String(num)];
+    if (
+      extra &&
+      extra.analysis &&
+      String(extra.analysis.description || extra.analysis.prompt || "").trim()
+    ) {
+      return true;
+    }
+    var body = analysisSpellText(num);
+    return !!(body && !/no analysis yet|description pending/i.test(body));
+  }
+
+  function ensureSlotAnalyses(nums) {
+    nums = nums || [];
+    function hydrate(n) {
+      getAnalysis(n);
+    }
+    nums.forEach(hydrate);
+    if (nums.filter(slotHasPromptText).length >= Math.min(2, nums.length)) {
+      return Promise.resolve(nums);
+    }
+    return loadSpellAssets({ skipSketches: true }).then(function () {
+      nums.forEach(hydrate);
+      return nums;
+    });
+  }
+
+  function generateFromSlots(slotNums, opts) {
+    opts = opts || {};
+    opts.forceCloud = true;
+    return whenSpellforgeReady()
+      .then(function () {
+        setEquippedSlots(slotNums, { skipAutoVision: true, skipRender: true });
+        return ensureSlotAnalyses(getEquippedInOrder());
+      })
+      .then(function (nums) {
+        var ok = nums.filter(slotHasPromptText);
+        if (ok.length < 2) {
+          return Promise.reject(
+            new Error(
+              "Need descriptions for at least 2 equipped spells. Wait for analyses to load, then Forge again."
+            )
+          );
+        }
+        if (opts.extraPrompt != null) {
+          spellPrompt = String(opts.extraPrompt || "").trim();
+          var promptEl = document.getElementById("spell-prompt");
+          if (promptEl) promptEl.value = spellPrompt;
+        }
+        updatePhysicalPromptPreview();
+        return generateStasisVision(opts).then(function () {
+          return stasisVisionUrl;
+        });
+      });
+  }
+
+  function whenSpellforgeReady() {
+    ensureSpellforgeStarted();
+    if (spellforgeReady) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var t = setTimeout(function () {
+        reject(new Error("Spellforge did not finish loading."));
+      }, 60000);
+      window.addEventListener(
+        "spellforge-ready",
+        function () {
+          clearTimeout(t);
+          resolve();
+        },
+        { once: true }
+      );
+    });
   }
 
   function openSlotDialog(num) {
@@ -3579,7 +4473,17 @@
   }
 
   function reshuffleAll() {
-    if (!confirm("Shuffle all 1000 paintings into a new random order? (Phone uploads stay at the front.)")) return;
+    var nExtra = arsenalExtraNums.length;
+    var msg =
+      "Shuffle the full arsenal into a new random order?" +
+      (nExtra
+        ? " (" +
+          TOTAL +
+          " paintings + " +
+          nExtra +
+          " phone/generated images mixed together.)"
+        : " (all " + TOTAL + " paintings.)");
+    if (!confirm(msg)) return;
     buildDisplayOrder(true);
     activePage = 0;
     pageSnapshotBeforeShuffle = null;
@@ -3642,6 +4546,7 @@
     if (all) all.onclick = reshuffleAll;
 
     bindStasisAndPrompt();
+    bindAspectControl();
     bindStasisVisionView();
     var shareBtn = document.getElementById("spell-share-link");
     if (shareBtn && !shareBtn.dataset.bound) {
@@ -3668,8 +4573,8 @@
     function ready() {
       spellforgeReady = true;
       buildManifestMap();
-      // Phone assets first (images + analyses), then paint grid
-      loadPhoneSpellAssets().then(function () {
+      // Paintings + phone uploads + generated stills (mixed shuffle)
+      loadSpellAssets().then(function () {
         buildDisplayOrder(false);
         loadSpellsFromShareLink();
         if (!location.search.match(/spells=/)) loadEquippedSpells();
@@ -3751,9 +4656,10 @@
       return;
     }
     attachNav();
-    // Refresh phone uploads (new transfers) so images + analysis appear
-    loadPhoneSpellAssets().then(function () {
-      displayOrder = mergePhoneIntoDisplayOrder(paintingOrderOnly(displayOrder));
+    // Refresh phone/generated arsenal; new tiles shuffle into the book
+    loadSpellAssets().then(function () {
+      displayOrder = reconcileDisplayOrder(displayOrder, buildFullArsenalList());
+      saveDisplayOrder();
       renderGrid();
       renderSlots();
       updateFusion();
@@ -3809,10 +4715,56 @@
         getEquippedSlots: function () {
           return spells.slice();
         },
+        getDisplayOrder: function () {
+          return (displayOrder && displayOrder.length ? displayOrder : []).slice();
+        },
+        getPageCount: function () {
+          return totalPageCount();
+        },
+        equipToSlot: function (num, slotIndex) {
+          equipToSlot(num, slotIndex);
+        },
+        equipSlots: function (slots, opts) {
+          setEquippedSlots(slots, opts);
+        },
+        whenReady: function () {
+          return whenSpellforgeReady();
+        },
+        generate: function (opts) {
+          return whenSpellforgeReady().then(function () {
+            return generateStasisVision(opts || {});
+          });
+        },
+        generateFromSlots: function (slots, opts) {
+          return generateFromSlots(slots, opts || {});
+        },
       };
       publishFusion();
-      if (location.hash.replace("#", "") === "spellforge") {
+      var hash = location.hash.replace("#", "");
+      var embedSf = false;
+      try {
+        embedSf = new URLSearchParams(location.search).get("embed") === "spellforge";
+      } catch (eEmb) {}
+      // Embed (Studio 3D plane) or direct hash — always boot arsenal
+      if (hash === "spellforge" || embedSf) {
         ensureSpellforgeStarted();
+        if (embedSf) {
+          // tabs.js may have already fired show; ensure grid fills after assets
+          setTimeout(function () {
+            try {
+              onShow();
+            } catch (eOn) {}
+          }, 200);
+          setTimeout(function () {
+            try {
+              if (window.SpellforgeAPI && window.SpellforgeAPI.refresh) {
+                window.SpellforgeAPI.refresh();
+              } else {
+                renderGrid();
+              }
+            } catch (eRef) {}
+          }, 800);
+        }
       }
     } catch (err) {
       console.error("Spellforge:", err);

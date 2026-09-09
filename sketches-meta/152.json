@@ -1,0 +1,42 @@
+{
+  "number": 152,
+  "title": "Line sketch: Fiery Cat in Swirling Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant and white cat sits amid dynamic, flame-like swirls of color. The fantastical background features bold and patterns with bright floral accents (derived from painting #191).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant and white cat sits amid dynamic, flame-like swirls of color. The fantastical background features bold and patterns with bright floral accents",
+  "inverted_title": "Inverted sketch: Fiery Cat in Swirling Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant and white cat sits amid dynamic, flame-like swirls of color. The fantastical background features bold and patterns with bright floral accents (from painting #191).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant and white cat sits amid dynamic, flame-like swirls of color. The fantastical background features bold and patterns with bright floral accents",
+  "source_description": "A vibrant orange and white cat sits amid dynamic, flame-like swirls of color. The fantastical background features bold blue and orange patterns with bright floral accents.",
+  "source_prompt": "",
+  "source_title": "Fiery Cat in Swirling Cosmos",
+  "style": "Psychedelic Fantasy",
+  "mood": "Vibrant Energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat",
+    "flame",
+    "swirls",
+    "psychedelic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 191,
+  "source_url": "/paintings/191.jpg",
+  "image_url": "/sketches/152.png",
+  "inverted_image_url": "/sketches-inverted/152.png",
+  "curve_count": 328,
+  "built_at": "2026-08-17T00:09:38Z"
+}

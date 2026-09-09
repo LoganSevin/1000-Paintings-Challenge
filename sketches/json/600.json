@@ -1,0 +1,22 @@
+{
+  "num": 600,
+  "title": "Painting #764",
+  "created": 1786915944.2015066,
+  "source_url": "/paintings/764.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 2,
+  "curves": [
+    "((1 - t)^3*194.00 + 3*t*(1 - t)^2*197.00 + 3*t^2*(1 - t)*200.00 + t^3*203.00,(1 - t)^3*195.00 + 3*t*(1 - t)^2*193.00 + 3*t^2*(1 - t)*191.00 + t^3*189.00)",
+    "((1 - t)^3*208.00 + 3*t*(1 - t)^2*205.33 + 3*t^2*(1 - t)*202.67 + t^3*200.00,(1 - t)^3*168.00 + 3*t*(1 - t)^2*167.00 + 3*t^2*(1 - t)*166.00 + t^3*165.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 2,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 764
+  },
+  "preview_url": "/sketches/600.png"
+}

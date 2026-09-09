@@ -1,0 +1,42 @@
+{
+  "number": 1666,
+  "title": "Line sketch: Fragmented Mind Balloon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Surreal portrait of an elderly man with a cracked and fragmented face revealing patterned pieces, attached to a vibrant, dripping hot air balloon made of melting, and shapes. Small human figures ride in a basket suspended from the balloon against a background with floating circles (derived from generated still #882).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Surreal portrait of an elderly man with a cracked and fragmented face revealing patterned pieces, attached to a vibrant, dripping hot air balloon made of melting, and shapes. Small human figures ride in a basket suspended from the balloon against a background with floating circles",
+  "inverted_title": "Inverted sketch: Fragmented Mind Balloon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Surreal portrait of an elderly man with a cracked and fragmented face revealing patterned pieces, attached to a vibrant, dripping hot air balloon made of melting, and shapes. Small human figures ride in a basket suspended from the balloon against a background with floating circles (from generated still #882).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Surreal portrait of an elderly man with a cracked and fragmented face revealing patterned pieces, attached to a vibrant, dripping hot air balloon made of melting, and shapes. Small human figures ride in a basket suspended from the balloon against a background with floating circles",
+  "source_description": "Surreal portrait of an elderly man with a cracked and fragmented face revealing colorful patterned pieces, attached to a vibrant, dripping hot air balloon made of melting green, yellow, and magenta shapes. Small human figures ride in a basket suspended from the balloon against a muted purple background with floating circles.",
+  "source_prompt": "",
+  "source_title": "Fragmented Mind Balloon",
+  "style": "surrealism",
+  "mood": "melancholy, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "elderly man",
+    "hot air balloon",
+    "fragmented face",
+    "melting colors"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 882,
+  "source_url": "/generated/882.jpg",
+  "image_url": "/sketches/1666.png",
+  "inverted_image_url": "/sketches-inverted/1666.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:41Z"
+}

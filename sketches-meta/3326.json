@@ -1,0 +1,42 @@
+{
+  "number": 3326,
+  "title": "Line sketch: Cinema Balcony Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a ornate robe stands on a stone balcony at dusk, holding a film projector that casts a beam of light. Behind her, a large curved screen tears open to reveal an opulent classical interior filled with glowing framed paintings and film reels scattered on the floor (derived from generated still #2720).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a ornate robe stands on a stone balcony at dusk, holding a film projector that casts a beam of light. Behind her, a large curved screen tears open to reveal an opulent classical interior filled with glowing framed paintings and film reels scattered on the floor",
+  "inverted_title": "Inverted sketch: Cinema Balcony Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a ornate robe stands on a stone balcony at dusk, holding a film projector that casts a beam of light. Behind her, a large curved screen tears open to reveal an opulent classical interior filled with glowing framed paintings and film reels scattered on the floor (from generated still #2720).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a ornate robe stands on a stone balcony at dusk, holding a film projector that casts a beam of light. Behind her, a large curved screen tears open to reveal an opulent classical interior filled with glowing framed paintings and film reels scattered on the floor",
+  "source_description": "A woman in a magenta ornate robe stands on a stone balcony at dusk, holding a film projector that casts a beam of light. Behind her, a large curved screen tears open to reveal an opulent classical interior filled with glowing framed paintings and film reels scattered on the floor.",
+  "source_prompt": "A woman wearing an ornate magenta robe stands on a classical stone balcony at twilight, holding an old film projector that beams light into a massive curved screen that is dramatically tearing open to reveal a luxurious baroque room filled with glowing framed paintings, film reels and strips scattered across the balcony floor, an elegant upholstered chair and vintage projector equipment beside her, dramatic cinematic lighting, surreal atmosphere",
+  "source_title": "Cinema Balcony Dream",
+  "style": "surrealism",
+  "mood": "dreamlike, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "balcony",
+    "film projector",
+    "tearing reality"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2720,
+  "source_url": "/generated/2720.jpg",
+  "image_url": "/sketches/3326.png",
+  "inverted_image_url": "/sketches-inverted/3326.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3749,
+  "title": "Line sketch: White-Haired Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side views of the same dark-skinned female character with long flowing white hair, wearing a and black outfit with a long coat, gloves and boots. She is shown in dynamic action poses, one emitting sparks from her hands (derived from generated still #3159).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side views of the same dark-skinned female character with long flowing white hair, wearing a and black outfit with a long coat, gloves and boots. She is shown in dynamic action poses, one emitting sparks from her hands",
+  "inverted_title": "Inverted sketch: White-Haired Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side views of the same dark-skinned female character with long flowing white hair, wearing a and black outfit with a long coat, gloves and boots. She is shown in dynamic action poses, one emitting sparks from her hands (from generated still #3159).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side views of the same dark-skinned female character with long flowing white hair, wearing a and black outfit with a long coat, gloves and boots. She is shown in dynamic action poses, one emitting sparks from her hands",
+  "source_description": "Three side-by-side views of the same dark-skinned female character with long flowing white hair, wearing a red and black outfit with a long red coat, red gloves and red boots. She is shown in dynamic action poses, one emitting bright red sparks from her hands.",
+  "source_prompt": "A dark-skinned woman with long flowing silver-white hair wearing a sleeveless red top with silver details, long red coat with patterns, black pants, red gloves and red boots. She is depicted in three different dynamic action poses against a dark gray background, one pose showing her generating bright red magical sparks from her hands, cinematic lighting, dramatic atmosphere, highly detailed digital painting",
+  "source_title": "White-Haired Warrior Poses",
+  "style": "line sketch",
+  "mood": "dynamic, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "white hair",
+    "costume",
+    "action poses",
+    "sparks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3159,
+  "source_url": "/generated/3159.jpg",
+  "image_url": "/sketches/3749.png",
+  "inverted_image_url": "/sketches-inverted/3749.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:46Z"
+}

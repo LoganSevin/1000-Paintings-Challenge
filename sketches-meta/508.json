@@ -1,0 +1,42 @@
+{
+  "number": 508,
+  "title": "Line sketch: Satellite Dish on Tripod",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large satellite dish mounted on a mechanical tripod base against a solid background. The composition features visible and simplified forms in a stylized manner (derived from painting #624).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large satellite dish mounted on a mechanical tripod base against a solid background. The composition features visible and simplified forms in a stylized manner",
+  "inverted_title": "Inverted sketch: Satellite Dish on Tripod",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large satellite dish mounted on a mechanical tripod base against a solid background. The composition features visible and simplified forms in a stylized manner (from painting #624).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large satellite dish mounted on a mechanical tripod base against a solid background. The composition features visible and simplified forms in a stylized manner",
+  "source_description": "A large green satellite dish mounted on a mechanical tripod base against a solid pink background. The painting features visible brushstrokes and simplified forms in a stylized manner.",
+  "source_prompt": "",
+  "source_title": "Green Satellite Dish on Tripod",
+  "style": "Pop Art",
+  "mood": "Minimalist and bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "satellite dish",
+    "tripod",
+    "background",
+    "mechanical",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 624,
+  "source_url": "/paintings/624.jpg",
+  "image_url": "/sketches/508.png",
+  "inverted_image_url": "/sketches-inverted/508.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

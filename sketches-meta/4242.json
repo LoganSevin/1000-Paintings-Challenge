@@ -1,0 +1,42 @@
+{
+  "number": 4242,
+  "title": "Line sketch: Plasma Dandelion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing spherical structure resembling a dandelion head composed of, and bubbles connected by luminous electric- stems to a central glowing orb. The orb sits atop a dark stem against a dynamic background of streaking, and black with floating translucent bubbles (derived from generated still #3661).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing spherical structure resembling a dandelion head composed of, and bubbles connected by luminous electric- stems to a central glowing orb. The orb sits atop a dark stem against a dynamic background of streaking, and black with floating translucent bubbles",
+  "inverted_title": "Inverted sketch: Plasma Dandelion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing spherical structure resembling a dandelion head composed of, and bubbles connected by luminous electric- stems to a central glowing orb. The orb sits atop a dark stem against a dynamic background of streaking, and black with floating translucent bubbles (from generated still #3661).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing spherical structure resembling a dandelion head composed of, and bubbles connected by luminous electric- stems to a central glowing orb. The orb sits atop a dark stem against a dynamic background of streaking, and black with floating translucent bubbles",
+  "source_description": "A glowing spherical structure resembling a dandelion head composed of bright pink, purple, and cyan bubbles connected by luminous electric-blue stems to a central glowing red orb. The orb sits atop a dark stem against a dynamic background of streaking teal, purple, and black brushstrokes with floating translucent bubbles.",
+  "source_prompt": "A luminous spherical dandelion-like structure made of glowing pink, purple and cyan translucent bubbles connected by bright electric blue energy tendrils to a vibrant red glowing core orb, mounted on a dark stem, surrounded by floating bubbles, set against dynamic streaking teal, purple and black background with visible brushstrokes, vibrant neon aesthetic, surreal cosmic energy",
+  "source_title": "Neon Plasma Dandelion",
+  "style": "line sketch",
+  "mood": "vibrant cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma",
+    "dandelion",
+    "bubbles",
+    "electric",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3661,
+  "source_url": "/generated/3661.jpg",
+  "image_url": "/sketches/4242.png",
+  "inverted_image_url": "/sketches-inverted/4242.png",
+  "curve_count": 271,
+  "built_at": "2026-08-17T00:09:47Z"
+}

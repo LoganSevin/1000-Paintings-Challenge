@@ -1,0 +1,42 @@
+{
+  "number": 862,
+  "title": "Line sketch: Wanderer and Eclipse City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a wide-brimmed hat sits on a rocky outcrop overlooking a sprawling, illuminated fantasy city with ornate domes and bridges. The dramatic sky features a total solar eclipse with a glowing corona, multiple moons, and swirling dark clouds above a landscape of towering flowers (derived from generated still #71).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a wide-brimmed hat sits on a rocky outcrop overlooking a sprawling, illuminated fantasy city with ornate domes and bridges. The dramatic sky features a total solar eclipse with a glowing corona, multiple moons, and swirling dark clouds above a landscape of towering flowers",
+  "inverted_title": "Inverted sketch: Wanderer and Eclipse City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a wide-brimmed hat sits on a rocky outcrop overlooking a sprawling, illuminated fantasy city with ornate domes and bridges. The dramatic sky features a total solar eclipse with a glowing corona, multiple moons, and swirling dark clouds above a landscape of towering flowers (from generated still #71).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a wide-brimmed hat sits on a rocky outcrop overlooking a sprawling, illuminated fantasy city with ornate domes and bridges. The dramatic sky features a total solar eclipse with a glowing corona, multiple moons, and swirling dark clouds above a landscape of towering flowers",
+  "source_description": "A lone figure in a wide-brimmed hat sits on a rocky outcrop overlooking a sprawling, illuminated fantasy city with ornate domes and bridges. The dramatic sky features a total solar eclipse with a glowing corona, multiple moons, and swirling dark clouds above a landscape of towering yellow flowers.",
+  "source_prompt": "",
+  "source_title": "Wanderer and Eclipse City",
+  "style": "fantasy illustration",
+  "mood": "mysterious, epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy city",
+    "solar eclipse",
+    "wanderer",
+    "futuristic architecture",
+    "celestial bodies"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 71,
+  "source_url": "/generated/71.jpg",
+  "image_url": "/sketches/862.png",
+  "inverted_image_url": "/sketches-inverted/862.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:40Z"
+}

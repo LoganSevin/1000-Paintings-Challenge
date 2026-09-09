@@ -1,0 +1,42 @@
+{
+  "number": 4685,
+  "title": "Line sketch: Vintage Kitchen Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A retro kitchen corner with sage distressed cabinets, a and refrigerator covered in magnets, and a black farmhouse sink under a vibrant stained glass window. Steam rises from a pot on the counter beside a coffee maker, and various jars, with a light beam crossing the marble countertops (derived from generated still #4112).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A retro kitchen corner with sage distressed cabinets, a and refrigerator covered in magnets, and a black farmhouse sink under a vibrant stained glass window. Steam rises from a pot on the counter beside a coffee maker, and various jars, with a light beam crossing the marble countertops",
+  "inverted_title": "Inverted sketch: Vintage Kitchen Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A retro kitchen corner with sage distressed cabinets, a and refrigerator covered in magnets, and a black farmhouse sink under a vibrant stained glass window. Steam rises from a pot on the counter beside a coffee maker, and various jars, with a light beam crossing the marble countertops (from generated still #4112).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A retro kitchen corner with sage distressed cabinets, a and refrigerator covered in magnets, and a black farmhouse sink under a vibrant stained glass window. Steam rises from a pot on the counter beside a coffee maker, and various jars, with a light beam crossing the marble countertops",
+  "source_description": "A colorful retro kitchen corner with sage green distressed cabinets, a bright yellow and dark green refrigerator covered in magnets, and a black farmhouse sink under a vibrant stained glass window. Steam rises from a red pot on the counter beside a coffee maker, lavender, and various jars, with a rainbow light beam crossing the marble countertops.",
+  "source_prompt": "A cozy retro kitchen scene with distressed sage green cabinets and marble countertops, a bright yellow top and dark green bottom refrigerator covered in magnets, black farmhouse sink beneath a vibrant multicolored stained glass window casting rainbow light, red pot steaming on the stove, coffee maker, lavender bunch, glass jars, and a small rug on the tiled floor, warm nostalgic atmosphere, detailed digital painting",
+  "source_title": "Vintage Kitchen Still Life",
+  "style": "composition",
+  "mood": "warm nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kitchen",
+    "retro",
+    "stained glass",
+    "still life",
+    "vintage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4112,
+  "source_url": "/generated/4112.jpg",
+  "image_url": "/sketches/4685.png",
+  "inverted_image_url": "/sketches-inverted/4685.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:48Z"
+}

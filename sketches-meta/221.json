@@ -1,0 +1,42 @@
+{
+  "number": 221,
+  "title": "Line sketch: Cosmic Storm Over Seaside Cottage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, cloud formation resembling a swirling vortex or tsunami dominates the sky above a tranquil beach. A small house stands resilient on the shore as meteors streak through the vibrant atmosphere (derived from painting #268).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, cloud formation resembling a swirling vortex or tsunami dominates the sky above a tranquil beach. A small house stands resilient on the shore as meteors streak through the vibrant atmosphere",
+  "inverted_title": "Inverted sketch: Cosmic Storm Over Seaside Cottage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, cloud formation resembling a swirling vortex or tsunami dominates the sky above a tranquil beach. A small house stands resilient on the shore as meteors streak through the vibrant atmosphere (from painting #268).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, cloud formation resembling a swirling vortex or tsunami dominates the sky above a tranquil beach. A small house stands resilient on the shore as meteors streak through the vibrant atmosphere",
+  "source_description": "A massive, colorful cloud formation resembling a swirling vortex or tsunami dominates the sky above a tranquil beach. A small red house stands resilient on the shore as meteors streak through the vibrant atmosphere.",
+  "source_prompt": "",
+  "source_title": "Cosmic Storm Over Seaside Cottage",
+  "style": "Impressionistic",
+  "mood": "Dramatic and surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "storm cloud",
+    "seascape",
+    "cosmic event",
+    "beach house",
+    "vibrant sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 268,
+  "source_url": "/paintings/268.jpg",
+  "image_url": "/sketches/221.png",
+  "inverted_image_url": "/sketches-inverted/221.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:38Z"
+}

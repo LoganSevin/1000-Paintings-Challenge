@@ -1,0 +1,42 @@
+{
+  "number": 3189,
+  "title": "Line sketch: Descent into Memory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing gown descends a grand, decaying spiral staircase. She is surrounded by floating picture frames, scattered sheet music, ghostly ballerina figures on the walls, and a broken grand piano overgrown with vines at the bottom of the stairs. A dramatic beam of light shines down from a cracked skylight above (derived from generated still #2536).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing gown descends a grand, decaying spiral staircase. She is surrounded by floating picture frames, scattered sheet music, ghostly ballerina figures on the walls, and a broken grand piano overgrown with vines at the bottom of the stairs. A dramatic beam of light shines down from a cracked skylight above",
+  "inverted_title": "Inverted sketch: Descent into Memory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing gown descends a grand, decaying spiral staircase. She is surrounded by floating picture frames, scattered sheet music, ghostly ballerina figures on the walls, and a broken grand piano overgrown with vines at the bottom of the stairs. A dramatic beam of light shines down from a cracked skylight above (from generated still #2536).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing gown descends a grand, decaying spiral staircase. She is surrounded by floating picture frames, scattered sheet music, ghostly ballerina figures on the walls, and a broken grand piano overgrown with vines at the bottom of the stairs. A dramatic beam of light shines down from a cracked skylight above",
+  "source_description": "A woman in a flowing lavender gown descends a grand, decaying spiral staircase. She is surrounded by floating picture frames, scattered sheet music, ghostly ballerina figures on the walls, and a broken grand piano overgrown with vines at the bottom of the stairs. A dramatic beam of golden light shines down from a cracked skylight above.",
+  "source_prompt": "A woman in a long flowing lavender gown walks down a grand decaying spiral staircase inside a dark surreal mansion. Ghostly ballerina figures dance on the walls, floating golden picture frames and scattered sheet music fill the air, a broken grand piano covered in vines sits at the bottom. Dramatic golden light beams down from a cracked skylight above, moody atmospheric lighting, intricate details, painted in a dark fantasy style",
+  "source_title": "Descent into Memory",
+  "style": "surreal fantasy",
+  "mood": "melancholic, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spiral staircase",
+    "ghostly ballerinas",
+    "grand piano",
+    "light",
+    "decaying mansion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2536,
+  "source_url": "/generated/2536.jpg",
+  "image_url": "/sketches/3189.png",
+  "inverted_image_url": "/sketches-inverted/3189.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

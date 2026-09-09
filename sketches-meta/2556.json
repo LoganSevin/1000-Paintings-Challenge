@@ -1,0 +1,42 @@
+{
+  "number": 2556,
+  "title": "Line sketch: Porch Gathering at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical scene on the porch of a rustic wooden cabin at sunset, featuring a robot with a skull head and glowing goggles standing behind a donkey in overalls leaning on the railing with a glass of liquid. A young man with hair and glasses holds a mug while speaking to a white dove in mid-flight (derived from generated still #1792).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical scene on the porch of a rustic wooden cabin at sunset, featuring a robot with a skull head and glowing goggles standing behind a donkey in overalls leaning on the railing with a glass of liquid. A young man with hair and glasses holds a mug while speaking to a white dove in mid-flight",
+  "inverted_title": "Inverted sketch: Porch Gathering at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical scene on the porch of a rustic wooden cabin at sunset, featuring a robot with a skull head and glowing goggles standing behind a donkey in overalls leaning on the railing with a glass of liquid. A young man with hair and glasses holds a mug while speaking to a white dove in mid-flight (from generated still #1792).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical scene on the porch of a rustic wooden cabin at sunset, featuring a robot with a skull head and glowing goggles standing behind a donkey in overalls leaning on the railing with a glass of liquid. A young man with hair and glasses holds a mug while speaking to a white dove in mid-flight",
+  "source_description": "A whimsical scene on the porch of a rustic wooden cabin at sunset, featuring a robot with a skull head and glowing goggles standing behind a donkey in overalls leaning on the railing with a glass of red liquid. A young man with orange hair and glasses holds a mug while speaking to a white dove in mid-flight.",
+  "source_prompt": "",
+  "source_title": "Porch Gathering at Dusk",
+  "style": "surreal digital art",
+  "mood": "whimsical, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "donkey",
+    "porch",
+    "sunset",
+    "dove"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1792,
+  "source_url": "/generated/1792.jpg",
+  "image_url": "/sketches/2556.png",
+  "inverted_image_url": "/sketches-inverted/2556.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:43Z"
+}

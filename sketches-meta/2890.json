@@ -1,0 +1,42 @@
+{
+  "number": 2890,
+  "title": "Line sketch: Alphabet Turtle Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a young Black woman with a large afro of swirling letters and one glowing white eye, her neck merging into the body of a giant turtle. The turtle's shell is composed of alphabet tiles, while smaller turtles fly toward a large dark turtle silhouette in a sunset sky above a desert landscape (derived from generated still #2177).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a young Black woman with a large afro of swirling letters and one glowing white eye, her neck merging into the body of a giant turtle. The turtle's shell is composed of alphabet tiles, while smaller turtles fly toward a large dark turtle silhouette in a sunset sky above a desert landscape",
+  "inverted_title": "Inverted sketch: Alphabet Turtle Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a young Black woman with a large afro of swirling letters and one glowing white eye, her neck merging into the body of a giant turtle. The turtle's shell is composed of alphabet tiles, while smaller turtles fly toward a large dark turtle silhouette in a sunset sky above a desert landscape (from generated still #2177).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a young Black woman with a large afro of swirling letters and one glowing white eye, her neck merging into the body of a giant turtle. The turtle's shell is composed of alphabet tiles, while smaller turtles fly toward a large dark turtle silhouette in a sunset sky above a desert landscape",
+  "source_description": "A surreal painting depicts a young Black woman with a large afro of swirling letters and one glowing white eye, her neck merging into the body of a giant turtle. The turtle's shell is composed of colorful alphabet tiles, while smaller turtles fly toward a large dark turtle silhouette in a sunset sky above a desert landscape.",
+  "source_prompt": "Surreal desert scene at sunset with a giant turtle whose shell is made of colorful square alphabet tiles. A young Black woman with a large afro composed of floating letters emerges from the turtle's head, she has one glowing white eye. Smaller turtles fly across the orange and purple sky toward a large dark turtle silhouette. Letters and footprints float in the air, warm cinematic lighting, detailed painterly style.",
+  "source_title": "Alphabet Turtle Dreamscape",
+  "style": "surreal composition",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "alphabet",
+    "turtle",
+    "afro",
+    "desert"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2177,
+  "source_url": "/generated/2177.jpg",
+  "image_url": "/sketches/2890.png",
+  "inverted_image_url": "/sketches-inverted/2890.png",
+  "curve_count": 133,
+  "built_at": "2026-08-17T00:09:44Z"
+}

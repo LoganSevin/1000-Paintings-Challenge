@@ -1,0 +1,42 @@
+{
+  "number": 3829,
+  "title": "Line sketch: Stasis Samurai",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical panels of a bald man in a metallic bodysuit and gloves are arranged horizontally against a background. He is posed dynamically in a fighting stance with fists raised. Behind the panels is large, bold black text reading 'STASIS SAMURAI' layered over translucent plastic sheets (derived from generated still #3246).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical panels of a bald man in a metallic bodysuit and gloves are arranged horizontally against a background. He is posed dynamically in a fighting stance with fists raised. Behind the panels is large, bold black text reading 'STASIS SAMURAI' layered over translucent plastic sheets",
+  "inverted_title": "Inverted sketch: Stasis Samurai",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical panels of a bald man in a metallic bodysuit and gloves are arranged horizontally against a background. He is posed dynamically in a fighting stance with fists raised. Behind the panels is large, bold black text reading 'STASIS SAMURAI' layered over translucent plastic sheets (from generated still #3246).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical panels of a bald man in a metallic bodysuit and gloves are arranged horizontally against a background. He is posed dynamically in a fighting stance with fists raised. Behind the panels is large, bold black text reading 'STASIS SAMURAI' layered over translucent plastic sheets",
+  "source_description": "Four identical panels of a bald man in a metallic silver bodysuit and gloves are arranged horizontally against a bright pink background. He is posed dynamically in a fighting stance with fists raised. Behind the panels is large, bold black text reading 'STASIS SAMURAI' layered over translucent plastic sheets.",
+  "source_prompt": "A vibrant pop art composition featuring four identical rectangular panels arranged in a row on a solid hot pink background. Each panel shows a bald muscular man wearing a tight metallic silver bodysuit and gloves, posed in an aggressive fighting stance with fists raised and an intense expression. Behind the panels is large bold black 3D text spelling STASIS SAMURAI, partially covered by layered translucent plastic sheets with visible folds and reflections.",
+  "source_title": "Stasis Samurai",
+  "style": "digital collage",
+  "mood": "bold, aggressive, pop",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "multiple poses",
+    "samurai",
+    "background",
+    "text overlay",
+    "plastic sheets"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3246,
+  "source_url": "/generated/3246.jpg",
+  "image_url": "/sketches/3829.png",
+  "inverted_image_url": "/sketches-inverted/3829.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 251,
+  "title": "Line sketch: Vibrant Horses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two stylized horses stand side by side in a dreamy, abstract landscape. Their bodies blend with flowing colors against a swirling and background (derived from painting #308).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two stylized horses stand side by side in a dreamy, abstract landscape. Their bodies blend with flowing colors against a swirling and background",
+  "inverted_title": "Inverted sketch: Vibrant Horses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two stylized horses stand side by side in a dreamy, abstract landscape. Their bodies blend with flowing colors against a swirling and background (from painting #308).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two stylized horses stand side by side in a dreamy, abstract landscape. Their bodies blend with flowing colors against a swirling and background",
+  "source_description": "Two stylized horses stand side by side in a dreamy, abstract landscape. Their bodies blend with flowing rainbow colors against a swirling pink and orange background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Green Horses",
+  "style": "Contemporary Expressionism",
+  "mood": "Dreamy and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horses",
+    "abstract",
+    "composition",
+    "expressive",
+    "equine"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 308,
+  "source_url": "/paintings/308.jpg",
+  "image_url": "/sketches/251.png",
+  "inverted_image_url": "/sketches-inverted/251.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:38Z"
+}

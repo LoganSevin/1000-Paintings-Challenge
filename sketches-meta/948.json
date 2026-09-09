@@ -1,0 +1,42 @@
+{
+  "number": 948,
+  "title": "Line sketch: Psychedelic Watermelon Octopus",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a octopus with a detailed human-like watermelon face, eyes, and tears streaming down. Its tentacles hold hot dogs, a watermelon slice, and a small dog with a halo, set against a vibrant background filled with large decorated flowers and dripping patterns (derived from generated still #158).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a octopus with a detailed human-like watermelon face, eyes, and tears streaming down. Its tentacles hold hot dogs, a watermelon slice, and a small dog with a halo, set against a vibrant background filled with large decorated flowers and dripping patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Watermelon Octopus",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a octopus with a detailed human-like watermelon face, eyes, and tears streaming down. Its tentacles hold hot dogs, a watermelon slice, and a small dog with a halo, set against a vibrant background filled with large decorated flowers and dripping patterns (from generated still #158).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a octopus with a detailed human-like watermelon face, eyes, and tears streaming down. Its tentacles hold hot dogs, a watermelon slice, and a small dog with a halo, set against a vibrant background filled with large decorated flowers and dripping patterns",
+  "source_description": "A surreal painting of a green octopus with a detailed human-like watermelon face, golden eyes, and colorful tears streaming down. Its tentacles hold hot dogs, a watermelon slice, and a small dog with a halo, set against a vibrant purple background filled with large decorated flowers and dripping patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Watermelon Octopus",
+  "style": "surreal psychedelic",
+  "mood": "trippy whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "octopus",
+    "watermelon",
+    "surreal",
+    "psychedelic",
+    "hot dogs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 158,
+  "source_url": "/generated/158.jpg",
+  "image_url": "/sketches/948.png",
+  "inverted_image_url": "/sketches-inverted/948.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:40Z"
+}

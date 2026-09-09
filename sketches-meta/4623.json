@@ -1,0 +1,42 @@
+{
+  "number": 4623,
+  "title": "Line sketch: Man in Wagon with Chair",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bearded man with curly dark hair sits in a Radio Flyer wagon holding a small wooden chair, while a smiling blonde woman in a black dress pulls him along a dirt path through a grassy field (derived from generated still #4045).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bearded man with curly dark hair sits in a Radio Flyer wagon holding a small wooden chair, while a smiling blonde woman in a black dress pulls him along a dirt path through a grassy field",
+  "inverted_title": "Inverted sketch: Man in Wagon with Chair",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bearded man with curly dark hair sits in a Radio Flyer wagon holding a small wooden chair, while a smiling blonde woman in a black dress pulls him along a dirt path through a grassy field (from generated still #4045).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bearded man with curly dark hair sits in a Radio Flyer wagon holding a small wooden chair, while a smiling blonde woman in a black dress pulls him along a dirt path through a grassy field",
+  "source_description": "A bearded man with curly dark hair sits in a red Radio Flyer wagon holding a small wooden chair, while a smiling blonde woman in a black dress pulls him along a dirt path through a grassy field.",
+  "source_prompt": "photorealistic scene of a young man with dark curly hair and full beard wearing a grey t-shirt and black shorts, sitting inside a bright red metal Radio Flyer wagon, intently holding a miniature wooden schoolhouse chair with both hands, a smiling blonde woman in a black summer dress and black boots pulling the wagon handle, walking along a rural dirt path through vast open green prairie under a pale overcast sky, natural daylight, candid documentary style, realistic textures and proportions",
+  "source_title": "Man in Wagon with Chair",
+  "style": "realistic photography",
+  "mood": "whimsical curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wagon",
+    "miniature chair",
+    "couple",
+    "prairie",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4045,
+  "source_url": "/generated/4045.jpg",
+  "image_url": "/sketches/4623.png",
+  "inverted_image_url": "/sketches-inverted/4623.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1642,
+  "title": "Line sketch: Surreal Cosmic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition centered on a large stylized human eye with a sclera and intricate and patterns in the iris containing two silhouetted faces. The composition features horizontal bands of color depicting boats with figures on waters, and patterned lower sections, all set against a dark cosmic background with constellations, stars, and vein-like lines radiating outward (derived from generated still #857).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition centered on a large stylized human eye with a sclera and intricate and patterns in the iris containing two silhouetted faces. The composition features horizontal bands of color depicting boats with figures on waters, and patterned lower sections, all set against a dark cosmic background with constellations, stars, and vein-like lines radiating outward",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition centered on a large stylized human eye with a sclera and intricate and patterns in the iris containing two silhouetted faces. The composition features horizontal bands of color depicting boats with figures on waters, and patterned lower sections, all set against a dark cosmic background with constellations, stars, and vein-like lines radiating outward (from generated still #857).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition centered on a large stylized human eye with a sclera and intricate and patterns in the iris containing two silhouetted faces. The composition features horizontal bands of color depicting boats with figures on waters, and patterned lower sections, all set against a dark cosmic background with constellations, stars, and vein-like lines radiating outward",
+  "source_description": "A vibrant surreal painting centered on a large stylized human eye with a red sclera and intricate blue and green patterns in the iris containing two silhouetted faces. The composition features horizontal bands of color depicting boats with figures on turquoise waters, green and yellow patterned lower sections, all set against a dark cosmic background with constellations, stars, and red vein-like lines radiating outward.",
+  "source_prompt": "",
+  "source_title": "Surreal Cosmic Eye",
+  "style": "surrealism",
+  "mood": "mystical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "cosmic",
+    "nautical",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 857,
+  "source_url": "/generated/857.jpg",
+  "image_url": "/sketches/1642.png",
+  "inverted_image_url": "/sketches-inverted/1642.png",
+  "curve_count": 115,
+  "built_at": "2026-08-17T00:09:41Z"
+}

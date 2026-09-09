@@ -1,0 +1,42 @@
+{
+  "number": 4715,
+  "title": "Line sketch: Stasis Atoll",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy map illustration depicts a circular lagoon at the center of a floating atoll. Surrounding the water are distinct landmasses: a East Asian temple platform with a pagoda and torii gate on the upper left, crystalline formations with glowing crystals on the right, and a overgrown industrial ruin with pipes and a large cylindrical structure on the lower right (derived from generated still #4145).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy map illustration depicts a circular lagoon at the center of a floating atoll. Surrounding the water are distinct landmasses: a East Asian temple platform with a pagoda and torii gate on the upper left, crystalline formations with glowing crystals on the right, and a overgrown industrial ruin with pipes and a large cylindrical structure on the lower right",
+  "inverted_title": "Inverted sketch: Stasis Atoll",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy map illustration depicts a circular lagoon at the center of a floating atoll. Surrounding the water are distinct landmasses: a East Asian temple platform with a pagoda and torii gate on the upper left, crystalline formations with glowing crystals on the right, and a overgrown industrial ruin with pipes and a large cylindrical structure on the lower right (from generated still #4145).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy map illustration depicts a circular lagoon at the center of a floating atoll. Surrounding the water are distinct landmasses: a East Asian temple platform with a pagoda and torii gate on the upper left, crystalline formations with glowing crystals on the right, and a overgrown industrial ruin with pipes and a large cylindrical structure on the lower right",
+  "source_description": "A vibrant fantasy map illustration depicts a circular turquoise lagoon at the center of a floating atoll. Surrounding the water are distinct landmasses: a red East Asian temple platform with a pagoda and torii gate on the upper left, purple crystalline formations with glowing magenta crystals on the right, and a green overgrown industrial ruin with pipes and a large cylindrical structure on the lower right.",
+  "source_prompt": "A detailed top-down fantasy map of a circular Stasis Atoll floating in the void, featuring a bright turquoise central lagoon with lily pads. Connected by stone pathways are a red East Asian temple platform with pagoda and torii gate, vibrant purple crystal clusters glowing with magenta energy, and a lush green overgrown industrial area with pipes and a large rusty cylinder. Small character figures and glowing effects are visible, in a colorful storybook illustration style on aged parchment.",
+  "source_title": "Stasis Atoll",
+  "style": "fantasy map illustration",
+  "mood": "whimsical adventure",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "floating island",
+    "crystal formations",
+    "temple ruins",
+    "industrial decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4145,
+  "source_url": "/generated/4145.jpg",
+  "image_url": "/sketches/4715.png",
+  "inverted_image_url": "/sketches-inverted/4715.png",
+  "curve_count": 138,
+  "built_at": "2026-08-17T00:09:48Z"
+}

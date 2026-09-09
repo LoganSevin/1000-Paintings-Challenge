@@ -1,0 +1,42 @@
+{
+  "number": 3643,
+  "title": "Line sketch: Stained Glass Skylight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A semi-circular stained glass window set in a white wooden frame, viewed from below against a sky. The mosaic-style glass features an abstract composition of,, white, and fragments with visible leading lines dividing the panel into sections (derived from generated still #3051).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A semi-circular stained glass window set in a white wooden frame, viewed from below against a sky. The mosaic-style glass features an abstract composition of,, white, and fragments with visible leading lines dividing the panel into sections",
+  "inverted_title": "Inverted sketch: Stained Glass Skylight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A semi-circular stained glass window set in a white wooden frame, viewed from below against a sky. The mosaic-style glass features an abstract composition of,, white, and fragments with visible leading lines dividing the panel into sections (from generated still #3051).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A semi-circular stained glass window set in a white wooden frame, viewed from below against a sky. The mosaic-style glass features an abstract composition of,, white, and fragments with visible leading lines dividing the panel into sections",
+  "source_description": "A semi-circular stained glass window set in a white wooden frame, viewed from below against a blue sky. The mosaic-style glass features an abstract composition of yellow, green, blue, white, and orange fragments with visible leading lines dividing the panel into sections.",
+  "source_prompt": "A semi-circular stained glass skylight viewed from inside looking up, divided into multiple panes by dark leading and wooden muntins. Abstract mosaic composition made of irregularly shaped glass fragments in bright yellow, lime green, turquoise blue, white, and small orange accents. The glass has a fractured, textured appearance with visible solder lines. Bright daylight and blue sky visible through the translucent panels, realistic photograph taken from a low angle with white window frame visible around the edges.",
+  "source_title": "Stained Glass Skylight",
+  "style": "photograph",
+  "mood": "vibrant luminous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "stained glass",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "skylight",
+    "mosaic",
+    "abstract",
+    "window"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3051,
+  "source_url": "/generated/3051.jpg",
+  "image_url": "/sketches/3643.png",
+  "inverted_image_url": "/sketches-inverted/3643.png",
+  "curve_count": 332,
+  "built_at": "2026-08-17T00:09:46Z"
+}

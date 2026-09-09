@@ -1,0 +1,42 @@
+{
+  "number": 4595,
+  "title": "Line sketch: Dragon Castle Waters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a dark multi-towered dragon-like castle with glowing eyes and claws looming over a swirling sea under an sky with a sun and crescent moon. In the foreground, a woman in a dress stands in a sailboat with spiral patterns while another woman in kneels on a rocky shore operating a large wheel that controls the water's concentric spirals (derived from generated still #4017).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a dark multi-towered dragon-like castle with glowing eyes and claws looming over a swirling sea under an sky with a sun and crescent moon. In the foreground, a woman in a dress stands in a sailboat with spiral patterns while another woman in kneels on a rocky shore operating a large wheel that controls the water's concentric spirals",
+  "inverted_title": "Inverted sketch: Dragon Castle Waters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a dark multi-towered dragon-like castle with glowing eyes and claws looming over a swirling sea under an sky with a sun and crescent moon. In the foreground, a woman in a dress stands in a sailboat with spiral patterns while another woman in kneels on a rocky shore operating a large wheel that controls the water's concentric spirals (from generated still #4017).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a dark multi-towered dragon-like castle with glowing eyes and claws looming over a swirling sea under an sky with a sun and crescent moon. In the foreground, a woman in a dress stands in a sailboat with spiral patterns while another woman in kneels on a rocky shore operating a large wheel that controls the water's concentric spirals",
+  "source_description": "A vibrant surreal painting depicts a dark multi-towered dragon-like castle with glowing eyes and claws looming over a swirling blue sea under an orange sky with a sun and crescent moon. In the foreground, a woman in a pink dress stands in a sailboat with spiral patterns while another woman in blue kneels on a rocky shore operating a large blue wheel that controls the water's concentric spirals.",
+  "source_prompt": "A surreal fantasy scene of a giant black dragon-shaped castle with glowing white eyes and claws rising from the water, set against an orange sky with a bright sun and green crescent moon. Several colorful sailboats with spiral sails navigate a bright blue sea with concentric swirling patterns and yellow dots. In the foreground a woman in a pink dress stands in a boat while another woman in blue kneels on the rocky shore turning a large ornate blue wheel that manipulates the water currents, vibrant colors, detailed illustration style.",
+  "source_title": "Dragon Castle Waters",
+  "style": "surreal fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "dragon castle",
+    "spiral sea",
+    "sailing ships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4017,
+  "source_url": "/generated/4017.jpg",
+  "image_url": "/sketches/4595.png",
+  "inverted_image_url": "/sketches-inverted/4595.png",
+  "curve_count": 128,
+  "built_at": "2026-08-17T00:09:48Z"
+}

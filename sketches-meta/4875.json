@@ -1,0 +1,42 @@
+{
+  "number": 4875,
+  "title": "Line sketch: Surreal Psychedelic Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large white stylized human head with an open mouth and visible brain dominates the left side, with smoke-like forms containing women's faces flowing from it. To the right stands a retro robot, a alien in a trash can, and a -skinned woman with hair, all set against a vibrant cityscape under a large sun with laser beams and rain (derived from generated still #4310).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large white stylized human head with an open mouth and visible brain dominates the left side, with smoke-like forms containing women's faces flowing from it. To the right stands a retro robot, a alien in a trash can, and a -skinned woman with hair, all set against a vibrant cityscape under a large sun with laser beams and rain",
+  "inverted_title": "Inverted sketch: Surreal Psychedelic Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large white stylized human head with an open mouth and visible brain dominates the left side, with smoke-like forms containing women's faces flowing from it. To the right stands a retro robot, a alien in a trash can, and a -skinned woman with hair, all set against a vibrant cityscape under a large sun with laser beams and rain (from generated still #4310).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large white stylized human head with an open mouth and visible brain dominates the left side, with smoke-like forms containing women's faces flowing from it. To the right stands a retro robot, a alien in a trash can, and a -skinned woman with hair, all set against a vibrant cityscape under a large sun with laser beams and rain",
+  "source_description": "A large white stylized human head with an open mouth and visible pink brain dominates the left side, with blue smoke-like forms containing women's faces flowing from it. To the right stands a golden retro robot, a green alien in a trash can, and a green-skinned woman with orange hair, all set against a vibrant cityscape under a large yellow sun with green laser beams and rain.",
+  "source_prompt": "Surreal psychedelic painting featuring a giant white stylized human head in profile with exposed pink brain and blue swirling energy flowing out containing multiple women's faces. A golden retro robot walks in the midground, a small green alien sits inside a metal trash can, and a green-skinned woman with long orange hair stands nearby. Vibrant city skyline in background under a giant yellow sun emitting green beams and red light streaks, rain falling from dark clouds, large decorative flowers in foreground, highly detailed symbolic composition with bold outlines.",
+  "source_title": "Surreal Psychedelic Dreamscape",
+  "style": "surrealism",
+  "mood": "psychedelic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cyberpunk",
+    "alien",
+    "robot"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4310,
+  "source_url": "/generated/4310.jpg",
+  "image_url": "/sketches/4875.png",
+  "inverted_image_url": "/sketches-inverted/4875.png",
+  "curve_count": 136,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3950,
+  "title": "Line sketch: Mage Fighter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female warrior with white and hair in buns stands in a dynamic combat pose against a solid gray background. She wears a white and traditional outfit with intricate patterns, wields crackling energy magic in both hands, and has glowing arcane symbols floating around her head (derived from generated still #3367).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female warrior with white and hair in buns stands in a dynamic combat pose against a solid gray background. She wears a white and traditional outfit with intricate patterns, wields crackling energy magic in both hands, and has glowing arcane symbols floating around her head",
+  "inverted_title": "Inverted sketch: Mage Fighter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female warrior with white and hair in buns stands in a dynamic combat pose against a solid gray background. She wears a white and traditional outfit with intricate patterns, wields crackling energy magic in both hands, and has glowing arcane symbols floating around her head (from generated still #3367).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female warrior with white and hair in buns stands in a dynamic combat pose against a solid gray background. She wears a white and traditional outfit with intricate patterns, wields crackling energy magic in both hands, and has glowing arcane symbols floating around her head",
+  "source_description": "A young female warrior with white and lavender hair in buns stands in a dynamic combat pose against a solid gray background. She wears a white and purple traditional outfit with intricate patterns, wields crackling purple energy magic in both hands, and has glowing arcane symbols floating around her head.",
+  "source_prompt": "A young East Asian female warrior with long white hair tied in two buns with purple ribbons, wearing a detailed white and purple traditional fantasy outfit with a sash and patterned trim, standing in a powerful combat stance. She summons glowing purple magical energy that swirls around her hands and forms chains and crescents. Purple arcane runes and crackling energy float above her head. Sharp, clean digital illustration style with strong lighting and solid gray background.",
+  "source_title": "Purple Mage Fighter",
+  "style": "digital illustration",
+  "mood": "fierce, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "magic user",
+    "energy",
+    "fantasy character",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3367,
+  "source_url": "/generated/3367.jpg",
+  "image_url": "/sketches/3950.png",
+  "inverted_image_url": "/sketches-inverted/3950.png",
+  "curve_count": 327,
+  "built_at": "2026-08-17T00:09:47Z"
+}

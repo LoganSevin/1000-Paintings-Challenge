@@ -1,0 +1,42 @@
+{
+  "number": 2501,
+  "title": "Line sketch: Fairy Angel Light",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene centered on a large mushroom with a glowing core, where a blonde fairy with butterfly wings reaches toward a small angel-like figure. The composition is framed by decorative stained-glass style borders containing a snake, ornate crowns, a monster, a mandala, and a desert landscape with twin moons (derived from generated still #1736).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene centered on a large mushroom with a glowing core, where a blonde fairy with butterfly wings reaches toward a small angel-like figure. The composition is framed by decorative stained-glass style borders containing a snake, ornate crowns, a monster, a mandala, and a desert landscape with twin moons",
+  "inverted_title": "Inverted sketch: Fairy Angel Light",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene centered on a large mushroom with a glowing core, where a blonde fairy with butterfly wings reaches toward a small angel-like figure. The composition is framed by decorative stained-glass style borders containing a snake, ornate crowns, a monster, a mandala, and a desert landscape with twin moons (from generated still #1736).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene centered on a large mushroom with a glowing core, where a blonde fairy with butterfly wings reaches toward a small angel-like figure. The composition is framed by decorative stained-glass style borders containing a snake, ornate crowns, a monster, a mandala, and a desert landscape with twin moons",
+  "source_description": "A surreal fantasy scene centered on a large purple mushroom with a glowing blue core, where a blonde fairy with butterfly wings reaches toward a small angel-like figure. The composition is framed by decorative stained-glass style borders containing a golden snake, ornate crowns, a purple monster, a colorful mandala, and a desert landscape with twin moons.",
+  "source_prompt": "",
+  "source_title": "Fairy Angel Light",
+  "style": "surreal fantasy",
+  "mood": "ethereal whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairy",
+    "mushroom",
+    "angel",
+    "surreal",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1736,
+  "source_url": "/generated/1736.jpg",
+  "image_url": "/sketches/2501.png",
+  "inverted_image_url": "/sketches-inverted/2501.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:43Z"
+}

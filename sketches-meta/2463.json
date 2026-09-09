@@ -1,0 +1,42 @@
+{
+  "number": 2463,
+  "title": "Line sketch: Surreal Bird and Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark, gnarled tree branch shaped like a bird with a large human-like eye for a head perches over a bowl overflowing with vibrant flowers and grapes. The background features a stormy sky with lightning, a glowing full moon, and abstract swirling patterns with dripping effects (derived from generated still #1698).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark, gnarled tree branch shaped like a bird with a large human-like eye for a head perches over a bowl overflowing with vibrant flowers and grapes. The background features a stormy sky with lightning, a glowing full moon, and abstract swirling patterns with dripping effects",
+  "inverted_title": "Inverted sketch: Surreal Bird and Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark, gnarled tree branch shaped like a bird with a large human-like eye for a head perches over a bowl overflowing with vibrant flowers and grapes. The background features a stormy sky with lightning, a glowing full moon, and abstract swirling patterns with dripping effects (from generated still #1698).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark, gnarled tree branch shaped like a bird with a large human-like eye for a head perches over a bowl overflowing with vibrant flowers and grapes. The background features a stormy sky with lightning, a glowing full moon, and abstract swirling patterns with dripping effects",
+  "source_description": "A dark, gnarled tree branch shaped like a bird with a large human-like eye for a head perches over a silver bowl overflowing with vibrant flowers and grapes. The background features a stormy purple sky with lightning, a glowing full moon, and colorful abstract swirling patterns with dripping effects.",
+  "source_prompt": "",
+  "source_title": "Surreal Bird and Still Life",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bird",
+    "floral still life",
+    "eye motif",
+    "stormy sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1698,
+  "source_url": "/generated/1698.jpg",
+  "image_url": "/sketches/2463.png",
+  "inverted_image_url": "/sketches-inverted/2463.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

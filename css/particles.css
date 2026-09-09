@@ -1,0 +1,216 @@
+/* Particle sandbox — paint-dust from gallery stills */
+
+#panel-particles.panel.active {
+  display: block;
+  min-height: calc(100vh - 100px);
+}
+
+body.ps-tab-active #panel-particles {
+  background: #0c0d12;
+}
+
+.ps-shell {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0.65rem 1rem 1.5rem;
+  color: #e6e8f0;
+}
+
+.ps-top h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.28rem;
+  color: #9ad8ff;
+}
+
+.ps-hint {
+  margin: 0 0 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(190, 200, 220, 0.88);
+  max-width: 44rem;
+}
+
+.ps-toolbar,
+.ps-sliders,
+.ps-tools,
+.ps-art {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.45rem;
+}
+
+.ps-tool,
+.ps-art button,
+.ps-sliders button,
+.ps-art input,
+.ps-sliders input[type="range"] {
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.ps-tool,
+.ps-art button,
+.ps-sliders button {
+  appearance: none;
+  padding: 0.32rem 0.58rem;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 180, 230, 0.35);
+  background: rgba(18, 24, 36, 0.95);
+  color: #e4eef8;
+  cursor: pointer;
+}
+
+.ps-tool.active {
+  background: linear-gradient(180deg, #2a5588, #163250);
+  border-color: rgba(140, 210, 255, 0.7);
+  font-weight: 700;
+}
+
+.ps-art input[type="number"],
+.ps-art select {
+  width: auto;
+  min-width: 6.5rem;
+  padding: 0.28rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 180, 230, 0.35);
+  background: #121820;
+  color: #eef4fa;
+}
+
+.ps-art input[type="number"] {
+  width: 4.2rem;
+  min-width: 0;
+}
+
+.ps-thumb {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 180, 230, 0.35);
+  background: #111;
+}
+
+.ps-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+  margin: 0 0 0.5rem;
+  min-height: 1.1rem;
+}
+
+.ps-swatches span {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ps-prompt,
+.ps-reading,
+.ps-material {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.84rem;
+  padding: 0.4rem 0.55rem;
+  margin: 0 0 0.4rem;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 180, 230, 0.35);
+  background: #121820;
+  color: #eef4fa;
+  resize: vertical;
+}
+
+.ps-prompt {
+  min-height: 2.6rem;
+}
+
+.ps-material {
+  resize: none;
+}
+
+.ps-reading {
+  min-height: 4.4rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #d4deea;
+}
+
+.ps-read-lab {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(160, 180, 200, 0.8);
+  margin: 0.15rem 0 0.25rem;
+}
+
+.ps-read-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0 0 0.45rem;
+}
+
+.ps-read-hint {
+  font-size: 0.74rem;
+  color: rgba(160, 180, 200, 0.75);
+}
+
+.ps-primary {
+  background: linear-gradient(180deg, #3a6ea8, #1e3e68) !important;
+  border-color: rgba(150, 210, 255, 0.55) !important;
+  font-weight: 800;
+}
+
+.ps-primary:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+#ps-clear-still {
+  border-color: rgba(220, 160, 90, 0.5);
+  color: #f0d8b0;
+}
+
+.ps-sliders label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: rgba(180, 200, 220, 0.9);
+}
+
+.ps-stage {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(100, 160, 220, 0.3);
+  background: #08090e;
+}
+
+#ps-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.ps-status {
+  min-height: 1.1rem;
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(170, 190, 210, 0.85);
+}
+
+@media (max-width: 720px) {
+  .ps-shell {
+    padding: 0.5rem 0.65rem 1.3rem;
+  }
+}

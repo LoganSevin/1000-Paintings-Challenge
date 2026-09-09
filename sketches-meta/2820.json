@@ -1,0 +1,42 @@
+{
+  "number": 2820,
+  "title": "Line sketch: Character Pose Grid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 4x6 grid of 24 identical female figures shown in various angles against solid colored backgrounds. Each panel features the same woman in a patterned and dress with a headwrap, surrounded by glowing ethereal bubble and swirl effects (derived from generated still #2104).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 4x6 grid of 24 identical female figures shown in various angles against solid colored backgrounds. Each panel features the same woman in a patterned and dress with a headwrap, surrounded by glowing ethereal bubble and swirl effects",
+  "inverted_title": "Inverted sketch: Character Pose Grid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 4x6 grid of 24 identical female figures shown in various angles against solid colored backgrounds. Each panel features the same woman in a patterned and dress with a headwrap, surrounded by glowing ethereal bubble and swirl effects (from generated still #2104).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 4x6 grid of 24 identical female figures shown in various angles against solid colored backgrounds. Each panel features the same woman in a patterned and dress with a headwrap, surrounded by glowing ethereal bubble and swirl effects",
+  "source_description": "A 4x6 grid of 24 identical female figures shown in various angles against solid colored backgrounds. Each panel features the same woman in a patterned turquoise and orange dress with a green headwrap, surrounded by glowing ethereal bubble and swirl effects.",
+  "source_prompt": "A 4x6 grid of a young black woman with green headwrap and patterned turquoise-orange dress, displayed in multiple angles including front, side, and back views. Each cell has a different solid background color with glowing translucent bubble and swirl aura effects surrounding her. Clean studio lighting, consistent character design across all 24 poses.",
+  "source_title": "Character Pose Grid",
+  "style": "digital illustration",
+  "mood": "vibrant, methodical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character rotation",
+    "pose study",
+    "female figure",
+    "bubble effects",
+    "color grid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2104,
+  "source_url": "/generated/2104.jpg",
+  "image_url": "/sketches/2820.png",
+  "inverted_image_url": "/sketches-inverted/2820.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

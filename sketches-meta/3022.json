@@ -1,0 +1,42 @@
+{
+  "number": 3022,
+  "title": "Line sketch: Cosmic Mirror of the Cosmic Lyra",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a woman with flowing hair and closed eyes kissing a skeletal figure wearing an ornate headdress. A vibrant bird flies across the scene while a cosmic galaxy swirls above and a laser-like beam cuts diagonally through the composition, all framed in an ornate oval dripping with liquid (derived from generated still #2345).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a woman with flowing hair and closed eyes kissing a skeletal figure wearing an ornate headdress. A vibrant bird flies across the scene while a cosmic galaxy swirls above and a laser-like beam cuts diagonally through the composition, all framed in an ornate oval dripping with liquid",
+  "inverted_title": "Inverted sketch: Cosmic Mirror of the Cosmic Lyra",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a woman with flowing hair and closed eyes kissing a skeletal figure wearing an ornate headdress. A vibrant bird flies across the scene while a cosmic galaxy swirls above and a laser-like beam cuts diagonally through the composition, all framed in an ornate oval dripping with liquid (from generated still #2345).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a woman with flowing hair and closed eyes kissing a skeletal figure wearing an ornate headdress. A vibrant bird flies across the scene while a cosmic galaxy swirls above and a laser-like beam cuts diagonally through the composition, all framed in an ornate oval dripping with liquid",
+  "source_description": "A surreal painting depicts a woman with flowing teal hair and closed eyes kissing a skeletal figure wearing an ornate golden headdress. A vibrant red bird flies across the scene while a cosmic galaxy swirls above and a red laser-like beam cuts diagonally through the composition, all framed in an ornate golden oval dripping with red liquid.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mirror of the Cosmic Lyra",
+  "style": "surrealism",
+  "mood": "ethereal dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skeleton",
+    "cosmic",
+    "mirror",
+    "bird"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2345,
+  "source_url": "/generated/2345.jpg",
+  "image_url": "/sketches/3022.png",
+  "inverted_image_url": "/sketches-inverted/3022.png",
+  "curve_count": 134,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 712,
+  "title": "Line sketch: Cosmic Enchanted Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical woman's face with glowing skin emerges from swirling, peacock-like hair filled with stars and intricate patterns. Her piercing eyes and serene expression evoke a celestial, otherworldly beauty (derived from painting #902).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical woman's face with glowing skin emerges from swirling, peacock-like hair filled with stars and intricate patterns. Her piercing eyes and serene expression evoke a celestial, otherworldly beauty",
+  "inverted_title": "Inverted sketch: Cosmic Enchanted Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical woman's face with glowing skin emerges from swirling, peacock-like hair filled with stars and intricate patterns. Her piercing eyes and serene expression evoke a celestial, otherworldly beauty (from painting #902).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical woman's face with glowing skin emerges from swirling, peacock-like hair filled with stars and intricate patterns. Her piercing eyes and serene expression evoke a celestial, otherworldly beauty",
+  "source_description": "A mystical woman's face with glowing turquoise skin emerges from swirling, peacock-like hair filled with stars and intricate patterns. Her piercing blue eyes and serene expression evoke a celestial, otherworldly beauty.",
+  "source_prompt": "",
+  "source_title": "Cosmic Enchanted Muse",
+  "style": "Fantasy Illustration",
+  "mood": "Mysterious Ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy portrait",
+    "cosmic hair",
+    "peacock feathers",
+    "glowing skin",
+    "celestial art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 902,
+  "source_url": "/paintings/902.jpg",
+  "image_url": "/sketches/712.png",
+  "inverted_image_url": "/sketches-inverted/712.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:39Z"
+}

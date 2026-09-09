@@ -1,0 +1,42 @@
+{
+  "number": 250,
+  "title": "Line sketch: Cowboy and Horse at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone cowboy stands on a hill beside a wooden fence as a horse gallops nearby under a sky. The minimalist western scene features layered mountains and a bright moon (derived from painting #305).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone cowboy stands on a hill beside a wooden fence as a horse gallops nearby under a sky. The minimalist western scene features layered mountains and a bright moon",
+  "inverted_title": "Inverted sketch: Cowboy and Horse at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone cowboy stands on a hill beside a wooden fence as a horse gallops nearby under a sky. The minimalist western scene features layered mountains and a bright moon (from painting #305).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone cowboy stands on a hill beside a wooden fence as a horse gallops nearby under a sky. The minimalist western scene features layered mountains and a bright moon",
+  "source_description": "A lone cowboy stands on a hill beside a wooden fence as a horse gallops nearby under a deep red sky. The minimalist western scene features layered mountains and a bright moon.",
+  "source_prompt": "",
+  "source_title": "Cowboy and Horse at Dusk",
+  "style": "Minimalist illustration",
+  "mood": "Serene and lonely",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "western",
+    "horse",
+    "landscape",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 305,
+  "source_url": "/paintings/305.jpg",
+  "image_url": "/sketches/250.png",
+  "inverted_image_url": "/sketches-inverted/250.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:38Z"
+}

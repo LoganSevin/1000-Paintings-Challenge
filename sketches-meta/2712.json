@@ -1,0 +1,42 @@
+{
+  "number": 2712,
+  "title": "Line sketch: Stasis Guitar",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A electric guitar covered in white stenciled graphics including crossed wrenches, lightning bolts, a raised fist, and the text 'TOOL STASIS HOLD FAST'. It rests on a paint-splattered metal table with a cable plugged into its output jack. The background features projected graffiti and symbols including more lightning bolts and partial text (derived from generated still #1958).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A electric guitar covered in white stenciled graphics including crossed wrenches, lightning bolts, a raised fist, and the text 'TOOL STASIS HOLD FAST'. It rests on a paint-splattered metal table with a cable plugged into its output jack. The background features projected graffiti and symbols including more lightning bolts and partial text",
+  "inverted_title": "Inverted sketch: Stasis Guitar",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A electric guitar covered in white stenciled graphics including crossed wrenches, lightning bolts, a raised fist, and the text 'TOOL STASIS HOLD FAST'. It rests on a paint-splattered metal table with a cable plugged into its output jack. The background features projected graffiti and symbols including more lightning bolts and partial text (from generated still #1958).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A electric guitar covered in white stenciled graphics including crossed wrenches, lightning bolts, a raised fist, and the text 'TOOL STASIS HOLD FAST'. It rests on a paint-splattered metal table with a cable plugged into its output jack. The background features projected graffiti and symbols including more lightning bolts and partial text",
+  "source_description": "A dark blue electric guitar covered in white stenciled graphics including crossed wrenches, lightning bolts, a raised fist, and the text 'TOOL STASIS HOLD FAST'. It rests on a paint-splattered metal table with a cable plugged into its output jack. The background features projected blue graffiti and symbols including more lightning bolts and partial text.",
+  "source_prompt": "",
+  "source_title": "Stasis Guitar",
+  "style": "realistic composition",
+  "mood": "gritty, rebellious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "electric guitar",
+    "stencil art",
+    "punk rock",
+    "graffiti",
+    "still life"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1958,
+  "source_url": "/generated/1958.jpg",
+  "image_url": "/sketches/2712.png",
+  "inverted_image_url": "/sketches-inverted/2712.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:44Z"
+}

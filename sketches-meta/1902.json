@@ -1,0 +1,42 @@
+{
+  "number": 1902,
+  "title": "Line sketch: Psychedelic Mountain Drip",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic landscape features female profiles with intricate spiral patterns emerging from a vibrant field dotted with small houses. liquid drips from the top border over a starry sky, while a glowing sun hovers above misty mountains glowing in and hues (derived from generated still #1127).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic landscape features female profiles with intricate spiral patterns emerging from a vibrant field dotted with small houses. liquid drips from the top border over a starry sky, while a glowing sun hovers above misty mountains glowing in and hues",
+  "inverted_title": "Inverted sketch: Psychedelic Mountain Drip",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic landscape features female profiles with intricate spiral patterns emerging from a vibrant field dotted with small houses. liquid drips from the top border over a starry sky, while a glowing sun hovers above misty mountains glowing in and hues (from generated still #1127).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic landscape features female profiles with intricate spiral patterns emerging from a vibrant field dotted with small houses. liquid drips from the top border over a starry sky, while a glowing sun hovers above misty mountains glowing in and hues",
+  "source_description": "A surreal psychedelic landscape features green female profiles with intricate spiral patterns emerging from a vibrant green field dotted with small houses. Red liquid drips from the top border over a starry sky, while a glowing sun hovers above misty mountains glowing in magenta and orange hues.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mountain Drip",
+  "style": "psychedelic surrealism",
+  "mood": "trippy dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "female profiles",
+    "dripping paint",
+    "mountain landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1127,
+  "source_url": "/generated/1127.jpg",
+  "image_url": "/sketches/1902.png",
+  "inverted_image_url": "/sketches-inverted/1902.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3040,
+  "title": "Line sketch: Jester Playing Cello",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A jester in a and costume with a matching hat sits cross-legged while playing a large wooden cello. He is positioned on a glowing and chessboard with chess pieces, surrounded by vibrant flowers, floating bubbles, and floating musical notes in an ornate palace hall (derived from generated still #2366).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A jester in a and costume with a matching hat sits cross-legged while playing a large wooden cello. He is positioned on a glowing and chessboard with chess pieces, surrounded by vibrant flowers, floating bubbles, and floating musical notes in an ornate palace hall",
+  "inverted_title": "Inverted sketch: Jester Playing Cello",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A jester in a and costume with a matching hat sits cross-legged while playing a large wooden cello. He is positioned on a glowing and chessboard with chess pieces, surrounded by vibrant flowers, floating bubbles, and floating musical notes in an ornate palace hall (from generated still #2366).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A jester in a and costume with a matching hat sits cross-legged while playing a large wooden cello. He is positioned on a glowing and chessboard with chess pieces, surrounded by vibrant flowers, floating bubbles, and floating musical notes in an ornate palace hall",
+  "source_description": "A jester in a colorful purple and yellow costume with a matching hat sits cross-legged while playing a large wooden cello. He is positioned on a glowing pink and yellow chessboard with golden chess pieces, surrounded by vibrant flowers, floating blue bubbles, and floating musical notes in an ornate palace hall.",
+  "source_prompt": "",
+  "source_title": "Jester Playing Cello",
+  "style": "fantasy illustration",
+  "mood": "whimsical, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "jester",
+    "cello",
+    "chessboard",
+    "flowers",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2366,
+  "source_url": "/generated/2366.jpg",
+  "image_url": "/sketches/3040.png",
+  "inverted_image_url": "/sketches-inverted/3040.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:44Z"
+}

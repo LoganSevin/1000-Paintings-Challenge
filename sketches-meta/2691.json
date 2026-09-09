@@ -1,0 +1,42 @@
+{
+  "number": 2691,
+  "title": "Line sketch: Miles Morales Suit Turnaround",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A digital character model sheet displaying eight sequential poses of Miles Morales in a and black Spider-Man variant suit with white spider emblem, hoodie, and glowing accents. The character is shown from front, three-quarter, side, and back angles against a solid background with a subtle outline glow (derived from generated still #1933).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A digital character model sheet displaying eight sequential poses of Miles Morales in a and black Spider-Man variant suit with white spider emblem, hoodie, and glowing accents. The character is shown from front, three-quarter, side, and back angles against a solid background with a subtle outline glow",
+  "inverted_title": "Inverted sketch: Miles Morales Suit Turnaround",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A digital character model sheet displaying eight sequential poses of Miles Morales in a and black Spider-Man variant suit with white spider emblem, hoodie, and glowing accents. The character is shown from front, three-quarter, side, and back angles against a solid background with a subtle outline glow (from generated still #1933).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A digital character model sheet displaying eight sequential poses of Miles Morales in a and black Spider-Man variant suit with white spider emblem, hoodie, and glowing accents. The character is shown from front, three-quarter, side, and back angles against a solid background with a subtle outline glow",
+  "source_description": "A digital character model sheet displaying eight sequential poses of Miles Morales in a purple and black Spider-Man variant suit with white spider emblem, hoodie, and glowing purple accents. The character is shown from front, three-quarter, side, and back angles against a solid dark blue background with a subtle purple outline glow.",
+  "source_prompt": "",
+  "source_title": "Miles Morales Suit Turnaround",
+  "style": "digital character concept art",
+  "mood": "heroic, sleek",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Miles Morales",
+    "Spider-Man",
+    "character design",
+    "turnaround",
+    "hoodie suit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1933,
+  "source_url": "/generated/1933.jpg",
+  "image_url": "/sketches/2691.png",
+  "inverted_image_url": "/sketches-inverted/2691.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:44Z"
+}

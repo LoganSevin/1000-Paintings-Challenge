@@ -1,0 +1,42 @@
+{
+  "number": 395,
+  "title": "Line sketch: Water Lily in Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene water lily flower blooms atop large pads in a tranquil pond. Smaller lily pads float around it, creating gentle ripples on the water surface (derived from painting #464).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene water lily flower blooms atop large pads in a tranquil pond. Smaller lily pads float around it, creating gentle ripples on the water surface",
+  "inverted_title": "Inverted sketch: Water Lily in Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene water lily flower blooms atop large pads in a tranquil pond. Smaller lily pads float around it, creating gentle ripples on the water surface (from painting #464).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene water lily flower blooms atop large pads in a tranquil pond. Smaller lily pads float around it, creating gentle ripples on the water surface",
+  "source_description": "A serene water lily flower blooms atop large green pads in a tranquil blue pond. Smaller lily pads float around it, creating gentle ripples on the water surface.",
+  "source_prompt": "",
+  "source_title": "Water Lily in Bloom",
+  "style": "Realistic composition",
+  "mood": "Calm and peaceful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "water lily",
+    "pond",
+    "nature",
+    "floral",
+    "serene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 464,
+  "source_url": "/paintings/464.jpg",
+  "image_url": "/sketches/395.png",
+  "inverted_image_url": "/sketches-inverted/395.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:39Z"
+}

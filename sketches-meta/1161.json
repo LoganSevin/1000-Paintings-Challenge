@@ -1,0 +1,42 @@
+{
+  "number": 1161,
+  "title": "Line sketch: Psychedelic Goblin Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a gray-skinned goblin-like creature with large pointed ears, spiral eyes, and a contemplative expression with hands clasped under its chin. The background features vibrant swirling psychedelic patterns in colors with black thorny vines framing the foreground (derived from generated still #373).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a gray-skinned goblin-like creature with large pointed ears, spiral eyes, and a contemplative expression with hands clasped under its chin. The background features vibrant swirling psychedelic patterns in colors with black thorny vines framing the foreground",
+  "inverted_title": "Inverted sketch: Psychedelic Goblin Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a gray-skinned goblin-like creature with large pointed ears, spiral eyes, and a contemplative expression with hands clasped under its chin. The background features vibrant swirling psychedelic patterns in colors with black thorny vines framing the foreground (from generated still #373).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a gray-skinned goblin-like creature with large pointed ears, spiral eyes, and a contemplative expression with hands clasped under its chin. The background features vibrant swirling psychedelic patterns in colors with black thorny vines framing the foreground",
+  "source_description": "A close-up portrait of a gray-skinned goblin-like creature with large pointed ears, yellow spiral eyes, and a contemplative expression with hands clasped under its chin. The background features vibrant swirling psychedelic patterns in rainbow colors with black thorny vines framing the foreground.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Goblin Portrait",
+  "style": "Psychedelic Surrealism",
+  "mood": "Eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "goblin",
+    "psychedelic",
+    "spiral eyes",
+    "surreal",
+    "vibrant"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 373,
+  "source_url": "/generated/373.jpg",
+  "image_url": "/sketches/1161.png",
+  "inverted_image_url": "/sketches-inverted/1161.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:40Z"
+}

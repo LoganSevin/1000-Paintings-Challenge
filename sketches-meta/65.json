@@ -1,0 +1,42 @@
+{
+  "number": 65,
+  "title": "Line sketch: Metropolis at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A futuristic cityscape with skyscrapers, cranes, and long bridges spans a reflective body of water beneath a massive glowing sun. The composition centers the orb amid streaked clouds, with silhouetted buildings and shimmering light paths creating depth. Bold painterly strokes and a saturated warm-cool palette evoke an atmospheric, graphic quality (derived from painting #96).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A futuristic cityscape with skyscrapers, cranes, and long bridges spans a reflective body of water beneath a massive glowing sun. The composition centers the orb amid streaked clouds, with silhouetted buildings and shimmering light paths creating depth. Bold painterly strokes and a saturated warm-cool palette evoke an atmospheric, graphic quality",
+  "inverted_title": "Inverted sketch: Metropolis at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A futuristic cityscape with skyscrapers, cranes, and long bridges spans a reflective body of water beneath a massive glowing sun. The composition centers the orb amid streaked clouds, with silhouetted buildings and shimmering light paths creating depth. Bold painterly strokes and a saturated warm-cool palette evoke an atmospheric, graphic quality (from painting #96).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A futuristic cityscape with skyscrapers, cranes, and long bridges spans a reflective body of water beneath a massive glowing sun. The composition centers the orb amid streaked clouds, with silhouetted buildings and shimmering light paths creating depth. Bold painterly strokes and a saturated warm-cool palette evoke an atmospheric, graphic quality",
+  "source_description": "A futuristic cityscape with skyscrapers, cranes, and long bridges spans a reflective body of water beneath a massive glowing sun. The composition centers the orb amid streaked clouds, with silhouetted buildings and shimmering light paths creating depth. Bold painterly strokes and a saturated warm-cool palette evoke an atmospheric, graphic quality.",
+  "source_prompt": "",
+  "source_title": "Crimson Metropolis at Sunset",
+  "style": "impressionist",
+  "mood": "dramatic serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sunset",
+    "cityscape",
+    "futuristic",
+    "bridges",
+    "water"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 96,
+  "source_url": "/paintings/96.jpg",
+  "image_url": "/sketches/65.png",
+  "inverted_image_url": "/sketches-inverted/65.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:38Z"
+}

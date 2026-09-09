@@ -1,0 +1,42 @@
+{
+  "number": 4638,
+  "title": "Line sketch: The Bell of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal bearded giant emerges from a dark gothic castle, gripping a massive ornate bell with one hand while pulling a chain with the other. In the foreground, a horned king in a black and white patterned robe stands beside a large black bull, leading a procession of hooded figures and white spectral wolves through a misty courtyard lined with glowing lanterns (derived from generated still #4060).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal bearded giant emerges from a dark gothic castle, gripping a massive ornate bell with one hand while pulling a chain with the other. In the foreground, a horned king in a black and white patterned robe stands beside a large black bull, leading a procession of hooded figures and white spectral wolves through a misty courtyard lined with glowing lanterns",
+  "inverted_title": "Inverted sketch: The Bell of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal bearded giant emerges from a dark gothic castle, gripping a massive ornate bell with one hand while pulling a chain with the other. In the foreground, a horned king in a black and white patterned robe stands beside a large black bull, leading a procession of hooded figures and white spectral wolves through a misty courtyard lined with glowing lanterns (from generated still #4060).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal bearded giant emerges from a dark gothic castle, gripping a massive ornate bell with one hand while pulling a chain with the other. In the foreground, a horned king in a black and white patterned robe stands beside a large black bull, leading a procession of hooded figures and white spectral wolves through a misty courtyard lined with glowing lanterns",
+  "source_description": "A colossal bearded giant emerges from a dark gothic castle, gripping a massive ornate bell with one hand while pulling a chain with the other. In the foreground, a horned king in a black and white patterned robe stands beside a large black bull, leading a procession of hooded figures and white spectral wolves through a misty courtyard lined with glowing lanterns.",
+  "source_prompt": "A towering bearded giant rises from a dark gothic castle on a rocky mountain, holding a huge ornate metal bell with symbols in one hand and pulling its chain with the other. In the foreground, a regal horned figure wearing a black and white patterned robe and crown stands beside a large black bull. They lead a procession of hooded figures and glowing white spectral wolves through a misty courtyard filled with lanterns under a dark, dramatic sky.",
+  "source_title": "The Bell of the Damned",
+  "style": "dark fantasy",
+  "mood": "ominous, ceremonial",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark fantasy",
+    "gothic castle",
+    "giant bell",
+    "hooded figures",
+    "spectral wolves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4060,
+  "source_url": "/generated/4060.jpg",
+  "image_url": "/sketches/4638.png",
+  "inverted_image_url": "/sketches-inverted/4638.png",
+  "curve_count": 201,
+  "built_at": "2026-08-17T00:09:48Z"
+}

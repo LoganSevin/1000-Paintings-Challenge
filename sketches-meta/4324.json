@@ -1,0 +1,42 @@
+{
+  "number": 4324,
+  "title": "Line sketch: Shattered Crystal Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent crystal sphere sits on an ornate and pedestal. The sphere is dramatically shattered with cracks radiating from a bright central light source, revealing a painted landscape of hills, a winding river, snow-capped mountains, and stylized flowers against a background (derived from generated still #3743).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent crystal sphere sits on an ornate and pedestal. The sphere is dramatically shattered with cracks radiating from a bright central light source, revealing a painted landscape of hills, a winding river, snow-capped mountains, and stylized flowers against a background",
+  "inverted_title": "Inverted sketch: Shattered Crystal Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent crystal sphere sits on an ornate and pedestal. The sphere is dramatically shattered with cracks radiating from a bright central light source, revealing a painted landscape of hills, a winding river, snow-capped mountains, and stylized flowers against a background (from generated still #3743).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent crystal sphere sits on an ornate and pedestal. The sphere is dramatically shattered with cracks radiating from a bright central light source, revealing a painted landscape of hills, a winding river, snow-capped mountains, and stylized flowers against a background",
+  "source_description": "A large transparent crystal sphere sits on an ornate purple and gold pedestal. The sphere is dramatically shattered with cracks radiating from a bright central light source, revealing a painted landscape of green hills, a winding river, snow-capped purple mountains, and stylized purple flowers against a dark blue background.",
+  "source_prompt": "A highly detailed surreal painting of a large transparent crystal sphere resting on an ornate purple and gold pedestal against a solid dark navy background. The sphere is dramatically cracked and shattered with white fracture lines radiating from a brilliant star-like light burst at its center. Inside the sphere is a vibrant painted landscape showing rolling green hills, a winding blue river, and distant purple snow-capped mountains. Stylized purple flowers and fan-like patterns float within the sphere. The sphere shows colorful light refractions and prismatic effects along the cracks.",
+  "source_title": "Shattered Crystal Sphere",
+  "style": "surreal composition",
+  "mood": "ethereal, fractured",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "shattered glass",
+    "surreal landscape",
+    "flowers",
+    "mountain vista"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3743,
+  "source_url": "/generated/3743.jpg",
+  "image_url": "/sketches/4324.png",
+  "inverted_image_url": "/sketches-inverted/4324.png",
+  "curve_count": 201,
+  "built_at": "2026-08-17T00:09:47Z"
+}

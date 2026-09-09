@@ -1,0 +1,42 @@
+{
+  "number": 4783,
+  "title": "Line sketch: Candlelit Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large dripping candle with a glowing flame stands atop a hill under a swirling and night sky containing a luminous full moon. In the foreground and midground, a crowd of small hooded creatures faces the candle, many holding glowing orbs, while bubbles float throughout the surreal scene framed by an ornate, cracked border (derived from generated still #4217).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large dripping candle with a glowing flame stands atop a hill under a swirling and night sky containing a luminous full moon. In the foreground and midground, a crowd of small hooded creatures faces the candle, many holding glowing orbs, while bubbles float throughout the surreal scene framed by an ornate, cracked border",
+  "inverted_title": "Inverted sketch: Candlelit Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large dripping candle with a glowing flame stands atop a hill under a swirling and night sky containing a luminous full moon. In the foreground and midground, a crowd of small hooded creatures faces the candle, many holding glowing orbs, while bubbles float throughout the surreal scene framed by an ornate, cracked border (from generated still #4217).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large dripping candle with a glowing flame stands atop a hill under a swirling and night sky containing a luminous full moon. In the foreground and midground, a crowd of small hooded creatures faces the candle, many holding glowing orbs, while bubbles float throughout the surreal scene framed by an ornate, cracked border",
+  "source_description": "A large purple dripping candle with a glowing flame stands atop a hill under a swirling purple and green night sky containing a luminous full moon. In the foreground and midground, a crowd of small blue hooded creatures faces the candle, many holding glowing orbs, while bubbles float throughout the surreal scene framed by an ornate, cracked border.",
+  "source_prompt": "Surreal fantasy scene of a giant melting purple candle with dripping wax and bright flame standing on a hill under a swirling purple and green sky with a large glowing moon. A large crowd of small blue hooded creatures with round bodies stands in the foreground and on stairs watching the candle, many holding luminous orbs. Translucent bubbles float everywhere. The entire image is contained within an ornate cracked wooden frame with teal and gold tones, atmospheric and mystical lighting.",
+  "source_title": "Candlelit Gathering",
+  "style": "fantasy illustration",
+  "mood": "mystical, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "candle",
+    "creatures",
+    "moonlit sky",
+    "surreal gathering",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4217,
+  "source_url": "/generated/4217.jpg",
+  "image_url": "/sketches/4783.png",
+  "inverted_image_url": "/sketches-inverted/4783.png",
+  "curve_count": 89,
+  "built_at": "2026-08-17T00:09:49Z"
+}

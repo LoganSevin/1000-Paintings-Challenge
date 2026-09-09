@@ -1,0 +1,42 @@
+{
+  "number": 3240,
+  "title": "Line sketch: Echo Beat 210",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: In a dilapidated vintage cinema, a woman in an jumpsuit stands before a large shattered mirror, reaching toward her own reflection which shows a different patterned dress. A translucent ghostly figure of a woman in a flowing gown floats to the right, while film reels, scattered film strips, and a tipped-over film canister litter the dusty floor beneath decaying frescoed ceilings (derived from generated still #2599).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: In a dilapidated vintage cinema, a woman in an jumpsuit stands before a large shattered mirror, reaching toward her own reflection which shows a different patterned dress. A translucent ghostly figure of a woman in a flowing gown floats to the right, while film reels, scattered film strips, and a tipped-over film canister litter the dusty floor beneath decaying frescoed ceilings",
+  "inverted_title": "Inverted sketch: Echo Beat 210",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: In a dilapidated vintage cinema, a woman in an jumpsuit stands before a large shattered mirror, reaching toward her own reflection which shows a different patterned dress. A translucent ghostly figure of a woman in a flowing gown floats to the right, while film reels, scattered film strips, and a tipped-over film canister litter the dusty floor beneath decaying frescoed ceilings (from generated still #2599).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: In a dilapidated vintage cinema, a woman in an jumpsuit stands before a large shattered mirror, reaching toward her own reflection which shows a different patterned dress. A translucent ghostly figure of a woman in a flowing gown floats to the right, while film reels, scattered film strips, and a tipped-over film canister litter the dusty floor beneath decaying frescoed ceilings",
+  "source_description": "In a dilapidated vintage cinema, a woman in an orange jumpsuit stands before a large shattered mirror, reaching toward her own reflection which shows a different patterned dress. A translucent ghostly figure of a woman in a flowing gown floats to the right, while film reels, scattered film strips, and a tipped-over film canister litter the dusty floor beneath decaying frescoed ceilings.",
+  "source_prompt": "A woman in an orange jumpsuit stands in an abandoned ornate cinema with peeling frescoes on the ceiling, reaching toward a large cracked mirror that reflects her as a woman in a patterned vintage dress. A translucent ghostly woman in a flowing lavender gown floats beside her. Film reels and strips are scattered across the floor next to a tipped film canister. Dramatic spotlight beams cut through the dusty air, cinematic surreal scene, detailed digital painting.",
+  "source_title": "Echo Beat 210",
+  "style": "cinematic surrealism",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "mirror",
+    "ghost",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2599,
+  "source_url": "/generated/2599.jpg",
+  "image_url": "/sketches/3240.png",
+  "inverted_image_url": "/sketches-inverted/3240.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:45Z"
+}

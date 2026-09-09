@@ -1,0 +1,42 @@
+{
+  "number": 2979,
+  "title": "Line sketch: Aurora Hare Temple",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with large rabbit ears and flowing hair adorned with glowing energy patterns. She wears a heart-shaped necklace and is set against a cosmic temple dome filled with an audience, floating castles, and vibrant aurora borealis over mountains (derived from generated still #2301).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with large rabbit ears and flowing hair adorned with glowing energy patterns. She wears a heart-shaped necklace and is set against a cosmic temple dome filled with an audience, floating castles, and vibrant aurora borealis over mountains",
+  "inverted_title": "Inverted sketch: Aurora Hare Temple",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with large rabbit ears and flowing hair adorned with glowing energy patterns. She wears a heart-shaped necklace and is set against a cosmic temple dome filled with an audience, floating castles, and vibrant aurora borealis over mountains (from generated still #2301).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with large rabbit ears and flowing hair adorned with glowing energy patterns. She wears a heart-shaped necklace and is set against a cosmic temple dome filled with an audience, floating castles, and vibrant aurora borealis over mountains",
+  "source_description": "A surreal portrait of a woman with large pink rabbit ears and flowing pink hair adorned with glowing green energy patterns. She wears a heart-shaped necklace and is set against a cosmic temple dome filled with an audience, floating castles, and vibrant aurora borealis over mountains.",
+  "source_prompt": "A surreal digital painting of a beautiful woman with large glowing pink rabbit ears and long flowing pink hair that swirls with green energy patterns. She has striking yellow-green eyes and wears a necklace of glowing hearts. In the background is a massive cosmic temple dome filled with an audience, floating fantasy castles, and a vibrant green and purple aurora borealis over dark mountains. Psychedelic fantasy style with intricate details.",
+  "source_title": "Aurora Hare Temple",
+  "style": "Psychedelic Fantasy",
+  "mood": "Mystical Dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rabbit woman",
+    "aurora borealis",
+    "cosmic temple",
+    "psychedelic",
+    "fantasy portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2301,
+  "source_url": "/generated/2301.jpg",
+  "image_url": "/sketches/2979.png",
+  "inverted_image_url": "/sketches-inverted/2979.png",
+  "curve_count": 102,
+  "built_at": "2026-08-17T00:09:44Z"
+}

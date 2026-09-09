@@ -1,0 +1,42 @@
+{
+  "number": 4109,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with hair is captured mid-leap in a dynamic combat pose. She wields a massive warhammer with glowing crackling patterns, wearing a white and cropped outfit with armored gauntlets and greaves (derived from generated still #3526).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with hair is captured mid-leap in a dynamic combat pose. She wields a massive warhammer with glowing crackling patterns, wearing a white and cropped outfit with armored gauntlets and greaves",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with hair is captured mid-leap in a dynamic combat pose. She wields a massive warhammer with glowing crackling patterns, wearing a white and cropped outfit with armored gauntlets and greaves (from generated still #3526).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with hair is captured mid-leap in a dynamic combat pose. She wields a massive warhammer with glowing crackling patterns, wearing a white and cropped outfit with armored gauntlets and greaves",
+  "source_description": "A young woman with purple hair is captured mid-leap in a dynamic combat pose. She wields a massive purple warhammer with glowing crackling patterns, wearing a white and purple cropped outfit with armored gauntlets and greaves.",
+  "source_prompt": "A fierce young woman with long dark purple hair leaping through the air in an action pose, holding a gigantic purple warhammer with glowing white crackling energy patterns on the head, wearing a white cropped top with purple trim, white pants with purple accents, armored purple gauntlets and greaves, athletic build, confident expression, dynamic combat stance, clean comic book style character art on solid gray background",
+  "source_title": "Purple Hammer Warrior",
+  "style": "comic book",
+  "mood": "fierce dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "hair",
+    "combat pose",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3526,
+  "source_url": "/generated/3526.jpg",
+  "image_url": "/sketches/4109.png",
+  "inverted_image_url": "/sketches-inverted/4109.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4629,
+  "title": "Line sketch: Melting Time Spiral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene shows a bearded man in a grey t-shirt sitting inside a Radio Flyer wagon shaped like a melting clock, while a blonde woman in a flowing black dress holds his hand. They float above a glowing spiral vortex containing a small mouse standing on a tiny melting clock, surrounded by falling petals and multiple melting clocks in a dreamy landscape (derived from generated still #4051).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene shows a bearded man in a grey t-shirt sitting inside a Radio Flyer wagon shaped like a melting clock, while a blonde woman in a flowing black dress holds his hand. They float above a glowing spiral vortex containing a small mouse standing on a tiny melting clock, surrounded by falling petals and multiple melting clocks in a dreamy landscape",
+  "inverted_title": "Inverted sketch: Melting Time Spiral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene shows a bearded man in a grey t-shirt sitting inside a Radio Flyer wagon shaped like a melting clock, while a blonde woman in a flowing black dress holds his hand. They float above a glowing spiral vortex containing a small mouse standing on a tiny melting clock, surrounded by falling petals and multiple melting clocks in a dreamy landscape (from generated still #4051).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene shows a bearded man in a grey t-shirt sitting inside a Radio Flyer wagon shaped like a melting clock, while a blonde woman in a flowing black dress holds his hand. They float above a glowing spiral vortex containing a small mouse standing on a tiny melting clock, surrounded by falling petals and multiple melting clocks in a dreamy landscape",
+  "source_description": "A surreal scene shows a bearded man in a grey t-shirt sitting inside a red Radio Flyer wagon shaped like a melting clock, while a blonde woman in a flowing black dress holds his hand. They float above a glowing spiral vortex containing a small purple mouse standing on a tiny melting clock, surrounded by falling pink petals and multiple melting clocks in a dreamy landscape.",
+  "source_prompt": "Surreal painting of a bearded man sitting in a red Radio Flyer wagon designed as a melting clock, holding hands with a beautiful blonde woman in a flowing black dress whose hair is made of clock hands and petals. They hover above a swirling colorful time vortex where a small purple mouse stands on a melting clock. Multiple melting clocks float in a dreamy grassy landscape under a cloudy sky with falling pink petals, whimsical and fantastical atmosphere.",
+  "source_title": "Melting Time Spiral",
+  "style": "surrealism",
+  "mood": "dreamlike whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting clocks",
+    "fantasy",
+    "time",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4051,
+  "source_url": "/generated/4051.jpg",
+  "image_url": "/sketches/4629.png",
+  "inverted_image_url": "/sketches-inverted/4629.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:48Z"
+}

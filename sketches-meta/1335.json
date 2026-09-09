@@ -1,0 +1,42 @@
+{
+  "number": 1335,
+  "title": "Line sketch: Surreal Eye of the Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering biomechanical eye with a burning iris and dripping fluid dominates the sky, its optic nerve transforming into gnarled roots that spread across a dark, fiery landscape. In the foreground, a skeletal figure holding a glowing lantern stands atop a misty mountain peak, overlooking the ominous scene beneath a starry cosmic orb and swirling psychedelic patterns (derived from generated still #550).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering biomechanical eye with a burning iris and dripping fluid dominates the sky, its optic nerve transforming into gnarled roots that spread across a dark, fiery landscape. In the foreground, a skeletal figure holding a glowing lantern stands atop a misty mountain peak, overlooking the ominous scene beneath a starry cosmic orb and swirling psychedelic patterns",
+  "inverted_title": "Inverted sketch: Surreal Eye of the Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering biomechanical eye with a burning iris and dripping fluid dominates the sky, its optic nerve transforming into gnarled roots that spread across a dark, fiery landscape. In the foreground, a skeletal figure holding a glowing lantern stands atop a misty mountain peak, overlooking the ominous scene beneath a starry cosmic orb and swirling psychedelic patterns (from generated still #550).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering biomechanical eye with a burning iris and dripping fluid dominates the sky, its optic nerve transforming into gnarled roots that spread across a dark, fiery landscape. In the foreground, a skeletal figure holding a glowing lantern stands atop a misty mountain peak, overlooking the ominous scene beneath a starry cosmic orb and swirling psychedelic patterns",
+  "source_description": "A towering biomechanical eye with a burning red iris and dripping golden fluid dominates the sky, its optic nerve transforming into gnarled roots that spread across a dark, fiery landscape. In the foreground, a skeletal figure holding a glowing lantern stands atop a misty mountain peak, overlooking the ominous scene beneath a starry cosmic orb and swirling psychedelic patterns.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye of the Abyss",
+  "style": "surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "biomechanical",
+    "skeleton",
+    "giant eye",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 550,
+  "source_url": "/generated/550.jpg",
+  "image_url": "/sketches/1335.png",
+  "inverted_image_url": "/sketches-inverted/1335.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:41Z"
+}

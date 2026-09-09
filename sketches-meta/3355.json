@@ -1,0 +1,42 @@
+{
+  "number": 3355,
+  "title": "Line sketch: Surreal Cosmic Eye Chamber",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted scene depicts a woman with long hair in a traditional hanbok standing beside a massive cracked eye mural on a wall. The eye contains a iris with two serpents and a black clock hand, while the floor is a swirling cosmic nebula with a black silhouette of a curly-haired woman floating above it holding a glowing orb. An ornate archway on the right reveals a abstract cosmic explosion (derived from generated still #2755).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted scene depicts a woman with long hair in a traditional hanbok standing beside a massive cracked eye mural on a wall. The eye contains a iris with two serpents and a black clock hand, while the floor is a swirling cosmic nebula with a black silhouette of a curly-haired woman floating above it holding a glowing orb. An ornate archway on the right reveals a abstract cosmic explosion",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Eye Chamber",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted scene depicts a woman with long hair in a traditional hanbok standing beside a massive cracked eye mural on a wall. The eye contains a iris with two serpents and a black clock hand, while the floor is a swirling cosmic nebula with a black silhouette of a curly-haired woman floating above it holding a glowing orb. An ornate archway on the right reveals a abstract cosmic explosion (from generated still #2755).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted scene depicts a woman with long hair in a traditional hanbok standing beside a massive cracked eye mural on a wall. The eye contains a iris with two serpents and a black clock hand, while the floor is a swirling cosmic nebula with a black silhouette of a curly-haired woman floating above it holding a glowing orb. An ornate archway on the right reveals a abstract cosmic explosion",
+  "source_description": "A surreal painted scene depicts a woman with long pink hair in a traditional pink hanbok standing beside a massive cracked eye mural on a purple wall. The eye contains a red iris with two green serpents and a black clock hand, while the floor is a swirling cosmic nebula with a black silhouette of a curly-haired woman floating above it holding a glowing orb. An ornate archway on the right reveals a colorful abstract cosmic explosion.",
+  "source_prompt": "Surreal fantasy room interior with a woman in a pink traditional Korean hanbok standing on the left, a giant cracked human eye painted on the purple wall featuring a red iris with two intertwined green snakes and a black clock hand piercing through it, cosmic galaxy nebula floor with stars and planets, a black silhouette of a woman with curly hair floating on the floor holding a glowing blue orb, ornate golden archway on the right opening into a vibrant multicolored cosmic explosion of paint, mystical and dreamlike atmosphere",
+  "source_title": "Surreal Cosmic Eye Chamber",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "eye mural",
+    "hanbok",
+    "nebula floor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2755,
+  "source_url": "/generated/2755.jpg",
+  "image_url": "/sketches/3355.png",
+  "inverted_image_url": "/sketches-inverted/3355.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4460,
+  "title": "Line sketch: The Alchemist's Laboratory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned humanoid alchemist in a velvet robe stands at a wooden desk, carefully pouring liquid from a vial into a bowl. The scene is filled with lit candles, glowing jars of potions, an open spellbook titled STASIS, a quill, scattered papers, and a large ornate mirror reflecting a distant scene, while a giant beetle hangs from drapery above (derived from generated still #3879).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned humanoid alchemist in a velvet robe stands at a wooden desk, carefully pouring liquid from a vial into a bowl. The scene is filled with lit candles, glowing jars of potions, an open spellbook titled STASIS, a quill, scattered papers, and a large ornate mirror reflecting a distant scene, while a giant beetle hangs from drapery above",
+  "inverted_title": "Inverted sketch: The Alchemist's Laboratory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned humanoid alchemist in a velvet robe stands at a wooden desk, carefully pouring liquid from a vial into a bowl. The scene is filled with lit candles, glowing jars of potions, an open spellbook titled STASIS, a quill, scattered papers, and a large ornate mirror reflecting a distant scene, while a giant beetle hangs from drapery above (from generated still #3879).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned humanoid alchemist in a velvet robe stands at a wooden desk, carefully pouring liquid from a vial into a bowl. The scene is filled with lit candles, glowing jars of potions, an open spellbook titled STASIS, a quill, scattered papers, and a large ornate mirror reflecting a distant scene, while a giant beetle hangs from drapery above",
+  "source_description": "A blue-skinned humanoid alchemist in a green velvet robe stands at a wooden desk, carefully pouring golden liquid from a vial into a bowl. The scene is filled with lit candles, glowing jars of potions, an open spellbook titled STASIS, a red quill, scattered papers, and a large ornate mirror reflecting a distant scene, while a giant blue beetle hangs from purple drapery above.",
+  "source_prompt": "A blue-skinned fantasy alchemist with purple lips wearing an ornate green velvet robe stands at a wooden desk inside a mystical laboratory. He is pouring glowing golden liquid from a glass vial into a white bowl. On the desk lies a large red book titled STASIS, an open spellbook with arcane symbols, a red quill, and scattered magical papers. Behind him are shelves filled with glowing potions in glass jars, dripping red candles, and purple curtains. A giant metallic blue beetle hangs from the ceiling. An ornate gold mirror reflects another mystical scene. Cinematic lighting, rich colors, detailed fantasy illustration.",
+  "source_title": "The Alchemist's Laboratory",
+  "style": "fantasy illustration",
+  "mood": "mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "fantasy",
+    "magic",
+    "potion",
+    "laboratory"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3879,
+  "source_url": "/generated/3879.jpg",
+  "image_url": "/sketches/4460.png",
+  "inverted_image_url": "/sketches-inverted/4460.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3050,
+  "title": "Line sketch: Three Crowned Angels",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three winged angels with halos and ornate crowns stand closely embraced, each holding white lilies. They wear robes patterned with spheres against a backdrop of a burning gothic cathedral and fiery - sky filled with flying dragons (derived from generated still #2376).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three winged angels with halos and ornate crowns stand closely embraced, each holding white lilies. They wear robes patterned with spheres against a backdrop of a burning gothic cathedral and fiery - sky filled with flying dragons",
+  "inverted_title": "Inverted sketch: Three Crowned Angels",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three winged angels with halos and ornate crowns stand closely embraced, each holding white lilies. They wear robes patterned with spheres against a backdrop of a burning gothic cathedral and fiery - sky filled with flying dragons (from generated still #2376).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three winged angels with halos and ornate crowns stand closely embraced, each holding white lilies. They wear robes patterned with spheres against a backdrop of a burning gothic cathedral and fiery - sky filled with flying dragons",
+  "source_description": "Three winged angels with golden halos and ornate crowns stand closely embraced, each holding white lilies. They wear deep blue robes patterned with orange spheres against a backdrop of a burning gothic cathedral and fiery red-orange sky filled with flying dragons.",
+  "source_prompt": "",
+  "source_title": "Three Crowned Angels",
+  "style": "fantasy religious composition",
+  "mood": "apocalyptic dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angels",
+    "crowns",
+    "gothic cathedral",
+    "dragons",
+    "inferno"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2376,
+  "source_url": "/generated/2376.jpg",
+  "image_url": "/sketches/3050.png",
+  "inverted_image_url": "/sketches-inverted/3050.png",
+  "curve_count": 42,
+  "built_at": "2026-08-17T00:09:44Z"
+}

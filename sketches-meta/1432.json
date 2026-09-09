@@ -1,0 +1,42 @@
+{
+  "number": 1432,
+  "title": "Line sketch: Surreal Dripping Orbs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring three transparent spheres on a black marble shelf against a starry cosmic background. The left sphere contains a vibrant landscape with a waterfall and pine trees, the center shows swirling liquid with a small skull, and the right holds a white skeletal hand amid spirals, all beneath dripping molten and substance from above (derived from generated still #647).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring three transparent spheres on a black marble shelf against a starry cosmic background. The left sphere contains a vibrant landscape with a waterfall and pine trees, the center shows swirling liquid with a small skull, and the right holds a white skeletal hand amid spirals, all beneath dripping molten and substance from above",
+  "inverted_title": "Inverted sketch: Surreal Dripping Orbs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring three transparent spheres on a black marble shelf against a starry cosmic background. The left sphere contains a vibrant landscape with a waterfall and pine trees, the center shows swirling liquid with a small skull, and the right holds a white skeletal hand amid spirals, all beneath dripping molten and substance from above (from generated still #647).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring three transparent spheres on a black marble shelf against a starry cosmic background. The left sphere contains a vibrant landscape with a waterfall and pine trees, the center shows swirling liquid with a small skull, and the right holds a white skeletal hand amid spirals, all beneath dripping molten and substance from above",
+  "source_description": "A surreal painting featuring three transparent spheres on a black marble shelf against a starry cosmic background. The left sphere contains a vibrant landscape with a waterfall and pine trees, the center shows swirling red liquid with a small skull, and the right holds a white skeletal hand amid red spirals, all beneath dripping molten red and orange substance from above.",
+  "source_prompt": "",
+  "source_title": "Surreal Dripping Orbs",
+  "style": "surrealism",
+  "mood": "eerie, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "spheres",
+    "skeleton",
+    "waterfall",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 647,
+  "source_url": "/generated/647.jpg",
+  "image_url": "/sketches/1432.png",
+  "inverted_image_url": "/sketches-inverted/1432.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:41Z"
+}

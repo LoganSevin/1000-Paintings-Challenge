@@ -1,0 +1,42 @@
+{
+  "number": 273,
+  "title": "Line sketch: Ornate Tiara",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An intricate crown with filigree details, pearls, and a central dark gem rests on a background. The detailed metalwork and beading cast soft shadows, highlighting the craftsmanship (derived from painting #330).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An intricate crown with filigree details, pearls, and a central dark gem rests on a background. The detailed metalwork and beading cast soft shadows, highlighting the craftsmanship",
+  "inverted_title": "Inverted sketch: Ornate Tiara",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An intricate crown with filigree details, pearls, and a central dark gem rests on a background. The detailed metalwork and beading cast soft shadows, highlighting the craftsmanship (from painting #330).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An intricate crown with filigree details, pearls, and a central dark gem rests on a background. The detailed metalwork and beading cast soft shadows, highlighting the craftsmanship",
+  "source_description": "An intricate golden crown with filigree details, pearls, and a central dark gem rests on a rich purple background. The detailed metalwork and beading cast soft shadows, highlighting the craftsmanship.",
+  "source_prompt": "",
+  "source_title": "Golden Ornate Tiara",
+  "style": "Realistic photography",
+  "mood": "Regal and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tiara",
+    "crown",
+    "jewelry",
+    "pearls",
+    "vintage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 330,
+  "source_url": "/paintings/330.jpg",
+  "image_url": "/sketches/273.png",
+  "inverted_image_url": "/sketches-inverted/273.png",
+  "curve_count": 103,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 638,
+  "title": "Line sketch: Humpty Dumpty Mosaic Egg",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composition of a cracked ceramic egg shaped like Humpty Dumpty with a cheerful face and mosaic patches. The figure sits on small white feet against a plain background with a shadow beneath (derived from painting #814).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composition of a cracked ceramic egg shaped like Humpty Dumpty with a cheerful face and mosaic patches. The figure sits on small white feet against a plain background with a shadow beneath",
+  "inverted_title": "Inverted sketch: Humpty Dumpty Mosaic Egg",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composition of a cracked ceramic egg shaped like Humpty Dumpty with a cheerful face and mosaic patches. The figure sits on small white feet against a plain background with a shadow beneath (from painting #814).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composition of a cracked ceramic egg shaped like Humpty Dumpty with a cheerful face and mosaic patches. The figure sits on small white feet against a plain background with a shadow beneath",
+  "source_description": "A watercolor painting of a cracked ceramic egg shaped like Humpty Dumpty with a cheerful face and colorful mosaic patches. The figure sits on small white feet against a plain brown background with a shadow beneath.",
+  "source_prompt": "",
+  "source_title": "Humpty Dumpty Mosaic Egg",
+  "style": "Realistic",
+  "mood": "Whimsical and fragile",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Humpty Dumpty",
+    "mosaic egg",
+    "cracked ceramic",
+    "character portrait",
+    "daily composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 814,
+  "source_url": "/paintings/814.jpg",
+  "image_url": "/sketches/638.png",
+  "inverted_image_url": "/sketches-inverted/638.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,21 @@
+{
+  "num": 751,
+  "title": "Painting #945",
+  "created": 1786915956.481747,
+  "source_url": "/paintings/945.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*164.00 + 3*t*(1 - t)^2*170.00 + 3*t^2*(1 - t)*176.00 + t^3*182.00,(1 - t)^3*141.00 + 3*t*(1 - t)^2*141.00 + 3*t^2*(1 - t)*141.00 + t^3*141.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 945
+  },
+  "preview_url": "/sketches/751.png"
+}

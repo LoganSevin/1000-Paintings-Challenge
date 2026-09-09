@@ -1,0 +1,42 @@
+{
+  "number": 186,
+  "title": "Line sketch: Giant Paw Print",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, glossy black paw print dominates the composition against a vibrant background. Smaller matte black paw prints of varying sizes surround the central element, creating a playful pattern (derived from painting #229).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, glossy black paw print dominates the composition against a vibrant background. Smaller matte black paw prints of varying sizes surround the central element, creating a playful pattern",
+  "inverted_title": "Inverted sketch: Giant Paw Print",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, glossy black paw print dominates the composition against a vibrant background. Smaller matte black paw prints of varying sizes surround the central element, creating a playful pattern (from painting #229).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, glossy black paw print dominates the composition against a vibrant background. Smaller matte black paw prints of varying sizes surround the central element, creating a playful pattern",
+  "source_description": "A large, glossy black paw print dominates the composition against a vibrant red background. Smaller matte black paw prints of varying sizes surround the central element, creating a playful pattern.",
+  "source_prompt": "",
+  "source_title": "Giant Paw Print",
+  "style": "Digital Illustration",
+  "mood": "Playful and bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D rendered digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "paw print",
+    "animal track",
+    "background",
+    "graphic design",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 229,
+  "source_url": "/paintings/229.jpg",
+  "image_url": "/sketches/186.png",
+  "inverted_image_url": "/sketches-inverted/186.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

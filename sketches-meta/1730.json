@@ -1,0 +1,42 @@
+{
+  "number": 1730,
+  "title": "Line sketch: Psychedelic Mosaic Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's face composed of and mosaic fragments, with flowing dark hair. She stands in a vibrant field of flowers beside an horse, set against a landscape with spiral patterns and silhouette faces in the background (derived from generated still #952).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's face composed of and mosaic fragments, with flowing dark hair. She stands in a vibrant field of flowers beside an horse, set against a landscape with spiral patterns and silhouette faces in the background",
+  "inverted_title": "Inverted sketch: Psychedelic Mosaic Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's face composed of and mosaic fragments, with flowing dark hair. She stands in a vibrant field of flowers beside an horse, set against a landscape with spiral patterns and silhouette faces in the background (from generated still #952).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's face composed of and mosaic fragments, with flowing dark hair. She stands in a vibrant field of flowers beside an horse, set against a landscape with spiral patterns and silhouette faces in the background",
+  "source_description": "A surreal portrait of a woman's face composed of purple and yellow mosaic fragments, with flowing dark hair. She stands in a vibrant field of pink flowers beside an orange horse, set against a green landscape with spiral patterns and silhouette faces in the background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mosaic Portrait",
+  "style": "psychedelic",
+  "mood": "dreamlike, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mosaic",
+    "psychedelic",
+    "portrait",
+    "horse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 952,
+  "source_url": "/generated/952.jpg",
+  "image_url": "/sketches/1730.png",
+  "inverted_image_url": "/sketches-inverted/1730.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3772,
+  "title": "Line sketch: Armored Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with a shaved head and intense expression stands in a combat stance against a dark gray background. She wears a fitted futuristic outfit with -colored metallic armor plates on her chest, shoulders, knees, and boots, paired with dark textured fabric and fingerless gloves (derived from generated still #3188).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with a shaved head and intense expression stands in a combat stance against a dark gray background. She wears a fitted futuristic outfit with -colored metallic armor plates on her chest, shoulders, knees, and boots, paired with dark textured fabric and fingerless gloves",
+  "inverted_title": "Inverted sketch: Armored Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with a shaved head and intense expression stands in a combat stance against a dark gray background. She wears a fitted futuristic outfit with -colored metallic armor plates on her chest, shoulders, knees, and boots, paired with dark textured fabric and fingerless gloves (from generated still #3188).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with a shaved head and intense expression stands in a combat stance against a dark gray background. She wears a fitted futuristic outfit with -colored metallic armor plates on her chest, shoulders, knees, and boots, paired with dark textured fabric and fingerless gloves",
+  "source_description": "A woman with a shaved head and intense expression stands in a combat stance against a dark gray background. She wears a fitted futuristic outfit with copper-colored metallic armor plates on her chest, shoulders, knees, and boots, paired with dark textured fabric and fingerless gloves.",
+  "source_prompt": "A stern woman with a shaved head and visible scalp texture stands in a dynamic combat-ready pose, wearing a dark textured tactical suit with prominent copper metallic armor plates on the chest, shoulders, knees and boots, fingerless gloves, intense facial expression, dramatic studio lighting, plain dark gray background, highly detailed realistic rendering",
+  "source_title": "Copper Armored Warrior",
+  "style": "realistic",
+  "mood": "fierce, determined",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "cyberpunk",
+    "armor",
+    "shaved head",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3188,
+  "source_url": "/generated/3188.jpg",
+  "image_url": "/sketches/3772.png",
+  "inverted_image_url": "/sketches-inverted/3772.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:46Z"
+}

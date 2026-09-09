@@ -1,0 +1,42 @@
+{
+  "number": 208,
+  "title": "Line sketch: Egg with Petals",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous egg-shaped orb in vibrant hues rests on a dark surface surrounded by delicate petals and a single leaf. Paint splatters in bright colors float around the glowing object creating a whimsical and magical atmosphere (derived from painting #255).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous egg-shaped orb in vibrant hues rests on a dark surface surrounded by delicate petals and a single leaf. Paint splatters in bright colors float around the glowing object creating a whimsical and magical atmosphere",
+  "inverted_title": "Inverted sketch: Egg with Petals",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous egg-shaped orb in vibrant hues rests on a dark surface surrounded by delicate petals and a single leaf. Paint splatters in bright colors float around the glowing object creating a whimsical and magical atmosphere (from painting #255).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous egg-shaped orb in vibrant hues rests on a dark surface surrounded by delicate petals and a single leaf. Paint splatters in bright colors float around the glowing object creating a whimsical and magical atmosphere",
+  "source_description": "A luminous egg-shaped orb in vibrant pastel hues rests on a dark surface surrounded by delicate pink petals and a single green leaf. Paint splatters in bright colors float around the glowing object creating a whimsical and magical atmosphere.",
+  "source_prompt": "",
+  "source_title": "Colorful Egg with Petals",
+  "style": "line sketch",
+  "mood": "Magical and Dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "egg",
+    "petals",
+    "glowing",
+    "whimsical",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 255,
+  "source_url": "/paintings/255.jpg",
+  "image_url": "/sketches/208.png",
+  "inverted_image_url": "/sketches-inverted/208.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:38Z"
+}

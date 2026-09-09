@@ -1,0 +1,42 @@
+{
+  "number": 231,
+  "title": "Line sketch: Majestic Mountain Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A powerful waterfall cascades down a rocky cliff into a serene pool below, surrounded by lush hills and tall pine trees. In the background, dramatic mountain peaks rise under a sky with fluffy clouds (derived from painting #278).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A powerful waterfall cascades down a rocky cliff into a serene pool below, surrounded by lush hills and tall pine trees. In the background, dramatic mountain peaks rise under a sky with fluffy clouds",
+  "inverted_title": "Inverted sketch: Majestic Mountain Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A powerful waterfall cascades down a rocky cliff into a serene pool below, surrounded by lush hills and tall pine trees. In the background, dramatic mountain peaks rise under a sky with fluffy clouds (from painting #278).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A powerful waterfall cascades down a rocky cliff into a serene pool below, surrounded by lush hills and tall pine trees. In the background, dramatic mountain peaks rise under a sky with fluffy clouds",
+  "source_description": "A powerful waterfall cascades down a rocky cliff into a serene pool below, surrounded by lush green hills and tall pine trees. In the background, dramatic mountain peaks rise under a bright blue sky with fluffy clouds.",
+  "source_prompt": "",
+  "source_title": "Majestic Mountain Waterfall",
+  "style": "Impressionistic landscape",
+  "mood": "Serene and majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "mountain landscape",
+    "nature scene",
+    "pine trees",
+    "cascading water"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 278,
+  "source_url": "/paintings/278.jpg",
+  "image_url": "/sketches/231.png",
+  "inverted_image_url": "/sketches-inverted/231.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:38Z"
+}

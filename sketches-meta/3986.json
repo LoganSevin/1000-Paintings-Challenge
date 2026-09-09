@@ -1,0 +1,42 @@
+{
+  "number": 3986,
+  "title": "Line sketch: Mage Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with white and hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with a halo of stars above her head, holding a glowing crescent blade in one hand while casting a swirling orb of magic with the other (derived from generated still #3403).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with white and hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with a halo of stars above her head, holding a glowing crescent blade in one hand while casting a swirling orb of magic with the other",
+  "inverted_title": "Inverted sketch: Mage Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with white and hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with a halo of stars above her head, holding a glowing crescent blade in one hand while casting a swirling orb of magic with the other (from generated still #3403).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with white and hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with a halo of stars above her head, holding a glowing crescent blade in one hand while casting a swirling orb of magic with the other",
+  "source_description": "A young woman with white and purple hair stands in a dynamic combat pose against a solid gray background. She wears a white and purple traditional-style outfit with a halo of purple stars above her head, holding a glowing purple crescent blade in one hand while casting a swirling purple orb of magic with the other.",
+  "source_prompt": "A young East Asian woman with long white hair tied in buns with purple streaks stands in a powerful stance, wearing a white and purple traditional fantasy fighter outfit with wide pants and a sash. She has a glowing purple star halo floating above her head. In her right hand she holds a curved purple energy blade, while her left hand is extended forward casting a swirling orb of purple magic with crescent moon symbols. Dynamic pose, clean digital illustration style, solid gray background.",
+  "source_title": "Purple Mage Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "magic user",
+    "magic",
+    "fantasy character",
+    "anime style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3403,
+  "source_url": "/generated/3403.jpg",
+  "image_url": "/sketches/3986.png",
+  "inverted_image_url": "/sketches-inverted/3986.png",
+  "curve_count": 213,
+  "built_at": "2026-08-17T00:09:47Z"
+}

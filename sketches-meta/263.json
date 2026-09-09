@@ -1,0 +1,42 @@
+{
+  "number": 263,
+  "title": "Line sketch: Mosaic Teddy Bear Sculpture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mosaic bear head crafted with stained glass and metallic pieces. Features large expressive eyes and a snout against a neutral background (derived from painting #320).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mosaic bear head crafted with stained glass and metallic pieces. Features large expressive eyes and a snout against a neutral background",
+  "inverted_title": "Inverted sketch: Mosaic Teddy Bear Sculpture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mosaic bear head crafted with stained glass and metallic pieces. Features large expressive eyes and a snout against a neutral background (from painting #320).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mosaic bear head crafted with stained glass and metallic pieces. Features large expressive eyes and a snout against a neutral background",
+  "source_description": "A colorful mosaic bear head crafted with stained glass and metallic pieces. Features large expressive eyes and a golden snout against a neutral background.",
+  "source_prompt": "",
+  "source_title": "Mosaic Teddy Bear Sculpture",
+  "style": "Contemporary Mosaic",
+  "mood": "Playful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Stained glass and metal on sculpture",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "teddy bear",
+    "sculpture",
+    "glass art",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 320,
+  "source_url": "/paintings/320.jpg",
+  "image_url": "/sketches/263.png",
+  "inverted_image_url": "/sketches-inverted/263.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:38Z"
+}

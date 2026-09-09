@@ -1,0 +1,42 @@
+{
+  "number": 1610,
+  "title": "Line sketch: Psychedelic Cat Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A white cat with eyes and swirls sits by a lily pad pond, gazing toward a vibrant, swirling psychedelic formation above the water. The surreal scene features faces, a glowing orb containing a cat silhouette, and a perfect mirror reflection in the calm water, all framed by lush trees under a sky (derived from generated still #825).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A white cat with eyes and swirls sits by a lily pad pond, gazing toward a vibrant, swirling psychedelic formation above the water. The surreal scene features faces, a glowing orb containing a cat silhouette, and a perfect mirror reflection in the calm water, all framed by lush trees under a sky",
+  "inverted_title": "Inverted sketch: Psychedelic Cat Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A white cat with eyes and swirls sits by a lily pad pond, gazing toward a vibrant, swirling psychedelic formation above the water. The surreal scene features faces, a glowing orb containing a cat silhouette, and a perfect mirror reflection in the calm water, all framed by lush trees under a sky (from generated still #825).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A white cat with eyes and swirls sits by a lily pad pond, gazing toward a vibrant, swirling psychedelic formation above the water. The surreal scene features faces, a glowing orb containing a cat silhouette, and a perfect mirror reflection in the calm water, all framed by lush trees under a sky",
+  "source_description": "A white cat with green eyes and purple swirls sits by a lily pad pond, gazing toward a vibrant, swirling psychedelic formation above the water. The surreal scene features colorful faces, a glowing yellow orb containing a cat silhouette, and a perfect mirror reflection in the calm water, all framed by lush green trees under a purple sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Cat Reflection",
+  "style": "surreal psychedelic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat",
+    "psychedelic",
+    "surreal",
+    "reflection",
+    "lily pads"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 825,
+  "source_url": "/generated/825.jpg",
+  "image_url": "/sketches/1610.png",
+  "inverted_image_url": "/sketches-inverted/1610.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:41Z"
+}

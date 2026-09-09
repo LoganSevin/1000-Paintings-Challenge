@@ -1,0 +1,42 @@
+{
+  "number": 4793,
+  "title": "Line sketch: Surreal Banquet Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A long dining table covered with a bird-patterned tablecloth stretches into a surreal corridor lined with tall white columns and hanging lanterns. Three figures in coats and hats walk away from the viewer toward a glowing portal, while the sky above dissolves into a swirling galaxy, aurora, and layered torn-paper mountain borders (derived from generated still #4227).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A long dining table covered with a bird-patterned tablecloth stretches into a surreal corridor lined with tall white columns and hanging lanterns. Three figures in coats and hats walk away from the viewer toward a glowing portal, while the sky above dissolves into a swirling galaxy, aurora, and layered torn-paper mountain borders",
+  "inverted_title": "Inverted sketch: Surreal Banquet Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A long dining table covered with a bird-patterned tablecloth stretches into a surreal corridor lined with tall white columns and hanging lanterns. Three figures in coats and hats walk away from the viewer toward a glowing portal, while the sky above dissolves into a swirling galaxy, aurora, and layered torn-paper mountain borders (from generated still #4227).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A long dining table covered with a bird-patterned tablecloth stretches into a surreal corridor lined with tall white columns and hanging lanterns. Three figures in coats and hats walk away from the viewer toward a glowing portal, while the sky above dissolves into a swirling galaxy, aurora, and layered torn-paper mountain borders",
+  "source_description": "A long dining table covered with a purple bird-patterned tablecloth stretches into a surreal corridor lined with tall white columns and hanging lanterns. Three figures in coats and hats walk away from the viewer toward a glowing red portal, while the sky above dissolves into a swirling galaxy, aurora, and layered torn-paper mountain borders.",
+  "source_prompt": "Surreal fantasy scene of a long banquet table with purple tablecloth patterned with colorful birds, set with plates and glasses, extending down a corridor of tall pale columns with hanging lanterns. Three figures wearing coats and hats walk away toward a glowing red circular portal. Above them a swirling galaxy and vibrant aurora borealis break through layered torn paper edges revealing desert mountains and patterned sky, ethereal and dreamlike atmosphere.",
+  "source_title": "Surreal Banquet Portal",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portal",
+    "cosmic",
+    "dining table",
+    "aurora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4227,
+  "source_url": "/generated/4227.jpg",
+  "image_url": "/sketches/4793.png",
+  "inverted_image_url": "/sketches-inverted/4793.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:49Z"
+}

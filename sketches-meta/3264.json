@@ -1,0 +1,42 @@
+{
+  "number": 3264,
+  "title": "Line sketch: Imp in Cauldron Machine",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grey, one-eyed imp with a wide grin sits inside a rusty cauldron mounted on four mechanical spider-like legs. The imp juggles four dark spheres while surrounded by glowing magical runes on a sunlit stone patio with potted flowers and ivy-covered walls (derived from generated still #2636).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grey, one-eyed imp with a wide grin sits inside a rusty cauldron mounted on four mechanical spider-like legs. The imp juggles four dark spheres while surrounded by glowing magical runes on a sunlit stone patio with potted flowers and ivy-covered walls",
+  "inverted_title": "Inverted sketch: Imp in Cauldron Machine",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grey, one-eyed imp with a wide grin sits inside a rusty cauldron mounted on four mechanical spider-like legs. The imp juggles four dark spheres while surrounded by glowing magical runes on a sunlit stone patio with potted flowers and ivy-covered walls (from generated still #2636).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grey, one-eyed imp with a wide grin sits inside a rusty cauldron mounted on four mechanical spider-like legs. The imp juggles four dark spheres while surrounded by glowing magical runes on a sunlit stone patio with potted flowers and ivy-covered walls",
+  "source_description": "A grey, one-eyed imp with a wide grin sits inside a rusty green cauldron mounted on four mechanical spider-like legs. The imp juggles four dark spheres while surrounded by glowing golden magical runes on a sunlit stone patio with potted red flowers and ivy-covered walls.",
+  "source_prompt": "A mischievous grey one-eyed imp with sharp teeth and yellow eyes sits inside a large rusty green cauldron that has four long mechanical spider legs. The creature is juggling four dark spheres with both hands raised, standing on a pink stone patio. Bright sunlight casts strong shadows. Potted red geraniums and ivy climb the warm yellow walls in the background. Glowing golden magical runes and circles float in the air around the imp. Whimsical fantasy style, detailed digital painting.",
+  "source_title": "Imp in Cauldron Machine",
+  "style": "whimsical fantasy",
+  "mood": "playful magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "imp",
+    "cauldron",
+    "mechanical legs",
+    "magic runes",
+    "fantasy creature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2636,
+  "source_url": "/generated/2636.jpg",
+  "image_url": "/sketches/3264.png",
+  "inverted_image_url": "/sketches-inverted/3264.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

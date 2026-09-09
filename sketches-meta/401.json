@@ -1,0 +1,42 @@
+{
+  "number": 401,
+  "title": "Line sketch: Desolate Urban Street at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A minimalist of an empty city street at twilight. The scene features buildings, glowing streetlights, and a dramatic sky with geometric shapes (derived from painting #474).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A minimalist of an empty city street at twilight. The scene features buildings, glowing streetlights, and a dramatic sky with geometric shapes",
+  "inverted_title": "Inverted sketch: Desolate Urban Street at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A minimalist of an empty city street at twilight. The scene features buildings, glowing streetlights, and a dramatic sky with geometric shapes (from painting #474).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A minimalist of an empty city street at twilight. The scene features buildings, glowing streetlights, and a dramatic sky with geometric shapes",
+  "source_description": "A minimalist digital painting of an empty city street at twilight. The scene features purple buildings, glowing streetlights, and a dramatic green sky with geometric shapes.",
+  "source_prompt": "",
+  "source_title": "Desolate Urban Street at Dusk",
+  "style": "Minimalist digital illustration",
+  "mood": "Eerie and lonely",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "urban landscape",
+    "streetlights",
+    "minimalist",
+    "twilight",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 474,
+  "source_url": "/paintings/474.jpg",
+  "image_url": "/sketches/401.png",
+  "inverted_image_url": "/sketches-inverted/401.png",
+  "curve_count": 170,
+  "built_at": "2026-08-17T00:09:39Z"
+}

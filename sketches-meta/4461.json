@@ -1,0 +1,42 @@
+{
+  "number": 4461,
+  "title": "Line sketch: Mad Alchemist in Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bald, -skinned vampire-like alchemist in a dark gothic laboratory pours glowing liquid from a flask onto a floating magical scroll. The scene is illuminated by lightning flashing through a large arched window during a violent thunderstorm, with blood splattered across the marble desk covered in ancient books and potion bottles (derived from generated still #3880).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bald, -skinned vampire-like alchemist in a dark gothic laboratory pours glowing liquid from a flask onto a floating magical scroll. The scene is illuminated by lightning flashing through a large arched window during a violent thunderstorm, with blood splattered across the marble desk covered in ancient books and potion bottles",
+  "inverted_title": "Inverted sketch: Mad Alchemist in Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bald, -skinned vampire-like alchemist in a dark gothic laboratory pours glowing liquid from a flask onto a floating magical scroll. The scene is illuminated by lightning flashing through a large arched window during a violent thunderstorm, with blood splattered across the marble desk covered in ancient books and potion bottles (from generated still #3880).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bald, -skinned vampire-like alchemist in a dark gothic laboratory pours glowing liquid from a flask onto a floating magical scroll. The scene is illuminated by lightning flashing through a large arched window during a violent thunderstorm, with blood splattered across the marble desk covered in ancient books and potion bottles",
+  "source_description": "A bald, purple-skinned vampire-like alchemist in a dark gothic laboratory pours glowing green liquid from a flask onto a floating magical scroll. The scene is illuminated by lightning flashing through a large arched window during a violent thunderstorm, with red blood splattered across the marble desk covered in ancient books and potion bottles.",
+  "source_prompt": "A sinister bald purple-skinned alchemist with pointed ears and a high-collared red and black robe stands in a gothic laboratory during a raging thunderstorm. He pours glowing green liquid from a glass flask onto a floating ancient scroll that drips with magic. Blood is splattered on the marble desk filled with old leather books, potion bottles, and scrolls. Lightning flashes through a large arched window behind him, dramatic lighting, dark fantasy atmosphere",
+  "source_title": "Mad Alchemist in Storm",
+  "style": "dark fantasy",
+  "mood": "sinister mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "vampire",
+    "magic laboratory",
+    "lightning storm",
+    "gothic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3880,
+  "source_url": "/generated/3880.jpg",
+  "image_url": "/sketches/4461.png",
+  "inverted_image_url": "/sketches-inverted/4461.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:48Z"
+}

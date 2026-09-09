@@ -1,0 +1,42 @@
+{
+  "number": 1478,
+  "title": "Line sketch: Surreal Insect Beast",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large fantastical beetle-like creature with a glossy body and curled antennae walks down an empty city street at night. Its segmented shell contains multiple stylized female faces in vibrant colors while a giant spiked orb with eyes and horns sits on its back (derived from generated still #693).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large fantastical beetle-like creature with a glossy body and curled antennae walks down an empty city street at night. Its segmented shell contains multiple stylized female faces in vibrant colors while a giant spiked orb with eyes and horns sits on its back",
+  "inverted_title": "Inverted sketch: Surreal Insect Beast",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large fantastical beetle-like creature with a glossy body and curled antennae walks down an empty city street at night. Its segmented shell contains multiple stylized female faces in vibrant colors while a giant spiked orb with eyes and horns sits on its back (from generated still #693).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large fantastical beetle-like creature with a glossy body and curled antennae walks down an empty city street at night. Its segmented shell contains multiple stylized female faces in vibrant colors while a giant spiked orb with eyes and horns sits on its back",
+  "source_description": "A large fantastical beetle-like creature with a glossy green body and curled antennae walks down an empty city street at night. Its segmented shell contains multiple stylized female faces in vibrant colors while a giant red spiked orb with yellow eyes and horns sits on its back.",
+  "source_prompt": "",
+  "source_title": "Surreal Insect Beast",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "insect",
+    "cityscape",
+    "faces",
+    "fantastical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 693,
+  "source_url": "/generated/693.jpg",
+  "image_url": "/sketches/1478.png",
+  "inverted_image_url": "/sketches-inverted/1478.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4122,
+  "title": "Line sketch: Underwater Library Battle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy scene set in an underwater ruin features a glowing mermaid-like sorceress floating above a stone platform, a white rabbit samurai in armor, a female adventurer in, and a armored warrior. Below in the water, an orca and a diver swim beneath the broken floor. Floating books and glowing particles surround a massive ancient tree with sprawling roots (derived from generated still #3539).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy scene set in an underwater ruin features a glowing mermaid-like sorceress floating above a stone platform, a white rabbit samurai in armor, a female adventurer in, and a armored warrior. Below in the water, an orca and a diver swim beneath the broken floor. Floating books and glowing particles surround a massive ancient tree with sprawling roots",
+  "inverted_title": "Inverted sketch: Underwater Library Battle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy scene set in an underwater ruin features a glowing mermaid-like sorceress floating above a stone platform, a white rabbit samurai in armor, a female adventurer in, and a armored warrior. Below in the water, an orca and a diver swim beneath the broken floor. Floating books and glowing particles surround a massive ancient tree with sprawling roots (from generated still #3539).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy scene set in an underwater ruin features a glowing mermaid-like sorceress floating above a stone platform, a white rabbit samurai in armor, a female adventurer in, and a armored warrior. Below in the water, an orca and a diver swim beneath the broken floor. Floating books and glowing particles surround a massive ancient tree with sprawling roots",
+  "source_description": "A vibrant fantasy scene set in an underwater ruin features a glowing purple mermaid-like sorceress floating above a stone platform, a white rabbit samurai in blue armor, a female adventurer in purple, and a red armored warrior. Below in the water, an orca and a diver swim beneath the broken floor. Floating books and glowing particles surround a massive ancient tree with sprawling roots.",
+  "source_prompt": "A dynamic fantasy battle scene inside a flooded ancient library ruin. A glowing purple cosmic mermaid sorceress with long flowing hair floats above a broken stone platform. A white rabbit samurai in blue armor stands ready with a katana. To the left a young black female adventurer in purple outfit runs forward, while a red armored samurai warrior stands on the right. Below the cracked floor an orca whale and a diver swim in deep blue water. A massive ancient tree with glowing roots fills the background as books float through beams of magical light, vibrant colors, cinematic lighting.",
+  "source_title": "Underwater Library Battle",
+  "style": "fantasy illustration",
+  "mood": "magical, epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "underwater",
+    "samurai",
+    "mermaid",
+    "orca"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3539,
+  "source_url": "/generated/3539.jpg",
+  "image_url": "/sketches/4122.png",
+  "inverted_image_url": "/sketches-inverted/4122.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:47Z"
+}

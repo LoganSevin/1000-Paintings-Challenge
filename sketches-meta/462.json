@@ -1,0 +1,42 @@
+{
+  "number": 462,
+  "title": "Line sketch: Egg in Cracked Shell",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A single egg rests in its broken white shell against a vibrant abstract background. The composition captures light reflections on the smooth egg surface with bold, expressive (derived from painting #554).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A single egg rests in its broken white shell against a vibrant abstract background. The composition captures light reflections on the smooth egg surface with bold, expressive",
+  "inverted_title": "Inverted sketch: Egg in Cracked Shell",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A single egg rests in its broken white shell against a vibrant abstract background. The composition captures light reflections on the smooth egg surface with bold, expressive (from painting #554).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A single egg rests in its broken white shell against a vibrant abstract background. The composition captures light reflections on the smooth egg surface with bold, expressive",
+  "source_description": "A single golden egg rests in its broken white shell against a vibrant abstract background. The painting captures light reflections on the smooth egg surface with bold, expressive brushstrokes.",
+  "source_prompt": "",
+  "source_title": "Egg in Cracked Shell",
+  "style": "Impressionistic",
+  "mood": "Vibrant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "egg",
+    "still life",
+    "cracked shell",
+    "abstract background",
+    "daily composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 554,
+  "source_url": "/paintings/554.jpg",
+  "image_url": "/sketches/462.png",
+  "inverted_image_url": "/sketches-inverted/462.png",
+  "curve_count": 60,
+  "built_at": "2026-08-17T00:09:39Z"
+}

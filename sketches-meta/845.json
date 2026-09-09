@@ -1,0 +1,42 @@
+{
+  "number": 845,
+  "title": "Line sketch: Wolf at Toxic Falls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant wolf with eyes and a thorny collar stands on a rusted industrial platform overlooking a massive waterfall. The surreal landscape features polluted water, wooden mining structures, dark mountains, and a dramatic sky with swirling toxic clouds and glowing colors (derived from generated still #54).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant wolf with eyes and a thorny collar stands on a rusted industrial platform overlooking a massive waterfall. The surreal landscape features polluted water, wooden mining structures, dark mountains, and a dramatic sky with swirling toxic clouds and glowing colors",
+  "inverted_title": "Inverted sketch: Wolf at Toxic Falls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant wolf with eyes and a thorny collar stands on a rusted industrial platform overlooking a massive waterfall. The surreal landscape features polluted water, wooden mining structures, dark mountains, and a dramatic sky with swirling toxic clouds and glowing colors (from generated still #54).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant wolf with eyes and a thorny collar stands on a rusted industrial platform overlooking a massive waterfall. The surreal landscape features polluted water, wooden mining structures, dark mountains, and a dramatic sky with swirling toxic clouds and glowing colors",
+  "source_description": "A vibrant green wolf with pink eyes and a thorny collar stands on a rusted industrial platform overlooking a massive waterfall. The surreal landscape features polluted pink water, wooden mining structures, dark mountains, and a dramatic sky with swirling toxic clouds and glowing colors.",
+  "source_prompt": "",
+  "source_title": "Green Wolf at Toxic Falls",
+  "style": "digital fantasy illustration",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "waterfall",
+    "industrial ruin",
+    "toxic landscape",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 54,
+  "source_url": "/generated/54.jpg",
+  "image_url": "/sketches/845.png",
+  "inverted_image_url": "/sketches-inverted/845.png",
+  "curve_count": 68,
+  "built_at": "2026-08-17T00:09:40Z"
+}

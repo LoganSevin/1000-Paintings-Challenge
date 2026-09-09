@@ -1,0 +1,42 @@
+{
+  "number": 4249,
+  "title": "Line sketch: Bubble Shield Cornfield",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A figure in a gas mask and hazmat suit stands inside a large transparent bubble, pressing a glowing hand against the surface. and energy lines radiate outward from the hand while bubbles float around them. The scene is set in a field of stylized corn with glowing cobs under a dark, swirling sky (derived from generated still #3668).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A figure in a gas mask and hazmat suit stands inside a large transparent bubble, pressing a glowing hand against the surface. and energy lines radiate outward from the hand while bubbles float around them. The scene is set in a field of stylized corn with glowing cobs under a dark, swirling sky",
+  "inverted_title": "Inverted sketch: Bubble Shield Cornfield",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A figure in a gas mask and hazmat suit stands inside a large transparent bubble, pressing a glowing hand against the surface. and energy lines radiate outward from the hand while bubbles float around them. The scene is set in a field of stylized corn with glowing cobs under a dark, swirling sky (from generated still #3668).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A figure in a gas mask and hazmat suit stands inside a large transparent bubble, pressing a glowing hand against the surface. and energy lines radiate outward from the hand while bubbles float around them. The scene is set in a field of stylized corn with glowing cobs under a dark, swirling sky",
+  "source_description": "A figure in a gas mask and hazmat suit stands inside a large transparent bubble, pressing a glowing pink hand against the surface. Neon blue and magenta energy lines radiate outward from the hand while iridescent bubbles float around them. The scene is set in a field of stylized purple corn with glowing blue cobs under a dark, swirling sky.",
+  "source_prompt": "A mysterious figure wearing a full gas mask and hazmat suit stands inside a giant transparent bubble in the middle of a stylized purple cornfield. The figure presses one hand against the bubble wall, emitting intense glowing blue and magenta energy tendrils that spread across the sphere. Iridescent soap-like bubbles float around the scene. Dramatic dark swirling sky, bioluminescent corn with electric blue kernels, surreal and psychedelic atmosphere, cinematic lighting.",
+  "source_title": "Bubble Shield Cornfield",
+  "style": "surreal",
+  "mood": "eerie, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gas mask",
+    "energy shield",
+    "surreal",
+    "cornfield",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3668,
+  "source_url": "/generated/3668.jpg",
+  "image_url": "/sketches/4249.png",
+  "inverted_image_url": "/sketches-inverted/4249.png",
+  "curve_count": 366,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2815,
+  "title": "Line sketch: Laundry Room Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stacked white washer and dryer unit with visible wear stands against a plain wall. To the right is a small white chest freezer labeled 'FROZEN STORAGE ONLY', with a shelf above holding bottles of bleach, detergent, and spot remover, plus a broom leaning against the appliances (derived from generated still #2099).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stacked white washer and dryer unit with visible wear stands against a plain wall. To the right is a small white chest freezer labeled 'FROZEN STORAGE ONLY', with a shelf above holding bottles of bleach, detergent, and spot remover, plus a broom leaning against the appliances",
+  "inverted_title": "Inverted sketch: Laundry Room Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stacked white washer and dryer unit with visible wear stands against a plain wall. To the right is a small white chest freezer labeled 'FROZEN STORAGE ONLY', with a shelf above holding bottles of bleach, detergent, and spot remover, plus a broom leaning against the appliances (from generated still #2099).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stacked white washer and dryer unit with visible wear stands against a plain wall. To the right is a small white chest freezer labeled 'FROZEN STORAGE ONLY', with a shelf above holding bottles of bleach, detergent, and spot remover, plus a broom leaning against the appliances",
+  "source_description": "A stacked white washer and dryer unit with visible wear stands against a plain wall. To the right is a small white chest freezer labeled 'FROZEN STORAGE ONLY', with a shelf above holding bottles of bleach, detergent, and spot remover, plus a broom leaning against the appliances.",
+  "source_prompt": "A realistic still life painting of a worn stacked washer and dryer unit against a plain wall. The dryer door has yellow text reading HEAVY DUTY. To the right sits a white chest freezer labeled FROZEN STORAGE ONLY. Above it, a shelf holds large jugs of bleach, detergent concentrate, and spot remover. A broom with straw bristles leans against the machines. Muted palette with visible paint texture and signs of wear.",
+  "source_title": "Laundry Room Still Life",
+  "style": "realistic composition",
+  "mood": "utilitarian, stark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "laundry room",
+    "still life",
+    "appliances",
+    "domestic",
+    "realism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2099,
+  "source_url": "/generated/2099.jpg",
+  "image_url": "/sketches/2815.png",
+  "inverted_image_url": "/sketches-inverted/2815.png",
+  "curve_count": 95,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3105,
+  "title": "Line sketch: Surreal Dreamscape Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vast surreal landscape features two small human figures standing on a rocky outcrop facing a massive swirling vortex in the sky. The vortex contains layered faces and flowing abstract forms, while white flowers bloom prominently in the left foreground against dramatic clouds and distant architectural ruins (derived from generated still #2440).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vast surreal landscape features two small human figures standing on a rocky outcrop facing a massive swirling vortex in the sky. The vortex contains layered faces and flowing abstract forms, while white flowers bloom prominently in the left foreground against dramatic clouds and distant architectural ruins",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vast surreal landscape features two small human figures standing on a rocky outcrop facing a massive swirling vortex in the sky. The vortex contains layered faces and flowing abstract forms, while white flowers bloom prominently in the left foreground against dramatic clouds and distant architectural ruins (from generated still #2440).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vast surreal landscape features two small human figures standing on a rocky outcrop facing a massive swirling vortex in the sky. The vortex contains layered faces and flowing abstract forms, while white flowers bloom prominently in the left foreground against dramatic clouds and distant architectural ruins",
+  "source_description": "A vast surreal landscape features two small human figures standing on a rocky outcrop facing a massive swirling vortex in the sky. The vortex contains layered faces and flowing abstract forms, while white flowers bloom prominently in the left foreground against dramatic clouds and distant architectural ruins.",
+  "source_prompt": "Surreal dreamlike landscape with two small human figures standing on rocky cliffs facing a massive swirling vortex in the sky that contains multiple layered human faces and flowing abstract forms, white flowers in foreground, distant ruined architecture, dramatic clouds with beams of light, painterly style with visible brushwork, ethereal atmosphere",
+  "source_title": "Surreal Dreamscape Portal",
+  "style": "surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dreamscape",
+    "portal",
+    "faces",
+    "ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2440,
+  "source_url": "/generated/2440.jpg",
+  "image_url": "/sketches/3105.png",
+  "inverted_image_url": "/sketches-inverted/3105.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

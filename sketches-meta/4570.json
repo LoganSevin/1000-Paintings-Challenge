@@ -1,0 +1,42 @@
+{
+  "number": 4570,
+  "title": "Line sketch: Stasis Paused",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene set on a broken stone bridge under a swirling cosmic sky. A armored knight stands centrally holding a glowing sword labeled 'STASIS 100% PAUSED', flanked by a -and-black horned demon on the left, a large dragon coiled behind, and a mummy labeled 'NO HINO' on the right (derived from generated still #3991).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene set on a broken stone bridge under a swirling cosmic sky. A armored knight stands centrally holding a glowing sword labeled 'STASIS 100% PAUSED', flanked by a -and-black horned demon on the left, a large dragon coiled behind, and a mummy labeled 'NO HINO' on the right",
+  "inverted_title": "Inverted sketch: Stasis Paused",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene set on a broken stone bridge under a swirling cosmic sky. A armored knight stands centrally holding a glowing sword labeled 'STASIS 100% PAUSED', flanked by a -and-black horned demon on the left, a large dragon coiled behind, and a mummy labeled 'NO HINO' on the right (from generated still #3991).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene set on a broken stone bridge under a swirling cosmic sky. A armored knight stands centrally holding a glowing sword labeled 'STASIS 100% PAUSED', flanked by a -and-black horned demon on the left, a large dragon coiled behind, and a mummy labeled 'NO HINO' on the right",
+  "source_description": "A surreal fantasy scene set on a broken stone bridge under a swirling purple cosmic sky. A blue armored knight stands centrally holding a glowing blue sword labeled 'STASIS 100% PAUSED', flanked by a red-and-black horned demon on the left, a large golden dragon coiled behind, and a green mummy labeled 'NO HINO' on the right.",
+  "source_prompt": "Surreal fantasy scene on a broken stone bridge in a desert landscape with purple flowers. A teal armored knight stands in the center holding a glowing blue sword with text 'STASIS 100% PAUSED'. To the left a red and black horned demon with cape. Behind the knight a large golden Chinese dragon. To the right a green mummy with text 'NO HINO'. Dramatic swirling purple cosmic sky with red clouds and a glowing orange portal inside ruined Greek temple ruins.",
+  "source_title": "Stasis Paused",
+  "style": "digital fantasy illustration",
+  "mood": "epic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "surreal",
+    "dragon",
+    "knight",
+    "mummy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3991,
+  "source_url": "/generated/3991.jpg",
+  "image_url": "/sketches/4570.png",
+  "inverted_image_url": "/sketches-inverted/4570.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:48Z"
+}

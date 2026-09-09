@@ -1,0 +1,42 @@
+{
+  "number": 3814,
+  "title": "Line sketch: Mech Boy Triptych",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side views of a stylized young male character with spiky blonde hair, wearing bulky and black mechanical armor with skull motifs. The left panel shows an aggressive pose with paint splatter effects, the center shows a surprised expression with wide eyes, and the right shows a dynamic action stance (derived from generated still #3231).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side views of a stylized young male character with spiky blonde hair, wearing bulky and black mechanical armor with skull motifs. The left panel shows an aggressive pose with paint splatter effects, the center shows a surprised expression with wide eyes, and the right shows a dynamic action stance",
+  "inverted_title": "Inverted sketch: Mech Boy Triptych",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side views of a stylized young male character with spiky blonde hair, wearing bulky and black mechanical armor with skull motifs. The left panel shows an aggressive pose with paint splatter effects, the center shows a surprised expression with wide eyes, and the right shows a dynamic action stance (from generated still #3231).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side views of a stylized young male character with spiky blonde hair, wearing bulky and black mechanical armor with skull motifs. The left panel shows an aggressive pose with paint splatter effects, the center shows a surprised expression with wide eyes, and the right shows a dynamic action stance",
+  "source_description": "Three side-by-side views of a stylized young male character with spiky blonde hair, wearing bulky yellow and black mechanical armor with skull motifs. The left panel shows an aggressive pose with yellow paint splatter effects, the center shows a surprised expression with wide eyes, and the right shows a dynamic action stance.",
+  "source_prompt": "A tough young boy with spiky blonde hair and dark skin wearing oversized yellow and black mechanical battle armor with skull decorations and padded segments, shown in three different dynamic poses side by side against a dark gradient background, left pose aggressive with yellow paint splatter, center pose surprised with wide eyes, right pose in motion, highly detailed stylized character design, cinematic lighting",
+  "source_title": "Yellow Mech Boy Triptych",
+  "style": "digital character concept art",
+  "mood": "intense, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render with painterly texture",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "mech armor",
+    "blonde hair",
+    "triptych",
+    "streetwear"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3231,
+  "source_url": "/generated/3231.jpg",
+  "image_url": "/sketches/3814.png",
+  "inverted_image_url": "/sketches-inverted/3814.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:46Z"
+}

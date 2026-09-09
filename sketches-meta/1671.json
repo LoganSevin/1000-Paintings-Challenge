@@ -1,0 +1,42 @@
+{
+  "number": 1671,
+  "title": "Line sketch: Dragon Infinity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy illustration of a serpentine dragon with a female human-like face, coiled into an infinity loop. The creature has scales, slime drips, horns, and is set against a swirling and cloudy sky with decorative symbols (derived from generated still #887).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy illustration of a serpentine dragon with a female human-like face, coiled into an infinity loop. The creature has scales, slime drips, horns, and is set against a swirling and cloudy sky with decorative symbols",
+  "inverted_title": "Inverted sketch: Dragon Infinity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy illustration of a serpentine dragon with a female human-like face, coiled into an infinity loop. The creature has scales, slime drips, horns, and is set against a swirling and cloudy sky with decorative symbols (from generated still #887).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy illustration of a serpentine dragon with a female human-like face, coiled into an infinity loop. The creature has scales, slime drips, horns, and is set against a swirling and cloudy sky with decorative symbols",
+  "source_description": "A vibrant fantasy illustration of a serpentine dragon with a female human-like face, coiled into an infinity loop. The creature has deep purple scales, bright green slime drips, golden horns, and is set against a swirling purple and turquoise cloudy sky with decorative golden symbols.",
+  "source_prompt": "",
+  "source_title": "Lime Dragon Infinity",
+  "style": "fantasy illustration",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "infinity",
+    "female face",
+    "scales",
+    "slime"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 887,
+  "source_url": "/generated/887.jpg",
+  "image_url": "/sketches/1671.png",
+  "inverted_image_url": "/sketches-inverted/1671.png",
+  "curve_count": 71,
+  "built_at": "2026-08-17T00:09:41Z"
+}

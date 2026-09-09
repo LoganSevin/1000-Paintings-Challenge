@@ -1,0 +1,42 @@
+{
+  "number": 4191,
+  "title": "Line sketch: Sailboat at Twilight Lake",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant landscape composition shows a small -sailed boat gliding across a calm lake that perfectly reflects the sky. In the background, a powerful waterfall cascades down a mountainside beneath a dramatic sky split between day and twilight with a large moon and crescent (derived from generated still #3610).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant landscape composition shows a small -sailed boat gliding across a calm lake that perfectly reflects the sky. In the background, a powerful waterfall cascades down a mountainside beneath a dramatic sky split between day and twilight with a large moon and crescent",
+  "inverted_title": "Inverted sketch: Sailboat at Twilight Lake",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant landscape composition shows a small -sailed boat gliding across a calm lake that perfectly reflects the sky. In the background, a powerful waterfall cascades down a mountainside beneath a dramatic sky split between day and twilight with a large moon and crescent (from generated still #3610).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant landscape composition shows a small -sailed boat gliding across a calm lake that perfectly reflects the sky. In the background, a powerful waterfall cascades down a mountainside beneath a dramatic sky split between day and twilight with a large moon and crescent",
+  "source_description": "A vibrant landscape painting shows a small orange-sailed boat gliding across a calm lake that perfectly reflects the sky. In the background, a powerful waterfall cascades down a green mountainside beneath a dramatic sky split between bright blue day and purple twilight with a large moon and crescent.",
+  "source_prompt": "A serene fantasy landscape with a small sailboat with bright orange sail floating on a glassy lake that mirrors the sky. A large turquoise waterfall flows down a lush green mountainside on the left. The sky transitions from bright blue with clouds to deep purple twilight with a glowing full moon, crescent moon, and stars. Lone pine tree on a small island, distant snow-capped mountains, soft mist, vibrant colors, reflective water.",
+  "source_title": "Sailboat at Twilight Lake",
+  "style": "fantasy landscape composition",
+  "mood": "dreamlike serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "waterfall",
+    "sailboat",
+    "twilight",
+    "mountain lake"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3610,
+  "source_url": "/generated/3610.jpg",
+  "image_url": "/sketches/4191.png",
+  "inverted_image_url": "/sketches-inverted/4191.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:47Z"
+}

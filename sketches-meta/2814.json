@@ -1,0 +1,42 @@
+{
+  "number": 2814,
+  "title": "Line sketch: Surreal Desert Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's head split into two faces: a pale, cracked, closed-eyed face on the left and a vibrant -skinned profile with makeup on the right. Her hair flows into a cosmic nebula containing a glowing fleur-de-lis, set against a desert landscape with sand dunes, a lone distant figure, a large moon, and a mouse on a rock in the foreground (derived from generated still #2098).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's head split into two faces: a pale, cracked, closed-eyed face on the left and a vibrant -skinned profile with makeup on the right. Her hair flows into a cosmic nebula containing a glowing fleur-de-lis, set against a desert landscape with sand dunes, a lone distant figure, a large moon, and a mouse on a rock in the foreground",
+  "inverted_title": "Inverted sketch: Surreal Desert Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's head split into two faces: a pale, cracked, closed-eyed face on the left and a vibrant -skinned profile with makeup on the right. Her hair flows into a cosmic nebula containing a glowing fleur-de-lis, set against a desert landscape with sand dunes, a lone distant figure, a large moon, and a mouse on a rock in the foreground (from generated still #2098).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's head split into two faces: a pale, cracked, closed-eyed face on the left and a vibrant -skinned profile with makeup on the right. Her hair flows into a cosmic nebula containing a glowing fleur-de-lis, set against a desert landscape with sand dunes, a lone distant figure, a large moon, and a mouse on a rock in the foreground",
+  "source_description": "A surreal portrait of a woman's head split into two faces: a pale, cracked, closed-eyed face on the left and a vibrant purple-skinned profile with colorful makeup on the right. Her hair flows into a cosmic nebula containing a glowing golden fleur-de-lis, set against a desert landscape with sand dunes, a lone distant figure, a large pink moon, and a red mouse on a rock in the foreground.",
+  "source_prompt": "Surreal dreamlike portrait of a woman whose head is divided between a cracked pale marble-like face with closed eyes and a vibrant purple profile with bold colorful eye makeup. Her voluminous flowing hair transforms into a swirling cosmic nebula with stars and a glowing golden fleur-de-lis at the center. Set in a vast desert with rolling sand dunes, a lone figure walking in the distance, a large luminous pink moon in the sky, and a detailed red mouse standing on a rock in the foreground, intricate line work with golden cracks, vibrant yet melancholic atmosphere.",
+  "source_title": "Surreal Desert Muse",
+  "style": "surreal",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "cosmic",
+    "desert",
+    "fleur-de-lis",
+    "dual face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2098,
+  "source_url": "/generated/2098.jpg",
+  "image_url": "/sketches/2814.png",
+  "inverted_image_url": "/sketches-inverted/2814.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:44Z"
+}

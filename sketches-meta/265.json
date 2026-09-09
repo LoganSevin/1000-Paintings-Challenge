@@ -1,0 +1,42 @@
+{
+  "number": 265,
+  "title": "Line sketch: Tiara on",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An ornate crown with intricate floral designs and gemstones rests against a solid background. The detailed metalwork and sparkling accents create a regal display of craftsmanship (derived from painting #322).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An ornate crown with intricate floral designs and gemstones rests against a solid background. The detailed metalwork and sparkling accents create a regal display of craftsmanship",
+  "inverted_title": "Inverted sketch: Tiara on",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An ornate crown with intricate floral designs and gemstones rests against a solid background. The detailed metalwork and sparkling accents create a regal display of craftsmanship (from painting #322).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An ornate crown with intricate floral designs and gemstones rests against a solid background. The detailed metalwork and sparkling accents create a regal display of craftsmanship",
+  "source_description": "An ornate golden crown with intricate floral designs and gemstones rests against a solid purple background. The detailed metalwork and sparkling accents create a regal display of craftsmanship.",
+  "source_prompt": "",
+  "source_title": "Golden Tiara on Purple",
+  "style": "Realistic photography",
+  "mood": "Regal and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tiara",
+    "crown",
+    "jewelry",
+    "ornate",
+    "royal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 322,
+  "source_url": "/paintings/322.jpg",
+  "image_url": "/sketches/265.png",
+  "inverted_image_url": "/sketches-inverted/265.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:38Z"
+}

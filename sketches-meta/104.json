@@ -1,0 +1,42 @@
+{
+  "number": 104,
+  "title": "Line sketch: Bubbling Pot Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant arrangement of stylized potted plants surrounds a central vessel with splashing water and bubbles. The composition layers various pots on a surface against abstract and background shapes. Flat color blocks, bold outlines, and graphic shapes define the clean illustrative technique (derived from painting #135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant arrangement of stylized potted plants surrounds a central vessel with splashing water and bubbles. The composition layers various pots on a surface against abstract and background shapes. Flat color blocks, bold outlines, and graphic shapes define the clean illustrative technique",
+  "inverted_title": "Inverted sketch: Bubbling Pot Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant arrangement of stylized potted plants surrounds a central vessel with splashing water and bubbles. The composition layers various pots on a surface against abstract and background shapes. Flat color blocks, bold outlines, and graphic shapes define the clean illustrative technique (from painting #135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant arrangement of stylized potted plants surrounds a central vessel with splashing water and bubbles. The composition layers various pots on a surface against abstract and background shapes. Flat color blocks, bold outlines, and graphic shapes define the clean illustrative technique",
+  "source_description": "A vibrant arrangement of stylized potted plants surrounds a central blue vessel with splashing water and bubbles. The composition layers various pots on a brown surface against abstract green and orange background shapes. Flat color blocks, bold outlines, and graphic shapes define the clean illustrative technique.",
+  "source_prompt": "",
+  "source_title": "Bubbling Blue Pot Garden",
+  "style": "flat illustration",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plants",
+    "pots",
+    "botanical",
+    "illustration",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 135,
+  "source_url": "/paintings/135.jpg",
+  "image_url": "/sketches/104.png",
+  "inverted_image_url": "/sketches-inverted/104.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1531,
+  "title": "Line sketch: Eye of the Surreal Path",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned figure with flowing hair walks along a winding path holding a umbrella, approaching a massive cracked eyeball in the sky that contains a smaller silhouette of the same figure. The misty forest scene features two large flaming flowers with swirling stems on either side of the path (derived from generated still #746).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned figure with flowing hair walks along a winding path holding a umbrella, approaching a massive cracked eyeball in the sky that contains a smaller silhouette of the same figure. The misty forest scene features two large flaming flowers with swirling stems on either side of the path",
+  "inverted_title": "Inverted sketch: Eye of the Surreal Path",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned figure with flowing hair walks along a winding path holding a umbrella, approaching a massive cracked eyeball in the sky that contains a smaller silhouette of the same figure. The misty forest scene features two large flaming flowers with swirling stems on either side of the path (from generated still #746).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned figure with flowing hair walks along a winding path holding a umbrella, approaching a massive cracked eyeball in the sky that contains a smaller silhouette of the same figure. The misty forest scene features two large flaming flowers with swirling stems on either side of the path",
+  "source_description": "A green-skinned figure with flowing yellow hair walks along a winding path holding a red umbrella, approaching a massive cracked eyeball in the sky that contains a smaller silhouette of the same figure. The misty forest scene features two large flaming red flowers with swirling stems on either side of the path.",
+  "source_prompt": "",
+  "source_title": "Eye of the Surreal Path",
+  "style": "surrealism",
+  "mood": "dreamlike eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "umbrella",
+    "flaming flowers",
+    "forest path"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 746,
+  "source_url": "/generated/746.jpg",
+  "image_url": "/sketches/1531.png",
+  "inverted_image_url": "/sketches-inverted/1531.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:41Z"
+}

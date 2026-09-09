@@ -1,0 +1,42 @@
+{
+  "number": 4987,
+  "title": "Line sketch: Wizard in Enchanted Ceiling",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A long-haired bearded man looks upward from a candlelit room as a swirling magical vortex expands across the ceiling. A glowing crown floats above a lit ceiling fan amid flying papers, paint splashes, dark horned shadows, and ethereal energy (derived from generated still #4424).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A long-haired bearded man looks upward from a candlelit room as a swirling magical vortex expands across the ceiling. A glowing crown floats above a lit ceiling fan amid flying papers, paint splashes, dark horned shadows, and ethereal energy",
+  "inverted_title": "Inverted sketch: Wizard in Enchanted Ceiling",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A long-haired bearded man looks upward from a candlelit room as a swirling magical vortex expands across the ceiling. A glowing crown floats above a lit ceiling fan amid flying papers, paint splashes, dark horned shadows, and ethereal energy (from generated still #4424).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A long-haired bearded man looks upward from a candlelit room as a swirling magical vortex expands across the ceiling. A glowing crown floats above a lit ceiling fan amid flying papers, paint splashes, dark horned shadows, and ethereal energy",
+  "source_description": "A long-haired bearded man looks upward from a candlelit room as a swirling magical vortex expands across the ceiling. A glowing golden crown floats above a lit ceiling fan amid flying papers, colorful paint splashes, dark horned shadows, and ethereal purple energy.",
+  "source_prompt": "Surreal fantasy scene of a long-haired bearded man in a candlelit room looking up at a swirling magical vortex on the ceiling, a glowing golden crown with jewels floats near a spinning ceiling fan with light bulbs, dark horned shadow creatures, flying papers, vibrant blue purple and gold paint splashes, mystical atmosphere, dynamic composition viewed from below",
+  "source_title": "Wizard in Enchanted Ceiling",
+  "style": "surreal fantasy",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "magic",
+    "ceiling vortex",
+    "crown",
+    "wizard"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4424,
+  "source_url": "/generated/4424.jpg",
+  "image_url": "/sketches/4987.png",
+  "inverted_image_url": "/sketches-inverted/4987.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3131,
+  "title": "Line sketch: Surreal Gallery Wanderer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a Victorian-style coat stands in a decaying, sand-filled art gallery with cracked floors and peeling frescoes. He holds a glowing framed composition of the aurora borealis while ghostly faces peer from other artworks under a broken ceiling revealing a night sky with film strips, a crescent moon, and radiation symbols in the desert beyond (derived from generated still #2471).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a Victorian-style coat stands in a decaying, sand-filled art gallery with cracked floors and peeling frescoes. He holds a glowing framed composition of the aurora borealis while ghostly faces peer from other artworks under a broken ceiling revealing a night sky with film strips, a crescent moon, and radiation symbols in the desert beyond",
+  "inverted_title": "Inverted sketch: Surreal Gallery Wanderer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a Victorian-style coat stands in a decaying, sand-filled art gallery with cracked floors and peeling frescoes. He holds a glowing framed composition of the aurora borealis while ghostly faces peer from other artworks under a broken ceiling revealing a night sky with film strips, a crescent moon, and radiation symbols in the desert beyond (from generated still #2471).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a Victorian-style coat stands in a decaying, sand-filled art gallery with cracked floors and peeling frescoes. He holds a glowing framed composition of the aurora borealis while ghostly faces peer from other artworks under a broken ceiling revealing a night sky with film strips, a crescent moon, and radiation symbols in the desert beyond",
+  "source_description": "A man in a yellow Victorian-style coat stands in a decaying, sand-filled art gallery with cracked floors and peeling frescoes. He holds a glowing framed painting of the aurora borealis while ghostly green faces peer from other artworks under a broken ceiling revealing a purple night sky with film strips, a crescent moon, and radiation symbols in the desert beyond.",
+  "source_prompt": "A lone man wearing a long yellow coat and carrying a satchel stands inside a ruined classical art gallery filled with sand. The floor is cracked and partially covered in dunes. He holds up a glowing framed painting depicting green and purple aurora borealis. Ghostly green faces with glowing eyes emerge from other classical paintings on the decaying walls. The ceiling is broken open revealing a twilight purple sky with floating film strip reels and a crescent moon. In the background through an opening is a desert landscape with radiation warning symbols. Dramatic spotlight from above casting long shadows, cinematic surreal composition.",
+  "source_title": "Surreal Gallery Wanderer",
+  "style": "cinematic surrealism",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "art gallery",
+    "desert intrusion",
+    "aurora composition",
+    "film strips"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2471,
+  "source_url": "/generated/2471.jpg",
+  "image_url": "/sketches/3131.png",
+  "inverted_image_url": "/sketches-inverted/3131.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:45Z"
+}

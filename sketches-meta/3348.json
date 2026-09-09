@@ -1,0 +1,42 @@
+{
+  "number": 3348,
+  "title": "Line sketch: Ghostly Reaper on Mountain Lake",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large melting ghost-like creature with wide eyes and a worried expression stands in the foreground on a misty lake. Behind it, a hooded grim reaper figure in a dark cloak holds a staff while perched on a rocky cliff under a giant moon, with traditional boats and glowing lanterns floating on the water below (derived from generated still #2744).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large melting ghost-like creature with wide eyes and a worried expression stands in the foreground on a misty lake. Behind it, a hooded grim reaper figure in a dark cloak holds a staff while perched on a rocky cliff under a giant moon, with traditional boats and glowing lanterns floating on the water below",
+  "inverted_title": "Inverted sketch: Ghostly Reaper on Mountain Lake",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large melting ghost-like creature with wide eyes and a worried expression stands in the foreground on a misty lake. Behind it, a hooded grim reaper figure in a dark cloak holds a staff while perched on a rocky cliff under a giant moon, with traditional boats and glowing lanterns floating on the water below (from generated still #2744).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large melting ghost-like creature with wide eyes and a worried expression stands in the foreground on a misty lake. Behind it, a hooded grim reaper figure in a dark cloak holds a staff while perched on a rocky cliff under a giant moon, with traditional boats and glowing lanterns floating on the water below",
+  "source_description": "A large blue melting ghost-like creature with wide yellow eyes and a worried expression stands in the foreground on a misty lake. Behind it, a hooded grim reaper figure in a dark cloak holds a staff while perched on a rocky cliff under a giant red moon, with traditional boats and glowing lanterns floating on the water below.",
+  "source_prompt": "A surreal fantasy night scene featuring a large translucent blue melting ghost creature with big yellow eyes and a worried face standing in the foreground of a misty mountain lake. In the background a hooded grim reaper in a dark cloak stands on a rocky cliff holding a staff, under a massive glowing red moon. Traditional wooden boats with lights and many glowing red paper lanterns float across the water, dramatic misty atmosphere, cinematic lighting.",
+  "source_title": "Ghostly Reaper on Mountain Lake",
+  "style": "fantasy illustration",
+  "mood": "eerie melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "ghost creature",
+    "moon",
+    "chinese lanterns",
+    "mountain lake"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2744,
+  "source_url": "/generated/2744.jpg",
+  "image_url": "/sketches/3348.png",
+  "inverted_image_url": "/sketches-inverted/3348.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

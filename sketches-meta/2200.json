@@ -1,0 +1,42 @@
+{
+  "number": 2200,
+  "title": "Line sketch: Cybernetic Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A metallic android with glowing eyes and exposed circuitry faces right, its head surrounded by layered and profiles filled with swirling psychedelic patterns and three garlic bulbs. To the right, a large cluster of vibrant crystals sits atop a rocky outcrop with multiple waterfalls cascading into a reflective pool below (derived from generated still #1425).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A metallic android with glowing eyes and exposed circuitry faces right, its head surrounded by layered and profiles filled with swirling psychedelic patterns and three garlic bulbs. To the right, a large cluster of vibrant crystals sits atop a rocky outcrop with multiple waterfalls cascading into a reflective pool below",
+  "inverted_title": "Inverted sketch: Cybernetic Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A metallic android with glowing eyes and exposed circuitry faces right, its head surrounded by layered and profiles filled with swirling psychedelic patterns and three garlic bulbs. To the right, a large cluster of vibrant crystals sits atop a rocky outcrop with multiple waterfalls cascading into a reflective pool below (from generated still #1425).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A metallic android with glowing eyes and exposed circuitry faces right, its head surrounded by layered and profiles filled with swirling psychedelic patterns and three garlic bulbs. To the right, a large cluster of vibrant crystals sits atop a rocky outcrop with multiple waterfalls cascading into a reflective pool below",
+  "source_description": "A metallic golden android with glowing yellow eyes and exposed circuitry faces right, its head surrounded by layered green and yellow profiles filled with swirling psychedelic patterns and three garlic bulbs. To the right, a large cluster of vibrant blue crystals sits atop a rocky outcrop with multiple waterfalls cascading into a colorful reflective pool below.",
+  "source_prompt": "",
+  "source_title": "Cybernetic Oracle",
+  "style": "psychedelic surrealism",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "android",
+    "crystals",
+    "waterfall",
+    "psychedelic",
+    "cybernetic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1425,
+  "source_url": "/generated/1425.jpg",
+  "image_url": "/sketches/2200.png",
+  "inverted_image_url": "/sketches-inverted/2200.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:42Z"
+}

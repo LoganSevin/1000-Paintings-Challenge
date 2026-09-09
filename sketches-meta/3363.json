@@ -1,0 +1,42 @@
+{
+  "number": 3363,
+  "title": "Line sketch: Surreal Nightmare Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark surreal composition featuring a -skinned cracked-face character with glowing eyes on the left, a determined young woman with hair and facial scars in the center, and a large faded male face with spiral patterns and a skull in its eye on the right. The background contains a gothic castle dripping with liquid under a celestial body, swirling vortexes, and glowing spiders (derived from generated still #2764).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark surreal composition featuring a -skinned cracked-face character with glowing eyes on the left, a determined young woman with hair and facial scars in the center, and a large faded male face with spiral patterns and a skull in its eye on the right. The background contains a gothic castle dripping with liquid under a celestial body, swirling vortexes, and glowing spiders",
+  "inverted_title": "Inverted sketch: Surreal Nightmare Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark surreal composition featuring a -skinned cracked-face character with glowing eyes on the left, a determined young woman with hair and facial scars in the center, and a large faded male face with spiral patterns and a skull in its eye on the right. The background contains a gothic castle dripping with liquid under a celestial body, swirling vortexes, and glowing spiders (from generated still #2764).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark surreal composition featuring a -skinned cracked-face character with glowing eyes on the left, a determined young woman with hair and facial scars in the center, and a large faded male face with spiral patterns and a skull in its eye on the right. The background contains a gothic castle dripping with liquid under a celestial body, swirling vortexes, and glowing spiders",
+  "source_description": "A dark surreal composition featuring a green-skinned cracked-face character with glowing yellow eyes on the left, a determined young woman with red hair and facial scars in the center, and a large faded male face with spiral patterns and a yellow skull in its eye on the right. The background contains a gothic castle dripping with orange liquid under a red celestial body, swirling colorful vortexes, and glowing yellow spiders.",
+  "source_prompt": "dark surreal fantasy painting featuring a green-skinned zombie-like man with cracked texture and glowing yellow eyes on the left, a young determined woman with long red hair, scars and blood on her face in the center foreground, and a large faded ghostly male face with swirling red and blue vortex patterns and a yellow skull in one eye socket. A gothic dark castle with orange liquid dripping from its towers sits under a glowing red celestial body in the upper left, with glowing yellow spiders and chaotic swirling colorful vortexes filling the composition, eerie and nightmarish atmosphere",
+  "source_title": "Surreal Nightmare Collage",
+  "style": "dark fantasy surrealism",
+  "mood": "eerie chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "fantasy",
+    "redhead",
+    "glowing eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2764,
+  "source_url": "/generated/2764.jpg",
+  "image_url": "/sketches/3363.png",
+  "inverted_image_url": "/sketches-inverted/3363.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:45Z"
+}

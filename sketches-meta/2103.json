@@ -1,0 +1,42 @@
+{
+  "number": 2103,
+  "title": "Line sketch: Phoenix and Crescent Silhouettes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal artwork depicts four female profile silhouettes stacked in a row, adorned with intricate patterns and headdresses. A large phoenix with glowing accents flies toward a prominent black crescent moon against a striped and background with floating orbs (derived from generated still #1328).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal artwork depicts four female profile silhouettes stacked in a row, adorned with intricate patterns and headdresses. A large phoenix with glowing accents flies toward a prominent black crescent moon against a striped and background with floating orbs",
+  "inverted_title": "Inverted sketch: Phoenix and Crescent Silhouettes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal artwork depicts four female profile silhouettes stacked in a row, adorned with intricate patterns and headdresses. A large phoenix with glowing accents flies toward a prominent black crescent moon against a striped and background with floating orbs (from generated still #1328).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal artwork depicts four female profile silhouettes stacked in a row, adorned with intricate patterns and headdresses. A large phoenix with glowing accents flies toward a prominent black crescent moon against a striped and background with floating orbs",
+  "source_description": "A vibrant surreal artwork depicts four colorful female profile silhouettes stacked in a row, adorned with intricate patterns and headdresses. A large dark blue phoenix with glowing accents flies toward a prominent black crescent moon against a striped teal and purple background with floating orbs.",
+  "source_prompt": "",
+  "source_title": "Phoenix and Crescent Silhouettes",
+  "style": "surreal digital illustration",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "phoenix",
+    "silhouettes",
+    "crescent moon",
+    "psychedelic",
+    "profiles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1328,
+  "source_url": "/generated/1328.jpg",
+  "image_url": "/sketches/2103.png",
+  "inverted_image_url": "/sketches-inverted/2103.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:42Z"
+}

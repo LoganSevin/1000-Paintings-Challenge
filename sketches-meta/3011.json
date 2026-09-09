@@ -1,0 +1,42 @@
+{
+  "number": 3011,
+  "title": "Line sketch: Chess in Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young East Asian man in ornate and traditional robes with glowing patterns kneels on a tiled floor, reaching to move a chess piece. He faces a surreal living chess set with a gnarled tree-like structure holding flowers and glowing orbs as pieces (derived from generated still #2333).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young East Asian man in ornate and traditional robes with glowing patterns kneels on a tiled floor, reaching to move a chess piece. He faces a surreal living chess set with a gnarled tree-like structure holding flowers and glowing orbs as pieces",
+  "inverted_title": "Inverted sketch: Chess in Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young East Asian man in ornate and traditional robes with glowing patterns kneels on a tiled floor, reaching to move a chess piece. He faces a surreal living chess set with a gnarled tree-like structure holding flowers and glowing orbs as pieces (from generated still #2333).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young East Asian man in ornate and traditional robes with glowing patterns kneels on a tiled floor, reaching to move a chess piece. He faces a surreal living chess set with a gnarled tree-like structure holding flowers and glowing orbs as pieces",
+  "source_description": "A young East Asian man in ornate blue and purple traditional robes with glowing blue patterns kneels on a colorful tiled floor, reaching to move a golden chess piece. He faces a surreal living chess set with a gnarled tree-like structure holding flowers and glowing blue orbs as pieces.",
+  "source_prompt": "A young East Asian man with dark hair wearing intricate dark blue and purple robes with gold sash and glowing blue arcane patterns, kneeling on one knee on a vibrant pink and purple tiled floor, focused expression as he moves a golden chess piece. He faces a surreal living chess opponent made of twisted brown branches and roots sprouting large pink and purple flowers, with glowing blue spherical pieces. The background is a dreamy psychedelic garden with oversized flowers, neon geometric light structures in pink and blue, soft pastel circular wall patterns, cinematic lighting, detailed digital painting.",
+  "source_title": "Chess in Neon Garden",
+  "style": "fantasy illustration",
+  "mood": "magical, contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chess",
+    "fantasy",
+    "surreal",
+    "floral",
+    "wizard"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2333,
+  "source_url": "/generated/2333.jpg",
+  "image_url": "/sketches/3011.png",
+  "inverted_image_url": "/sketches-inverted/3011.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:44Z"
+}

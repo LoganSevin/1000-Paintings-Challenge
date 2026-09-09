@@ -1,0 +1,42 @@
+{
+  "number": 394,
+  "title": "Line sketch: Cosmic Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Bold black and white circular forms float against a background with textured concentric rings. A large dark shape with a jagged edge and central white spiral dominates the composition alongside smaller orbiting circles (derived from painting #462).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Bold black and white circular forms float against a background with textured concentric rings. A large dark shape with a jagged edge and central white spiral dominates the composition alongside smaller orbiting circles",
+  "inverted_title": "Inverted sketch: Cosmic Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Bold black and white circular forms float against a background with textured concentric rings. A large dark shape with a jagged edge and central white spiral dominates the composition alongside smaller orbiting circles (from painting #462).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Bold black and white circular forms float against a background with textured concentric rings. A large dark shape with a jagged edge and central white spiral dominates the composition alongside smaller orbiting circles",
+  "source_description": "Bold black and white circular forms float against a deep blue background with textured concentric rings. A large dark shape with a jagged edge and central white spiral dominates the composition alongside smaller orbiting circles.",
+  "source_prompt": "",
+  "source_title": "Cosmic Blue Abstraction",
+  "style": "Abstract",
+  "mood": "Mysterious and cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circular",
+    "cosmic",
+    "geometric",
+    "textured"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 462,
+  "source_url": "/paintings/462.jpg",
+  "image_url": "/sketches/394.png",
+  "inverted_image_url": "/sketches-inverted/394.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:39Z"
+}

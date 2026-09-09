@@ -1,0 +1,42 @@
+{
+  "number": 4488,
+  "title": "Line sketch: Mystic Apothecary Sorcerer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned sorcerer in ornate robes and a tall conical hat sits at a desk reading an ancient tome. Behind him floats a giant cosmic bear-like entity with glowing eyes, multiple arms, and orbiting rings, set within a dark mystical apothecary filled with glowing lanterns and shelves of potions (derived from generated still #3907).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned sorcerer in ornate robes and a tall conical hat sits at a desk reading an ancient tome. Behind him floats a giant cosmic bear-like entity with glowing eyes, multiple arms, and orbiting rings, set within a dark mystical apothecary filled with glowing lanterns and shelves of potions",
+  "inverted_title": "Inverted sketch: Mystic Apothecary Sorcerer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned sorcerer in ornate robes and a tall conical hat sits at a desk reading an ancient tome. Behind him floats a giant cosmic bear-like entity with glowing eyes, multiple arms, and orbiting rings, set within a dark mystical apothecary filled with glowing lanterns and shelves of potions (from generated still #3907).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned sorcerer in ornate robes and a tall conical hat sits at a desk reading an ancient tome. Behind him floats a giant cosmic bear-like entity with glowing eyes, multiple arms, and orbiting rings, set within a dark mystical apothecary filled with glowing lanterns and shelves of potions",
+  "source_description": "A blue-skinned sorcerer in ornate green robes and a tall red conical hat sits at a desk reading an ancient tome. Behind him floats a giant cosmic bear-like entity with glowing green eyes, multiple arms, and orbiting rings, set within a dark mystical apothecary filled with glowing lanterns and shelves of potions.",
+  "source_prompt": "A blue-skinned wizard wearing intricate green robes and a tall spiraling red hat sits at a wooden desk reading a glowing book inside a dark apothecary shop. Behind him looms a massive floating cosmic bear deity with multiple arms, glowing green eyes, white mask-like face, and orbiting rings of light. Shelves filled with potion bottles, hanging red and green paper lanterns, floating papers and mystical symbols fill the scene under a dark blue draped curtain with serpents.",
+  "source_title": "Mystic Apothecary Sorcerer",
+  "style": "surreal fantasy",
+  "mood": "mystical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorcerer",
+    "cosmic entity",
+    "apothecary",
+    "occult",
+    "lanterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3907,
+  "source_url": "/generated/3907.jpg",
+  "image_url": "/sketches/4488.png",
+  "inverted_image_url": "/sketches-inverted/4488.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:48Z"
+}

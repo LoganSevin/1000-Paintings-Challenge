@@ -1,0 +1,42 @@
+{
+  "number": 3311,
+  "title": "Line sketch: Cosmic Egg Serpent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cracked white egg with a smiling face and black eyes sits atop a brick chimney rising from dark water. A snake with a smiling face coils around the egg while multiple smaller snakes with emoji faces emerge from below. The background features a swirling and cosmic sky with constellations, floating hearts, musical notes, and glass orbs containing tiny egg figures floating in the water (derived from generated still #2696).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cracked white egg with a smiling face and black eyes sits atop a brick chimney rising from dark water. A snake with a smiling face coils around the egg while multiple smaller snakes with emoji faces emerge from below. The background features a swirling and cosmic sky with constellations, floating hearts, musical notes, and glass orbs containing tiny egg figures floating in the water",
+  "inverted_title": "Inverted sketch: Cosmic Egg Serpent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cracked white egg with a smiling face and black eyes sits atop a brick chimney rising from dark water. A snake with a smiling face coils around the egg while multiple smaller snakes with emoji faces emerge from below. The background features a swirling and cosmic sky with constellations, floating hearts, musical notes, and glass orbs containing tiny egg figures floating in the water (from generated still #2696).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cracked white egg with a smiling face and black eyes sits atop a brick chimney rising from dark water. A snake with a smiling face coils around the egg while multiple smaller snakes with emoji faces emerge from below. The background features a swirling and cosmic sky with constellations, floating hearts, musical notes, and glass orbs containing tiny egg figures floating in the water",
+  "source_description": "A large cracked white egg with a smiling face and black eyes sits atop a brick chimney rising from dark water. A green snake with a smiling face coils around the egg while multiple smaller green snakes with emoji faces emerge from below. The background features a swirling purple and pink cosmic sky with constellations, floating hearts, musical notes, and glass orbs containing tiny egg figures floating in the water.",
+  "source_prompt": "Surreal cosmic scene featuring a giant cracked white egg with a smiling face and large black eyes, perched on a brick chimney emerging from dark water. A long green snake with a smiling face coils around it, while multiple smaller green snakes with emoji faces wrap around the base. Floating glass orbs in the water contain miniature versions of the egg character. The swirling purple and pink nebula sky contains constellations, musical notes, smiley faces, and hanging strings of hearts, in a whimsical psychedelic digital painting style.",
+  "source_title": "Cosmic Egg Serpent",
+  "style": "surreal fantasy",
+  "mood": "whimsical psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "egg",
+    "snake",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2696,
+  "source_url": "/generated/2696.jpg",
+  "image_url": "/sketches/3311.png",
+  "inverted_image_url": "/sketches-inverted/3311.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1602,
+  "title": "Line sketch: Fleur-de-Lis Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork centered on an ornate fleur-de-lis radiating bright light. Swirling patterns and stylized female figures with skin and halos orbit the central symbol against a background (derived from generated still #817).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork centered on an ornate fleur-de-lis radiating bright light. Swirling patterns and stylized female figures with skin and halos orbit the central symbol against a background",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork centered on an ornate fleur-de-lis radiating bright light. Swirling patterns and stylized female figures with skin and halos orbit the central symbol against a background (from generated still #817).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork centered on an ornate fleur-de-lis radiating bright light. Swirling patterns and stylized female figures with skin and halos orbit the central symbol against a background",
+  "source_description": "A vibrant psychedelic artwork centered on an ornate golden fleur-de-lis radiating bright light. Swirling colorful patterns and stylized female figures with green skin and golden halos orbit the central symbol against a deep purple background.",
+  "source_prompt": "",
+  "source_title": "Fleur-de-Lis Vision",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "psychedelic",
+    "swirling patterns",
+    "female figures",
+    "symbol"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 817,
+  "source_url": "/generated/817.jpg",
+  "image_url": "/sketches/1602.png",
+  "inverted_image_url": "/sketches-inverted/1602.png",
+  "curve_count": 179,
+  "built_at": "2026-08-17T00:09:41Z"
+}

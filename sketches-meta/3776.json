@@ -1,0 +1,42 @@
+{
+  "number": 3776,
+  "title": "Line sketch: Female Warrior Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four side-by-side panels display the same short-haired woman in progressive fighting stances against a dark background. She wears a leather and metal armored top, dark pants with knee pads, boots, and fingerless gloves, with visible arm and torso tattoos (derived from generated still #3192).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four side-by-side panels display the same short-haired woman in progressive fighting stances against a dark background. She wears a leather and metal armored top, dark pants with knee pads, boots, and fingerless gloves, with visible arm and torso tattoos",
+  "inverted_title": "Inverted sketch: Female Warrior Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four side-by-side panels display the same short-haired woman in progressive fighting stances against a dark background. She wears a leather and metal armored top, dark pants with knee pads, boots, and fingerless gloves, with visible arm and torso tattoos (from generated still #3192).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four side-by-side panels display the same short-haired woman in progressive fighting stances against a dark background. She wears a leather and metal armored top, dark pants with knee pads, boots, and fingerless gloves, with visible arm and torso tattoos",
+  "source_description": "Four side-by-side panels display the same short-haired woman in progressive fighting stances against a dark background. She wears a brown leather and metal armored top, dark pants with knee pads, brown boots, and fingerless gloves, with visible arm and torso tattoos.",
+  "source_prompt": "short-haired athletic woman with white hair and facial tattoos, wearing brown leather armored crop top with metal plates, dark tactical pants with knee pads, brown combat boots, performing a sequence of martial arts fighting poses including raised fists, side kick, and ready stance, shown in four sequential panels, realistic 3D character render, studio lighting on dark background, highly detailed textures",
+  "source_title": "Female Warrior Pose Sequence",
+  "style": "realistic 3D render",
+  "mood": "intense, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital character study",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "combat poses",
+    "leather armor",
+    "multiple views",
+    "action stance"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3192,
+  "source_url": "/generated/3192.jpg",
+  "image_url": "/sketches/3776.png",
+  "inverted_image_url": "/sketches-inverted/3776.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4124,
+  "title": "Line sketch: Crystal Orca in Ruins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large orca composed of glossy black and white crystalline shards swims underwater through a submerged futuristic ruin. Beams of light pierce the water from above, illuminating the fractured geometric form of the whale and scattered broken architectural fragments around it (derived from generated still #3541).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large orca composed of glossy black and white crystalline shards swims underwater through a submerged futuristic ruin. Beams of light pierce the water from above, illuminating the fractured geometric form of the whale and scattered broken architectural fragments around it",
+  "inverted_title": "Inverted sketch: Crystal Orca in Ruins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large orca composed of glossy black and white crystalline shards swims underwater through a submerged futuristic ruin. Beams of light pierce the water from above, illuminating the fractured geometric form of the whale and scattered broken architectural fragments around it (from generated still #3541).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large orca composed of glossy black and white crystalline shards swims underwater through a submerged futuristic ruin. Beams of light pierce the water from above, illuminating the fractured geometric form of the whale and scattered broken architectural fragments around it",
+  "source_description": "A large orca composed of glossy black and white crystalline shards swims underwater through a submerged futuristic ruin. Beams of light pierce the dark blue water from above, illuminating the fractured geometric form of the whale and scattered broken architectural fragments around it.",
+  "source_prompt": "A majestic orca whale made entirely of sharp black and white crystalline geometric facets swimming through dark underwater ruins, dramatic shafts of light beaming down from the surface, broken futuristic architectural fragments floating in the water, ethereal atmosphere, cinematic lighting, highly detailed digital painting",
+  "source_title": "Crystal Orca in Ruins",
+  "style": "line sketch",
+  "mood": "ethereal, majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "orca",
+    "crystalline",
+    "underwater ruins",
+    "light beams",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3541,
+  "source_url": "/generated/3541.jpg",
+  "image_url": "/sketches/4124.png",
+  "inverted_image_url": "/sketches-inverted/4124.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:47Z"
+}

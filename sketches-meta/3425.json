@@ -1,0 +1,42 @@
+{
+  "number": 3425,
+  "title": "Line sketch: McDonald's Cosmic Gateway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene features a giant McDonald's archway covered in glowing runes, with the restaurant visible in the background. In the foreground, a massive veined eyeball with a iris emerges from cracked earth with roots, while two cats (one, one white with markings) sit beside piles of McDonald's chicken nuggets and fries; an elderly robed man and a grey alien stand on the right under a swirling galaxy and planets (derived from generated still #2826).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene features a giant McDonald's archway covered in glowing runes, with the restaurant visible in the background. In the foreground, a massive veined eyeball with a iris emerges from cracked earth with roots, while two cats (one, one white with markings) sit beside piles of McDonald's chicken nuggets and fries; an elderly robed man and a grey alien stand on the right under a swirling galaxy and planets",
+  "inverted_title": "Inverted sketch: McDonald's Cosmic Gateway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene features a giant McDonald's archway covered in glowing runes, with the restaurant visible in the background. In the foreground, a massive veined eyeball with a iris emerges from cracked earth with roots, while two cats (one, one white with markings) sit beside piles of McDonald's chicken nuggets and fries; an elderly robed man and a grey alien stand on the right under a swirling galaxy and planets (from generated still #2826).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene features a giant McDonald's archway covered in glowing runes, with the restaurant visible in the background. In the foreground, a massive veined eyeball with a iris emerges from cracked earth with roots, while two cats (one, one white with markings) sit beside piles of McDonald's chicken nuggets and fries; an elderly robed man and a grey alien stand on the right under a swirling galaxy and planets",
+  "source_description": "A surreal cosmic scene features a giant golden McDonald's archway covered in glowing runes, with the restaurant visible in the background. In the foreground, a massive veined eyeball with a red iris emerges from cracked earth with roots, while two colorful cats (one orange, one white with purple markings) sit beside piles of McDonald's chicken nuggets and fries; an elderly robed man and a grey alien stand on the right under a swirling galaxy and planets.",
+  "source_prompt": "Surreal cosmic scene with a giant glowing golden McDonald's arch covered in runes standing in the center, restaurant visible behind it. Massive detailed veined eyeball with red iris emerging from cracked fiery ground with roots on the left. Two stylized cats, one orange and one white with purple markings and green eyes, sitting in front of piles of chicken nuggets and french fries. An old man in robes and a grey alien standing on the right. Swirling galaxy, planets, and stars in the dramatic night sky, bizarre and mystical atmosphere.",
+  "source_title": "McDonald's Cosmic Gateway",
+  "style": "surreal fantasy",
+  "mood": "bizarre cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "McDonalds",
+    "cosmic horror",
+    "cats",
+    "alien"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2826,
+  "source_url": "/generated/2826.jpg",
+  "image_url": "/sketches/3425.png",
+  "inverted_image_url": "/sketches-inverted/3425.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4918,
+  "title": "Line sketch: Surreal Artist's Studio",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An artist's attic studio with a large skylight revealing a vibrant night sky filled with stars, constellations, and shooting stars. In the foreground are two wooden easels: the left holds a finished composition of an empty, minimalist gallery hallway, while the right displays a blank page with paint splatters, a palette knife, and a dripping brush (derived from generated still #4354).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An artist's attic studio with a large skylight revealing a vibrant night sky filled with stars, constellations, and shooting stars. In the foreground are two wooden easels: the left holds a finished composition of an empty, minimalist gallery hallway, while the right displays a blank page with paint splatters, a palette knife, and a dripping brush",
+  "inverted_title": "Inverted sketch: Surreal Artist's Studio",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An artist's attic studio with a large skylight revealing a vibrant night sky filled with stars, constellations, and shooting stars. In the foreground are two wooden easels: the left holds a finished composition of an empty, minimalist gallery hallway, while the right displays a blank page with paint splatters, a palette knife, and a dripping brush (from generated still #4354).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An artist's attic studio with a large skylight revealing a vibrant night sky filled with stars, constellations, and shooting stars. In the foreground are two wooden easels: the left holds a finished composition of an empty, minimalist gallery hallway, while the right displays a blank page with paint splatters, a palette knife, and a dripping brush",
+  "source_description": "An artist's attic studio with a large skylight revealing a vibrant night sky filled with stars, constellations, and shooting stars. In the foreground are two wooden easels: the left holds a finished painting of an empty, minimalist gallery hallway, while the right displays a blank canvas with paint splatters, a palette knife, and a dripping brush.",
+  "source_prompt": "An atmospheric artist's loft studio at night, exposed brick walls and wooden beams, large skylight opening to a magical starry night sky with constellations and glowing comets. Two wooden easels stand in the room: one displays a painting of a long empty modern art gallery hallway with soft lighting, the other holds a mostly blank canvas with fresh paint marks and a palette knife resting on it. A vintage radio sits between them on a stool, scattered art supplies and canvases on the floor, cinematic lighting with dramatic beams from above.",
+  "source_title": "Surreal Artist's Studio",
+  "style": "surrealism",
+  "mood": "dreamlike, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artist studio",
+    "surreal sky",
+    "easel",
+    "night sky",
+    "gallery composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4354,
+  "source_url": "/generated/4354.jpg",
+  "image_url": "/sketches/4918.png",
+  "inverted_image_url": "/sketches-inverted/4918.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

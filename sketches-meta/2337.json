@@ -1,0 +1,42 @@
+{
+  "number": 2337,
+  "title": "Line sketch: Psychedelic Mushroom Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a giant mushroom with a woman's silhouette and flowing hair on its cap, surrounded by smaller -capped mushrooms on lily pads in dark water. A large swirling vortex of concentric circles in, and dominates the background with abstract drips and patterns (derived from generated still #1565).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a giant mushroom with a woman's silhouette and flowing hair on its cap, surrounded by smaller -capped mushrooms on lily pads in dark water. A large swirling vortex of concentric circles in, and dominates the background with abstract drips and patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a giant mushroom with a woman's silhouette and flowing hair on its cap, surrounded by smaller -capped mushrooms on lily pads in dark water. A large swirling vortex of concentric circles in, and dominates the background with abstract drips and patterns (from generated still #1565).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a giant mushroom with a woman's silhouette and flowing hair on its cap, surrounded by smaller -capped mushrooms on lily pads in dark water. A large swirling vortex of concentric circles in, and dominates the background with abstract drips and patterns",
+  "source_description": "A vibrant surreal painting depicts a giant green mushroom with a woman's silhouette and flowing colorful hair on its cap, surrounded by smaller red-capped mushrooms on lily pads in dark water. A large swirling vortex of concentric circles in pink, orange, and blue dominates the background with abstract drips and patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Vortex",
+  "style": "psychedelic surrealism",
+  "mood": "trippy, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushrooms",
+    "vortex",
+    "psychedelic",
+    "surreal",
+    "woman silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1565,
+  "source_url": "/generated/1565.jpg",
+  "image_url": "/sketches/2337.png",
+  "inverted_image_url": "/sketches-inverted/2337.png",
+  "curve_count": 195,
+  "built_at": "2026-08-17T00:09:43Z"
+}

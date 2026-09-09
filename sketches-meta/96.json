@@ -1,0 +1,42 @@
+{
+  "number": 96,
+  "title": "Line sketch: Surreal Bird in Vivid Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized avian figure with large circular eyes and a central beak dominates the page, surrounded by floating geometric shapes and scattered dots. Flat planes of color and sharp angular lines create dynamic movement across the off-white background. The composition balances symmetry with playful asymmetry in a bold, graphic arrangement (derived from painting #127).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized avian figure with large circular eyes and a central beak dominates the page, surrounded by floating geometric shapes and scattered dots. Flat planes of color and sharp angular lines create dynamic movement across the off-white background. The composition balances symmetry with playful asymmetry in a bold, graphic arrangement",
+  "inverted_title": "Inverted sketch: Surreal Bird in Vivid Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized avian figure with large circular eyes and a central beak dominates the page, surrounded by floating geometric shapes and scattered dots. Flat planes of color and sharp angular lines create dynamic movement across the off-white background. The composition balances symmetry with playful asymmetry in a bold, graphic arrangement (from painting #127).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized avian figure with large circular eyes and a central beak dominates the page, surrounded by floating geometric shapes and scattered dots. Flat planes of color and sharp angular lines create dynamic movement across the off-white background. The composition balances symmetry with playful asymmetry in a bold, graphic arrangement",
+  "source_description": "A stylized avian figure with large circular eyes and a central red beak dominates the canvas, surrounded by floating geometric shapes and scattered dots. Flat planes of color and sharp angular lines create dynamic movement across the off-white background. The composition balances symmetry with playful asymmetry in a bold, graphic arrangement.",
+  "source_prompt": "",
+  "source_title": "Surreal Bird in Vivid Abstraction",
+  "style": "Surrealism",
+  "mood": "whimsical playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "bird",
+    "surreal",
+    "geometric",
+    "modern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 127,
+  "source_url": "/paintings/127.jpg",
+  "image_url": "/sketches/96.png",
+  "inverted_image_url": "/sketches-inverted/96.png",
+  "curve_count": 357,
+  "built_at": "2026-08-17T00:09:38Z"
+}

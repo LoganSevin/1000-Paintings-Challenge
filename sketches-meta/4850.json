@@ -1,0 +1,42 @@
+{
+  "number": 4850,
+  "title": "Line sketch: Surreal Night Bridge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene features a stone bridge over reflective water where a armored knight holds a banner reading 'NO MORE HEROES'. In the background, a devil with horns stands beside a large moon, a hooded figure holds a glowing lantern, a giant mummy labeled 'NO MIND' stands near a eastern dragon, all under a swirling and cosmic sky with musical notes floating above (derived from generated still #4285).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene features a stone bridge over reflective water where a armored knight holds a banner reading 'NO MORE HEROES'. In the background, a devil with horns stands beside a large moon, a hooded figure holds a glowing lantern, a giant mummy labeled 'NO MIND' stands near a eastern dragon, all under a swirling and cosmic sky with musical notes floating above",
+  "inverted_title": "Inverted sketch: Surreal Night Bridge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene features a stone bridge over reflective water where a armored knight holds a banner reading 'NO MORE HEROES'. In the background, a devil with horns stands beside a large moon, a hooded figure holds a glowing lantern, a giant mummy labeled 'NO MIND' stands near a eastern dragon, all under a swirling and cosmic sky with musical notes floating above (from generated still #4285).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene features a stone bridge over reflective water where a armored knight holds a banner reading 'NO MORE HEROES'. In the background, a devil with horns stands beside a large moon, a hooded figure holds a glowing lantern, a giant mummy labeled 'NO MIND' stands near a eastern dragon, all under a swirling and cosmic sky with musical notes floating above",
+  "source_description": "A surreal night scene features a stone bridge over reflective water where a blue armored knight holds a banner reading 'NO MORE HEROES'. In the background, a red devil with horns stands beside a large yellow moon, a hooded green figure holds a glowing lantern, a giant mummy labeled 'NO MIND' stands near a golden eastern dragon, all under a swirling blue and purple cosmic sky with musical notes floating above.",
+  "source_prompt": "Surreal fantasy night landscape with swirling cosmic blue and purple sky, large glowing yellow moon, red horned devil silhouette on the left, hooded green figure with glowing lantern in the center, golden eastern dragon curling in the sky, tall green mummy labeled NO MIND on the right, blue armored knight standing on a stone bridge holding a banner that says NO MORE HEROES, water reflection below showing inverted figures, dark trees framing the scene, colorful paint splashes and floating musical notes, dramatic and symbolic composition",
+  "source_title": "Surreal Night Bridge",
+  "style": "surreal fantasy",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "cosmic",
+    "dragon",
+    "mummy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4285,
+  "source_url": "/generated/4285.jpg",
+  "image_url": "/sketches/4850.png",
+  "inverted_image_url": "/sketches-inverted/4850.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4802,
+  "title": "Line sketch: Lanterns to the Pyramid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a hooded cloak stands at the base of a massive, multi-tiered futuristic pyramid, holding a glowing lantern. Strings of warm lanterns hang along the pyramid's ascending pathways, which are embedded with glowing rectangular windows against a swirling nebula background, all framed within a complex metallic mechanical border (derived from generated still #4237).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a hooded cloak stands at the base of a massive, multi-tiered futuristic pyramid, holding a glowing lantern. Strings of warm lanterns hang along the pyramid's ascending pathways, which are embedded with glowing rectangular windows against a swirling nebula background, all framed within a complex metallic mechanical border",
+  "inverted_title": "Inverted sketch: Lanterns to the Pyramid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a hooded cloak stands at the base of a massive, multi-tiered futuristic pyramid, holding a glowing lantern. Strings of warm lanterns hang along the pyramid's ascending pathways, which are embedded with glowing rectangular windows against a swirling nebula background, all framed within a complex metallic mechanical border (from generated still #4237).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a hooded cloak stands at the base of a massive, multi-tiered futuristic pyramid, holding a glowing lantern. Strings of warm lanterns hang along the pyramid's ascending pathways, which are embedded with glowing rectangular windows against a swirling nebula background, all framed within a complex metallic mechanical border",
+  "source_description": "A lone figure in a teal hooded cloak stands at the base of a massive, multi-tiered futuristic pyramid, holding a glowing lantern. Strings of warm lanterns hang along the pyramid's ascending pathways, which are embedded with glowing rectangular windows against a swirling purple nebula background, all framed within a complex metallic mechanical border.",
+  "source_prompt": "A solitary figure in a flowing teal hooded cloak stands in the lower right, holding a glowing lantern while looking up at a towering, geometric multi-layered pyramid that dominates the scene. Strings of warm paper lanterns hang across the pyramid's ascending steps, which feature glowing rectangular windows. The pyramid rises through swirling purple and violet nebulae with sparkling particles. The entire scene is viewed through a complex industrial metallic frame with pipes, wires, and rivets, in a detailed digital painting style.",
+  "source_title": "Lanterns to the Neon Pyramid",
+  "style": "line sketch",
+  "mood": "mysterious, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pyramid",
+    "lanterns",
+    "futuristic",
+    "hooded figure",
+    "cyberpunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4237,
+  "source_url": "/generated/4237.jpg",
+  "image_url": "/sketches/4802.png",
+  "inverted_image_url": "/sketches-inverted/4802.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1296,
+  "title": "Line sketch: Cabbage Companion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a young woman with flowing leafy hair and one large eye replaced by a smiling mask-like face. Beside her stands a cheerful anthropomorphic cabbage creature wearing a hat and carrying a small lantern, on a winding path through a desolate landscape under a sun (derived from generated still #510).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a young woman with flowing leafy hair and one large eye replaced by a smiling mask-like face. Beside her stands a cheerful anthropomorphic cabbage creature wearing a hat and carrying a small lantern, on a winding path through a desolate landscape under a sun",
+  "inverted_title": "Inverted sketch: Cabbage Companion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a young woman with flowing leafy hair and one large eye replaced by a smiling mask-like face. Beside her stands a cheerful anthropomorphic cabbage creature wearing a hat and carrying a small lantern, on a winding path through a desolate landscape under a sun (from generated still #510).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a young woman with flowing leafy hair and one large eye replaced by a smiling mask-like face. Beside her stands a cheerful anthropomorphic cabbage creature wearing a hat and carrying a small lantern, on a winding path through a desolate landscape under a sun",
+  "source_description": "A surreal portrait of a young woman with flowing green leafy hair and one large eye replaced by a smiling mask-like face. Beside her stands a cheerful anthropomorphic cabbage creature wearing a purple hat and carrying a small lantern, on a winding path through a desolate landscape under a red sun.",
+  "source_prompt": "",
+  "source_title": "Cabbage Companion",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hair",
+    "cabbage creature",
+    "sun",
+    "fantasy portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 510,
+  "source_url": "/generated/510.jpg",
+  "image_url": "/sketches/1296.png",
+  "inverted_image_url": "/sketches-inverted/1296.png",
+  "curve_count": 95,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4708,
+  "title": "Line sketch: Arcane Octagonal Chamber",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down view of an intricate fantasy laboratory or ritual chamber featuring a glowing central octagonal pool with arcane symbols. The room contains four circular pedestals, multiple glowing crystals, bookshelves, wooden tables, and mechanical wall fixtures, all connected by luminous lines on the floor (derived from generated still #4138).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down view of an intricate fantasy laboratory or ritual chamber featuring a glowing central octagonal pool with arcane symbols. The room contains four circular pedestals, multiple glowing crystals, bookshelves, wooden tables, and mechanical wall fixtures, all connected by luminous lines on the floor",
+  "inverted_title": "Inverted sketch: Arcane Octagonal Chamber",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down view of an intricate fantasy laboratory or ritual chamber featuring a glowing central octagonal pool with arcane symbols. The room contains four circular pedestals, multiple glowing crystals, bookshelves, wooden tables, and mechanical wall fixtures, all connected by luminous lines on the floor (from generated still #4138).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down view of an intricate fantasy laboratory or ritual chamber featuring a glowing central octagonal pool with arcane symbols. The room contains four circular pedestals, multiple glowing crystals, bookshelves, wooden tables, and mechanical wall fixtures, all connected by luminous lines on the floor",
+  "source_description": "A top-down view of an intricate fantasy laboratory or ritual chamber featuring a glowing purple central octagonal pool with arcane symbols. The room contains four circular pedestals, multiple glowing teal crystals, bookshelves, wooden tables, and mechanical wall fixtures, all connected by luminous golden lines on the floor.",
+  "source_prompt": "Top-down isometric view of a mystical arcane laboratory with a glowing purple octagonal central pool containing magical runes and symbols. Four stone pedestals surround the pool, connected by luminous golden lines on the terracotta floor. The chamber includes wooden bookshelves, tables with alchemical equipment, glowing teal crystals in corners, mechanical wall devices, and arched windows. Fantasy game art style with intricate details and atmospheric lighting.",
+  "source_title": "Arcane Octagonal Chamber",
+  "style": "isometric digital illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy laboratory",
+    "magic circle",
+    "isometric map",
+    "arcane ritual",
+    "crystal glow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4138,
+  "source_url": "/generated/4138.jpg",
+  "image_url": "/sketches/4708.png",
+  "inverted_image_url": "/sketches-inverted/4708.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

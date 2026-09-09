@@ -1,0 +1,42 @@
+{
+  "number": 4995,
+  "title": "Line sketch: Mystic Fox and Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal nighttime scene inside a decaying ornate room features a realistic fox with glowing eyes standing on a dusty floor. In the background, a giant child's face emerges from a starry sky framed by twisted dark branches, while a hooded -robed sorceress holds an open book and a glowing lantern staff beside a dark tree creature with glowing eyes (derived from generated still #4432).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal nighttime scene inside a decaying ornate room features a realistic fox with glowing eyes standing on a dusty floor. In the background, a giant child's face emerges from a starry sky framed by twisted dark branches, while a hooded -robed sorceress holds an open book and a glowing lantern staff beside a dark tree creature with glowing eyes",
+  "inverted_title": "Inverted sketch: Mystic Fox and Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal nighttime scene inside a decaying ornate room features a realistic fox with glowing eyes standing on a dusty floor. In the background, a giant child's face emerges from a starry sky framed by twisted dark branches, while a hooded -robed sorceress holds an open book and a glowing lantern staff beside a dark tree creature with glowing eyes (from generated still #4432).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal nighttime scene inside a decaying ornate room features a realistic fox with glowing eyes standing on a dusty floor. In the background, a giant child's face emerges from a starry sky framed by twisted dark branches, while a hooded -robed sorceress holds an open book and a glowing lantern staff beside a dark tree creature with glowing eyes",
+  "source_description": "A surreal nighttime scene inside a decaying ornate room features a realistic fox with glowing purple eyes standing on a dusty floor. In the background, a giant child's face emerges from a starry sky framed by twisted dark branches, while a hooded purple-robed sorceress holds an open red book and a glowing lantern staff beside a dark tree creature with glowing eyes.",
+  "source_prompt": "Surreal dark fantasy scene set in a decaying elegant room with peeling walls and candlelight. A realistic fox with glowing purple eyes stands in the foreground near scattered red roses, an old book, papers, a teacup, and a red hourglass. In the background, a giant ghostly child's face merges with a starry cosmic sky, twisted black branches, and a menacing tree creature with glowing white eyes. To the right, a hooded sorceress in flowing purple robes holds an open red book and a glowing lantern staff. Mysterious, ethereal, and slightly unsettling atmosphere.",
+  "source_title": "Mystic Fox and Sorceress",
+  "style": "fantasy surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fox",
+    "sorceress",
+    "surreal",
+    "dark fantasy",
+    "starry night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4432,
+  "source_url": "/generated/4432.jpg",
+  "image_url": "/sketches/4995.png",
+  "inverted_image_url": "/sketches-inverted/4995.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:49Z"
+}

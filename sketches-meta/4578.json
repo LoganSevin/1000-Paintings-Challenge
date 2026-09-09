@@ -1,0 +1,42 @@
+{
+  "number": 4578,
+  "title": "Line sketch: Siren of the Lost Melody",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing dress stands on a rocky outcrop by the sea, holding a glowing orb as musical notes float from her hands. A grand piano and a cello are partially submerged in turbulent waves beside her, while a large Mayan pyramid rises from the ocean in the background under a dramatic cloudy sky filled with floating transparent bubbles containing miniature scenes (derived from generated still #3999).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing dress stands on a rocky outcrop by the sea, holding a glowing orb as musical notes float from her hands. A grand piano and a cello are partially submerged in turbulent waves beside her, while a large Mayan pyramid rises from the ocean in the background under a dramatic cloudy sky filled with floating transparent bubbles containing miniature scenes",
+  "inverted_title": "Inverted sketch: Siren of the Lost Melody",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing dress stands on a rocky outcrop by the sea, holding a glowing orb as musical notes float from her hands. A grand piano and a cello are partially submerged in turbulent waves beside her, while a large Mayan pyramid rises from the ocean in the background under a dramatic cloudy sky filled with floating transparent bubbles containing miniature scenes (from generated still #3999).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing dress stands on a rocky outcrop by the sea, holding a glowing orb as musical notes float from her hands. A grand piano and a cello are partially submerged in turbulent waves beside her, while a large Mayan pyramid rises from the ocean in the background under a dramatic cloudy sky filled with floating transparent bubbles containing miniature scenes",
+  "source_description": "A woman in a flowing blue dress stands on a rocky outcrop by the sea, holding a glowing red orb as musical notes float from her hands. A grand piano and a cello are partially submerged in turbulent turquoise waves beside her, while a large orange Mayan pyramid rises from the ocean in the background under a dramatic cloudy sky filled with floating transparent bubbles containing miniature scenes.",
+  "source_prompt": "A woman in a long flowing blue dress stands on coastal rocks holding a glowing red orb, musical notes and staves swirling around her. A grand piano and cello are half-submerged in crashing turquoise waves. In the distance a large orange step pyramid rises from the sea. Dramatic cloudy sky filled with transparent bubbles containing tiny scenes of trees, tents and figures. Vibrant surreal fantasy scene.",
+  "source_title": "Siren of the Lost Melody",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "music",
+    "ocean",
+    "pyramid",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3999,
+  "source_url": "/generated/3999.jpg",
+  "image_url": "/sketches/4578.png",
+  "inverted_image_url": "/sketches-inverted/4578.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:48Z"
+}

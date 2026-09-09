@@ -1,0 +1,42 @@
+{
+  "number": 1026,
+  "title": "Line sketch: Mind's Ethereal Flight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned child with flowing hair runs forward, their exposed brain glowing with emanating neural lines. Swirling and energy tendrils stream from the figure above concentric ripples on a white surface (derived from generated still #237).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned child with flowing hair runs forward, their exposed brain glowing with emanating neural lines. Swirling and energy tendrils stream from the figure above concentric ripples on a white surface",
+  "inverted_title": "Inverted sketch: Mind's Ethereal Flight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned child with flowing hair runs forward, their exposed brain glowing with emanating neural lines. Swirling and energy tendrils stream from the figure above concentric ripples on a white surface (from generated still #237).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned child with flowing hair runs forward, their exposed brain glowing with emanating neural lines. Swirling and energy tendrils stream from the figure above concentric ripples on a white surface",
+  "source_description": "A blue-skinned child with flowing hair runs forward, their exposed brain glowing pink with emanating neural lines. Swirling pink and purple energy tendrils stream from the figure above concentric ripples on a white surface.",
+  "source_prompt": "",
+  "source_title": "Mind's Ethereal Flight",
+  "style": "surreal fantasy",
+  "mood": "ethereal, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "child",
+    "brain",
+    "surreal",
+    "energy swirls",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 237,
+  "source_url": "/generated/237.jpg",
+  "image_url": "/sketches/1026.png",
+  "inverted_image_url": "/sketches-inverted/1026.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:40Z"
+}

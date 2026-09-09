@@ -1,0 +1,42 @@
+{
+  "number": 4133,
+  "title": "Line sketch: Dragon Emerging from composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and white bikini sits on a couch taking a selfie with her smartphone while a large dark dragon with glowing eyes bursts through a torn page from a European street scene. The composition reveals a chaotic cobblestone street with burning buildings, smoke, and armored figures in the background (derived from generated still #3550).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and white bikini sits on a couch taking a selfie with her smartphone while a large dark dragon with glowing eyes bursts through a torn page from a European street scene. The composition reveals a chaotic cobblestone street with burning buildings, smoke, and armored figures in the background",
+  "inverted_title": "Inverted sketch: Dragon Emerging from composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and white bikini sits on a couch taking a selfie with her smartphone while a large dark dragon with glowing eyes bursts through a torn page from a European street scene. The composition reveals a chaotic cobblestone street with burning buildings, smoke, and armored figures in the background (from generated still #3550).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and white bikini sits on a couch taking a selfie with her smartphone while a large dark dragon with glowing eyes bursts through a torn page from a European street scene. The composition reveals a chaotic cobblestone street with burning buildings, smoke, and armored figures in the background",
+  "source_description": "A woman in a purple and white bikini sits on a beige couch taking a selfie with her smartphone while a large dark dragon with glowing green eyes bursts through a torn canvas from a European street scene. The painting reveals a chaotic cobblestone street with burning buildings, smoke, and armored figures in the background.",
+  "source_prompt": "A woman wearing a purple bikini top and white bikini bottom sits on a beige couch taking a selfie with her phone, a black and white patterned headscarf on her head. She is positioned inside a torn painting that reveals a fiery apocalyptic European cobblestone street with a massive dark dragon with glowing green eyes and sharp spines emerging from the canvas, flames and black smoke filling the background with burning buildings and distant figures.",
+  "source_title": "Dragon Emerging from Painting",
+  "style": "surreal digital art",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "surreal",
+    "woman",
+    "selfie",
+    "breach"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3550,
+  "source_url": "/generated/3550.jpg",
+  "image_url": "/sketches/4133.png",
+  "inverted_image_url": "/sketches-inverted/4133.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:47Z"
+}

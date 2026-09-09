@@ -1,0 +1,42 @@
+{
+  "number": 4745,
+  "title": "Line sketch: Dungeon Cross Section",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed vertical cross-section of a multi-level fantasy dungeon reveals interconnected stone chambers, staircases, prison cells with iron bars, a central ritual room with a circular pool and altar, libraries, and hanging chains. The cutaway view shows various floors from the mossy stone entrance at the bottom to the upper halls with statues and barred windows (derived from generated still #4176).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed vertical cross-section of a multi-level fantasy dungeon reveals interconnected stone chambers, staircases, prison cells with iron bars, a central ritual room with a circular pool and altar, libraries, and hanging chains. The cutaway view shows various floors from the mossy stone entrance at the bottom to the upper halls with statues and barred windows",
+  "inverted_title": "Inverted sketch: Dungeon Cross Section",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed vertical cross-section of a multi-level fantasy dungeon reveals interconnected stone chambers, staircases, prison cells with iron bars, a central ritual room with a circular pool and altar, libraries, and hanging chains. The cutaway view shows various floors from the mossy stone entrance at the bottom to the upper halls with statues and barred windows (from generated still #4176).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed vertical cross-section of a multi-level fantasy dungeon reveals interconnected stone chambers, staircases, prison cells with iron bars, a central ritual room with a circular pool and altar, libraries, and hanging chains. The cutaway view shows various floors from the mossy stone entrance at the bottom to the upper halls with statues and barred windows",
+  "source_description": "A detailed vertical cross-section of a multi-level fantasy dungeon reveals interconnected stone chambers, staircases, prison cells with iron bars, a central ritual room with a circular pool and altar, libraries, and hanging chains. The cutaway view shows various floors from the mossy stone entrance at the bottom to the upper halls with statues and barred windows.",
+  "source_prompt": "detailed vertical cross-section of a multi-level stone fantasy dungeon, showing interconnected rooms including prison cells with bars, a central blue-domed ritual chamber with circular black pool and altar, libraries, staircases, statues, hanging chains and torches, mossy entrance at bottom, dark atmospheric lighting with teal magical accents, intricate architectural cutaway view",
+  "source_title": "Dungeon Cross Section",
+  "style": "detailed illustration",
+  "mood": "mysterious, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dungeon",
+    "cross-section",
+    "fantasy architecture",
+    "underground",
+    "ritual chamber"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4176,
+  "source_url": "/generated/4176.jpg",
+  "image_url": "/sketches/4745.png",
+  "inverted_image_url": "/sketches-inverted/4745.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4261,
+  "title": "Line sketch: Electric Eye of Tears",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large eye with a detailed iris sits at the center of a glowing cabbage-like flower. The eye and a melting heart below it drip thick liquid, all contained within a translucent sphere surrounded by white lightning and floating smaller eyes against a background (derived from generated still #3680).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large eye with a detailed iris sits at the center of a glowing cabbage-like flower. The eye and a melting heart below it drip thick liquid, all contained within a translucent sphere surrounded by white lightning and floating smaller eyes against a background",
+  "inverted_title": "Inverted sketch: Electric Eye of Tears",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large eye with a detailed iris sits at the center of a glowing cabbage-like flower. The eye and a melting heart below it drip thick liquid, all contained within a translucent sphere surrounded by white lightning and floating smaller eyes against a background (from generated still #3680).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large eye with a detailed iris sits at the center of a glowing cabbage-like flower. The eye and a melting heart below it drip thick liquid, all contained within a translucent sphere surrounded by white lightning and floating smaller eyes against a background",
+  "source_description": "A large green eye with a detailed iris sits at the center of a glowing purple cabbage-like flower. The eye and a melting pink heart below it drip thick magenta liquid, all contained within a translucent iridescent sphere surrounded by white lightning and floating smaller eyes against a dark purple background.",
+  "source_prompt": "A surreal composition featuring a vibrant green eye with intricate purple patterns at the center of a blooming purple cabbage rose, white branching lightning bolts crackling around it, a melting hot pink heart dripping thick magenta liquid downwards, all enclosed inside a large translucent iridescent bubble, smaller floating eyes and black ink splatters in the dark purple background, highly detailed, psychedelic atmosphere",
+  "source_title": "Electric Eye of Tears",
+  "style": "surreal digital art",
+  "mood": "psychedelic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "melting heart",
+    "lightning",
+    "sphere"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3680,
+  "source_url": "/generated/3680.jpg",
+  "image_url": "/sketches/4261.png",
+  "inverted_image_url": "/sketches-inverted/4261.png",
+  "curve_count": 258,
+  "built_at": "2026-08-17T00:09:47Z"
+}

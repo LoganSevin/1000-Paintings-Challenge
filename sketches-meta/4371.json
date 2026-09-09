@@ -1,0 +1,42 @@
+{
+  "number": 4371,
+  "title": "Line sketch: Tree of Kisses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing spherical orb mounted on a black and pedestal contains a surreal glowing tree with and branches. Multiple stylized lips in and float among the branches against a painted sky background with a winding path and fallen petals below (derived from generated still #3790).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing spherical orb mounted on a black and pedestal contains a surreal glowing tree with and branches. Multiple stylized lips in and float among the branches against a painted sky background with a winding path and fallen petals below",
+  "inverted_title": "Inverted sketch: Tree of Kisses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing spherical orb mounted on a black and pedestal contains a surreal glowing tree with and branches. Multiple stylized lips in and float among the branches against a painted sky background with a winding path and fallen petals below (from generated still #3790).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing spherical orb mounted on a black and pedestal contains a surreal glowing tree with and branches. Multiple stylized lips in and float among the branches against a painted sky background with a winding path and fallen petals below",
+  "source_description": "A glowing spherical orb mounted on a black and gold pedestal contains a surreal glowing tree with neon yellow and pink branches. Multiple stylized lips in bright pink and purple float among the branches against a painted sky background with a winding path and fallen petals below.",
+  "source_prompt": "A luminous transparent sphere on a pedestal contains a glowing tree with bright neon yellow branches stretching across a painted sunset sky. Stylized floating lips in vibrant pink and purple drift among the branches. A winding golden path covered in fallen petals runs through the base of the orb. Dreamy surreal atmosphere with bioluminescent effects and sparkling light particles.",
+  "source_title": "Neon Tree of Kisses",
+  "style": "surreal",
+  "mood": "ethereal dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tree",
+    "glowing orb",
+    "floating lips",
+    "surreal landscape",
+    "bioluminescent"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3790,
+  "source_url": "/generated/3790.jpg",
+  "image_url": "/sketches/4371.png",
+  "inverted_image_url": "/sketches-inverted/4371.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:48Z"
+}

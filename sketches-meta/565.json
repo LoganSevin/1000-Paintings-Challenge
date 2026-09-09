@@ -1,0 +1,42 @@
+{
+  "number": 565,
+  "title": "Line sketch: Vibrant Abstract Fireworks",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic splashes of, and burst across the page in three explosive clusters. Paint drips create vertical movement against a soft, light background (derived from painting #707).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic splashes of, and burst across the page in three explosive clusters. Paint drips create vertical movement against a soft, light background",
+  "inverted_title": "Inverted sketch: Vibrant Abstract Fireworks",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic splashes of, and burst across the page in three explosive clusters. Paint drips create vertical movement against a soft, light background (from painting #707).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic splashes of, and burst across the page in three explosive clusters. Paint drips create vertical movement against a soft, light background",
+  "source_description": "Dynamic splashes of turquoise, blue, and yellow burst across the canvas in three explosive clusters. Paint drips create vertical movement against a soft, light background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Abstract Fireworks",
+  "style": "Abstract Expressionism",
+  "mood": "Energetic and joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "explosive",
+    "drip composition",
+    "vibrant",
+    "modern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 707,
+  "source_url": "/paintings/707.jpg",
+  "image_url": "/sketches/565.png",
+  "inverted_image_url": "/sketches-inverted/565.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:39Z"
+}

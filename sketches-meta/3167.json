@@ -1,0 +1,42 @@
+{
+  "number": 3167,
+  "title": "Line sketch: Vault 313 Flooded Ruins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing coat and gas mask ascends a damaged staircase while holding a film reel. The derelict underground vault is flooded with dark water, features cracked walls covered in radiation symbols, torn movie posters, a submerged armchair, and a large framed portrait of a screaming woman (derived from generated still #2510).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing coat and gas mask ascends a damaged staircase while holding a film reel. The derelict underground vault is flooded with dark water, features cracked walls covered in radiation symbols, torn movie posters, a submerged armchair, and a large framed portrait of a screaming woman",
+  "inverted_title": "Inverted sketch: Vault 313 Flooded Ruins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing coat and gas mask ascends a damaged staircase while holding a film reel. The derelict underground vault is flooded with dark water, features cracked walls covered in radiation symbols, torn movie posters, a submerged armchair, and a large framed portrait of a screaming woman (from generated still #2510).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing coat and gas mask ascends a damaged staircase while holding a film reel. The derelict underground vault is flooded with dark water, features cracked walls covered in radiation symbols, torn movie posters, a submerged armchair, and a large framed portrait of a screaming woman",
+  "source_description": "A woman in a flowing red coat and gas mask ascends a damaged staircase while holding a film reel. The derelict underground vault is flooded with dark water, features cracked walls covered in radiation symbols, torn movie posters, a submerged armchair, and a large framed portrait of a screaming woman.",
+  "source_prompt": "A lone woman wearing a long red coat and gas mask climbs a broken staircase inside a flooded post-apocalyptic underground vault. Crumbling concrete walls display radiation hazard symbols and torn vintage movie posters. Dark water fills the lower level containing a submerged red armchair and a large portrait of a screaming woman. Film strips cascade down the stairs. Dramatic single spotlight from above, cinematic atmosphere, highly detailed digital painting.",
+  "source_title": "Vault 313 Flooded Ruins",
+  "style": "painterly digital art",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "vault",
+    "radiation",
+    "film noir",
+    "flooded interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2510,
+  "source_url": "/generated/2510.jpg",
+  "image_url": "/sketches/3167.png",
+  "inverted_image_url": "/sketches-inverted/3167.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:45Z"
+}

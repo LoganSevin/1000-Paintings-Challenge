@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(self)" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -17,18 +18,48 @@
   <meta name="twitter:title" content="Logan Sevin — 1000 Paintings Challenge" />
   <meta name="twitter:description" content="Original art by Logan Sevin. Author and owner of all works in this gallery." />
   <link rel="icon" href="paintings/1.jpg" type="image/jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=7" />
+  <!-- System fonts first; Google fonts only on desktop after idle (phones skip the round-trip) -->
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+    h1,h2,.brand h1{font-family:Georgia,"Times New Roman",serif}
+  </style>
+  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/site-nav.css?v=2" />
+  <link rel="stylesheet" href="css/mobile.css?v=8" />
+  <link rel="stylesheet" href="css/dream-stasis.css?v=19" />
+  <link rel="stylesheet" href="css/maps.css?v=1" />
+  <link rel="stylesheet" href="css/stare.css?v=15" />
+  <link rel="stylesheet" href="css/masks.css?v=1" />
+  <link rel="stylesheet" href="css/modeler.css?v=12" />
+  <link rel="stylesheet" href="css/stock.css?v=1" />
+  <link rel="stylesheet" href="css/adventure.css?v=13" />
+  <link rel="stylesheet" href="css/cardduel.css?v=11" />
+  <link rel="stylesheet" href="css/graphcalc.css?v=11" />
+  <link rel="stylesheet" href="css/puzzle.css?v=1" />
+  <link rel="stylesheet" href="css/saccade.css?v=1" />
+  <link rel="stylesheet" href="css/demand.css?v=1" />
+  <link rel="stylesheet" href="css/chat.css?v=1" />
+  <link rel="stylesheet" href="css/ragdoll.css?v=3" />
+  <link rel="stylesheet" href="css/particles.css?v=5" />
+  <link rel="stylesheet" href="css/live.css?v=10" />
+  <link rel="stylesheet" href="css/zoo.css?v=6" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=40" />
-  <link rel="stylesheet" href="css/muralwalk.css?v=45" />
+  <link rel="stylesheet" href="css/spellforge.css?v=42" />
+  <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
+  <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=89" />
   <link rel="stylesheet" href="css/tabloid-print.css?v=1" />
   <link rel="stylesheet" href="css/conceptualizer.css?v=8" />
   <link rel="stylesheet" href="css/mobile-art-gen.css?v=2" />
-  <link rel="stylesheet" href="css/animate.css?v=13" />
+  <link rel="stylesheet" href="css/animate.css?v=14" />
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/pulse.css?v=2" />
@@ -48,19 +79,23 @@
   <link rel="stylesheet" href="css/market-desk.css?v=1" />
   <link rel="stylesheet" href="css/real-income.css?v=1" />
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
-  <link rel="stylesheet" href="css/supermarket.css?v=6" />
+  <link rel="stylesheet" href="css/supermarket.css?v=9" />
+  <link rel="stylesheet" href="css/banker.css?v=1" />
+  <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
-  <link rel="stylesheet" href="css/transfer.css?v=5" />
+  <link rel="stylesheet" href="css/transfer.css?v=7" />
   <link rel="stylesheet" href="css/fight.css?v=12" />
   <link rel="stylesheet" href="css/citations.css?v=1" />
   <link rel="stylesheet" href="css/plasma.css?v=7" />
   <link rel="stylesheet" href="css/spellshop.css?v=1" />
+  <link rel="stylesheet" href="css/runes.css?v=3" />
   <link rel="stylesheet" href="css/tab-debug.css?v=7" />
-  <link rel="stylesheet" href="css/site-nav.css?v=2" />
-  <link rel="stylesheet" href="css/mobile.css?v=8" />
+  <script defer src="js/lazy-assets.js?v=2"></script>
+  <script defer src="js/fonts-desktop.js?v=1"></script>
 </head>
 <body>
+  <a href="./">Welcome</a>
   <div id="xai-credits-hud" class="xai-credits-hud is-loading" role="status" aria-live="polite" aria-label="API credits and weekly usage">
     <a class="xai-credits-link" href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer" title="Open xAI billing — buy credits with money you earn">
       <span class="xai-credits-line" id="xai-credits-line1">Credits …</span>
@@ -98,6 +133,7 @@
         <button type="button" class="tab" data-tab="characters">Characters</button>
         <button type="button" class="tab" data-tab="objects">Objects</button>
         <button type="button" class="tab" data-tab="places">Places</button>
+        <button type="button" class="tab" data-tab="maps">Maps</button>
         <button type="button" class="tab" data-tab="api">API</button>
         <button type="button" class="tab" data-tab="spells">Spells</button>
         <button type="button" class="tab" data-tab="prompt">Prompt</button>
@@ -114,6 +150,8 @@
         <button type="button" class="tab" data-tab="income">Income</button>
         <button type="button" class="tab" data-tab="market">Market (sim)</button>
         <button type="button" class="tab" data-tab="supermarket">Supermarket</button>
+        <button type="button" class="tab" data-tab="banker">Banker</button>
+        <button type="button" class="tab" data-tab="carousel">Carousel</button>
         <button type="button" class="tab" data-tab="ideal">Ideal</button>
         <button type="button" class="tab" data-tab="match">Match</button>
         <button type="button" class="tab" data-tab="transfer">Transfer</button>
@@ -121,6 +159,23 @@
         <button type="button" class="tab" data-tab="citations">Citations</button>
         <button type="button" class="tab" data-tab="plasma">Plasma</button>
         <button type="button" class="tab" data-tab="spellshop">Spell Shop</button>
+        <button type="button" class="tab" data-tab="runes">Runes</button>
+        <button type="button" class="tab" data-tab="dream">Dream Stasis</button>
+        <button type="button" class="tab" data-tab="stare">Stare</button>
+        <button type="button" class="tab" data-tab="masks">Masks</button>
+        <button type="button" class="tab" data-tab="modeler">Studio 3D</button>
+        <button type="button" class="tab" data-tab="stock">Stock</button>
+        <button type="button" class="tab" data-tab="adventure">Adventure</button>
+        <button type="button" class="tab" data-tab="cardduel">Card Duel</button>
+        <button type="button" class="tab" data-tab="graphcalc">Graph</button>
+        <button type="button" class="tab" data-tab="puzzle">Puzzle</button>
+        <button type="button" class="tab" data-tab="saccade">Saccade</button>
+        <button type="button" class="tab" data-tab="demand">Demand</button>
+        <button type="button" class="tab" data-tab="chat">Chat</button>
+        <button type="button" class="tab" data-tab="ragdoll">Ragdoll</button>
+        <button type="button" class="tab" data-tab="particles">Particles</button>
+        <button type="button" class="tab" data-tab="live">Live</button>
+        <button type="button" class="tab" data-tab="zoo">Zoo</button>
       </nav>
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
@@ -133,6 +188,8 @@
   <nav class="gallery-collections" id="gallery-collections" aria-label="Gallery collections">
     <button type="button" class="gallery-collection active" data-collection="paintings">Paintings</button>
     <button type="button" class="gallery-collection" data-collection="generated">Generated</button>
+    <button type="button" class="gallery-collection" data-collection="sketches">Sketches</button>
+    <button type="button" class="gallery-collection" data-collection="sketches-inverted">Inverted sketches</button>
     <button type="button" class="gallery-collection" data-collection="characters">Characters</button>
     <button type="button" class="gallery-collection" data-collection="objects">Objects</button>
     <button type="button" class="gallery-collection" data-collection="places">Places</button>
@@ -311,7 +368,20 @@
             <div id="spell-buzz-toggles" class="spell-chip-list spell-buzz-toggles"></div>
             <label class="spell-fusion-label" for="spell-prompt">Extra buzz (optional, comma or words)</label>
             <input type="text" id="spell-prompt" class="spell-prompt-inline" placeholder="e.g. swirl, #6B2D8A, crystalline…" />
-            <button type="button" id="spell-generate-stasis" class="btn-cast" disabled>Generate image from stasis</button>
+            <div class="spell-generate-row">
+              <label class="spell-aspect-label" for="spell-aspect">Aspect
+                <select id="spell-aspect" class="spell-aspect" aria-label="Stasis vision aspect ratio">
+                  <option value="1:1">1:1 square</option>
+                  <option value="4:3">4:3</option>
+                  <option value="3:4">3:4 portrait</option>
+                  <option value="16:9" selected>16:9 wide</option>
+                  <option value="9:16">9:16 tall</option>
+                  <option value="3:2">3:2</option>
+                  <option value="2:3">2:3</option>
+                </select>
+              </label>
+              <button type="button" id="spell-generate-stasis" class="btn-cast" disabled>Generate image from stasis</button>
+            </div>
             <button type="button" id="spell-send-muralwalk" class="btn-secondary" disabled>Walk fused floor in Muralwalk</button>
             <p id="spell-generate-status" class="spell-generate-status" hidden></p>
             <div class="spell-share-row">
@@ -355,25 +425,25 @@
           </div>
         </section>
         <div class="spell-picker-toolbar">
-          <input type="search" id="spell-search" placeholder="Search 1, 10, 100, 1000… or title, tag…" />
+          <input type="search" id="spell-search" placeholder="Search #, phone, gen, title, tag…" />
           <span id="spell-picker-count" class="picker-count">—</span>
           <label class="jump-to">
             Jump to #
-            <input type="number" id="spell-jump" min="1" max="1000" placeholder="#" />
+            <input type="number" id="spell-jump" min="1" max="999999" placeholder="#" />
           </label>
         </div>
         <div class="spell-picker-actions">
           <button type="button" id="spell-shuffle" class="btn-secondary">Shuffle this page</button>
           <button type="button" id="spell-restore-page" class="btn-secondary" hidden>Restore this page</button>
-          <button type="button" id="spell-reshuffle-all" class="btn-secondary">New random spellbook</button>
+          <button type="button" id="spell-reshuffle-all" class="btn-secondary" title="Reshuffle paintings + phone + generated into a new mixed order">New random spellbook</button>
         </div>
         <div class="spellbook-pager-bar" id="spellbook-pager-bar">
           <button type="button" class="spell-page-arrow" id="spell-page-prev" aria-label="Previous page">‹</button>
           <div class="spellbook-pager-center">
-            <span class="spellbook-pager-label" id="spell-page-indicator" aria-live="polite">Page 1 of 40</span>
+            <span class="spellbook-pager-label" id="spell-page-indicator" aria-live="polite">Page 1 · loading arsenal…</span>
             <label class="spell-page-jump-label">
               Go to page
-              <input type="number" id="spell-page-jump" min="1" max="40" value="1" />
+              <input type="number" id="spell-page-jump" min="1" max="9999" value="1" />
             </label>
           </div>
           <button type="button" class="spell-page-arrow" id="spell-page-next" aria-label="Next page">›</button>
@@ -471,17 +541,20 @@
             <div class="mw-slot-hud-radial">
               <div class="mw-slot-hud-bubble mw-slot-hud-bubble-0" id="mw-slot-hud-0">
                 <img class="mw-slot-hud-thumb" id="mw-slot-hud-thumb-0" alt="" width="36" height="36" loading="eager" />
-                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-0" data-slot="0" title="Pick painting #1–1000">#</button>
+                <span class="mw-slot-hud-swatches" id="mw-slot-hud-swatches-0" aria-hidden="true"></span>
+                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-0" data-slot="0" title="Pick any gallery spell">#</button>
                 <span class="mw-slot-hud-text" id="mw-slot-hud-text-0" hidden>—</span>
               </div>
               <div class="mw-slot-hud-bubble mw-slot-hud-bubble-1" id="mw-slot-hud-1">
                 <img class="mw-slot-hud-thumb" id="mw-slot-hud-thumb-1" alt="" width="36" height="36" loading="eager" />
-                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-1" data-slot="1" title="Pick painting #1–1000">#</button>
+                <span class="mw-slot-hud-swatches" id="mw-slot-hud-swatches-1" aria-hidden="true"></span>
+                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-1" data-slot="1" title="Pick any gallery spell">#</button>
                 <span class="mw-slot-hud-text" id="mw-slot-hud-text-1" hidden>—</span>
               </div>
               <div class="mw-slot-hud-bubble mw-slot-hud-bubble-2" id="mw-slot-hud-2">
                 <img class="mw-slot-hud-thumb" id="mw-slot-hud-thumb-2" alt="" width="36" height="36" loading="eager" />
-                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-2" data-slot="2" title="Pick painting #1–1000">#</button>
+                <span class="mw-slot-hud-swatches" id="mw-slot-hud-swatches-2" aria-hidden="true"></span>
+                <button type="button" class="mw-slot-hud-select" id="mw-slot-hud-select-2" data-slot="2" title="Pick any gallery spell">#</button>
                 <span class="mw-slot-hud-text" id="mw-slot-hud-text-2" hidden>—</span>
               </div>
             </div>
@@ -840,22 +913,32 @@
         <div class="an-top-head">
           <h2>Animate</h2>
         </div>
-        <p class="an-top-hint">Each AI cast is a <strong>short clip</strong> (6–15s). Stack many on the <strong>10-minute timeline</strong> — like a media player — then hit <strong>Play timeline</strong> to watch your full film. Paste longer URLs too; they slot in up to 10:00 total.</p>
+        <p class="an-top-hint">
+          Cast <strong>exact</strong> 6 / 10 / <strong>15 second</strong> clips at 720p (or 480p for speed). Stack them on a <strong>10-minute timeline</strong>, play the film, or leave <strong>Autopilot</strong> on to keep casting while you watch.
+        </p>
         <div class="an-controls-row">
-          <span style="font-size:0.72rem;color:var(--text-muted)">Next clip length</span>
-          <button type="button" class="an-dur-btn active" data-dur="6">6s</button>
-          <button type="button" class="an-dur-btn" data-dur="10">10s</button>
-          <button type="button" class="an-dur-btn" data-dur="15" id="an-dur-15">15s</button>
+          <span style="font-size:0.72rem;color:var(--text-muted)">Length</span>
+          <button type="button" class="an-dur-btn" data-dur="6" aria-pressed="false">6s</button>
+          <button type="button" class="an-dur-btn" data-dur="10" aria-pressed="false">10s</button>
+          <button type="button" class="an-dur-btn active" data-dur="15" id="an-dur-15" aria-pressed="true">15s</button>
+          <span style="font-size:0.72rem;color:var(--text-muted);margin-left:0.35rem">Quality</span>
+          <button type="button" class="an-res-btn" data-res="480p" aria-pressed="false">480p</button>
+          <button type="button" class="an-res-btn active" data-res="720p" aria-pressed="true">720p</button>
+          <span id="an-dur-badge" class="an-dur-badge">Next cast → 15s · 720p</span>
           <label class="an-check">
             <input type="checkbox" id="an-append-end" checked />
             Append at end
           </label>
           <label class="an-check">
             <input type="checkbox" id="an-morph-chain" />
-            Morph link (≤8s)
+            Morph link (forces ≤8s)
+          </label>
+          <label class="an-check an-autopilot-check">
+            <input type="checkbox" id="an-autopilot" />
+            Autopilot (keep casting)
           </label>
         </div>
-        <p id="an-dur-hint" class="an-top-hint" style="margin-top:0.25rem"><strong>6s renders fastest.</strong> Stack many clips on the 10-min timeline · Play timeline = your film</p>
+        <p id="an-dur-hint" class="an-top-hint" style="margin-top:0.25rem"><strong>Next cast is 15 seconds at 720p.</strong> That exact duration is sent to xAI. Uncheck Morph for full length. Autopilot fills the 10:00 film for you.</p>
         <div class="an-prompt-row">
           <input type="text" id="an-prompt" class="an-prompt" placeholder="Scene motion — type @ for characters, places, or saved chain APIs (yellow)…" autocomplete="off" spellcheck="true" aria-label="Animate prompt" aria-autocomplete="list" aria-controls="an-mention-menu" />
         </div>
@@ -883,7 +966,7 @@
                 <div class="an-gen-pulse" aria-hidden="true"></div>
                 <p id="an-gen-phase" class="an-gen-phase">Rendering…</p>
                 <p id="an-gen-timer" class="an-gen-timer">0:00 elapsed</p>
-                <p id="an-gen-eta" class="an-gen-eta">Usually ~1–2 min at 480p</p>
+                <p id="an-gen-eta" class="an-gen-eta">Usually ~1–3 min at 720p / 15s</p>
                 <button type="button" id="an-cancel-gen" class="an-btn an-gen-cancel">Cancel</button>
               </div>
               <video id="an-player" class="an-player" playsinline controls hidden aria-label="Animate preview"></video>
@@ -1217,6 +1300,72 @@
           <span id="rm-tray-count" class="st-tray-count">Drag spells onto the preview to reshape the scene</span>
         </div>
         <div id="rm-spell-strip" class="st-spell-strip"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-maps" class="panel" hidden>
+    <div class="mp-shell">
+      <div class="mp-top">
+        <h2>Maps</h2>
+        <p class="mp-hint">
+          Create <strong>map stills</strong> for arenas, overworlds, dungeons, cities, and stages.
+          Generate a new image from your description, then <strong>Save map</strong> (also lands in Generated).
+        </p>
+        <div class="mp-row">
+          <input type="text" id="mp-prompt" class="mp-prompt" placeholder="e.g. rain-slick neon alley arena with rooftop ledges…" autocomplete="off" />
+          <button type="button" id="mp-generate" class="mp-btn accent">Generate map</button>
+        </div>
+        <div class="mp-row">
+          <select id="mp-kind" class="mp-select" aria-label="Map kind">
+            <option value="arena">Arena / fight stage</option>
+            <option value="stage">Side-view stage</option>
+            <option value="overworld">Overworld</option>
+            <option value="dungeon">Dungeon</option>
+            <option value="city">City</option>
+            <option value="landscape">Landscape board</option>
+          </select>
+          <select id="mp-view" class="mp-select" aria-label="View">
+            <option value="top-down">Top-down</option>
+            <option value="isometric">Isometric</option>
+            <option value="bird-eye">Bird's-eye</option>
+            <option value="side-view">Side-view</option>
+          </select>
+          <select id="mp-style" class="mp-select" aria-label="Style">
+            <option value="painterly">Painterly</option>
+            <option value="toon">Toon</option>
+            <option value="pixel">Pixel</option>
+            <option value="ink">Ink map</option>
+            <option value="stencil">Stencil</option>
+          </select>
+          <select id="mp-aspect" class="mp-select" aria-label="Aspect">
+            <option value="16:9">16:9</option>
+            <option value="1:1">1:1</option>
+            <option value="4:3">4:3</option>
+            <option value="3:2">3:2</option>
+          </select>
+        </div>
+        <p id="mp-status" class="mp-status" aria-live="polite"></p>
+      </div>
+      <div class="mp-body">
+        <div class="mp-stage" id="mp-stage" aria-label="Map preview">
+          <p id="mp-empty" class="mp-empty">Generate a map to preview it here</p>
+          <img id="mp-preview" alt="Map preview" hidden />
+        </div>
+        <aside class="mp-side">
+          <h3>Options</h3>
+          <label for="mp-paint-ref">Painting DNA # (optional 1–1000)</label>
+          <input type="number" id="mp-paint-ref" class="mp-prompt" min="1" max="1000" placeholder="e.g. 42" />
+          <button type="button" id="mp-variation" class="mp-btn" style="width:100%;margin-top:0.65rem">New variation</button>
+        </aside>
+      </div>
+      <div class="mp-save-row">
+        <input type="text" id="mp-name" class="mp-prompt" placeholder="Map name…" autocomplete="off" />
+        <button type="button" id="mp-save" class="mp-btn accent" disabled>Save map</button>
+      </div>
+      <div class="mp-saved">
+        <h3>Saved maps</h3>
+        <div id="mp-list" class="mp-list"></div>
       </div>
     </div>
   </section>
@@ -2416,7 +2565,11 @@
             <div><span>Real Cash App mo</span><strong id="mk-real-rev">$0</strong></div>
             <div><span>Rent/bills goal</span><strong id="mk-goal">$10,000</strong></div>
             <div><span>Sim vs goal</span><strong id="mk-sim-pct">0%</strong></div>
+            <div><span>Banker split /100</span><strong id="mk-banker-share">$0</strong></div>
           </div>
+          <p class="mk-muted" id="mk-banker-note" style="margin:0.55rem 0 0">
+            Sim revenue is divided equally across 100 supermarket people (50 women, 49 men + you). Open the Banker tab for debit/credit lines.
+          </p>
           <div class="mk-bar-wrap">
             <div class="mk-bar-label"><span>Sim progress</span><span>goal</span></div>
             <div class="mk-bar"><i id="mk-goal-bar" style="width:0%"></i></div>
@@ -2473,7 +2626,8 @@
         <div>
           <h2>Art Supermarket</h2>
           <p class="sm-hint">
-            Wave auto-starts. <strong>99 split across 6 entry kiosks</strong>, then released into
+            Wave auto-starts. This floor is also the <strong>Carousel</strong> city concourse.
+            <strong>99 split across 6 entry kiosks</strong>, then released into
             <strong>13 aisles</strong> (spread routes, full floor walk) → exit kiosk →
             <strong>11 registers</strong> → exit. Shoppers <strong>splurge</strong> under an
             <strong>8000-char</strong> receipt prompt. You are <strong>#100</strong> (WASD · E · Space · R · C).
@@ -2512,8 +2666,8 @@
             </div>
             <canvas id="sm-canvas" width="1180" height="640" aria-label="Supermarket floor"></canvas>
             <div class="sm-legend">
-              <span><i class="sm-lg-you"></i>You (#100)</span>
-              <span><i class="sm-lg-npc"></i>Shoppers 1–99</span>
+              <span><i class="sm-lg-you"></i>You (#100) — animated + portrait</span>
+              <span><i class="sm-lg-npc"></i>Shoppers with generated faces</span>
               <span><i class="sm-lg-stock"></i>Face cell 5×8 (×2 sides × 13 aisles)</span>
               <span><i class="sm-lg-empty"></i>Empty gray — click restock</span>
               <span>K1–K6 kiosks · R1–R11 · exit</span>
@@ -2521,15 +2675,17 @@
               <span>Top: bathroom lane (4+ stress)</span>
               <span>≤3 chat · high char receipts</span>
               <span>Left orb = last generate</span>
+              <span>TVs play saved-videos · stills Ken Burns 3s slideshow</span>
             </div>
           </div>
         </div>
         <aside class="sm-side">
           <div class="sm-card">
             <h3>Name tags</h3>
-            <p class="sm-muted">Click a dot or pick ID, edit the tag, apply. Names persist on this device.</p>
+            <p class="sm-muted">First + last names from Banker (50 women, 49 men, you as Logan Sevin). 1:1 pairs. Edit still persists locally.</p>
             <select id="sm-name-select" class="sm-name-edit" aria-label="Shopper"></select>
-            <input type="text" id="sm-name-input" class="sm-name-edit" maxlength="40" placeholder="Display name" />
+            <input type="text" id="sm-name-input" class="sm-name-edit" maxlength="48" placeholder="First Last" />
+            <p id="sm-person-meta" class="sm-muted" style="margin:0.35rem 0 0"></p>
             <button type="button" id="sm-name-apply">Apply name tag</button>
           </div>
           <div class="sm-card">
@@ -2584,6 +2740,7 @@
             </div>
             <p class="sm-muted">Never runs all 99 — only the selected receipt or your cart, one job at a time.</p>
             <img id="sm-gen-preview" class="sm-preview" alt="Selected generation preview" />
+            <video id="sm-gen-preview-video" class="sm-preview" controls playsinline muted loop></video>
             <p id="sm-status" class="sm-status"></p>
           </div>
           <div class="sm-card">
@@ -2632,6 +2789,7 @@
           <button type="button" id="sm-gen-lightbox-close">Close</button>
         </div>
         <img id="sm-gen-lightbox-img" alt="Generated cart vision large preview" />
+        <video id="sm-gen-lightbox-video" controls playsinline loop muted hidden></video>
       </div>
     </div>
     <div id="sm-modal" class="sm-modal-backdrop" hidden>
@@ -2644,6 +2802,159 @@
         </div>
         <p class="sm-muted">Or pick from gallery:</p>
         <ul id="sm-pick-list" class="sm-pick-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-banker" class="panel" hidden>
+    <div class="bk-shell">
+      <header class="bk-top">
+        <div>
+          <h2>Banker</h2>
+          <p class="bk-hint">
+            Private SIM bank for the supermarket 100. Fictional IINs
+            <code>990002</code> debit / <code>990001</code> credit. Last digit is a Luhn checksum
+            (mod 10). PANs and CVVs are HMAC-encrypted on disk. <strong>Not real cards — not spendable.</strong>
+          </p>
+        </div>
+        <div class="bk-actions">
+          <button type="button" id="bk-refresh" class="btn-primary">Refresh from Market sim</button>
+        </div>
+      </header>
+      <p class="bk-warn">
+        Simulation only. These numbers will fail at any real merchant. Never confuse them with a live Visa/Mastercard.
+      </p>
+      <div class="bk-stats" id="bk-stats">
+        <div><span>Sim revenue</span><strong id="bk-sim-rev">$0</strong></div>
+        <div><span>Share each</span><strong id="bk-share">$0</strong></div>
+        <div><span>People</span><strong>100</strong></div>
+        <div><span>Women / men</span><strong>50 / 50</strong></div>
+        <div><span>Pairs</span><strong>50</strong></div>
+        <div><span>Your debit</span><strong id="bk-you-bal">$0</strong></div>
+      </div>
+      <div class="bk-you" id="bk-you-card"></div>
+      <div class="bk-toolbar">
+        <input type="search" id="bk-search" placeholder="Search name, gender, pair…" aria-label="Search accounts" />
+        <label class="bk-check"><input type="checkbox" id="bk-reveal" /> Reveal PAN / CVV</label>
+      </div>
+      <div class="bk-table-wrap">
+        <table class="bk-table" id="bk-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Paired with</th>
+              <th>Possession</th>
+              <th>Debit</th>
+              <th>Credit line</th>
+              <th>Luhn</th>
+            </tr>
+          </thead>
+          <tbody id="bk-body">
+            <tr><td colspan="8" class="bk-muted">Loading ledger…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-carousel" class="panel" hidden>
+    <div class="lr-shell">
+      <header class="lr-top">
+        <div>
+          <h2>Carousel · The City</h2>
+          <p class="lr-hint">
+            Fallout Shelter bones, Logan’s Run crystal. The Banker 100 live here with their cards.
+            At <strong>30</strong> they ride Carousel and <strong>tier up</strong> (renew, not die).
+            Families form without blood overlap. The supermarket is the concourse below.
+          </p>
+        </div>
+        <div class="lr-clocks">
+          <div class="lr-cal" id="lr-cal-city">
+            <div class="lr-cal-kicker">City calendar</div>
+            <div class="lr-cal-date">
+              <span class="lr-cal-lab">Month</span><strong id="lr-city-month">—</strong>
+              <span class="lr-cal-lab">Day</span><strong id="lr-city-day">—</strong>
+              <span class="lr-cal-lab">Year</span><strong id="lr-city-year">—</strong>
+            </div>
+            <div class="lr-cal-time">
+              <span class="lr-cal-lab">Hour</span><strong id="lr-city-h">—</strong>
+              <span class="lr-cal-colon">:</span>
+              <span class="lr-cal-lab">Minute</span><strong id="lr-city-m">—</strong>
+              <span class="lr-cal-colon">:</span>
+              <span class="lr-cal-lab">Second</span><strong id="lr-city-s">—</strong>
+            </div>
+          </div>
+          <div class="lr-cal lr-cal-atomic">
+            <div class="lr-cal-kicker">Atomic UTC</div>
+            <div class="lr-cal-date">
+              <span class="lr-cal-lab">Month</span><strong id="lr-utc-month">—</strong>
+              <span class="lr-cal-lab">Day</span><strong id="lr-utc-day">—</strong>
+              <span class="lr-cal-lab">Year</span><strong id="lr-utc-year">—</strong>
+            </div>
+            <div class="lr-cal-time">
+              <span class="lr-cal-lab">Hour</span><strong id="lr-utc-h">—</strong>
+              <span class="lr-cal-colon">:</span>
+              <span class="lr-cal-lab">Minute</span><strong id="lr-utc-m">—</strong>
+              <span class="lr-cal-colon">:</span>
+              <span class="lr-cal-lab">Second</span><strong id="lr-utc-s">—</strong>
+            </div>
+          </div>
+          <div class="lr-cal-meta">
+            <div><span>Time break</span><strong id="lr-break">not sealed</strong></div>
+            <div><span>Speed</span><strong id="lr-speed">paused</strong></div>
+          </div>
+        </div>
+      </header>
+      <div class="lr-timebar" role="toolbar" aria-label="Time controller">
+        <button type="button" data-lr-speed="-31557600" title="Reverse 1 year / sec">⟪⟪ yr</button>
+        <button type="button" data-lr-speed="-86400" title="Reverse 1 day / sec">⟪ day</button>
+        <button type="button" data-lr-speed="-1" title="Reverse realtime (1s = 1s)">◀ 1×</button>
+        <button type="button" data-lr-speed="0" class="lr-pause" title="Pause">❚❚</button>
+        <button type="button" id="lr-seal" class="lr-seal" title="Seal time break to atomic UTC and play">Seal break</button>
+        <button type="button" data-lr-speed="1" title="Realtime: 1000ms = 1 city second">1×</button>
+        <button type="button" data-lr-speed="60" title="1 city minute / real second">min</button>
+        <button type="button" data-lr-speed="3600" title="1 city hour / real second">hr</button>
+        <button type="button" data-lr-speed="86400" title="1 city day / real second">day</button>
+        <button type="button" data-lr-speed="31557600" title="1 city year / real second">yr</button>
+        <button type="button" id="lr-supermarket" class="lr-go-sm">Enter supermarket</button>
+      </div>
+      <p class="lr-break-log" id="lr-break-meta">Seal a time break to start the City clock against atomic UTC.</p>
+      <div class="lr-legend" aria-hidden="true">
+        <span><i class="lr-lg lr-lg-you"></i>You (Logan)</span>
+        <span><i class="lr-lg lr-lg-f"></i>Woman</span>
+        <span><i class="lr-lg lr-lg-m"></i>Man</span>
+        <span><i class="lr-lg lr-lg-kid"></i>Child</span>
+        <span><i class="lr-crystal" style="background:#8cffb4"></i>Young</span>
+        <span><i class="lr-crystal" style="background:#ffe066"></i>Mid life</span>
+        <span><i class="lr-crystal" style="background:#ff3b6b"></i>Near Carousel (30)</span>
+      </div>
+      <div class="lr-body">
+        <div class="lr-stage">
+          <canvas id="lr-canvas" width="1180" height="680" aria-label="The City vault cutaway"></canvas>
+          <div class="lr-home-pager">
+            <button type="button" id="lr-home-prev">◀ Homes</button>
+            <span id="lr-home-page">HAB 1–5</span>
+            <button type="button" id="lr-home-next">Homes ▶</button>
+          </div>
+        </div>
+        <aside class="lr-side">
+          <div class="lr-card" id="lr-inspect">
+            <h3>Citizen</h3>
+            <p class="lr-muted">Click a lifeclock in the vault.</p>
+          </div>
+          <div class="lr-card">
+            <h3>City pulse</h3>
+            <div class="lr-kpis">
+              <div><span>Souls</span><strong id="lr-pop">0</strong></div>
+              <div><span>Households</span><strong id="lr-homes">0</strong></div>
+              <div><span>Tiers ridden</span><strong id="lr-tiers">0</strong></div>
+              <div><span>Kids (blood-safe)</span><strong id="lr-kids">0</strong></div>
+            </div>
+            <ul id="lr-feed" class="lr-feed"></ul>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -2804,6 +3115,7 @@
           <button type="button" id="tf-stage-sel" disabled>Add to phone tray</button>
         </div>
         <div id="tf-gallery-grid" class="tf-gallery-grid" aria-label="Gallery images"></div>
+        <button type="button" id="tf-load-more" class="tf-load-more" hidden>Load more</button>
       </div>
 
       <div class="tf-pane" data-tf-pane="upload" hidden>
@@ -3260,6 +3572,1928 @@
           </div>
           <textarea id="ss-lightbox-prompt" class="ss-lightbox-prompt" rows="8" readonly spellcheck="false" aria-label="Prompt for this image"></textarea>
           <p class="ss-lightbox-keys">← previous · → next · Esc close</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-runes" class="panel" hidden>
+    <div class="ru-shell">
+      <header class="ru-top">
+        <h2>Runes</h2>
+        <p class="ru-hint">
+          Incantation play — map English letters to runes, weave gallery spells / generated DNA, then <strong>Generate still</strong> or <strong>Video</strong> on your PC server.
+          Symbols from
+          <a href="https://www.symbolselect.com/rune-symbols/" target="_blank" rel="noopener noreferrer">symbolselect.com/rune-symbols</a>.
+        </p>
+      </header>
+
+      <div class="ru-grid">
+        <div class="ru-card">
+          <h3>Incantation</h3>
+          <label class="ru-label" for="ru-english">English (spoken meaning)</label>
+          <textarea id="ru-english" class="ru-english" rows="4" spellcheck="true" placeholder="e.g. open the gate of light…" aria-label="English incantation text"></textarea>
+          <label class="ru-label" for="ru-filler">Filler for unmapped letters</label>
+          <input type="text" id="ru-filler" class="ru-filler" maxlength="2" value="·" aria-label="Filler character for unmapped letters" />
+          <label class="ru-label" for="ru-runes">Runes (written form)</label>
+          <textarea id="ru-runes" class="ru-runes" rows="4" spellcheck="false" placeholder="ᚨᚠ…" aria-label="Runic text"></textarea>
+          <p class="ru-label">Live cast</p>
+          <div id="ru-live-preview" class="ru-preview ru-preview-empty">Type English or tap runes…</div>
+          <div class="ru-actions">
+            <button type="button" id="ru-btn-translate" class="btn-secondary">English → runes</button>
+            <button type="button" id="ru-btn-reverse" class="btn-secondary">Runes → English</button>
+            <button type="button" id="ru-btn-clear" class="btn-secondary">Clear</button>
+            <button type="button" id="ru-btn-copy-runes" class="btn-secondary">Copy runes</button>
+          </div>
+        </div>
+
+        <div class="ru-card">
+          <h3>Rune keyboard</h3>
+          <div class="ru-kb-toolbar">
+            <div class="ru-mode" role="group" aria-label="Keyboard mode">
+              <button type="button" data-ru-mode="type" class="active">Type</button>
+              <button type="button" data-ru-mode="assign">Assign 1–3 letters</button>
+            </div>
+            <button type="button" id="ru-btn-space" class="btn-secondary" style="padding:0.35rem 0.65rem;font-size:0.78rem">Space</button>
+            <button type="button" id="ru-btn-backspace" class="btn-secondary" style="padding:0.35rem 0.65rem;font-size:0.78rem">⌫</button>
+          </div>
+          <p class="ru-assign-hint">
+            Type mode inserts runes. Assign mode: tap a rune, type a <strong>1–3 letter</strong> key (e.g. <code>a</code>, <code>th</code>, <code>ing</code>), press <strong>Enter</strong>.
+            One rune can hold many keys; longest match wins when translating, so repeats in a prompt each convert.
+          </p>
+          <p id="ru-assign-hud" class="ru-assign-hud" hidden>Assign: …</p>
+          <div id="ru-keyboard" class="ru-kb" aria-label="Runic symbol keyboard"></div>
+          <p class="ru-source">74 symbols · green edge = mapped · keys shown under each rune</p>
+        </div>
+
+        <div class="ru-card">
+          <h3>Cipher blocks (1–3 letters → rune)</h3>
+          <p class="ru-assign-hint">
+            English→runes walks the text and matches the <strong>longest</strong> block first (3, then 2, then 1) every time the sequence appears.
+          </p>
+          <div class="ru-new-block-row">
+            <label class="ru-label" for="ru-new-block-from">Key (1–3 letters)
+              <input type="text" id="ru-new-block-from" class="ru-filler" maxlength="3" placeholder="e.g. th" autocomplete="off" />
+            </label>
+            <label class="ru-label" for="ru-new-block-to">Rune
+              <input type="text" id="ru-new-block-to" class="ru-filler" maxlength="2" placeholder="ᚦ" autocomplete="off" />
+            </label>
+            <button type="button" id="ru-btn-add-block" class="btn-secondary">Add block</button>
+          </div>
+          <div id="ru-map-grid" class="ru-map-grid" aria-label="Letter and multi-letter cipher map"></div>
+          <div class="ru-actions">
+            <button type="button" id="ru-btn-reset-map" class="btn-secondary">Reset map defaults</button>
+          </div>
+        </div>
+
+        <div class="ru-card ru-card-wide">
+          <h3>Spell DNA (optional)</h3>
+          <p class="ru-assign-hint">
+            Pull <strong>paintings</strong> or <strong>generated</strong> stills into the cast — their titles/descriptions fold into the generation prompt (like Spellforge).
+          </p>
+          <div id="ru-spell-slots" class="ru-spell-slots" aria-label="Up to three spell sources"></div>
+          <div class="ru-actions">
+            <button type="button" id="ru-btn-random-spells" class="btn-secondary">Random 3 paintings</button>
+            <button type="button" id="ru-btn-from-spellforge" class="btn-secondary">Use Spellforge equipped</button>
+            <button type="button" id="ru-btn-clear-spells" class="btn-secondary">Clear spells</button>
+          </div>
+          <p id="ru-spell-meta" class="ru-source">Spells: none</p>
+        </div>
+
+        <div class="ru-card ru-card-wide">
+          <h3>Cast · generate</h3>
+          <p class="ru-assign-hint">
+            <strong>Mass-cipher lengthy runes</strong> runs your English cast <em>and</em> each spell’s full description/prompt through the cipher
+            (same as typing) into long rune strings — not short titles. Then generate still/video (needs start_server.bat + API key).
+          </p>
+          <label class="ru-label" for="ru-prompt-out">Generation prompt (mass-ciphered runes + sources)</label>
+          <textarea id="ru-prompt-out" class="ru-prompt" rows="10" spellcheck="false" aria-label="Built prompt package"></textarea>
+          <div class="ru-gen-controls">
+            <label class="ru-aspect-label" for="ru-aspect">Aspect
+              <select id="ru-aspect" class="ru-select" aria-label="Aspect ratio">
+                <option value="1:1">1:1</option>
+                <option value="3:4">3:4</option>
+                <option value="16:9" selected>16:9</option>
+                <option value="9:16">9:16</option>
+                <option value="4:3">4:3</option>
+                <option value="3:2">3:2</option>
+              </select>
+            </label>
+            <label class="ru-aspect-label" for="ru-duration">Video
+              <select id="ru-duration" class="ru-select" aria-label="Video duration">
+                <option value="5">5s</option>
+                <option value="8">8s</option>
+                <option value="10" selected>10s</option>
+                <option value="15">15s</option>
+              </select>
+            </label>
+          </div>
+          <div class="ru-actions">
+            <button type="button" id="ru-btn-mass-cipher" class="btn-cast">Mass-cipher lengthy runes</button>
+            <button type="button" id="ru-btn-rebuild" class="btn-secondary">Rebuild package</button>
+            <button type="button" id="ru-btn-copy-prompt" class="btn-secondary">Copy package</button>
+            <button type="button" id="ru-btn-save" class="btn-secondary">Save session</button>
+            <button type="button" id="ru-btn-export" class="btn-secondary">Export JSON</button>
+            <button type="button" id="ru-btn-import" class="btn-secondary">Import JSON</button>
+            <input type="file" id="ru-import-file" accept="application/json,.json" hidden />
+            <button type="button" id="ru-btn-gen-image" class="btn-cast">Generate still</button>
+            <button type="button" id="ru-btn-gen-video" class="btn-cast">Generate video</button>
+            <button type="button" id="ru-btn-to-spellforge" class="btn-secondary">Open Spellforge</button>
+          </div>
+          <p id="ru-save-stamp" class="ru-source">Session auto-saves as you type</p>
+          <p id="ru-status" class="ru-status" aria-live="polite"></p>
+          <div class="ru-preview-media" id="ru-preview-media">
+            <img id="ru-preview-img" class="ru-preview-img" alt="Generated runic vision" hidden />
+            <video id="ru-preview-video" class="ru-preview-video" controls playsinline hidden></video>
+            <p id="ru-preview-empty" class="ru-preview-empty-media">No cast yet — generate a still or video here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-dream" class="panel" hidden>
+    <div class="ds-chamber" id="ds-chamber">
+      <div class="ds-stage" id="ds-stage" aria-label="Dream field">
+        <div class="ds-layer" id="ds-layer-a"></div>
+        <div class="ds-layer" id="ds-layer-b"></div>
+        <div class="ds-veil" aria-hidden="true"></div>
+        <div class="ds-bloom" aria-hidden="true"></div>
+        <div class="ds-grain" aria-hidden="true"></div>
+        <div class="ds-iris" aria-hidden="true"></div>
+        <div class="ds-time" id="ds-time">night stasis · in dream 0:00</div>
+        <div class="ds-presence-meter" id="ds-presence">presence …</div>
+        <div class="ds-cam-pip" id="ds-cam-pip" hidden title="Camera sense — not recorded">
+          <video muted playsinline autoplay></video>
+          <span>sensing you</span>
+        </div>
+        <div class="ds-whisper" id="ds-whisper" aria-live="polite"></div>
+      </div>
+
+      <!-- Brief splash only — auto-enters; keep for Surface return -->
+      <div class="ds-gate" id="ds-gate" hidden>
+        <h2>Dream Stasis</h2>
+        <p class="ds-gate-simple">Loading the field…</p>
+        <button type="button" class="ds-enter" id="ds-btn-enter"
+          onclick="if(window.DreamStasis){window.DreamStasis.enter();return false;}">
+          Enter the field
+        </button>
+      </div>
+
+      <div class="ds-inv" id="ds-inv" hidden>
+        <div class="ds-inv-panel">
+          <header class="ds-inv-head">
+            <h3 id="ds-inv-title">Paintings</h3>
+            <button type="button" id="ds-inv-close" class="ds-inv-close">Close</button>
+          </header>
+          <div class="ds-inv-tabs">
+            <button type="button" class="ds-inv-tab active" data-inv="paintings" id="ds-inv-tab-paintings">Paintings 1–1000</button>
+            <button type="button" class="ds-inv-tab" data-inv="generated" id="ds-inv-tab-generated">Generated</button>
+          </div>
+          <div class="ds-inv-pager">
+            <button type="button" id="ds-inv-prev">‹ Page</button>
+            <span id="ds-inv-page-label">1</span>
+            <button type="button" id="ds-inv-next">Page ›</button>
+          </div>
+          <div class="ds-inv-grid" id="ds-inv-grid"></div>
+        </div>
+      </div>
+
+      <!-- Visible when HUD is hidden so you can restore / talk -->
+      <div class="ds-float-dock" id="ds-float-dock" hidden>
+        <button type="button" id="ds-btn-show-hud" title="Show controls">Show HUD</button>
+        <button type="button" id="ds-btn-talk-float" class="ds-talk-btn" title="Talk to the field">Talk</button>
+      </div>
+
+      <div class="ds-hud" id="ds-hud">
+        <div class="ds-hud-primary" role="toolbar" aria-label="Dream primary controls">
+          <button type="button" id="ds-btn-prev" title="Previous (first → last)">‹</button>
+          <span class="ds-counter" id="ds-counter">G# —</span>
+          <button type="button" id="ds-btn-next" title="Next">›</button>
+          <button type="button" id="ds-btn-pool-gen" class="active" title="Browse generated first→last">Generated</button>
+          <button type="button" id="ds-btn-pool-paint" title="Open paintings inventory">Paintings</button>
+          <button type="button" id="ds-btn-sense">Camera</button>
+          <button type="button" id="ds-btn-flip-cam" title="Switch front / back camera">Back cam</button>
+          <button type="button" id="ds-btn-live-now" title="Read camera into prompt">Read cam</button>
+          <button type="button" id="ds-btn-talk" class="ds-talk-btn" title="Speak to the dream">Talk</button>
+          <button type="button" id="ds-btn-fuse" class="ds-whisper-btn" title="New image from camera text + selected description">Generate new</button>
+          <button type="button" id="ds-btn-hide-hud" title="Hide HUD (H)">Hide HUD</button>
+        </div>
+        <div class="ds-hud-more" id="ds-hud-more">
+          <label class="ds-jump-label" for="ds-jump-num">Jump
+            <input type="text" id="ds-jump-num" class="ds-jump-num" placeholder="42 or G#120" inputmode="text" autocomplete="off" enterkeyhint="go" aria-label="Jump number" />
+          </label>
+          <button type="button" id="ds-btn-jump">Go</button>
+          <button type="button" id="ds-btn-inv" title="Open inventory grid">Inventory</button>
+          <button type="button" id="ds-btn-refresh">Refresh</button>
+          <button type="button" id="ds-btn-immerse">Immerse</button>
+          <button type="button" id="ds-btn-surface">Surface</button>
+          <select id="ds-cam-select" class="ds-cam-select" aria-label="Choose camera" hidden></select>
+        </div>
+        <p class="ds-status" id="ds-status" aria-live="polite"></p>
+        <div class="ds-live-prompt-panel" id="ds-live-prompt-panel">
+          <div class="ds-live-prompt-head">
+            <span id="ds-live-prompt-label">Fusion prompt · camera + this vision</span>
+            <span id="ds-live-prompt-tick" class="ds-live-tick">idle</span>
+          </div>
+          <textarea id="ds-live-prompt" class="ds-live-prompt" rows="4" spellcheck="false" placeholder="Read cam, then Fuse — vision prompt + camera prompt combine here…" aria-label="Fusion generation prompt"></textarea>
+          <div class="ds-live-actions">
+            <button type="button" id="ds-btn-live-copy">Copy</button>
+            <button type="button" id="ds-btn-fuse-2" class="ds-whisper-btn">Generate new image</button>
+          </div>
+          <p class="ds-live-hint" id="ds-live-hint">
+            <strong>‹ ›</strong> pick a still · <strong>Read cam</strong> · <strong>Generate new</strong> =
+            camera text + that still’s description → a brand‑new image (not a copy).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-stare" class="panel" hidden>
+    <div class="stare-shell">
+      <div class="stare-top">
+        <h2>Stare</h2>
+        <p class="stare-hint">
+          <strong>Spells</strong> build walls and dimensions (by potency). The <strong>stare shape</strong>
+          (nested geometry / pyramid optical form) is stylization around the image’s <strong>flat-Z centerpoint</strong>
+          — volumes fall inward or press outward. Both content and style. No inception recursion.
+        </p>
+        <div class="stare-row">
+          <input
+            type="text"
+            id="stare-prompt"
+            class="stare-prompt"
+            placeholder="Optional intention (reinterpreted wildly — spells assist, never copy)…"
+            autocomplete="off"
+          />
+          <button type="button" id="stare-generate" class="stare-btn accent">Open a stare</button>
+        </div>
+        <div class="stare-row">
+          <select id="stare-border" class="stare-select" aria-label="Frame that builds the edges">
+            <option value="worlds">Frame: machine / world border</option>
+            <option value="threshold">Frame: hatch / iris viewport</option>
+            <option value="frame">Frame: machined bezel (mechanical)</option>
+            <option value="nature">Frame: bio-mechanical lip</option>
+            <option value="city">Frame: console / rack aperture</option>
+            <option value="abstract">Frame: geometric circuit lip</option>
+          </select>
+          <select id="stare-mood" class="stare-select" aria-label="Mood">
+            <option value="vast">Vast / solemn</option>
+            <option value="eerie">Eerie liminal</option>
+            <option value="tender">Tender distance</option>
+            <option value="cosmic">Cosmic</option>
+            <option value="storm">Storm-lit</option>
+          </select>
+          <select id="stare-aspect" class="stare-select" aria-label="Aspect">
+            <option value="1:1">1:1</option>
+            <option value="16:9">16:9</option>
+            <option value="9:16">9:16</option>
+            <option value="4:3">4:3</option>
+          </select>
+        </div>
+        <p id="stare-status" class="stare-status" aria-live="polite"></p>
+        <div class="stare-equipped-wrap">
+          <div class="stare-equipped-head">
+            <strong>Equipped spells · influence potencies</strong>
+            <button type="button" id="stare-clear-spells" class="stare-btn stare-btn-mini">Clear</button>
+          </div>
+          <div id="stare-equipped" class="stare-equipped" aria-label="Equipped spells with potency sliders"></div>
+        </div>
+      </div>
+
+      <div class="stare-space-wrap">
+        <div class="stare-space-bar">
+          <div>
+            <strong>Depth view space</strong>
+            <span class="stare-space-note">13 squares · each fits inside the next · drag within parent only</span>
+          </div>
+          <button type="button" id="stare-space-reset" class="stare-btn stare-btn-mini">Reset geometry</button>
+        </div>
+        <div class="stare-space-stage" id="stare-space-stage">
+          <canvas id="stare-space" width="640" height="640" aria-label="Nested depth squares L1 to L13"></canvas>
+        </div>
+        <p id="stare-space-readout" class="stare-space-readout" aria-live="polite"></p>
+      </div>
+
+      <div class="stare-well" id="stare-well" aria-label="Frame stare preview — drop spells here">
+        <button type="button" class="stare-well-exit" id="stare-exit-immerse">Exit</button>
+        <div id="stare-empty" class="stare-empty">
+          <p>Geometry above is the image n-space. Drop spells, then open a stare.</p>
+        </div>
+        <img id="stare-preview" alt="Frame stare" hidden />
+      </div>
+
+      <div class="stare-actions">
+        <button type="button" id="stare-variation" class="stare-btn" title="One depth step per click · polish bands · sink prior still farther">New variation</button>
+        <button type="button" id="stare-immerse" class="stare-btn" disabled>Immerse (fall in)</button>
+        <input type="text" id="stare-name" class="stare-prompt" placeholder="Name this stare…" autocomplete="off" />
+        <button type="button" id="stare-save" class="stare-btn accent" disabled>Save stare</button>
+      </div>
+
+      <div class="stare-tray">
+        <div class="stare-tray-bar">
+          <strong>Spell tray</strong>
+          <div class="stare-filter-row" role="group" aria-label="Spell source filter">
+            <button type="button" class="stare-filter-btn is-active" data-filter="all">All</button>
+            <button type="button" class="stare-filter-btn" data-filter="painting">Paintings</button>
+            <button type="button" class="stare-filter-btn" data-filter="generated">Generated</button>
+          </div>
+          <span id="stare-tray-count" class="stare-tray-count">Loading spells…</span>
+          <button type="button" id="stare-randomize" class="stare-btn stare-btn-mini">Shuffle tray</button>
+        </div>
+        <div id="stare-spell-strip" class="stare-spell-strip" aria-label="Spells you can equip"></div>
+      </div>
+
+      <div class="stare-saved">
+        <h3>Saved stares</h3>
+        <div id="stare-list" class="stare-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-masks" class="panel" hidden>
+    <div class="msk-shell">
+      <div class="msk-top">
+        <h2>Masks</h2>
+        <p class="msk-hint">
+          <strong>Cinematic full-face drama masks</strong> (not medical PPE). Expression is
+          <strong>mundane and readable</strong>; spells cast on the <strong>mask surface</strong>
+          and optionally fill the <strong>background</strong>. Choose a <strong>reflective</strong> finish
+          so the world can live on the mask. Equip spells; set potencies.
+        </p>
+        <div class="msk-row">
+          <input
+            type="text"
+            id="msk-prompt"
+            class="msk-prompt"
+            placeholder="Optional note (surface craft, not labels)…"
+            autocomplete="off"
+          />
+          <button type="button" id="msk-generate" class="msk-btn accent">Cast mask</button>
+        </div>
+        <div class="msk-row">
+          <select id="msk-material" class="msk-select" aria-label="Mask material">
+            <option value="porcelain">Material: porcelain / ceramic</option>
+            <option value="leather">Material: tooled leather</option>
+            <option value="metal">Material: hammered metal</option>
+            <option value="wood">Material: carved wood</option>
+            <option value="resin">Material: cinema resin prop</option>
+            <option value="paper">Material: papier-mâché</option>
+            <option value="bone">Material: bone-ivory polish</option>
+            <option value="glass">Material: frosted glass</option>
+          </select>
+          <select id="msk-expression" class="msk-select" aria-label="Mundane expression">
+            <option value="blank">Expression: blank calm</option>
+            <option value="slight">Expression: slight smile</option>
+            <option value="excited">Expression: excited</option>
+            <option value="tired">Expression: tired eyes</option>
+            <option value="focus">Expression: quiet focus</option>
+            <option value="softfrown">Expression: soft frown</option>
+            <option value="curious">Expression: mild curiosity</option>
+            <option value="solemn">Expression: solemn</option>
+            <option value="sleepy">Expression: sleepy calm</option>
+            <option value="worried">Expression: worried</option>
+            <option value="infatuated">Expression: infatuated</option>
+            <option value="grievanced">Expression: grieved / grievanced</option>
+            <option value="anxious">Expression: anxious</option>
+            <option value="wistful">Expression: wistful</option>
+            <option value="annoyed">Expression: mildly annoyed</option>
+            <option value="embarrassed">Expression: embarrassed</option>
+            <option value="hopeful">Expression: hopeful</option>
+            <option value="skeptical">Expression: skeptical</option>
+            <option value="bored">Expression: bored</option>
+            <option value="startled">Expression: lightly startled</option>
+            <option value="tender">Expression: tender</option>
+            <option value="bitter">Expression: quiet bitter</option>
+            <option value="relieved">Expression: relieved</option>
+            <option value="shy">Expression: shy</option>
+            <option value="yearning">Expression: yearning</option>
+            <option value="pensive">Expression: pensive</option>
+            <option value="smug">Expression: slight smug</option>
+            <option value="hurt">Expression: quietly hurt</option>
+            <option value="grateful">Expression: soft grateful</option>
+            <option value="defiant">Expression: quiet defiant</option>
+            <option value="lonely">Expression: lonely</option>
+          </select>
+          <select id="msk-aspect" class="msk-select" aria-label="Aspect">
+            <option value="1:1">1:1</option>
+            <option value="3:4">3:4</option>
+            <option value="4:5">4:5</option>
+            <option value="9:16">9:16</option>
+          </select>
+          <select id="msk-background" class="msk-select" aria-label="Background">
+            <option value="studio">Background: simple studio</option>
+            <option value="spells">Background: spell world</option>
+            <option value="spells-soft">Background: soft spell atmosphere</option>
+            <option value="spells-stage">Background: spell stage / set</option>
+          </select>
+          <select id="msk-finish" class="msk-select" aria-label="Mask finish">
+            <option value="matte">Finish: matte / paint</option>
+            <option value="gloss">Finish: gloss / glaze</option>
+            <option value="reflective">Finish: reflective</option>
+            <option value="mirror">Finish: mirror / chrome</option>
+          </select>
+        </div>
+        <p id="msk-status" class="msk-status" aria-live="polite"></p>
+        <div class="msk-equipped-wrap">
+          <div class="msk-equipped-head">
+            <strong>Equipped spells · surface casting potencies</strong>
+            <button type="button" id="msk-clear-spells" class="msk-btn msk-btn-mini">Clear</button>
+          </div>
+          <div id="msk-equipped" class="msk-equipped" aria-label="Equipped spells"></div>
+        </div>
+      </div>
+
+      <div class="msk-well" id="msk-well" aria-label="Mask preview — drop spells here">
+        <p id="msk-empty" class="msk-empty">
+          Equip spells, set potencies, cast — full-face drama mask; casting from the surface.
+        </p>
+        <img id="msk-preview" alt="Drama mask" hidden />
+      </div>
+
+      <div class="msk-actions">
+        <button type="button" id="msk-variation" class="msk-btn">New variation</button>
+        <input type="text" id="msk-name" class="msk-prompt" placeholder="Name this mask…" autocomplete="off" />
+        <button type="button" id="msk-save" class="msk-btn accent" disabled>Save mask</button>
+      </div>
+
+      <div class="msk-tray">
+        <div class="msk-tray-bar">
+          <strong>Spell tray</strong>
+          <div class="msk-filter-row" role="group" aria-label="Spell source filter">
+            <button type="button" class="msk-filter-btn is-active" data-filter="all">All</button>
+            <button type="button" class="msk-filter-btn" data-filter="painting">Paintings</button>
+            <button type="button" class="msk-filter-btn" data-filter="generated">Generated</button>
+          </div>
+          <span id="msk-tray-count" class="msk-tray-count">Loading…</span>
+          <button type="button" id="msk-randomize" class="msk-btn msk-btn-mini">Shuffle</button>
+        </div>
+        <div id="msk-spell-strip" class="msk-spell-strip" aria-label="Spells for mask surface"></div>
+      </div>
+
+      <div class="msk-saved">
+        <h3>Saved masks</h3>
+        <div id="msk-list" class="msk-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-modeler" class="panel" hidden>
+    <div class="mod-shell">
+      <div class="mod-top">
+        <h2>Studio 3D</h2>
+        <p class="mod-hint">
+          Blender-style viewport — object + mesh edit (face/edge/vertex), numeric transforms, axis lock,
+          shelves, Spellforge plane, and multi-style 3D prints (globe, flag, plaque, totem, crystal).
+          Switch to the <strong>UV Editor</strong> workspace tab to unwrap and edit UVs.
+        </p>
+        <div class="mod-workspace-tabs" role="tablist" aria-label="Studio workspaces">
+          <button type="button" class="mod-ws-tab is-active" data-mod-workspace="3d" id="mod-ws-3d" role="tab" aria-selected="true">3D</button>
+          <button type="button" class="mod-ws-tab" data-mod-workspace="uv" id="mod-ws-uv" role="tab" aria-selected="false">UV Editor</button>
+        </div>
+      </div>
+
+      <div id="mod-workspace-3d" class="mod-workspace is-active" data-workspace="3d">
+      <div class="mod-toolbar" role="toolbar" aria-label="3D tools">
+        <div class="mod-tool-group">
+          <span class="mod-label">Add</span>
+          <button type="button" class="mod-btn" data-add="cube">Cube</button>
+          <button type="button" class="mod-btn" data-add="sphere">Sphere</button>
+          <button type="button" class="mod-btn" data-add="cylinder">Cylinder</button>
+          <button type="button" class="mod-btn" data-add="cone">Cone</button>
+          <button type="button" class="mod-btn" data-add="plane">Plane</button>
+          <button type="button" class="mod-btn" data-add="torus">Torus</button>
+          <button type="button" class="mod-btn" data-add="ico">Ico</button>
+          <button type="button" class="mod-btn" data-add="shelf" title="Spawn a display shelf — printed globes land in empty slots">Shelf</button>
+          <button type="button" class="mod-btn accent" id="mod-add-spellforge" data-add="spellforge" title="Live usable Spellforge as a 3D plane">Spellforge Plane</button>
+          <button type="button" class="mod-btn accent" id="mod-add-printer" data-add="printer" title="Stacks flat image prints from Spellforge jobs">Printer</button>
+          <button type="button" class="mod-btn accent" id="mod-add-mesh-printer" data-add="mesh-printer" title="3D print from Spellforge (style below)">3D Printer</button>
+        </div>
+        <div class="mod-tool-group">
+          <span class="mod-label">Object</span>
+          <button type="button" class="mod-btn mod-tool-btn is-active" data-tool="select">Select</button>
+          <button type="button" class="mod-btn mod-tool-btn" data-tool="move">Move (G)</button>
+          <button type="button" class="mod-btn mod-tool-btn" data-tool="rotate">Rotate (R)</button>
+          <button type="button" class="mod-btn mod-tool-btn" data-tool="scale">Scale (S)</button>
+        </div>
+        <div class="mod-tool-group">
+          <span class="mod-label">Edit</span>
+          <button type="button" class="mod-btn" id="mod-edit-mode" title="Toggle Edit Mode (Tab)">Edit Mode (Tab)</button>
+          <button type="button" class="mod-btn mod-select-mode" data-select-mode="face" title="Select faces" disabled>Face</button>
+          <button type="button" class="mod-btn mod-select-mode" data-select-mode="edge" title="Select edges" disabled>Edge</button>
+          <button type="button" class="mod-btn mod-select-mode" data-select-mode="vertex" title="Select vertices" disabled>Vertex</button>
+          <button type="button" class="mod-btn" id="mod-extrude" title="Extrude then drag depth (E)">Extrude</button>
+          <button type="button" class="mod-btn" id="mod-inset" title="Inset face (I)">Inset</button>
+          <button type="button" class="mod-btn" id="mod-bevel" title="Bevel (B)">Bevel</button>
+          <button type="button" class="mod-btn is-active" id="mod-bevel-flat" title="Flat bevel profile" data-bevel-profile="flat">Flat</button>
+          <button type="button" class="mod-btn" id="mod-bevel-curved" title="Curved bevel profile" data-bevel-profile="curved">Curved</button>
+          <button type="button" class="mod-btn" id="mod-loopcut" title="Loop cut (Ctrl+R)">Loop cut</button>
+          <button type="button" class="mod-btn" id="mod-subdivide" title="Subdivide">Subdivide</button>
+        </div>
+        <div class="mod-tool-group">
+          <span class="mod-label">UV</span>
+          <button type="button" class="mod-btn accent" id="mod-open-uv" title="Open UV Editor workspace">UV Editor</button>
+        </div>
+        <div class="mod-tool-group">
+          <span class="mod-label">Axis</span>
+          <button type="button" class="mod-btn mod-axis-btn" data-axis="x" title="Lock X">X</button>
+          <button type="button" class="mod-btn mod-axis-btn" data-axis="y" title="Lock Y">Y</button>
+          <button type="button" class="mod-btn mod-axis-btn" data-axis="z" title="Lock Z">Z</button>
+          <button type="button" class="mod-btn" id="mod-axis-clear" title="Clear axis lock">Free</button>
+        </div>
+        <div class="mod-tool-group">
+          <span class="mod-label">View</span>
+          <button type="button" class="mod-btn" data-view="persp">Persp</button>
+          <button type="button" class="mod-btn" data-view="front">Front</button>
+          <button type="button" class="mod-btn" data-view="top">Top</button>
+          <button type="button" class="mod-btn" data-view="right">Right</button>
+          <button type="button" class="mod-btn" id="mod-focus">Focus (F)</button>
+          <button type="button" class="mod-btn is-active" id="mod-toggle-grid">Grid</button>
+          <button type="button" class="mod-btn is-active" id="mod-toggle-snap" title="Snap to faces when you finish a move">Face snap</button>
+        </div>
+        <div class="mod-tool-group">
+          <button type="button" class="mod-btn" id="mod-duplicate">Duplicate</button>
+          <button type="button" class="mod-btn" id="mod-delete">Delete</button>
+          <button type="button" class="mod-btn" id="mod-clear">Clear scene</button>
+          <button type="button" class="mod-btn accent" id="mod-export">Export GLB</button>
+          <button type="button" class="mod-btn is-active" id="mod-plane-ui" title="Select = use Spellforge · G/R/S = gimbal">Using plane</button>
+        </div>
+      </div>
+
+      <div class="mod-body">
+        <aside class="mod-sidebar">
+          <div class="mod-panel">
+            <h3>Outliner</h3>
+            <div id="mod-outliner" class="mod-outliner" aria-label="Scene objects"></div>
+          </div>
+          <div class="mod-panel">
+            <h3>Transform (numeric)</h3>
+            <div class="mod-props">
+              <div class="mod-prop-row">
+                <label>Pos X Y Z <span class="mod-axis-hint">(Blender: Z↑)</span></label>
+                <div class="mod-num-row">
+                  <input type="number" id="mod-num-px" step="0.05" value="0" title="X" />
+                  <input type="number" id="mod-num-py" step="0.05" value="0" title="Y depth" />
+                  <input type="number" id="mod-num-pz" step="0.05" value="0" title="Z up" />
+                </div>
+              </div>
+              <div class="mod-prop-row">
+                <label>Rot ° X Y Z</label>
+                <div class="mod-num-row">
+                  <input type="number" id="mod-num-rx" step="1" value="0" title="X" />
+                  <input type="number" id="mod-num-ry" step="1" value="0" title="Y depth" />
+                  <input type="number" id="mod-num-rz" step="1" value="0" title="Z up" />
+                </div>
+              </div>
+              <div class="mod-prop-row">
+                <label>Scale X Y Z</label>
+                <div class="mod-num-row">
+                  <input type="number" id="mod-num-sx" step="0.05" value="1" title="X" />
+                  <input type="number" id="mod-num-sy" step="0.05" value="1" title="Y depth" />
+                  <input type="number" id="mod-num-sz" step="0.05" value="1" title="Z up" />
+                </div>
+              </div>
+              <div class="mod-prop-row">
+                <button type="button" class="mod-btn accent" id="mod-apply-num">Apply numbers</button>
+                <button type="button" class="mod-btn" id="mod-read-num" title="Read from selection">Read</button>
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-edit-amount">Extrude / inset / bevel / nudge</label>
+                <input type="number" id="mod-edit-amount" step="0.05" value="0.15" />
+              </div>
+            </div>
+          </div>
+          <div class="mod-panel">
+            <h3>Screenshot → prompt</h3>
+            <div class="mod-props">
+              <p class="mod-mini-hint">Capture the 3D view, turn it into a generation prompt, then generate.</p>
+              <div class="mod-prop-row">
+                <button type="button" class="mod-btn accent" id="mod-shot-prompt">Screenshot → prompt</button>
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-shot-text">Prompt</label>
+                <textarea id="mod-shot-text" rows="5" placeholder="Prompt appears here after screenshot…"></textarea>
+              </div>
+              <div class="mod-prop-row">
+                <button type="button" class="mod-btn accent" id="mod-shot-generate" title="Generate with this prompt + screenshot as reference">Generate from prompt</button>
+              </div>
+              <div class="mod-prop-row">
+                <img id="mod-shot-preview" class="mod-shot-preview" alt="" hidden />
+              </div>
+            </div>
+          </div>
+          <div class="mod-panel">
+            <h3>Properties</h3>
+            <div class="mod-props">
+              <div class="mod-prop-row">
+                <label for="mod-prop-name">Name</label>
+                <input type="text" id="mod-prop-name" autocomplete="off" />
+              </div>
+              <div class="mod-prop-row">
+                <label>Fill</label>
+                <div class="mod-mat-mode" role="radiogroup" aria-label="Material fill type">
+                  <label class="mod-mat-mode-opt">
+                    <input type="radio" name="mod-mat-mode" id="mod-mat-mode-color" value="color" checked />
+                    Color
+                  </label>
+                  <label class="mod-mat-mode-opt">
+                    <input type="radio" name="mod-mat-mode" id="mod-mat-mode-image" value="image" />
+                    Image
+                  </label>
+                </div>
+              </div>
+              <div class="mod-prop-row" id="mod-prop-color-row">
+                <label for="mod-prop-color">Color</label>
+                <input type="color" id="mod-prop-color" value="#8a90a8" />
+              </div>
+              <div class="mod-prop-row" id="mod-prop-image-row" hidden>
+                <label for="mod-prop-image">Image</label>
+                <input type="file" id="mod-prop-image" accept="image/*" />
+                <div class="mod-mat-img-actions">
+                  <img id="mod-prop-image-preview" class="mod-mat-img-preview" alt="" hidden />
+                  <button type="button" class="mod-btn" id="mod-prop-image-clear" title="Remove image map">Clear image</button>
+                </div>
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-prop-opacity">Opacity <span id="mod-prop-opacity-val" class="mod-prop-val">100%</span></label>
+                <input type="range" id="mod-prop-opacity" min="0" max="1" step="0.01" value="1" />
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-prop-metal">Metalness</label>
+                <input type="range" id="mod-prop-metal" min="0" max="1" step="0.05" value="0.15" />
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-prop-rough">Roughness</label>
+                <input type="range" id="mod-prop-rough" min="0" max="1" step="0.05" value="0.55" />
+              </div>
+              <div class="mod-prop-row">
+                <label><input type="checkbox" id="mod-prop-wire" /> Wireframe</label>
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-mat-slot">Materials</label>
+                <select id="mod-mat-slot" title="Active material slot"></select>
+              </div>
+              <div class="mod-prop-row">
+                <button type="button" class="mod-btn" id="mod-mat-add" title="Add another material slot">+ Material</button>
+                <button type="button" class="mod-btn accent" id="mod-mat-assign" title="Paint selected face with active material">Assign to face</button>
+              </div>
+              <div class="mod-prop-row">
+                <label for="mod-print-style">3D print style</label>
+                <select id="mod-print-style">
+                  <option value="auto">Auto (mix)</option>
+                  <option value="globe">Globe (spinning)</option>
+                  <option value="flag">Flag / centerfold</option>
+                  <option value="plaque">Plaque</option>
+                  <option value="totem">Totem</option>
+                  <option value="crystal">Crystal</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="mod-viewport-wrap" id="mod-viewport-wrap">
+          <canvas id="mod-canvas" aria-label="3D viewport"></canvas>
+          <div class="mod-viewport-hud" id="mod-hud">Tool: select · Selected: none</div>
+        </div>
+      </div>
+      <p class="mod-keys mod-keys-3d">Tab Edit · LMB select · E drag extrude · I inset · B bevel · Ctrl+Z/Y undo · G/R/S · MMB orbit</p>
+      </div><!-- /mod-workspace-3d -->
+
+      <div id="mod-workspace-uv" class="mod-workspace" data-workspace="uv" hidden>
+        <div class="mod-uv-toolbar" role="toolbar" aria-label="UV tools">
+          <div class="mod-tool-group">
+            <span class="mod-label">Project</span>
+            <button type="button" class="mod-btn" id="mod-uv-planar" title="Planar project UVs">Planar</button>
+            <button type="button" class="mod-btn" id="mod-uv-box" title="Box project UVs">Box</button>
+            <button type="button" class="mod-btn" id="mod-uv-sphere" title="Spherical project UVs">Sphere</button>
+          </div>
+          <div class="mod-tool-group">
+            <span class="mod-label">Edit</span>
+            <button type="button" class="mod-btn" id="mod-uv-fit" title="Fit UV view to islands">Fit view</button>
+            <button type="button" class="mod-btn" id="mod-uv-reset-view" title="Reset pan/zoom to 0–1 square">Reset view</button>
+            <button type="button" class="mod-btn" id="mod-uv-checker" title="Apply checker texture on mesh">Checker</button>
+            <button type="button" class="mod-btn" id="mod-uv-pack" title="Normalize selected UVs into 0–1">Pack 0–1</button>
+          </div>
+          <div class="mod-tool-group">
+            <span class="mod-label">Image</span>
+            <input type="file" id="mod-uv-image" accept="image/*" title="Assign image to active material" />
+          </div>
+          <div class="mod-tool-group">
+            <button type="button" class="mod-btn" id="mod-uv-back-3d" title="Return to 3D workspace">← 3D</button>
+          </div>
+        </div>
+        <div class="mod-uv-body">
+          <aside class="mod-uv-sidebar">
+            <div class="mod-panel">
+              <h3>UV Editor</h3>
+              <p class="mod-mini-hint">
+                Separate dock workspace for unwrapping and editing UVs. Uses the mesh selected in 3D.
+              </p>
+              <div class="mod-prop-row">
+                <label>Active mesh</label>
+                <div id="mod-uv-mesh-name" class="mod-uv-mesh-name">None selected</div>
+              </div>
+              <div class="mod-prop-row">
+                <label>Info</label>
+                <div id="mod-uv-info" class="mod-uv-info">Select a mesh in 3D, then open UV Editor.</div>
+              </div>
+              <div class="mod-prop-row">
+                <label><input type="checkbox" id="mod-uv-show-sel" checked /> Highlight selected face UVs</label>
+              </div>
+              <div class="mod-prop-row">
+                <label><input type="checkbox" id="mod-uv-snap" /> Snap to 0.05 grid while dragging</label>
+              </div>
+            </div>
+            <div class="mod-panel">
+              <h3>Tips</h3>
+              <p class="mod-mini-hint">
+                Wheel zoom · MMB / middle-drag pan · LMB drag UV verts · Project buttons rebuild UVs ·
+                Checker shows seams in the 3D view.
+              </p>
+            </div>
+          </aside>
+          <div class="mod-uv-canvas-wrap" id="mod-uv-canvas-wrap">
+            <canvas id="mod-uv-canvas" aria-label="UV editor canvas"></canvas>
+            <div class="mod-uv-hud" id="mod-uv-hud">UV 0–1 · no mesh</div>
+          </div>
+        </div>
+        <p class="mod-keys mod-keys-uv">UV workspace · Project planar/box/sphere · Drag verts · Wheel zoom · MMB pan</p>
+      </div><!-- /mod-workspace-uv -->
+
+      <p id="mod-status" class="mod-status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="panel-stock" class="panel" hidden>
+    <div class="stk-shell">
+      <header class="stk-top">
+        <div>
+          <h2>Stock desk</h2>
+          <p class="stk-hint">
+            Practical frameworks for buying, holding, and selling equities — built for learning how wealth is
+            usually made in markets, not for predicting tomorrow’s ticker.
+          </p>
+        </div>
+        <p class="stk-badge" title="Educational only">Educational · not advice</p>
+      </header>
+
+      <div class="stk-alert" role="note">
+        <strong>Read this first.</strong>
+        Nothing here is personalized financial, tax, or investment advice. Stocks can go to zero. Past returns
+        do not guarantee future results. “Most profitable” setups are usually also the riskiest. Do your own
+        research, understand fees and taxes, and never invest money you cannot afford to lose. If you need
+        advice, talk to a licensed professional.
+      </div>
+
+      <nav class="stk-nav" role="tablist" aria-label="Stock topics">
+        <button type="button" class="stk-nav-btn is-active" data-stk-sec="core">Core</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="buy">When to buy</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="sell">When to sell</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="what">What to buy</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="profit">Profit ladder</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="risk">Risk</button>
+        <button type="button" class="stk-nav-btn" data-stk-sec="plan">My plan</button>
+      </nav>
+
+      <div class="stk-body">
+        <article class="stk-sec is-active" id="stk-sec-core" data-stk-sec="core">
+          <h3>How people actually make money in stocks</h3>
+          <div class="stk-grid">
+            <div class="stk-card">
+              <h4>1. Own productive assets</h4>
+              <p>
+                Stocks are slices of real businesses. Long-term returns come from earnings growth, dividends,
+                and compounding — not from guessing red/green candles every day.
+              </p>
+            </div>
+            <div class="stk-card">
+              <h4>2. Time in the market &gt; timing</h4>
+              <p>
+                Missing a handful of the market’s best days can erase years of gains. Consistent ownership of
+                diversified equities has historically beaten most active traders after fees and taxes.
+              </p>
+            </div>
+            <div class="stk-card">
+              <h4>3. Edge is boring</h4>
+              <p>
+                Low costs, broad diversification, long horizon, and not panicking are the edges most people
+                can actually keep. Flashy tips are usually noise or marketing.
+              </p>
+            </div>
+            <div class="stk-card">
+              <h4>4. Process over prediction</h4>
+              <p>
+                Write rules before you trade: what you buy, how much, when you add, when you exit. Emotion
+                without a plan is how capital disappears.
+              </p>
+            </div>
+          </div>
+          <ul class="stk-list">
+            <li><strong>Compounding:</strong> reinvest dividends and keep contributing — the curve bends up over decades.</li>
+            <li><strong>Fees matter:</strong> 1% extra fee for 30 years can eat a huge chunk of final wealth.</li>
+            <li><strong>Taxes matter:</strong> long-term capital gains often beat short-term churn (jurisdiction-dependent).</li>
+            <li><strong>Cash buffer first:</strong> emergency fund + high-interest debt usually beat “YOLO shares.”</li>
+          </ul>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-buy" data-stk-sec="buy" hidden>
+          <h3>When to buy (frameworks)</h3>
+          <p class="stk-lead">You do not need a perfect bottom. You need a repeatable reason and size that won’t ruin you if you’re early.</p>
+          <div class="stk-grid">
+            <div class="stk-card stk-card-buy">
+              <h4>Buy-zone ideas</h4>
+              <ul class="stk-list">
+                <li>You have a multi-year horizon and spare cash after bills/emergency fund.</li>
+                <li>The asset fits your written plan (index, quality business, sector you understand).</li>
+                <li>Valuation is reasonable <em>for you</em> (earnings yield, cash flow, growth vs price).</li>
+                <li>You’re dollar-cost averaging on a schedule (removes “is today the day?” paralysis).</li>
+                <li>A quality name/index is down on fear while fundamentals you trust still hold.</li>
+              </ul>
+            </div>
+            <div class="stk-card stk-card-warn">
+              <h4>Usually <em>not</em> a buy signal</h4>
+              <ul class="stk-list">
+                <li>A stranger on social media said “guaranteed 10x.”</li>
+                <li>You’re FOMO-chasing a parabolic move with money you need soon.</li>
+                <li>You don’t understand how the company makes money.</li>
+                <li>You’re averaging down a broken thesis just to “get back to even.”</li>
+                <li>Leverage / options you don’t fully understand.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stk-callout">
+            <strong>Practical default:</strong> set automatic buys into a low-cost broad market index (e.g. total-market or S&amp;P 500 style ETF in your region) on payday. That single habit beats most “perfect entries.”
+          </div>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-sell" data-stk-sec="sell" hidden>
+          <h3>When to sell (frameworks)</h3>
+          <p class="stk-lead">Selling is for process reasons — not because a headline scared you for an afternoon.</p>
+          <div class="stk-grid">
+            <div class="stk-card">
+              <h4>Valid sell reasons</h4>
+              <ul class="stk-list">
+                <li><strong>Thesis broken:</strong> the reason you bought is no longer true.</li>
+                <li><strong>Better use of capital:</strong> clearer opportunity after tax/friction.</li>
+                <li><strong>Position too large:</strong> risk concentration (one stock is most of net worth).</li>
+                <li><strong>Goal reached:</strong> you need cash for a planned life goal within ~1–3 years.</li>
+                <li><strong>Rebalance:</strong> winners grew past target weight; trim back to plan.</li>
+                <li><strong>Fraud / accounting red flags:</strong> exit first, research later if needed.</li>
+              </ul>
+            </div>
+            <div class="stk-card stk-card-warn">
+              <h4>Weak sell reasons</h4>
+              <ul class="stk-list">
+                <li>“It’s up a lot so it must crash” (no plan, just anxiety).</li>
+                <li>“It’s down so I have to stop the pain” (panic realizing losses without thesis change).</li>
+                <li>TV screaming “recession!” every other month.</li>
+                <li>Selling winners always, keeping losers forever (portfolio of hope).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stk-callout">
+            <strong>Index investors:</strong> you often never “sell the market” except for rebalancing or spending in retirement. Selling every correction is how people lock in permanent underperformance.
+          </div>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-what" data-stk-sec="what" hidden>
+          <h3>What to buy (by “edge you can keep”)</h3>
+          <p class="stk-lead">Ranked from historically reliable wealth-builders to higher-risk “maybe huge” bets.</p>
+          <ol class="stk-ladder">
+            <li>
+              <strong>Broad low-cost index funds / ETFs</strong>
+              <span>Total stock market, S&amp;P 500-style, or global equities. Diversified, cheap, hard to mess up. Best default for most people aiming to get rich slowly.</span>
+            </li>
+            <li>
+              <strong>Diversified bond / cash sleeve (as needed)</strong>
+              <span>Not “to get rich,” but to stay solvent and sleep. Enables you to hold stocks through drawdowns.</span>
+            </li>
+            <li>
+              <strong>Quality businesses you understand</strong>
+              <span>Durable moat, clean balance sheet, growing free cash flow, honest management. Buy when price isn’t insane relative to cash you expect.</span>
+            </li>
+            <li>
+              <strong>Sector / thematic ETFs</strong>
+              <span>Tech, healthcare, energy, etc. More concentrated — size small unless you have a strong view.</span>
+            </li>
+            <li>
+              <strong>Individual growth / speculative stocks</strong>
+              <span>Can make the most money <em>if</em> you’re right — and can lose most of it if you’re wrong. Cap at a small % of portfolio.</span>
+            </li>
+            <li>
+              <strong>Options, leverage, meme pumps</strong>
+              <span>Highest lottery odds and highest wipeout odds. Entertainment money only, if at all.</span>
+            </li>
+          </ol>
+          <div class="stk-grid">
+            <div class="stk-card">
+              <h4>Research checklist (single stock)</h4>
+              <ul class="stk-list">
+                <li>How does it make money? Who pays, and why?</li>
+                <li>Is revenue/earnings durable or one-cycle?</li>
+                <li>Debt, dilution, insider selling?</li>
+                <li>Competition and moat?</li>
+                <li>What price makes this a bad deal even if the story is good?</li>
+              </ul>
+            </div>
+            <div class="stk-card">
+              <h4>“Expected to make money”</h4>
+              <p>
+                Over long horizons, diversified equities have a positive expected return because economies and
+                corporate earnings tend to grow. That is an expectation, not a promise for any single year or stock.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-profit" data-stk-sec="profit" hidden>
+          <h3>Profit ladder — realistic vs “most money”</h3>
+          <table class="stk-table">
+            <thead>
+              <tr>
+                <th>Approach</th>
+                <th>Profit potential</th>
+                <th>Odds of success</th>
+                <th>Who it fits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Auto-invest broad index, hold decades</td>
+                <td>High lifetime wealth for many</td>
+                <td>High (if you stay invested)</td>
+                <td>Most people</td>
+              </tr>
+              <tr>
+                <td>Index + occasional quality stocks</td>
+                <td>High, some outperformance chance</td>
+                <td>Medium–high</td>
+                <td>Curious owners</td>
+              </tr>
+              <tr>
+                <td>Concentrated stock picks</td>
+                <td>Can be huge or catastrophic</td>
+                <td>Low for beating the market long-term</td>
+                <td>Skilled / risk-tolerant</td>
+              </tr>
+              <tr>
+                <td>Short-term trading / day trading</td>
+                <td>Occasionally large, usually fees eat it</td>
+                <td>Low after costs</td>
+                <td>Professionals / hobby risk capital</td>
+              </tr>
+              <tr>
+                <td>Options &amp; leverage</td>
+                <td>Highest upside stories</td>
+                <td>Lowest survival rate for amateurs</td>
+                <td>Speculators only</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="stk-callout">
+            <strong>Hard truth:</strong> the path that makes the <em>most</em> money for a few people (concentrated bets, leverage)
+            is also the path that destroys the most accounts. The path that makes the most money for the <em>most</em> people
+            is boring: earn more, spend less than you earn, buy diversified equities for decades, don’t panic.
+          </div>
+          <h4 class="stk-subh">Simple wealth formula</h4>
+          <p class="stk-formula">(Income − spending) × years × market return − fees − stupid mistakes</p>
+          <p>Optimize the first two variables as hard as the third. A 50% “hot tip” cannot fix a lifestyle that never invests.</p>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-risk" data-stk-sec="risk" hidden>
+          <h3>Risk rules that keep you in the game</h3>
+          <div class="stk-grid">
+            <div class="stk-card">
+              <h4>Position sizing</h4>
+              <ul class="stk-list">
+                <li>No single speculative stock should be able to ruin you.</li>
+                <li>Common rule of thumb: core index = majority; satellite ideas = small sleeve.</li>
+                <li>Never invest rent money or money needed within 1–3 years in pure stocks.</li>
+              </ul>
+            </div>
+            <div class="stk-card">
+              <h4>Drawdowns are normal</h4>
+              <ul class="stk-list">
+                <li>−20% to −50% market drops have happened repeatedly historically.</li>
+                <li>Your plan must survive them emotionally and financially.</li>
+                <li>Selling the bottom turns a temporary paper loss into a permanent one.</li>
+              </ul>
+            </div>
+            <div class="stk-card">
+              <h4>Scams &amp; traps</h4>
+              <ul class="stk-list">
+                <li>Guaranteed returns, pressure to act now, “secret” groups.</li>
+                <li>Pump groups, fake celebrity tips, unregistered “advisors.”</li>
+                <li>Borrowing to invest without a professional risk framework.</li>
+              </ul>
+            </div>
+            <div class="stk-card">
+              <h4>Risk profile (quick self-check)</h4>
+              <div class="stk-risk" id="stk-risk-quiz">
+                <label class="stk-risk-q">
+                  Horizon
+                  <select id="stk-q-horizon">
+                    <option value="short">Need money in &lt; 3 years</option>
+                    <option value="mid">3–10 years</option>
+                    <option value="long" selected>10+ years</option>
+                  </select>
+                </label>
+                <label class="stk-risk-q">
+                  If portfolio drops 30%
+                  <select id="stk-q-drop">
+                    <option value="panic">I’d sell everything</option>
+                    <option value="freeze">I’d freeze and worry</option>
+                    <option value="hold" selected>I’d hold / maybe buy more</option>
+                  </select>
+                </label>
+                <label class="stk-risk-q">
+                  Knowledge
+                  <select id="stk-q-know">
+                    <option value="new">New to stocks</option>
+                    <option value="some" selected>Some experience</option>
+                    <option value="deep">Deep research habit</option>
+                  </select>
+                </label>
+                <button type="button" class="stk-btn" id="stk-risk-run">Get suggested stance</button>
+                <p class="stk-risk-out" id="stk-risk-out" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stk-sec" id="stk-sec-plan" data-stk-sec="plan" hidden>
+          <h3>My plan checklist</h3>
+          <p class="stk-lead">Tick what you’ve done. Saved only on this device (local storage).</p>
+          <ul class="stk-check" id="stk-checklist">
+            <li><label><input type="checkbox" data-stk-check="emergency" /> Emergency fund (or clear plan for one)</label></li>
+            <li><label><input type="checkbox" data-stk-check="debt" /> High-interest debt under control</label></li>
+            <li><label><input type="checkbox" data-stk-check="account" /> Brokerage / retirement account opened</label></li>
+            <li><label><input type="checkbox" data-stk-check="auto" /> Automatic contribution set</label></li>
+            <li><label><input type="checkbox" data-stk-check="core" /> Core holding chosen (e.g. broad index)</label></li>
+            <li><label><input type="checkbox" data-stk-check="rules" /> Written buy / sell / rebalance rules</label></li>
+            <li><label><input type="checkbox" data-stk-check="size" /> Max position size for speculative bets</label></li>
+            <li><label><input type="checkbox" data-stk-check="review" /> Quarterly review date on calendar</label></li>
+          </ul>
+          <label class="stk-notes-label" for="stk-notes">Personal notes (local only)</label>
+          <textarea id="stk-notes" class="stk-notes" rows="5" placeholder="e.g. Buy $X of total-market ETF every payday. Spec sleeve max 10%. Sell only if thesis breaks or rebalance…"></textarea>
+          <div class="stk-plan-actions">
+            <button type="button" class="stk-btn" id="stk-save-plan">Save plan</button>
+            <button type="button" class="stk-btn stk-btn-ghost" id="stk-clear-plan">Clear</button>
+            <span class="stk-save-status" id="stk-save-status" aria-live="polite"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-adventure" class="panel" hidden>
+    <div class="adv-shell">
+      <header class="adv-top">
+        <div>
+          <h2>Choice Adventure</h2>
+          <p class="adv-hint">
+            Each scene generates a real short video from the story beat (still → animate).
+            Pick 3 on-screen choices — or <strong>Something else…</strong> for a free beat.
+            After a custom move, the 3 options are random <strong>spells / generated</strong> works;
+            each opens that art’s write-up (your custom text no longer hijacks every path).
+          </p>
+        </div>
+        <div class="adv-top-actions">
+          <button type="button" class="adv-btn" id="adv-retry-video" title="Retry generating this scene's video">Retry video</button>
+          <button type="button" class="adv-btn adv-btn-ghost" id="adv-restart" title="Start adventure from the beginning">Restart game</button>
+        </div>
+      </header>
+
+      <div class="adv-player-row">
+        <div class="adv-stage-col">
+          <div class="adv-player" id="adv-player">
+            <video id="adv-html-video" class="adv-html-video" playsinline muted loop autoplay></video>
+            <canvas id="adv-video" class="adv-video" width="1280" height="720" aria-label="Adventure loading stage"></canvas>
+            <div class="adv-scanlines" aria-hidden="true"></div>
+            <div class="adv-drop-hint" id="adv-drop-hint" hidden>Drop spell here to cast into the scene</div>
+            <div class="adv-caption" id="adv-caption">Opening the night gallery…</div>
+            <div class="adv-hud-top">
+              <span id="adv-scene-tag">Prologue</span>
+              <span id="adv-media-label" class="adv-media-pill">Loading…</span>
+              <span id="adv-endings" class="adv-endings-pill">Endings 0</span>
+            </div>
+            <div class="adv-error-banner" id="adv-error-banner" hidden></div>
+            <div class="adv-overlay-choices" id="adv-choices" role="group" aria-label="What next"></div>
+          </div>
+          <div class="adv-strip-wrap">
+            <p class="adv-strip-label">Spell tray · drag onto the video (or click) to cast into this scene</p>
+            <div class="adv-strip" id="adv-strip" aria-label="Spell tray"></div>
+          </div>
+        </div>
+
+        <aside class="adv-side-slim">
+          <div class="adv-stat-card">
+            <h3>Stats</h3>
+            <div class="adv-stats" id="adv-stats">
+              <div><span>Courage</span><strong id="adv-stat-courage">0</strong></div>
+              <div><span>Cunning</span><strong id="adv-stat-cunning">0</strong></div>
+              <div><span>Kindness</span><strong id="adv-stat-kindness">0</strong></div>
+            </div>
+          </div>
+          <div class="adv-stat-card">
+            <h3>Inventory</h3>
+            <ul class="adv-inv" id="adv-inv">
+              <li class="adv-inv-empty">Empty</li>
+            </ul>
+          </div>
+          <div class="adv-stat-card">
+            <h3>Cast on scene</h3>
+            <ul class="adv-inv" id="adv-cast-list">
+              <li class="adv-inv-empty">Drag a spell onto the video</li>
+            </ul>
+            <button type="button" class="adv-btn adv-btn-ghost" id="adv-clear-cast" style="margin-top:0.4rem;width:100%">Clear cast</button>
+          </div>
+          <div class="adv-stat-card">
+            <h3>Pool</h3>
+            <p class="adv-log" id="adv-media-count">Spells: — · Generated: —</p>
+            <button type="button" class="adv-btn" id="adv-reshuffle" style="margin-top:0.45rem;width:100%">Re-roll scene video</button>
+          </div>
+          <p class="adv-log-label">Last custom move</p>
+          <p class="adv-log" id="adv-log">—</p>
+        </aside>
+      </div>
+
+      <details class="adv-diag" id="adv-diag" open>
+        <summary class="adv-diag-summary">
+          Diagnostic prompt
+          <span class="adv-diag-meta" id="adv-diag-meta">—</span>
+        </summary>
+        <p class="adv-diag-hint">
+          Red/yellow = common image-API moderation risks (heuristic). Type safer wording in
+          <strong>Replace with</strong> — if <em>your typing</em> is also risky, a warning appears under that box.
+          The <strong>Live send check</strong> lists everything still flagged in the final prompt.
+        </p>
+        <div class="adv-diag-toolbar">
+          <label class="adv-diag-check">
+            <input type="checkbox" id="adv-hold-gen" />
+            Hold auto-generate
+          </label>
+          <button type="button" class="adv-btn adv-btn-ghost" id="adv-diag-rebuild" title="Rebuild from scene + cast, then re-apply replacements">Rebuild from scene</button>
+          <button type="button" class="adv-btn adv-btn-ghost" id="adv-diag-clear-subs" title="Clear all replacement boxes">Clear replacements</button>
+          <button type="button" class="adv-btn adv-btn-ghost" id="adv-diag-copy">Copy</button>
+          <button type="button" class="adv-btn" id="adv-diag-generate">Generate with this prompt</button>
+        </div>
+        <div class="adv-residual-risk" id="adv-residual-risk" hidden></div>
+        <div class="adv-diag-field-head">
+          <label>Moderation word table</label>
+        </div>
+        <div class="adv-rewrite-wrap">
+          <table class="adv-rewrite-table" id="adv-rewrite-table" hidden>
+            <thead>
+              <tr>
+                <th scope="col">Risk</th>
+                <th scope="col">Flagged word</th>
+                <th scope="col">Replace with</th>
+              </tr>
+            </thead>
+            <tbody id="adv-rewrite-tbody"></tbody>
+          </table>
+          <p class="adv-rewrite-empty" id="adv-rewrite-empty">No red/yellow words in this prompt.</p>
+        </div>
+        <div class="adv-diag-field-head">
+          <label for="adv-diag-prompt">Still / stasis prompt</label>
+          <span class="adv-diag-chars" id="adv-diag-chars">0</span>
+        </div>
+        <div class="adv-hl-wrap">
+          <pre class="adv-hl-layer" id="adv-diag-hl" aria-hidden="true"></pre>
+          <textarea
+            id="adv-diag-prompt"
+            class="adv-hl-input"
+            rows="10"
+            spellcheck="false"
+            placeholder="Scene prompt appears here when a beat starts…"
+          ></textarea>
+        </div>
+        <div class="adv-diag-field-head">
+          <label for="adv-diag-buzz">Buzz words (comma-separated)</label>
+          <span class="adv-diag-chars" id="adv-diag-buzz-chars">0</span>
+        </div>
+        <input type="text" id="adv-diag-buzz" class="adv-diag-buzz" spellcheck="false" placeholder="dark fantasy, occult allegory, …" />
+        <div class="adv-diag-field-head">
+          <label for="adv-diag-motion">Motion / animate prompt (used after still)</label>
+          <span class="adv-diag-chars" id="adv-diag-motion-chars">0</span>
+        </div>
+        <div class="adv-hl-wrap adv-hl-wrap-sm">
+          <pre class="adv-hl-layer" id="adv-diag-motion-hl" aria-hidden="true"></pre>
+          <textarea
+            id="adv-diag-motion"
+            class="adv-hl-input"
+            rows="4"
+            spellcheck="false"
+            placeholder="Built when you generate, or edit before Generate…"
+          ></textarea>
+        </div>
+        <p class="adv-diag-last" id="adv-diag-last">Last API error: —</p>
+      </details>
+    </div>
+
+    <!-- Free-text prompt modal -->
+    <div class="adv-modal" id="adv-modal" hidden>
+      <div class="adv-modal-card" role="dialog" aria-labelledby="adv-modal-title">
+        <h3 id="adv-modal-title">Something else…</h3>
+        <p class="adv-modal-hint">Describe what you do next — including darker ritual, conflict, or occult desire as mystical fiction. The still/video will honor that intent instead of soft-scrubbing it.</p>
+        <textarea id="adv-custom-input" class="adv-custom-input" rows="3" maxlength="280" placeholder="e.g. I climb into the ceiling vents with the flashlight in my teeth…"></textarea>
+        <div class="adv-modal-actions">
+          <button type="button" class="adv-btn adv-btn-ghost" id="adv-modal-cancel">Cancel</button>
+          <button type="button" class="adv-btn" id="adv-modal-go">Continue</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-cardduel" class="panel" hidden>
+    <div class="cd-shell">
+      <header class="cd-top">
+        <div>
+          <h2>Spell Card Duel</h2>
+          <p class="cd-hint">
+            Turn-based duel with <strong>spell</strong> and <strong>generated</strong> cards (LoR / MTG-style).
+            Board units block face damage. Each turn refills your hand to <strong>7</strong> (not +1).
+            <strong>Direct attack</strong> (click unit → target) or <strong>Attack All</strong> (Shift+click to hold units back).
+            <strong>Weave</strong> 2–5 units into brand-new art. Vs CPU or host a Wi‑Fi challenge link.
+          </p>
+        </div>
+        <div class="cd-top-actions">
+          <button type="button" class="cd-btn cd-btn-accent" id="cd-vs-cpu">New game vs CPU</button>
+          <button type="button" class="cd-btn" id="cd-lan-host" title="Start a room and get a shareable link">Host challenge</button>
+          <button type="button" class="cd-btn cd-btn-ghost" id="cd-lan-join">Join room</button>
+        </div>
+      </header>
+
+      <div class="cd-layout">
+        <div class="cd-board-wrap">
+          <div class="cd-hud">
+            <span class="cd-hp">Enemy HP <strong id="cd-enemy-hp">30</strong>
+              <span class="cd-hp-bar"><i id="cd-enemy-hp-bar" style="width:100%"></i></span>
+            </span>
+            <span class="cd-hp">You HP <strong id="cd-you-hp">30</strong>
+              <span class="cd-hp-bar is-you"><i id="cd-you-hp-bar" style="width:100%"></i></span>
+            </span>
+            <span class="cd-mana">Mana <strong id="cd-mana">0 / 0</strong></span>
+            <span class="cd-deck-count" id="cd-deck-you">Deck —</span>
+            <span class="cd-deck-count" id="cd-deck-enemy">Enemy deck —</span>
+            <span class="cd-phase" id="cd-phase">Ready</span>
+          </div>
+
+          <div class="cd-field">
+            <div class="cd-hero-row">
+              <button type="button" class="cd-hero cd-hero-enemy" id="cd-enemy-hero" title="Enemy hero">
+                <span class="cd-hero-label">Enemy hero</span>
+                <span class="cd-hero-hp">HP <strong id="cd-enemy-hp-hero">30</strong></span>
+                <span class="cd-hero-hint" id="cd-enemy-hero-hint">Protected by field units</span>
+              </button>
+            </div>
+            <p class="cd-row-label">Enemy field · red / IN RANGE = legal targets · Taunt first if present</p>
+            <div class="cd-slots" id="cd-enemy-slots"></div>
+            <div class="cd-mid-line" aria-hidden="true"></div>
+            <div
+              class="cd-attack-indicator"
+              id="cd-attack-indicator"
+              hidden
+              role="status"
+              aria-live="polite"
+            ></div>
+            <p class="cd-row-label">Your field (max 5) · green = can attack · click unit to choose target · Weave mode: pick 2–5</p>
+            <div class="cd-slots" id="cd-you-slots"></div>
+            <div class="cd-hero-row">
+              <div class="cd-hero cd-hero-you" id="cd-you-hero">
+                <span class="cd-hero-label">Your hero</span>
+                <span class="cd-hero-hp">HP <strong id="cd-you-hp-hero">30</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cd-actions">
+            <button type="button" class="cd-btn cd-btn-accent" id="cd-attack-all" title="Mass swing for ready units that are not HELD">Attack with all ready</button>
+            <button type="button" class="cd-btn" id="cd-attack-face" title="Only when the enemy field is empty">Strike hero</button>
+            <button type="button" class="cd-btn cd-btn-ghost" id="cd-cancel-attack" hidden disabled>Cancel direct attack</button>
+            <button type="button" class="cd-btn" id="cd-end-turn">End turn</button>
+            <label class="cd-btn cd-btn-ghost" style="display:inline-flex;align-items:center;gap:0.35rem;cursor:pointer">
+              <input type="checkbox" id="cd-fusion-mode" /> Weave 2–5 units
+            </label>
+          </div>
+          <p class="cd-attack-help">
+            <strong>Direct:</strong> click a green unit, then a red target (or hero if open). Click the unit again to cancel.
+            <strong>Hold:</strong> Shift+click a ready unit so Attack All skips it (you can still direct-attack).
+          </p>
+
+          <div class="cd-hand-row">
+            <div class="cd-hand-head">
+              <p class="cd-row-label">Your hand · click once to select, again to play (costs mana)</p>
+              <div class="cd-sort-bar" role="group" aria-label="Sort hand">
+                <span class="cd-sort-label">Sort</span>
+                <button type="button" class="cd-sort-btn is-active" id="cd-sort-mana" title="Sort by mana cost">Mana</button>
+                <button type="button" class="cd-sort-btn" id="cd-sort-atk" title="Sort by attack power">ATK</button>
+                <button type="button" class="cd-sort-btn" id="cd-sort-hp" title="Sort by health">HP</button>
+                <button type="button" class="cd-sort-btn" id="cd-sort-name" title="Sort by name">Name</button>
+              </div>
+            </div>
+            <div class="cd-hand" id="cd-hand"></div>
+          </div>
+
+          <div class="cd-fusion-bar">
+            <label for="cd-fusion-prompt">Weave prompt (2–5 units → one new composition title & art)</label>
+            <textarea
+              id="cd-fusion-prompt"
+              class="cd-fusion-prompt"
+              rows="2"
+              maxlength="280"
+              placeholder="e.g. crystal wolf of wet varnish, gold cracks, night-gallery storm…"
+            ></textarea>
+            <div class="cd-fusion-row">
+              <button type="button" class="cd-btn cd-btn-accent" id="cd-forge-fusion">Weave cards (ends turn)</button>
+              <span class="cd-status" id="cd-status"></span>
+            </div>
+          </div>
+
+          <div class="cd-card-panel">
+            <h3>Battle log</h3>
+            <pre class="cd-log" id="cd-log">Start a duel to begin.</pre>
+          </div>
+        </div>
+
+        <aside class="cd-side">
+          <div class="cd-card-panel">
+            <h3>Match setup</h3>
+            <div class="cd-setup-list">
+              <span>CPU, or challenge link (Wi‑Fi / Tailscale)</span>
+              <div class="cd-name-row" id="cd-join-gate">
+                <label for="cd-player-name">Your name (shown when you join)</label>
+                <input
+                  type="text"
+                  id="cd-player-name"
+                  class="cd-player-name"
+                  placeholder="e.g. Alex"
+                  maxlength="24"
+                  autocomplete="nickname"
+                />
+              </div>
+              <div class="cd-lan-row">
+                <input type="text" id="cd-lan-room" placeholder="Room code" maxlength="8" autocomplete="off" />
+              </div>
+              <div class="cd-player-roster" id="cd-player-roster" aria-live="polite">
+                <p class="cd-roster-empty">No challenge room yet. Host or join to see who is here.</p>
+              </div>
+              <div class="cd-invite-panel" id="cd-invite-panel" hidden>
+                <div class="cd-invite-star-label" id="cd-invite-star-label">★ SEND THIS for long distance</div>
+                <label for="cd-invite-link">Preferred invite (auto-picks long-distance when available)</label>
+                <div class="cd-invite-row">
+                  <input type="text" id="cd-invite-link" class="cd-invite-link" readonly autocomplete="off" />
+                  <button type="button" class="cd-btn cd-btn-accent" id="cd-invite-copy" title="Copy the preferred (starred) link">Copy ★ link</button>
+                </div>
+                <p class="cd-invite-remote-warn" id="cd-invite-remote-warn" hidden></p>
+                <p class="cd-invite-hint">
+                  <strong>★ Long distance</strong> = Tailscale / public host (not 192.168). Friend opens it → Card Duel joins your room.
+                  Same-Wi‑Fi links only work at home.
+                </p>
+                <div class="cd-invite-list" id="cd-invite-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="cd-card-panel">
+            <h3>How to play</h3>
+            <p class="cd-help">
+              1. 60-card deck, 7 in hand, up to 5 on the field. Mana each turn.<br />
+              2. Field units block the <strong>hero</strong> — clear them before <strong>Strike hero</strong>.<br />
+              3. <strong>Direct attack:</strong> click your ready unit, then the enemy you want. Shift+click to <strong>hold</strong> a unit out of Attack All.<br />
+              4. <strong>Attack All</strong> swings every ready unit that is not held.<br />
+              5. <strong>Host challenge</strong> copies a link; friends enter their <strong>name</strong> so you see who joined in the roster.<br />
+              6. <strong>Weave 2–5 units</strong> needs brand-new art (credits) and ends your turn.
+            </p>
+          </div>
+          <div class="cd-card-panel">
+            <h3>Effects</h3>
+            <div class="cd-effect-legend" id="cd-effect-legend"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-graphcalc" class="panel" hidden>
+    <div class="gc-shell">
+      <header class="gc-top">
+        <div>
+          <h2>Graphing Calculator</h2>
+          <p class="gc-hint">
+            Multi-expression grapher — pan, scroll-zoom, double-click home.
+            Paste Desmos Béziers with <strong>Paste Desmos</strong> or Ctrl+V into a row
+            (<code>\left((1-t)^3*…,(1-t)^3*…\right)</code>). Parametric <code>t</code> is 0→1. Use <strong>Zoom fit</strong>.
+          </p>
+        </div>
+        <div class="gc-top-actions">
+          <button type="button" class="gc-btn" id="gc-examples">Load examples</button>
+          <button type="button" class="gc-btn gc-btn-ghost" id="gc-help-btn">Syntax help</button>
+          <button type="button" class="gc-btn" id="gc-ticker-toggle" title="Loop action rows (a → …) that have Ticker checked">Actions off</button>
+          <button type="button" class="gc-btn gc-btn-ghost" id="gc-ticker-step" title="Run checked actions once">Step actions</button>
+          <label class="gc-ticker-ms-lab" title="Action ticker interval">
+            <input type="number" id="gc-ticker-ms" value="50" min="16" max="2000" step="10" /> ms
+          </label>
+          <span class="gc-ticker-status" id="gc-ticker-status">Idle</span>
+        </div>
+      </header>
+
+      <div class="gc-workspace">
+        <aside class="gc-sidebar">
+          <div class="gc-sidebar-head">
+            <span>Expressions</span>
+          </div>
+          <div class="gc-expr-list" id="gc-expr-list"></div>
+          <div class="gc-add-row">
+            <button type="button" class="gc-btn" id="gc-add-expr">+ Add expression</button>
+          </div>
+          <div class="gc-sketch-panel" id="gc-sketch-panel">
+            <div class="gc-sketch-head">Image → sketch <span class="gc-sketch-sub">(img2desmos-style)</span></div>
+            <p class="gc-sketch-hint">
+              Edges → cubic Béziers on the graph. Use a gallery painting/generated still or upload a file.
+            </p>
+            <label class="gc-sketch-lab" for="gc-sketch-source">Source</label>
+            <select id="gc-sketch-source" class="gc-sketch-select">
+              <option value="file">Upload file</option>
+              <option value="paintings">Gallery · Paintings (1–1000)</option>
+              <option value="generated">Gallery · Generated (1–total)</option>
+            </select>
+            <input type="file" id="gc-sketch-file" accept="image/*" class="gc-sketch-file" />
+            <div class="gc-sketch-numpick" id="gc-sketch-numpick" hidden>
+              <label class="gc-sketch-lab" for="gc-sketch-num">
+                Image # <span id="gc-sketch-range-label">(set source)</span>
+              </label>
+              <div class="gc-sketch-numrow">
+                <button type="button" class="gc-btn gc-btn-ghost" id="gc-sketch-num-prev" title="Previous">◀</button>
+                <input type="number" id="gc-sketch-num" class="gc-sketch-num" min="1" max="1000" value="1" step="1" />
+                <button type="button" class="gc-btn gc-btn-ghost" id="gc-sketch-num-next" title="Next">▶</button>
+              </div>
+              <button type="button" class="gc-btn gc-btn-ghost" id="gc-sketch-num-go">Preview #</button>
+            </div>
+            <select id="gc-sketch-pick" class="gc-sketch-select" hidden aria-hidden="true"></select>
+            <div class="gc-sketch-preview-wrap">
+              <canvas id="gc-sketch-preview" width="160" height="120" aria-label="Edge preview"></canvas>
+            </div>
+            <label class="gc-sketch-lab" for="gc-sketch-detail">Detail <span id="gc-sketch-detail-val">7</span></label>
+            <input type="range" id="gc-sketch-detail" min="1" max="10" value="7" />
+            <label class="gc-sketch-lab" for="gc-sketch-max">Max curves</label>
+            <input type="number" id="gc-sketch-max" class="gc-sketch-num" min="20" max="3000" value="900" step="50" />
+            <label class="gc-sketch-check">
+              <input type="checkbox" id="gc-sketch-autosave" checked />
+              Auto-save to <code>sketches/</code> as 1, 2, 3…
+            </label>
+            <button type="button" class="gc-btn gc-btn-accent" id="gc-sketch-run">Convert to curves</button>
+            <button type="button" class="gc-btn gc-btn-ghost" id="gc-sketch-clear" title="Remove last sketch batch">Clear last sketch</button>
+            <label class="gc-sketch-lab" for="gc-sketch-load">Saved sketches</label>
+            <select id="gc-sketch-load" class="gc-sketch-select">
+              <option value="">Load sketch #…</option>
+            </select>
+            <p class="gc-sketch-status" id="gc-sketch-status" role="status"></p>
+          </div>
+          <div class="gc-sliders" id="gc-sliders" hidden></div>
+        </aside>
+
+        <div class="gc-graph-wrap">
+          <div class="gc-canvas-host" id="gc-canvas-host">
+            <canvas id="gc-canvas" aria-label="Graph canvas"></canvas>
+            <div class="gc-readout" id="gc-readout" hidden></div>
+          </div>
+          <div class="gc-toolbar">
+            <button type="button" class="gc-btn" id="gc-home" title="Reset view to [-10,10]">Home</button>
+            <button type="button" class="gc-btn" id="gc-zoom-fit" title="Fit all curves / points in view">Zoom fit</button>
+            <button type="button" class="gc-btn" id="gc-paste-desmos" title="Paste Desmos LaTeX parametric curves">Paste Desmos</button>
+            <button type="button" class="gc-btn" id="gc-zoom-in">Zoom +</button>
+            <button type="button" class="gc-btn" id="gc-zoom-out">Zoom −</button>
+            <button type="button" class="gc-btn is-active" id="gc-toggle-grid">Grid</button>
+            <button type="button" class="gc-btn" id="gc-toggle-rad">Radians</button>
+            <span class="gc-view-label" id="gc-view-label">x:[-10,10] y:[-10,10]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gc-help-panel" id="gc-help-panel" hidden>
+        <strong>Syntax (Desmos-style)</strong>
+        <div class="gc-help-grid">
+          <div><strong>Image → sketch</strong> (sidebar): paintings / generated / upload → edge Béziers (like img2desmos)</div>
+          <div><strong>Paste Desmos</strong> or Ctrl+V: <code>\left((1-t)^3*…, …\right)</code> · <code>t</code> is 0→1 · <strong>Zoom fit</strong></div>
+          <div><code>L = [1...5]</code> data only · plot <code>(L,0)</code> / <code>(0,L)</code></div>
+          <div>Params: <strong>▶ Play</strong> / <strong>⏸ Pause</strong> · Loop or Alternate</div>
+          <div>Actions <code>a → a+1</code>: <strong>▶ Run</strong> once · optional action loop</div>
+          <div>Color + opacity per curve · <code>x^2</code> → <code>x²</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-puzzle" class="panel" hidden>
+    <div class="pz-shell">
+      <header class="pz-top">
+        <div>
+          <h2>Puzzle</h2>
+          <p class="pz-hint">
+            Jigsaw any gallery still — paintings, generated, sketches, and the rest.
+            Pick a <strong>piece count</strong> first, then Play. Drag pieces onto the board; they snap when they fit.
+          </p>
+        </div>
+      </header>
+
+      <div class="pz-setup" id="pz-setup">
+        <div class="pz-setup-row">
+          <span class="pz-lab">Collection</span>
+          <div class="pz-coll-row" id="pz-coll-row" role="tablist" aria-label="Puzzle collections"></div>
+        </div>
+        <div class="pz-setup-row pz-art-row">
+          <span class="pz-lab">Artwork</span>
+          <div class="pz-art-pick">
+            <button type="button" id="pz-prev" title="Previous">◀</button>
+            <label class="pz-num-lab">
+              #
+              <input type="number" id="pz-num" min="1" max="1000" value="1" step="1" />
+            </label>
+            <button type="button" id="pz-next" title="Next">▶</button>
+            <button type="button" id="pz-random">Random</button>
+            <span class="pz-range" id="pz-range">1–1000</span>
+          </div>
+          <div class="pz-preview-wrap">
+            <img id="pz-preview" alt="Puzzle source" />
+          </div>
+        </div>
+        <div class="pz-setup-row">
+          <span class="pz-lab">Pieces</span>
+          <div class="pz-counts" id="pz-counts" role="listbox" aria-label="Piece count"></div>
+        </div>
+        <div class="pz-setup-actions">
+          <button type="button" class="pz-play" id="pz-play">Play puzzle</button>
+          <p class="pz-count-live" id="pz-count-live">16 pieces · 4×4</p>
+        </div>
+      </div>
+
+      <div class="pz-hud" id="pz-hud" hidden>
+        <span>Placed <strong id="pz-placed">0</strong> / <strong id="pz-total">0</strong></span>
+        <span>Time <strong id="pz-time">0:00</strong></span>
+        <span id="pz-title" class="pz-title"></span>
+        <div class="pz-hud-actions">
+          <button type="button" id="pz-hint">Hint</button>
+          <button type="button" id="pz-shuffle">Scatter</button>
+          <button type="button" id="pz-new-art">New image</button>
+          <button type="button" id="pz-setup-btn">Change pieces</button>
+        </div>
+      </div>
+
+      <div class="pz-board-wrap" id="pz-board-wrap" hidden>
+        <canvas id="pz-canvas" aria-label="Jigsaw puzzle"></canvas>
+      </div>
+      <p id="pz-status" class="pz-status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="panel-saccade" class="panel" hidden>
+    <div class="sc-shell">
+      <header class="sc-top">
+        <h2>Saccade</h2>
+        <p class="sc-hint">
+          Eyes do not pan. They <em>jump</em> — four times a second — and invent everything in between.
+          This is the painting as a stranger actually took it: a handful of sharp thefts, a smear of gist,
+          then the afterimage that stays when they shut their eyes.
+        </p>
+      </header>
+
+      <div class="sc-toolbar">
+        <div class="sc-art-pick">
+          <select id="sc-coll" aria-label="Collection"></select>
+          <button type="button" id="sc-prev">◀</button>
+          <label class="sc-num-lab"># <input type="number" id="sc-num" min="1" value="1" step="1" /></label>
+          <button type="button" id="sc-next">▶</button>
+          <button type="button" id="sc-rand">Random still</button>
+        </div>
+        <div class="sc-modes" role="tablist" aria-label="Looking mode">
+          <button type="button" class="sc-mode active" data-sc-mode="watch">Stranger looks</button>
+          <button type="button" class="sc-mode" data-sc-mode="steer">Your gaze</button>
+          <button type="button" class="sc-mode" data-sc-mode="shut">Shut eyes</button>
+          <button type="button" class="sc-mode" data-sc-mode="keep">What remains</button>
+        </div>
+      </div>
+
+      <div class="sc-stage">
+        <canvas id="sc-canvas" aria-label="Saccade field"></canvas>
+        <div class="sc-hud">
+          <span id="sc-stat-fix">0 jumps</span>
+          <span id="sc-stat-seen">0% in true detail</span>
+          <span id="sc-stat-time">0.0s</span>
+        </div>
+      </div>
+      <p id="sc-status" class="sc-status" aria-live="polite">
+        A first glance is 200ms of color weather. Then the eye starts stealing.
+      </p>
+      <p class="sc-legend">
+        Gold ring = fovea (the only place that’s sharp). The rest is a lie your brain tells so the world feels whole.
+        <button type="button" id="sc-save" class="sc-save">Keep this memory</button>
+      </p>
+    </div>
+  </section>
+
+  <section id="panel-demand" class="panel" hidden>
+    <div class="dm-shell">
+      <header class="dm-top">
+        <h2>Demand</h2>
+        <p class="dm-hint">
+          What people hammer Grok for — ranked, then cut down to what this studio can actually ship.
+          This is <strong>not</strong> xAI private telemetry. It is the asks that show up constantly in Grok
+          chats and on X, mapped onto tabs and APIs you already have.
+        </p>
+      </header>
+      <div class="dm-filters" id="dm-filters" role="tablist" aria-label="Demand filters"></div>
+      <p class="dm-meta" id="dm-meta"></p>
+      <div id="dm-list" class="dm-list"></div>
+    </div>
+  </section>
+
+  <section id="panel-chat" class="panel" hidden>
+    <div class="ch-shell">
+      <header class="ch-top">
+        <div>
+          <h2>Chat</h2>
+          <p class="ch-hint">
+            Studio Grok — same xAI key as generate. Talk about the 1000, Demand briefs, or what to build next.
+          </p>
+        </div>
+        <button type="button" id="ch-new">New chat</button>
+      </header>
+      <div id="ch-log" class="ch-log" aria-live="polite"></div>
+      <form id="ch-form" class="ch-form">
+        <textarea id="ch-input" rows="2" maxlength="4000" placeholder="Ask the studio…" autocomplete="off"></textarea>
+        <button type="submit" id="ch-send" class="ch-send">Send</button>
+      </form>
+      <p id="ch-status" class="ch-status"></p>
+    </div>
+  </section>
+
+  <section id="panel-ragdoll" class="panel" hidden>
+    <div class="rd-shell">
+      <header class="rd-top">
+        <div>
+          <h2>Ragdoll</h2>
+          <p class="rd-hint">
+            Drag the figure and the loose studio objects. Type a prompt, then generate —
+            the new still becomes the room behind the ragdoll and saves to Generated.
+          </p>
+        </div>
+      </header>
+      <textarea id="rd-prompt" class="rd-prompt" rows="2" maxlength="2000" placeholder="Prompt the scene behind the doll — storm kitchen, gold field, flooded studio…"></textarea>
+      <div class="rd-actions">
+        <button type="button" id="rd-generate" class="rd-primary">Generate painting</button>
+        <button type="button" id="rd-reskin">Reskin limbs</button>
+        <button type="button" id="rd-add-crate">Add crate</button>
+        <button type="button" id="rd-add-ball">Add ball</button>
+        <button type="button" id="rd-add-plank">Add plank</button>
+        <button type="button" id="rd-scar">Stamp scar</button>
+        <button type="button" id="rd-drop">Drop</button>
+        <button type="button" id="rd-reset">Reset pose</button>
+      </div>
+      <div class="rd-stage" id="rd-stage">
+        <canvas id="rd-canvas" width="800" height="560" aria-label="Ragdoll stage"></canvas>
+      </div>
+      <p id="rd-status" class="rd-status">Drag limbs and objects. Generate paints a new background.</p>
+    </div>
+  </section>
+
+  <section id="panel-particles" class="panel" hidden>
+    <div class="ps-shell">
+      <header class="ps-top">
+        <div>
+          <h2>Particle sandbox</h2>
+          <p class="ps-hint">
+            Pour dense grit or draw strokes. Generate invents objects that occupy the drawings
+            and packed pigment — Clear still drops the hung painting so it stops copying.
+          </p>
+        </div>
+      </header>
+      <div class="ps-toolbar">
+        <div class="ps-tools" role="tablist" aria-label="Particle tool">
+          <button type="button" class="ps-tool active" data-ps-tool="pour">Pour</button>
+          <button type="button" class="ps-tool" data-ps-tool="draw">Draw</button>
+          <button type="button" class="ps-tool" data-ps-tool="stir">Stir</button>
+          <button type="button" class="ps-tool" data-ps-tool="attract">Attract</button>
+          <button type="button" class="ps-tool" data-ps-tool="repel">Repel</button>
+          <button type="button" class="ps-tool" data-ps-tool="erase">Erase</button>
+        </div>
+        <div class="ps-art">
+          <select id="ps-coll" aria-label="Collection">
+            <option value="paintings">Paintings</option>
+            <option value="generated">Generated</option>
+          </select>
+          <button type="button" id="ps-prev">◀</button>
+          <label># <input type="number" id="ps-num" min="1" max="1000" value="1" /></label>
+          <button type="button" id="ps-next">▶</button>
+          <button type="button" id="ps-rand">Random still</button>
+          <img id="ps-thumb" class="ps-thumb" alt="" />
+        </div>
+      </div>
+      <div id="ps-swatches" class="ps-swatches" aria-label="Sampled colors"></div>
+      <textarea id="ps-prompt" class="ps-prompt" rows="2" maxlength="2000" placeholder="What occupies the paths — a figure walking the fall-line, the lower stream becomes a river, a gold rope across…"></textarea>
+      <input id="ps-material" class="ps-material" maxlength="240" placeholder="Material to alter — oil, gold leaf, wet plaster, rusted copper, smoke-cloth…" />
+      <label class="ps-read-lab" for="ps-reading">Path reading (edit what occupies each stroke)</label>
+      <textarea id="ps-reading" class="ps-reading" rows="4" maxlength="2500" placeholder="Pour, then Read field — paths become objects. Edit what should live on each stroke."></textarea>
+      <div class="ps-read-row">
+        <button type="button" id="ps-read">Read field</button>
+        <span class="ps-read-hint">Draw the object-paths. Clear still drops the hung painting so Generate will not copy it.</span>
+      </div>
+      <div class="ps-sliders">
+        <label>Gravity <input type="range" id="ps-grav" min="0" max="80" value="28" /></label>
+        <label>Size <input type="range" id="ps-size" min="1" max="10" value="3" /></label>
+        <button type="button" id="ps-generate" class="ps-primary">Generate background</button>
+        <button type="button" id="ps-pause">Pause</button>
+        <button type="button" id="ps-burst">Burst</button>
+        <button type="button" id="ps-clear">Clear</button>
+        <button type="button" id="ps-clear-still">Clear still</button>
+      </div>
+      <div class="ps-stage" id="ps-stage">
+        <canvas id="ps-canvas" width="800" height="520" aria-label="Particle sandbox"></canvas>
+      </div>
+      <p id="ps-status" class="ps-status">Hold and pour. Colors come from the selected painting.</p>
+    </div>
+  </section>
+
+  <section id="panel-live" class="panel" hidden>
+    <div class="lv-shell">
+      <header class="lv-top">
+        <div>
+          <h2>Live</h2>
+          <p class="lv-hint">
+            Last Spellforge still on the wall. Click a slot — or Spellbook — to open the 5×5 book
+            on the camera. Forge on wall paints a new xAI still from those spells, same as Spellforge.
+            Connect TikTok LIVE for real chat.
+          </p>
+        </div>
+        <div class="lv-controls">
+          <input id="lv-tiktok" type="text" maxlength="32" placeholder="@tiktok-username" autocomplete="off" />
+          <button type="button" id="lv-tt-connect">Connect TikTok Live</button>
+          <button type="button" id="lv-go">Camera on</button>
+          <button type="button" id="lv-book-open">Spellbook</button>
+          <label>Camera
+            <select id="lv-aspect" aria-label="Camera aspect ratio">
+              <option value="9:16">9:16 phone</option>
+              <option value="4:5">4:5</option>
+              <option value="3:4">3:4</option>
+              <option value="1:1">1:1</option>
+              <option value="4:3">4:3</option>
+              <option value="16:9">16:9</option>
+            </select>
+          </label>
+          <button type="button" id="lv-set">New set</button>
+          <button type="button" id="lv-mute">Mute host</button>
+          <span id="lv-clock" class="lv-clock">00:00:00</span>
+        </div>
+      </header>
+      <div class="lv-body">
+        <div class="lv-fit" id="lv-fit">
+          <div class="lv-camera" id="lv-camera">
+            <canvas id="lv-canvas" width="360" height="640" aria-label="Live camera"></canvas>
+            <div class="lv-ui" id="lv-ui">
+              <div class="lv-slots" id="lv-slots" aria-label="Equipped spells">
+                <button type="button" class="lv-slot" data-slot="0" title="Open spellbook"><img alt="" /><span class="lv-slot-num">—</span><span class="lv-slot-nav" data-dir="-1">‹</span><span class="lv-slot-nav" data-dir="1">›</span></button>
+                <button type="button" class="lv-slot" data-slot="1" title="Open spellbook"><img alt="" /><span class="lv-slot-num">—</span><span class="lv-slot-nav" data-dir="-1">‹</span><span class="lv-slot-nav" data-dir="1">›</span></button>
+                <button type="button" class="lv-slot" data-slot="2" title="Open spellbook"><img alt="" /><span class="lv-slot-num">—</span><span class="lv-slot-nav" data-dir="-1">‹</span><span class="lv-slot-nav" data-dir="1">›</span></button>
+              </div>
+              <div class="lv-hud">
+                <span id="lv-badge" class="lv-badge off">OFF</span>
+                <span id="lv-viewers" class="lv-viewers">Not on TikTok</span>
+                <span id="lv-likes" class="lv-likes"></span>
+              </div>
+              <div id="lv-gifts" class="lv-gifts" aria-live="polite"></div>
+              <div id="lv-comments" class="lv-comments" aria-live="polite"></div>
+              <div id="lv-caption" class="lv-caption"></div>
+              <label class="lv-prompt-bar" for="lv-prompt">
+                <span class="lv-prompt-kicker">1000 PAINTINGS · LIVE</span>
+                <input id="lv-prompt" type="text" maxlength="600" placeholder="Extra prompt for Forge — scene, color, buzz…" autocomplete="off" />
+              </label>
+              <div id="lv-book" class="lv-book" hidden>
+                <div class="lv-book-top">
+                  <strong id="lv-book-slot">Slot 1</strong>
+                  <span id="lv-book-page">Page 1 / 1</span>
+                  <button type="button" id="lv-book-close">Close</button>
+                </div>
+                <div class="lv-book-nav">
+                  <button type="button" id="lv-book-prev">◀</button>
+                  <button type="button" id="lv-book-next">▶</button>
+                  <button type="button" id="lv-book-rand-page">Random page</button>
+                  <button type="button" id="lv-book-rand-pick">Random pick</button>
+                </div>
+                <div id="lv-book-grid" class="lv-book-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="lv-desk">
+          <h3>Wall</h3>
+          <div class="lv-row">
+            <button type="button" id="lv-forge-gen">Forge on wall</button>
+          </div>
+          <h3>TikTok LIVE</h3>
+          <p class="lv-read-hint" style="margin:0 0 0.4rem;font-size:0.74rem;color:rgba(200,180,190,0.75)">
+            Start the live on TikTok first, then connect that @ here. Fake chat is off.
+          </p>
+          <h3>Gifts</h3>
+          <div class="lv-row">
+            <button type="button" data-lv-gift="rose">Rose</button>
+            <button type="button" data-lv-gift="finger">Heart</button>
+            <button type="button" data-lv-gift="tiktok">TikTok</button>
+            <button type="button" data-lv-gift="galaxy">Galaxy</button>
+          </div>
+          <h3>Mod · reports</h3>
+          <div id="lv-mod" class="lv-mod"></div>
+          <p id="lv-status" class="lv-status">Go live when you're ready.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-zoo" class="panel" hidden>
+    <div class="zoo-shell">
+      <header class="zoo-top">
+        <h2>Zoo</h2>
+        <p class="zoo-hint">
+          Switch <strong>Animals</strong>, <strong>Plants</strong>, or <strong>Fungi</strong> for a separate Linnaean tree.
+          Photos are locked to that kingdom — a lion will not resolve to a flower named “lion.”
+          The circle is only the desk UI. <em>Cast</em> is a Spellforge description blend: field photography
+          of that species, spell DNA as climate — not a stock-photo overlay.
+        </p>
+      </header>
+      <div class="zoo-body">
+        <aside class="zoo-col">
+          <div class="zoo-col-head">
+            <h3>Taxonomy</h3>
+            <div id="zoo-realms" class="zoo-realm-row" role="tablist" aria-label="Animals, plants, fungi"></div>
+            <div id="zoo-domains" class="zoo-rank-row" aria-label="Domains of life"></div>
+            <div id="zoo-kingdoms" class="zoo-rank-row" aria-label="Other kingdoms"></div>
+            <div id="zoo-ranks" class="zoo-rank-row" aria-label="Linnaean ranks"></div>
+            <div id="zoo-cats" class="zoo-cat-row" aria-label="Animal classes"></div>
+            <div id="zoo-crumb" class="zoo-crumb">Eukarya → Animalia</div>
+            <div class="zoo-search-row">
+              <input type="search" id="zoo-search" class="zoo-search" placeholder="Search common or scientific name…" autocomplete="off" />
+              <button type="button" id="zoo-random" class="zoo-btn accent" title="Jump to a random featured animal. Shift-click to stay in this class.">Random animal</button>
+            </div>
+          </div>
+          <div id="zoo-list" class="zoo-list" aria-label="Creatures"></div>
+        </aside>
+        <div class="zoo-main">
+          <div class="zoo-stage-row">
+            <div class="zoo-arena-wrap">
+              <div class="zoo-arena" id="zoo-arena" aria-label="Creature circle and spell arcs">
+                <svg id="zoo-ring" class="zoo-ring" viewBox="0 0 400 400" aria-hidden="true"></svg>
+                <div class="zoo-creature">
+                  <img id="zoo-stock" alt="Stock creature" hidden />
+                  <img id="zoo-gen-circle" alt="Generated creature" hidden />
+                  <p id="zoo-creature-empty" class="zoo-creature-empty">Pick a species, or hit Random animal. Stock stays in this circle; Cast invents a field photograph from spell descriptions.</p>
+                </div>
+                <button type="button" class="zoo-slot-well empty" id="zoo-slot-0" data-slot="0" title="Spell I"><img alt="" width="96" height="96" loading="eager" decoding="async" /><span>Spell I</span></button>
+                <button type="button" class="zoo-slot-well empty" id="zoo-slot-1" data-slot="1" title="Spell II"><img alt="" width="96" height="96" loading="eager" decoding="async" /><span>Spell II</span></button>
+                <button type="button" class="zoo-slot-well empty" id="zoo-slot-2" data-slot="2" title="Spell III"><img alt="" width="96" height="96" loading="eager" decoding="async" /><span>Spell III</span></button>
+                <div id="zoo-book" class="zoo-book" hidden>
+                  <div class="zoo-book-top">
+                    <strong id="zoo-book-slot">Spell I</strong>
+                    <span id="zoo-book-page">Page 1 / 1</span>
+                    <button type="button" id="zoo-book-close" class="zoo-btn">Close</button>
+                  </div>
+                  <div class="zoo-book-nav">
+                    <button type="button" id="zoo-book-prev" class="zoo-btn">◀</button>
+                    <button type="button" id="zoo-book-next" class="zoo-btn">▶</button>
+                    <button type="button" id="zoo-book-rand" class="zoo-btn">Random page</button>
+                  </div>
+                  <div id="zoo-book-grid" class="zoo-book-grid"></div>
+                </div>
+              </div>
+              <div class="zoo-view-toggle" role="group" aria-label="Circle view">
+                <button type="button" class="active" data-view="stock">Stock</button>
+                <button type="button" data-view="generated">Generated</button>
+              </div>
+            </div>
+            <div class="zoo-side">
+              <div id="zoo-lineage" class="zoo-lineage" aria-label="Full classification"></div>
+              <p id="zoo-extract" class="zoo-extract"></p>
+              <div class="zoo-gen-frame" aria-label="Generative cast">
+                <img id="zoo-gen-preview" alt="Generated creature" hidden />
+                <p id="zoo-gen-empty" class="zoo-gen-empty">Cast blends spell texts into a new field discovery of this species — not a print of the stock photo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="zoo-controls">
+            <label class="zoo-aspect-label">Aspect
+              <select id="zoo-aspect" class="zoo-select" aria-label="Aspect ratio">
+                <option value="1:1" selected>1:1</option>
+                <option value="4:3">4:3</option>
+                <option value="3:4">3:4</option>
+                <option value="16:9">16:9</option>
+                <option value="9:16">9:16</option>
+              </select>
+            </label>
+            <input type="text" id="zoo-prompt" class="zoo-prompt" placeholder="Field brief — habitat, weather, time of day…" autocomplete="off" />
+            <button type="button" id="zoo-random-stage" class="zoo-btn" title="Jump to a random featured animal. Shift-click to stay in this class.">Random animal</button>
+            <button type="button" id="zoo-cast" class="zoo-btn accent">Cast</button>
+            <button type="button" id="zoo-clear-spells" class="zoo-btn">Clear spells</button>
+          </div>
+          <p id="zoo-status" class="zoo-status">Pick a creature to load its stock portrait and full Linnaean ranks.</p>
         </div>
       </div>
     </div>
@@ -3777,10 +6011,10 @@
   <dialog id="mw-select-spell-dialog" class="mw-select-spell-dialog" aria-labelledby="mw-select-spell-title">
     <form method="dialog" class="mw-select-spell-form">
       <h3 id="mw-select-spell-title">Select spell</h3>
-      <p class="mw-select-spell-lead">Equip painting <strong>#1–1000</strong> for <strong>250 orbs</strong>.</p>
+      <p class="mw-select-spell-lead">Equip any gallery spell — paintings, generated, sketches — for <strong>250 orbs</strong>.</p>
       <label class="mw-select-spell-field">
-        <span>Painting number</span>
-        <input type="number" id="mw-select-spell-num" min="1" max="1000" placeholder="e.g. 42" required />
+        <span>Spell</span>
+        <input type="text" id="mw-select-spell-num" placeholder="42 · G#12 · S#3 · SI#4" required />
       </label>
       <p id="mw-select-spell-error" class="mw-select-spell-error" hidden></p>
       <div class="mw-select-spell-actions">
@@ -4004,65 +6238,86 @@
     </div>
   </footer>
 
-  <script src="js/author-config.js?v=1"></script>
-  <script src="js/compat.js?v=3"></script>
-  <script src="js/xai-credits.js?v=1"></script>
-  <script src="js/gallery-shared.js?v=8"></script>
-  <script src="js/gallery-save-video.js?v=1"></script>
-  <script src="js/tab-debug.js?v=9"></script>
-  <script src="js/gallery-shop.js?v=8"></script>
-  <script src="js/real-income.js?v=1"></script>
-  <script src="js/monetize-x.js?v=1"></script>
-  <script src="js/sale-art-x.js?v=1"></script>
-  <script src="js/market-desk.js?v=2"></script>
-  <script src="js/supermarket.js?v=24"></script>
-  <script src="js/ideal.js?v=2"></script>
-  <script src="js/match.js?v=6"></script>
-  <script src="js/transfer.js?v=5"></script>
-  <script src="js/fight.js?v=37"></script>
-  <script src="js/citations.js?v=1"></script>
-  <script src="js/plasma.js?v=7"></script>
-  <script src="js/spellshop.js?v=3"></script>
-  <script src="js/tabloid-print.js?v=2"></script>
+  <script defer src="js/author-config.js?v=3"></script>
+  <script defer src="js/compat.js?v=3"></script>
+  <script defer src="js/xai-credits.js?v=2"></script>
+  <script defer src="js/gallery-shared.js?v=8"></script>
+  <script defer src="js/gallery-save-video.js?v=1"></script>
+  <script defer src="js/tab-debug.js?v=9"></script>
+  <script defer src="js/gallery-shop.js?v=8"></script>
+  <script defer src="js/real-income.js?v=1"></script>
+  <script defer src="js/monetize-x.js?v=1"></script>
+  <script defer src="js/sale-art-x.js?v=1"></script>
+  <script defer src="js/market-desk.js?v=3"></script>
+  <script defer src="js/supermarket.js?v=31"></script>
+  <script defer src="js/banker.js?v=1"></script>
+  <script defer src="js/carousel.js?v=5"></script>
+  <script defer src="js/ideal.js?v=2"></script>
+  <script defer src="js/match.js?v=6"></script>
+  <script defer src="js/transfer.js?v=7"></script>
+  <script defer src="js/fight.js?v=37"></script>
+  <script defer src="js/citations.js?v=1"></script>
+  <script defer src="js/plasma.js?v=7"></script>
+  <script defer src="js/spellshop.js?v=4"></script>
+  <script defer src="js/runes.js?v=5"></script>
+  <script defer src="js/dream-stasis.js?v=27"></script>
+  <script defer src="js/maps.js?v=1"></script>
+  <script defer src="js/stare.js?v=16"></script>
+  <script defer src="js/masks.js?v=5"></script>
+  <script type="module" src="js/modeler.js?v=42"></script>
+  <script defer src="js/stock.js?v=1"></script>
+  <script defer src="js/adventure.js?v=16"></script>
+  <script defer src="js/cardduel.js?v=13"></script>
+  <script defer src="js/graphcalc-img2curve.js?v=3"></script>
+  <script defer src="js/graphcalc.js?v=12"></script>
+  <script defer src="js/puzzle.js?v=7"></script>
+  <script defer src="js/saccade.js?v=1"></script>
+  <script defer src="js/demand.js?v=1"></script>
+  <script defer src="js/chat.js?v=3"></script>
+  <script defer src="js/ragdoll.js?v=3"></script>
+  <script defer src="js/particles.js?v=10"></script>
+  <script defer src="js/live.js?v=24"></script>
+  <script defer src="js/zoo.js?v=12"></script>
+  <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="js/site-nav.js?v=2"></script>
-  <script src="js/tabs.js?v=49"></script>
-  <script src="js/spells.js?v=5"></script>
-  <script src="js/prompt-lab.js?v=1"></script>
-  <script src="js/gab.js?v=13"></script>
-  <script src="js/glimpse.js?v=6"></script>
-  <script src="js/brew.js?v=5"></script>
-  <script src="js/ears.js?v=52"></script>
+  <script defer src="js/site-nav.js?v=2"></script>
+  <script defer src="js/tabs.js?v=76"></script>
+  <script defer src="js/spells.js?v=5"></script>
+  <script defer src="js/prompt-lab.js?v=1"></script>
+  <script defer src="js/gab.js?v=13"></script>
+  <script defer src="js/glimpse.js?v=6"></script>
+  <script defer src="js/brew.js?v=5"></script>
+  <script defer src="js/ears.js?v=52"></script>
 
-  <script src="js/api-chain.js?v=3"></script>
-  <script src="js/pulse.js?v=2"></script>
-  <script src="js/app.js?v=20"></script>
-  <script src="js/spell-timelapse.js?v=8"></script>
-  <script src="js/stasis-vision-compose.js?v=5"></script>
-  <script src="js/stasis-walk-floor.js?v=10"></script>
-  <script src="js/muralwalk-coords.js?v=1"></script>
-  <script src="js/stasis-interface-skin.js?v=2"></script>
-  <script src="js/stasis-floor-gen.js?v=7"></script>
-  <script src="js/spellforge-config.js?v=5"></script>
-  <script src="js/spellforge.js?v=69"></script>
-  <script src="js/fix-webm-duration.js?v=1"></script>
-  <script src="js/videofy-export.js?v=3"></script>
-  <script src="js/viral.js?v=13"></script>
-  <script src="js/logan.js?v=12"></script>
-  <script src="js/movie.js?v=12"></script>
-  <script src="js/book.js?v=20"></script>
-  <script src="js/game.js?v=7"></script>
-  <script src="js/commercial.js?v=27"></script>
-  <script src="js/muralwalk.js?v=122"></script>
-  <script src="js/fleeting-acquired.js?v=10"></script>
-  <script src="js/fleeting-walk.js?v=36"></script>
-  <script src="js/fleeting-idea.js?v=82"></script>
-  <script src="js/conceptualizer.js?v=15"></script>
-  <script src="js/mobile-art-gen.js?v=4"></script>
-  <script src="js/characters.js?v=18"></script>
-  <script src="js/objects.js?v=8"></script>
-  <script src="js/rooms.js?v=4"></script>
-  <script src="js/animate.js?v=28"></script>
-  <script src="js/mobile.js?v=2"></script>
+  <script defer src="js/api-chain.js?v=3"></script>
+  <script defer src="js/pulse.js?v=2"></script>
+  <script defer src="js/app.js?v=24"></script>
+  <script defer src="js/spell-timelapse.js?v=8"></script>
+  <script defer src="js/stasis-vision-compose.js?v=6"></script>
+  <script defer src="js/stasis-walk-floor.js?v=10"></script>
+  <script defer src="js/muralwalk-coords.js?v=1"></script>
+  <script defer src="js/stasis-interface-skin.js?v=2"></script>
+  <script defer src="js/stasis-floor-gen.js?v=8"></script>
+  <script defer src="js/spellforge-config.js?v=5"></script>
+  <script defer src="js/spellforge.js?v=88"></script>
+  <script defer src="js/fix-webm-duration.js?v=1"></script>
+  <script defer src="js/videofy-export.js?v=3"></script>
+  <script defer src="js/viral.js?v=13"></script>
+  <script defer src="js/logan.js?v=12"></script>
+  <script defer src="js/movie.js?v=12"></script>
+  <script defer src="js/book.js?v=20"></script>
+  <script defer src="js/game.js?v=7"></script>
+  <script defer src="js/commercial.js?v=27"></script>
+  <script defer src="js/muralwalk.js?v=125"></script>
+  <script defer src="js/fleeting-acquired.js?v=10"></script>
+  <script defer src="js/fleeting-walk.js?v=36"></script>
+  <script defer src="js/fleeting-idea.js?v=82"></script>
+  <script defer src="js/conceptualizer.js?v=15"></script>
+  <script defer src="js/mobile-art-gen.js?v=4"></script>
+  <script defer src="js/characters.js?v=18"></script>
+  <script defer src="js/objects.js?v=8"></script>
+  <script defer src="js/rooms.js?v=4"></script>
+  <script defer src="js/animate.js?v=30"></script>
+  <script defer src="js/mobile.js?v=3"></script>
 </body>
 </html>

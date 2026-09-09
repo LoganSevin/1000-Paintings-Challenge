@@ -1,0 +1,42 @@
+{
+  "number": 1733,
+  "title": "Line sketch: Psychedelic Bear Woman Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal portrait of a woman with bear-like features including rounded ears and a bear snout, eyes, and a third eye on her forehead. She has long flowing hair adorned with poppies, set against a swirling psychedelic background with patterns and dripping paint effects (derived from generated still #955).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal portrait of a woman with bear-like features including rounded ears and a bear snout, eyes, and a third eye on her forehead. She has long flowing hair adorned with poppies, set against a swirling psychedelic background with patterns and dripping paint effects",
+  "inverted_title": "Inverted sketch: Psychedelic Bear Woman Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal portrait of a woman with bear-like features including rounded ears and a bear snout, eyes, and a third eye on her forehead. She has long flowing hair adorned with poppies, set against a swirling psychedelic background with patterns and dripping paint effects (from generated still #955).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal portrait of a woman with bear-like features including rounded ears and a bear snout, eyes, and a third eye on her forehead. She has long flowing hair adorned with poppies, set against a swirling psychedelic background with patterns and dripping paint effects",
+  "source_description": "A vibrant surreal portrait of a woman with bear-like features including rounded ears and a brown bear snout, blue eyes, and a third eye on her forehead. She has long flowing red hair adorned with red poppies, set against a swirling psychedelic background with colorful patterns and dripping paint effects.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Bear Woman Portrait",
+  "style": "Psychedelic Surrealism",
+  "mood": "Vibrant, mystical, trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "bear woman",
+    "poppies",
+    "third eye",
+    "surreal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 955,
+  "source_url": "/generated/955.jpg",
+  "image_url": "/sketches/1733.png",
+  "inverted_image_url": "/sketches-inverted/1733.png",
+  "curve_count": 136,
+  "built_at": "2026-08-17T00:09:41Z"
+}

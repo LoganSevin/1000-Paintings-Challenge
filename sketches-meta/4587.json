@@ -1,0 +1,42 @@
+{
+  "number": 4587,
+  "title": "Line sketch: The Demon's Scribe",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a Victorian dress sits at a desk writing in a book with a quill. She holds a glowing anatomical heart connected by tubes to a large demonic mechanical eye displayed on a screen above the desk, which is labeled 'DEMON'. A bowl containing a with dripping liquid sits beside her (derived from generated still #4008).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a Victorian dress sits at a desk writing in a book with a quill. She holds a glowing anatomical heart connected by tubes to a large demonic mechanical eye displayed on a screen above the desk, which is labeled 'DEMON'. A bowl containing a with dripping liquid sits beside her",
+  "inverted_title": "Inverted sketch: The Demon's Scribe",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a Victorian dress sits at a desk writing in a book with a quill. She holds a glowing anatomical heart connected by tubes to a large demonic mechanical eye displayed on a screen above the desk, which is labeled 'DEMON'. A bowl containing a with dripping liquid sits beside her (from generated still #4008).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a Victorian dress sits at a desk writing in a book with a quill. She holds a glowing anatomical heart connected by tubes to a large demonic mechanical eye displayed on a screen above the desk, which is labeled 'DEMON'. A bowl containing a with dripping liquid sits beside her",
+  "source_description": "A woman in a pink Victorian dress sits at a teal desk writing in a book with a quill. She holds a glowing blue anatomical heart connected by red tubes to a large demonic mechanical eye displayed on a screen above the desk, which is labeled 'DEMON'. A bowl containing a red rose with dripping liquid sits beside her.",
+  "source_prompt": "A woman with dark hair in an updo wearing a pink patterned Victorian dress with green skirt sits at an ornate teal wooden desk writing with a quill in a book. She holds a glowing blue anatomical heart in her left hand connected by red tubes to a giant mechanical demonic eye with gears and robotic elements displayed on a large ornate screen labeled DEMON. A blue bowl with a vibrant red rose dripping red liquid sits on the desk. The background wall is purple with framed anatomical heart and rose illustrations. Surreal symbolic style with rich details and dramatic lighting.",
+  "source_title": "The Demon's Scribe",
+  "style": "surreal symbolic composition",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "victorian",
+    "mechanical eye",
+    "anatomical heart",
+    "demonic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4008,
+  "source_url": "/generated/4008.jpg",
+  "image_url": "/sketches/4587.png",
+  "inverted_image_url": "/sketches-inverted/4587.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:48Z"
+}

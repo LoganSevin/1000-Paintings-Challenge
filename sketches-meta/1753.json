@@ -1,0 +1,42 @@
+{
+  "number": 1753,
+  "title": "Line sketch: Psychedelic Poppy Bear",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant portrait of a female bear with large sparkling eyes and lips, adorned with poppies in her hair and flowing patterns extending from her head against a swirling and background (derived from generated still #975).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant portrait of a female bear with large sparkling eyes and lips, adorned with poppies in her hair and flowing patterns extending from her head against a swirling and background",
+  "inverted_title": "Inverted sketch: Psychedelic Poppy Bear",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant portrait of a female bear with large sparkling eyes and lips, adorned with poppies in her hair and flowing patterns extending from her head against a swirling and background (from generated still #975).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant portrait of a female bear with large sparkling eyes and lips, adorned with poppies in her hair and flowing patterns extending from her head against a swirling and background",
+  "source_description": "A vibrant portrait of a female brown bear with large sparkling blue eyes and purple lips, adorned with orange poppies in her hair and flowing colorful patterns extending from her head against a swirling green and blue background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Poppy Bear",
+  "style": "Psychedelic pop art",
+  "mood": "whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "poppies",
+    "psychedelic",
+    "floral",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 975,
+  "source_url": "/generated/975.jpg",
+  "image_url": "/sketches/1753.png",
+  "inverted_image_url": "/sketches-inverted/1753.png",
+  "curve_count": 232,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1128,
+  "title": "Line sketch: Masked Dancer at Twilight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black silhouette of a female dancer wearing a and mask strikes a graceful pose with one arm raised. She stands in shallow water reflecting a vibrant surreal landscape featuring a large celestial body, crescent moon, radiant sun, and silhouetted trees under a starry sky (derived from generated still #340).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black silhouette of a female dancer wearing a and mask strikes a graceful pose with one arm raised. She stands in shallow water reflecting a vibrant surreal landscape featuring a large celestial body, crescent moon, radiant sun, and silhouetted trees under a starry sky",
+  "inverted_title": "Inverted sketch: Masked Dancer at Twilight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black silhouette of a female dancer wearing a and mask strikes a graceful pose with one arm raised. She stands in shallow water reflecting a vibrant surreal landscape featuring a large celestial body, crescent moon, radiant sun, and silhouetted trees under a starry sky (from generated still #340).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black silhouette of a female dancer wearing a and mask strikes a graceful pose with one arm raised. She stands in shallow water reflecting a vibrant surreal landscape featuring a large celestial body, crescent moon, radiant sun, and silhouetted trees under a starry sky",
+  "source_description": "A black silhouette of a female dancer wearing a yellow and pink mask strikes a graceful pose with one arm raised. She stands in shallow water reflecting a vibrant surreal landscape featuring a large celestial body, crescent moon, radiant sun, and silhouetted trees under a starry sky.",
+  "source_prompt": "",
+  "source_title": "Masked Dancer at Twilight",
+  "style": "surreal digital illustration",
+  "mood": "ethereal vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dancer",
+    "silhouette",
+    "surreal",
+    "celestial",
+    "mask"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 340,
+  "source_url": "/generated/340.jpg",
+  "image_url": "/sketches/1128.png",
+  "inverted_image_url": "/sketches-inverted/1128.png",
+  "curve_count": 256,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 752,
+  "title": "Line sketch: Fishermen in Mist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two fishermen sit in a small boat on a vast, calm sea under a hazy sky. Distant mountains fade into the foggy horizon as one man fishes with a long rod (derived from painting #946).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two fishermen sit in a small boat on a vast, calm sea under a hazy sky. Distant mountains fade into the foggy horizon as one man fishes with a long rod",
+  "inverted_title": "Inverted sketch: Fishermen in Mist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two fishermen sit in a small boat on a vast, calm sea under a hazy sky. Distant mountains fade into the foggy horizon as one man fishes with a long rod (from painting #946).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two fishermen sit in a small boat on a vast, calm sea under a hazy sky. Distant mountains fade into the foggy horizon as one man fishes with a long rod",
+  "source_description": "Two fishermen sit in a small red boat on a vast, calm sea under a hazy green sky. Distant mountains fade into the foggy horizon as one man fishes with a long rod.",
+  "source_prompt": "",
+  "source_title": "Fishermen in Green Mist",
+  "style": "Minimalist realism",
+  "mood": "Serene and mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fishing",
+    "boat",
+    "seascape",
+    "minimalism",
+    "foggy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 946,
+  "source_url": "/paintings/946.jpg",
+  "image_url": "/sketches/752.png",
+  "inverted_image_url": "/sketches-inverted/752.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:39Z"
+}

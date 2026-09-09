@@ -1,0 +1,42 @@
+{
+  "number": 3805,
+  "title": "Line sketch: Flame Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side views of a dark-skinned female warrior with short white hair, wearing a revealing and white tribal outfit with accents and bandages on her arms and legs. She is surrounded by swirling mystical flames or energy, shown in a crouching pose on the left, a dynamic mid-air pose in the center, and a combat stance on the right (derived from generated still #3222).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side views of a dark-skinned female warrior with short white hair, wearing a revealing and white tribal outfit with accents and bandages on her arms and legs. She is surrounded by swirling mystical flames or energy, shown in a crouching pose on the left, a dynamic mid-air pose in the center, and a combat stance on the right",
+  "inverted_title": "Inverted sketch: Flame Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side views of a dark-skinned female warrior with short white hair, wearing a revealing and white tribal outfit with accents and bandages on her arms and legs. She is surrounded by swirling mystical flames or energy, shown in a crouching pose on the left, a dynamic mid-air pose in the center, and a combat stance on the right (from generated still #3222).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side views of a dark-skinned female warrior with short white hair, wearing a revealing and white tribal outfit with accents and bandages on her arms and legs. She is surrounded by swirling mystical flames or energy, shown in a crouching pose on the left, a dynamic mid-air pose in the center, and a combat stance on the right",
+  "source_description": "Three side-by-side views of a dark-skinned female warrior with short white hair, wearing a revealing purple and white tribal outfit with silver accents and bandages on her arms and legs. She is surrounded by swirling purple mystical flames or energy, shown in a crouching pose on the left, a dynamic mid-air pose in the center, and a combat stance on the right.",
+  "source_prompt": "A dark-skinned female warrior with short messy white hair and intense expression, wearing a revealing purple and white tribal fantasy outfit with silver leaf-like armor pieces and white bandages wrapped around forearms and shins. She is surrounded by swirling translucent purple flames and smoke. Three separate poses shown side by side against a dark background: left is a low crouching pose, center is a leaping dynamic pose, right is a combat ready stance with one leg forward. Mystical energy effects, dramatic lighting, high detail digital painting.",
+  "source_title": "Purple Flame Warrior Poses",
+  "style": "digital fantasy illustration",
+  "mood": "fierce, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "flames",
+    "tribal outfit",
+    "white hair",
+    "dynamic poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3222,
+  "source_url": "/generated/3222.jpg",
+  "image_url": "/sketches/3805.png",
+  "inverted_image_url": "/sketches-inverted/3805.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:46Z"
+}

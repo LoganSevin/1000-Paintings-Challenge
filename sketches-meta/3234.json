@@ -1,0 +1,42 @@
+{
+  "number": 3234,
+  "title": "Line sketch: Mirror of Fractured Realities",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing white gown stands in an ornate, steampunk-style observatory with a cracked glass dome, reaching toward her reflection in a large oval mirror that shows multiple ghostly versions of herself. The floor is covered in shattered glass and water, with gears, celestial instruments, and a cracked globe on a pedestal visible around her as beams of light pierce the decaying interior (derived from generated still #2591).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing white gown stands in an ornate, steampunk-style observatory with a cracked glass dome, reaching toward her reflection in a large oval mirror that shows multiple ghostly versions of herself. The floor is covered in shattered glass and water, with gears, celestial instruments, and a cracked globe on a pedestal visible around her as beams of light pierce the decaying interior",
+  "inverted_title": "Inverted sketch: Mirror of Fractured Realities",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing white gown stands in an ornate, steampunk-style observatory with a cracked glass dome, reaching toward her reflection in a large oval mirror that shows multiple ghostly versions of herself. The floor is covered in shattered glass and water, with gears, celestial instruments, and a cracked globe on a pedestal visible around her as beams of light pierce the decaying interior (from generated still #2591).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing white gown stands in an ornate, steampunk-style observatory with a cracked glass dome, reaching toward her reflection in a large oval mirror that shows multiple ghostly versions of herself. The floor is covered in shattered glass and water, with gears, celestial instruments, and a cracked globe on a pedestal visible around her as beams of light pierce the decaying interior",
+  "source_description": "A woman in a flowing white gown stands in an ornate, steampunk-style observatory with a cracked glass dome, reaching toward her reflection in a large oval mirror that shows multiple ghostly versions of herself. The floor is covered in shattered glass and water, with gears, celestial instruments, and a cracked globe on a pedestal visible around her as beams of light pierce the decaying interior.",
+  "source_prompt": "A woman in a long white gown stands in an abandoned steampunk observatory with a massive cracked glass dome ceiling, reaching toward her reflection in an ornate oval mirror. The mirror shows multiple translucent ghostly versions of her. Shattered glass and water cover the floor, gears and astronomical instruments surround the scene, a cracked globe sits on a broken pedestal, dramatic beams of light shine through the broken dome, melancholic and surreal atmosphere, highly detailed digital painting",
+  "source_title": "Mirror of Fractured Realities",
+  "style": "surreal fantasy",
+  "mood": "melancholy ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mirror",
+    "steampunk",
+    "surreal",
+    "celestial",
+    "cracked glass"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2591,
+  "source_url": "/generated/2591.jpg",
+  "image_url": "/sketches/3234.png",
+  "inverted_image_url": "/sketches-inverted/3234.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:45Z"
+}

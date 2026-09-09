@@ -1,0 +1,42 @@
+{
+  "number": 1895,
+  "title": "Line sketch: Psychedelic Orb Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic artwork features a glowing orb with a surprised face floating in a cloudy sky. Ornate stylized female faces with intricate swirling hair frame the left and right sides, accompanied by a large cat and a small cat with matching curly patterns (derived from generated still #1120).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic artwork features a glowing orb with a surprised face floating in a cloudy sky. Ornate stylized female faces with intricate swirling hair frame the left and right sides, accompanied by a large cat and a small cat with matching curly patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Orb Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic artwork features a glowing orb with a surprised face floating in a cloudy sky. Ornate stylized female faces with intricate swirling hair frame the left and right sides, accompanied by a large cat and a small cat with matching curly patterns (from generated still #1120).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic artwork features a glowing orb with a surprised face floating in a cloudy sky. Ornate stylized female faces with intricate swirling hair frame the left and right sides, accompanied by a large cat and a small cat with matching curly patterns",
+  "source_description": "A surreal psychedelic artwork features a glowing green orb with a surprised face floating in a cloudy sky. Ornate stylized female faces with intricate swirling hair frame the left and right sides, accompanied by a large orange cat and a small green cat with matching curly patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Green Orb Scene",
+  "style": "psychedelic",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "cats",
+    "female faces",
+    "swirling patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1120,
+  "source_url": "/generated/1120.jpg",
+  "image_url": "/sketches/1895.png",
+  "inverted_image_url": "/sketches-inverted/1895.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:42Z"
+}

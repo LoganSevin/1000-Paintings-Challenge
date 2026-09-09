@@ -1,0 +1,42 @@
+{
+  "number": 4358,
+  "title": "Line sketch: Tesla Coil Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe contains a large demonic face with sharp teeth and glowing eyes, its mouth formed by a spiky and tesla coil structure emitting electrical arcs. Above it floats a portrait of Nikola Tesla surrounded by leaves, dripping liquid, and lightning against a dark cloudy background (derived from generated still #3777).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe contains a large demonic face with sharp teeth and glowing eyes, its mouth formed by a spiky and tesla coil structure emitting electrical arcs. Above it floats a portrait of Nikola Tesla surrounded by leaves, dripping liquid, and lightning against a dark cloudy background",
+  "inverted_title": "Inverted sketch: Tesla Coil Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe contains a large demonic face with sharp teeth and glowing eyes, its mouth formed by a spiky and tesla coil structure emitting electrical arcs. Above it floats a portrait of Nikola Tesla surrounded by leaves, dripping liquid, and lightning against a dark cloudy background (from generated still #3777).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe contains a large demonic face with sharp teeth and glowing eyes, its mouth formed by a spiky and tesla coil structure emitting electrical arcs. Above it floats a portrait of Nikola Tesla surrounded by leaves, dripping liquid, and lightning against a dark cloudy background",
+  "source_description": "A glowing plasma globe contains a large demonic face with sharp teeth and glowing eyes, its mouth formed by a spiky purple and blue tesla coil structure emitting electrical arcs. Above it floats a portrait of Nikola Tesla surrounded by green leaves, pink dripping liquid, and yellow lightning against a dark cloudy background.",
+  "source_prompt": "Surreal dark painting of a large plasma globe containing a demonic grinning face with sharp teeth and glowing eyes, its mouth constructed from a glowing purple and blue spiky tesla coil with electrical arcs shooting upward to a floating portrait of Nikola Tesla with mustache. Green leaves and pink dripping liquid surround the glass sphere, dramatic lighting, dark cloudy background with yellow lightning.",
+  "source_title": "Tesla Coil Portrait",
+  "style": "surreal",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tesla coil",
+    "demonic face",
+    "nikola tesla",
+    "plasma globe",
+    "surreal horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3777,
+  "source_url": "/generated/3777.jpg",
+  "image_url": "/sketches/4358.png",
+  "inverted_image_url": "/sketches-inverted/4358.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:48Z"
+}

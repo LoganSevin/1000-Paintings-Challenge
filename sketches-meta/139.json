@@ -1,0 +1,42 @@
+{
+  "number": 139,
+  "title": "Line sketch: Dragon Fox on Floating Isle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic fox with dragon wings sits atop a grassy floating rock formation, overlooking a vibrant sunset sky. A tiny human figure with a umbrella stands nearby, while glowing orbs and tattered flags adorn the surreal scene dominated by a massive planet (derived from painting #176).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic fox with dragon wings sits atop a grassy floating rock formation, overlooking a vibrant sunset sky. A tiny human figure with a umbrella stands nearby, while glowing orbs and tattered flags adorn the surreal scene dominated by a massive planet",
+  "inverted_title": "Inverted sketch: Dragon Fox on Floating Isle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic fox with dragon wings sits atop a grassy floating rock formation, overlooking a vibrant sunset sky. A tiny human figure with a umbrella stands nearby, while glowing orbs and tattered flags adorn the surreal scene dominated by a massive planet (from painting #176).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic fox with dragon wings sits atop a grassy floating rock formation, overlooking a vibrant sunset sky. A tiny human figure with a umbrella stands nearby, while glowing orbs and tattered flags adorn the surreal scene dominated by a massive planet",
+  "source_description": "A majestic fox with dragon wings sits atop a grassy floating rock formation, overlooking a vibrant sunset sky. A tiny human figure with a red umbrella stands nearby, while glowing orbs and tattered flags adorn the surreal scene dominated by a massive green planet.",
+  "source_prompt": "",
+  "source_title": "Dragon Fox on Floating Isle",
+  "style": "Fantasy Illustration",
+  "mood": "Whimsical Adventure",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "dragon fox",
+    "floating island",
+    "sunset",
+    "magical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 176,
+  "source_url": "/paintings/176.jpg",
+  "image_url": "/sketches/139.png",
+  "inverted_image_url": "/sketches-inverted/139.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:38Z"
+}

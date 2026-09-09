@@ -1,0 +1,42 @@
+{
+  "number": 4752,
+  "title": "Line sketch: Parallax Fantasy Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fantasy map illustration on aged parchment depicts a winding river flowing from distant mountains through rock canyons, farmlands, and a forested region. Visible landmarks include a tall striped lighthouse tower on the left, a circular stone arena, two elevated tree platforms connected by bridges, and small figures working in crop fields (derived from generated still #4183).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fantasy map illustration on aged parchment depicts a winding river flowing from distant mountains through rock canyons, farmlands, and a forested region. Visible landmarks include a tall striped lighthouse tower on the left, a circular stone arena, two elevated tree platforms connected by bridges, and small figures working in crop fields",
+  "inverted_title": "Inverted sketch: Parallax Fantasy Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fantasy map illustration on aged parchment depicts a winding river flowing from distant mountains through rock canyons, farmlands, and a forested region. Visible landmarks include a tall striped lighthouse tower on the left, a circular stone arena, two elevated tree platforms connected by bridges, and small figures working in crop fields (from generated still #4183).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fantasy map illustration on aged parchment depicts a winding river flowing from distant mountains through rock canyons, farmlands, and a forested region. Visible landmarks include a tall striped lighthouse tower on the left, a circular stone arena, two elevated tree platforms connected by bridges, and small figures working in crop fields",
+  "source_description": "A detailed fantasy map illustration on aged parchment depicts a winding river flowing from distant blue mountains through red rock canyons, farmlands, and a forested region. Visible landmarks include a tall striped lighthouse tower on the left, a circular stone arena, two elevated tree platforms connected by bridges, and small figures working in golden crop fields.",
+  "source_prompt": "Wide horizontal fantasy map on old parchment paper with a compass rose in the corner, showing a continuous landscape from purple foreground mountains to distant blue peaks. A wide river winds through red rock canyons, golden agricultural fields with tiny workers, a tall striped lighthouse tower, a circular stone arena, two large treehouse platforms connected by rope bridges, and dense blue-green forests. Stylized parallax layers with clear depth, warm earthy tones, detailed yet illustrative fantasy cartography style.",
+  "source_title": "Parallax Fantasy Map",
+  "style": "fantasy map illustration",
+  "mood": "epic, adventurous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting on parchment",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "parallax landscape",
+    "river valley",
+    "lighthouse",
+    "farmland"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4183,
+  "source_url": "/generated/4183.jpg",
+  "image_url": "/sketches/4752.png",
+  "inverted_image_url": "/sketches-inverted/4752.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:48Z"
+}

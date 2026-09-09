@@ -1,0 +1,42 @@
+{
+  "number": 3320,
+  "title": "Line sketch: Lotus in Ceramic Bowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant lotus flower with layered petals and a center blooms from a ceramic bowl filled with smooth pebbles. The bowl floats on dark reflective water surrounded by lily pads under a moody twilight sky with reflections (derived from generated still #2707).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant lotus flower with layered petals and a center blooms from a ceramic bowl filled with smooth pebbles. The bowl floats on dark reflective water surrounded by lily pads under a moody twilight sky with reflections",
+  "inverted_title": "Inverted sketch: Lotus in Ceramic Bowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant lotus flower with layered petals and a center blooms from a ceramic bowl filled with smooth pebbles. The bowl floats on dark reflective water surrounded by lily pads under a moody twilight sky with reflections (from generated still #2707).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant lotus flower with layered petals and a center blooms from a ceramic bowl filled with smooth pebbles. The bowl floats on dark reflective water surrounded by lily pads under a moody twilight sky with reflections",
+  "source_description": "A vibrant red lotus flower with layered petals and a bright yellow center blooms from a turquoise ceramic bowl filled with smooth pebbles. The bowl floats on dark reflective water surrounded by lily pads under a moody twilight sky with golden reflections.",
+  "source_prompt": "A large, detailed red lotus flower with many layered petals and a textured yellow center growing from a weathered turquoise ceramic bowl decorated with blue floral patterns and filled with smooth grey pebbles. The bowl rests on the surface of dark reflective water at twilight, with lily pads floating nearby and warm golden light reflecting on the rippling water, atmospheric and serene digital painting style",
+  "source_title": "Red Lotus in Ceramic Bowl",
+  "style": "line sketch",
+  "mood": "serene, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lotus",
+    "water lily",
+    "ceramic bowl",
+    "twilight",
+    "reflective water"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2707,
+  "source_url": "/generated/2707.jpg",
+  "image_url": "/sketches/3320.png",
+  "inverted_image_url": "/sketches-inverted/3320.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 337,
+  "title": "Line sketch: Ornament Over Turbulent Seas",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bold Celtic-inspired ornamental design overlays a detailed black and white engraving of churning ocean waves. The intricate linear patterns create a striking contrast against the dynamic, swirling sea background (derived from painting #399).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bold Celtic-inspired ornamental design overlays a detailed black and white engraving of churning ocean waves. The intricate linear patterns create a striking contrast against the dynamic, swirling sea background",
+  "inverted_title": "Inverted sketch: Ornament Over Turbulent Seas",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bold Celtic-inspired ornamental design overlays a detailed black and white engraving of churning ocean waves. The intricate linear patterns create a striking contrast against the dynamic, swirling sea background (from painting #399).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bold Celtic-inspired ornamental design overlays a detailed black and white engraving of churning ocean waves. The intricate linear patterns create a striking contrast against the dynamic, swirling sea background",
+  "source_description": "A bold green Celtic-inspired ornamental design overlays a detailed black and white engraving of churning ocean waves. The intricate linear patterns create a striking contrast against the dynamic, swirling sea background.",
+  "source_prompt": "",
+  "source_title": "Green Ornament Over Turbulent Seas",
+  "style": "Celtic Art",
+  "mood": "Dramatic Contrast",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Print",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Celtic knot",
+    "ocean waves",
+    "ornamental",
+    "overlay",
+    "monochrome sea"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 399,
+  "source_url": "/paintings/399.jpg",
+  "image_url": "/sketches/337.png",
+  "inverted_image_url": "/sketches-inverted/337.png",
+  "curve_count": 281,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3268,
+  "title": "Line sketch: Shattered Celluloid Phantom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows a ghostly woman in a torn gown with hair and a white-painted face standing on a cracked black floor. She holds a film reel attached to a chain while a broken movie film strip floats across a twilight sky above a shattered picture frame revealing screaming figures and a theater interior (derived from generated still #2640).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows a ghostly woman in a torn gown with hair and a white-painted face standing on a cracked black floor. She holds a film reel attached to a chain while a broken movie film strip floats across a twilight sky above a shattered picture frame revealing screaming figures and a theater interior",
+  "inverted_title": "Inverted sketch: Shattered Celluloid Phantom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows a ghostly woman in a torn gown with hair and a white-painted face standing on a cracked black floor. She holds a film reel attached to a chain while a broken movie film strip floats across a twilight sky above a shattered picture frame revealing screaming figures and a theater interior (from generated still #2640).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows a ghostly woman in a torn gown with hair and a white-painted face standing on a cracked black floor. She holds a film reel attached to a chain while a broken movie film strip floats across a twilight sky above a shattered picture frame revealing screaming figures and a theater interior",
+  "source_description": "A surreal painting shows a ghostly woman in a torn silver gown with red hair and a white-painted face standing on a cracked black floor. She holds a film reel attached to a chain while a broken movie film strip floats across a twilight sky above a shattered golden picture frame revealing screaming figures and a red theater interior.",
+  "source_prompt": "surreal painting of a ghostly elegant woman with red hair and white face in a torn silver gown standing in a decaying room, holding a film reel on a chain, broken movie strip floating across a purple twilight sky, a large golden picture frame shattered with screaming figures and red theater seats inside, cracked black marble floor with glowing fissures, dramatic cinematic lighting, dark atmosphere",
+  "source_title": "Shattered Celluloid Phantom",
+  "style": "surrealism",
+  "mood": "eerie, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "film",
+    "phantom",
+    "shattered"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2640,
+  "source_url": "/generated/2640.jpg",
+  "image_url": "/sketches/3268.png",
+  "inverted_image_url": "/sketches-inverted/3268.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:45Z"
+}

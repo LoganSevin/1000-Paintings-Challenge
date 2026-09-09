@@ -1,0 +1,42 @@
+{
+  "number": 3153,
+  "title": "Line sketch: Majestic Reef Fish",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, fish with, and black patterned scales swims toward the viewer in the center of a vibrant underwater reef. Sunlight beams penetrate from the surface above, illuminating the scene filled with smaller fish, sea plants, and diverse formations (derived from generated still #2494).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, fish with, and black patterned scales swims toward the viewer in the center of a vibrant underwater reef. Sunlight beams penetrate from the surface above, illuminating the scene filled with smaller fish, sea plants, and diverse formations",
+  "inverted_title": "Inverted sketch: Majestic Reef Fish",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, fish with, and black patterned scales swims toward the viewer in the center of a vibrant underwater reef. Sunlight beams penetrate from the surface above, illuminating the scene filled with smaller fish, sea plants, and diverse formations (from generated still #2494).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, fish with, and black patterned scales swims toward the viewer in the center of a vibrant underwater reef. Sunlight beams penetrate from the surface above, illuminating the scene filled with smaller fish, sea plants, and diverse formations",
+  "source_description": "A large, colorful fish with blue, yellow, and black patterned scales swims toward the viewer in the center of a vibrant underwater coral reef. Sunlight beams penetrate from the surface above, illuminating the scene filled with smaller fish, sea plants, and diverse coral formations.",
+  "source_prompt": "A large tropical fish with intricate blue, yellow, and black patterns and a large golden eye swims forward in the center of a lush coral reef. Sunlight rays pierce through the deep blue water from above, surrounded by smaller fish and vibrant corals in purple, orange, and green. Highly detailed underwater scene with realistic lighting and cinematic atmosphere.",
+  "source_title": "Majestic Reef Fish",
+  "style": "line sketch",
+  "mood": "vibrant, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "underwater",
+    "reef",
+    "fish",
+    "sunbeams",
+    "marine life"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2494,
+  "source_url": "/generated/2494.jpg",
+  "image_url": "/sketches/3153.png",
+  "inverted_image_url": "/sketches-inverted/3153.png",
+  "curve_count": 112,
+  "built_at": "2026-08-17T00:09:45Z"
+}

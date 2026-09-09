@@ -1,0 +1,42 @@
+{
+  "number": 1019,
+  "title": "Line sketch: Alien Companions by the Sea",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two grey-skinned aliens with large eyes and leafy head adornments stand in a glowing ocean, one with a body and the other. A vibrant cosmic sky filled with swirling nebulae, stars, and multiple planets forms the surreal background above stylized glowing waves and alien vegetation (derived from generated still #230).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two grey-skinned aliens with large eyes and leafy head adornments stand in a glowing ocean, one with a body and the other. A vibrant cosmic sky filled with swirling nebulae, stars, and multiple planets forms the surreal background above stylized glowing waves and alien vegetation",
+  "inverted_title": "Inverted sketch: Alien Companions by the Sea",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two grey-skinned aliens with large eyes and leafy head adornments stand in a glowing ocean, one with a body and the other. A vibrant cosmic sky filled with swirling nebulae, stars, and multiple planets forms the surreal background above stylized glowing waves and alien vegetation (from generated still #230).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two grey-skinned aliens with large eyes and leafy head adornments stand in a glowing ocean, one with a body and the other. A vibrant cosmic sky filled with swirling nebulae, stars, and multiple planets forms the surreal background above stylized glowing waves and alien vegetation",
+  "source_description": "Two grey-skinned aliens with large eyes and leafy head adornments stand in a glowing ocean, one with a purple body and the other teal. A vibrant cosmic sky filled with swirling nebulae, stars, and multiple planets forms the surreal background above stylized glowing waves and alien vegetation.",
+  "source_prompt": "",
+  "source_title": "Alien Companions by the Sea",
+  "style": "surreal fantasy",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "aliens",
+    "cosmic landscape",
+    "ocean",
+    "nebula",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 230,
+  "source_url": "/generated/230.jpg",
+  "image_url": "/sketches/1019.png",
+  "inverted_image_url": "/sketches-inverted/1019.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:40Z"
+}

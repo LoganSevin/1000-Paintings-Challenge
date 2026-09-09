@@ -1,0 +1,42 @@
+{
+  "number": 3755,
+  "title": "Line sketch: Fire Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young Black girl with dreadlocks stands in a dynamic action pose wearing an and black futuristic armored outfit with glowing elements. Four smaller images surround the central figure showing her in different action poses emitting fire and energy explosions from her hands against dark backgrounds (derived from generated still #3169).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young Black girl with dreadlocks stands in a dynamic action pose wearing an and black futuristic armored outfit with glowing elements. Four smaller images surround the central figure showing her in different action poses emitting fire and energy explosions from her hands against dark backgrounds",
+  "inverted_title": "Inverted sketch: Fire Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young Black girl with dreadlocks stands in a dynamic action pose wearing an and black futuristic armored outfit with glowing elements. Four smaller images surround the central figure showing her in different action poses emitting fire and energy explosions from her hands against dark backgrounds (from generated still #3169).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young Black girl with dreadlocks stands in a dynamic action pose wearing an and black futuristic armored outfit with glowing elements. Four smaller images surround the central figure showing her in different action poses emitting fire and energy explosions from her hands against dark backgrounds",
+  "source_description": "A young Black girl with orange dreadlocks stands in a dynamic action pose wearing an orange and black futuristic armored outfit with glowing elements. Four smaller images surround the central figure showing her in different action poses emitting bright orange fire and energy explosions from her hands against dark backgrounds.",
+  "source_prompt": "A young Black girl with orange dreadlocks wearing detailed orange and black futuristic battle armor with glowing accents and heavy boots, posed dynamically as if shooting powerful orange fire energy from her hands, surrounded by four smaller action shots showing her jumping, running and creating explosions, dramatic cinematic lighting, dark studio background, highly detailed digital painting",
+  "source_title": "Orange Fire Warrior",
+  "style": "digital concept art",
+  "mood": "energetic powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "young girl",
+    "fire powers",
+    "armor",
+    "action pose",
+    "dreadlocks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3169,
+  "source_url": "/generated/3169.jpg",
+  "image_url": "/sketches/3755.png",
+  "inverted_image_url": "/sketches-inverted/3755.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4936,
+  "title": "Line sketch: Horror Hallway Android",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale humanoid android with visible mechanical joints and blood splatters stumbles through a derelict hallway, arms flailing in distress. The walls are covered with ornate framed paintings of screaming and grotesque figures, all heavily smeared and dripping with blood under harsh fluorescent lighting (derived from generated still #4373).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale humanoid android with visible mechanical joints and blood splatters stumbles through a derelict hallway, arms flailing in distress. The walls are covered with ornate framed paintings of screaming and grotesque figures, all heavily smeared and dripping with blood under harsh fluorescent lighting",
+  "inverted_title": "Inverted sketch: Horror Hallway Android",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale humanoid android with visible mechanical joints and blood splatters stumbles through a derelict hallway, arms flailing in distress. The walls are covered with ornate framed paintings of screaming and grotesque figures, all heavily smeared and dripping with blood under harsh fluorescent lighting (from generated still #4373).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale humanoid android with visible mechanical joints and blood splatters stumbles through a derelict hallway, arms flailing in distress. The walls are covered with ornate framed paintings of screaming and grotesque figures, all heavily smeared and dripping with blood under harsh fluorescent lighting",
+  "source_description": "A pale humanoid android with visible mechanical joints and red blood splatters stumbles through a derelict hallway, arms flailing in distress. The walls are covered with ornate framed paintings of screaming and grotesque figures, all heavily smeared and dripping with blood under harsh fluorescent lighting.",
+  "source_prompt": "A pale humanoid robot with exposed joints and blood splatters stumbles frantically down a narrow derelict hallway, arms raised in panic, its face showing distress. The walls are lined with ornate gold-framed paintings depicting screaming and mutilated figures, all heavily smeared with dripping blood that runs down the walls. Harsh fluorescent tube lighting casts long dramatic shadows, creating a nightmarish atmosphere, digital painting, highly detailed",
+  "source_title": "Horror Hallway Android",
+  "style": "horror surrealism",
+  "mood": "disturbing chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "android",
+    "horror",
+    "blood",
+    "hallway",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4373,
+  "source_url": "/generated/4373.jpg",
+  "image_url": "/sketches/4936.png",
+  "inverted_image_url": "/sketches-inverted/4936.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:49Z"
+}

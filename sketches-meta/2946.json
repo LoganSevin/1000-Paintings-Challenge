@@ -1,0 +1,42 @@
+{
+  "number": 2946,
+  "title": "Line sketch: Wind Chimes on the Porch",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered wooden porch at night features hanging wind chimes and a broken wooden beam. Dry autumn leaves swirl through the dark air while a mysterious glowing pinkish- light hovers near the steps (derived from generated still #2255).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered wooden porch at night features hanging wind chimes and a broken wooden beam. Dry autumn leaves swirl through the dark air while a mysterious glowing pinkish- light hovers near the steps",
+  "inverted_title": "Inverted sketch: Wind Chimes on the Porch",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered wooden porch at night features hanging wind chimes and a broken wooden beam. Dry autumn leaves swirl through the dark air while a mysterious glowing pinkish- light hovers near the steps (from generated still #2255).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered wooden porch at night features hanging wind chimes and a broken wooden beam. Dry autumn leaves swirl through the dark air while a mysterious glowing pinkish- light hovers near the steps",
+  "source_description": "A weathered wooden porch at night features hanging wind chimes and a broken wooden beam. Dry autumn leaves swirl through the dark air while a mysterious glowing pinkish-purple light hovers near the steps.",
+  "source_prompt": "A dark nighttime scene of an old weathered wooden porch with multiple wind chimes hanging from the roof, some bamboo and metal tubes, tangled strings and dry autumn leaves blowing in the wind. A broken wooden beam leans against the railing. A mysterious glowing pinkish purple light hovers near the steps. Cobwebs are visible, leaves scattered on the floorboards, moody atmospheric lighting, realistic digital painting style",
+  "source_title": "Wind Chimes on the Porch",
+  "style": "realistic",
+  "mood": "eerie melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "porch",
+    "wind chimes",
+    "night scene",
+    "autumn leaves",
+    "wooden cabin"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2255,
+  "source_url": "/generated/2255.jpg",
+  "image_url": "/sketches/2946.png",
+  "inverted_image_url": "/sketches-inverted/2946.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:44Z"
+}

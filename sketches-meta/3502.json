@@ -1,0 +1,42 @@
+{
+  "number": 3502,
+  "title": "Line sketch: Cosmic Pickle Invasion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene featuring two large anthropomorphic pickle monsters with multiple tentacles, sharp teeth and wide eyes, standing on a reflective floor. In the background a vibrant landscape contains a horse with a flowing mane, floating planets, eyeballs and cosmic creatures under a starry sky, with a circular inset showing a lone figure on a hill before a glowing tree (derived from generated still #2904).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene featuring two large anthropomorphic pickle monsters with multiple tentacles, sharp teeth and wide eyes, standing on a reflective floor. In the background a vibrant landscape contains a horse with a flowing mane, floating planets, eyeballs and cosmic creatures under a starry sky, with a circular inset showing a lone figure on a hill before a glowing tree",
+  "inverted_title": "Inverted sketch: Cosmic Pickle Invasion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene featuring two large anthropomorphic pickle monsters with multiple tentacles, sharp teeth and wide eyes, standing on a reflective floor. In the background a vibrant landscape contains a horse with a flowing mane, floating planets, eyeballs and cosmic creatures under a starry sky, with a circular inset showing a lone figure on a hill before a glowing tree (from generated still #2904).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene featuring two large anthropomorphic pickle monsters with multiple tentacles, sharp teeth and wide eyes, standing on a reflective floor. In the background a vibrant landscape contains a horse with a flowing mane, floating planets, eyeballs and cosmic creatures under a starry sky, with a circular inset showing a lone figure on a hill before a glowing tree",
+  "source_description": "A surreal psychedelic scene featuring two large green anthropomorphic pickle monsters with multiple tentacles, sharp teeth and wide eyes, standing on a reflective pink floor. In the background a vibrant rainbow landscape contains a colorful horse with a flowing blue mane, floating planets, eyeballs and cosmic creatures under a starry sky, with a circular inset showing a lone figure on a hill before a glowing tree.",
+  "source_prompt": "surreal psychedelic scene with two large glossy green pickle-like monsters with multiple tentacles, huge toothy grins and cartoon eyes, standing in a reflective magenta liquid floor. One larger pickle in center, smaller one to the right. Background shows a multicolored horse galloping across a rainbow hill, floating planets, eyeballs and cosmic entities in a starry sky with dramatic blue brushstrokes. A circular inset in bottom left shows a silhouetted person on a hill looking at a glowing tree with hanging lanterns. Highly detailed, vibrant colors, whimsical and bizarre atmosphere.",
+  "source_title": "Cosmic Pickle Invasion",
+  "style": "surreal psychedelic",
+  "mood": "chaotic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "pickle monsters",
+    "cosmic",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2904,
+  "source_url": "/generated/2904.jpg",
+  "image_url": "/sketches/3502.png",
+  "inverted_image_url": "/sketches-inverted/3502.png",
+  "curve_count": 119,
+  "built_at": "2026-08-17T00:09:45Z"
+}

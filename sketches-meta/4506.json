@@ -1,0 +1,42 @@
+{
+  "number": 4506,
+  "title": "Line sketch: Skull Pharmacy by the River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a room with a large cracked and white skull wearing sunglasses, its head open like a cabinet filled with potions. Four black skeletons in traditional attire stand on a swirling rug, reading books and examining papers, while a vibrant and sunset landscape with a mandala sun, river, boats, and distant mountains is visible through the open wall (derived from generated still #3926).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a room with a large cracked and white skull wearing sunglasses, its head open like a cabinet filled with potions. Four black skeletons in traditional attire stand on a swirling rug, reading books and examining papers, while a vibrant and sunset landscape with a mandala sun, river, boats, and distant mountains is visible through the open wall",
+  "inverted_title": "Inverted sketch: Skull Pharmacy by the River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a room with a large cracked and white skull wearing sunglasses, its head open like a cabinet filled with potions. Four black skeletons in traditional attire stand on a swirling rug, reading books and examining papers, while a vibrant and sunset landscape with a mandala sun, river, boats, and distant mountains is visible through the open wall (from generated still #3926).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a room with a large cracked and white skull wearing sunglasses, its head open like a cabinet filled with potions. Four black skeletons in traditional attire stand on a swirling rug, reading books and examining papers, while a vibrant and sunset landscape with a mandala sun, river, boats, and distant mountains is visible through the open wall",
+  "source_description": "A surreal scene inside a dark blue room with a large cracked green and white skull wearing colorful sunglasses, its head open like a cabinet filled with potions. Four black skeletons in traditional attire stand on a swirling red rug, reading books and examining papers, while a vibrant red and orange sunset landscape with a mandala sun, river, boats, and distant mountains is visible through the open wall.",
+  "source_prompt": "Surreal fantasy scene of a large cracked green skull wearing colorful sunglasses with its top open like a pharmacy cabinet filled with potions, positioned inside a dark blue room with hanging lanterns. Four black skeletons in ornate clothing stand on a red spiral rug reading books and papers. Through the open wall is a vivid red-orange sunset over a river with boats, green hills, and a large glowing mandala sun in the sky. Whimsical, detailed, vibrant colors.",
+  "source_title": "Skull Pharmacy by the River",
+  "style": "surreal illustration",
+  "mood": "mystical psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skeletons",
+    "skull cabinet",
+    "psychedelic",
+    "mandala"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3926,
+  "source_url": "/generated/3926.jpg",
+  "image_url": "/sketches/4506.png",
+  "inverted_image_url": "/sketches-inverted/4506.png",
+  "curve_count": 71,
+  "built_at": "2026-08-17T00:09:48Z"
+}

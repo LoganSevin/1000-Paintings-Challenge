@@ -1,0 +1,42 @@
+{
+  "number": 3388,
+  "title": "Line sketch: Mushroom Child Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a young boy with pale skin and dark hair, wearing a large fly agaric mushroom as a hat. A vibrant liquid splashes from the right side of his head while a cartoon teddy bear floats in the upper left against a dark, moody background with flowers and geometric shapes (derived from generated still #2789).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a young boy with pale skin and dark hair, wearing a large fly agaric mushroom as a hat. A vibrant liquid splashes from the right side of his head while a cartoon teddy bear floats in the upper left against a dark, moody background with flowers and geometric shapes",
+  "inverted_title": "Inverted sketch: Mushroom Child Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a young boy with pale skin and dark hair, wearing a large fly agaric mushroom as a hat. A vibrant liquid splashes from the right side of his head while a cartoon teddy bear floats in the upper left against a dark, moody background with flowers and geometric shapes (from generated still #2789).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a young boy with pale skin and dark hair, wearing a large fly agaric mushroom as a hat. A vibrant liquid splashes from the right side of his head while a cartoon teddy bear floats in the upper left against a dark, moody background with flowers and geometric shapes",
+  "source_description": "A surreal portrait of a young boy with pale skin and dark hair, wearing a large fly agaric mushroom as a hat. A vibrant blue liquid splashes from the right side of his head while a cartoon teddy bear floats in the upper left against a dark, moody background with colorful flowers and geometric shapes.",
+  "source_prompt": "surreal portrait of a serious young boy with pale skin and dark messy hair, wearing a large fly agaric mushroom cap as a hat, bright blue liquid splashing dramatically from the right side of his head, cartoon brown teddy bear floating in the upper left, yellow pink flowers in the lower right, colorful circles and geometric shapes, dark moody background with purple and teal tones, painterly digital art style",
+  "source_title": "Mushroom Child Portrait",
+  "style": "surreal",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mushroom",
+    "child",
+    "teddy bear",
+    "splash"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2789,
+  "source_url": "/generated/2789.jpg",
+  "image_url": "/sketches/3388.png",
+  "inverted_image_url": "/sketches-inverted/3388.png",
+  "curve_count": 92,
+  "built_at": "2026-08-17T00:09:45Z"
+}

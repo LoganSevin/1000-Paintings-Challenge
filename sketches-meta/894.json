@@ -1,0 +1,42 @@
+{
+  "number": 894,
+  "title": "Line sketch: Psychedelic Clock Flower",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a large and flower with a stem on the left, its center transforming into a swirling, cat-clock hybrid. The clock face displays numbers 1 through 12 with black hands, a cat's face with spiral eyes and pointed ears, set against a vibrant background with concentric psychedelic circles and floating petals (derived from generated still #103).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a large and flower with a stem on the left, its center transforming into a swirling, cat-clock hybrid. The clock face displays numbers 1 through 12 with black hands, a cat's face with spiral eyes and pointed ears, set against a vibrant background with concentric psychedelic circles and floating petals",
+  "inverted_title": "Inverted sketch: Psychedelic Clock Flower",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a large and flower with a stem on the left, its center transforming into a swirling, cat-clock hybrid. The clock face displays numbers 1 through 12 with black hands, a cat's face with spiral eyes and pointed ears, set against a vibrant background with concentric psychedelic circles and floating petals (from generated still #103).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a large and flower with a stem on the left, its center transforming into a swirling, cat-clock hybrid. The clock face displays numbers 1 through 12 with black hands, a cat's face with spiral eyes and pointed ears, set against a vibrant background with concentric psychedelic circles and floating petals",
+  "source_description": "A surreal painting features a large purple and pink flower with a green stem on the left, its center transforming into a swirling, multicolored cat-clock hybrid. The clock face displays numbers 1 through 12 with black hands, a cat's face with spiral eyes and pointed ears, set against a vibrant green background with concentric psychedelic circles and floating purple petals.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Clock Flower",
+  "style": "psychedelic surrealism",
+  "mood": "trippy hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "cat-clock",
+    "flower",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 103,
+  "source_url": "/generated/103.jpg",
+  "image_url": "/sketches/894.png",
+  "inverted_image_url": "/sketches-inverted/894.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:40Z"
+}

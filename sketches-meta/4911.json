@@ -1,0 +1,42 @@
+{
+  "number": 4911,
+  "title": "Line sketch: Security Room Surveillance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit security office features a wooden desk with six CRT monitors displaying empty institutional hallways labeled with camera numbers. A large screen shows a man in a dark jacket standing in a room facing a framed picture on the wall, his back visible from behind. The desk holds a vintage telephone, banker's lamp, mug, papers, flashlight, keys, and a handwritten note (derived from generated still #4347).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit security office features a wooden desk with six CRT monitors displaying empty institutional hallways labeled with camera numbers. A large screen shows a man in a dark jacket standing in a room facing a framed picture on the wall, his back visible from behind. The desk holds a vintage telephone, banker's lamp, mug, papers, flashlight, keys, and a handwritten note",
+  "inverted_title": "Inverted sketch: Security Room Surveillance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit security office features a wooden desk with six CRT monitors displaying empty institutional hallways labeled with camera numbers. A large screen shows a man in a dark jacket standing in a room facing a framed picture on the wall, his back visible from behind. The desk holds a vintage telephone, banker's lamp, mug, papers, flashlight, keys, and a handwritten note (from generated still #4347).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit security office features a wooden desk with six CRT monitors displaying empty institutional hallways labeled with camera numbers. A large screen shows a man in a dark jacket standing in a room facing a framed picture on the wall, his back visible from behind. The desk holds a vintage telephone, banker's lamp, mug, papers, flashlight, keys, and a handwritten note",
+  "source_description": "A dimly lit security office features a wooden desk with six CRT monitors displaying empty institutional hallways labeled with camera numbers. A large screen shows a man in a dark jacket standing in a room facing a framed picture on the wall, his back visible from behind. The desk holds a vintage telephone, green banker's lamp, mug, papers, flashlight, keys, and a handwritten note.",
+  "source_prompt": "A moody security monitoring room with purple walls and a cluttered wooden desk under a green banker's lamp. Six old CRT monitors show empty sterile hallways with camera labels. One large monitor displays a man from behind standing in a green room pointing at a framed picture on the wall. Desk contains vintage telephone, coffee mug, papers, flashlight, keys and a note. Cinematic lighting, atmospheric and unsettling, realistic painting style.",
+  "source_title": "Security Room Surveillance",
+  "style": "realistic composition",
+  "mood": "eerie tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surveillance",
+    "security room",
+    "CRT monitors",
+    "hallway",
+    "mystery"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4347,
+  "source_url": "/generated/4347.jpg",
+  "image_url": "/sketches/4911.png",
+  "inverted_image_url": "/sketches-inverted/4911.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:49Z"
+}

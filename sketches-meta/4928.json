@@ -1,0 +1,42 @@
+{
+  "number": 4928,
+  "title": "Line sketch: Melting Mirror Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large ornate picture frame leans against the wall on a checkered floor, its bottom edge melting and dripping liquid. Through the frame, a surreal geometric structure emits light beams and clouds, while the surrounding room shows curtains, stormy skies, and scattered figures in the background (derived from generated still #4365).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large ornate picture frame leans against the wall on a checkered floor, its bottom edge melting and dripping liquid. Through the frame, a surreal geometric structure emits light beams and clouds, while the surrounding room shows curtains, stormy skies, and scattered figures in the background",
+  "inverted_title": "Inverted sketch: Melting Mirror Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large ornate picture frame leans against the wall on a checkered floor, its bottom edge melting and dripping liquid. Through the frame, a surreal geometric structure emits light beams and clouds, while the surrounding room shows curtains, stormy skies, and scattered figures in the background (from generated still #4365).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large ornate picture frame leans against the wall on a checkered floor, its bottom edge melting and dripping liquid. Through the frame, a surreal geometric structure emits light beams and clouds, while the surrounding room shows curtains, stormy skies, and scattered figures in the background",
+  "source_description": "A large ornate golden picture frame leans against the wall on a checkered floor, its bottom edge melting and dripping yellow liquid. Through the frame, a surreal colorful geometric structure emits rainbow light beams and yellow clouds, while the surrounding room shows dark blue curtains, stormy skies, and scattered figures in the background.",
+  "source_prompt": "A large golden picture frame is tilted and melting at the bottom, dripping yellow liquid onto a green and white checkered floor. Inside the frame appears a surreal colorful geometric portal with rainbow beams of light and yellow clouds spilling out. The room has dramatic blue curtains, stormy skies visible through an opening, scattered figures in the background, and a black silhouette of a shoe near the melting frame, in a detailed surreal painting style.",
+  "source_title": "Melting Mirror Portal",
+  "style": "surrealism",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting frame",
+    "portal",
+    "checkered floor",
+    "light"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4365,
+  "source_url": "/generated/4365.jpg",
+  "image_url": "/sketches/4928.png",
+  "inverted_image_url": "/sketches-inverted/4928.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

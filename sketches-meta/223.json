@@ -1,0 +1,42 @@
+{
+  "number": 223,
+  "title": "Line sketch: Floating Bubble Cloud Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cluster of glossy, translucent spheres, and white forms a surreal floating cloud against a soft gradient background. A glowing orb sits atop the composition while a few smaller bubbles drift below, evoking a sense of weightless wonder (derived from painting #270).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cluster of glossy, translucent spheres, and white forms a surreal floating cloud against a soft gradient background. A glowing orb sits atop the composition while a few smaller bubbles drift below, evoking a sense of weightless wonder",
+  "inverted_title": "Inverted sketch: Floating Bubble Cloud Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cluster of glossy, translucent spheres, and white forms a surreal floating cloud against a soft gradient background. A glowing orb sits atop the composition while a few smaller bubbles drift below, evoking a sense of weightless wonder (from painting #270).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cluster of glossy, translucent spheres, and white forms a surreal floating cloud against a soft gradient background. A glowing orb sits atop the composition while a few smaller bubbles drift below, evoking a sense of weightless wonder",
+  "source_description": "A cluster of glossy, translucent spheres in shades of purple, blue, and white forms a surreal floating cloud against a soft gradient background. A glowing red orb sits atop the composition while a few smaller bubbles drift below, evoking a sense of weightless wonder.",
+  "source_prompt": "",
+  "source_title": "Floating Bubble Cloud Dream",
+  "style": "Surreal 3D rendering",
+  "mood": "Dreamy and ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital 3D art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bubbles",
+    "cloud",
+    "surreal",
+    "floating",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 270,
+  "source_url": "/paintings/270.jpg",
+  "image_url": "/sketches/223.png",
+  "inverted_image_url": "/sketches-inverted/223.png",
+  "curve_count": 86,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,40 @@
+{
+  "number": 593,
+  "title": "Line sketch: Diagonal and Stripes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic abstract composition featuring bold diagonal in varying widths. The flowing bands create a vibrant sense of movement across the page (derived from painting #750).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic abstract composition featuring bold diagonal in varying widths. The flowing bands create a vibrant sense of movement across the page",
+  "inverted_title": "Inverted sketch: Diagonal and Stripes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic abstract composition featuring bold diagonal in varying widths. The flowing bands create a vibrant sense of movement across the page (from painting #750).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic abstract composition featuring bold diagonal in varying widths. The flowing bands create a vibrant sense of movement across the page",
+  "source_description": "Dynamic abstract composition featuring bold diagonal brushstrokes in varying widths. The flowing bands create a vibrant sense of movement across the canvas.",
+  "source_prompt": "",
+  "source_title": "Diagonal Teal and Lime Stripes",
+  "style": "Abstract",
+  "mood": "Energetic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "stripes",
+    "diagonal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 750,
+  "source_url": "/paintings/750.jpg",
+  "image_url": "/sketches/593.png",
+  "inverted_image_url": "/sketches-inverted/593.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:39Z"
+}

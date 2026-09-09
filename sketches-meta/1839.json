@@ -1,0 +1,42 @@
+{
+  "number": 1839,
+  "title": "Line sketch: Astronaut and Cosmic Swirl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts an astronaut in a white spacesuit with a visor sitting atop a glowing and circular mound. The astronaut reaches toward a large spiral orb floating in a starry sky while a, patterned cosmic wave flows around them and a second figure appears in the lower left (derived from generated still #1062).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts an astronaut in a white spacesuit with a visor sitting atop a glowing and circular mound. The astronaut reaches toward a large spiral orb floating in a starry sky while a, patterned cosmic wave flows around them and a second figure appears in the lower left",
+  "inverted_title": "Inverted sketch: Astronaut and Cosmic Swirl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts an astronaut in a white spacesuit with a visor sitting atop a glowing and circular mound. The astronaut reaches toward a large spiral orb floating in a starry sky while a, patterned cosmic wave flows around them and a second figure appears in the lower left (from generated still #1062).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts an astronaut in a white spacesuit with a visor sitting atop a glowing and circular mound. The astronaut reaches toward a large spiral orb floating in a starry sky while a, patterned cosmic wave flows around them and a second figure appears in the lower left",
+  "source_description": "A vibrant psychedelic painting depicts an astronaut in a white spacesuit with a golden visor sitting atop a glowing green and yellow circular mound. The astronaut reaches toward a large green spiral orb floating in a starry purple sky while a colorful, patterned cosmic wave flows around them and a second figure appears in the lower left.",
+  "source_prompt": "",
+  "source_title": "Astronaut and Cosmic Swirl",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "astronaut",
+    "psychedelic",
+    "cosmic",
+    "surreal",
+    "spiral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1062,
+  "source_url": "/generated/1062.jpg",
+  "image_url": "/sketches/1839.png",
+  "inverted_image_url": "/sketches-inverted/1839.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:42Z"
+}

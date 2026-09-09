@@ -1,0 +1,42 @@
+{
+  "number": 36,
+  "title": "Line sketch: Swirling Ribbons of Color",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Bold, curving ribbons of, and sweep across a white ground, forming enclosed oval spaces filled with scattered dots. The composition uses thick, energetic that overlap and twist, creating a lively sense of motion and rhythm. Varied circle sizes in,, and add playful contrast within the flowing linear structure (derived from painting #53).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Bold, curving ribbons of, and sweep across a white ground, forming enclosed oval spaces filled with scattered dots. The composition uses thick, energetic that overlap and twist, creating a lively sense of motion and rhythm. Varied circle sizes in,, and add playful contrast within the flowing linear structure",
+  "inverted_title": "Inverted sketch: Swirling Ribbons of Color",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Bold, curving ribbons of, and sweep across a white ground, forming enclosed oval spaces filled with scattered dots. The composition uses thick, energetic that overlap and twist, creating a lively sense of motion and rhythm. Varied circle sizes in,, and add playful contrast within the flowing linear structure (from painting #53).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Bold, curving ribbons of, and sweep across a white ground, forming enclosed oval spaces filled with scattered dots. The composition uses thick, energetic that overlap and twist, creating a lively sense of motion and rhythm. Varied circle sizes in,, and add playful contrast within the flowing linear structure",
+  "source_description": "Bold, curving ribbons of green, red, and orange sweep across a white ground, forming enclosed oval spaces filled with scattered dots. The composition uses thick, energetic brushstrokes that overlap and twist, creating a lively sense of motion and rhythm. Varied circle sizes in yellow, orange, red, and green add playful contrast within the flowing linear structure.",
+  "source_prompt": "",
+  "source_title": "Swirling Ribbons of Color",
+  "style": "abstract",
+  "mood": "vibrant playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "composition",
+    "ribbons",
+    "dots",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 53,
+  "source_url": "/paintings/53.jpg",
+  "image_url": "/sketches/36.png",
+  "inverted_image_url": "/sketches-inverted/36.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:38Z"
+}

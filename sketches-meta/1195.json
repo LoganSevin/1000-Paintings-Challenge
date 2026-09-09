@@ -1,0 +1,42 @@
+{
+  "number": 1195,
+  "title": "Line sketch: Cosmic Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman with glowing eyes and flowing black hair, set against a stormy cosmic sky. She is surrounded by lightning bolts, floating stars, and large dripping wings that morph into a hot dog on the right side (derived from generated still #407).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman with glowing eyes and flowing black hair, set against a stormy cosmic sky. She is surrounded by lightning bolts, floating stars, and large dripping wings that morph into a hot dog on the right side",
+  "inverted_title": "Inverted sketch: Cosmic Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman with glowing eyes and flowing black hair, set against a stormy cosmic sky. She is surrounded by lightning bolts, floating stars, and large dripping wings that morph into a hot dog on the right side (from generated still #407).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman with glowing eyes and flowing black hair, set against a stormy cosmic sky. She is surrounded by lightning bolts, floating stars, and large dripping wings that morph into a hot dog on the right side",
+  "source_description": "A surreal portrait of a blue-skinned woman with glowing orange eyes and flowing black hair, set against a stormy cosmic sky. She is surrounded by lightning bolts, floating stars, and large dripping orange wings that morph into a hot dog on the right side.",
+  "source_prompt": "",
+  "source_title": "Cosmic Blue Muse",
+  "style": "surreal digital art",
+  "mood": "ethereal chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "woman",
+    "lightning",
+    "dripping wings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 407,
+  "source_url": "/generated/407.jpg",
+  "image_url": "/sketches/1195.png",
+  "inverted_image_url": "/sketches-inverted/1195.png",
+  "curve_count": 303,
+  "built_at": "2026-08-17T00:09:40Z"
+}

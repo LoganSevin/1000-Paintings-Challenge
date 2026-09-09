@@ -1,0 +1,42 @@
+{
+  "number": 4977,
+  "title": "Line sketch: Bloodstained Gallery",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark shirt stands before a large surreal composition in a dilapidated art gallery, blood pooling at his feet and dripping from the page. Rain pours through the broken ceiling as a crowd of onlookers with flashlights gathers in the background among scattered frames and debris (derived from generated still #4414).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark shirt stands before a large surreal composition in a dilapidated art gallery, blood pooling at his feet and dripping from the page. Rain pours through the broken ceiling as a crowd of onlookers with flashlights gathers in the background among scattered frames and debris",
+  "inverted_title": "Inverted sketch: Bloodstained Gallery",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark shirt stands before a large surreal composition in a dilapidated art gallery, blood pooling at his feet and dripping from the page. Rain pours through the broken ceiling as a crowd of onlookers with flashlights gathers in the background among scattered frames and debris (from generated still #4414).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark shirt stands before a large surreal composition in a dilapidated art gallery, blood pooling at his feet and dripping from the page. Rain pours through the broken ceiling as a crowd of onlookers with flashlights gathers in the background among scattered frames and debris",
+  "source_description": "A man in a dark shirt stands before a large surreal painting in a dilapidated art gallery, blood pooling at his feet and dripping from the canvas. Rain pours through the broken ceiling as a crowd of onlookers with flashlights gathers in the background among scattered frames and debris.",
+  "source_prompt": "A lone man stands in a ruined art gallery at night, staring at a massive surreal horror painting with melting faces, screaming mouths, and dripping crimson blood that pools on the floor. Rain falls through the destroyed ceiling, dramatic spotlight from a fallen lamp illuminates the scene, crowd of people with flashlights watching from the shadows, scattered broken frames and wilted flowers, moody cinematic atmosphere, highly detailed digital painting",
+  "source_title": "Bloodstained Gallery",
+  "style": "cinematic surrealism",
+  "mood": "eerie chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal composition",
+    "crime scene",
+    "art gallery",
+    "blood",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4414,
+  "source_url": "/generated/4414.jpg",
+  "image_url": "/sketches/4977.png",
+  "inverted_image_url": "/sketches-inverted/4977.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:49Z"
+}

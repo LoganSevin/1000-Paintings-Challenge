@@ -1,0 +1,42 @@
+{
+  "number": 4966,
+  "title": "Line sketch: Cosmic Ruins Airship",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a decaying, elongated chamber with crumbling walls covered in circular portals revealing galaxies and nebulae. A large ornate hot air balloon with intricate, and patterns floats near the ceiling while several metallic UFOs fly through the space, one emitting smoke from its base (derived from generated still #4403).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a decaying, elongated chamber with crumbling walls covered in circular portals revealing galaxies and nebulae. A large ornate hot air balloon with intricate, and patterns floats near the ceiling while several metallic UFOs fly through the space, one emitting smoke from its base",
+  "inverted_title": "Inverted sketch: Cosmic Ruins Airship",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a decaying, elongated chamber with crumbling walls covered in circular portals revealing galaxies and nebulae. A large ornate hot air balloon with intricate, and patterns floats near the ceiling while several metallic UFOs fly through the space, one emitting smoke from its base (from generated still #4403).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a decaying, elongated chamber with crumbling walls covered in circular portals revealing galaxies and nebulae. A large ornate hot air balloon with intricate, and patterns floats near the ceiling while several metallic UFOs fly through the space, one emitting smoke from its base",
+  "source_description": "A surreal scene inside a decaying, elongated chamber with crumbling walls covered in circular portals revealing galaxies and nebulae. A large ornate hot air balloon with intricate red, blue and gold patterns floats near the ceiling while several metallic UFOs fly through the space, one emitting purple smoke from its base.",
+  "source_prompt": "Surreal dark fantasy scene inside a long decaying industrial corridor with crumbling walls full of circular portals showing galaxies and colorful nebulae. An ornate vintage hot air balloon with intricate red blue and gold patterns floats near the ceiling with tattered banners hanging below it. Several metallic flying saucers and UFOs navigate the space, one trailing thick purple smoke from its engines. Dark moody atmosphere with glowing portal lights and dripping textures.",
+  "source_title": "Cosmic Ruins Airship",
+  "style": "surreal fantasy",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "sci-fi",
+    "portals",
+    "airship",
+    "UFOs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4403,
+  "source_url": "/generated/4403.jpg",
+  "image_url": "/sketches/4966.png",
+  "inverted_image_url": "/sketches-inverted/4966.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:49Z"
+}

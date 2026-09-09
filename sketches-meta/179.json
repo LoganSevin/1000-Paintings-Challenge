@@ -1,0 +1,42 @@
+{
+  "number": 179,
+  "title": "Line sketch: Vibrant Citrus Pattern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A repeating pattern of stylized and leaves on a background. Features various sizes with grid textures, dots, and small flowers in a folk art style (derived from painting #218).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A repeating pattern of stylized and leaves on a background. Features various sizes with grid textures, dots, and small flowers in a folk art style",
+  "inverted_title": "Inverted sketch: Vibrant Citrus Pattern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A repeating pattern of stylized and leaves on a background. Features various sizes with grid textures, dots, and small flowers in a folk art style (from painting #218).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A repeating pattern of stylized and leaves on a background. Features various sizes with grid textures, dots, and small flowers in a folk art style",
+  "source_description": "A repeating pattern of stylized oranges and leaves on a dark navy background. Features various orange sizes with grid textures, dots, and small flowers in a folk art style.",
+  "source_prompt": "",
+  "source_title": "Vibrant Citrus Pattern",
+  "style": "Folk Art",
+  "mood": "Playful and Vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pattern",
+    "citrus",
+    "floral",
+    "folk art",
+    "illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 218,
+  "source_url": "/paintings/218.jpg",
+  "image_url": "/sketches/179.png",
+  "inverted_image_url": "/sketches-inverted/179.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4748,
+  "title": "Line sketch: Parallax Harbor City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed isometric fantasy map of a bustling medieval harbor city named Parallax. The city is divided by a river with multiple bridges, featuring dense clusters of buildings, docks with ships, a large amphitheater, and a smoky industrial area in the upper right (derived from generated still #4179).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed isometric fantasy map of a bustling medieval harbor city named Parallax. The city is divided by a river with multiple bridges, featuring dense clusters of buildings, docks with ships, a large amphitheater, and a smoky industrial area in the upper right",
+  "inverted_title": "Inverted sketch: Parallax Harbor City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed isometric fantasy map of a bustling medieval harbor city named Parallax. The city is divided by a river with multiple bridges, featuring dense clusters of buildings, docks with ships, a large amphitheater, and a smoky industrial area in the upper right (from generated still #4179).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed isometric fantasy map of a bustling medieval harbor city named Parallax. The city is divided by a river with multiple bridges, featuring dense clusters of buildings, docks with ships, a large amphitheater, and a smoky industrial area in the upper right",
+  "source_description": "A detailed isometric fantasy map of a bustling medieval harbor city named Parallax. The city is divided by a turquoise river with multiple bridges, featuring dense clusters of colorful buildings, docks with ships, a large amphitheater, and a smoky industrial area in the upper right.",
+  "source_prompt": "Isometric bird's eye view of a detailed fantasy harbor city named Parallax, divided by a winding turquoise river with stone bridges, dense clusters of colorful medieval buildings, busy docks with wooden piers and ships, a large amphitheater, smoky industrial district with chimneys, scattered market squares and people, painted in a rich storybook illustration style with warm and cool tones",
+  "source_title": "Parallax Harbor City",
+  "style": "fantasy map illustration",
+  "mood": "bustling, detailed, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "isometric city",
+    "harbor",
+    "medieval town",
+    "bird's eye view"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4179,
+  "source_url": "/generated/4179.jpg",
+  "image_url": "/sketches/4748.png",
+  "inverted_image_url": "/sketches-inverted/4748.png",
+  "curve_count": 388,
+  "built_at": "2026-08-17T00:09:48Z"
+}

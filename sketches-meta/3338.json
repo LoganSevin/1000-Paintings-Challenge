@@ -1,0 +1,42 @@
+{
+  "number": 3338,
+  "title": "Line sketch: The Last Picture Show",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a satin gown sits alone in a dilapidated, decaying theater, holding a film reel while looking back over her shoulder. Behind her, a large cracked movie screen displays an endless glowing corridor of repeating theater doorways framed by curtains (derived from generated still #2734).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a satin gown sits alone in a dilapidated, decaying theater, holding a film reel while looking back over her shoulder. Behind her, a large cracked movie screen displays an endless glowing corridor of repeating theater doorways framed by curtains",
+  "inverted_title": "Inverted sketch: The Last Picture Show",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a satin gown sits alone in a dilapidated, decaying theater, holding a film reel while looking back over her shoulder. Behind her, a large cracked movie screen displays an endless glowing corridor of repeating theater doorways framed by curtains (from generated still #2734).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a satin gown sits alone in a dilapidated, decaying theater, holding a film reel while looking back over her shoulder. Behind her, a large cracked movie screen displays an endless glowing corridor of repeating theater doorways framed by curtains",
+  "source_description": "A woman in a silver satin gown sits alone in a dilapidated, decaying theater, holding a film reel while looking back over her shoulder. Behind her, a large cracked movie screen displays an endless glowing cyan corridor of repeating theater doorways framed by red curtains.",
+  "source_prompt": "A beautiful woman in a 1940s silver satin gown sits in a worn red theater chair inside a ruined cinema, holding a large film reel on her lap and looking back over her shoulder with a concerned expression. The walls and ceiling are heavily cracked and peeling. Behind her a massive damaged movie screen shows an infinite glowing cyan recursive hallway of repeating theater entrances with red curtains and chandeliers, dramatic beams of light cutting through dusty air, dark moody atmosphere, highly detailed digital painting",
+  "source_title": "The Last Picture Show",
+  "style": "surreal cinematic",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abandoned theater",
+    "surreal",
+    "film reel",
+    "decaying interior",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2734,
+  "source_url": "/generated/2734.jpg",
+  "image_url": "/sketches/3338.png",
+  "inverted_image_url": "/sketches-inverted/3338.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2903,
+  "title": "Line sketch: Surreal Cosmic Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a flat-topped mesa with cacti under a turbulent sky filled with dripping, eyeball-covered orbs. A massive central orb displays a single eye while a monstrous creature with sharp teeth and fiery hair emerges from lava on the right (derived from generated still #2190).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a flat-topped mesa with cacti under a turbulent sky filled with dripping, eyeball-covered orbs. A massive central orb displays a single eye while a monstrous creature with sharp teeth and fiery hair emerges from lava on the right",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a flat-topped mesa with cacti under a turbulent sky filled with dripping, eyeball-covered orbs. A massive central orb displays a single eye while a monstrous creature with sharp teeth and fiery hair emerges from lava on the right (from generated still #2190).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a flat-topped mesa with cacti under a turbulent sky filled with dripping, eyeball-covered orbs. A massive central orb displays a single eye while a monstrous creature with sharp teeth and fiery hair emerges from lava on the right",
+  "source_description": "A surreal desert landscape features a flat-topped mesa with cacti under a turbulent sky filled with dripping, eyeball-covered orbs. A massive central orb displays a single red eye while a green monstrous creature with sharp teeth and purple fiery hair emerges from lava on the right.",
+  "source_prompt": "",
+  "source_title": "Surreal Cosmic Desert",
+  "style": "surreal fantasy",
+  "mood": "nightmarish psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic horror",
+    "desert landscape",
+    "eyeball orbs",
+    "lava monster"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2190,
+  "source_url": "/generated/2190.jpg",
+  "image_url": "/sketches/2903.png",
+  "inverted_image_url": "/sketches-inverted/2903.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:44Z"
+}

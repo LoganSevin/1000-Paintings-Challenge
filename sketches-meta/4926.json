@@ -1,0 +1,42 @@
+{
+  "number": 4926,
+  "title": "Line sketch: The composition Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit ornate room with walls and a glass skylight contains a wooden desk with a lit banker's lamp, scattered papers, a spray bottle, keys, and a -gloved hand resting on the surface. A large composition on the right wall depicts a eerie hallway with peeling paint, exit sign, and a sign below reading 'STAFF ONLY DO NOT ENTER' (derived from generated still #4362).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit ornate room with walls and a glass skylight contains a wooden desk with a lit banker's lamp, scattered papers, a spray bottle, keys, and a -gloved hand resting on the surface. A large composition on the right wall depicts a eerie hallway with peeling paint, exit sign, and a sign below reading 'STAFF ONLY DO NOT ENTER'",
+  "inverted_title": "Inverted sketch: The composition Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit ornate room with walls and a glass skylight contains a wooden desk with a lit banker's lamp, scattered papers, a spray bottle, keys, and a -gloved hand resting on the surface. A large composition on the right wall depicts a eerie hallway with peeling paint, exit sign, and a sign below reading 'STAFF ONLY DO NOT ENTER' (from generated still #4362).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit ornate room with walls and a glass skylight contains a wooden desk with a lit banker's lamp, scattered papers, a spray bottle, keys, and a -gloved hand resting on the surface. A large composition on the right wall depicts a eerie hallway with peeling paint, exit sign, and a sign below reading 'STAFF ONLY DO NOT ENTER'",
+  "source_description": "A dimly lit ornate room with purple walls and a glass skylight contains a wooden desk with a lit green banker's lamp, scattered papers, a spray bottle, keys, and a yellow-gloved hand resting on the surface. A large painting on the right wall depicts a eerie green hallway with peeling paint, red exit sign, and a sign below reading 'STAFF ONLY DO NOT ENTER'.",
+  "source_prompt": "An ornate purple-walled gallery room with a glass skylight at night, a wooden desk in the foreground with a glowing green banker's lamp, crumpled papers, spray bottle, keys and a yellow rubber-gloved hand. A large realistic painting hangs on the right wall showing a long decaying green hallway with peeling paint, flickering lights, red exit sign, and a small sign below the frame that reads 'STAFF ONLY DO NOT ENTER', surreal and unsettling atmosphere",
+  "source_title": "The Painting Portal",
+  "style": "surreal",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "liminal space",
+    "art gallery",
+    "portal",
+    "backrooms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4362,
+  "source_url": "/generated/4362.jpg",
+  "image_url": "/sketches/4926.png",
+  "inverted_image_url": "/sketches-inverted/4926.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:49Z"
+}

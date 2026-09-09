@@ -1,0 +1,42 @@
+{
+  "number": 2490,
+  "title": "Line sketch: Surreal Eye Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed surreal collage featuring a large ornate human eye with a flaming inner iris containing a planet-like orb, two squirrels perched on its upper eyelid, a glowing smiley-faced orb with spider-like legs and wings, a massive swirling vortex in the sky, and a cracked street scene with another eye embedded in the ground (derived from generated still #1725).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed surreal collage featuring a large ornate human eye with a flaming inner iris containing a planet-like orb, two squirrels perched on its upper eyelid, a glowing smiley-faced orb with spider-like legs and wings, a massive swirling vortex in the sky, and a cracked street scene with another eye embedded in the ground",
+  "inverted_title": "Inverted sketch: Surreal Eye Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed surreal collage featuring a large ornate human eye with a flaming inner iris containing a planet-like orb, two squirrels perched on its upper eyelid, a glowing smiley-faced orb with spider-like legs and wings, a massive swirling vortex in the sky, and a cracked street scene with another eye embedded in the ground (from generated still #1725).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed surreal collage featuring a large ornate human eye with a flaming inner iris containing a planet-like orb, two squirrels perched on its upper eyelid, a glowing smiley-faced orb with spider-like legs and wings, a massive swirling vortex in the sky, and a cracked street scene with another eye embedded in the ground",
+  "source_description": "A highly detailed surreal collage featuring a large ornate human eye with a flaming inner iris containing a green planet-like orb, two red squirrels perched on its upper eyelid, a glowing green smiley-faced orb with spider-like legs and wings, a massive purple swirling vortex in the sky, and a cracked street scene with another green eye embedded in the ground.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Vortex",
+  "style": "surrealism",
+  "mood": "psychedelic, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eyes",
+    "squirrels",
+    "vortex",
+    "smiley face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1725,
+  "source_url": "/generated/1725.jpg",
+  "image_url": "/sketches/2490.png",
+  "inverted_image_url": "/sketches-inverted/2490.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:43Z"
+}

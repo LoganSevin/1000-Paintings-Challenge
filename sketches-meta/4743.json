@@ -1,0 +1,42 @@
+{
+  "number": 4743,
+  "title": "Line sketch: Ancient Library Dungeon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed isometric cutaway view of a vast multi-level fantasy library and dungeon complex. Stone architecture with arched hallways, spiral staircases, bookshelves, glowing magical circles, torches, and scattered skeletal remains are visible across the interconnected chambers (derived from generated still #4174).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed isometric cutaway view of a vast multi-level fantasy library and dungeon complex. Stone architecture with arched hallways, spiral staircases, bookshelves, glowing magical circles, torches, and scattered skeletal remains are visible across the interconnected chambers",
+  "inverted_title": "Inverted sketch: Ancient Library Dungeon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed isometric cutaway view of a vast multi-level fantasy library and dungeon complex. Stone architecture with arched hallways, spiral staircases, bookshelves, glowing magical circles, torches, and scattered skeletal remains are visible across the interconnected chambers (from generated still #4174).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed isometric cutaway view of a vast multi-level fantasy library and dungeon complex. Stone architecture with arched hallways, spiral staircases, bookshelves, glowing magical circles, torches, and scattered skeletal remains are visible across the interconnected chambers",
+  "source_description": "A detailed isometric cutaway view of a vast multi-level fantasy library and dungeon complex. Stone architecture with arched hallways, spiral staircases, bookshelves, glowing magical circles, torches, and scattered skeletal remains are visible across the interconnected chambers.",
+  "source_prompt": "Isometric cutaway view of a massive ancient fantasy library dungeon, multiple levels connected by spiral stairs and bridges, stone walls with arched doorways, filled bookshelves, glowing magical circles on the floor, scattered skeletons, lit torches, atmospheric lighting, detailed stone textures, teal and purple color palette, high fantasy illustration style",
+  "source_title": "Ancient Library Dungeon",
+  "style": "isometric fantasy illustration",
+  "mood": "mysterious, ancient",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "isometric",
+    "library",
+    "dungeon",
+    "fantasy architecture",
+    "magical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4174,
+  "source_url": "/generated/4174.jpg",
+  "image_url": "/sketches/4743.png",
+  "inverted_image_url": "/sketches-inverted/4743.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3839,
+  "title": "Line sketch: Stasis Sam",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A triptych of three sequential poses of a hairless, muscular baby wearing a white tank top and dark shorts, set against backgrounds. The artwork is displayed over a larger surface with the stenciled black text 'STASIS SAM' layered behind it (derived from generated still #3256).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A triptych of three sequential poses of a hairless, muscular baby wearing a white tank top and dark shorts, set against backgrounds. The artwork is displayed over a larger surface with the stenciled black text 'STASIS SAM' layered behind it",
+  "inverted_title": "Inverted sketch: Stasis Sam",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A triptych of three sequential poses of a hairless, muscular baby wearing a white tank top and dark shorts, set against backgrounds. The artwork is displayed over a larger surface with the stenciled black text 'STASIS SAM' layered behind it (from generated still #3256).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A triptych of three sequential poses of a hairless, muscular baby wearing a white tank top and dark shorts, set against backgrounds. The artwork is displayed over a larger surface with the stenciled black text 'STASIS SAM' layered behind it",
+  "source_description": "A triptych of three sequential poses of a hairless, muscular baby wearing a white tank top and dark shorts, set against bright pink backgrounds. The artwork is displayed over a larger pink surface with the stenciled black text 'STASIS SAM' layered behind it.",
+  "source_prompt": "A triptych artwork featuring three sequential dynamic poses of the same muscular, hairless baby character wearing a tight white tank top and dark athletic shorts. The baby is shown crouching, mid-jump, and in a fighting stance. Each panel has a solid vibrant hot pink background. The entire piece is mounted over a larger pink surface with large, bold, black stenciled text reading STASIS SAM visible behind and around the white-framed panels.",
+  "source_title": "Stasis Sam",
+  "style": "contemporary figurative composition",
+  "mood": "bold, surreal, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "triptych",
+    "baby",
+    "athletic pose",
+    "stencil text",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3256,
+  "source_url": "/generated/3256.jpg",
+  "image_url": "/sketches/3839.png",
+  "inverted_image_url": "/sketches-inverted/3839.png",
+  "curve_count": 399,
+  "built_at": "2026-08-17T00:09:46Z"
+}

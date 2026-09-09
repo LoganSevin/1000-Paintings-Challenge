@@ -1,0 +1,42 @@
+{
+  "number": 1714,
+  "title": "Line sketch: Stasis Clock Surreal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical hooded skeletal figures with long black braids stand in a row, and liquid dripping from their eye sockets and robes. To their right, a large clock with Roman numerals displays the word STASIS in glowing letters, surrounded by swirling psychedelic patterns and a cluster of glossy spheres with spikes (derived from generated still #936).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical hooded skeletal figures with long black braids stand in a row, and liquid dripping from their eye sockets and robes. To their right, a large clock with Roman numerals displays the word STASIS in glowing letters, surrounded by swirling psychedelic patterns and a cluster of glossy spheres with spikes",
+  "inverted_title": "Inverted sketch: Stasis Clock Surreal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical hooded skeletal figures with long black braids stand in a row, and liquid dripping from their eye sockets and robes. To their right, a large clock with Roman numerals displays the word STASIS in glowing letters, surrounded by swirling psychedelic patterns and a cluster of glossy spheres with spikes (from generated still #936).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical hooded skeletal figures with long black braids stand in a row, and liquid dripping from their eye sockets and robes. To their right, a large clock with Roman numerals displays the word STASIS in glowing letters, surrounded by swirling psychedelic patterns and a cluster of glossy spheres with spikes",
+  "source_description": "Four identical hooded skeletal figures with long black braids stand in a row, red and green liquid dripping from their eye sockets and robes. To their right, a large colorful clock with Roman numerals displays the word STASIS in glowing green letters, surrounded by swirling psychedelic patterns and a cluster of glossy blue spheres with neon spikes.",
+  "source_prompt": "",
+  "source_title": "Stasis Clock Surreal",
+  "style": "surreal psychedelic",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletal figures",
+    "melting clock",
+    "psychedelic",
+    "braided hoods",
+    "dripping liquid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 936,
+  "source_url": "/generated/936.jpg",
+  "image_url": "/sketches/1714.png",
+  "inverted_image_url": "/sketches-inverted/1714.png",
+  "curve_count": 264,
+  "built_at": "2026-08-17T00:09:41Z"
+}

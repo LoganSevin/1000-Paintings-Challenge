@@ -1,0 +1,42 @@
+{
+  "number": 4026,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female character with voluminous, flowing and hair stands in a dynamic pose against a solid gray background. She wears a leather-like outfit with accents, a cropped top, shorts, a cape, and tall platform boots while holding a spray paint can in her right hand (derived from generated still #3443).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female character with voluminous, flowing and hair stands in a dynamic pose against a solid gray background. She wears a leather-like outfit with accents, a cropped top, shorts, a cape, and tall platform boots while holding a spray paint can in her right hand",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female character with voluminous, flowing and hair stands in a dynamic pose against a solid gray background. She wears a leather-like outfit with accents, a cropped top, shorts, a cape, and tall platform boots while holding a spray paint can in her right hand (from generated still #3443).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female character with voluminous, flowing and hair stands in a dynamic pose against a solid gray background. She wears a leather-like outfit with accents, a cropped top, shorts, a cape, and tall platform boots while holding a spray paint can in her right hand",
+  "source_description": "A stylized female character with voluminous, flowing red and magenta hair stands in a dynamic pose against a solid gray background. She wears a red leather-like outfit with gold accents, a cropped top, shorts, a red cape, and tall platform boots while holding a spray paint can in her right hand.",
+  "source_prompt": "stylized female graffiti artist with enormous wild flowing red and magenta hair, blue eyes, wearing red leather crop top, red shorts, gold chains, red cape with gold trim, and shiny red platform combat boots, dynamic action pose holding a red spray paint can, expressive face, highly detailed 3D character render, solid gray background",
+  "source_title": "Graffiti Punk Girl",
+  "style": "3D character art",
+  "mood": "bold, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "punk girl",
+    "graffiti artist",
+    "hair",
+    "spray can"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3443,
+  "source_url": "/generated/3443.jpg",
+  "image_url": "/sketches/4026.png",
+  "inverted_image_url": "/sketches-inverted/4026.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:47Z"
+}

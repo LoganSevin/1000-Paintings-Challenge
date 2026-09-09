@@ -1,0 +1,42 @@
+{
+  "number": 2319,
+  "title": "Line sketch: Lotus Dream by the Sea",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a large lotus with a spiral center in a bowl filled with blueberries, resting on a wooden railing. In the background, a stylized -skinned woman with hair and flowers gazes over a sea with a sailboat, under a sunset sky with floating squares (derived from generated still #1546).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a large lotus with a spiral center in a bowl filled with blueberries, resting on a wooden railing. In the background, a stylized -skinned woman with hair and flowers gazes over a sea with a sailboat, under a sunset sky with floating squares",
+  "inverted_title": "Inverted sketch: Lotus Dream by the Sea",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a large lotus with a spiral center in a bowl filled with blueberries, resting on a wooden railing. In the background, a stylized -skinned woman with hair and flowers gazes over a sea with a sailboat, under a sunset sky with floating squares (from generated still #1546).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a large lotus with a spiral center in a bowl filled with blueberries, resting on a wooden railing. In the background, a stylized -skinned woman with hair and flowers gazes over a sea with a sailboat, under a sunset sky with floating squares",
+  "source_description": "A vibrant surreal painting depicts a large red lotus with a spiral center in a green bowl filled with blueberries, resting on a wooden railing. In the background, a stylized green-skinned woman with colorful hair and flowers gazes over a blue sea with a sailboat, under a sunset sky with floating orange squares.",
+  "source_prompt": "",
+  "source_title": "Lotus Dream by the Sea",
+  "style": "surreal pop art",
+  "mood": "vibrant whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "lotus flower",
+    "blueberries",
+    "seascape",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1546,
+  "source_url": "/generated/1546.jpg",
+  "image_url": "/sketches/2319.png",
+  "inverted_image_url": "/sketches-inverted/2319.png",
+  "curve_count": 139,
+  "built_at": "2026-08-17T00:09:43Z"
+}

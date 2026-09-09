@@ -1,0 +1,42 @@
+{
+  "number": 3849,
+  "title": "Line sketch: Armored Cyber Character",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two full-body poses of a young female character with short hair and highlights, wearing a armored outfit with glowing circuit patterns, large spiked gauntlets, knee pads, and a mechanical tail. She stands against a solid background in both a straight frontal pose with arms crossed and a dynamic crouched combat stance (derived from generated still #3266).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two full-body poses of a young female character with short hair and highlights, wearing a armored outfit with glowing circuit patterns, large spiked gauntlets, knee pads, and a mechanical tail. She stands against a solid background in both a straight frontal pose with arms crossed and a dynamic crouched combat stance",
+  "inverted_title": "Inverted sketch: Armored Cyber Character",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two full-body poses of a young female character with short hair and highlights, wearing a armored outfit with glowing circuit patterns, large spiked gauntlets, knee pads, and a mechanical tail. She stands against a solid background in both a straight frontal pose with arms crossed and a dynamic crouched combat stance (from generated still #3266).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two full-body poses of a young female character with short hair and highlights, wearing a armored outfit with glowing circuit patterns, large spiked gauntlets, knee pads, and a mechanical tail. She stands against a solid background in both a straight frontal pose with arms crossed and a dynamic crouched combat stance",
+  "source_description": "Two full-body poses of a young female character with short silver hair and blue highlights, wearing a dark blue armored outfit with glowing blue circuit patterns, large spiked gauntlets, knee pads, and a mechanical tail. She stands against a solid bright pink background in both a straight frontal pose with arms crossed and a dynamic crouched combat stance.",
+  "source_prompt": "A young woman with short silver hair with blue streaks and a scar on her cheek, wearing a futuristic dark blue armored crop top and pants with glowing blue circuit lines, massive spiked blue gauntlets, knee pads, and a long mechanical tail. She is shown in two poses - standing with arms crossed and in a dynamic crouching battle stance - against a solid vibrant pink background, digital character concept art, clean cel-shaded style",
+  "source_title": "Blue Armored Cyber Character",
+  "style": "digital character concept art",
+  "mood": "fierce, futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "cyberpunk",
+    "armored outfit",
+    "hair",
+    "mechanical tail"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3266,
+  "source_url": "/generated/3266.jpg",
+  "image_url": "/sketches/3849.png",
+  "inverted_image_url": "/sketches-inverted/3849.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:46Z"
+}

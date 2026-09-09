@@ -1,0 +1,42 @@
+{
+  "number": 3121,
+  "title": "Line sketch: Mystic Forest Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with hair and intricate facial markings stands in a lush, glowing jungle. She holds a dark orb containing three luminous spheres in her right hand while another dark orb floats nearby (derived from generated still #2458).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with hair and intricate facial markings stands in a lush, glowing jungle. She holds a dark orb containing three luminous spheres in her right hand while another dark orb floats nearby",
+  "inverted_title": "Inverted sketch: Mystic Forest Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with hair and intricate facial markings stands in a lush, glowing jungle. She holds a dark orb containing three luminous spheres in her right hand while another dark orb floats nearby (from generated still #2458).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with hair and intricate facial markings stands in a lush, glowing jungle. She holds a dark orb containing three luminous spheres in her right hand while another dark orb floats nearby",
+  "source_description": "A woman with red hair and intricate purple facial markings stands in a lush, glowing jungle. She holds a dark orb containing three luminous pink spheres in her right hand while another dark orb floats nearby.",
+  "source_prompt": "A beautiful woman with curly red hair and a vine crown stands in a dense magical jungle filled with glowing green leaves and vines. She has intricate swirling purple markings around her left eye. She wears a magenta dress and holds a dark blue orb containing three glowing pink orbs in her hand. Another dark orb floats nearby. Soft golden light filters through the canopy creating an ethereal atmosphere, highly detailed digital painting",
+  "source_title": "Mystic Forest Oracle",
+  "style": "fantasy composition",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "fantasy",
+    "jungle",
+    "magical orbs",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2458,
+  "source_url": "/generated/2458.jpg",
+  "image_url": "/sketches/3121.png",
+  "inverted_image_url": "/sketches-inverted/3121.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:45Z"
+}

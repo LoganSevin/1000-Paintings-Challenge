@@ -1,0 +1,42 @@
+{
+  "number": 1903,
+  "title": "Line sketch: Psychedelic Melting Flower",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene featuring a large flower with a swirling and center, dripping with vibrant, and liquid. A melting creature with large eyes and a sad expression sits beside it, surrounded by floating icons and a starry space background (derived from generated still #1128).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene featuring a large flower with a swirling and center, dripping with vibrant, and liquid. A melting creature with large eyes and a sad expression sits beside it, surrounded by floating icons and a starry space background",
+  "inverted_title": "Inverted sketch: Psychedelic Melting Flower",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene featuring a large flower with a swirling and center, dripping with vibrant, and liquid. A melting creature with large eyes and a sad expression sits beside it, surrounded by floating icons and a starry space background (from generated still #1128).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene featuring a large flower with a swirling and center, dripping with vibrant, and liquid. A melting creature with large eyes and a sad expression sits beside it, surrounded by floating icons and a starry space background",
+  "source_description": "A surreal cosmic scene featuring a large purple flower with a swirling green and yellow center, dripping with vibrant red, orange, and pink liquid. A blue melting creature with large yellow eyes and a sad expression sits beside it, surrounded by floating icons and a starry space background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Melting Flower",
+  "style": "surreal psychedelic",
+  "mood": "trippy melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "melting",
+    "cosmic",
+    "flower"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1128,
+  "source_url": "/generated/1128.jpg",
+  "image_url": "/sketches/1903.png",
+  "inverted_image_url": "/sketches-inverted/1903.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:42Z"
+}

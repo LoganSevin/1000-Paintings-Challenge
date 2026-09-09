@@ -1,0 +1,42 @@
+{
+  "number": 2048,
+  "title": "Line sketch: Cyclops Lounge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive cyclops creature with a flaming body and spiral patterns stands hunched in a fiery, volcanic landscape. To the right, a -haired woman in a patterned outfit reads a book while seated in a transparent bubble chair, surrounded by orbs and swirling psychedelic patterns under a dark sky (derived from generated still #1273).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive cyclops creature with a flaming body and spiral patterns stands hunched in a fiery, volcanic landscape. To the right, a -haired woman in a patterned outfit reads a book while seated in a transparent bubble chair, surrounded by orbs and swirling psychedelic patterns under a dark sky",
+  "inverted_title": "Inverted sketch: Cyclops Lounge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive cyclops creature with a flaming body and spiral patterns stands hunched in a fiery, volcanic landscape. To the right, a -haired woman in a patterned outfit reads a book while seated in a transparent bubble chair, surrounded by orbs and swirling psychedelic patterns under a dark sky (from generated still #1273).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive cyclops creature with a flaming body and spiral patterns stands hunched in a fiery, volcanic landscape. To the right, a -haired woman in a patterned outfit reads a book while seated in a transparent bubble chair, surrounded by orbs and swirling psychedelic patterns under a dark sky",
+  "source_description": "A massive red cyclops creature with a flaming body and spiral patterns stands hunched in a fiery, volcanic landscape. To the right, a green-haired woman in a patterned outfit reads a book while seated in a transparent bubble chair, surrounded by colorful orbs and swirling psychedelic patterns under a dark sky.",
+  "source_prompt": "",
+  "source_title": "Cyclops Lounge",
+  "style": "Psychedelic Surrealism",
+  "mood": "Trippy chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyclops",
+    "psychedelic",
+    "surreal",
+    "fire",
+    "bubble chair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1273,
+  "source_url": "/generated/1273.jpg",
+  "image_url": "/sketches/2048.png",
+  "inverted_image_url": "/sketches-inverted/2048.png",
+  "curve_count": 156,
+  "built_at": "2026-08-17T00:09:42Z"
+}

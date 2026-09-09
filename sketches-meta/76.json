@@ -1,0 +1,42 @@
+{
+  "number": 76,
+  "title": "Line sketch: Cosmic Teardrop Orbit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large central biomorphic shape resembling a droplet or whale dominates the frame, encircled by concentric rings, scattered dots, and flowing curved bands. Smaller circles of varying sizes create rhythmic orbits around the main form against a dark background, suggesting depth and motion. Bold flat color fields with crisp edges define the graphic, layered composition (derived from painting #107).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large central biomorphic shape resembling a droplet or whale dominates the frame, encircled by concentric rings, scattered dots, and flowing curved bands. Smaller circles of varying sizes create rhythmic orbits around the main form against a dark background, suggesting depth and motion. Bold flat color fields with crisp edges define the graphic, layered composition",
+  "inverted_title": "Inverted sketch: Cosmic Teardrop Orbit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large central biomorphic shape resembling a droplet or whale dominates the frame, encircled by concentric rings, scattered dots, and flowing curved bands. Smaller circles of varying sizes create rhythmic orbits around the main form against a dark background, suggesting depth and motion. Bold flat color fields with crisp edges define the graphic, layered composition (from painting #107).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large central biomorphic shape resembling a droplet or whale dominates the frame, encircled by concentric rings, scattered dots, and flowing curved bands. Smaller circles of varying sizes create rhythmic orbits around the main form against a dark background, suggesting depth and motion. Bold flat color fields with crisp edges define the graphic, layered composition",
+  "source_description": "A large central teal biomorphic shape resembling a droplet or whale dominates the frame, encircled by concentric rings, scattered dots, and flowing curved bands. Smaller colorful circles of varying sizes create rhythmic orbits around the main form against a dark background, suggesting depth and motion. Bold flat color fields with crisp edges define the graphic, layered composition.",
+  "source_prompt": "",
+  "source_title": "Cosmic Teardrop Orbit",
+  "style": "Biomorphic abstraction",
+  "mood": "Vibrant and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circles",
+    "organic",
+    "biomorphic",
+    "modern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 107,
+  "source_url": "/paintings/107.jpg",
+  "image_url": "/sketches/76.png",
+  "inverted_image_url": "/sketches-inverted/76.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:38Z"
+}

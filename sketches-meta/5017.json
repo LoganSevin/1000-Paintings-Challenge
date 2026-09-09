@@ -1,0 +1,42 @@
+{
+  "number": 5017,
+  "title": "Line sketch: Dreamer's Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with and hair sits pensively by a glowing river at sunset, her chin resting on her hand. To the right, a tall dark figure in a patterned coat stands on the opposite bank holding an orb, with a large ornate circular portal floating above him revealing a -cloaked figure on a path inside a forest under a starry night sky (derived from generated still #4456).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with and hair sits pensively by a glowing river at sunset, her chin resting on her hand. To the right, a tall dark figure in a patterned coat stands on the opposite bank holding an orb, with a large ornate circular portal floating above him revealing a -cloaked figure on a path inside a forest under a starry night sky",
+  "inverted_title": "Inverted sketch: Dreamer's Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with and hair sits pensively by a glowing river at sunset, her chin resting on her hand. To the right, a tall dark figure in a patterned coat stands on the opposite bank holding an orb, with a large ornate circular portal floating above him revealing a -cloaked figure on a path inside a forest under a starry night sky (from generated still #4456).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with and hair sits pensively by a glowing river at sunset, her chin resting on her hand. To the right, a tall dark figure in a patterned coat stands on the opposite bank holding an orb, with a large ornate circular portal floating above him revealing a -cloaked figure on a path inside a forest under a starry night sky",
+  "source_description": "A young woman with blue and purple hair sits pensively by a glowing river at sunset, her chin resting on her hand. To the right, a tall dark figure in a patterned coat stands on the opposite bank holding an orb, with a large ornate circular portal floating above him revealing a red-cloaked figure on a path inside a green forest under a starry night sky.",
+  "source_prompt": "A contemplative young woman with long blue and purple streaked hair wearing a dark hoodie sits on a grassy riverbank at sunset, resting her chin on her hand. A magical glowing river flows through a lush landscape. On the opposite bank stands a tall mysterious figure in a patterned dark coat holding a glowing orb. Above him floats a large ornate circular portal decorated with flowers and crescent moons, showing a surreal scene inside with a red hooded figure walking a path through a glowing green forest under a starry night sky with comets.",
+  "source_title": "Dreamer's Portal",
+  "style": "fantasy surrealism",
+  "mood": "dreamlike contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "portal",
+    "surreal",
+    "river landscape",
+    "mystical figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4456,
+  "source_url": "/generated/4456.jpg",
+  "image_url": "/sketches/5017.png",
+  "inverted_image_url": "/sketches-inverted/5017.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:49Z"
+}

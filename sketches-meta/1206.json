@@ -1,0 +1,42 @@
+{
+  "number": 1206,
+  "title": "Line sketch: Storm Goddess Mesa",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition merges a towering desert mesa with the face of a -skinned woman whose braided hair transforms into a massive dark storm cloud. Lightning strikes from the turbulent cloud while small shadowy figures fly through the sky and ancient petroglyphs adorn the rock face (derived from generated still #418).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition merges a towering desert mesa with the face of a -skinned woman whose braided hair transforms into a massive dark storm cloud. Lightning strikes from the turbulent cloud while small shadowy figures fly through the sky and ancient petroglyphs adorn the rock face",
+  "inverted_title": "Inverted sketch: Storm Goddess Mesa",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition merges a towering desert mesa with the face of a -skinned woman whose braided hair transforms into a massive dark storm cloud. Lightning strikes from the turbulent cloud while small shadowy figures fly through the sky and ancient petroglyphs adorn the rock face (from generated still #418).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition merges a towering desert mesa with the face of a -skinned woman whose braided hair transforms into a massive dark storm cloud. Lightning strikes from the turbulent cloud while small shadowy figures fly through the sky and ancient petroglyphs adorn the rock face",
+  "source_description": "A surreal painting merges a towering desert mesa with the face of a blue-skinned woman whose braided hair transforms into a massive dark storm cloud. Lightning strikes from the turbulent cloud while small shadowy figures fly through the sky and ancient petroglyphs adorn the rock face.",
+  "source_prompt": "",
+  "source_title": "Storm Goddess Mesa",
+  "style": "surrealism",
+  "mood": "epic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mesa",
+    "storm",
+    "goddess",
+    "lightning"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 418,
+  "source_url": "/generated/418.jpg",
+  "image_url": "/sketches/1206.png",
+  "inverted_image_url": "/sketches-inverted/1206.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:40Z"
+}

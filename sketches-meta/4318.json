@@ -1,0 +1,42 @@
+{
+  "number": 4318,
+  "title": "Line sketch: Plasma Sphere Surreal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vintage plasma globe sits on a wooden table, its transparent sphere filled with branching electric arcs in, and. Inside the globe, a small silhouetted lighthouse emits a white beam, surrounded by floating corn cobs, leaves, pills, and abstract mechanical elements against a dark background (derived from generated still #3737).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vintage plasma globe sits on a wooden table, its transparent sphere filled with branching electric arcs in, and. Inside the globe, a small silhouetted lighthouse emits a white beam, surrounded by floating corn cobs, leaves, pills, and abstract mechanical elements against a dark background",
+  "inverted_title": "Inverted sketch: Plasma Sphere Surreal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vintage plasma globe sits on a wooden table, its transparent sphere filled with branching electric arcs in, and. Inside the globe, a small silhouetted lighthouse emits a white beam, surrounded by floating corn cobs, leaves, pills, and abstract mechanical elements against a dark background (from generated still #3737).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vintage plasma globe sits on a wooden table, its transparent sphere filled with branching electric arcs in, and. Inside the globe, a small silhouetted lighthouse emits a white beam, surrounded by floating corn cobs, leaves, pills, and abstract mechanical elements against a dark background",
+  "source_description": "A vintage plasma globe sits on a wooden table, its transparent sphere filled with branching electric arcs in bright blue, pink, and orange. Inside the globe, a small silhouetted lighthouse emits a white beam, surrounded by floating corn cobs, green leaves, pills, and abstract mechanical elements against a dark background.",
+  "source_prompt": "A highly detailed surreal painting of an antique plasma globe on a wooden table. Inside the glowing glass sphere, a small black lighthouse stands at the center emitting a bright beam of light, surrounded by floating corn cobs, green leaves, scattered pills, and mechanical parts. Vibrant blue, pink, and orange electrical plasma arcs branch across the interior. Dramatic lighting with reflections on the glass, dark moody background, painted in a realistic yet fantastical style.",
+  "source_title": "Plasma Sphere Surreal",
+  "style": "surrealism",
+  "mood": "ethereal, bizarre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "surreal",
+    "lighthouse",
+    "corn",
+    "electric arcs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3737,
+  "source_url": "/generated/3737.jpg",
+  "image_url": "/sketches/4318.png",
+  "inverted_image_url": "/sketches-inverted/4318.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

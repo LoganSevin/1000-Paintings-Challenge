@@ -1,0 +1,42 @@
+{
+  "number": 4419,
+  "title": "Line sketch: Stasis & Supplies Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mysterious figure in a cloak and wide-brimmed hat stands at the entrance of an old European-style shop, holding an open book and pointing at the doorway. The shop is labeled 'STASIS & SUPPLIES' with an open book sign above the door, surrounded by potion bottles, dried herbs, scales, scrolls, and glowing butterflies on the stone steps (derived from generated still #3838).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mysterious figure in a cloak and wide-brimmed hat stands at the entrance of an old European-style shop, holding an open book and pointing at the doorway. The shop is labeled 'STASIS & SUPPLIES' with an open book sign above the door, surrounded by potion bottles, dried herbs, scales, scrolls, and glowing butterflies on the stone steps",
+  "inverted_title": "Inverted sketch: Stasis & Supplies Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mysterious figure in a cloak and wide-brimmed hat stands at the entrance of an old European-style shop, holding an open book and pointing at the doorway. The shop is labeled 'STASIS & SUPPLIES' with an open book sign above the door, surrounded by potion bottles, dried herbs, scales, scrolls, and glowing butterflies on the stone steps (from generated still #3838).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mysterious figure in a cloak and wide-brimmed hat stands at the entrance of an old European-style shop, holding an open book and pointing at the doorway. The shop is labeled 'STASIS & SUPPLIES' with an open book sign above the door, surrounded by potion bottles, dried herbs, scales, scrolls, and glowing butterflies on the stone steps",
+  "source_description": "A mysterious figure in a dark blue cloak and wide-brimmed hat stands at the entrance of an old European-style shop, holding an open book and pointing at the doorway. The shop is labeled 'STASIS & SUPPLIES' with an open book sign above the door, surrounded by potion bottles, dried herbs, scales, scrolls, and glowing butterflies on the stone steps.",
+  "source_prompt": "A hooded figure in a dark blue cloak and pointed hat stands before an ancient wooden shop at dusk, holding an open book and gesturing toward the door. The shop sign is an open book reading 'STASIS & SUPPLIES'. Potion bottles labeled 'LOCKED HOUSE' and 'STASIS' sit on shelves with dried lavender hanging above. Brass scales, scrolls, and glowing blue butterflies rest on the stone steps. Narrow European alley with warm sunset sky in the background, atmospheric and detailed fantasy painting.",
+  "source_title": "Stasis & Supplies Shop",
+  "style": "composition",
+  "mood": "mysterious, twilight",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "alchemist",
+    "mysterious figure",
+    "twilight street",
+    "magic supplies"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3838,
+  "source_url": "/generated/3838.jpg",
+  "image_url": "/sketches/4419.png",
+  "inverted_image_url": "/sketches-inverted/4419.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:48Z"
+}

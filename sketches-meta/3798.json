@@ -1,0 +1,42 @@
+{
+  "number": 3798,
+  "title": "Line sketch: Kick Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female warrior with hair performing a spinning kick. She wears a revealing and fantasy armor outfit with flowing fabric and armored gauntlets. energy and smoke effects swirl around her limbs and burst from her extended foot in the third pose (derived from generated still #3215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female warrior with hair performing a spinning kick. She wears a revealing and fantasy armor outfit with flowing fabric and armored gauntlets. energy and smoke effects swirl around her limbs and burst from her extended foot in the third pose",
+  "inverted_title": "Inverted sketch: Kick Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female warrior with hair performing a spinning kick. She wears a revealing and fantasy armor outfit with flowing fabric and armored gauntlets. energy and smoke effects swirl around her limbs and burst from her extended foot in the third pose (from generated still #3215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female warrior with hair performing a spinning kick. She wears a revealing and fantasy armor outfit with flowing fabric and armored gauntlets. energy and smoke effects swirl around her limbs and burst from her extended foot in the third pose",
+  "source_description": "Four sequential poses of a female warrior with silver hair performing a spinning kick. She wears a revealing purple and silver fantasy armor outfit with flowing fabric and armored gauntlets. Purple energy and smoke effects swirl around her limbs and burst from her extended foot in the third pose.",
+  "source_prompt": "A dark-skinned female warrior with short silver hair performing a powerful spinning kick in four sequential poses against a solid black background. She wears ornate purple and silver fantasy armor with spiked shoulder pieces, flowing purple fabric, and bare midriff. Purple magical energy and smoke effects swirl around her legs and explode in bright violet particles from her kicking foot in the third frame. Dynamic action sequence, highly detailed digital painting.",
+  "source_title": "Purple Kick Sequence",
+  "style": "fantasy character art",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "martial arts",
+    "energy",
+    "action sequence",
+    "fantasy armor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3215,
+  "source_url": "/generated/3215.jpg",
+  "image_url": "/sketches/3798.png",
+  "inverted_image_url": "/sketches-inverted/3798.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:46Z"
+}

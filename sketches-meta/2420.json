@@ -1,0 +1,42 @@
+{
+  "number": 2420,
+  "title": "Line sketch: Winged Pizza Planet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A spherical creature with a smiling face, covered in pepperoni and melted cheese, floats above a littered surface. Large feathered wings extend from its sides against a surreal cosmic background of dripping, and aurora-like formations (derived from generated still #1653).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A spherical creature with a smiling face, covered in pepperoni and melted cheese, floats above a littered surface. Large feathered wings extend from its sides against a surreal cosmic background of dripping, and aurora-like formations",
+  "inverted_title": "Inverted sketch: Winged Pizza Planet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A spherical creature with a smiling face, covered in pepperoni and melted cheese, floats above a littered surface. Large feathered wings extend from its sides against a surreal cosmic background of dripping, and aurora-like formations (from generated still #1653).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A spherical creature with a smiling face, covered in pepperoni and melted cheese, floats above a littered surface. Large feathered wings extend from its sides against a surreal cosmic background of dripping, and aurora-like formations",
+  "source_description": "A spherical purple creature with a smiling face, covered in pepperoni and melted cheese, floats above a littered brown surface. Large feathered wings extend from its sides against a surreal cosmic background of dripping green, purple and red aurora-like formations.",
+  "source_prompt": "",
+  "source_title": "Winged Pizza Planet",
+  "style": "surreal fantasy",
+  "mood": "whimsical bizarre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pizza creature",
+    "winged sphere",
+    "surreal",
+    "psychedelic",
+    "floating"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1653,
+  "source_url": "/generated/1653.jpg",
+  "image_url": "/sketches/2420.png",
+  "inverted_image_url": "/sketches-inverted/2420.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:43Z"
+}

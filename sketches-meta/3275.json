@@ -1,0 +1,42 @@
+{
+  "number": 3275,
+  "title": "Line sketch: Shattered Gallery",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a long velvet gown stands in the center of a dark, ornate room with a cracked marble floor. She holds a framed composition that is breaking apart, while a large crystal chandelier hangs above and multiple other framed artworks float or shatter around her, connected by glowing fracture lines (derived from generated still #2650).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a long velvet gown stands in the center of a dark, ornate room with a cracked marble floor. She holds a framed composition that is breaking apart, while a large crystal chandelier hangs above and multiple other framed artworks float or shatter around her, connected by glowing fracture lines",
+  "inverted_title": "Inverted sketch: Shattered Gallery",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a long velvet gown stands in the center of a dark, ornate room with a cracked marble floor. She holds a framed composition that is breaking apart, while a large crystal chandelier hangs above and multiple other framed artworks float or shatter around her, connected by glowing fracture lines (from generated still #2650).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a long velvet gown stands in the center of a dark, ornate room with a cracked marble floor. She holds a framed composition that is breaking apart, while a large crystal chandelier hangs above and multiple other framed artworks float or shatter around her, connected by glowing fracture lines",
+  "source_description": "A woman in a long purple velvet gown stands in the center of a dark, ornate room with a cracked marble floor. She holds a framed painting that is breaking apart, while a large crystal chandelier hangs above and multiple other framed artworks float or shatter around her, connected by glowing yellow fracture lines.",
+  "source_prompt": "A dramatic surreal scene of a woman in a long purple velvet evening gown standing in a dark decaying art gallery with a cracked black marble floor. She holds a large broken painting containing multiple faces. A glowing crystal chandelier hangs overhead casting beams of light. Other framed paintings float and shatter around her, connected by bright yellow glowing fracture lines running across the floor and walls.",
+  "source_title": "Shattered Gallery",
+  "style": "surreal",
+  "mood": "eerie dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "shattered paintings",
+    "chandelier",
+    "cracked floor",
+    "gown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2650,
+  "source_url": "/generated/2650.jpg",
+  "image_url": "/sketches/3275.png",
+  "inverted_image_url": "/sketches-inverted/3275.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4464,
+  "title": "Line sketch: Arcane Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female sorceress with a and white mask stands behind a marble desk, levitating a glowing orb containing hearts between her hands. The mystical study is filled with floating magical items including potion bottles, an open spellbook, scrolls labeled 'STASIS - DO NOT DISTURB', candles, and a beetle, all illuminated by a dramatic beam of light from above (derived from generated still #3883).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female sorceress with a and white mask stands behind a marble desk, levitating a glowing orb containing hearts between her hands. The mystical study is filled with floating magical items including potion bottles, an open spellbook, scrolls labeled 'STASIS - DO NOT DISTURB', candles, and a beetle, all illuminated by a dramatic beam of light from above",
+  "inverted_title": "Inverted sketch: Arcane Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female sorceress with a and white mask stands behind a marble desk, levitating a glowing orb containing hearts between her hands. The mystical study is filled with floating magical items including potion bottles, an open spellbook, scrolls labeled 'STASIS - DO NOT DISTURB', candles, and a beetle, all illuminated by a dramatic beam of light from above (from generated still #3883).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female sorceress with a and white mask stands behind a marble desk, levitating a glowing orb containing hearts between her hands. The mystical study is filled with floating magical items including potion bottles, an open spellbook, scrolls labeled 'STASIS - DO NOT DISTURB', candles, and a beetle, all illuminated by a dramatic beam of light from above",
+  "source_description": "A purple-skinned female sorceress with a gold and white mask stands behind a marble desk, levitating a glowing blue orb containing red hearts between her hands. The mystical study is filled with floating magical items including potion bottles, an open spellbook, scrolls labeled 'STASIS - DO NOT DISTURB', red candles, and a green beetle, all illuminated by a dramatic beam of light from above.",
+  "source_prompt": "A purple-skinned female sorceress wearing an ornate gold and white masquerade mask and purple patterned robes stands in a mystical study with purple walls. She levitates a glowing blue orb filled with red hearts using both hands. On the marble desk in front of her are scrolls, red candles, an open book, potion bottles, and a green beetle. An open spellbook and heart-shaped potion float in the air behind her. Dramatic beam of blue light shines down from above, magical atmosphere, detailed fantasy illustration.",
+  "source_title": "Arcane Oracle",
+  "style": "fantasy illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "magic orb",
+    "mystical study",
+    "skin",
+    "masquerade mask"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3883,
+  "source_url": "/generated/3883.jpg",
+  "image_url": "/sketches/4464.png",
+  "inverted_image_url": "/sketches-inverted/4464.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:48Z"
+}

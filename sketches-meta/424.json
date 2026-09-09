@@ -1,0 +1,42 @@
+{
+  "number": 424,
+  "title": "Line sketch: Spheres in a Bowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A collection of spheres and helmet-like objects are piled inside a large white bowl against a background. The realistic composition captures glossy reflections and soft shadows with smooth precision (derived from painting #507).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A collection of spheres and helmet-like objects are piled inside a large white bowl against a background. The realistic composition captures glossy reflections and soft shadows with smooth precision",
+  "inverted_title": "Inverted sketch: Spheres in a Bowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A collection of spheres and helmet-like objects are piled inside a large white bowl against a background. The realistic composition captures glossy reflections and soft shadows with smooth precision (from painting #507).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A collection of spheres and helmet-like objects are piled inside a large white bowl against a background. The realistic composition captures glossy reflections and soft shadows with smooth precision",
+  "source_description": "A collection of colorful spheres and helmet-like objects are piled inside a large white bowl against a pink background. The realistic painting captures glossy reflections and soft shadows with smooth precision.",
+  "source_prompt": "",
+  "source_title": "Spheres in a Bowl",
+  "style": "Realism",
+  "mood": "Calm and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "still life",
+    "spheres",
+    "bowl",
+    "reflections",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 507,
+  "source_url": "/paintings/507.jpg",
+  "image_url": "/sketches/424.png",
+  "inverted_image_url": "/sketches-inverted/424.png",
+  "curve_count": 91,
+  "built_at": "2026-08-17T00:09:39Z"
+}

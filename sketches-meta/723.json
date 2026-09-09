@@ -1,0 +1,42 @@
+{
+  "number": 723,
+  "title": "Line sketch: Dripping Skull Figures",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A group of glossy black skeletal figures stand in formation, their skulls and robes melting with viscous liquid. The eerie scene is bathed in a ominous glow, evoking a haunting and surreal atmosphere (derived from painting #917).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A group of glossy black skeletal figures stand in formation, their skulls and robes melting with viscous liquid. The eerie scene is bathed in a ominous glow, evoking a haunting and surreal atmosphere",
+  "inverted_title": "Inverted sketch: Dripping Skull Figures",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A group of glossy black skeletal figures stand in formation, their skulls and robes melting with viscous liquid. The eerie scene is bathed in a ominous glow, evoking a haunting and surreal atmosphere (from painting #917).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A group of glossy black skeletal figures stand in formation, their skulls and robes melting with viscous liquid. The eerie scene is bathed in a ominous glow, evoking a haunting and surreal atmosphere",
+  "source_description": "A group of glossy black skeletal figures stand in formation, their skulls and robes melting with viscous red liquid. The eerie scene is bathed in a ominous red glow, evoking a haunting and surreal atmosphere.",
+  "source_prompt": "",
+  "source_title": "Dripping Crimson Skull Figures",
+  "style": "surrealism",
+  "mood": "eerie menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skulls",
+    "melting",
+    "horror",
+    "surreal",
+    "liquid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 917,
+  "source_url": "/paintings/917.jpg",
+  "image_url": "/sketches/723.png",
+  "inverted_image_url": "/sketches-inverted/723.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1330,
+  "title": "Line sketch: Necromancer's Cosmic Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded skeletal necromancer with a glowing skull stands on a dark, ornate mountain peak holding a lit candle. A massive swirling vortex of colors emanates from a central candle, surrounded by floating planetary orbs against a fiery cosmic background (derived from generated still #545).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded skeletal necromancer with a glowing skull stands on a dark, ornate mountain peak holding a lit candle. A massive swirling vortex of colors emanates from a central candle, surrounded by floating planetary orbs against a fiery cosmic background",
+  "inverted_title": "Inverted sketch: Necromancer's Cosmic Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded skeletal necromancer with a glowing skull stands on a dark, ornate mountain peak holding a lit candle. A massive swirling vortex of colors emanates from a central candle, surrounded by floating planetary orbs against a fiery cosmic background (from generated still #545).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded skeletal necromancer with a glowing skull stands on a dark, ornate mountain peak holding a lit candle. A massive swirling vortex of colors emanates from a central candle, surrounded by floating planetary orbs against a fiery cosmic background",
+  "source_description": "A hooded skeletal necromancer with a glowing green skull stands on a dark, ornate mountain peak holding a lit candle. A massive swirling vortex of rainbow colors emanates from a central candle, surrounded by floating planetary orbs against a fiery cosmic background.",
+  "source_prompt": "",
+  "source_title": "Necromancer's Cosmic Ritual",
+  "style": "fantasy surrealism",
+  "mood": "mystical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "necromancer",
+    "cosmic vortex",
+    "skeleton wizard",
+    "candle magic",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 545,
+  "source_url": "/generated/545.jpg",
+  "image_url": "/sketches/1330.png",
+  "inverted_image_url": "/sketches-inverted/1330.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:41Z"
+}

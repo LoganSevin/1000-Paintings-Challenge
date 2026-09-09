@@ -1,0 +1,41 @@
+{
+  "number": 521,
+  "title": "Line sketch: Two Birds on a Branch",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed ink drawing shows two small birds perched on a curved, leafless tree branch against a plain background. The left bird has a black head and white belly while the right bird displays distinct facial markings and patterned wings (derived from painting #651).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed ink drawing shows two small birds perched on a curved, leafless tree branch against a plain background. The left bird has a black head and white belly while the right bird displays distinct facial markings and patterned wings",
+  "inverted_title": "Inverted sketch: Two Birds on a Branch",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed ink drawing shows two small birds perched on a curved, leafless tree branch against a plain background. The left bird has a black head and white belly while the right bird displays distinct facial markings and patterned wings (from painting #651).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed ink drawing shows two small birds perched on a curved, leafless tree branch against a plain background. The left bird has a black head and white belly while the right bird displays distinct facial markings and patterned wings",
+  "source_description": "A detailed ink drawing shows two small birds perched on a curved, leafless tree branch against a plain background. The left bird has a black head and white belly while the right bird displays distinct facial markings and patterned wings.",
+  "source_prompt": "",
+  "source_title": "Two Birds on a Branch",
+  "style": "Realistic illustration",
+  "mood": "Serene and minimalist",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Ink drawing",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "birds",
+    "branch",
+    "wildlife",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 651,
+  "source_url": "/paintings/651.jpg",
+  "image_url": "/sketches/521.png",
+  "inverted_image_url": "/sketches-inverted/521.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:39Z"
+}

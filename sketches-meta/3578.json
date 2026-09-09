@@ -1,0 +1,42 @@
+{
+  "number": 3578,
+  "title": "Line sketch: Crypt Trio",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A blonde woman in a black off-shoulder gown with a crown stands in the center of a stone archway, flanked by a horned demon-like figure and a bandaged mummy. They stand in an ancient torch-lit crypt corridor with carved runes on the walls and bats flying around them (derived from generated still #2986).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A blonde woman in a black off-shoulder gown with a crown stands in the center of a stone archway, flanked by a horned demon-like figure and a bandaged mummy. They stand in an ancient torch-lit crypt corridor with carved runes on the walls and bats flying around them",
+  "inverted_title": "Inverted sketch: Crypt Trio",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A blonde woman in a black off-shoulder gown with a crown stands in the center of a stone archway, flanked by a horned demon-like figure and a bandaged mummy. They stand in an ancient torch-lit crypt corridor with carved runes on the walls and bats flying around them (from generated still #2986).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A blonde woman in a black off-shoulder gown with a crown stands in the center of a stone archway, flanked by a horned demon-like figure and a bandaged mummy. They stand in an ancient torch-lit crypt corridor with carved runes on the walls and bats flying around them",
+  "source_description": "A blonde woman in a black off-shoulder gown with a crown stands in the center of a stone archway, flanked by a blue horned demon-like figure and a bandaged mummy. They stand in an ancient torch-lit crypt corridor with carved runes on the walls and bats flying around them.",
+  "source_prompt": "A dramatic scene inside an ancient stone crypt with carved runes and flaming torches on the walls. In the center stands a beautiful blonde woman wearing a black off-shoulder gown with red lining, fishnet stockings, high heels and a golden crown. To her left is a muscular blue-skinned demon with curved horns and tribal tattoos wearing a black cape. To her right is a fully wrapped mummy in decaying bandages. Bats fly around the arched hallway, dark gothic atmosphere, cinematic lighting.",
+  "source_title": "Crypt Trio",
+  "style": "dark fantasy",
+  "mood": "sinister gothic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark fantasy",
+    "crypt",
+    "demon",
+    "mummy",
+    "gothic woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2986,
+  "source_url": "/generated/2986.jpg",
+  "image_url": "/sketches/3578.png",
+  "inverted_image_url": "/sketches-inverted/3578.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:46Z"
+}

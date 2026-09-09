@@ -1,0 +1,42 @@
+{
+  "number": 262,
+  "title": "Line sketch: Mosaic Bear Face Artwork",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant mosaic bear head crafted from glass or ceramic tiles, featuring big white eyes and a black nose. Surrounded by decorative circular and leaf-shaped elements on a white background (derived from painting #319).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant mosaic bear head crafted from glass or ceramic tiles, featuring big white eyes and a black nose. Surrounded by decorative circular and leaf-shaped elements on a white background",
+  "inverted_title": "Inverted sketch: Mosaic Bear Face Artwork",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant mosaic bear head crafted from glass or ceramic tiles, featuring big white eyes and a black nose. Surrounded by decorative circular and leaf-shaped elements on a white background (from painting #319).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant mosaic bear head crafted from glass or ceramic tiles, featuring big white eyes and a black nose. Surrounded by decorative circular and leaf-shaped elements on a white background",
+  "source_description": "A vibrant mosaic bear head crafted from colorful glass or ceramic tiles, featuring big white eyes and a black nose. Surrounded by decorative circular and leaf-shaped elements on a white background.",
+  "source_prompt": "",
+  "source_title": "Mosaic Bear Face Artwork",
+  "style": "Mosaic",
+  "mood": "Playful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Glass mosaic on panel",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "bear",
+    "animal art",
+    "decorative",
+    "glass art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 319,
+  "source_url": "/paintings/319.jpg",
+  "image_url": "/sketches/262.png",
+  "inverted_image_url": "/sketches-inverted/262.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:38Z"
+}

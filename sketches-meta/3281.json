@@ -1,0 +1,42 @@
+{
+  "number": 3281,
+  "title": "Line sketch: Surreal Fleur-de-Lis Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone astronaut stands on a glowing path in the foreground while a silhouetted figure stands on a distant mountain peak. A massive ornate fleur-de-lis floats centrally between them, surrounded by a vibrant cosmic landscape of swirling nebulae, luminous orbs, and layered mountains under a swirling psychedelic sky (derived from generated still #2656).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone astronaut stands on a glowing path in the foreground while a silhouetted figure stands on a distant mountain peak. A massive ornate fleur-de-lis floats centrally between them, surrounded by a vibrant cosmic landscape of swirling nebulae, luminous orbs, and layered mountains under a swirling psychedelic sky",
+  "inverted_title": "Inverted sketch: Surreal Fleur-de-Lis Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone astronaut stands on a glowing path in the foreground while a silhouetted figure stands on a distant mountain peak. A massive ornate fleur-de-lis floats centrally between them, surrounded by a vibrant cosmic landscape of swirling nebulae, luminous orbs, and layered mountains under a swirling psychedelic sky (from generated still #2656).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone astronaut stands on a glowing path in the foreground while a silhouetted figure stands on a distant mountain peak. A massive ornate fleur-de-lis floats centrally between them, surrounded by a vibrant cosmic landscape of swirling nebulae, luminous orbs, and layered mountains under a swirling psychedelic sky",
+  "source_description": "A lone astronaut stands on a glowing path in the foreground while a silhouetted figure stands on a distant mountain peak. A massive ornate golden fleur-de-lis floats centrally between them, surrounded by a vibrant cosmic landscape of swirling nebulae, luminous orbs, and layered colorful mountains under a swirling psychedelic sky.",
+  "source_prompt": "A surreal dreamlike landscape featuring a lone astronaut standing on a glowing path in the foreground and a distant silhouetted figure on a mountain peak. A giant ornate golden fleur-de-lis floats in the center of the composition. The environment is a vibrant cosmic scene with swirling colorful nebulae, luminous orbs, layered mountains in teal, orange and purple tones, and a psychedelic sky filled with glowing circles and ethereal clouds, in a painterly digital art style.",
+  "source_title": "Surreal Fleur-de-Lis Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "ethereal wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "astronaut",
+    "fleur-de-lis",
+    "cosmic landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2656,
+  "source_url": "/generated/2656.jpg",
+  "image_url": "/sketches/3281.png",
+  "inverted_image_url": "/sketches-inverted/3281.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:45Z"
+}

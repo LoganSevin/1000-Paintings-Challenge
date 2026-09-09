@@ -1,0 +1,42 @@
+{
+  "number": 2219,
+  "title": "Line sketch: Stasis Melting Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic portrait of a bald man with a large black mustache and spiky crown, his head melting into dripping slime with and patterns. In the background, a procession of silhouetted heads with swirling psychedelic motifs floats above a vibrant field covered in spirals (derived from generated still #1444).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic portrait of a bald man with a large black mustache and spiky crown, his head melting into dripping slime with and patterns. In the background, a procession of silhouetted heads with swirling psychedelic motifs floats above a vibrant field covered in spirals",
+  "inverted_title": "Inverted sketch: Stasis Melting Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic portrait of a bald man with a large black mustache and spiky crown, his head melting into dripping slime with and patterns. In the background, a procession of silhouetted heads with swirling psychedelic motifs floats above a vibrant field covered in spirals (from generated still #1444).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic portrait of a bald man with a large black mustache and spiky crown, his head melting into dripping slime with and patterns. In the background, a procession of silhouetted heads with swirling psychedelic motifs floats above a vibrant field covered in spirals",
+  "source_description": "A surreal psychedelic portrait of a bald man with a large black mustache and spiky crown, his head melting into dripping magenta slime with green and yellow patterns. In the background, a procession of colorful silhouetted heads with swirling psychedelic motifs floats above a vibrant green field covered in yellow spirals.",
+  "source_prompt": "",
+  "source_title": "Stasis Melting Portrait",
+  "style": "surreal psychedelic",
+  "mood": "trippy, grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "psychedelic",
+    "melting",
+    "portrait",
+    "mustache"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1444,
+  "source_url": "/generated/1444.jpg",
+  "image_url": "/sketches/2219.png",
+  "inverted_image_url": "/sketches-inverted/2219.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:42Z"
+}

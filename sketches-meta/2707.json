@@ -1,0 +1,42 @@
+{
+  "number": 2707,
+  "title": "Line sketch: Character Turnaround Sheet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 3x6 grid of a young man with curly dark hair wearing a plaid shirt, jeans, and boots while holding a tall ornate staff. The character is shown in multiple angles including front, side, and back views with a consistent glowing and magical aura effect surrounding him against a plain gray background (derived from generated still #1950).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 3x6 grid of a young man with curly dark hair wearing a plaid shirt, jeans, and boots while holding a tall ornate staff. The character is shown in multiple angles including front, side, and back views with a consistent glowing and magical aura effect surrounding him against a plain gray background",
+  "inverted_title": "Inverted sketch: Character Turnaround Sheet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 3x6 grid of a young man with curly dark hair wearing a plaid shirt, jeans, and boots while holding a tall ornate staff. The character is shown in multiple angles including front, side, and back views with a consistent glowing and magical aura effect surrounding him against a plain gray background (from generated still #1950).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 3x6 grid of a young man with curly dark hair wearing a plaid shirt, jeans, and boots while holding a tall ornate staff. The character is shown in multiple angles including front, side, and back views with a consistent glowing and magical aura effect surrounding him against a plain gray background",
+  "source_description": "A 3x6 grid of a young man with curly dark hair wearing a red plaid shirt, blue jeans, and boots while holding a tall ornate golden staff. The character is shown in multiple angles including front, side, and back views with a consistent glowing red and green magical aura effect surrounding him against a plain gray background.",
+  "source_prompt": "",
+  "source_title": "Character Turnaround Sheet",
+  "style": "3D render",
+  "mood": "neutral, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital 3D character model",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character turnaround",
+    "multiple poses",
+    "fantasy staff",
+    "plaid shirt",
+    "glowing aura"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1950,
+  "source_url": "/generated/1950.jpg",
+  "image_url": "/sketches/2707.png",
+  "inverted_image_url": "/sketches-inverted/2707.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:44Z"
+}

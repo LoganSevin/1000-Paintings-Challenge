@@ -1,0 +1,42 @@
+{
+  "number": 2263,
+  "title": "Line sketch: Zombie Egg Hypnosis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large zombie with glowing eyes and cracked skin stares intensely from the right side of the frame. A smooth egg sits on a flat surface to the left, surrounded by hypnotic swirls, floating silhouette heads, and concentric target circles (derived from generated still #1489).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large zombie with glowing eyes and cracked skin stares intensely from the right side of the frame. A smooth egg sits on a flat surface to the left, surrounded by hypnotic swirls, floating silhouette heads, and concentric target circles",
+  "inverted_title": "Inverted sketch: Zombie Egg Hypnosis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large zombie with glowing eyes and cracked skin stares intensely from the right side of the frame. A smooth egg sits on a flat surface to the left, surrounded by hypnotic swirls, floating silhouette heads, and concentric target circles (from generated still #1489).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large zombie with glowing eyes and cracked skin stares intensely from the right side of the frame. A smooth egg sits on a flat surface to the left, surrounded by hypnotic swirls, floating silhouette heads, and concentric target circles",
+  "source_description": "A large green zombie with glowing orange eyes and cracked skin stares intensely from the right side of the frame. A smooth purple egg sits on a flat surface to the left, surrounded by colorful hypnotic swirls, floating yellow silhouette heads, and concentric target circles.",
+  "source_prompt": "",
+  "source_title": "Zombie Egg Hypnosis",
+  "style": "surreal",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "surreal",
+    "hypnotic",
+    "egg",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1489,
+  "source_url": "/generated/1489.jpg",
+  "image_url": "/sketches/2263.png",
+  "inverted_image_url": "/sketches-inverted/2263.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:43Z"
+}

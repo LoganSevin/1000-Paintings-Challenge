@@ -1,0 +1,42 @@
+{
+  "number": 370,
+  "title": "Line sketch: Elderly Man in Beret Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized digital illustration of an older gentleman with glasses, mustache, and a beret, gazing thoughtfully to the side. White speckles are scattered across the composition against a -gray background (derived from painting #434).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized digital illustration of an older gentleman with glasses, mustache, and a beret, gazing thoughtfully to the side. White speckles are scattered across the composition against a -gray background",
+  "inverted_title": "Inverted sketch: Elderly Man in Beret Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized digital illustration of an older gentleman with glasses, mustache, and a beret, gazing thoughtfully to the side. White speckles are scattered across the composition against a -gray background (from painting #434).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized digital illustration of an older gentleman with glasses, mustache, and a beret, gazing thoughtfully to the side. White speckles are scattered across the composition against a -gray background",
+  "source_description": "A stylized digital illustration of an older gentleman with glasses, mustache, and a beret, gazing thoughtfully to the side. White speckles are scattered across the composition against a muted purple-gray background.",
+  "source_prompt": "",
+  "source_title": "Elderly Man in Beret Portrait",
+  "style": "Cartoonish",
+  "mood": "Contemplative and artistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "elderly man",
+    "beret",
+    "glasses",
+    "mustache"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 434,
+  "source_url": "/paintings/434.jpg",
+  "image_url": "/sketches/370.png",
+  "inverted_image_url": "/sketches-inverted/370.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:39Z"
+}

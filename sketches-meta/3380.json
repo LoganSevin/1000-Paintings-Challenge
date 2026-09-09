@@ -1,0 +1,42 @@
+{
+  "number": 3380,
+  "title": "Line sketch: Stasis Protocol Active",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal cyberpunk scene featuring a -skinned woman in ornate robes reaching toward a cosmic dragon ridden by a figure with hair. Above them floats a large glowing orb containing a alien holding a film reel, set against a dystopian cityscape with graffiti-covered walls, toxic symbols, and a cosmic sky with planets and a smiling sun (derived from generated still #2781).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal cyberpunk scene featuring a -skinned woman in ornate robes reaching toward a cosmic dragon ridden by a figure with hair. Above them floats a large glowing orb containing a alien holding a film reel, set against a dystopian cityscape with graffiti-covered walls, toxic symbols, and a cosmic sky with planets and a smiling sun",
+  "inverted_title": "Inverted sketch: Stasis Protocol Active",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal cyberpunk scene featuring a -skinned woman in ornate robes reaching toward a cosmic dragon ridden by a figure with hair. Above them floats a large glowing orb containing a alien holding a film reel, set against a dystopian cityscape with graffiti-covered walls, toxic symbols, and a cosmic sky with planets and a smiling sun (from generated still #2781).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal cyberpunk scene featuring a -skinned woman in ornate robes reaching toward a cosmic dragon ridden by a figure with hair. Above them floats a large glowing orb containing a alien holding a film reel, set against a dystopian cityscape with graffiti-covered walls, toxic symbols, and a cosmic sky with planets and a smiling sun",
+  "source_description": "A vibrant surreal cyberpunk scene featuring a blue-skinned woman in ornate robes reaching toward a cosmic green dragon ridden by a figure with blue hair. Above them floats a large glowing orb containing a neon green alien holding a film reel, set against a dystopian cityscape with graffiti-covered walls, toxic symbols, and a colorful cosmic sky with planets and a smiling red sun.",
+  "source_prompt": "",
+  "source_title": "Stasis Protocol Active",
+  "style": "surreal cyberpunk",
+  "mood": "psychedelic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "surreal",
+    "alien",
+    "dragon",
+    "futuristic city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2781,
+  "source_url": "/generated/2781.jpg",
+  "image_url": "/sketches/3380.png",
+  "inverted_image_url": "/sketches-inverted/3380.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1313,
+  "title": "Line sketch: Skeleton in Lava Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black skeletal figure with a wide grinning skull emerges from a swirling vortex of, and lava-like patterns. Translucent bubbles containing miniature swirling scenes float around the skeleton against a smoky gray background (derived from generated still #528).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black skeletal figure with a wide grinning skull emerges from a swirling vortex of, and lava-like patterns. Translucent bubbles containing miniature swirling scenes float around the skeleton against a smoky gray background",
+  "inverted_title": "Inverted sketch: Skeleton in Lava Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black skeletal figure with a wide grinning skull emerges from a swirling vortex of, and lava-like patterns. Translucent bubbles containing miniature swirling scenes float around the skeleton against a smoky gray background (from generated still #528).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black skeletal figure with a wide grinning skull emerges from a swirling vortex of, and lava-like patterns. Translucent bubbles containing miniature swirling scenes float around the skeleton against a smoky gray background",
+  "source_description": "A black skeletal figure with a wide grinning skull emerges from a swirling vortex of red, orange, and yellow lava-like patterns. Translucent bubbles containing miniature swirling scenes float around the skeleton against a smoky gray background.",
+  "source_prompt": "",
+  "source_title": "Skeleton in Lava Vortex",
+  "style": "fantasy illustration",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "lava",
+    "vortex",
+    "bubbles",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 528,
+  "source_url": "/generated/528.jpg",
+  "image_url": "/sketches/1313.png",
+  "inverted_image_url": "/sketches-inverted/1313.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:41Z"
+}

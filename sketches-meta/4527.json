@@ -1,0 +1,42 @@
+{
+  "number": 4527,
+  "title": "Line sketch: Tree God",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive biomechanical tree entity with a menacing skull-like face dominates the center, featuring glowing circuit eyes, sharp white teeth, and a CPU chip embedded in its forehead. Its dark branches reach into a starry sky while raindrops and glowing embers fall between two dark rocky cliffs under a vibrant aurora-like sunset (derived from generated still #3947).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive biomechanical tree entity with a menacing skull-like face dominates the center, featuring glowing circuit eyes, sharp white teeth, and a CPU chip embedded in its forehead. Its dark branches reach into a starry sky while raindrops and glowing embers fall between two dark rocky cliffs under a vibrant aurora-like sunset",
+  "inverted_title": "Inverted sketch: Tree God",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive biomechanical tree entity with a menacing skull-like face dominates the center, featuring glowing circuit eyes, sharp white teeth, and a CPU chip embedded in its forehead. Its dark branches reach into a starry sky while raindrops and glowing embers fall between two dark rocky cliffs under a vibrant aurora-like sunset (from generated still #3947).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive biomechanical tree entity with a menacing skull-like face dominates the center, featuring glowing circuit eyes, sharp white teeth, and a CPU chip embedded in its forehead. Its dark branches reach into a starry sky while raindrops and glowing embers fall between two dark rocky cliffs under a vibrant aurora-like sunset",
+  "source_description": "A massive biomechanical tree entity with a menacing skull-like face dominates the center, featuring glowing green circuit eyes, sharp white teeth, and a CPU chip embedded in its forehead. Its dark branches reach into a starry sky while colorful raindrops and glowing embers fall between two dark rocky cliffs under a vibrant aurora-like sunset.",
+  "source_prompt": "surreal digital painting of a giant dark tree with a terrifying skull face emerging between two rocky cliffs, glowing neon green circuit board eyes, embedded CPU chip on forehead, sharp white teeth grin, dark twisted branches with colorful string lights, blue and orange glowing raindrops falling from the sky, vibrant red orange and green aurora background with stars, mystical and ominous atmosphere",
+  "source_title": "Neon Tree God",
+  "style": "digital surrealism",
+  "mood": "ominous mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tree god",
+    "cybernetic skull",
+    "surreal landscape",
+    "aurora sky",
+    "glowing rain"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3947,
+  "source_url": "/generated/3947.jpg",
+  "image_url": "/sketches/4527.png",
+  "inverted_image_url": "/sketches-inverted/4527.png",
+  "curve_count": 111,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4826,
+  "title": "Line sketch: Surreal Mechanical Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, cracked porcelain-like theatrical mask dominates the scene, its surface embedded with film reels, clapperboards, robotic machinery, and glowing circuitry. The eyes contain miniature scenes of winged figures within orbs while a larger glowing bubble to the right shows a radiant winged silhouette against a dystopian cityscape with robotic figures below (derived from generated still #4261).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, cracked porcelain-like theatrical mask dominates the scene, its surface embedded with film reels, clapperboards, robotic machinery, and glowing circuitry. The eyes contain miniature scenes of winged figures within orbs while a larger glowing bubble to the right shows a radiant winged silhouette against a dystopian cityscape with robotic figures below",
+  "inverted_title": "Inverted sketch: Surreal Mechanical Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, cracked porcelain-like theatrical mask dominates the scene, its surface embedded with film reels, clapperboards, robotic machinery, and glowing circuitry. The eyes contain miniature scenes of winged figures within orbs while a larger glowing bubble to the right shows a radiant winged silhouette against a dystopian cityscape with robotic figures below (from generated still #4261).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, cracked porcelain-like theatrical mask dominates the scene, its surface embedded with film reels, clapperboards, robotic machinery, and glowing circuitry. The eyes contain miniature scenes of winged figures within orbs while a larger glowing bubble to the right shows a radiant winged silhouette against a dystopian cityscape with robotic figures below",
+  "source_description": "A large, cracked porcelain-like theatrical mask dominates the scene, its surface embedded with film reels, clapperboards, robotic machinery, and glowing purple circuitry. The eyes contain miniature scenes of winged figures within orbs while a larger glowing bubble to the right shows a radiant winged silhouette against a dystopian cityscape with robotic figures below.",
+  "source_prompt": "Surreal cinematic scene featuring a giant cracked porcelain theater mask floating in a cloudy sky. The mask is adorned with film reels, clapperboards, and intricate mechanical robotic elements in teal and purple. Its eyes contain glowing orbs showing tiny winged human figures. A large transparent bubble on the right contains a radiant purple winged silhouette emitting green energy. Below are dystopian ruined buildings, robots, floating film strips and framed pictures against a moody, cloudy sky.",
+  "source_title": "Surreal Mechanical Mask",
+  "style": "surrealism",
+  "mood": "mysterious, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mask",
+    "cinematic",
+    "mechanical",
+    "dystopian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4261,
+  "source_url": "/generated/4261.jpg",
+  "image_url": "/sketches/4826.png",
+  "inverted_image_url": "/sketches-inverted/4826.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:49Z"
+}

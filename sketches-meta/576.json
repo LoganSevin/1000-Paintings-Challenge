@@ -1,0 +1,42 @@
+{
+  "number": 576,
+  "title": "Line sketch: Dripping Pumpkin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal pumpkin painted in vibrant and hues appears to melt or bleed onto the surface below. A twisted stem with a small orb extends from the top against a solid background (derived from painting #718).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal pumpkin painted in vibrant and hues appears to melt or bleed onto the surface below. A twisted stem with a small orb extends from the top against a solid background",
+  "inverted_title": "Inverted sketch: Dripping Pumpkin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal pumpkin painted in vibrant and hues appears to melt or bleed onto the surface below. A twisted stem with a small orb extends from the top against a solid background (from painting #718).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal pumpkin painted in vibrant and hues appears to melt or bleed onto the surface below. A twisted stem with a small orb extends from the top against a solid background",
+  "source_description": "A surreal pumpkin painted in vibrant purple and red hues appears to melt or bleed onto the surface below. A twisted green stem with a small red orb extends from the top against a solid green background.",
+  "source_prompt": "",
+  "source_title": "Dripping Purple Pumpkin",
+  "style": "Surrealism",
+  "mood": "Eerie, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pumpkin",
+    "surreal",
+    "dripping",
+    "still life",
+    "halloween"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 718,
+  "source_url": "/paintings/718.jpg",
+  "image_url": "/sketches/576.png",
+  "inverted_image_url": "/sketches-inverted/576.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:39Z"
+}

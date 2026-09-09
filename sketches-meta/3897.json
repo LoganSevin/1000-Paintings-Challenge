@@ -1,0 +1,42 @@
+{
+  "number": 3897,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three sequential views of a -haired anime character against a plain gray background: standing in a dynamic pose with one arm raised, mid-air in a falling or knocked-back position, and lying flat on the ground defeated (derived from generated still #3314).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three sequential views of a -haired anime character against a plain gray background: standing in a dynamic pose with one arm raised, mid-air in a falling or knocked-back position, and lying flat on the ground defeated",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three sequential views of a -haired anime character against a plain gray background: standing in a dynamic pose with one arm raised, mid-air in a falling or knocked-back position, and lying flat on the ground defeated (from generated still #3314).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three sequential views of a -haired anime character against a plain gray background: standing in a dynamic pose with one arm raised, mid-air in a falling or knocked-back position, and lying flat on the ground defeated",
+  "source_description": "Three sequential views of a teal-haired anime character against a plain gray background: standing in a dynamic pose with one arm raised, mid-air in a falling or knocked-back position, and lying flat on the ground defeated.",
+  "source_prompt": "A teal-haired anime warrior with pale skin wearing a purple and teal outfit with a long flowing cape, black gloves and boots. Three separate poses on a neutral gray background: standing dynamically with one arm raised and cape flowing, falling backwards through the air with limbs outstretched, and lying flat on the ground with eyes closed. Clean digital painting style with cel-shading and soft shadows.",
+  "source_title": "Teal Warrior Poses",
+  "style": "digital character illustration",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anime character",
+    "hair",
+    "multiple poses",
+    "falling",
+    "defeated"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3314,
+  "source_url": "/generated/3314.jpg",
+  "image_url": "/sketches/3897.png",
+  "inverted_image_url": "/sketches-inverted/3897.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:46Z"
+}

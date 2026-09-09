@@ -1,0 +1,42 @@
+{
+  "number": 4884,
+  "title": "Line sketch: Mirror Mosaic Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body female figure entirely covered in small square mirror tiles stands against a black background, her right arm raised with index finger pointing upward. Surrounding her are various mirrored objects including a bird in flight, a framed landscape composition, an apple, a draped staircase, a top hat, and floating rings, all constructed from the same reflective disco-ball mosaic material (derived from generated still #4319).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body female figure entirely covered in small square mirror tiles stands against a black background, her right arm raised with index finger pointing upward. Surrounding her are various mirrored objects including a bird in flight, a framed landscape composition, an apple, a draped staircase, a top hat, and floating rings, all constructed from the same reflective disco-ball mosaic material",
+  "inverted_title": "Inverted sketch: Mirror Mosaic Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body female figure entirely covered in small square mirror tiles stands against a black background, her right arm raised with index finger pointing upward. Surrounding her are various mirrored objects including a bird in flight, a framed landscape composition, an apple, a draped staircase, a top hat, and floating rings, all constructed from the same reflective disco-ball mosaic material (from generated still #4319).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body female figure entirely covered in small square mirror tiles stands against a black background, her right arm raised with index finger pointing upward. Surrounding her are various mirrored objects including a bird in flight, a framed landscape composition, an apple, a draped staircase, a top hat, and floating rings, all constructed from the same reflective disco-ball mosaic material",
+  "source_description": "A full-body female figure entirely covered in small square mirror tiles stands against a black background, her right arm raised with index finger pointing upward. Surrounding her are various mirrored objects including a bird in flight, a framed landscape painting, an apple, a draped staircase, a top hat, and floating rings, all constructed from the same reflective disco-ball mosaic material.",
+  "source_prompt": "A striking female figure completely covered in tiny square mirror tiles creating a disco ball texture, standing in a dramatic pose with right arm raised high and index finger pointing upward, her face and body rendered in reflective silver mosaic, surrounded by floating objects made of the same mirror tiles including a bird in mid-flight with a ring, a framed rectangular mirror painting showing a landscape with trees and sunset reflection, a large apple, a draped fabric staircase with steps, a top hat, and additional spherical and architectural forms, all against a pure black void background with bright specular sparkles and caustics on the mirrored surfaces, high contrast, cinematic lighting",
+  "source_title": "Mirror Mosaic Muse",
+  "style": "contemporary sculpture",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mirror mosaic installation",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mirror art",
+    "disco ball",
+    "mosaic sculpture",
+    "surreal objects",
+    "reflective figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4319,
+  "source_url": "/generated/4319.webp",
+  "image_url": "/sketches/4884.png",
+  "inverted_image_url": "/sketches-inverted/4884.png",
+  "curve_count": 265,
+  "built_at": "2026-08-17T00:09:49Z"
+}

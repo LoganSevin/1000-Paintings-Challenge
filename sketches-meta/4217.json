@@ -1,0 +1,42 @@
+{
+  "number": 4217,
+  "title": "Line sketch: Psychedelic 70s Studio Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with short dark hair kneels on a black and white striped rug in a retro wood-paneled room. She wears a vibrant cut-out top, denim shorts, and thigh-high boots while holding a small camera on a gimbal, surrounded by swirling graphic overlays (derived from generated still #3636).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with short dark hair kneels on a black and white striped rug in a retro wood-paneled room. She wears a vibrant cut-out top, denim shorts, and thigh-high boots while holding a small camera on a gimbal, surrounded by swirling graphic overlays",
+  "inverted_title": "Inverted sketch: Psychedelic 70s Studio Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with short dark hair kneels on a black and white striped rug in a retro wood-paneled room. She wears a vibrant cut-out top, denim shorts, and thigh-high boots while holding a small camera on a gimbal, surrounded by swirling graphic overlays (from generated still #3636).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with short dark hair kneels on a black and white striped rug in a retro wood-paneled room. She wears a vibrant cut-out top, denim shorts, and thigh-high boots while holding a small camera on a gimbal, surrounded by swirling graphic overlays",
+  "source_description": "A woman with short dark hair kneels on a black and white striped rug in a retro wood-paneled room. She wears a vibrant blue cut-out top, denim shorts, and blue thigh-high boots while holding a small camera on a gimbal, surrounded by swirling green graphic overlays.",
+  "source_prompt": "A woman with short black hair kneeling on a black and white striped rug inside a 1970s wood-paneled room featuring bold black and white op art wallpaper and windows. She wears a bright blue cut-out crop top, denim shorts, and matching blue thigh-high platform boots, holding a small camera on a gimbal. Green swirling graphic elements float throughout the scene, retro furniture and decor visible in background, surreal and stylized color photography",
+  "source_title": "Psychedelic 70s Studio Scene",
+  "style": "surreal retro photography",
+  "mood": "trippy, bold, retro",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital composite",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "70s aesthetic",
+    "psychedelic",
+    "op art",
+    "woman with camera",
+    "wood paneling"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3636,
+  "source_url": "/generated/3636.jpg",
+  "image_url": "/sketches/4217.png",
+  "inverted_image_url": "/sketches-inverted/4217.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

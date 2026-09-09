@@ -1,0 +1,42 @@
+{
+  "number": 4680,
+  "title": "Line sketch: Surreal Studio Doorway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a cap and shirt stands in an open doorway, looking at a large surreal composition of a steampunk submarine with a giant eye sailing through stormy waters. The artist's studio contains a black leather office chair, wooden desk, dark wooden chair, and walls covered in floating letters, gears, and mechanical elements (derived from generated still #4107).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a cap and shirt stands in an open doorway, looking at a large surreal composition of a steampunk submarine with a giant eye sailing through stormy waters. The artist's studio contains a black leather office chair, wooden desk, dark wooden chair, and walls covered in floating letters, gears, and mechanical elements",
+  "inverted_title": "Inverted sketch: Surreal Studio Doorway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a cap and shirt stands in an open doorway, looking at a large surreal composition of a steampunk submarine with a giant eye sailing through stormy waters. The artist's studio contains a black leather office chair, wooden desk, dark wooden chair, and walls covered in floating letters, gears, and mechanical elements (from generated still #4107).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a cap and shirt stands in an open doorway, looking at a large surreal composition of a steampunk submarine with a giant eye sailing through stormy waters. The artist's studio contains a black leather office chair, wooden desk, dark wooden chair, and walls covered in floating letters, gears, and mechanical elements",
+  "source_description": "A man in a blue cap and green shirt stands in an open doorway, looking at a large surreal painting of a steampunk submarine with a giant green eye sailing through stormy waters. The artist's studio contains a black leather office chair, wooden desk, dark wooden chair, and walls covered in floating letters, gears, and mechanical elements.",
+  "source_prompt": "A man wearing a blue cap stands with his back to us in the doorway of a colorful art studio, gazing at a large surreal painting on the wall depicting a massive ornate steampunk submarine with a giant green human eye as its central feature, sailing through turbulent blue waves under a stormy sky with distant factories. The studio has wooden floors, a black leather office chair, scattered mechanical parts, floating alphabet letters and copper gears on green and copper walls, warm light spilling through the open door.",
+  "source_title": "Surreal Studio Doorway",
+  "style": "surrealism",
+  "mood": "curious, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "steampunk",
+    "art studio",
+    "submarine",
+    "giant eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4107,
+  "source_url": "/generated/4107.jpg",
+  "image_url": "/sketches/4680.png",
+  "inverted_image_url": "/sketches-inverted/4680.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 757,
+  "title": "Line sketch: Courtyard Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene indoor courtyard features a geometric reflecting pool glowing with vibrant and lights. The and walls create a striking contrast in this atmospheric (derived from painting #956).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene indoor courtyard features a geometric reflecting pool glowing with vibrant and lights. The and walls create a striking contrast in this atmospheric",
+  "inverted_title": "Inverted sketch: Courtyard Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene indoor courtyard features a geometric reflecting pool glowing with vibrant and lights. The and walls create a striking contrast in this atmospheric (from painting #956).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene indoor courtyard features a geometric reflecting pool glowing with vibrant and lights. The and walls create a striking contrast in this atmospheric",
+  "source_description": "A serene indoor courtyard features a geometric reflecting pool glowing with vibrant magenta and purple neon lights. The warm orange and yellow walls create a striking contrast in this atmospheric digital painting.",
+  "source_prompt": "",
+  "source_title": "Neon Courtyard Reflection",
+  "style": "Digital illustration",
+  "mood": "Mysterious and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lights",
+    "courtyard",
+    "reflecting pool",
+    "atmospheric",
+    "architecture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 956,
+  "source_url": "/paintings/956.jpg",
+  "image_url": "/sketches/757.png",
+  "inverted_image_url": "/sketches-inverted/757.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

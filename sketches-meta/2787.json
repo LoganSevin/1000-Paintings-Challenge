@@ -1,0 +1,42 @@
+{
+  "number": 2787,
+  "title": "Line sketch: Circles Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young boy with a serious expression stares directly forward, his face covered in vibrant, overlapping circles in,, and. The grayscale portrait is surrounded by dark, smoky, swirling patterns with faint digital artifacts and text fragments floating in the background (derived from generated still #2070).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young boy with a serious expression stares directly forward, his face covered in vibrant, overlapping circles in,, and. The grayscale portrait is surrounded by dark, smoky, swirling patterns with faint digital artifacts and text fragments floating in the background",
+  "inverted_title": "Inverted sketch: Circles Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young boy with a serious expression stares directly forward, his face covered in vibrant, overlapping circles in,, and. The grayscale portrait is surrounded by dark, smoky, swirling patterns with faint digital artifacts and text fragments floating in the background (from generated still #2070).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young boy with a serious expression stares directly forward, his face covered in vibrant, overlapping circles in,, and. The grayscale portrait is surrounded by dark, smoky, swirling patterns with faint digital artifacts and text fragments floating in the background",
+  "source_description": "A young boy with a serious expression stares directly forward, his face covered in vibrant, overlapping neon circles in pink, blue, green, and purple. The grayscale portrait is surrounded by dark, smoky, swirling patterns with faint colorful digital artifacts and text fragments floating in the background.",
+  "source_prompt": "A close-up portrait of a young boy with short dark hair and a solemn expression, wearing a dark hooded garment. His face is covered with overlapping bright neon circles in pink, blue, green and purple. The background consists of dark smoky swirling textures with faint colorful digital glitches and text fragments. Moody contrast between grayscale elements and vibrant neon accents, surreal digital art style.",
+  "source_title": "Neon Circles Portrait",
+  "style": "digital surrealism",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "boy",
+    "circles",
+    "surreal",
+    "grayscale",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2070,
+  "source_url": "/generated/2070.jpg",
+  "image_url": "/sketches/2787.png",
+  "inverted_image_url": "/sketches-inverted/2787.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:44Z"
+}

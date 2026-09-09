@@ -1,0 +1,42 @@
+{
+  "number": 2518,
+  "title": "Line sketch: Fallen Angel Bound",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal symbolic scene featuring a hybrid angelic-demonic figure with one large white feathered wing and one black bat-like wing, wrapped in barbed wire around a stone pillar. The dramatic setting shows an ornate church or cathedral interior with and drapery, candles, and scattered religious objects on a tiled floor (derived from generated still #1754).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal symbolic scene featuring a hybrid angelic-demonic figure with one large white feathered wing and one black bat-like wing, wrapped in barbed wire around a stone pillar. The dramatic setting shows an ornate church or cathedral interior with and drapery, candles, and scattered religious objects on a tiled floor",
+  "inverted_title": "Inverted sketch: Fallen Angel Bound",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal symbolic scene featuring a hybrid angelic-demonic figure with one large white feathered wing and one black bat-like wing, wrapped in barbed wire around a stone pillar. The dramatic setting shows an ornate church or cathedral interior with and drapery, candles, and scattered religious objects on a tiled floor (from generated still #1754).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal symbolic scene featuring a hybrid angelic-demonic figure with one large white feathered wing and one black bat-like wing, wrapped in barbed wire around a stone pillar. The dramatic setting shows an ornate church or cathedral interior with and drapery, candles, and scattered religious objects on a tiled floor",
+  "source_description": "A surreal symbolic scene featuring a hybrid angelic-demonic figure with one large white feathered wing and one black bat-like wing, wrapped in barbed wire around a stone pillar. The dramatic setting shows an ornate church or cathedral interior with red and gold drapery, candles, and scattered religious objects on a tiled floor.",
+  "source_prompt": "",
+  "source_title": "Fallen Angel Bound",
+  "style": "symbolic surrealism",
+  "mood": "dramatic tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "demon",
+    "barbed wire",
+    "religious symbolism",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1754,
+  "source_url": "/generated/1754.jpg",
+  "image_url": "/sketches/2518.png",
+  "inverted_image_url": "/sketches-inverted/2518.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:43Z"
+}

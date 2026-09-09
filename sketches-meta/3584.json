@@ -1,0 +1,42 @@
+{
+  "number": 3584,
+  "title": "Line sketch: Cybernetic Urban Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with long straight black hair and bangs stands centered in a foggy futuristic city at night. She wears a form-fitting cyberpunk bodysuit made of interlocking metallic plates and glowing circuit lines that expose sections of her skin (derived from generated still #2992).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with long straight black hair and bangs stands centered in a foggy futuristic city at night. She wears a form-fitting cyberpunk bodysuit made of interlocking metallic plates and glowing circuit lines that expose sections of her skin",
+  "inverted_title": "Inverted sketch: Cybernetic Urban Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with long straight black hair and bangs stands centered in a foggy futuristic city at night. She wears a form-fitting cyberpunk bodysuit made of interlocking metallic plates and glowing circuit lines that expose sections of her skin (from generated still #2992).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with long straight black hair and bangs stands centered in a foggy futuristic city at night. She wears a form-fitting cyberpunk bodysuit made of interlocking metallic plates and glowing circuit lines that expose sections of her skin",
+  "source_description": "A woman with long straight black hair and bangs stands centered in a foggy futuristic city at night. She wears a form-fitting cyberpunk bodysuit made of interlocking metallic plates and glowing cyan circuit lines that expose sections of her brown skin.",
+  "source_prompt": "A beautiful African American woman with long straight jet-black hair with blunt bangs and large silver hoop earrings, standing in a foggy cyberpunk city at night, wearing a tight futuristic bodysuit constructed from interlocking rectangular metallic plates and panels with glowing cyan neon circuit lines running through them, sections of the suit are open to reveal her bare brown skin on torso and arms, highly detailed metallic textures, cinematic atmospheric fog, moody blue and teal lighting, standing on a reflective grid-like ground with illuminated skyscrapers in background, photorealistic, sharp detail",
+  "source_title": "Cybernetic Urban Figure",
+  "style": "cyberpunk",
+  "mood": "futuristic, moody",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "woman",
+    "metallic suit",
+    "futuristic city",
+    "fog"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2992,
+  "source_url": "/generated/2992.jpg",
+  "image_url": "/sketches/3584.png",
+  "inverted_image_url": "/sketches-inverted/3584.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 345,
+  "title": "Line sketch: Frog in Lettuce Hideout",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant frog peeks out from the center of a lush lettuce plant, its eyes alert and limbs splayed among the leaves. The intricate textures of the ruffled foliage create a natural camouflage for the amphibian in this whimsical garden scene (derived from painting #407).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant frog peeks out from the center of a lush lettuce plant, its eyes alert and limbs splayed among the leaves. The intricate textures of the ruffled foliage create a natural camouflage for the amphibian in this whimsical garden scene",
+  "inverted_title": "Inverted sketch: Frog in Lettuce Hideout",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant frog peeks out from the center of a lush lettuce plant, its eyes alert and limbs splayed among the leaves. The intricate textures of the ruffled foliage create a natural camouflage for the amphibian in this whimsical garden scene (from painting #407).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant frog peeks out from the center of a lush lettuce plant, its eyes alert and limbs splayed among the leaves. The intricate textures of the ruffled foliage create a natural camouflage for the amphibian in this whimsical garden scene",
+  "source_description": "A vibrant green frog peeks out from the center of a lush lettuce plant, its eyes alert and limbs splayed among the leaves. The intricate textures of the ruffled foliage create a natural camouflage for the amphibian in this whimsical garden scene.",
+  "source_prompt": "",
+  "source_title": "Frog in Lettuce Hideout",
+  "style": "photorealistic",
+  "mood": "whimsical curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "frog",
+    "lettuce",
+    "nature",
+    "amphibian",
+    "garden"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 407,
+  "source_url": "/paintings/407.jpg",
+  "image_url": "/sketches/345.png",
+  "inverted_image_url": "/sketches-inverted/345.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

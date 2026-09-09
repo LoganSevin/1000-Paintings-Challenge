@@ -1,0 +1,42 @@
+{
+  "number": 3657,
+  "title": "Line sketch: Man Exploding Through Ice",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in dark clothing is captured mid-action in the center of a vast, cracked icy plain under a clear sky. He appears to be bursting upward from the ground, surrounded by a massive explosion of white snow, ice chunks, and debris flying outward with a thick plume of smoke or vapor trailing upward (derived from generated still #3065).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in dark clothing is captured mid-action in the center of a vast, cracked icy plain under a clear sky. He appears to be bursting upward from the ground, surrounded by a massive explosion of white snow, ice chunks, and debris flying outward with a thick plume of smoke or vapor trailing upward",
+  "inverted_title": "Inverted sketch: Man Exploding Through Ice",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in dark clothing is captured mid-action in the center of a vast, cracked icy plain under a clear sky. He appears to be bursting upward from the ground, surrounded by a massive explosion of white snow, ice chunks, and debris flying outward with a thick plume of smoke or vapor trailing upward (from generated still #3065).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in dark clothing is captured mid-action in the center of a vast, cracked icy plain under a clear sky. He appears to be bursting upward from the ground, surrounded by a massive explosion of white snow, ice chunks, and debris flying outward with a thick plume of smoke or vapor trailing upward",
+  "source_description": "A man in dark clothing is captured mid-action in the center of a vast, cracked icy plain under a clear blue sky. He appears to be bursting upward from the ground, surrounded by a massive explosion of white snow, ice chunks, and debris flying outward with a thick plume of smoke or vapor trailing upward.",
+  "source_prompt": "A lone man in dark winter clothing crouches powerfully in the center of a vast frozen tundra, violently erupting through thick cracked ice. Massive explosion of white snow, ice boulders and particles flying outward in all directions. Thick white smoke plume shoots upward into the sky. Bright daylight, long dramatic shadows, desolate arctic landscape with rolling snow dunes in the distance, crisp clear blue sky with faint contrails, cinematic composition, photorealistic, dramatic action moment",
+  "source_title": "Man Exploding Through Ice",
+  "style": "cinematic realism",
+  "mood": "dramatic explosive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "explosion",
+    "ice field",
+    "action pose",
+    "snow debris",
+    "arctic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3065,
+  "source_url": "/generated/3065.jpg",
+  "image_url": "/sketches/3657.png",
+  "inverted_image_url": "/sketches-inverted/3657.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:46Z"
+}

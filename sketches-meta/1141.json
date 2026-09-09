@@ -1,0 +1,42 @@
+{
+  "number": 1141,
+  "title": "Line sketch: Surreal Child and Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a young boy with half his face melting in and drips, while a large eye with blood-like drips dominates the right side of his head. A vibrant dog covered in floral patterns stands in the foreground against a background of large flowers with centers (derived from generated still #353).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a young boy with half his face melting in and drips, while a large eye with blood-like drips dominates the right side of his head. A vibrant dog covered in floral patterns stands in the foreground against a background of large flowers with centers",
+  "inverted_title": "Inverted sketch: Surreal Child and Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a young boy with half his face melting in and drips, while a large eye with blood-like drips dominates the right side of his head. A vibrant dog covered in floral patterns stands in the foreground against a background of large flowers with centers (from generated still #353).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a young boy with half his face melting in and drips, while a large eye with blood-like drips dominates the right side of his head. A vibrant dog covered in floral patterns stands in the foreground against a background of large flowers with centers",
+  "source_description": "A surreal portrait of a young boy with half his face melting in blue and orange drips, while a large red eye with blood-like red drips dominates the right side of his head. A vibrant green dog covered in floral patterns stands in the foreground against a background of large magenta flowers with gold centers.",
+  "source_prompt": "",
+  "source_title": "Surreal Child and Green Dog",
+  "style": "surrealism",
+  "mood": "eerie, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting face",
+    "eye",
+    "dog",
+    "floral pattern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 353,
+  "source_url": "/generated/353.jpg",
+  "image_url": "/sketches/1141.png",
+  "inverted_image_url": "/sketches-inverted/1141.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:40Z"
+}

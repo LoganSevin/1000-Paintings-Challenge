@@ -1,0 +1,42 @@
+{
+  "number": 2485,
+  "title": "Line sketch: Tavern Circa 2026",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a giant monkey-like creature with glowing eyes holding a key, its long serpentine tail ending in a snake head. In the foreground, several black cats of various poses stand on the reddish ground while a massive swirling and vortex dominates the sky above rock buttes (derived from generated still #1720).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a giant monkey-like creature with glowing eyes holding a key, its long serpentine tail ending in a snake head. In the foreground, several black cats of various poses stand on the reddish ground while a massive swirling and vortex dominates the sky above rock buttes",
+  "inverted_title": "Inverted sketch: Tavern Circa 2026",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a giant monkey-like creature with glowing eyes holding a key, its long serpentine tail ending in a snake head. In the foreground, several black cats of various poses stand on the reddish ground while a massive swirling and vortex dominates the sky above rock buttes (from generated still #1720).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a giant monkey-like creature with glowing eyes holding a key, its long serpentine tail ending in a snake head. In the foreground, several black cats of various poses stand on the reddish ground while a massive swirling and vortex dominates the sky above rock buttes",
+  "source_description": "A surreal desert landscape features a giant blue monkey-like creature with glowing pink eyes holding a key, its long serpentine tail ending in a snake head. In the foreground, several black cats of various poses stand on the reddish ground while a massive swirling purple and gold vortex dominates the sky above red rock buttes.",
+  "source_prompt": "",
+  "source_title": "Tavern Circa 2026",
+  "style": "fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monkey creature",
+    "black cats",
+    "vortex",
+    "desert buttes",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1720,
+  "source_url": "/generated/1720.jpg",
+  "image_url": "/sketches/2485.png",
+  "inverted_image_url": "/sketches-inverted/2485.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:43Z"
+}

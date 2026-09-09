@@ -1,0 +1,42 @@
+{
+  "number": 923,
+  "title": "Line sketch: Ethereal Confrontation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a woman with hair and tears facing a dark antlered figure whose cracked head reveals fire and glowing symbols. An all-seeing eye with a keyhole symbol burns at the center between them against a mountainous twilight landscape (derived from generated still #133).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a woman with hair and tears facing a dark antlered figure whose cracked head reveals fire and glowing symbols. An all-seeing eye with a keyhole symbol burns at the center between them against a mountainous twilight landscape",
+  "inverted_title": "Inverted sketch: Ethereal Confrontation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a woman with hair and tears facing a dark antlered figure whose cracked head reveals fire and glowing symbols. An all-seeing eye with a keyhole symbol burns at the center between them against a mountainous twilight landscape (from generated still #133).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a woman with hair and tears facing a dark antlered figure whose cracked head reveals fire and glowing symbols. An all-seeing eye with a keyhole symbol burns at the center between them against a mountainous twilight landscape",
+  "source_description": "A surreal painting depicts a colorful woman with rainbow hair and tears facing a dark antlered figure whose cracked head reveals fire and glowing symbols. An all-seeing eye with a red keyhole symbol burns at the center between them against a mountainous twilight landscape.",
+  "source_prompt": "",
+  "source_title": "Ethereal Confrontation",
+  "style": "surreal fantasy",
+  "mood": "mystical tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "dual figures",
+    "symbolism",
+    "fire"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 133,
+  "source_url": "/generated/133.jpg",
+  "image_url": "/sketches/923.png",
+  "inverted_image_url": "/sketches-inverted/923.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:40Z"
+}

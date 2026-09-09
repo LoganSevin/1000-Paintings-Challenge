@@ -1,0 +1,42 @@
+{
+  "number": 4843,
+  "title": "Line sketch: Stasis Eye Motorcycle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene dominated by a giant flaming eye in a starry sky watching over a demon riding a flaming motorcycle. Below, a woman in a cape holds a lantern casting light, while and horses gallop across a swirling vortex lake. A gothic castle with windows and the text STASIS and JLX3 appears in the background (derived from generated still #4278).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene dominated by a giant flaming eye in a starry sky watching over a demon riding a flaming motorcycle. Below, a woman in a cape holds a lantern casting light, while and horses gallop across a swirling vortex lake. A gothic castle with windows and the text STASIS and JLX3 appears in the background",
+  "inverted_title": "Inverted sketch: Stasis Eye Motorcycle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene dominated by a giant flaming eye in a starry sky watching over a demon riding a flaming motorcycle. Below, a woman in a cape holds a lantern casting light, while and horses gallop across a swirling vortex lake. A gothic castle with windows and the text STASIS and JLX3 appears in the background (from generated still #4278).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene dominated by a giant flaming eye in a starry sky watching over a demon riding a flaming motorcycle. Below, a woman in a cape holds a lantern casting light, while and horses gallop across a swirling vortex lake. A gothic castle with windows and the text STASIS and JLX3 appears in the background",
+  "source_description": "A surreal psychedelic scene dominated by a giant flaming eye in a starry sky watching over a red demon riding a flaming motorcycle. Below, a woman in a red cape holds a lantern casting yellow light, while green and yellow horses gallop across a swirling vortex lake. A gothic castle with red windows and the text STASIS and JLX3 appears in the background.",
+  "source_prompt": "Surreal fantasy landscape at night with a massive all-seeing eye with red iris floating in a swirling cosmic sky, a red demonic figure riding a flaming motorcycle across the air, a gothic castle with glowing red windows and text STASIS and JLX3, a woman in a flowing red and black cape holding a glowing lantern, green and yellow horses galloping through colorful light beams, swirling vortex lake, vibrant flowers in foreground, highly detailed psychedelic style with swirling patterns",
+  "source_title": "Stasis Eye Motorcycle",
+  "style": "surreal psychedelic",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "fantasy",
+    "demon",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4278,
+  "source_url": "/generated/4278.jpg",
+  "image_url": "/sketches/4843.png",
+  "inverted_image_url": "/sketches-inverted/4843.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:49Z"
+}

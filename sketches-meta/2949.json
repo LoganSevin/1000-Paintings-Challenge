@@ -1,0 +1,42 @@
+{
+  "number": 2949,
+  "title": "Line sketch: Wolf at the Door",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large black wolf with glowing white eyes peers through an open doorway from a dark wooden porch. The interior is dimly lit with wooden steps and railings, while the twilight sky shows faint and hues above a smoky, desolate landscape (derived from generated still #2258).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large black wolf with glowing white eyes peers through an open doorway from a dark wooden porch. The interior is dimly lit with wooden steps and railings, while the twilight sky shows faint and hues above a smoky, desolate landscape",
+  "inverted_title": "Inverted sketch: Wolf at the Door",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large black wolf with glowing white eyes peers through an open doorway from a dark wooden porch. The interior is dimly lit with wooden steps and railings, while the twilight sky shows faint and hues above a smoky, desolate landscape (from generated still #2258).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large black wolf with glowing white eyes peers through an open doorway from a dark wooden porch. The interior is dimly lit with wooden steps and railings, while the twilight sky shows faint and hues above a smoky, desolate landscape",
+  "source_description": "A large black wolf with glowing white eyes peers through an open doorway from a dark wooden porch. The interior is dimly lit with wooden steps and railings, while the twilight sky shows faint purple and pink hues above a smoky, desolate landscape.",
+  "source_prompt": "A large silhouetted black wolf with one visible glowing white eye stands at an open wooden doorway on a dark porch at twilight. The wolf looks into a dimly lit interior with wooden steps and railings. The sky is a dark gradient of deep purple and faint pink, with smoke drifting in the background, moody cinematic lighting, painterly brushstrokes, dark atmosphere.",
+  "source_title": "Wolf at the Door",
+  "style": "painterly",
+  "mood": "ominous, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "dark porch",
+    "twilight",
+    "glowing eyes",
+    "noir"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2258,
+  "source_url": "/generated/2258.jpg",
+  "image_url": "/sketches/2949.png",
+  "inverted_image_url": "/sketches-inverted/2949.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:44Z"
+}

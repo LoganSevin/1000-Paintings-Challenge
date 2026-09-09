@@ -1,0 +1,42 @@
+{
+  "number": 4483,
+  "title": "Line sketch: Witch's Alchemical Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A female witch in a and robe stands at a marble desk inside a cluttered arcane workshop. She holds a glowing orb in one hand and a small bottle in the other, surrounded by wooden shelves filled with potion bottles, dried poppies, scrolls, crystals, a spellbook, melted and wax seals, and hanging lanterns (derived from generated still #3902).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A female witch in a and robe stands at a marble desk inside a cluttered arcane workshop. She holds a glowing orb in one hand and a small bottle in the other, surrounded by wooden shelves filled with potion bottles, dried poppies, scrolls, crystals, a spellbook, melted and wax seals, and hanging lanterns",
+  "inverted_title": "Inverted sketch: Witch's Alchemical Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A female witch in a and robe stands at a marble desk inside a cluttered arcane workshop. She holds a glowing orb in one hand and a small bottle in the other, surrounded by wooden shelves filled with potion bottles, dried poppies, scrolls, crystals, a spellbook, melted and wax seals, and hanging lanterns (from generated still #3902).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A female witch in a and robe stands at a marble desk inside a cluttered arcane workshop. She holds a glowing orb in one hand and a small bottle in the other, surrounded by wooden shelves filled with potion bottles, dried poppies, scrolls, crystals, a spellbook, melted and wax seals, and hanging lanterns",
+  "source_description": "A female witch in a green and gold robe stands at a marble desk inside a cluttered arcane workshop. She holds a glowing blue orb in one hand and a small red bottle in the other, surrounded by wooden shelves filled with potion bottles, dried poppies, scrolls, crystals, a red spellbook, melted red and purple wax seals, and hanging colorful lanterns.",
+  "source_prompt": "A beautiful young witch with long brown hair wearing an ornate green and gold robe stands in her mystical workshop, examining a glowing blue orb and a small red potion bottle. She is surrounded by wooden shelves packed with glass jars of ingredients, dried red poppies, purple flowers, scrolls, crystals, and magical artifacts. A large red leather spellbook and melted wax seals lie on a marble table in front of her, with colorful glowing lanterns hanging above and rich purple curtains framing the scene.",
+  "source_title": "Witch's Alchemical Study",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "alchemy",
+    "arcane study",
+    "magic",
+    "potions"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3902,
+  "source_url": "/generated/3902.jpg",
+  "image_url": "/sketches/4483.png",
+  "inverted_image_url": "/sketches-inverted/4483.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:48Z"
+}

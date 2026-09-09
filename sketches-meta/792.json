@@ -1,0 +1,42 @@
+{
+  "number": 792,
+  "title": "Line sketch: Lunar Face with Crows",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a large grey moon with a human-like female face and wide eyes at the center. Two bare white trees frame the scene, one holding a black crow on the left and the other a grey bird on the right, while vibrant and cosmic energy bursts from the moon against a starry and background (derived from generated still #1).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a large grey moon with a human-like female face and wide eyes at the center. Two bare white trees frame the scene, one holding a black crow on the left and the other a grey bird on the right, while vibrant and cosmic energy bursts from the moon against a starry and background",
+  "inverted_title": "Inverted sketch: Lunar Face with Crows",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a large grey moon with a human-like female face and wide eyes at the center. Two bare white trees frame the scene, one holding a black crow on the left and the other a grey bird on the right, while vibrant and cosmic energy bursts from the moon against a starry and background (from generated still #1).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a large grey moon with a human-like female face and wide eyes at the center. Two bare white trees frame the scene, one holding a black crow on the left and the other a grey bird on the right, while vibrant and cosmic energy bursts from the moon against a starry and background",
+  "source_description": "A surreal painting features a large grey moon with a human-like female face and wide eyes at the center. Two bare white trees frame the scene, one holding a black crow on the left and the other a grey bird on the right, while vibrant red and purple cosmic energy bursts from the moon against a starry green and pink background.",
+  "source_prompt": "",
+  "source_title": "Lunar Face with Crows",
+  "style": "surrealism",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "moon face",
+    "crows",
+    "surreal",
+    "cosmic energy",
+    "bare trees"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1,
+  "source_url": "/generated/1.jpg",
+  "image_url": "/sketches/792.png",
+  "inverted_image_url": "/sketches-inverted/792.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:39Z"
+}

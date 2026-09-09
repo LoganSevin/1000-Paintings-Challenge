@@ -1,0 +1,42 @@
+{
+  "number": 2803,
+  "title": "Line sketch: Cosmic Lotus Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene featuring a glowing and swirling vortex at the center, resembling a portal or nebula. A thick black stylized line with curved, organic loops encircles the vortex like a frame or abstract figure, set against a swirling and starry background with small floral motifs and dark circular dots (derived from generated still #2087).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene featuring a glowing and swirling vortex at the center, resembling a portal or nebula. A thick black stylized line with curved, organic loops encircles the vortex like a frame or abstract figure, set against a swirling and starry background with small floral motifs and dark circular dots",
+  "inverted_title": "Inverted sketch: Cosmic Lotus Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene featuring a glowing and swirling vortex at the center, resembling a portal or nebula. A thick black stylized line with curved, organic loops encircles the vortex like a frame or abstract figure, set against a swirling and starry background with small floral motifs and dark circular dots (from generated still #2087).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene featuring a glowing and swirling vortex at the center, resembling a portal or nebula. A thick black stylized line with curved, organic loops encircles the vortex like a frame or abstract figure, set against a swirling and starry background with small floral motifs and dark circular dots",
+  "source_description": "A surreal cosmic scene featuring a glowing turquoise and purple swirling vortex at the center, resembling a portal or nebula. A thick black stylized line with curved, organic loops encircles the vortex like a frame or abstract figure, set against a swirling purple and blue starry background with small golden floral motifs and dark circular dots.",
+  "source_prompt": "Surreal cosmic scene with a glowing turquoise and magenta swirling vortex portal at the center containing a bright blue core and cloudy textures. A thick black organic line with elegant loops and curves wraps around the sphere like an abstract frame. Deep purple and blue swirling nebula background filled with stars and small glowing golden floral shapes, mystical and ethereal atmosphere, painted in vibrant digital art style",
+  "source_title": "Cosmic Lotus Portal",
+  "style": "surreal",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic portal",
+    "nebula vortex",
+    "surreal space",
+    "black line art",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2087,
+  "source_url": "/generated/2087.jpg",
+  "image_url": "/sketches/2803.png",
+  "inverted_image_url": "/sketches-inverted/2803.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:44Z"
+}

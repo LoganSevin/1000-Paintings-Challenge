@@ -1,0 +1,42 @@
+{
+  "number": 3291,
+  "title": "Line sketch: Painter in Abandoned Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stern woman in a long black coat and gloves stands in a dilapidated theater, holding a painter's palette. Behind her is a large unfinished composition of a man in a dark coat walking on a path, surrounded by scattered paint supplies, palettes, and a worn velvet chair on a glossy black tiled floor (derived from generated still #2668).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stern woman in a long black coat and gloves stands in a dilapidated theater, holding a painter's palette. Behind her is a large unfinished composition of a man in a dark coat walking on a path, surrounded by scattered paint supplies, palettes, and a worn velvet chair on a glossy black tiled floor",
+  "inverted_title": "Inverted sketch: Painter in Abandoned Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stern woman in a long black coat and gloves stands in a dilapidated theater, holding a painter's palette. Behind her is a large unfinished composition of a man in a dark coat walking on a path, surrounded by scattered paint supplies, palettes, and a worn velvet chair on a glossy black tiled floor (from generated still #2668).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stern woman in a long black coat and gloves stands in a dilapidated theater, holding a painter's palette. Behind her is a large unfinished composition of a man in a dark coat walking on a path, surrounded by scattered paint supplies, palettes, and a worn velvet chair on a glossy black tiled floor",
+  "source_description": "A stern woman in a long black coat and gloves stands in a dilapidated theater, holding a painter's palette. Behind her is a large unfinished painting of a man in a dark coat walking on a path, surrounded by scattered paint supplies, palettes, and a worn red velvet chair on a glossy black tiled floor.",
+  "source_prompt": "A stern middle-aged woman with dark hair in a bun, wearing a long black coat and gloves, stands holding a wooden painter's palette in an old decaying theater with cracked fresco ceiling. Behind her is a giant unfinished painting on canvas depicting a mysterious man in a dark coat and hat walking along a country path. Scattered paint palettes, brushes and cups lie across the glossy black tiled floor next to a worn red velvet armchair. Dramatic light rays shine from above, cinematic composition, moody atmosphere.",
+  "source_title": "Painter in Abandoned Theater",
+  "style": "cinematic surrealism",
+  "mood": "melancholy, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artist",
+    "theater",
+    "painter",
+    "surreal",
+    "abandoned"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2668,
+  "source_url": "/generated/2668.jpg",
+  "image_url": "/sketches/3291.png",
+  "inverted_image_url": "/sketches-inverted/3291.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:45Z"
+}

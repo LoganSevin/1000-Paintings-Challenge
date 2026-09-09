@@ -1,0 +1,42 @@
+{
+  "number": 3247,
+  "title": "Line sketch: Cosmic Poppy Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up of vibrant and poppies with large leaves and stems, set against a dark cosmic background filled with glowing particles and stars. Intricate filigree and mandala-like patterns overlay the lower leaves and flowers (derived from generated still #2610).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up of vibrant and poppies with large leaves and stems, set against a dark cosmic background filled with glowing particles and stars. Intricate filigree and mandala-like patterns overlay the lower leaves and flowers",
+  "inverted_title": "Inverted sketch: Cosmic Poppy Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up of vibrant and poppies with large leaves and stems, set against a dark cosmic background filled with glowing particles and stars. Intricate filigree and mandala-like patterns overlay the lower leaves and flowers (from generated still #2610).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up of vibrant and poppies with large leaves and stems, set against a dark cosmic background filled with glowing particles and stars. Intricate filigree and mandala-like patterns overlay the lower leaves and flowers",
+  "source_description": "A close-up of vibrant red and orange poppies with large green leaves and purple stems, set against a dark cosmic background filled with glowing golden particles and stars. Intricate golden filigree and mandala-like patterns overlay the lower leaves and flowers.",
+  "source_prompt": "close-up of vibrant red-orange poppies with large flowing green leaves and purple stems against a deep black space background, delicate golden filigree and celestial mandala patterns overlaying parts of the leaves and petals, glowing golden particles and stars floating in the darkness, rich painterly texture with luminous highlights, fantasy botanical art",
+  "source_title": "Cosmic Poppy Bloom",
+  "style": "fantasy illustration",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "poppies",
+    "cosmic",
+    "floral",
+    "mandala",
+    "filigree"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2610,
+  "source_url": "/generated/2610.jpg",
+  "image_url": "/sketches/3247.png",
+  "inverted_image_url": "/sketches-inverted/3247.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

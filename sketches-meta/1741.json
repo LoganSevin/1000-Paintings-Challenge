@@ -1,0 +1,42 @@
+{
+  "number": 1741,
+  "title": "Line sketch: Woman with Bear Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic portrait of a woman with long flowing and hair adorned with poppies. She holds a stylized bear mask decorated with flowers next to her face, set against a swirling background of, and patterns (derived from generated still #963).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic portrait of a woman with long flowing and hair adorned with poppies. She holds a stylized bear mask decorated with flowers next to her face, set against a swirling background of, and patterns",
+  "inverted_title": "Inverted sketch: Woman with Bear Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic portrait of a woman with long flowing and hair adorned with poppies. She holds a stylized bear mask decorated with flowers next to her face, set against a swirling background of, and patterns (from generated still #963).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic portrait of a woman with long flowing and hair adorned with poppies. She holds a stylized bear mask decorated with flowers next to her face, set against a swirling background of, and patterns",
+  "source_description": "A vibrant psychedelic portrait of a woman with long flowing blue and green hair adorned with orange poppies. She holds a stylized brown bear mask decorated with flowers next to her face, set against a swirling background of green, yellow, and purple patterns.",
+  "source_prompt": "",
+  "source_title": "Woman with Bear Mask",
+  "style": "Psychedelic Pop Art",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "woman",
+    "bear mask",
+    "poppies",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 963,
+  "source_url": "/generated/963.jpg",
+  "image_url": "/sketches/1741.png",
+  "inverted_image_url": "/sketches-inverted/1741.png",
+  "curve_count": 252,
+  "built_at": "2026-08-17T00:09:42Z"
+}

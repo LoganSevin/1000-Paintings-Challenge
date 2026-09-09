@@ -1,0 +1,42 @@
+{
+  "number": 919,
+  "title": "Line sketch: Cosmic Lighthouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering ornate lighthouse stands on a rocky alien shore, emitting a powerful beam of light into a vibrant nebula-filled sky. The scene features floating translucent orbs, a massive ringed planet, a dark moon, ancient stone amphitheater steps with robed figures, and a wrecked sailing ship (derived from generated still #129).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering ornate lighthouse stands on a rocky alien shore, emitting a powerful beam of light into a vibrant nebula-filled sky. The scene features floating translucent orbs, a massive ringed planet, a dark moon, ancient stone amphitheater steps with robed figures, and a wrecked sailing ship",
+  "inverted_title": "Inverted sketch: Cosmic Lighthouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering ornate lighthouse stands on a rocky alien shore, emitting a powerful beam of light into a vibrant nebula-filled sky. The scene features floating translucent orbs, a massive ringed planet, a dark moon, ancient stone amphitheater steps with robed figures, and a wrecked sailing ship (from generated still #129).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering ornate lighthouse stands on a rocky alien shore, emitting a powerful beam of light into a vibrant nebula-filled sky. The scene features floating translucent orbs, a massive ringed planet, a dark moon, ancient stone amphitheater steps with robed figures, and a wrecked sailing ship",
+  "source_description": "A towering ornate lighthouse stands on a rocky alien shore, emitting a powerful beam of light into a vibrant nebula-filled sky. The scene features floating translucent orbs, a massive green ringed planet, a dark moon, ancient stone amphitheater steps with robed figures, and a wrecked sailing ship.",
+  "source_prompt": "",
+  "source_title": "Cosmic Lighthouse",
+  "style": "fantasy illustration",
+  "mood": "ethereal surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lighthouse",
+    "cosmic landscape",
+    "floating orbs",
+    "alien planet",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 129,
+  "source_url": "/generated/129.jpg",
+  "image_url": "/sketches/919.png",
+  "inverted_image_url": "/sketches-inverted/919.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:40Z"
+}

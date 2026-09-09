@@ -1,0 +1,42 @@
+{
+  "number": 4749,
+  "title": "Line sketch: Riverside Cliffside City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sprawling fantasy city built along a canal at the base of towering white cliffs. The illuminated multi-story buildings with shops, arched architecture, and a large cracked mural are visible at dusk, with boats docked along the waterway and figures scattered throughout the cobblestone streets (derived from generated still #4180).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sprawling fantasy city built along a canal at the base of towering white cliffs. The illuminated multi-story buildings with shops, arched architecture, and a large cracked mural are visible at dusk, with boats docked along the waterway and figures scattered throughout the cobblestone streets",
+  "inverted_title": "Inverted sketch: Riverside Cliffside City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sprawling fantasy city built along a canal at the base of towering white cliffs. The illuminated multi-story buildings with shops, arched architecture, and a large cracked mural are visible at dusk, with boats docked along the waterway and figures scattered throughout the cobblestone streets (from generated still #4180).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sprawling fantasy city built along a canal at the base of towering white cliffs. The illuminated multi-story buildings with shops, arched architecture, and a large cracked mural are visible at dusk, with boats docked along the waterway and figures scattered throughout the cobblestone streets",
+  "source_description": "A sprawling fantasy city built along a canal at the base of towering white cliffs. The illuminated multi-story buildings with shops, arched architecture, and a large cracked mural are visible at dusk, with boats docked along the waterway and figures scattered throughout the cobblestone streets.",
+  "source_prompt": "Wide cinematic view of a detailed fantasy city built along a canal at the foot of massive white cliffs at dusk. Multi-story European-style buildings with glowing shop windows line the cobblestone street, boats are moored along the water, people walk the paths, a large cracked mural appears on one building, with towers and bridges carved into the rocky cliffs above, atmospheric twilight lighting, rich colors and textures.",
+  "source_title": "Riverside Cliffside City",
+  "style": "Fantasy illustration",
+  "mood": "mysterious dusk",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy city",
+    "cliffside architecture",
+    "canal waterfront",
+    "dusk lighting",
+    "medieval fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4180,
+  "source_url": "/generated/4180.jpg",
+  "image_url": "/sketches/4749.png",
+  "inverted_image_url": "/sketches-inverted/4749.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:48Z"
+}

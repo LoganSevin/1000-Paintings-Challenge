@@ -1,0 +1,42 @@
+{
+  "number": 19,
+  "title": "Line sketch: Swirl Liquid Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork captures dynamic swirls of viscous - liquid twisting and splashing against a background. Scattered bubbles and droplets enhance the sense of energetic motion and fluidity. Smooth gradients and glossy highlights create a realistic, high-speed fluid effect in an abstract composition (derived from painting #30).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork captures dynamic swirls of viscous - liquid twisting and splashing against a background. Scattered bubbles and droplets enhance the sense of energetic motion and fluidity. Smooth gradients and glossy highlights create a realistic, high-speed fluid effect in an abstract composition",
+  "inverted_title": "Inverted sketch: Swirl Liquid Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork captures dynamic swirls of viscous - liquid twisting and splashing against a background. Scattered bubbles and droplets enhance the sense of energetic motion and fluidity. Smooth gradients and glossy highlights create a realistic, high-speed fluid effect in an abstract composition (from painting #30).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork captures dynamic swirls of viscous - liquid twisting and splashing against a background. Scattered bubbles and droplets enhance the sense of energetic motion and fluidity. Smooth gradients and glossy highlights create a realistic, high-speed fluid effect in an abstract composition",
+  "source_description": "The artwork captures dynamic swirls of viscous lime-green liquid twisting and splashing against a turquoise blue background. Scattered bubbles and droplets enhance the sense of energetic motion and fluidity. Smooth gradients and glossy highlights create a realistic, high-speed fluid effect in an abstract composition.",
+  "source_prompt": "",
+  "source_title": "Lime Swirl Liquid Vortex",
+  "style": "Abstract",
+  "mood": "Vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fluid",
+    "swirls",
+    "abstract",
+    "bubbles",
+    "splash"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 30,
+  "source_url": "/paintings/30.jpg",
+  "image_url": "/sketches/19.png",
+  "inverted_image_url": "/sketches-inverted/19.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4705,
+  "title": "Line sketch: Skeleton with Fan",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full human skeleton stands upright on a floral rug, holding a large open folding fan in its right hand while its left hand rests near its skull. It stands in front of a wooden cabinet filled with white dishware, surrounded by psychedelic elements including flowers, bubbles, galaxies, and a mermaid silhouette (derived from generated still #4135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full human skeleton stands upright on a floral rug, holding a large open folding fan in its right hand while its left hand rests near its skull. It stands in front of a wooden cabinet filled with white dishware, surrounded by psychedelic elements including flowers, bubbles, galaxies, and a mermaid silhouette",
+  "inverted_title": "Inverted sketch: Skeleton with Fan",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full human skeleton stands upright on a floral rug, holding a large open folding fan in its right hand while its left hand rests near its skull. It stands in front of a wooden cabinet filled with white dishware, surrounded by psychedelic elements including flowers, bubbles, galaxies, and a mermaid silhouette (from generated still #4135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full human skeleton stands upright on a floral rug, holding a large open folding fan in its right hand while its left hand rests near its skull. It stands in front of a wooden cabinet filled with white dishware, surrounded by psychedelic elements including flowers, bubbles, galaxies, and a mermaid silhouette",
+  "source_description": "A full human skeleton stands upright on a blue floral rug, holding a large open blue folding fan in its right hand while its left hand rests near its skull. It stands in front of a light green wooden cabinet filled with white dishware, surrounded by colorful psychedelic elements including flowers, bubbles, galaxies, and a rainbow mermaid silhouette.",
+  "source_prompt": "A realistic human skeleton standing upright on a blue patterned rug in front of a light green wooden cabinet filled with white bowls and dishes. The skeleton holds a large ornate blue folding fan decorated with patterns. Surrounding the skeleton are floating transparent bubbles, colorful flowers, a small rainbow mermaid, spiral galaxies, and vibrant psychedelic elements against a purple wall with green marbled floor.",
+  "source_title": "Skeleton with Blue Fan",
+  "style": "surreal digital art",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "folding fan",
+    "psychedelic",
+    "still life",
+    "mermaid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4135,
+  "source_url": "/generated/4135.jpg",
+  "image_url": "/sketches/4705.png",
+  "inverted_image_url": "/sketches-inverted/4705.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:48Z"
+}

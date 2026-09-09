@@ -1,0 +1,42 @@
+{
+  "number": 330,
+  "title": "Line sketch: Swirls Over Crashing Waves",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering rocky cliff meets turbulent ocean waves on the left while intricate kelp-like swirls dominate the foreground. The surreal composition blends natural seascape with flowing organic forms under a dreamy sky (derived from painting #391).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering rocky cliff meets turbulent ocean waves on the left while intricate kelp-like swirls dominate the foreground. The surreal composition blends natural seascape with flowing organic forms under a dreamy sky",
+  "inverted_title": "Inverted sketch: Swirls Over Crashing Waves",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering rocky cliff meets turbulent ocean waves on the left while intricate kelp-like swirls dominate the foreground. The surreal composition blends natural seascape with flowing organic forms under a dreamy sky (from painting #391).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering rocky cliff meets turbulent ocean waves on the left while intricate kelp-like swirls dominate the foreground. The surreal composition blends natural seascape with flowing organic forms under a dreamy sky",
+  "source_description": "A towering rocky cliff meets turbulent ocean waves on the left while intricate green kelp-like swirls dominate the foreground. The surreal composition blends natural seascape with flowing organic forms under a dreamy purple sky.",
+  "source_prompt": "",
+  "source_title": "Green Swirls Over Crashing Waves",
+  "style": "Surrealism",
+  "mood": "Dreamlike and dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "seascape",
+    "surreal",
+    "kelp",
+    "waves",
+    "organic forms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 391,
+  "source_url": "/paintings/391.jpg",
+  "image_url": "/sketches/330.png",
+  "inverted_image_url": "/sketches-inverted/330.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

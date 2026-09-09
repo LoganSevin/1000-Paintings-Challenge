@@ -1,0 +1,42 @@
+{
+  "number": 4723,
+  "title": "Line sketch: Fantasy City Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed top-down illustrated map of a whimsical fantasy town divided by a winding river with multiple bridges. The scene includes an industrial factory district with smokestacks on the upper left, a large clock tower on the right, a domed botanical garden with a glass conservatory, a fountain plaza, and various buildings, streets, and spaces (derived from generated still #4153).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed top-down illustrated map of a whimsical fantasy town divided by a winding river with multiple bridges. The scene includes an industrial factory district with smokestacks on the upper left, a large clock tower on the right, a domed botanical garden with a glass conservatory, a fountain plaza, and various buildings, streets, and spaces",
+  "inverted_title": "Inverted sketch: Fantasy City Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed top-down illustrated map of a whimsical fantasy town divided by a winding river with multiple bridges. The scene includes an industrial factory district with smokestacks on the upper left, a large clock tower on the right, a domed botanical garden with a glass conservatory, a fountain plaza, and various buildings, streets, and spaces (from generated still #4153).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed top-down illustrated map of a whimsical fantasy town divided by a winding river with multiple bridges. The scene includes an industrial factory district with smokestacks on the upper left, a large clock tower on the right, a domed botanical garden with a glass conservatory, a fountain plaza, and various buildings, streets, and spaces",
+  "source_description": "A detailed top-down illustrated map of a whimsical fantasy town divided by a winding blue river with multiple bridges. The scene includes an industrial factory district with smokestacks on the upper left, a large clock tower on the right, a domed botanical garden with a glass conservatory, a fountain plaza, and various buildings, streets, and green spaces.",
+  "source_prompt": "top-down fantasy town map illustration featuring a winding river with bridges, industrial factories with smokestacks on the left, a large ornate clock tower on the right, a grand glass-domed botanical garden, a central fountain plaza with patterned tiles, cobblestone streets, various buildings and lush greenery, in a colorful whimsical style with clear outlines and vibrant palette",
+  "source_title": "Fantasy City Map",
+  "style": "isometric map illustration",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "city overview",
+    "top-down view",
+    "river town",
+    "steampunk elements"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4153,
+  "source_url": "/generated/4153.jpg",
+  "image_url": "/sketches/4723.png",
+  "inverted_image_url": "/sketches-inverted/4723.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:48Z"
+}

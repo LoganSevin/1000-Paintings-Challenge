@@ -1,0 +1,42 @@
+{
+  "number": 3305,
+  "title": "Line sketch: Beat 295 - Return",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a long dark coat and a man in a military uniform stand in an ornate, decaying room, clasping hands while a long film strip bearing silhouetted figures wraps around them. The floor is littered with film reels, tangled film strips, a film canister, and scattered photographs beneath dramatic beams of light from a large arched window (derived from generated still #2687).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a long dark coat and a man in a military uniform stand in an ornate, decaying room, clasping hands while a long film strip bearing silhouetted figures wraps around them. The floor is littered with film reels, tangled film strips, a film canister, and scattered photographs beneath dramatic beams of light from a large arched window",
+  "inverted_title": "Inverted sketch: Beat 295 - Return",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a long dark coat and a man in a military uniform stand in an ornate, decaying room, clasping hands while a long film strip bearing silhouetted figures wraps around them. The floor is littered with film reels, tangled film strips, a film canister, and scattered photographs beneath dramatic beams of light from a large arched window (from generated still #2687).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a long dark coat and a man in a military uniform stand in an ornate, decaying room, clasping hands while a long film strip bearing silhouetted figures wraps around them. The floor is littered with film reels, tangled film strips, a film canister, and scattered photographs beneath dramatic beams of light from a large arched window",
+  "source_description": "A woman in a long dark coat and a man in a military uniform stand in an ornate, decaying room, clasping hands while a long film strip bearing silhouetted figures wraps around them. The floor is littered with film reels, tangled film strips, a film canister, and scattered photographs beneath dramatic beams of light from a large arched window.",
+  "source_prompt": "A dramatic surreal scene in an ornate decaying classical room with peeling frescoes. A woman in a long black vintage coat and a man in a WWII-era German military uniform stand facing each other, holding hands. A long cinematic film strip with silhouetted figures curves around their bodies. The floor is covered with spilled film reels, tangled 35mm film, old photographs and film canisters. Beams of cinematic light pour through a large arched window at dusk, painterly style with rich textures and moody atmosphere",
+  "source_title": "Beat 295 - Return",
+  "style": "painterly cinematic",
+  "mood": "melancholic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "film noir",
+    "surreal",
+    "military",
+    "cinematic",
+    "decaying interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2687,
+  "source_url": "/generated/2687.jpg",
+  "image_url": "/sketches/3305.png",
+  "inverted_image_url": "/sketches-inverted/3305.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:45Z"
+}

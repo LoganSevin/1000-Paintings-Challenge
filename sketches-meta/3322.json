@@ -1,0 +1,42 @@
+{
+  "number": 3322,
+  "title": "Line sketch: Celestial Face Nebula",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic portrait of a woman's face emerging from swirling and nebulae, with one visible eye and lips. Multiple textured, and dark spherical celestial bodies orbit around her, connected by flowing and ribbons against a dark cloudy space background (derived from generated still #2709).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic portrait of a woman's face emerging from swirling and nebulae, with one visible eye and lips. Multiple textured, and dark spherical celestial bodies orbit around her, connected by flowing and ribbons against a dark cloudy space background",
+  "inverted_title": "Inverted sketch: Celestial Face Nebula",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic portrait of a woman's face emerging from swirling and nebulae, with one visible eye and lips. Multiple textured, and dark spherical celestial bodies orbit around her, connected by flowing and ribbons against a dark cloudy space background (from generated still #2709).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic portrait of a woman's face emerging from swirling and nebulae, with one visible eye and lips. Multiple textured, and dark spherical celestial bodies orbit around her, connected by flowing and ribbons against a dark cloudy space background",
+  "source_description": "A surreal cosmic portrait of a woman's face emerging from swirling teal and purple nebulae, with one visible blue eye and pink lips. Multiple textured golden, pink, and dark spherical celestial bodies orbit around her, connected by flowing golden and magenta ribbons against a dark cloudy space background.",
+  "source_prompt": "surreal cosmic portrait of a woman's face floating in dark teal space, one visible blue eye, pink lips, surrounded by multiple textured golden pink and dark spherical planets and moons, flowing golden and magenta energy ribbons weaving between celestial bodies, purple nebulae and cloudy atmosphere, mystical dreamlike composition, detailed textures, painterly style",
+  "source_title": "Celestial Face Nebula",
+  "style": "surrealism",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "nebula",
+    "celestial",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2709,
+  "source_url": "/generated/2709.jpg",
+  "image_url": "/sketches/3322.png",
+  "inverted_image_url": "/sketches-inverted/3322.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

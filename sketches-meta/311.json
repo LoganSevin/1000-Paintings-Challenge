@@ -1,0 +1,42 @@
+{
+  "number": 311,
+  "title": "Line sketch: Wolf Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant digital illustration of a wolf in profile. The stylized canine features fur, piercing eyes, and a subtle smile against a sky background (derived from painting #372).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant digital illustration of a wolf in profile. The stylized canine features fur, piercing eyes, and a subtle smile against a sky background",
+  "inverted_title": "Inverted sketch: Wolf Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant digital illustration of a wolf in profile. The stylized canine features fur, piercing eyes, and a subtle smile against a sky background (from painting #372).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant digital illustration of a wolf in profile. The stylized canine features fur, piercing eyes, and a subtle smile against a sky background",
+  "source_description": "A vibrant digital illustration of a lime green wolf in profile. The stylized canine features bright green fur, piercing emerald eyes, and a subtle smile against a colorful sky background.",
+  "source_prompt": "",
+  "source_title": "Lime Green Wolf Portrait",
+  "style": "Digital Pop Art",
+  "mood": "Vibrant and bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "digital art",
+    "pop art",
+    "animal portrait",
+    "stylized"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 372,
+  "source_url": "/paintings/372.jpg",
+  "image_url": "/sketches/311.png",
+  "inverted_image_url": "/sketches-inverted/311.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:39Z"
+}

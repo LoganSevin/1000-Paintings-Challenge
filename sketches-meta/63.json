@@ -1,0 +1,42 @@
+{
+  "number": 63,
+  "title": "Line sketch: Sunset Reflections on Wet Highway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The composition shows a futuristic city at sunset with two cars driving on a glossy, rain-slicked highway that stretches toward a glowing horizon. A massive sun dominates the fiery sky above silhouetted skyscrapers, their reflections shimmering on the wet pavement. Bold, sweeping and vibrant color blending emphasize the dramatic perspective and luminous atmosphere (derived from painting #93).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The composition shows a futuristic city at sunset with two cars driving on a glossy, rain-slicked highway that stretches toward a glowing horizon. A massive sun dominates the fiery sky above silhouetted skyscrapers, their reflections shimmering on the wet pavement. Bold, sweeping and vibrant color blending emphasize the dramatic perspective and luminous atmosphere",
+  "inverted_title": "Inverted sketch: Sunset Reflections on Wet Highway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The composition shows a futuristic city at sunset with two cars driving on a glossy, rain-slicked highway that stretches toward a glowing horizon. A massive sun dominates the fiery sky above silhouetted skyscrapers, their reflections shimmering on the wet pavement. Bold, sweeping and vibrant color blending emphasize the dramatic perspective and luminous atmosphere (from painting #93).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The composition shows a futuristic city at sunset with two cars driving on a glossy, rain-slicked highway that stretches toward a glowing horizon. A massive sun dominates the fiery sky above silhouetted skyscrapers, their reflections shimmering on the wet pavement. Bold, sweeping and vibrant color blending emphasize the dramatic perspective and luminous atmosphere",
+  "source_description": "The painting shows a futuristic city at sunset with two cars driving on a glossy, rain-slicked highway that stretches toward a glowing horizon. A massive sun dominates the fiery sky above silhouetted skyscrapers, their reflections shimmering on the wet pavement. Bold, sweeping brushstrokes and vibrant color blending emphasize the dramatic perspective and luminous atmosphere.",
+  "source_prompt": "",
+  "source_title": "Sunset Reflections on Wet Highway",
+  "style": "Impressionistic",
+  "mood": "Dramatic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "sunset",
+    "highway",
+    "reflections",
+    "skyscrapers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 93,
+  "source_url": "/paintings/93.jpg",
+  "image_url": "/sketches/63.png",
+  "inverted_image_url": "/sketches-inverted/63.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:38Z"
+}

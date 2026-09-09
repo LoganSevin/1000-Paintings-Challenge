@@ -1,0 +1,42 @@
+{
+  "number": 2840,
+  "title": "Line sketch: Eye Tree in Starry Night",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night landscape dominated by a gnarled, tree-like creature with a single large realistic human eye for a head. The eye has long eyelashes and gazes toward the right. The creature emerges from a barren, undulating - terrain that curves like a wave. In the sky are three moons of varying sizes, numerous stars, and a distant gothic castle silhouette on the horizon (derived from generated still #2125).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night landscape dominated by a gnarled, tree-like creature with a single large realistic human eye for a head. The eye has long eyelashes and gazes toward the right. The creature emerges from a barren, undulating - terrain that curves like a wave. In the sky are three moons of varying sizes, numerous stars, and a distant gothic castle silhouette on the horizon",
+  "inverted_title": "Inverted sketch: Eye Tree in Starry Night",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night landscape dominated by a gnarled, tree-like creature with a single large realistic human eye for a head. The eye has long eyelashes and gazes toward the right. The creature emerges from a barren, undulating - terrain that curves like a wave. In the sky are three moons of varying sizes, numerous stars, and a distant gothic castle silhouette on the horizon (from generated still #2125).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night landscape dominated by a gnarled, tree-like creature with a single large realistic human eye for a head. The eye has long eyelashes and gazes toward the right. The creature emerges from a barren, undulating - terrain that curves like a wave. In the sky are three moons of varying sizes, numerous stars, and a distant gothic castle silhouette on the horizon",
+  "source_description": "A surreal night landscape dominated by a gnarled, tree-like creature with a single large realistic human eye for a head. The eye has long eyelashes and gazes toward the right. The creature emerges from a barren, undulating golden-brown terrain that curves like a wave. In the dark blue sky are three moons of varying sizes, numerous golden stars, and a distant gothic castle silhouette on the horizon.",
+  "source_prompt": "Surreal fantasy night landscape featuring a twisted dark tree whose upper branches form a single giant realistic human eye with long eyelashes, growing from a barren rolling golden-brown terrain that curves upward like a wave. Dark blue starry sky contains three luminous moons of different sizes and a distant gothic castle on the horizon, intricate linework, mysterious atmosphere, detailed textures",
+  "source_title": "Eye Tree in Starry Night",
+  "style": "surreal fantasy",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye tree",
+    "cosmic",
+    "multiple moons",
+    "gothic castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2125,
+  "source_url": "/generated/2125.jpg",
+  "image_url": "/sketches/2840.png",
+  "inverted_image_url": "/sketches-inverted/2840.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

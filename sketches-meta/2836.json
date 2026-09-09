@@ -1,0 +1,42 @@
+{
+  "number": 2836,
+  "title": "Line sketch: and Spectral Deer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive vibrant with leaves dominates the left foreground in a misty grassy field. To the right stands a glowing -white magical deer with antlers, set against a twilight sky featuring a large sun on the left and a crescent moon on the upper right (derived from generated still #2121).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive vibrant with leaves dominates the left foreground in a misty grassy field. To the right stands a glowing -white magical deer with antlers, set against a twilight sky featuring a large sun on the left and a crescent moon on the upper right",
+  "inverted_title": "Inverted sketch: and Spectral Deer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive vibrant with leaves dominates the left foreground in a misty grassy field. To the right stands a glowing -white magical deer with antlers, set against a twilight sky featuring a large sun on the left and a crescent moon on the upper right (from generated still #2121).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive vibrant with leaves dominates the left foreground in a misty grassy field. To the right stands a glowing -white magical deer with antlers, set against a twilight sky featuring a large sun on the left and a crescent moon on the upper right",
+  "source_description": "A massive vibrant red rose with dark green leaves dominates the left foreground in a misty grassy field. To the right stands a glowing blue-white magical deer with antlers, set against a twilight sky featuring a large red sun on the left and a crescent moon on the upper right.",
+  "source_prompt": "A giant, highly detailed red rose with lush dark green leaves stands tall in the left foreground of a misty grassy field at twilight. To the right, a luminous blue and white spectral deer with antlers stands glowing in the grass. Dramatic sky with a large red sun setting on the left and a crescent moon in the dark blue sky above, atmospheric mist, fantasy style, cinematic lighting.",
+  "source_title": "Rose and Spectral Deer",
+  "style": "fantasy illustration",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magical deer",
+    "twilight landscape",
+    "surreal nature",
+    "glowing animal",
+    "fantasy scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2121,
+  "source_url": "/generated/2121.jpg",
+  "image_url": "/sketches/2836.png",
+  "inverted_image_url": "/sketches-inverted/2836.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:44Z"
+}

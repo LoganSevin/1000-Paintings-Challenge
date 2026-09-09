@@ -388,7 +388,7 @@
 
   function activeTabFromHash() {
     var hash = (location.hash || "").replace("#", "");
-    if (hash === "muralwalk" || hash === "spellforge") return hash;
+    if (hash === "muralwalk" || hash === "spellforge" || hash === "dream") return hash;
     return "";
   }
 

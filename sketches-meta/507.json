@@ -1,0 +1,42 @@
+{
+  "number": 507,
+  "title": "Line sketch: Vintage Robot Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up composition of a weathered and robot with one large glowing eye and one smaller dark eye. The mechanical figure stands against a solid background, showcasing intricate metallic details and bolts (derived from painting #623).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up composition of a weathered and robot with one large glowing eye and one smaller dark eye. The mechanical figure stands against a solid background, showcasing intricate metallic details and bolts",
+  "inverted_title": "Inverted sketch: Vintage Robot Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up composition of a weathered and robot with one large glowing eye and one smaller dark eye. The mechanical figure stands against a solid background, showcasing intricate metallic details and bolts (from painting #623).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up composition of a weathered and robot with one large glowing eye and one smaller dark eye. The mechanical figure stands against a solid background, showcasing intricate metallic details and bolts",
+  "source_description": "A close-up painting of a weathered green and gold robot with one large glowing yellow eye and one smaller dark eye. The mechanical figure stands against a solid red background, showcasing intricate metallic details and bolts.",
+  "source_prompt": "",
+  "source_title": "Vintage Robot Portrait",
+  "style": "Realistic",
+  "mood": "Nostalgic, curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "steampunk",
+    "mechanical",
+    "portrait",
+    "retro-futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 623,
+  "source_url": "/paintings/623.jpg",
+  "image_url": "/sketches/507.png",
+  "inverted_image_url": "/sketches-inverted/507.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:39Z"
+}

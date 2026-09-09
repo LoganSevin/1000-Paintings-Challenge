@@ -1,0 +1,42 @@
+{
+  "number": 1615,
+  "title": "Line sketch: Psychedelic Hair Swirls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring stylized female profiles with elaborate, swirling hair patterns in, and. The figures are set against a geometric checkerboard background with symbolic motifs and small floating demonic or imp-like creatures (derived from generated still #830).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring stylized female profiles with elaborate, swirling hair patterns in, and. The figures are set against a geometric checkerboard background with symbolic motifs and small floating demonic or imp-like creatures",
+  "inverted_title": "Inverted sketch: Psychedelic Hair Swirls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring stylized female profiles with elaborate, swirling hair patterns in, and. The figures are set against a geometric checkerboard background with symbolic motifs and small floating demonic or imp-like creatures (from generated still #830).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring stylized female profiles with elaborate, swirling hair patterns in, and. The figures are set against a geometric checkerboard background with symbolic motifs and small floating demonic or imp-like creatures",
+  "source_description": "A vibrant psychedelic artwork featuring stylized female profiles with elaborate, swirling hair patterns in purple, green, and gold. The figures are set against a geometric checkerboard background with symbolic motifs and small floating demonic or imp-like creatures.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Hair Swirls",
+  "style": "Psychedelic Folk Art",
+  "mood": "Mystical, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "female profiles",
+    "swirling hair",
+    "checkerboard",
+    "folk art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 830,
+  "source_url": "/generated/830.jpg",
+  "image_url": "/sketches/1615.png",
+  "inverted_image_url": "/sketches-inverted/1615.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:41Z"
+}

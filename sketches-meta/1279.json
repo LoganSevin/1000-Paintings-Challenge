@@ -1,0 +1,42 @@
+{
+  "number": 1279,
+  "title": "Line sketch: Frog and Cat by the Pool",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, scene depicts a frog with eyes resting on a large lily pad in a sunlit pool, while a sleek black cat with eyes sits regally on the tiled edge observing it. The background features a wall with geometric patterns, black paw prints, potted plants with flowers, and a palm tree casting dramatic shadows across the courtyard (derived from generated still #493).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, scene depicts a frog with eyes resting on a large lily pad in a sunlit pool, while a sleek black cat with eyes sits regally on the tiled edge observing it. The background features a wall with geometric patterns, black paw prints, potted plants with flowers, and a palm tree casting dramatic shadows across the courtyard",
+  "inverted_title": "Inverted sketch: Frog and Cat by the Pool",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, scene depicts a frog with eyes resting on a large lily pad in a sunlit pool, while a sleek black cat with eyes sits regally on the tiled edge observing it. The background features a wall with geometric patterns, black paw prints, potted plants with flowers, and a palm tree casting dramatic shadows across the courtyard (from generated still #493).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, scene depicts a frog with eyes resting on a large lily pad in a sunlit pool, while a sleek black cat with eyes sits regally on the tiled edge observing it. The background features a wall with geometric patterns, black paw prints, potted plants with flowers, and a palm tree casting dramatic shadows across the courtyard",
+  "source_description": "A vibrant, colorful scene depicts a bright green frog with red eyes resting on a large lily pad in a sunlit pool, while a sleek black cat with yellow eyes sits regally on the pink tiled edge observing it. The background features a colorful wall with geometric patterns, black paw prints, potted plants with red flowers, and a palm tree casting dramatic shadows across the courtyard.",
+  "source_prompt": "",
+  "source_title": "Frog and Cat by the Pool",
+  "style": "realistic",
+  "mood": "vibrant sunny",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "frog",
+    "cat",
+    "pool",
+    "lily pads",
+    "courtyard"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 493,
+  "source_url": "/generated/493.jpg",
+  "image_url": "/sketches/1279.png",
+  "inverted_image_url": "/sketches-inverted/1279.png",
+  "curve_count": 118,
+  "built_at": "2026-08-17T00:09:40Z"
+}

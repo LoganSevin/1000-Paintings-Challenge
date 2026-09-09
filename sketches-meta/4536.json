@@ -1,0 +1,42 @@
+{
+  "number": 4536,
+  "title": "Line sketch: Spectral Muse of Paris",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing translucent woman with long white hair stands in the center of a surreal Parisian street, wearing a dress made of vibrant flowers. She emits energy as black shards float around her, with a bright sun, sky, flying books, and the Sacré-Cœur Basilica visible in the background (derived from generated still #3956).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing translucent woman with long white hair stands in the center of a surreal Parisian street, wearing a dress made of vibrant flowers. She emits energy as black shards float around her, with a bright sun, sky, flying books, and the Sacré-Cœur Basilica visible in the background",
+  "inverted_title": "Inverted sketch: Spectral Muse of Paris",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing translucent woman with long white hair stands in the center of a surreal Parisian street, wearing a dress made of vibrant flowers. She emits energy as black shards float around her, with a bright sun, sky, flying books, and the Sacré-Cœur Basilica visible in the background (from generated still #3956).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing translucent woman with long white hair stands in the center of a surreal Parisian street, wearing a dress made of vibrant flowers. She emits energy as black shards float around her, with a bright sun, sky, flying books, and the Sacré-Cœur Basilica visible in the background",
+  "source_description": "A glowing translucent woman with long white hair stands in the center of a surreal Parisian street, wearing a dress made of vibrant orange flowers. She emits purple energy as black shards float around her, with a bright sun, red sky, flying books, and the Sacré-Cœur Basilica visible in the background.",
+  "source_prompt": "A translucent glowing woman with flowing white hair stands in the middle of a cobblestone Parisian street, her orange flower dress radiating magic. Purple energy swirls around her as black glass shards float in the air. Behind her is a dramatic red and orange sunset sky with a radiant sun, the white Sacré-Cœur Basilica on a hill, flying books, ravens, and quaint shops with stained glass windows lining the street.",
+  "source_title": "Spectral Muse of Paris",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "Paris",
+    "glowing figure",
+    "Sacré-Cœur"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3956,
+  "source_url": "/generated/3956.jpg",
+  "image_url": "/sketches/4536.png",
+  "inverted_image_url": "/sketches-inverted/4536.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:48Z"
+}

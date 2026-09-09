@@ -1,0 +1,42 @@
+{
+  "number": 1446,
+  "title": "Line sketch: Surreal Eye Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a woman's face with and patterns merging into a large cracked eyeball in the sky. To the right, a smiling melting creature with a palm tree on its head floats against a dark, stormy background with swirling vortexes and lightning (derived from generated still #661).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a woman's face with and patterns merging into a large cracked eyeball in the sky. To the right, a smiling melting creature with a palm tree on its head floats against a dark, stormy background with swirling vortexes and lightning",
+  "inverted_title": "Inverted sketch: Surreal Eye Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a woman's face with and patterns merging into a large cracked eyeball in the sky. To the right, a smiling melting creature with a palm tree on its head floats against a dark, stormy background with swirling vortexes and lightning (from generated still #661).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a woman's face with and patterns merging into a large cracked eyeball in the sky. To the right, a smiling melting creature with a palm tree on its head floats against a dark, stormy background with swirling vortexes and lightning",
+  "source_description": "A surreal painting features a woman's face with blue and orange patterns merging into a large cracked eyeball in the sky. To the right, a smiling purple melting creature with a palm tree on its head floats against a dark, stormy background with swirling vortexes and red lightning.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Dreamscape",
+  "style": "surrealism",
+  "mood": "psychedelic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "melting creature",
+    "woman portrait",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 661,
+  "source_url": "/generated/661.jpg",
+  "image_url": "/sketches/1446.png",
+  "inverted_image_url": "/sketches-inverted/1446.png",
+  "curve_count": 132,
+  "built_at": "2026-08-17T00:09:41Z"
+}

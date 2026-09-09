@@ -1,0 +1,42 @@
+{
+  "number": 287,
+  "title": "Line sketch: Infernal Beholder of the Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive demonic creature with a giant glowing eye and spiked body emerges from a volcanic wasteland. Its molten core and lava-like veins illuminate the dark, smoky environment with hellish intensity (derived from painting #344).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive demonic creature with a giant glowing eye and spiked body emerges from a volcanic wasteland. Its molten core and lava-like veins illuminate the dark, smoky environment with hellish intensity",
+  "inverted_title": "Inverted sketch: Infernal Beholder of the Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive demonic creature with a giant glowing eye and spiked body emerges from a volcanic wasteland. Its molten core and lava-like veins illuminate the dark, smoky environment with hellish intensity (from painting #344).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive demonic creature with a giant glowing eye and spiked body emerges from a volcanic wasteland. Its molten core and lava-like veins illuminate the dark, smoky environment with hellish intensity",
+  "source_description": "A massive demonic creature with a giant glowing red eye and spiked body emerges from a volcanic wasteland. Its molten core and lava-like veins illuminate the dark, smoky environment with hellish intensity.",
+  "source_prompt": "",
+  "source_title": "Infernal Beholder of the Abyss",
+  "style": "Dark Fantasy",
+  "mood": "menacing ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "lava monster",
+    "volcanic",
+    "eye",
+    "fantasy horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 344,
+  "source_url": "/paintings/344.jpg",
+  "image_url": "/sketches/287.png",
+  "inverted_image_url": "/sketches-inverted/287.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:38Z"
+}

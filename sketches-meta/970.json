@@ -1,0 +1,42 @@
+{
+  "number": 970,
+  "title": "Line sketch: Dual Spiral Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition featuring two large interlocking spirals connected by a dotted black line against a textured background. The spirals display concentric rings of vibrant,, and with decorative patterns, surrounded by scattered organic circles and black ink splatters (derived from generated still #180).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition featuring two large interlocking spirals connected by a dotted black line against a textured background. The spirals display concentric rings of vibrant,, and with decorative patterns, surrounded by scattered organic circles and black ink splatters",
+  "inverted_title": "Inverted sketch: Dual Spiral Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition featuring two large interlocking spirals connected by a dotted black line against a textured background. The spirals display concentric rings of vibrant,, and with decorative patterns, surrounded by scattered organic circles and black ink splatters (from generated still #180).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition featuring two large interlocking spirals connected by a dotted black line against a textured background. The spirals display concentric rings of vibrant,, and with decorative patterns, surrounded by scattered organic circles and black ink splatters",
+  "source_description": "An abstract painting featuring two large interlocking spirals connected by a dotted black line against a textured teal background. The spirals display concentric rings of vibrant purple, blue, pink, and yellow with decorative patterns, surrounded by scattered organic circles and black ink splatters.",
+  "source_prompt": "",
+  "source_title": "Dual Spiral Abstraction",
+  "style": "abstract",
+  "mood": "playful, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spirals",
+    "abstract",
+    "psychedelic",
+    "organic forms",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 180,
+  "source_url": "/generated/180.jpg",
+  "image_url": "/sketches/970.png",
+  "inverted_image_url": "/sketches-inverted/970.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:40Z"
+}

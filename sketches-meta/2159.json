@@ -1,0 +1,42 @@
+{
+  "number": 2159,
+  "title": "Line sketch: Cracked Android Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A humanoid android with crack lines, one glowing eye and one eye, stands in the foreground. Behind her is a vibrant psychedelic sunset over a body of water with concentric circles, rendered in a surreal illustrative style (derived from generated still #1384).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A humanoid android with crack lines, one glowing eye and one eye, stands in the foreground. Behind her is a vibrant psychedelic sunset over a body of water with concentric circles, rendered in a surreal illustrative style",
+  "inverted_title": "Inverted sketch: Cracked Android Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A humanoid android with crack lines, one glowing eye and one eye, stands in the foreground. Behind her is a vibrant psychedelic sunset over a body of water with concentric circles, rendered in a surreal illustrative style (from generated still #1384).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A humanoid android with crack lines, one glowing eye and one eye, stands in the foreground. Behind her is a vibrant psychedelic sunset over a body of water with concentric circles, rendered in a surreal illustrative style",
+  "source_description": "A green humanoid android with golden crack lines, one glowing yellow eye and one red eye, stands in the foreground. Behind her is a vibrant psychedelic sunset over a body of water with concentric circles, rendered in a surreal illustrative style.",
+  "source_prompt": "",
+  "source_title": "Cracked Android Sunset",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "android",
+    "surreal",
+    "psychedelic",
+    "sunset",
+    "cracked"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1384,
+  "source_url": "/generated/1384.jpg",
+  "image_url": "/sketches/2159.png",
+  "inverted_image_url": "/sketches-inverted/2159.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:42Z"
+}

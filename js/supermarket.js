@@ -54,7 +54,16 @@
     "Em", "Flo", "Gil", "Hoy", "Ike", "Jay", "Ken", "Lee", "Mo", "Nan",
     "Oz", "Pat", "Ray", "Sam", "Tim", "Una", "Von", "Wyn", "Yaz",
   ];
-  var STORAGE_NAMES = "gallery.supermarket.names.v1";
+  var STORAGE_NAMES = "gallery.supermarket.names.v2";
+  /** Banker roster: id → {first,last,gender,partner_id,partner_name,full_name} */
+  var bankerRoster = {};
+  var smArtPool = [];
+  var smImgCache = {};
+  var smBgUrls = [];
+  var smVideoUrls = [];
+  var smVideoEls = [];
+  var smDecks = {};
+  var SLIDE_MS = 3000;
 
   var canvas, ctx;
   var W = 1180;
@@ -93,7 +102,7 @@
   var selectedReceiptId = null;
   /** Preferred generate aspect ratios (each shopper picks one) */
   var ASPECT_RATIOS = ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3"];
-  var lastGenerated = { url: "", label: "", aspect: "", sourceId: null };
+  var lastGenerated = { url: "", videoUrl: "", label: "", aspect: "", sourceId: null };
   var genPollTimer = 0;
   var zones = {};
   var prices = {
@@ -109,6 +118,275 @@
 
   function $(id) {
     return document.getElementById(id);
+  }
+
+  function smHash(s) {
+    var h = 2166136261;
+    s = String(s || "");
+    for (var i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+
+  function smPreload(url) {
+    if (!url) return null;
+    if (smImgCache[url]) return smImgCache[url];
+    var im = new Image();
+    im.decoding = "async";
+    im.src = url;
+    smImgCache[url] = im;
+    return im;
+  }
+
+  function smImgReady(im) {
+    return im && im.complete && im.naturalWidth > 8;
+  }
+
+  function smCover(img, dx, dy, dw, dh, zoom, ox, oy) {
+    if (!smImgReady(img) || dw < 2 || dh < 2) return false;
+    zoom = zoom || 1.08;
+    var iw = img.naturalWidth;
+    var ih = img.naturalHeight;
+    var scale = Math.max(dw / iw, dh / ih) * zoom;
+    var sw = dw / scale;
+    var sh = dh / scale;
+    var sx = (iw - sw) * Math.max(0, Math.min(1, 0.5 + (ox || 0)));
+    var sy = (ih - sh) * Math.max(0, Math.min(1, 0.5 + (oy || 0)));
+    ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+    return true;
+  }
+
+  function smShuffle(list) {
+    var a = list.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+    }
+    return a;
+  }
+
+  function smKenOffsets(key, ken) {
+    var h = smHash(String(key));
+    var sx = ((h & 255) / 255 - 0.5) * 0.2;
+    var sy = (((h >> 8) & 255) / 255 - 0.5) * 0.16;
+    return {
+      ox: sx + (-sx - sx) * ken,
+      oy: sy + (-sy - sy) * ken,
+      zoom: 1.05 + ken * 0.14,
+    };
+  }
+
+  function smDeckSlide(channel, pool, nowMs) {
+    if (!pool || !pool.length) return null;
+    var d = smDecks[channel];
+    if (!d || d.n !== pool.length) {
+      d = smDecks[channel] = {
+        order: smShuffle(pool),
+        n: pool.length,
+        t0: nowMs,
+        wrap: 0,
+      };
+    }
+    var tick = Math.max(0, Math.floor((nowMs - d.t0) / SLIDE_MS));
+    var wrap = Math.floor(tick / d.n);
+    if (d.wrap !== wrap) {
+      d.wrap = wrap;
+      d.order = smShuffle(pool);
+    }
+    var idx = tick % d.n;
+    var local = ((nowMs - d.t0) % SLIDE_MS) / SLIDE_MS;
+    if (local < 0) local = 0;
+    return {
+      url: d.order[idx],
+      next: d.order[(idx + 1) % d.n],
+      ken: local * local * (3 - 2 * local),
+      fade: local > 0.86 ? (local - 0.86) / 0.14 : 0,
+      idx: idx,
+      total: d.n,
+    };
+  }
+
+  function smDrawSlideshow(urls, dx, dy, dw, dh, channel) {
+    var pool = urls && urls.length ? urls : smArtPool;
+    if (!pool.length) return false;
+    var nowMs = typeof performance !== "undefined" ? performance.now() : Date.now();
+    var sl = smDeckSlide(channel || "bg:" + dx + ":" + dy, pool, nowMs);
+    if (!sl) return false;
+    smPreload(sl.url);
+    if (sl.next) smPreload(sl.next);
+    var a = smKenOffsets(sl.url, sl.ken);
+    var ok = smCover(smPreload(sl.url), dx, dy, dw, dh, a.zoom, a.ox, a.oy);
+    if (sl.fade > 0 && sl.next) {
+      ctx.save();
+      ctx.globalAlpha = sl.fade;
+      var b = smKenOffsets(sl.next, 0);
+      smCover(smPreload(sl.next), dx, dy, dw, dh, b.zoom, b.ox, b.oy);
+      ctx.restore();
+    }
+    return ok;
+  }
+
+  function smEnsureVideos() {
+    if (!smVideoUrls.length) return;
+    var n = Math.min(8, smVideoUrls.length);
+    while (smVideoEls.length < n) {
+      var v = document.createElement("video");
+      v.muted = true;
+      v.defaultMuted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.setAttribute("playsinline", "");
+      v.preload = "auto";
+      v.crossOrigin = "anonymous";
+      v.style.cssText = "position:fixed;left:-2px;top:-2px;width:1px;height:1px;opacity:0;pointer-events:none";
+      document.body.appendChild(v);
+      smVideoEls.push(v);
+    }
+  }
+
+  function smVideoPlaying(v) {
+    return (
+      v &&
+      !v.paused &&
+      !v.ended &&
+      v.readyState >= 2 &&
+      v.videoWidth > 8 &&
+      v.currentTime > 0.05
+    );
+  }
+
+  function smKickPlay(v) {
+    if (!v || !v.paused) return;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  function smVideoForScreen(screenIndex) {
+    smEnsureVideos();
+    if (!smVideoUrls.length || !smVideoEls.length) return null;
+    var nowMs = typeof performance !== "undefined" ? performance.now() : Date.now();
+    var sl = smDeckSlide("video:" + screenIndex, smVideoUrls, nowMs);
+    if (!sl) return null;
+    var el = smVideoEls[screenIndex % smVideoEls.length];
+    var want = sl.url;
+    if (el._smSrc !== want) {
+      el._smSrc = want;
+      el.src = want;
+      el.load();
+    }
+    smKickPlay(el);
+    return el;
+  }
+
+  function smDrawVideoFrame(v, dx, dy, dw, dh) {
+    if (!smVideoPlaying(v) || dw < 4 || dh < 4) return false;
+    var iw = v.videoWidth;
+    var ih = v.videoHeight;
+    var scale = Math.max(dw / iw, dh / ih);
+    var sw = dw / scale;
+    var sh = dh / scale;
+    var sx = (iw - sw) / 2;
+    var sy = (ih - sh) / 2;
+    try {
+      ctx.drawImage(v, sx, sy, sw, sh, dx, dy, dw, dh);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
+  function smDrawScreen(x, y, w, h, screenIndex, label) {
+    ctx.fillStyle = "#0a0e0c";
+    ctx.fillRect(x - 4, y - 4, w + 8, h + 14);
+    ctx.strokeStyle = "rgba(180, 220, 190, 0.55)";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x - 4, y - 4, w + 8, h + 14);
+    var video = smVideoForScreen(screenIndex);
+    var ok = smDrawVideoFrame(video, x, y, w, h);
+    if (!ok) smDrawSlideshow(smArtPool, x, y, w, h, "tv-still:" + screenIndex);
+    ctx.fillStyle = "rgba(0,0,0,0.55)";
+    ctx.fillRect(x, y + h - 12, w, 12);
+    ctx.fillStyle = "#b8f0c8";
+    ctx.font = "8px system-ui,sans-serif";
+    ctx.fillText(label || "VIDEO", x + 4, y + h - 3);
+  }
+
+  function smPauseVideos() {
+    smVideoEls.forEach(function (v) {
+      try {
+        v.pause();
+      } catch (e) {}
+    });
+  }
+
+  function smPlayVideos() {
+    smEnsureVideos();
+    smVideoEls.forEach(function (v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+  }
+
+  function smPortrait(person) {
+    if (!smArtPool.length) return null;
+    var i = smHash("smface:" + (person && person.id) + ":" + (person && person.name)) % smArtPool.length;
+    return smPreload(smArtPool[i]);
+  }
+
+  function loadSmArt() {
+    var paints = [];
+    for (var n = 1; n <= 1000; n++) {
+      paints.push(window.getPaintingUrl ? window.getPaintingUrl(n) : "paintings/" + n + ".jpg");
+    }
+    return Promise.all([
+      fetch("/api/dream-pool?t=" + Date.now(), { cache: "default" })
+        .then(function (r) {
+          return r.ok ? r.json() : null;
+        })
+        .catch(function () {
+          return null;
+        }),
+      fetch("/api/saved-videos?t=" + Date.now(), { cache: "default" })
+        .then(function (r) {
+          return r.ok ? r.json() : null;
+        })
+        .catch(function () {
+          return fetch("data/saved-videos-manifest.json")
+            .then(function (r2) {
+              return r2.ok ? r2.json() : null;
+            })
+            .catch(function () {
+              return null;
+            });
+        }),
+    ]).then(function (pair) {
+        var pool = pair[0];
+        var vids = pair[1];
+        var urls = [];
+        var nums = (pool && pool.generated_nums) || [];
+        var files = (pool && pool.generated_files) || {};
+        for (var i = 0; i < nums.length; i++) {
+          var num = nums[i];
+          urls.push("/generated/" + (files[String(num)] || num + ".jpg"));
+        }
+        smArtPool = smShuffle(urls.concat(paints));
+        if (!smArtPool.length) smArtPool = paints;
+        smBgUrls = smArtPool;
+        smDecks = {};
+        var vitems = (vids && vids.items) || [];
+        smVideoUrls = smShuffle(
+          vitems
+            .map(function (it) {
+              return it.url || (it.name ? "/saved-videos/" + it.name : "");
+            })
+            .filter(Boolean)
+        );
+        smEnsureVideos();
+      });
   }
 
   function setStatus(msg, kind) {
@@ -1159,6 +1437,45 @@
     }
   }
 
+  function rosterRow(id) {
+    return bankerRoster[id] || bankerRoster[String(id)] || null;
+  }
+
+  function displayNameFor(id, fallback) {
+    var saved = loadNames();
+    if (saved[id] || saved[String(id)]) return saved[id] || saved[String(id)];
+    var row = rosterRow(id);
+    if (row && row.full_name) return row.full_name;
+    if (id === 100) {
+      return (
+        (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) ||
+        fallback ||
+        "Logan Sevin"
+      );
+    }
+    return fallback || "Shopper #" + id;
+  }
+
+  function loadBankerRoster() {
+    return fetch("/api/banker/roster?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(function (data) {
+        bankerRoster = {};
+        var list = (data && (data.roster || data.people)) || [];
+        list.forEach(function (p) {
+          if (!p || p.id == null) return;
+          bankerRoster[p.id] = p;
+          bankerRoster[String(p.id)] = p;
+        });
+        return bankerRoster;
+      })
+      .catch(function () {
+        return bankerRoster;
+      });
+  }
+
   function saveNames() {
     var map = {};
     shoppers.forEach(function (s) {
@@ -1672,14 +1989,43 @@
     return order;
   }
 
+  function genderColor(gender, isPlayer) {
+    if (isPlayer) return "#5cf0a0";
+    if (gender === "female") return "hsl(" + Math.floor(rand(320, 350)) + ",62%,72%)";
+    return "hsl(" + Math.floor(rand(200, 225)) + ",70%,65%)";
+  }
+
+  function applyRosterIdentity(person) {
+    if (!person) return;
+    var row = rosterRow(person.id);
+    if (row) {
+      person.first = row.first || "";
+      person.last = row.last || "";
+      person.gender = row.gender || person.gender;
+      person.partnerId = row.partner_id;
+      person.partnerName = row.partner_name;
+      if (!loadNames()[person.id]) person.name = row.full_name || person.name;
+    }
+  }
+
   function buildShoppers() {
     var saved = loadNames();
     shoppers = [];
     for (var i = 1; i <= NPC_COUNT; i++) {
-      var name = saved[i] || NAMES[(i - 1) % NAMES.length] + (i > NAMES.length ? " " + i : "");
+      var row = rosterRow(i);
+      var name = displayNameFor(
+        i,
+        (row && row.full_name) || NAMES[(i - 1) % NAMES.length] + (i > NAMES.length ? " " + i : "")
+      );
+      var gender = (row && row.gender) || (i <= 49 ? "male" : "female");
       shoppers.push({
         id: i,
         name: name,
+        first: (row && row.first) || "",
+        last: (row && row.last) || "",
+        gender: gender,
+        partnerId: row && row.partner_id,
+        partnerName: row && row.partner_name,
         isPlayer: false,
         x: zones.entrance.x + 20 + Math.random() * 30,
         y: zones.entrance.y + Math.random() * zones.entrance.h,
@@ -1710,14 +2056,20 @@
         pendingReceipt: null,
         avoidKeys: {},
         preferKeys: {},
-        color: "hsl(" + Math.floor(rand(190, 230)) + ",70%,65%)",
+        color: genderColor(gender, false),
       });
       shoppers[shoppers.length - 1].preferredAspect =
         shoppers[shoppers.length - 1].taste.preferredAspect || pickAspectRatio();
     }
+    var youRow = rosterRow(100);
     player = {
       id: 100,
-      name: saved[100] || "You (restocker & shopper)",
+      name: displayNameFor(100, (youRow && youRow.full_name) || "Logan Sevin"),
+      first: (youRow && youRow.first) || "Logan",
+      last: (youRow && youRow.last) || "Sevin",
+      gender: "male",
+      partnerId: youRow && youRow.partner_id,
+      partnerName: youRow && youRow.partner_name,
       isPlayer: true,
       x: zones.entrance.x + 35,
       y: zones.entrance.y + zones.entrance.h * 0.5,
@@ -1743,6 +2095,7 @@
       color: "#5cf0a0",
     };
     player.preferredAspect = player.taste.preferredAspect || pickAspectRatio();
+    player.color = genderColor("male", true);
     recalibratePace();
     updateNameFields();
   }
@@ -1755,12 +2108,13 @@
     shoppers.forEach(function (s) {
       var o = document.createElement("option");
       o.value = String(s.id);
-      o.textContent = "#" + s.id + " " + s.name;
+      var mark = s.gender === "female" ? "♀" : "♂";
+      o.textContent = "#" + s.id + " " + mark + " " + s.name;
       sel.appendChild(o);
     });
     var op = document.createElement("option");
     op.value = "100";
-    op.textContent = "#100 " + (player ? player.name : "You");
+    op.textContent = "#100 ♂ " + (player ? player.name : "Logan Sevin") + " (you)";
     sel.appendChild(op);
     if (cur) sel.value = cur;
     onNameSelectChange();
@@ -1782,6 +2136,15 @@
     var s = getShopperById(sel.value);
     input.value = s ? s.name : "";
     selectedShopper = s;
+    var meta = $("sm-person-meta");
+    if (meta && s) {
+      var g = s.gender === "female" ? "female" : "male";
+      meta.textContent =
+        g +
+        (s.partnerName
+          ? " · paired 1:1 with #" + s.partnerId + " " + s.partnerName
+          : "");
+    } else if (meta) meta.textContent = "";
   }
 
   function applyNameEdit() {
@@ -3501,7 +3864,7 @@
     var list = shoppers.concat(player ? [player] : []);
     for (var i = 0; i < list.length; i++) {
       var s = list[i];
-      if (Math.hypot(mx - s.x, my - s.y) < s.r + 6) return s;
+      if (Math.hypot(mx - s.x, my - s.y) < s.r + 14) return s;
     }
     return null;
   }
@@ -3571,34 +3934,52 @@
   function draw() {
     if (!ctx) return;
     ctx.clearRect(0, 0, W, H);
-    // floor
+    var t = (typeof performance !== "undefined" ? performance.now() : Date.now()) / 1000;
+
     ctx.fillStyle = "#101816";
     ctx.fillRect(0, 0, W, H);
-    // tile grid
-    ctx.strokeStyle = "rgba(255,255,255,0.03)";
-    ctx.lineWidth = 1;
-    for (var gx = 0; gx < W; gx += 28) {
-      ctx.beginPath();
-      ctx.moveTo(gx, 0);
-      ctx.lineTo(gx, H);
-      ctx.stroke();
+    if (smBgUrls.length) {
+      smDrawSlideshow(smArtPool, 0, 0, W, H, "floor");
+      ctx.fillStyle = "rgba(8,16,12,0.42)";
+      ctx.fillRect(0, 0, W, H);
     }
-    for (var gy = 0; gy < H; gy += 28) {
+    ctx.fillStyle = "rgba(255,255,255,0.025)";
+    for (var gx = 0; gx < W; gx += 40) ctx.fillRect(gx, 0, 1, H);
+    for (var gy = 0; gy < H; gy += 40) ctx.fillRect(0, gy, W, 1);
+
+    function rr(x, y, w, h, r) {
+      r = Math.min(r || 6, w / 2, h / 2);
       ctx.beginPath();
-      ctx.moveTo(0, gy);
-      ctx.lineTo(W, gy);
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function glassZone(z, fill, stroke, artI, title) {
+      if (!z) return;
+      ctx.save();
+      rr(z.x, z.y, z.w, z.h, 8);
+      ctx.clip();
+      if (smBgUrls.length) {
+        smDrawSlideshow(smArtPool, z.x, z.y, z.w, z.h, "zone:" + (title || z.label || "") + ":" + z.x);
+      }
+      ctx.fillStyle = fill;
+      ctx.fillRect(z.x, z.y, z.w, z.h);
+      ctx.restore();
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1.6;
+      rr(z.x, z.y, z.w, z.h, 8);
       ctx.stroke();
+      ctx.fillStyle = "rgba(230,255,240,0.88)";
+      ctx.font = "bold 11px system-ui,sans-serif";
+      ctx.fillText(title || z.label, z.x + 8, z.y + 16);
     }
 
     function zone(z, fill, stroke) {
-      ctx.fillStyle = fill;
-      ctx.strokeStyle = stroke;
-      ctx.lineWidth = 2;
-      ctx.fillRect(z.x, z.y, z.w, z.h);
-      ctx.strokeRect(z.x, z.y, z.w, z.h);
-      ctx.fillStyle = "rgba(220,240,230,0.75)";
-      ctx.font = "bold 11px system-ui,sans-serif";
-      ctx.fillText(z.label, z.x + 8, z.y + 16);
+      glassZone(z, fill, stroke, 2, z && z.label);
     }
     // Bottom strip floor
     if (zones.bottomStrip) {
@@ -3612,15 +3993,14 @@
     }
     // Back-room bathroom lane (stress relief)
     if (zones.bathroom) {
-      ctx.fillStyle = "rgba(28, 36, 48, 0.95)";
-      ctx.strokeStyle = "rgba(120, 150, 200, 0.45)";
-      ctx.lineWidth = 2;
-      ctx.fillRect(zones.bathroom.x, zones.bathroom.y, zones.bathroom.w, zones.bathroom.h);
-      ctx.strokeRect(zones.bathroom.x, zones.bathroom.y, zones.bathroom.w, zones.bathroom.h);
-      ctx.fillStyle = "rgba(160, 190, 230, 0.75)";
-      ctx.font = "bold 11px system-ui,sans-serif";
-      ctx.fillText(zones.bathroom.label, zones.bathroom.x + 10, zones.bathroom.y + 20);
-      ctx.fillStyle = "rgba(140, 170, 210, 0.45)";
+      glassZone(
+        zones.bathroom,
+        "rgba(28, 36, 48, 0.62)",
+        "rgba(120, 150, 200, 0.55)",
+        3,
+        zones.bathroom.label
+      );
+      ctx.fillStyle = "rgba(140, 170, 210, 0.55)";
       ctx.font = "9px system-ui,sans-serif";
       ctx.fillText("cool-off when 4+ clustered", zones.bathroom.x + 10, zones.bathroom.y + 36);
     }
@@ -3636,14 +4016,10 @@
     }
     // 6 front kiosks
     (zones.kiosks || []).forEach(function (k) {
-      ctx.fillStyle = "rgba(55, 48, 30, 0.9)";
-      ctx.strokeStyle = "rgba(230, 190, 90, 0.75)";
-      ctx.lineWidth = 1.5;
-      ctx.fillRect(k.x, k.y, k.w, k.h);
-      ctx.strokeRect(k.x, k.y, k.w, k.h);
-      ctx.fillStyle = "rgba(40, 36, 22, 0.95)";
+      glassZone(k, "rgba(55, 48, 30, 0.55)", "rgba(230, 190, 90, 0.8)", 1, "");
+      ctx.fillStyle = "rgba(40, 36, 22, 0.85)";
       ctx.fillRect(k.x + 3, k.y + 3, k.w - 6, 10);
-      ctx.fillStyle = "rgba(255, 230, 160, 0.9)";
+      ctx.fillStyle = "rgba(255, 230, 160, 0.95)";
       ctx.font = "bold 10px system-ui,sans-serif";
       var kt = ctx.measureText(k.label).width;
       ctx.fillText(k.label, k.x + (k.w - kt) / 2, k.y + k.h * 0.68);
@@ -3652,23 +4028,26 @@
     zone(zones.exit, "rgba(90,50,40,0.4)", "rgba(220,120,100,0.55)");
     // 11 individual registers (well below aisles)
     (zones.registers || []).forEach(function (r) {
-      ctx.fillStyle = "rgba(45, 85, 55, 0.55)";
-      ctx.strokeStyle = "rgba(120, 220, 140, 0.75)";
-      ctx.lineWidth = 1.5;
-      ctx.fillRect(r.x, r.y, r.w, r.h);
-      ctx.strokeRect(r.x, r.y, r.w, r.h);
-      // counter top
-      ctx.fillStyle = "rgba(30, 50, 36, 0.9)";
+      glassZone(r, "rgba(45, 85, 55, 0.48)", "rgba(120, 220, 140, 0.8)", 2, "");
+      ctx.fillStyle = "rgba(30, 50, 36, 0.85)";
       ctx.fillRect(r.x + 2, r.y + 2, r.w - 4, Math.min(14, r.h * 0.28));
-      ctx.fillStyle = "rgba(200, 255, 210, 0.85)";
+      ctx.fillStyle = "rgba(200, 255, 210, 0.9)";
       ctx.font = "bold 9px system-ui,sans-serif";
       var tw = ctx.measureText(r.label).width;
       ctx.fillText(r.label, r.x + (r.w - tw) / 2, r.y + r.h * 0.62);
     });
 
     // Aisle hall floor (walkable corridors)
-    ctx.fillStyle = "rgba(18,28,24,0.9)";
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(zones.aisles.x, zones.aisles.y, zones.aisles.w, zones.aisles.h);
+    ctx.clip();
+    if (smBgUrls.length) {
+      smDrawSlideshow(smArtPool, zones.aisles.x, zones.aisles.y, zones.aisles.w, zones.aisles.h, "aisles");
+    }
+    ctx.fillStyle = "rgba(18,28,24,0.55)";
     ctx.fillRect(zones.aisles.x, zones.aisles.y, zones.aisles.w, zones.aisles.h);
+    ctx.restore();
 
     // Double-sided aisle solids (spine down the middle)
     solids.forEach(function (s) {
@@ -3715,6 +4094,19 @@
               : "rgba(200,160,60,0.45)";
       ctx.lineWidth = isNear ? 2.4 : inVicinity ? 1.6 : isSel ? 1.4 : 0.5;
       ctx.fillRect(sh.x, sh.y, sh.w, sh.h);
+      if (!empty && ed.imageUrl) {
+        var art = smPreload(ed.imageUrl);
+        if (smImgReady(art)) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(sh.x + 0.5, sh.y + 0.5, sh.w - 1, sh.h - 1);
+          ctx.clip();
+          smCover(art, sh.x, sh.y, sh.w, sh.h, 1.05, 0, 0);
+          ctx.restore();
+          ctx.fillStyle = "rgba(0,0,0,0.18)";
+          ctx.fillRect(sh.x, sh.y + sh.h - 8, sh.w, 8);
+        }
+      }
       ctx.strokeRect(sh.x, sh.y, sh.w, sh.h);
       if (isNear) {
         ctx.strokeStyle = "rgba(255,215,0,0.5)";
@@ -3729,19 +4121,129 @@
       }
     });
 
+    // Video walls — generated clips playing in the store
+    smEnsureVideos();
+    var screens = [];
+    if (zones.bathroom) {
+      screens.push({
+        x: zones.bathroom.x + Math.max(8, zones.bathroom.w - 220),
+        y: zones.bathroom.y + 8,
+        w: Math.min(208, zones.bathroom.w - 16),
+        h: Math.max(52, zones.bathroom.h - 18),
+        label: "WATCHING · saved-videos",
+      });
+    }
+    if (zones.midLane) {
+      screens.push({
+        x: zones.midLane.x + 20,
+        y: zones.midLane.y + 3,
+        w: 168,
+        h: Math.max(34, zones.midLane.h - 6),
+        label: "LANE TV",
+      });
+      screens.push({
+        x: zones.midLane.x + zones.midLane.w - 188,
+        y: zones.midLane.y + 3,
+        w: 168,
+        h: Math.max(34, zones.midLane.h - 6),
+        label: "LANE TV",
+      });
+    }
+    if (zones.entrance) {
+      screens.push({
+        x: zones.entrance.x + 6,
+        y: zones.entrance.y + 20,
+        w: Math.min(132, zones.entrance.w - 12),
+        h: Math.max(42, zones.entrance.h - 28),
+        label: "DOOR VIDEO",
+      });
+    }
+    (solids || []).forEach(function (s, si) {
+      if (si % 2 !== 0) return;
+      screens.push({
+        x: s.x + 1,
+        y: s.y + 2,
+        w: Math.max(22, s.w - 2),
+        h: 28,
+        label: "A" + ((s.aisle || 0) + 1) + " TV",
+      });
+    });
+    screens.forEach(function (sc, i) {
+      smDrawScreen(sc.x, sc.y, sc.w, sc.h, i, sc.label);
+    });
+
     function drawDot(s) {
+      var dx = s.x - (s._px != null ? s._px : s.x);
+      var dy = s.y - (s._py != null ? s._py : s.y);
+      var dist = Math.hypot(dx, dy);
+      s._px = s.x;
+      s._py = s.y;
+      s._walkPhase = (s._walkPhase || 0) + (dist > 0.4 ? 0.28 : 0.06);
+      if (Math.abs(dx) > 0.15) s._facing = dx < 0 ? -1 : 1;
+      if (s._facing == null) s._facing = 1;
+      var walking = dist > 0.35;
+      var bob = Math.sin(s._walkPhase * (walking ? 2 : 1)) * (walking ? 2.4 : 0.8);
+      var x = s.x;
+      var y = s.y + bob;
+      var kid = s.gen === 1;
+      var scale = s.isPlayer ? 1.15 : 1;
+      var face = smPortrait(s);
+      var col = s.color || "#7eb4f0";
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(s._facing, 1);
+      ctx.fillStyle = "rgba(0,0,0,0.35)";
       ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = s.color;
+      ctx.ellipse(0, 8 * scale, 7 * scale, 2.4, 0, 0, Math.PI * 2);
       ctx.fill();
-      if (selectedShopper && selectedShopper.id === s.id) {
-        ctx.strokeStyle = "#fff";
-        ctx.lineWidth = 2;
-        ctx.stroke();
+      var leg = walking ? Math.sin(s._walkPhase * 2) * 3.5 : 0;
+      ctx.strokeStyle = col;
+      ctx.lineWidth = 2.4 * scale;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(-2, 2);
+      ctx.lineTo(-2 + leg, 9 * scale);
+      ctx.moveTo(2, 2);
+      ctx.lineTo(2 - leg, 9 * scale);
+      ctx.stroke();
+      ctx.fillStyle = col;
+      rr(-6 * scale, -3, 12 * scale, 11 * scale, 4);
+      ctx.fill();
+      var arm = walking ? Math.cos(s._walkPhase * 2) * 4 : Math.sin(s._walkPhase) * 1.2;
+      ctx.beginPath();
+      ctx.moveTo(-5 * scale, 0);
+      ctx.lineTo(-7 * scale, 6 + arm);
+      ctx.moveTo(5 * scale, 0);
+      ctx.lineTo(7 * scale, 6 - arm);
+      ctx.stroke();
+      var hr = (kid ? 5.5 : 7.2) * scale;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(0, -hr * 0.2 - 7, hr, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      if (smImgReady(face)) {
+        smCover(face, -hr, -hr * 1.4 - 7, hr * 2, hr * 2, 1.1, 0, -0.06);
+      } else {
+        ctx.fillStyle = "#f3d7c4";
+        ctx.fill();
       }
-      ctx.fillStyle = "rgba(255,255,255,0.9)";
-      ctx.font = "9px system-ui,sans-serif";
-      ctx.fillText(s.name.slice(0, 12), s.x - 16, s.y - s.r - 3);
+      ctx.restore();
+      ctx.beginPath();
+      ctx.arc(0, -hr * 0.2 - 7, hr, 0, Math.PI * 2);
+      ctx.strokeStyle = selectedShopper && selectedShopper.id === s.id ? "#fff" : "rgba(255,255,255,0.35)";
+      ctx.lineWidth = selectedShopper && selectedShopper.id === s.id ? 2 : 1;
+      ctx.stroke();
+      ctx.restore();
+      var nm = (s.first || s.name || "").split(" ")[0];
+      ctx.fillStyle = s.isPlayer ? "#5cf0a0" : "rgba(255,255,255,0.92)";
+      ctx.font = (s.isPlayer ? "bold " : "") + "9px system-ui,sans-serif";
+      ctx.textAlign = "center";
+      ctx.shadowColor = "rgba(0,0,0,0.75)";
+      ctx.shadowBlur = 3;
+      ctx.fillText(nm.slice(0, 12), s.x, y - 18);
+      ctx.shadowBlur = 0;
+      ctx.textAlign = "left";
     }
     shoppers.forEach(function (s) {
       if (s.state === "bathroom") {
@@ -4231,6 +4733,7 @@
     if (!url) return;
     lastGenerated = {
       url: url,
+      videoUrl: lastGenerated.videoUrl || "",
       label: (source && source.label) || "generate",
       aspect: (source && source.aspect) || "16:9",
       sourceId: source && source.shopperId,
@@ -4275,20 +4778,37 @@
   }
 
   function openGenLightbox() {
-    if (!lastGenerated.url) {
+    if (!lastGenerated.url && !lastGenerated.videoUrl) {
       setStatus("No generated image yet — run Generate image (1 job) first.", "err");
       return;
     }
     var lb = $("sm-gen-lightbox");
     var img = $("sm-gen-lightbox-img");
+    var vid = $("sm-gen-lightbox-video");
     var lab = $("sm-gen-lightbox-label");
-    if (img) img.src = lastGenerated.url;
+    if (lastGenerated.videoUrl && vid) {
+      if (img) img.hidden = true;
+      vid.hidden = false;
+      vid.src = lastGenerated.videoUrl;
+      try {
+        vid.play().catch(function () {});
+      } catch (e) {}
+    } else {
+      if (vid) {
+        vid.hidden = true;
+        vid.removeAttribute("src");
+      }
+      if (img) {
+        img.hidden = false;
+        img.src = lastGenerated.url;
+      }
+    }
     if (lab) {
       lab.textContent =
         lastGenerated.label +
         " · " +
         lastGenerated.aspect +
-        " · cart vision still";
+        (lastGenerated.videoUrl ? " · cart vision video" : " · cart vision still");
     }
     if (lb) lb.hidden = false;
   }
@@ -4296,6 +4816,12 @@
   function closeGenLightbox() {
     var lb = $("sm-gen-lightbox");
     if (lb) lb.hidden = true;
+    var vid = $("sm-gen-lightbox-video");
+    if (vid) {
+      try {
+        vid.pause();
+      } catch (e) {}
+    }
   }
 
   function absoluteUrl(url) {
@@ -4318,6 +4844,86 @@
       payload.result_url ||
       "";
     return absoluteUrl(raw);
+  }
+
+  function extractVideoUrl(payload) {
+    if (!payload) return "";
+    var vid = payload.video;
+    var raw = "";
+    if (typeof vid === "string") raw = vid;
+    else if (vid)
+      raw = vid.url || vid.download_url || vid.uri || "";
+    if (!raw)
+      raw = payload.video_url || payload.output_url || payload.result_url || "";
+    if (window.GallerySaveVideo && window.GallerySaveVideo.preferSavedUrl) {
+      raw = window.GallerySaveVideo.preferSavedUrl(payload, raw) || raw;
+    }
+    return absoluteUrl(raw);
+  }
+
+  function pollVideoJob(jobId, left, source) {
+    if (left == null) left = 240;
+    if (left <= 0) {
+      return Promise.reject(new Error("Timed out waiting for video job " + jobId));
+    }
+    return fetch(apiUrl("/api/jobs/" + jobId), { cache: "no-store" })
+      .then(function (r) {
+        return r.json().then(function (d) {
+          return { ok: r.ok, d: d };
+        });
+      })
+      .then(function (res) {
+        var job = res.d || {};
+        var st = String(job.status || job.xai_status || "working").toLowerCase();
+        setStatus(
+          "Polling video for " +
+            ((source && source.label) || "cart") +
+            "… " +
+            st +
+            " (" +
+            left +
+            ")",
+          ""
+        );
+        if (st === "done" || st === "completed" || st === "success") {
+          var url = extractVideoUrl(job);
+          if (url) return url;
+          throw new Error("Video job finished but no video URL returned.");
+        }
+        if (st === "failed" || st === "error" || st === "expired") {
+          throw new Error(
+            (job.error && (job.error.message || job.error)) || "Video job failed"
+          );
+        }
+        return delayMs(2000).then(function () {
+          return pollVideoJob(jobId, left - 1, source);
+        });
+      });
+  }
+
+  function showGeneratedVideo(url, source) {
+    if (!url) return;
+    lastGenerated.videoUrl = url;
+    var prev = $("sm-gen-preview-video");
+    var img = $("sm-gen-preview");
+    if (prev) {
+      prev.src = url;
+      prev.classList.add("show");
+      try {
+        prev.play().catch(function () {});
+      } catch (e) {}
+    }
+    if (img) img.classList.add("show");
+    if (smVideoUrls.indexOf(url) < 0) {
+      smVideoUrls.unshift(url);
+      smDecks = {};
+    }
+    setStatus(
+      "Video ready for " +
+        ((source && source.label) || lastGenerated.label) +
+        " — saved under Gallery videos / store TVs.",
+      "ok"
+    );
   }
 
   /** Poll /api/jobs until still is ready (same pattern as Commercial). */
@@ -4439,6 +5045,7 @@
         showGeneratedResult(url, source);
         if (mode !== "video") return;
         setStatus("Still ready — starting 1 video job from that frame…", "");
+        setOrbWorking(true);
         return fetch(apiUrl("/api/animate-cast"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -4454,19 +5061,44 @@
             image_url: url,
             reference_image: url,
           }),
-        }).then(function (r) {
-          return r.json().then(function (d) {
-            if (!r.ok) throw new Error((d && d.error) || "Video failed");
-            setStatus(
-              "Video job started" +
-                (d.job_id ? " " + d.job_id : "") +
-                " — still is on the left orb for " +
-                source.label +
-                ".",
-              "ok"
-            );
+        })
+          .then(function (r) {
+            return r.json().then(function (d) {
+              if (!r.ok) throw new Error((d && d.error) || "Video failed");
+              var jid = d.job_id || d.id;
+              var ready = extractVideoUrl(d);
+              if (ready) return ready;
+              if (!jid) throw new Error("Video job started but no job id returned.");
+              setStatus(
+                "Waiting on video job " +
+                  String(jid).slice(0, 8) +
+                  "… this can take several minutes. Status will update here.",
+                ""
+              );
+              return pollVideoJob(jid, 240, source);
+            });
+          })
+          .then(function (videoUrl) {
+            var saveP =
+              window.GallerySaveVideo && window.GallerySaveVideo.save
+                ? window.GallerySaveVideo.save(videoUrl, { timeoutMs: 180000 })
+                : Promise.resolve(null);
+            return saveP
+              .then(function (saved) {
+                var finalUrl =
+                  (saved && (saved.url || saved.path)) || videoUrl;
+                if (saved && saved.path && String(saved.path).indexOf("/") >= 0) {
+                  finalUrl = "/" + String(saved.path).replace(/^\/+/, "");
+                }
+                if (saved && saved.url) finalUrl = saved.url;
+                showGeneratedVideo(absoluteUrl(finalUrl), source);
+                setOrbWorking(false);
+              })
+              .catch(function () {
+                showGeneratedVideo(videoUrl, source);
+                setOrbWorking(false);
+              });
           });
-        });
       })
       .catch(function (err) {
         setOrbWorking(false);
@@ -4701,8 +5333,10 @@
 
     window.addEventListener("tab-changed", function (e) {
       if (e.detail && e.detail.tab === "supermarket") {
+        smPlayVideos();
         startLoop();
       } else {
+        smPauseVideos();
         stopLoop();
       }
     });
@@ -4712,11 +5346,13 @@
     if (running) return;
     running = true;
     lastTs = 0;
+    smPlayVideos();
     raf = requestAnimationFrame(tick);
   }
 
   function stopLoop() {
     running = false;
+    smPauseVideos();
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
   }
@@ -4727,6 +5363,8 @@
     bind();
     loadPrices()
       .then(loadCatalog)
+      .then(loadBankerRoster)
+      .then(loadSmArt)
       .then(function () {
         buildShelves();
         buildShoppers();

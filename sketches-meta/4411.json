@@ -1,0 +1,42 @@
+{
+  "number": 4411,
+  "title": "Line sketch: Stasis & Ember Lantern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An ornate lantern hangs suspended by a chain in a mystical room. Inside the lantern's glass panels, an hourglass, butterflies, and glowing particles are visible, with a bow and two tags attached to its frame (derived from generated still #3830).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An ornate lantern hangs suspended by a chain in a mystical room. Inside the lantern's glass panels, an hourglass, butterflies, and glowing particles are visible, with a bow and two tags attached to its frame",
+  "inverted_title": "Inverted sketch: Stasis & Ember Lantern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An ornate lantern hangs suspended by a chain in a mystical room. Inside the lantern's glass panels, an hourglass, butterflies, and glowing particles are visible, with a bow and two tags attached to its frame (from generated still #3830).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An ornate lantern hangs suspended by a chain in a mystical room. Inside the lantern's glass panels, an hourglass, butterflies, and glowing particles are visible, with a bow and two tags attached to its frame",
+  "source_description": "An ornate golden lantern hangs suspended by a chain in a mystical purple room. Inside the lantern's glass panels, an hourglass, red butterflies, and glowing particles are visible, with a red bow and two tags attached to its frame.",
+  "source_prompt": "A highly detailed ornate golden lantern hanging from a chain in a mystical purple arcane study, arched window showing aurora borealis in the night sky, inside the lantern glass panels show a floating hourglass with red butterflies and glowing particles, red bow tied around the base, two paper tags attached reading Stasis & Ember and #E48368, wooden shelves filled with colorful magic potion bottles, scrolls on the wall, open book with quill and candle on a desk, magical glowing atmosphere, fantasy style",
+  "source_title": "Stasis & Ember Lantern",
+  "style": "Fantasy illustration",
+  "mood": "Mystical, enchanted",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lantern",
+    "magic",
+    "butterflies",
+    "hourglass",
+    "room"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3830,
+  "source_url": "/generated/3830.jpg",
+  "image_url": "/sketches/4411.png",
+  "inverted_image_url": "/sketches-inverted/4411.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:48Z"
+}

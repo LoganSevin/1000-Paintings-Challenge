@@ -1,0 +1,42 @@
+{
+  "number": 357,
+  "title": "Line sketch: Mushroom in Mystical Haze",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary mushroom with a and cap stands against a moody, cloudy background. Its stem and white roots create an ethereal, fantasy scene (derived from painting #419).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary mushroom with a and cap stands against a moody, cloudy background. Its stem and white roots create an ethereal, fantasy scene",
+  "inverted_title": "Inverted sketch: Mushroom in Mystical Haze",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary mushroom with a and cap stands against a moody, cloudy background. Its stem and white roots create an ethereal, fantasy scene (from painting #419).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary mushroom with a and cap stands against a moody, cloudy background. Its stem and white roots create an ethereal, fantasy scene",
+  "source_description": "A solitary mushroom with a blue and turquoise cap stands against a moody, cloudy background. Its purple stem and white roots create an ethereal, watercolor fantasy scene.",
+  "source_prompt": "",
+  "source_title": "Mushroom in Mystical Haze",
+  "style": "Fantasy",
+  "mood": "Mysterious and Ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "fantasy",
+    "tones",
+    "moody",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 419,
+  "source_url": "/paintings/419.jpg",
+  "image_url": "/sketches/357.png",
+  "inverted_image_url": "/sketches-inverted/357.png",
+  "curve_count": 234,
+  "built_at": "2026-08-17T00:09:39Z"
+}

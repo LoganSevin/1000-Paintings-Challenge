@@ -1,0 +1,42 @@
+{
+  "number": 3861,
+  "title": "Line sketch: -haired Goblin Archer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side poses of the same female goblin character with hair in pigtails, wearing a small crown, dark armor with accents, a cape, and heavy boots. She has spotted skin, pointed ears, and is shown in a combat stance, one with arms crossed blocking and the other blowing a bubble while holding a fist forward (derived from generated still #3278).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side poses of the same female goblin character with hair in pigtails, wearing a small crown, dark armor with accents, a cape, and heavy boots. She has spotted skin, pointed ears, and is shown in a combat stance, one with arms crossed blocking and the other blowing a bubble while holding a fist forward",
+  "inverted_title": "Inverted sketch: -haired Goblin Archer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side poses of the same female goblin character with hair in pigtails, wearing a small crown, dark armor with accents, a cape, and heavy boots. She has spotted skin, pointed ears, and is shown in a combat stance, one with arms crossed blocking and the other blowing a bubble while holding a fist forward (from generated still #3278).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side poses of the same female goblin character with hair in pigtails, wearing a small crown, dark armor with accents, a cape, and heavy boots. She has spotted skin, pointed ears, and is shown in a combat stance, one with arms crossed blocking and the other blowing a bubble while holding a fist forward",
+  "source_description": "Two side-by-side poses of the same female goblin character with pink hair in pigtails, wearing a small crown, dark armor with green accents, a green cape, and heavy boots. She has green spotted skin, pointed ears, and is shown in a combat stance, one with arms crossed blocking and the other blowing a green bubble while holding a fist forward.",
+  "source_prompt": "A cartoon goblin girl with bright pink hair in high pigtails, wearing a small golden crown, green spotted skin, pointed ears, black and green armored dress, green patterned cape, black gloves and heavy boots. She stands in a dynamic combat pose against a solid green background, one view with arms crossed in an X block in front of her chest, the other view blowing a large green bubble with her fist raised, both showing a determined expression, vibrant colors, clean line art.",
+  "source_title": "Pink-haired Goblin Archer",
+  "style": "cartoon",
+  "mood": "playful, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "goblin",
+    "female warrior",
+    "hair",
+    "cartoon character",
+    "cape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3278,
+  "source_url": "/generated/3278.jpg",
+  "image_url": "/sketches/3861.png",
+  "inverted_image_url": "/sketches-inverted/3861.png",
+  "curve_count": 285,
+  "built_at": "2026-08-17T00:09:46Z"
+}

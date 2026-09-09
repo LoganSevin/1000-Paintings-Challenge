@@ -1,0 +1,42 @@
+{
+  "number": 2752,
+  "title": "Line sketch: Vintage Banana Crate",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered wooden banana crate from Houma, Louisiana, marked with stenciled text reading 'BANANA CRATES', 'HOUMA #802020', and 'HOUMA - 40 LBS' with a circular stamp. The empty slatted box sits at an angle on a plain gray surface, casting a soft shadow (derived from generated still #2000).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered wooden banana crate from Houma, Louisiana, marked with stenciled text reading 'BANANA CRATES', 'HOUMA #802020', and 'HOUMA - 40 LBS' with a circular stamp. The empty slatted box sits at an angle on a plain gray surface, casting a soft shadow",
+  "inverted_title": "Inverted sketch: Vintage Banana Crate",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered wooden banana crate from Houma, Louisiana, marked with stenciled text reading 'BANANA CRATES', 'HOUMA #802020', and 'HOUMA - 40 LBS' with a circular stamp. The empty slatted box sits at an angle on a plain gray surface, casting a soft shadow (from generated still #2000).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered wooden banana crate from Houma, Louisiana, marked with stenciled text reading 'BANANA CRATES', 'HOUMA #802020', and 'HOUMA - 40 LBS' with a circular stamp. The empty slatted box sits at an angle on a plain gray surface, casting a soft shadow",
+  "source_description": "A weathered wooden banana crate from Houma, Louisiana, marked with stenciled text reading 'BANANA CRATES', 'HOUMA #802020', and 'HOUMA - 40 LBS' with a circular stamp. The empty slatted box sits at an angle on a plain gray surface, casting a soft shadow.",
+  "source_prompt": "",
+  "source_title": "Vintage Banana Crate",
+  "style": "realistic 3D render",
+  "mood": "rustic nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wooden crate",
+    "banana crate",
+    "vintage packaging",
+    "Houma",
+    "artifact"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2000,
+  "source_url": "/generated/2000.jpg",
+  "image_url": "/sketches/2752.png",
+  "inverted_image_url": "/sketches-inverted/2752.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

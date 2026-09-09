@@ -1,0 +1,42 @@
+{
+  "number": 4432,
+  "title": "Line sketch: Lunar Dust & Bindings",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical storefront at night with the sign 'Lunar Dust & Bindings' hanging above the door. The shop window displays floating books, potion bottles, scrolls, and mystical symbols, surrounded by swirling white smoke, glowing particles, and hanging evergreen branches against a dark brick building (derived from generated still #3851).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical storefront at night with the sign 'Lunar Dust & Bindings' hanging above the door. The shop window displays floating books, potion bottles, scrolls, and mystical symbols, surrounded by swirling white smoke, glowing particles, and hanging evergreen branches against a dark brick building",
+  "inverted_title": "Inverted sketch: Lunar Dust & Bindings",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical storefront at night with the sign 'Lunar Dust & Bindings' hanging above the door. The shop window displays floating books, potion bottles, scrolls, and mystical symbols, surrounded by swirling white smoke, glowing particles, and hanging evergreen branches against a dark brick building (from generated still #3851).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical storefront at night with the sign 'Lunar Dust & Bindings' hanging above the door. The shop window displays floating books, potion bottles, scrolls, and mystical symbols, surrounded by swirling white smoke, glowing particles, and hanging evergreen branches against a dark brick building",
+  "source_description": "A mystical blue storefront at night with the sign 'Lunar Dust & Bindings' hanging above the door. The shop window displays floating books, potion bottles, scrolls, and mystical symbols, surrounded by swirling white smoke, glowing particles, and hanging evergreen branches against a dark brick building.",
+  "source_prompt": "A highly detailed nighttime view of a magical blue wooden storefront named Lunar Dust & Bindings. The shop has a large display window filled with floating ancient books, glowing potion bottles, scrolls, and arcane symbols. Swirling white ethereal smoke and sparkling particles wrap around the building. Evergreen branches and hanging ornaments decorate the facade. A wooden stool with a rope and scattered papers lie on the cobblestone street in front of the door. Dark brick building above with glowing windows, cinematic fantasy atmosphere.",
+  "source_title": "Lunar Dust & Bindings",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bookshop",
+    "fantasy shop",
+    "night scene",
+    "magic",
+    "swirling smoke"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3851,
+  "source_url": "/generated/3851.jpg",
+  "image_url": "/sketches/4432.png",
+  "inverted_image_url": "/sketches-inverted/4432.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:48Z"
+}

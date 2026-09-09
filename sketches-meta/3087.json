@@ -1,0 +1,42 @@
+{
+  "number": 3087,
+  "title": "Line sketch: Paw Print Pathway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted scene features a large black paw print centered on a bold and geometric background. A winding path leads through a vibrant foreground filled with stylized flowers, lilacs, and swirling foliage under a starry sky (derived from generated still #2420).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted scene features a large black paw print centered on a bold and geometric background. A winding path leads through a vibrant foreground filled with stylized flowers, lilacs, and swirling foliage under a starry sky",
+  "inverted_title": "Inverted sketch: Paw Print Pathway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted scene features a large black paw print centered on a bold and geometric background. A winding path leads through a vibrant foreground filled with stylized flowers, lilacs, and swirling foliage under a starry sky (from generated still #2420).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted scene features a large black paw print centered on a bold and geometric background. A winding path leads through a vibrant foreground filled with stylized flowers, lilacs, and swirling foliage under a starry sky",
+  "source_description": "A surreal painted scene features a large black paw print centered on a bold red and green geometric background. A winding yellow path leads through a vibrant foreground filled with stylized flowers, purple lilacs, and swirling foliage under a starry sky.",
+  "source_prompt": "Surreal painted artwork showing a large black animal paw print centered on a red geometric panel with green chevron borders. A bright yellow winding path flows from the bottom toward the center, surrounded by dense stylized flowers including purple lilacs, pink and white blooms, and swirling green foliage. The background transitions from dark starry space on the sides to warm earthy tones, creating a vibrant and dreamlike composition.",
+  "source_title": "Paw Print Pathway",
+  "style": "surreal composition",
+  "mood": "whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "paw print",
+    "surreal landscape",
+    "path",
+    "floral art",
+    "geometric background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2420,
+  "source_url": "/generated/2420.jpg",
+  "image_url": "/sketches/3087.png",
+  "inverted_image_url": "/sketches-inverted/3087.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

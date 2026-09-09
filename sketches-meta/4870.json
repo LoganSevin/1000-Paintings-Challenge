@@ -1,0 +1,42 @@
+{
+  "number": 4870,
+  "title": "Line sketch: Psychedelic TV Smile",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vintage wooden television set displays a surreal psychedelic composition featuring a large smiling face with eyes and mouth. The composition is filled with hanging wind chimes, spirals, flowers, and abstract female faces against a swirling dark background (derived from generated still #4305).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vintage wooden television set displays a surreal psychedelic composition featuring a large smiling face with eyes and mouth. The composition is filled with hanging wind chimes, spirals, flowers, and abstract female faces against a swirling dark background",
+  "inverted_title": "Inverted sketch: Psychedelic TV Smile",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vintage wooden television set displays a surreal psychedelic composition featuring a large smiling face with eyes and mouth. The composition is filled with hanging wind chimes, spirals, flowers, and abstract female faces against a swirling dark background (from generated still #4305).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vintage wooden television set displays a surreal psychedelic composition featuring a large smiling face with eyes and mouth. The composition is filled with hanging wind chimes, spirals, flowers, and abstract female faces against a swirling dark background",
+  "source_description": "A vintage wooden television set displays a surreal psychedelic painting featuring a large blue smiling face with orange eyes and mouth. The composition is filled with hanging wind chimes, spirals, roses, colorful flowers, and abstract female faces against a swirling dark background.",
+  "source_prompt": "A surreal psychedelic painting displayed on the screen of a vintage wooden television. The central subject is a large bright blue smiling face with bold orange eyes and mouth. Surrounding it are hanging metallic wind chimes, black and white spirals, red roses, vibrant orange and purple flowers, and stylized female faces with blue skin. Dark swirling smoke and abstract geometric shapes fill the background in a vibrant, dreamlike composition.",
+  "source_title": "Psychedelic TV Smile",
+  "style": "surrealism",
+  "mood": "trippy, joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "television",
+    "smiley face",
+    "wind chimes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4305,
+  "source_url": "/generated/4305.jpg",
+  "image_url": "/sketches/4870.png",
+  "inverted_image_url": "/sketches-inverted/4870.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:49Z"
+}

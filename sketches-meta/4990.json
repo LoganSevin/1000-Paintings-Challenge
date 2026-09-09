@@ -1,0 +1,42 @@
+{
+  "number": 4990,
+  "title": "Line sketch: Surreal Cosmic Overseer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a giant multi-armed goddess with flowing hair floating in a starry sky above a large stylized all-seeing eye containing a nuclear symbol. She holds a spear and a scythe while a ceiling fan spins above her. Below is a pastoral landscape with a wooden dock where a soldier in uniform sits beside a vase of flowers, two horses near a fence, a partial face in the foreground, and a smoking industrial factory in the distance (derived from generated still #4427).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a giant multi-armed goddess with flowing hair floating in a starry sky above a large stylized all-seeing eye containing a nuclear symbol. She holds a spear and a scythe while a ceiling fan spins above her. Below is a pastoral landscape with a wooden dock where a soldier in uniform sits beside a vase of flowers, two horses near a fence, a partial face in the foreground, and a smoking industrial factory in the distance",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Overseer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a giant multi-armed goddess with flowing hair floating in a starry sky above a large stylized all-seeing eye containing a nuclear symbol. She holds a spear and a scythe while a ceiling fan spins above her. Below is a pastoral landscape with a wooden dock where a soldier in uniform sits beside a vase of flowers, two horses near a fence, a partial face in the foreground, and a smoking industrial factory in the distance (from generated still #4427).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a giant multi-armed goddess with flowing hair floating in a starry sky above a large stylized all-seeing eye containing a nuclear symbol. She holds a spear and a scythe while a ceiling fan spins above her. Below is a pastoral landscape with a wooden dock where a soldier in uniform sits beside a vase of flowers, two horses near a fence, a partial face in the foreground, and a smoking industrial factory in the distance",
+  "source_description": "A surreal scene featuring a giant blue multi-armed goddess with flowing hair floating in a starry sky above a large stylized all-seeing eye containing a nuclear symbol. She holds a spear and a scythe while a ceiling fan spins above her. Below is a pastoral landscape with a wooden dock where a soldier in green uniform sits beside a vase of flowers, two red horses near a fence, a partial green face in the foreground, and a smoking industrial factory in the distance.",
+  "source_prompt": "Surreal painting of a giant blue multi-armed Hindu-inspired goddess with flowing golden hair floating in a swirling cosmic sky filled with stars and nebulae. She holds a spear and scythe while hovering above a massive stylized purple eye containing a golden nuclear radiation symbol. A wooden ceiling fan spins above her head. In the foreground a green giant face appears on the left, two red horses stand near a wooden fence by a glowing circular pond, a soldier in green military uniform sits pensively on a wooden dock beside a vase of colorful flowers, with a smoking industrial factory in the distant background under a twilight sky.",
+  "source_title": "Surreal Cosmic Overseer",
+  "style": "surrealism",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mythological",
+    "nuclear",
+    "industrial",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4427,
+  "source_url": "/generated/4427.jpg",
+  "image_url": "/sketches/4990.png",
+  "inverted_image_url": "/sketches-inverted/4990.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:49Z"
+}

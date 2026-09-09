@@ -1,0 +1,42 @@
+{
+  "number": 3691,
+  "title": "Line sketch: Stasis Pool Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a giant bald child's head with white eyes and a cigarette overlooking a glowing pool where two young girls sit. Mechanical war machines and elephant-mounted soldiers advance across a battlefield in the background (derived from generated still #3099).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a giant bald child's head with white eyes and a cigarette overlooking a glowing pool where two young girls sit. Mechanical war machines and elephant-mounted soldiers advance across a battlefield in the background",
+  "inverted_title": "Inverted sketch: Stasis Pool Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a giant bald child's head with white eyes and a cigarette overlooking a glowing pool where two young girls sit. Mechanical war machines and elephant-mounted soldiers advance across a battlefield in the background (from generated still #3099).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a giant bald child's head with white eyes and a cigarette overlooking a glowing pool where two young girls sit. Mechanical war machines and elephant-mounted soldiers advance across a battlefield in the background",
+  "source_description": "A surreal scene featuring a giant bald child's head with white eyes and a cigarette overlooking a glowing turquoise pool where two young girls sit. Mechanical war machines and elephant-mounted soldiers advance across a purple battlefield in the background.",
+  "source_prompt": "",
+  "source_title": "Stasis Pool Vision",
+  "style": "surreal illustration",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "colored pencil on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "war",
+    "childhood",
+    "mechanical",
+    "glow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3099,
+  "source_url": "/generated/3099.jpg",
+  "image_url": "/sketches/3691.png",
+  "inverted_image_url": "/sketches-inverted/3691.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:46Z"
+}

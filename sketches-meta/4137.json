@@ -1,0 +1,42 @@
+{
+  "number": 4137,
+  "title": "Line sketch: Mosaic Selfie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with hair and a patterned headscarf sits on a bed taking a selfie with a smartphone. The central realistic composition is framed by a broken mosaic tile border featuring sun rays, and fragments, and a floral bottom panel (derived from generated still #3554).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with hair and a patterned headscarf sits on a bed taking a selfie with a smartphone. The central realistic composition is framed by a broken mosaic tile border featuring sun rays, and fragments, and a floral bottom panel",
+  "inverted_title": "Inverted sketch: Mosaic Selfie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with hair and a patterned headscarf sits on a bed taking a selfie with a smartphone. The central realistic composition is framed by a broken mosaic tile border featuring sun rays, and fragments, and a floral bottom panel (from generated still #3554).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with hair and a patterned headscarf sits on a bed taking a selfie with a smartphone. The central realistic composition is framed by a broken mosaic tile border featuring sun rays, and fragments, and a floral bottom panel",
+  "source_description": "A blue-skinned woman with purple hair and a patterned headscarf sits on a bed taking a selfie with a smartphone. The central realistic painting is framed by a broken mosaic tile border featuring sun rays, blue and orange fragments, and a floral bottom panel.",
+  "source_prompt": "A surreal painting of a blue-skinned woman with long purple hair wearing a patterned headscarf and orange-blue bikini, sitting on a bed and taking a mirror selfie with her smartphone, her face and body covered in white markings. The central image is framed by a shattered mosaic of blue, orange and yellow tiles with a large sunburst stained-glass panel at the top and an orange flower pattern at the bottom, cracked tile effect, detailed, artistic composition",
+  "source_title": "Mosaic Selfie",
+  "style": "surreal mosaic composition",
+  "mood": "ethereal provocative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "selfie",
+    "mosaic",
+    "skin",
+    "stained glass",
+    "bedroom"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3554,
+  "source_url": "/generated/3554.jpg",
+  "image_url": "/sketches/4137.png",
+  "inverted_image_url": "/sketches-inverted/4137.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:47Z"
+}

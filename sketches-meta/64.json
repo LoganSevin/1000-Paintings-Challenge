@@ -1,0 +1,42 @@
+{
+  "number": 64,
+  "title": "Line sketch: Sunset Over City Bridges",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sweeping urban landscape at hour shows a wide river crossed by arched bridges, reflecting the blazing sun, with a dense skyline of skyscrapers rising against dramatic clouds. The composition layers foreground infrastructure, midground water, and distant towers beneath a centered sun. Thick, expressive and saturated color blocks create a stylized, painterly effect (derived from painting #95).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sweeping urban landscape at hour shows a wide river crossed by arched bridges, reflecting the blazing sun, with a dense skyline of skyscrapers rising against dramatic clouds. The composition layers foreground infrastructure, midground water, and distant towers beneath a centered sun. Thick, expressive and saturated color blocks create a stylized, painterly effect",
+  "inverted_title": "Inverted sketch: Sunset Over City Bridges",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sweeping urban landscape at hour shows a wide river crossed by arched bridges, reflecting the blazing sun, with a dense skyline of skyscrapers rising against dramatic clouds. The composition layers foreground infrastructure, midground water, and distant towers beneath a centered sun. Thick, expressive and saturated color blocks create a stylized, painterly effect (from painting #95).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sweeping urban landscape at hour shows a wide river crossed by arched bridges, reflecting the blazing sun, with a dense skyline of skyscrapers rising against dramatic clouds. The composition layers foreground infrastructure, midground water, and distant towers beneath a centered sun. Thick, expressive and saturated color blocks create a stylized, painterly effect",
+  "source_description": "A sweeping urban landscape at golden hour shows a wide river crossed by arched bridges, reflecting the blazing sun, with a dense skyline of skyscrapers rising against dramatic clouds. The composition layers foreground infrastructure, midground water, and distant towers beneath a centered sun. Thick, expressive brushwork and saturated color blocks create a stylized, painterly effect.",
+  "source_prompt": "",
+  "source_title": "Sunset Over City Bridges",
+  "style": "Impressionism",
+  "mood": "Vibrant dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "sunset",
+    "river",
+    "bridges",
+    "skyline"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 95,
+  "source_url": "/paintings/95.jpg",
+  "image_url": "/sketches/64.png",
+  "inverted_image_url": "/sketches-inverted/64.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:38Z"
+}

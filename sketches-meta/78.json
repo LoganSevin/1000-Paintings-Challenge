@@ -1,0 +1,42 @@
+{
+  "number": 78,
+  "title": "Line sketch: Biomorphic Dance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract composition featuring overlapping organic shapes, circles, and flowing curves scattered across a background. Soft color gradients and bold black outlines create depth and movement in a playful arrangement. The flat, graphic technique emphasizes simplified forms and harmonious color interactions (derived from painting #109).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract composition featuring overlapping organic shapes, circles, and flowing curves scattered across a background. Soft color gradients and bold black outlines create depth and movement in a playful arrangement. The flat, graphic technique emphasizes simplified forms and harmonious color interactions",
+  "inverted_title": "Inverted sketch: Biomorphic Dance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract composition featuring overlapping organic shapes, circles, and flowing curves scattered across a background. Soft color gradients and bold black outlines create depth and movement in a playful arrangement. The flat, graphic technique emphasizes simplified forms and harmonious color interactions (from painting #109).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract composition featuring overlapping organic shapes, circles, and flowing curves scattered across a background. Soft color gradients and bold black outlines create depth and movement in a playful arrangement. The flat, graphic technique emphasizes simplified forms and harmonious color interactions",
+  "source_description": "Abstract composition featuring overlapping organic shapes, circles, and flowing curves scattered across a muted teal background. Soft color gradients and bold black outlines create depth and movement in a playful arrangement. The flat, graphic technique emphasizes simplified forms and harmonious color interactions.",
+  "source_prompt": "",
+  "source_title": "Biomorphic Teal Dance",
+  "style": "Abstract",
+  "mood": "Playful serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "organic",
+    "shapes",
+    "circles",
+    "curves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 109,
+  "source_url": "/paintings/109.jpg",
+  "image_url": "/sketches/78.png",
+  "inverted_image_url": "/sketches-inverted/78.png",
+  "curve_count": 100,
+  "built_at": "2026-08-17T00:09:38Z"
+}

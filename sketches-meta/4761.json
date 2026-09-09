@@ -1,0 +1,42 @@
+{
+  "number": 4761,
+  "title": "Line sketch: Starry Farm Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene rural landscape at night featuring a wheat field in the foreground, a barn and scattered trees in the midground, all under a vibrant starry night sky filled with the Milky Way and glowing nebulae. The entire scene is enclosed within a thick, textured painterly frame with swirling strokes of, and (derived from generated still #4194).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene rural landscape at night featuring a wheat field in the foreground, a barn and scattered trees in the midground, all under a vibrant starry night sky filled with the Milky Way and glowing nebulae. The entire scene is enclosed within a thick, textured painterly frame with swirling strokes of, and",
+  "inverted_title": "Inverted sketch: Starry Farm Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene rural landscape at night featuring a wheat field in the foreground, a barn and scattered trees in the midground, all under a vibrant starry night sky filled with the Milky Way and glowing nebulae. The entire scene is enclosed within a thick, textured painterly frame with swirling strokes of, and (from generated still #4194).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene rural landscape at night featuring a wheat field in the foreground, a barn and scattered trees in the midground, all under a vibrant starry night sky filled with the Milky Way and glowing nebulae. The entire scene is enclosed within a thick, textured painterly frame with swirling strokes of, and",
+  "source_description": "A serene rural landscape at night featuring a golden wheat field in the foreground, a red barn and scattered trees in the midground, all under a vibrant starry night sky filled with the Milky Way and glowing nebulae. The entire scene is enclosed within a thick, textured painterly frame with swirling impasto strokes of deep blue, purple, and gold.",
+  "source_prompt": "A peaceful rural night scene with a vast golden wheat field in the foreground, a red-roofed barn and several large trees in the middle distance, under a breathtaking starry sky showing the Milky Way, bright stars and colorful nebulae. The entire image is bordered by a thick, swirling, heavily textured painterly frame in blues, purples and golds with visible impasto brushstrokes, cinematic lighting, magical atmosphere",
+  "source_title": "Starry Farm Landscape",
+  "style": "composition",
+  "mood": "magical serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "starry night",
+    "farm landscape",
+    "wheat field",
+    "milky way",
+    "textured frame"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4194,
+  "source_url": "/generated/4194.jpg",
+  "image_url": "/sketches/4761.png",
+  "inverted_image_url": "/sketches-inverted/4761.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:48Z"
+}

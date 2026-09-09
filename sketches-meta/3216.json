@@ -1,0 +1,42 @@
+{
+  "number": 3216,
+  "title": "Line sketch: Cinema Dream Stairway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a grey coat and skirt stands on a grand spiral staircase made of film reels and VHS tapes, reaching upward toward a glowing circular opening in a dramatic sky. film strips and movie memorabilia cascade down from the portal as theatrical curtains frame the surreal scene (derived from generated still #2566).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a grey coat and skirt stands on a grand spiral staircase made of film reels and VHS tapes, reaching upward toward a glowing circular opening in a dramatic sky. film strips and movie memorabilia cascade down from the portal as theatrical curtains frame the surreal scene",
+  "inverted_title": "Inverted sketch: Cinema Dream Stairway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a grey coat and skirt stands on a grand spiral staircase made of film reels and VHS tapes, reaching upward toward a glowing circular opening in a dramatic sky. film strips and movie memorabilia cascade down from the portal as theatrical curtains frame the surreal scene (from generated still #2566).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a grey coat and skirt stands on a grand spiral staircase made of film reels and VHS tapes, reaching upward toward a glowing circular opening in a dramatic sky. film strips and movie memorabilia cascade down from the portal as theatrical curtains frame the surreal scene",
+  "source_description": "A woman in a grey coat and red skirt stands on a grand spiral staircase made of film reels and VHS tapes, reaching upward toward a glowing circular opening in a dramatic purple sky. Golden film strips and movie memorabilia cascade down from the portal as theatrical red curtains frame the surreal scene.",
+  "source_prompt": "A woman in a grey coat and red skirt stands on a grand spiral staircase constructed from stacked VHS tapes, film reels, and movie posters, reaching her hand up toward a glowing circular portal in a dramatic purple and pink cloudy sky. Golden film strips and movie memorabilia are falling from the opening, theatrical red curtains frame the top, cinematic lighting with a strong spotlight beam, surreal dreamlike atmosphere, highly detailed digital painting.",
+  "source_title": "Cinema Dream Stairway",
+  "style": "surreal fantasy illustration",
+  "mood": "dreamlike wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "staircase",
+    "film reels",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2566,
+  "source_url": "/generated/2566.jpg",
+  "image_url": "/sketches/3216.png",
+  "inverted_image_url": "/sketches-inverted/3216.png",
+  "curve_count": 99,
+  "built_at": "2026-08-17T00:09:45Z"
+}

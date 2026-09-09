@@ -1,0 +1,42 @@
+{
+  "number": 2128,
+  "title": "Line sketch: Surreal Chrysanthemum Bowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large chrysanthemum with dripping petals emerges from a cracked bowl filled with blueberries. Inside a transparent bubble floating above are a multi-tiered pagoda, a white and eyeball, a butterfly, and a black bat, all set against a soft gradient background with stylized clouds (derived from generated still #1353).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large chrysanthemum with dripping petals emerges from a cracked bowl filled with blueberries. Inside a transparent bubble floating above are a multi-tiered pagoda, a white and eyeball, a butterfly, and a black bat, all set against a soft gradient background with stylized clouds",
+  "inverted_title": "Inverted sketch: Surreal Chrysanthemum Bowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large chrysanthemum with dripping petals emerges from a cracked bowl filled with blueberries. Inside a transparent bubble floating above are a multi-tiered pagoda, a white and eyeball, a butterfly, and a black bat, all set against a soft gradient background with stylized clouds (from generated still #1353).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large chrysanthemum with dripping petals emerges from a cracked bowl filled with blueberries. Inside a transparent bubble floating above are a multi-tiered pagoda, a white and eyeball, a butterfly, and a black bat, all set against a soft gradient background with stylized clouds",
+  "source_description": "A large magenta chrysanthemum with dripping petals emerges from a green cracked bowl filled with blueberries. Inside a transparent bubble floating above are a multi-tiered pagoda, a white and blue eyeball, a yellow butterfly, and a black bat, all set against a soft gradient background with stylized clouds.",
+  "source_prompt": "",
+  "source_title": "Surreal Chrysanthemum Bowl",
+  "style": "surrealism",
+  "mood": "dreamlike, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "still life",
+    "chrysanthemum",
+    "blueberries",
+    "bubble"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1353,
+  "source_url": "/generated/1353.jpg",
+  "image_url": "/sketches/2128.png",
+  "inverted_image_url": "/sketches-inverted/2128.png",
+  "curve_count": 71,
+  "built_at": "2026-08-17T00:09:42Z"
+}

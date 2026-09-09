@@ -1,0 +1,42 @@
+{
+  "number": 373,
+  "title": "Line sketch: Elderly Man in Beret",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A digital portrait of an older gentleman with glasses, a gray beard, and a beret. He wears a turtleneck sweater and gazes thoughtfully to the side against a solid background (derived from painting #438).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A digital portrait of an older gentleman with glasses, a gray beard, and a beret. He wears a turtleneck sweater and gazes thoughtfully to the side against a solid background",
+  "inverted_title": "Inverted sketch: Elderly Man in Beret",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A digital portrait of an older gentleman with glasses, a gray beard, and a beret. He wears a turtleneck sweater and gazes thoughtfully to the side against a solid background (from painting #438).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A digital portrait of an older gentleman with glasses, a gray beard, and a beret. He wears a turtleneck sweater and gazes thoughtfully to the side against a solid background",
+  "source_description": "A digital portrait of an older gentleman with glasses, a gray beard, and a brown beret. He wears a green turtleneck sweater and gazes thoughtfully to the side against a solid lavender background.",
+  "source_prompt": "",
+  "source_title": "Elderly Man in Beret",
+  "style": "digital illustration",
+  "mood": "contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "elderly man",
+    "beret",
+    "glasses",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 438,
+  "source_url": "/paintings/438.jpg",
+  "image_url": "/sketches/373.png",
+  "inverted_image_url": "/sketches-inverted/373.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3008,
+  "title": "Line sketch: Cyber Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A person with short dark hair crouches dynamically in the center of a vibrant, futuristic studio filled with glowing rings and geometric patterns. They wear a stylized cyberpunk outfit with a patterned jacket, glowing circular accents, pants with floral motifs, and glowing platform boots, surrounded by large peonies on a reflective floor (derived from generated still #2330).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A person with short dark hair crouches dynamically in the center of a vibrant, futuristic studio filled with glowing rings and geometric patterns. They wear a stylized cyberpunk outfit with a patterned jacket, glowing circular accents, pants with floral motifs, and glowing platform boots, surrounded by large peonies on a reflective floor",
+  "inverted_title": "Inverted sketch: Cyber Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A person with short dark hair crouches dynamically in the center of a vibrant, futuristic studio filled with glowing rings and geometric patterns. They wear a stylized cyberpunk outfit with a patterned jacket, glowing circular accents, pants with floral motifs, and glowing platform boots, surrounded by large peonies on a reflective floor (from generated still #2330).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A person with short dark hair crouches dynamically in the center of a vibrant, futuristic studio filled with glowing rings and geometric patterns. They wear a stylized cyberpunk outfit with a patterned jacket, glowing circular accents, pants with floral motifs, and glowing platform boots, surrounded by large peonies on a reflective floor",
+  "source_description": "A person with short dark hair crouches dynamically in the center of a vibrant, futuristic studio filled with glowing neon rings and colorful geometric patterns. They wear a stylized cyberpunk outfit with a purple patterned jacket, glowing blue circular accents, turquoise pants with floral motifs, and glowing pink platform boots, surrounded by large pink peonies on a reflective floor.",
+  "source_prompt": "A person with short dark hair in a dynamic crouching pose, wearing a vibrant cyberpunk jacket with glowing blue circular patterns, black harness, turquoise pants with yellow and pink floral designs, and glowing pink platform boots. Surrounded by large blooming pink peonies and floating neon rings in pink, purple and blue against a geometric patterned background with reflective floor, bright pop surreal studio setting, highly detailed digital art",
+  "source_title": "Neon Cyber Portrait",
+  "style": "digital cyberpunk pop art",
+  "mood": "vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "androgynous",
+    "futuristic",
+    "floral",
+    "studio portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2330,
+  "source_url": "/generated/2330.jpg",
+  "image_url": "/sketches/3008.png",
+  "inverted_image_url": "/sketches-inverted/3008.png",
+  "curve_count": 141,
+  "built_at": "2026-08-17T00:09:44Z"
+}

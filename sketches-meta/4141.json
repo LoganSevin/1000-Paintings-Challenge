@@ -1,0 +1,42 @@
+{
+  "number": 4141,
+  "title": "Line sketch: Surreal War Cry",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant bald head with wide eyes and open mouth floats in the sky above a vast field. An army of armored soldiers on horseback charges forward from the head's mouth toward the viewer, surrounded by poppies, flowers, and a large white lily in the foreground (derived from generated still #3558).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant bald head with wide eyes and open mouth floats in the sky above a vast field. An army of armored soldiers on horseback charges forward from the head's mouth toward the viewer, surrounded by poppies, flowers, and a large white lily in the foreground",
+  "inverted_title": "Inverted sketch: Surreal War Cry",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant bald head with wide eyes and open mouth floats in the sky above a vast field. An army of armored soldiers on horseback charges forward from the head's mouth toward the viewer, surrounded by poppies, flowers, and a large white lily in the foreground (from generated still #3558).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant bald head with wide eyes and open mouth floats in the sky above a vast field. An army of armored soldiers on horseback charges forward from the head's mouth toward the viewer, surrounded by poppies, flowers, and a large white lily in the foreground",
+  "source_description": "A giant blue bald head with wide eyes and open mouth floats in the sky above a vast lavender field. An army of armored soldiers on horseback charges forward from the head's mouth toward the viewer, surrounded by red poppies, orange flowers, and a large white lily in the foreground.",
+  "source_prompt": "Surreal scene of a giant blue bald head with wide eyes and open mouth floating in a cloudy sky, projecting rays of light and an army of medieval armored knights on horseback charging out from its mouth across a vast field of purple lavender. Red poppies and orange flowers grow on the left, a large white lily in the center foreground, ink line art with watercolor washes, dramatic and dreamlike atmosphere.",
+  "source_title": "Surreal War Cry",
+  "style": "surreal composition",
+  "mood": "epic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy army",
+    "field",
+    "giant head",
+    "warriors"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3558,
+  "source_url": "/generated/3558.jpg",
+  "image_url": "/sketches/4141.png",
+  "inverted_image_url": "/sketches-inverted/4141.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:47Z"
+}

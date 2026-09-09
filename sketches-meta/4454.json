@@ -1,0 +1,42 @@
+{
+  "number": 4454,
+  "title": "Line sketch: Arcane Alchemist in Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with elaborate braided hair sits at an ornate desk inside a magical greenhouse laboratory. She wears a robe and gloves while examining a small flower, surrounded by hanging glass orbs containing glowing specimens, open spellbooks, tagged botanical samples, and a vibrant wall of hanging mushrooms and vines under a glass ceiling (derived from generated still #3873).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with elaborate braided hair sits at an ornate desk inside a magical greenhouse laboratory. She wears a robe and gloves while examining a small flower, surrounded by hanging glass orbs containing glowing specimens, open spellbooks, tagged botanical samples, and a vibrant wall of hanging mushrooms and vines under a glass ceiling",
+  "inverted_title": "Inverted sketch: Arcane Alchemist in Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with elaborate braided hair sits at an ornate desk inside a magical greenhouse laboratory. She wears a robe and gloves while examining a small flower, surrounded by hanging glass orbs containing glowing specimens, open spellbooks, tagged botanical samples, and a vibrant wall of hanging mushrooms and vines under a glass ceiling (from generated still #3873).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with elaborate braided hair sits at an ornate desk inside a magical greenhouse laboratory. She wears a robe and gloves while examining a small flower, surrounded by hanging glass orbs containing glowing specimens, open spellbooks, tagged botanical samples, and a vibrant wall of hanging mushrooms and vines under a glass ceiling",
+  "source_description": "A purple-skinned woman with elaborate braided hair sits at an ornate desk inside a magical greenhouse laboratory. She wears a colorful robe and green gloves while examining a small red flower, surrounded by hanging glass orbs containing glowing specimens, open spellbooks, tagged botanical samples, and a vibrant wall of hanging red mushrooms and vines under a glass ceiling.",
+  "source_prompt": "A purple-skinned female alchemist with intricate purple braided updo sits at an ornate green and white desk inside a whimsical magical greenhouse. She wears a colorful red and gold robe with green gloves and holds a small red flower. The room is filled with hanging glass orbs containing glowing plants and creatures, open ancient books, tagged botanical specimens, red mushrooms growing on the wall, purple ribbons, and a cloudy sky visible through the glass ceiling, detailed fantasy illustration",
+  "source_title": "Arcane Alchemist in Study",
+  "style": "fantasy illustration",
+  "mood": "mysterious, scholarly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "magical laboratory",
+    "botanical magic",
+    "fantasy interior",
+    "skin"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3873,
+  "source_url": "/generated/3873.jpg",
+  "image_url": "/sketches/4454.png",
+  "inverted_image_url": "/sketches-inverted/4454.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:48Z"
+}

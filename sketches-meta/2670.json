@@ -1,0 +1,42 @@
+{
+  "number": 2670,
+  "title": "Line sketch: Sorcerer and Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone hooded sorcerer in an ornate dark robe stands on a cracked path, gazing toward a massive celestial body marked with a glowing cross that radiates intense light beams across a cosmic sky (derived from generated still #1912).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone hooded sorcerer in an ornate dark robe stands on a cracked path, gazing toward a massive celestial body marked with a glowing cross that radiates intense light beams across a cosmic sky",
+  "inverted_title": "Inverted sketch: Sorcerer and Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone hooded sorcerer in an ornate dark robe stands on a cracked path, gazing toward a massive celestial body marked with a glowing cross that radiates intense light beams across a cosmic sky (from generated still #1912).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone hooded sorcerer in an ornate dark robe stands on a cracked path, gazing toward a massive celestial body marked with a glowing cross that radiates intense light beams across a cosmic sky",
+  "source_description": "A lone hooded sorcerer in an ornate dark robe stands on a cracked purple path, gazing toward a massive red celestial body marked with a glowing cross that radiates intense light beams across a cosmic sky.",
+  "source_prompt": "",
+  "source_title": "Sorcerer and Crimson Eclipse",
+  "style": "fantasy illustration",
+  "mood": "mystical ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorcerer",
+    "eclipse",
+    "fantasy landscape",
+    "cosmic sky",
+    "barren trees"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1912,
+  "source_url": "/generated/1912.jpg",
+  "image_url": "/sketches/2670.png",
+  "inverted_image_url": "/sketches-inverted/2670.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:44Z"
+}

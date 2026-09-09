@@ -1,0 +1,42 @@
+{
+  "number": 931,
+  "title": "Line sketch: Celestial Wizard Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone wizard in a robe stands on a grassy cliff holding a staff, gazing toward a glowing portal revealing a crescent moon and distant castles. Floating islands, swirling cosmic nebulae in vibrant hues, and ornate Celtic patterns fill the fantastical night sky (derived from generated still #141).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone wizard in a robe stands on a grassy cliff holding a staff, gazing toward a glowing portal revealing a crescent moon and distant castles. Floating islands, swirling cosmic nebulae in vibrant hues, and ornate Celtic patterns fill the fantastical night sky",
+  "inverted_title": "Inverted sketch: Celestial Wizard Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone wizard in a robe stands on a grassy cliff holding a staff, gazing toward a glowing portal revealing a crescent moon and distant castles. Floating islands, swirling cosmic nebulae in vibrant hues, and ornate Celtic patterns fill the fantastical night sky (from generated still #141).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone wizard in a robe stands on a grassy cliff holding a staff, gazing toward a glowing portal revealing a crescent moon and distant castles. Floating islands, swirling cosmic nebulae in vibrant hues, and ornate Celtic patterns fill the fantastical night sky",
+  "source_description": "A lone wizard in a blue robe stands on a grassy cliff holding a staff, gazing toward a glowing green portal revealing a crescent moon and distant castles. Floating islands, swirling cosmic nebulae in vibrant hues, and ornate Celtic patterns fill the fantastical night sky.",
+  "source_prompt": "",
+  "source_title": "Celestial Wizard Portal",
+  "style": "fantasy illustration",
+  "mood": "magical, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "portal",
+    "floating islands",
+    "cosmic sky",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 141,
+  "source_url": "/generated/141.jpg",
+  "image_url": "/sketches/931.png",
+  "inverted_image_url": "/sketches-inverted/931.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:40Z"
+}

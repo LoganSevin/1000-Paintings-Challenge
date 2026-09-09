@@ -1,0 +1,42 @@
+{
+  "number": 3825,
+  "title": "Line sketch: Mech Punk Boy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young male character with spiky blonde hair is shown in three sequential action poses against a dark background. He wears a bulky black and armored suit with mechanical details, large gloves, and knee pads, with sparks and liquid effects exploding from his head and body (derived from generated still #3242).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young male character with spiky blonde hair is shown in three sequential action poses against a dark background. He wears a bulky black and armored suit with mechanical details, large gloves, and knee pads, with sparks and liquid effects exploding from his head and body",
+  "inverted_title": "Inverted sketch: Mech Punk Boy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young male character with spiky blonde hair is shown in three sequential action poses against a dark background. He wears a bulky black and armored suit with mechanical details, large gloves, and knee pads, with sparks and liquid effects exploding from his head and body (from generated still #3242).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young male character with spiky blonde hair is shown in three sequential action poses against a dark background. He wears a bulky black and armored suit with mechanical details, large gloves, and knee pads, with sparks and liquid effects exploding from his head and body",
+  "source_description": "A young male character with spiky blonde hair is shown in three sequential action poses against a dark background. He wears a bulky black and yellow armored suit with mechanical details, large gloves, and knee pads, with yellow sparks and liquid effects exploding from his head and body.",
+  "source_prompt": "A young male fighter with messy spiky blonde hair and an intense expression, wearing a bulky black and bright yellow mechanical armored suit with circular yellow plating, heavy gloves, and boots. Shown in three dynamic action poses: throwing punches, mid-jump with sparks exploding from his head and shoulders, and a powerful fighting stance. Dramatic lighting with yellow sparks and droplets flying, dark background, stylized digital painting.",
+  "source_title": "Yellow Mech Punk Boy",
+  "style": "digital character concept art",
+  "mood": "dynamic, aggressive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "mech punk",
+    "action poses",
+    "blonde hair",
+    "armored suit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3242,
+  "source_url": "/generated/3242.jpg",
+  "image_url": "/sketches/3825.png",
+  "inverted_image_url": "/sketches-inverted/3825.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:46Z"
+}

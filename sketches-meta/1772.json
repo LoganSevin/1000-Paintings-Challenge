@@ -1,0 +1,42 @@
+{
+  "number": 1772,
+  "title": "Line sketch: Fragmented Dream Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with long flowing black hair and eyes, her face composed of geometric fragments that appear to be breaking apart. An horse with spots gallops through a vibrant field of flowers against a patterned background filled with floral and psychedelic motifs (derived from generated still #994).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with long flowing black hair and eyes, her face composed of geometric fragments that appear to be breaking apart. An horse with spots gallops through a vibrant field of flowers against a patterned background filled with floral and psychedelic motifs",
+  "inverted_title": "Inverted sketch: Fragmented Dream Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with long flowing black hair and eyes, her face composed of geometric fragments that appear to be breaking apart. An horse with spots gallops through a vibrant field of flowers against a patterned background filled with floral and psychedelic motifs (from generated still #994).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with long flowing black hair and eyes, her face composed of geometric fragments that appear to be breaking apart. An horse with spots gallops through a vibrant field of flowers against a patterned background filled with floral and psychedelic motifs",
+  "source_description": "A surreal portrait of a woman with long flowing black hair and golden eyes, her face composed of multicolored geometric fragments that appear to be breaking apart. An orange horse with yellow spots gallops through a vibrant field of pink flowers against a green patterned background filled with floral and psychedelic motifs.",
+  "source_prompt": "",
+  "source_title": "Fragmented Dream Portrait",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman portrait",
+    "geometric fragments",
+    "horse",
+    "floral pattern",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 994,
+  "source_url": "/generated/994.jpg",
+  "image_url": "/sketches/1772.png",
+  "inverted_image_url": "/sketches-inverted/1772.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:42Z"
+}

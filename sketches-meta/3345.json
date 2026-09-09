@@ -1,0 +1,42 @@
+{
+  "number": 3345,
+  "title": "Line sketch: Film Reel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: In a gritty underground bunker illuminated by a fluorescent tube and sign reading 'FEATURE REEL', a woman in a futuristic jumpsuit stands on concrete steps holding a large film reel on her back while looking at a large glowing movie poster of herself holding a gun (derived from generated still #2741).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: In a gritty underground bunker illuminated by a fluorescent tube and sign reading 'FEATURE REEL', a woman in a futuristic jumpsuit stands on concrete steps holding a large film reel on her back while looking at a large glowing movie poster of herself holding a gun",
+  "inverted_title": "Inverted sketch: Film Reel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: In a gritty underground bunker illuminated by a fluorescent tube and sign reading 'FEATURE REEL', a woman in a futuristic jumpsuit stands on concrete steps holding a large film reel on her back while looking at a large glowing movie poster of herself holding a gun (from generated still #2741).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: In a gritty underground bunker illuminated by a fluorescent tube and sign reading 'FEATURE REEL', a woman in a futuristic jumpsuit stands on concrete steps holding a large film reel on her back while looking at a large glowing movie poster of herself holding a gun",
+  "source_description": "In a gritty underground bunker illuminated by a yellow fluorescent tube and purple neon sign reading 'FEATURE REEL', a woman in a yellow futuristic jumpsuit stands on concrete steps holding a large film reel on her back while looking at a large glowing movie poster of herself holding a gun.",
+  "source_prompt": "A cyberpunk scene inside a dirty concrete bunker with peeling posters and hazard tape. A woman in a tight yellow futuristic jumpsuit with tech gear stands on concrete stairs, holding a large film reel on her back, looking at a large illuminated movie poster of herself in an action pose holding a pistol. The poster has a glowing green grid floor. A pink neon sign reads 'FEATURE REEL'. Dim yellow fluorescent lighting, scattered bottles and cables on the floor, cinematic atmosphere.",
+  "source_title": "Neon Film Reel",
+  "style": "cinematic",
+  "mood": "cyberpunk dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "film noir",
+    "underground bunker",
+    "movie poster",
+    "lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2741,
+  "source_url": "/generated/2741.jpg",
+  "image_url": "/sketches/3345.png",
+  "inverted_image_url": "/sketches-inverted/3345.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:45Z"
+}

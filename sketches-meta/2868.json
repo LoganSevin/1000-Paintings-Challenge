@@ -1,0 +1,42 @@
+{
+  "number": 2868,
+  "title": "Line sketch: Witch Demands Manager",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal witch in an ornate and robe with a pointed hat leans aggressively over a hotel reception desk, pointing her bony finger at a -hued female receptionist holding a tablet. The desk features a service bell, papers, and floating mathematical symbols. A framed surreal landscape composition with a portal and bridge hangs on the wall behind them (derived from generated still #2154).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal witch in an ornate and robe with a pointed hat leans aggressively over a hotel reception desk, pointing her bony finger at a -hued female receptionist holding a tablet. The desk features a service bell, papers, and floating mathematical symbols. A framed surreal landscape composition with a portal and bridge hangs on the wall behind them",
+  "inverted_title": "Inverted sketch: Witch Demands Manager",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal witch in an ornate and robe with a pointed hat leans aggressively over a hotel reception desk, pointing her bony finger at a -hued female receptionist holding a tablet. The desk features a service bell, papers, and floating mathematical symbols. A framed surreal landscape composition with a portal and bridge hangs on the wall behind them (from generated still #2154).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal witch in an ornate and robe with a pointed hat leans aggressively over a hotel reception desk, pointing her bony finger at a -hued female receptionist holding a tablet. The desk features a service bell, papers, and floating mathematical symbols. A framed surreal landscape composition with a portal and bridge hangs on the wall behind them",
+  "source_description": "A skeletal witch in an ornate purple and gold robe with a pointed hat leans aggressively over a hotel reception desk, pointing her bony finger at a purple-hued female receptionist holding a tablet. The desk features a golden service bell, papers, and floating mathematical symbols. A framed surreal landscape painting with a red portal and bridge hangs on the wall behind them.",
+  "source_prompt": "A menacing skeletal witch wearing an elaborate purple and gold patterned robe and tall pointed hat leans over a hotel reception counter, aggressively pointing her long bony finger while speaking. A purple female receptionist in a uniform sits behind the desk holding a tablet. A golden service bell, papers, and floating mathematical symbols fill the air. A framed painting on the wall shows a surreal landscape with a bridge and glowing red portal. Dark, chaotic fantasy atmosphere.",
+  "source_title": "Witch Demands Manager",
+  "style": "surreal fantasy illustration",
+  "mood": "confrontational, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "skeleton",
+    "receptionist",
+    "surreal",
+    "hotel desk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2154,
+  "source_url": "/generated/2154.jpg",
+  "image_url": "/sketches/2868.png",
+  "inverted_image_url": "/sketches-inverted/2868.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:44Z"
+}

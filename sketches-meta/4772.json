@@ -1,0 +1,42 @@
+{
+  "number": 4772,
+  "title": "Line sketch: Wheel of Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a coat stands on a rocky cliff overlooking a misty, ruined cityscape under a glowing full moon. A large ornate wooden wheel floats in the sky amid swirling clouds, paint splashes, and light rays, all enclosed in a thick, textured painterly frame decorated with buttons, keys, feathers and roots (derived from generated still #4206).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a coat stands on a rocky cliff overlooking a misty, ruined cityscape under a glowing full moon. A large ornate wooden wheel floats in the sky amid swirling clouds, paint splashes, and light rays, all enclosed in a thick, textured painterly frame decorated with buttons, keys, feathers and roots",
+  "inverted_title": "Inverted sketch: Wheel of Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a coat stands on a rocky cliff overlooking a misty, ruined cityscape under a glowing full moon. A large ornate wooden wheel floats in the sky amid swirling clouds, paint splashes, and light rays, all enclosed in a thick, textured painterly frame decorated with buttons, keys, feathers and roots (from generated still #4206).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a coat stands on a rocky cliff overlooking a misty, ruined cityscape under a glowing full moon. A large ornate wooden wheel floats in the sky amid swirling clouds, paint splashes, and light rays, all enclosed in a thick, textured painterly frame decorated with buttons, keys, feathers and roots",
+  "source_description": "A lone figure in a coat stands on a rocky cliff overlooking a misty, ruined cityscape under a glowing full moon. A large ornate wooden wheel floats in the sky amid colorful swirling clouds, paint splashes, and light rays, all enclosed in a thick, textured painterly frame decorated with buttons, keys, feathers and roots.",
+  "source_prompt": "Surreal fantasy scene of a solitary figure standing on a cliff overlooking a dark ruined city under a bright full moon. A large ornate wooden ship's wheel floats in the sky surrounded by swirling colorful clouds, paint splashes and dramatic light rays. The entire image is contained within a thick impasto painterly frame adorned with antique keys, buttons, feathers and roots.",
+  "source_title": "Wheel of Dreams",
+  "style": "surreal fantasy",
+  "mood": "mysterious, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moonlit",
+    "floating wheel",
+    "ruined city",
+    "textured frame"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4206,
+  "source_url": "/generated/4206.jpg",
+  "image_url": "/sketches/4772.png",
+  "inverted_image_url": "/sketches-inverted/4772.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:48Z"
+}

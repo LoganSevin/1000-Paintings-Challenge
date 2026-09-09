@@ -1,0 +1,42 @@
+{
+  "number": 3857,
+  "title": "Line sketch: Bubblegum Mage Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A four-panel vertical sequence showing a -haired female character in and black armor casting a glowing spell. She progresses from holding a swirling orb to releasing a large explosive burst of magic with bubbles and particles (derived from generated still #3274).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A four-panel vertical sequence showing a -haired female character in and black armor casting a glowing spell. She progresses from holding a swirling orb to releasing a large explosive burst of magic with bubbles and particles",
+  "inverted_title": "Inverted sketch: Bubblegum Mage Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A four-panel vertical sequence showing a -haired female character in and black armor casting a glowing spell. She progresses from holding a swirling orb to releasing a large explosive burst of magic with bubbles and particles (from generated still #3274).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A four-panel vertical sequence showing a -haired female character in and black armor casting a glowing spell. She progresses from holding a swirling orb to releasing a large explosive burst of magic with bubbles and particles",
+  "source_description": "A four-panel vertical sequence showing a pink-haired female character in green and black armor casting a glowing green spell. She progresses from holding a swirling green orb to releasing a large explosive burst of green magic with bubbles and particles.",
+  "source_prompt": "A tough anime girl with bright pink hair in pigtails and a small crown, wearing green and black armored dress with cape and heavy boots, chewing bubblegum. She stands in a dynamic pose casting green magic, holding a swirling green energy orb that grows into a large explosive burst of glowing green bubbles and particles. Four panel vertical sequence showing the spell progression against a solid bright green background, cartoon digital illustration style.",
+  "source_title": "Bubblegum Mage Sequence",
+  "style": "digital illustration",
+  "mood": "dynamic, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "magic casting",
+    "hair",
+    "magic",
+    "bubblegum"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3274,
+  "source_url": "/generated/3274.jpg",
+  "image_url": "/sketches/3857.png",
+  "inverted_image_url": "/sketches-inverted/3857.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:46Z"
+}

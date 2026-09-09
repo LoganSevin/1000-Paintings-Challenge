@@ -19,8 +19,9 @@ import shutil
 import threading
 import time
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urlencode, urlparse
 
 import httpx
 
@@ -49,6 +50,36 @@ else:
 
 
 # --- Studio entity storage + gallery asset APIs (source overrides) ---
+
+# Sidecar JSON for generated stills (title/description/prompt) lives outside generated/
+# so gallery/generated/ stays image-only. Images: /generated/N.jpg  Meta: /generated-meta/N.json
+_GALLERY_ROOT = Path(globals().get("GALLERY") or Path(__file__).resolve().parent.parent)
+GENERATED_META_DIR = _GALLERY_ROOT / "generated-meta"
+
+
+def generated_sidecar_path(num) -> Path:
+    """Path for generated still metadata: gallery/generated-meta/N.json"""
+    GENERATED_META_DIR.mkdir(parents=True, exist_ok=True)
+    return GENERATED_META_DIR / f"{int(num)}.json"
+
+
+def load_generated_sidecar_file(num) -> dict | None:
+    """Read meta for G#; prefer generated-meta/, fall back to legacy generated/N.json."""
+    candidates = [
+        GENERATED_META_DIR / f"{int(num)}.json",
+        Path(globals().get("GENERATED_DIR") or (_GALLERY_ROOT / "generated"))
+        / f"{int(num)}.json",
+    ]
+    for side in candidates:
+        if not side.is_file():
+            continue
+        try:
+            data = json.loads(side.read_text(encoding="utf-8"))
+            return data if isinstance(data, dict) else None
+        except (OSError, json.JSONDecodeError, TypeError, ValueError):
+            continue
+    return None
+
 
 # Load portable xAI key + replace bytecode get_api_key ASAP (Conceptualizer etc.)
 try:
@@ -449,10 +480,21 @@ def _scan_phone_upload_gallery_items() -> list:
     return items
 
 
-def gallery_assets_payload(collection):
+def gallery_assets_payload(collection, limit=None):
     key = str(collection or "").strip().lower()
+    try:
+        lim = int(limit) if limit is not None and str(limit).strip() != "" else None
+    except (TypeError, ValueError):
+        lim = None
+    if lim is not None and lim <= 0:
+        lim = None
     if key == "generated":
         rows = scan_lod1_manifest_items()
+        # Newest first (highest number)
+        rows_desc = sorted(rows, key=lambda r: -int(r.get("num") or 0))
+        total = len(rows_desc)
+        if lim is not None:
+            rows_desc = rows_desc[:lim]
         items = [
             {
                 "id": f"generated/{row['num']}",
@@ -464,10 +506,9 @@ def gallery_assets_payload(collection):
                 "subtitle": f"G#{row['num']}",
                 "saved_at": 0,
             }
-            for row in rows
+            for row in rows_desc
         ]
-        items.sort(key=lambda x: -x["version"])
-        return {"items": items, "count": len(items)}
+        return {"items": items, "count": total, "returned": len(items), "limit": lim}
     if key == "characters":
         items = scan_entity_collection(CHARACTERS_DIR, "character.json", "characters")
         return {"items": items, "count": len(items)}
@@ -486,6 +527,31 @@ def gallery_assets_payload(collection):
     if key in ("phone-uploads", "phone", "from-phone", "uploads"):
         items = _scan_phone_upload_gallery_items()
         return {"items": items, "count": len(items)}
+    if key in ("sketches", "sketch", "line-sketches"):
+        items = scan_sketch_gallery_items()
+        total = len(items)
+        # Newest first (highest number)
+        items = sorted(items, key=lambda r: -int(r.get("number") or 0))
+        if lim is not None:
+            items = items[:lim]
+        return {
+            "items": items,
+            "count": total,
+            "returned": len(items),
+            "limit": lim,
+        }
+    if key in ("sketches-inverted", "sketch-inverted", "inverted-sketches"):
+        items = scan_sketch_gallery_items(inverted=True)
+        total = len(items)
+        items = sorted(items, key=lambda r: -int(r.get("number") or 0))
+        if lim is not None:
+            items = items[:lim]
+        return {
+            "items": items,
+            "count": total,
+            "returned": len(items),
+            "limit": lim,
+        }
     return {"error": f"Unknown collection: {collection}", "items": [], "count": 0}
 
 
@@ -778,29 +844,259 @@ def list_room_records():
 # --- Live generated/ manifest (gallery tab) ---
 
 
-def scan_lod1_manifest_items():
-    """Scan generated/ for numeric image files — same shape as lod1-manifest.json items."""
+_LOD1_SCAN_CACHE: dict = {"t": 0.0, "items": None}
+_LOD1_SCAN_TTL_SEC = 45.0
+
+
+# --- Sketches (PNG line art + meta, same role as generated stills across tabs) ---
+
+_SKETCH_SCAN_CACHE: dict = {"t": 0.0, "items": None}
+_SKETCH_SCAN_TTL_SEC = 60.0
+_SKETCH_ANALYSES_CACHE: dict = {"t": 0.0, "data": None}
+_SKETCH_ANALYSES_TTL_SEC = 90.0
+
+
+def _sketches_dir() -> Path:
+    return GALLERY / "sketches"
+
+
+def _sketches_meta_dir() -> Path:
+    return GALLERY / "sketches-meta"
+
+
+def load_sketch_analyses(force: bool = False) -> dict:
+    """Bulk sketch meta: data/sketch-analyses.json or merge sketches-meta/*.json."""
+    now = time.time()
+    cached = _SKETCH_ANALYSES_CACHE.get("data")
+    if (
+        not force
+        and cached is not None
+        and (now - float(_SKETCH_ANALYSES_CACHE.get("t") or 0)) < _SKETCH_ANALYSES_TTL_SEC
+    ):
+        return dict(cached)
+
+    bulk_path = GALLERY / "data" / "sketch-analyses.json"
+    data: dict = {}
+    if bulk_path.is_file():
+        try:
+            raw = json.loads(bulk_path.read_text(encoding="utf-8"))
+            if isinstance(raw, dict):
+                data = {str(k): v for k, v in raw.items() if isinstance(v, dict)}
+        except Exception:
+            data = {}
+    if not data:
+        meta_dir = _sketches_meta_dir()
+        if meta_dir.is_dir():
+            for p in meta_dir.glob("*.json"):
+                if not p.stem.isdigit():
+                    continue
+                try:
+                    row = json.loads(p.read_text(encoding="utf-8"))
+                except Exception:
+                    continue
+                if isinstance(row, dict):
+                    data[str(p.stem)] = row
+    _SKETCH_ANALYSES_CACHE["data"] = data
+    _SKETCH_ANALYSES_CACHE["t"] = now
+    return dict(data)
+
+
+def load_sketch_analysis(num: int) -> dict | None:
+    key = str(num)
+    bulk = load_sketch_analyses()
+    a = bulk.get(key)
+    if isinstance(a, dict):
+        return a
+    path = _sketches_meta_dir() / f"{num}.json"
+    if path.is_file():
+        try:
+            row = json.loads(path.read_text(encoding="utf-8"))
+            return row if isinstance(row, dict) else None
+        except Exception:
+            return None
+    return None
+
+
+def scan_sketch_manifest_items(force: bool = False) -> list:
+    """Scan gallery/sketches/N.png → list of {num, name, url}."""
+    now = time.time()
+    cached = _SKETCH_SCAN_CACHE.get("items")
+    if (
+        not force
+        and cached is not None
+        and (now - float(_SKETCH_SCAN_CACHE.get("t") or 0)) < _SKETCH_SCAN_TTL_SEC
+    ):
+        return list(cached)
+
+    sk_dir = _sketches_dir()
+    items = []
+    if not sk_dir.is_dir():
+        _SKETCH_SCAN_CACHE["items"] = []
+        _SKETCH_SCAN_CACHE["t"] = now
+        return []
+    try:
+        import os
+
+        with os.scandir(sk_dir) as it:
+            for entry in it:
+                if not entry.is_file(follow_symlinks=False):
+                    continue
+                name = entry.name
+                if not name.lower().endswith(".png"):
+                    continue
+                stem = name[:-4]
+                if not stem.isdigit():
+                    continue
+                n = int(stem)
+                items.append(
+                    {
+                        "num": n,
+                        "name": name,
+                        "url": f"/sketches/{name}",
+                    }
+                )
+    except Exception:
+        for p in sk_dir.glob("*.png"):
+            if p.stem.isdigit():
+                items.append(
+                    {
+                        "num": int(p.stem),
+                        "name": p.name,
+                        "url": f"/sketches/{p.name}",
+                    }
+                )
+    items.sort(key=lambda x: x["num"])
+    _SKETCH_SCAN_CACHE["items"] = items
+    _SKETCH_SCAN_CACHE["t"] = now
+    return list(items)
+
+
+def scan_sketch_gallery_items(inverted: bool = False) -> list:
+    """Full gallery-asset rows for sketches (with meta when present)."""
+    analyses = load_sketch_analyses()
+    items = []
+    inv_dir = GALLERY / "sketches-inverted"
+    for row in scan_sketch_manifest_items():
+        n = int(row["num"])
+        if inverted:
+            if not (inv_dir / f"{n}.png").is_file():
+                continue
+            url = f"/sketches-inverted/{n}.png"
+            coll = "sketches-inverted"
+            entity = f"SI#{n}"
+            default_title = f"Inverted sketch #{n}"
+            kind = "sketch-inverted"
+        else:
+            url = row["url"]
+            coll = "sketches"
+            entity = f"S#{n}"
+            default_title = f"Sketch #{n}"
+            kind = "sketch"
+        a = analyses.get(str(n)) if isinstance(analyses.get(str(n)), dict) else {}
+        if inverted:
+            title = (
+                (a or {}).get("inverted_title")
+                or (a or {}).get("title")
+                or default_title
+            )
+            desc = (a or {}).get("inverted_description") or (a or {}).get("description") or ""
+            prompt = (a or {}).get("inverted_prompt") or (a or {}).get("prompt") or ""
+            medium = (a or {}).get("inverted_medium") or "white chalk on black"
+        else:
+            title = (a or {}).get("title") or default_title
+            desc = (a or {}).get("description") or ""
+            prompt = (a or {}).get("prompt") or ""
+            medium = (a or {}).get("medium") or "ink line sketch"
+        items.append(
+            {
+                "id": f"{coll}/{n}",
+                "collection": coll,
+                "entity_name": entity,
+                "version": n,
+                "number": n,
+                "url": url,
+                "title": title,
+                "subtitle": entity,
+                "description": desc,
+                "prompt": prompt,
+                "source_url": (a or {}).get("source_url") or "",
+                "source_collection": (a or {}).get("source_collection") or "",
+                "source_num": (a or {}).get("source_num"),
+                "saved_at": 0,
+                "source": kind,
+                "kind": kind,
+                "tags": (a or {}).get("tags") or [],
+                "style": (a or {}).get("style") or "",
+                "mood": (a or {}).get("mood") or "",
+                "medium": medium,
+            }
+        )
+    return items
+
+
+def scan_lod1_manifest_items(force: bool = False):
+    """Scan generated/ for numeric image files — same shape as lod1-manifest.json items.
+
+    Cached briefly so phone/Tailscale clients do not re-walk thousands of files
+    on every gallery-assets / lod1-manifest hit.
+    """
+    now = time.time()
+    cached = _LOD1_SCAN_CACHE.get("items")
+    if (
+        not force
+        and cached is not None
+        and (now - float(_LOD1_SCAN_CACHE.get("t") or 0)) < _LOD1_SCAN_TTL_SEC
+    ):
+        return list(cached)
+
     gen_dir = GENERATED_DIR
     exts = IMAGE_EXTENSIONS
     if not gen_dir.is_dir():
+        _LOD1_SCAN_CACHE["items"] = []
+        _LOD1_SCAN_CACHE["t"] = now
         return []
     items = []
-    for entry in gen_dir.iterdir():
-        if not entry.is_file():
-            continue
-        if entry.suffix.lower() not in exts:
-            continue
-        if not entry.stem.isdigit():
-            continue
-        items.append(
-            {
-                "num": int(entry.stem),
-                "name": entry.name,
-                "url": f"/generated/{entry.name}",
-            }
-        )
+    try:
+        # os.scandir is faster than Path.iterdir on large folders (Windows)
+        import os
+
+        with os.scandir(gen_dir) as it:
+            for entry in it:
+                if not entry.is_file(follow_symlinks=False):
+                    continue
+                name = entry.name
+                stem, dot, suf = name.rpartition(".")
+                if not dot or not stem.isdigit():
+                    continue
+                if f".{suf.lower()}" not in exts:
+                    continue
+                items.append(
+                    {
+                        "num": int(stem),
+                        "name": name,
+                        "url": f"/generated/{name}",
+                    }
+                )
+    except Exception:
+        items = []
+        for entry in gen_dir.iterdir():
+            if not entry.is_file():
+                continue
+            if entry.suffix.lower() not in exts:
+                continue
+            if not entry.stem.isdigit():
+                continue
+            items.append(
+                {
+                    "num": int(entry.stem),
+                    "name": entry.name,
+                    "url": f"/generated/{entry.name}",
+                }
+            )
     items.sort(key=lambda x: x["num"])
-    return items
+    _LOD1_SCAN_CACHE["items"] = items
+    _LOD1_SCAN_CACHE["t"] = now
+    return list(items)
 
 
 def _lod1_manifest_api_payload():
@@ -872,13 +1168,47 @@ def _app_handler_do_get_with_lod1_manifest(self):
         return self._json(_lod1_manifest_api_payload())
     if parsed.path == "/api/lod1-analyses":
         return self._json(load_lod1_analyses())
+    if parsed.path in ("/api/sketch-analyses", "/api/sketch-analyses/"):
+        return self._json(load_sketch_analyses())
+    if parsed.path in ("/api/sketch-manifest", "/api/sketch-manifest/"):
+        rows = scan_sketch_manifest_items()
+        return self._json({"items": rows, "count": len(rows)})
     if parsed.path == "/api/gallery-assets":
         qs = parse_qs(parsed.query or "")
         collection = (qs.get("collection") or [""])[0]
-        payload = gallery_assets_payload(collection)
+        limit = (qs.get("limit") or qs.get("n") or [None])[0]
+        payload = gallery_assets_payload(collection, limit=limit)
         if payload.get("error"):
             return self._json(payload, 400)
         return self._json(payload)
+    if parsed.path in ("/api/dream-pool", "/api/dream-pool/"):
+        # Compact list for Dream Stasis (works on localhost + phone the same)
+        qs = parse_qs(parsed.query or "")
+        force = (qs.get("force") or ["0"])[0] in ("1", "true", "yes")
+        rows = scan_lod1_manifest_items(force=force)
+        # First → last; keep real filenames so .png/.webp resolve on both hosts
+        rows_sorted = sorted(rows, key=lambda r: int(r.get("num") or 0))
+        nums = []
+        files = {}  # "123" -> "123.jpg"
+        for r in rows_sorted:
+            try:
+                n = int(r.get("num"))
+            except (TypeError, ValueError):
+                continue
+            nums.append(n)
+            name = str(r.get("name") or f"{n}.jpg")
+            files[str(n)] = name
+        return self._json(
+            {
+                "ok": True,
+                "generated_nums": nums,
+                "generated_files": files,
+                "generated_count": len(nums),
+                "paintings_count": 1000,
+                "paintings_first": 1,
+                "paintings_last": 1000,
+            }
+        )
     return _orig_app_handler_do_get(self)
 
 
@@ -1145,6 +1475,7 @@ _MARKET_QUOTE_CACHE = {"at": 0.0, "quotes": {}, "fetching": False}
 _ART_COLLECTIONS = (
     ("paintings", "ART-PNT", "Paintings", 89.0, 1.15),
     ("generated", "ART-GEN", "Generated", 45.0, 1.05),
+    ("sketches", "ART-SKT", "Sketches", 29.0, 0.92),
     ("commercial", "ART-COM", "Commercial", 55.0, 1.12),
     ("characters", "ART-CHR", "Characters", 35.0, 0.98),
     ("objects", "ART-OBJ", "Objects", 29.0, 0.95),
@@ -1640,6 +1971,76 @@ def _market_portfolio_value(state: dict) -> dict:
     }
 
 
+_CAROUSEL_TIME_PATH = GALLERY / "data" / "carousel-time.json"
+_CAROUSEL_TIME_LOCK = threading.Lock()
+
+
+def _carousel_time_get() -> dict:
+    if not _CAROUSEL_TIME_PATH.is_file():
+        return {"ok": True, "sealed": False, "clock": None}
+    try:
+        data = json.loads(_CAROUSEL_TIME_PATH.read_text(encoding="utf-8"))
+        if isinstance(data, dict):
+            data["ok"] = True
+            return data
+    except Exception:
+        pass
+    return {"ok": True, "sealed": False, "clock": None}
+
+
+def _carousel_time_save(body: dict) -> dict:
+    with _CAROUSEL_TIME_LOCK:
+        payload = {
+            "ok": True,
+            "sealed": True,
+            "saved_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "clock": body.get("clock") if isinstance(body.get("clock"), dict) else body,
+        }
+        _CAROUSEL_TIME_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _CAROUSEL_TIME_PATH.write_text(
+            json.dumps(payload, indent=2), encoding="utf-8"
+        )
+        return payload
+
+
+def _banker_sim_revenue() -> float:
+    try:
+        state = _load_market_sim()
+        return float(state.get("sim_month_revenue_usd") or 0)
+    except Exception:
+        return 0.0
+
+
+def _banker_api_payload(reveal: bool = True) -> dict:
+    try:
+        from banker_ledger import banker_payload
+    except ImportError:
+        from scripts.banker_ledger import banker_payload  # type: ignore
+    try:
+        return banker_payload(_banker_sim_revenue(), reveal_secrets=bool(reveal))
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:300], "people": [], "roster": []}
+
+
+def _banker_market_split(sim_rev: float) -> dict:
+    try:
+        from banker_ledger import allocate_cents, PLAYER_FIRST, PLAYER_LAST, PLAYER_ID
+    except ImportError:
+        from scripts.banker_ledger import allocate_cents, PLAYER_FIRST, PLAYER_LAST, PLAYER_ID  # type: ignore
+    shares = allocate_cents(sim_rev, 100)
+    share = shares[PLAYER_ID - 1] if len(shares) >= PLAYER_ID else (shares[0] if shares else 0)
+    return {
+        "people": 100,
+        "female": 50,
+        "male_npc": 49,
+        "player": f"{PLAYER_FIRST} {PLAYER_LAST}",
+        "pairs": 50,
+        "sim_month_revenue_usd": round(float(sim_rev or 0), 2),
+        "share_each_usd": round(float(share), 2),
+        "note": "Entire sim month revenue split 1/100 onto each supermarket debit line (incl. you).",
+    }
+
+
 def _market_snapshot(force_tick: bool = True, force_sales: int = 0) -> dict:
     state = _load_market_sim()
     now = time.time()
@@ -1675,10 +2076,11 @@ def _market_snapshot(force_tick: bool = True, force_sales: int = 0) -> dict:
                 min(100.0, ((sim_rev + real_month) / goal) * 100.0) if goal else 0, 1
             ),
         },
+        "banker_split": _banker_market_split(sim_rev),
         "security": {
             "stores_payment_credentials": False,
             "rails": ["cash_app_cashtag_only"],
-            "note": "Never put card numbers, CVV, PIN, or bank logins in this repo.",
+            "note": "Real rails never store cards. Banker tab uses fictional SIM IINs only.",
         },
     }
 
@@ -1782,6 +2184,12 @@ def _app_handler_do_get_with_sales_stats(self):
         return self._json(_creator_payout_summary())
     if parsed.path in ("/api/market", "/api/market/"):
         return self._json(_market_snapshot(force_tick=True))
+    if parsed.path in ("/api/banker", "/api/banker/"):
+        return self._json(_banker_api_payload(reveal=True))
+    if parsed.path in ("/api/banker/roster", "/api/banker/roster/"):
+        return self._json(_banker_api_payload(reveal=False))
+    if parsed.path in ("/api/carousel/time", "/api/carousel/time/"):
+        return self._json(_carousel_time_get())
     if parsed.path in ("/api/market/prices", "/api/market/prices/"):
         state = _load_market_sim()
         now = time.time()
@@ -1820,6 +2228,14 @@ def _app_handler_do_post_with_gallery_orders(self):
         return self._json(result, code)
     if parsed.path in ("/api/market/reset-paper", "/api/market/reset-paper/"):
         return self._json(_market_reset_paper())
+    if parsed.path in ("/api/carousel/time", "/api/carousel/time/"):
+        try:
+            body = self._read_json()
+        except Exception:
+            return self._json({"ok": False, "error": "Invalid JSON"}, 400)
+        if not isinstance(body, dict):
+            return self._json({"ok": False, "error": "Invalid JSON"}, 400)
+        return self._json(_carousel_time_save(body))
     if parsed.path in ("/api/creator-payouts", "/api/creator-payouts/"):
         try:
             body = self._read_json()
@@ -2723,6 +3139,13 @@ Describe ONLY what is actually visible. Also write a dense generation prompt (pr
 Return ONLY JSON:
 {"title":"max 6 words","description":"2 accurate sentences of what is visible","prompt":"one paragraph generation prompt 50-120 words, concrete visual language, no 4k/masterpiece/hashtags","style":"category","medium":"guess","mood":"1-3 words","subject_type":"photo|painting|object|portrait|scene|other","tags":["up to 6 tags"],"colors":["up to 4 colors"]}"""
 
+LIVE_CAMERA_PROMPT = """Live webcam frame for Dream Stasis — imaginative, not clinical, never explicit.
+Describe ONLY what is actually visible in this moment: person(s), pose, clothing, room, light, objects, atmosphere.
+Write as if composing a painting-generation prompt: concrete, sensory, dreamlike but faithful to what you see.
+No camera model names, no "4k", no "masterpiece", no hashtags, no sexual content, no medical diagnosis.
+Return ONLY JSON:
+{"title":"max 6 words","description":"2 sentences of what is visible right now","prompt":"one dense generation prompt 70-140 words for a painterly stasis vision of this exact scene","style":"category","mood":"1-3 words","medium":"guess","tags":["up to 8 tags"],"colors":["up to 5 colors"],"presence":"alone|with others|empty frame|unclear"}"""
+
 
 def _import_image_data_url(image_data: str, max_size: int = 768) -> str:
     text = str(image_data or "").strip()
@@ -2831,6 +3254,10 @@ def analyze_import_image(image_data: str, mode: str = "import", emphasis: str = 
         text_prompt = GENERATION_PROMPT_FROM_IMAGE
         if emphasis:
             text_prompt += f"\nUser emphasis (weave in if it fits the image): {emphasis[:500]}"
+    elif mode_l in ("live", "live_camera", "webcam", "dream", "presence"):
+        text_prompt = LIVE_CAMERA_PROMPT
+        if emphasis:
+            text_prompt += f"\nMoment note: {emphasis[:400]}"
     elif mode_l in ("phone", "phone_upload", "transfer", "phone-uploads"):
         text_prompt = PHONE_UPLOAD_ANALYSIS_PROMPT
         if emphasis:
@@ -2942,22 +3369,41 @@ def _guess_video_content_type(url: str, content_type: str) -> str:
 def _proxy_media_fetch(url: str) -> tuple[bytes, str]:
     if not _proxy_media_url_allowed(url):
         raise ValueError("URL not allowed for proxy.")
-    with httpx.Client(follow_redirects=True, timeout=120.0) as client:
-        with client.stream("GET", url) as resp:
-            resp.raise_for_status()
-            content_type = _guess_video_content_type(
-                url, resp.headers.get("content-type", "application/octet-stream")
+    last_exc: Exception | None = None
+    for attempt in range(5):
+        try:
+            timeout = httpx.Timeout(180.0, connect=30.0, read=180.0, write=60.0)
+            with httpx.Client(follow_redirects=True, timeout=timeout) as client:
+                with client.stream("GET", url) as resp:
+                    resp.raise_for_status()
+                    content_type = _guess_video_content_type(
+                        url, resp.headers.get("content-type", "application/octet-stream")
+                    )
+                    chunks: list[bytes] = []
+                    total = 0
+                    for chunk in resp.iter_bytes():
+                        if not chunk:
+                            continue
+                        total += len(chunk)
+                        if total > _PROXY_MEDIA_MAX_BYTES:
+                            raise ValueError("Media file too large.")
+                        chunks.append(chunk)
+                    return b"".join(chunks), content_type
+        except Exception as exc:
+            last_exc = exc
+            msg = str(exc).lower()
+            retryable = (
+                "10054" in str(exc)
+                or "forcibly closed" in msg
+                or "connection reset" in msg
+                or "timeout" in msg
+                or "timed out" in msg
+                or "read error" in msg
             )
-            chunks: list[bytes] = []
-            total = 0
-            for chunk in resp.iter_bytes():
-                if not chunk:
-                    continue
-                total += len(chunk)
-                if total > _PROXY_MEDIA_MAX_BYTES:
-                    raise ValueError("Media file too large.")
-                chunks.append(chunk)
-            return b"".join(chunks), content_type
+            if not retryable or attempt >= 4:
+                break
+            time.sleep(0.9 * (attempt + 1))
+    raise last_exc or ValueError("Media fetch failed.")
 
 
 def _proxy_download_filename(url: str, content_type: str, preferred: str = "") -> str:
@@ -3534,6 +3980,28 @@ AppHandler.do_POST = _app_handler_do_post_with_save_video
 
 
 _GENERATED_STILL_MAX_BYTES = 12 * 1024 * 1024
+_GENERATED_STILL_TARGET_BYTES = 2 * 1024 * 1024
+
+
+def _jpeg_fit_still(raw: bytes, max_bytes: int, max_side: int = 1920) -> bytes:
+    """Downscale / JPEG-compress a still so save never dies on 4K PNG blobs."""
+    from PIL import Image, ImageOps
+    import io
+
+    im = Image.open(io.BytesIO(raw))
+    im = ImageOps.exif_transpose(im)
+    im = im.convert("RGB")
+    im.thumbnail((max_side, max_side), Image.Resampling.LANCZOS)
+    q = 88
+    data = b""
+    while q >= 58:
+        buf = io.BytesIO()
+        im.save(buf, format="JPEG", quality=q, optimize=True)
+        data = buf.getvalue()
+        if len(data) <= max_bytes:
+            return data
+        q -= 8
+    return data or raw
 
 
 def _fetch_image_bytes(image_url: str) -> bytes | None:
@@ -3618,8 +4086,16 @@ def save_generated_still(
             "No image data to save. Provide image_base64 or a reachable image_url "
             "(temporary CDN links must be saved while still valid)."
         )
-    if len(raw) > _GENERATED_STILL_MAX_BYTES:
-        raise ValueError(f"Image too large ({len(raw) // 1024} KB).")
+    if len(raw) > _GENERATED_STILL_TARGET_BYTES or raw[:8] == b"\x89PNG\r\n\x1a\n":
+        try:
+            raw = _jpeg_fit_still(raw, _GENERATED_STILL_TARGET_BYTES, 1920)
+        except Exception:
+            if len(raw) > _GENERATED_STILL_MAX_BYTES:
+                raise ValueError(
+                    f"Image too large ({len(raw) // 1024} KB) and could not be compressed."
+                )
+    elif len(raw) > _GENERATED_STILL_MAX_BYTES:
+        raw = _jpeg_fit_still(raw, _GENERATED_STILL_TARGET_BYTES, 1920)
 
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     num = next_generated_index()
@@ -3651,7 +4127,7 @@ def save_generated_still(
         safe = {k: v for k, v in meta.items() if k not in ("api_key", "token", "password")}
         record["meta"] = safe
     try:
-        (GENERATED_DIR / f"{num}.json").write_text(
+        generated_sidecar_path(num).write_text(
             json.dumps(record, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
@@ -4563,7 +5039,20 @@ _orig_app_handler_end_headers = AppHandler.end_headers
 
 
 def _app_handler_end_headers_with_speaker_policy(self):
-    self.send_header("Permissions-Policy", "speaker-selection=(self)")
+    # Explicitly allow camera/mic on this origin (phones need this for getUserMedia).
+    self.send_header(
+        "Permissions-Policy",
+        "camera=(self), microphone=(self), speaker-selection=(self)",
+    )
+    # Cache static CSS/JS so phone reloads over Tailscale are much faster
+    try:
+        path = (getattr(self, "path", "") or "").split("?", 1)[0].lower()
+        if path.endswith((".css", ".js", ".woff2", ".woff", ".ttf")):
+            self.send_header("Cache-Control", "public, max-age=86400")
+        elif path.endswith((".jpg", ".jpeg", ".png", ".webp", ".gif", ".mp4", ".webm")):
+            self.send_header("Cache-Control", "public, max-age=604800")
+    except Exception:
+        pass
     return _orig_app_handler_end_headers(self)
 
 
@@ -4717,13 +5206,19 @@ def _execute_still_to_video_job(job_id: str, body: dict, ref: str) -> None:
             else:
                 prompt = prompt[: max(0, _lim - 1)].rstrip() + "…"
         try:
-            duration = int(body.get("duration") or 10)
+            duration = int(body.get("duration") or 15)
         except (TypeError, ValueError):
-            duration = 10
+            duration = 15
+        # Honor client 6 / 10 / 15 only — never silently collapse 15 → 10
         if duration not in (6, 10, 15):
-            duration = 10
+            if duration >= 13:
+                duration = 15
+            elif duration >= 8:
+                duration = 10
+            else:
+                duration = 6
         aspect = str(body.get("aspect_ratio") or "16:9")
-        resolution = str(body.get("resolution") or "720p")
+        resolution = str(body.get("resolution") or "720p").lower().strip()
         if resolution not in ("480p", "720p"):
             resolution = "720p"
         model = str(
@@ -4741,6 +5236,10 @@ def _execute_still_to_video_job(job_id: str, body: dict, ref: str) -> None:
             "aspect_ratio": aspect,
             "resolution": resolution,
         }
+        print(
+            f"[gallery] image-to-life {str(job_id)[:8]}… duration={duration}s res={resolution}",
+            flush=True,
+        )
 
         _update_job_fields(
             job_id,
@@ -4855,6 +5354,17 @@ def _post_animate_cast_with_still_and_wait(self):
         if target is run_cast_job or target is _orig_run_cast_job or tname == "run_cast_job":
             job_id = args[0] if args else None
             cast_body = dict(args[1] if len(args) > 1 else {})
+            # Always pass through client duration / quality (bytecode must not default to 10s)
+            for key in (
+                "duration",
+                "resolution",
+                "aspect_ratio",
+                "stasis",
+                "prompt",
+                "spells",
+            ):
+                if body.get(key) is not None and body.get(key) != "":
+                    cast_body[key] = body.get(key)
             if still_ref:
                 # Prefer client data-URL still; keep URL as fallback for resolve
                 if str(body.get("reference_image") or "").startswith("data:"):
@@ -6063,6 +6573,9 @@ PHONE_UPLOAD_ANALYSES_PATH = GALLERY / "data" / "phone-upload-analyses.json"
 PHONE_UPLOAD_GENERATED_MAP_PATH = GALLERY / "data" / "phone-upload-generated.json"
 _TRANSFER_LOCK = threading.RLock()
 _PHONE_ANALYSES_LOCK = threading.RLock()
+_TRANSFER_SCAN_CACHE: dict = {}
+_TRANSFER_SCAN_CACHE_LOCK = threading.Lock()
+_IPV4_ENUM_CACHE: dict = {"t": 0.0, "ips": []}
 _PHONE_ANALYZE_PENDING: set[str] = set()
 _PHONE_ANALYZE_FAILED: dict[str, str] = {}
 _TRANSFER_MAX_BYTES = 40 * 1024 * 1024
@@ -6308,20 +6821,19 @@ def _transfer_run_phone_analysis(path: Path, name: str, gen_num: int | None = No
             pass
         if gen_num is not None:
             _transfer_write_lod1_analysis(int(gen_num), analysis)
-            # Keep generated/N.json description in sync when present
+            # Keep generated-meta/N.json description in sync when present
             try:
-                meta_path = GENERATED_DIR / f"{int(gen_num)}.json"
-                if meta_path.is_file():
-                    meta = json.loads(meta_path.read_text(encoding="utf-8"))
-                    if isinstance(meta, dict):
-                        meta["description"] = analysis.get("description") or meta.get("description") or ""
-                        meta["title"] = analysis.get("title") or meta.get("title") or ""
-                        meta["prompt"] = analysis.get("prompt") or ""
-                        meta["phone_upload"] = key
-                        meta_path.write_text(
-                            json.dumps(meta, indent=2, ensure_ascii=False) + "\n",
-                            encoding="utf-8",
-                        )
+                meta = load_generated_sidecar_file(int(gen_num)) or {}
+                if isinstance(meta, dict):
+                    meta["description"] = analysis.get("description") or meta.get("description") or ""
+                    meta["title"] = analysis.get("title") or meta.get("title") or ""
+                    meta["prompt"] = analysis.get("prompt") or meta.get("prompt") or ""
+                    meta["phone_upload"] = key
+                    meta["number"] = int(gen_num)
+                    generated_sidecar_path(int(gen_num)).write_text(
+                        json.dumps(meta, indent=2, ensure_ascii=False) + "\n",
+                        encoding="utf-8",
+                    )
             except Exception:
                 pass
         print(
@@ -6424,41 +6936,40 @@ def _transfer_unique_path(folder: Path, name: str) -> Path:
     return folder / f"{stem}_{uuid.uuid4().hex[:8]}{suf}"
 
 
-def _transfer_list(box: str) -> list:
+def _transfer_list(box: str, *, light: bool = False) -> list:
     folder = _transfer_box_dir(box)
     if folder is None:
         return []
     folder.mkdir(parents=True, exist_ok=True)
     items = []
-    want_analysis = str(box or "").strip().lower() in (
+    want_analysis = (not light) and str(box or "").strip().lower() in (
         "phone-uploads",
         "from-phone",
         "uploads",
         "phone",
     )
-    for entry in sorted(folder.iterdir(), key=lambda p: p.stat().st_mtime, reverse=True):
-        if not entry.is_file():
-            continue
-        ext = entry.suffix.lower()
+    names = []
+    try:
+        names = os.listdir(folder)
+    except OSError:
+        return []
+    names.sort(reverse=True)
+    for name in names:
+        ext = Path(name).suffix.lower()
         if ext not in _TRANSFER_EXTS:
             continue
+        entry = folder / name
         try:
-            st = entry.stat()
             rel = entry.relative_to(GALLERY).as_posix()
         except Exception:
             continue
         row = {
-            "name": entry.name,
+            "name": name,
             "url": "/" + rel,
-            "size": st.st_size,
-            "mtime": st.st_mtime,
             "kind": "video" if ext in _TRANSFER_VIDEO_EXTS else "image",
         }
         if want_analysis and ext in _TRANSFER_IMAGE_EXTS:
-            # Ensure older phone photos are in generated/ for the generator mix
-            mapped = _phone_generated_mapping(entry.name)
-            if not mapped:
-                mapped = _transfer_promote_to_generated(entry, entry.name)
+            mapped = _phone_generated_mapping(name)
             gen_num = None
             if mapped and mapped.get("num") is not None:
                 try:
@@ -6468,11 +6979,8 @@ def _transfer_list(box: str) -> list:
                 row["generatedNum"] = gen_num
                 row["generatedUrl"] = mapped.get("url")
                 row["inGeneratorMix"] = True
-            a = _phone_upload_analysis_for(entry.name)
-            st_a = _transfer_analysis_status(entry.name)
-            # Backfill: queue description for older uploads missing analysis
-            if st_a == "none" and len(_PHONE_ANALYZE_PENDING) < 3:
-                st_a = _transfer_queue_phone_analysis(entry, entry.name, gen_num)
+            a = _phone_upload_analysis_for(name)
+            st_a = _transfer_analysis_status(name)
             row["analysisStatus"] = st_a
             if a:
                 row["analysis"] = {
@@ -6488,14 +6996,16 @@ def _transfer_list(box: str) -> list:
                     "generated_num": a.get("generated_num") or gen_num,
                     "generated_url": a.get("generated_url") or row.get("generatedUrl"),
                 }
-                row["title"] = a.get("title") or entry.name
+                row["title"] = a.get("title") or name
                 row["description"] = a.get("description") or ""
                 row["prompt"] = a.get("prompt") or ""
             elif st_a == "failed":
                 with _PHONE_ANALYSES_LOCK:
-                    row["analysisError"] = _PHONE_ANALYZE_FAILED.get(entry.name) or "failed"
+                    row["analysisError"] = _PHONE_ANALYZE_FAILED.get(name) or "failed"
         items.append(row)
-    return items[:200]
+        if len(items) >= 200:
+            break
+    return items
 
 
 def _transfer_ip_score(ip: str) -> int:
@@ -6568,6 +7078,11 @@ def _transfer_save_preferred_ip(ip: str) -> None:
 
 def _transfer_enumerate_ipv4() -> list[str]:
     """All local IPv4 addresses (Windows multi-homed safe)."""
+    now = time.time()
+    cached = _IPV4_ENUM_CACHE.get("ips") or []
+    if cached and now - float(_IPV4_ENUM_CACHE.get("t") or 0) < 45:
+        return list(cached)
+
     import socket
     import subprocess
 
@@ -6613,6 +7128,8 @@ def _transfer_enumerate_ipv4() -> list[str]:
     except Exception:
         pass
 
+    _IPV4_ENUM_CACHE["t"] = time.time()
+    _IPV4_ENUM_CACHE["ips"] = list(found)
     return found
 
 
@@ -6671,6 +7188,21 @@ def _transfer_lan_urls(handler) -> list:
     return urls
 
 
+def _transfer_count(box: str) -> int:
+    """File count only — never promote/analyze (status poll is hot on phone)."""
+    folder = _transfer_box_dir(box)
+    if folder is None or not folder.is_dir():
+        return 0
+    n = 0
+    try:
+        for name in os.listdir(folder):
+            if Path(name).suffix.lower() in _TRANSFER_EXTS:
+                n += 1
+    except OSError:
+        return 0
+    return n
+
+
 def _respond_transfer_status(handler):
     try:
         PHONE_UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
@@ -6682,8 +7214,8 @@ def _respond_transfer_status(handler):
                 "ok": True,
                 "phoneUploadsDir": "phone-uploads",
                 "toPhoneDir": "transfer-to-phone",
-                "phoneUploadsCount": len(_transfer_list("phone-uploads")),
-                "toPhoneCount": len(_transfer_list("to-phone")),
+                "phoneUploadsCount": _transfer_count("phone-uploads"),
+                "toPhoneCount": _transfer_count("to-phone"),
                 "lanUrls": lan,
                 "preferredLanIp": preferred,
                 "bestLanUrl": lan[0] if lan else "",
@@ -6836,17 +7368,47 @@ def _transfer_sync_phone_analyses_to_lod1() -> dict:
 
 def _respond_transfer_spell_assets(handler):
     """
-    Phone uploads for Spellforge: real image URLs (generated/) + analysis text.
-    Call this from the Spellforge client so equip tiles show image + description.
+    Full Spellforge arsenal extras for the client spellbook.
+
+    Includes:
+      - every numeric image in gallery/generated/ (AI stills)
+      - phone uploads (promoted into generated/ when needed)
+
+    Payload is intentionally slim (title + short analysis fields) so thousands
+    of stills stay fast. Client page count = ceil((1000 + count) / 25).
     """
+    t0 = time.time()
+    qs = parse_qs(urlparse(handler.path).query or "")
+    skip_sketches = str((qs.get("skip_sketches") or ["0"])[0]).strip().lower() in (
+        "1",
+        "true",
+        "yes",
+    )
+    sync: dict = {}
+    # Promote any new phone photos into generated/ so they join the arsenal
     try:
-        sync = _transfer_sync_phone_analyses_to_lod1()
+        if PHONE_UPLOADS_DIR.is_dir():
+            for entry in list(PHONE_UPLOADS_DIR.iterdir()):
+                if not entry.is_file():
+                    continue
+                if entry.suffix.lower() not in IMAGE_EXTENSIONS:
+                    continue
+                mapped = _phone_generated_mapping(entry.name)
+                if not mapped:
+                    _transfer_promote_to_generated(entry, entry.name)
     except Exception as exc:
-        sync = {"error": str(exc)}
-    items = []
+        sync["promote_error"] = str(exc)[:200]
+
+    try:
+        sync_stats = _transfer_sync_phone_analyses_to_lod1()
+        if isinstance(sync_stats, dict):
+            sync.update(sync_stats)
+    except Exception as exc:
+        sync["error"] = str(exc)[:200]
+
     with _PHONE_ANALYSES_LOCK:
         mapping = dict(_load_phone_generated_map())
-        analyses = dict(_load_phone_upload_analyses())
+        phone_analyses = dict(_load_phone_upload_analyses())
     try:
         with _lod1_analyses_lock:
             lod1 = load_lod1_analyses()
@@ -6855,6 +7417,7 @@ def _respond_transfer_spell_assets(handler):
     except Exception:
         lod1 = {}
 
+    phone_by_num: dict[int, tuple[str, dict]] = {}
     for name, map_row in mapping.items():
         if not isinstance(map_row, dict):
             continue
@@ -6862,17 +7425,136 @@ def _respond_transfer_spell_assets(handler):
             gen_num = int(map_row.get("num"))
         except (TypeError, ValueError):
             continue
-        gen_url = str(map_row.get("url") or f"/generated/{gen_num}.jpg")
-        gen_path = GALLERY / gen_url.lstrip("/\\")
-        if not gen_path.is_file() or gen_path.stat().st_size < 64:
-            continue
-        a = analyses.get(name) if isinstance(analyses.get(name), dict) else None
+        phone_by_num[gen_num] = (str(name), map_row)
+
+    def _load_generated_sidecar(gen_num: int) -> dict | None:
+        """Prefer generated-meta/N.json when lod1 is missing a description."""
+        return load_generated_sidecar_file(gen_num)
+
+    def _pick_analysis(gen_num: int, *, phone_name: str | None = None) -> dict | None:
+        a = None
+        if phone_name:
+            a = phone_analyses.get(phone_name) if isinstance(phone_analyses.get(phone_name), dict) else None
         if not a:
             a = lod1.get(str(gen_num)) if isinstance(lod1.get(str(gen_num)), dict) else None
+        # Sidecar often has fresher describe results for recent stills
+        side = _load_generated_sidecar(gen_num)
+        if side:
+            side_desc = str(side.get("description") or "").strip()
+            a_desc = str((a or {}).get("description") or "").strip() if a else ""
+            if side_desc and (not a_desc or len(side_desc) > len(a_desc)):
+                a = side
+            elif not a:
+                a = side
+        return a if isinstance(a, dict) else None
+
+    def _slim_analysis(a: dict | None, *, kind: str, gen_num: int, name: str, title: str) -> dict:
+        """Keep arsenal JSON small across thousands of stills."""
+        if not a or not isinstance(a, dict):
+            return {
+                "title": title,
+                "description": "",
+                "prompt": "",
+                "style": "",
+                "tags": [],
+                "kind": kind,
+                "number": gen_num,
+                "name": name,
+                "needs_description": True,
+            }
+        desc = str(a.get("description") or "")
+        prompt = str(a.get("prompt") or "")
+        if len(desc) > 360:
+            desc = desc[:357] + "…"
+        if len(prompt) > 280:
+            prompt = prompt[:277] + "…"
+        tags = a.get("tags") or []
+        if not isinstance(tags, list):
+            tags = []
+        title_out = a.get("title") or title
+        needs = len(desc.strip()) < 12
+        return {
+            "title": title_out,
+            "description": desc,
+            "prompt": prompt,
+            "style": a.get("style") or "",
+            "mood": a.get("mood") or "",
+            "medium": a.get("medium") or "",
+            "tags": tags[:8],
+            "colors": (a.get("colors") or [])[:6] if isinstance(a.get("colors"), list) else [],
+            "kind": kind,
+            "number": gen_num,
+            "name": name,
+            "needs_description": needs,
+        }
+
+    items: list[dict] = []
+    seen_nums: set[int] = set()
+
+    # Fast path: scan generated/ once (thousands of files)
+    for entry in scan_lod1_manifest_items():
+        try:
+            gen_num = int(entry.get("num"))
+        except (TypeError, ValueError):
+            continue
+        fname = entry.get("name") or f"{gen_num}.jpg"
+        gen_url = str(entry.get("url") or f"/generated/{fname}")
+        seen_nums.add(gen_num)
+        phone_pair = phone_by_num.get(gen_num)
+        is_phone = phone_pair is not None
+        name = phone_pair[0] if phone_pair else str(fname)
+        map_row = phone_pair[1] if phone_pair else {}
+        kind = "phone-upload" if is_phone else "generated"
+        a = _pick_analysis(gen_num, phone_name=name if is_phone else None)
+        phone_url = str(map_row.get("phone_url") or f"/phone-uploads/{name}") if is_phone else ""
+        title = (a or {}).get("title") or (
+            Path(str(name)).stem if is_phone else f"Generated #{gen_num}"
+        )
+        analysis = _slim_analysis(
+            a, kind=kind, gen_num=gen_num, name=str(name), title=str(title)
+        )
+        items.append(
+            {
+                "id": f"{'phone' if is_phone else 'gen'}-g{gen_num}",
+                "number": gen_num,
+                "name": name,
+                "url": gen_url,
+                "phoneUrl": phone_url,
+                "generatedUrl": gen_url,
+                "source": kind,
+                "kind": kind,
+                "title": title,
+                "analysis": analysis,
+                "hasAnalysis": bool(
+                    a
+                    and (
+                        str(a.get("description") or "").strip()
+                        or str(a.get("prompt") or "").strip()
+                    )
+                ),
+                "needs_description": bool(analysis.get("needs_description")),
+            }
+        )
+
+    # Phone-only rows if the generated copy is missing (use phone file URL)
+    for gen_num, (name, map_row) in phone_by_num.items():
+        if gen_num in seen_nums:
+            continue
+        gen_url = str(map_row.get("url") or f"/generated/{gen_num}.jpg")
         phone_url = str(map_row.get("phone_url") or f"/phone-uploads/{name}")
-        # Prefer generated URL (Spellforge mix) but fall back to phone file
-        display_url = gen_url if gen_path.is_file() else phone_url
+        gen_path = GALLERY / gen_url.lstrip("/\\")
+        if gen_path.is_file() and gen_path.stat().st_size >= 64:
+            display_url = gen_url
+        else:
+            ppath = GALLERY / phone_url.lstrip("/\\")
+            if not ppath.is_file() or ppath.stat().st_size < 64:
+                continue
+            display_url = phone_url
+        a = _pick_analysis(gen_num, phone_name=name)
         title = (a or {}).get("title") or Path(name).stem
+        analysis = _slim_analysis(
+            a, kind="phone-upload", gen_num=gen_num, name=name, title=str(title)
+        )
         items.append(
             {
                 "id": f"phone-g{gen_num}",
@@ -6884,42 +7566,158 @@ def _respond_transfer_spell_assets(handler):
                 "source": "phone-upload",
                 "kind": "phone-upload",
                 "title": title,
-                "label": f"Phone · {title}",
-                "analysis": {
-                    "title": (a or {}).get("title") or title,
-                    "description": (a or {}).get("description") or "",
-                    "prompt": (a or {}).get("prompt") or "",
-                    "style": (a or {}).get("style") or "",
-                    "mood": (a or {}).get("mood") or "",
-                    "medium": (a or {}).get("medium") or "",
-                    "tags": (a or {}).get("tags") or [],
-                    "colors": (a or {}).get("colors") or [],
-                    "kind": "phone-upload",
-                    "number": gen_num,
-                    "name": name,
-                    "analyzed_at": (a or {}).get("analyzed_at") or "",
-                }
-                if a
-                else {
-                    "title": title,
-                    "description": "",
-                    "prompt": "",
-                    "kind": "phone-upload",
-                    "number": gen_num,
-                    "name": name,
-                },
+                "analysis": analysis,
                 "hasAnalysis": bool(
-                    a and (a.get("description") or a.get("prompt") or a.get("title"))
+                    a
+                    and (
+                        str(a.get("description") or "").strip()
+                        or str(a.get("prompt") or "").strip()
+                    )
                 ),
+                "needs_description": bool(analysis.get("needs_description")),
             }
         )
-    items.sort(key=lambda it: -(it.get("number") or 0))
+
+    # Line sketches + inverted chalk copies — arsenal extras with sketch-native prompts
+    sketch_count = 0
+    inverted_sketch_count = 0
+    inv_dir = GALLERY / "sketches-inverted"
+    if not skip_sketches:
+      try:
+        sketch_analyses = load_sketch_analyses()
+        for entry in scan_sketch_manifest_items():
+            try:
+                s_num = int(entry.get("num"))
+            except (TypeError, ValueError):
+                continue
+            sk_url = str(entry.get("url") or f"/sketches/{s_num}.png")
+            a = sketch_analyses.get(str(s_num))
+            if not isinstance(a, dict):
+                a = load_sketch_analysis(s_num) or {}
+            title = (a or {}).get("title") or f"Sketch #{s_num}"
+            analysis = _slim_analysis(
+                a if a else None,
+                kind="sketch",
+                gen_num=s_num,
+                name=f"{s_num}.png",
+                title=str(title),
+            )
+            if a:
+                if a.get("description"):
+                    analysis["description"] = str(a.get("description"))[:900]
+                if a.get("prompt"):
+                    analysis["prompt"] = str(a.get("prompt"))[:700]
+                if a.get("source_description"):
+                    analysis["source_description"] = str(a.get("source_description"))[:400]
+                analysis["source_collection"] = a.get("source_collection") or ""
+                analysis["source_num"] = a.get("source_num")
+                analysis["medium"] = a.get("medium") or "ink line sketch"
+            items.append(
+                {
+                    "id": f"sketch-s{s_num}",
+                    "number": s_num,
+                    "name": f"{s_num}.png",
+                    "url": sk_url,
+                    "phoneUrl": "",
+                    "generatedUrl": sk_url,
+                    "source": "sketch",
+                    "kind": "sketch",
+                    "title": title,
+                    "analysis": analysis,
+                    "hasAnalysis": bool(
+                        a
+                        and (
+                            str(a.get("description") or "").strip()
+                            or str(a.get("prompt") or "").strip()
+                        )
+                    ),
+                    "needs_description": bool(analysis.get("needs_description")),
+                }
+            )
+            sketch_count += 1
+
+            # Inverted chalk variant (white on black) — separate arsenal tile
+            inv_path = inv_dir / f"{s_num}.png"
+            if not inv_path.is_file():
+                continue
+            inv_url = f"/sketches-inverted/{s_num}.png"
+            inv_title = (a or {}).get("inverted_title") or f"Inverted sketch #{s_num}"
+            inv_a = {
+                "title": inv_title,
+                "description": (a or {}).get("inverted_description")
+                or (
+                    "White chalk line sketch on black ground — inverted monochrome line art."
+                ),
+                "prompt": (a or {}).get("inverted_prompt")
+                or (
+                    "White chalk lines on pure black background, inverted monochrome sketch."
+                ),
+                "style": (a or {}).get("style") or "line sketch",
+                "mood": (a or {}).get("mood") or "graphic",
+                "medium": (a or {}).get("inverted_medium") or "white chalk on black",
+                "tags": list((a or {}).get("tags") or [])[:8],
+                "kind": "sketch-inverted",
+            }
+            if "inverted" not in " ".join(str(t).lower() for t in inv_a["tags"]):
+                inv_a["tags"] = (["inverted", "chalk", "white on black"] + inv_a["tags"])[:10]
+            inv_analysis = _slim_analysis(
+                inv_a,
+                kind="sketch-inverted",
+                gen_num=s_num,
+                name=f"{s_num}.png",
+                title=str(inv_title),
+            )
+            inv_analysis["description"] = str(inv_a["description"])[:900]
+            inv_analysis["prompt"] = str(inv_a["prompt"])[:700]
+            inv_analysis["medium"] = inv_a["medium"]
+            if a:
+                inv_analysis["source_collection"] = a.get("source_collection") or ""
+                inv_analysis["source_num"] = a.get("source_num")
+            items.append(
+                {
+                    "id": f"sketch-inv-s{s_num}",
+                    "number": s_num,
+                    "name": f"inv-{s_num}.png",
+                    "url": inv_url,
+                    "phoneUrl": "",
+                    "generatedUrl": inv_url,
+                    "source": "sketch-inverted",
+                    "kind": "sketch-inverted",
+                    "title": inv_title,
+                    "analysis": inv_analysis,
+                    "hasAnalysis": True,
+                    "needs_description": False,
+                }
+            )
+            inverted_sketch_count += 1
+      except Exception as sk_err:
+        sync["sketch_error"] = str(sk_err)[:200]
+
+    items.sort(key=lambda it: -(int(it.get("number") or 0)))
+    phone_count = sum(1 for it in items if it.get("source") == "phone-upload")
+    sketch_items = sum(1 for it in items if it.get("source") == "sketch")
+    inv_sketch_items = sum(1 for it in items if it.get("source") == "sketch-inverted")
+    gen_count = len(items) - phone_count - sketch_items - inv_sketch_items
+    # Paintings are always 1000 on the client; total arsenal = 1000 + extras
+    painting_total = 1000
+    arsenal_total = painting_total + len(items)
+    page_size = 25
+    pages = max(1, (arsenal_total + page_size - 1) // page_size)
     return handler._json(
         {
             "ok": True,
             "items": items,
             "count": len(items),
+            "phone_count": phone_count,
+            "generated_count": gen_count,
+            "sketch_count": sketch_items,
+            "inverted_sketch_count": inv_sketch_items,
+            "painting_total": painting_total,
+            "arsenal_total": arsenal_total,
+            "page_size": page_size,
+            "pages": pages,
             "sync": sync,
+            "ms": int((time.time() - t0) * 1000),
         }
     )
 
@@ -7181,15 +7979,21 @@ def _transfer_scan_image_folder(folder: Path, url_prefix: str, collection: str, 
     items = []
     if not folder.is_dir():
         return items
+    cache_key = (str(folder), collection, int(limit or 0))
+    now = time.time()
+    with _TRANSFER_SCAN_CACHE_LOCK:
+        hit = _TRANSFER_SCAN_CACHE.get(cache_key)
+        if hit and now - float(hit[0]) < 25:
+            return list(hit[1])
     exts = _TRANSFER_IMAGE_EXTS | _TRANSFER_VIDEO_EXTS
     files = []
     try:
-        for p in folder.iterdir():
-            if not p.is_file():
+        # Names only — Path.is_file()/st_mtime on OneDrive thousands of files is too slow for phone.
+        for name in os.listdir(folder):
+            ext = os.path.splitext(name)[1].lower()
+            if ext not in exts:
                 continue
-            if p.suffix.lower() not in exts:
-                continue
-            files.append(p)
+            files.append(folder / name)
     except OSError:
         return items
 
@@ -7199,11 +8003,11 @@ def _transfer_scan_image_folder(folder: Path, url_prefix: str, collection: str, 
         except ValueError:
             return (1, p.stem.lower())
 
-    # Newest first for generated/uploads; numeric for paintings
+    # Numeric stems — avoid st_mtime on thousands of generated files (phone catalog).
     if collection in ("paintings",):
         files.sort(key=sort_key)
     else:
-        files.sort(key=lambda p: p.stat().st_mtime if p.is_file() else 0, reverse=True)
+        files.sort(key=sort_key, reverse=True)
 
     for p in files[:limit]:
         try:
@@ -7229,7 +8033,70 @@ def _transfer_scan_image_folder(folder: Path, url_prefix: str, collection: str, 
                 "kind": "video" if p.suffix.lower() in _TRANSFER_VIDEO_EXTS else "image",
             }
         )
+    with _TRANSFER_SCAN_CACHE_LOCK:
+        _TRANSFER_SCAN_CACHE[cache_key] = (now, list(items))
     return items
+
+
+_TRANSFER_THUMBS_DIR = GALLERY / "data" / "transfer-thumbs"
+
+
+def _respond_transfer_thumb(handler):
+    """Small JPEG thumbnail for Transfer grid (phone-friendly)."""
+    qs = parse_qs(urlparse(handler.path).query or "")
+    raw = str((qs.get("src") or qs.get("u") or [""])[0]).strip()
+    if not raw:
+        return handler._json({"ok": False, "error": "src required"}, 400)
+    try:
+        w = int((qs.get("w") or ["240"])[0])
+    except (TypeError, ValueError):
+        w = 240
+    w = max(96, min(480, w))
+    path_part = urlparse(raw).path if "://" in raw else raw
+    path_part = path_part.split("?")[0].lstrip("/\\")
+    local = (GALLERY / path_part).resolve()
+    try:
+        local.relative_to(GALLERY.resolve())
+    except ValueError:
+        return handler._json({"ok": False, "error": "Invalid path"}, 400)
+    if not local.is_file():
+        return handler._json({"ok": False, "error": "Not found"}, 404)
+    ext = local.suffix.lower()
+    if ext in _TRANSFER_VIDEO_EXTS:
+        return handler._json({"ok": False, "error": "No video thumbs"}, 400)
+    try:
+        mtime = int(local.stat().st_mtime)
+    except OSError:
+        mtime = 0
+    safe = re.sub(r"[^A-Za-z0-9._-]+", "_", path_part)[:96]
+    cache = _TRANSFER_THUMBS_DIR / f"{safe}_{mtime}_{w}.jpg"
+    if not cache.is_file():
+        try:
+            from PIL import Image, ImageOps
+
+            _TRANSFER_THUMBS_DIR.mkdir(parents=True, exist_ok=True)
+            im = Image.open(local)
+            try:
+                im.draft("RGB", (w, w))
+            except Exception:
+                pass
+            im = ImageOps.exif_transpose(im)
+            im = im.convert("RGB")
+            im.thumbnail((w, w), Image.Resampling.BILINEAR)
+            im.save(cache, format="JPEG", quality=68, optimize=False)
+        except Exception as exc:
+            return handler._json({"ok": False, "error": str(exc)[:200]}, 500)
+    try:
+        data = cache.read_bytes()
+    except OSError as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 500)
+    handler.send_response(200)
+    handler.send_header("Content-Type", "image/jpeg")
+    handler.send_header("Content-Length", str(len(data)))
+    handler.send_header("Cache-Control", "public, max-age=86400")
+    handler.end_headers()
+    handler.wfile.write(data)
+    return None
 
 
 def _respond_transfer_catalog(handler):
@@ -7237,10 +8104,14 @@ def _respond_transfer_catalog(handler):
     try:
         qs = parse_qs(urlparse(handler.path).query or "")
         coll = str((qs.get("collection") or ["paintings"])[0]).lower()
+        try:
+            req_limit = int((qs.get("limit") or [0])[0] or 0)
+        except (TypeError, ValueError):
+            req_limit = 0
         items = []
         if coll in ("phone-uploads", "to-phone", "transfer-to-phone"):
             box = "to-phone" if coll in ("to-phone", "transfer-to-phone") else "phone-uploads"
-            for it in _transfer_list(box):
+            for it in _transfer_list(box, light=True):
                 row = {
                     "id": f"{box}/{it['name']}",
                     "title": it.get("title") or it["name"],
@@ -7284,9 +8155,13 @@ def _respond_transfer_catalog(handler):
                         }
                     )
         elif coll in ("paintings", "painting", "main"):
-            items = _transfer_scan_image_folder(PAINTINGS_DIR, "/paintings", "paintings", limit=600)
+            items = _transfer_scan_image_folder(
+                PAINTINGS_DIR, "/paintings", "paintings", limit=req_limit or 600
+            )
         elif coll in ("generated", "lod1"):
-            items = _transfer_scan_image_folder(GALLERY / "generated", "/generated", "generated", limit=500)
+            items = _transfer_scan_image_folder(
+                GALLERY / "generated", "/generated", "generated", limit=req_limit or 400
+            )
             # Also try gallery_assets if folder empty
             if not items:
                 try:
@@ -7316,7 +8191,7 @@ def _respond_transfer_catalog(handler):
                 _transfer_scan_image_folder(GALLERY / "generated", "/generated", "generated", limit=100)
             )
             for box in ("to-phone", "phone-uploads"):
-                for it in _transfer_list(box)[:80]:
+                for it in _transfer_list(box, light=True)[:80]:
                     items.append(
                         {
                             "id": f"{box}/{it['name']}",
@@ -7327,6 +8202,8 @@ def _respond_transfer_catalog(handler):
                             "kind": it.get("kind") or "image",
                         }
                     )
+        if req_limit > 0:
+            items = items[:req_limit]
         return handler._json({"ok": True, "collection": coll, "items": items, "count": len(items)})
     except Exception as exc:
         return handler._json({"ok": False, "error": str(exc), "items": []}, 500)
@@ -7475,6 +8352,8 @@ def _app_handler_do_get_with_transfer(self):
         return _respond_transfer_list(self)
     if path in ("/api/transfer/catalog", "/api/transfer/catalog/"):
         return _respond_transfer_catalog(self)
+    if path in ("/api/transfer/thumb", "/api/transfer/thumb/"):
+        return _respond_transfer_thumb(self)
     if path in ("/api/transfer/analyses", "/api/transfer/analyses/"):
         return _respond_transfer_analyses(self)
     if path in ("/api/transfer/spell-assets", "/api/transfer/spell-assets/"):
@@ -7529,6 +8408,10 @@ try:
         if fid in ("phone-uploads", "phone", "from-phone", "uploads"):
             PHONE_UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
             return PHONE_UPLOADS_DIR
+        if fid in ("sketches", "sketch", "line-sketches"):
+            sk = GALLERY / "sketches"
+            sk.mkdir(parents=True, exist_ok=True)
+            return sk
         return _orig_resolve_acquired_folder_phone(folder_id)
 
     globals()["resolve_acquired_folder"] = resolve_acquired_folder
@@ -7551,6 +8434,18 @@ try:
                     "id": "phone-uploads",
                     "label": "Phone uploads · gallery/phone-uploads (+ Generated mix)",
                     "path": "phone-uploads",
+                }
+            )
+        if not any(
+            str(f.get("id") or "").lower().replace("_", "-") in ("sketches", "sketch")
+            for f in folders
+            if isinstance(f, dict)
+        ):
+            folders.append(
+                {
+                    "id": "sketches",
+                    "label": "Sketches · gallery/sketches (line art + prompts)",
+                    "path": "sketches",
                 }
             )
         idx["folders"] = folders
@@ -7847,10 +8742,541 @@ except Exception as _ft_err:
     print(f"[gallery] Fight bootstrap: {_ft_err}", flush=True)
 
 
+# --- Spell Card Duel LAN rooms (turn-state sync on gallery server) ---
+_CARDDUEL_LOCK = threading.Lock()
+CARDDUEL_DIR = GALLERY / "data" / "cardduel"
+CARDDUEL_ROOMS_PATH = CARDDUEL_DIR / "rooms.json"
+
+
+def _cardduel_load():
+    CARDDUEL_DIR.mkdir(parents=True, exist_ok=True)
+    return _fight_load_json(CARDDUEL_ROOMS_PATH, {"rooms": {}})
+
+
+def _cardduel_save(data):
+    CARDDUEL_DIR.mkdir(parents=True, exist_ok=True)
+    _fight_save_json(CARDDUEL_ROOMS_PATH, data)
+
+
+def _respond_cardduel_room_get(handler):
+    qs = parse_qs(urlparse(handler.path).query)
+    room = str((qs.get("room") or [""])[0]).strip()[:12]
+    if not room:
+        return handler._json({"ok": False, "error": "room required"}, 400)
+    with _CARDDUEL_LOCK:
+        data = _cardduel_load()
+        rooms = data.get("rooms") if isinstance(data, dict) else {}
+        row = (rooms or {}).get(room) or {}
+    return handler._json(
+        {
+            "ok": True,
+            "room": room,
+            "state": row.get("state"),
+            "hostId": row.get("hostId"),
+            "updated": row.get("updated"),
+            "players": row.get("players") or [],
+        }
+    )
+
+
+def _respond_cardduel_room_post(handler):
+    try:
+        body = handler._read_json()
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    room = str(body.get("room") or "").strip()[:12]
+    if not room:
+        return handler._json({"ok": False, "error": "room required"}, 400)
+    action = str(body.get("action") or "sync").lower()
+    pid = str(body.get("playerId") or uuid.uuid4().hex)[:48]
+    now = time.time()
+    with _CARDDUEL_LOCK:
+        data = _cardduel_load()
+        rooms = dict(data.get("rooms") or {})
+        # prune stale rooms (>2h)
+        rooms = {
+            k: v
+            for k, v in rooms.items()
+            if isinstance(v, dict) and now - float(v.get("updated") or 0) < 7200
+        }
+        row = rooms.get(room) or {
+            "hostId": "",
+            "players": [],
+            "state": None,
+            "updated": now,
+        }
+        players = [p for p in (row.get("players") or []) if isinstance(p, dict)]
+        players = [p for p in players if now - float(p.get("seen") or 0) < 90]
+        found = None
+        for p in players:
+            if p.get("playerId") == pid:
+                found = p
+                break
+        raw_name = body.get("name") if body.get("name") is not None else body.get("displayName")
+        name = str(raw_name or "").strip()[:24]
+        # Keep readable names only
+        name = "".join(ch for ch in name if ch.isprintable() and ch not in "<>\"'\\")
+        name = " ".join(name.split())[:24]
+        is_host = bool(body.get("isHost")) or action == "host"
+        entry = {
+            "playerId": pid,
+            "seen": now,
+            "host": is_host,
+            "name": name,
+        }
+        if action == "host":
+            row["hostId"] = pid
+            entry["host"] = True
+            if not entry["name"]:
+                entry["name"] = "Host"
+            for p in players:
+                p["host"] = p.get("playerId") == pid
+        if found:
+            # Preserve existing name if this heartbeat omits one
+            if not entry.get("name") and found.get("name"):
+                entry["name"] = found.get("name")
+            found.update(entry)
+        else:
+            if len(players) >= 4:
+                return handler._json({"ok": False, "error": "Room full"}, 400)
+            if not entry.get("name"):
+                entry["name"] = "Host" if is_host else "Guest"
+            players.append(entry)
+        row["players"] = players
+        if body.get("state") is not None and (
+            action in ("host", "sync") or pid == row.get("hostId")
+        ):
+            # Host (or sync) may publish game state
+            if action == "join" and not body.get("state"):
+                pass
+            elif pid == row.get("hostId") or action == "host" or body.get("isHost"):
+                row["state"] = body.get("state")
+        row["updated"] = now
+        rooms[room] = row
+        data = {"rooms": rooms}
+        _cardduel_save(data)
+    return handler._json(
+        {
+            "ok": True,
+            "room": room,
+            "playerId": pid,
+            "state": row.get("state"),
+            "players": row.get("players") or [],
+            "hostId": row.get("hostId"),
+        }
+    )
+
+
+_orig_app_handler_do_get_cardduel = AppHandler.do_GET
+
+
+def _app_handler_do_get_with_cardduel(self):
+    path = _normalize_api_path(urlparse(self.path).path)
+    if path in ("/api/cardduel/room", "/api/cardduel/room/"):
+        return _respond_cardduel_room_get(self)
+    return _orig_app_handler_do_get_cardduel(self)
+
+
+AppHandler.do_GET = _app_handler_do_get_with_cardduel
+
+_orig_app_handler_do_post_cardduel = AppHandler.do_POST
+
+
+def _app_handler_do_post_with_cardduel(self):
+    path = _normalize_api_path(urlparse(self.path).path)
+    if path in ("/api/cardduel/room", "/api/cardduel/room/"):
+        return _respond_cardduel_room_post(self)
+    return _orig_app_handler_do_post_cardduel(self)
+
+
+AppHandler.do_POST = _app_handler_do_post_with_cardduel
+
+try:
+    CARDDUEL_DIR.mkdir(parents=True, exist_ok=True)
+    print("[gallery] Card Duel: /api/cardduel/room  (LAN state sync)", flush=True)
+except Exception as _cd_err:
+    print(f"[gallery] Card Duel bootstrap: {_cd_err}", flush=True)
+
+
+# --- GraphCalc image sketches ---
+# PNG previews: gallery/sketches/N.png
+# Curve data:   gallery/sketches/json/N.json
+_SKETCHES_LOCK = threading.Lock()
+SKETCHES_DIR = GALLERY / "sketches"
+SKETCHES_JSON_DIR = SKETCHES_DIR / "json"
+
+
+def _next_sketch_num() -> int:
+    """Next continuous integer for sketches (max of png + json stems)."""
+    SKETCHES_DIR.mkdir(parents=True, exist_ok=True)
+    SKETCHES_JSON_DIR.mkdir(parents=True, exist_ok=True)
+    max_n = 0
+    try:
+        for folder in (SKETCHES_DIR, SKETCHES_JSON_DIR):
+            for p in folder.iterdir():
+                if not p.is_file():
+                    continue
+                stem = p.stem
+                # 12.json or 12.png → 12
+                try:
+                    n = int(stem)
+                except ValueError:
+                    m = re.match(r"^(\d+)", stem)
+                    n = int(m.group(1)) if m else 0
+                if n > max_n:
+                    max_n = n
+    except OSError:
+        pass
+    return max_n + 1
+
+
+def _list_sketches(limit=None) -> list:
+    SKETCHES_DIR.mkdir(parents=True, exist_ok=True)
+    SKETCHES_JSON_DIR.mkdir(parents=True, exist_ok=True)
+    rows = []
+    try:
+        paths = sorted(
+            [p for p in SKETCHES_JSON_DIR.glob("*.json") if p.is_file()],
+            key=lambda p: int(p.stem) if p.stem.isdigit() else 0,
+            reverse=True,
+        )
+    except OSError:
+        return []
+    for p in paths:
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            if not isinstance(data, dict):
+                continue
+            num = data.get("num")
+            if num is None and p.stem.isdigit():
+                num = int(p.stem)
+            preview = data.get("preview_url") or (
+                f"/sketches/{num}.png" if (SKETCHES_DIR / f"{num}.png").is_file() else ""
+            )
+            rows.append(
+                {
+                    "num": num,
+                    "title": data.get("title") or f"Sketch #{num}",
+                    "url": f"/sketches/json/{num}.json",
+                    "preview_url": preview,
+                    "curve_count": len(data.get("curves") or data.get("exprs") or []),
+                    "source_url": data.get("source_url") or "",
+                    "created": data.get("created") or p.stat().st_mtime,
+                    "width": data.get("width"),
+                    "height": data.get("height"),
+                }
+            )
+        except Exception:
+            continue
+    if limit is not None:
+        try:
+            lim = int(limit)
+            if lim > 0:
+                rows = rows[:lim]
+        except (TypeError, ValueError):
+            pass
+    return rows
+
+
+def _respond_sketches_list(handler):
+    qs = parse_qs(urlparse(handler.path).query)
+    limit = (qs.get("limit") or [None])[0]
+    rows = _list_sketches(limit)
+    return handler._json({"ok": True, "items": rows, "count": len(rows)})
+
+
+def _respond_sketch_get(handler):
+    qs = parse_qs(urlparse(handler.path).query)
+    num_s = str((qs.get("num") or [""])[0]).strip()
+    if not num_s.isdigit():
+        return handler._json({"ok": False, "error": "num required"}, 400)
+    num = int(num_s)
+    path = SKETCHES_JSON_DIR / f"{num}.json"
+    if not path.is_file():
+        # legacy flat layout
+        path = SKETCHES_DIR / f"{num}.json"
+    if not path.is_file():
+        return handler._json({"ok": False, "error": "Sketch not found"}, 404)
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 500)
+    return handler._json({"ok": True, "sketch": data})
+
+
+def _respond_sketches_save(handler):
+    try:
+        body = handler._read_json()
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    curves = body.get("curves") or body.get("exprs") or []
+    if not isinstance(curves, list) or not curves:
+        return handler._json({"ok": False, "error": "curves[] required"}, 400)
+    # Cap size so a runaway convert cannot fill the disk
+    if len(curves) > 5000:
+        return handler._json({"ok": False, "error": "Too many curves (max 5000)"}, 400)
+    clean = []
+    for c in curves:
+        s = str(c or "").strip()
+        if s:
+            clean.append(s[:8000])
+    if not clean:
+        return handler._json({"ok": False, "error": "No valid curves"}, 400)
+
+    with _SKETCHES_LOCK:
+        SKETCHES_DIR.mkdir(parents=True, exist_ok=True)
+        SKETCHES_JSON_DIR.mkdir(parents=True, exist_ok=True)
+        num = _next_sketch_num()
+        title = str(body.get("title") or f"Sketch #{num}").strip()[:120]
+        meta = body.get("meta") if isinstance(body.get("meta"), dict) else {}
+        record = {
+            "num": num,
+            "title": title or f"Sketch #{num}",
+            "created": time.time(),
+            "source_url": str(body.get("source_url") or "")[:500],
+            "width": body.get("width"),
+            "height": body.get("height"),
+            "curve_count": len(clean),
+            "curves": clean,
+            "meta": {
+                "detail": meta.get("detail"),
+                "max_curves": meta.get("max_curves") or meta.get("maxCurves"),
+                "contour_count": meta.get("contour_count") or meta.get("contourCount"),
+                "source": meta.get("source") or "graphcalc-img2curve",
+            },
+            "preview_url": "",
+        }
+        # Optional edge-preview PNG (base64 data URL or raw base64)
+        preview_b64 = body.get("preview_base64") or body.get("image_base64") or ""
+        if preview_b64:
+            try:
+                raw = None
+                if str(preview_b64).startswith("data:"):
+                    raw = _decode_preview_b64(preview_b64) if "_decode_preview_b64" in globals() else None
+                    if raw is None:
+                        import base64 as _b64
+
+                        comma = str(preview_b64).find(",")
+                        raw = _b64.b64decode(str(preview_b64)[comma + 1 :] if comma >= 0 else preview_b64)
+                else:
+                    import base64 as _b64
+
+                    raw = _b64.b64decode(str(preview_b64))
+                if raw and len(raw) < 8 * 1024 * 1024:
+                    png_name = f"{num}.png"
+                    (SKETCHES_DIR / png_name).write_bytes(raw)
+                    record["preview_url"] = f"/sketches/{png_name}"
+            except Exception:
+                pass
+
+        dest = SKETCHES_JSON_DIR / f"{num}.json"
+        dest.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    return handler._json(
+        {
+            "ok": True,
+            "num": num,
+            "title": record["title"],
+            "path": f"sketches/json/{num}.json",
+            "url": f"/sketches/json/{num}.json",
+            "preview_url": record.get("preview_url") or "",
+            "curve_count": len(clean),
+        }
+    )
+
+
+_orig_app_handler_do_get_sketches = AppHandler.do_GET
+
+
+def _app_handler_do_get_with_sketches(self):
+    path = _normalize_api_path(urlparse(self.path).path)
+    if path in ("/api/sketches", "/api/sketches/"):
+        return _respond_sketches_list(self)
+    if path in ("/api/sketches/get", "/api/sketches/get/"):
+        return _respond_sketch_get(self)
+    return _orig_app_handler_do_get_sketches(self)
+
+
+AppHandler.do_GET = _app_handler_do_get_with_sketches
+
+_orig_app_handler_do_post_sketches = AppHandler.do_POST
+
+
+def _app_handler_do_post_with_sketches(self):
+    path = _normalize_api_path(urlparse(self.path).path)
+    if path in ("/api/sketches/save", "/api/sketches/save/"):
+        return _respond_sketches_save(self)
+    return _orig_app_handler_do_post_sketches(self)
+
+
+AppHandler.do_POST = _app_handler_do_post_with_sketches
+
+try:
+    SKETCHES_DIR.mkdir(parents=True, exist_ok=True)
+    print("[gallery] Sketches: /api/sketches  →  sketches/json/N.json + sketches/N.png", flush=True)
+except Exception as _sk_err:
+    print(f"[gallery] Sketches bootstrap: {_sk_err}", flush=True)
+
+
 # --- Generation prompt hard cap (xAI max 8000 chars on FINAL prompt) ---
 GEN_PROMPT_MAX_CHARS = 8000
 # Leave room for "Create one original… / BUZZ WORDS…" framing around stasis body
 GEN_STASIS_BODY_MAX = 7200
+
+_ATOMIC_OFFSET_S = 0.0
+_ATOMIC_SYNC_AT = 0.0
+_ATOMIC_LOCK = threading.Lock()
+_PREFERRED_TZ = ""
+
+
+def _parse_atomic_http(url: str) -> datetime | None:
+    """Read UTC from a public atomic-backed time service."""
+    with httpx.Client(timeout=httpx.Timeout(4.0, connect=2.0), follow_redirects=True) as client:
+        r = client.get(url, headers={"User-Agent": "1000PaintingsGallery/1.0 (atomic signature stamp)"})
+        r.raise_for_status()
+        text = r.text or ""
+        if "cdn-cgi/trace" in url or "ts=" in text[:800]:
+            for line in text.splitlines():
+                if line.startswith("ts="):
+                    return datetime.fromtimestamp(float(line.split("=", 1)[1]), tz=timezone.utc)
+        try:
+            data = r.json()
+        except Exception:
+            data = None
+        if isinstance(data, dict):
+            iso = (
+                data.get("utc_datetime")
+                or data.get("dateTime")
+                or data.get("datetime")
+                or data.get("currentDateTime")
+                or ""
+            )
+            if iso:
+                cleaned = str(iso).replace("Z", "+00:00")
+                dt = datetime.fromisoformat(cleaned)
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+                return dt.astimezone(timezone.utc)
+            if data.get("unixtime") is not None:
+                return datetime.fromtimestamp(float(data["unixtime"]), tz=timezone.utc)
+    return None
+
+
+def _sync_atomic_clock(force: bool = False) -> None:
+    global _ATOMIC_OFFSET_S, _ATOMIC_SYNC_AT
+    now = time.time()
+    with _ATOMIC_LOCK:
+        if not force and _ATOMIC_SYNC_AT and now - _ATOMIC_SYNC_AT < 90:
+            return
+        urls = [
+            "https://1.1.1.1/cdn-cgi/trace",
+            "https://worldtimeapi.org/api/timezone/Etc/UTC",
+            "https://timeapi.io/api/Time/current/zone?timeZone=UTC",
+        ]
+        for url in urls:
+            try:
+                dt = _parse_atomic_http(url)
+                if dt is None:
+                    continue
+                _ATOMIC_OFFSET_S = dt.timestamp() - time.time()
+                _ATOMIC_SYNC_AT = time.time()
+                return
+            except Exception:
+                continue
+        _ATOMIC_SYNC_AT = time.time()
+
+
+def atomic_utc_now() -> datetime:
+    """UTC now aligned to public atomic-backed clocks (Cloudflare/NIST-fed APIs)."""
+    try:
+        _sync_atomic_clock()
+    except Exception:
+        pass
+    return datetime.fromtimestamp(time.time() + _ATOMIC_OFFSET_S, tz=timezone.utc)
+
+
+def _resolve_display_tz(tz_name: str | None = None):
+    name = str(tz_name or "").strip() or _PREFERRED_TZ
+    if name:
+        try:
+            from zoneinfo import ZoneInfo
+
+            return ZoneInfo(name), name
+        except Exception:
+            pass
+    local = datetime.now().astimezone().tzinfo
+    label = str(getattr(local, "key", None) or "")
+    if not label:
+        try:
+            label = datetime.now().astimezone().tzname() or "local"
+        except Exception:
+            label = "local"
+    return local, label
+
+
+def _short_tz_label(dt: datetime, fallback: str = "") -> str:
+    name = str(dt.tzname() or fallback or "").strip()
+    if name and len(name) <= 5:
+        return name
+    off = dt.strftime("%z") or ""
+    if len(off) >= 5:
+        sign = off[0]
+        hh = int(off[1:3])
+        mm = off[3:5]
+        return f"GMT{sign}{hh}" + ("" if mm == "00" else ":" + mm)
+    return name or "local"
+
+
+def atomic_local_now(tz_name: str | None = None) -> tuple[datetime, str]:
+    """Atomic instant converted to studio/local timezone (not UTC)."""
+    utc = atomic_utc_now()
+    tzinfo, label = _resolve_display_tz(tz_name)
+    try:
+        dt = utc.astimezone(tzinfo)
+    except Exception:
+        dt = utc.astimezone()
+        label = dt.tzname() or "local"
+    return dt, _short_tz_label(dt, label)
+
+
+def atomic_signature_stamp(tz_name: str | None = None) -> str:
+    """Human stamp: 6 September 2026  01:59:47 PDT"""
+    dt, tzlabel = atomic_local_now(tz_name)
+    day = str(dt.day)
+    month = dt.strftime("%B")
+    return f"{day} {month} {dt.year}  {dt.strftime('%H:%M:%S')} {tzlabel}"
+
+
+def _respond_atomic_time(handler):
+    global _PREFERRED_TZ
+    qs = parse_qs(urlparse(handler.path).query or "")
+    tz = str((qs.get("tz") or qs.get("timezone") or [""])[0]).strip()
+    if tz:
+        with _ATOMIC_LOCK:
+            _PREFERRED_TZ = tz
+    dt, tzlabel = atomic_local_now(tz or None)
+    utc = atomic_utc_now()
+    stamp = atomic_signature_stamp(tz or None)
+    _, resolved = _resolve_display_tz(tz or None)
+    return handler._json(
+        {
+            "ok": True,
+            "utc": utc.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
+            "local": dt.strftime("%Y-%m-%dT%H:%M:%S"),
+            "timezone": resolved,
+            "tz_abbr": tzlabel,
+            "unix": dt.timestamp(),
+            "year": dt.year,
+            "stamp": stamp,
+            "signature": f"Logan Sevin · {stamp}",
+            "offset_seconds": round(_ATOMIC_OFFSET_S, 3),
+            "source": "atomic-local",
+        }
+    )
 
 
 def _cap_prompt_chars(text, max_chars=None):
@@ -7932,6 +9358,22 @@ def build_stasis_vision_prompt(*args, **kwargs):
             "The image should read clearly at thumbnail scale yet reward close viewing. "
             "Museum-quality, cohesive composition, expressive brushwork, 16:9 landscape."
         )
+    stamp = atomic_signature_stamp()
+    artist = "Logan Sevin"
+    try:
+        ident = json.loads((GALLERY / "data" / "author-identity.json").read_text(encoding="utf-8"))
+        artist = str(ident.get("author") or ident.get("display_name") or artist)
+    except Exception:
+        pass
+    sig = (
+        "\n\nIN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner like a real painting): "
+        f'write exactly "{artist} · {stamp}". '
+        "That date and time is this studio's local clock, aligned to atomic time. "
+        "Do not write UTC unless the stamp itself says UTC. "
+        "Do not write 2024, 2025, or any other year. Do not omit the clock time. "
+        "Do not invent a fake date."
+    )
+    prompt = str(prompt or "") + sig
     # Stay a few chars under 8000 — xAI rejects anything over the max
     return _cap_prompt_chars(prompt, GEN_PROMPT_MAX_CHARS - 8)
 
@@ -7959,6 +9401,97 @@ def run_stasis_vision_job(job_id, body, *rest, **kwargs):
     buzz = body.get("buzz_words") or body.get("tags")
     if isinstance(buzz, list) and len(buzz) > 16:
         body["buzz_words"] = buzz[:16]
+
+    # Dream Stasis whisper + any spell_cast: never drop visual spell refs.
+    # Older clients (and some bodies) only send text; pull URL from spell_details.
+    try:
+        details = body.get("spell_details") or []
+        ref = str(
+            body.get("spell_reference_image")
+            or body.get("reference_image")
+            or body.get("image_url")
+            or ""
+        ).strip()
+        if not ref and isinstance(details, list):
+            for row in details:
+                if isinstance(row, dict) and row.get("url"):
+                    ref = str(row.get("url") or "").strip()
+                    if ref:
+                        break
+        # Normalize relative /generated/ or paintings/ paths to site-local URLs
+        if ref and ref.startswith("/"):
+            # leave as path — resolve_reference_image_for_api / job runner handle local files
+            pass
+        if ref:
+            body["spell_reference_image"] = body.get("spell_reference_image") or ref
+            body["reference_image"] = body.get("reference_image") or ref
+            if body.get("spell_cast") is None or body.get("source") == "dream-stasis-whisper":
+                body["spell_cast"] = True
+        # Painting numbers for DNA when only details were sent
+        spells = body.get("spells")
+        if not spells and isinstance(details, list):
+            nums = []
+            for row in details:
+                if not isinstance(row, dict):
+                    continue
+                try:
+                    n = int(row.get("number"))
+                except (TypeError, ValueError):
+                    continue
+                if 1 <= n <= 1000:
+                    nums.append(n)
+            if nums:
+                body["spells"] = nums[:3]
+        # Spellforge product stills are text-fused originals. Never attach source
+        # paintings (including arsenal IDs like 300000+ inverted sketches).
+        product = str(body.get("product_mode") or "").lower()
+        mag_fresh = bool(
+            body.get("mag_fresh")
+            or body.get("fresh_variation")
+            or product in ("original_fusion", "fresh")
+            or (
+                body.get("spell_cast") is False
+                and str(body.get("source") or "") == "spellforge"
+            )
+        )
+        if mag_fresh:
+            body["spell_cast"] = False
+            body["mag_fresh"] = True
+            body["reference_image"] = ""
+            body["spell_reference_image"] = ""
+            body.pop("image_url", None)
+            kept = []
+            for n in body.get("spells") or []:
+                try:
+                    i = int(n)
+                except (TypeError, ValueError):
+                    continue
+                if 1 <= i <= 1000:
+                    kept.append(i)
+            body["spells"] = kept
+    except Exception:
+        pass
+
+    try:
+        global _PREFERRED_TZ
+        tz = str(body.get("timezone") or body.get("tz") or "").strip()
+        if tz:
+            with _ATOMIC_LOCK:
+                _PREFERRED_TZ = tz
+        stamp = atomic_signature_stamp(tz or None)
+        body["signed_at"] = stamp
+        body["signed_at_unix"] = atomic_utc_now().timestamp()
+        note = (
+            f"In-canvas signature must read Logan Sevin · {stamp} "
+            "(studio local time, atomic-backed). Never write 2024 or UTC unless the stamp says UTC."
+        )
+        if isinstance(body.get("stasis"), str) and "atomic-backed" not in body["stasis"]:
+            body["stasis"] = _cap_prompt_chars(
+                body["stasis"].rstrip() + "\n" + note, GEN_STASIS_BODY_MAX
+            )
+    except Exception:
+        pass
+
     if not callable(_orig_run_stasis_vision_job):
         raise RuntimeError("run_stasis_vision_job not available")
     if rest or kwargs:
@@ -8056,6 +9589,10 @@ def main():
         except Exception as e:
             print(f"[gallery] startup urls: {e}", flush=True)
     print(f"[gallery] Listening on http://0.0.0.0:{PORT}/  (cloud-ready)", flush=True)
+    try:
+        _ensure_tailscale_https_serve(PORT)
+    except Exception as e:
+        print(f"[gallery] Tailscale HTTPS serve: {e}", flush=True)
     print("Press Ctrl+C to stop.", flush=True)
     try:
         httpd.serve_forever()
@@ -8063,7 +9600,1640 @@ def main():
         print("\nStopped.", flush=True)
 
 
+def _tailscale_exe() -> str:
+    candidates = [
+        r"C:\Program Files\Tailscale\tailscale.exe",
+        "tailscale",
+    ]
+    for c in candidates:
+        if c == "tailscale" or Path(c).is_file():
+            return c
+    return ""
+
+
+def _tailscale_magic_dns() -> str:
+    exe = _tailscale_exe()
+    if not exe:
+        return ""
+    try:
+        import json
+        import subprocess
+
+        out = subprocess.check_output(
+            [exe, "status", "--json"],
+            text=True,
+            errors="ignore",
+            timeout=8,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+        )
+        data = json.loads(out)
+        name = ((data.get("Self") or {}).get("DNSName") or "").rstrip(".")
+        return name
+    except Exception:
+        return ""
+
+
+def _ensure_tailscale_https_serve(port: int = 8765) -> None:
+    """Proxy HTTPS MagicDNS → local gallery so phones get a secure context for camera."""
+    exe = _tailscale_exe()
+    if not exe:
+        return
+    import subprocess
+
+    target = f"http://127.0.0.1:{int(port or 8765)}"
+    try:
+        subprocess.run(
+            [exe, "serve", "--bg", target],
+            capture_output=True,
+            text=True,
+            timeout=5,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+        )
+    except Exception as e:
+        print(f"[gallery] tailscale serve: {e}", flush=True)
+        return
+    magic = _tailscale_magic_dns()
+    if magic:
+        print(
+            f"[gallery] Phone CAMERA (HTTPS — required on Safari/Chrome):\n"
+            f"          https://{magic}/\n"
+            f"          https://{magic}/#dream",
+            flush=True,
+        )
+    else:
+        print(
+            "[gallery] Tailscale serve attempted. If camera fails on phone, "
+            "run enable_phone_camera.bat",
+            flush=True,
+        )
+
+
+def _phone_access_payload() -> dict:
+    magic = _tailscale_magic_dns() or "desktop-khpuv0r.tail51fce6.ts.net"
+    https_origin = f"https://{magic}"
+    return {
+        "ok": True,
+        "magic_dns": magic,
+        "https_origin": https_origin,
+        "https_gallery": https_origin + "/",
+        "https_dream": https_origin + "/#dream",
+        "camera_requires_https": True,
+        "hint": "Phone browsers block camera on http:// — open the https_dream URL over Tailscale.",
+    }
+
+
+_prev_do_get_phone_access = AppHandler.do_GET
+
+
+def _app_handler_do_get_with_phone_access(self):
+    parsed = urlparse(self.path)
+    path = (parsed.path or "").rstrip("/") or "/"
+    if path == "/api/phone-access":
+        return self._json(_phone_access_payload())
+    if path in ("/api/maps", "/api/maps/"):
+        return _respond_maps_list(self)
+    if path in ("/api/stares", "/api/stares/"):
+        return _respond_stares_list(self)
+    if path in ("/api/masks", "/api/masks/"):
+        return _respond_masks_list(self)
+    return _prev_do_get_phone_access(self)
+
+
+AppHandler.do_GET = _app_handler_do_get_with_phone_access
+
+
+# --- Maps tab catalog (arenas / overworlds / stages) ---
+MAPS_CATALOG_PATH = GALLERY / "data" / "maps-catalog.json"
+_MAPS_LOCK = threading.Lock()
+
+
+def _maps_load_catalog() -> dict:
+    try:
+        if MAPS_CATALOG_PATH.is_file():
+            data = json.loads(MAPS_CATALOG_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+    except Exception:
+        pass
+    return {"maps": []}
+
+
+def _maps_save_catalog(data: dict) -> None:
+    MAPS_CATALOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    tmp = MAPS_CATALOG_PATH.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(MAPS_CATALOG_PATH)
+
+
+def _respond_maps_list(handler):
+    with _MAPS_LOCK:
+        data = _maps_load_catalog()
+    maps = data.get("maps") if isinstance(data, dict) else []
+    if not isinstance(maps, list):
+        maps = []
+    return handler._json({"ok": True, "maps": maps, "count": len(maps)})
+
+
+def _respond_maps_save(handler):
+    try:
+        body = handler._read_json()
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    name = str(body.get("name") or "").strip()[:80]
+    if not name:
+        return handler._json({"ok": False, "error": "name required"}, 400)
+    image_url = str(body.get("image_url") or body.get("url") or "").strip()
+    if not image_url:
+        return handler._json({"ok": False, "error": "image_url required"}, 400)
+    mid = str(body.get("id") or uuid.uuid4().hex[:12])
+    row = {
+        "id": mid,
+        "name": name,
+        "kind": str(body.get("kind") or "arena")[:32],
+        "view": str(body.get("view") or "")[:32],
+        "style": str(body.get("style") or "")[:32],
+        "prompt": str(body.get("prompt") or "")[:2000],
+        "image_url": image_url,
+        "gen_num": body.get("gen_num"),
+        "painting_ref": body.get("painting_ref"),
+        "saved_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    with _MAPS_LOCK:
+        data = _maps_load_catalog()
+        maps = [m for m in (data.get("maps") or []) if isinstance(m, dict) and m.get("id") != mid]
+        maps.append(row)
+        data = {"maps": maps[-80:]}
+        _maps_save_catalog(data)
+    return handler._json({"ok": True, "map": row})
+
+
+_prev_do_post_maps = AppHandler.do_POST
+
+
+def _app_handler_do_post_with_maps(self):
+    parsed = urlparse(self.path)
+    path = (parsed.path or "").rstrip("/") or "/"
+    if path in ("/api/maps", "/api/maps/"):
+        return _respond_maps_save(self)
+    if path in ("/api/stares", "/api/stares/"):
+        return _respond_stares_save(self)
+    if path in ("/api/masks", "/api/masks/"):
+        return _respond_masks_save(self)
+    return _prev_do_post_maps(self)
+
+
+AppHandler.do_POST = _app_handler_do_post_with_maps
+
+
+# --- Stare tab catalog (1000-yard stares) ---
+STARES_CATALOG_PATH = GALLERY / "data" / "stares-catalog.json"
+_STARES_LOCK = threading.Lock()
+
+
+def _stares_load_catalog() -> dict:
+    try:
+        if STARES_CATALOG_PATH.is_file():
+            data = json.loads(STARES_CATALOG_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+    except Exception:
+        pass
+    return {"stares": []}
+
+
+def _stares_save_catalog(data: dict) -> None:
+    STARES_CATALOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    tmp = STARES_CATALOG_PATH.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(STARES_CATALOG_PATH)
+
+
+def _respond_stares_list(handler):
+    with _STARES_LOCK:
+        data = _stares_load_catalog()
+    stares = data.get("stares") if isinstance(data, dict) else []
+    if not isinstance(stares, list):
+        stares = []
+    return handler._json({"ok": True, "stares": stares, "count": len(stares)})
+
+
+def _respond_stares_save(handler):
+    try:
+        body = handler._read_json()
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    name = str(body.get("name") or "").strip()[:80] or "1000-yard stare"
+    image_url = str(body.get("image_url") or body.get("url") or "").strip()
+    if not image_url:
+        return handler._json({"ok": False, "error": "image_url required"}, 400)
+    sid = str(body.get("id") or uuid.uuid4().hex[:12])
+    row = {
+        "id": sid,
+        "name": name,
+        "border": str(body.get("border") or "worlds")[:32],
+        "mood": str(body.get("mood") or "")[:32],
+        "prompt": str(body.get("prompt") or "")[:2000],
+        "image_url": image_url,
+        "gen_num": body.get("gen_num"),
+        "painting_ref": body.get("painting_ref"),
+        "saved_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    with _STARES_LOCK:
+        data = _stares_load_catalog()
+        stares = [
+            s
+            for s in (data.get("stares") or [])
+            if isinstance(s, dict) and s.get("id") != sid
+        ]
+        stares.append(row)
+        data = {"stares": stares[-80:]}
+        _stares_save_catalog(data)
+    return handler._json({"ok": True, "stare": row})
+
+
+# --- Masks tab catalog (full-face cinematic drama masks) ---
+MASKS_CATALOG_PATH = GALLERY / "data" / "masks-catalog.json"
+_MASKS_LOCK = threading.Lock()
+
+
+def _masks_load_catalog() -> dict:
+    try:
+        if MASKS_CATALOG_PATH.is_file():
+            data = json.loads(MASKS_CATALOG_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+    except Exception:
+        pass
+    return {"masks": []}
+
+
+def _masks_save_catalog(data: dict) -> None:
+    MASKS_CATALOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    tmp = MASKS_CATALOG_PATH.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(MASKS_CATALOG_PATH)
+
+
+def _respond_masks_list(handler):
+    with _MASKS_LOCK:
+        data = _masks_load_catalog()
+    masks = data.get("masks") if isinstance(data, dict) else []
+    if not isinstance(masks, list):
+        masks = []
+    return handler._json({"ok": True, "masks": masks, "count": len(masks)})
+
+
+def _respond_masks_save(handler):
+    try:
+        body = handler._read_json()
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    name = str(body.get("name") or "").strip()[:80] or "Drama mask"
+    image_url = str(body.get("image_url") or body.get("url") or "").strip()
+    if not image_url:
+        return handler._json({"ok": False, "error": "image_url required"}, 400)
+    mid = str(body.get("id") or uuid.uuid4().hex[:12])
+    row = {
+        "id": mid,
+        "name": name,
+        "material": str(body.get("material") or "porcelain")[:32],
+        "expression": str(body.get("expression") or "")[:32],
+        "prompt": str(body.get("prompt") or "")[:2000],
+        "cast_prompt": str(body.get("cast_prompt") or "")[:2000],
+        "image_url": image_url,
+        "gen_num": body.get("gen_num"),
+        "spells": body.get("spells") if isinstance(body.get("spells"), list) else [],
+        "saved_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    with _MASKS_LOCK:
+        data = _masks_load_catalog()
+        masks = [
+            m
+            for m in (data.get("masks") or [])
+            if isinstance(m, dict) and m.get("id") != mid
+        ]
+        masks.append(row)
+        data = {"masks": masks[-80:]}
+        _masks_save_catalog(data)
+    return handler._json({"ok": True, "mask": row})
+
+
 globals()["main"] = main
+
+
+# --- Sketches routes MUST be outermost so /api/sketches/* is never "Unknown API" ---
+# (maps/stares/masks register after the earlier sketches wrap and can shadow if not chained)
+def _install_sketches_routes_outermost():
+    prev_get = AppHandler.do_GET
+    prev_post = AppHandler.do_POST
+
+    def do_get_sketches_outer(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/sketches", "/api/sketches/"):
+            return _respond_sketches_list(self)
+        if path in ("/api/sketches/get", "/api/sketches/get/"):
+            return _respond_sketch_get(self)
+        # Manifest + analyses for Gallery tab (must stay outermost — not shadowed)
+        if path in ("/api/sketch-manifest", "/api/sketch-manifest/"):
+            rows = scan_sketch_manifest_items()
+            return self._json({"items": rows, "count": len(rows)})
+        if path in ("/api/sketch-analyses", "/api/sketch-analyses/"):
+            return self._json(load_sketch_analyses())
+        return prev_get(self)
+
+    def do_post_sketches_outer(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/sketches/save", "/api/sketches/save/"):
+            return _respond_sketches_save(self)
+        return prev_post(self)
+
+    AppHandler.do_GET = do_get_sketches_outer
+    AppHandler.do_POST = do_post_sketches_outer
+
+
+try:
+    _install_sketches_routes_outermost()
+    SKETCHES_DIR.mkdir(parents=True, exist_ok=True)
+    print("[gallery] Sketches routes outermost: save → sketches/json/N.json + sketches/N.png", flush=True)
+except Exception as _sk_outer_err:
+    print(f"[gallery] Sketches outer install failed: {_sk_outer_err}", flush=True)
+
+
+_STUDIO_CHAT_SYSTEM = (
+    "You are the studio chatbot for Logan Sevin's 1000 Paintings Challenge gallery "
+    "(local site on port 8765). The artist is Logan Sevin. Be direct, concrete, and "
+    "useful. You know the tabs: Gallery, Spellforge, Conceptualizer, Animate, Transfer, "
+    "Puzzle, Saccade, Demand, Graph, Banker, Carousel, Fight, Card Duel, Dream Stasis, "
+    "Ideal, Movie, and the rest of the studio strip. Demand is a ranked list of Grok-scale "
+    "asks mapped onto this site — not private xAI telemetry. Help decide what to build, "
+    "draft implementation briefs, and talk about the paintings, sketches, and generated stills. "
+    "Do not claim you can see the user's screen. Do not invent APIs that are not on this "
+    "local python server. Keep answers tight unless asked for detail."
+)
+
+
+def _chat_input_item(role: str, text: str) -> dict:
+    return {
+        "role": role,
+        "content": [{"type": "input_text", "text": text}],
+    }
+
+
+def _extract_chat_text(body) -> str:
+    if not isinstance(body, dict):
+        return ""
+    try:
+        from analyze import extract_text  # noqa: PLC0415
+
+        got = extract_text(body) or ""
+        if got:
+            return str(got).strip()
+    except Exception:
+        pass
+    if body.get("output_text"):
+        return str(body.get("output_text") or "").strip()
+    for item in body.get("output") or []:
+        if not isinstance(item, dict):
+            continue
+        if item.get("type") in ("message", "output_text"):
+            content = item.get("content")
+            if isinstance(content, str) and content.strip():
+                return content.strip()
+            if isinstance(content, list):
+                bits = []
+                for block in content:
+                    if isinstance(block, dict):
+                        t = block.get("text") or block.get("output_text") or ""
+                        if t:
+                            bits.append(str(t))
+                    elif isinstance(block, str):
+                        bits.append(block)
+                if bits:
+                    return "\n".join(bits).strip()
+    choices = body.get("choices") or []
+    if choices and isinstance(choices[0], dict):
+        msg = (choices[0].get("message") or {}).get("content")
+        if isinstance(msg, str):
+            return msg.strip()
+    return ""
+
+
+def _respond_studio_chat(handler):
+    try:
+        body = handler._read_json()
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    raw = body.get("messages") or []
+    if not isinstance(raw, list) or not raw:
+        return handler._json({"ok": False, "error": "messages array required"}, 400)
+    cleaned = []
+    for item in raw[-24:]:
+        if not isinstance(item, dict):
+            continue
+        role = str(item.get("role") or "").strip().lower()
+        if role not in ("user", "assistant"):
+            continue
+        text = str(item.get("content") or item.get("text") or "").strip()
+        if not text:
+            continue
+        cleaned.append(_chat_input_item(role, text[:4000]))
+    if not cleaned:
+        return handler._json({"ok": False, "error": "No usable messages"}, 400)
+    try:
+        from analyze import API_URL, DEFAULT_MODEL  # noqa: PLC0415
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 500)
+    payload = {
+        "model": DEFAULT_MODEL,
+        "input": [_chat_input_item("system", _STUDIO_CHAT_SYSTEM)] + cleaned,
+        "store": False,
+    }
+    try:
+        resp = _xai_post_with_auth_retry(API_URL, payload, timeout=90.0)
+        text = _extract_chat_text(resp.json() if resp is not None else {})
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)[:400]}, 502)
+    if not text:
+        return handler._json({"ok": False, "error": "Empty reply from xAI"}, 502)
+    return handler._json({"ok": True, "text": text, "model": DEFAULT_MODEL})
+
+
+try:
+    _prev_chat_post = AppHandler.do_POST
+
+    def _do_post_with_studio_chat(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/chat", "/api/chat/"):
+            try:
+                return _respond_studio_chat(self)
+            except Exception as exc:
+                try:
+                    return self._json({"ok": False, "error": f"chat crashed: {exc}"[:400]}, 500)
+                except Exception:
+                    return None
+        return _prev_chat_post(self)
+
+    AppHandler.do_POST = _do_post_with_studio_chat
+    print("[gallery] Chat: POST /api/chat", flush=True)
+except Exception as _chat_err:
+    print(f"[gallery] Chat route failed: {_chat_err}", flush=True)
+
+
+RAGDOLL_STATE_PATH = GALLERY / "tabs" / "ragdoll" / "ragdoll_state.json"
+
+
+def _ragdoll_state_default() -> dict:
+    return {
+        "limbs": ["head", "torso", "l_arm", "r_arm", "l_leg", "r_leg"],
+        "pose": {},
+        "accumulated_patches": [],
+        "scars": [],
+        "skins": {},
+    }
+
+
+def _respond_ragdoll_state_get(handler):
+    data = _ragdoll_state_default()
+    try:
+        if RAGDOLL_STATE_PATH.is_file():
+            loaded = json.loads(RAGDOLL_STATE_PATH.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                data.update(loaded)
+    except Exception:
+        pass
+    return handler._json({"ok": True, "state": data})
+
+
+def _respond_ragdoll_state_save(handler):
+    try:
+        body = handler._read_json()
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    data = _ragdoll_state_default()
+    data["pose"] = body.get("pose") if isinstance(body.get("pose"), dict) else {}
+    data["skins"] = body.get("skins") if isinstance(body.get("skins"), dict) else {}
+    data["accumulated_patches"] = list(body.get("accumulated_patches") or [])[-80:]
+    data["scars"] = list(body.get("scars") or [])[-40:]
+    data["objects"] = list(body.get("objects") or [])[-40:]
+    data["background"] = str(body.get("background") or "")[:400]
+    data["prompt"] = str(body.get("prompt") or "")[:2000]
+    try:
+        RAGDOLL_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        RAGDOLL_STATE_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    except OSError as exc:
+        return handler._json({"ok": False, "error": str(exc)}, 500)
+    return handler._json({"ok": True, "state": data})
+
+
+try:
+    _prev_rd_get = AppHandler.do_GET
+    _prev_rd_post = AppHandler.do_POST
+
+    def _do_get_with_ragdoll(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/ragdoll/state", "/api/ragdoll/state/"):
+            return _respond_ragdoll_state_get(self)
+        return _prev_rd_get(self)
+
+    def _do_post_with_ragdoll(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/ragdoll/state", "/api/ragdoll/state/"):
+            return _respond_ragdoll_state_save(self)
+        return _prev_rd_post(self)
+
+    AppHandler.do_GET = _do_get_with_ragdoll
+    AppHandler.do_POST = _do_post_with_ragdoll
+    print("[gallery] Ragdoll: /api/ragdoll/state", flush=True)
+except Exception as _rd_err:
+    print(f"[gallery] Ragdoll route failed: {_rd_err}", flush=True)
+
+
+try:
+    from tiktok_live_bridge import handle_get as _tt_live_get
+    from tiktok_live_bridge import handle_post as _tt_live_post
+
+    _prev_tt_get = AppHandler.do_GET
+    _prev_tt_post = AppHandler.do_POST
+
+    def _do_get_with_tiktok_live(self):
+        try:
+            if _tt_live_get(self):
+                return
+        except Exception as exc:
+            try:
+                return self._json({"ok": False, "error": f"tiktok-live: {exc}"[:400]}, 500)
+            except Exception:
+                return None
+        return _prev_tt_get(self)
+
+    def _do_post_with_tiktok_live(self):
+        try:
+            if _tt_live_post(self):
+                return
+        except Exception as exc:
+            try:
+                return self._json({"ok": False, "error": f"tiktok-live: {exc}"[:400]}, 500)
+            except Exception:
+                return None
+        return _prev_tt_post(self)
+
+    AppHandler.do_GET = _do_get_with_tiktok_live
+    AppHandler.do_POST = _do_post_with_tiktok_live
+    print("[gallery] TikTok Live: /api/tiktok-live/*", flush=True)
+except Exception as _tt_err:
+    print(f"[gallery] TikTok Live routes failed: {_tt_err}", flush=True)
+
+
+# --- Zoo: GBIF taxonomy + Wikipedia / iNaturalist / GBIF stock photos ---
+ZOO_CATALOG_PATH = GALLERY / "data" / "zoo-catalog.json"
+ZOO_IMAGE_CACHE = GALLERY / "data" / "zoo-image-cache"
+ZOO_IMAGE_CACHE_VER = "v3"
+ZOO_INAT_KINGDOM_ID = {"animalia": 1, "plantae": 47126, "fungi": 47170}
+ZOO_UA = "1000PaintingsGallery-Zoo/1.0 (https://x.ai/; educational gallery taxonomy; bot-traffic contact via local studio)"
+ZOO_GBIF = "https://api.gbif.org/v1"
+ZOO_INAT = "https://api.inaturalist.org/v1"
+ZOO_WIKI_REST = "https://en.wikipedia.org/api/rest_v1/page/summary/"
+ZOO_WIKI_API = "https://en.wikipedia.org/w/api.php"
+_ZOO_DOMAIN_BY_KINGDOM = {
+    "animalia": "Eukarya",
+    "plantae": "Eukarya",
+    "fungi": "Eukarya",
+    "chromista": "Eukarya",
+    "protozoa": "Eukarya",
+    "protista": "Eukarya",
+    "bacteria": "Bacteria",
+    "archaea": "Archaea",
+    "viruses": "Virus",
+}
+_zoo_catalog_cache: dict | None = None
+_zoo_catalog_mtime = 0.0
+
+
+def _zoo_headers() -> dict:
+    return {
+        "User-Agent": ZOO_UA,
+        "Api-User-Agent": ZOO_UA,
+        "Accept": "application/json",
+    }
+
+
+def _zoo_http_json(url: str, params: dict | None = None, timeout: float = 18.0):
+    with httpx.Client(timeout=timeout, follow_redirects=True) as client:
+        r = client.get(url, params=params or {}, headers=_zoo_headers())
+        r.raise_for_status()
+        return r.json()
+
+
+def _zoo_slug(text: str) -> str:
+    s = re.sub(r"[^a-z0-9]+", "-", str(text or "").strip().lower()).strip("-")
+    return (s or "creature")[:80]
+
+
+def _zoo_rank_norm(rank: str) -> str:
+    r = str(rank or "").strip().lower().replace(" ", "")
+    aliases = {
+        "subspecies": "species",
+        "variety": "species",
+        "form": "species",
+        "infraspecificname": "species",
+        "unranked": "",
+    }
+    return aliases.get(r, r)
+
+
+def _zoo_domain_for(kingdom: str) -> str:
+    return _ZOO_DOMAIN_BY_KINGDOM.get(str(kingdom or "").strip().lower(), "Eukarya")
+
+
+def _zoo_load_catalog() -> dict:
+    global _zoo_catalog_cache, _zoo_catalog_mtime
+    try:
+        mtime = ZOO_CATALOG_PATH.stat().st_mtime if ZOO_CATALOG_PATH.is_file() else 0.0
+    except OSError:
+        mtime = 0.0
+    if _zoo_catalog_cache is not None and mtime == _zoo_catalog_mtime:
+        return _zoo_catalog_cache
+    data = {"creatures": [], "classes": [], "ranks": []}
+    if ZOO_CATALOG_PATH.is_file():
+        try:
+            raw = json.loads(ZOO_CATALOG_PATH.read_text(encoding="utf-8"))
+            if isinstance(raw, dict):
+                data = raw
+        except (OSError, json.JSONDecodeError):
+            pass
+    _zoo_catalog_cache = data
+    _zoo_catalog_mtime = mtime
+    return data
+
+
+def _zoo_image_api_url(row: dict) -> str:
+    sci = str(row.get("scientific") or row.get("canonicalName") or "").strip()
+    common = str(row.get("common") or row.get("vernacularName") or "").strip()
+    wiki = str(row.get("wiki") or "").strip()
+    key = row.get("key") or row.get("usageKey")
+    params = {}
+    if sci:
+        params["scientific"] = sci
+    if common:
+        params["common"] = common
+    if wiki:
+        params["wiki"] = wiki
+    if key:
+        params["key"] = str(key)
+    if not params:
+        return ""
+    return "/api/zoo/image?" + urlencode(params)
+
+
+def _zoo_taxon_payload(row: dict, source: str = "") -> dict:
+    kingdom = str(row.get("kingdom") or "").strip()
+    sci = str(
+        row.get("scientific")
+        or row.get("canonicalName")
+        or row.get("scientificName")
+        or ""
+    ).strip()
+    genus = str(row.get("genus") or "").strip()
+    species = str(row.get("species") or "").strip()
+    if sci and " " in sci and (not species or " " not in species):
+        species = sci
+    elif genus and species and " " not in species and not species.lower().startswith(genus.lower()):
+        species = genus + " " + species
+    if species.lower() in ("animalia", "eukarya", "bacteria", "archaea") and sci and " " in sci:
+        species = sci
+    rank = _zoo_rank_norm(row.get("rank") or row.get("taxonRank") or "")
+    common = str(
+        row.get("common")
+        or row.get("vernacularName")
+        or row.get("preferredCommonName")
+        or ""
+    ).strip()
+    out = {
+        "id": str(row.get("id") or _zoo_slug(sci or common) or row.get("key") or ""),
+        "key": row.get("key") or row.get("usageKey") or row.get("nubKey"),
+        "common": common,
+        "scientific": sci,
+        "canonicalName": str(row.get("canonicalName") or sci).strip(),
+        "scientificName": str(row.get("scientificName") or sci).strip(),
+        "rank": rank or "species",
+        "authorship": str(row.get("authorship") or "").strip(),
+        "status": str(row.get("taxonomicStatus") or row.get("status") or "").strip(),
+        "domain": str(row.get("domain") or "").strip() or _zoo_domain_for(kingdom),
+        "kingdom": kingdom,
+        "phylum": str(row.get("phylum") or "").strip(),
+        "class": str(row.get("class") or row.get("clazz") or "").strip(),
+        "order": str(row.get("order") or "").strip(),
+        "family": str(row.get("family") or "").strip(),
+        "genus": str(row.get("genus") or "").strip(),
+        "species": species,
+        "kingdomKey": row.get("kingdomKey"),
+        "phylumKey": row.get("phylumKey"),
+        "classKey": row.get("classKey"),
+        "orderKey": row.get("orderKey"),
+        "familyKey": row.get("familyKey"),
+        "genusKey": row.get("genusKey"),
+        "speciesKey": row.get("speciesKey") or row.get("key") or row.get("usageKey"),
+        "wiki": str(row.get("wiki") or "").strip(),
+        "classId": str(row.get("classId") or "").strip(),
+        "numDescendants": row.get("numDescendants"),
+        "extinct": bool(row.get("extinct") or row.get("extinctFlag")),
+        "source": source or str(row.get("source") or "catalog"),
+        "featured": bool(row.get("featured")),
+        "extract": str(row.get("extract") or row.get("description") or "").strip()[:800],
+    }
+    out["image_url"] = _zoo_image_api_url(out)
+    out["lineage"] = [
+        {"rank": "domain", "name": out["domain"]},
+        {"rank": "kingdom", "name": out["kingdom"], "key": out.get("kingdomKey")},
+        {"rank": "phylum", "name": out["phylum"], "key": out.get("phylumKey")},
+        {"rank": "class", "name": out["class"], "key": out.get("classKey")},
+        {"rank": "order", "name": out["order"], "key": out.get("orderKey")},
+        {"rank": "family", "name": out["family"], "key": out.get("familyKey")},
+        {"rank": "genus", "name": out["genus"], "key": out.get("genusKey")},
+        {"rank": "species", "name": out["species"] or out["scientific"], "key": out.get("speciesKey")},
+    ]
+    return out
+
+
+def _zoo_catalog_creatures() -> list[dict]:
+    rows = []
+    cat = _zoo_load_catalog()
+    for raw in cat.get("creatures") or []:
+        if not isinstance(raw, dict):
+            continue
+        row = dict(raw)
+        row["featured"] = True
+        row["source"] = "catalog"
+        rows.append(_zoo_taxon_payload(row, "catalog"))
+    return rows
+
+
+def _zoo_from_gbif_row(row: dict, source: str = "gbif") -> dict:
+    if not isinstance(row, dict):
+        return {}
+    mapped = dict(row)
+    mapped["key"] = row.get("key") or row.get("usageKey") or row.get("acceptedUsageKey")
+    mapped["rank"] = row.get("rank") or row.get("taxonRank")
+    mapped["common"] = row.get("vernacularName") or ""
+    return _zoo_taxon_payload(mapped, source)
+
+
+def _zoo_search_gbif(q: str, rank: str = "", higher: str = "", limit: int = 24, kingdom: str = "") -> list[dict]:
+    params = {
+        "status": "ACCEPTED",
+        "limit": max(1, min(int(limit or 24), 40)),
+        "datasetKey": "d7dddbf4-2cf0-4f39-9b2a-bb099caae36c",
+    }
+    q = str(q or "").strip()
+    if q and q != "*":
+        params["q"] = q
+    if rank:
+        params["rank"] = str(rank).upper()
+    if higher:
+        params["highertaxonKey"] = str(higher)
+    try:
+        data = _zoo_http_json(f"{ZOO_GBIF}/species/search", params)
+    except Exception:
+        return []
+    want_k = str(kingdom or "").strip().lower()
+    out = []
+    for row in data.get("results") or []:
+        if not isinstance(row, dict):
+            continue
+        item = _zoo_from_gbif_row(row, "gbif")
+        if want_k and str(item.get("kingdom") or "").strip().lower() != want_k:
+            continue
+        if item.get("scientific") or item.get("canonicalName"):
+            out.append(item)
+    return out
+
+
+def _zoo_match_gbif(name: str) -> dict | None:
+    name = str(name or "").strip()
+    if not name:
+        return None
+    try:
+        row = _zoo_http_json(f"{ZOO_GBIF}/species/match", {"name": name, "verbose": False})
+    except Exception:
+        return None
+    if not isinstance(row, dict):
+        return None
+    if str(row.get("matchType") or "").upper() == "NONE":
+        return None
+    row["key"] = row.get("usageKey") or row.get("speciesKey") or row.get("genusKey")
+    return _zoo_from_gbif_row(row, "gbif-match")
+
+
+def _zoo_get_gbif(key) -> dict | None:
+    try:
+        k = int(key)
+    except (TypeError, ValueError):
+        return None
+    try:
+        row = _zoo_http_json(f"{ZOO_GBIF}/species/{k}")
+    except Exception:
+        return None
+    if not isinstance(row, dict):
+        return None
+    item = _zoo_from_gbif_row(row, "gbif")
+    try:
+        vn = _zoo_http_json(
+            f"{ZOO_GBIF}/species/{k}/vernacularNames",
+            {"limit": 40},
+        )
+        names = []
+        for n in vn.get("results") or []:
+            if not isinstance(n, dict):
+                continue
+            lang = str(n.get("language") or "").lower()
+            val = str(n.get("vernacularName") or "").strip()
+            if not val:
+                continue
+            if lang in ("", "eng", "en", "english"):
+                names.append(val)
+        if names and not item.get("common"):
+            item["common"] = names[0]
+        item["vernacularNames"] = names[:12]
+    except Exception:
+        pass
+    return item
+
+
+def _zoo_children_gbif(key, limit: int = 80) -> list[dict]:
+    try:
+        k = int(key)
+    except (TypeError, ValueError):
+        return []
+    try:
+        data = _zoo_http_json(
+            f"{ZOO_GBIF}/species/{k}/children",
+            {"limit": max(1, min(int(limit or 80), 100))},
+        )
+    except Exception:
+        return []
+    out = []
+    for row in data.get("results") or []:
+        if isinstance(row, dict):
+            out.append(_zoo_from_gbif_row(row, "gbif-child"))
+    return out
+
+
+def _zoo_wiki_summary(title: str) -> dict:
+    title = str(title or "").strip()
+    if not title:
+        return {}
+    rest_title = title.replace(" ", "_")
+    try:
+        data = _zoo_http_json(ZOO_WIKI_REST + rest_title, timeout=12.0)
+        if isinstance(data, dict) and data.get("type") != "disambiguation":
+            thumb = data.get("thumbnail") or data.get("originalimage") or {}
+            src = ""
+            if isinstance(thumb, dict):
+                src = str(thumb.get("source") or thumb.get("url") or "").strip()
+            extract = str(data.get("extract") or "").strip()
+            if src or extract:
+                return {
+                    "image": src,
+                    "extract": extract[:900],
+                    "title": str(data.get("title") or title),
+                }
+    except Exception:
+        pass
+    try:
+        data = _zoo_http_json(
+            ZOO_WIKI_API,
+            {
+                "action": "query",
+                "format": "json",
+                "redirects": 1,
+                "prop": "extracts|pageimages",
+                "exintro": 1,
+                "explaintext": 1,
+                "piprop": "thumbnail",
+                "pithumbsize": 1280,
+                "titles": title,
+                "origin": "*",
+            },
+            timeout=12.0,
+        )
+    except Exception:
+        return {}
+    pages = ((data.get("query") or {}).get("pages") or {}) if isinstance(data, dict) else {}
+    for page in pages.values():
+        if not isinstance(page, dict):
+            continue
+        extract = str(page.get("extract") or "").strip()
+        thumb = page.get("thumbnail") or {}
+        src = str(thumb.get("source") or "").strip() if isinstance(thumb, dict) else ""
+        if extract or src:
+            return {"image": src, "extract": extract[:900], "title": str(page.get("title") or title)}
+    return {}
+
+
+def _zoo_wiki_pageimage(title: str) -> str:
+    title = str(title or "").strip()
+    if not title:
+        return ""
+    try:
+        data = _zoo_http_json(
+            ZOO_WIKI_API,
+            {
+                "action": "query",
+                "format": "json",
+                "redirects": 1,
+                "prop": "pageimages",
+                "piprop": "thumbnail",
+                "pithumbsize": 1280,
+                "titles": title,
+                "origin": "*",
+            },
+            timeout=12.0,
+        )
+    except Exception:
+        return ""
+    pages = ((data.get("query") or {}).get("pages") or {}) if isinstance(data, dict) else {}
+    for page in pages.values():
+        if not isinstance(page, dict):
+            continue
+        thumb = page.get("thumbnail") or {}
+        src = str(thumb.get("source") or "").strip()
+        if src:
+            return src
+    return ""
+
+
+def _zoo_norm_name(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(s or "").lower()).strip()
+
+
+def _zoo_taxon_fits(got_sci: str, got_common: str, want_sci: str, want_common: str) -> bool:
+    """True only when the hit is this species — not a fuzzy neighbor or a brand/insect homonym."""
+    gs = _zoo_norm_name(got_sci)
+    gc = _zoo_norm_name(got_common)
+    ws = _zoo_norm_name(want_sci)
+    wc = _zoo_norm_name(want_common)
+    if ws:
+        gp = gs.split()
+        wp = ws.split()
+        if len(wp) >= 2 and len(gp) >= 2 and gp[0] == wp[0] and gp[1] == wp[1]:
+            return True
+        if gs == ws or gs.startswith(ws + " "):
+            return True
+    if wc and gc and gc == wc and len(wc) >= 4:
+        if not ws:
+            return True
+        if gs and ws and gs.split()[:1] == ws.split()[:1]:
+            return True
+    return False
+
+
+def _zoo_inat_photo(query: str, want_sci: str = "", want_common: str = "", want_kingdom: str = "") -> dict:
+    query = str(query or "").strip()
+    if not query:
+        return {}
+    params = {"q": query, "is_active": "true", "per_page": 8}
+    kid = ZOO_INAT_KINGDOM_ID.get(str(want_kingdom or "").strip().lower())
+    if kid:
+        params["taxon_id"] = kid
+    try:
+        data = _zoo_http_json(f"{ZOO_INAT}/taxa", params, timeout=14.0)
+    except Exception:
+        return {}
+    want_k = str(want_kingdom or "").strip().lower()
+    ranked = []
+    for row in data.get("results") or []:
+        if not isinstance(row, dict):
+            continue
+        iconic = str(row.get("iconic_taxon_name") or "").strip()
+        if want_k == "animalia" and iconic in ("Plantae", "Fungi"):
+            continue
+        if want_k == "plantae" and iconic and iconic != "Plantae":
+            continue
+        if want_k == "fungi" and iconic and iconic != "Fungi":
+            continue
+        sci = str(row.get("name") or "").strip()
+        common = str(row.get("preferred_common_name") or "").strip()
+        if want_sci or want_common:
+            if not _zoo_taxon_fits(sci, common, want_sci, want_common):
+                continue
+        elif want_sci == "" and want_common == "":
+            # loose extract-only lookups: still prefer an exact common/scientific query hit
+            qn = _zoo_norm_name(query)
+            if qn and _zoo_norm_name(sci) != qn and _zoo_norm_name(common) != qn:
+                if not _zoo_norm_name(sci).startswith(qn + " "):
+                    continue
+        photo = row.get("default_photo") or {}
+        url = ""
+        if isinstance(photo, dict):
+            url = str(
+                photo.get("medium_url")
+                or photo.get("original_url")
+                or photo.get("square_url")
+                or ""
+            ).strip()
+        extract = str(row.get("wikipedia_summary") or "").strip()
+        if not url and not extract:
+            continue
+        rank = str(row.get("rank") or "").lower()
+        score = 0
+        if rank in ("species", "subspecies"):
+            score += 2
+        if _zoo_norm_name(sci) == _zoo_norm_name(want_sci or query):
+            score += 3
+        ranked.append(
+            (
+                -score,
+                {
+                    "image": url,
+                    "common": common,
+                    "scientific": sci,
+                    "extract": extract[:900],
+                    "taxon_id": row.get("id"),
+                },
+            )
+        )
+    ranked.sort(key=lambda x: x[0])
+    return ranked[0][1] if ranked else {}
+
+
+def _zoo_inat_observation_photo(taxon_id=None, scientific: str = "") -> str:
+    params = {
+        "photos": "true",
+        "per_page": 8,
+        "quality_grade": "research",
+        "order_by": "votes",
+    }
+    if taxon_id:
+        params["taxon_id"] = str(taxon_id)
+    elif scientific and " " in scientific.strip():
+        params["taxon_name"] = scientific.strip()
+    else:
+        return ""
+    try:
+        data = _zoo_http_json(f"{ZOO_INAT}/observations", params, timeout=14.0)
+    except Exception:
+        return ""
+    want = _zoo_norm_name(scientific)
+    for obs in data.get("results") or []:
+        if not isinstance(obs, dict):
+            continue
+        taxon = obs.get("taxon") if isinstance(obs.get("taxon"), dict) else {}
+        got = _zoo_norm_name(str(taxon.get("name") or ""))
+        if want and got:
+            wp, gp = want.split(), got.split()
+            if len(wp) >= 2 and len(gp) >= 2 and (gp[0] != wp[0] or gp[1] != wp[1]):
+                continue
+        photos = obs.get("photos") or []
+        if not photos and taxon:
+            dp = taxon.get("default_photo") or {}
+            url = str(dp.get("medium_url") or dp.get("url") or "").strip()
+            if url:
+                return url.replace("square.", "medium.").replace("/square.", "/medium.")
+        for photo in photos:
+            if not isinstance(photo, dict):
+                continue
+            url = str(photo.get("url") or photo.get("medium_url") or "").strip()
+            if url:
+                return url.replace("square.", "medium.").replace("/square.", "/medium.")
+    return ""
+
+
+def _zoo_openverse_photo(scientific: str, common: str = "") -> str:
+    sci = str(scientific or "").strip()
+    if " " not in sci:
+        return ""
+    try:
+        data = _zoo_http_json(
+            "https://api.openverse.org/v1/images/",
+            {"q": f'"{sci}"', "page_size": 8, "category": "photograph"},
+            timeout=12.0,
+        )
+    except Exception:
+        return ""
+    need = _zoo_norm_name(sci).split()[:2]
+    for row in data.get("results") or []:
+        if not isinstance(row, dict):
+            continue
+        tags = row.get("tags") or []
+        tag_txt = []
+        if isinstance(tags, list):
+            for t in tags:
+                if isinstance(t, dict):
+                    tag_txt.append(str(t.get("name") or t.get("slug") or ""))
+                else:
+                    tag_txt.append(str(t))
+        else:
+            tag_txt.append(str(tags))
+        blob = " ".join(
+            [
+                str(row.get("title") or ""),
+                str(row.get("description") or ""),
+                " ".join(tag_txt),
+            ]
+        )
+        nb = _zoo_norm_name(blob)
+        if not (len(need) >= 2 and need[0] in nb and need[1] in nb):
+            continue
+        url = str(row.get("url") or row.get("thumbnail") or "").strip()
+        if url.startswith("http"):
+            return url
+    return ""
+
+
+def _zoo_gbif_occurrence_photo(key) -> str:
+    try:
+        k = int(key)
+    except (TypeError, ValueError):
+        return ""
+    try:
+        data = _zoo_http_json(
+            f"{ZOO_GBIF}/occurrence/search",
+            {"taxonKey": k, "mediaType": "StillImage", "limit": 8},
+            timeout=14.0,
+        )
+    except Exception:
+        return ""
+    for occ in data.get("results") or []:
+        if not isinstance(occ, dict):
+            continue
+        for media in occ.get("media") or []:
+            if not isinstance(media, dict):
+                continue
+            ident = str(media.get("identifier") or media.get("references") or "").strip()
+            if ident.startswith("http") and not ident.lower().endswith(".mp4"):
+                return ident
+    return ""
+
+
+def _zoo_wiki_title_ok(title: str, scientific: str, common: str) -> bool:
+    t = _zoo_norm_name(title)
+    if not t:
+        return False
+    if any(bad in t for bad in (" car", " cars", "album", "film", "band", "company", "software", "video game", "sports")):
+        sci = _zoo_norm_name(scientific)
+        if sci and not all(p in t for p in sci.split()[:2]):
+            return False
+    sci = _zoo_norm_name(scientific)
+    if sci:
+        parts = sci.split()
+        if len(parts) >= 2 and parts[0] in t and parts[1] in t:
+            return True
+        if sci in t:
+            return True
+    com = _zoo_norm_name(common)
+    if com and (t == com or t.startswith(com + " ")):
+        return True
+    return False
+
+
+def _zoo_wiki_kingdom_ok(title: str, extract: str, want_kingdom: str) -> bool:
+    k = str(want_kingdom or "").strip().lower()
+    blob = _zoo_norm_name(str(title or "") + " " + str(extract or "")[:500])
+    if k == "animalia":
+        plantish = (
+            "flowering plant",
+            "angiosperm",
+            "lamiaceae",
+            "asteraceae",
+            "herbaceous",
+            "perennial shrub",
+            "species of plant",
+        )
+        animalish = ("mammal", "felidae", "panthera", "carnivora", "animal", "bird", "reptile", "amphibian")
+        if any(p in blob for p in plantish) and not any(a in blob for a in animalish):
+            return False
+    if k == "plantae":
+        if any(a in blob for a in ("felidae", "panthera leo", "big cat", "carnivora")):
+            return False
+    return True
+
+
+def _zoo_find_image_url(
+    scientific: str = "",
+    common: str = "",
+    wiki: str = "",
+    key=None,
+    kingdom: str = "",
+) -> tuple[str, str]:
+    """Return a photo of THIS species. Scientific name first; never a loose common-name grab."""
+    extract = ""
+    sci = str(scientific or "").strip()
+    common = str(common or "").strip()
+    wiki = str(wiki or "").strip()
+    kingdom = str(kingdom or "").strip()
+    queries = []
+    for t in (sci, wiki if wiki and " " in wiki else "", f"{common} ({sci})" if common and sci else "", wiki, common):
+        t = str(t or "").strip()
+        if t and t not in queries:
+            queries.append(t)
+    inat = {}
+    for q in queries:
+        inat = _zoo_inat_photo(q, want_sci=sci, want_common=common, want_kingdom=kingdom)
+        if inat.get("image"):
+            return inat["image"], inat.get("extract") or extract
+        if inat.get("extract") and not extract:
+            extract = inat["extract"]
+    taxon_id = inat.get("taxon_id") if inat else None
+    obs = _zoo_inat_observation_photo(taxon_id=taxon_id, scientific=sci)
+    if obs:
+        return obs, extract
+    wiki_titles = []
+    animal_hint = f"{common} (animal)" if common and kingdom.lower() == "animalia" else ""
+    plant_hint = f"{common} (plant)" if common and kingdom.lower() == "plantae" else ""
+    for t in (sci, wiki, animal_hint, plant_hint, common):
+        t = str(t or "").strip()
+        if t and t not in wiki_titles:
+            wiki_titles.append(t)
+    for t in wiki_titles:
+        summary = _zoo_wiki_summary(t)
+        title = str(summary.get("title") or t)
+        if not _zoo_wiki_title_ok(title, sci, common):
+            continue
+        if not _zoo_wiki_kingdom_ok(title, str(summary.get("extract") or ""), kingdom):
+            continue
+        if summary.get("extract") and not extract:
+            extract = summary["extract"]
+        if summary.get("image"):
+            return summary["image"], extract
+        src = _zoo_wiki_pageimage(t)
+        if src:
+            return src, extract
+    ov = _zoo_openverse_photo(sci, common)
+    if ov:
+        return ov, extract
+    if key:
+        occ = _zoo_gbif_occurrence_photo(key)
+        if occ:
+            return occ, extract
+    return "", extract
+
+
+def _zoo_fetch_image_bytes(url: str) -> tuple[bytes, str]:
+    if not _proxy_media_url_allowed(url):
+        raise ValueError("Image host not allowed.")
+    with httpx.Client(timeout=25.0, follow_redirects=True) as client:
+        r = client.get(url, headers={"User-Agent": ZOO_UA, "Accept": "image/*,*/*"})
+        r.raise_for_status()
+        data = r.content
+        if not data or len(data) < 80:
+            raise ValueError("Empty image")
+        ctype = (r.headers.get("content-type") or "image/jpeg").split(";")[0].strip()
+        if "html" in ctype or "json" in ctype:
+            raise ValueError("Not an image")
+        if not ctype.startswith("image/"):
+            ctype = "image/jpeg"
+        return data, ctype
+
+
+def _zoo_placeholder_svg(label: str, sub: str = "") -> bytes:
+    def esc(s: str) -> str:
+        return (
+            str(s or "")
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+        )[:64]
+
+    title = esc(label or "taxon")
+    italic = esc(sub)
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="g" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#3a4a28"/>
+      <stop offset="100%" stop-color="#101408"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <circle cx="400" cy="355" r="210" fill="#1c2614" stroke="#c9b86a" stroke-width="10"/>
+  <ellipse cx="400" cy="430" rx="150" ry="90" fill="#2a3820"/>
+  <circle cx="400" cy="300" r="78" fill="#4a5c30"/>
+  <text x="400" y="640" text-anchor="middle" fill="#f0e8c0" font-size="36" font-family="Georgia, serif">{title}</text>
+  <text x="400" y="688" text-anchor="middle" fill="#b8c898" font-size="22" font-style="italic" font-family="Georgia, serif">{italic}</text>
+</svg>"""
+    return svg.encode("utf-8")
+
+
+def _zoo_cached_image(
+    scientific: str = "",
+    common: str = "",
+    wiki: str = "",
+    key=None,
+    kingdom: str = "",
+) -> tuple[bytes, str, str]:
+    slug = _zoo_slug(scientific or wiki or common or str(key or "creature"))
+    ZOO_IMAGE_CACHE.mkdir(parents=True, exist_ok=True)
+    ver = ZOO_IMAGE_CACHE_VER
+    for ext, mime in ((".jpg", "image/jpeg"), (".jpeg", "image/jpeg"), (".png", "image/png"), (".webp", "image/webp")):
+        cached = ZOO_IMAGE_CACHE / f"{slug}.{ver}{ext}"
+        if cached.is_file() and cached.stat().st_size > 80:
+            return cached.read_bytes(), mime, "photo"
+    url, _extract = _zoo_find_image_url(
+        scientific=scientific, common=common, wiki=wiki, key=key, kingdom=kingdom
+    )
+    if url:
+        try:
+            data, ctype = _zoo_fetch_image_bytes(url)
+            ext = ".jpg"
+            if "png" in ctype:
+                ext = ".png"
+            elif "webp" in ctype:
+                ext = ".webp"
+            elif "gif" in ctype:
+                ext = ".gif"
+            try:
+                (ZOO_IMAGE_CACHE / f"{slug}.{ver}{ext}").write_bytes(data)
+            except OSError:
+                pass
+            return data, ctype, "photo"
+        except Exception:
+            pass
+    label = common or scientific or wiki or "taxon"
+    sub = scientific if common and scientific and scientific != common else ""
+    return _zoo_placeholder_svg(label, sub), "image/svg+xml", "placeholder"
+
+
+def _zoo_enrich(item: dict) -> dict:
+    """Fill missing Linnaean ranks from GBIF match + Wikipedia extract."""
+    if not item:
+        return item
+    need = not all(
+        item.get(r) for r in ("kingdom", "phylum", "class", "order", "family", "genus")
+    )
+    name = item.get("scientific") or item.get("canonicalName") or item.get("common") or ""
+    matched = None
+    if item.get("key"):
+        matched = _zoo_get_gbif(item.get("key"))
+    if name and (need or not item.get("key")):
+        matched = matched or _zoo_match_gbif(name)
+    if matched:
+        for k in (
+            "key",
+            "domain",
+            "kingdom",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "genus",
+            "species",
+            "scientific",
+            "canonicalName",
+            "scientificName",
+            "rank",
+            "kingdomKey",
+            "phylumKey",
+            "classKey",
+            "orderKey",
+            "familyKey",
+            "genusKey",
+            "speciesKey",
+            "authorship",
+            "status",
+            "vernacularNames",
+        ):
+            if matched.get(k) and not item.get(k):
+                item[k] = matched[k]
+        if matched.get("common") and not item.get("common"):
+            item["common"] = matched["common"]
+        item["lineage"] = matched.get("lineage") or item.get("lineage")
+    wiki = item.get("wiki") or item.get("common") or item.get("scientific")
+    if wiki and not item.get("extract"):
+        inat = _zoo_inat_photo(
+            wiki,
+            want_sci=str(item.get("scientific") or ""),
+            want_common=str(item.get("common") or ""),
+            want_kingdom=str(item.get("kingdom") or ""),
+        )
+        if inat.get("extract"):
+            item["extract"] = inat["extract"]
+        if not item.get("extract"):
+            summary = _zoo_wiki_summary(wiki)
+            if summary.get("extract"):
+                item["extract"] = summary["extract"]
+    if not item.get("extract") and item.get("key"):
+        try:
+            desc = _zoo_http_json(
+                f"{ZOO_GBIF}/species/{int(item['key'])}/descriptions",
+                {"limit": 8},
+                timeout=10.0,
+            )
+            for row in desc.get("results") or []:
+                if not isinstance(row, dict):
+                    continue
+                lang = str(row.get("language") or "").lower()
+                text = str(row.get("description") or "").strip()
+                if text and lang in ("", "eng", "en", "english"):
+                    item["extract"] = text[:900]
+                    break
+        except Exception:
+            pass
+    item["domain"] = item.get("domain") or _zoo_domain_for(item.get("kingdom") or "")
+    item["image_url"] = _zoo_image_api_url(item)
+    return item
+
+
+def _respond_zoo_catalog(handler):
+    cat = _zoo_load_catalog()
+    creatures = _zoo_catalog_creatures()
+    return handler._json(
+        {
+            "ok": True,
+            "classes": cat.get("classes") or [],
+            "ranks": cat.get("ranks")
+            or ["domain", "kingdom", "phylum", "class", "order", "family", "genus", "species"],
+            "kingdom": cat.get("kingdom") or {"name": "Animalia", "key": 1},
+            "domains": cat.get("domains") or [],
+            "kingdoms": cat.get("kingdoms") or [],
+            "domainDefault": cat.get("domainDefault") or "Eukarya",
+            "creatures": creatures,
+            "count": len(creatures),
+        }
+    )
+
+
+def _respond_zoo_search(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    q = str((qs.get("q") or [""])[0]).strip()
+    rank = str((qs.get("rank") or [""])[0]).strip()
+    higher = str((qs.get("highertaxonKey") or qs.get("classKey") or [""])[0]).strip()
+    class_id = str((qs.get("classId") or [""])[0]).strip()
+    kingdom = str((qs.get("kingdom") or [""])[0]).strip()
+    try:
+        limit = int((qs.get("limit") or ["24"])[0])
+    except (TypeError, ValueError):
+        limit = 24
+    featured = _zoo_catalog_creatures()
+    if kingdom:
+        featured = [
+            c
+            for c in featured
+            if str(c.get("kingdom") or "Animalia").lower() == kingdom.lower()
+        ]
+    if class_id:
+        featured = [c for c in featured if c.get("classId") == class_id]
+    if q:
+        ql = q.lower()
+        featured = [
+            c
+            for c in featured
+            if ql in str(c.get("common") or "").lower()
+            or ql in str(c.get("scientific") or "").lower()
+            or ql in str(c.get("genus") or "").lower()
+            or ql in str(c.get("family") or "").lower()
+            or ql in str(c.get("order") or "").lower()
+            or ql in str(c.get("class") or "").lower()
+        ]
+    remote = []
+    if q or higher:
+        remote = _zoo_search_gbif(
+            q or "*",
+            rank=rank or ("SPECIES" if q else rank),
+            higher=higher,
+            limit=limit,
+            kingdom=kingdom,
+        )
+    seen = set()
+    merged = []
+    for row in featured + remote:
+        sig = (str(row.get("scientific") or "").lower(), str(row.get("key") or ""))
+        if sig in seen:
+            continue
+        seen.add(sig)
+        merged.append(row)
+    return handler._json({"ok": True, "results": merged[: max(8, min(limit + 8, 48))], "count": len(merged)})
+
+
+def _respond_zoo_taxon(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    key = (qs.get("key") or [""])[0]
+    q = str((qs.get("q") or qs.get("scientific") or qs.get("name") or [""])[0]).strip()
+    item = None
+    if key:
+        item = _zoo_get_gbif(key)
+    if not item and q:
+        for c in _zoo_catalog_creatures():
+            if q.lower() in (
+                str(c.get("scientific") or "").lower(),
+                str(c.get("common") or "").lower(),
+                str(c.get("id") or "").lower(),
+            ):
+                item = dict(c)
+                break
+        item = _zoo_enrich(item or {"scientific": q, "common": q})
+    if not item:
+        return handler._json({"ok": False, "error": "Taxon not found"}, 404)
+    item = _zoo_enrich(item)
+    return handler._json({"ok": True, "taxon": item})
+
+
+def _respond_zoo_children(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    key = (qs.get("key") or ["1"])[0]
+    try:
+        limit = int((qs.get("limit") or ["80"])[0])
+    except (TypeError, ValueError):
+        limit = 80
+    kids = _zoo_children_gbif(key, limit=limit)
+    return handler._json({"ok": True, "results": kids, "count": len(kids), "parentKey": key})
+
+
+def _respond_zoo_image(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    scientific = str((qs.get("scientific") or [""])[0]).strip()
+    common = str((qs.get("common") or [""])[0]).strip()
+    wiki = str((qs.get("wiki") or [""])[0]).strip()
+    kingdom = str((qs.get("kingdom") or [""])[0]).strip()
+    key = (qs.get("key") or [""])[0] or None
+    try:
+        data, ctype, kind = _zoo_cached_image(
+            scientific=scientific, common=common, wiki=wiki, key=key, kingdom=kingdom
+        )
+    except Exception:
+        data = _zoo_placeholder_svg(common or scientific or "taxon", scientific)
+        ctype, kind = "image/svg+xml", "placeholder"
+    cache_sec = "86400" if kind == "photo" else "60"
+    try:
+        handler.send_response(200)
+        handler.send_header("Content-Type", ctype or "image/jpeg")
+        handler.send_header("Content-Length", str(len(data)))
+        handler.send_header("Cache-Control", f"public, max-age={cache_sec}")
+        handler.send_header("X-Zoo-Stock", kind)
+        handler.send_header("Access-Control-Expose-Headers", "X-Zoo-Stock")
+        handler.end_headers()
+        handler.wfile.write(data)
+    except Exception:
+        pass
+    return True
+
+
+def _respond_zoo_cache_image(handler):
+    try:
+        body = handler._read_json() or {}
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    slug = _zoo_slug(str(body.get("scientific") or body.get("slug") or body.get("common") or "creature"))
+    raw = str(body.get("image_base64") or body.get("image") or "").strip()
+    if not raw:
+        return handler._json({"ok": False, "error": "Missing image"}, 400)
+    if "," in raw and raw.lower().startswith("data:"):
+        raw = raw.split(",", 1)[1]
+    try:
+        data = base64.b64decode(raw)
+    except Exception:
+        return handler._json({"ok": False, "error": "Bad image data"}, 400)
+    if not data or len(data) < 80:
+        return handler._json({"ok": False, "error": "Empty image"}, 400)
+    ZOO_IMAGE_CACHE.mkdir(parents=True, exist_ok=True)
+    dest = ZOO_IMAGE_CACHE / f"{slug}.{ZOO_IMAGE_CACHE_VER}.jpg"
+    try:
+        dest.write_bytes(data)
+    except OSError as exc:
+        return handler._json({"ok": False, "error": str(exc)[:200]}, 500)
+    return handler._json({"ok": True, "slug": slug, "bytes": len(data)})
+
+
+try:
+    _prev_zoo_get = AppHandler.do_GET
+    _prev_zoo_post = AppHandler.do_POST
+
+    def _do_get_with_zoo(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/zoo/catalog", "/api/zoo"):
+            return _respond_zoo_catalog(self)
+        if path == "/api/zoo/search":
+            return _respond_zoo_search(self)
+        if path == "/api/zoo/taxon":
+            return _respond_zoo_taxon(self)
+        if path == "/api/zoo/children":
+            return _respond_zoo_children(self)
+        if path == "/api/zoo/image":
+            return _respond_zoo_image(self)
+        if path in ("/api/atomic-time", "/api/atomic-clock"):
+            return _respond_atomic_time(self)
+        return _prev_zoo_get(self)
+
+    def _do_post_with_zoo(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/zoo/cache-image", "/api/zoo/image"):
+            return _respond_zoo_cache_image(self)
+        return _prev_zoo_post(self)
+
+    AppHandler.do_GET = _do_get_with_zoo
+    AppHandler.do_POST = _do_post_with_zoo
+    print("[gallery] Zoo: /api/zoo/*", flush=True)
+except Exception as _zoo_err:
+    print(f"[gallery] Zoo routes failed: {_zoo_err}", flush=True)
 
 
 if __name__ == "__main__":

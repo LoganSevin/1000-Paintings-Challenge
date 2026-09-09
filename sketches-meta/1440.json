@@ -1,0 +1,42 @@
+{
+  "number": 1440,
+  "title": "Line sketch: Surreal Canine Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring a skeletal dog with exposed bones and dripping liquid from its mouth, positioned beside a melancholic human figure with dripping tears. A large stylized eye with a iris and cracked halo of nails floats above them against a dark swirling background (derived from generated still #655).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring a skeletal dog with exposed bones and dripping liquid from its mouth, positioned beside a melancholic human figure with dripping tears. A large stylized eye with a iris and cracked halo of nails floats above them against a dark swirling background",
+  "inverted_title": "Inverted sketch: Surreal Canine Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring a skeletal dog with exposed bones and dripping liquid from its mouth, positioned beside a melancholic human figure with dripping tears. A large stylized eye with a iris and cracked halo of nails floats above them against a dark swirling background (from generated still #655).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring a skeletal dog with exposed bones and dripping liquid from its mouth, positioned beside a melancholic human figure with dripping tears. A large stylized eye with a iris and cracked halo of nails floats above them against a dark swirling background",
+  "source_description": "A vibrant surreal painting featuring a green skeletal dog with exposed bones and dripping blue liquid from its mouth, positioned beside a melancholic human figure with colorful dripping tears. A large stylized eye with a red iris and cracked halo of nails floats above them against a dark swirling background.",
+  "source_prompt": "",
+  "source_title": "Surreal Canine Oracle",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skeletal dog",
+    "melancholy",
+    "dripping paint",
+    "occult eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 655,
+  "source_url": "/generated/655.jpg",
+  "image_url": "/sketches/1440.png",
+  "inverted_image_url": "/sketches-inverted/1440.png",
+  "curve_count": 234,
+  "built_at": "2026-08-17T00:09:41Z"
+}

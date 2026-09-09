@@ -1,0 +1,114 @@
+/* Ragdoll — poseable paint-stained figure */
+
+#panel-ragdoll.panel.active {
+  display: block;
+  min-height: calc(100vh - 100px);
+}
+
+body.rd-tab-active #panel-ragdoll {
+  background: #100e0c;
+}
+
+.rd-shell {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0.65rem 1rem 1.5rem;
+  color: #ece4d8;
+}
+
+.rd-top h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.28rem;
+  color: #f0c070;
+}
+
+.rd-hint {
+  margin: 0 0 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(220, 200, 170, 0.88);
+  max-width: 42rem;
+}
+
+.rd-prompt {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.86rem;
+  padding: 0.45rem 0.6rem;
+  margin: 0 0 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(210, 160, 70, 0.4);
+  background: #1a1612;
+  color: #f4ead8;
+  resize: vertical;
+  min-height: 2.6rem;
+}
+
+.rd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+}
+
+.rd-actions button {
+  appearance: none;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(210, 160, 70, 0.4);
+  background: rgba(32, 24, 16, 0.95);
+  color: #efe4d4;
+  cursor: pointer;
+}
+
+.rd-primary {
+  background: linear-gradient(180deg, #c4922e, #6a4a14) !important;
+  color: #1a1208 !important;
+  font-weight: 800;
+  border-color: rgba(255, 220, 130, 0.55) !important;
+}
+
+.rd-stage {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 150, 70, 0.3);
+  background: #14110e;
+}
+
+#rd-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+#rd-canvas.is-drag {
+  cursor: grabbing;
+}
+
+.rd-status {
+  min-height: 1.15rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: rgba(210, 190, 160, 0.88);
+}
+
+.rd-status.ok {
+  color: #c8e8a8;
+}
+
+.rd-status.err {
+  color: #ffb0a0;
+}
+
+@media (max-width: 720px) {
+  .rd-shell {
+    padding: 0.5rem 0.65rem 1.3rem;
+  }
+}

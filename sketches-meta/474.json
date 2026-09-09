@@ -1,0 +1,42 @@
+{
+  "number": 474,
+  "title": "Line sketch: Gollum Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Stylized digital portrait of Gollum from Lord of the Rings with glowing eyes and cracked skin. Set against a swirling technological background with dark thorny foreground elements (derived from painting #569).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Stylized digital portrait of Gollum from Lord of the Rings with glowing eyes and cracked skin. Set against a swirling technological background with dark thorny foreground elements",
+  "inverted_title": "Inverted sketch: Gollum Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Stylized digital portrait of Gollum from Lord of the Rings with glowing eyes and cracked skin. Set against a swirling technological background with dark thorny foreground elements (from painting #569).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Stylized digital portrait of Gollum from Lord of the Rings with glowing eyes and cracked skin. Set against a swirling technological background with dark thorny foreground elements",
+  "source_description": "Stylized digital portrait of Gollum from Lord of the Rings with glowing yellow eyes and cracked skin. Set against a swirling green technological background with dark thorny foreground elements.",
+  "source_prompt": "",
+  "source_title": "Gollum Portrait",
+  "style": "digital illustration",
+  "mood": "eerie intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gollum",
+    "lord of the rings",
+    "portrait",
+    "tones",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 569,
+  "source_url": "/paintings/569.jpg",
+  "image_url": "/sketches/474.png",
+  "inverted_image_url": "/sketches-inverted/474.png",
+  "curve_count": 245,
+  "built_at": "2026-08-17T00:09:39Z"
+}

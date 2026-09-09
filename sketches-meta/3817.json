@@ -1,0 +1,42 @@
+{
+  "number": 3817,
+  "title": "Line sketch: Mech Punk Kid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young male character with spiky blonde hair is shown in three distinct poses against a dark background. He wears a black and armored outfit with mechanical gauntlets, knee pads, and boots featuring skull motifs and the text 'FIRE' on his left gauntlet (derived from generated still #3234).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young male character with spiky blonde hair is shown in three distinct poses against a dark background. He wears a black and armored outfit with mechanical gauntlets, knee pads, and boots featuring skull motifs and the text 'FIRE' on his left gauntlet",
+  "inverted_title": "Inverted sketch: Mech Punk Kid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young male character with spiky blonde hair is shown in three distinct poses against a dark background. He wears a black and armored outfit with mechanical gauntlets, knee pads, and boots featuring skull motifs and the text 'FIRE' on his left gauntlet (from generated still #3234).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young male character with spiky blonde hair is shown in three distinct poses against a dark background. He wears a black and armored outfit with mechanical gauntlets, knee pads, and boots featuring skull motifs and the text 'FIRE' on his left gauntlet",
+  "source_description": "A young male character with spiky blonde hair is shown in three distinct poses against a dark background. He wears a black and yellow armored outfit with mechanical gauntlets, knee pads, and boots featuring skull motifs and the text 'FIRE' on his left gauntlet.",
+  "source_prompt": "A tough young boy with spiky blonde hair and a determined expression, wearing black and yellow mechanical battle armor with skull decorations and heavy gauntlets, shown in three different dynamic poses including crouching, jumping with arms raised, and standing ready, dark dramatic background, detailed digital painting style",
+  "source_title": "Yellow Mech Punk Kid",
+  "style": "line sketch",
+  "mood": "intense, aggressive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "punk",
+    "mech armor",
+    "blonde hair",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3234,
+  "source_url": "/generated/3234.jpg",
+  "image_url": "/sketches/3817.png",
+  "inverted_image_url": "/sketches-inverted/3817.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:46Z"
+}

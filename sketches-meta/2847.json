@@ -1,0 +1,42 @@
+{
+  "number": 2847,
+  "title": "Line sketch: Nine-Tailed Shadow Fox",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant black nine-tailed fox spirit with glowing eyes stands on a gothic rooftop at dusk, holding an ornate dagger in one paw. The city below features dark spires and illuminated windows under a large full moon in a twilight sky filled with bats (derived from generated still #2132).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant black nine-tailed fox spirit with glowing eyes stands on a gothic rooftop at dusk, holding an ornate dagger in one paw. The city below features dark spires and illuminated windows under a large full moon in a twilight sky filled with bats",
+  "inverted_title": "Inverted sketch: Nine-Tailed Shadow Fox",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant black nine-tailed fox spirit with glowing eyes stands on a gothic rooftop at dusk, holding an ornate dagger in one paw. The city below features dark spires and illuminated windows under a large full moon in a twilight sky filled with bats (from generated still #2132).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant black nine-tailed fox spirit with glowing eyes stands on a gothic rooftop at dusk, holding an ornate dagger in one paw. The city below features dark spires and illuminated windows under a large full moon in a twilight sky filled with bats",
+  "source_description": "A giant black nine-tailed fox spirit with glowing yellow eyes stands on a gothic rooftop at dusk, holding an ornate dagger in one paw. The city below features dark spires and illuminated windows under a large pink full moon in a twilight sky filled with bats.",
+  "source_prompt": "A massive black nine-tailed fox spirit with glowing yellow eyes and flowing fiery orange tails stands dramatically on a gothic city rooftop at twilight. The creature holds an ornate dagger with a glowing hilt. Dark cathedral spires and illuminated windows fill the background under a large glowing pink full moon, with bats flying across the orange and purple sky, cinematic fantasy style, detailed digital painting",
+  "source_title": "Nine-Tailed Shadow Fox",
+  "style": "fantasy illustration",
+  "mood": "menacing, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "nine-tailed fox",
+    "gothic city",
+    "full moon",
+    "rooftop",
+    "fantasy creature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2132,
+  "source_url": "/generated/2132.jpg",
+  "image_url": "/sketches/2847.png",
+  "inverted_image_url": "/sketches-inverted/2847.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:44Z"
+}

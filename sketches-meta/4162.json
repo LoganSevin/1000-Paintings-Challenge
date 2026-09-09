@@ -1,0 +1,42 @@
+{
+  "number": 4162,
+  "title": "Line sketch: Stained Glass Heraldic Crest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant stained glass window featuring a central heraldic shield with a fleur-de-lis, three pinecones, and a knight's helmet with plume above. The shield is framed by ornate scrollwork, flowers at the bottom, and a banner reading 'FOREL'. The background shows a radiant sunburst, starry cosmic sky, and ethereal flowing figures (derived from generated still #3580).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant stained glass window featuring a central heraldic shield with a fleur-de-lis, three pinecones, and a knight's helmet with plume above. The shield is framed by ornate scrollwork, flowers at the bottom, and a banner reading 'FOREL'. The background shows a radiant sunburst, starry cosmic sky, and ethereal flowing figures",
+  "inverted_title": "Inverted sketch: Stained Glass Heraldic Crest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant stained glass window featuring a central heraldic shield with a fleur-de-lis, three pinecones, and a knight's helmet with plume above. The shield is framed by ornate scrollwork, flowers at the bottom, and a banner reading 'FOREL'. The background shows a radiant sunburst, starry cosmic sky, and ethereal flowing figures (from generated still #3580).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant stained glass window featuring a central heraldic shield with a fleur-de-lis, three pinecones, and a knight's helmet with plume above. The shield is framed by ornate scrollwork, flowers at the bottom, and a banner reading 'FOREL'. The background shows a radiant sunburst, starry cosmic sky, and ethereal flowing figures",
+  "source_description": "A vibrant stained glass window featuring a central heraldic shield with a blue fleur-de-lis, three pinecones, and a knight's helmet with red plume above. The shield is framed by ornate teal scrollwork, orange flowers at the bottom, and a banner reading 'FOREL'. The background shows a radiant sunburst, starry cosmic sky, and ethereal flowing figures.",
+  "source_prompt": "A highly detailed stained glass window displaying a heraldic crest. Central shield divided with a blue fleur-de-lis on white and three blue pinecones on black and white sections. Silver knight helmet with red plume sits above the shield, surrounded by ornate teal acanthus scrollwork. White banner below reads 'FOREL'. Bottom corners filled with bright orange flowers, background features radiant golden sunburst rays and a starry cosmic blue sky with flowing ethereal figures.",
+  "source_title": "Stained Glass Heraldic Crest",
+  "style": "stained glass",
+  "mood": "heraldic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital stained glass artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "heraldry",
+    "stained glass",
+    "fleur-de-lis",
+    "knight helmet",
+    "pinecones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3580,
+  "source_url": "/generated/3580.jpg",
+  "image_url": "/sketches/4162.png",
+  "inverted_image_url": "/sketches-inverted/4162.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

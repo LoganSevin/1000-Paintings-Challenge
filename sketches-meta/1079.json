@@ -1,0 +1,42 @@
+{
+  "number": 1079,
+  "title": "Line sketch: Steampunk Zombie General",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a grotesque -skinned zombie with mechanical augmentations, wearing a tattered military uniform with epaulets and a tall top hat. A small bird perches on the hat while the figure's left eye is replaced by a glowing clock face against a blood- splattered background (derived from generated still #291).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a grotesque -skinned zombie with mechanical augmentations, wearing a tattered military uniform with epaulets and a tall top hat. A small bird perches on the hat while the figure's left eye is replaced by a glowing clock face against a blood- splattered background",
+  "inverted_title": "Inverted sketch: Steampunk Zombie General",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a grotesque -skinned zombie with mechanical augmentations, wearing a tattered military uniform with epaulets and a tall top hat. A small bird perches on the hat while the figure's left eye is replaced by a glowing clock face against a blood- splattered background (from generated still #291).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a grotesque -skinned zombie with mechanical augmentations, wearing a tattered military uniform with epaulets and a tall top hat. A small bird perches on the hat while the figure's left eye is replaced by a glowing clock face against a blood- splattered background",
+  "source_description": "A close-up portrait of a grotesque green-skinned zombie with mechanical augmentations, wearing a tattered military uniform with gold epaulets and a tall top hat. A small red bird perches on the hat while the figure's left eye is replaced by a glowing clock face against a blood-red splattered background.",
+  "source_prompt": "",
+  "source_title": "Steampunk Zombie General",
+  "style": "steampunk grotesque",
+  "mood": "macabre, menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "steampunk",
+    "cyborg",
+    "military",
+    "top hat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 291,
+  "source_url": "/generated/291.jpg",
+  "image_url": "/sketches/1079.png",
+  "inverted_image_url": "/sketches-inverted/1079.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:40Z"
+}

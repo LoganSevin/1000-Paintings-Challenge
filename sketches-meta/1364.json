@@ -1,0 +1,42 @@
+{
+  "number": 1364,
+  "title": "Line sketch: Surreal Cosmic Pantheon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring the Roman Colosseum floating in a swirling cosmic space surrounded by ornate circular patterns, a large black silhouette of a horned goat-like creature breathing fire, winged horses, and abstract symbols (derived from generated still #579).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring the Roman Colosseum floating in a swirling cosmic space surrounded by ornate circular patterns, a large black silhouette of a horned goat-like creature breathing fire, winged horses, and abstract symbols",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Pantheon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring the Roman Colosseum floating in a swirling cosmic space surrounded by ornate circular patterns, a large black silhouette of a horned goat-like creature breathing fire, winged horses, and abstract symbols (from generated still #579).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring the Roman Colosseum floating in a swirling cosmic space surrounded by ornate circular patterns, a large black silhouette of a horned goat-like creature breathing fire, winged horses, and abstract symbols",
+  "source_description": "A vibrant psychedelic artwork featuring the Roman Colosseum floating in a swirling cosmic space surrounded by ornate circular patterns, a large black silhouette of a horned goat-like creature breathing fire, winged horses, and abstract symbols.",
+  "source_prompt": "",
+  "source_title": "Surreal Cosmic Pantheon",
+  "style": "Psychedelic Surrealism",
+  "mood": "Mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "colosseum",
+    "psychedelic",
+    "surreal",
+    "horned figure",
+    "cosmic patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 579,
+  "source_url": "/generated/579.jpg",
+  "image_url": "/sketches/1364.png",
+  "inverted_image_url": "/sketches-inverted/1364.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:41Z"
+}

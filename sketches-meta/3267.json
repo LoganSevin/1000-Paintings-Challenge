@@ -1,0 +1,42 @@
+{
+  "number": 3267,
+  "title": "Line sketch: Alien Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned alien with an elongated head, sharp facial features, and glowing eyes stares directly forward. The figure is centered in a layered, abstract composition with swirling patterns, faded text fragments, and overlapping translucent elements in the background (derived from generated still #2639).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned alien with an elongated head, sharp facial features, and glowing eyes stares directly forward. The figure is centered in a layered, abstract composition with swirling patterns, faded text fragments, and overlapping translucent elements in the background",
+  "inverted_title": "Inverted sketch: Alien Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned alien with an elongated head, sharp facial features, and glowing eyes stares directly forward. The figure is centered in a layered, abstract composition with swirling patterns, faded text fragments, and overlapping translucent elements in the background (from generated still #2639).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned alien with an elongated head, sharp facial features, and glowing eyes stares directly forward. The figure is centered in a layered, abstract composition with swirling patterns, faded text fragments, and overlapping translucent elements in the background",
+  "source_description": "A green-skinned alien with an elongated head, sharp facial features, and glowing red eyes stares directly forward. The figure is centered in a layered, abstract composition with swirling patterns, faded text fragments, and overlapping translucent elements in the background.",
+  "source_prompt": "A striking portrait of a green-skinned alien with an elongated smooth head, high cheekbones, narrow chin, and piercing red eyes with black pupils. The creature has subtle facial ridges and a serious expression, centered in the frame. The background consists of layered abstract elements including swirling blue and black patterns, faded overlapping text fragments, and warm orange-red tones creating depth and mystery.",
+  "source_title": "Green Alien Portrait",
+  "style": "line sketch",
+  "mood": "eerie, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "extraterrestrial",
+    "eyes",
+    "skin",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2639,
+  "source_url": "/generated/2639.jpg",
+  "image_url": "/sketches/3267.png",
+  "inverted_image_url": "/sketches-inverted/3267.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

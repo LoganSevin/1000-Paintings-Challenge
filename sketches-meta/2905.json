@@ -1,0 +1,42 @@
+{
+  "number": 2905,
+  "title": "Line sketch: Skull Bubble Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy landscape depicts a winding path through a valley of and mountains under a dark, stormy sky with lightning. The foreground and midground are filled with large transparent bubbles containing skulls, some dripping dark liquid, surrounded by vibrant autumn-colored foliage and lily pads on the water (derived from generated still #2193).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy landscape depicts a winding path through a valley of and mountains under a dark, stormy sky with lightning. The foreground and midground are filled with large transparent bubbles containing skulls, some dripping dark liquid, surrounded by vibrant autumn-colored foliage and lily pads on the water",
+  "inverted_title": "Inverted sketch: Skull Bubble Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy landscape depicts a winding path through a valley of and mountains under a dark, stormy sky with lightning. The foreground and midground are filled with large transparent bubbles containing skulls, some dripping dark liquid, surrounded by vibrant autumn-colored foliage and lily pads on the water (from generated still #2193).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy landscape depicts a winding path through a valley of and mountains under a dark, stormy sky with lightning. The foreground and midground are filled with large transparent bubbles containing skulls, some dripping dark liquid, surrounded by vibrant autumn-colored foliage and lily pads on the water",
+  "source_description": "A surreal fantasy landscape depicts a winding path through a valley of pink and teal mountains under a dark, stormy sky with purple lightning. The foreground and midground are filled with large transparent bubbles containing red skulls, some dripping dark liquid, surrounded by vibrant autumn-colored foliage and lily pads on the water.",
+  "source_prompt": "Surreal fantasy landscape with a winding path leading toward distant pink mountains under a dark stormy sky filled with swirling teal clouds and bright purple lightning. The scene is populated with numerous transparent floating bubbles containing red skulls that drip dark liquid, set among vibrant pink, orange, and teal autumn leaves and lily pads on reflective water pools.",
+  "source_title": "Skull Bubble Storm",
+  "style": "surreal fantasy",
+  "mood": "eerie dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skulls",
+    "bubbles",
+    "lightning",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2193,
+  "source_url": "/generated/2193.jpg",
+  "image_url": "/sketches/2905.png",
+  "inverted_image_url": "/sketches-inverted/2905.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:44Z"
+}

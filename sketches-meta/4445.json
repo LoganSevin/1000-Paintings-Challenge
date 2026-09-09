@@ -1,0 +1,42 @@
+{
+  "number": 4445,
+  "title": "Line sketch: Serpent & Spells",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nighttime scene at a mystical wooden shop called 'Serpent & Spells - Elixirs, Scales & Stasis'. A young male shopkeeper in a robe stands behind the counter handing a glowing vial to a hooded customer, while a massive serpent with eyes coils around the building and tree branches above them (derived from generated still #3864).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nighttime scene at a mystical wooden shop called 'Serpent & Spells - Elixirs, Scales & Stasis'. A young male shopkeeper in a robe stands behind the counter handing a glowing vial to a hooded customer, while a massive serpent with eyes coils around the building and tree branches above them",
+  "inverted_title": "Inverted sketch: Serpent & Spells",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nighttime scene at a mystical wooden shop called 'Serpent & Spells - Elixirs, Scales & Stasis'. A young male shopkeeper in a robe stands behind the counter handing a glowing vial to a hooded customer, while a massive serpent with eyes coils around the building and tree branches above them (from generated still #3864).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nighttime scene at a mystical wooden shop called 'Serpent & Spells - Elixirs, Scales & Stasis'. A young male shopkeeper in a robe stands behind the counter handing a glowing vial to a hooded customer, while a massive serpent with eyes coils around the building and tree branches above them",
+  "source_description": "A nighttime scene at a mystical wooden shop called 'Serpent & Ivory Spells - Elixirs, Scales & Stasis'. A young male shopkeeper in a dark blue robe stands behind the counter handing a glowing vial to a hooded customer, while a massive blue serpent with red eyes coils around the building and tree branches above them.",
+  "source_prompt": "A two-story blue wooden shop at night with a large sign reading 'Serpent & Ivory Spells - Elixirs, Scales & Stasis'. A giant blue scaled serpent with glowing red eyes coils around the building and a gnarled tree with hanging tags. Inside the shop window, a young male wizard in a dark robe stands behind a counter filled with potion bottles and glowing papers, handing a small glowing vial to a hooded customer in a brown cloak. Mystical blue smoke and magical symbols float in the air, dark purple cloudy sky, atmospheric fantasy scene.",
+  "source_title": "Serpent & Ivory Spells",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "giant serpent",
+    "magic store",
+    "hooded figure",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3864,
+  "source_url": "/generated/3864.jpg",
+  "image_url": "/sketches/4445.png",
+  "inverted_image_url": "/sketches-inverted/4445.png",
+  "curve_count": 113,
+  "built_at": "2026-08-17T00:09:48Z"
+}

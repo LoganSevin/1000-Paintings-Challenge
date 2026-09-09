@@ -1,0 +1,42 @@
+{
+  "number": 3770,
+  "title": "Line sketch: Armored Rogue in Three Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three separate views of a young male warrior in dynamic action poses against a dark studio backdrop. He wears detailed fantasy armor with and pauldrons, a leather harness, tattered dark fabric, and feathered mechanical wings, while wielding two daggers in combat stances (derived from generated still #3186).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three separate views of a young male warrior in dynamic action poses against a dark studio backdrop. He wears detailed fantasy armor with and pauldrons, a leather harness, tattered dark fabric, and feathered mechanical wings, while wielding two daggers in combat stances",
+  "inverted_title": "Inverted sketch: Armored Rogue in Three Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three separate views of a young male warrior in dynamic action poses against a dark studio backdrop. He wears detailed fantasy armor with and pauldrons, a leather harness, tattered dark fabric, and feathered mechanical wings, while wielding two daggers in combat stances (from generated still #3186).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three separate views of a young male warrior in dynamic action poses against a dark studio backdrop. He wears detailed fantasy armor with and pauldrons, a leather harness, tattered dark fabric, and feathered mechanical wings, while wielding two daggers in combat stances",
+  "source_description": "Three separate views of a young male warrior in dynamic action poses against a dark studio backdrop. He wears detailed fantasy armor with copper and gold pauldrons, a leather harness, tattered dark fabric, and feathered mechanical wings, while wielding two daggers in combat stances.",
+  "source_prompt": "A young athletic male rogue with styled brown hair, wearing intricate copper and gold fantasy armor with leather straps, tattered dark grey fabric skirt, knee pads, and mechanical feathered wings on his back. He is shown in three different dynamic combat poses holding two sharp daggers, one raised overhead and one in a low stance, against a solid dark studio background with dramatic lighting.",
+  "source_title": "Armored Rogue in Three Poses",
+  "style": "realistic 3D render",
+  "mood": "dramatic, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography of painted figurine",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy warrior",
+    "male rogue",
+    "action poses",
+    "steampunk armor",
+    "feathered wings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3186,
+  "source_url": "/generated/3186.jpg",
+  "image_url": "/sketches/3770.png",
+  "inverted_image_url": "/sketches-inverted/3770.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:46Z"
+}

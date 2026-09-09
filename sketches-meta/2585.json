@@ -1,0 +1,42 @@
+{
+  "number": 2585,
+  "title": "Line sketch: Vault-Tec Online",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a and Vault-Tec jumpsuit and helmet sits at a retro-futuristic control desk inside a dilapidated bunker, playing on a vintage computer. Through the cracked panoramic window, a desolate post-apocalyptic desert landscape stretches under a toxic and sky, featuring a faded Nuka-Cola billboard, ruined water towers, and distant explosions (derived from generated still #1821).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a and Vault-Tec jumpsuit and helmet sits at a retro-futuristic control desk inside a dilapidated bunker, playing on a vintage computer. Through the cracked panoramic window, a desolate post-apocalyptic desert landscape stretches under a toxic and sky, featuring a faded Nuka-Cola billboard, ruined water towers, and distant explosions",
+  "inverted_title": "Inverted sketch: Vault-Tec Online",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a and Vault-Tec jumpsuit and helmet sits at a retro-futuristic control desk inside a dilapidated bunker, playing on a vintage computer. Through the cracked panoramic window, a desolate post-apocalyptic desert landscape stretches under a toxic and sky, featuring a faded Nuka-Cola billboard, ruined water towers, and distant explosions (from generated still #1821).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a and Vault-Tec jumpsuit and helmet sits at a retro-futuristic control desk inside a dilapidated bunker, playing on a vintage computer. Through the cracked panoramic window, a desolate post-apocalyptic desert landscape stretches under a toxic and sky, featuring a faded Nuka-Cola billboard, ruined water towers, and distant explosions",
+  "source_description": "A lone figure in a blue and yellow Vault-Tec jumpsuit and helmet sits at a retro-futuristic control desk inside a dilapidated bunker, playing on a vintage computer. Through the cracked panoramic window, a desolate post-apocalyptic desert landscape stretches under a toxic purple and green sky, featuring a faded Nuka-Cola billboard, ruined water towers, and distant explosions.",
+  "source_prompt": "",
+  "source_title": "Vault-Tec Online",
+  "style": "retro-futuristic illustration",
+  "mood": "nostalgic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Fallout",
+    "post-apocalyptic",
+    "Vault-Tec",
+    "retro-futurism",
+    "wasteland"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1821,
+  "source_url": "/generated/1821.jpg",
+  "image_url": "/sketches/2585.png",
+  "inverted_image_url": "/sketches-inverted/2585.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:43Z"
+}

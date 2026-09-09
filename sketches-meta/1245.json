@@ -1,0 +1,42 @@
+{
+  "number": 1245,
+  "title": "Line sketch: Serpent and Mouse in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive snake with eyes and dripping paint-like scales rises from desert dunes under a large moon. A small mouse emits smoke from a cigarette while a tiny silhouetted figure stands between them in the surreal night scene (derived from generated still #457).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive snake with eyes and dripping paint-like scales rises from desert dunes under a large moon. A small mouse emits smoke from a cigarette while a tiny silhouetted figure stands between them in the surreal night scene",
+  "inverted_title": "Inverted sketch: Serpent and Mouse in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive snake with eyes and dripping paint-like scales rises from desert dunes under a large moon. A small mouse emits smoke from a cigarette while a tiny silhouetted figure stands between them in the surreal night scene (from generated still #457).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive snake with eyes and dripping paint-like scales rises from desert dunes under a large moon. A small mouse emits smoke from a cigarette while a tiny silhouetted figure stands between them in the surreal night scene",
+  "source_description": "A massive blue snake with red eyes and dripping paint-like scales rises from golden desert dunes under a large pink moon. A small red mouse emits colorful smoke from a cigarette while a tiny silhouetted figure stands between them in the surreal night scene.",
+  "source_prompt": "",
+  "source_title": "Serpent and Mouse in Desert",
+  "style": "surrealism",
+  "mood": "dreamlike tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "mouse",
+    "desert",
+    "surreal",
+    "moonlight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 457,
+  "source_url": "/generated/457.jpg",
+  "image_url": "/sketches/1245.png",
+  "inverted_image_url": "/sketches-inverted/1245.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:40Z"
+}

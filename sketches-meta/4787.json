@@ -1,0 +1,42 @@
+{
+  "number": 4787,
+  "title": "Line sketch: Mosquito Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cracked moon dominates a surreal dreamscape, covered with realistic mosquitoes feeding from its surface. An infinite arched corridor recedes into the starry distance while a gnarled tree and reflective water sit in the foreground, all contained within a weathered wooden frame pinned with nails and dried leaves (derived from generated still #4221).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cracked moon dominates a surreal dreamscape, covered with realistic mosquitoes feeding from its surface. An infinite arched corridor recedes into the starry distance while a gnarled tree and reflective water sit in the foreground, all contained within a weathered wooden frame pinned with nails and dried leaves",
+  "inverted_title": "Inverted sketch: Mosquito Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cracked moon dominates a surreal dreamscape, covered with realistic mosquitoes feeding from its surface. An infinite arched corridor recedes into the starry distance while a gnarled tree and reflective water sit in the foreground, all contained within a weathered wooden frame pinned with nails and dried leaves (from generated still #4221).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cracked moon dominates a surreal dreamscape, covered with realistic mosquitoes feeding from its surface. An infinite arched corridor recedes into the starry distance while a gnarled tree and reflective water sit in the foreground, all contained within a weathered wooden frame pinned with nails and dried leaves",
+  "source_description": "A large cracked moon dominates a surreal purple dreamscape, covered with realistic mosquitoes feeding from its surface. An infinite arched corridor recedes into the starry distance while a gnarled tree and reflective water sit in the foreground, all contained within a weathered wooden frame pinned with nails and dried leaves.",
+  "source_prompt": "Surreal painting of a massive cracked yellow moon floating in a purple arched hallway that recedes infinitely into a starry void. Several realistic mosquitoes are attached to the moon's surface. Purple smoke with calligraphic symbols drifts across the scene. In the foreground, a twisted tree grows beside dark reflective water that mirrors the moon and insects. The entire scene is displayed within an old wooden frame with nails and dried leaves along the edges.",
+  "source_title": "Mosquito Moon",
+  "style": "surrealism",
+  "mood": "ethereal, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moon",
+    "mosquitoes",
+    "infinite corridor",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4221,
+  "source_url": "/generated/4221.jpg",
+  "image_url": "/sketches/4787.png",
+  "inverted_image_url": "/sketches-inverted/4787.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:49Z"
+}

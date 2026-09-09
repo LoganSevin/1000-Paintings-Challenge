@@ -1,0 +1,42 @@
+{
+  "number": 4070,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A confident female warrior with hair stands in a dynamic combat pose, gripping a massive warhammer with both hands. She wears a white and cropped top with matching baggy pants, arm guards, and greaves, all accented with patterns and tassels (derived from generated still #3487).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A confident female warrior with hair stands in a dynamic combat pose, gripping a massive warhammer with both hands. She wears a white and cropped top with matching baggy pants, arm guards, and greaves, all accented with patterns and tassels",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A confident female warrior with hair stands in a dynamic combat pose, gripping a massive warhammer with both hands. She wears a white and cropped top with matching baggy pants, arm guards, and greaves, all accented with patterns and tassels (from generated still #3487).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A confident female warrior with hair stands in a dynamic combat pose, gripping a massive warhammer with both hands. She wears a white and cropped top with matching baggy pants, arm guards, and greaves, all accented with patterns and tassels",
+  "source_description": "A confident female warrior with purple hair stands in a dynamic combat pose, gripping a massive purple warhammer with both hands. She wears a white and purple cropped top with matching baggy pants, arm guards, and greaves, all accented with purple patterns and tassels.",
+  "source_prompt": "A fierce young woman with short purple hair and determined expression stands in a powerful combat stance, holding a very large purple warhammer with glowing crack patterns. She wears a white cropped top with purple trim, baggy white pants with purple straps and tassels, matching arm wraps and armored greaves, against a solid dark gray background, clean digital illustration style",
+  "source_title": "Purple Hammer Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "hair",
+    "fantasy character",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3487,
+  "source_url": "/generated/3487.jpg",
+  "image_url": "/sketches/4070.png",
+  "inverted_image_url": "/sketches-inverted/4070.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:47Z"
+}

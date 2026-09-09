@@ -1,0 +1,42 @@
+{
+  "number": 3939,
+  "title": "Line sketch: Haired Hammer Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four vertically stacked poses of the same female character with hair, wearing a and black armored outfit with accents. She carries a large and black hammer with a spiked head and holds a matching spear in various action stances against a solid gray background. The third pose includes a comic book style 'IMPACT' burst effect near her fist (derived from generated still #3356).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four vertically stacked poses of the same female character with hair, wearing a and black armored outfit with accents. She carries a large and black hammer with a spiked head and holds a matching spear in various action stances against a solid gray background. The third pose includes a comic book style 'IMPACT' burst effect near her fist",
+  "inverted_title": "Inverted sketch: Haired Hammer Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four vertically stacked poses of the same female character with hair, wearing a and black armored outfit with accents. She carries a large and black hammer with a spiked head and holds a matching spear in various action stances against a solid gray background. The third pose includes a comic book style 'IMPACT' burst effect near her fist (from generated still #3356).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four vertically stacked poses of the same female character with hair, wearing a and black armored outfit with accents. She carries a large and black hammer with a spiked head and holds a matching spear in various action stances against a solid gray background. The third pose includes a comic book style 'IMPACT' burst effect near her fist",
+  "source_description": "Four vertically stacked poses of the same female character with bright pink hair, wearing a pink and black armored outfit with green accents. She carries a large purple and black hammer with a spiked head and holds a matching purple spear in various action stances against a solid gray background. The third pose includes a yellow comic book style 'IMPACT' burst effect near her fist.",
+  "source_prompt": "A female character with vibrant pink hair in a high ponytail, wearing a form-fitting pink and black tactical outfit with armored shoulder pads and green utility belt, holding a large purple spiked hammer on her back and a matching purple spear. Shown in four different dynamic action poses vertically arranged, including combat stances with fists raised and weapon ready, comic book style linework with bold black outlines and vibrant cel-shaded coloring on a plain gray background",
+  "source_title": "Pink Haired Hammer Girl",
+  "style": "comic book",
+  "mood": "dynamic, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "warhammer",
+    "comic style",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3356,
+  "source_url": "/generated/3356.jpg",
+  "image_url": "/sketches/3939.png",
+  "inverted_image_url": "/sketches-inverted/3939.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:47Z"
+}

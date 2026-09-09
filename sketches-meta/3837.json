@@ -1,0 +1,42 @@
+{
+  "number": 3837,
+  "title": "Line sketch: Stasis Sanami",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A diptych of two identical posed figures of a muscular bald man in a tight grey bodysuit and boxing gloves, set against backgrounds. The central artwork is layered over large, bold black stenciled text reading 'STASIS SANAMI' on translucent sheets against a solid backdrop (derived from generated still #3254).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A diptych of two identical posed figures of a muscular bald man in a tight grey bodysuit and boxing gloves, set against backgrounds. The central artwork is layered over large, bold black stenciled text reading 'STASIS SANAMI' on translucent sheets against a solid backdrop",
+  "inverted_title": "Inverted sketch: Stasis Sanami",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A diptych of two identical posed figures of a muscular bald man in a tight grey bodysuit and boxing gloves, set against backgrounds. The central artwork is layered over large, bold black stenciled text reading 'STASIS SANAMI' on translucent sheets against a solid backdrop (from generated still #3254).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A diptych of two identical posed figures of a muscular bald man in a tight grey bodysuit and boxing gloves, set against backgrounds. The central artwork is layered over large, bold black stenciled text reading 'STASIS SANAMI' on translucent sheets against a solid backdrop",
+  "source_description": "A diptych of two identical posed figures of a muscular bald man in a tight grey bodysuit and boxing gloves, set against bright pink backgrounds. The central artwork is layered over large, bold black stenciled text reading 'STASIS SANAMI' on translucent sheets against a solid magenta backdrop.",
+  "source_prompt": "A bold graphic collage featuring two side-by-side identical images of a muscular bald man in a tight metallic grey bodysuit and white boxing gloves, posed in a fighting stance with fists raised. Both figures are framed in white borders against vibrant hot pink squares. The central panel is layered over large, distressed black stenciled text spelling STASIS at the top and SANAMI at the bottom, printed on translucent plastic sheets, all set against a solid bright magenta background.",
+  "source_title": "Stasis Sanami",
+  "style": "graphic design",
+  "mood": "bold, confrontational",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital collage",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "boxing pose",
+    "muscular male",
+    "stencil text",
+    "background",
+    "layered collage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3254,
+  "source_url": "/generated/3254.jpg",
+  "image_url": "/sketches/3837.png",
+  "inverted_image_url": "/sketches-inverted/3837.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:46Z"
+}

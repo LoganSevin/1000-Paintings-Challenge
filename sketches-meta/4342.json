@@ -1,0 +1,42 @@
+{
+  "number": 4342,
+  "title": "Line sketch: Neuron Monster Snow Globe",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing glass snow globe sits on a black base, containing cartoonish neuron-like creatures with faces, tentacles, and dendrites in, and. A human finger points at the top of the sphere from the upper right (derived from generated still #3761).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing glass snow globe sits on a black base, containing cartoonish neuron-like creatures with faces, tentacles, and dendrites in, and. A human finger points at the top of the sphere from the upper right",
+  "inverted_title": "Inverted sketch: Neuron Monster Snow Globe",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing glass snow globe sits on a black base, containing cartoonish neuron-like creatures with faces, tentacles, and dendrites in, and. A human finger points at the top of the sphere from the upper right (from generated still #3761).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing glass snow globe sits on a black base, containing cartoonish neuron-like creatures with faces, tentacles, and dendrites in, and. A human finger points at the top of the sphere from the upper right",
+  "source_description": "A glowing glass snow globe sits on a black base, containing colorful cartoonish neuron-like creatures with faces, tentacles, and dendrites in pink, blue, yellow and purple. A human finger points at the top of the sphere from the upper right.",
+  "source_prompt": "A glowing transparent glass snow globe on a black pedestal base contains several cute but creepy cartoon neuron creatures with faces, big eyes, sharp teeth, and colorful dendrites and tentacles in pink, blue, yellow and purple. The neurons float inside the sphere connected by glowing lines, set against a dark moody background with dripping paint textures. A human finger touches the top of the globe. Cinematic lighting with vibrant neon glow, digital painting style.",
+  "source_title": "Neuron Monster Snow Globe",
+  "style": "line sketch",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snow globe",
+    "neurons",
+    "monsters",
+    "surreal",
+    "glow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3761,
+  "source_url": "/generated/3761.jpg",
+  "image_url": "/sketches/4342.png",
+  "inverted_image_url": "/sketches-inverted/4342.png",
+  "curve_count": 293,
+  "built_at": "2026-08-17T00:09:48Z"
+}

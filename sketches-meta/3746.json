@@ -1,0 +1,42 @@
+{
+  "number": 3746,
+  "title": "Line sketch: Witch Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four side-by-side panels show a Black woman with long flowing white hair wearing a and black Witch-inspired outfit. She progresses through magical poses: holding glowing energy in her hands, raising both hands to summon symbols, projecting intense energy blasts, and finally standing in a dynamic stance with energy dissipating (derived from generated still #3156).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four side-by-side panels show a Black woman with long flowing white hair wearing a and black Witch-inspired outfit. She progresses through magical poses: holding glowing energy in her hands, raising both hands to summon symbols, projecting intense energy blasts, and finally standing in a dynamic stance with energy dissipating",
+  "inverted_title": "Inverted sketch: Witch Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four side-by-side panels show a Black woman with long flowing white hair wearing a and black Witch-inspired outfit. She progresses through magical poses: holding glowing energy in her hands, raising both hands to summon symbols, projecting intense energy blasts, and finally standing in a dynamic stance with energy dissipating (from generated still #3156).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four side-by-side panels show a Black woman with long flowing white hair wearing a and black Witch-inspired outfit. She progresses through magical poses: holding glowing energy in her hands, raising both hands to summon symbols, projecting intense energy blasts, and finally standing in a dynamic stance with energy dissipating",
+  "source_description": "Four side-by-side panels show a Black woman with long flowing white hair wearing a red and black Scarlet Witch-inspired outfit. She progresses through magical poses: holding glowing red energy in her hands, raising both hands to summon symbols, projecting intense red energy blasts, and finally standing in a dynamic stance with energy dissipating.",
+  "source_prompt": "Black woman with long flowing white hair wearing a detailed red leather-like top with silver accents, flowing red coat, black pants and red boots, shown in four sequential poses against a dark gray background. First pose holding red magical energy, second pose with hands raised summoning glowing red symbols, third pose projecting powerful red energy blast with floating magical runes, fourth pose standing powerfully with energy fading. Cinematic lighting, highly detailed digital painting.",
+  "source_title": "Scarlet Witch Pose Sequence",
+  "style": "digital character study",
+  "mood": "powerful, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Witch",
+    "female sorceress",
+    "white hair",
+    "magic",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3156,
+  "source_url": "/generated/3156.jpg",
+  "image_url": "/sketches/3746.png",
+  "inverted_image_url": "/sketches-inverted/3746.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3816,
+  "title": "Line sketch: Wrecked Mech Boy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized male character in black and armored gear stands upright on the left with a bruised face and determined expression. To the right are two dynamic falling poses of the same character, limbs flailing with eyes closed, surrounded by floating coins and mechanical fragments (derived from generated still #3233).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized male character in black and armored gear stands upright on the left with a bruised face and determined expression. To the right are two dynamic falling poses of the same character, limbs flailing with eyes closed, surrounded by floating coins and mechanical fragments",
+  "inverted_title": "Inverted sketch: Wrecked Mech Boy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized male character in black and armored gear stands upright on the left with a bruised face and determined expression. To the right are two dynamic falling poses of the same character, limbs flailing with eyes closed, surrounded by floating coins and mechanical fragments (from generated still #3233).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized male character in black and armored gear stands upright on the left with a bruised face and determined expression. To the right are two dynamic falling poses of the same character, limbs flailing with eyes closed, surrounded by floating coins and mechanical fragments",
+  "source_description": "A stylized male character in black and yellow armored gear stands upright on the left with a bruised face and determined expression. To the right are two dynamic falling poses of the same character, limbs flailing with eyes closed, surrounded by floating yellow coins and mechanical fragments.",
+  "source_prompt": "A stylized young male character with messy blonde hair and facial bruises wearing black tactical clothing with heavy yellow mechanical armor and gauntlets. He has a tough expression in a standing pose on the left. On the right, two separate falling impact poses show him upside down and sprawled with eyes closed, yellow coins and mechanical debris exploding around him, dark background, clean 3D character render style",
+  "source_title": "Wrecked Yellow Mech Boy",
+  "style": "3D character render",
+  "mood": "dynamic, defeated",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital 3D illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "mech armor",
+    "coin explosion",
+    "multiple poses",
+    "punk boy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3233,
+  "source_url": "/generated/3233.jpg",
+  "image_url": "/sketches/3816.png",
+  "inverted_image_url": "/sketches-inverted/3816.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:46Z"
+}

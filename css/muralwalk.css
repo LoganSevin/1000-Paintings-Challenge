@@ -1592,6 +1592,7 @@ body.mw-playing .muralwalk-hud {
   position: absolute;
   width: 2.35rem;
   height: 2.35rem;
+  overflow: visible;
 }
 
 .mw-slot-hud-bubble-0 {
@@ -1623,6 +1624,22 @@ body.mw-playing .muralwalk-hud {
 .mw-slot-hud-thumb[hidden] {
   opacity: 0.35;
   background: rgba(26, 22, 18, 0.9);
+}
+
+.mw-slot-hud-swatches {
+  position: absolute;
+  inset: -0.32rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mw-slot-hud-swatch {
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(8, 6, 8, 0.7);
+  box-shadow: 0 0 0 1px rgba(255, 240, 210, 0.35);
 }
 
 .mw-slot-hud-text {

@@ -1,0 +1,42 @@
+{
+  "number": 2922,
+  "title": "Line sketch: Otter in Surreal Lounge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two realistic otters occupy a stylized living room, one lounging on a couch in the foreground while another peers from behind it. The room features leafy tropical wallpaper, a sun-shaped clock, a wooden coffee table with a feather, and opens into a swirling fiery and vortex portal on the right (derived from generated still #2211).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two realistic otters occupy a stylized living room, one lounging on a couch in the foreground while another peers from behind it. The room features leafy tropical wallpaper, a sun-shaped clock, a wooden coffee table with a feather, and opens into a swirling fiery and vortex portal on the right",
+  "inverted_title": "Inverted sketch: Otter in Surreal Lounge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two realistic otters occupy a stylized living room, one lounging on a couch in the foreground while another peers from behind it. The room features leafy tropical wallpaper, a sun-shaped clock, a wooden coffee table with a feather, and opens into a swirling fiery and vortex portal on the right (from generated still #2211).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two realistic otters occupy a stylized living room, one lounging on a couch in the foreground while another peers from behind it. The room features leafy tropical wallpaper, a sun-shaped clock, a wooden coffee table with a feather, and opens into a swirling fiery and vortex portal on the right",
+  "source_description": "Two realistic otters occupy a stylized living room, one lounging on a teal couch in the foreground while another peers from behind it. The room features leafy tropical wallpaper, a sun-shaped clock, a wooden coffee table with a feather, and opens into a swirling fiery purple and orange vortex portal on the right.",
+  "source_prompt": "A highly detailed surreal scene of two realistic river otters in a cozy living room, one lounging on a teal corduroy couch looking at viewer, another peeking from behind the couch, tropical fern wallpaper, sun-shaped clock on the wall, purple lamp, wooden coffee table with a single blue feather, on the right side the room dissolves into a swirling fiery orange and purple vortex portal, whimsical and dreamlike atmosphere, painted in rich vibrant colors",
+  "source_title": "Otter in Surreal Lounge",
+  "style": "surrealism",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "otters",
+    "surreal",
+    "portal",
+    "living room",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2211,
+  "source_url": "/generated/2211.jpg",
+  "image_url": "/sketches/2922.png",
+  "inverted_image_url": "/sketches-inverted/2922.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:44Z"
+}

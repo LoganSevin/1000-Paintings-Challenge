@@ -1,0 +1,42 @@
+{
+  "number": 4958,
+  "title": "Line sketch: Fox in the Attic",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic fox with glowing eyes stands on an old wooden chest inside a dilapidated attic, sniffing a paintbrush on the floor. Behind it, a large eerie child's face emerges from a cracked wall while an lamp casts warm light over scattered papers, a broken clock, and debris (derived from generated still #4395).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic fox with glowing eyes stands on an old wooden chest inside a dilapidated attic, sniffing a paintbrush on the floor. Behind it, a large eerie child's face emerges from a cracked wall while an lamp casts warm light over scattered papers, a broken clock, and debris",
+  "inverted_title": "Inverted sketch: Fox in the Attic",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic fox with glowing eyes stands on an old wooden chest inside a dilapidated attic, sniffing a paintbrush on the floor. Behind it, a large eerie child's face emerges from a cracked wall while an lamp casts warm light over scattered papers, a broken clock, and debris (from generated still #4395).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic fox with glowing eyes stands on an old wooden chest inside a dilapidated attic, sniffing a paintbrush on the floor. Behind it, a large eerie child's face emerges from a cracked wall while an lamp casts warm light over scattered papers, a broken clock, and debris",
+  "source_description": "A realistic fox with glowing blue eyes stands on an old wooden chest inside a dilapidated attic, sniffing a paintbrush on the floor. Behind it, a large eerie child's face emerges from a cracked wall while an oil lamp casts warm light over scattered papers, a broken clock, and debris.",
+  "source_prompt": "A red fox with glowing electric blue eyes stands on an old wooden chest inside a dark abandoned attic, sniffing a paintbrush lying on the floor. A giant pale bald child's face with sad eyes emerges from a heavily cracked wall behind it. An oil lantern emits warm light, scattered old papers, broken clock, empty picture frame, cobwebs and dust cover the scene, dark surreal atmosphere, cinematic lighting",
+  "source_title": "Fox in the Attic",
+  "style": "surreal dark fantasy",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fox",
+    "surreal",
+    "attic",
+    "cracked wall",
+    "child figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4395,
+  "source_url": "/generated/4395.jpg",
+  "image_url": "/sketches/4958.png",
+  "inverted_image_url": "/sketches-inverted/4958.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 346,
+  "title": "Line sketch: Cabbage Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic close-up of a leafy cabbage with intricate veining and ruffled edges. Painted in a realistic style against a muted dark background with soft shadowing (derived from painting #408).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic close-up of a leafy cabbage with intricate veining and ruffled edges. Painted in a realistic style against a muted dark background with soft shadowing",
+  "inverted_title": "Inverted sketch: Cabbage Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic close-up of a leafy cabbage with intricate veining and ruffled edges. Painted in a realistic style against a muted dark background with soft shadowing (from painting #408).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic close-up of a leafy cabbage with intricate veining and ruffled edges. Painted in a realistic style against a muted dark background with soft shadowing",
+  "source_description": "A dramatic close-up of a leafy cabbage with intricate veining and ruffled edges. Painted in a realistic style against a muted dark background with soft shadowing.",
+  "source_prompt": "",
+  "source_title": "Cabbage Still Life",
+  "style": "Realism",
+  "mood": "Dramatic, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage",
+    "vegetable",
+    "still life",
+    "botanical",
+    "foliage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 408,
+  "source_url": "/paintings/408.jpg",
+  "image_url": "/sketches/346.png",
+  "inverted_image_url": "/sketches-inverted/346.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:39Z"
+}

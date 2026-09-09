@@ -1,0 +1,42 @@
+{
+  "number": 1339,
+  "title": "Line sketch: Braided Grin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a furious young woman with braided dark hair, baring her teeth as multiple disembodied hands pull at her braids and touch her face. A large black furry monster with enormous white eyes and a wide toothy grin sits beside her against a swirling dark background with glowing mist and zodiac symbols (derived from generated still #554).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a furious young woman with braided dark hair, baring her teeth as multiple disembodied hands pull at her braids and touch her face. A large black furry monster with enormous white eyes and a wide toothy grin sits beside her against a swirling dark background with glowing mist and zodiac symbols",
+  "inverted_title": "Inverted sketch: Braided Grin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a furious young woman with braided dark hair, baring her teeth as multiple disembodied hands pull at her braids and touch her face. A large black furry monster with enormous white eyes and a wide toothy grin sits beside her against a swirling dark background with glowing mist and zodiac symbols (from generated still #554).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a furious young woman with braided dark hair, baring her teeth as multiple disembodied hands pull at her braids and touch her face. A large black furry monster with enormous white eyes and a wide toothy grin sits beside her against a swirling dark background with glowing mist and zodiac symbols",
+  "source_description": "A surreal portrait of a furious young woman with braided dark hair, baring her teeth as multiple disembodied hands pull at her braids and touch her face. A large black furry monster with enormous white eyes and a wide toothy grin sits beside her against a swirling dark background with glowing green mist and zodiac symbols.",
+  "source_prompt": "",
+  "source_title": "Braided Grin",
+  "style": "surreal fantasy",
+  "mood": "chaotic rage",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "monster",
+    "braided hair",
+    "disembodied hands",
+    "furious woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 554,
+  "source_url": "/generated/554.jpg",
+  "image_url": "/sketches/1339.png",
+  "inverted_image_url": "/sketches-inverted/1339.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:41Z"
+}

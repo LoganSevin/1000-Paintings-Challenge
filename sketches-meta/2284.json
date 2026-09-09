@@ -1,0 +1,42 @@
+{
+  "number": 2284,
+  "title": "Line sketch: Cybernetic Dragon Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed of a metallic humanoid cyborg with intricate circuit patterns and glowing eyes, merged with a scaled Chinese dragon that coils around its head. The figure is set against a vibrant cosmic nebula background with, and hues filled with floating East Asian decorative motifs (derived from generated still #1511).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed of a metallic humanoid cyborg with intricate circuit patterns and glowing eyes, merged with a scaled Chinese dragon that coils around its head. The figure is set against a vibrant cosmic nebula background with, and hues filled with floating East Asian decorative motifs",
+  "inverted_title": "Inverted sketch: Cybernetic Dragon Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed of a metallic humanoid cyborg with intricate circuit patterns and glowing eyes, merged with a scaled Chinese dragon that coils around its head. The figure is set against a vibrant cosmic nebula background with, and hues filled with floating East Asian decorative motifs (from generated still #1511).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed of a metallic humanoid cyborg with intricate circuit patterns and glowing eyes, merged with a scaled Chinese dragon that coils around its head. The figure is set against a vibrant cosmic nebula background with, and hues filled with floating East Asian decorative motifs",
+  "source_description": "A detailed digital painting of a metallic humanoid cyborg with intricate circuit patterns and glowing yellow eyes, merged with a blue scaled Chinese dragon that coils around its head. The figure is set against a vibrant cosmic nebula background with purple, blue and red hues filled with floating East Asian decorative motifs.",
+  "source_prompt": "",
+  "source_title": "Cybernetic Dragon Portrait",
+  "style": "digital fantasy illustration",
+  "mood": "mystical futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyborg",
+    "dragon",
+    "cyberpunk",
+    "fantasy",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1511,
+  "source_url": "/generated/1511.jpg",
+  "image_url": "/sketches/2284.png",
+  "inverted_image_url": "/sketches-inverted/2284.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:43Z"
+}

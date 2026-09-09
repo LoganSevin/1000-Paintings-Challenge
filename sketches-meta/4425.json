@@ -1,0 +1,42 @@
+{
+  "number": 4425,
+  "title": "Line sketch: Stasis & Vellum",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark hooded figure stands in the open doorway of a dilapidated magical shop during a heavy rainstorm at night. The storefront is covered in peeling posters, glowing potion bottles, white vines, and a large weathered sign reading 'Stasis & Vellum - Spells for the Locked Hour' (derived from generated still #3844).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark hooded figure stands in the open doorway of a dilapidated magical shop during a heavy rainstorm at night. The storefront is covered in peeling posters, glowing potion bottles, white vines, and a large weathered sign reading 'Stasis & Vellum - Spells for the Locked Hour'",
+  "inverted_title": "Inverted sketch: Stasis & Vellum",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark hooded figure stands in the open doorway of a dilapidated magical shop during a heavy rainstorm at night. The storefront is covered in peeling posters, glowing potion bottles, white vines, and a large weathered sign reading 'Stasis & Vellum - Spells for the Locked Hour' (from generated still #3844).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark hooded figure stands in the open doorway of a dilapidated magical shop during a heavy rainstorm at night. The storefront is covered in peeling posters, glowing potion bottles, white vines, and a large weathered sign reading 'Stasis & Vellum - Spells for the Locked Hour'",
+  "source_description": "A dark hooded figure stands in the open doorway of a dilapidated magical shop during a heavy rainstorm at night. The storefront is covered in peeling posters, glowing blue potion bottles, white vines, and a large weathered sign reading 'Stasis & Vellum - Spells for the Locked Hour'.",
+  "source_prompt": "A cinematic dark fantasy scene of a mysterious hooded figure in a black cloak standing in the doorway of a decaying magical shop at night. Heavy rain pours down from a stormy sky. The shop facade is covered in peeling blue posters, glowing blue potion bottles hanging like lanterns, white flowering vines, and scattered old scrolls. A large wooden sign above the door reads 'Stasis & Vellum - Spells for the Locked Hour'. Water floods the cobblestone street. Moody atmospheric lighting, detailed textures, dramatic lighting.",
+  "source_title": "Stasis & Vellum",
+  "style": "dark fantasy illustration",
+  "mood": "ominous, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic shop",
+    "hooded figure",
+    "rainy night",
+    "fantasy storefront",
+    "stormy atmosphere"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3844,
+  "source_url": "/generated/3844.jpg",
+  "image_url": "/sketches/4425.png",
+  "inverted_image_url": "/sketches-inverted/4425.png",
+  "curve_count": 180,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2081,
+  "title": "Line sketch: Floral Dream Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition of a woman with hair styled in an intricate braided updo adorned with large and flowers. She is surrounded by oversized cosmos flowers, vines, and floating circular patterns containing smaller versions of her portrait against a background (derived from generated still #1306).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition of a woman with hair styled in an intricate braided updo adorned with large and flowers. She is surrounded by oversized cosmos flowers, vines, and floating circular patterns containing smaller versions of her portrait against a background",
+  "inverted_title": "Inverted sketch: Floral Dream Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition of a woman with hair styled in an intricate braided updo adorned with large and flowers. She is surrounded by oversized cosmos flowers, vines, and floating circular patterns containing smaller versions of her portrait against a background (from generated still #1306).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition of a woman with hair styled in an intricate braided updo adorned with large and flowers. She is surrounded by oversized cosmos flowers, vines, and floating circular patterns containing smaller versions of her portrait against a background",
+  "source_description": "A vibrant painting of a woman with bright magenta hair styled in an intricate braided updo adorned with large pink and purple flowers. She is surrounded by oversized cosmos flowers, green vines, and floating circular patterns containing smaller versions of her portrait against a vivid blue background.",
+  "source_prompt": "",
+  "source_title": "Floral Dream Portrait",
+  "style": "surreal pop art",
+  "mood": "vibrant, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "floral",
+    "braided hair",
+    "psychedelic",
+    "cosmos flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1306,
+  "source_url": "/generated/1306.jpg",
+  "image_url": "/sketches/2081.png",
+  "inverted_image_url": "/sketches-inverted/2081.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:42Z"
+}

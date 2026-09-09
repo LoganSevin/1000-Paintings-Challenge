@@ -1,0 +1,42 @@
+{
+  "number": 428,
+  "title": "Line sketch: Reflections on the Marshlands",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene landscape composition captures the mirror-like reflection of ancient spires and structures in calm waters. The upper portion reveals lush fields and wetlands stretching into the distance with subtle earth tones (derived from painting #511).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene landscape composition captures the mirror-like reflection of ancient spires and structures in calm waters. The upper portion reveals lush fields and wetlands stretching into the distance with subtle earth tones",
+  "inverted_title": "Inverted sketch: Reflections on the Marshlands",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene landscape composition captures the mirror-like reflection of ancient spires and structures in calm waters. The upper portion reveals lush fields and wetlands stretching into the distance with subtle earth tones (from painting #511).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene landscape composition captures the mirror-like reflection of ancient spires and structures in calm waters. The upper portion reveals lush fields and wetlands stretching into the distance with subtle earth tones",
+  "source_description": "A serene landscape painting captures the mirror-like reflection of ancient spires and structures in calm blue waters. The upper portion reveals lush green fields and wetlands stretching into the distance with subtle earth tones.",
+  "source_prompt": "",
+  "source_title": "Reflections on the Marshlands",
+  "style": "Landscape",
+  "mood": "Tranquil and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "reflection",
+    "wetlands",
+    "spires",
+    "serene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 511,
+  "source_url": "/paintings/511.jpg",
+  "image_url": "/sketches/428.png",
+  "inverted_image_url": "/sketches-inverted/428.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:39Z"
+}

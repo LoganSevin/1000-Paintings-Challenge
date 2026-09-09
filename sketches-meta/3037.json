@@ -1,0 +1,42 @@
+{
+  "number": 3037,
+  "title": "Line sketch: Surreal Piano Dragon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive black dragon coils around a grand piano in the center of a cracked street, its body extending toward a giant whale floating in a swirling cosmic vortex sky filled with musical notes. Hooded figures stand on both sides while two pigs observe from the foreground amid melting piano elements and glowing signs (derived from generated still #2363).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive black dragon coils around a grand piano in the center of a cracked street, its body extending toward a giant whale floating in a swirling cosmic vortex sky filled with musical notes. Hooded figures stand on both sides while two pigs observe from the foreground amid melting piano elements and glowing signs",
+  "inverted_title": "Inverted sketch: Surreal Piano Dragon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive black dragon coils around a grand piano in the center of a cracked street, its body extending toward a giant whale floating in a swirling cosmic vortex sky filled with musical notes. Hooded figures stand on both sides while two pigs observe from the foreground amid melting piano elements and glowing signs (from generated still #2363).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive black dragon coils around a grand piano in the center of a cracked street, its body extending toward a giant whale floating in a swirling cosmic vortex sky filled with musical notes. Hooded figures stand on both sides while two pigs observe from the foreground amid melting piano elements and glowing signs",
+  "source_description": "A massive black dragon coils around a grand piano in the center of a cracked pink street, its body extending toward a giant blue whale floating in a swirling cosmic vortex sky filled with musical notes. Hooded figures stand on both sides while two pigs observe from the foreground amid melting piano elements and glowing signs.",
+  "source_prompt": "",
+  "source_title": "Surreal Piano Dragon",
+  "style": "surreal fantasy",
+  "mood": "dreamlike eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dragon",
+    "piano",
+    "whale",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2363,
+  "source_url": "/generated/2363.jpg",
+  "image_url": "/sketches/3037.png",
+  "inverted_image_url": "/sketches-inverted/3037.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:44Z"
+}

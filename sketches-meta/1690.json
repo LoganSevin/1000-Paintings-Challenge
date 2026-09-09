@@ -1,0 +1,42 @@
+{
+  "number": 1690,
+  "title": "Line sketch: Fourfold Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows four identical female profiles in a row, each with long flowing hair adorned with intricate spirals, circles, and dripping patterns. They gaze toward a glowing spherical orb on the right that mirrors their colors with, and dripping forms against a -gray background (derived from generated still #909).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows four identical female profiles in a row, each with long flowing hair adorned with intricate spirals, circles, and dripping patterns. They gaze toward a glowing spherical orb on the right that mirrors their colors with, and dripping forms against a -gray background",
+  "inverted_title": "Inverted sketch: Fourfold Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows four identical female profiles in a row, each with long flowing hair adorned with intricate spirals, circles, and dripping patterns. They gaze toward a glowing spherical orb on the right that mirrors their colors with, and dripping forms against a -gray background (from generated still #909).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows four identical female profiles in a row, each with long flowing hair adorned with intricate spirals, circles, and dripping patterns. They gaze toward a glowing spherical orb on the right that mirrors their colors with, and dripping forms against a -gray background",
+  "source_description": "A surreal painting shows four identical female profiles in a row, each with long flowing green hair adorned with intricate spirals, circles, and dripping patterns. They gaze toward a glowing spherical orb on the right that mirrors their colors with green, yellow, and orange dripping forms against a muted purple-gray background.",
+  "source_prompt": "",
+  "source_title": "Fourfold Green Oracle",
+  "style": "surreal symbolic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "feminine figures",
+    "hair",
+    "glowing orb",
+    "profile portraits"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 909,
+  "source_url": "/generated/909.jpg",
+  "image_url": "/sketches/1690.png",
+  "inverted_image_url": "/sketches-inverted/1690.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:41Z"
+}

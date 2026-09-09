@@ -1,0 +1,42 @@
+{
+  "number": 3637,
+  "title": "Line sketch: Eclipse Witch Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded witch in a flowing black and dress stands on a reflective pool of water, holding a staff topped with a glowing crystal. Her perfect mirror reflection appears below alongside an inverted black eclipse with drips, framed by an ornate stone arch covered in flowers and hanging lanterns (derived from generated still #3045).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded witch in a flowing black and dress stands on a reflective pool of water, holding a staff topped with a glowing crystal. Her perfect mirror reflection appears below alongside an inverted black eclipse with drips, framed by an ornate stone arch covered in flowers and hanging lanterns",
+  "inverted_title": "Inverted sketch: Eclipse Witch Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded witch in a flowing black and dress stands on a reflective pool of water, holding a staff topped with a glowing crystal. Her perfect mirror reflection appears below alongside an inverted black eclipse with drips, framed by an ornate stone arch covered in flowers and hanging lanterns (from generated still #3045).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded witch in a flowing black and dress stands on a reflective pool of water, holding a staff topped with a glowing crystal. Her perfect mirror reflection appears below alongside an inverted black eclipse with drips, framed by an ornate stone arch covered in flowers and hanging lanterns",
+  "source_description": "A hooded witch in a flowing black and purple dress stands on a reflective pool of water, holding a staff topped with a glowing blue crystal. Her perfect mirror reflection appears below alongside an inverted black eclipse with golden drips, framed by an ornate stone arch covered in flowers and hanging lanterns.",
+  "source_prompt": "A mysterious hooded witch with long white hair wearing a layered black and lavender gown stands on the edge of a perfectly reflective pool, holding a tall ornate staff. Her reflection is visible in the water along with an inverted black sun eclipse dripping golden liquid. An ancient stone archway covered in pink roses and glowing lanterns frames a cosmic night sky filled with ravens, geometric symbols, and swirling nebulae. Colorful mushrooms and flowers grow along the water's edge in a dreamlike fantasy landscape.",
+  "source_title": "Eclipse Witch Reflection",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "eclipse",
+    "reflection",
+    "surreal",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3045,
+  "source_url": "/generated/3045.jpg",
+  "image_url": "/sketches/3637.png",
+  "inverted_image_url": "/sketches-inverted/3637.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:46Z"
+}

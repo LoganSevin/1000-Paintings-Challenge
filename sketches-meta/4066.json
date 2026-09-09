@@ -1,0 +1,42 @@
+{
+  "number": 4066,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce young woman with long black hair in a topknot stands in a dynamic combat pose, wielding a massive warhammer crackling with lightning. She wears a white and tribal-style outfit with bone accents, armored gauntlets, and greaves (derived from generated still #3483).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce young woman with long black hair in a topknot stands in a dynamic combat pose, wielding a massive warhammer crackling with lightning. She wears a white and tribal-style outfit with bone accents, armored gauntlets, and greaves",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce young woman with long black hair in a topknot stands in a dynamic combat pose, wielding a massive warhammer crackling with lightning. She wears a white and tribal-style outfit with bone accents, armored gauntlets, and greaves (from generated still #3483).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce young woman with long black hair in a topknot stands in a dynamic combat pose, wielding a massive warhammer crackling with lightning. She wears a white and tribal-style outfit with bone accents, armored gauntlets, and greaves",
+  "source_description": "A fierce young woman with long black hair in a topknot stands in a dynamic combat pose, wielding a massive purple warhammer crackling with purple lightning. She wears a white and purple tribal-style outfit with bone accents, armored gauntlets, and greaves.",
+  "source_prompt": "A fierce young East Asian woman with long flowing black hair in a topknot secured with bone ornaments, wearing a revealing white and purple tribal warrior outfit with geometric patterns, purple arm wraps, and bone-decorated greaves and boots. She is in a powerful combat stance holding a gigantic purple warhammer with glowing crackling purple lightning energy across its head, intense expression, dramatic lighting, clean digital illustration style on a solid gray background.",
+  "source_title": "Purple Hammer Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "tribal outfit",
+    "lightning weapon",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3483,
+  "source_url": "/generated/3483.jpg",
+  "image_url": "/sketches/4066.png",
+  "inverted_image_url": "/sketches-inverted/4066.png",
+  "curve_count": 363,
+  "built_at": "2026-08-17T00:09:47Z"
+}

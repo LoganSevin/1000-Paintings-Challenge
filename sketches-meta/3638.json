@@ -1,0 +1,42 @@
+{
+  "number": 3638,
+  "title": "Line sketch: Dragon of Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal black dragon with scales and glowing eyes coils through a glowing pond in a fantastical night landscape. A cloaked witch with a lantern stands atop its back while two children in fantasy attire interact with luminous mushrooms and water at the pond's edge, and a young girl in a tutu and crown dances on a candy-covered shore (derived from generated still #3046).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal black dragon with scales and glowing eyes coils through a glowing pond in a fantastical night landscape. A cloaked witch with a lantern stands atop its back while two children in fantasy attire interact with luminous mushrooms and water at the pond's edge, and a young girl in a tutu and crown dances on a candy-covered shore",
+  "inverted_title": "Inverted sketch: Dragon of Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal black dragon with scales and glowing eyes coils through a glowing pond in a fantastical night landscape. A cloaked witch with a lantern stands atop its back while two children in fantasy attire interact with luminous mushrooms and water at the pond's edge, and a young girl in a tutu and crown dances on a candy-covered shore (from generated still #3046).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal black dragon with scales and glowing eyes coils through a glowing pond in a fantastical night landscape. A cloaked witch with a lantern stands atop its back while two children in fantasy attire interact with luminous mushrooms and water at the pond's edge, and a young girl in a tutu and crown dances on a candy-covered shore",
+  "source_description": "A colossal black dragon with iridescent scales and glowing golden eyes coils through a glowing pond in a fantastical night landscape. A cloaked witch with a lantern stands atop its back while two children in fantasy attire interact with luminous mushrooms and water at the pond's edge, and a young girl in a pink tutu and crown dances on a candy-covered shore.",
+  "source_prompt": "A massive black dragon with shimmering multicolored scales and glowing golden eyes winds through a glowing pond under a starry purple night sky with shooting stars. A witch in a black cloak holding a purple lantern stands on the dragon's back. Two children in fantasy cloaks kneel by the luminous water near giant glowing mushrooms while a little girl in a pink tutu, red cape, and crown dances joyfully on a shore made of giant candies and sweets, whimsical storybook fantasy style.",
+  "source_title": "Dragon of Dreams",
+  "style": "fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "fantasy",
+    "night scene",
+    "children",
+    "mushrooms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3046,
+  "source_url": "/generated/3046.jpg",
+  "image_url": "/sketches/3638.png",
+  "inverted_image_url": "/sketches-inverted/3638.png",
+  "curve_count": 42,
+  "built_at": "2026-08-17T00:09:46Z"
+}

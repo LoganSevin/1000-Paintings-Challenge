@@ -49,9 +49,14 @@ echo.
 echo  Keep THIS window open while you use the gallery.
 echo  On THIS PC:  http://localhost:8765/
 echo.
-echo  On your PHONE (same Wi-Fi — not localhost):
-echo    The server will print "Phone / tablet" URLs when it starts.
-echo    If unreachable, run allow_phone_firewall.bat as Administrator once.
+echo  Enabling Tailscale HTTPS in the background (won't block boot)...
+if exist "C:\Program Files\Tailscale\tailscale.exe" (
+  start "" /b "C:\Program Files\Tailscale\tailscale.exe" serve --bg http://127.0.0.1:8765 >nul 2>&1
+)
+echo.
+echo  On YOUR PHONE (camera needs HTTPS):
+echo      Use enable_phone_camera.bat if the camera is blocked.
+echo      Tailscale MagicDNS https://.../  — not http://
 echo.
 echo  Press Ctrl+C to stop the server.
 echo.

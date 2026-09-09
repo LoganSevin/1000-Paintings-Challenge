@@ -1,0 +1,42 @@
+{
+  "number": 1251,
+  "title": "Line sketch: Cyberpunk Christmas Spire",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering gothic-cyberpunk cathedral covered in glowing runes and holly stands amid a futuristic city at night. A massive blood- celestial body and smaller orbiting planets drip thick liquid from the starry sky, with holly and berries in the foreground (derived from generated still #463).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering gothic-cyberpunk cathedral covered in glowing runes and holly stands amid a futuristic city at night. A massive blood- celestial body and smaller orbiting planets drip thick liquid from the starry sky, with holly and berries in the foreground",
+  "inverted_title": "Inverted sketch: Cyberpunk Christmas Spire",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering gothic-cyberpunk cathedral covered in glowing runes and holly stands amid a futuristic city at night. A massive blood- celestial body and smaller orbiting planets drip thick liquid from the starry sky, with holly and berries in the foreground (from generated still #463).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering gothic-cyberpunk cathedral covered in glowing runes and holly stands amid a futuristic city at night. A massive blood- celestial body and smaller orbiting planets drip thick liquid from the starry sky, with holly and berries in the foreground",
+  "source_description": "A towering gothic-cyberpunk cathedral covered in glowing neon runes and holly stands amid a futuristic neon city at night. A massive blood-red celestial body and smaller orbiting planets drip thick red liquid from the starry orange sky, with holly and berries in the foreground.",
+  "source_prompt": "",
+  "source_title": "Cyberpunk Christmas Spire",
+  "style": "cyberpunk surrealism",
+  "mood": "festive dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "christmas",
+    "gothic spire",
+    "city",
+    "blood moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 463,
+  "source_url": "/generated/463.jpg",
+  "image_url": "/sketches/1251.png",
+  "inverted_image_url": "/sketches-inverted/1251.png",
+  "curve_count": 84,
+  "built_at": "2026-08-17T00:09:40Z"
+}

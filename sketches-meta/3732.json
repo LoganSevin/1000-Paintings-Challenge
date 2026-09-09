@@ -1,0 +1,42 @@
+{
+  "number": 3732,
+  "title": "Line sketch: Cyberpunk Karate Fighter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young man with and black hair, intricate circuit-like patterns shaved into the side of his head, stands in a fighting stance wearing a torn and patched and karate gi. He wears and MMA gloves, multiple necklaces with a cross pendant, and patches on his shoulders reading 'PAY 01' and 'FINAL' (derived from generated still #3142).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young man with and black hair, intricate circuit-like patterns shaved into the side of his head, stands in a fighting stance wearing a torn and patched and karate gi. He wears and MMA gloves, multiple necklaces with a cross pendant, and patches on his shoulders reading 'PAY 01' and 'FINAL'",
+  "inverted_title": "Inverted sketch: Cyberpunk Karate Fighter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young man with and black hair, intricate circuit-like patterns shaved into the side of his head, stands in a fighting stance wearing a torn and patched and karate gi. He wears and MMA gloves, multiple necklaces with a cross pendant, and patches on his shoulders reading 'PAY 01' and 'FINAL' (from generated still #3142).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young man with and black hair, intricate circuit-like patterns shaved into the side of his head, stands in a fighting stance wearing a torn and patched and karate gi. He wears and MMA gloves, multiple necklaces with a cross pendant, and patches on his shoulders reading 'PAY 01' and 'FINAL'",
+  "source_description": "A young man with silver and black hair, intricate circuit-like patterns shaved into the side of his head, stands in a fighting stance wearing a torn and patched blue and red karate gi. He wears orange and purple MMA gloves, multiple necklaces with a cross pendant, and patches on his shoulders reading 'PAY 01' and 'FINAL'.",
+  "source_prompt": "A confident young man with silver and black hair and glowing blue eyes, intricate golden circuit patterns shaved into his fade haircut, smirking at the viewer. He wears a torn blue and red karate gi with patches that say PAY 01 and FINAL, orange and purple MMA gloves, and layered necklaces with a cross pendant. Dramatic cosmic background with purple and orange nebulae, glowing rings and stars, dynamic lighting, digital painting style",
+  "source_title": "Cyberpunk Karate Fighter",
+  "style": "line sketch",
+  "mood": "intense, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "male fighter",
+    "cyberpunk",
+    "karate gi",
+    "circuit tattoo",
+    "space background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3142,
+  "source_url": "/generated/3142.jpg",
+  "image_url": "/sketches/3732.png",
+  "inverted_image_url": "/sketches-inverted/3732.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:46Z"
+}

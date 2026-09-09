@@ -1,0 +1,42 @@
+{
+  "number": 1173,
+  "title": "Line sketch: Cosmic Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition of a -skinned woman with elaborate hair and a decorative mask, emerging from a swirling cosmic vortex of and light. The scene is filled with floating translucent orbs, paint drips, and splatters against a dark space-like background (derived from generated still #385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition of a -skinned woman with elaborate hair and a decorative mask, emerging from a swirling cosmic vortex of and light. The scene is filled with floating translucent orbs, paint drips, and splatters against a dark space-like background",
+  "inverted_title": "Inverted sketch: Cosmic Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition of a -skinned woman with elaborate hair and a decorative mask, emerging from a swirling cosmic vortex of and light. The scene is filled with floating translucent orbs, paint drips, and splatters against a dark space-like background (from generated still #385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition of a -skinned woman with elaborate hair and a decorative mask, emerging from a swirling cosmic vortex of and light. The scene is filled with floating translucent orbs, paint drips, and splatters against a dark space-like background",
+  "source_description": "A vibrant surreal painting of a green-skinned woman with elaborate dark purple hair and a decorative mask, emerging from a swirling cosmic vortex of green and yellow light. The scene is filled with floating translucent orbs, colorful paint drips, and splatters against a dark space-like background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Green Sorceress",
+  "style": "surreal fantasy",
+  "mood": "ethereal vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "woman",
+    "mask",
+    "vortex",
+    "paint drips"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 385,
+  "source_url": "/generated/385.jpg",
+  "image_url": "/sketches/1173.png",
+  "inverted_image_url": "/sketches-inverted/1173.png",
+  "curve_count": 279,
+  "built_at": "2026-08-17T00:09:40Z"
+}

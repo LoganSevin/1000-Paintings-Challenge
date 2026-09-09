@@ -1,0 +1,42 @@
+{
+  "number": 4426,
+  "title": "Line sketch: Spell Shop Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wooden market table displays magical wares in front of a Spell Shop facade. Visible items include a large glass jar containing a -tinted woman's face, multiple scrolls labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards with the same woman's portrait, a lit candle, scattered parchment notes, and three circular tokens on a metal plate (derived from generated still #3845).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wooden market table displays magical wares in front of a Spell Shop facade. Visible items include a large glass jar containing a -tinted woman's face, multiple scrolls labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards with the same woman's portrait, a lit candle, scattered parchment notes, and three circular tokens on a metal plate",
+  "inverted_title": "Inverted sketch: Spell Shop Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wooden market table displays magical wares in front of a Spell Shop facade. Visible items include a large glass jar containing a -tinted woman's face, multiple scrolls labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards with the same woman's portrait, a lit candle, scattered parchment notes, and three circular tokens on a metal plate (from generated still #3845).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wooden market table displays magical wares in front of a Spell Shop facade. Visible items include a large glass jar containing a -tinted woman's face, multiple scrolls labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards with the same woman's portrait, a lit candle, scattered parchment notes, and three circular tokens on a metal plate",
+  "source_description": "A wooden market table displays magical wares in front of a blue Spell Shop facade. Visible items include a large glass jar containing a blue-tinted woman's face, multiple scrolls labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards with the same woman's portrait, a lit blue candle, scattered parchment notes, and three circular tokens on a metal plate.",
+  "source_prompt": "A detailed still life on a rustic wooden table outside a blue wooden Spell Shop with a hanging sign that reads 'SPELL SHOP - PROFILE BINDINGS & STILL VISIONS'. On the table sits a large glass apothecary jar filled with blue liquid containing a floating woman's face, several rolled scrolls tied with string labeled 'Profile Bindings' and 'Still Visions', illustrated books and cards showing the same woman's serene face in blue tones, a lit blue candle, scattered parchment notes, and three white circular tokens on a brass plate. The scene has an old, stained white cloth with blue patterns draped over the table, creating a mysterious magical atmosphere.",
+  "source_title": "Spell Shop Still Life",
+  "style": "painterly fantasy illustration",
+  "mood": "mysterious enchanted",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spell shop",
+    "magic still life",
+    "witchcraft",
+    "aesthetic",
+    "vintage scrolls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3845,
+  "source_url": "/generated/3845.jpg",
+  "image_url": "/sketches/4426.png",
+  "inverted_image_url": "/sketches-inverted/4426.png",
+  "curve_count": 111,
+  "built_at": "2026-08-17T00:09:48Z"
+}

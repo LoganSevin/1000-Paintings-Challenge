@@ -1,0 +1,42 @@
+{
+  "number": 2203,
+  "title": "Line sketch: Psychedelic Couple Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pop art style illustration shows a man and woman in profile facing opposite directions, both wearing hats and scarves. The man smokes a pipe while the woman has stylized 1960s hair, set against a swirling background of circles, lips, and psychedelic patterns (derived from generated still #1428).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pop art style illustration shows a man and woman in profile facing opposite directions, both wearing hats and scarves. The man smokes a pipe while the woman has stylized 1960s hair, set against a swirling background of circles, lips, and psychedelic patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Couple Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pop art style illustration shows a man and woman in profile facing opposite directions, both wearing hats and scarves. The man smokes a pipe while the woman has stylized 1960s hair, set against a swirling background of circles, lips, and psychedelic patterns (from generated still #1428).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pop art style illustration shows a man and woman in profile facing opposite directions, both wearing hats and scarves. The man smokes a pipe while the woman has stylized 1960s hair, set against a swirling background of circles, lips, and psychedelic patterns",
+  "source_description": "A vibrant pop art style illustration shows a man and woman in profile facing opposite directions, both wearing green hats and scarves. The man smokes a pipe while the woman has stylized 1960s hair, set against a swirling background of colorful circles, lips, and psychedelic patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Couple Portrait",
+  "style": "Psychedelic Pop Art",
+  "mood": "Groovy trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "1960s",
+    "couple",
+    "profiles",
+    "pop art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1428,
+  "source_url": "/generated/1428.jpg",
+  "image_url": "/sketches/2203.png",
+  "inverted_image_url": "/sketches-inverted/2203.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:42Z"
+}

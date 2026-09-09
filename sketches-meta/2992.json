@@ -1,0 +1,42 @@
+{
+  "number": 2992,
+  "title": "Line sketch: Alien Overlord composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in artistic overalls stands in an art studio in front of a large surreal composition featuring a alien with massive eyes and a mechanical halo against a and background. Smaller abstract paintings and prints with swirling and patterns are scattered across the floor around him (derived from generated still #2314).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in artistic overalls stands in an art studio in front of a large surreal composition featuring a alien with massive eyes and a mechanical halo against a and background. Smaller abstract paintings and prints with swirling and patterns are scattered across the floor around him",
+  "inverted_title": "Inverted sketch: Alien Overlord composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in artistic overalls stands in an art studio in front of a large surreal composition featuring a alien with massive eyes and a mechanical halo against a and background. Smaller abstract paintings and prints with swirling and patterns are scattered across the floor around him (from generated still #2314).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in artistic overalls stands in an art studio in front of a large surreal composition featuring a alien with massive eyes and a mechanical halo against a and background. Smaller abstract paintings and prints with swirling and patterns are scattered across the floor around him",
+  "source_description": "A man in artistic overalls stands in an art studio in front of a large surreal painting featuring a green alien with massive red eyes and a mechanical halo against a red and teal background. Smaller abstract paintings and prints with swirling blue and gold patterns are scattered across the floor around him.",
+  "source_prompt": "A realistic scene of a male artist standing in a dimly lit studio, gazing at his large finished surreal painting of a green wrinkled alien head with huge glowing red eyes and metallic orb tentacles floating around it, set against a deep red and teal circular background. Smaller abstract swirling blue and gold paintings lie scattered on the wooden floor in front of him, dramatic cinematic lighting, highly detailed.",
+  "source_title": "Alien Overlord Painting",
+  "style": "surrealism",
+  "mood": "mysterious, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "alien",
+    "artist",
+    "studio",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2314,
+  "source_url": "/generated/2314.jpg",
+  "image_url": "/sketches/2992.png",
+  "inverted_image_url": "/sketches-inverted/2992.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:44Z"
+}

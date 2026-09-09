@@ -1,0 +1,42 @@
+{
+  "number": 2976,
+  "title": "Line sketch: Mushroom Spirit Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with closed glowing eyes, her hair formed from flowing rivers, mushrooms, and psychedelic fungi. Her shoulders and chest transform into a mountainous landscape with waterfalls cascading into a pool surrounded by flowers (derived from generated still #2298).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with closed glowing eyes, her hair formed from flowing rivers, mushrooms, and psychedelic fungi. Her shoulders and chest transform into a mountainous landscape with waterfalls cascading into a pool surrounded by flowers",
+  "inverted_title": "Inverted sketch: Mushroom Spirit Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with closed glowing eyes, her hair formed from flowing rivers, mushrooms, and psychedelic fungi. Her shoulders and chest transform into a mountainous landscape with waterfalls cascading into a pool surrounded by flowers (from generated still #2298).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with closed glowing eyes, her hair formed from flowing rivers, mushrooms, and psychedelic fungi. Her shoulders and chest transform into a mountainous landscape with waterfalls cascading into a pool surrounded by flowers",
+  "source_description": "A surreal portrait of a woman with closed glowing eyes, her hair formed from colorful flowing rivers, mushrooms, and psychedelic fungi. Her shoulders and chest transform into a mountainous landscape with waterfalls cascading into a pool surrounded by flowers.",
+  "source_prompt": "surreal fantasy portrait of a beautiful woman with closed glowing eyes, her elaborate hair made of colorful rivers, psychedelic mushrooms, and flowing fungi in rainbow hues, her neck and shoulders morphing into a mountainous terrain with waterfalls pouring down her chest into a pool, surrounded by wildflowers, dramatic sunset sky with mountains in background, ethereal glowing particles, highly detailed digital painting",
+  "source_title": "Mushroom Spirit Portrait",
+  "style": "fantasy surrealism",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom hair",
+    "fantasy woman",
+    "surreal landscape",
+    "psychedelic art",
+    "waterfall portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2298,
+  "source_url": "/generated/2298.jpg",
+  "image_url": "/sketches/2976.png",
+  "inverted_image_url": "/sketches-inverted/2976.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:44Z"
+}

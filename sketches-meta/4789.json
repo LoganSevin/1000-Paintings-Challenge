@@ -1,0 +1,42 @@
+{
+  "number": 4789,
+  "title": "Line sketch: Ghost Ship of Bones",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal seascape depicts a large ghostly sailing ship with eyes in its sails and hull floating above a sea made of skeletal remains and shipwrecks. In the twilight sky above, a giant human eye watches over the scene, surrounded by floating bubbles, torn paper fragments, and small birds (derived from generated still #4223).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal seascape depicts a large ghostly sailing ship with eyes in its sails and hull floating above a sea made of skeletal remains and shipwrecks. In the twilight sky above, a giant human eye watches over the scene, surrounded by floating bubbles, torn paper fragments, and small birds",
+  "inverted_title": "Inverted sketch: Ghost Ship of Bones",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal seascape depicts a large ghostly sailing ship with eyes in its sails and hull floating above a sea made of skeletal remains and shipwrecks. In the twilight sky above, a giant human eye watches over the scene, surrounded by floating bubbles, torn paper fragments, and small birds (from generated still #4223).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal seascape depicts a large ghostly sailing ship with eyes in its sails and hull floating above a sea made of skeletal remains and shipwrecks. In the twilight sky above, a giant human eye watches over the scene, surrounded by floating bubbles, torn paper fragments, and small birds",
+  "source_description": "A surreal seascape depicts a large ghostly sailing ship with blue eyes in its sails and hull floating above a sea made of skeletal remains and shipwrecks. In the twilight sky above, a giant blue human eye watches over the scene, surrounded by floating bubbles, torn paper fragments, and small birds.",
+  "source_prompt": "Surreal fantasy scene at dusk showing a majestic ghost ship with blue eyes embedded in its white sails and hull sailing upon a sea of bones and shipwreck debris. A giant realistic blue human eye floats in the cloudy twilight sky above, surrounded by transparent bubbles, torn parchment pieces, and small black birds. Decaying frame border with peeling texture, dreamlike atmosphere, intricate details.",
+  "source_title": "Ghost Ship of Bones",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ghost ship",
+    "skeleton sea",
+    "floating eye",
+    "twilight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4223,
+  "source_url": "/generated/4223.jpg",
+  "image_url": "/sketches/4789.png",
+  "inverted_image_url": "/sketches-inverted/4789.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:49Z"
+}

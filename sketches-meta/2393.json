@@ -1,0 +1,42 @@
+{
+  "number": 2393,
+  "title": "Line sketch: Witch and Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted witch with flowing hair stands on a hill holding a wand, releasing glowing bubbles into the night sky. A large, textured moon dominates the background filled with floating, and bubbles and floral patterns (derived from generated still #1621).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted witch with flowing hair stands on a hill holding a wand, releasing glowing bubbles into the night sky. A large, textured moon dominates the background filled with floating, and bubbles and floral patterns",
+  "inverted_title": "Inverted sketch: Witch and Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted witch with flowing hair stands on a hill holding a wand, releasing glowing bubbles into the night sky. A large, textured moon dominates the background filled with floating, and bubbles and floral patterns (from generated still #1621).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted witch with flowing hair stands on a hill holding a wand, releasing glowing bubbles into the night sky. A large, textured moon dominates the background filled with floating, and bubbles and floral patterns",
+  "source_description": "A silhouetted witch with flowing teal hair stands on a hill holding a wand, releasing glowing bubbles into the night sky. A large, textured red moon dominates the dark blue background filled with floating pink, green, and purple bubbles and floral patterns.",
+  "source_prompt": "",
+  "source_title": "Witch and Red Moon",
+  "style": "digital illustration",
+  "mood": "magical, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "moon",
+    "bubbles",
+    "silhouette",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1621,
+  "source_url": "/generated/1621.jpg",
+  "image_url": "/sketches/2393.png",
+  "inverted_image_url": "/sketches-inverted/2393.png",
+  "curve_count": 126,
+  "built_at": "2026-08-17T00:09:43Z"
+}

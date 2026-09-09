@@ -1,0 +1,42 @@
+{
+  "number": 4841,
+  "title": "Line sketch: Stasis No Reanimation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene features three fairies swirling around a glowing vortex inside an ornate black mirror. In the foreground, three cats sit on cushions: an tabby, a grey cat, and a black cat wearing a checkered cape and holding a glowing orb. A armored knight casts a spell from the right while a giant praying mantis perches atop the mirror (derived from generated still #4276).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene features three fairies swirling around a glowing vortex inside an ornate black mirror. In the foreground, three cats sit on cushions: an tabby, a grey cat, and a black cat wearing a checkered cape and holding a glowing orb. A armored knight casts a spell from the right while a giant praying mantis perches atop the mirror",
+  "inverted_title": "Inverted sketch: Stasis No Reanimation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene features three fairies swirling around a glowing vortex inside an ornate black mirror. In the foreground, three cats sit on cushions: an tabby, a grey cat, and a black cat wearing a checkered cape and holding a glowing orb. A armored knight casts a spell from the right while a giant praying mantis perches atop the mirror (from generated still #4276).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene features three fairies swirling around a glowing vortex inside an ornate black mirror. In the foreground, three cats sit on cushions: an tabby, a grey cat, and a black cat wearing a checkered cape and holding a glowing orb. A armored knight casts a spell from the right while a giant praying mantis perches atop the mirror",
+  "source_description": "A surreal fantasy scene features three fairies swirling around a glowing orange vortex inside an ornate black mirror. In the foreground, three cats sit on pink cushions: an orange tabby, a grey cat, and a black cat wearing a checkered cape and holding a glowing orb. A green armored knight casts a spell from the right while a giant praying mantis perches atop the mirror.",
+  "source_prompt": "A highly detailed surreal fantasy painting shows three glowing fairies with blue wings dancing around a swirling orange vortex of light inside a large ornate black mirror. In front, three cats sit on pink patterned pillows: an orange tabby, a grey cat, and a black cat in a black and white checkered cape holding a pink orb. To the right a green armored knight casts a spell with purple energy. A giant green praying mantis sits on top of the mirror. The background has a red sun, purple stormy sky, distant castle on a hill, desert dunes, pink flowers, open books, and floating bubbles. A wooden sign reads 'STASIS NO REANIMATION'.",
+  "source_title": "Stasis No Reanimation",
+  "style": "fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "fairies",
+    "cats",
+    "magic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4276,
+  "source_url": "/generated/4276.jpg",
+  "image_url": "/sketches/4841.png",
+  "inverted_image_url": "/sketches-inverted/4841.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:49Z"
+}

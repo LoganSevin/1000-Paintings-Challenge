@@ -1,0 +1,42 @@
+{
+  "number": 3312,
+  "title": "Line sketch: Velvet Decay",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a velvet suit sits slumped in a director's chair in a ruined outdoor theater, toxic smoke rising from her body and a large decaying movie screen behind her. An open book with glowing imagery, film reels, and scattered photographs lie at her feet under a dramatic apocalyptic sky (derived from generated still #2697).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a velvet suit sits slumped in a director's chair in a ruined outdoor theater, toxic smoke rising from her body and a large decaying movie screen behind her. An open book with glowing imagery, film reels, and scattered photographs lie at her feet under a dramatic apocalyptic sky",
+  "inverted_title": "Inverted sketch: Velvet Decay",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a velvet suit sits slumped in a director's chair in a ruined outdoor theater, toxic smoke rising from her body and a large decaying movie screen behind her. An open book with glowing imagery, film reels, and scattered photographs lie at her feet under a dramatic apocalyptic sky (from generated still #2697).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a velvet suit sits slumped in a director's chair in a ruined outdoor theater, toxic smoke rising from her body and a large decaying movie screen behind her. An open book with glowing imagery, film reels, and scattered photographs lie at her feet under a dramatic apocalyptic sky",
+  "source_description": "A woman in a red velvet suit sits slumped in a director's chair in a ruined outdoor theater, green toxic smoke rising from her body and a large decaying movie screen behind her. An open book with glowing pink imagery, film reels, and scattered photographs lie at her feet under a dramatic apocalyptic sky.",
+  "source_prompt": "A woman wearing a red velvet suit and gold gloves sits exhausted in a director's chair in the middle of a ruined outdoor cinema, green toxic smoke rising from her body and the massive decaying movie screen behind her which shows a ballerina, a cowboy, and a hazmat figure. An open book emitting pink glowing light, film reels and old photographs are scattered on the ground in front of her, destroyed city skyline in the background under a fiery orange and purple sky, cinematic lighting, highly detailed digital painting",
+  "source_title": "Velvet Decay",
+  "style": "cinematic",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "cinematic",
+    "ruined theater",
+    "toxic smoke",
+    "vintage fashion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2697,
+  "source_url": "/generated/2697.jpg",
+  "image_url": "/sketches/3312.png",
+  "inverted_image_url": "/sketches-inverted/3312.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:45Z"
+}

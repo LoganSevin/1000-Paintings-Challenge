@@ -1,0 +1,42 @@
+{
+  "number": 1123,
+  "title": "Line sketch: Octopus Jack Skellington",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene featuring a black octopus with Jack Skellington's pumpkin head, wearing a robe and holding a staff, standing in dark reflective water. Gnarled tentacles and roots frame the foreground beneath a giant blood moon and starry sky (derived from generated still #335).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene featuring a black octopus with Jack Skellington's pumpkin head, wearing a robe and holding a staff, standing in dark reflective water. Gnarled tentacles and roots frame the foreground beneath a giant blood moon and starry sky",
+  "inverted_title": "Inverted sketch: Octopus Jack Skellington",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene featuring a black octopus with Jack Skellington's pumpkin head, wearing a robe and holding a staff, standing in dark reflective water. Gnarled tentacles and roots frame the foreground beneath a giant blood moon and starry sky (from generated still #335).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene featuring a black octopus with Jack Skellington's pumpkin head, wearing a robe and holding a staff, standing in dark reflective water. Gnarled tentacles and roots frame the foreground beneath a giant blood moon and starry sky",
+  "source_description": "A surreal night scene featuring a black octopus with Jack Skellington's pumpkin head, wearing a robe and holding a staff, standing in dark reflective water. Gnarled green tentacles and roots frame the foreground beneath a giant red blood moon and purple starry sky.",
+  "source_prompt": "",
+  "source_title": "Octopus Jack Skellington",
+  "style": "surreal fantasy illustration",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "jack skellington",
+    "octopus",
+    "blood moon",
+    "halloween",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 335,
+  "source_url": "/generated/335.jpg",
+  "image_url": "/sketches/1123.png",
+  "inverted_image_url": "/sketches-inverted/1123.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:40Z"
+}

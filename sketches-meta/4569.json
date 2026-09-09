@@ -1,0 +1,42 @@
+{
+  "number": 4569,
+  "title": "Line sketch: No TNO Fantasy Showdown",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring a demonic sorcerer in ornate robes on the left, a armored knight with a glowing sword standing on a rocky platform in the center, and a bandaged mummy holding a staff on the right. In the background a massive dragon emerges from a glowing portal framed by ancient stone ruins, with a sun setting over desert dunes and flowers lining the path (derived from generated still #3990).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring a demonic sorcerer in ornate robes on the left, a armored knight with a glowing sword standing on a rocky platform in the center, and a bandaged mummy holding a staff on the right. In the background a massive dragon emerges from a glowing portal framed by ancient stone ruins, with a sun setting over desert dunes and flowers lining the path",
+  "inverted_title": "Inverted sketch: No TNO Fantasy Showdown",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring a demonic sorcerer in ornate robes on the left, a armored knight with a glowing sword standing on a rocky platform in the center, and a bandaged mummy holding a staff on the right. In the background a massive dragon emerges from a glowing portal framed by ancient stone ruins, with a sun setting over desert dunes and flowers lining the path (from generated still #3990).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring a demonic sorcerer in ornate robes on the left, a armored knight with a glowing sword standing on a rocky platform in the center, and a bandaged mummy holding a staff on the right. In the background a massive dragon emerges from a glowing portal framed by ancient stone ruins, with a sun setting over desert dunes and flowers lining the path",
+  "source_description": "A surreal fantasy scene featuring a blue demonic sorcerer in ornate robes on the left, a teal armored knight with a glowing sword standing on a rocky platform in the center, and a bandaged mummy holding a staff on the right. In the background a massive golden dragon emerges from a glowing purple portal framed by ancient stone ruins, with a red sun setting over desert dunes and purple flowers lining the path.",
+  "source_prompt": "A vibrant surreal fantasy scene at sunset in a desert landscape. On the left stands a blue-skinned demon sorcerer in ornate black and gold robes with horns. In the center a teal armored knight holds a glowing blue sword on a stone platform. On the right a green bandaged mummy with an open mouth holds a staff. A giant golden oriental dragon emerges from a glowing purple portal set in ancient stone ruins behind them, with a red sun and purple flowers visible.",
+  "source_title": "No TNO Fantasy Showdown",
+  "style": "line sketch",
+  "mood": "epic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "dragon",
+    "knight",
+    "demon",
+    "mummy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3990,
+  "source_url": "/generated/3990.jpg",
+  "image_url": "/sketches/4569.png",
+  "inverted_image_url": "/sketches-inverted/4569.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3759,
+  "title": "Line sketch: Armored Warrior with Dagger",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stern male warrior stands in a dynamic combat pose against a dark gradient background. He wears ornate and armor with a torn grey coat, holds a dagger in his right hand, and has a damaged shield strapped to his back (derived from generated still #3175).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stern male warrior stands in a dynamic combat pose against a dark gradient background. He wears ornate and armor with a torn grey coat, holds a dagger in his right hand, and has a damaged shield strapped to his back",
+  "inverted_title": "Inverted sketch: Armored Warrior with Dagger",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stern male warrior stands in a dynamic combat pose against a dark gradient background. He wears ornate and armor with a torn grey coat, holds a dagger in his right hand, and has a damaged shield strapped to his back (from generated still #3175).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stern male warrior stands in a dynamic combat pose against a dark gradient background. He wears ornate and armor with a torn grey coat, holds a dagger in his right hand, and has a damaged shield strapped to his back",
+  "source_description": "A stern male warrior stands in a dynamic combat pose against a dark gradient background. He wears ornate copper and gold armor with a torn grey coat, holds a dagger in his right hand, and has a damaged copper shield strapped to his back.",
+  "source_prompt": "A fierce young male warrior with spiky brown hair and an undercut stands in a dramatic fighting stance, wearing intricate copper and gold fantasy armor with leather straps, a torn grey coat with gold coins hanging from the belt, holding a sharp dagger forward in his right hand while his left fist is raised, a damaged copper shield on his back, dramatic studio lighting, highly detailed realistic digital painting",
+  "source_title": "Armored Warrior with Dagger",
+  "style": "realistic",
+  "mood": "intense, determined",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "armor",
+    "fantasy",
+    "male character",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3175,
+  "source_url": "/generated/3175.jpg",
+  "image_url": "/sketches/3759.png",
+  "inverted_image_url": "/sketches-inverted/3759.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:46Z"
+}

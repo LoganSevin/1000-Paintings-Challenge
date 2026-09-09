@@ -1,0 +1,42 @@
+{
+  "number": 3960,
+  "title": "Line sketch: Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A female character with hair and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional outfit with intricate patterns, wields a glowing crescent moon staff in her right hand, and holds a swirling orb of magical energy in her left hand, with crackling energy emanating from her headpiece (derived from generated still #3377).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A female character with hair and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional outfit with intricate patterns, wields a glowing crescent moon staff in her right hand, and holds a swirling orb of magical energy in her left hand, with crackling energy emanating from her headpiece",
+  "inverted_title": "Inverted sketch: Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A female character with hair and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional outfit with intricate patterns, wields a glowing crescent moon staff in her right hand, and holds a swirling orb of magical energy in her left hand, with crackling energy emanating from her headpiece (from generated still #3377).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A female character with hair and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional outfit with intricate patterns, wields a glowing crescent moon staff in her right hand, and holds a swirling orb of magical energy in her left hand, with crackling energy emanating from her headpiece",
+  "source_description": "A female character with light purple hair and purple eyes stands in a dynamic pose against a solid dark gray background. She wears a white and purple traditional outfit with intricate patterns, wields a glowing purple crescent moon staff in her right hand, and holds a swirling purple orb of magical energy in her left hand, with crackling purple energy emanating from her headpiece.",
+  "source_prompt": "A young East Asian female sorceress with long flowing light purple hair and purple eyes, wearing an ornate white and purple traditional fantasy outfit with a corset top and flowing sleeves, stands in a combat pose. She holds a glowing purple crescent moon staff in one hand and casts a swirling purple energy orb with the other. A spiky purple magical crown floats above her head with crackling energy. Clean solid dark gray background, highly detailed digital illustration style.",
+  "source_title": "Purple Sorceress",
+  "style": "digital illustration",
+  "mood": "mystical powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "fantasy character",
+    "magic user",
+    "crescent staff"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3377,
+  "source_url": "/generated/3377.jpg",
+  "image_url": "/sketches/3960.png",
+  "inverted_image_url": "/sketches-inverted/3960.png",
+  "curve_count": 89,
+  "built_at": "2026-08-17T00:09:47Z"
+}

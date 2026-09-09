@@ -1,0 +1,42 @@
+{
+  "number": 295,
+  "title": "Line sketch: Cosmic Void Sorcerer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mysterious hooded figure with a glowing skull-like helmet floats in the center of a swirling cosmic vortex. The nebula is filled with stars, planets, and ethereal energy tendrils forming a dramatic portal around the enigmatic being (derived from painting #352).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mysterious hooded figure with a glowing skull-like helmet floats in the center of a swirling cosmic vortex. The nebula is filled with stars, planets, and ethereal energy tendrils forming a dramatic portal around the enigmatic being",
+  "inverted_title": "Inverted sketch: Cosmic Void Sorcerer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mysterious hooded figure with a glowing skull-like helmet floats in the center of a swirling cosmic vortex. The nebula is filled with stars, planets, and ethereal energy tendrils forming a dramatic portal around the enigmatic being (from painting #352).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mysterious hooded figure with a glowing skull-like helmet floats in the center of a swirling cosmic vortex. The nebula is filled with stars, planets, and ethereal energy tendrils forming a dramatic portal around the enigmatic being",
+  "source_description": "A mysterious hooded figure with a glowing skull-like helmet floats in the center of a swirling cosmic vortex. The dark purple nebula is filled with stars, planets, and ethereal energy tendrils forming a dramatic portal around the enigmatic being.",
+  "source_prompt": "",
+  "source_title": "Cosmic Void Sorcerer",
+  "style": "Digital Fantasy Illustration",
+  "mood": "Mysterious and epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "sorcerer",
+    "nebula",
+    "portal",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 352,
+  "source_url": "/paintings/352.jpg",
+  "image_url": "/sketches/295.png",
+  "inverted_image_url": "/sketches-inverted/295.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1109,
+  "title": "Line sketch: Diagonal Ink Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Surreal East Asian ink wash landscape featuring traditional mountains, a multi-tiered pagoda, and small boats on water, overlaid with bold black and white diagonal bands. The scene incorporates stylized wave patterns and floating celestial spheres with orbiting rings (derived from generated still #321).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Surreal East Asian ink wash landscape featuring traditional mountains, a multi-tiered pagoda, and small boats on water, overlaid with bold black and white diagonal bands. The scene incorporates stylized wave patterns and floating celestial spheres with orbiting rings",
+  "inverted_title": "Inverted sketch: Diagonal Ink Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Surreal East Asian ink wash landscape featuring traditional mountains, a multi-tiered pagoda, and small boats on water, overlaid with bold black and white diagonal bands. The scene incorporates stylized wave patterns and floating celestial spheres with orbiting rings (from generated still #321).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Surreal East Asian ink wash landscape featuring traditional mountains, a multi-tiered pagoda, and small boats on water, overlaid with bold black and white diagonal bands. The scene incorporates stylized wave patterns and floating celestial spheres with orbiting rings",
+  "source_description": "Surreal East Asian ink wash landscape featuring traditional mountains, a multi-tiered pagoda, and small boats on water, overlaid with bold black and white diagonal brushstroke bands. The scene incorporates stylized blue wave patterns and floating colorful celestial spheres with orbiting rings.",
+  "source_prompt": "",
+  "source_title": "Diagonal Ink Landscape",
+  "style": "surreal ink wash",
+  "mood": "dreamlike serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital collage",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ink wash",
+    "pagoda",
+    "mountains",
+    "celestial spheres",
+    "diagonal stripes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 321,
+  "source_url": "/generated/321.jpg",
+  "image_url": "/sketches/1109.png",
+  "inverted_image_url": "/sketches-inverted/1109.png",
+  "curve_count": 112,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4033,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized cartoon illustration of a fierce young woman with voluminous, wild and hair standing in a dynamic pose. She wears a bra top, shorts, a black utility belt, platform boots, and a small cape while holding a spray can in her right hand (derived from generated still #3450).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized cartoon illustration of a fierce young woman with voluminous, wild and hair standing in a dynamic pose. She wears a bra top, shorts, a black utility belt, platform boots, and a small cape while holding a spray can in her right hand",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized cartoon illustration of a fierce young woman with voluminous, wild and hair standing in a dynamic pose. She wears a bra top, shorts, a black utility belt, platform boots, and a small cape while holding a spray can in her right hand (from generated still #3450).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized cartoon illustration of a fierce young woman with voluminous, wild and hair standing in a dynamic pose. She wears a bra top, shorts, a black utility belt, platform boots, and a small cape while holding a spray can in her right hand",
+  "source_description": "A stylized cartoon illustration of a fierce young woman with voluminous, wild magenta and red hair standing in a dynamic pose. She wears a red bra top, red shorts, a black utility belt, red platform boots, and a small red cape while holding a gold spray can in her right hand.",
+  "source_prompt": "stylized cartoon illustration of a fierce punk girl with massive voluminous magenta and red hair flowing wildly, wearing a red bra top, red shorts, black studded belt, red cape, and tall red platform boots, holding a gold spray paint can, dynamic action pose with one fist clenched, blue eyes and determined expression, against a solid dark gray background, vibrant digital painting style",
+  "source_title": "Graffiti Punk Girl",
+  "style": "digital illustration",
+  "mood": "bold, sassy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "punk girl",
+    "graffiti artist",
+    "hair",
+    "spray can",
+    "platform boots"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3450,
+  "source_url": "/generated/3450.jpg",
+  "image_url": "/sketches/4033.png",
+  "inverted_image_url": "/sketches-inverted/4033.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:47Z"
+}

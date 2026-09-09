@@ -5,6 +5,9 @@
   if (window.MuralwalkSpellMath) return;
   var SLOT_LABELS = ["Spell I", "Spell II", "Spell III"];
   var TOTAL_PAINTINGS = 1000;
+  var GEN_BASE = 100000;
+  var SKETCH_BASE = 200000;
+  var INV_SKETCH_BASE = 300000;
 
   function spellHash(seed, n) {
     var h = seed * 374761393 + n * 668265263;
@@ -19,6 +22,24 @@
   }
 
   function paintingUrlFor(num) {
+    num = parseInt(num, 10);
+    if (!num) return "";
+    try {
+      if (typeof window.getSpellforgeSpellUrl === "function") {
+        var raw = String(window.getSpellforgeSpellUrl(num) || "");
+        var bogus = /(?:^|\/)paintings\/(\d+)\./i.exec(raw);
+        if (raw && !(num > 1000 && bogus && parseInt(bogus[1], 10) === num)) return raw;
+      }
+    } catch (e) {}
+    if (num >= 1 && num <= 1000) {
+      if (window.getPaintingUrl) return window.getPaintingUrl(num);
+      return "paintings/" + num + ".jpg";
+    }
+    if (num >= GEN_BASE && num < SKETCH_BASE) return "generated/" + (num - GEN_BASE) + ".jpg";
+    if (num >= SKETCH_BASE && num < INV_SKETCH_BASE) return "sketches/" + (num - SKETCH_BASE) + ".png";
+    if (num >= INV_SKETCH_BASE && num < 400000) {
+      return "sketches-inverted/" + (num - INV_SKETCH_BASE) + ".png";
+    }
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
     return "paintings/" + num + ".jpg";
   }
@@ -45,20 +66,27 @@
     return pool[spellHash(seed, pool.length) % pool.length];
   }
 
-  function buildSpellPool(total, exclude, hasAnalysis) {
+  function buildSpellPool(totalOrList, exclude, hasAnalysis) {
     var excludeMap = {};
     (exclude || []).forEach(function (n) {
       excludeMap[n] = true;
     });
+    var ids = [];
+    if (Array.isArray(totalOrList)) {
+      ids = totalOrList;
+    } else {
+      var max = totalOrList || TOTAL_PAINTINGS;
+      for (var i = 1; i <= max; i++) ids.push(i);
+    }
     var pool = [];
-    var max = total || TOTAL_PAINTINGS;
-    for (var i = 1; i <= max; i++) {
-      if (excludeMap[i]) continue;
-      if (!hasAnalysis || hasAnalysis(i)) pool.push(i);
+    for (var k = 0; k < ids.length; k++) {
+      var n = ids[k];
+      if (!n || excludeMap[n]) continue;
+      if (!hasAnalysis || hasAnalysis(n)) pool.push(n);
     }
     if (!pool.length) {
-      for (var j = 1; j <= max; j++) {
-        if (!excludeMap[j]) pool.push(j);
+      for (var j = 0; j < ids.length; j++) {
+        if (ids[j] && !excludeMap[ids[j]]) pool.push(ids[j]);
       }
     }
     return pool;
@@ -112,6 +140,9 @@
   window.MuralwalkSpellMath = {
     SLOT_LABELS: SLOT_LABELS,
     TOTAL_PAINTINGS: TOTAL_PAINTINGS,
+    GEN_BASE: GEN_BASE,
+    SKETCH_BASE: SKETCH_BASE,
+    INV_SKETCH_BASE: INV_SKETCH_BASE,
     spellHash: spellHash,
     equippedNums: equippedNums,
     paintingUrlFor: paintingUrlFor,

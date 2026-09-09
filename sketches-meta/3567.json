@@ -1,0 +1,42 @@
+{
+  "number": 3567,
+  "title": "Line sketch: Dragon and Candlelit Revelry",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring a large blonde woman in a corset standing atop a massive dragon adorned with lit candles. In the background, another version of the woman holds candles while a transparent bubble on the right contains three people in formal attire enjoying cocktails under a starry sky with constellations and flowing banners (derived from generated still #2975).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring a large blonde woman in a corset standing atop a massive dragon adorned with lit candles. In the background, another version of the woman holds candles while a transparent bubble on the right contains three people in formal attire enjoying cocktails under a starry sky with constellations and flowing banners",
+  "inverted_title": "Inverted sketch: Dragon and Candlelit Revelry",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring a large blonde woman in a corset standing atop a massive dragon adorned with lit candles. In the background, another version of the woman holds candles while a transparent bubble on the right contains three people in formal attire enjoying cocktails under a starry sky with constellations and flowing banners (from generated still #2975).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring a large blonde woman in a corset standing atop a massive dragon adorned with lit candles. In the background, another version of the woman holds candles while a transparent bubble on the right contains three people in formal attire enjoying cocktails under a starry sky with constellations and flowing banners",
+  "source_description": "A surreal fantasy scene featuring a large blonde woman in a dark blue corset standing atop a massive blue dragon adorned with lit candles. In the background, another version of the woman holds candles while a transparent bubble on the right contains three people in formal attire enjoying cocktails under a starry purple sky with constellations and flowing banners.",
+  "source_prompt": "A majestic blonde woman in a dark blue corset and braided hair stands confidently on the head of a giant blue dragon covered in lit black candles, her hand on her hip. In the starry purple night sky, a smaller version of her floats holding candles with a blue banner reading 'D.T. Kelly'. To the right, a transparent bubble contains a woman in a black dress, a red-haired woman, and a man in a pinstripe suit toasting with blue cocktails, all rendered in rich fantasy illustration style.",
+  "source_title": "Dragon and Candlelit Revelry",
+  "style": "fantasy illustration",
+  "mood": "mysterious, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy art",
+    "dragon",
+    "corset",
+    "surreal",
+    "candles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2975,
+  "source_url": "/generated/2975.jpg",
+  "image_url": "/sketches/3567.png",
+  "inverted_image_url": "/sketches-inverted/3567.png",
+  "curve_count": 109,
+  "built_at": "2026-08-17T00:09:46Z"
+}

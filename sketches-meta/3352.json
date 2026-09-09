@@ -1,0 +1,42 @@
+{
+  "number": 3352,
+  "title": "Line sketch: Monster Meets Medusa",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large one-eyed monster with horns and sharp teeth stands in an open wooden doorway labeled 'north #56', holding a film reel ticket while reaching toward a sad young woman whose hair consists of writhing tentacles. The scene is set in a dark, rainy night with stormy skies, graffiti-covered walls featuring skulls and vibrant paint splatters (derived from generated still #2752).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large one-eyed monster with horns and sharp teeth stands in an open wooden doorway labeled 'north #56', holding a film reel ticket while reaching toward a sad young woman whose hair consists of writhing tentacles. The scene is set in a dark, rainy night with stormy skies, graffiti-covered walls featuring skulls and vibrant paint splatters",
+  "inverted_title": "Inverted sketch: Monster Meets Medusa",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large one-eyed monster with horns and sharp teeth stands in an open wooden doorway labeled 'north #56', holding a film reel ticket while reaching toward a sad young woman whose hair consists of writhing tentacles. The scene is set in a dark, rainy night with stormy skies, graffiti-covered walls featuring skulls and vibrant paint splatters (from generated still #2752).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large one-eyed monster with horns and sharp teeth stands in an open wooden doorway labeled 'north #56', holding a film reel ticket while reaching toward a sad young woman whose hair consists of writhing tentacles. The scene is set in a dark, rainy night with stormy skies, graffiti-covered walls featuring skulls and vibrant paint splatters",
+  "source_description": "A large green one-eyed monster with horns and sharp teeth stands in an open wooden doorway labeled 'north #56', holding a film reel ticket while reaching toward a sad young woman whose hair consists of writhing green tentacles. The scene is set in a dark, rainy night with purple stormy skies, graffiti-covered walls featuring skulls and vibrant paint splatters.",
+  "source_prompt": "A surreal scene of a friendly green cyclops monster with horns and a wide toothy grin standing in an open wooden door marked 'north #56' during a heavy rainstorm, holding a film reel labeled REEL 56, reaching out to a melancholic girl whose hair is made of living green tentacles with crying eyes, vibrant graffiti and skull motifs cover the walls, dramatic purple stormy sky with lightning, expressive paint splatters in pink yellow and blue",
+  "source_title": "Monster Meets Medusa",
+  "style": "surreal",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monster",
+    "medusa",
+    "graffiti",
+    "rain",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2752,
+  "source_url": "/generated/2752.jpg",
+  "image_url": "/sketches/3352.png",
+  "inverted_image_url": "/sketches-inverted/3352.png",
+  "curve_count": 128,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 30,
+  "title": "Line sketch: Misty Barn at Dawn",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered gray barn with a roof stands alone in a vast, fog-shrouded field, surrounded by scattered trees under a hazy glowing sun. Rolling and grasses dominate the foreground while soft atmospheric layers recede into the distance. The artist uses blended and muted tones to evoke depth and quiet light (derived from painting #43).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered gray barn with a roof stands alone in a vast, fog-shrouded field, surrounded by scattered trees under a hazy glowing sun. Rolling and grasses dominate the foreground while soft atmospheric layers recede into the distance. The artist uses blended and muted tones to evoke depth and quiet light",
+  "inverted_title": "Inverted sketch: Misty Barn at Dawn",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered gray barn with a roof stands alone in a vast, fog-shrouded field, surrounded by scattered trees under a hazy glowing sun. Rolling and grasses dominate the foreground while soft atmospheric layers recede into the distance. The artist uses blended and muted tones to evoke depth and quiet light (from painting #43).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered gray barn with a roof stands alone in a vast, fog-shrouded field, surrounded by scattered trees under a hazy glowing sun. Rolling and grasses dominate the foreground while soft atmospheric layers recede into the distance. The artist uses blended and muted tones to evoke depth and quiet light",
+  "source_description": "A weathered gray barn with a red roof stands alone in a vast, fog-shrouded field, surrounded by scattered trees under a hazy glowing sun. Rolling green and yellow grasses dominate the foreground while soft atmospheric layers recede into the distance. The artist uses blended brushwork and muted tones to evoke depth and quiet light.",
+  "source_prompt": "",
+  "source_title": "Misty Barn at Dawn",
+  "style": "Realism",
+  "mood": "Serene misty",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "barn",
+    "field",
+    "mist",
+    "rural"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 43,
+  "source_url": "/paintings/43.jpg",
+  "image_url": "/sketches/30.png",
+  "inverted_image_url": "/sketches-inverted/30.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

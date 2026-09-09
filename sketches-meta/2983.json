@@ -1,0 +1,42 @@
+{
+  "number": 2983,
+  "title": "Line sketch: Moon Eye Surreal Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large detailed human eye with a iris and long lashes is centered in the composition, with a textured full moon containing another smaller eye embedded in its surface directly above it. The background features a swirling cosmic gradient of, decorated with floating hearts, stars, and dripping text reading '1000 Paintings' (derived from generated still #2305).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large detailed human eye with a iris and long lashes is centered in the composition, with a textured full moon containing another smaller eye embedded in its surface directly above it. The background features a swirling cosmic gradient of, decorated with floating hearts, stars, and dripping text reading '1000 Paintings'",
+  "inverted_title": "Inverted sketch: Moon Eye Surreal Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large detailed human eye with a iris and long lashes is centered in the composition, with a textured full moon containing another smaller eye embedded in its surface directly above it. The background features a swirling cosmic gradient of, decorated with floating hearts, stars, and dripping text reading '1000 Paintings' (from generated still #2305).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large detailed human eye with a iris and long lashes is centered in the composition, with a textured full moon containing another smaller eye embedded in its surface directly above it. The background features a swirling cosmic gradient of, decorated with floating hearts, stars, and dripping text reading '1000 Paintings'",
+  "source_description": "A large detailed human eye with a teal iris and long lashes is centered in the composition, with a textured full moon containing another smaller green eye embedded in its surface directly above it. The background features a swirling cosmic gradient of deep blues, purples and oranges, decorated with floating hearts, stars, and dripping teal text reading '1000 Paintings'.",
+  "source_prompt": "surreal cosmic painting featuring a giant realistic human eye with vibrant teal iris and detailed lashes in the center, a textured full moon with another smaller green eye embedded within it floating above the main eye, swirling galaxy background in deep blues purples and fiery orange, floating pink hearts and stars, dripping stylized text '1000 Paintings' below the eye, mystical and ethereal atmosphere",
+  "source_title": "Moon Eye Surreal Portrait",
+  "style": "surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "moon",
+    "eye",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2305,
+  "source_url": "/generated/2305.jpg",
+  "image_url": "/sketches/2983.png",
+  "inverted_image_url": "/sketches-inverted/2983.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

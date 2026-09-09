@@ -1,0 +1,42 @@
+{
+  "number": 2562,
+  "title": "Line sketch: Robot, Donkey and Boy on Porch",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed scene on the porch of a rustic wooden cabin at sunset. A metallic robot with glowing eyes releases a white dove while a donkey in overalls and a young -haired man holding a glass stand nearby, all surrounded by string lights and warm bokeh particles (derived from generated still #1798).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed scene on the porch of a rustic wooden cabin at sunset. A metallic robot with glowing eyes releases a white dove while a donkey in overalls and a young -haired man holding a glass stand nearby, all surrounded by string lights and warm bokeh particles",
+  "inverted_title": "Inverted sketch: Robot, Donkey and Boy on Porch",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed scene on the porch of a rustic wooden cabin at sunset. A metallic robot with glowing eyes releases a white dove while a donkey in overalls and a young -haired man holding a glass stand nearby, all surrounded by string lights and warm bokeh particles (from generated still #1798).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed scene on the porch of a rustic wooden cabin at sunset. A metallic robot with glowing eyes releases a white dove while a donkey in overalls and a young -haired man holding a glass stand nearby, all surrounded by string lights and warm bokeh particles",
+  "source_description": "A detailed scene on the porch of a rustic wooden cabin at sunset. A metallic robot with glowing eyes releases a white dove while a donkey in overalls and a young red-haired man holding a glass stand nearby, all surrounded by string lights and warm bokeh particles.",
+  "source_prompt": "",
+  "source_title": "Robot, Donkey and Boy on Porch",
+  "style": "cinematic digital art",
+  "mood": "whimsical nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "anthropomorphic donkey",
+    "porch scene",
+    "string lights",
+    "white dove"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1798,
+  "source_url": "/generated/1798.jpg",
+  "image_url": "/sketches/2562.png",
+  "inverted_image_url": "/sketches-inverted/2562.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2678,
+  "title": "Line sketch: Mystic Cat Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized anthropomorphic cat with hair and eyes stands centered on a glowing circular platform. The cat wears a patterned pajama set with crescent moon and star symbols, has a long curved tail with a heart-shaped pendant, and is surrounded by floating cat-shaped silhouettes against a background (derived from generated still #1920).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized anthropomorphic cat with hair and eyes stands centered on a glowing circular platform. The cat wears a patterned pajama set with crescent moon and star symbols, has a long curved tail with a heart-shaped pendant, and is surrounded by floating cat-shaped silhouettes against a background",
+  "inverted_title": "Inverted sketch: Mystic Cat Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized anthropomorphic cat with hair and eyes stands centered on a glowing circular platform. The cat wears a patterned pajama set with crescent moon and star symbols, has a long curved tail with a heart-shaped pendant, and is surrounded by floating cat-shaped silhouettes against a background (from generated still #1920).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized anthropomorphic cat with hair and eyes stands centered on a glowing circular platform. The cat wears a patterned pajama set with crescent moon and star symbols, has a long curved tail with a heart-shaped pendant, and is surrounded by floating cat-shaped silhouettes against a background",
+  "source_description": "A stylized anthropomorphic cat with blue hair and yellow eyes stands centered on a glowing circular platform. The cat wears a blue patterned pajama set with crescent moon and star symbols, has a long curved tail with a heart-shaped pendant, and is surrounded by floating purple cat-shaped silhouettes against a deep blue background.",
+  "source_prompt": "",
+  "source_title": "Mystic Cat Figure",
+  "style": "digital illustration",
+  "mood": "mysterious, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anthropomorphic cat",
+    "celestial motifs",
+    "magic circle",
+    "silhouettes",
+    "pajamas"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1920,
+  "source_url": "/generated/1920.jpg",
+  "image_url": "/sketches/2678.png",
+  "inverted_image_url": "/sketches-inverted/2678.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:44Z"
+}

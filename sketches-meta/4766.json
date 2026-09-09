@@ -1,0 +1,42 @@
+{
+  "number": 4766,
+  "title": "Line sketch: Surreal Desert Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular frame decorated with flowers, bones, and trinkets encloses a surreal desert scene. Inside, a figure stands before a large moon under a dramatic sky with aurora-like light, while a spiral staircase rises from the sand beside a body of water (derived from generated still #4200).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular frame decorated with flowers, bones, and trinkets encloses a surreal desert scene. Inside, a figure stands before a large moon under a dramatic sky with aurora-like light, while a spiral staircase rises from the sand beside a body of water",
+  "inverted_title": "Inverted sketch: Surreal Desert Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular frame decorated with flowers, bones, and trinkets encloses a surreal desert scene. Inside, a figure stands before a large moon under a dramatic sky with aurora-like light, while a spiral staircase rises from the sand beside a body of water (from generated still #4200).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular frame decorated with flowers, bones, and trinkets encloses a surreal desert scene. Inside, a figure stands before a large moon under a dramatic sky with aurora-like light, while a spiral staircase rises from the sand beside a body of water",
+  "source_description": "A circular frame decorated with flowers, bones, and trinkets encloses a surreal desert scene. Inside, a red figure stands before a large green moon under a dramatic orange sky with aurora-like light, while a green spiral staircase rises from the sand beside a body of water.",
+  "source_prompt": "Surreal desert landscape viewed through a large circular frame heavily decorated with flowers, bones, shells, and trinkets. Inside the frame a red humanoid figure stands on sand dunes in front of a giant green moon. A glowing orange and red sky with aurora-like formations above. A green spiral staircase emerges from the sand and water on the right. Mystical and dreamlike atmosphere with geometric shapes floating in the air.",
+  "source_title": "Surreal Desert Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "spiral staircase",
+    "celestial",
+    "ornate frame"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4200,
+  "source_url": "/generated/4200.jpg",
+  "image_url": "/sketches/4766.png",
+  "inverted_image_url": "/sketches-inverted/4766.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:48Z"
+}

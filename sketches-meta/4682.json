@@ -1,0 +1,42 @@
+{
+  "number": 4682,
+  "title": "Line sketch: Surreal Bloody Kitchen",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene viewed through a circular broken mosaic frame reveals a blood-splattered kitchen and living area. A man in a shirt stands at the kitchen island while a large rat with exposed brain stands on its hind legs beside a refrigerator; a recliner sits in a pool of blood with shoes on the checkered floor and a bloody moon-faced wall clock above (derived from generated still #4109).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene viewed through a circular broken mosaic frame reveals a blood-splattered kitchen and living area. A man in a shirt stands at the kitchen island while a large rat with exposed brain stands on its hind legs beside a refrigerator; a recliner sits in a pool of blood with shoes on the checkered floor and a bloody moon-faced wall clock above",
+  "inverted_title": "Inverted sketch: Surreal Bloody Kitchen",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene viewed through a circular broken mosaic frame reveals a blood-splattered kitchen and living area. A man in a shirt stands at the kitchen island while a large rat with exposed brain stands on its hind legs beside a refrigerator; a recliner sits in a pool of blood with shoes on the checkered floor and a bloody moon-faced wall clock above (from generated still #4109).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene viewed through a circular broken mosaic frame reveals a blood-splattered kitchen and living area. A man in a shirt stands at the kitchen island while a large rat with exposed brain stands on its hind legs beside a refrigerator; a recliner sits in a pool of blood with shoes on the checkered floor and a bloody moon-faced wall clock above",
+  "source_description": "A surreal scene viewed through a circular broken mosaic frame reveals a blood-splattered kitchen and living area. A man in a blue shirt stands at the kitchen island while a large red rat with exposed brain stands on its hind legs beside a green refrigerator; a brown recliner sits in a pool of blood with shoes on the checkered floor and a bloody moon-faced wall clock above.",
+  "source_prompt": "Surreal horror scene of a blood-splattered yellow kitchen with a man standing at the island counter, a giant red rat with exposed brain standing upright next to the refrigerator, a bloody brown recliner in the foreground with shoes and blood puddle on the checkered floor, a cracked wall clock showing a moon face with one eye dripping blood, viewed through a circular broken mosaic tile frame with blood, dramatic cinematic lighting",
+  "source_title": "Surreal Bloody Kitchen",
+  "style": "surrealism",
+  "mood": "disturbing surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "kitchen",
+    "bloody",
+    "rat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4109,
+  "source_url": "/generated/4109.jpg",
+  "image_url": "/sketches/4682.png",
+  "inverted_image_url": "/sketches-inverted/4682.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:48Z"
+}

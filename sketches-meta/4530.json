@@ -1,0 +1,42 @@
+{
+  "number": 4530,
+  "title": "Line sketch: Cosmic Gathering by the River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal nighttime scene shows a large crowd of people seated in an outdoor amphitheater facing a glowing river that flows toward a massive swirling cosmic portal in the sky. The portal features concentric rings of, and white surrounding a brilliant central star, framed by dramatic and nebulae with hanging crystalline droplets (derived from generated still #3950).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal nighttime scene shows a large crowd of people seated in an outdoor amphitheater facing a glowing river that flows toward a massive swirling cosmic portal in the sky. The portal features concentric rings of, and white surrounding a brilliant central star, framed by dramatic and nebulae with hanging crystalline droplets",
+  "inverted_title": "Inverted sketch: Cosmic Gathering by the River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal nighttime scene shows a large crowd of people seated in an outdoor amphitheater facing a glowing river that flows toward a massive swirling cosmic portal in the sky. The portal features concentric rings of, and white surrounding a brilliant central star, framed by dramatic and nebulae with hanging crystalline droplets (from generated still #3950).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal nighttime scene shows a large crowd of people seated in an outdoor amphitheater facing a glowing river that flows toward a massive swirling cosmic portal in the sky. The portal features concentric rings of, and white surrounding a brilliant central star, framed by dramatic and nebulae with hanging crystalline droplets",
+  "source_description": "A surreal nighttime scene shows a large crowd of people seated in an outdoor amphitheater facing a glowing river that flows toward a massive swirling cosmic portal in the sky. The portal features concentric rings of orange, purple, and white surrounding a brilliant central star, framed by dramatic purple and golden nebulae with hanging crystalline droplets.",
+  "source_prompt": "Surreal fantasy landscape at night, a vast outdoor amphitheater filled with an audience seated facing a glowing river that winds toward the horizon. In the sky floats a gigantic swirling cosmic portal with concentric rings of orange, purple and white around a brilliant central star. Dramatic purple and golden nebulae frame the scene with hanging crystalline droplets falling from the clouds, trees with hanging lanterns on both sides, highly detailed, cinematic lighting.",
+  "source_title": "Cosmic Gathering by the River",
+  "style": "surreal fantasy",
+  "mood": "awe-inspiring mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic portal",
+    "surreal landscape",
+    "celestial event",
+    "outdoor gathering",
+    "nebula sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3950,
+  "source_url": "/generated/3950.jpg",
+  "image_url": "/sketches/4530.png",
+  "inverted_image_url": "/sketches-inverted/4530.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:48Z"
+}

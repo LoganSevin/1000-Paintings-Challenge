@@ -1,0 +1,42 @@
+{
+  "number": 3316,
+  "title": "Line sketch: Beat 310 - Afterglow",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a satin gown sits on an ornate theater balcony railing, holding a vintage film reel as light streams from a large arched window behind her. The decaying rococo interior features peeling frescoes, a glowing crystal chandelier, and an empty auditorium below with a leather armchair in the foreground containing scattered film reels and photographs (derived from generated still #2701).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a satin gown sits on an ornate theater balcony railing, holding a vintage film reel as light streams from a large arched window behind her. The decaying rococo interior features peeling frescoes, a glowing crystal chandelier, and an empty auditorium below with a leather armchair in the foreground containing scattered film reels and photographs",
+  "inverted_title": "Inverted sketch: Beat 310 - Afterglow",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a satin gown sits on an ornate theater balcony railing, holding a vintage film reel as light streams from a large arched window behind her. The decaying rococo interior features peeling frescoes, a glowing crystal chandelier, and an empty auditorium below with a leather armchair in the foreground containing scattered film reels and photographs (from generated still #2701).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a satin gown sits on an ornate theater balcony railing, holding a vintage film reel as light streams from a large arched window behind her. The decaying rococo interior features peeling frescoes, a glowing crystal chandelier, and an empty auditorium below with a leather armchair in the foreground containing scattered film reels and photographs",
+  "source_description": "A woman in a silver satin gown sits on an ornate theater balcony railing, holding a vintage film reel as light streams from a large arched window behind her. The decaying rococo interior features peeling frescoes, a glowing crystal chandelier, and an empty auditorium below with a leather armchair in the foreground containing scattered film reels and photographs.",
+  "source_prompt": "A woman in a flowing silver satin gown sits on a stone balcony railing inside a decaying rococo theater, holding a large vintage film reel. Warm sunset light pours through a tall arched window behind her, illuminating peeling frescoes on the walls. A sparkling crystal chandelier hangs above. In the foreground, a worn leather armchair holds scattered film reels and old photographs. Cinematic lighting, melancholic nostalgic atmosphere.",
+  "source_title": "Beat 310 - Afterglow",
+  "style": "cinematic surrealism",
+  "mood": "melancholic, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theater",
+    "film reel",
+    "chandelier",
+    "decaying fresco",
+    "balcony"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2701,
+  "source_url": "/generated/2701.jpg",
+  "image_url": "/sketches/3316.png",
+  "inverted_image_url": "/sketches-inverted/3316.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:45Z"
+}

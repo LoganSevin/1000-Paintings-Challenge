@@ -1,0 +1,42 @@
+{
+  "number": 553,
+  "title": "Line sketch: Serpentine Glow in Darkness",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic snake with vibrant scales and piercing eyes coils through a dark void, its body illuminated by dramatic and lighting. The realistic rendering captures intricate textures and a mysterious, almost hypnotic atmosphere (derived from painting #693).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic snake with vibrant scales and piercing eyes coils through a dark void, its body illuminated by dramatic and lighting. The realistic rendering captures intricate textures and a mysterious, almost hypnotic atmosphere",
+  "inverted_title": "Inverted sketch: Serpentine Glow in Darkness",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic snake with vibrant scales and piercing eyes coils through a dark void, its body illuminated by dramatic and lighting. The realistic rendering captures intricate textures and a mysterious, almost hypnotic atmosphere (from painting #693).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic snake with vibrant scales and piercing eyes coils through a dark void, its body illuminated by dramatic and lighting. The realistic rendering captures intricate textures and a mysterious, almost hypnotic atmosphere",
+  "source_description": "A majestic snake with vibrant scales and piercing blue eyes coils through a dark void, its body illuminated by dramatic purple and orange lighting. The realistic rendering captures intricate textures and a mysterious, almost hypnotic atmosphere.",
+  "source_prompt": "",
+  "source_title": "Serpentine Glow in Darkness",
+  "style": "Digital Fantasy Art",
+  "mood": "Mysterious and hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "reptile",
+    "fantasy",
+    "dramatic lighting",
+    "scales"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 693,
+  "source_url": "/paintings/693.jpg",
+  "image_url": "/sketches/553.png",
+  "inverted_image_url": "/sketches-inverted/553.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:39Z"
+}

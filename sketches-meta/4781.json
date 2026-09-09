@@ -1,0 +1,42 @@
+{
+  "number": 4781,
+  "title": "Line sketch: Butterfly Chandelier Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Surreal scene of four translucent children blowing bubbles in a decaying classical interior that opens into an infinite corridor with a distant figure. A large ornate chandelier made of glowing butterflies and dripping crystals hangs above them, set within a shattered mirror frame with leaf and gem-like fragments (derived from generated still #4215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Surreal scene of four translucent children blowing bubbles in a decaying classical interior that opens into an infinite corridor with a distant figure. A large ornate chandelier made of glowing butterflies and dripping crystals hangs above them, set within a shattered mirror frame with leaf and gem-like fragments",
+  "inverted_title": "Inverted sketch: Butterfly Chandelier Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Surreal scene of four translucent children blowing bubbles in a decaying classical interior that opens into an infinite corridor with a distant figure. A large ornate chandelier made of glowing butterflies and dripping crystals hangs above them, set within a shattered mirror frame with leaf and gem-like fragments (from generated still #4215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Surreal scene of four translucent children blowing bubbles in a decaying classical interior that opens into an infinite corridor with a distant figure. A large ornate chandelier made of glowing butterflies and dripping crystals hangs above them, set within a shattered mirror frame with leaf and gem-like fragments",
+  "source_description": "Surreal scene of four translucent children blowing bubbles in a decaying classical interior that opens into an infinite corridor with a distant figure. A large ornate chandelier made of colorful glowing butterflies and dripping crystals hangs above them, set within a shattered mirror frame with gold leaf and gem-like fragments.",
+  "source_prompt": "Surreal fantasy scene inside a decaying classical hall with an infinite corridor stretching into the distance containing a small distant figure. Four translucent glowing children in white are blowing bubbles that float through the air. Above them hangs a large ornate chandelier composed of colorful butterflies with glowing wings and dripping crystals. The entire image is framed by a shattered mirror with gold leaf, gems and dripping details. Twilight forest visible through opening, ethereal atmosphere, intricate details.",
+  "source_title": "Butterfly Chandelier Dream",
+  "style": "surreal fantasy",
+  "mood": "ethereal melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "butterflies",
+    "children",
+    "chandelier",
+    "infinite corridor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4215,
+  "source_url": "/generated/4215.jpg",
+  "image_url": "/sketches/4781.png",
+  "inverted_image_url": "/sketches-inverted/4781.png",
+  "curve_count": 62,
+  "built_at": "2026-08-17T00:09:49Z"
+}

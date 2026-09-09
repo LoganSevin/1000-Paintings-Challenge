@@ -1,0 +1,42 @@
+{
+  "number": 2812,
+  "title": "Line sketch: Surreal Mouse and Dream Tree",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant mouse sits on a sandy dune beside a small silhouetted human figure, both gazing at a massive twisted tree whose branches stretch across a twilight sky. The tree is covered in glowing orbs containing miniature scenes, hanging chili peppers, and intricate webs, overlooking a -lit futuristic city with glowing highways beneath a large moon (derived from generated still #2096).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant mouse sits on a sandy dune beside a small silhouetted human figure, both gazing at a massive twisted tree whose branches stretch across a twilight sky. The tree is covered in glowing orbs containing miniature scenes, hanging chili peppers, and intricate webs, overlooking a -lit futuristic city with glowing highways beneath a large moon",
+  "inverted_title": "Inverted sketch: Surreal Mouse and Dream Tree",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant mouse sits on a sandy dune beside a small silhouetted human figure, both gazing at a massive twisted tree whose branches stretch across a twilight sky. The tree is covered in glowing orbs containing miniature scenes, hanging chili peppers, and intricate webs, overlooking a -lit futuristic city with glowing highways beneath a large moon (from generated still #2096).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant mouse sits on a sandy dune beside a small silhouetted human figure, both gazing at a massive twisted tree whose branches stretch across a twilight sky. The tree is covered in glowing orbs containing miniature scenes, hanging chili peppers, and intricate webs, overlooking a -lit futuristic city with glowing highways beneath a large moon",
+  "source_description": "A giant red mouse sits on a sandy dune beside a small silhouetted human figure, both gazing at a massive twisted tree whose branches stretch across a twilight sky. The tree is covered in glowing orbs containing miniature scenes, hanging red chili peppers, and intricate webs, overlooking a neon-lit futuristic city with glowing highways beneath a large pink moon.",
+  "source_prompt": "A massive gnarled tree grows from a sand dune, its branches filled with glowing orbs containing tiny scenes and hanging red chili peppers connected by webs. In the foreground a large bright red mouse and a small silhouetted human stand watching. Below stretches a glowing cyberpunk city with neon highways under a giant pink full moon in a starry twilight sky with orange and purple gradients.",
+  "source_title": "Surreal Mouse and Dream Tree",
+  "style": "surreal fantasy",
+  "mood": "dreamlike wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "giant mouse",
+    "dream tree",
+    "city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2096,
+  "source_url": "/generated/2096.jpg",
+  "image_url": "/sketches/2812.png",
+  "inverted_image_url": "/sketches-inverted/2812.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3442,
+  "title": "Line sketch: Surreal Ballet by the River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene depicts two ballerinas in flowing dresses performing a dramatic lift above a reflective body of water with swirling psychedelic patterns. In the foreground, a rat sits on a wooden dock beside a VS sign and a shop display of garments, while a glowing lantern and palm trees frame the sky (derived from generated still #2843).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene depicts two ballerinas in flowing dresses performing a dramatic lift above a reflective body of water with swirling psychedelic patterns. In the foreground, a rat sits on a wooden dock beside a VS sign and a shop display of garments, while a glowing lantern and palm trees frame the sky",
+  "inverted_title": "Inverted sketch: Surreal Ballet by the River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene depicts two ballerinas in flowing dresses performing a dramatic lift above a reflective body of water with swirling psychedelic patterns. In the foreground, a rat sits on a wooden dock beside a VS sign and a shop display of garments, while a glowing lantern and palm trees frame the sky (from generated still #2843).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene depicts two ballerinas in flowing dresses performing a dramatic lift above a reflective body of water with swirling psychedelic patterns. In the foreground, a rat sits on a wooden dock beside a VS sign and a shop display of garments, while a glowing lantern and palm trees frame the sky",
+  "source_description": "A vibrant surreal scene depicts two ballerinas in flowing colorful dresses performing a dramatic lift above a reflective body of water with swirling psychedelic patterns. In the foreground, a rat sits on a wooden dock beside a VS neon sign and a shop display of pink garments, while a glowing lantern and palm trees frame the colorful sky.",
+  "source_prompt": "Surreal fantasy scene of two graceful ballerinas in ornate colorful tutus performing an acrobatic lift above a reflective river with swirling psychedelic patterns and reflections. One ballerina has green hair. In the foreground a black rat sits on a wooden pier next to a pink VS neon sign, a clothing rack with pink garments, and a glowing lantern on a flower post. Background features palm trees, forest, and a dramatic pink and green cloudy sky, vibrant colors, detailed digital painting.",
+  "source_title": "Surreal Ballet by the River",
+  "style": "surreal fantasy",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ballet",
+    "sign",
+    "psychedelic",
+    "rat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2843,
+  "source_url": "/generated/2843.jpg",
+  "image_url": "/sketches/3442.png",
+  "inverted_image_url": "/sketches-inverted/3442.png",
+  "curve_count": 66,
+  "built_at": "2026-08-17T00:09:45Z"
+}

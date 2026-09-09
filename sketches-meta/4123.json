@@ -1,0 +1,42 @@
+{
+  "number": 4123,
+  "title": "Line sketch: Samurai vs Orca Underwater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic underwater scene depicts a cybernetic samurai rabbit with glowing ears and katana leaping toward a large orca whale. To the left, a female warrior in white and dashes forward while a -armored figure leaps from the right, all surrounded by bubbles and debris in a flooded cyberpunk city street (derived from generated still #3540).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic underwater scene depicts a cybernetic samurai rabbit with glowing ears and katana leaping toward a large orca whale. To the left, a female warrior in white and dashes forward while a -armored figure leaps from the right, all surrounded by bubbles and debris in a flooded cyberpunk city street",
+  "inverted_title": "Inverted sketch: Samurai vs Orca Underwater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic underwater scene depicts a cybernetic samurai rabbit with glowing ears and katana leaping toward a large orca whale. To the left, a female warrior in white and dashes forward while a -armored figure leaps from the right, all surrounded by bubbles and debris in a flooded cyberpunk city street (from generated still #3540).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic underwater scene depicts a cybernetic samurai rabbit with glowing ears and katana leaping toward a large orca whale. To the left, a female warrior in white and dashes forward while a -armored figure leaps from the right, all surrounded by bubbles and debris in a flooded cyberpunk city street",
+  "source_description": "A dynamic underwater scene depicts a cybernetic samurai rabbit with glowing blue ears and katana leaping toward a large orca whale. To the left, a female warrior in white and purple dashes forward while a red-armored figure leaps from the right, all surrounded by bubbles and debris in a flooded cyberpunk city street.",
+  "source_prompt": "Underwater cyberpunk city street filled with glowing neon signs in Japanese, a robotic samurai rabbit wearing blue and orange armor with glowing crystalline ears, leaping through water with katana toward a massive orca whale. A female warrior with red hair and purple pants dashes on the left, a red armored ninja leaps on the right, dramatic light rays from surface, bubbles and debris floating everywhere, highly detailed digital painting",
+  "source_title": "Samurai vs Orca Underwater",
+  "style": "line sketch",
+  "mood": "epic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "underwater",
+    "cyberpunk",
+    "samurai",
+    "orca",
+    "action"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3540,
+  "source_url": "/generated/3540.jpg",
+  "image_url": "/sketches/4123.png",
+  "inverted_image_url": "/sketches-inverted/4123.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:47Z"
+}

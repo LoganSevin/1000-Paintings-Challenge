@@ -1,0 +1,42 @@
+{
+  "number": 4721,
+  "title": "Line sketch: Fantasy Island Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, illustrated fantasy map depicts a winding path across diverse landscapes including snowy mountains, lush jungles, active volcanoes, a desert with a giant hourglass, and a tropical archipelago with a shipwreck and lighthouse. The scene is filled with whimsical details like a stone tower, hot air balloon, glowing rivers, and sea creatures (derived from generated still #4151).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, illustrated fantasy map depicts a winding path across diverse landscapes including snowy mountains, lush jungles, active volcanoes, a desert with a giant hourglass, and a tropical archipelago with a shipwreck and lighthouse. The scene is filled with whimsical details like a stone tower, hot air balloon, glowing rivers, and sea creatures",
+  "inverted_title": "Inverted sketch: Fantasy Island Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, illustrated fantasy map depicts a winding path across diverse landscapes including snowy mountains, lush jungles, active volcanoes, a desert with a giant hourglass, and a tropical archipelago with a shipwreck and lighthouse. The scene is filled with whimsical details like a stone tower, hot air balloon, glowing rivers, and sea creatures (from generated still #4151).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, illustrated fantasy map depicts a winding path across diverse landscapes including snowy mountains, lush jungles, active volcanoes, a desert with a giant hourglass, and a tropical archipelago with a shipwreck and lighthouse. The scene is filled with whimsical details like a stone tower, hot air balloon, glowing rivers, and sea creatures",
+  "source_description": "A vibrant, illustrated fantasy map depicts a winding path across diverse landscapes including snowy mountains, lush jungles, active volcanoes, a desert with a giant hourglass, and a tropical archipelago with a shipwreck and lighthouse. The scene is filled with whimsical details like a stone tower, hot air balloon, glowing rivers, and sea creatures.",
+  "source_prompt": "Highly detailed whimsical fantasy map illustration showing a connected path through snowy blue mountains with a tower and cable car, dense green jungle with waterfalls and hot air balloon, sandy desert with a giant hourglass, volcanic region with erupting volcanoes, and a bright turquoise ocean containing a pirate ship, lighthouse, giant seashell, and colorful coral reefs, in a vibrant storybook style with clear pathways and decorative elements",
+  "source_title": "Fantasy Island Map",
+  "style": "whimsical illustration",
+  "mood": "adventurous, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "island adventure",
+    "whimsical landscape",
+    "treasure map",
+    "cartoon map"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4151,
+  "source_url": "/generated/4151.jpg",
+  "image_url": "/sketches/4721.png",
+  "inverted_image_url": "/sketches-inverted/4721.png",
+  "curve_count": 176,
+  "built_at": "2026-08-17T00:09:48Z"
+}

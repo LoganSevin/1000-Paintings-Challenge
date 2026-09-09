@@ -1,0 +1,42 @@
+{
+  "number": 4096,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce female warrior with long flowing dark hair stands in a dynamic combat pose, gripping a massive warhammer crackling with lightning energy. She wears a revealing white and outfit with armored gauntlets, boots, and leg wraps against a solid dark gray background (derived from generated still #3513).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce female warrior with long flowing dark hair stands in a dynamic combat pose, gripping a massive warhammer crackling with lightning energy. She wears a revealing white and outfit with armored gauntlets, boots, and leg wraps against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce female warrior with long flowing dark hair stands in a dynamic combat pose, gripping a massive warhammer crackling with lightning energy. She wears a revealing white and outfit with armored gauntlets, boots, and leg wraps against a solid dark gray background (from generated still #3513).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce female warrior with long flowing dark hair stands in a dynamic combat pose, gripping a massive warhammer crackling with lightning energy. She wears a revealing white and outfit with armored gauntlets, boots, and leg wraps against a solid dark gray background",
+  "source_description": "A fierce female warrior with long flowing dark hair stands in a dynamic combat pose, gripping a massive purple warhammer crackling with lightning energy. She wears a revealing white and purple outfit with armored gauntlets, boots, and leg wraps against a solid dark gray background.",
+  "source_prompt": "A fierce young woman with long flowing black hair in an action pose, wearing a cropped white and purple armored top with matching pants and purple gauntlets and greaves, powerfully gripping a huge purple warhammer with glowing lightning cracks along its head, standing in a wide combat stance, looking directly forward with intensity, clean digital painting style, solid dark gray background",
+  "source_title": "Purple Hammer Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "lightning magic",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3513,
+  "source_url": "/generated/3513.jpg",
+  "image_url": "/sketches/4096.png",
+  "inverted_image_url": "/sketches-inverted/4096.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:47Z"
+}

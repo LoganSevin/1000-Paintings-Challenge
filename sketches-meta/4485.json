@@ -1,0 +1,42 @@
+{
+  "number": 4485,
+  "title": "Line sketch: Arcane Librarian of Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded female mage in and robes stands inside a gothic library, holding an open book and a glowing orb-topped staff. In the foreground, a large glass hourglass with sand and a butterfly emblem hangs above an illuminated book titled STASIS, all resting on a wooden desk with scattered papers, a quill, and ink (derived from generated still #3904).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded female mage in and robes stands inside a gothic library, holding an open book and a glowing orb-topped staff. In the foreground, a large glass hourglass with sand and a butterfly emblem hangs above an illuminated book titled STASIS, all resting on a wooden desk with scattered papers, a quill, and ink",
+  "inverted_title": "Inverted sketch: Arcane Librarian of Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded female mage in and robes stands inside a gothic library, holding an open book and a glowing orb-topped staff. In the foreground, a large glass hourglass with sand and a butterfly emblem hangs above an illuminated book titled STASIS, all resting on a wooden desk with scattered papers, a quill, and ink (from generated still #3904).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded female mage in and robes stands inside a gothic library, holding an open book and a glowing orb-topped staff. In the foreground, a large glass hourglass with sand and a butterfly emblem hangs above an illuminated book titled STASIS, all resting on a wooden desk with scattered papers, a quill, and ink",
+  "source_description": "A hooded female mage in purple and green robes stands inside a gothic library, holding an open red book and a glowing orb-topped staff. In the foreground, a large glass hourglass with red sand and a golden butterfly emblem hangs above an illuminated purple book titled STASIS, all resting on a wooden desk with scattered papers, a quill, and ink.",
+  "source_prompt": "A mystical female mage wearing purple hooded robes with green patterns stands in an ornate gothic library filled with bookshelves and glowing potions. She holds an open red spellbook in one hand and a golden staff with a glowing orb in the other. In the foreground, a large magical glass hourglass filled with red sand and a golden butterfly symbol drips green liquid, chained above an open purple book titled STASIS with golden wing emblem. Desk has parchment, quill and ink. Dramatic blue and purple lighting, cinematic fantasy style.",
+  "source_title": "Arcane Librarian of Stasis",
+  "style": "fantasy illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "library",
+    "hourglass",
+    "magic",
+    "gothic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3904,
+  "source_url": "/generated/3904.jpg",
+  "image_url": "/sketches/4485.png",
+  "inverted_image_url": "/sketches-inverted/4485.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:48Z"
+}

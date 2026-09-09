@@ -1,0 +1,42 @@
+{
+  "number": 4618,
+  "title": "Line sketch: Domino Apocalypse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a skeleton in a plaid shirt pushing a line of giant dominoes down psychedelic stairs, while a frog with a domino on its head sits on a lily pad in the foreground. In the sky, a massive serpent with multiple skulls spirals around a glowing domino sun above a cityscape blending Roman ruins, a cathedral, and graffiti-covered walls (derived from generated still #4040).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a skeleton in a plaid shirt pushing a line of giant dominoes down psychedelic stairs, while a frog with a domino on its head sits on a lily pad in the foreground. In the sky, a massive serpent with multiple skulls spirals around a glowing domino sun above a cityscape blending Roman ruins, a cathedral, and graffiti-covered walls",
+  "inverted_title": "Inverted sketch: Domino Apocalypse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a skeleton in a plaid shirt pushing a line of giant dominoes down psychedelic stairs, while a frog with a domino on its head sits on a lily pad in the foreground. In the sky, a massive serpent with multiple skulls spirals around a glowing domino sun above a cityscape blending Roman ruins, a cathedral, and graffiti-covered walls (from generated still #4040).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a skeleton in a plaid shirt pushing a line of giant dominoes down psychedelic stairs, while a frog with a domino on its head sits on a lily pad in the foreground. In the sky, a massive serpent with multiple skulls spirals around a glowing domino sun above a cityscape blending Roman ruins, a cathedral, and graffiti-covered walls",
+  "source_description": "A surreal scene featuring a skeleton in a plaid shirt pushing a line of giant red dominoes down psychedelic stairs, while a green frog with a domino on its head sits on a lily pad in the foreground. In the sky, a massive blue serpent with multiple skulls spirals around a glowing domino sun above a colorful cityscape blending Roman ruins, a cathedral, and graffiti-covered walls.",
+  "source_prompt": "Surreal psychedelic scene of a skeleton in blue plaid shirt and sunglasses pushing oversized red dominoes down a colorful staircase, a green frog wearing a domino on its head sits on a lily pad in a pond in the foreground, a giant blue multi-headed serpent spirals through the sky around a glowing sun shaped like a red and blue domino, background shows Roman Colosseum next to a gothic cathedral and graffiti walls under dramatic cloudy skies with floating colorful cubes",
+  "source_title": "Domino Apocalypse",
+  "style": "surrealism",
+  "mood": "chaotic, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dominoes",
+    "skeleton",
+    "frog",
+    "serpent"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4040,
+  "source_url": "/generated/4040.jpg",
+  "image_url": "/sketches/4618.png",
+  "inverted_image_url": "/sketches-inverted/4618.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:48Z"
+}

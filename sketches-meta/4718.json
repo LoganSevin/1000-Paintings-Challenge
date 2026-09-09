@@ -1,0 +1,42 @@
+{
+  "number": 4718,
+  "title": "Line sketch: Surreal Floating Island",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fantastical night scene features a central floating island platform with stone tiles, a glowing tree with intricate branches, an open ancient book, and a small turtle near a wooden plank. In the background, a giant hourglass with sand sits on a dark rocky outcrop covered in runes, alongside glowing stepping stones, a lighthouse emitting beams of light, a large full moon, and scattered maps floating in a cloudy sky (derived from generated still #4148).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fantastical night scene features a central floating island platform with stone tiles, a glowing tree with intricate branches, an open ancient book, and a small turtle near a wooden plank. In the background, a giant hourglass with sand sits on a dark rocky outcrop covered in runes, alongside glowing stepping stones, a lighthouse emitting beams of light, a large full moon, and scattered maps floating in a cloudy sky",
+  "inverted_title": "Inverted sketch: Surreal Floating Island",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fantastical night scene features a central floating island platform with stone tiles, a glowing tree with intricate branches, an open ancient book, and a small turtle near a wooden plank. In the background, a giant hourglass with sand sits on a dark rocky outcrop covered in runes, alongside glowing stepping stones, a lighthouse emitting beams of light, a large full moon, and scattered maps floating in a cloudy sky (from generated still #4148).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fantastical night scene features a central floating island platform with stone tiles, a glowing tree with intricate branches, an open ancient book, and a small turtle near a wooden plank. In the background, a giant hourglass with sand sits on a dark rocky outcrop covered in runes, alongside glowing stepping stones, a lighthouse emitting beams of light, a large full moon, and scattered maps floating in a cloudy sky",
+  "source_description": "A fantastical night scene features a central floating island platform with purple stone tiles, a glowing blue tree with intricate branches, an open ancient book, and a small turtle near a wooden plank. In the background, a giant hourglass with golden sand sits on a dark rocky outcrop covered in runes, alongside glowing purple stepping stones, a lighthouse emitting beams of light, a large full moon, and scattered maps floating in a cloudy sky.",
+  "source_prompt": "A surreal fantasy night scene with a floating island made of purple stone tiles, a glowing bright blue magical tree with intricate branches growing from an ornate base, an open ancient book with glowing pages, and a small turtle on the edge. To the left, a giant hourglass with golden sand rests on a dark rocky cliff covered in runes, with glowing purple stepping stones leading towards it. A tall lighthouse with golden light beams shines across a cloudy sky with a large detailed full moon. Maps and rocky formations float in the misty purple atmosphere, whimsical and dreamlike digital painting style.",
+  "source_title": "Surreal Floating Island",
+  "style": "fantasy illustration",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "surreal",
+    "floating island",
+    "lighthouse",
+    "magical tree"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4148,
+  "source_url": "/generated/4148.jpg",
+  "image_url": "/sketches/4718.png",
+  "inverted_image_url": "/sketches-inverted/4718.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 288,
+  "title": "Line sketch: Infernal Beholder in Lava Realm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A monstrous floating eye with spiky tentacles and glowing iris dominates a volcanic landscape. The creature's dark, fleshy body contrasts with flowing lava and fiery embers in a hellish atmosphere (derived from painting #345).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A monstrous floating eye with spiky tentacles and glowing iris dominates a volcanic landscape. The creature's dark, fleshy body contrasts with flowing lava and fiery embers in a hellish atmosphere",
+  "inverted_title": "Inverted sketch: Infernal Beholder in Lava Realm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A monstrous floating eye with spiky tentacles and glowing iris dominates a volcanic landscape. The creature's dark, fleshy body contrasts with flowing lava and fiery embers in a hellish atmosphere (from painting #345).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A monstrous floating eye with spiky tentacles and glowing iris dominates a volcanic landscape. The creature's dark, fleshy body contrasts with flowing lava and fiery embers in a hellish atmosphere",
+  "source_description": "A monstrous floating eye with spiky tentacles and glowing red iris dominates a volcanic landscape. The creature's dark, fleshy body contrasts with flowing lava and fiery embers in a hellish atmosphere.",
+  "source_prompt": "",
+  "source_title": "Infernal Beholder in Lava Realm",
+  "style": "Fantasy Horror",
+  "mood": "Menacing Dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "beholder",
+    "monster",
+    "volcano",
+    "fantasy",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 345,
+  "source_url": "/paintings/345.jpg",
+  "image_url": "/sketches/288.png",
+  "inverted_image_url": "/sketches-inverted/288.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:38Z"
+}

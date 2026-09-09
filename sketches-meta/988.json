@@ -1,0 +1,42 @@
+{
+  "number": 988,
+  "title": "Line sketch: Cosmic Dragon Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serpentine black dragon with glowing eyes and starry scales flies through a vibrant cosmic scene. It faces a bright central spiral vortex surrounded by swirling galaxies, nebulae, and energy bursts (derived from generated still #198).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serpentine black dragon with glowing eyes and starry scales flies through a vibrant cosmic scene. It faces a bright central spiral vortex surrounded by swirling galaxies, nebulae, and energy bursts",
+  "inverted_title": "Inverted sketch: Cosmic Dragon Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serpentine black dragon with glowing eyes and starry scales flies through a vibrant cosmic scene. It faces a bright central spiral vortex surrounded by swirling galaxies, nebulae, and energy bursts (from generated still #198).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serpentine black dragon with glowing eyes and starry scales flies through a vibrant cosmic scene. It faces a bright central spiral vortex surrounded by swirling galaxies, nebulae, and energy bursts",
+  "source_description": "A serpentine black dragon with glowing yellow eyes and starry scales flies through a vibrant cosmic scene. It faces a bright central spiral vortex surrounded by swirling galaxies, nebulae, and colorful energy bursts.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dragon Vortex",
+  "style": "fantasy illustration",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "cosmic",
+    "galaxy",
+    "vortex",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 198,
+  "source_url": "/generated/198.jpg",
+  "image_url": "/sketches/988.png",
+  "inverted_image_url": "/sketches-inverted/988.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:40Z"
+}

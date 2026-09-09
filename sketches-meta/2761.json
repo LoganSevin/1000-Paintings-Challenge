@@ -1,0 +1,42 @@
+{
+  "number": 2761,
+  "title": "Line sketch: Magical Duck Wizard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A white anthropomorphic duck with glowing eyes stands in the center of a narrow European cobblestone alley. The duck wears a wizard hat decorated with stars and emits swirling, luminous and magical energy from its body and wings (derived from generated still #2011).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A white anthropomorphic duck with glowing eyes stands in the center of a narrow European cobblestone alley. The duck wears a wizard hat decorated with stars and emits swirling, luminous and magical energy from its body and wings",
+  "inverted_title": "Inverted sketch: Magical Duck Wizard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A white anthropomorphic duck with glowing eyes stands in the center of a narrow European cobblestone alley. The duck wears a wizard hat decorated with stars and emits swirling, luminous and magical energy from its body and wings (from generated still #2011).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A white anthropomorphic duck with glowing eyes stands in the center of a narrow European cobblestone alley. The duck wears a wizard hat decorated with stars and emits swirling, luminous and magical energy from its body and wings",
+  "source_description": "A white anthropomorphic duck with glowing purple eyes stands in the center of a narrow European cobblestone alley. The duck wears a blue wizard hat decorated with stars and emits swirling, luminous purple and blue magical energy from its body and wings.",
+  "source_prompt": "Anthropomorphic white duck with glowing purple eyes wearing a blue wizard hat with stars, standing in an old narrow European alley with yellow and pink stucco buildings, cobblestone ground, potted flowers on the walls, the duck surrounded by swirling luminous purple and blue magical energy trails and sparkles, painterly style with visible brush strokes, vibrant warm color palette",
+  "source_title": "Magical Duck Wizard",
+  "style": "painterly fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anthropomorphic duck",
+    "wizard",
+    "magic aura",
+    "cobblestone alley",
+    "mediterranean architecture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2011,
+  "source_url": "/generated/2011.jpg",
+  "image_url": "/sketches/2761.png",
+  "inverted_image_url": "/sketches-inverted/2761.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:44Z"
+}

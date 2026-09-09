@@ -1,0 +1,42 @@
+{
+  "number": 4224,
+  "title": "Line sketch: Stasis Egghead Surreal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female figure with an egg-shaped head topped with fruit kneels on a checkered patio holding a retro lamp. She wears a top, denim shorts, and high heels, surrounded by floating transparent spheres containing food and lights, with a vintage car and a striped gothic building labeled STASIS in the background (derived from generated still #3643).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female figure with an egg-shaped head topped with fruit kneels on a checkered patio holding a retro lamp. She wears a top, denim shorts, and high heels, surrounded by floating transparent spheres containing food and lights, with a vintage car and a striped gothic building labeled STASIS in the background",
+  "inverted_title": "Inverted sketch: Stasis Egghead Surreal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female figure with an egg-shaped head topped with fruit kneels on a checkered patio holding a retro lamp. She wears a top, denim shorts, and high heels, surrounded by floating transparent spheres containing food and lights, with a vintage car and a striped gothic building labeled STASIS in the background (from generated still #3643).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female figure with an egg-shaped head topped with fruit kneels on a checkered patio holding a retro lamp. She wears a top, denim shorts, and high heels, surrounded by floating transparent spheres containing food and lights, with a vintage car and a striped gothic building labeled STASIS in the background",
+  "source_description": "A blue-skinned female figure with an egg-shaped head topped with fruit kneels on a checkered patio holding a retro lamp. She wears a blue top, denim shorts, and high heels, surrounded by floating transparent spheres containing food and lights, with a vintage orange car and a striped gothic building labeled STASIS in the background.",
+  "source_prompt": "A surreal scene featuring a blue-skinned woman with an egg for a head, cracked open and spilling fruit, kneeling on a patterned patio in front of a black and white striped gothic building with a neon STASIS sign. She wears a blue cutout top, denim shorts with bows, and blue heels, holding an ornate retro floor lamp. A vintage orange 1960s car is parked to the left, while transparent floating spheres contain sandwiches and glowing lights. Bright daylight, highly detailed, realistic rendering with pop surrealist style.",
+  "source_title": "Stasis Egghead Surreal",
+  "style": "surrealism",
+  "mood": "bizarre whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "retro",
+    "skin",
+    "egg head",
+    "pop art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3643,
+  "source_url": "/generated/3643.jpg",
+  "image_url": "/sketches/4224.png",
+  "inverted_image_url": "/sketches-inverted/4224.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:47Z"
+}

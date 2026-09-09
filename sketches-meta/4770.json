@@ -1,0 +1,42 @@
+{
+  "number": 4770,
+  "title": "Line sketch: Dreaming on the Cliff",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a dark dress stands on a rocky cliff overlooking a vast desert landscape. In the distance, a fantastical white castle sits atop mountains beneath a large glowing moon, while an industrial factory complex emits smoke on the left and abstract shapes and gears float through the scene (derived from generated still #4204).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a dark dress stands on a rocky cliff overlooking a vast desert landscape. In the distance, a fantastical white castle sits atop mountains beneath a large glowing moon, while an industrial factory complex emits smoke on the left and abstract shapes and gears float through the scene",
+  "inverted_title": "Inverted sketch: Dreaming on the Cliff",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a dark dress stands on a rocky cliff overlooking a vast desert landscape. In the distance, a fantastical white castle sits atop mountains beneath a large glowing moon, while an industrial factory complex emits smoke on the left and abstract shapes and gears float through the scene (from generated still #4204).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a dark dress stands on a rocky cliff overlooking a vast desert landscape. In the distance, a fantastical white castle sits atop mountains beneath a large glowing moon, while an industrial factory complex emits smoke on the left and abstract shapes and gears float through the scene",
+  "source_description": "A lone figure in a dark dress stands on a rocky cliff overlooking a vast desert landscape. In the distance, a fantastical white castle sits atop mountains beneath a large glowing moon, while an industrial factory complex emits smoke on the left and colorful abstract shapes and gears float through the scene.",
+  "source_prompt": "Surreal fantasy landscape at night, a solitary figure in a dark dress standing on a rocky cliff overlooking a desert with sparse vegetation. On the left an industrial factory complex billows smoke, in the center distance a majestic white castle sits on mountains under a large luminous full moon with light rays. Floating gears, colorful paint splashes, and translucent bubbles fill the sky. The entire scene is framed by an artistic border with keys, buttons, feathers, roots and colorful brushstrokes.",
+  "source_title": "Dreaming on the Cliff",
+  "style": "surreal fantasy",
+  "mood": "dreamlike wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "moonlit",
+    "industrial",
+    "castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4204,
+  "source_url": "/generated/4204.jpg",
+  "image_url": "/sketches/4770.png",
+  "inverted_image_url": "/sketches-inverted/4770.png",
+  "curve_count": 89,
+  "built_at": "2026-08-17T00:09:48Z"
+}

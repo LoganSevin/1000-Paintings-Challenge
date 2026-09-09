@@ -1,0 +1,42 @@
+{
+  "number": 1243,
+  "title": "Line sketch: Surreal Eye of the Mouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, vibrant eye with a swirling galaxy iris and pupil dominates the surreal desert landscape. A mouse stands on a sand dune gazing up at the eye while paint-like streams and stars flow from its left side under a starry night sky with a glowing moon (derived from generated still #455).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, vibrant eye with a swirling galaxy iris and pupil dominates the surreal desert landscape. A mouse stands on a sand dune gazing up at the eye while paint-like streams and stars flow from its left side under a starry night sky with a glowing moon",
+  "inverted_title": "Inverted sketch: Surreal Eye of the Mouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, vibrant eye with a swirling galaxy iris and pupil dominates the surreal desert landscape. A mouse stands on a sand dune gazing up at the eye while paint-like streams and stars flow from its left side under a starry night sky with a glowing moon (from generated still #455).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, vibrant eye with a swirling galaxy iris and pupil dominates the surreal desert landscape. A mouse stands on a sand dune gazing up at the eye while paint-like streams and stars flow from its left side under a starry night sky with a glowing moon",
+  "source_description": "A massive, vibrant eye with a swirling galaxy iris and pupil dominates the surreal desert landscape. A red mouse stands on a sand dune gazing up at the eye while colorful paint-like streams and stars flow from its left side under a starry night sky with a glowing moon.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye of the Mouse",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "mouse",
+    "desert",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 455,
+  "source_url": "/generated/455.jpg",
+  "image_url": "/sketches/1243.png",
+  "inverted_image_url": "/sketches-inverted/1243.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:40Z"
+}

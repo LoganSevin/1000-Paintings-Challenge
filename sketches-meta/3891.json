@@ -1,0 +1,42 @@
+{
+  "number": 3891,
+  "title": "Line sketch: Mage Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with short hair performing a magical attack, shown from left to right. The character wears a and wizard outfit with star motifs, a flowing cape, and boots, casting magical energy from her hands that intensifies across the panels (derived from generated still #3308).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with short hair performing a magical attack, shown from left to right. The character wears a and wizard outfit with star motifs, a flowing cape, and boots, casting magical energy from her hands that intensifies across the panels",
+  "inverted_title": "Inverted sketch: Mage Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with short hair performing a magical attack, shown from left to right. The character wears a and wizard outfit with star motifs, a flowing cape, and boots, casting magical energy from her hands that intensifies across the panels (from generated still #3308).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with short hair performing a magical attack, shown from left to right. The character wears a and wizard outfit with star motifs, a flowing cape, and boots, casting magical energy from her hands that intensifies across the panels",
+  "source_description": "Four sequential poses of a female character with short teal hair performing a magical attack, shown from left to right. The character wears a purple and teal wizard outfit with star motifs, a flowing cape, and boots, casting bright cyan magical energy from her hands that intensifies across the panels.",
+  "source_prompt": "A female mage with short spiky teal hair and purple eyes, wearing a dark purple and teal wizard robe with star patterns, black cape, and matching boots, shown in four progressive action poses from left to right. She starts with one leg raised holding a swirling orb of cyan magic, then kicks forward releasing energy, then thrusts both hands forward with a bright magical burst, and finally stands in a wide stance with dual swirling magic circles. Dynamic fantasy character art, clean studio lighting, gray background",
+  "source_title": "Teal Mage Pose Sequence",
+  "style": "digital illustration",
+  "mood": "dynamic magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic casting",
+    "pose sequence",
+    "hair",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3308,
+  "source_url": "/generated/3308.jpg",
+  "image_url": "/sketches/3891.png",
+  "inverted_image_url": "/sketches-inverted/3891.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:46Z"
+}

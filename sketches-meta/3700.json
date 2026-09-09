@@ -1,0 +1,42 @@
+{
+  "number": 3700,
+  "title": "Line sketch: Masked Figure with Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal ink and illustration on lined notebook paper featuring a large theatrical mask with empty eyes and the words 'Create?', 'Observe', and 'No.' written on its surface. A detailed dog wearing a Renaissance-style doublet and white ruff collar rests its head on its paw beside the mask, surrounded by vibrant poppies (derived from generated still #3108).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal ink and illustration on lined notebook paper featuring a large theatrical mask with empty eyes and the words 'Create?', 'Observe', and 'No.' written on its surface. A detailed dog wearing a Renaissance-style doublet and white ruff collar rests its head on its paw beside the mask, surrounded by vibrant poppies",
+  "inverted_title": "Inverted sketch: Masked Figure with Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal ink and illustration on lined notebook paper featuring a large theatrical mask with empty eyes and the words 'Create?', 'Observe', and 'No.' written on its surface. A detailed dog wearing a Renaissance-style doublet and white ruff collar rests its head on its paw beside the mask, surrounded by vibrant poppies (from generated still #3108).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal ink and illustration on lined notebook paper featuring a large theatrical mask with empty eyes and the words 'Create?', 'Observe', and 'No.' written on its surface. A detailed dog wearing a Renaissance-style doublet and white ruff collar rests its head on its paw beside the mask, surrounded by vibrant poppies",
+  "source_description": "A surreal ink and watercolor illustration on lined notebook paper featuring a large blue theatrical mask with empty eyes and the words 'Create?', 'Observe', and 'No.' written on its surface. A detailed dog wearing a red Renaissance-style doublet and white ruff collar rests its head on its paw beside the mask, surrounded by vibrant red poppies.",
+  "source_prompt": "",
+  "source_title": "Masked Figure with Dog",
+  "style": "surreal illustration",
+  "mood": "whimsical, contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "ink and watercolor on notebook paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theatrical mask",
+    "renaissance dog",
+    "poppies",
+    "surreal",
+    "notebook art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3108,
+  "source_url": "/generated/3108.jpg",
+  "image_url": "/sketches/3700.png",
+  "inverted_image_url": "/sketches-inverted/3700.png",
+  "curve_count": 256,
+  "built_at": "2026-08-17T00:09:46Z"
+}

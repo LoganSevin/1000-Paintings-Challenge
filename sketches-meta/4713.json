@@ -1,0 +1,42 @@
+{
+  "number": 4713,
+  "title": "Line sketch: Slosh King Arena",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down view of a circular stone arena with and flooring, centered around a glowing cracked hexagonal platform labeled 'Slosh King'. The outer ring features large and crystals on the left, glowing crystalline structures and pillars on the right, scattered rings, and small figures near the top stands (derived from generated still #4143).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down view of a circular stone arena with and flooring, centered around a glowing cracked hexagonal platform labeled 'Slosh King'. The outer ring features large and crystals on the left, glowing crystalline structures and pillars on the right, scattered rings, and small figures near the top stands",
+  "inverted_title": "Inverted sketch: Slosh King Arena",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down view of a circular stone arena with and flooring, centered around a glowing cracked hexagonal platform labeled 'Slosh King'. The outer ring features large and crystals on the left, glowing crystalline structures and pillars on the right, scattered rings, and small figures near the top stands (from generated still #4143).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down view of a circular stone arena with and flooring, centered around a glowing cracked hexagonal platform labeled 'Slosh King'. The outer ring features large and crystals on the left, glowing crystalline structures and pillars on the right, scattered rings, and small figures near the top stands",
+  "source_description": "A top-down view of a circular stone arena with purple and teal flooring, centered around a glowing cracked hexagonal platform labeled 'Slosh King'. The outer ring features large pink and yellow crystals on the left, glowing green crystalline structures and pillars on the right, scattered golden rings, and small figures near the top stands.",
+  "source_prompt": "Top-down view of a circular fantasy arena with purple and teal stone tiles, centered on a cracked glowing blue hexagonal platform labeled 'Slosh King'. Large pink crystals grow on the left side, while glowing green crystalline pillars and structures occupy the right. Golden rings are scattered around the perimeter, with small figures visible in the background stands. Vibrant colors, clean 2D illustration style, fantasy video game aesthetic.",
+  "source_title": "Slosh King Arena",
+  "style": "2D illustration",
+  "mood": "mystical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "arena",
+    "crystals",
+    "top-down",
+    "fantasy",
+    "glowing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4143,
+  "source_url": "/generated/4143.jpg",
+  "image_url": "/sketches/4713.png",
+  "inverted_image_url": "/sketches-inverted/4713.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:48Z"
+}

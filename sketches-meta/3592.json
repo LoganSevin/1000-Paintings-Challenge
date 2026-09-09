@@ -1,0 +1,42 @@
+{
+  "number": 3592,
+  "title": "Line sketch: Dominican Dragon Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal beach scene at dusk features a tattooed woman in a Dominican flag bikini sitting on a large fallen palm tree. A glowing demon with horns emerges from a stone archway in a rocky outcrop while two massive serpentine dragons with glowing accents fly overhead under a sky with meteors (derived from generated still #3000).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal beach scene at dusk features a tattooed woman in a Dominican flag bikini sitting on a large fallen palm tree. A glowing demon with horns emerges from a stone archway in a rocky outcrop while two massive serpentine dragons with glowing accents fly overhead under a sky with meteors",
+  "inverted_title": "Inverted sketch: Dominican Dragon Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal beach scene at dusk features a tattooed woman in a Dominican flag bikini sitting on a large fallen palm tree. A glowing demon with horns emerges from a stone archway in a rocky outcrop while two massive serpentine dragons with glowing accents fly overhead under a sky with meteors (from generated still #3000).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal beach scene at dusk features a tattooed woman in a Dominican flag bikini sitting on a large fallen palm tree. A glowing demon with horns emerges from a stone archway in a rocky outcrop while two massive serpentine dragons with glowing accents fly overhead under a sky with meteors",
+  "source_description": "A surreal beach scene at dusk features a tattooed woman in a Dominican flag bikini sitting on a large fallen palm tree. A glowing blue demon with horns emerges from a stone archway in a rocky outcrop while two massive serpentine dragons with glowing accents fly overhead under a purple sky with meteors.",
+  "source_prompt": "A cinematic fantasy beach scene at twilight with a beautiful tattooed Dominican woman wearing a flag bikini sitting on a fallen palm tree log. A blue horned demon emerges from a glowing stone portal archway covered in moss. Two giant glowing serpentine dragons with fiery outlines fly across a purple sky filled with shooting stars. Dominican flags are visible on the woman and held by a silhouetted figure on the rocks. Dramatic lighting, mystical atmosphere, detailed digital painting.",
+  "source_title": "Dominican Dragon Portal",
+  "style": "fantasy illustration",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "demon",
+    "beach",
+    "fantasy",
+    "Dominican Republic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3000,
+  "source_url": "/generated/3000.jpg",
+  "image_url": "/sketches/3592.png",
+  "inverted_image_url": "/sketches-inverted/3592.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:46Z"
+}

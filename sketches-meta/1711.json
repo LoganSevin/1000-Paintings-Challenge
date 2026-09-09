@@ -1,0 +1,42 @@
+{
+  "number": 1711,
+  "title": "Line sketch: Stasis and Pandemonium",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene featuring a -skinned figure with tears and ornate headpiece standing beside a black silhouetted demonic entity with glowing eyes. The room has vibrant walls covered in circular patterns and dancing figures, with 'STASIS' and 'PANDEMONIUM' written on opposite walls under a starry cosmic arch (derived from generated still #933).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene featuring a -skinned figure with tears and ornate headpiece standing beside a black silhouetted demonic entity with glowing eyes. The room has vibrant walls covered in circular patterns and dancing figures, with 'STASIS' and 'PANDEMONIUM' written on opposite walls under a starry cosmic arch",
+  "inverted_title": "Inverted sketch: Stasis and Pandemonium",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene featuring a -skinned figure with tears and ornate headpiece standing beside a black silhouetted demonic entity with glowing eyes. The room has vibrant walls covered in circular patterns and dancing figures, with 'STASIS' and 'PANDEMONIUM' written on opposite walls under a starry cosmic arch (from generated still #933).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene featuring a -skinned figure with tears and ornate headpiece standing beside a black silhouetted demonic entity with glowing eyes. The room has vibrant walls covered in circular patterns and dancing figures, with 'STASIS' and 'PANDEMONIUM' written on opposite walls under a starry cosmic arch",
+  "source_description": "A surreal psychedelic scene featuring a blue-skinned figure with golden tears and ornate headpiece standing beside a black silhouetted demonic entity with glowing pink eyes. The room has vibrant orange walls covered in circular patterns and dancing figures, with 'STASIS' and 'PANDEMONIUM' written on opposite walls under a starry cosmic arch.",
+  "source_prompt": "",
+  "source_title": "Stasis and Pandemonium",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "demonic",
+    "cosmic",
+    "tears"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 933,
+  "source_url": "/generated/933.jpg",
+  "image_url": "/sketches/1711.png",
+  "inverted_image_url": "/sketches-inverted/1711.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:41Z"
+}

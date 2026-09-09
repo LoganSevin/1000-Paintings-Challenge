@@ -1,0 +1,42 @@
+{
+  "number": 797,
+  "title": "Line sketch: Storm Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned elf-like woman with pointed ears sits in the center of a chaotic magical storm. She smiles while casting vibrant, dripping spells as lightning cracks across a sky and paint-like magic flows from her hands (derived from generated still #6).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned elf-like woman with pointed ears sits in the center of a chaotic magical storm. She smiles while casting vibrant, dripping spells as lightning cracks across a sky and paint-like magic flows from her hands",
+  "inverted_title": "Inverted sketch: Storm Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned elf-like woman with pointed ears sits in the center of a chaotic magical storm. She smiles while casting vibrant, dripping spells as lightning cracks across a sky and paint-like magic flows from her hands (from generated still #6).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned elf-like woman with pointed ears sits in the center of a chaotic magical storm. She smiles while casting vibrant, dripping spells as lightning cracks across a sky and paint-like magic flows from her hands",
+  "source_description": "A green-skinned elf-like woman with pointed ears sits in the center of a chaotic magical storm. She smiles while casting vibrant, dripping spells as lightning cracks across a purple sky and colorful paint-like magic flows from her hands.",
+  "source_prompt": "",
+  "source_title": "Storm Sorceress",
+  "style": "fantasy illustration",
+  "mood": "chaotic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elf",
+    "sorceress",
+    "lightning",
+    "magic",
+    "rain"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 6,
+  "source_url": "/generated/6.jpg",
+  "image_url": "/sketches/797.png",
+  "inverted_image_url": "/sketches-inverted/797.png",
+  "curve_count": 175,
+  "built_at": "2026-08-17T00:09:39Z"
+}

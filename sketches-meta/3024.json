@@ -1,0 +1,42 @@
+{
+  "number": 3024,
+  "title": "Line sketch: Celestial Dancer at Twilight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, fantastical composition depicts a cosmic dancer in flowing, robes spinning on a path under a massive moon. In the foreground, a crowd of women wearing African-style headwraps and garments watches the performance beside a dark, illuminated castle (derived from generated still #2347).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, fantastical composition depicts a cosmic dancer in flowing, robes spinning on a path under a massive moon. In the foreground, a crowd of women wearing African-style headwraps and garments watches the performance beside a dark, illuminated castle",
+  "inverted_title": "Inverted sketch: Celestial Dancer at Twilight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, fantastical composition depicts a cosmic dancer in flowing, robes spinning on a path under a massive moon. In the foreground, a crowd of women wearing African-style headwraps and garments watches the performance beside a dark, illuminated castle (from generated still #2347).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, fantastical composition depicts a cosmic dancer in flowing, robes spinning on a path under a massive moon. In the foreground, a crowd of women wearing African-style headwraps and garments watches the performance beside a dark, illuminated castle",
+  "source_description": "A vibrant, fantastical painting depicts a cosmic dancer in flowing, multicolored robes spinning on a golden path under a massive red moon. In the foreground, a crowd of women wearing colorful African-style headwraps and garments watches the performance beside a dark, illuminated castle.",
+  "source_prompt": "",
+  "source_title": "Celestial Dancer at Twilight",
+  "style": "surreal fantasy",
+  "mood": "magical, vibrant, celebratory",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dancer",
+    "moon",
+    "African women",
+    "fantasy castle",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2347,
+  "source_url": "/generated/2347.jpg",
+  "image_url": "/sketches/3024.png",
+  "inverted_image_url": "/sketches-inverted/3024.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

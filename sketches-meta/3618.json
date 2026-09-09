@@ -1,0 +1,42 @@
+{
+  "number": 3618,
+  "title": "Line sketch: Orca and Diver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a black wetsuit is suspended upside down underwater, her legs extended vertically and arms relaxed. To her left, a large orca whale swims alongside her, both framed by sunbeams piercing the water from the surface above (derived from generated still #3026).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a black wetsuit is suspended upside down underwater, her legs extended vertically and arms relaxed. To her left, a large orca whale swims alongside her, both framed by sunbeams piercing the water from the surface above",
+  "inverted_title": "Inverted sketch: Orca and Diver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a black wetsuit is suspended upside down underwater, her legs extended vertically and arms relaxed. To her left, a large orca whale swims alongside her, both framed by sunbeams piercing the water from the surface above (from generated still #3026).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a black wetsuit is suspended upside down underwater, her legs extended vertically and arms relaxed. To her left, a large orca whale swims alongside her, both framed by sunbeams piercing the water from the surface above",
+  "source_description": "A woman in a black wetsuit is suspended upside down underwater, her legs extended vertically and arms relaxed. To her left, a large orca whale swims alongside her, both framed by sunbeams piercing the deep blue water from the surface above.",
+  "source_prompt": "Underwater scene in deep blue ocean, a woman in a sleek black and white wetsuit is floating vertically upside down with pointed feet and relaxed arms, positioned beside a large realistic orca whale that curves gently near her, both subjects illuminated by dramatic shafts of sunlight streaming from the rippling water surface above, visible caustic light patterns, crystal clear yet deep water, realistic photography, cinematic lighting, high contrast between the dark silhouettes and bright surface highlights",
+  "source_title": "Orca and Diver",
+  "style": "photorealistic",
+  "mood": "serene awe",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "underwater",
+    "orca",
+    "freediver",
+    "marine life",
+    "sunbeams"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3026,
+  "source_url": "/generated/3026.jpg",
+  "image_url": "/sketches/3618.png",
+  "inverted_image_url": "/sketches-inverted/3618.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:46Z"
+}

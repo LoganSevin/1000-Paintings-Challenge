@@ -1,0 +1,42 @@
+{
+  "number": 913,
+  "title": "Line sketch: Surreal Cosmic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large human eye in the upper right with a iris containing a woman's face, overlooking a theatrical auditorium filled with an audience of hooded figures. A cloaked performer stands on stage beneath a massive black hole with glowing accretion disk in a fiery and cosmic sky, while a large dripping black paw print dominates the foreground (derived from generated still #123).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large human eye in the upper right with a iris containing a woman's face, overlooking a theatrical auditorium filled with an audience of hooded figures. A cloaked performer stands on stage beneath a massive black hole with glowing accretion disk in a fiery and cosmic sky, while a large dripping black paw print dominates the foreground",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large human eye in the upper right with a iris containing a woman's face, overlooking a theatrical auditorium filled with an audience of hooded figures. A cloaked performer stands on stage beneath a massive black hole with glowing accretion disk in a fiery and cosmic sky, while a large dripping black paw print dominates the foreground (from generated still #123).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large human eye in the upper right with a iris containing a woman's face, overlooking a theatrical auditorium filled with an audience of hooded figures. A cloaked performer stands on stage beneath a massive black hole with glowing accretion disk in a fiery and cosmic sky, while a large dripping black paw print dominates the foreground",
+  "source_description": "A surreal painting depicts a large human eye in the upper right with a green iris containing a woman's face, overlooking a theatrical auditorium filled with an audience of hooded figures. A cloaked performer stands on stage beneath a massive black hole with glowing orange accretion disk in a fiery red and purple cosmic sky, while a large dripping black paw print dominates the foreground.",
+  "source_prompt": "",
+  "source_title": "Surreal Cosmic Eye",
+  "style": "surrealism",
+  "mood": "ominous, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "theater",
+    "black hole",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 123,
+  "source_url": "/generated/123.jpg",
+  "image_url": "/sketches/913.png",
+  "inverted_image_url": "/sketches-inverted/913.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3854,
+  "title": "Line sketch: -haired Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of the same female character with hair in pigtails, wearing a dark armored dress with accents, a small crown, and a cape. She stands against a solid background in increasingly aggressive stances, from neutral to a dynamic fighting pose with one arm extended (derived from generated still #3271).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of the same female character with hair in pigtails, wearing a dark armored dress with accents, a small crown, and a cape. She stands against a solid background in increasingly aggressive stances, from neutral to a dynamic fighting pose with one arm extended",
+  "inverted_title": "Inverted sketch: -haired Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of the same female character with hair in pigtails, wearing a dark armored dress with accents, a small crown, and a cape. She stands against a solid background in increasingly aggressive stances, from neutral to a dynamic fighting pose with one arm extended (from generated still #3271).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of the same female character with hair in pigtails, wearing a dark armored dress with accents, a small crown, and a cape. She stands against a solid background in increasingly aggressive stances, from neutral to a dynamic fighting pose with one arm extended",
+  "source_description": "Four sequential poses of the same female character with bright pink hair in pigtails, wearing a dark armored dress with green accents, a small crown, and a green cape. She stands against a solid bright green background in increasingly aggressive stances, from neutral to a dynamic fighting pose with one arm extended.",
+  "source_prompt": "A cartoon female character with voluminous pink hair in high pigtails and a small golden crown, wearing a dark armored dress with green scalloped edges, green shoulder pads, gloves, boots, and a flowing green cape. She is shown in four distinct standing poses side by side against a solid lime green background, progressing from neutral stance to an aggressive fighting pose with fist extended, in a clean 2D animation style.",
+  "source_title": "Pink-haired Warrior Poses",
+  "style": "cartoon",
+  "mood": "energetic, defiant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "multiple poses",
+    "cartoon character",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3271,
+  "source_url": "/generated/3271.jpg",
+  "image_url": "/sketches/3854.png",
+  "inverted_image_url": "/sketches-inverted/3854.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:46Z"
+}

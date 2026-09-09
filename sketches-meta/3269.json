@@ -1,0 +1,42 @@
+{
+  "number": 3269,
+  "title": "Line sketch: Creature in Flower Bucket",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted scene shows a small creature with large eyes and pointy ears peeking from inside a transparent glass bucket. The bucket hangs among oversized and flowers with centers and leaves against a background (derived from generated still #2641).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted scene shows a small creature with large eyes and pointy ears peeking from inside a transparent glass bucket. The bucket hangs among oversized and flowers with centers and leaves against a background",
+  "inverted_title": "Inverted sketch: Creature in Flower Bucket",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted scene shows a small creature with large eyes and pointy ears peeking from inside a transparent glass bucket. The bucket hangs among oversized and flowers with centers and leaves against a background (from generated still #2641).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted scene shows a small creature with large eyes and pointy ears peeking from inside a transparent glass bucket. The bucket hangs among oversized and flowers with centers and leaves against a background",
+  "source_description": "A surreal painted scene shows a small green creature with large orange eyes and pointy ears peeking from inside a transparent glass bucket. The bucket hangs among oversized pink and magenta flowers with yellow centers and green leaves against a soft blue background.",
+  "source_prompt": "surreal painting of a small green creature with big orange eyes hiding inside a transparent glass bucket hanging among large vibrant pink and magenta flowers with yellow stamens and lush green leaves, soft blue background, detailed botanical illustration style with painterly brushwork",
+  "source_title": "Creature in Flower Bucket",
+  "style": "surreal composition",
+  "mood": "whimsical, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "floral",
+    "creature",
+    "bucket",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2641,
+  "source_url": "/generated/2641.jpg",
+  "image_url": "/sketches/3269.png",
+  "inverted_image_url": "/sketches-inverted/3269.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

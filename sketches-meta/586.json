@@ -1,0 +1,41 @@
+{
+  "number": 586,
+  "title": "Line sketch: Diagonal Streaks in Gray",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract composition of white and black diagonal on a solid gray background. Part of a daily composition challenge exploring minimal texture and direction (derived from painting #741).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract composition of white and black diagonal on a solid gray background. Part of a daily composition challenge exploring minimal texture and direction",
+  "inverted_title": "Inverted sketch: Diagonal Streaks in Gray",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract composition of white and black diagonal on a solid gray background. Part of a daily composition challenge exploring minimal texture and direction (from painting #741).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract composition of white and black diagonal on a solid gray background. Part of a daily composition challenge exploring minimal texture and direction",
+  "source_description": "Abstract composition of white and black diagonal brushstrokes on a solid gray background. Part of a daily painting challenge exploring minimal texture and direction.",
+  "source_prompt": "",
+  "source_title": "Diagonal Streaks in Gray",
+  "style": "Abstract",
+  "mood": "Minimal, stark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "diagonal",
+    "texture",
+    "minimalism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 741,
+  "source_url": "/paintings/741.jpg",
+  "image_url": "/sketches/586.png",
+  "inverted_image_url": "/sketches-inverted/586.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

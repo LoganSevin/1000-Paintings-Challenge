@@ -14,8 +14,11 @@
     bestLan: "",
     lanUrls: [],
     userPickedLan: false,
+    visible: 0,
   };
   var pollTimer = 0;
+  var catalogCache = {};
+  var PAGE = 24;
 
   function $(id) {
     return document.getElementById(id);
@@ -168,10 +171,16 @@
         .join("");
     }
     if (qr) {
-      qr.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=" +
-        encodeURIComponent(full);
-      qr.alt = "QR: " + full;
+      if (isPhoneViewport()) {
+        qr.removeAttribute("src");
+        qr.hidden = true;
+      } else {
+        qr.hidden = false;
+        qr.src =
+          "https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=" +
+          encodeURIComponent(full);
+        qr.alt = "QR: " + full;
+      }
     }
   }
 
@@ -201,15 +210,40 @@
     if (st) st.disabled = n < 1;
   }
 
+  function pageSize() {
+    return isPhoneViewport() ? 24 : 48;
+  }
+
+  function thumbUrl(it) {
+    var url = it && it.url ? String(it.url) : "";
+    if (!url || isVideoUrl(url) || (it && it.kind === "video")) return url;
+    var w = isPhoneViewport() ? 180 : 240;
+    return apiUrl("/api/transfer/thumb?src=" + encodeURIComponent(url) + "&w=" + w);
+  }
+
   function loadCatalog() {
     var coll = state.collection || "paintings";
     var grid = $("tf-gallery-grid");
     if (!grid) return Promise.resolve();
+    if (catalogCache[coll]) {
+      state.items = catalogCache[coll];
+      if (!state.visible) state.visible = Math.min(pageSize(), state.items.length);
+      else state.visible = Math.min(state.visible, state.items.length) || Math.min(pageSize(), state.items.length);
+      renderGalleryGrid();
+      setStatus((state.items.length || 0) + " items · tap to select · Download zip", "ok");
+      return Promise.resolve();
+    }
     grid.innerHTML = '<p class="tf-empty">Loading…</p>';
     setStatus("Loading " + coll + "…", "");
+    var lim = isPhoneViewport() ? 72 : 400;
     return fetch(
-      apiUrl("/api/transfer/catalog?collection=" + encodeURIComponent(coll) + "&t=" + Date.now()),
-      { cache: "no-store" }
+      apiUrl(
+        "/api/transfer/catalog?collection=" +
+          encodeURIComponent(coll) +
+          "&limit=" +
+          lim
+      ),
+      { cache: "default" }
     )
       .then(function (r) {
         return r.json();
@@ -217,6 +251,8 @@
       .then(function (d) {
         if (!d || !d.ok) throw new Error((d && d.error) || "Catalog failed");
         state.items = d.items || [];
+        catalogCache[coll] = state.items;
+        state.visible = Math.min(pageSize(), state.items.length);
         renderGalleryGrid();
         setStatus((state.items.length || 0) + " items · tap to select · Download zip", "ok");
       })
@@ -232,19 +268,28 @@
   function renderGalleryGrid() {
     var grid = $("tf-gallery-grid");
     if (!grid) return;
+    var more = $("tf-load-more");
     if (!state.items.length) {
       grid.innerHTML = '<p class="tf-empty">Nothing in this collection yet.</p>';
+      if (more) more.hidden = true;
       updateSelectBar();
       return;
     }
+    var vis = state.visible || pageSize();
+    if (vis < 1) vis = pageSize();
+    state.visible = Math.min(vis, state.items.length);
     grid.innerHTML = state.items
+      .slice(0, state.visible)
       .map(function (it, idx) {
         var id = String(it.id || it.url || idx);
         var url = it.url || "";
         var sel = !!state.selected[id];
-        var media = isVideoUrl(url)
-          ? '<video src="' + escapeHtml(url) + '#t=0.1" muted playsinline preload="metadata"></video>'
-          : '<img src="' + escapeHtml(url) + '" alt="" loading="lazy" />';
+        var media =
+          isVideoUrl(url) || it.kind === "video"
+            ? '<span class="tf-vid-ph">▶</span>'
+            : '<img src="' +
+              escapeHtml(thumbUrl(it)) +
+              '" alt="" loading="lazy" decoding="async" width="240" height="240" />';
         return (
           '<button type="button" class="tf-gitem' +
           (sel ? " selected" : "") +
@@ -268,6 +313,11 @@
         );
       })
       .join("");
+    if (more) {
+      more.hidden = state.visible >= state.items.length;
+      more.textContent =
+        "Load more (" + state.visible + " / " + state.items.length + ")";
+    }
     updateSelectBar();
   }
 
@@ -524,8 +574,10 @@
             var desc = a.description || it.description || "";
             var prompt = a.prompt || it.prompt || "";
             var media = isVideoUrl(url)
-              ? '<video src="' + escapeHtml(url) + '#t=0.1" muted playsinline></video>'
-              : '<img src="' + escapeHtml(url) + '" alt="" loading="lazy" />';
+              ? '<span class="tf-vid-ph">▶</span>'
+              : '<img src="' +
+                escapeHtml(thumbUrl(it)) +
+                '" alt="" loading="lazy" decoding="async" width="240" height="240" />';
             var genNum = it.generatedNum || (a && a.generated_num) || null;
             var genUrl = it.generatedUrl || (a && a.generated_url) || "";
             var mixLine = genNum
@@ -618,6 +670,7 @@
       btn.addEventListener("click", function () {
         state.collection = btn.getAttribute("data-coll") || "paintings";
         state.selected = {};
+        state.visible = 0;
         document.querySelectorAll(".tf-coll").forEach(function (b) {
           b.classList.toggle("active", b === btn);
         });
@@ -703,8 +756,18 @@
         });
       });
 
+    $("tf-load-more") &&
+      $("tf-load-more").addEventListener("click", function () {
+        state.visible = Math.min(
+          state.items.length,
+          (state.visible || 0) + pageSize()
+        );
+        renderGalleryGrid();
+      });
+
     $("tf-refresh") &&
       $("tf-refresh").addEventListener("click", function () {
+        catalogCache = {};
         loadStatus();
         if (state.subtab === "browse") loadCatalog();
         else refreshUploadList();
@@ -718,10 +781,8 @@
         if (pollTimer) clearInterval(pollTimer);
         pollTimer = setInterval(function () {
           if (document.body.getAttribute("data-active-tab") !== "transfer") return;
-          if (state.subtab === "upload") refreshUploadList();
-          // Don't stomp user's LAN pick on poll
           loadStatus();
-        }, 8000);
+        }, 20000);
       } else {
         document.body.classList.remove("tf-tab-active");
         if (pollTimer) {
@@ -731,15 +792,16 @@
       }
     });
 
-    // Deep link #transfer
-    if (/#transfer/i.test(window.location.hash || "")) {
+    var onTransfer =
+      /#transfer/i.test(window.location.hash || "") ||
+      document.body.getAttribute("data-active-tab") === "transfer";
+    if (onTransfer) {
       try {
         document.body.setAttribute("data-active-tab", "transfer");
       } catch (e) {}
+      loadStatus();
+      setSubtab("browse");
     }
-
-    loadStatus();
-    setSubtab("browse");
   }
 
   if (document.readyState === "loading") {

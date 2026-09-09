@@ -1,0 +1,42 @@
+{
+  "number": 2734,
+  "title": "Line sketch: Mogwai and Alien at Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical fantasy scene featuring a gremlin-like Mogwai creature standing on a stone path beside a large reflective sphere showing a cityscape at sunset. A small white alien robot with multiple eyes sits on a lily pad nearby, with a wooden building labeled 'INTO THE VOID COLLECTIVE' containing a glowing circular portal to mountains at sunset in the background (derived from generated still #1980).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical fantasy scene featuring a gremlin-like Mogwai creature standing on a stone path beside a large reflective sphere showing a cityscape at sunset. A small white alien robot with multiple eyes sits on a lily pad nearby, with a wooden building labeled 'INTO THE VOID COLLECTIVE' containing a glowing circular portal to mountains at sunset in the background",
+  "inverted_title": "Inverted sketch: Mogwai and Alien at Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical fantasy scene featuring a gremlin-like Mogwai creature standing on a stone path beside a large reflective sphere showing a cityscape at sunset. A small white alien robot with multiple eyes sits on a lily pad nearby, with a wooden building labeled 'INTO THE VOID COLLECTIVE' containing a glowing circular portal to mountains at sunset in the background (from generated still #1980).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical fantasy scene featuring a gremlin-like Mogwai creature standing on a stone path beside a large reflective sphere showing a cityscape at sunset. A small white alien robot with multiple eyes sits on a lily pad nearby, with a wooden building labeled 'INTO THE VOID COLLECTIVE' containing a glowing circular portal to mountains at sunset in the background",
+  "source_description": "A whimsical fantasy scene featuring a gremlin-like Mogwai creature standing on a stone path beside a large reflective sphere showing a cityscape at sunset. A small white alien robot with multiple eyes sits on a lily pad nearby, with a wooden building labeled 'INTO THE VOID COLLECTIVE' containing a glowing circular portal to mountains at sunset in the background.",
+  "source_prompt": "",
+  "source_title": "Mogwai and Alien at Portal",
+  "style": "fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy creatures",
+    "portal",
+    "Mogwai",
+    "alien robot",
+    "sunset"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1980,
+  "source_url": "/generated/1980.jpg",
+  "image_url": "/sketches/2734.png",
+  "inverted_image_url": "/sketches-inverted/2734.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:44Z"
+}

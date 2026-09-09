@@ -1,0 +1,42 @@
+{
+  "number": 2539,
+  "title": "Line sketch: The All-Seeing Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a giant bloodshot eyeball with a screaming black silhouette in its iris, black veins dripping downward. A angelic figure with eyes and symbolic tattoos holds a scroll while a shattered circular portal reveals small dark creatures against a chaotic background of grotesque faces and flaming demonic flowers (derived from generated still #1775).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a giant bloodshot eyeball with a screaming black silhouette in its iris, black veins dripping downward. A angelic figure with eyes and symbolic tattoos holds a scroll while a shattered circular portal reveals small dark creatures against a chaotic background of grotesque faces and flaming demonic flowers",
+  "inverted_title": "Inverted sketch: The All-Seeing Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a giant bloodshot eyeball with a screaming black silhouette in its iris, black veins dripping downward. A angelic figure with eyes and symbolic tattoos holds a scroll while a shattered circular portal reveals small dark creatures against a chaotic background of grotesque faces and flaming demonic flowers (from generated still #1775).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a giant bloodshot eyeball with a screaming black silhouette in its iris, black veins dripping downward. A angelic figure with eyes and symbolic tattoos holds a scroll while a shattered circular portal reveals small dark creatures against a chaotic background of grotesque faces and flaming demonic flowers",
+  "source_description": "A surreal painting featuring a giant bloodshot eyeball with a screaming black silhouette in its green iris, black veins dripping downward. A blue angelic figure with orange eyes and symbolic tattoos holds a scroll while a shattered circular portal reveals small dark creatures against a chaotic background of grotesque faces and flaming demonic flowers.",
+  "source_prompt": "",
+  "source_title": "The All-Seeing Eye",
+  "style": "surrealism",
+  "mood": "chaotic nightmare",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "grotesque",
+    "eye",
+    "demonic",
+    "apocalyptic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1775,
+  "source_url": "/generated/1775.jpg",
+  "image_url": "/sketches/2539.png",
+  "inverted_image_url": "/sketches-inverted/2539.png",
+  "curve_count": 81,
+  "built_at": "2026-08-17T00:09:43Z"
+}

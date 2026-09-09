@@ -1,0 +1,42 @@
+{
+  "number": 4746,
+  "title": "Line sketch: Yakalla City Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fantasy cartographic illustration of the circular coastal city of Yakalla, divided into distinct colored districts radiating from a central plaza. The city is surrounded by a river on the left and a busy harbor with multiple sailing ships on the right, with decorative compass and ornate border elements (derived from generated still #4177).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fantasy cartographic illustration of the circular coastal city of Yakalla, divided into distinct colored districts radiating from a central plaza. The city is surrounded by a river on the left and a busy harbor with multiple sailing ships on the right, with decorative compass and ornate border elements",
+  "inverted_title": "Inverted sketch: Yakalla City Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fantasy cartographic illustration of the circular coastal city of Yakalla, divided into distinct colored districts radiating from a central plaza. The city is surrounded by a river on the left and a busy harbor with multiple sailing ships on the right, with decorative compass and ornate border elements (from generated still #4177).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fantasy cartographic illustration of the circular coastal city of Yakalla, divided into distinct colored districts radiating from a central plaza. The city is surrounded by a river on the left and a busy harbor with multiple sailing ships on the right, with decorative compass and ornate border elements",
+  "source_description": "A detailed fantasy cartographic illustration of the circular coastal city of Yakalla, divided into distinct colored districts radiating from a central plaza. The city is surrounded by a river on the left and a busy harbor with multiple sailing ships on the right, with decorative compass roses and ornate border elements.",
+  "source_prompt": "highly detailed fantasy map of a perfectly circular coastal city named Yakalla, with clearly segmented colorful districts arranged in concentric rings around a central plaza, a winding river on the left side, a bustling harbor with multiple wooden sailing ships docked on the right, ornate decorative borders and compass roses, in the style of an antique illuminated manuscript map, rich colors, intricate architectural details visible from top-down perspective",
+  "source_title": "Yakalla City Map",
+  "style": "fantasy map illustration",
+  "mood": "epic, intricate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "city layout",
+    "harbor",
+    "cartography",
+    "aerial view"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4177,
+  "source_url": "/generated/4177.jpg",
+  "image_url": "/sketches/4746.png",
+  "inverted_image_url": "/sketches-inverted/4746.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

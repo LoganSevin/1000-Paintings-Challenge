@@ -1,0 +1,42 @@
+{
+  "number": 2763,
+  "title": "Line sketch: Psyduck Surreal Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant cracked humanoid head with skin and glowing eyes floats in the sky above a Mediterranean coastal village. A large Psyduck head with a vacant expression emerges from the top, surrounded by flowering branches against a sunset sea and mountain backdrop (derived from generated still #2013).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant cracked humanoid head with skin and glowing eyes floats in the sky above a Mediterranean coastal village. A large Psyduck head with a vacant expression emerges from the top, surrounded by flowering branches against a sunset sea and mountain backdrop",
+  "inverted_title": "Inverted sketch: Psyduck Surreal Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant cracked humanoid head with skin and glowing eyes floats in the sky above a Mediterranean coastal village. A large Psyduck head with a vacant expression emerges from the top, surrounded by flowering branches against a sunset sea and mountain backdrop (from generated still #2013).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant cracked humanoid head with skin and glowing eyes floats in the sky above a Mediterranean coastal village. A large Psyduck head with a vacant expression emerges from the top, surrounded by flowering branches against a sunset sea and mountain backdrop",
+  "source_description": "A giant cracked humanoid head with dark red skin and glowing yellow eyes floats in the sky above a Mediterranean coastal village. A large yellow Psyduck head with a vacant expression emerges from the top, surrounded by flowering pink branches against a sunset sea and mountain backdrop.",
+  "source_prompt": "Surreal painting of a giant cracked dark red humanoid head with glowing eyes floating above a coastal Mediterranean village at sunset. A large yellow Psyduck head with blank white eyes emerges from the cracked skull. Flowering pink branches wrap around the heads. Italian-style houses with terracotta roofs, purple bougainvillea, distant mountains and a sailboat on the sea visible below, dramatic cinematic lighting.",
+  "source_title": "Psyduck Surreal Portrait",
+  "style": "surrealism",
+  "mood": "dreamlike, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psyduck",
+    "surreal",
+    "hybrid creature",
+    "mediterranean landscape",
+    "floating head"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2013,
+  "source_url": "/generated/2013.jpg",
+  "image_url": "/sketches/2763.png",
+  "inverted_image_url": "/sketches-inverted/2763.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:44Z"
+}

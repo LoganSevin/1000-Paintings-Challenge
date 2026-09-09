@@ -1,0 +1,42 @@
+{
+  "number": 1571,
+  "title": "Line sketch: Stasis Spell",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Psychedelic cosmic illustration featuring a large dog-like creature with intricate patterns and a glowing eye inside a starry bubble. Surrounding it are smaller bubbles with twin female profiles, paw prints, flowers, and repeated dog motifs against a gradient background (derived from generated still #786).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Psychedelic cosmic illustration featuring a large dog-like creature with intricate patterns and a glowing eye inside a starry bubble. Surrounding it are smaller bubbles with twin female profiles, paw prints, flowers, and repeated dog motifs against a gradient background",
+  "inverted_title": "Inverted sketch: Stasis Spell",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Psychedelic cosmic illustration featuring a large dog-like creature with intricate patterns and a glowing eye inside a starry bubble. Surrounding it are smaller bubbles with twin female profiles, paw prints, flowers, and repeated dog motifs against a gradient background (from generated still #786).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Psychedelic cosmic illustration featuring a large dog-like creature with intricate patterns and a glowing eye inside a starry bubble. Surrounding it are smaller bubbles with twin female profiles, paw prints, flowers, and repeated dog motifs against a gradient background",
+  "source_description": "Psychedelic cosmic illustration featuring a large green dog-like creature with intricate patterns and a glowing yellow eye inside a starry bubble. Surrounding it are smaller bubbles with twin female profiles, paw prints, flowers, and repeated dog motifs against a purple gradient background.",
+  "source_prompt": "",
+  "source_title": "Stasis Spell",
+  "style": "psychedelic",
+  "mood": "mystical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic art",
+    "cosmic dog",
+    "stasis spell",
+    "illustration",
+    "celestial bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 786,
+  "source_url": "/generated/786.jpg",
+  "image_url": "/sketches/1571.png",
+  "inverted_image_url": "/sketches-inverted/1571.png",
+  "curve_count": 145,
+  "built_at": "2026-08-17T00:09:41Z"
+}

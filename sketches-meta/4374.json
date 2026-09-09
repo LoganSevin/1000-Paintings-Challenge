@@ -1,0 +1,42 @@
+{
+  "number": 4374,
+  "title": "Line sketch: Plasma Orb City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with vibrant electrical tendrils sits on a pedestal in the foreground. Behind it is a dark fantasy cityscape with gothic spires under a full moon in a painted night sky with paint splatters (derived from generated still #3793).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with vibrant electrical tendrils sits on a pedestal in the foreground. Behind it is a dark fantasy cityscape with gothic spires under a full moon in a painted night sky with paint splatters",
+  "inverted_title": "Inverted sketch: Plasma Orb City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with vibrant electrical tendrils sits on a pedestal in the foreground. Behind it is a dark fantasy cityscape with gothic spires under a full moon in a painted night sky with paint splatters (from generated still #3793).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with vibrant electrical tendrils sits on a pedestal in the foreground. Behind it is a dark fantasy cityscape with gothic spires under a full moon in a painted night sky with paint splatters",
+  "source_description": "A glowing plasma globe with vibrant multicolored electrical tendrils sits on a pedestal in the foreground. Behind it is a dark fantasy cityscape with gothic spires under a full moon in a painted night sky with colorful paint splatters.",
+  "source_prompt": "A surreal painting of a large plasma globe in the foreground with bright multicolored electrical tendrils in pink, yellow, cyan and purple bursting from a central glowing orb, set against a dark fantasy city skyline with gothic towers and spires, a large luminous full moon in the purple night sky, expressive colorful paint splatters across the composition, painterly style with visible brushwork and drips.",
+  "source_title": "Plasma Orb City",
+  "style": "surreal",
+  "mood": "magical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "fantasy city",
+    "full moon",
+    "paint splatter",
+    "gothic architecture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3793,
+  "source_url": "/generated/3793.jpg",
+  "image_url": "/sketches/4374.png",
+  "inverted_image_url": "/sketches-inverted/4374.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:48Z"
+}

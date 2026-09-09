@@ -1,0 +1,42 @@
+{
+  "number": 4114,
+  "title": "Line sketch: Psychedelic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed close-up of a vibrant eye with intricate fractal-like patterns in the iris. The eye is surrounded by swirling, fluid strokes of, and paint with splatters and organic tendrils flowing outward (derived from generated still #3531).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed close-up of a vibrant eye with intricate fractal-like patterns in the iris. The eye is surrounded by swirling, fluid strokes of, and paint with splatters and organic tendrils flowing outward",
+  "inverted_title": "Inverted sketch: Psychedelic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed close-up of a vibrant eye with intricate fractal-like patterns in the iris. The eye is surrounded by swirling, fluid strokes of, and paint with splatters and organic tendrils flowing outward (from generated still #3531).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed close-up of a vibrant eye with intricate fractal-like patterns in the iris. The eye is surrounded by swirling, fluid strokes of, and paint with splatters and organic tendrils flowing outward",
+  "source_description": "A highly detailed close-up of a vibrant green eye with intricate fractal-like patterns in the iris. The eye is surrounded by swirling, fluid strokes of bright green, lime, and deep purple paint with splatters and organic tendrils flowing outward.",
+  "source_prompt": "extreme close-up of a hypnotic green human eye, intricate swirling fractal patterns and organic tendrils within the iris, black pupil with vortex detail, surrounded by expressive flowing strokes of vibrant lime green and deep purple paint with splatters and drips, dynamic swirling energy, highly detailed digital painting, surreal psychedelic style",
+  "source_title": "Psychedelic Green Eye",
+  "style": "surreal psychedelic",
+  "mood": "hypnotic, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "psychedelic",
+    "surreal",
+    "iris",
+    "swirling patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3531,
+  "source_url": "/generated/3531.jpg",
+  "image_url": "/sketches/4114.png",
+  "inverted_image_url": "/sketches-inverted/4114.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:47Z"
+}

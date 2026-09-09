@@ -1,0 +1,42 @@
+{
+  "number": 3543,
+  "title": "Line sketch: Sorceress of the Obsidian Spire",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A blonde woman in a revealing black velvet gown, crown of thorns, and fishnet stockings stands confidently on cracked obsidian ground with glowing lava. She holds a chain and a large transparent bubble containing a miniature dark castle, surrounded by many floating bubbles and glowing fiery paintings floating in a dark fantasy landscape with a massive gothic cathedral in the background (derived from generated still #2951).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A blonde woman in a revealing black velvet gown, crown of thorns, and fishnet stockings stands confidently on cracked obsidian ground with glowing lava. She holds a chain and a large transparent bubble containing a miniature dark castle, surrounded by many floating bubbles and glowing fiery paintings floating in a dark fantasy landscape with a massive gothic cathedral in the background",
+  "inverted_title": "Inverted sketch: Sorceress of the Obsidian Spire",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A blonde woman in a revealing black velvet gown, crown of thorns, and fishnet stockings stands confidently on cracked obsidian ground with glowing lava. She holds a chain and a large transparent bubble containing a miniature dark castle, surrounded by many floating bubbles and glowing fiery paintings floating in a dark fantasy landscape with a massive gothic cathedral in the background (from generated still #2951).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A blonde woman in a revealing black velvet gown, crown of thorns, and fishnet stockings stands confidently on cracked obsidian ground with glowing lava. She holds a chain and a large transparent bubble containing a miniature dark castle, surrounded by many floating bubbles and glowing fiery paintings floating in a dark fantasy landscape with a massive gothic cathedral in the background",
+  "source_description": "A blonde woman in a revealing black velvet gown, crown of thorns, and fishnet stockings stands confidently on cracked obsidian ground with glowing orange lava. She holds a chain and a large transparent bubble containing a miniature dark castle, surrounded by many floating iridescent bubbles and glowing fiery paintings floating in a dark fantasy landscape with a massive gothic cathedral in the background.",
+  "source_prompt": "A seductive blonde sorceress wearing a long black velvet dress with deep cleavage, thorn crown, and fishnet stockings stands on cracked volcanic stone with glowing lava veins. She holds a long chain and a large soap bubble containing a miniature dark castle. Many colorful iridescent bubbles and glowing orange square paintings float around her. In the background is a massive dark gothic cathedral with red glowing windows under a stormy teal sky, dramatic cinematic lighting, dark fantasy style.",
+  "source_title": "Sorceress of the Obsidian Spire",
+  "style": "dark fantasy",
+  "mood": "occult, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "dark fantasy",
+    "bubbles",
+    "lava",
+    "gothic castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2951,
+  "source_url": "/generated/2951.jpg",
+  "image_url": "/sketches/3543.png",
+  "inverted_image_url": "/sketches-inverted/3543.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:46Z"
+}

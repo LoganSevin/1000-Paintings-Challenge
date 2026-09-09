@@ -1,0 +1,42 @@
+{
+  "number": 457,
+  "title": "Line sketch: Cracked Zombie Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composition of a -skinned zombie with a fractured, cracked head and mismatched and eyes. The artwork features intricate details and a haunting expression from a daily composition challenge (derived from painting #547).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composition of a -skinned zombie with a fractured, cracked head and mismatched and eyes. The artwork features intricate details and a haunting expression from a daily composition challenge",
+  "inverted_title": "Inverted sketch: Cracked Zombie Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composition of a -skinned zombie with a fractured, cracked head and mismatched and eyes. The artwork features intricate details and a haunting expression from a daily composition challenge (from painting #547).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composition of a -skinned zombie with a fractured, cracked head and mismatched and eyes. The artwork features intricate details and a haunting expression from a daily composition challenge",
+  "source_description": "A watercolor painting of a green-skinned zombie with a fractured, cracked head and mismatched yellow and red eyes. The artwork features intricate details and a haunting expression from a daily painting challenge.",
+  "source_prompt": "",
+  "source_title": "Cracked Zombie Portrait",
+  "style": "Surrealism",
+  "mood": "Eerie and unsettling",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "horror",
+    "cracked skin",
+    "surreal portrait",
+    "daily composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 547,
+  "source_url": "/paintings/547.jpg",
+  "image_url": "/sketches/457.png",
+  "inverted_image_url": "/sketches-inverted/457.png",
+  "curve_count": 284,
+  "built_at": "2026-08-17T00:09:39Z"
+}

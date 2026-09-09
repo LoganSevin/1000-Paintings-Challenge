@@ -1,0 +1,42 @@
+{
+  "number": 3426,
+  "title": "Line sketch: Moon Enchantress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composite scene featuring a large portrait of a blonde woman with curly hair in the upper left, a woman in a long black ornate dress standing with her back to the viewer beside a white cat, both silhouetted against a massive glowing moon. The foreground contains vibrant cosmos flowers, a and plaid fabric, while the background shows a ruined cityscape under a nebula-filled sky (derived from generated still #2827).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composite scene featuring a large portrait of a blonde woman with curly hair in the upper left, a woman in a long black ornate dress standing with her back to the viewer beside a white cat, both silhouetted against a massive glowing moon. The foreground contains vibrant cosmos flowers, a and plaid fabric, while the background shows a ruined cityscape under a nebula-filled sky",
+  "inverted_title": "Inverted sketch: Moon Enchantress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composite scene featuring a large portrait of a blonde woman with curly hair in the upper left, a woman in a long black ornate dress standing with her back to the viewer beside a white cat, both silhouetted against a massive glowing moon. The foreground contains vibrant cosmos flowers, a and plaid fabric, while the background shows a ruined cityscape under a nebula-filled sky (from generated still #2827).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composite scene featuring a large portrait of a blonde woman with curly hair in the upper left, a woman in a long black ornate dress standing with her back to the viewer beside a white cat, both silhouetted against a massive glowing moon. The foreground contains vibrant cosmos flowers, a and plaid fabric, while the background shows a ruined cityscape under a nebula-filled sky",
+  "source_description": "A surreal composite scene featuring a large portrait of a blonde woman with curly hair in the upper left, a woman in a long black ornate dress standing with her back to the viewer beside a white cat, both silhouetted against a massive glowing red moon. The foreground contains vibrant pink cosmos flowers, a blue and red plaid fabric, while the background shows a ruined cityscape under a colorful nebula-filled sky.",
+  "source_prompt": "Surreal fantasy scene with a large translucent portrait of a beautiful blonde woman with curly hair in the upper left corner, a woman viewed from behind wearing an ornate black gothic dress standing next to a white cat with green eyes, both silhouetted against a giant blood-red moon in a starry nebula sky, ruined city buildings in the distance, vibrant pink cosmos flowers and blue red plaid fabric in the foreground, dramatic cinematic lighting, ethereal atmosphere",
+  "source_title": "Crimson Moon Enchantress",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "moon",
+    "woman in black",
+    "white cat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2827,
+  "source_url": "/generated/2827.jpg",
+  "image_url": "/sketches/3426.png",
+  "inverted_image_url": "/sketches-inverted/3426.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 328,
+  "title": "Line sketch: Majestic Sea Turtle Underwater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant sea turtle glides gracefully through sunlit waters, its intricate shell glowing with and black patterns. Below, a reef teems with life as light rays pierce the ocean surface above (derived from painting #389).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant sea turtle glides gracefully through sunlit waters, its intricate shell glowing with and black patterns. Below, a reef teems with life as light rays pierce the ocean surface above",
+  "inverted_title": "Inverted sketch: Majestic Sea Turtle Underwater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant sea turtle glides gracefully through sunlit waters, its intricate shell glowing with and black patterns. Below, a reef teems with life as light rays pierce the ocean surface above (from painting #389).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant sea turtle glides gracefully through sunlit waters, its intricate shell glowing with and black patterns. Below, a reef teems with life as light rays pierce the ocean surface above",
+  "source_description": "A vibrant sea turtle glides gracefully through sunlit blue waters, its intricate shell glowing with warm orange and black patterns. Below, a colorful coral reef teems with life as light rays pierce the ocean surface above.",
+  "source_prompt": "",
+  "source_title": "Majestic Sea Turtle Underwater",
+  "style": "Realistic",
+  "mood": "Serene and majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "reef",
+    "underwater",
+    "ocean light",
+    "marine life"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 389,
+  "source_url": "/paintings/389.jpg",
+  "image_url": "/sketches/328.png",
+  "inverted_image_url": "/sketches-inverted/328.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

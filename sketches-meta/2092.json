@@ -1,0 +1,42 @@
+{
+  "number": 2092,
+  "title": "Line sketch: Surreal Eye Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, detailed human eye dominates the composition, its iris filled with intricate floral patterns. A vibrant and bird perches on a dark branch adorned with ginkgo leaves and white flowers, surrounded by floating stylized faces with hair against a cosmic background (derived from generated still #1317).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, detailed human eye dominates the composition, its iris filled with intricate floral patterns. A vibrant and bird perches on a dark branch adorned with ginkgo leaves and white flowers, surrounded by floating stylized faces with hair against a cosmic background",
+  "inverted_title": "Inverted sketch: Surreal Eye Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, detailed human eye dominates the composition, its iris filled with intricate floral patterns. A vibrant and bird perches on a dark branch adorned with ginkgo leaves and white flowers, surrounded by floating stylized faces with hair against a cosmic background (from generated still #1317).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, detailed human eye dominates the composition, its iris filled with intricate floral patterns. A vibrant and bird perches on a dark branch adorned with ginkgo leaves and white flowers, surrounded by floating stylized faces with hair against a cosmic background",
+  "source_description": "A large, detailed green human eye dominates the composition, its iris filled with intricate yellow floral patterns. A vibrant blue and orange bird perches on a dark branch adorned with ginkgo leaves and white flowers, surrounded by floating stylized faces with green hair against a purple cosmic background.",
+  "source_prompt": "",
+  "source_title": "Surreal Green Eye Vision",
+  "style": "surreal psychedelic",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "eye",
+    "bird",
+    "psychedelic",
+    "ginkgo"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1317,
+  "source_url": "/generated/1317.jpg",
+  "image_url": "/sketches/2092.png",
+  "inverted_image_url": "/sketches-inverted/2092.png",
+  "curve_count": 200,
+  "built_at": "2026-08-17T00:09:42Z"
+}

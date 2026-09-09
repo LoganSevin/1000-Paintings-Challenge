@@ -1,0 +1,42 @@
+{
+  "number": 4478,
+  "title": "Line sketch: Siren of the Arcane Sea",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female figure with a flower crown stands behind a curved white counter, levitating a glowing orb between her hands. The -walled room is filled with framed paintings of ocean waves, seashells, and poppies, with large arched windows revealing a underwater scene (derived from generated still #3897).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female figure with a flower crown stands behind a curved white counter, levitating a glowing orb between her hands. The -walled room is filled with framed paintings of ocean waves, seashells, and poppies, with large arched windows revealing a underwater scene",
+  "inverted_title": "Inverted sketch: Siren of the Arcane Sea",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female figure with a flower crown stands behind a curved white counter, levitating a glowing orb between her hands. The -walled room is filled with framed paintings of ocean waves, seashells, and poppies, with large arched windows revealing a underwater scene (from generated still #3897).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female figure with a flower crown stands behind a curved white counter, levitating a glowing orb between her hands. The -walled room is filled with framed paintings of ocean waves, seashells, and poppies, with large arched windows revealing a underwater scene",
+  "source_description": "A purple-skinned female figure with a flower crown stands behind a curved white counter, levitating a glowing red orb between her hands. The purple-walled room is filled with framed paintings of ocean waves, seashells, and red poppies, with large arched windows revealing a bright blue underwater scene.",
+  "source_prompt": "A purple-skinned mystical woman with long dark hair and a red flower crown stands in an ornate purple room, holding a glowing red magical orb between her hands. She wears a cream and green patterned robe. The curved counter in front of her is covered in red runes and holds old books and a glass dome containing a scroll with red poppies. The walls are covered with multiple framed paintings of ocean waves, seashells, and vibrant red poppies. Bright light streams through large arched windows showing an underwater scene, with bubbles floating in the air.",
+  "source_title": "Siren of the Arcane Sea",
+  "style": "fantasy illustration",
+  "mood": "mystical enchanted",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mermaid",
+    "arcane shop",
+    "magic orb",
+    "interior",
+    "ocean paintings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3897,
+  "source_url": "/generated/3897.jpg",
+  "image_url": "/sketches/4478.png",
+  "inverted_image_url": "/sketches-inverted/4478.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:48Z"
+}

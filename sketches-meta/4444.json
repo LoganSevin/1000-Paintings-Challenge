@@ -1,0 +1,42 @@
+{
+  "number": 4444,
+  "title": "Line sketch: Stasis Spell Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal nighttime scene of a magical shop entrance with an arched doorway. A silhouetted wizard in a long coat stands in the doorway holding a small glowing butterfly-like object, while a wooden sign reads 'STASIS SPELLS LOCKED FUSION EST. 0233'. Swirling and paint-like forms drip from above with keys, scrolls, and papers floating in the air. A vendor cart with potions and rolled scrolls sits on the wet cobblestone street (derived from generated still #3863).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal nighttime scene of a magical shop entrance with an arched doorway. A silhouetted wizard in a long coat stands in the doorway holding a small glowing butterfly-like object, while a wooden sign reads 'STASIS SPELLS LOCKED FUSION EST. 0233'. Swirling and paint-like forms drip from above with keys, scrolls, and papers floating in the air. A vendor cart with potions and rolled scrolls sits on the wet cobblestone street",
+  "inverted_title": "Inverted sketch: Stasis Spell Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal nighttime scene of a magical shop entrance with an arched doorway. A silhouetted wizard in a long coat stands in the doorway holding a small glowing butterfly-like object, while a wooden sign reads 'STASIS SPELLS LOCKED FUSION EST. 0233'. Swirling and paint-like forms drip from above with keys, scrolls, and papers floating in the air. A vendor cart with potions and rolled scrolls sits on the wet cobblestone street (from generated still #3863).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal nighttime scene of a magical shop entrance with an arched doorway. A silhouetted wizard in a long coat stands in the doorway holding a small glowing butterfly-like object, while a wooden sign reads 'STASIS SPELLS LOCKED FUSION EST. 0233'. Swirling and paint-like forms drip from above with keys, scrolls, and papers floating in the air. A vendor cart with potions and rolled scrolls sits on the wet cobblestone street",
+  "source_description": "A surreal nighttime scene of a magical shop entrance with an arched doorway. A silhouetted wizard in a long coat stands in the doorway holding a small glowing butterfly-like object, while a wooden sign reads 'STASIS SPELLS LOCKED FUSION EST. 0233'. Swirling blue and brown paint-like forms drip from above with keys, scrolls, and papers floating in the air. A vendor cart with potions and rolled scrolls sits on the wet cobblestone street.",
+  "source_prompt": "A mysterious magical shop entrance at night with an arched doorway and a silhouetted wizard standing inside holding a glowing butterfly. A wooden sign above reads STASIS SPELLS LOCKED FUSION EST. 0233. Swirling blue and brown liquid-like paint forms drip from the top of the image with floating keys, scrolls, and papers. A wooden vendor cart filled with potion bottles and rolled scrolls stands on wet cobblestone ground, dramatic lighting, painterly style with visible brushstrokes",
+  "source_title": "Stasis Spell Shop",
+  "style": "surreal fantasy",
+  "mood": "mysterious, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "wizard",
+    "surreal",
+    "magic",
+    "cobblestone"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3863,
+  "source_url": "/generated/3863.jpg",
+  "image_url": "/sketches/4444.png",
+  "inverted_image_url": "/sketches-inverted/4444.png",
+  "curve_count": 106,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3945,
+  "title": "Line sketch: Hammer Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two posed views of a confident female character with hair in a high ponytail, wearing a and black outfit with thigh-high stockings and boots. She holds a large and black warhammer emitting and energy effects (derived from generated still #3362).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two posed views of a confident female character with hair in a high ponytail, wearing a and black outfit with thigh-high stockings and boots. She holds a large and black warhammer emitting and energy effects",
+  "inverted_title": "Inverted sketch: Hammer Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two posed views of a confident female character with hair in a high ponytail, wearing a and black outfit with thigh-high stockings and boots. She holds a large and black warhammer emitting and energy effects (from generated still #3362).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two posed views of a confident female character with hair in a high ponytail, wearing a and black outfit with thigh-high stockings and boots. She holds a large and black warhammer emitting and energy effects",
+  "source_description": "Two posed views of a confident female character with bright pink hair in a high ponytail, wearing a pink and black outfit with thigh-high stockings and boots. She holds a large purple and black warhammer emitting green and purple energy effects.",
+  "source_prompt": "A fierce young woman with long bright pink hair in a high ponytail and goggles on her head, wearing a cropped pink jacket, black crop top, pink shorts, black thigh-high stockings and heavy black boots with neon laces. She is dynamically posed holding a massive purple spiked warhammer that glows with green and purple lightning energy. Two different full-body action poses side by side on a neutral gray background, comic book style with bold black outlines and vibrant colors.",
+  "source_title": "Pink Hammer Girl",
+  "style": "comic book",
+  "mood": "energetic, bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "warhammer",
+    "energy effects",
+    "punk style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3362,
+  "source_url": "/generated/3362.jpg",
+  "image_url": "/sketches/3945.png",
+  "inverted_image_url": "/sketches-inverted/3945.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:47Z"
+}

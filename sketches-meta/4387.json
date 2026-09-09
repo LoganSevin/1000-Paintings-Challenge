@@ -1,0 +1,42 @@
+{
+  "number": 4387,
+  "title": "Line sketch: Alchemist's Painted Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wooden alchemist's desk sits against a wall covered in sweeping and. An open book, glowing potion bottles, a lantern, and scattered papers occupy the desk while a large tilted mirror reflects the painted interior (derived from generated still #3806).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wooden alchemist's desk sits against a wall covered in sweeping and. An open book, glowing potion bottles, a lantern, and scattered papers occupy the desk while a large tilted mirror reflects the painted interior",
+  "inverted_title": "Inverted sketch: Alchemist's Painted Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wooden alchemist's desk sits against a wall covered in sweeping and. An open book, glowing potion bottles, a lantern, and scattered papers occupy the desk while a large tilted mirror reflects the painted interior (from generated still #3806).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wooden alchemist's desk sits against a wall covered in sweeping and. An open book, glowing potion bottles, a lantern, and scattered papers occupy the desk while a large tilted mirror reflects the painted interior",
+  "source_description": "A wooden alchemist's desk sits against a wall covered in sweeping blue and green brushstrokes. An open book, glowing potion bottles, a lantern, and scattered papers occupy the desk while a large tilted mirror reflects the colorful painted interior.",
+  "source_prompt": "Interior of a whimsical alchemist workshop with a large wooden desk covered in open books, glowing blue and green potion bottles, a brass lantern, and scattered parchment. A large golden mirror on the wall is tilted, reflecting the room. The back wall is covered in expressive sweeping brushstrokes of bright blue and lime green paint, creating an artistic and magical atmosphere.",
+  "source_title": "Alchemist's Painted Study",
+  "style": "painterly illustration",
+  "mood": "magical, artistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "studio",
+    "potions",
+    "mirror",
+    "painted walls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3806,
+  "source_url": "/generated/3806.jpg",
+  "image_url": "/sketches/4387.png",
+  "inverted_image_url": "/sketches-inverted/4387.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

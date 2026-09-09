@@ -1,0 +1,42 @@
+{
+  "number": 4948,
+  "title": "Line sketch: Zombie in the Gallery",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit art gallery room with a large wooden desk in the foreground holding a lit lamp, coffee cup, vintage radio, and keys. Rain falls through a broken skylight. A massive composition on the wall depicts a bloody zombie walking down a horror hallway, while a person in the right foreground holds a bloody fire axe (derived from generated still #4385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit art gallery room with a large wooden desk in the foreground holding a lit lamp, coffee cup, vintage radio, and keys. Rain falls through a broken skylight. A massive composition on the wall depicts a bloody zombie walking down a horror hallway, while a person in the right foreground holds a bloody fire axe",
+  "inverted_title": "Inverted sketch: Zombie in the Gallery",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit art gallery room with a large wooden desk in the foreground holding a lit lamp, coffee cup, vintage radio, and keys. Rain falls through a broken skylight. A massive composition on the wall depicts a bloody zombie walking down a horror hallway, while a person in the right foreground holds a bloody fire axe (from generated still #4385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit art gallery room with a large wooden desk in the foreground holding a lit lamp, coffee cup, vintage radio, and keys. Rain falls through a broken skylight. A massive composition on the wall depicts a bloody zombie walking down a horror hallway, while a person in the right foreground holds a bloody fire axe",
+  "source_description": "A dimly lit art gallery room with a large wooden desk in the foreground holding a lit lamp, coffee cup, vintage radio, and keys. Rain falls through a broken skylight. A massive painting on the wall depicts a bloody zombie walking down a horror hallway, while a person in the right foreground holds a bloody fire axe.",
+  "source_prompt": "Interior of a dark art gallery at night with rain pouring through a broken glass skylight. A large wooden desk sits in the foreground with a glowing desk lamp, coffee cup, old radio, and keys. On the back wall hangs a giant surreal painting showing a bloody zombie walking down a horror hallway with red exit signs. A person holds a bloody fire axe on the right side of the frame. Cinematic lighting, moody atmosphere, highly detailed digital painting.",
+  "source_title": "Zombie in the Gallery",
+  "style": "cinematic",
+  "mood": "eerie tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "zombie",
+    "art gallery",
+    "surreal",
+    "rain"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4385,
+  "source_url": "/generated/4385.jpg",
+  "image_url": "/sketches/4948.png",
+  "inverted_image_url": "/sketches-inverted/4948.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1182,
+  "title": "Line sketch: Floral Hot Air Balloon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large hot air balloon decorated with chrysanthemums, dripping with and paint. It floats above a calm body of water covered in lily pads, with a reflective sphere and several peeled bananas resting on the pads in the foreground (derived from generated still #394).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large hot air balloon decorated with chrysanthemums, dripping with and paint. It floats above a calm body of water covered in lily pads, with a reflective sphere and several peeled bananas resting on the pads in the foreground",
+  "inverted_title": "Inverted sketch: Floral Hot Air Balloon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large hot air balloon decorated with chrysanthemums, dripping with and paint. It floats above a calm body of water covered in lily pads, with a reflective sphere and several peeled bananas resting on the pads in the foreground (from generated still #394).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large hot air balloon decorated with chrysanthemums, dripping with and paint. It floats above a calm body of water covered in lily pads, with a reflective sphere and several peeled bananas resting on the pads in the foreground",
+  "source_description": "A surreal painting depicts a large yellow hot air balloon decorated with red chrysanthemums, dripping with red and yellow paint. It floats above a calm body of water covered in lily pads, with a reflective sphere and several peeled bananas resting on the pads in the foreground.",
+  "source_prompt": "",
+  "source_title": "Floral Hot Air Balloon",
+  "style": "surrealism",
+  "mood": "dreamlike, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hot air balloon",
+    "chrysanthemum",
+    "lily pads",
+    "bananas"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 394,
+  "source_url": "/generated/394.jpg",
+  "image_url": "/sketches/1182.png",
+  "inverted_image_url": "/sketches-inverted/1182.png",
+  "curve_count": 191,
+  "built_at": "2026-08-17T00:09:40Z"
+}

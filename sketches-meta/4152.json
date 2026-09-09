@@ -1,0 +1,42 @@
+{
+  "number": 4152,
+  "title": "Line sketch: Surreal Montmartre Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a Parisian cobblestone street lined with buildings and shops leading toward the Sacré-Cœur Basilica under a bright sun. A large cracked female face with fiery hair and radiating beams emerges from the center of the street, towering over two small silhouetted figures (derived from generated still #3570).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a Parisian cobblestone street lined with buildings and shops leading toward the Sacré-Cœur Basilica under a bright sun. A large cracked female face with fiery hair and radiating beams emerges from the center of the street, towering over two small silhouetted figures",
+  "inverted_title": "Inverted sketch: Surreal Montmartre Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a Parisian cobblestone street lined with buildings and shops leading toward the Sacré-Cœur Basilica under a bright sun. A large cracked female face with fiery hair and radiating beams emerges from the center of the street, towering over two small silhouetted figures (from generated still #3570).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a Parisian cobblestone street lined with buildings and shops leading toward the Sacré-Cœur Basilica under a bright sun. A large cracked female face with fiery hair and radiating beams emerges from the center of the street, towering over two small silhouetted figures",
+  "source_description": "A surreal painting of a Parisian cobblestone street lined with colorful buildings and shops leading toward the Sacré-Cœur Basilica under a bright sun. A large cracked female face with fiery hair and radiating pink beams emerges from the center of the street, towering over two small silhouetted figures.",
+  "source_prompt": "Surreal painting of a sunny Montmartre street in Paris with colorful buildings, flower boxes, and a tree with orange flowers. A giant cracked porcelain-like female face with blue eyes and flaming golden hair emerges from the cobblestones, emitting bright pink energy beams. The Sacré-Cœur Basilica sits in the background under a radiant sun. Two small dark figures walk toward the face on the cracked pavement, vibrant Fauvist color palette with strong outlines.",
+  "source_title": "Surreal Montmartre Vision",
+  "style": "surreal pop art",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "Paris",
+    "Sacré-Cœur",
+    "female face",
+    "radiating beams"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3570,
+  "source_url": "/generated/3570.jpg",
+  "image_url": "/sketches/4152.png",
+  "inverted_image_url": "/sketches-inverted/4152.png",
+  "curve_count": 161,
+  "built_at": "2026-08-17T00:09:47Z"
+}

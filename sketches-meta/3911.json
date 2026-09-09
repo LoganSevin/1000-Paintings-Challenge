@@ -1,0 +1,42 @@
+{
+  "number": 3911,
+  "title": "Line sketch: Skull Shaman",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A male character with spiky hair and face tattoos stands in a dynamic pose against a plain gray background. He wears a bone-adorned and white outfit with skull motifs, bandages, and a sash covered in symbols, while magical energy swirls around his raised hand (derived from generated still #3328).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A male character with spiky hair and face tattoos stands in a dynamic pose against a plain gray background. He wears a bone-adorned and white outfit with skull motifs, bandages, and a sash covered in symbols, while magical energy swirls around his raised hand",
+  "inverted_title": "Inverted sketch: Skull Shaman",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A male character with spiky hair and face tattoos stands in a dynamic pose against a plain gray background. He wears a bone-adorned and white outfit with skull motifs, bandages, and a sash covered in symbols, while magical energy swirls around his raised hand (from generated still #3328).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A male character with spiky hair and face tattoos stands in a dynamic pose against a plain gray background. He wears a bone-adorned and white outfit with skull motifs, bandages, and a sash covered in symbols, while magical energy swirls around his raised hand",
+  "source_description": "A male character with spiky purple hair and face tattoos stands in a dynamic pose against a plain gray background. He wears a bone-adorned purple and white outfit with skull motifs, bandages, and a sash covered in symbols, while purple magical energy swirls around his raised hand.",
+  "source_prompt": "A fierce male shaman with wild spiky purple hair, face tattoos and glowing purple eyes, wearing a vest made of white bones over purple wrappings, a long purple sash with symbols, white pants with skull knee pads, barefoot with anklets. He stands in a powerful stance casting purple magic from one hand, detailed digital character art with sharp lines and dramatic lighting on a neutral gray background.",
+  "source_title": "Purple Skull Shaman",
+  "style": "digital illustration",
+  "mood": "menacing, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy character",
+    "hair",
+    "bone armor",
+    "shaman",
+    "skulls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3328,
+  "source_url": "/generated/3328.jpg",
+  "image_url": "/sketches/3911.png",
+  "inverted_image_url": "/sketches-inverted/3911.png",
+  "curve_count": 214,
+  "built_at": "2026-08-17T00:09:47Z"
+}

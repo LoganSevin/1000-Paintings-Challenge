@@ -1,0 +1,42 @@
+{
+  "number": 4979,
+  "title": "Line sketch: Rainy Abandoned Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark suit sits at a wooden desk with a lamp and vintage radio, writing in a notebook inside a dilapidated theater. Rain pours through a broken skylight onto the flooded floor as a long decaying hallway with exit signs stretches into the background beside a -curtained stage (derived from generated still #4416).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark suit sits at a wooden desk with a lamp and vintage radio, writing in a notebook inside a dilapidated theater. Rain pours through a broken skylight onto the flooded floor as a long decaying hallway with exit signs stretches into the background beside a -curtained stage",
+  "inverted_title": "Inverted sketch: Rainy Abandoned Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark suit sits at a wooden desk with a lamp and vintage radio, writing in a notebook inside a dilapidated theater. Rain pours through a broken skylight onto the flooded floor as a long decaying hallway with exit signs stretches into the background beside a -curtained stage (from generated still #4416).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark suit sits at a wooden desk with a lamp and vintage radio, writing in a notebook inside a dilapidated theater. Rain pours through a broken skylight onto the flooded floor as a long decaying hallway with exit signs stretches into the background beside a -curtained stage",
+  "source_description": "A man in a dark suit sits at a wooden desk with a green lamp and vintage radio, writing in a notebook inside a dilapidated theater. Rain pours through a broken skylight onto the flooded floor as a long decaying hallway with red exit signs stretches into the background beside a red-curtained stage.",
+  "source_prompt": "A lone man in a dark suit sits at a wooden desk with a glowing green banker's lamp and old radio, writing in a notebook inside a vast decaying theater interior. Heavy rain falls through a shattered skylight creating puddles on the wooden floor. To the left is a small red-curtained stage with a single chair, to the right a long dilapidated hallway with peeling wallpaper and glowing red exit signs. Cinematic lighting, moody atmosphere, highly detailed digital painting.",
+  "source_title": "Rainy Abandoned Theater",
+  "style": "composition",
+  "mood": "melancholy, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abandoned theater",
+    "rainy interior",
+    "noir atmosphere",
+    "dilapidated hallway",
+    "dramatic lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4416,
+  "source_url": "/generated/4416.jpg",
+  "image_url": "/sketches/4979.png",
+  "inverted_image_url": "/sketches-inverted/4979.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:49Z"
+}

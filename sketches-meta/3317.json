@@ -1,0 +1,42 @@
+{
+  "number": 3317,
+  "title": "Line sketch: Moonlit Waterfall Cliff",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A powerful waterfall cascades down a rocky cliff face into a river below, surrounded by lush hills and dense evergreen forests. The dramatic sky features a glowing full moon, vibrant and sunset clouds, and mist rising from the base of the falls (derived from generated still #2703).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A powerful waterfall cascades down a rocky cliff face into a river below, surrounded by lush hills and dense evergreen forests. The dramatic sky features a glowing full moon, vibrant and sunset clouds, and mist rising from the base of the falls",
+  "inverted_title": "Inverted sketch: Moonlit Waterfall Cliff",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A powerful waterfall cascades down a rocky cliff face into a river below, surrounded by lush hills and dense evergreen forests. The dramatic sky features a glowing full moon, vibrant and sunset clouds, and mist rising from the base of the falls (from generated still #2703).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A powerful waterfall cascades down a rocky cliff face into a river below, surrounded by lush hills and dense evergreen forests. The dramatic sky features a glowing full moon, vibrant and sunset clouds, and mist rising from the base of the falls",
+  "source_description": "A powerful waterfall cascades down a rocky cliff face into a river below, surrounded by lush green hills and dense evergreen forests. The dramatic sky features a glowing full moon, vibrant orange and purple sunset clouds, and mist rising from the base of the falls.",
+  "source_prompt": "A majestic waterfall flowing over a rocky plateau cliff into a misty river below, lush green hills covered in pine trees on both sides, dramatic sunset sky with vibrant orange and purple clouds, a bright full moon glowing in the upper left, cinematic lighting with reflections on the water, atmospheric mist, rich detailed oil painting style",
+  "source_title": "Moonlit Waterfall Cliff",
+  "style": "composition",
+  "mood": "epic serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "landscape",
+    "moonlight",
+    "cliff",
+    "forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2703,
+  "source_url": "/generated/2703.jpg",
+  "image_url": "/sketches/3317.png",
+  "inverted_image_url": "/sketches-inverted/3317.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

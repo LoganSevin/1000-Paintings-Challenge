@@ -1,0 +1,42 @@
+{
+  "number": 1110,
+  "title": "Line sketch: Bloom Over Pagodas",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant chrysanthemum-like flower with falling petals dominates the upper center against a traditional East Asian ink wash landscape featuring misty mountains, pagodas, boats on a river, and forested shores. Dynamic black and white slash marks cut diagonally across the composition, creating a sharp contrast between the vivid floral element and the muted monochromatic background (derived from generated still #322).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant chrysanthemum-like flower with falling petals dominates the upper center against a traditional East Asian ink wash landscape featuring misty mountains, pagodas, boats on a river, and forested shores. Dynamic black and white slash marks cut diagonally across the composition, creating a sharp contrast between the vivid floral element and the muted monochromatic background",
+  "inverted_title": "Inverted sketch: Bloom Over Pagodas",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant chrysanthemum-like flower with falling petals dominates the upper center against a traditional East Asian ink wash landscape featuring misty mountains, pagodas, boats on a river, and forested shores. Dynamic black and white slash marks cut diagonally across the composition, creating a sharp contrast between the vivid floral element and the muted monochromatic background (from generated still #322).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant chrysanthemum-like flower with falling petals dominates the upper center against a traditional East Asian ink wash landscape featuring misty mountains, pagodas, boats on a river, and forested shores. Dynamic black and white slash marks cut diagonally across the composition, creating a sharp contrast between the vivid floral element and the muted monochromatic background",
+  "source_description": "A vibrant red chrysanthemum-like flower with falling petals dominates the upper center against a traditional East Asian ink wash landscape featuring misty mountains, pagodas, boats on a river, and forested shores. Dynamic black and white slash marks cut diagonally across the composition, creating a sharp contrast between the vivid floral element and the muted monochromatic background.",
+  "source_prompt": "",
+  "source_title": "Crimson Bloom Over Pagodas",
+  "style": "digital ink wash composition",
+  "mood": "dramatic contrast",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital composite",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chrysanthemum",
+    "pagoda",
+    "ink wash",
+    "mountain landscape",
+    "river scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 322,
+  "source_url": "/generated/322.jpg",
+  "image_url": "/sketches/1110.png",
+  "inverted_image_url": "/sketches-inverted/1110.png",
+  "curve_count": 107,
+  "built_at": "2026-08-17T00:09:40Z"
+}

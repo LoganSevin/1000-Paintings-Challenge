@@ -1,0 +1,42 @@
+{
+  "number": 3079,
+  "title": "Line sketch: Cinematic Dream Projection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in vintage film-themed attire sits in a theater seat, holding a newspaper and film reel while looking forward. Behind her, a large arched screen displays a surreal, allegorical scene with floating figures, stairs, and clouds under dramatic light beams (derived from generated still #2408).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in vintage film-themed attire sits in a theater seat, holding a newspaper and film reel while looking forward. Behind her, a large arched screen displays a surreal, allegorical scene with floating figures, stairs, and clouds under dramatic light beams",
+  "inverted_title": "Inverted sketch: Cinematic Dream Projection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in vintage film-themed attire sits in a theater seat, holding a newspaper and film reel while looking forward. Behind her, a large arched screen displays a surreal, allegorical scene with floating figures, stairs, and clouds under dramatic light beams (from generated still #2408).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in vintage film-themed attire sits in a theater seat, holding a newspaper and film reel while looking forward. Behind her, a large arched screen displays a surreal, allegorical scene with floating figures, stairs, and clouds under dramatic light beams",
+  "source_description": "A woman in vintage film-themed attire sits in a red theater seat, holding a newspaper and film reel while looking forward. Behind her, a large arched screen displays a surreal, colorful allegorical scene with floating figures, stairs, and clouds under dramatic golden light beams.",
+  "source_prompt": "",
+  "source_title": "Cinematic Dream Projection",
+  "style": "surrealism",
+  "mood": "dreamlike, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "theater",
+    "film reel",
+    "projection"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2408,
+  "source_url": "/generated/2408.jpg",
+  "image_url": "/sketches/3079.png",
+  "inverted_image_url": "/sketches-inverted/3079.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:44Z"
+}

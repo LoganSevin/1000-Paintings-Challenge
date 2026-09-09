@@ -1,0 +1,42 @@
+{
+  "number": 154,
+  "title": "Line sketch: Fiery Cat in Swirling Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cat emerges from a dynamic swirl of. In the distance, a small black cat silhouette stands against a bright portal-like opening (derived from painting #193).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cat emerges from a dynamic swirl of. In the distance, a small black cat silhouette stands against a bright portal-like opening",
+  "inverted_title": "Inverted sketch: Fiery Cat in Swirling Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cat emerges from a dynamic swirl of. In the distance, a small black cat silhouette stands against a bright portal-like opening (from painting #193).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cat emerges from a dynamic swirl of. In the distance, a small black cat silhouette stands against a bright portal-like opening",
+  "source_description": "A vibrant orange cat emerges from a dynamic swirl of colorful brushstrokes. In the distance, a small black cat silhouette stands against a bright portal-like opening.",
+  "source_prompt": "",
+  "source_title": "Fiery Cat in Swirling Vortex",
+  "style": "Expressionism",
+  "mood": "Energetic and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat",
+    "swirls",
+    "vibrant",
+    "abstract",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 193,
+  "source_url": "/paintings/193.jpg",
+  "image_url": "/sketches/154.png",
+  "inverted_image_url": "/sketches-inverted/154.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1815,
+  "title": "Line sketch: Cosmic Silhouette Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black silhouette of a female figure with elaborate curly hair stands against a vibrant cosmic sky, holding a glowing orb. Her flowing and gown transforms into swirling tentacles and patterns that merge with a large spiral galaxy and a massive moon in the background (derived from generated still #1038).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black silhouette of a female figure with elaborate curly hair stands against a vibrant cosmic sky, holding a glowing orb. Her flowing and gown transforms into swirling tentacles and patterns that merge with a large spiral galaxy and a massive moon in the background",
+  "inverted_title": "Inverted sketch: Cosmic Silhouette Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black silhouette of a female figure with elaborate curly hair stands against a vibrant cosmic sky, holding a glowing orb. Her flowing and gown transforms into swirling tentacles and patterns that merge with a large spiral galaxy and a massive moon in the background (from generated still #1038).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black silhouette of a female figure with elaborate curly hair stands against a vibrant cosmic sky, holding a glowing orb. Her flowing and gown transforms into swirling tentacles and patterns that merge with a large spiral galaxy and a massive moon in the background",
+  "source_description": "A black silhouette of a female figure with elaborate curly hair stands against a vibrant cosmic sky, holding a glowing blue orb. Her flowing green and yellow gown transforms into swirling tentacles and patterns that merge with a large blue spiral galaxy and a massive red moon in the background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Silhouette Sorceress",
+  "style": "fantasy surrealism",
+  "mood": "mystical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouette",
+    "cosmic",
+    "galaxy",
+    "moon",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1038,
+  "source_url": "/generated/1038.jpg",
+  "image_url": "/sketches/1815.png",
+  "inverted_image_url": "/sketches-inverted/1815.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3098,
+  "title": "Line sketch: Mushroom Oracle Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene features three -skinned women with elaborate and leaf headdresses sitting beneath a massive glowing mushroom. The enormous mushroom cap displays intricate circular patterns, white dripping liquid, and multiple small silhouetted human figures arranged in rings (derived from generated still #2433).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene features three -skinned women with elaborate and leaf headdresses sitting beneath a massive glowing mushroom. The enormous mushroom cap displays intricate circular patterns, white dripping liquid, and multiple small silhouetted human figures arranged in rings",
+  "inverted_title": "Inverted sketch: Mushroom Oracle Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene features three -skinned women with elaborate and leaf headdresses sitting beneath a massive glowing mushroom. The enormous mushroom cap displays intricate circular patterns, white dripping liquid, and multiple small silhouetted human figures arranged in rings (from generated still #2433).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene features three -skinned women with elaborate and leaf headdresses sitting beneath a massive glowing mushroom. The enormous mushroom cap displays intricate circular patterns, white dripping liquid, and multiple small silhouetted human figures arranged in rings",
+  "source_description": "A surreal night scene features three green-skinned women with elaborate pink and purple leaf headdresses sitting beneath a massive glowing mushroom. The enormous mushroom cap displays intricate circular patterns, white dripping liquid, and multiple small silhouetted human figures arranged in rings.",
+  "source_prompt": "Surreal nighttime forest scene with three green-skinned women wearing elaborate pink fern headdresses sitting together under a giant glowing mushroom. The massive mushroom has a yellow-green cap covered in white circles and rings of tiny silhouetted human figures, purple dripping liquid, and a tree-like stem. Dark mysterious forest with ruins and glowing orbs in the background, mystical and psychedelic atmosphere, rich vibrant colors with purple and green tones.",
+  "source_title": "Mushroom Oracle Gathering",
+  "style": "surreal fantasy composition",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "psychedelic",
+    "fantasy women",
+    "glowing",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2433,
+  "source_url": "/generated/2433.jpg",
+  "image_url": "/sketches/3098.png",
+  "inverted_image_url": "/sketches-inverted/3098.png",
+  "curve_count": 100,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 651,
+  "title": "Line sketch: Desert Road to Sun",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cracked road leads through a barren desert landscape toward distant mountains under a surreal sun and greenish sky. A signpost with a spiral target stands prominently on the right side of the path (derived from painting #828).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cracked road leads through a barren desert landscape toward distant mountains under a surreal sun and greenish sky. A signpost with a spiral target stands prominently on the right side of the path",
+  "inverted_title": "Inverted sketch: Desert Road to Sun",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cracked road leads through a barren desert landscape toward distant mountains under a surreal sun and greenish sky. A signpost with a spiral target stands prominently on the right side of the path (from painting #828).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cracked road leads through a barren desert landscape toward distant mountains under a surreal sun and greenish sky. A signpost with a spiral target stands prominently on the right side of the path",
+  "source_description": "A cracked road leads through a barren desert landscape toward distant mountains under a surreal red sun and greenish sky. A signpost with a spiral target stands prominently on the right side of the path.",
+  "source_prompt": "",
+  "source_title": "Desert Road to Red Sun",
+  "style": "Surreal illustration",
+  "mood": "Eerie and mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert landscape",
+    "surreal sky",
+    "sun",
+    "road sign",
+    "mountains"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 828,
+  "source_url": "/paintings/828.jpg",
+  "image_url": "/sketches/651.png",
+  "inverted_image_url": "/sketches-inverted/651.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:39Z"
+}

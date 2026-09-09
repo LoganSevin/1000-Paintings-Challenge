@@ -1,0 +1,42 @@
+{
+  "number": 2948,
+  "title": "Line sketch: Chaotic Beast Banquet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene of anthropomorphic animals in formal attire seated at a long, messy dining table covered in spilled, cans, bottles, and food remnants. A roaring lion in a tuxedo, a woman with elaborate hair and dramatic makeup, and a snarling hyena are the central figures, surrounded by a frenzied crowd of shadowy beast-like creatures under a dripping, glowing light structure (derived from generated still #2257).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene of anthropomorphic animals in formal attire seated at a long, messy dining table covered in spilled, cans, bottles, and food remnants. A roaring lion in a tuxedo, a woman with elaborate hair and dramatic makeup, and a snarling hyena are the central figures, surrounded by a frenzied crowd of shadowy beast-like creatures under a dripping, glowing light structure",
+  "inverted_title": "Inverted sketch: Chaotic Beast Banquet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene of anthropomorphic animals in formal attire seated at a long, messy dining table covered in spilled, cans, bottles, and food remnants. A roaring lion in a tuxedo, a woman with elaborate hair and dramatic makeup, and a snarling hyena are the central figures, surrounded by a frenzied crowd of shadowy beast-like creatures under a dripping, glowing light structure (from generated still #2257).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene of anthropomorphic animals in formal attire seated at a long, messy dining table covered in spilled, cans, bottles, and food remnants. A roaring lion in a tuxedo, a woman with elaborate hair and dramatic makeup, and a snarling hyena are the central figures, surrounded by a frenzied crowd of shadowy beast-like creatures under a dripping, glowing light structure",
+  "source_description": "A surreal scene of anthropomorphic animals in formal attire seated at a long, messy dining table covered in spilled wine, cans, bottles, and food remnants. A roaring lion in a tuxedo, a woman with elaborate hair and dramatic makeup, and a snarling hyena are the central figures, surrounded by a frenzied crowd of shadowy beast-like creatures under a dripping, glowing yellow neon light structure.",
+  "source_prompt": "A dark surreal painting of a chaotic banquet with anthropomorphic animals. A roaring lion wearing a tuxedo sits at a long messy table covered in spilled wine, beer cans, and food waste. Beside him is an elegant woman with dramatic makeup and styled hair, and a snarling hyena. Shadowy beast creatures celebrate wildly in the background under a glowing dripping yellow neon light formation. Dramatic lighting, painterly brushwork, dark atmosphere.",
+  "source_title": "Chaotic Beast Banquet",
+  "style": "surreal dark fantasy",
+  "mood": "chaotic grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "anthropomorphic",
+    "feast",
+    "dark fantasy",
+    "beasts"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2257,
+  "source_url": "/generated/2257.jpg",
+  "image_url": "/sketches/2948.png",
+  "inverted_image_url": "/sketches-inverted/2948.png",
+  "curve_count": 192,
+  "built_at": "2026-08-17T00:09:44Z"
+}

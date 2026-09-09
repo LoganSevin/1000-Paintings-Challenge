@@ -1,0 +1,42 @@
+{
+  "number": 3806,
+  "title": "Line sketch: Punk Warrior Kid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young male character with messy blonde hair and facial scars stands in a powerful pose, wearing black and armored gear with dripping accents. His right fist is clenched while his left mechanical gauntlet is extended forward, set against a plain dark gradient background (derived from generated still #3223).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young male character with messy blonde hair and facial scars stands in a powerful pose, wearing black and armored gear with dripping accents. His right fist is clenched while his left mechanical gauntlet is extended forward, set against a plain dark gradient background",
+  "inverted_title": "Inverted sketch: Punk Warrior Kid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young male character with messy blonde hair and facial scars stands in a powerful pose, wearing black and armored gear with dripping accents. His right fist is clenched while his left mechanical gauntlet is extended forward, set against a plain dark gradient background (from generated still #3223).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young male character with messy blonde hair and facial scars stands in a powerful pose, wearing black and armored gear with dripping accents. His right fist is clenched while his left mechanical gauntlet is extended forward, set against a plain dark gradient background",
+  "source_description": "A young male character with messy blonde hair and facial scars stands in a powerful pose, wearing black and yellow armored gear with dripping yellow accents. His right fist is clenched while his left mechanical gauntlet is extended forward, set against a plain dark gradient background.",
+  "source_prompt": "A tough young boy with messy spiky blonde hair, facial scars and stitches, wearing heavy black and bright yellow cyberpunk armor with dripping yellow details on the chest and shoulders. He has a mechanical gauntlet on his left hand covered in glowing elements and wears matching armored boots and knee pads. He stands in an aggressive stance with one fist raised, looking directly at the viewer with a confident smirk, dramatic lighting, dark background, highly detailed digital painting.",
+  "source_title": "Yellow Punk Warrior Kid",
+  "style": "line sketch",
+  "mood": "aggressive, defiant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "punk kid",
+    "armored character",
+    "blonde hair",
+    "mechanical gauntlet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3223,
+  "source_url": "/generated/3223.jpg",
+  "image_url": "/sketches/3806.png",
+  "inverted_image_url": "/sketches-inverted/3806.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:46Z"
+}

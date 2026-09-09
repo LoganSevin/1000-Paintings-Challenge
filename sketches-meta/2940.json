@@ -1,0 +1,42 @@
+{
+  "number": 2940,
+  "title": "Line sketch: Spectral Chess of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark surreal composition depicts a glowing chessboard with luminous pieces, some of which are tadpole-like or sperm-shaped. In the shadowy background, multiple anguished human faces with open mouths emerge from the darkness, while a streak resembling a comet or laser cuts across the upper portion, scattering particles (derived from generated still #2245).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark surreal composition depicts a glowing chessboard with luminous pieces, some of which are tadpole-like or sperm-shaped. In the shadowy background, multiple anguished human faces with open mouths emerge from the darkness, while a streak resembling a comet or laser cuts across the upper portion, scattering particles",
+  "inverted_title": "Inverted sketch: Spectral Chess of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark surreal composition depicts a glowing chessboard with luminous pieces, some of which are tadpole-like or sperm-shaped. In the shadowy background, multiple anguished human faces with open mouths emerge from the darkness, while a streak resembling a comet or laser cuts across the upper portion, scattering particles (from generated still #2245).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark surreal composition depicts a glowing chessboard with luminous pieces, some of which are tadpole-like or sperm-shaped. In the shadowy background, multiple anguished human faces with open mouths emerge from the darkness, while a streak resembling a comet or laser cuts across the upper portion, scattering particles",
+  "source_description": "A dark surreal painting depicts a glowing chessboard with luminous yellow pieces, some of which are tadpole-like or sperm-shaped. In the shadowy background, multiple anguished human faces with open mouths emerge from the darkness, while a bright yellow streak resembling a comet or laser cuts across the upper portion, scattering golden particles.",
+  "source_prompt": "A surreal dark painting of a glowing yellow chessboard on a wooden surface with unusual sperm and tadpole-shaped chess pieces. Several anguished screaming human faces emerge from the black shadowy background above the board. A bright yellow comet streak cuts diagonally through the scene scattering golden sparks. Dramatic chiaroscuro lighting, painterly brushstrokes, eerie and nightmarish atmosphere.",
+  "source_title": "Spectral Chess of the Damned",
+  "style": "surreal dark fantasy",
+  "mood": "nightmarish chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chessboard",
+    "surreal",
+    "glowing pieces",
+    "tormented faces",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2245,
+  "source_url": "/generated/2245.jpg",
+  "image_url": "/sketches/2940.png",
+  "inverted_image_url": "/sketches-inverted/2940.png",
+  "curve_count": 86,
+  "built_at": "2026-08-17T00:09:44Z"
+}

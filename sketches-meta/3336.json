@@ -1,0 +1,42 @@
+{
+  "number": 3336,
+  "title": "Line sketch: Vault Dweller in Ruined Arcade",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a Vault-Tec jumpsuit stands in a dilapidated retro-futuristic arcade, holding a glowing Pip-Boy that emits holographic particles. The decaying two-story room features broken floor tiles, scattered Nuka-Cola posters, large gears on the walls, and a massive mural of a nuclear explosion with silhouetted falling figures on the upper level (derived from generated still #2731).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a Vault-Tec jumpsuit stands in a dilapidated retro-futuristic arcade, holding a glowing Pip-Boy that emits holographic particles. The decaying two-story room features broken floor tiles, scattered Nuka-Cola posters, large gears on the walls, and a massive mural of a nuclear explosion with silhouetted falling figures on the upper level",
+  "inverted_title": "Inverted sketch: Vault Dweller in Ruined Arcade",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a Vault-Tec jumpsuit stands in a dilapidated retro-futuristic arcade, holding a glowing Pip-Boy that emits holographic particles. The decaying two-story room features broken floor tiles, scattered Nuka-Cola posters, large gears on the walls, and a massive mural of a nuclear explosion with silhouetted falling figures on the upper level (from generated still #2731).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a Vault-Tec jumpsuit stands in a dilapidated retro-futuristic arcade, holding a glowing Pip-Boy that emits holographic particles. The decaying two-story room features broken floor tiles, scattered Nuka-Cola posters, large gears on the walls, and a massive mural of a nuclear explosion with silhouetted falling figures on the upper level",
+  "source_description": "A woman in a red Vault-Tec jumpsuit stands in a dilapidated retro-futuristic arcade, holding a glowing Pip-Boy that emits blue holographic particles. The decaying two-story room features broken floor tiles, scattered Nuka-Cola posters, large gears on the walls, and a massive mural of a nuclear explosion with silhouetted falling figures on the upper level.",
+  "source_prompt": "A woman in a red Vault-Tec jumpsuit stands inside a decaying two-story arcade, holding a glowing Pip-Boy device emitting blue holographic energy. The room has broken tiled floors, scattered debris, large industrial gears on purple walls, Nuka-Cola and atomic-themed posters, and a giant yellow nuclear explosion mural on the upper level with silhouetted bodies falling from the ceiling, cinematic lighting, moody atmosphere",
+  "source_title": "Vault Dweller in Ruined Arcade",
+  "style": "cinematic",
+  "mood": "eerie nostalgia",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "vault dweller",
+    "retro-futuristic",
+    "abandoned arcade",
+    "nuclear aesthetic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2731,
+  "source_url": "/generated/2731.jpg",
+  "image_url": "/sketches/3336.png",
+  "inverted_image_url": "/sketches-inverted/3336.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:45Z"
+}

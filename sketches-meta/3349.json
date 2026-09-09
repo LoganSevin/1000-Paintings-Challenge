@@ -1,0 +1,42 @@
+{
+  "number": 3349,
+  "title": "Line sketch: Glowing Rift Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic nighttime landscape featuring a powerful waterfall cascading between two massive dark rock formations. glowing energy cracks and lightning-like patterns spread across the rocks around the waterfall, illuminating the scene against a starry night sky with pine trees and a calm reflective pool at the base (derived from generated still #2745).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic nighttime landscape featuring a powerful waterfall cascading between two massive dark rock formations. glowing energy cracks and lightning-like patterns spread across the rocks around the waterfall, illuminating the scene against a starry night sky with pine trees and a calm reflective pool at the base",
+  "inverted_title": "Inverted sketch: Glowing Rift Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic nighttime landscape featuring a powerful waterfall cascading between two massive dark rock formations. glowing energy cracks and lightning-like patterns spread across the rocks around the waterfall, illuminating the scene against a starry night sky with pine trees and a calm reflective pool at the base (from generated still #2745).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic nighttime landscape featuring a powerful waterfall cascading between two massive dark rock formations. glowing energy cracks and lightning-like patterns spread across the rocks around the waterfall, illuminating the scene against a starry night sky with pine trees and a calm reflective pool at the base",
+  "source_description": "A dramatic nighttime landscape featuring a powerful waterfall cascading between two massive dark rock formations. Bright red glowing energy cracks and lightning-like patterns spread across the rocks around the waterfall, illuminating the scene against a starry night sky with pine trees and a calm reflective pool at the base.",
+  "source_prompt": "A dramatic nighttime fantasy landscape with a powerful waterfall flowing between two large dark rocky cliffs, intense glowing red energy cracks and lightning patterns spreading across the rock faces surrounding the waterfall, calm reflective pool at the bottom, pine trees on the cliffs and in the foreground, starry night sky with dramatic clouds, cinematic lighting, mysterious atmosphere",
+  "source_title": "Glowing Rift Waterfall",
+  "style": "cinematic",
+  "mood": "mysterious epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "glowing energy",
+    "night landscape",
+    "rock formations",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2745,
+  "source_url": "/generated/2745.jpg",
+  "image_url": "/sketches/3349.png",
+  "inverted_image_url": "/sketches-inverted/3349.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

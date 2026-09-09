@@ -1,0 +1,42 @@
+{
+  "number": 529,
+  "title": "Line sketch: Kintsugi Fractured Light",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract composition resembling kintsugi repair with veins flowing across a neutral background. Vibrant colored glass-like fragments in, and warm tones punctuate the delicate branching lines (derived from painting #659).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract composition resembling kintsugi repair with veins flowing across a neutral background. Vibrant colored glass-like fragments in, and warm tones punctuate the delicate branching lines",
+  "inverted_title": "Inverted sketch: Kintsugi Fractured Light",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract composition resembling kintsugi repair with veins flowing across a neutral background. Vibrant colored glass-like fragments in, and warm tones punctuate the delicate branching lines (from painting #659).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract composition resembling kintsugi repair with veins flowing across a neutral background. Vibrant colored glass-like fragments in, and warm tones punctuate the delicate branching lines",
+  "source_description": "Abstract composition resembling kintsugi repair with golden veins flowing across a neutral background. Vibrant colored glass-like fragments in blue, teal, and warm tones punctuate the delicate branching lines.",
+  "source_prompt": "",
+  "source_title": "Kintsugi Fractured Light",
+  "style": "Abstract",
+  "mood": "Serene and fractured",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Mixed media with gold leaf",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kintsugi",
+    "abstract",
+    "leaf",
+    "cracks",
+    "contemporary"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 659,
+  "source_url": "/paintings/659.jpg",
+  "image_url": "/sketches/529.png",
+  "inverted_image_url": "/sketches-inverted/529.png",
+  "curve_count": 125,
+  "built_at": "2026-08-17T00:09:39Z"
+}

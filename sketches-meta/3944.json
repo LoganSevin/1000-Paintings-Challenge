@@ -1,0 +1,42 @@
+{
+  "number": 3944,
+  "title": "Line sketch: -haired Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side panels display the same female character with hair in different dynamic action poses against a neutral gray background. She wears a and black armored outfit with black thigh-high boots and wields a large hammer (derived from generated still #3361).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side panels display the same female character with hair in different dynamic action poses against a neutral gray background. She wears a and black armored outfit with black thigh-high boots and wields a large hammer",
+  "inverted_title": "Inverted sketch: -haired Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side panels display the same female character with hair in different dynamic action poses against a neutral gray background. She wears a and black armored outfit with black thigh-high boots and wields a large hammer (from generated still #3361).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side panels display the same female character with hair in different dynamic action poses against a neutral gray background. She wears a and black armored outfit with black thigh-high boots and wields a large hammer",
+  "source_description": "Three side-by-side panels display the same female character with pink hair in different dynamic action poses against a neutral gray background. She wears a pink and black armored outfit with black thigh-high boots and wields a large purple hammer.",
+  "source_prompt": "comic book style illustration of a fierce young woman with long bright pink hair in a high ponytail, wearing a pink and black tactical outfit with armored shoulder pads and black thigh-high boots with green laces, holding a large purple cartoonish hammer with black accents, shown in three different dynamic action poses across three vertical panels on a gray background, one pose with yellow starburst impact effect, one with orange lightning, one with red cloud effects, bold black outlines, vibrant colors, flat shading",
+  "source_title": "Pink-haired Warrior Poses",
+  "style": "comic book",
+  "mood": "energetic, bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "warhammer",
+    "action poses",
+    "comic art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3361,
+  "source_url": "/generated/3361.jpg",
+  "image_url": "/sketches/3944.png",
+  "inverted_image_url": "/sketches-inverted/3944.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2246,
+  "title": "Line sketch: Hair in Meadow",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with an extraordinarily long, flowing mane of hair sits in a lush field at sunset, her back to the viewer. An egg rests on a dark cloth beside her, surrounded by petals and flowers against a backdrop of distant mountains (derived from generated still #1472).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with an extraordinarily long, flowing mane of hair sits in a lush field at sunset, her back to the viewer. An egg rests on a dark cloth beside her, surrounded by petals and flowers against a backdrop of distant mountains",
+  "inverted_title": "Inverted sketch: Hair in Meadow",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with an extraordinarily long, flowing mane of hair sits in a lush field at sunset, her back to the viewer. An egg rests on a dark cloth beside her, surrounded by petals and flowers against a backdrop of distant mountains (from generated still #1472).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with an extraordinarily long, flowing mane of hair sits in a lush field at sunset, her back to the viewer. An egg rests on a dark cloth beside her, surrounded by petals and flowers against a backdrop of distant mountains",
+  "source_description": "A woman with an extraordinarily long, flowing mane of multicolored hair sits in a lush green field at sunset, her back to the viewer. An iridescent egg rests on a dark cloth beside her, surrounded by pink petals and flowers against a backdrop of distant mountains.",
+  "source_prompt": "",
+  "source_title": "Rainbow Hair in Meadow",
+  "style": "fantasy illustration",
+  "mood": "serene, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "long hair",
+    "hair",
+    "egg",
+    "meadow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1472,
+  "source_url": "/generated/1472.jpg",
+  "image_url": "/sketches/2246.png",
+  "inverted_image_url": "/sketches-inverted/2246.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:43Z"
+}

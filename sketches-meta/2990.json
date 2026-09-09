@@ -1,0 +1,42 @@
+{
+  "number": 2990,
+  "title": "Line sketch: Eclipse Mindscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman whose head merges with a dystopian cityscape, set against a desert of ancient ruins. Her right eye is a swirling black void, the left a spiral; dripping paint, pixelated patterns, floating hearts, and a solar eclipse with a pyramid dominate the cosmic sky above (derived from generated still #2312).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman whose head merges with a dystopian cityscape, set against a desert of ancient ruins. Her right eye is a swirling black void, the left a spiral; dripping paint, pixelated patterns, floating hearts, and a solar eclipse with a pyramid dominate the cosmic sky above",
+  "inverted_title": "Inverted sketch: Eclipse Mindscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman whose head merges with a dystopian cityscape, set against a desert of ancient ruins. Her right eye is a swirling black void, the left a spiral; dripping paint, pixelated patterns, floating hearts, and a solar eclipse with a pyramid dominate the cosmic sky above (from generated still #2312).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman whose head merges with a dystopian cityscape, set against a desert of ancient ruins. Her right eye is a swirling black void, the left a spiral; dripping paint, pixelated patterns, floating hearts, and a solar eclipse with a pyramid dominate the cosmic sky above",
+  "source_description": "A surreal portrait of a woman whose head merges with a dystopian cityscape, set against a desert of ancient ruins. Her right eye is a swirling black void, the left a spiral; colorful dripping paint, pixelated patterns, floating hearts, and a solar eclipse with a golden pyramid dominate the cosmic sky above.",
+  "source_prompt": "Surreal digital painting of a woman's bust in a desert landscape with ancient stone ruins. Her head is a swirling cityscape with buildings and roads, one eye is a swirling black hole, the other a red spiral. Dripping colorful paint, pixel details, floating hearts, and a red and black solar eclipse with a glowing golden pyramid in the dark cosmic sky. Psychedelic melting elements, rich textures, cinematic surrealism.",
+  "source_title": "Eclipse Mindscape",
+  "style": "surrealism",
+  "mood": "ethereal dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cyberpunk",
+    "eclipse",
+    "cityscape",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2312,
+  "source_url": "/generated/2312.jpg",
+  "image_url": "/sketches/2990.png",
+  "inverted_image_url": "/sketches-inverted/2990.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:44Z"
+}

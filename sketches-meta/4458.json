@@ -1,0 +1,42 @@
+{
+  "number": 4458,
+  "title": "Line sketch: Wizard in Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded wizard in robes sits at a wooden desk, writing with a quill in an open book. The scene is filled with magical items including a glowing spiral potion bottle on a shelf, a hanging brass lantern, scrolls with wax seals, glass jars, and a framed composition of a swirling vortex hanging on a wall (derived from generated still #3877).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded wizard in robes sits at a wooden desk, writing with a quill in an open book. The scene is filled with magical items including a glowing spiral potion bottle on a shelf, a hanging brass lantern, scrolls with wax seals, glass jars, and a framed composition of a swirling vortex hanging on a wall",
+  "inverted_title": "Inverted sketch: Wizard in Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded wizard in robes sits at a wooden desk, writing with a quill in an open book. The scene is filled with magical items including a glowing spiral potion bottle on a shelf, a hanging brass lantern, scrolls with wax seals, glass jars, and a framed composition of a swirling vortex hanging on a wall (from generated still #3877).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded wizard in robes sits at a wooden desk, writing with a quill in an open book. The scene is filled with magical items including a glowing spiral potion bottle on a shelf, a hanging brass lantern, scrolls with wax seals, glass jars, and a framed composition of a swirling vortex hanging on a wall",
+  "source_description": "A hooded wizard in purple robes sits at a green wooden desk, writing with a quill in an open book. The scene is filled with magical items including a glowing blue spiral potion bottle on a shelf, a hanging brass lantern, scrolls with wax seals, glass jars, and a framed painting of a swirling green vortex hanging on a purple wall.",
+  "source_prompt": "A hooded wizard wearing purple and green robes sits on a stool at a long green wooden desk, writing with a quill in an open book. On the desk are scrolls with red wax seals, glass jars, and a small knife. A glowing blue spiral seashell-shaped potion bottle sits on a wooden shelf behind him next to a framed painting of a swirling green vortex. A brass lantern hangs on the left casting warm light, the room has deep purple walls with floating sparkles, fantasy illustration style, detailed, atmospheric lighting",
+  "source_title": "Wizard in Study",
+  "style": "digital fantasy illustration",
+  "mood": "mystical, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "magic study",
+    "fantasy desk",
+    "potion bottle",
+    "arcane library"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3877,
+  "source_url": "/generated/3877.jpg",
+  "image_url": "/sketches/4458.png",
+  "inverted_image_url": "/sketches-inverted/4458.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

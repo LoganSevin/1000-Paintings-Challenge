@@ -1,0 +1,42 @@
+{
+  "number": 1030,
+  "title": "Line sketch: Dragon on Mystic Lake",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant dragon with a single large horn sits atop a forested cliff overlooking a calm lake that perfectly reflects its image. The background features mountains, pine trees, and a glowing circular pattern behind the dragon under a and twilight sky (derived from generated still #242).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant dragon with a single large horn sits atop a forested cliff overlooking a calm lake that perfectly reflects its image. The background features mountains, pine trees, and a glowing circular pattern behind the dragon under a and twilight sky",
+  "inverted_title": "Inverted sketch: Dragon on Mystic Lake",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant dragon with a single large horn sits atop a forested cliff overlooking a calm lake that perfectly reflects its image. The background features mountains, pine trees, and a glowing circular pattern behind the dragon under a and twilight sky (from generated still #242).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant dragon with a single large horn sits atop a forested cliff overlooking a calm lake that perfectly reflects its image. The background features mountains, pine trees, and a glowing circular pattern behind the dragon under a and twilight sky",
+  "source_description": "A vibrant green dragon with a single large horn sits atop a forested cliff overlooking a calm lake that perfectly reflects its image. The background features purple mountains, pine trees, and a glowing red circular pattern behind the dragon under a green and orange twilight sky.",
+  "source_prompt": "",
+  "source_title": "Dragon on Mystic Lake",
+  "style": "digital fantasy illustration",
+  "mood": "mystical serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "fantasy landscape",
+    "lake reflection",
+    "mountain vista",
+    "pine forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 242,
+  "source_url": "/generated/242.jpg",
+  "image_url": "/sketches/1030.png",
+  "inverted_image_url": "/sketches-inverted/1030.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:40Z"
+}

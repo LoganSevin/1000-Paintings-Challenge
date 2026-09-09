@@ -1,0 +1,42 @@
+{
+  "number": 4253,
+  "title": "Line sketch: Neural Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's face enclosed within a transparent spherical bubble against a black background. Her right eye is strikingly while the center of the sphere contains a glowing orb emitting numerous, and neural tendrils that connect to the inner surface of the bubble (derived from generated still #3672).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's face enclosed within a transparent spherical bubble against a black background. Her right eye is strikingly while the center of the sphere contains a glowing orb emitting numerous, and neural tendrils that connect to the inner surface of the bubble",
+  "inverted_title": "Inverted sketch: Neural Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's face enclosed within a transparent spherical bubble against a black background. Her right eye is strikingly while the center of the sphere contains a glowing orb emitting numerous, and neural tendrils that connect to the inner surface of the bubble (from generated still #3672).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's face enclosed within a transparent spherical bubble against a black background. Her right eye is strikingly while the center of the sphere contains a glowing orb emitting numerous, and neural tendrils that connect to the inner surface of the bubble",
+  "source_description": "A surreal portrait of a woman's face enclosed within a transparent spherical bubble against a black background. Her right eye is strikingly bright blue while the center of the sphere contains a glowing pink orb emitting numerous neon pink, purple and blue neural tendrils that connect to the inner surface of the bubble.",
+  "source_prompt": "surreal portrait of a woman's face seen through a large transparent spherical bubble, her bright blue eye intensely detailed, at the center a glowing pink orb with dozens of neon pink purple and blue neural dendrites and tendrils radiating outward connecting to the bubble's inner surface, dark cosmic background with faint floating rings, dramatic lighting, vibrant neon colors, painterly digital art style",
+  "source_title": "Neon Neural Eye",
+  "style": "surreal",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "neural",
+    "bubble",
+    "glowing eye",
+    "cybernetic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3672,
+  "source_url": "/generated/3672.jpg",
+  "image_url": "/sketches/4253.png",
+  "inverted_image_url": "/sketches-inverted/4253.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:47Z"
+}

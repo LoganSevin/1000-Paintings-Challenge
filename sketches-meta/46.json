@@ -1,0 +1,42 @@
+{
+  "number": 46,
+  "title": "Line sketch: Vibrant Peony Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dense cluster of blooming and peonies dominates the composition, intertwined with - foliage against a soft background. Overlapping petals and leaves create a lively, layered depth with visible. The technique employs bold, expressive strokes and vibrant color blending for a fresh, painterly effect (derived from painting #65).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dense cluster of blooming and peonies dominates the composition, intertwined with - foliage against a soft background. Overlapping petals and leaves create a lively, layered depth with visible. The technique employs bold, expressive strokes and vibrant color blending for a fresh, painterly effect",
+  "inverted_title": "Inverted sketch: Vibrant Peony Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dense cluster of blooming and peonies dominates the composition, intertwined with - foliage against a soft background. Overlapping petals and leaves create a lively, layered depth with visible. The technique employs bold, expressive strokes and vibrant color blending for a fresh, painterly effect (from painting #65).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dense cluster of blooming and peonies dominates the composition, intertwined with - foliage against a soft background. Overlapping petals and leaves create a lively, layered depth with visible. The technique employs bold, expressive strokes and vibrant color blending for a fresh, painterly effect",
+  "source_description": "A dense cluster of blooming pink and purple peonies dominates the composition, intertwined with yellow-green foliage against a soft pastel background. Overlapping petals and leaves create a lively, layered depth with visible brushwork. The technique employs bold, expressive strokes and vibrant color blending for a fresh, painterly effect.",
+  "source_prompt": "",
+  "source_title": "Vibrant Peony Garden",
+  "style": "Impressionism",
+  "mood": "Vibrant and joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "peonies",
+    "floral",
+    "impressionist",
+    "garden",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 65,
+  "source_url": "/paintings/65.jpg",
+  "image_url": "/sketches/46.png",
+  "inverted_image_url": "/sketches-inverted/46.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

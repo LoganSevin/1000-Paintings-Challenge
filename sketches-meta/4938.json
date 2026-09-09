@@ -1,0 +1,42 @@
+{
+  "number": 4938,
+  "title": "Line sketch: Witch in Haunted Hallway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sinister witch with a skeletal face stands in a derelict hallway, holding a glowing skull staff. The decaying walls are covered in grotesque screaming faces and bloody paintings while papers and debris litter the wooden floor under a single hanging lightbulb (derived from generated still #4375).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sinister witch with a skeletal face stands in a derelict hallway, holding a glowing skull staff. The decaying walls are covered in grotesque screaming faces and bloody paintings while papers and debris litter the wooden floor under a single hanging lightbulb",
+  "inverted_title": "Inverted sketch: Witch in Haunted Hallway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sinister witch with a skeletal face stands in a derelict hallway, holding a glowing skull staff. The decaying walls are covered in grotesque screaming faces and bloody paintings while papers and debris litter the wooden floor under a single hanging lightbulb (from generated still #4375).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sinister witch with a skeletal face stands in a derelict hallway, holding a glowing skull staff. The decaying walls are covered in grotesque screaming faces and bloody paintings while papers and debris litter the wooden floor under a single hanging lightbulb",
+  "source_description": "A sinister witch with a skeletal face stands in a derelict hallway, holding a glowing skull staff. The decaying walls are covered in grotesque screaming faces and bloody paintings while papers and debris litter the wooden floor under a single hanging lightbulb.",
+  "source_prompt": "A skeletal-faced witch wearing a pointed hat and tattered green robes stands in a long decaying hallway, holding a tall staff topped with a glowing purple skull. The walls are covered in painted screaming faces and bloody dripping artwork, one large swirling painting and one lightning painting lean against the wall, papers and broken objects cover the wooden floor, single hanging lightbulb casts sickly yellow light, eerie horror atmosphere, dark fantasy style",
+  "source_title": "Witch in Haunted Hallway",
+  "style": "dark fantasy",
+  "mood": "eerie menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "horror",
+    "haunted",
+    "surreal",
+    "grotesque"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4375,
+  "source_url": "/generated/4375.jpg",
+  "image_url": "/sketches/4938.png",
+  "inverted_image_url": "/sketches-inverted/4938.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:49Z"
+}

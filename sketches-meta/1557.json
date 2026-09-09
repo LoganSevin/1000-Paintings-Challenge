@@ -1,0 +1,42 @@
+{
+  "number": 1557,
+  "title": "Line sketch: Psychedelic Cosmic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring two cartoon cats, one and one, standing amid flames on the left side. On the right, a large mechanical eye with a iris and metallic tentacles emerges from fire and smoke, while a glowing smiley sun with orbiting rings and floating smiley faces dominates the upper center against a dark, cosmic background (derived from generated still #772).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring two cartoon cats, one and one, standing amid flames on the left side. On the right, a large mechanical eye with a iris and metallic tentacles emerges from fire and smoke, while a glowing smiley sun with orbiting rings and floating smiley faces dominates the upper center against a dark, cosmic background",
+  "inverted_title": "Inverted sketch: Psychedelic Cosmic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring two cartoon cats, one and one, standing amid flames on the left side. On the right, a large mechanical eye with a iris and metallic tentacles emerges from fire and smoke, while a glowing smiley sun with orbiting rings and floating smiley faces dominates the upper center against a dark, cosmic background (from generated still #772).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring two cartoon cats, one and one, standing amid flames on the left side. On the right, a large mechanical eye with a iris and metallic tentacles emerges from fire and smoke, while a glowing smiley sun with orbiting rings and floating smiley faces dominates the upper center against a dark, cosmic background",
+  "source_description": "A surreal painting featuring two cartoon cats, one yellow and one blue, standing amid flames on the left side. On the right, a large mechanical eye with a red iris and metallic tentacles emerges from fire and smoke, while a glowing green smiley sun with orbiting colorful rings and floating smiley faces dominates the upper center against a dark, cosmic background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Cosmic Eye",
+  "style": "surrealism",
+  "mood": "chaotic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "cartoon cats",
+    "mechanical eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 772,
+  "source_url": "/generated/772.jpg",
+  "image_url": "/sketches/1557.png",
+  "inverted_image_url": "/sketches-inverted/1557.png",
+  "curve_count": 81,
+  "built_at": "2026-08-17T00:09:41Z"
+}

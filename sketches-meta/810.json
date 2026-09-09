@@ -1,0 +1,42 @@
+{
+  "number": 810,
+  "title": "Line sketch: Psychedelic Monkey Mandala",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant monkey head with glowing eyes and stitched mouth is centered in a layered circular mandala of concentric rings in, and. The composition is set against a cracked greenish background with stylized flowers, leaves, black paint drips and splatters (derived from generated still #19).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant monkey head with glowing eyes and stitched mouth is centered in a layered circular mandala of concentric rings in, and. The composition is set against a cracked greenish background with stylized flowers, leaves, black paint drips and splatters",
+  "inverted_title": "Inverted sketch: Psychedelic Monkey Mandala",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant monkey head with glowing eyes and stitched mouth is centered in a layered circular mandala of concentric rings in, and. The composition is set against a cracked greenish background with stylized flowers, leaves, black paint drips and splatters (from generated still #19).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant monkey head with glowing eyes and stitched mouth is centered in a layered circular mandala of concentric rings in, and. The composition is set against a cracked greenish background with stylized flowers, leaves, black paint drips and splatters",
+  "source_description": "A vibrant turquoise monkey head with glowing pink eyes and stitched mouth is centered in a layered circular mandala of concentric rings in orange, purple, pink and yellow. The composition is set against a cracked greenish background with colorful stylized flowers, leaves, black paint drips and splatters.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Monkey Mandala",
+  "style": "street art",
+  "mood": "psychedelic vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monkey",
+    "mandala",
+    "psychedelic",
+    "graffiti",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 19,
+  "source_url": "/generated/19.jpg",
+  "image_url": "/sketches/810.png",
+  "inverted_image_url": "/sketches-inverted/810.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:39Z"
+}

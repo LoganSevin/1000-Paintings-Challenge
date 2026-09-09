@@ -1,0 +1,42 @@
+{
+  "number": 665,
+  "title": "Line sketch: Robotic Sentinel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed android with a metallic finish and glowing eyes stares directly forward. The futuristic robot features intricate mechanical components and subtle lighting against a backdrop (derived from painting #842).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed android with a metallic finish and glowing eyes stares directly forward. The futuristic robot features intricate mechanical components and subtle lighting against a backdrop",
+  "inverted_title": "Inverted sketch: Robotic Sentinel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed android with a metallic finish and glowing eyes stares directly forward. The futuristic robot features intricate mechanical components and subtle lighting against a backdrop (from painting #842).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed android with a metallic finish and glowing eyes stares directly forward. The futuristic robot features intricate mechanical components and subtle lighting against a backdrop",
+  "source_description": "A highly detailed android with a metallic golden finish and glowing yellow eyes stares directly forward. The futuristic robot features intricate mechanical components and subtle lighting against a deep red backdrop.",
+  "source_prompt": "",
+  "source_title": "Golden Robotic Sentinel",
+  "style": "Realistic 3D Render",
+  "mood": "Intense, futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "android",
+    "cybernetic",
+    "glow",
+    "sci-fi"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 842,
+  "source_url": "/paintings/842.jpg",
+  "image_url": "/sketches/665.png",
+  "inverted_image_url": "/sketches-inverted/665.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:39Z"
+}

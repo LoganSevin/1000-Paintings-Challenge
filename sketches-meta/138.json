@@ -1,0 +1,42 @@
+{
+  "number": 138,
+  "title": "Line sketch: Dragon Guardian in Autumn Grove",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A brave young warrior with flowing hair stands ready with her sword as a majestic dragon curves around her in an enchanted forest. The scene is illuminated by warm autumn light with vibrant leaves and glowing particles in the air (derived from painting #175).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A brave young warrior with flowing hair stands ready with her sword as a majestic dragon curves around her in an enchanted forest. The scene is illuminated by warm autumn light with vibrant leaves and glowing particles in the air",
+  "inverted_title": "Inverted sketch: Dragon Guardian in Autumn Grove",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A brave young warrior with flowing hair stands ready with her sword as a majestic dragon curves around her in an enchanted forest. The scene is illuminated by warm autumn light with vibrant leaves and glowing particles in the air (from painting #175).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A brave young warrior with flowing hair stands ready with her sword as a majestic dragon curves around her in an enchanted forest. The scene is illuminated by warm autumn light with vibrant leaves and glowing particles in the air",
+  "source_description": "A brave young warrior with flowing hair stands ready with her sword as a majestic golden dragon curves around her in an enchanted forest. The scene is illuminated by warm autumn light with vibrant red leaves and glowing particles in the air.",
+  "source_prompt": "",
+  "source_title": "Dragon Guardian in Autumn Grove",
+  "style": "Fantasy illustration",
+  "mood": "Epic wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "warrior",
+    "fantasy",
+    "autumn",
+    "forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 175,
+  "source_url": "/paintings/175.jpg",
+  "image_url": "/sketches/138.png",
+  "inverted_image_url": "/sketches-inverted/138.png",
+  "curve_count": 106,
+  "built_at": "2026-08-17T00:09:38Z"
+}

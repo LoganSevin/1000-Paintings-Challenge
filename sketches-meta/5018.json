@@ -1,0 +1,42 @@
+{
+  "number": 5018,
+  "title": "Line sketch: Surreal Dreamscape Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with -tipped hair sits pensively in the foreground beside a glowing river containing koi and a reflection of an armored knight. In the surreal sky, two planets hang above a desert dune where a -cloaked figure walks, while an ornate circular frame reveals a knight in armor standing between two pillars amid a floral wreath (derived from generated still #4457).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with -tipped hair sits pensively in the foreground beside a glowing river containing koi and a reflection of an armored knight. In the surreal sky, two planets hang above a desert dune where a -cloaked figure walks, while an ornate circular frame reveals a knight in armor standing between two pillars amid a floral wreath",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with -tipped hair sits pensively in the foreground beside a glowing river containing koi and a reflection of an armored knight. In the surreal sky, two planets hang above a desert dune where a -cloaked figure walks, while an ornate circular frame reveals a knight in armor standing between two pillars amid a floral wreath (from generated still #4457).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with -tipped hair sits pensively in the foreground beside a glowing river containing koi and a reflection of an armored knight. In the surreal sky, two planets hang above a desert dune where a -cloaked figure walks, while an ornate circular frame reveals a knight in armor standing between two pillars amid a floral wreath",
+  "source_description": "A young woman with blue-tipped hair sits pensively in the foreground beside a glowing river containing orange koi and a reflection of an armored knight. In the surreal sky, two green planets hang above a desert dune where a red-cloaked figure walks, while an ornate circular frame reveals a knight in purple armor standing between two golden pillars amid a floral wreath.",
+  "source_prompt": "A contemplative young woman with long dark hair featuring bright blue streaks sits in the lower left, resting her chin on her hand beside a magical river. The river contains orange koi fish and clearly reflects a knight in purple armor. In the background, a desert dune rises under a dramatic sky with two glowing green planets, a red robed figure walking, and a large ornate circular frame decorated with flowers, seashells and bones that contains another view of the knight between two golden columns. A green staircase ascends into clouds on the right. Highly detailed fantasy surrealism with cosmic and mystical elements.",
+  "source_title": "Surreal Dreamscape Reflection",
+  "style": "fantasy surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "ethereal",
+    "cosmic",
+    "reflective"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4457,
+  "source_url": "/generated/4457.jpg",
+  "image_url": "/sketches/5018.png",
+  "inverted_image_url": "/sketches-inverted/5018.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:49Z"
+}

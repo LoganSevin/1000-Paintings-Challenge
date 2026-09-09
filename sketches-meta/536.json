@@ -1,0 +1,42 @@
+{
+  "number": 536,
+  "title": "Line sketch: Cosmic Egg in Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large white sphere with and black dots floats above an ground, accompanied by three smaller spheres. Swirling, grey, and black patterns create a dynamic cosmic background (derived from painting #672).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large white sphere with and black dots floats above an ground, accompanied by three smaller spheres. Swirling, grey, and black patterns create a dynamic cosmic background",
+  "inverted_title": "Inverted sketch: Cosmic Egg in Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large white sphere with and black dots floats above an ground, accompanied by three smaller spheres. Swirling, grey, and black patterns create a dynamic cosmic background (from painting #672).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large white sphere with and black dots floats above an ground, accompanied by three smaller spheres. Swirling, grey, and black patterns create a dynamic cosmic background",
+  "source_description": "A large white sphere with red and black dots floats above an orange ground, accompanied by three smaller spheres. Swirling red, grey, and black patterns create a dynamic cosmic background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Egg in Red Vortex",
+  "style": "Surrealism",
+  "mood": "Mysterious and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "spheres",
+    "vortex",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 672,
+  "source_url": "/paintings/672.jpg",
+  "image_url": "/sketches/536.png",
+  "inverted_image_url": "/sketches-inverted/536.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:39Z"
+}

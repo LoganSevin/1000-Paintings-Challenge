@@ -1,0 +1,42 @@
+{
+  "number": 492,
+  "title": "Line sketch: Abstract Geometric Harmony",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Intricate composition of overlapping circles, curves, and segmented forms in leaf and deep tones. Evokes a sense of cosmic balance and dynamic movement through layered transparent shapes (derived from painting #598).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Intricate composition of overlapping circles, curves, and segmented forms in leaf and deep tones. Evokes a sense of cosmic balance and dynamic movement through layered transparent shapes",
+  "inverted_title": "Inverted sketch: Abstract Geometric Harmony",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Intricate composition of overlapping circles, curves, and segmented forms in leaf and deep tones. Evokes a sense of cosmic balance and dynamic movement through layered transparent shapes (from painting #598).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Intricate composition of overlapping circles, curves, and segmented forms in leaf and deep tones. Evokes a sense of cosmic balance and dynamic movement through layered transparent shapes",
+  "source_description": "Intricate composition of overlapping circles, curves, and segmented forms in gold leaf and deep tones. Evokes a sense of cosmic balance and dynamic movement through layered transparent shapes.",
+  "source_prompt": "",
+  "source_title": "Abstract Geometric Harmony",
+  "style": "Abstract",
+  "mood": "Mysterious and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Mixed media with gold leaf on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "geometric",
+    "leaf",
+    "circular forms",
+    "modern art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 598,
+  "source_url": "/paintings/598.jpg",
+  "image_url": "/sketches/492.png",
+  "inverted_image_url": "/sketches-inverted/492.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

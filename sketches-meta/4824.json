@@ -1,0 +1,42 @@
+{
+  "number": 4824,
+  "title": "Line sketch: Masquerade Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic Venetian-style full-face mask centered against a dark gradient background. The mask features a metallic grey base with abstract splotches of, accented by dripping paint effects, musical notes, and geometric patterns. The eye openings and lip line are trimmed in reflective (derived from generated still #4259).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic Venetian-style full-face mask centered against a dark gradient background. The mask features a metallic grey base with abstract splotches of, accented by dripping paint effects, musical notes, and geometric patterns. The eye openings and lip line are trimmed in reflective",
+  "inverted_title": "Inverted sketch: Masquerade Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic Venetian-style full-face mask centered against a dark gradient background. The mask features a metallic grey base with abstract splotches of, accented by dripping paint effects, musical notes, and geometric patterns. The eye openings and lip line are trimmed in reflective (from generated still #4259).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic Venetian-style full-face mask centered against a dark gradient background. The mask features a metallic grey base with abstract splotches of, accented by dripping paint effects, musical notes, and geometric patterns. The eye openings and lip line are trimmed in reflective",
+  "source_description": "A realistic Venetian-style full-face mask centered against a dark gradient background. The mask features a metallic grey base with abstract splotches of purple, blue, and gold, accented by dripping paint effects, musical notes, and geometric patterns. The eye openings and lip line are trimmed in reflective gold.",
+  "source_prompt": "A highly detailed Venetian masquerade mask with a metallic grey surface covered in abstract watercolor-like splotches of purple, violet, and blue. Gold leaf accents line the eyes and lips. Subtle musical notation and geometric fragments float across the surface with dripping paint effects. The mask is centered, evenly lit with soft highlights, against a smooth dark gradient studio background.",
+  "source_title": "Iridescent Masquerade Mask",
+  "style": "contemporary mixed media",
+  "mood": "mysterious, artistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted sculpture / 3D rendered object",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "masquerade mask",
+    "venetian mask",
+    "dripping paint",
+    "musical notes",
+    "accents"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4259,
+  "source_url": "/generated/4259.jpg",
+  "image_url": "/sketches/4824.png",
+  "inverted_image_url": "/sketches-inverted/4824.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:49Z"
+}

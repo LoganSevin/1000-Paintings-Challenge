@@ -1,0 +1,42 @@
+{
+  "number": 957,
+  "title": "Line sketch: Psychedelic Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pop art portrait of a dog with - eyes and inner ears, shown in profile looking to the right. The dog is surrounded by swirling concentric circles, splatters, and abstract patterns in, and black against a and background (derived from generated still #167).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pop art portrait of a dog with - eyes and inner ears, shown in profile looking to the right. The dog is surrounded by swirling concentric circles, splatters, and abstract patterns in, and black against a and background",
+  "inverted_title": "Inverted sketch: Psychedelic Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pop art portrait of a dog with - eyes and inner ears, shown in profile looking to the right. The dog is surrounded by swirling concentric circles, splatters, and abstract patterns in, and black against a and background (from generated still #167).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pop art portrait of a dog with - eyes and inner ears, shown in profile looking to the right. The dog is surrounded by swirling concentric circles, splatters, and abstract patterns in, and black against a and background",
+  "source_description": "A vibrant pop art portrait of a green dog with bright yellow-green eyes and pink inner ears, shown in profile looking to the right. The dog is surrounded by swirling concentric circles, splatters, and abstract patterns in turquoise, pink, and black against a vivid magenta and lime background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Green Dog Portrait",
+  "style": "pop art",
+  "mood": "vibrant, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog",
+    "psychedelic",
+    "swirls",
+    "pop art",
+    "graffiti"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 167,
+  "source_url": "/generated/167.jpg",
+  "image_url": "/sketches/957.png",
+  "inverted_image_url": "/sketches-inverted/957.png",
+  "curve_count": 141,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4002,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A confident female warrior stands in a dynamic combat pose against a solid dark gray background. She has long dark hair in a topknot, wears and tribal-style armor with exposed midriff, fingerless gloves, and holds a large warhammer with intricate patterns (derived from generated still #3419).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A confident female warrior stands in a dynamic combat pose against a solid dark gray background. She has long dark hair in a topknot, wears and tribal-style armor with exposed midriff, fingerless gloves, and holds a large warhammer with intricate patterns",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A confident female warrior stands in a dynamic combat pose against a solid dark gray background. She has long dark hair in a topknot, wears and tribal-style armor with exposed midriff, fingerless gloves, and holds a large warhammer with intricate patterns (from generated still #3419).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A confident female warrior stands in a dynamic combat pose against a solid dark gray background. She has long dark hair in a topknot, wears and tribal-style armor with exposed midriff, fingerless gloves, and holds a large warhammer with intricate patterns",
+  "source_description": "A confident female warrior stands in a dynamic combat pose against a solid dark gray background. She has long dark hair in a topknot, wears orange and purple tribal-style armor with exposed midriff, fingerless gloves, and holds a large purple warhammer with intricate patterns.",
+  "source_prompt": "A fierce young East Asian female warrior with long dark hair tied in a topknot and bangs, wearing orange cropped tribal armor with purple accents, exposed midriff, dark pants with orange patterns, purple fingerless gloves and boots, standing in a powerful combat stance holding a large ornate purple warhammer with both hands, one arm raised near her face, looking directly at viewer with a confident expression, solid dark gray background, clean digital painting style",
+  "source_title": "Female Warrior with Hammer",
+  "style": "digital illustration",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "tribal armor",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3419,
+  "source_url": "/generated/3419.jpg",
+  "image_url": "/sketches/4002.png",
+  "inverted_image_url": "/sketches-inverted/4002.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:47Z"
+}

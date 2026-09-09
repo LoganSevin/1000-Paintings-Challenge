@@ -1,0 +1,42 @@
+{
+  "number": 1344,
+  "title": "Line sketch: Tormented Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's face with the Colosseum embedded in her forehead, her expression anguished with bared teeth. Multiple disembodied hands in, white, and grey tones reach toward her head from a chaotic, apocalyptic sky filled with fire, smoke, and falling figures (derived from generated still #559).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's face with the Colosseum embedded in her forehead, her expression anguished with bared teeth. Multiple disembodied hands in, white, and grey tones reach toward her head from a chaotic, apocalyptic sky filled with fire, smoke, and falling figures",
+  "inverted_title": "Inverted sketch: Tormented Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's face with the Colosseum embedded in her forehead, her expression anguished with bared teeth. Multiple disembodied hands in, white, and grey tones reach toward her head from a chaotic, apocalyptic sky filled with fire, smoke, and falling figures (from generated still #559).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's face with the Colosseum embedded in her forehead, her expression anguished with bared teeth. Multiple disembodied hands in, white, and grey tones reach toward her head from a chaotic, apocalyptic sky filled with fire, smoke, and falling figures",
+  "source_description": "A surreal portrait of a woman's face with the Colosseum embedded in her forehead, her expression anguished with bared teeth. Multiple disembodied hands in red, white, and grey tones reach toward her head from a chaotic, apocalyptic sky filled with fire, smoke, and falling figures.",
+  "source_prompt": "",
+  "source_title": "Tormented Vision",
+  "style": "surrealism",
+  "mood": "chaotic torment",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "apocalyptic",
+    "Colosseum",
+    "hands",
+    "torment"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 559,
+  "source_url": "/generated/559.jpg",
+  "image_url": "/sketches/1344.png",
+  "inverted_image_url": "/sketches-inverted/1344.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:41Z"
+}

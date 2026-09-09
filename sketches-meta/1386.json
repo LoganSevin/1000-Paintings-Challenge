@@ -1,0 +1,42 @@
+{
+  "number": 1386,
+  "title": "Line sketch: Surreal Wolf Eye Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular cracked composition features a split wolf head with one eye on a side and a black silhouette profile on the side. A swirling vortex sits at the center where the faces meet, set against a background filled with black floral patterns, skulls, and dripping paint (derived from generated still #601).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular cracked composition features a split wolf head with one eye on a side and a black silhouette profile on the side. A swirling vortex sits at the center where the faces meet, set against a background filled with black floral patterns, skulls, and dripping paint",
+  "inverted_title": "Inverted sketch: Surreal Wolf Eye Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular cracked composition features a split wolf head with one eye on a side and a black silhouette profile on the side. A swirling vortex sits at the center where the faces meet, set against a background filled with black floral patterns, skulls, and dripping paint (from generated still #601).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular cracked composition features a split wolf head with one eye on a side and a black silhouette profile on the side. A swirling vortex sits at the center where the faces meet, set against a background filled with black floral patterns, skulls, and dripping paint",
+  "source_description": "A circular cracked composition features a split wolf head with one yellow eye on a green side and a black silhouette profile on the blue side. A swirling red vortex sits at the center where the faces meet, set against a magenta background filled with black floral patterns, skulls, and dripping colorful paint.",
+  "source_prompt": "",
+  "source_title": "Surreal Wolf Eye Vortex",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "vortex",
+    "skulls",
+    "surreal",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 601,
+  "source_url": "/generated/601.jpg",
+  "image_url": "/sketches/1386.png",
+  "inverted_image_url": "/sketches-inverted/1386.png",
+  "curve_count": 60,
+  "built_at": "2026-08-17T00:09:41Z"
+}

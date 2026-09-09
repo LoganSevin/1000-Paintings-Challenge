@@ -1,0 +1,42 @@
+{
+  "number": 136,
+  "title": "Line sketch: Whimsical Beaver Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cheerful beaver with a mustache peeks through a circular wooden frame against a vibrant background. The cartoon character holds a small object in its paw while displaying an expressive open-mouthed smile (derived from painting #173).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cheerful beaver with a mustache peeks through a circular wooden frame against a vibrant background. The cartoon character holds a small object in its paw while displaying an expressive open-mouthed smile",
+  "inverted_title": "Inverted sketch: Whimsical Beaver Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cheerful beaver with a mustache peeks through a circular wooden frame against a vibrant background. The cartoon character holds a small object in its paw while displaying an expressive open-mouthed smile (from painting #173).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cheerful beaver with a mustache peeks through a circular wooden frame against a vibrant background. The cartoon character holds a small object in its paw while displaying an expressive open-mouthed smile",
+  "source_description": "A cheerful green beaver with a mustache peeks through a circular wooden frame against a vibrant orange background. The cartoon character holds a small object in its paw while displaying an expressive open-mouthed smile.",
+  "source_prompt": "",
+  "source_title": "Whimsical Beaver Portrait",
+  "style": "cartoon illustration",
+  "mood": "playful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "beaver",
+    "cartoon",
+    "whimsical",
+    "circular frame",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 173,
+  "source_url": "/paintings/173.jpg",
+  "image_url": "/sketches/136.png",
+  "inverted_image_url": "/sketches-inverted/136.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:38Z"
+}

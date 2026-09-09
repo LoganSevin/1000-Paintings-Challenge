@@ -1,0 +1,42 @@
+{
+  "number": 4779,
+  "title": "Line sketch: Whale in Cathedral Arcade",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous, translucent whale floats through the center of a grand, arched cathedral corridor at night. Small human figures and dogs walk along the stone floor beneath it, casting long shadows, while balloons and glowing orbs drift nearby (derived from generated still #4213).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous, translucent whale floats through the center of a grand, arched cathedral corridor at night. Small human figures and dogs walk along the stone floor beneath it, casting long shadows, while balloons and glowing orbs drift nearby",
+  "inverted_title": "Inverted sketch: Whale in Cathedral Arcade",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous, translucent whale floats through the center of a grand, arched cathedral corridor at night. Small human figures and dogs walk along the stone floor beneath it, casting long shadows, while balloons and glowing orbs drift nearby (from generated still #4213).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous, translucent whale floats through the center of a grand, arched cathedral corridor at night. Small human figures and dogs walk along the stone floor beneath it, casting long shadows, while balloons and glowing orbs drift nearby",
+  "source_description": "A luminous, translucent blue whale floats through the center of a grand, arched cathedral corridor at night. Small human figures and dogs walk along the stone floor beneath it, casting long shadows, while colorful balloons and glowing orbs drift nearby.",
+  "source_prompt": "A massive translucent blue whale with swirling patterns floating inside a vast cathedral hallway with tall gothic arches and pillars, small human figures and dogs walking on the stone floor below, colorful balloons drifting, glowing orbs and stars in the twilight sky visible through the arches, mystical atmosphere, intricate architectural details, soft glowing light",
+  "source_title": "Whale in Cathedral Arcade",
+  "style": "surreal fantasy",
+  "mood": "dreamlike ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "whale",
+    "cathedral",
+    "surreal",
+    "fantasy",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4213,
+  "source_url": "/generated/4213.jpg",
+  "image_url": "/sketches/4779.png",
+  "inverted_image_url": "/sketches-inverted/4779.png",
+  "curve_count": 117,
+  "built_at": "2026-08-17T00:09:48Z"
+}

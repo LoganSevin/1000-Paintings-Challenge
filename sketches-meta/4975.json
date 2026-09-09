@@ -1,0 +1,42 @@
+{
+  "number": 4975,
+  "title": "Line sketch: Eldritch page",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a shirt stands in a decaying art gallery, gesturing with both hands toward a large page resting on a velvet couch. The composition depicts a vibrant and tentacled eldritch creature with multiple eyes, while the surrounding walls show peeling paint, dripping ooze, and framed paintings also melting under the rain visible through tall windows (derived from generated still #4412).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a shirt stands in a decaying art gallery, gesturing with both hands toward a large page resting on a velvet couch. The composition depicts a vibrant and tentacled eldritch creature with multiple eyes, while the surrounding walls show peeling paint, dripping ooze, and framed paintings also melting under the rain visible through tall windows",
+  "inverted_title": "Inverted sketch: Eldritch page",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a shirt stands in a decaying art gallery, gesturing with both hands toward a large page resting on a velvet couch. The composition depicts a vibrant and tentacled eldritch creature with multiple eyes, while the surrounding walls show peeling paint, dripping ooze, and framed paintings also melting under the rain visible through tall windows (from generated still #4412).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a shirt stands in a decaying art gallery, gesturing with both hands toward a large page resting on a velvet couch. The composition depicts a vibrant and tentacled eldritch creature with multiple eyes, while the surrounding walls show peeling paint, dripping ooze, and framed paintings also melting under the rain visible through tall windows",
+  "source_description": "A man in a green shirt stands in a decaying art gallery, gesturing with both hands toward a large canvas resting on a purple velvet couch. The painting depicts a vibrant magenta and purple tentacled eldritch creature with multiple eyes, while the surrounding walls show peeling paint, dripping purple ooze, and framed paintings also melting under the rain visible through tall windows.",
+  "source_prompt": "A man in a green shirt stands in a decaying art gallery at night, gesturing toward a large canvas on a purple velvet couch that displays a vibrant magenta eldritch tentacle monster with many eyes. The gallery walls are peeling and covered in dripping purple ooze, other framed paintings are melting, rain streaks down tall windows with streetlights visible outside, cinematic lighting, moody atmosphere",
+  "source_title": "Eldritch Canvas",
+  "style": "cinematic",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eldritch horror",
+    "art gallery",
+    "tentacle monster",
+    "melting paintings",
+    "rainy night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4412,
+  "source_url": "/generated/4412.jpg",
+  "image_url": "/sketches/4975.png",
+  "inverted_image_url": "/sketches-inverted/4975.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:49Z"
+}

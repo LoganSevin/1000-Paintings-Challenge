@@ -1,0 +1,42 @@
+{
+  "number": 1498,
+  "title": "Line sketch: Psychedelic Eye Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a patterned dog on the left facing a large cracked and eye in the center that drips paint. On the right is a woman's face with skin covered in vibrant, and swirling patterns, set against a dark background with multiple circular framed portraits (derived from generated still #713).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a patterned dog on the left facing a large cracked and eye in the center that drips paint. On the right is a woman's face with skin covered in vibrant, and swirling patterns, set against a dark background with multiple circular framed portraits",
+  "inverted_title": "Inverted sketch: Psychedelic Eye Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a patterned dog on the left facing a large cracked and eye in the center that drips paint. On the right is a woman's face with skin covered in vibrant, and swirling patterns, set against a dark background with multiple circular framed portraits (from generated still #713).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a patterned dog on the left facing a large cracked and eye in the center that drips paint. On the right is a woman's face with skin covered in vibrant, and swirling patterns, set against a dark background with multiple circular framed portraits",
+  "source_description": "A surreal painting featuring a green patterned dog on the left facing a large cracked red and gold eye in the center that drips paint. On the right is a woman's face with blue skin covered in vibrant orange, yellow, and blue swirling patterns, set against a dark background with multiple circular framed portraits.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Eye Portrait",
+  "style": "surreal psychedelic",
+  "mood": "trippy hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "eye",
+    "dog",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 713,
+  "source_url": "/generated/713.jpg",
+  "image_url": "/sketches/1498.png",
+  "inverted_image_url": "/sketches-inverted/1498.png",
+  "curve_count": 316,
+  "built_at": "2026-08-17T00:09:41Z"
+}

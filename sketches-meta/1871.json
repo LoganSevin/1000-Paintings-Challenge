@@ -1,0 +1,42 @@
+{
+  "number": 1871,
+  "title": "Line sketch: Dragon and Astronaut",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fantasy illustration shows a large and dragon with ornate patterns facing an astronaut in a white spacesuit. The astronaut sits on a swirling cloud, extending a hand toward the dragon against a cosmic background featuring a large and planet with orbiting figures (derived from generated still #1096).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fantasy illustration shows a large and dragon with ornate patterns facing an astronaut in a white spacesuit. The astronaut sits on a swirling cloud, extending a hand toward the dragon against a cosmic background featuring a large and planet with orbiting figures",
+  "inverted_title": "Inverted sketch: Dragon and Astronaut",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fantasy illustration shows a large and dragon with ornate patterns facing an astronaut in a white spacesuit. The astronaut sits on a swirling cloud, extending a hand toward the dragon against a cosmic background featuring a large and planet with orbiting figures (from generated still #1096).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fantasy illustration shows a large and dragon with ornate patterns facing an astronaut in a white spacesuit. The astronaut sits on a swirling cloud, extending a hand toward the dragon against a cosmic background featuring a large and planet with orbiting figures",
+  "source_description": "A detailed fantasy illustration shows a large purple and gold dragon with ornate patterns facing an astronaut in a white spacesuit. The astronaut sits on a swirling yellow cloud, extending a hand toward the dragon against a cosmic background featuring a large green and yellow planet with orbiting figures.",
+  "source_prompt": "",
+  "source_title": "Dragon and Astronaut",
+  "style": "fantasy illustration",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "astronaut",
+    "fantasy",
+    "space",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1096,
+  "source_url": "/generated/1096.jpg",
+  "image_url": "/sketches/1871.png",
+  "inverted_image_url": "/sketches-inverted/1871.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:42Z"
+}

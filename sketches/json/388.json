@@ -1,0 +1,21 @@
+{
+  "num": 388,
+  "title": "Painting #455",
+  "created": 1786915921.247744,
+  "source_url": "/paintings/455.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*156.00 + 3*t*(1 - t)^2*158.33 + 3*t^2*(1 - t)*160.67 + t^3*163.00,(1 - t)^3*178.00 + 3*t*(1 - t)^2*177.67 + 3*t^2*(1 - t)*177.33 + t^3*177.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 455
+  },
+  "preview_url": "/sketches/388.png"
+}

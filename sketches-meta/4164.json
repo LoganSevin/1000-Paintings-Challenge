@@ -1,0 +1,42 @@
+{
+  "number": 4164,
+  "title": "Line sketch: Pinecone Herald in the Marsh",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene set in a marshy pond with lily pads. A faceless black armored figure stands waist-deep in water, one hand raised, water splashing around it. Above floats a large heraldic shield displaying three black pinecones, topped by a knight's helmet with a cross and surrounded by ornate scrollwork and reeds. A banner below reads 'Forest Spirit' (derived from generated still #3582).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene set in a marshy pond with lily pads. A faceless black armored figure stands waist-deep in water, one hand raised, water splashing around it. Above floats a large heraldic shield displaying three black pinecones, topped by a knight's helmet with a cross and surrounded by ornate scrollwork and reeds. A banner below reads 'Forest Spirit'",
+  "inverted_title": "Inverted sketch: Pinecone Herald in the Marsh",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene set in a marshy pond with lily pads. A faceless black armored figure stands waist-deep in water, one hand raised, water splashing around it. Above floats a large heraldic shield displaying three black pinecones, topped by a knight's helmet with a cross and surrounded by ornate scrollwork and reeds. A banner below reads 'Forest Spirit' (from generated still #3582).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene set in a marshy pond with lily pads. A faceless black armored figure stands waist-deep in water, one hand raised, water splashing around it. Above floats a large heraldic shield displaying three black pinecones, topped by a knight's helmet with a cross and surrounded by ornate scrollwork and reeds. A banner below reads 'Forest Spirit'",
+  "source_description": "A surreal scene set in a marshy pond with lily pads. A faceless black armored figure stands waist-deep in water, one hand raised, water splashing around it. Above floats a large heraldic shield displaying three black pinecones, topped by a knight's helmet with a cross and surrounded by ornate silver scrollwork and reeds. A banner below reads 'Forest Spirit'.",
+  "source_prompt": "Surreal fantasy scene in a calm marsh pond filled with yellow-green lily pads and tall reeds under a blue sky. A glossy black faceless armored figure stands waist-deep in reflective water with one hand raised, water splashing. Floating above is a large white heraldic shield with three detailed black pinecones arranged in a triangle, topped with an ornate silver knight helmet with a cross and green foliage. Silver scrollwork frames the shield. A silver banner beneath reads 'Forest Spirit' in gothic script. Detailed digital painting with realistic water reflections.",
+  "source_title": "Pinecone Herald in the Marsh",
+  "style": "surreal fantasy",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "heraldry",
+    "marsh",
+    "armored figure",
+    "pinecones",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3582,
+  "source_url": "/generated/3582.jpg",
+  "image_url": "/sketches/4164.png",
+  "inverted_image_url": "/sketches-inverted/4164.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 526,
+  "title": "Line sketch: Sailing on Tranquil Waters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene lakeside scene features a small rowboat with three figures in the foreground, while sailboats glide across the calm water under a vast, cloudy sky. Distant mountains and a shoreline village complete this peaceful maritime landscape (derived from painting #656).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene lakeside scene features a small rowboat with three figures in the foreground, while sailboats glide across the calm water under a vast, cloudy sky. Distant mountains and a shoreline village complete this peaceful maritime landscape",
+  "inverted_title": "Inverted sketch: Sailing on Tranquil Waters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene lakeside scene features a small rowboat with three figures in the foreground, while sailboats glide across the calm water under a vast, cloudy sky. Distant mountains and a shoreline village complete this peaceful maritime landscape (from painting #656).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene lakeside scene features a small rowboat with three figures in the foreground, while sailboats glide across the calm water under a vast, cloudy sky. Distant mountains and a shoreline village complete this peaceful maritime landscape",
+  "source_description": "A serene lakeside scene features a small rowboat with three figures in the foreground, while sailboats glide across the calm water under a vast, cloudy sky. Distant mountains and a shoreline village complete this peaceful maritime landscape.",
+  "source_prompt": "",
+  "source_title": "Sailing on Tranquil Waters",
+  "style": "Realism",
+  "mood": "Serene and peaceful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "seascape",
+    "sailing",
+    "mountains",
+    "rowboat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 656,
+  "source_url": "/paintings/656.jpg",
+  "image_url": "/sketches/526.png",
+  "inverted_image_url": "/sketches-inverted/526.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:39Z"
+}

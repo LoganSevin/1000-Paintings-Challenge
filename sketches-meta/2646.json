@@ -1,0 +1,42 @@
+{
+  "number": 2646,
+  "title": "Line sketch: Mirror of Duality",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring an ornate oval frame containing two intertwined women with long dark hair, one holding a bird. The composition is dramatically slashed by a diagonal beam with thick liquid dripping down from the top and sides onto a dark surface scattered with petals (derived from generated still #1886).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring an ornate oval frame containing two intertwined women with long dark hair, one holding a bird. The composition is dramatically slashed by a diagonal beam with thick liquid dripping down from the top and sides onto a dark surface scattered with petals",
+  "inverted_title": "Inverted sketch: Mirror of Duality",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring an ornate oval frame containing two intertwined women with long dark hair, one holding a bird. The composition is dramatically slashed by a diagonal beam with thick liquid dripping down from the top and sides onto a dark surface scattered with petals (from generated still #1886).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring an ornate oval frame containing two intertwined women with long dark hair, one holding a bird. The composition is dramatically slashed by a diagonal beam with thick liquid dripping down from the top and sides onto a dark surface scattered with petals",
+  "source_description": "A surreal painting featuring an ornate oval frame containing two intertwined women with long dark hair, one holding a red bird. The composition is dramatically slashed by a diagonal red beam with thick red liquid dripping down from the top and sides onto a dark surface scattered with red petals.",
+  "source_prompt": "",
+  "source_title": "Crimson Mirror of Duality",
+  "style": "surrealism",
+  "mood": "dark dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "duality",
+    "liquid",
+    "ornate frame",
+    "women portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1886,
+  "source_url": "/generated/1886.jpg",
+  "image_url": "/sketches/2646.png",
+  "inverted_image_url": "/sketches-inverted/2646.png",
+  "curve_count": 92,
+  "built_at": "2026-08-17T00:09:43Z"
+}

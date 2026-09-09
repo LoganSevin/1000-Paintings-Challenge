@@ -1,0 +1,42 @@
+{
+  "number": 2505,
+  "title": "Line sketch: Vision of Yesteryear",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing lightbulb with a tiny figure inside sits atop a large mushroom while a blonde fairy reaches toward it. The night sky is filled with many fairies flying among swirling light trails and heart-shaped leaves (derived from generated still #1740).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing lightbulb with a tiny figure inside sits atop a large mushroom while a blonde fairy reaches toward it. The night sky is filled with many fairies flying among swirling light trails and heart-shaped leaves",
+  "inverted_title": "Inverted sketch: Vision of Yesteryear",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing lightbulb with a tiny figure inside sits atop a large mushroom while a blonde fairy reaches toward it. The night sky is filled with many fairies flying among swirling light trails and heart-shaped leaves (from generated still #1740).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing lightbulb with a tiny figure inside sits atop a large mushroom while a blonde fairy reaches toward it. The night sky is filled with many fairies flying among swirling light trails and heart-shaped leaves",
+  "source_description": "A glowing lightbulb with a tiny figure inside sits atop a large purple mushroom while a blonde fairy reaches toward it. The night sky is filled with many colorful fairies flying among swirling light trails and heart-shaped leaves.",
+  "source_prompt": "",
+  "source_title": "Vision of Yesteryear",
+  "style": "whimsical fantasy",
+  "mood": "magical dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairies",
+    "mushroom",
+    "lightbulb",
+    "fantasy",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1740,
+  "source_url": "/generated/1740.jpg",
+  "image_url": "/sketches/2505.png",
+  "inverted_image_url": "/sketches-inverted/2505.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

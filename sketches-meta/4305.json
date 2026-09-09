@@ -1,0 +1,42 @@
+{
+  "number": 4305,
+  "title": "Line sketch: Mystic Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with electrical arcs sits on a wooden table in a dark mystical setting. A translucent hand reaches toward the orb, which emits energy streams connecting to glowing flowers, a luminous mushroom, and sparkling particles, while an open book and potion bottles rest on a shelf in the background (derived from generated still #3724).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with electrical arcs sits on a wooden table in a dark mystical setting. A translucent hand reaches toward the orb, which emits energy streams connecting to glowing flowers, a luminous mushroom, and sparkling particles, while an open book and potion bottles rest on a shelf in the background",
+  "inverted_title": "Inverted sketch: Mystic Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with electrical arcs sits on a wooden table in a dark mystical setting. A translucent hand reaches toward the orb, which emits energy streams connecting to glowing flowers, a luminous mushroom, and sparkling particles, while an open book and potion bottles rest on a shelf in the background (from generated still #3724).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with electrical arcs sits on a wooden table in a dark mystical setting. A translucent hand reaches toward the orb, which emits energy streams connecting to glowing flowers, a luminous mushroom, and sparkling particles, while an open book and potion bottles rest on a shelf in the background",
+  "source_description": "A glowing plasma globe with bright blue electrical arcs sits on a wooden table in a dark mystical setting. A translucent hand reaches toward the orb, which emits colorful energy streams connecting to glowing flowers, a luminous mushroom, and sparkling particles, while an open book and potion bottles rest on a shelf in the background.",
+  "source_prompt": "A glowing plasma orb with bright blue electrical tendrils sits on a wooden table in a dark forest cabin at night. A ghostly hand reaches toward it, releasing colorful energy streams that connect to glowing purple flowers and a large luminous mushroom floating nearby. Sparkling particles and magical light fill the air. An open book and potion bottles sit on a shelf in the background. Mystical, ethereal fantasy atmosphere with vibrant neon colors.",
+  "source_title": "Mystic Plasma Orb",
+  "style": "fantasy digital art",
+  "mood": "enchanted, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "magic",
+    "bioluminescence",
+    "mushrooms",
+    "ethereal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3724,
+  "source_url": "/generated/3724.jpg",
+  "image_url": "/sketches/4305.png",
+  "inverted_image_url": "/sketches-inverted/4305.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

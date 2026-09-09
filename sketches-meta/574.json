@@ -1,0 +1,42 @@
+{
+  "number": 574,
+  "title": "Line sketch: Melting Pumpkin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pumpkin rests on a rocky base, its lower half dramatically melting and oozing into and viscous forms that drip onto the surface below. The surreal composition features glossy highlights and tendrils against a solid background, evoking a sense of playful decay (derived from painting #716).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pumpkin rests on a rocky base, its lower half dramatically melting and oozing into and viscous forms that drip onto the surface below. The surreal composition features glossy highlights and tendrils against a solid background, evoking a sense of playful decay",
+  "inverted_title": "Inverted sketch: Melting Pumpkin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pumpkin rests on a rocky base, its lower half dramatically melting and oozing into and viscous forms that drip onto the surface below. The surreal composition features glossy highlights and tendrils against a solid background, evoking a sense of playful decay (from painting #716).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pumpkin rests on a rocky base, its lower half dramatically melting and oozing into and viscous forms that drip onto the surface below. The surreal composition features glossy highlights and tendrils against a solid background, evoking a sense of playful decay",
+  "source_description": "A vibrant purple pumpkin rests on a rocky base, its lower half dramatically melting and oozing into pink and purple viscous forms that drip onto the surface below. The surreal composition features glossy highlights and tendrils against a solid green background, evoking a sense of playful decay.",
+  "source_prompt": "",
+  "source_title": "Melting Purple Pumpkin",
+  "style": "Surrealism",
+  "mood": "Whimsical, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pumpkin",
+    "melting",
+    "surreal",
+    "oozing",
+    "organic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 716,
+  "source_url": "/paintings/716.jpg",
+  "image_url": "/sketches/574.png",
+  "inverted_image_url": "/sketches-inverted/574.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

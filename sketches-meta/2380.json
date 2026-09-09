@@ -1,0 +1,42 @@
+{
+  "number": 2380,
+  "title": "Line sketch: Witch's Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted witch with a crescent moon staff stands on a dark cliff overlooking a glowing waterfall that cascades into a pool filled with swimmers on lily pads. A massive celestial body with inner silhouettes dominates the twilight sky above the surreal landscape (derived from generated still #1608).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted witch with a crescent moon staff stands on a dark cliff overlooking a glowing waterfall that cascades into a pool filled with swimmers on lily pads. A massive celestial body with inner silhouettes dominates the twilight sky above the surreal landscape",
+  "inverted_title": "Inverted sketch: Witch's Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted witch with a crescent moon staff stands on a dark cliff overlooking a glowing waterfall that cascades into a pool filled with swimmers on lily pads. A massive celestial body with inner silhouettes dominates the twilight sky above the surreal landscape (from generated still #1608).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted witch with a crescent moon staff stands on a dark cliff overlooking a glowing waterfall that cascades into a pool filled with swimmers on lily pads. A massive celestial body with inner silhouettes dominates the twilight sky above the surreal landscape",
+  "source_description": "A silhouetted witch with a crescent moon staff stands on a dark cliff overlooking a glowing green waterfall that cascades into a pool filled with swimmers on lily pads. A massive red celestial body with inner silhouettes dominates the twilight sky above the surreal landscape.",
+  "source_prompt": "",
+  "source_title": "Witch's Crimson Waterfall",
+  "style": "surreal fantasy",
+  "mood": "mystical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "waterfall",
+    "moon",
+    "silhouette",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1608,
+  "source_url": "/generated/1608.jpg",
+  "image_url": "/sketches/2380.png",
+  "inverted_image_url": "/sketches-inverted/2380.png",
+  "curve_count": 145,
+  "built_at": "2026-08-17T00:09:43Z"
+}

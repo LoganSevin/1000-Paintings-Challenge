@@ -1,0 +1,42 @@
+{
+  "number": 2502,
+  "title": "Line sketch: Surreal Dreamscape Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal collage features a central fairy with wings and a crown touching a glowing orb on a large mushroom. Surrounding elements include a hissing cobra in smoky swirls, a jeweled crown floating in the sky, a spiky monster, a mandala, and a striped desert landscape under a starry night with a swirling galaxy above (derived from generated still #1737).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal collage features a central fairy with wings and a crown touching a glowing orb on a large mushroom. Surrounding elements include a hissing cobra in smoky swirls, a jeweled crown floating in the sky, a spiky monster, a mandala, and a striped desert landscape under a starry night with a swirling galaxy above",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal collage features a central fairy with wings and a crown touching a glowing orb on a large mushroom. Surrounding elements include a hissing cobra in smoky swirls, a jeweled crown floating in the sky, a spiky monster, a mandala, and a striped desert landscape under a starry night with a swirling galaxy above (from generated still #1737).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal collage features a central fairy with wings and a crown touching a glowing orb on a large mushroom. Surrounding elements include a hissing cobra in smoky swirls, a jeweled crown floating in the sky, a spiky monster, a mandala, and a striped desert landscape under a starry night with a swirling galaxy above",
+  "source_description": "A vibrant surreal collage features a central fairy with golden wings and a crown touching a glowing blue orb on a large purple mushroom. Surrounding elements include a hissing cobra in smoky swirls, a jeweled crown floating in the sky, a purple spiky monster, a colorful mandala, and a striped desert landscape under a starry night with a swirling galaxy above.",
+  "source_prompt": "",
+  "source_title": "Surreal Dreamscape Collage",
+  "style": "surrealism",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fairy",
+    "mushroom",
+    "mandala",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1737,
+  "source_url": "/generated/1737.jpg",
+  "image_url": "/sketches/2502.png",
+  "inverted_image_url": "/sketches-inverted/2502.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:43Z"
+}

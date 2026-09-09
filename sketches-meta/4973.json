@@ -1,0 +1,42 @@
+{
+  "number": 4973,
+  "title": "Line sketch: Torn page of Horror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with dark messy hair in a blood-splattered white dress stands in the center, holding a large paintbrush dripping with paint while clutching her chest. The page itself appears violently torn, revealing a surreal nightmare scene behind her containing floating skeletal remains, ghostly pale figures of children, and a lit candle on a wooden surface in the lower right (derived from generated still #4410).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with dark messy hair in a blood-splattered white dress stands in the center, holding a large paintbrush dripping with paint while clutching her chest. The page itself appears violently torn, revealing a surreal nightmare scene behind her containing floating skeletal remains, ghostly pale figures of children, and a lit candle on a wooden surface in the lower right",
+  "inverted_title": "Inverted sketch: Torn page of Horror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with dark messy hair in a blood-splattered white dress stands in the center, holding a large paintbrush dripping with paint while clutching her chest. The page itself appears violently torn, revealing a surreal nightmare scene behind her containing floating skeletal remains, ghostly pale figures of children, and a lit candle on a wooden surface in the lower right (from generated still #4410).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with dark messy hair in a blood-splattered white dress stands in the center, holding a large paintbrush dripping with paint while clutching her chest. The page itself appears violently torn, revealing a surreal nightmare scene behind her containing floating skeletal remains, ghostly pale figures of children, and a lit candle on a wooden surface in the lower right",
+  "source_description": "A young woman with dark messy hair in a blood-splattered white dress stands in the center, holding a large paintbrush dripping with red paint while clutching her chest. The canvas itself appears violently torn, revealing a surreal nightmare scene behind her containing floating skeletal remains, ghostly pale figures of children, and a lit candle on a wooden surface in the lower right.",
+  "source_prompt": "A haunting surreal scene of a young woman with messy dark hair wearing a white dress covered in blood, standing inside a violently torn canvas. She holds a large dripping paintbrush in one hand and clutches her bloody chest with the other. Through the torn edges, a nightmare realm is visible with floating bones, ghostly children figures, and a single lit candle on a table. Dark blue and purple atmosphere with dramatic lighting, horror painting style.",
+  "source_title": "Torn Canvas of Horror",
+  "style": "surreal dark fantasy",
+  "mood": "eerie macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "torn page",
+    "bloody",
+    "ghostly"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4410,
+  "source_url": "/generated/4410.jpg",
+  "image_url": "/sketches/4973.png",
+  "inverted_image_url": "/sketches-inverted/4973.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3235,
+  "title": "Line sketch: Echo in the Fallout Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a grey jumpsuit sits in a worn theater chair inside a derelict bunker, holding a film reel while glowing with energy as she watches a cracked projection screen showing a man with a shocked expression. The concrete room is filled with hanging film strips, old movie posters including one for 'Eich', a clapperboard, and tangled film reels on the floor under a single spotlight (derived from generated still #2592).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a grey jumpsuit sits in a worn theater chair inside a derelict bunker, holding a film reel while glowing with energy as she watches a cracked projection screen showing a man with a shocked expression. The concrete room is filled with hanging film strips, old movie posters including one for 'Eich', a clapperboard, and tangled film reels on the floor under a single spotlight",
+  "inverted_title": "Inverted sketch: Echo in the Fallout Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a grey jumpsuit sits in a worn theater chair inside a derelict bunker, holding a film reel while glowing with energy as she watches a cracked projection screen showing a man with a shocked expression. The concrete room is filled with hanging film strips, old movie posters including one for 'Eich', a clapperboard, and tangled film reels on the floor under a single spotlight (from generated still #2592).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a grey jumpsuit sits in a worn theater chair inside a derelict bunker, holding a film reel while glowing with energy as she watches a cracked projection screen showing a man with a shocked expression. The concrete room is filled with hanging film strips, old movie posters including one for 'Eich', a clapperboard, and tangled film reels on the floor under a single spotlight",
+  "source_description": "A woman in a grey jumpsuit sits in a worn theater chair inside a derelict bunker, holding a film reel while glowing with purple energy as she watches a cracked projection screen showing a man with a shocked expression. The concrete room is filled with hanging film strips, old movie posters including one for 'Eich', a clapperboard, and tangled film reels on the floor under a single spotlight.",
+  "source_prompt": "A woman in a grey futuristic jumpsuit sits in an old theater seat inside a decaying concrete bunker, holding a film reel that emits purple glowing energy. She watches a large cracked projection screen showing a terrified man in the desert. Old movie posters on the wall, film strips hanging from the ceiling with moss, clapperboard and tangled film on the dirty floor, single dramatic spotlight beam, eerie atmosphere, cinematic digital painting style",
+  "source_title": "Echo in the Fallout Theater",
+  "style": "cinematic",
+  "mood": "eerie nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "cinema",
+    "bunker",
+    "film reel",
+    "projection"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2592,
+  "source_url": "/generated/2592.jpg",
+  "image_url": "/sketches/3235.png",
+  "inverted_image_url": "/sketches-inverted/3235.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:45Z"
+}

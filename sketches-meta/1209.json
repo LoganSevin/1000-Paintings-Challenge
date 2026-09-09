@@ -1,0 +1,42 @@
+{
+  "number": 1209,
+  "title": "Line sketch: Holly Queen Lightning",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a giant -skinned woman's face with eyes, wearing a holly crown, looming in a stormy sky as lightning strikes a large Christmas ornament in the foreground. The ornament rests on a bed of holly leaves and berries, with small dark creatures flying in the dramatic cloudy background (derived from generated still #421).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a giant -skinned woman's face with eyes, wearing a holly crown, looming in a stormy sky as lightning strikes a large Christmas ornament in the foreground. The ornament rests on a bed of holly leaves and berries, with small dark creatures flying in the dramatic cloudy background",
+  "inverted_title": "Inverted sketch: Holly Queen Lightning",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a giant -skinned woman's face with eyes, wearing a holly crown, looming in a stormy sky as lightning strikes a large Christmas ornament in the foreground. The ornament rests on a bed of holly leaves and berries, with small dark creatures flying in the dramatic cloudy background (from generated still #421).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a giant -skinned woman's face with eyes, wearing a holly crown, looming in a stormy sky as lightning strikes a large Christmas ornament in the foreground. The ornament rests on a bed of holly leaves and berries, with small dark creatures flying in the dramatic cloudy background",
+  "source_description": "A surreal painting depicts a giant blue-skinned woman's face with golden eyes, wearing a holly crown, looming in a stormy sky as lightning strikes a large red Christmas ornament in the foreground. The ornament rests on a bed of green holly leaves and red berries, with small dark creatures flying in the dramatic cloudy background.",
+  "source_prompt": "",
+  "source_title": "Holly Queen Lightning",
+  "style": "fantasy surrealism",
+  "mood": "dramatic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "holly crown",
+    "lightning strike",
+    "Christmas ornament",
+    "woman",
+    "stormy sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 421,
+  "source_url": "/generated/421.jpg",
+  "image_url": "/sketches/1209.png",
+  "inverted_image_url": "/sketches-inverted/1209.png",
+  "curve_count": 139,
+  "built_at": "2026-08-17T00:09:40Z"
+}

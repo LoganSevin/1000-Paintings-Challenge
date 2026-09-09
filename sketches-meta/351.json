@@ -1,0 +1,42 @@
+{
+  "number": 351,
+  "title": "Line sketch: Mysterious Mushroom Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized mushroom with large white eyes stares directly at the viewer, creating an eerie yet whimsical character against a simple gradient background. The detailed gills and textured stem add depth to this surreal composition from a daily art challenge (derived from painting #413).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized mushroom with large white eyes stares directly at the viewer, creating an eerie yet whimsical character against a simple gradient background. The detailed gills and textured stem add depth to this surreal composition from a daily art challenge",
+  "inverted_title": "Inverted sketch: Mysterious Mushroom Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized mushroom with large white eyes stares directly at the viewer, creating an eerie yet whimsical character against a simple gradient background. The detailed gills and textured stem add depth to this surreal composition from a daily art challenge (from painting #413).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized mushroom with large white eyes stares directly at the viewer, creating an eerie yet whimsical character against a simple gradient background. The detailed gills and textured stem add depth to this surreal composition from a daily art challenge",
+  "source_description": "A stylized blue mushroom with large white eyes stares directly at the viewer, creating an eerie yet whimsical character against a simple gradient background. The detailed gills and textured stem add depth to this surreal painting from a daily art challenge.",
+  "source_prompt": "",
+  "source_title": "Mysterious Mushroom Portrait",
+  "style": "Surrealism",
+  "mood": "Eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "surreal",
+    "character",
+    "eyes",
+    "illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 413,
+  "source_url": "/paintings/413.jpg",
+  "image_url": "/sketches/351.png",
+  "inverted_image_url": "/sketches-inverted/351.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:39Z"
+}

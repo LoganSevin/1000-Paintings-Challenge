@@ -1,0 +1,42 @@
+{
+  "number": 3238,
+  "title": "Line sketch: Echoes in the Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a shimmering gown sits in a velvet theater chair, looking upward with her hand raised as swirling ethereal energy emanates from her. Behind her, two translucent ghostly female figures hover, one reaching toward her, while a large movie screen in the background displays an empty vintage cinema filled with film reels (derived from generated still #2597).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a shimmering gown sits in a velvet theater chair, looking upward with her hand raised as swirling ethereal energy emanates from her. Behind her, two translucent ghostly female figures hover, one reaching toward her, while a large movie screen in the background displays an empty vintage cinema filled with film reels",
+  "inverted_title": "Inverted sketch: Echoes in the Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a shimmering gown sits in a velvet theater chair, looking upward with her hand raised as swirling ethereal energy emanates from her. Behind her, two translucent ghostly female figures hover, one reaching toward her, while a large movie screen in the background displays an empty vintage cinema filled with film reels (from generated still #2597).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a shimmering gown sits in a velvet theater chair, looking upward with her hand raised as swirling ethereal energy emanates from her. Behind her, two translucent ghostly female figures hover, one reaching toward her, while a large movie screen in the background displays an empty vintage cinema filled with film reels",
+  "source_description": "A woman in a shimmering silver gown sits in a red velvet theater chair, looking upward with her hand raised as swirling ethereal energy emanates from her. Behind her, two translucent ghostly female figures hover, one reaching toward her, while a large movie screen in the background displays an empty vintage cinema filled with film reels.",
+  "source_prompt": "A woman in a flowing metallic silver gown sits in an ornate red velvet theater seat, looking up with wonder as swirling translucent energy rings flow from her hands and body. Two ghostly women in vintage dresses float behind her, one reaching out. In the background a large cinema screen shows an empty theater filled with vintage film reels. Dark starry ceiling, dramatic cinematic lighting, surreal atmosphere, detailed painting.",
+  "source_title": "Echoes in the Theater",
+  "style": "surrealism",
+  "mood": "ethereal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theater",
+    "ghosts",
+    "cinema",
+    "ethereal",
+    "vintage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2597,
+  "source_url": "/generated/2597.jpg",
+  "image_url": "/sketches/3238.png",
+  "inverted_image_url": "/sketches-inverted/3238.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

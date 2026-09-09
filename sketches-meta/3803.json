@@ -1,0 +1,42 @@
+{
+  "number": 3803,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two full-body poses of the same dark-skinned female warrior with short hair are displayed side by side against a solid black background. She wears a revealing and white tribal outfit with leaf-like armor pieces, white wraps on her forearms, and leg wraps, holding distinct combat stances with glowing energy effects around her hands and body (derived from generated still #3220).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two full-body poses of the same dark-skinned female warrior with short hair are displayed side by side against a solid black background. She wears a revealing and white tribal outfit with leaf-like armor pieces, white wraps on her forearms, and leg wraps, holding distinct combat stances with glowing energy effects around her hands and body",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two full-body poses of the same dark-skinned female warrior with short hair are displayed side by side against a solid black background. She wears a revealing and white tribal outfit with leaf-like armor pieces, white wraps on her forearms, and leg wraps, holding distinct combat stances with glowing energy effects around her hands and body (from generated still #3220).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two full-body poses of the same dark-skinned female warrior with short hair are displayed side by side against a solid black background. She wears a revealing and white tribal outfit with leaf-like armor pieces, white wraps on her forearms, and leg wraps, holding distinct combat stances with glowing energy effects around her hands and body",
+  "source_description": "Two full-body poses of the same dark-skinned female warrior with short silver hair are displayed side by side against a solid black background. She wears a revealing purple and white tribal outfit with leaf-like armor pieces, white wraps on her forearms, and purple leg wraps, holding distinct combat stances with glowing purple energy effects around her hands and body.",
+  "source_prompt": "A powerful dark-skinned female warrior with short silver-white hair, wearing ornate purple and white leaf-patterned tribal armor, white forearm wraps, and purple ankle wraps. She is shown in two distinct dynamic combat poses side by side against a solid black background, one with arms raised above her head and the other in a defensive stance with fists forward, purple magical energy glowing around her hands and body, highly detailed 3D character render.",
+  "source_title": "Purple Warrior Poses",
+  "style": "3D character render",
+  "mood": "fierce, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital 3D artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "tribal armor",
+    "fantasy",
+    "dual pose",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3220,
+  "source_url": "/generated/3220.jpg",
+  "image_url": "/sketches/3803.png",
+  "inverted_image_url": "/sketches-inverted/3803.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:46Z"
+}

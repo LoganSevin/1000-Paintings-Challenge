@@ -1,0 +1,42 @@
+{
+  "number": 3948,
+  "title": "Line sketch: Mage Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with white hair in twin buns stands in a dynamic combat pose against a solid gray background. She wears white and traditional armor with bone-like accents, her right hand glowing with magic while her left holds a chain of energy, surrounded by floating arcane symbols and sparks (derived from generated still #3365).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with white hair in twin buns stands in a dynamic combat pose against a solid gray background. She wears white and traditional armor with bone-like accents, her right hand glowing with magic while her left holds a chain of energy, surrounded by floating arcane symbols and sparks",
+  "inverted_title": "Inverted sketch: Mage Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with white hair in twin buns stands in a dynamic combat pose against a solid gray background. She wears white and traditional armor with bone-like accents, her right hand glowing with magic while her left holds a chain of energy, surrounded by floating arcane symbols and sparks (from generated still #3365).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with white hair in twin buns stands in a dynamic combat pose against a solid gray background. She wears white and traditional armor with bone-like accents, her right hand glowing with magic while her left holds a chain of energy, surrounded by floating arcane symbols and sparks",
+  "source_description": "A young woman with white hair in twin buns stands in a dynamic combat pose against a solid gray background. She wears white and purple traditional armor with bone-like accents, her right hand glowing with purple magic while her left holds a chain of purple energy, surrounded by floating arcane symbols and sparks.",
+  "source_prompt": "A fierce young East Asian woman with long white hair styled in two buns and braids, wearing ornate white and purple East Asian-inspired armor with bone decorations and a flowing cape. She stands in a wide combat stance, right hand extended casting glowing purple arcane energy with floating crescent moon symbols, left hand holding a chain of purple lightning. Purple magical halo above her head, dynamic pose, solid gray background, vibrant digital illustration style.",
+  "source_title": "Purple Mage Warrior",
+  "style": "digital illustration",
+  "mood": "powerful, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "magic",
+    "fantasy character",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3365,
+  "source_url": "/generated/3365.jpg",
+  "image_url": "/sketches/3948.png",
+  "inverted_image_url": "/sketches-inverted/3948.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

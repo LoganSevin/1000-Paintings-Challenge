@@ -1,0 +1,42 @@
+{
+  "number": 1114,
+  "title": "Line sketch: Feral Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a feline-human hybrid with eyes, vein-like lines across the face, and a hoop earring. The figure is framed within a cracked circular wooden border dripping with vibrant, and paint against a dark cosmic background filled with stylized flowers and hearts (derived from generated still #326).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a feline-human hybrid with eyes, vein-like lines across the face, and a hoop earring. The figure is framed within a cracked circular wooden border dripping with vibrant, and paint against a dark cosmic background filled with stylized flowers and hearts",
+  "inverted_title": "Inverted sketch: Feral Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a feline-human hybrid with eyes, vein-like lines across the face, and a hoop earring. The figure is framed within a cracked circular wooden border dripping with vibrant, and paint against a dark cosmic background filled with stylized flowers and hearts (from generated still #326).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a feline-human hybrid with eyes, vein-like lines across the face, and a hoop earring. The figure is framed within a cracked circular wooden border dripping with vibrant, and paint against a dark cosmic background filled with stylized flowers and hearts",
+  "source_description": "A surreal portrait of a green feline-human hybrid with yellow eyes, red vein-like lines across the face, and a golden hoop earring. The figure is framed within a cracked circular wooden border dripping with vibrant blue, orange, and green paint against a dark cosmic background filled with stylized flowers and hearts.",
+  "source_prompt": "",
+  "source_title": "Neon Feral Portrait",
+  "style": "surreal pop art",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "furry",
+    "hybrid creature",
+    "dripping paint",
+    "circular frame",
+    "floral motifs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 326,
+  "source_url": "/generated/326.jpg",
+  "image_url": "/sketches/1114.png",
+  "inverted_image_url": "/sketches-inverted/1114.png",
+  "curve_count": 143,
+  "built_at": "2026-08-17T00:09:40Z"
+}

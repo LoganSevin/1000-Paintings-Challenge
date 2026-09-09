@@ -1,0 +1,42 @@
+{
+  "number": 1988,
+  "title": "Line sketch: Psychedelic Female Silhouettes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring multiple stylized female profiles with flowing, swirling hair patterns in, and. The composition includes dripping paint effects at the top and intricate spiral designs throughout the interlocking faces (derived from generated still #1213).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring multiple stylized female profiles with flowing, swirling hair patterns in, and. The composition includes dripping paint effects at the top and intricate spiral designs throughout the interlocking faces",
+  "inverted_title": "Inverted sketch: Psychedelic Female Silhouettes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring multiple stylized female profiles with flowing, swirling hair patterns in, and. The composition includes dripping paint effects at the top and intricate spiral designs throughout the interlocking faces (from generated still #1213).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring multiple stylized female profiles with flowing, swirling hair patterns in, and. The composition includes dripping paint effects at the top and intricate spiral designs throughout the interlocking faces",
+  "source_description": "A vibrant psychedelic artwork featuring multiple stylized female profiles with flowing, swirling hair patterns in magenta, lime green, and deep red. The composition includes dripping paint effects at the top and intricate spiral designs throughout the interlocking faces.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Female Silhouettes",
+  "style": "Psychedelic",
+  "mood": "Hypnotic, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "female profiles",
+    "swirling patterns",
+    "dripping paint",
+    "silhouettes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1213,
+  "source_url": "/generated/1213.jpg",
+  "image_url": "/sketches/1988.png",
+  "inverted_image_url": "/sketches-inverted/1988.png",
+  "curve_count": 152,
+  "built_at": "2026-08-17T00:09:42Z"
+}

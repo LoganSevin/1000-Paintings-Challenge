@@ -1,0 +1,42 @@
+{
+  "number": 2157,
+  "title": "Line sketch: Melting Moon Hug",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large melting creature with multiple faces embedded in its dripping form extends an arm to embrace a cheerful sun with a winking expression. The surreal scene is set against a dark starry background filled with concentric circles, fireworks, and glowing particles (derived from generated still #1382).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large melting creature with multiple faces embedded in its dripping form extends an arm to embrace a cheerful sun with a winking expression. The surreal scene is set against a dark starry background filled with concentric circles, fireworks, and glowing particles",
+  "inverted_title": "Inverted sketch: Melting Moon Hug",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large melting creature with multiple faces embedded in its dripping form extends an arm to embrace a cheerful sun with a winking expression. The surreal scene is set against a dark starry background filled with concentric circles, fireworks, and glowing particles (from generated still #1382).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large melting creature with multiple faces embedded in its dripping form extends an arm to embrace a cheerful sun with a winking expression. The surreal scene is set against a dark starry background filled with concentric circles, fireworks, and glowing particles",
+  "source_description": "A large blue melting creature with multiple faces embedded in its dripping form extends an arm to embrace a cheerful yellow sun with a winking expression. The surreal scene is set against a dark starry background filled with colorful concentric circles, fireworks, and glowing particles.",
+  "source_prompt": "",
+  "source_title": "Melting Moon Hug",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "celestial",
+    "psychedelic",
+    "creature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1382,
+  "source_url": "/generated/1382.jpg",
+  "image_url": "/sketches/2157.png",
+  "inverted_image_url": "/sketches-inverted/2157.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4636,
+  "title": "Line sketch: The Bell of the Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal dark fortress built into a massive stone giant's hand and body dominates the scene, featuring a gigantic hanging bell chained at the top. Thousands of robed figures stand in organized rows on a stone plaza facing the structure, with one lone figure standing ahead of the crowd in the center (derived from generated still #4058).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal dark fortress built into a massive stone giant's hand and body dominates the scene, featuring a gigantic hanging bell chained at the top. Thousands of robed figures stand in organized rows on a stone plaza facing the structure, with one lone figure standing ahead of the crowd in the center",
+  "inverted_title": "Inverted sketch: The Bell of the Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal dark fortress built into a massive stone giant's hand and body dominates the scene, featuring a gigantic hanging bell chained at the top. Thousands of robed figures stand in organized rows on a stone plaza facing the structure, with one lone figure standing ahead of the crowd in the center (from generated still #4058).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal dark fortress built into a massive stone giant's hand and body dominates the scene, featuring a gigantic hanging bell chained at the top. Thousands of robed figures stand in organized rows on a stone plaza facing the structure, with one lone figure standing ahead of the crowd in the center",
+  "source_description": "A colossal dark fortress built into a massive stone giant's hand and body dominates the scene, featuring a gigantic hanging bell chained at the top. Thousands of robed figures stand in organized rows on a stone plaza facing the structure, with one lone figure standing ahead of the crowd in the center.",
+  "source_prompt": "epic dark fantasy scene of a monumental gothic fortress carved into and emerging from a gigantic stone giant's hand and torso, a massive iron bell suspended by heavy chains at the very top, intricate dark spires and glowing circular windows, waterfalls cascading from the structure, dramatic cloudy stormy sky, thousands of hooded robed figures standing in perfect formation across a vast stone plaza, single solitary figure standing alone in front of the crowd facing the fortress, cinematic composition, moody atmospheric lighting, highly detailed, grimdark fantasy",
+  "source_title": "The Bell of the Abyss",
+  "style": "dark fantasy",
+  "mood": "ominous epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy architecture",
+    "giant statue",
+    "cult gathering",
+    "dark bell",
+    "gothic fortress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4058,
+  "source_url": "/generated/4058.jpg",
+  "image_url": "/sketches/4636.png",
+  "inverted_image_url": "/sketches-inverted/4636.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:48Z"
+}

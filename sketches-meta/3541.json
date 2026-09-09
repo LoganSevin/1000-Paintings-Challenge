@@ -1,0 +1,42 @@
+{
+  "number": 3541,
+  "title": "Line sketch: Desert Muse at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a woman with closed eyes whose hair transforms into intricate vines and blooming flowers. In the background, sand dunes stretch toward mountains under a large glowing sun crossed by a dark bar, with a 'NO ENTRY' sign standing in the midground (derived from generated still #2949).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a woman with closed eyes whose hair transforms into intricate vines and blooming flowers. In the background, sand dunes stretch toward mountains under a large glowing sun crossed by a dark bar, with a 'NO ENTRY' sign standing in the midground",
+  "inverted_title": "Inverted sketch: Desert Muse at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a woman with closed eyes whose hair transforms into intricate vines and blooming flowers. In the background, sand dunes stretch toward mountains under a large glowing sun crossed by a dark bar, with a 'NO ENTRY' sign standing in the midground (from generated still #2949).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a woman with closed eyes whose hair transforms into intricate vines and blooming flowers. In the background, sand dunes stretch toward mountains under a large glowing sun crossed by a dark bar, with a 'NO ENTRY' sign standing in the midground",
+  "source_description": "A surreal desert landscape features a woman with closed eyes whose hair transforms into intricate green vines and blooming flowers. In the background, red sand dunes stretch toward purple mountains under a large glowing red sun crossed by a dark bar, with a red 'NO ENTRY' sign standing in the midground.",
+  "source_prompt": "Surreal desert scene at sunset with a serene woman in profile, eyes closed, her flowing hair transforming into intricate green vines and pink flowers that spread across the foreground. Red sand dunes and purple mountains in the distance, a massive glowing red sun dominating the sky crossed by a dark horizontal bar, with a weathered red 'NO ENTRY' sign on a post nearby, birds flying in the distance, dreamlike and symbolic atmosphere.",
+  "source_title": "Desert Muse at Sunset",
+  "style": "surrealism",
+  "mood": "ethereal melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "floral hair",
+    "sun",
+    "no entry sign"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2949,
+  "source_url": "/generated/2949.jpg",
+  "image_url": "/sketches/3541.png",
+  "inverted_image_url": "/sketches-inverted/3541.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:46Z"
+}

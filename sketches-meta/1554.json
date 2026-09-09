@@ -1,0 +1,42 @@
+{
+  "number": 1554,
+  "title": "Line sketch: Serpent's Eternal Cycle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring a large snake with patterns coiled in the foreground against a cracked backdrop. Two circular scenes are visible: an upper one depicting a sunrise over mountains with figures, and a lower one showing a glowing city skyline with bridges, cranes, and water reflections under an moon (derived from generated still #769).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring a large snake with patterns coiled in the foreground against a cracked backdrop. Two circular scenes are visible: an upper one depicting a sunrise over mountains with figures, and a lower one showing a glowing city skyline with bridges, cranes, and water reflections under an moon",
+  "inverted_title": "Inverted sketch: Serpent's Eternal Cycle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring a large snake with patterns coiled in the foreground against a cracked backdrop. Two circular scenes are visible: an upper one depicting a sunrise over mountains with figures, and a lower one showing a glowing city skyline with bridges, cranes, and water reflections under an moon (from generated still #769).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring a large snake with patterns coiled in the foreground against a cracked backdrop. Two circular scenes are visible: an upper one depicting a sunrise over mountains with figures, and a lower one showing a glowing city skyline with bridges, cranes, and water reflections under an moon",
+  "source_description": "A vibrant surreal painting featuring a large dark blue snake with golden patterns coiled in the foreground against a cracked red backdrop. Two circular scenes are visible: an upper one depicting a sunrise over purple mountains with green figures, and a lower one showing a glowing city skyline with bridges, cranes, and water reflections under an orange moon.",
+  "source_prompt": "",
+  "source_title": "Serpent's Eternal Cycle",
+  "style": "surreal psychedelic",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "surreal",
+    "cityscape",
+    "mountain landscape",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 769,
+  "source_url": "/generated/769.jpg",
+  "image_url": "/sketches/1554.png",
+  "inverted_image_url": "/sketches-inverted/1554.png",
+  "curve_count": 217,
+  "built_at": "2026-08-17T00:09:41Z"
+}

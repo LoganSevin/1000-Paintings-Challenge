@@ -1,0 +1,42 @@
+{
+  "number": 3671,
+  "title": "Line sketch: Smiling Elderly Man",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An older man with long white hair and a full white beard smiles warmly at the camera. He is wearing a black blazer over a collared shirt and a necktie patterned with small white and motifs (derived from generated still #3079).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An older man with long white hair and a full white beard smiles warmly at the camera. He is wearing a black blazer over a collared shirt and a necktie patterned with small white and motifs",
+  "inverted_title": "Inverted sketch: Smiling Elderly Man",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An older man with long white hair and a full white beard smiles warmly at the camera. He is wearing a black blazer over a collared shirt and a necktie patterned with small white and motifs (from generated still #3079).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An older man with long white hair and a full white beard smiles warmly at the camera. He is wearing a black blazer over a collared shirt and a necktie patterned with small white and motifs",
+  "source_description": "An older man with long white hair and a full white beard smiles warmly at the camera. He is wearing a black blazer over a light blue collared shirt and a bright red necktie patterned with small white and orange motifs.",
+  "source_prompt": "close-up portrait of an elderly man with long flowing white hair, full thick white beard and mustache, deeply wrinkled smiling face with kind eyes, wearing a black blazer, light blue collared shirt, and a vivid red tie covered in repeating small white and orange patterns, soft studio lighting against a mottled blue-grey gradient backdrop, realistic photographic style, warm expression, natural skin texture",
+  "source_title": "Smiling Elderly Man",
+  "style": "realistic photography",
+  "mood": "warm friendly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elderly man",
+    "white beard",
+    "smiling",
+    "portrait",
+    "tie"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3079,
+  "source_url": "/generated/3079.jpg",
+  "image_url": "/sketches/3671.png",
+  "inverted_image_url": "/sketches-inverted/3671.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:46Z"
+}

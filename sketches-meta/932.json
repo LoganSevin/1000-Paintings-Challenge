@@ -1,0 +1,42 @@
+{
+  "number": 932,
+  "title": "Line sketch: Wizard's Portal to Aurora",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -robed wizard stands on a grassy cliff edge with arm outstretched toward a large circular magical portal. The portal reveals a surreal landscape with a crescent moon, aurora borealis, and a dark castle under a starry cosmic sky filled with swirling patterns, comets, and vibrant celestial orbs (derived from generated still #142).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -robed wizard stands on a grassy cliff edge with arm outstretched toward a large circular magical portal. The portal reveals a surreal landscape with a crescent moon, aurora borealis, and a dark castle under a starry cosmic sky filled with swirling patterns, comets, and vibrant celestial orbs",
+  "inverted_title": "Inverted sketch: Wizard's Portal to Aurora",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -robed wizard stands on a grassy cliff edge with arm outstretched toward a large circular magical portal. The portal reveals a surreal landscape with a crescent moon, aurora borealis, and a dark castle under a starry cosmic sky filled with swirling patterns, comets, and vibrant celestial orbs (from generated still #142).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -robed wizard stands on a grassy cliff edge with arm outstretched toward a large circular magical portal. The portal reveals a surreal landscape with a crescent moon, aurora borealis, and a dark castle under a starry cosmic sky filled with swirling patterns, comets, and vibrant celestial orbs",
+  "source_description": "A blue-robed wizard stands on a grassy cliff edge with arm outstretched toward a large circular magical portal. The portal reveals a surreal green landscape with a crescent moon, aurora borealis, and a dark castle under a starry cosmic sky filled with swirling patterns, comets, and vibrant celestial orbs.",
+  "source_prompt": "",
+  "source_title": "Wizard's Portal to Aurora",
+  "style": "fantasy surrealism",
+  "mood": "magical wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "portal",
+    "aurora",
+    "fantasy landscape",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 142,
+  "source_url": "/generated/142.jpg",
+  "image_url": "/sketches/932.png",
+  "inverted_image_url": "/sketches-inverted/932.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:40Z"
+}

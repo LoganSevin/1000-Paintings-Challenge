@@ -1,0 +1,42 @@
+{
+  "number": 3123,
+  "title": "Line sketch: Reel 75 - Wander",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a tattered coat walks through a large hole in the wall of a decaying room with floral wallpaper and a broken ceiling. She carries a film reel and enters a surreal desert landscape at dusk featuring cacti, film strips scattered on the floor, a distant monolith, and an aurora in the sky (derived from generated still #2460).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a tattered coat walks through a large hole in the wall of a decaying room with floral wallpaper and a broken ceiling. She carries a film reel and enters a surreal desert landscape at dusk featuring cacti, film strips scattered on the floor, a distant monolith, and an aurora in the sky",
+  "inverted_title": "Inverted sketch: Reel 75 - Wander",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a tattered coat walks through a large hole in the wall of a decaying room with floral wallpaper and a broken ceiling. She carries a film reel and enters a surreal desert landscape at dusk featuring cacti, film strips scattered on the floor, a distant monolith, and an aurora in the sky (from generated still #2460).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a tattered coat walks through a large hole in the wall of a decaying room with floral wallpaper and a broken ceiling. She carries a film reel and enters a surreal desert landscape at dusk featuring cacti, film strips scattered on the floor, a distant monolith, and an aurora in the sky",
+  "source_description": "A woman in a tattered yellow coat walks through a large hole in the wall of a decaying room with floral wallpaper and a broken ceiling. She carries a film reel and enters a surreal desert landscape at dusk featuring cacti, film strips scattered on the floor, a distant monolith, and an aurora in the purple sky.",
+  "source_prompt": "A woman wearing a ragged yellow trench coat and carrying a film reel walks away from the viewer through a massive broken hole in a decaying vintage room with floral wallpaper and a collapsed ceiling. She steps into a surreal desert at twilight with saguaro cacti, scattered 35mm film strips on the cracked floor, a distant silhouetted monolith, and a vibrant purple and green aurora in the sky, cinematic surreal composition, atmospheric lighting",
+  "source_title": "Reel 75 - Wander",
+  "style": "surreal",
+  "mood": "dreamlike, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "film reels",
+    "abandoned room",
+    "aurora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2460,
+  "source_url": "/generated/2460.jpg",
+  "image_url": "/sketches/3123.png",
+  "inverted_image_url": "/sketches-inverted/3123.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4788,
+  "title": "Line sketch: Mushroom Market Menagerie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring an anthropomorphic goat-like creature wearing a hat and ruffled collar, standing in a long market aisle lined with tables of bottles and bells. Massive glowing mushrooms tower overhead with orbs floating between them under draped ethereal fabric (derived from generated still #4222).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring an anthropomorphic goat-like creature wearing a hat and ruffled collar, standing in a long market aisle lined with tables of bottles and bells. Massive glowing mushrooms tower overhead with orbs floating between them under draped ethereal fabric",
+  "inverted_title": "Inverted sketch: Mushroom Market Menagerie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring an anthropomorphic goat-like creature wearing a hat and ruffled collar, standing in a long market aisle lined with tables of bottles and bells. Massive glowing mushrooms tower overhead with orbs floating between them under draped ethereal fabric (from generated still #4222).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring an anthropomorphic goat-like creature wearing a hat and ruffled collar, standing in a long market aisle lined with tables of bottles and bells. Massive glowing mushrooms tower overhead with orbs floating between them under draped ethereal fabric",
+  "source_description": "A surreal scene featuring an anthropomorphic goat-like creature wearing a hat and ruffled collar, standing in a long market aisle lined with tables of wine bottles and bells. Massive glowing mushrooms tower overhead with colorful orbs floating between them under draped ethereal fabric.",
+  "source_prompt": "A highly detailed surreal fantasy painting of an anthropomorphic goat creature with blue eyes, wearing a dark hat and white lace ruffled collar with green scaled body, standing in a long market aisle between tables covered in purple and green cloths displaying wine bottles and bells. Towering bioluminescent mushrooms in shades of purple, pink, and yellow fill the scene with colorful glowing orbs floating throughout. Draped translucent fabric hangs from the ceiling, creating an ethereal tunnel effect leading toward a distant forest and water under a soft dusk sky, intricate border with frayed edges.",
+  "source_title": "Mushroom Market Menagerie",
+  "style": "surreal fantasy",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushrooms",
+    "anthropomorphic",
+    "fantasy market",
+    "goat creature",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4222,
+  "source_url": "/generated/4222.jpg",
+  "image_url": "/sketches/4788.png",
+  "inverted_image_url": "/sketches-inverted/4788.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

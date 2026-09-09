@@ -1,0 +1,21 @@
+{
+  "num": 504,
+  "title": "Painting #619",
+  "created": 1786915934.8701756,
+  "source_url": "/paintings/619.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*122.00 + 3*t*(1 - t)^2*124.33 + 3*t^2*(1 - t)*126.67 + t^3*129.00,(1 - t)^3*13.00 + 3*t*(1 - t)^2*12.33 + 3*t^2*(1 - t)*11.67 + t^3*11.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 619
+  },
+  "preview_url": "/sketches/504.png"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2019,
+  "title": "Line sketch: Cosmic Silhouette Visions",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring black silhouettes of human profiles and a barren tree against a cosmic background. Swirling galaxies, nebulae, and glowing celestial patterns in, and emerge from the figures and a central crescent moon adorned with stars (derived from generated still #1244).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring black silhouettes of human profiles and a barren tree against a cosmic background. Swirling galaxies, nebulae, and glowing celestial patterns in, and emerge from the figures and a central crescent moon adorned with stars",
+  "inverted_title": "Inverted sketch: Cosmic Silhouette Visions",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring black silhouettes of human profiles and a barren tree against a cosmic background. Swirling galaxies, nebulae, and glowing celestial patterns in, and emerge from the figures and a central crescent moon adorned with stars (from generated still #1244).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring black silhouettes of human profiles and a barren tree against a cosmic background. Swirling galaxies, nebulae, and glowing celestial patterns in, and emerge from the figures and a central crescent moon adorned with stars",
+  "source_description": "A vibrant surreal painting featuring black silhouettes of human profiles and a barren tree against a cosmic background. Swirling galaxies, nebulae, and glowing celestial patterns in pink, yellow, and green emerge from the figures and a central crescent moon adorned with stars.",
+  "source_prompt": "",
+  "source_title": "Cosmic Silhouette Visions",
+  "style": "surreal psychedelic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouettes",
+    "galaxies",
+    "cosmic",
+    "psychedelic",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1244,
+  "source_url": "/generated/1244.jpg",
+  "image_url": "/sketches/2019.png",
+  "inverted_image_url": "/sketches-inverted/2019.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:42Z"
+}

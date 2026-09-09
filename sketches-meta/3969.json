@@ -1,0 +1,42 @@
+{
+  "number": 3969,
+  "title": "Line sketch: Mage Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with a corset, wide pants, and ornate sashes, casting glowing magical energy from both hands while a spiked magical halo floats above her head (derived from generated still #3386).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with a corset, wide pants, and ornate sashes, casting glowing magical energy from both hands while a spiked magical halo floats above her head",
+  "inverted_title": "Inverted sketch: Mage Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with a corset, wide pants, and ornate sashes, casting glowing magical energy from both hands while a spiked magical halo floats above her head (from generated still #3386).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-inspired outfit with a corset, wide pants, and ornate sashes, casting glowing magical energy from both hands while a spiked magical halo floats above her head",
+  "source_description": "A young female character with short white hair stands in a dynamic combat pose against a solid gray background. She wears a white and purple traditional-inspired outfit with a corset, wide pants, and ornate purple sashes, casting glowing purple magical energy from both hands while a spiked magical halo floats above her head.",
+  "source_prompt": "A fierce young East Asian female sorceress with short messy white hair and purple eyes, wearing a white and purple fantasy martial arts outfit with corset, flowing sleeves and wide pants, standing in a dynamic combat stance casting glowing purple arcane energy from both hands, magical spiked purple halo floating above her head, intricate details on clothing and jewelry, solid gray background, clean digital illustration style",
+  "source_title": "Purple Mage Sorceress",
+  "style": "digital illustration",
+  "mood": "mystical powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic",
+    "fantasy character",
+    "white hair",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3386,
+  "source_url": "/generated/3386.jpg",
+  "image_url": "/sketches/3969.png",
+  "inverted_image_url": "/sketches-inverted/3969.png",
+  "curve_count": 128,
+  "built_at": "2026-08-17T00:09:47Z"
+}

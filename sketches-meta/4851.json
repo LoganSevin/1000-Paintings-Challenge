@@ -1,0 +1,42 @@
+{
+  "number": 4851,
+  "title": "Line sketch: The Sorcerer and the Burning Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone wizard in a robe stands on a rocky mountain peak holding a glowing staff, overlooking a surreal apocalyptic landscape. To his left floats a large cosmic entity with tentacle-like forms and a domed structure, while a massive flaming eye with a iris dominates the fiery and sky above a dead burning forest filled with animal skeletons (derived from generated still #4286).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone wizard in a robe stands on a rocky mountain peak holding a glowing staff, overlooking a surreal apocalyptic landscape. To his left floats a large cosmic entity with tentacle-like forms and a domed structure, while a massive flaming eye with a iris dominates the fiery and sky above a dead burning forest filled with animal skeletons",
+  "inverted_title": "Inverted sketch: The Sorcerer and the Burning Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone wizard in a robe stands on a rocky mountain peak holding a glowing staff, overlooking a surreal apocalyptic landscape. To his left floats a large cosmic entity with tentacle-like forms and a domed structure, while a massive flaming eye with a iris dominates the fiery and sky above a dead burning forest filled with animal skeletons (from generated still #4286).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone wizard in a robe stands on a rocky mountain peak holding a glowing staff, overlooking a surreal apocalyptic landscape. To his left floats a large cosmic entity with tentacle-like forms and a domed structure, while a massive flaming eye with a iris dominates the fiery and sky above a dead burning forest filled with animal skeletons",
+  "source_description": "A lone wizard in a blue robe stands on a rocky mountain peak holding a glowing staff, overlooking a surreal apocalyptic landscape. To his left floats a large purple cosmic entity with tentacle-like forms and a domed structure, while a massive flaming eye with a red iris dominates the fiery red and teal sky above a dead burning forest filled with animal skeletons.",
+  "source_prompt": "A lone wizard in flowing blue robes stands atop a rocky mountain peak holding a glowing staff, overlooking a dramatic surreal landscape. In the sky floats a giant burning eye with red iris and flames, next to a massive purple cosmic tentacled entity with intricate patterns and a domed structure. Below is a dark dead forest with burning trees, glowing orange roots, and scattered animal skeletons. Vibrant teal and fiery orange sky with galaxies and nebulae, epic fantasy surrealism.",
+  "source_title": "The Sorcerer and the Burning Eye",
+  "style": "surreal fantasy",
+  "mood": "apocalyptic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "burning eye",
+    "cosmic horror",
+    "surreal landscape",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4286,
+  "source_url": "/generated/4286.jpg",
+  "image_url": "/sketches/4851.png",
+  "inverted_image_url": "/sketches-inverted/4851.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:49Z"
+}

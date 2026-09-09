@@ -1,0 +1,42 @@
+{
+  "number": 1317,
+  "title": "Line sketch: Cosmic Mouse and Bubbles",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a gray mouse perched on a leafy branch that grows from a skeletal fish, surrounded by bubbles containing tiny scenes. In the background, a vibrant swirling vortex of, and spirals explodes with particles against a smoky, sky (derived from generated still #532).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a gray mouse perched on a leafy branch that grows from a skeletal fish, surrounded by bubbles containing tiny scenes. In the background, a vibrant swirling vortex of, and spirals explodes with particles against a smoky, sky",
+  "inverted_title": "Inverted sketch: Cosmic Mouse and Bubbles",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a gray mouse perched on a leafy branch that grows from a skeletal fish, surrounded by bubbles containing tiny scenes. In the background, a vibrant swirling vortex of, and spirals explodes with particles against a smoky, sky (from generated still #532).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a gray mouse perched on a leafy branch that grows from a skeletal fish, surrounded by bubbles containing tiny scenes. In the background, a vibrant swirling vortex of, and spirals explodes with particles against a smoky, sky",
+  "source_description": "A surreal painting depicts a gray mouse perched on a leafy branch that grows from a skeletal fish, surrounded by iridescent bubbles containing tiny scenes. In the background, a vibrant swirling vortex of red, orange, and purple spirals explodes with golden particles against a smoky, multicolored sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mouse and Bubbles",
+  "style": "surrealism",
+  "mood": "whimsical, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mouse",
+    "cosmic vortex",
+    "bubbles",
+    "skeleton fish"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 532,
+  "source_url": "/generated/532.jpg",
+  "image_url": "/sketches/1317.png",
+  "inverted_image_url": "/sketches-inverted/1317.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4962,
+  "title": "Line sketch: Surreal Hallway Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit, melancholic room shows a person’s arm resting on a wooden desk with a mug, vintage radio, and scattered keys. A large surreal composition dominates the wall, depicting an endless dripping hallway with melting walls, a glowing door at the far end, and a hot air balloon floating near the ceiling under a stormy sky. Rain streaks down from the skylight above (derived from generated still #4399).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit, melancholic room shows a person’s arm resting on a wooden desk with a mug, vintage radio, and scattered keys. A large surreal composition dominates the wall, depicting an endless dripping hallway with melting walls, a glowing door at the far end, and a hot air balloon floating near the ceiling under a stormy sky. Rain streaks down from the skylight above",
+  "inverted_title": "Inverted sketch: Surreal Hallway Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit, melancholic room shows a person’s arm resting on a wooden desk with a mug, vintage radio, and scattered keys. A large surreal composition dominates the wall, depicting an endless dripping hallway with melting walls, a glowing door at the far end, and a hot air balloon floating near the ceiling under a stormy sky. Rain streaks down from the skylight above (from generated still #4399).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit, melancholic room shows a person’s arm resting on a wooden desk with a mug, vintage radio, and scattered keys. A large surreal composition dominates the wall, depicting an endless dripping hallway with melting walls, a glowing door at the far end, and a hot air balloon floating near the ceiling under a stormy sky. Rain streaks down from the skylight above",
+  "source_description": "A dimly lit, melancholic room shows a person’s arm resting on a wooden desk with a mug, vintage radio, and scattered keys. A large surreal painting dominates the wall, depicting an endless dripping hallway with melting walls, a glowing red door at the far end, and a colorful hot air balloon floating near the ceiling under a stormy purple sky. Rain streaks down from the skylight above.",
+  "source_prompt": "A moody interior scene of a dark blue-grey room with rain falling through a skylight. On the left, a wooden desk holds a white mug, vintage radio, and keys, with a person's arm resting on it. A massive surreal painting hangs on the wall showing an endless dripping hallway with melting fabric-like walls, multiple doors, a glowing red door at the end, and a colorful striped hot air balloon floating near the ceiling with paint dripping from it, under a dark purple stormy sky.",
+  "source_title": "Surreal Hallway Dream",
+  "style": "surrealism",
+  "mood": "melancholy, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hallway",
+    "hot air balloon",
+    "dripping paint",
+    "liminal space"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4399,
+  "source_url": "/generated/4399.jpg",
+  "image_url": "/sketches/4962.png",
+  "inverted_image_url": "/sketches-inverted/4962.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:49Z"
+}

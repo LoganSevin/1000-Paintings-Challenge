@@ -1,0 +1,42 @@
+{
+  "number": 1418,
+  "title": "Line sketch: Retriever and Android",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a retriever puppy holding a bouquet of glowing and leaves in its mouth, held by a grey humanoid android with a feminine face. Ethereal and foxes and deer swirl in a smoky vortex around them against a background (derived from generated still #633).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a retriever puppy holding a bouquet of glowing and leaves in its mouth, held by a grey humanoid android with a feminine face. Ethereal and foxes and deer swirl in a smoky vortex around them against a background",
+  "inverted_title": "Inverted sketch: Retriever and Android",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a retriever puppy holding a bouquet of glowing and leaves in its mouth, held by a grey humanoid android with a feminine face. Ethereal and foxes and deer swirl in a smoky vortex around them against a background (from generated still #633).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a retriever puppy holding a bouquet of glowing and leaves in its mouth, held by a grey humanoid android with a feminine face. Ethereal and foxes and deer swirl in a smoky vortex around them against a background",
+  "source_description": "A surreal painting features a yellow golden retriever puppy holding a bouquet of glowing red and orange leaves in its mouth, held by a grey humanoid android with a feminine face. Ethereal red and purple foxes and deer swirl in a smoky vortex around them against a dark purple background.",
+  "source_prompt": "",
+  "source_title": "Golden Retriever and Android",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "android",
+    "retriever",
+    "foxes",
+    "deer",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 633,
+  "source_url": "/generated/633.jpg",
+  "image_url": "/sketches/1418.png",
+  "inverted_image_url": "/sketches-inverted/1418.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:41Z"
+}

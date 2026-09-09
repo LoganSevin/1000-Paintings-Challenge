@@ -1,0 +1,42 @@
+{
+  "number": 1160,
+  "title": "Line sketch: Psychedelic Mushroom Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, vibrant mushroom with a glowing cap and white stem stands centrally in a surreal forest. The night sky is filled with stars, a comet, floating transparent bubbles containing miniature scenes, and flowing waves of color (derived from generated still #372).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, vibrant mushroom with a glowing cap and white stem stands centrally in a surreal forest. The night sky is filled with stars, a comet, floating transparent bubbles containing miniature scenes, and flowing waves of color",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, vibrant mushroom with a glowing cap and white stem stands centrally in a surreal forest. The night sky is filled with stars, a comet, floating transparent bubbles containing miniature scenes, and flowing waves of color (from generated still #372).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, vibrant mushroom with a glowing cap and white stem stands centrally in a surreal forest. The night sky is filled with stars, a comet, floating transparent bubbles containing miniature scenes, and flowing waves of color",
+  "source_description": "A large, vibrant mushroom with a glowing multicolored cap and white stem stands centrally in a surreal forest. The night sky is filled with stars, a comet, floating transparent bubbles containing miniature scenes, and flowing rainbow waves of color.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Dreamscape",
+  "style": "surreal psychedelic",
+  "mood": "trippy, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushrooms",
+    "psychedelic",
+    "fantasy",
+    "bubbles",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 372,
+  "source_url": "/generated/372.jpg",
+  "image_url": "/sketches/1160.png",
+  "inverted_image_url": "/sketches-inverted/1160.png",
+  "curve_count": 380,
+  "built_at": "2026-08-17T00:09:40Z"
+}

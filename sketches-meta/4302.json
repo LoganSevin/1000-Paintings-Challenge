@@ -1,0 +1,42 @@
+{
+  "number": 4302,
+  "title": "Line sketch: Frog Queen in Plasma Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a transparent glowing sphere features a central female face with wild hair, wide open screaming mouth, and glowing eyes emitting lightning bolts. The sphere contains multiple frogs and robotic figures surrounding her against a dark background (derived from generated still #3721).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a transparent glowing sphere features a central female face with wild hair, wide open screaming mouth, and glowing eyes emitting lightning bolts. The sphere contains multiple frogs and robotic figures surrounding her against a dark background",
+  "inverted_title": "Inverted sketch: Frog Queen in Plasma Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a transparent glowing sphere features a central female face with wild hair, wide open screaming mouth, and glowing eyes emitting lightning bolts. The sphere contains multiple frogs and robotic figures surrounding her against a dark background (from generated still #3721).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a transparent glowing sphere features a central female face with wild hair, wide open screaming mouth, and glowing eyes emitting lightning bolts. The sphere contains multiple frogs and robotic figures surrounding her against a dark background",
+  "source_description": "A surreal scene inside a transparent glowing sphere features a central red female face with wild neon green hair, wide open screaming mouth, and glowing blue eyes emitting purple lightning bolts. The sphere contains multiple green frogs and golden robotic figures surrounding her against a dark background.",
+  "source_prompt": "A surreal composition centered inside a large transparent plasma sphere against a dark background. A bright red female face with an angry screaming expression and glowing blue eyes sits at the core, her wild neon green hair flowing outward. She emits powerful purple lightning bolts. Surrounding her are several realistic green frogs and shiny golden steampunk robots. The entire scene crackles with electric energy and vibrant colors.",
+  "source_title": "Frog Queen in Plasma Sphere",
+  "style": "surreal",
+  "mood": "chaotic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cyberpunk",
+    "frogs",
+    "robots",
+    "lightning"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3721,
+  "source_url": "/generated/3721.jpg",
+  "image_url": "/sketches/4302.png",
+  "inverted_image_url": "/sketches-inverted/4302.png",
+  "curve_count": 246,
+  "built_at": "2026-08-17T00:09:47Z"
+}

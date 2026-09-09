@@ -1,0 +1,42 @@
+{
+  "number": 2619,
+  "title": "Line sketch: Swirling Vortex Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition featuring a central twisting knot of and surrounded by looping, petal-like forms in vibrant, and hints of. Thick paint drips heavily from the top and sides creating vertical streams of color against a white background (derived from generated still #1858).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition featuring a central twisting knot of and surrounded by looping, petal-like forms in vibrant, and hints of. Thick paint drips heavily from the top and sides creating vertical streams of color against a white background",
+  "inverted_title": "Inverted sketch: Swirling Vortex Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition featuring a central twisting knot of and surrounded by looping, petal-like forms in vibrant, and hints of. Thick paint drips heavily from the top and sides creating vertical streams of color against a white background (from generated still #1858).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition featuring a central twisting knot of and surrounded by looping, petal-like forms in vibrant, and hints of. Thick paint drips heavily from the top and sides creating vertical streams of color against a white background",
+  "source_description": "An abstract painting featuring a central twisting knot of dark teal and blue surrounded by looping, petal-like forms in vibrant blue, green, and hints of pink. Thick paint drips heavily from the top and sides creating vertical streams of color against a white background.",
+  "source_prompt": "",
+  "source_title": "Swirling Vortex Bloom",
+  "style": "abstract expressionism",
+  "mood": "dynamic, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "swirls",
+    "dripping paint",
+    "vortex",
+    "overhead projector"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1858,
+  "source_url": "/generated/1858.jpg",
+  "image_url": "/sketches/2619.png",
+  "inverted_image_url": "/sketches-inverted/2619.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1583,
+  "title": "Line sketch: Surreal Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition features a dog wearing a beaded necklace, its head turned in profile. A large wax seal with a dripping human eye is affixed to the dog's face while a and human face with intricate patterns appears beside it against a dark background filled with floating faces and symbols (derived from generated still #798).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition features a dog wearing a beaded necklace, its head turned in profile. A large wax seal with a dripping human eye is affixed to the dog's face while a and human face with intricate patterns appears beside it against a dark background filled with floating faces and symbols",
+  "inverted_title": "Inverted sketch: Surreal Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition features a dog wearing a beaded necklace, its head turned in profile. A large wax seal with a dripping human eye is affixed to the dog's face while a and human face with intricate patterns appears beside it against a dark background filled with floating faces and symbols (from generated still #798).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition features a dog wearing a beaded necklace, its head turned in profile. A large wax seal with a dripping human eye is affixed to the dog's face while a and human face with intricate patterns appears beside it against a dark background filled with floating faces and symbols",
+  "source_description": "A vibrant surreal painting features a lime green dog wearing a gold beaded necklace, its head turned in profile. A large red wax seal with a dripping human eye is affixed to the dog's face while a blue and orange human face with intricate patterns appears beside it against a dark background filled with floating faces and symbols.",
+  "source_prompt": "",
+  "source_title": "Surreal Green Dog Portrait",
+  "style": "surrealism",
+  "mood": "psychedelic mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dog",
+    "eye",
+    "wax seal",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 798,
+  "source_url": "/generated/798.jpg",
+  "image_url": "/sketches/1583.png",
+  "inverted_image_url": "/sketches-inverted/1583.png",
+  "curve_count": 252,
+  "built_at": "2026-08-17T00:09:41Z"
+}

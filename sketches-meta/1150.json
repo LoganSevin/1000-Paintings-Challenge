@@ -1,0 +1,42 @@
+{
+  "number": 1150,
+  "title": "Line sketch: Lighthouse of Cosmic Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a towering lighthouse shaped like a woman's head with glowing eyes and lips. Her elaborate, swirling hair flows upward into the sky while a bright beam projects from her forehead toward a ringed planet, set against a seascape with shipwrecks and barren trees (derived from generated still #362).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a towering lighthouse shaped like a woman's head with glowing eyes and lips. Her elaborate, swirling hair flows upward into the sky while a bright beam projects from her forehead toward a ringed planet, set against a seascape with shipwrecks and barren trees",
+  "inverted_title": "Inverted sketch: Lighthouse of Cosmic Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a towering lighthouse shaped like a woman's head with glowing eyes and lips. Her elaborate, swirling hair flows upward into the sky while a bright beam projects from her forehead toward a ringed planet, set against a seascape with shipwrecks and barren trees (from generated still #362).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a towering lighthouse shaped like a woman's head with glowing eyes and lips. Her elaborate, swirling hair flows upward into the sky while a bright beam projects from her forehead toward a ringed planet, set against a seascape with shipwrecks and barren trees",
+  "source_description": "A surreal painting depicts a towering lighthouse shaped like a woman's head with glowing orange eyes and purple lips. Her elaborate, swirling multicolored hair flows upward into the sky while a bright beam projects from her forehead toward a ringed planet, set against a seascape with shipwrecks and barren trees.",
+  "source_prompt": "",
+  "source_title": "Lighthouse of Cosmic Dreams",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lighthouse",
+    "surreal",
+    "cosmic",
+    "woman",
+    "planet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 362,
+  "source_url": "/generated/362.jpg",
+  "image_url": "/sketches/1150.png",
+  "inverted_image_url": "/sketches-inverted/1150.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:40Z"
+}

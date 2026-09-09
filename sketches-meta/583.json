@@ -1,0 +1,42 @@
+{
+  "number": 583,
+  "title": "Line sketch: Elegant Lady in",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A classical portrait of a young woman with reddish-blonde hair styled in an updo adorned with a floral crown. She gazes directly at the viewer with striking eyes, set against a soft, textured background (derived from painting #737).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A classical portrait of a young woman with reddish-blonde hair styled in an updo adorned with a floral crown. She gazes directly at the viewer with striking eyes, set against a soft, textured background",
+  "inverted_title": "Inverted sketch: Elegant Lady in",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A classical portrait of a young woman with reddish-blonde hair styled in an updo adorned with a floral crown. She gazes directly at the viewer with striking eyes, set against a soft, textured background (from painting #737).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A classical portrait of a young woman with reddish-blonde hair styled in an updo adorned with a floral crown. She gazes directly at the viewer with striking eyes, set against a soft, textured background",
+  "source_description": "A classical portrait of a young woman with reddish-blonde hair styled in an updo adorned with a floral crown. She gazes directly at the viewer with striking blue eyes, set against a soft, textured pink background.",
+  "source_prompt": "",
+  "source_title": "Elegant Lady in Pink",
+  "style": "Realistic portrait",
+  "mood": "Serene and graceful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "classical",
+    "redhead",
+    "floral crown",
+    "elegant"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 737,
+  "source_url": "/paintings/737.jpg",
+  "image_url": "/sketches/583.png",
+  "inverted_image_url": "/sketches-inverted/583.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

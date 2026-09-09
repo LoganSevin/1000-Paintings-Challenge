@@ -1,0 +1,42 @@
+{
+  "number": 121,
+  "title": "Line sketch: Bubbled Romance in Flight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man and woman sit side by side in a sleek, retro-futuristic vehicle, each enclosed in a large transparent bubble helmet. The woman holds a bubbling device while the man smiles at her, with floating bubbles scattered against a background. The composition centers the vehicle horizontally, using clean lines and flat color fields typical of mid-century illustration (derived from painting #157).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man and woman sit side by side in a sleek, retro-futuristic vehicle, each enclosed in a large transparent bubble helmet. The woman holds a bubbling device while the man smiles at her, with floating bubbles scattered against a background. The composition centers the vehicle horizontally, using clean lines and flat color fields typical of mid-century illustration",
+  "inverted_title": "Inverted sketch: Bubbled Romance in Flight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man and woman sit side by side in a sleek, retro-futuristic vehicle, each enclosed in a large transparent bubble helmet. The woman holds a bubbling device while the man smiles at her, with floating bubbles scattered against a background. The composition centers the vehicle horizontally, using clean lines and flat color fields typical of mid-century illustration (from painting #157).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man and woman sit side by side in a sleek, retro-futuristic vehicle, each enclosed in a large transparent bubble helmet. The woman holds a bubbling device while the man smiles at her, with floating bubbles scattered against a background. The composition centers the vehicle horizontally, using clean lines and flat color fields typical of mid-century illustration",
+  "source_description": "A man and woman sit side by side in a sleek, retro-futuristic vehicle, each enclosed in a large transparent bubble helmet. The woman holds a bubbling device while the man smiles at her, with floating bubbles scattered against a deep purple background. The composition centers the vehicle horizontally, using clean lines and flat color fields typical of mid-century illustration.",
+  "source_prompt": "",
+  "source_title": "Bubbled Romance in Flight",
+  "style": "retro futurism",
+  "mood": "whimsical romantic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "gouache",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro",
+    "futuristic",
+    "couple",
+    "bubbles",
+    "illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 157,
+  "source_url": "/paintings/157.jpg",
+  "image_url": "/sketches/121.png",
+  "inverted_image_url": "/sketches-inverted/121.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

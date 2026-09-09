@@ -1,0 +1,42 @@
+{
+  "number": 3608,
+  "title": "Line sketch: Three Bound Demons",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three -skinned demonic figures with horns stand together in a stone archway. The central muscular demon has glowing bandages across his chest while the others are wrapped in mummy-like wrappings, one with a bandaged face, all surrounded by swirling mist and torchlight (derived from generated still #3016).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three -skinned demonic figures with horns stand together in a stone archway. The central muscular demon has glowing bandages across his chest while the others are wrapped in mummy-like wrappings, one with a bandaged face, all surrounded by swirling mist and torchlight",
+  "inverted_title": "Inverted sketch: Three Bound Demons",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three -skinned demonic figures with horns stand together in a stone archway. The central muscular demon has glowing bandages across his chest while the others are wrapped in mummy-like wrappings, one with a bandaged face, all surrounded by swirling mist and torchlight (from generated still #3016).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three -skinned demonic figures with horns stand together in a stone archway. The central muscular demon has glowing bandages across his chest while the others are wrapped in mummy-like wrappings, one with a bandaged face, all surrounded by swirling mist and torchlight",
+  "source_description": "Three blue-skinned demonic figures with horns stand together in a stone archway. The central muscular demon has glowing golden bandages across his chest while the others are wrapped in mummy-like wrappings, one with a bandaged face, all surrounded by swirling mist and torchlight.",
+  "source_prompt": "Three menacing blue demons with curved horns and glowing white eyes stand in a dark stone archway carved with demonic faces. The muscular central demon has golden glowing bandages wrapped across his chest and arms, while the other two are tightly wrapped in aged mummy bandages, one completely covering his face except for one eye. Dramatic torchlight illuminates the scene from the sides, thick green mist swirls around their legs, dark fantasy atmosphere, cinematic lighting, detailed textures",
+  "source_title": "Three Bound Blue Demons",
+  "style": "dark fantasy",
+  "mood": "ominous, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demons",
+    "mummy",
+    "horns",
+    "stone archway",
+    "torchlight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3016,
+  "source_url": "/generated/3016.jpg",
+  "image_url": "/sketches/3608.png",
+  "inverted_image_url": "/sketches-inverted/3608.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:46Z"
+}

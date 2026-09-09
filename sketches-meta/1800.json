@@ -1,0 +1,42 @@
+{
+  "number": 1800,
+  "title": "Line sketch: Electric Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant stylized illustration of a -skinned woman with long flowing black hair adorned with leaves and vines. She stands in profile holding a glowing lightning bolt in her outstretched hand against a cosmic and background filled with swirling patterns, stars, and silhouettes (derived from generated still #1023).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant stylized illustration of a -skinned woman with long flowing black hair adorned with leaves and vines. She stands in profile holding a glowing lightning bolt in her outstretched hand against a cosmic and background filled with swirling patterns, stars, and silhouettes",
+  "inverted_title": "Inverted sketch: Electric Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant stylized illustration of a -skinned woman with long flowing black hair adorned with leaves and vines. She stands in profile holding a glowing lightning bolt in her outstretched hand against a cosmic and background filled with swirling patterns, stars, and silhouettes (from generated still #1023).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant stylized illustration of a -skinned woman with long flowing black hair adorned with leaves and vines. She stands in profile holding a glowing lightning bolt in her outstretched hand against a cosmic and background filled with swirling patterns, stars, and silhouettes",
+  "source_description": "A vibrant stylized illustration of a blue-skinned woman with long flowing black hair adorned with leaves and vines. She stands in profile holding a glowing lightning bolt in her outstretched hand against a cosmic purple and green background filled with swirling patterns, stars, and silhouettes.",
+  "source_prompt": "",
+  "source_title": "Electric Sorceress",
+  "style": "digital illustration",
+  "mood": "mystical energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "lightning",
+    "cosmic",
+    "floral pattern",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1023,
+  "source_url": "/generated/1023.jpg",
+  "image_url": "/sketches/1800.png",
+  "inverted_image_url": "/sketches-inverted/1800.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:42Z"
+}

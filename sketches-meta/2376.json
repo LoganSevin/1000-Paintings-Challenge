@@ -1,0 +1,42 @@
+{
+  "number": 2376,
+  "title": "Line sketch: Triune Dripping Beast",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dinosaur-like creature with spikes stands on a hill, its body melting and dripping vibrant slime. Three overlapping women's faces in, and emerge from the creature's back, set against a background with swirling lines and glowing orbs (derived from generated still #1604).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dinosaur-like creature with spikes stands on a hill, its body melting and dripping vibrant slime. Three overlapping women's faces in, and emerge from the creature's back, set against a background with swirling lines and glowing orbs",
+  "inverted_title": "Inverted sketch: Triune Dripping Beast",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dinosaur-like creature with spikes stands on a hill, its body melting and dripping vibrant slime. Three overlapping women's faces in, and emerge from the creature's back, set against a background with swirling lines and glowing orbs (from generated still #1604).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dinosaur-like creature with spikes stands on a hill, its body melting and dripping vibrant slime. Three overlapping women's faces in, and emerge from the creature's back, set against a background with swirling lines and glowing orbs",
+  "source_description": "A surreal purple dinosaur-like creature with golden spikes stands on a bright green hill, its body melting and dripping vibrant green slime. Three overlapping women's faces in purple, orange, and pink emerge from the creature's back, set against a deep purple background with swirling orange lines and glowing yellow orbs.",
+  "source_prompt": "",
+  "source_title": "Triune Dripping Beast",
+  "style": "psychedelic surrealism",
+  "mood": "trippy vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dinosaur",
+    "melting",
+    "triune faces",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1604,
+  "source_url": "/generated/1604.jpg",
+  "image_url": "/sketches/2376.png",
+  "inverted_image_url": "/sketches-inverted/2376.png",
+  "curve_count": 119,
+  "built_at": "2026-08-17T00:09:43Z"
+}

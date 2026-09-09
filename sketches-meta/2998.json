@@ -1,0 +1,42 @@
+{
+  "number": 2998,
+  "title": "Line sketch: Surreal Portrait Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central portrait of a middle-aged man wearing a camouflage cap and jacket is superimposed over a surreal composite landscape. The scene includes a stormy ocean with large waves on the left, a cartoon-style fish with large eyes on the right, pottery on a foreground table, tall reeds, and clouds, and a reflective lake with distant trees in the background (derived from generated still #2320).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central portrait of a middle-aged man wearing a camouflage cap and jacket is superimposed over a surreal composite landscape. The scene includes a stormy ocean with large waves on the left, a cartoon-style fish with large eyes on the right, pottery on a foreground table, tall reeds, and clouds, and a reflective lake with distant trees in the background",
+  "inverted_title": "Inverted sketch: Surreal Portrait Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central portrait of a middle-aged man wearing a camouflage cap and jacket is superimposed over a surreal composite landscape. The scene includes a stormy ocean with large waves on the left, a cartoon-style fish with large eyes on the right, pottery on a foreground table, tall reeds, and clouds, and a reflective lake with distant trees in the background (from generated still #2320).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central portrait of a middle-aged man wearing a camouflage cap and jacket is superimposed over a surreal composite landscape. The scene includes a stormy ocean with large waves on the left, a cartoon-style fish with large eyes on the right, pottery on a foreground table, tall reeds, and clouds, and a reflective lake with distant trees in the background",
+  "source_description": "A central portrait of a middle-aged man wearing a camouflage cap and green jacket is superimposed over a surreal composite landscape. The scene includes a stormy ocean with large waves on the left, a blue cartoon-style fish with large eyes on the right, colorful pottery on a foreground table, tall green reeds, purple and blue clouds, and a reflective lake with distant trees in the background.",
+  "source_prompt": "Surreal composite painting featuring a realistic middle-aged man in a camouflage cap and green jacket at center, blended into a dreamlike landscape with a turbulent blue ocean and waves on the left, a worried blue cartoon fish character on the right, colorful abstract pottery and vases in the foreground, tall green reeds, floating purple and blue clouds, and a calm reflective lake with distant trees under a dramatic sky.",
+  "source_title": "Surreal Portrait Collage",
+  "style": "surrealism",
+  "mood": "dreamlike whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "portrait",
+    "fantasy landscape",
+    "ceramic pottery"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2320,
+  "source_url": "/generated/2320.jpg",
+  "image_url": "/sketches/2998.png",
+  "inverted_image_url": "/sketches-inverted/2998.png",
+  "curve_count": 119,
+  "built_at": "2026-08-17T00:09:44Z"
+}

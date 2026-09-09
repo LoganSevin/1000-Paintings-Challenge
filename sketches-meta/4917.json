@@ -1,0 +1,42 @@
+{
+  "number": 4917,
+  "title": "Line sketch: Starry Atelier",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An artist's studio interior with wooden easels, blank canvases, and a paint-splattered stool under a large skylight revealing a vibrant night sky filled with stars, constellations, a glowing comet, and dramatic beams of light streaming downward. In the foreground, one easel displays a finished composition of an empty minimalist gallery room (derived from generated still #4353).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An artist's studio interior with wooden easels, blank canvases, and a paint-splattered stool under a large skylight revealing a vibrant night sky filled with stars, constellations, a glowing comet, and dramatic beams of light streaming downward. In the foreground, one easel displays a finished composition of an empty minimalist gallery room",
+  "inverted_title": "Inverted sketch: Starry Atelier",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An artist's studio interior with wooden easels, blank canvases, and a paint-splattered stool under a large skylight revealing a vibrant night sky filled with stars, constellations, a glowing comet, and dramatic beams of light streaming downward. In the foreground, one easel displays a finished composition of an empty minimalist gallery room (from generated still #4353).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An artist's studio interior with wooden easels, blank canvases, and a paint-splattered stool under a large skylight revealing a vibrant night sky filled with stars, constellations, a glowing comet, and dramatic beams of light streaming downward. In the foreground, one easel displays a finished composition of an empty minimalist gallery room",
+  "source_description": "An artist's studio interior with wooden easels, blank canvases, and a paint-splattered stool under a large skylight revealing a vibrant night sky filled with stars, constellations, a glowing comet, and dramatic beams of golden light streaming downward. In the foreground, one easel displays a finished painting of an empty minimalist gallery room.",
+  "source_prompt": "An artist's studio at night with multiple wooden easels holding canvases, one showing a painting of an empty gallery hallway. A large angled skylight reveals a beautiful starry night sky with constellations, a bright comet, and golden light beams pouring into the cluttered room filled with paint supplies and blank frames, atmospheric digital painting, warm and cool lighting contrast",
+  "source_title": "Starry Atelier",
+  "style": "line sketch",
+  "mood": "dreamlike, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artist studio",
+    "skylight",
+    "night sky",
+    "easel",
+    "starry"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4353,
+  "source_url": "/generated/4353.jpg",
+  "image_url": "/sketches/4917.png",
+  "inverted_image_url": "/sketches-inverted/4917.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 899,
+  "title": "Line sketch: Surreal Dream Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized portrait of a topless woman with elaborate swirling and hair, eyes, and cracks across her skin. She stands beside a large oval portal showing a desert landscape with mountains, a setting sun, and a small silhouetted figure, surrounded by floating transparent bubbles containing tiny objects against a vibrant cosmic background (derived from generated still #108).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized portrait of a topless woman with elaborate swirling and hair, eyes, and cracks across her skin. She stands beside a large oval portal showing a desert landscape with mountains, a setting sun, and a small silhouetted figure, surrounded by floating transparent bubbles containing tiny objects against a vibrant cosmic background",
+  "inverted_title": "Inverted sketch: Surreal Dream Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized portrait of a topless woman with elaborate swirling and hair, eyes, and cracks across her skin. She stands beside a large oval portal showing a desert landscape with mountains, a setting sun, and a small silhouetted figure, surrounded by floating transparent bubbles containing tiny objects against a vibrant cosmic background (from generated still #108).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized portrait of a topless woman with elaborate swirling and hair, eyes, and cracks across her skin. She stands beside a large oval portal showing a desert landscape with mountains, a setting sun, and a small silhouetted figure, surrounded by floating transparent bubbles containing tiny objects against a vibrant cosmic background",
+  "source_description": "A stylized portrait of a topless woman with elaborate swirling orange and blue hair, purple eyes, and golden cracks across her skin. She stands beside a large oval portal showing a desert landscape with purple mountains, a setting sun, and a small silhouetted figure, surrounded by floating transparent bubbles containing tiny objects against a vibrant cosmic background.",
+  "source_prompt": "",
+  "source_title": "Surreal Dream Portal",
+  "style": "surreal digital illustration",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portal",
+    "woman",
+    "bubbles",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 108,
+  "source_url": "/generated/108.jpg",
+  "image_url": "/sketches/899.png",
+  "inverted_image_url": "/sketches-inverted/899.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:40Z"
+}

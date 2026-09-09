@@ -1,0 +1,42 @@
+{
+  "number": 4012,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A confident young woman with dark hair in a topknot stands in a dynamic pose, holding a massive warhammer. She wears an cropped top with tribal patterns, pants, and matching armored boots and wristbands, with a cheeky smile and one fist raised near her face (derived from generated still #3429).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A confident young woman with dark hair in a topknot stands in a dynamic pose, holding a massive warhammer. She wears an cropped top with tribal patterns, pants, and matching armored boots and wristbands, with a cheeky smile and one fist raised near her face",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A confident young woman with dark hair in a topknot stands in a dynamic pose, holding a massive warhammer. She wears an cropped top with tribal patterns, pants, and matching armored boots and wristbands, with a cheeky smile and one fist raised near her face (from generated still #3429).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A confident young woman with dark hair in a topknot stands in a dynamic pose, holding a massive warhammer. She wears an cropped top with tribal patterns, pants, and matching armored boots and wristbands, with a cheeky smile and one fist raised near her face",
+  "source_description": "A confident young woman with dark hair in a topknot stands in a dynamic pose, holding a massive purple warhammer. She wears an orange cropped top with tribal patterns, dark purple pants, and matching armored boots and wristbands, with a cheeky smile and one fist raised near her face.",
+  "source_prompt": "A confident East Asian female warrior with dark hair in a topknot and two bone hairpins, smirking at the viewer with one fist raised near her cheek. She wears an orange cropped tribal top, exposed midriff, dark purple pants with orange patterns, purple armored boots and wrist guards. She holds a very large purple warhammer with intricate designs resting on the ground. Dynamic stance, studio lighting, clean dark gray background, detailed digital illustration style.",
+  "source_title": "Purple Hammer Warrior",
+  "style": "digital illustration",
+  "mood": "bold, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "tribal outfit",
+    "fantasy character",
+    "hammer"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3429,
+  "source_url": "/generated/3429.jpg",
+  "image_url": "/sketches/4012.png",
+  "inverted_image_url": "/sketches-inverted/4012.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:47Z"
+}

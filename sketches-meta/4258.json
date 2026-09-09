@@ -1,0 +1,42 @@
+{
+  "number": 4258,
+  "title": "Line sketch: Cosmic Neural Flower",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant mosaic flower with a glowing core floats inside a transparent crystalline sphere. The sphere is surrounded by glowing neuron-like structures with branching tendrils and spherical nodes, set against a cosmic nebula background with swirling ripples below (derived from generated still #3677).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant mosaic flower with a glowing core floats inside a transparent crystalline sphere. The sphere is surrounded by glowing neuron-like structures with branching tendrils and spherical nodes, set against a cosmic nebula background with swirling ripples below",
+  "inverted_title": "Inverted sketch: Cosmic Neural Flower",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant mosaic flower with a glowing core floats inside a transparent crystalline sphere. The sphere is surrounded by glowing neuron-like structures with branching tendrils and spherical nodes, set against a cosmic nebula background with swirling ripples below (from generated still #3677).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant mosaic flower with a glowing core floats inside a transparent crystalline sphere. The sphere is surrounded by glowing neuron-like structures with branching tendrils and spherical nodes, set against a cosmic nebula background with swirling ripples below",
+  "source_description": "A vibrant multicolored mosaic flower with a glowing core floats inside a transparent crystalline sphere. The sphere is surrounded by glowing blue neuron-like structures with branching tendrils and spherical nodes, set against a cosmic nebula background with swirling iridescent ripples below.",
+  "source_prompt": "A luminous mosaic flower with multicolored pixelated petals and a glowing core floats inside a large transparent glass sphere. Electric blue neuron-like structures with branching dendrites and glowing spherical nodes wrap around and through the sphere. The flower has long purple tendrils extending downward into swirling iridescent liquid ripples that reflect the scene. Set in a vibrant cosmic space with purple and pink nebulae and stars.",
+  "source_title": "Cosmic Neural Flower",
+  "style": "surreal digital art",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "neural",
+    "flower",
+    "sphere",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3677,
+  "source_url": "/generated/3677.jpg",
+  "image_url": "/sketches/4258.png",
+  "inverted_image_url": "/sketches-inverted/4258.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

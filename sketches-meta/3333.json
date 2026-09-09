@@ -1,0 +1,42 @@
+{
+  "number": 3333,
+  "title": "Line sketch: Cinema Projectionist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a grey jumpsuit stands in a dilapidated vintage movie theater, holding a small object while looking at a large projection screen displaying silhouettes and film reel mechanisms. The floor is cluttered with glowing film reels, broken clapperboards, and debris, with old theater seats, a film camera on a tripod, and a 'LEVEL 7 PROJECTION' sign visible (derived from generated still #2728).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a grey jumpsuit stands in a dilapidated vintage movie theater, holding a small object while looking at a large projection screen displaying silhouettes and film reel mechanisms. The floor is cluttered with glowing film reels, broken clapperboards, and debris, with old theater seats, a film camera on a tripod, and a 'LEVEL 7 PROJECTION' sign visible",
+  "inverted_title": "Inverted sketch: Cinema Projectionist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a grey jumpsuit stands in a dilapidated vintage movie theater, holding a small object while looking at a large projection screen displaying silhouettes and film reel mechanisms. The floor is cluttered with glowing film reels, broken clapperboards, and debris, with old theater seats, a film camera on a tripod, and a 'LEVEL 7 PROJECTION' sign visible (from generated still #2728).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a grey jumpsuit stands in a dilapidated vintage movie theater, holding a small object while looking at a large projection screen displaying silhouettes and film reel mechanisms. The floor is cluttered with glowing film reels, broken clapperboards, and debris, with old theater seats, a film camera on a tripod, and a 'LEVEL 7 PROJECTION' sign visible",
+  "source_description": "A man in a grey jumpsuit stands in a dilapidated vintage movie theater, holding a small object while looking at a large projection screen displaying silhouettes and film reel mechanisms. The floor is cluttered with glowing green film reels, broken clapperboards, and debris, with old theater seats, a film camera on a tripod, and a 'LEVEL 7 PROJECTION' sign visible.",
+  "source_prompt": "A lone projectionist in a grey jumpsuit stands inside a decaying ornate cinema with a painted celestial ceiling. He faces a large screen showing film machinery and dancing silhouettes. The floor is covered in scattered glowing green film reels, broken clapperboards, and debris. A vintage film camera stands on a tripod beside red curtains and a Level 7 Projection sign. Cinematic lighting with a strong projector beam cutting through dusty air, moody and atmospheric digital painting.",
+  "source_title": "Cinema Projectionist",
+  "style": "composition",
+  "mood": "mysterious dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinema",
+    "projectionist",
+    "film reels",
+    "dystopian",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2728,
+  "source_url": "/generated/2728.jpg",
+  "image_url": "/sketches/3333.png",
+  "inverted_image_url": "/sketches-inverted/3333.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:45Z"
+}

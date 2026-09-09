@@ -1,0 +1,42 @@
+{
+  "number": 4520,
+  "title": "Line sketch: Burning Spiral Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted portrait of a bald person's face with wide staring eyes and open mouth, centered within a swirling vortex of, and flames and. Black, leafless tree branches emerge from a dark spiral at the bottom, reaching upward toward the face as if burning (derived from generated still #3940).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted portrait of a bald person's face with wide staring eyes and open mouth, centered within a swirling vortex of, and flames and. Black, leafless tree branches emerge from a dark spiral at the bottom, reaching upward toward the face as if burning",
+  "inverted_title": "Inverted sketch: Burning Spiral Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted portrait of a bald person's face with wide staring eyes and open mouth, centered within a swirling vortex of, and flames and. Black, leafless tree branches emerge from a dark spiral at the bottom, reaching upward toward the face as if burning (from generated still #3940).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted portrait of a bald person's face with wide staring eyes and open mouth, centered within a swirling vortex of, and flames and. Black, leafless tree branches emerge from a dark spiral at the bottom, reaching upward toward the face as if burning",
+  "source_description": "A surreal painted portrait of a bald person's face with wide staring eyes and open mouth, centered within a swirling vortex of orange, red, and blue flames and brushstrokes. Black, leafless tree branches emerge from a dark spiral at the bottom, reaching upward toward the face as if burning.",
+  "source_prompt": "surreal painted portrait of a bald person's face with wide terrified eyes and open mouth, centered in a dynamic swirling vortex of fiery orange and blue brushstrokes, black leafless tree branches rising from a dark spiral at the bottom reaching toward the face, chaotic burning energy, expressive linework, visible brushstrokes, on torn and burnt paper edges",
+  "source_title": "Burning Spiral Portrait",
+  "style": "expressionist",
+  "mood": "chaotic, tormented",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fire vortex",
+    "burning branches",
+    "expressionist face",
+    "swirling flames"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3940,
+  "source_url": "/generated/3940.jpg",
+  "image_url": "/sketches/4520.png",
+  "inverted_image_url": "/sketches-inverted/4520.png",
+  "curve_count": 99,
+  "built_at": "2026-08-17T00:09:48Z"
+}

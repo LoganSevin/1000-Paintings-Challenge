@@ -1,0 +1,42 @@
+{
+  "number": 532,
+  "title": "Line sketch: Vibrant Eye Closeup",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized close-up of a human eye featuring a striking iris with radial patterns and white highlights. The detailed eyelashes and surrounding skin in tones create an intense, captivating gaze (derived from painting #664).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized close-up of a human eye featuring a striking iris with radial patterns and white highlights. The detailed eyelashes and surrounding skin in tones create an intense, captivating gaze",
+  "inverted_title": "Inverted sketch: Vibrant Eye Closeup",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized close-up of a human eye featuring a striking iris with radial patterns and white highlights. The detailed eyelashes and surrounding skin in tones create an intense, captivating gaze (from painting #664).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized close-up of a human eye featuring a striking iris with radial patterns and white highlights. The detailed eyelashes and surrounding skin in tones create an intense, captivating gaze",
+  "source_description": "A stylized close-up of a human eye featuring a striking green iris with radial patterns and white highlights. The detailed eyelashes and surrounding skin in soft purple tones create an intense, captivating gaze.",
+  "source_prompt": "",
+  "source_title": "Vibrant Green Eye Closeup",
+  "style": "line sketch",
+  "mood": "Intense and captivating",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "iris",
+    "digital art",
+    "closeup",
+    "realistic composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 664,
+  "source_url": "/paintings/664.jpg",
+  "image_url": "/sketches/532.png",
+  "inverted_image_url": "/sketches-inverted/532.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:39Z"
+}

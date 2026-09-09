@@ -1,0 +1,42 @@
+{
+  "number": 2422,
+  "title": "Line sketch: Cosmic Floral Rift",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a diagonal band of deep space containing a glowing spiral galaxy and stars cutting across the composition. Large white and flowers with speckles and leaves float against a vibrant aurora borealis background of swirling, and cosmic clouds (derived from generated still #1655).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a diagonal band of deep space containing a glowing spiral galaxy and stars cutting across the composition. Large white and flowers with speckles and leaves float against a vibrant aurora borealis background of swirling, and cosmic clouds",
+  "inverted_title": "Inverted sketch: Cosmic Floral Rift",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a diagonal band of deep space containing a glowing spiral galaxy and stars cutting across the composition. Large white and flowers with speckles and leaves float against a vibrant aurora borealis background of swirling, and cosmic clouds (from generated still #1655).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a diagonal band of deep space containing a glowing spiral galaxy and stars cutting across the composition. Large white and flowers with speckles and leaves float against a vibrant aurora borealis background of swirling, and cosmic clouds",
+  "source_description": "A surreal painting depicts a diagonal band of deep space containing a glowing spiral galaxy and stars cutting across the composition. Large white and cream flowers with green speckles and leaves float against a vibrant aurora borealis background of swirling orange, purple, and pink cosmic clouds.",
+  "source_prompt": "",
+  "source_title": "Cosmic Floral Rift",
+  "style": "surrealism",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "floral",
+    "galaxy",
+    "aurora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1655,
+  "source_url": "/generated/1655.jpg",
+  "image_url": "/sketches/2422.png",
+  "inverted_image_url": "/sketches-inverted/2422.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:43Z"
+}

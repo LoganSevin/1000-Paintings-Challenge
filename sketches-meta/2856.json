@@ -1,0 +1,42 @@
+{
+  "number": 2856,
+  "title": "Line sketch: Infernal Coffin Awakening",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal hand wearing an ornate gauntlet bursts from a broken wooden coffin in the foreground. Behind it, a massive flaming demonic skull with glowing eyes and sharp teeth hovers over a dark gothic cityscape filled with spires, clocks, and smoking chimneys under an full moon (derived from generated still #2141).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal hand wearing an ornate gauntlet bursts from a broken wooden coffin in the foreground. Behind it, a massive flaming demonic skull with glowing eyes and sharp teeth hovers over a dark gothic cityscape filled with spires, clocks, and smoking chimneys under an full moon",
+  "inverted_title": "Inverted sketch: Infernal Coffin Awakening",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal hand wearing an ornate gauntlet bursts from a broken wooden coffin in the foreground. Behind it, a massive flaming demonic skull with glowing eyes and sharp teeth hovers over a dark gothic cityscape filled with spires, clocks, and smoking chimneys under an full moon (from generated still #2141).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal hand wearing an ornate gauntlet bursts from a broken wooden coffin in the foreground. Behind it, a massive flaming demonic skull with glowing eyes and sharp teeth hovers over a dark gothic cityscape filled with spires, clocks, and smoking chimneys under an full moon",
+  "source_description": "A skeletal hand wearing an ornate golden gauntlet bursts from a broken wooden coffin in the foreground. Behind it, a massive flaming demonic skull with glowing eyes and sharp teeth hovers over a dark gothic cityscape filled with spires, clocks, and smoking chimneys under an orange full moon.",
+  "source_prompt": "A skeletal hand in an ornate golden gauntlet clawing out from a broken wooden coffin in the foreground, a giant flaming demonic skull with glowing eyes and sharp teeth hovering above it, dark gothic city with tall spires and clock towers in the background, full orange moon in a purple sky, dramatic fire and smoke, dark fantasy style, highly detailed",
+  "source_title": "Infernal Coffin Awakening",
+  "style": "dark fantasy illustration",
+  "mood": "menacing apocalyptic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demonic skull",
+    "skeletal hand",
+    "gothic city",
+    "burning coffin",
+    "full moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2141,
+  "source_url": "/generated/2141.jpg",
+  "image_url": "/sketches/2856.png",
+  "inverted_image_url": "/sketches-inverted/2856.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:44Z"
+}

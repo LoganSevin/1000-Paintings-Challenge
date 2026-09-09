@@ -1,0 +1,42 @@
+{
+  "number": 2674,
+  "title": "Line sketch: Skull Larva Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a giant skull dripping honey-like liquid from above, while two large white larvae with oversized black eyes interact with the substance on a mound below. The background shows a sky with aurora, ringed planets, and rocky formations (derived from generated still #1916).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a giant skull dripping honey-like liquid from above, while two large white larvae with oversized black eyes interact with the substance on a mound below. The background shows a sky with aurora, ringed planets, and rocky formations",
+  "inverted_title": "Inverted sketch: Skull Larva Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a giant skull dripping honey-like liquid from above, while two large white larvae with oversized black eyes interact with the substance on a mound below. The background shows a sky with aurora, ringed planets, and rocky formations (from generated still #1916).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a giant skull dripping honey-like liquid from above, while two large white larvae with oversized black eyes interact with the substance on a mound below. The background shows a sky with aurora, ringed planets, and rocky formations",
+  "source_description": "A surreal desert landscape features a giant golden skull dripping honey-like liquid from above, while two large white larvae with oversized black eyes interact with the golden substance on a mound below. The background shows a purple sky with green aurora, ringed planets, and orange rocky formations.",
+  "source_prompt": "",
+  "source_title": "Golden Skull Larva Dream",
+  "style": "surrealism",
+  "mood": "dreamlike bizarre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "larva",
+    "skull",
+    "desert",
+    "aurora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1916,
+  "source_url": "/generated/1916.jpg",
+  "image_url": "/sketches/2674.png",
+  "inverted_image_url": "/sketches-inverted/2674.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:44Z"
+}

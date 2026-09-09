@@ -1,0 +1,42 @@
+{
+  "number": 3896,
+  "title": "Line sketch: Dual Pose Punk Character",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side full-body illustrations of a female character with spiky hair and star motifs. The left pose shows her with arms crossed above her head while the right pose shows her in a fighting stance with fists raised near her face (derived from generated still #3313).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side full-body illustrations of a female character with spiky hair and star motifs. The left pose shows her with arms crossed above her head while the right pose shows her in a fighting stance with fists raised near her face",
+  "inverted_title": "Inverted sketch: Dual Pose Punk Character",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side full-body illustrations of a female character with spiky hair and star motifs. The left pose shows her with arms crossed above her head while the right pose shows her in a fighting stance with fists raised near her face (from generated still #3313).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side full-body illustrations of a female character with spiky hair and star motifs. The left pose shows her with arms crossed above her head while the right pose shows her in a fighting stance with fists raised near her face",
+  "source_description": "Two side-by-side full-body illustrations of a female character with teal spiky hair and star motifs. The left pose shows her with arms crossed above her head while the right pose shows her in a fighting stance with fists raised near her face.",
+  "source_prompt": "A young female character with short spiky teal hair, facial markings, and heterochromia, wearing a purple crop top, black cape with teal inner lining, baggy teal pants, and black boots with silver star emblems. She has fingerless gloves and a star buckle belt. Shown in two poses on a plain grey background: one with arms crossed above her head, the other in a combat stance with fists up, digital painting style with clean cel-shaded coloring.",
+  "source_title": "Dual Pose Blue Punk Character",
+  "style": "digital character art",
+  "mood": "edgy, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "punk style",
+    "hair",
+    "star motifs",
+    "dual pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3313,
+  "source_url": "/generated/3313.jpg",
+  "image_url": "/sketches/3896.png",
+  "inverted_image_url": "/sketches-inverted/3896.png",
+  "curve_count": 84,
+  "built_at": "2026-08-17T00:09:46Z"
+}

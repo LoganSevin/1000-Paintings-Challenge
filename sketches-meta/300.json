@@ -1,0 +1,42 @@
+{
+  "number": 300,
+  "title": "Line sketch: Cyberpunk Citadel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering futuristic city rises from a dark plateau against a vibrant and gradient sky. Glowing and lights illuminate the silhouetted spires and structures in this synthwave-inspired digital landscape (derived from painting #360).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering futuristic city rises from a dark plateau against a vibrant and gradient sky. Glowing and lights illuminate the silhouetted spires and structures in this synthwave-inspired digital landscape",
+  "inverted_title": "Inverted sketch: Cyberpunk Citadel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering futuristic city rises from a dark plateau against a vibrant and gradient sky. Glowing and lights illuminate the silhouetted spires and structures in this synthwave-inspired digital landscape (from painting #360).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering futuristic city rises from a dark plateau against a vibrant and gradient sky. Glowing and lights illuminate the silhouetted spires and structures in this synthwave-inspired digital landscape",
+  "source_description": "A towering futuristic city rises from a dark plateau against a vibrant purple and blue gradient sky. Glowing cyan and orange lights illuminate the silhouetted spires and structures in this synthwave-inspired digital landscape.",
+  "source_prompt": "",
+  "source_title": "Neon Cyberpunk Citadel",
+  "style": "cyberpunk digital art",
+  "mood": "mysterious futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "cityscape",
+    "silhouette",
+    "futuristic",
+    "synthwave"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 360,
+  "source_url": "/paintings/360.jpg",
+  "image_url": "/sketches/300.png",
+  "inverted_image_url": "/sketches-inverted/300.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:38Z"
+}

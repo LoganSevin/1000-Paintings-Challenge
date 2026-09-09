@@ -1,0 +1,42 @@
+{
+  "number": 1367,
+  "title": "Line sketch: Spiraling Dream Bridges",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring large black spiral structures resembling ancient bridges or amphitheaters, populated by small human-like figures in dynamic poses. The background consists of concentric circles and swirling patterns in vivid contrasting hues (derived from generated still #582).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring large black spiral structures resembling ancient bridges or amphitheaters, populated by small human-like figures in dynamic poses. The background consists of concentric circles and swirling patterns in vivid contrasting hues",
+  "inverted_title": "Inverted sketch: Spiraling Dream Bridges",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring large black spiral structures resembling ancient bridges or amphitheaters, populated by small human-like figures in dynamic poses. The background consists of concentric circles and swirling patterns in vivid contrasting hues (from generated still #582).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring large black spiral structures resembling ancient bridges or amphitheaters, populated by small human-like figures in dynamic poses. The background consists of concentric circles and swirling patterns in vivid contrasting hues",
+  "source_description": "A vibrant psychedelic artwork featuring large black spiral structures resembling ancient bridges or amphitheaters, populated by small yellow human-like figures in dynamic poses. The background consists of concentric circles and swirling patterns in vivid contrasting hues.",
+  "source_prompt": "",
+  "source_title": "Spiraling Dream Bridges",
+  "style": "Psychedelic",
+  "mood": "Hypnotic, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spirals",
+    "psychedelic",
+    "surreal",
+    "bridges",
+    "figures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 582,
+  "source_url": "/generated/582.jpg",
+  "image_url": "/sketches/1367.png",
+  "inverted_image_url": "/sketches-inverted/1367.png",
+  "curve_count": 210,
+  "built_at": "2026-08-17T00:09:41Z"
+}

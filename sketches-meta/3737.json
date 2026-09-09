@@ -1,0 +1,42 @@
+{
+  "number": 3737,
+  "title": "Line sketch: Athena Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body front view of a female warrior standing with arms outstretched, wearing ornate Greek armor with a sun-ray crown, white and feathered pauldrons, a pleated skirt, and patterned leggings. She holds a sword in her right hand against a solid dark gray background (derived from generated still #3147).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body front view of a female warrior standing with arms outstretched, wearing ornate Greek armor with a sun-ray crown, white and feathered pauldrons, a pleated skirt, and patterned leggings. She holds a sword in her right hand against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Athena Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body front view of a female warrior standing with arms outstretched, wearing ornate Greek armor with a sun-ray crown, white and feathered pauldrons, a pleated skirt, and patterned leggings. She holds a sword in her right hand against a solid dark gray background (from generated still #3147).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body front view of a female warrior standing with arms outstretched, wearing ornate Greek armor with a sun-ray crown, white and feathered pauldrons, a pleated skirt, and patterned leggings. She holds a sword in her right hand against a solid dark gray background",
+  "source_description": "A full-body front view of a female warrior standing with arms outstretched, wearing ornate golden Greek armor with a sun-ray crown, white and red feathered pauldrons, a pleated golden skirt, and dark blue patterned leggings. She holds a sword in her right hand against a solid dark gray background.",
+  "source_prompt": "Full body front view of a young woman with dark skin and curly hair wearing highly detailed ancient Greek golden armor, large white and red feathered shoulder pauldrons, pleated golden skirt over white underlayer, dark blue patterned leggings, ornate sun-ray crown, holding a sword in her right hand with arms outstretched to the sides, standing straight and facing forward, dramatic studio lighting on dark gray background",
+  "source_title": "Golden Athena Warrior",
+  "style": "realistic",
+  "mood": "regal, divine",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "Greek armor",
+    "Athena",
+    "armor",
+    "sun crown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3147,
+  "source_url": "/generated/3147.jpg",
+  "image_url": "/sketches/3737.png",
+  "inverted_image_url": "/sketches-inverted/3737.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3094,
+  "title": "Line sketch: The Cinematic Threshold",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dark trench coat stands in an ornate, broken doorway, one hand on the open door. The left side shows a warm, film-noir interior with scattered film reels and photos on a wooden floor, while the right side reveals a cold, decaying exterior with overgrown vines and mechanical debris. Two cherubic figures with film reels for heads float above, projecting light beams (derived from generated still #2427).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dark trench coat stands in an ornate, broken doorway, one hand on the open door. The left side shows a warm, film-noir interior with scattered film reels and photos on a wooden floor, while the right side reveals a cold, decaying exterior with overgrown vines and mechanical debris. Two cherubic figures with film reels for heads float above, projecting light beams",
+  "inverted_title": "Inverted sketch: The Cinematic Threshold",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dark trench coat stands in an ornate, broken doorway, one hand on the open door. The left side shows a warm, film-noir interior with scattered film reels and photos on a wooden floor, while the right side reveals a cold, decaying exterior with overgrown vines and mechanical debris. Two cherubic figures with film reels for heads float above, projecting light beams (from generated still #2427).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dark trench coat stands in an ornate, broken doorway, one hand on the open door. The left side shows a warm, film-noir interior with scattered film reels and photos on a wooden floor, while the right side reveals a cold, decaying exterior with overgrown vines and mechanical debris. Two cherubic figures with film reels for heads float above, projecting light beams",
+  "source_description": "A woman in a dark trench coat stands in an ornate, broken golden doorway, one hand on the open door. The left side shows a warm, film-noir interior with scattered film reels and photos on a wooden floor, while the right side reveals a cold, decaying exterior with overgrown vines and mechanical debris. Two cherubic figures with film reels for heads float above, projecting light beams.",
+  "source_prompt": "A surreal scene of a woman in a dark trench coat and pearl necklace standing in a massive, cracked golden doorway that splits two realities. Left side is a warm vintage film room with scattered 35mm reels and photos on parquet floor. Right side is a cold decaying mechanical exterior with vines and gears. Two flying cherubs with film projector heads shine beams from above. Dramatic lighting, cinematic atmosphere, intricate details.",
+  "source_title": "The Cinematic Threshold",
+  "style": "surreal cinematic",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "door",
+    "film reels",
+    "cherubs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2427,
+  "source_url": "/generated/2427.jpg",
+  "image_url": "/sketches/3094.png",
+  "inverted_image_url": "/sketches-inverted/3094.png",
+  "curve_count": 42,
+  "built_at": "2026-08-17T00:09:44Z"
+}

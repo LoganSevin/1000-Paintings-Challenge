@@ -1,0 +1,42 @@
+{
+  "number": 656,
+  "title": "Line sketch: Moonlit Cityscape at Night",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene nocturnal view of a city skyline with prominent spires and rooftops silhouetted against a cloudy sky. A bright full moon illuminates the scene from above distant mountains (derived from painting #833).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene nocturnal view of a city skyline with prominent spires and rooftops silhouetted against a cloudy sky. A bright full moon illuminates the scene from above distant mountains",
+  "inverted_title": "Inverted sketch: Moonlit Cityscape at Night",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene nocturnal view of a city skyline with prominent spires and rooftops silhouetted against a cloudy sky. A bright full moon illuminates the scene from above distant mountains (from painting #833).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene nocturnal view of a city skyline with prominent spires and rooftops silhouetted against a cloudy sky. A bright full moon illuminates the scene from above distant mountains",
+  "source_description": "A serene nocturnal view of a city skyline with prominent spires and rooftops silhouetted against a cloudy sky. A bright full moon illuminates the scene from above distant mountains.",
+  "source_prompt": "",
+  "source_title": "Moonlit Cityscape at Night",
+  "style": "realism",
+  "mood": "mysterious serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "full moon",
+    "night sky",
+    "silhouette",
+    "spires"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 833,
+  "source_url": "/paintings/833.jpg",
+  "image_url": "/sketches/656.png",
+  "inverted_image_url": "/sketches-inverted/656.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:39Z"
+}

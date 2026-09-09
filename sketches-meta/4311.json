@@ -1,0 +1,42 @@
+{
+  "number": 4311,
+  "title": "Line sketch: Paw Plasma Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with a paw print at its center emits vibrant rays in,, and. Black and paw prints cascade from a glass tube extending from the sphere, falling onto a wooden surface like a waterfall, with a dark pine tree silhouette in the background (derived from generated still #3730).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with a paw print at its center emits vibrant rays in,, and. Black and paw prints cascade from a glass tube extending from the sphere, falling onto a wooden surface like a waterfall, with a dark pine tree silhouette in the background",
+  "inverted_title": "Inverted sketch: Paw Plasma Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with a paw print at its center emits vibrant rays in,, and. Black and paw prints cascade from a glass tube extending from the sphere, falling onto a wooden surface like a waterfall, with a dark pine tree silhouette in the background (from generated still #3730).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with a paw print at its center emits vibrant rays in,, and. Black and paw prints cascade from a glass tube extending from the sphere, falling onto a wooden surface like a waterfall, with a dark pine tree silhouette in the background",
+  "source_description": "A glowing plasma globe with a bright pink paw print at its center emits vibrant neon rays in green, blue, yellow, and pink. Black and pink paw prints cascade from a glass tube extending from the sphere, falling onto a wooden surface like a waterfall, with a dark pine tree silhouette in the background.",
+  "source_prompt": "A surreal glowing plasma ball sculpture sitting on a metallic base on a wooden table, featuring a bright pink paw print core with radiating neon green, blue, yellow and pink energy beams inside a glass sphere. A clear tube extends from the sphere with pink and black paw prints flowing out like a waterfall cascading down onto the surface. Dark background with floating paw prints and a tall black pine tree silhouette on the right. Moody cinematic lighting with vibrant neon reflections.",
+  "source_title": "Neon Paw Plasma Sphere",
+  "style": "surreal",
+  "mood": "whimsical, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "paw prints",
+    "cyberpunk",
+    "fantasy art",
+    "glowing sculpture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3730,
+  "source_url": "/generated/3730.jpg",
+  "image_url": "/sketches/4311.png",
+  "inverted_image_url": "/sketches-inverted/4311.png",
+  "curve_count": 272,
+  "built_at": "2026-08-17T00:09:47Z"
+}

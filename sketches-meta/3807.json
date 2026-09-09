@@ -1,0 +1,42 @@
+{
+  "number": 3807,
+  "title": "Line sketch: Mech Boy Quad",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four nearly identical full-body views of a young boy wearing heavy black and mechanical armor with skull and drip motifs, standing in a combat pose against a dark background. The leftmost figure has no goggles while the three figures to the right wear tinted goggles (derived from generated still #3224).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four nearly identical full-body views of a young boy wearing heavy black and mechanical armor with skull and drip motifs, standing in a combat pose against a dark background. The leftmost figure has no goggles while the three figures to the right wear tinted goggles",
+  "inverted_title": "Inverted sketch: Mech Boy Quad",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four nearly identical full-body views of a young boy wearing heavy black and mechanical armor with skull and drip motifs, standing in a combat pose against a dark background. The leftmost figure has no goggles while the three figures to the right wear tinted goggles (from generated still #3224).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four nearly identical full-body views of a young boy wearing heavy black and mechanical armor with skull and drip motifs, standing in a combat pose against a dark background. The leftmost figure has no goggles while the three figures to the right wear tinted goggles",
+  "source_description": "Four nearly identical full-body views of a young boy wearing heavy black and yellow mechanical armor with skull and drip motifs, standing in a combat pose against a dark background. The leftmost figure has no goggles while the three figures to the right wear tinted goggles.",
+  "source_prompt": "A young boy with spiky blonde hair and face tattoos wearing bulky black and bright yellow mechanical armor with skull chest emblem and dripping details, heavy boots and knee pads, standing in a powerful wide stance, multiple angled views side by side, dramatic studio lighting, dark background, highly detailed digital painting, character design study",
+  "source_title": "Yellow Mech Boy Quad",
+  "style": "line sketch",
+  "mood": "intense, gritty",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "mech armor",
+    "cyberpunk kid",
+    "multiple views",
+    "black palette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3224,
+  "source_url": "/generated/3224.jpg",
+  "image_url": "/sketches/3807.png",
+  "inverted_image_url": "/sketches-inverted/3807.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:46Z"
+}

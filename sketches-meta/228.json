@@ -1,0 +1,42 @@
+{
+  "number": 228,
+  "title": "Line sketch: Majestic Frozen Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A powerful multi-tiered waterfall cascades down a rugged rocky cliff into a pool below. The icy waters contrast beautifully with the surrounding mountain peaks and evergreen trees under a sky (derived from painting #275).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A powerful multi-tiered waterfall cascades down a rugged rocky cliff into a pool below. The icy waters contrast beautifully with the surrounding mountain peaks and evergreen trees under a sky",
+  "inverted_title": "Inverted sketch: Majestic Frozen Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A powerful multi-tiered waterfall cascades down a rugged rocky cliff into a pool below. The icy waters contrast beautifully with the surrounding mountain peaks and evergreen trees under a sky (from painting #275).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A powerful multi-tiered waterfall cascades down a rugged rocky cliff into a pool below. The icy waters contrast beautifully with the surrounding mountain peaks and evergreen trees under a sky",
+  "source_description": "A powerful multi-tiered waterfall cascades down a rugged rocky cliff into a turquoise pool below. The icy blue waters contrast beautifully with the surrounding mountain peaks and evergreen trees under a bright blue sky.",
+  "source_prompt": "",
+  "source_title": "Majestic Frozen Waterfall",
+  "style": "Digital Fantasy Art",
+  "mood": "Serene and Majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "mountains",
+    "nature",
+    "fantasy",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 275,
+  "source_url": "/paintings/275.jpg",
+  "image_url": "/sketches/228.png",
+  "inverted_image_url": "/sketches-inverted/228.png",
+  "curve_count": 93,
+  "built_at": "2026-08-17T00:09:38Z"
+}

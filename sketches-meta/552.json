@@ -1,0 +1,42 @@
+{
+  "number": 552,
+  "title": "Line sketch: Cracked Alien Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned alien with large black and eyes emerges from a fractured surface, its form revealed through cracks. The composition captures the figure in profile with lips and detailed neck and shoulder structure (derived from painting #690).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned alien with large black and eyes emerges from a fractured surface, its form revealed through cracks. The composition captures the figure in profile with lips and detailed neck and shoulder structure",
+  "inverted_title": "Inverted sketch: Cracked Alien Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned alien with large black and eyes emerges from a fractured surface, its form revealed through cracks. The composition captures the figure in profile with lips and detailed neck and shoulder structure (from painting #690).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned alien with large black and eyes emerges from a fractured surface, its form revealed through cracks. The composition captures the figure in profile with lips and detailed neck and shoulder structure",
+  "source_description": "A green-skinned alien with large black and red eyes emerges from a fractured surface, its form revealed through golden cracks. The watercolor painting captures the figure in profile with blue lips and detailed neck and shoulder structure.",
+  "source_prompt": "",
+  "source_title": "Cracked Alien Portrait",
+  "style": "Surrealism",
+  "mood": "Ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "cracked surface",
+    "surreal portrait",
+    "lines",
+    "otherworldly"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 690,
+  "source_url": "/paintings/690.jpg",
+  "image_url": "/sketches/552.png",
+  "inverted_image_url": "/sketches-inverted/552.png",
+  "curve_count": 227,
+  "built_at": "2026-08-17T00:09:39Z"
+}

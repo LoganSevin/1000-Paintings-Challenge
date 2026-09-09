@@ -1,0 +1,42 @@
+{
+  "number": 361,
+  "title": "Line sketch: Mist Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An atmospheric abstract composition featuring organic clusters of and floating across a muted sage background. The composition creates a dreamy, ethereal effect with soft edges and subtle textural variations (derived from painting #423).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An atmospheric abstract composition featuring organic clusters of and floating across a muted sage background. The composition creates a dreamy, ethereal effect with soft edges and subtle textural variations",
+  "inverted_title": "Inverted sketch: Mist Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An atmospheric abstract composition featuring organic clusters of and floating across a muted sage background. The composition creates a dreamy, ethereal effect with soft edges and subtle textural variations (from painting #423).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An atmospheric abstract composition featuring organic clusters of and floating across a muted sage background. The composition creates a dreamy, ethereal effect with soft edges and subtle textural variations",
+  "source_description": "An atmospheric abstract painting featuring organic clusters of gold and ochre floating across a muted sage green background. The composition creates a dreamy, ethereal effect with soft edges and subtle textural variations.",
+  "source_prompt": "",
+  "source_title": "Golden Mist Abstraction",
+  "style": "Abstract",
+  "mood": "Dreamy, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "minimalist",
+    "textural",
+    "atmospheric",
+    "monochromatic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 423,
+  "source_url": "/paintings/423.jpg",
+  "image_url": "/sketches/361.png",
+  "inverted_image_url": "/sketches-inverted/361.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:39Z"
+}

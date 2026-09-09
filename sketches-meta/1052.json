@@ -1,0 +1,42 @@
+{
+  "number": 1052,
+  "title": "Line sketch: Cracked Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A classical bust of a woman with a laurel wreath and closed eyes, her face and body fractured with visible cracks and adorned with pins and dangling beads. She emerges from rolling hills patterned with geometric and organic motifs against a dramatic sunset sky with streaks and floating triangular shapes (derived from generated still #264).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A classical bust of a woman with a laurel wreath and closed eyes, her face and body fractured with visible cracks and adorned with pins and dangling beads. She emerges from rolling hills patterned with geometric and organic motifs against a dramatic sunset sky with streaks and floating triangular shapes",
+  "inverted_title": "Inverted sketch: Cracked Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A classical bust of a woman with a laurel wreath and closed eyes, her face and body fractured with visible cracks and adorned with pins and dangling beads. She emerges from rolling hills patterned with geometric and organic motifs against a dramatic sunset sky with streaks and floating triangular shapes (from generated still #264).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A classical bust of a woman with a laurel wreath and closed eyes, her face and body fractured with visible cracks and adorned with pins and dangling beads. She emerges from rolling hills patterned with geometric and organic motifs against a dramatic sunset sky with streaks and floating triangular shapes",
+  "source_description": "A classical bust of a woman with a golden laurel wreath and closed eyes, her face and body fractured with visible cracks and adorned with pins and dangling red beads. She emerges from colorful rolling hills patterned with geometric and organic motifs against a dramatic sunset sky with red streaks and floating triangular shapes.",
+  "source_prompt": "",
+  "source_title": "Cracked Golden Muse",
+  "style": "surrealism",
+  "mood": "ethereal fractured",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "classical bust",
+    "figure",
+    "cracked surface",
+    "laurel wreath",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 264,
+  "source_url": "/generated/264.jpg",
+  "image_url": "/sketches/1052.png",
+  "inverted_image_url": "/sketches-inverted/1052.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:40Z"
+}

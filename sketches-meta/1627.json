@@ -1,0 +1,42 @@
+{
+  "number": 1627,
+  "title": "Line sketch: Desert Portal Queen",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A queen in ornate robes and crown walks across desert dunes toward a large circular portal showing a starry sunset over mountains. To the right, giant glowing mushrooms with caps and stems grow on a patch of grass under a swirling sky with a bright sun (derived from generated still #842).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A queen in ornate robes and crown walks across desert dunes toward a large circular portal showing a starry sunset over mountains. To the right, giant glowing mushrooms with caps and stems grow on a patch of grass under a swirling sky with a bright sun",
+  "inverted_title": "Inverted sketch: Desert Portal Queen",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A queen in ornate robes and crown walks across desert dunes toward a large circular portal showing a starry sunset over mountains. To the right, giant glowing mushrooms with caps and stems grow on a patch of grass under a swirling sky with a bright sun (from generated still #842).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A queen in ornate robes and crown walks across desert dunes toward a large circular portal showing a starry sunset over mountains. To the right, giant glowing mushrooms with caps and stems grow on a patch of grass under a swirling sky with a bright sun",
+  "source_description": "A queen in ornate golden robes and crown walks across orange desert dunes toward a large circular portal showing a starry sunset over mountains. To the right, giant glowing mushrooms with green caps and purple stems grow on a patch of grass under a swirling purple sky with a bright sun.",
+  "source_prompt": "",
+  "source_title": "Desert Portal Queen",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert",
+    "portal",
+    "mushrooms",
+    "queen",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 842,
+  "source_url": "/generated/842.jpg",
+  "image_url": "/sketches/1627.png",
+  "inverted_image_url": "/sketches-inverted/1627.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:41Z"
+}

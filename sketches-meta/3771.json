@@ -1,0 +1,42 @@
+{
+  "number": 3771,
+  "title": "Line sketch: Young Warrior Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young girl with dark skin and long -black braided hair stands in a combat stance holding a curved knife. She wears a and black warrior outfit with leather armor, wrappings on her arms and legs, and black boots against a solid dark gray background (derived from generated still #3187).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young girl with dark skin and long -black braided hair stands in a combat stance holding a curved knife. She wears a and black warrior outfit with leather armor, wrappings on her arms and legs, and black boots against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Young Warrior Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young girl with dark skin and long -black braided hair stands in a combat stance holding a curved knife. She wears a and black warrior outfit with leather armor, wrappings on her arms and legs, and black boots against a solid dark gray background (from generated still #3187).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young girl with dark skin and long -black braided hair stands in a combat stance holding a curved knife. She wears a and black warrior outfit with leather armor, wrappings on her arms and legs, and black boots against a solid dark gray background",
+  "source_description": "A young girl with dark skin and long blue-black braided hair stands in a combat stance holding a curved knife. She wears a blue and black warrior outfit with leather armor, blue wrappings on her arms and legs, and black boots against a solid dark gray background.",
+  "source_prompt": "A young dark-skinned girl with long blue-black braids in an intricate hairstyle, wearing blue and black leather warrior armor with matching blue fabric wraps on her arms, thighs and calves, black boots, holding a curved knife in a dynamic combat stance, looking directly at viewer with a serious expression, studio lighting on dark gray seamless background, highly detailed realistic render",
+  "source_title": "Young Warrior Girl",
+  "style": "realistic 3D render",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior girl",
+    "braided hair",
+    "fantasy character",
+    "combat pose",
+    "armor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3187,
+  "source_url": "/generated/3187.jpg",
+  "image_url": "/sketches/3771.png",
+  "inverted_image_url": "/sketches-inverted/3771.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:46Z"
+}

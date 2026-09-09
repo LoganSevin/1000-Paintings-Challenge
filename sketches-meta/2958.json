@@ -1,0 +1,42 @@
+{
+  "number": 2958,
+  "title": "Line sketch: Cowboy on Mechanical Bull",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted cowboy in a hat and fringed jacket rides a large, armored black bull-like mechanical creature through a dark cosmic void. The scene is filled with floating mechanical bull skulls, gears, swirling nebulae, and fragmented debris against a deep space background (derived from generated still #2276).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted cowboy in a hat and fringed jacket rides a large, armored black bull-like mechanical creature through a dark cosmic void. The scene is filled with floating mechanical bull skulls, gears, swirling nebulae, and fragmented debris against a deep space background",
+  "inverted_title": "Inverted sketch: Cowboy on Mechanical Bull",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted cowboy in a hat and fringed jacket rides a large, armored black bull-like mechanical creature through a dark cosmic void. The scene is filled with floating mechanical bull skulls, gears, swirling nebulae, and fragmented debris against a deep space background (from generated still #2276).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted cowboy in a hat and fringed jacket rides a large, armored black bull-like mechanical creature through a dark cosmic void. The scene is filled with floating mechanical bull skulls, gears, swirling nebulae, and fragmented debris against a deep space background",
+  "source_description": "A silhouetted cowboy in a hat and fringed jacket rides a large, armored black bull-like mechanical creature through a dark cosmic void. The scene is filled with floating mechanical bull skulls, gears, swirling purple nebulae, and fragmented debris against a deep space background.",
+  "source_prompt": "A lone cowboy wearing a wide-brimmed hat and dark fringed jacket rides a massive armored mechanical bull with glowing details through a surreal cosmic landscape. Floating around them are mechanical bull skulls, gears, and broken debris. Swirling purple and blue nebulae mix with dark space and red energy streaks in a dramatic, cinematic composition with strong silhouettes and atmospheric depth.",
+  "source_title": "Cowboy on Mechanical Bull",
+  "style": "cinematic",
+  "mood": "dark surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "mechanical bull",
+    "cosmic western",
+    "surreal",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2276,
+  "source_url": "/generated/2276.jpg",
+  "image_url": "/sketches/2958.png",
+  "inverted_image_url": "/sketches-inverted/2958.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3600,
+  "title": "Line sketch: Mirror Bikini Selfie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with long wavy hair and a black-and-white patterned headscarf takes a selfie in a mirror while seated on a bed. She wears a two-tone and white bikini with a circular ring detail at the center of the top and side-tie bottoms, holding the phone in her right hand and adjusting her bikini bottom with her left (derived from generated still #3008).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with long wavy hair and a black-and-white patterned headscarf takes a selfie in a mirror while seated on a bed. She wears a two-tone and white bikini with a circular ring detail at the center of the top and side-tie bottoms, holding the phone in her right hand and adjusting her bikini bottom with her left",
+  "inverted_title": "Inverted sketch: Mirror Bikini Selfie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with long wavy hair and a black-and-white patterned headscarf takes a selfie in a mirror while seated on a bed. She wears a two-tone and white bikini with a circular ring detail at the center of the top and side-tie bottoms, holding the phone in her right hand and adjusting her bikini bottom with her left (from generated still #3008).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with long wavy hair and a black-and-white patterned headscarf takes a selfie in a mirror while seated on a bed. She wears a two-tone and white bikini with a circular ring detail at the center of the top and side-tie bottoms, holding the phone in her right hand and adjusting her bikini bottom with her left",
+  "source_description": "A young woman with long wavy brown hair and a black-and-white patterned headscarf takes a selfie in a mirror while seated on a bed. She wears a two-tone lavender and white bikini with a circular ring detail at the center of the top and side-tie bottoms, holding the phone in her right hand and adjusting her bikini bottom with her left.",
+  "source_prompt": "A young woman with sun-kissed tan skin, long wavy brown hair with lighter highlights, and a black and white patterned headscarf tied around her head, taking a mirror selfie while seated on a bed. She has a toned athletic physique with visible abs. She wears a two-tone bikini top that is lavender on the left cup and white on the right with a silver circular ring connector at the cleavage, and matching white bikini bottoms with thin side ties that have small metallic hardware. Her right hand holds a smartphone with a colorful floral and jeweled case, left hand pulling at the bikini string. Soft natural indoor lighting, bedroom setting with neutral bedding visible, realistic skin texture and casual intimate atmosphere, sharp detail, natural colors",
+  "source_title": "Mirror Bikini Selfie",
+  "style": "realistic photography",
+  "mood": "seductive casual",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "selfie",
+    "bikini",
+    "mirror",
+    "young woman",
+    "headscarf"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3008,
+  "source_url": "/generated/3008.jpg",
+  "image_url": "/sketches/3600.png",
+  "inverted_image_url": "/sketches-inverted/3600.png",
+  "curve_count": 93,
+  "built_at": "2026-08-17T00:09:46Z"
+}

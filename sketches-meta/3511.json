@@ -1,0 +1,42 @@
+{
+  "number": 3511,
+  "title": "Line sketch: Lakeside Painters at Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene fantasy landscape shows two women in sun hats composition at easels on the shore of a calm lake. In the distance, a small rowboat floats on the reflective water while a towering waterfall cascades beside a metal lattice tower atop a rocky cliff (derived from generated still #2913).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene fantasy landscape shows two women in sun hats composition at easels on the shore of a calm lake. In the distance, a small rowboat floats on the reflective water while a towering waterfall cascades beside a metal lattice tower atop a rocky cliff",
+  "inverted_title": "Inverted sketch: Lakeside Painters at Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene fantasy landscape shows two women in sun hats composition at easels on the shore of a calm lake. In the distance, a small rowboat floats on the reflective water while a towering waterfall cascades beside a metal lattice tower atop a rocky cliff (from generated still #2913).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene fantasy landscape shows two women in sun hats composition at easels on the shore of a calm lake. In the distance, a small rowboat floats on the reflective water while a towering waterfall cascades beside a metal lattice tower atop a rocky cliff",
+  "source_description": "A serene fantasy landscape shows two women in sun hats painting at easels on the shore of a calm lake. In the distance, a small rowboat floats on the reflective water while a towering waterfall cascades beside a metal lattice tower atop a rocky cliff.",
+  "source_prompt": "A peaceful fantasy landscape featuring a large waterfall flowing into a reflective lake with a small wooden rowboat carrying a lone figure. Two women wearing sun hats stand in the foreground painting on easels. A tall metal lattice tower stands on the cliff above the falls, surrounded by pine trees. Distant mountains under a colorful sky with multiple moons and a glowing sun, soft mist and vibrant reflections on the water.",
+  "source_title": "Lakeside Painters at Waterfall",
+  "style": "fantasy landscape composition",
+  "mood": "dreamlike serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "waterfall",
+    "lake",
+    "artists",
+    "fantasy",
+    "tower"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2913,
+  "source_url": "/generated/2913.jpg",
+  "image_url": "/sketches/3511.png",
+  "inverted_image_url": "/sketches-inverted/3511.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:45Z"
+}

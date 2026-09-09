@@ -1,0 +1,42 @@
+{
+  "number": 4907,
+  "title": "Line sketch: The Hallway composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a uniform stands in a dimly lit room holding a flashlight and a set of keys, illuminating a large composition on an easel. The composition depicts a long, mysterious hallway with wooden doors, wall sconces, and patterned flooring, while rain falls outside an arched window beside a wooden desk with a lamp (derived from generated still #4343).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a uniform stands in a dimly lit room holding a flashlight and a set of keys, illuminating a large composition on an easel. The composition depicts a long, mysterious hallway with wooden doors, wall sconces, and patterned flooring, while rain falls outside an arched window beside a wooden desk with a lamp",
+  "inverted_title": "Inverted sketch: The Hallway composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a uniform stands in a dimly lit room holding a flashlight and a set of keys, illuminating a large composition on an easel. The composition depicts a long, mysterious hallway with wooden doors, wall sconces, and patterned flooring, while rain falls outside an arched window beside a wooden desk with a lamp (from generated still #4343).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a uniform stands in a dimly lit room holding a flashlight and a set of keys, illuminating a large composition on an easel. The composition depicts a long, mysterious hallway with wooden doors, wall sconces, and patterned flooring, while rain falls outside an arched window beside a wooden desk with a lamp",
+  "source_description": "A woman in a dark blue uniform stands in a dimly lit room holding a flashlight and a set of keys, illuminating a large painting on an easel. The painting depicts a long, mysterious red hallway with wooden doors, wall sconces, and patterned flooring, while rain falls outside an arched window beside a wooden desk with a green lamp.",
+  "source_prompt": "A woman in a dark uniform stands in a vintage office holding a flashlight and keys, pointing the light at a large realistic painting on an easel that shows a long mysterious red hallway with wooden doors and glowing sconces. Rain streaks down an arched window behind her. A wooden desk holds an open book, a green banker's lamp, and a teacup. Cinematic lighting, moody atmosphere, highly detailed digital painting.",
+  "source_title": "The Hallway Painting",
+  "style": "realistic",
+  "mood": "mysterious, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "flashlight",
+    "hallway composition",
+    "noir",
+    "rainy night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4343,
+  "source_url": "/generated/4343.jpg",
+  "image_url": "/sketches/4907.png",
+  "inverted_image_url": "/sketches-inverted/4907.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:49Z"
+}

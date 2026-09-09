@@ -1,0 +1,42 @@
+{
+  "number": 334,
+  "title": "Line sketch: Swirls and Spirals",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Intricate black and white swirling patterns are overlaid with bold curved lines creating an abstract circular composition. The detailed linework suggests natural forms like galaxies, shells, or turbulent water in high contrast (derived from painting #395).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Intricate black and white swirling patterns are overlaid with bold curved lines creating an abstract circular composition. The detailed linework suggests natural forms like galaxies, shells, or turbulent water in high contrast",
+  "inverted_title": "Inverted sketch: Swirls and Spirals",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Intricate black and white swirling patterns are overlaid with bold curved lines creating an abstract circular composition. The detailed linework suggests natural forms like galaxies, shells, or turbulent water in high contrast (from painting #395).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Intricate black and white swirling patterns are overlaid with bold curved lines creating an abstract circular composition. The detailed linework suggests natural forms like galaxies, shells, or turbulent water in high contrast",
+  "source_description": "Intricate black and white swirling patterns are overlaid with bold olive green curved lines creating an abstract circular composition. The detailed linework suggests natural forms like galaxies, shells, or turbulent water in high contrast.",
+  "source_prompt": "",
+  "source_title": "Olive Green Swirls and Spirals",
+  "style": "Abstract",
+  "mood": "Dynamic, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Mixed media on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "swirls",
+    "spirals",
+    "abstract",
+    "linework",
+    "contrast"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 395,
+  "source_url": "/paintings/395.jpg",
+  "image_url": "/sketches/334.png",
+  "inverted_image_url": "/sketches-inverted/334.png",
+  "curve_count": 318,
+  "built_at": "2026-08-17T00:09:39Z"
+}

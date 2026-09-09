@@ -1,0 +1,42 @@
+{
+  "number": 1309,
+  "title": "Line sketch: Skeleton in Lava Pool",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal figure with glowing eyes emerges from a swirling vortex of molten and lava. Long dark tendrils of smoke or hair flow from its head into a stormy gray background (derived from generated still #524).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal figure with glowing eyes emerges from a swirling vortex of molten and lava. Long dark tendrils of smoke or hair flow from its head into a stormy gray background",
+  "inverted_title": "Inverted sketch: Skeleton in Lava Pool",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal figure with glowing eyes emerges from a swirling vortex of molten and lava. Long dark tendrils of smoke or hair flow from its head into a stormy gray background (from generated still #524).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal figure with glowing eyes emerges from a swirling vortex of molten and lava. Long dark tendrils of smoke or hair flow from its head into a stormy gray background",
+  "source_description": "A skeletal figure with glowing green eyes emerges from a swirling vortex of molten red and orange lava. Long dark tendrils of smoke or hair flow from its head into a stormy gray background.",
+  "source_prompt": "",
+  "source_title": "Skeleton in Lava Pool",
+  "style": "dark fantasy",
+  "mood": "ominous, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "lava",
+    "swirling vortex",
+    "dark fantasy",
+    "macabre"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 524,
+  "source_url": "/generated/524.jpg",
+  "image_url": "/sketches/1309.png",
+  "inverted_image_url": "/sketches-inverted/1309.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:41Z"
+}

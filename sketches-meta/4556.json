@@ -1,0 +1,42 @@
+{
+  "number": 4556,
+  "title": "Line sketch: Apocalyptic Cathedral Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal apocalyptic scene featuring a towering dark gothic cathedral with glowing windows and a circular portal. In the foreground, a black wolf, a vibrant flaming horse, and three women in elegant and white dresses with large angelic wings stand together, surrounded by floating transparent bubbles containing miniature fantasy scenes (derived from generated still #3976).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal apocalyptic scene featuring a towering dark gothic cathedral with glowing windows and a circular portal. In the foreground, a black wolf, a vibrant flaming horse, and three women in elegant and white dresses with large angelic wings stand together, surrounded by floating transparent bubbles containing miniature fantasy scenes",
+  "inverted_title": "Inverted sketch: Apocalyptic Cathedral Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal apocalyptic scene featuring a towering dark gothic cathedral with glowing windows and a circular portal. In the foreground, a black wolf, a vibrant flaming horse, and three women in elegant and white dresses with large angelic wings stand together, surrounded by floating transparent bubbles containing miniature fantasy scenes (from generated still #3976).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal apocalyptic scene featuring a towering dark gothic cathedral with glowing windows and a circular portal. In the foreground, a black wolf, a vibrant flaming horse, and three women in elegant and white dresses with large angelic wings stand together, surrounded by floating transparent bubbles containing miniature fantasy scenes",
+  "source_description": "A surreal apocalyptic scene featuring a towering dark gothic cathedral with glowing orange windows and a green circular portal. In the foreground, a black wolf, a vibrant green flaming horse, and three women in elegant blue and white dresses with large angelic wings stand together, surrounded by floating transparent bubbles containing miniature fantasy scenes.",
+  "source_prompt": "Surreal fantasy scene with a massive dark gothic cathedral with glowing orange windows and a green portal on the left. In the foreground stands a black wolf, a bright green horse with flowing orange flames for a mane, and three women wearing elegant blue and white dresses with large blue and white angelic wings. A cracked globe with orange lines floats in a dramatic fiery orange and red cloudy sky. Transparent bubbles containing tiny fantasy figures float throughout the composition, digital painting style.",
+  "source_title": "Apocalyptic Cathedral Vision",
+  "style": "surreal fantasy",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "gothic cathedral",
+    "angelic figures",
+    "fantasy creatures",
+    "apocalyptic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3976,
+  "source_url": "/generated/3976.jpg",
+  "image_url": "/sketches/4556.png",
+  "inverted_image_url": "/sketches-inverted/4556.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:48Z"
+}

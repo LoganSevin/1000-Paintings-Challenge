@@ -1,0 +1,42 @@
+{
+  "number": 1749,
+  "title": "Line sketch: Woman and Bear Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with flowers, positioned beside a bear with large eyes and intricate patterns. The composition features bold poppies with leaves in the foreground against a background filled with circular motifs, lightning bolts, and swirling lines (derived from generated still #971).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with flowers, positioned beside a bear with large eyes and intricate patterns. The composition features bold poppies with leaves in the foreground against a background filled with circular motifs, lightning bolts, and swirling lines",
+  "inverted_title": "Inverted sketch: Woman and Bear Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Psychedelic portrait of a woman with vibrant and swirling hair adorned with flowers, positioned beside a bear with large eyes and intricate patterns. The composition features bold poppies with leaves in the foreground against a background filled with circular motifs, lightning bolts, and swirling lines (from generated still #971).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with flowers, positioned beside a bear with large eyes and intricate patterns. The composition features bold poppies with leaves in the foreground against a background filled with circular motifs, lightning bolts, and swirling lines",
+  "source_description": "Psychedelic portrait of a woman with vibrant orange and red swirling hair adorned with flowers, positioned beside a purple bear with large blue eyes and intricate patterns. The composition features bold poppies with green leaves in the foreground against a bright green background filled with circular motifs, lightning bolts, and swirling lines.",
+  "source_prompt": "",
+  "source_title": "Woman and Bear Portrait",
+  "style": "Psychedelic",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "woman",
+    "bear",
+    "poppies",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 971,
+  "source_url": "/generated/971.jpg",
+  "image_url": "/sketches/1749.png",
+  "inverted_image_url": "/sketches-inverted/1749.png",
+  "curve_count": 204,
+  "built_at": "2026-08-17T00:09:42Z"
+}

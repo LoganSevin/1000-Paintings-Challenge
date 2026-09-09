@@ -1,0 +1,42 @@
+{
+  "number": 188,
+  "title": "Line sketch: Abstract Organic Forms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Bold geometric and organic shapes intertwine in a vibrant composition featuring, black, and elements. The playful arrangement of circles and curved forms creates a dynamic visual rhythm against a background (derived from painting #233).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Bold geometric and organic shapes intertwine in a vibrant composition featuring, black, and elements. The playful arrangement of circles and curved forms creates a dynamic visual rhythm against a background",
+  "inverted_title": "Inverted sketch: Abstract Organic Forms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Bold geometric and organic shapes intertwine in a vibrant composition featuring, black, and elements. The playful arrangement of circles and curved forms creates a dynamic visual rhythm against a background (from painting #233).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Bold geometric and organic shapes intertwine in a vibrant composition featuring, black, and elements. The playful arrangement of circles and curved forms creates a dynamic visual rhythm against a background",
+  "source_description": "Bold geometric and organic shapes intertwine in a vibrant composition featuring purple, black, and orange elements. The playful arrangement of circles and curved forms creates a dynamic visual rhythm against a deep blue background.",
+  "source_prompt": "",
+  "source_title": "Abstract Purple Organic Forms",
+  "style": "Abstract",
+  "mood": "Playful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract art",
+    "geometric shapes",
+    "organic forms",
+    "composition",
+    "bold colors"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 233,
+  "source_url": "/paintings/233.jpg",
+  "image_url": "/sketches/188.png",
+  "inverted_image_url": "/sketches-inverted/188.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:38Z"
+}

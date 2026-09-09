@@ -1,0 +1,42 @@
+{
+  "number": 13,
+  "title": "Line sketch: Swirls in Motion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This abstract composition features flowing organic shapes in vibrant and intermingling with and. The dynamic swirls and circular forms create a sense of fluid movement across the page. The technique suggests pouring or fluid art methods with layered colors and bubble-like details (derived from painting #24).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This abstract composition features flowing organic shapes in vibrant and intermingling with and. The dynamic swirls and circular forms create a sense of fluid movement across the page. The technique suggests pouring or fluid art methods with layered colors and bubble-like details",
+  "inverted_title": "Inverted sketch: Swirls in Motion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This abstract composition features flowing organic shapes in vibrant and intermingling with and. The dynamic swirls and circular forms create a sense of fluid movement across the page. The technique suggests pouring or fluid art methods with layered colors and bubble-like details (from painting #24).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This abstract composition features flowing organic shapes in vibrant and intermingling with and. The dynamic swirls and circular forms create a sense of fluid movement across the page. The technique suggests pouring or fluid art methods with layered colors and bubble-like details",
+  "source_description": "This abstract composition features flowing organic shapes in vibrant greens and yellows intermingling with cool blues and teals. The dynamic swirls and circular forms create a sense of fluid movement across the canvas. The technique suggests acrylic pouring or fluid art methods with layered colors and bubble-like details.",
+  "source_prompt": "",
+  "source_title": "Lime Swirls in Motion",
+  "style": "Fluid Abstract",
+  "mood": "Vibrant and Serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "fluid art",
+    "swirls",
+    "organic",
+    "pouring"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 24,
+  "source_url": "/paintings/24.jpg",
+  "image_url": "/sketches/13.png",
+  "inverted_image_url": "/sketches-inverted/13.png",
+  "curve_count": 184,
+  "built_at": "2026-08-17T00:09:38Z"
+}

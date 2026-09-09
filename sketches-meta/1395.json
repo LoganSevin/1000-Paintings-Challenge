@@ -1,0 +1,42 @@
+{
+  "number": 1395,
+  "title": "Line sketch: Psychedelic Split Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large stylized eye with a cracked sclera and - dripping edges. Within the iris, a melting wolf-like creature on the left merges with a dripping human-like face on the right, set against a background with flowers and white smoke (derived from generated still #610).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large stylized eye with a cracked sclera and - dripping edges. Within the iris, a melting wolf-like creature on the left merges with a dripping human-like face on the right, set against a background with flowers and white smoke",
+  "inverted_title": "Inverted sketch: Psychedelic Split Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large stylized eye with a cracked sclera and - dripping edges. Within the iris, a melting wolf-like creature on the left merges with a dripping human-like face on the right, set against a background with flowers and white smoke (from generated still #610).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large stylized eye with a cracked sclera and - dripping edges. Within the iris, a melting wolf-like creature on the left merges with a dripping human-like face on the right, set against a background with flowers and white smoke",
+  "source_description": "A surreal painting of a large stylized eye with a cracked sclera and orange-red dripping edges. Within the iris, a green melting wolf-like creature on the left merges with a blue dripping human-like face on the right, set against a purple background with flowers and white smoke.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Split Eye",
+  "style": "surreal psychedelic",
+  "mood": "trippy hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "surreal",
+    "melting",
+    "wolf",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 610,
+  "source_url": "/generated/610.jpg",
+  "image_url": "/sketches/1395.png",
+  "inverted_image_url": "/sketches-inverted/1395.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:41Z"
+}

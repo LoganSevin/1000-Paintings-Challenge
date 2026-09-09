@@ -1,0 +1,42 @@
+{
+  "number": 309,
+  "title": "Line sketch: Curious Lizard Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed of a vibrant lizard with intricate scales and a large, expressive eye. The creature perches on a branch with berries against a moody dark background (derived from painting #370).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed of a vibrant lizard with intricate scales and a large, expressive eye. The creature perches on a branch with berries against a moody dark background",
+  "inverted_title": "Inverted sketch: Curious Lizard Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed of a vibrant lizard with intricate scales and a large, expressive eye. The creature perches on a branch with berries against a moody dark background (from painting #370).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed of a vibrant lizard with intricate scales and a large, expressive eye. The creature perches on a branch with berries against a moody dark background",
+  "source_description": "A highly detailed digital painting of a vibrant green lizard with intricate scales and a large, expressive orange eye. The creature perches on a branch with berries against a moody dark background.",
+  "source_prompt": "",
+  "source_title": "Curious Green Lizard Portrait",
+  "style": "Fantasy realism",
+  "mood": "Mysterious and enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lizard",
+    "reptile",
+    "fantasy",
+    "detailed",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 370,
+  "source_url": "/paintings/370.jpg",
+  "image_url": "/sketches/309.png",
+  "inverted_image_url": "/sketches-inverted/309.png",
+  "curve_count": 228,
+  "built_at": "2026-08-17T00:09:38Z"
+}

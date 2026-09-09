@@ -1,0 +1,42 @@
+{
+  "number": 890,
+  "title": "Line sketch: Alien Landscape with Orbs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal alien landscape features a large transparent orb with a leaf-like lid at the center of a winding wooden path. Smaller spheres of varying transparency are scattered along the path, surrounded by exotic plants with and leaves under a large glowing celestial body in a sky (derived from generated still #99).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal alien landscape features a large transparent orb with a leaf-like lid at the center of a winding wooden path. Smaller spheres of varying transparency are scattered along the path, surrounded by exotic plants with and leaves under a large glowing celestial body in a sky",
+  "inverted_title": "Inverted sketch: Alien Landscape with Orbs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal alien landscape features a large transparent orb with a leaf-like lid at the center of a winding wooden path. Smaller spheres of varying transparency are scattered along the path, surrounded by exotic plants with and leaves under a large glowing celestial body in a sky (from generated still #99).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal alien landscape features a large transparent orb with a leaf-like lid at the center of a winding wooden path. Smaller spheres of varying transparency are scattered along the path, surrounded by exotic plants with and leaves under a large glowing celestial body in a sky",
+  "source_description": "A surreal alien landscape features a large transparent green orb with a leaf-like lid at the center of a winding wooden path. Smaller green spheres of varying transparency are scattered along the path, surrounded by exotic plants with red and orange leaves under a large glowing turquoise celestial body in a pink sky.",
+  "source_prompt": "",
+  "source_title": "Alien Landscape with Orbs",
+  "style": "surreal fantasy",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien landscape",
+    "glowing orbs",
+    "exotic flora",
+    "celestial body",
+    "wooden path"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 99,
+  "source_url": "/generated/99.jpg",
+  "image_url": "/sketches/890.png",
+  "inverted_image_url": "/sketches-inverted/890.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:40Z"
+}

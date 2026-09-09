@@ -1,0 +1,42 @@
+{
+  "number": 4236,
+  "title": "Line sketch: Psychedelic Bubble Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant amorphous creature with a single large eye and multiple tentacles sits inside a large transparent bubble. The bubble contains swirling, and liquid patterns while electrical tendrils extend from the creature's head, with liquid pooling at the base against a dark background (derived from generated still #3655).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant amorphous creature with a single large eye and multiple tentacles sits inside a large transparent bubble. The bubble contains swirling, and liquid patterns while electrical tendrils extend from the creature's head, with liquid pooling at the base against a dark background",
+  "inverted_title": "Inverted sketch: Psychedelic Bubble Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant amorphous creature with a single large eye and multiple tentacles sits inside a large transparent bubble. The bubble contains swirling, and liquid patterns while electrical tendrils extend from the creature's head, with liquid pooling at the base against a dark background (from generated still #3655).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant amorphous creature with a single large eye and multiple tentacles sits inside a large transparent bubble. The bubble contains swirling, and liquid patterns while electrical tendrils extend from the creature's head, with liquid pooling at the base against a dark background",
+  "source_description": "A vibrant magenta amorphous creature with a single large yellow eye and multiple tentacles sits inside a large transparent purple bubble. The bubble contains swirling turquoise, green, and pink liquid patterns while purple electrical tendrils extend from the creature's head, with pink liquid pooling at the base against a dark background.",
+  "source_prompt": "A vibrant magenta slime-like creature with one large yellow eye and curling tentacles floats inside a large transparent purple bubble. Inside the bubble are swirling psychedelic patterns of turquoise, green, and pink liquid. Bright purple electrical plasma tendrils emanate from the creature's head. Pink liquid pools at the base of the bubble on a dark background, highly detailed surreal digital painting with glossy textures.",
+  "source_title": "Psychedelic Bubble Creature",
+  "style": "surreal",
+  "mood": "psychedelic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "creature",
+    "bubble",
+    "tentacles",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3655,
+  "source_url": "/generated/3655.jpg",
+  "image_url": "/sketches/4236.png",
+  "inverted_image_url": "/sketches-inverted/4236.png",
+  "curve_count": 236,
+  "built_at": "2026-08-17T00:09:47Z"
+}

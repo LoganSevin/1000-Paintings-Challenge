@@ -1,0 +1,42 @@
+{
+  "number": 148,
+  "title": "Line sketch: Abstract Swirling Forms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic 3D abstract composition featuring flowing and ribbon-like shapes intertwined against a background. The central form suggests movement and energy with a small circle accent (derived from painting #187).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic 3D abstract composition featuring flowing and ribbon-like shapes intertwined against a background. The central form suggests movement and energy with a small circle accent",
+  "inverted_title": "Inverted sketch: Abstract Swirling Forms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic 3D abstract composition featuring flowing and ribbon-like shapes intertwined against a background. The central form suggests movement and energy with a small circle accent (from painting #187).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic 3D abstract composition featuring flowing and ribbon-like shapes intertwined against a background. The central form suggests movement and energy with a small circle accent",
+  "source_description": "A dynamic 3D abstract composition featuring flowing orange and blue ribbon-like shapes intertwined against a deep purple background. The central form suggests movement and energy with a small orange circle accent.",
+  "source_prompt": "",
+  "source_title": "Abstract Swirling Forms",
+  "style": "3D Abstract",
+  "mood": "Dynamic and Vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital 3D Rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "3D art",
+    "swirling forms",
+    "and",
+    "digital rendering"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 187,
+  "source_url": "/paintings/187.jpg",
+  "image_url": "/sketches/148.png",
+  "inverted_image_url": "/sketches-inverted/148.png",
+  "curve_count": 60,
+  "built_at": "2026-08-17T00:09:38Z"
+}

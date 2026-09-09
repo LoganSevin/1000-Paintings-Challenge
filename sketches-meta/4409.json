@@ -1,0 +1,42 @@
+{
+  "number": 4409,
+  "title": "Line sketch: Cosmic Spell Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure in a robe stands in a vibrant, cosmic-painted room holding an open book with glowing pages. An ornate white cabinet behind them displays a floating open spellbook dripping liquid, rolled scrolls, a glowing orb, and hanging lanterns, while a candle, potion bottles, and a 'Spell Shop' sign are visible in the foreground (derived from generated still #3828).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure in a robe stands in a vibrant, cosmic-painted room holding an open book with glowing pages. An ornate white cabinet behind them displays a floating open spellbook dripping liquid, rolled scrolls, a glowing orb, and hanging lanterns, while a candle, potion bottles, and a 'Spell Shop' sign are visible in the foreground",
+  "inverted_title": "Inverted sketch: Cosmic Spell Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure in a robe stands in a vibrant, cosmic-painted room holding an open book with glowing pages. An ornate white cabinet behind them displays a floating open spellbook dripping liquid, rolled scrolls, a glowing orb, and hanging lanterns, while a candle, potion bottles, and a 'Spell Shop' sign are visible in the foreground (from generated still #3828).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure in a robe stands in a vibrant, cosmic-painted room holding an open book with glowing pages. An ornate white cabinet behind them displays a floating open spellbook dripping liquid, rolled scrolls, a glowing orb, and hanging lanterns, while a candle, potion bottles, and a 'Spell Shop' sign are visible in the foreground",
+  "source_description": "A hooded figure in a purple robe stands in a vibrant, cosmic-painted room holding an open book with glowing colorful pages. An ornate white cabinet behind them displays a floating open spellbook dripping blue liquid, rolled scrolls, a glowing red orb, and hanging lanterns, while a red candle, potion bottles, and a 'Spell Shop' sign are visible in the foreground.",
+  "source_prompt": "A hooded wizard in flowing purple robes stands inside a small room with walls and ceiling painted in swirling vibrant cosmic nebula patterns of purple, teal, red and gold. The wizard holds an open book with glowing multicolored pages. Behind him an ornate white cabinet with open doors reveals a levitating open spellbook dripping blue liquid, rolled scrolls, a glowing red orb, and ornate blue lanterns. A red candle burns on a table with potion bottles and runes. A red wooden sign reads 'Spell Shop'. Highly detailed fantasy illustration.",
+  "source_title": "Cosmic Spell Shop",
+  "style": "fantasy illustration",
+  "mood": "mystical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "magic shop",
+    "cosmic",
+    "spellbook",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3828,
+  "source_url": "/generated/3828.jpg",
+  "image_url": "/sketches/4409.png",
+  "inverted_image_url": "/sketches-inverted/4409.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:48Z"
+}

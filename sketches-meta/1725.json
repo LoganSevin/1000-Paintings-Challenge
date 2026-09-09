@@ -1,0 +1,42 @@
+{
+  "number": 1725,
+  "title": "Line sketch: Woman and Bear with Poppies",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic portrait of a woman with flowing, swirling hair intertwined with large poppies. Beside her is a friendly bear with oversized sparkling eyes, both surrounded by floral patterns and decorative circles on a background (derived from generated still #947).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic portrait of a woman with flowing, swirling hair intertwined with large poppies. Beside her is a friendly bear with oversized sparkling eyes, both surrounded by floral patterns and decorative circles on a background",
+  "inverted_title": "Inverted sketch: Woman and Bear with Poppies",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic portrait of a woman with flowing, swirling hair intertwined with large poppies. Beside her is a friendly bear with oversized sparkling eyes, both surrounded by floral patterns and decorative circles on a background (from generated still #947).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic portrait of a woman with flowing, swirling hair intertwined with large poppies. Beside her is a friendly bear with oversized sparkling eyes, both surrounded by floral patterns and decorative circles on a background",
+  "source_description": "A vibrant psychedelic portrait of a woman with flowing, multicolored swirling hair intertwined with large orange poppies. Beside her is a friendly brown bear with oversized sparkling blue eyes, both surrounded by floral patterns and decorative circles on a dark green background.",
+  "source_prompt": "",
+  "source_title": "Woman and Bear with Poppies",
+  "style": "Psychedelic Folk Art",
+  "mood": "Whimsical, Vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "woman",
+    "bear",
+    "poppies",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 947,
+  "source_url": "/generated/947.jpg",
+  "image_url": "/sketches/1725.png",
+  "inverted_image_url": "/sketches-inverted/1725.png",
+  "curve_count": 197,
+  "built_at": "2026-08-17T00:09:41Z"
+}

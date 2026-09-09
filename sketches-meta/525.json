@@ -1,0 +1,42 @@
+{
+  "number": 525,
+  "title": "Line sketch: Woman in Floral Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with flowing auburn hair stands gracefully amidst vibrant flowers. She gazes into the distance while touching her hair adorned with blossoms (derived from painting #655).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with flowing auburn hair stands gracefully amidst vibrant flowers. She gazes into the distance while touching her hair adorned with blossoms",
+  "inverted_title": "Inverted sketch: Woman in Floral Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with flowing auburn hair stands gracefully amidst vibrant flowers. She gazes into the distance while touching her hair adorned with blossoms (from painting #655).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with flowing auburn hair stands gracefully amidst vibrant flowers. She gazes into the distance while touching her hair adorned with blossoms",
+  "source_description": "A young woman with flowing auburn hair stands gracefully amidst vibrant flowers. She gazes into the distance while touching her hair adorned with blue blossoms.",
+  "source_prompt": "",
+  "source_title": "Woman in Floral Garden",
+  "style": "Realism",
+  "mood": "Serene and dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "nature",
+    "flowers",
+    "woman",
+    "garden"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 655,
+  "source_url": "/paintings/655.jpg",
+  "image_url": "/sketches/525.png",
+  "inverted_image_url": "/sketches-inverted/525.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:39Z"
+}

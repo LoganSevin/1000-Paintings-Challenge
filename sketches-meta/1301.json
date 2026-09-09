@@ -1,0 +1,42 @@
+{
+  "number": 1301,
+  "title": "Line sketch: Surreal Road Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A winding cracked road stretches through a desert landscape toward mountains under a glowing sun in a swirling cloudy sky. Translucent bubbles containing small silhouetted figures float across the scene while a rearview mirror on the right reflects a starry cosmic vista crossed by a line (derived from generated still #516).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A winding cracked road stretches through a desert landscape toward mountains under a glowing sun in a swirling cloudy sky. Translucent bubbles containing small silhouetted figures float across the scene while a rearview mirror on the right reflects a starry cosmic vista crossed by a line",
+  "inverted_title": "Inverted sketch: Surreal Road Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A winding cracked road stretches through a desert landscape toward mountains under a glowing sun in a swirling cloudy sky. Translucent bubbles containing small silhouetted figures float across the scene while a rearview mirror on the right reflects a starry cosmic vista crossed by a line (from generated still #516).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A winding cracked road stretches through a desert landscape toward mountains under a glowing sun in a swirling cloudy sky. Translucent bubbles containing small silhouetted figures float across the scene while a rearview mirror on the right reflects a starry cosmic vista crossed by a line",
+  "source_description": "A winding cracked road stretches through a desert landscape toward orange mountains under a glowing red sun in a swirling cloudy sky. Translucent bubbles containing small silhouetted figures float across the scene while a rearview mirror on the right reflects a starry cosmic vista crossed by a red line.",
+  "source_prompt": "",
+  "source_title": "Surreal Road Reflection",
+  "style": "surrealism",
+  "mood": "dreamlike, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "road",
+    "bubbles",
+    "mirror",
+    "desert"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 516,
+  "source_url": "/generated/516.jpg",
+  "image_url": "/sketches/1301.png",
+  "inverted_image_url": "/sketches-inverted/1301.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:41Z"
+}

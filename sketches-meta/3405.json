@@ -1,0 +1,42 @@
+{
+  "number": 3405,
+  "title": "Line sketch: Wizard War Maximum Progress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal owl wizard with glowing eyes stands in the stormy sky above a misty lake, casting lightning from its hand. Below, a traditional Chinese pagoda sits on the water surrounded by boats, coins, and floating leaves, with dark mountains in the background (derived from generated still #2806).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal owl wizard with glowing eyes stands in the stormy sky above a misty lake, casting lightning from its hand. Below, a traditional Chinese pagoda sits on the water surrounded by boats, coins, and floating leaves, with dark mountains in the background",
+  "inverted_title": "Inverted sketch: Wizard War Maximum Progress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal owl wizard with glowing eyes stands in the stormy sky above a misty lake, casting lightning from its hand. Below, a traditional Chinese pagoda sits on the water surrounded by boats, coins, and floating leaves, with dark mountains in the background (from generated still #2806).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal owl wizard with glowing eyes stands in the stormy sky above a misty lake, casting lightning from its hand. Below, a traditional Chinese pagoda sits on the water surrounded by boats, coins, and floating leaves, with dark mountains in the background",
+  "source_description": "A colossal owl wizard with glowing yellow eyes stands in the stormy sky above a misty lake, casting lightning from its hand. Below, a traditional red Chinese pagoda sits on the water surrounded by boats, golden coins, and floating leaves, with dark mountains in the background.",
+  "source_prompt": "",
+  "source_title": "Wizard War Maximum Progress",
+  "style": "fantasy illustration",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "owl wizard",
+    "lightning magic",
+    "chinese pagoda",
+    "stormy sky",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2806,
+  "source_url": "/generated/2806.jpg",
+  "image_url": "/sketches/3405.png",
+  "inverted_image_url": "/sketches-inverted/3405.png",
+  "curve_count": 139,
+  "built_at": "2026-08-17T00:09:45Z"
+}

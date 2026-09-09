@@ -1,0 +1,42 @@
+{
+  "number": 4820,
+  "title": "Line sketch: Enchanted Witch Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed hand-painted masquerade mask with a and gradient surface. The artwork depicts a fantasy night scene featuring a cloaked witch stirring a cauldron, flying pigs on branches, a glowing crescent moon, a distant castle, potion shelves, and scattered blossoms (derived from generated still #4255).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed hand-painted masquerade mask with a and gradient surface. The artwork depicts a fantasy night scene featuring a cloaked witch stirring a cauldron, flying pigs on branches, a glowing crescent moon, a distant castle, potion shelves, and scattered blossoms",
+  "inverted_title": "Inverted sketch: Enchanted Witch Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed hand-painted masquerade mask with a and gradient surface. The artwork depicts a fantasy night scene featuring a cloaked witch stirring a cauldron, flying pigs on branches, a glowing crescent moon, a distant castle, potion shelves, and scattered blossoms (from generated still #4255).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed hand-painted masquerade mask with a and gradient surface. The artwork depicts a fantasy night scene featuring a cloaked witch stirring a cauldron, flying pigs on branches, a glowing crescent moon, a distant castle, potion shelves, and scattered blossoms",
+  "source_description": "A detailed hand-painted masquerade mask with a green and purple gradient surface. The artwork depicts a fantasy night scene featuring a cloaked witch stirring a cauldron, flying pigs on branches, a glowing crescent moon, a distant castle, potion shelves, and scattered pink blossoms.",
+  "source_prompt": "Highly detailed painted masquerade mask in teal and purple tones, featuring a fantasy night scene with a hooded witch stirring a bubbling cauldron beside potion shelves, several pink flying pigs on tree branches, a glowing crescent moon and stars, a purple castle in the distance, delicate pink blossoms, and gold trim around the eye holes, realistic object photography on dark background",
+  "source_title": "Enchanted Witch Mask",
+  "style": "fantasy illustration",
+  "mood": "whimsical, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted mask",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "masquerade mask",
+    "witch",
+    "flying pigs",
+    "cauldron",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4255,
+  "source_url": "/generated/4255.jpg",
+  "image_url": "/sketches/4820.png",
+  "inverted_image_url": "/sketches-inverted/4820.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3741,
+  "title": "Line sketch: Warrior Child",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young Black girl with dreadlocks stands in a dynamic combat pose against a dark gray studio backdrop. She wears a detailed post-apocalyptic warrior outfit, including a cropped vest with skull and bone decorations, ripped pants, a utility belt with pouches and chains, striped arm wraps, and heavy boots (derived from generated still #3151).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young Black girl with dreadlocks stands in a dynamic combat pose against a dark gray studio backdrop. She wears a detailed post-apocalyptic warrior outfit, including a cropped vest with skull and bone decorations, ripped pants, a utility belt with pouches and chains, striped arm wraps, and heavy boots",
+  "inverted_title": "Inverted sketch: Warrior Child",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young Black girl with dreadlocks stands in a dynamic combat pose against a dark gray studio backdrop. She wears a detailed post-apocalyptic warrior outfit, including a cropped vest with skull and bone decorations, ripped pants, a utility belt with pouches and chains, striped arm wraps, and heavy boots (from generated still #3151).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young Black girl with dreadlocks stands in a dynamic combat pose against a dark gray studio backdrop. She wears a detailed post-apocalyptic warrior outfit, including a cropped vest with skull and bone decorations, ripped pants, a utility belt with pouches and chains, striped arm wraps, and heavy boots",
+  "source_description": "A young Black girl with orange dreadlocks stands in a dynamic combat pose against a dark gray studio backdrop. She wears a detailed post-apocalyptic warrior outfit in shades of orange with black stripes, including a cropped vest with skull and bone decorations, ripped pants, a utility belt with pouches and chains, striped arm wraps, and heavy boots.",
+  "source_prompt": "A young Black girl with vibrant orange dreadlocks styled wildly, wearing an intricate post-apocalyptic warrior costume in bright orange and black. The outfit includes a cropped leather vest with skull and bone patches, ripped orange pants, a wide utility belt with hanging chains and bells, striped orange and black arm wraps and leg wraps, and heavy black boots. She is in a strong action pose with one fist pulled back and the other extended, looking directly at the viewer with a confident expression, dramatic studio lighting against a solid dark gray background.",
+  "source_title": "Orange Warrior Child",
+  "style": "realistic digital photography",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "child warrior",
+    "costume",
+    "dreadlocks",
+    "post-apocalyptic",
+    "studio portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3151,
+  "source_url": "/generated/3151.jpg",
+  "image_url": "/sketches/3741.png",
+  "inverted_image_url": "/sketches-inverted/3741.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:46Z"
+}

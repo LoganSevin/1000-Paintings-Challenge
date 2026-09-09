@@ -1,0 +1,42 @@
+{
+  "number": 4345,
+  "title": "Line sketch: Plasma Slot Machine",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal steampunk-style plasma globe functions as the central reel of a vintage slot machine. Inside the glowing glass sphere, vibrant tendrils in, and form abstract leaf and floral patterns around a central lock-shaped core with two glowing eyes (derived from generated still #3764).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal steampunk-style plasma globe functions as the central reel of a vintage slot machine. Inside the glowing glass sphere, vibrant tendrils in, and form abstract leaf and floral patterns around a central lock-shaped core with two glowing eyes",
+  "inverted_title": "Inverted sketch: Plasma Slot Machine",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal steampunk-style plasma globe functions as the central reel of a vintage slot machine. Inside the glowing glass sphere, vibrant tendrils in, and form abstract leaf and floral patterns around a central lock-shaped core with two glowing eyes (from generated still #3764).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal steampunk-style plasma globe functions as the central reel of a vintage slot machine. Inside the glowing glass sphere, vibrant tendrils in, and form abstract leaf and floral patterns around a central lock-shaped core with two glowing eyes",
+  "source_description": "A surreal steampunk-style plasma globe functions as the central reel of a vintage slot machine. Inside the glowing glass sphere, vibrant neon tendrils in pink, yellow, and cyan form abstract leaf and floral patterns around a central pink lock-shaped core with two glowing green eyes.",
+  "source_prompt": "A vintage wooden slot machine with a large glass plasma globe on top, the interior filled with glowing neon pink, yellow, and cyan plasma tendrils forming floral and leaf patterns around a central glowing pink lock with two bright green eyes, set against a white background with floating black spheres, whimsical surreal style, vibrant colors, detailed digital painting",
+  "source_title": "Neon Plasma Slot Machine",
+  "style": "surreal",
+  "mood": "vibrant psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "slot machine",
+    "art",
+    "surreal",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3764,
+  "source_url": "/generated/3764.jpg",
+  "image_url": "/sketches/4345.png",
+  "inverted_image_url": "/sketches-inverted/4345.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:48Z"
+}

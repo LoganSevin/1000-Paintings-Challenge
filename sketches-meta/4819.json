@@ -1,0 +1,42 @@
+{
+  "number": 4819,
+  "title": "Line sketch: Celestial Dream Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic sculpted mask of a serene human face is covered in intricate hand-painted cosmic artwork. The design features swirling galaxies, stars, crescent moons, stylized and waves, bears, and a small castle on the right cheek against a dark gradient background (derived from generated still #4254).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic sculpted mask of a serene human face is covered in intricate hand-painted cosmic artwork. The design features swirling galaxies, stars, crescent moons, stylized and waves, bears, and a small castle on the right cheek against a dark gradient background",
+  "inverted_title": "Inverted sketch: Celestial Dream Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic sculpted mask of a serene human face is covered in intricate hand-painted cosmic artwork. The design features swirling galaxies, stars, crescent moons, stylized and waves, bears, and a small castle on the right cheek against a dark gradient background (from generated still #4254).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic sculpted mask of a serene human face is covered in intricate hand-painted cosmic artwork. The design features swirling galaxies, stars, crescent moons, stylized and waves, bears, and a small castle on the right cheek against a dark gradient background",
+  "source_description": "A realistic sculpted mask of a serene human face is covered in intricate hand-painted cosmic artwork. The design features swirling galaxies, stars, crescent moons, stylized blue and yellow waves, pink bears, and a small castle on the right cheek against a dark gradient background.",
+  "source_prompt": "Highly detailed realistic photograph of an ornate sculpted mask of a serene human face, entirely covered in intricate cosmic painting featuring swirling galaxies, stars, crescent moons, stylized waves in blue and yellow, small pink bears, and a tiny castle on the cheek, smooth gradients from teal to purple to deep space tones, dramatic studio lighting on dark background",
+  "source_title": "Celestial Dream Mask",
+  "style": "fantasy illustration",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted sculpture",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mask",
+    "cosmic",
+    "celestial",
+    "fantasy art",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4254,
+  "source_url": "/generated/4254.jpg",
+  "image_url": "/sketches/4819.png",
+  "inverted_image_url": "/sketches-inverted/4819.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:49Z"
+}

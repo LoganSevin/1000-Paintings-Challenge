@@ -1,0 +1,42 @@
+{
+  "number": 4676,
+  "title": "Line sketch: Chamber Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A person with long dark curly hair stands with their back to the viewer in the center of a dilapidated, decaying room bathed in intense and light. A wooden table in the foreground holds an old trumpet, a glass bottle, papers, and a small skull, while a worn wooden chair sits empty against the stained, peeling walls (derived from generated still #4102).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A person with long dark curly hair stands with their back to the viewer in the center of a dilapidated, decaying room bathed in intense and light. A wooden table in the foreground holds an old trumpet, a glass bottle, papers, and a small skull, while a worn wooden chair sits empty against the stained, peeling walls",
+  "inverted_title": "Inverted sketch: Chamber Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A person with long dark curly hair stands with their back to the viewer in the center of a dilapidated, decaying room bathed in intense and light. A wooden table in the foreground holds an old trumpet, a glass bottle, papers, and a small skull, while a worn wooden chair sits empty against the stained, peeling walls (from generated still #4102).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A person with long dark curly hair stands with their back to the viewer in the center of a dilapidated, decaying room bathed in intense and light. A wooden table in the foreground holds an old trumpet, a glass bottle, papers, and a small skull, while a worn wooden chair sits empty against the stained, peeling walls",
+  "source_description": "A person with long dark curly hair stands with their back to the viewer in the center of a dilapidated, decaying room bathed in intense red and purple light. A wooden table in the foreground holds an old trumpet, a glass bottle, papers, and a small skull, while a worn wooden chair sits empty against the stained, peeling walls.",
+  "source_prompt": "A solitary figure with long curly black hair wearing a dark red velvet jacket stands with their back to the viewer in a derelict room with peeling walls and ominous stains. In the foreground, a wooden table holds an old brass trumpet, glass bottle, papers, and a small skull. An empty wooden chair sits to the right. The entire scene is dramatically lit in intense blood-red and purple hues creating a heavy, mysterious atmosphere.",
+  "source_title": "Crimson Chamber Figure",
+  "style": "cinematic digital art",
+  "mood": "eerie, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark room",
+    "back view",
+    "decaying interior",
+    "dramatic lighting",
+    "curly hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4102,
+  "source_url": "/generated/4102.jpg",
+  "image_url": "/sketches/4676.png",
+  "inverted_image_url": "/sketches-inverted/4676.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

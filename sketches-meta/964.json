@@ -1,0 +1,42 @@
+{
+  "number": 964,
+  "title": "Line sketch: Alien on Rusty Tank",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grey, grinning alien with large teeth and a lightbulb on its head sits cross-legged atop a large, rusted cylindrical tank covered in dripping vines and graffiti. Four dark spheres with glowing - auras orbit the creature's head against a hazy sky in a desolate, overgrown field (derived from generated still #174).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grey, grinning alien with large teeth and a lightbulb on its head sits cross-legged atop a large, rusted cylindrical tank covered in dripping vines and graffiti. Four dark spheres with glowing - auras orbit the creature's head against a hazy sky in a desolate, overgrown field",
+  "inverted_title": "Inverted sketch: Alien on Rusty Tank",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grey, grinning alien with large teeth and a lightbulb on its head sits cross-legged atop a large, rusted cylindrical tank covered in dripping vines and graffiti. Four dark spheres with glowing - auras orbit the creature's head against a hazy sky in a desolate, overgrown field (from generated still #174).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grey, grinning alien with large teeth and a lightbulb on its head sits cross-legged atop a large, rusted cylindrical tank covered in dripping vines and graffiti. Four dark spheres with glowing - auras orbit the creature's head against a hazy sky in a desolate, overgrown field",
+  "source_description": "A grey, grinning alien with large teeth and a lightbulb on its head sits cross-legged atop a large, rusted green cylindrical tank covered in dripping vines and graffiti. Four dark spheres with glowing blue-green auras orbit the creature's head against a hazy pink sky in a desolate, overgrown field.",
+  "source_prompt": "",
+  "source_title": "Alien on Rusty Tank",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "rusty tank",
+    "surreal",
+    "overgrown field",
+    "orbiting spheres"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 174,
+  "source_url": "/generated/174.jpg",
+  "image_url": "/sketches/964.png",
+  "inverted_image_url": "/sketches-inverted/964.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:40Z"
+}

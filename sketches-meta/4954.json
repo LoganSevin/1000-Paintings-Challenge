@@ -1,0 +1,42 @@
+{
+  "number": 4954,
+  "title": "Line sketch: Demonic page",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large composition of a monstrous demon with horns, sharp claws and dripping black voids stands propped in a derelict warehouse. The surrounding floor is covered in melted wax from numerous lit candles, shattered picture frames, and splatters of paint under dim hanging lights (derived from generated still #4391).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large composition of a monstrous demon with horns, sharp claws and dripping black voids stands propped in a derelict warehouse. The surrounding floor is covered in melted wax from numerous lit candles, shattered picture frames, and splatters of paint under dim hanging lights",
+  "inverted_title": "Inverted sketch: Demonic page",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large composition of a monstrous demon with horns, sharp claws and dripping black voids stands propped in a derelict warehouse. The surrounding floor is covered in melted wax from numerous lit candles, shattered picture frames, and splatters of paint under dim hanging lights (from generated still #4391).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large composition of a monstrous demon with horns, sharp claws and dripping black voids stands propped in a derelict warehouse. The surrounding floor is covered in melted wax from numerous lit candles, shattered picture frames, and splatters of paint under dim hanging lights",
+  "source_description": "A large painting of a monstrous pink demon with horns, sharp claws and dripping black voids stands propped in a derelict warehouse. The surrounding floor is covered in melted pink wax from numerous lit candles, shattered picture frames, and splatters of pink paint under dim hanging lights.",
+  "source_prompt": "A large ominous painting of a terrifying pink demon with horns, gaping maw and long clawed hands reaching forward, black voids dripping from its body, the canvas stands in the center of a dark abandoned industrial warehouse with brick walls covered in pink graffiti, dozens of lit pink candles melted on the dirty floor, broken frames and pink paint splatters everywhere, single hanging pink bulb providing dim light, eerie and sinister atmosphere, cinematic lighting",
+  "source_title": "Demonic Canvas",
+  "style": "dark surrealism",
+  "mood": "sinister eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "occult",
+    "warehouse",
+    "candles",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4391,
+  "source_url": "/generated/4391.jpg",
+  "image_url": "/sketches/4954.png",
+  "inverted_image_url": "/sketches-inverted/4954.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:49Z"
+}

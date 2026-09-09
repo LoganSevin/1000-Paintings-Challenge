@@ -1,0 +1,42 @@
+{
+  "number": 4201,
+  "title": "Line sketch: Moonlit Dreamweaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous crescent moon dominates the cosmic scene with a translucent female figure sitting on its edge, reaching toward a glowing star. In the foreground, three reflective spheres rest on a rippling surface, each containing miniature crescent moons within their glossy orbs (derived from generated still #3620).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous crescent moon dominates the cosmic scene with a translucent female figure sitting on its edge, reaching toward a glowing star. In the foreground, three reflective spheres rest on a rippling surface, each containing miniature crescent moons within their glossy orbs",
+  "inverted_title": "Inverted sketch: Moonlit Dreamweaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous crescent moon dominates the cosmic scene with a translucent female figure sitting on its edge, reaching toward a glowing star. In the foreground, three reflective spheres rest on a rippling surface, each containing miniature crescent moons within their glossy orbs (from generated still #3620).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous crescent moon dominates the cosmic scene with a translucent female figure sitting on its edge, reaching toward a glowing star. In the foreground, three reflective spheres rest on a rippling surface, each containing miniature crescent moons within their glossy orbs",
+  "source_description": "A luminous crescent moon dominates the cosmic scene with a translucent female figure sitting on its edge, reaching toward a glowing green star. In the foreground, three reflective blue spheres rest on a rippling dark blue surface, each containing miniature crescent moons within their glossy orbs.",
+  "source_prompt": "A surreal cosmic scene featuring a large glowing crescent moon against a purple starry sky, with a translucent female figure with flowing purple hair sitting on the moon's edge and reaching for a bright green star. In the foreground, three highly reflective blue spheres of different sizes sit on a dark blue rippling surface, each containing a tiny glowing crescent moon inside. Nebulae and small floating orbs fill the background, magical and ethereal atmosphere, digital painting style.",
+  "source_title": "Moonlit Dreamweaver",
+  "style": "fantasy illustration",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crescent moon",
+    "celestial woman",
+    "cosmic orbs",
+    "dreamlike",
+    "starry night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3620,
+  "source_url": "/generated/3620.jpg",
+  "image_url": "/sketches/4201.png",
+  "inverted_image_url": "/sketches-inverted/4201.png",
+  "curve_count": 73,
+  "built_at": "2026-08-17T00:09:47Z"
+}

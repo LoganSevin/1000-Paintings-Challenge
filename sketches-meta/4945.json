@@ -1,0 +1,42 @@
+{
+  "number": 4945,
+  "title": "Line sketch: Zombie Breach in Rainy Office",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit abandoned office with a wooden desk holding a lit lamp, coffee cup, radio and tools. Rain streaks down the windows at night. A large section of the wall has been torn open revealing a blood- corridor where three zombies shamble forward, one wielding an axe (derived from generated still #4382).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit abandoned office with a wooden desk holding a lit lamp, coffee cup, radio and tools. Rain streaks down the windows at night. A large section of the wall has been torn open revealing a blood- corridor where three zombies shamble forward, one wielding an axe",
+  "inverted_title": "Inverted sketch: Zombie Breach in Rainy Office",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit abandoned office with a wooden desk holding a lit lamp, coffee cup, radio and tools. Rain streaks down the windows at night. A large section of the wall has been torn open revealing a blood- corridor where three zombies shamble forward, one wielding an axe (from generated still #4382).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit abandoned office with a wooden desk holding a lit lamp, coffee cup, radio and tools. Rain streaks down the windows at night. A large section of the wall has been torn open revealing a blood- corridor where three zombies shamble forward, one wielding an axe",
+  "source_description": "A dimly lit abandoned office with a wooden desk holding a lit lamp, coffee cup, radio and tools. Rain streaks down the windows at night. A large section of the wall has been torn open revealing a blood-red corridor where three zombies shamble forward, one wielding an axe.",
+  "source_prompt": "A decaying office interior at night during heavy rain, water streaks on tall windows. A wooden desk in the foreground holds a lit desk lamp, coffee cup, old radio and tools. A massive jagged hole in the wall reveals a blood-soaked hallway lit by red emergency lights where three grotesque zombies are breaking through, one raising an axe, another crawling over debris, cinematic horror atmosphere, detailed textures, moody lighting",
+  "source_title": "Zombie Breach in Rainy Office",
+  "style": "cinematic",
+  "mood": "dread, horror",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombies",
+    "horror scene",
+    "abandoned office",
+    "apocalypse",
+    "rainy night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4382,
+  "source_url": "/generated/4382.jpg",
+  "image_url": "/sketches/4945.png",
+  "inverted_image_url": "/sketches-inverted/4945.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1740,
+  "title": "Line sketch: Psychedelic Portrait with Horse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with long flowing black hair, her face fragmented into a vibrant mosaic of geometric shapes and colors. An horse gallops through a psychedelic field filled with large flowers and swirling patterns (derived from generated still #962).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with long flowing black hair, her face fragmented into a vibrant mosaic of geometric shapes and colors. An horse gallops through a psychedelic field filled with large flowers and swirling patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Portrait with Horse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with long flowing black hair, her face fragmented into a vibrant mosaic of geometric shapes and colors. An horse gallops through a psychedelic field filled with large flowers and swirling patterns (from generated still #962).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with long flowing black hair, her face fragmented into a vibrant mosaic of geometric shapes and colors. An horse gallops through a psychedelic field filled with large flowers and swirling patterns",
+  "source_description": "A surreal portrait of a woman with long flowing black hair, her face fragmented into a vibrant mosaic of geometric shapes and colors. An orange horse gallops through a psychedelic green field filled with large pink flowers and swirling patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Portrait with Horse",
+  "style": "psychedelic surrealism",
+  "mood": "vibrant dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "psychedelic",
+    "geometric",
+    "horse",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 962,
+  "source_url": "/generated/962.jpg",
+  "image_url": "/sketches/1740.png",
+  "inverted_image_url": "/sketches-inverted/1740.png",
+  "curve_count": 98,
+  "built_at": "2026-08-17T00:09:42Z"
+}

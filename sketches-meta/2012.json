@@ -1,0 +1,42 @@
+{
+  "number": 2012,
+  "title": "Line sketch: Eternal Duality",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's face split between vibrant and a glowing skull, with paint dripping down her features. The background features a swirling cosmic vortex of glowing circles and abstract shapes amid splatters of paint (derived from generated still #1237).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's face split between vibrant and a glowing skull, with paint dripping down her features. The background features a swirling cosmic vortex of glowing circles and abstract shapes amid splatters of paint",
+  "inverted_title": "Inverted sketch: Eternal Duality",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's face split between vibrant and a glowing skull, with paint dripping down her features. The background features a swirling cosmic vortex of glowing circles and abstract shapes amid splatters of paint (from generated still #1237).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's face split between vibrant and a glowing skull, with paint dripping down her features. The background features a swirling cosmic vortex of glowing circles and abstract shapes amid splatters of paint",
+  "source_description": "A surreal portrait of a woman's face split between vibrant blue and a glowing green skull, with colorful paint dripping down her features. The background features a swirling cosmic vortex of glowing circles and abstract shapes amid splatters of neon paint.",
+  "source_prompt": "",
+  "source_title": "Eternal Duality",
+  "style": "surrealism",
+  "mood": "psychedelic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skull",
+    "woman",
+    "cosmic",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1237,
+  "source_url": "/generated/1237.jpg",
+  "image_url": "/sketches/2012.png",
+  "inverted_image_url": "/sketches-inverted/2012.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:42Z"
+}

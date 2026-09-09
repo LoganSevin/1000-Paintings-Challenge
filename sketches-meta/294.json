@@ -1,0 +1,42 @@
+{
+  "number": 294,
+  "title": "Line sketch: Cosmic Grim Reaper",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded skeletal figure with glowing eyes emerges from a swirling cosmic vortex. The dramatic captures the eerie presence of death against a vibrant nebula background (derived from painting #351).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded skeletal figure with glowing eyes emerges from a swirling cosmic vortex. The dramatic captures the eerie presence of death against a vibrant nebula background",
+  "inverted_title": "Inverted sketch: Cosmic Grim Reaper",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded skeletal figure with glowing eyes emerges from a swirling cosmic vortex. The dramatic captures the eerie presence of death against a vibrant nebula background (from painting #351).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded skeletal figure with glowing eyes emerges from a swirling cosmic vortex. The dramatic captures the eerie presence of death against a vibrant nebula background",
+  "source_description": "A hooded skeletal figure with glowing purple eyes emerges from a swirling cosmic vortex. The dramatic digital painting captures the eerie presence of death against a vibrant nebula background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Grim Reaper",
+  "style": "Digital Fantasy Art",
+  "mood": "Eerie and Mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "skeleton",
+    "cosmic",
+    "nebula",
+    "hooded figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 351,
+  "source_url": "/paintings/351.jpg",
+  "image_url": "/sketches/294.png",
+  "inverted_image_url": "/sketches-inverted/294.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:38Z"
+}

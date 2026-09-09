@@ -1,0 +1,42 @@
+{
+  "number": 540,
+  "title": "Line sketch: Cosmic Eye Nebula",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal giant eyeball floats in the center of a vibrant cosmic swirl. Smaller orbs drift around it against a glowing and nebula background (derived from painting #676).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal giant eyeball floats in the center of a vibrant cosmic swirl. Smaller orbs drift around it against a glowing and nebula background",
+  "inverted_title": "Inverted sketch: Cosmic Eye Nebula",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal giant eyeball floats in the center of a vibrant cosmic swirl. Smaller orbs drift around it against a glowing and nebula background (from painting #676).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal giant eyeball floats in the center of a vibrant cosmic swirl. Smaller orbs drift around it against a glowing and nebula background",
+  "source_description": "A surreal giant eyeball floats in the center of a vibrant cosmic swirl. Smaller orbs drift around it against a glowing orange and purple nebula background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Eye Nebula",
+  "style": "Surrealism",
+  "mood": "Mysterious, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "eye",
+    "nebula",
+    "surreal",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 676,
+  "source_url": "/paintings/676.jpg",
+  "image_url": "/sketches/540.png",
+  "inverted_image_url": "/sketches-inverted/540.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

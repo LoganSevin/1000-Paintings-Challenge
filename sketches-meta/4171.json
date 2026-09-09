@@ -1,0 +1,42 @@
+{
+  "number": 4171,
+  "title": "Line sketch: Forgotten Herald",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a ghostly female figure with long flowing white hair and tears merging with a heraldic shield bearing three pinecones and the letters 'F F'. The shield is adorned with and foliage. In the background are ruined classical columns, broken stone architecture, glowing flowers, and a starry twilight sky. A banner on the right reads 'FORGET' flanked by three dark birds. An ornate mirror in the foreground reflects the ghostly figure and falling droplets (derived from generated still #3589).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a ghostly female figure with long flowing white hair and tears merging with a heraldic shield bearing three pinecones and the letters 'F F'. The shield is adorned with and foliage. In the background are ruined classical columns, broken stone architecture, glowing flowers, and a starry twilight sky. A banner on the right reads 'FORGET' flanked by three dark birds. An ornate mirror in the foreground reflects the ghostly figure and falling droplets",
+  "inverted_title": "Inverted sketch: Forgotten Herald",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a ghostly female figure with long flowing white hair and tears merging with a heraldic shield bearing three pinecones and the letters 'F F'. The shield is adorned with and foliage. In the background are ruined classical columns, broken stone architecture, glowing flowers, and a starry twilight sky. A banner on the right reads 'FORGET' flanked by three dark birds. An ornate mirror in the foreground reflects the ghostly figure and falling droplets (from generated still #3589).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a ghostly female figure with long flowing white hair and tears merging with a heraldic shield bearing three pinecones and the letters 'F F'. The shield is adorned with and foliage. In the background are ruined classical columns, broken stone architecture, glowing flowers, and a starry twilight sky. A banner on the right reads 'FORGET' flanked by three dark birds. An ornate mirror in the foreground reflects the ghostly figure and falling droplets",
+  "source_description": "A surreal scene featuring a ghostly female figure with long flowing white hair and golden tears merging with a blue heraldic shield bearing three golden pinecones and the letters 'F F'. The shield is adorned with pink and yellow foliage. In the background are ruined classical columns, broken stone architecture, pink glowing flowers, and a starry twilight sky. A yellow banner on the right reads 'FORGET' flanked by three dark birds. An ornate mirror in the foreground reflects the ghostly figure and falling golden droplets.",
+  "source_prompt": "Surreal fantasy painting of a translucent ghostly woman with long flowing white hair and golden tears, merging into an ornate blue heraldic shield decorated with three golden pinecones and the letters FF, surrounded by vibrant pink and yellow foliage. The scene is set among crumbling classical stone ruins and columns under a starry twilight sky with pink glowing flowers. A vertical yellow banner on the right reads 'FORGET' with three dark birds perched on it. An ornate black mirror in the foreground reflects the ghost and falling golden droplets, dark earthy tones with pops of pink and gold, melancholic and dreamlike atmosphere.",
+  "source_title": "Forgotten Herald",
+  "style": "surreal fantasy",
+  "mood": "melancholic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "heraldry",
+    "ruins",
+    "ghost",
+    "surreal",
+    "pinecones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3589,
+  "source_url": "/generated/3589.jpg",
+  "image_url": "/sketches/4171.png",
+  "inverted_image_url": "/sketches-inverted/4171.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:47Z"
+}

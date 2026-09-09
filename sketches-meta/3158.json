@@ -1,0 +1,42 @@
+{
+  "number": 3158,
+  "title": "Line sketch: Film Reel Collision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic cinematic scene inside a crumbling, ornate room where a woman in a flowing dress and a man wearing a skull mask and dark coat stand locked together. A glowing film strip is wrapped tightly around their waists emitting sparks and light as movie equipment, clapperboards, and film reels lie scattered across the paint-splattered floor (derived from generated still #2500).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic cinematic scene inside a crumbling, ornate room where a woman in a flowing dress and a man wearing a skull mask and dark coat stand locked together. A glowing film strip is wrapped tightly around their waists emitting sparks and light as movie equipment, clapperboards, and film reels lie scattered across the paint-splattered floor",
+  "inverted_title": "Inverted sketch: Film Reel Collision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic cinematic scene inside a crumbling, ornate room where a woman in a flowing dress and a man wearing a skull mask and dark coat stand locked together. A glowing film strip is wrapped tightly around their waists emitting sparks and light as movie equipment, clapperboards, and film reels lie scattered across the paint-splattered floor (from generated still #2500).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic cinematic scene inside a crumbling, ornate room where a woman in a flowing dress and a man wearing a skull mask and dark coat stand locked together. A glowing film strip is wrapped tightly around their waists emitting sparks and light as movie equipment, clapperboards, and film reels lie scattered across the paint-splattered floor",
+  "source_description": "A dramatic cinematic scene inside a crumbling, ornate room where a woman in a flowing emerald green dress and a man wearing a skull mask and dark coat stand locked together. A glowing film strip is wrapped tightly around their waists emitting sparks and light as movie equipment, clapperboards, and film reels lie scattered across the paint-splattered floor.",
+  "source_prompt": "A surreal cinematic painting of a beautiful woman in a flowing emerald green dress dancing with a tall man wearing a white skull mask and dark trench coat. A glowing film strip is wrapped around their bodies emitting sparks and light beams. They stand in a decaying ornate hall with cracked walls and falling picture frames. Movie clapperboards, film reels and equipment are scattered on the paint-splattered floor. Dramatic god rays shine from above, dynamic composition, painterly style.",
+  "source_title": "Film Reel Collision",
+  "style": "cinematic surrealism",
+  "mood": "dramatic, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinematic",
+    "film noir",
+    "surreal",
+    "crumbling interior",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2500,
+  "source_url": "/generated/2500.jpg",
+  "image_url": "/sketches/3158.png",
+  "inverted_image_url": "/sketches-inverted/3158.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:45Z"
+}

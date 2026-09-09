@@ -1,0 +1,42 @@
+{
+  "number": 2934,
+  "title": "Line sketch: Hanging Metal Chimes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cluster of metallic cylindrical wind chimes and bells hangs from ropes and hooks against a dark abstract background. Several chimes have broken free and are falling or scattered below with swirling ribbons and debris (derived from generated still #2236).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cluster of metallic cylindrical wind chimes and bells hangs from ropes and hooks against a dark abstract background. Several chimes have broken free and are falling or scattered below with swirling ribbons and debris",
+  "inverted_title": "Inverted sketch: Hanging Metal Chimes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cluster of metallic cylindrical wind chimes and bells hangs from ropes and hooks against a dark abstract background. Several chimes have broken free and are falling or scattered below with swirling ribbons and debris (from generated still #2236).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cluster of metallic cylindrical wind chimes and bells hangs from ropes and hooks against a dark abstract background. Several chimes have broken free and are falling or scattered below with swirling ribbons and debris",
+  "source_description": "A cluster of metallic cylindrical wind chimes and bells hangs from ropes and hooks against a dark abstract background. Several chimes have broken free and are falling or scattered below with swirling ribbons and debris.",
+  "source_prompt": "A dramatic oil painting of a tangled cluster of metallic wind chimes and cylindrical bells suspended from ropes and hooks in darkness. Some chimes have broken loose and are falling with swirling ribbons and fragments below, rendered with expressive brushstrokes and strong highlights on the reflective metal surfaces against a deep black abstract background.",
+  "source_title": "Hanging Metal Chimes",
+  "style": "painterly",
+  "mood": "eerie, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wind chimes",
+    "still life",
+    "metallic objects",
+    "dark background",
+    "falling debris"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2236,
+  "source_url": "/generated/2236.jpg",
+  "image_url": "/sketches/2934.png",
+  "inverted_image_url": "/sketches-inverted/2934.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:44Z"
+}

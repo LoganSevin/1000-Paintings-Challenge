@@ -1,0 +1,42 @@
+{
+  "number": 2887,
+  "title": "Line sketch: The All-Seeing Submarine",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal -colored metallic submarine shaped like a giant eye with a iris floats amidst turbulent and waves. The vessel is adorned with intricate brass gears, rivets, and scattered alphabet letters, while small flowers and ribbons drift in the foreground under a stormy sky with distant industrial structures (derived from generated still #2174).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal -colored metallic submarine shaped like a giant eye with a iris floats amidst turbulent and waves. The vessel is adorned with intricate brass gears, rivets, and scattered alphabet letters, while small flowers and ribbons drift in the foreground under a stormy sky with distant industrial structures",
+  "inverted_title": "Inverted sketch: The All-Seeing Submarine",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal -colored metallic submarine shaped like a giant eye with a iris floats amidst turbulent and waves. The vessel is adorned with intricate brass gears, rivets, and scattered alphabet letters, while small flowers and ribbons drift in the foreground under a stormy sky with distant industrial structures (from generated still #2174).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal -colored metallic submarine shaped like a giant eye with a iris floats amidst turbulent and waves. The vessel is adorned with intricate brass gears, rivets, and scattered alphabet letters, while small flowers and ribbons drift in the foreground under a stormy sky with distant industrial structures",
+  "source_description": "A surreal copper-colored metallic submarine shaped like a giant eye with a vivid green iris floats amidst turbulent blue and teal waves. The vessel is adorned with intricate brass gears, rivets, and scattered alphabet letters, while small flowers and ribbons drift in the foreground under a stormy sky with distant industrial structures.",
+  "source_prompt": "Surreal scene of a vintage copper submarine designed as a giant mechanical eye with a bright green iris and black pupil, floating on choppy stylized waves. The metallic hull features intricate brass gears, rivets, and scattered colorful alphabet letters. Small flowers and decorative ribbons float in the foreground. Stormy sky with distant industrial structures in the background, whimsical and mysterious atmosphere, detailed painting style.",
+  "source_title": "The All-Seeing Submarine",
+  "style": "surreal composition",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "steampunk",
+    "submarine",
+    "giant eye",
+    "alphabet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2174,
+  "source_url": "/generated/2174.jpg",
+  "image_url": "/sketches/2887.png",
+  "inverted_image_url": "/sketches-inverted/2887.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:44Z"
+}

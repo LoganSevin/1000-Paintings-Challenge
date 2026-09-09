@@ -1,0 +1,42 @@
+{
+  "number": 168,
+  "title": "Line sketch: Vibrant Cosmos Flower Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lush display of blooming cosmos flowers, and white with centers. Lush and foliage fills the scene under a sky (derived from painting #207).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lush display of blooming cosmos flowers, and white with centers. Lush and foliage fills the scene under a sky",
+  "inverted_title": "Inverted sketch: Vibrant Cosmos Flower Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lush display of blooming cosmos flowers, and white with centers. Lush and foliage fills the scene under a sky (from painting #207).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lush display of blooming cosmos flowers, and white with centers. Lush and foliage fills the scene under a sky",
+  "source_description": "A lush display of blooming cosmos flowers in shades of pink, purple, and white with yellow centers. Lush green and yellow foliage fills the scene under a bright blue sky.",
+  "source_prompt": "",
+  "source_title": "Vibrant Cosmos Flower Garden",
+  "style": "Impressionistic",
+  "mood": "Joyful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmos flowers",
+    "floral composition",
+    "blooms",
+    "garden art",
+    "impressionistic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 207,
+  "source_url": "/paintings/207.jpg",
+  "image_url": "/sketches/168.png",
+  "inverted_image_url": "/sketches-inverted/168.png",
+  "curve_count": 93,
+  "built_at": "2026-08-17T00:09:38Z"
+}

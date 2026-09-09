@@ -1,0 +1,42 @@
+{
+  "number": 4089,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body illustration of a young woman with hair standing in a combat stance. She holds a large warhammer with glowing crackling patterns in her right hand while her left arm is raised in a fighting pose (derived from generated still #3506).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body illustration of a young woman with hair standing in a combat stance. She holds a large warhammer with glowing crackling patterns in her right hand while her left arm is raised in a fighting pose",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body illustration of a young woman with hair standing in a combat stance. She holds a large warhammer with glowing crackling patterns in her right hand while her left arm is raised in a fighting pose (from generated still #3506).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body illustration of a young woman with hair standing in a combat stance. She holds a large warhammer with glowing crackling patterns in her right hand while her left arm is raised in a fighting pose",
+  "source_description": "A full-body illustration of a young woman with purple hair standing in a combat stance. She holds a large purple warhammer with glowing crackling patterns in her right hand while her left arm is raised in a fighting pose.",
+  "source_prompt": "A fierce young woman with long dark purple hair in a high ponytail, wearing a white and purple cropped top with matching arm guards, baggy white pants with purple straps, and purple armored boots. She stands in a dynamic combat stance holding a massive purple warhammer with glowing white crackling energy patterns on the head. Full body view against a plain gray background, comic book style, clean digital illustration.",
+  "source_title": "Female Warrior with Hammer",
+  "style": "comic book",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "hair",
+    "fantasy character",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3506,
+  "source_url": "/generated/3506.jpg",
+  "image_url": "/sketches/4089.png",
+  "inverted_image_url": "/sketches-inverted/4089.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:47Z"
+}

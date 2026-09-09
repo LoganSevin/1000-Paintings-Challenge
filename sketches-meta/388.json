@@ -1,0 +1,42 @@
+{
+  "number": 388,
+  "title": "Line sketch: Portrait of a Young Boy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A somber young boy with hair and piercing eyes stares directly at the viewer. Painted in muted tones against a simple gray background, capturing a quiet and introspective moment (derived from painting #455).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A somber young boy with hair and piercing eyes stares directly at the viewer. Painted in muted tones against a simple gray background, capturing a quiet and introspective moment",
+  "inverted_title": "Inverted sketch: Portrait of a Young Boy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A somber young boy with hair and piercing eyes stares directly at the viewer. Painted in muted tones against a simple gray background, capturing a quiet and introspective moment (from painting #455).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A somber young boy with hair and piercing eyes stares directly at the viewer. Painted in muted tones against a simple gray background, capturing a quiet and introspective moment",
+  "source_description": "A somber young boy with light brown hair and piercing blue eyes stares directly at the viewer. Painted in muted tones against a simple gray background, capturing a quiet and introspective moment.",
+  "source_prompt": "",
+  "source_title": "Portrait of a Young Boy",
+  "style": "Contemporary Realism",
+  "mood": "Melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "child",
+    "realism",
+    "gray tones",
+    "introspective"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 455,
+  "source_url": "/paintings/455.jpg",
+  "image_url": "/sketches/388.png",
+  "inverted_image_url": "/sketches-inverted/388.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

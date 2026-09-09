@@ -1,0 +1,42 @@
+{
+  "number": 3033,
+  "title": "Line sketch: Gingerbread Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical night scene on a wooden deck features a boy in overalls with a donkey, two robot figures with glowing gingerbread chest panels, and a large octopus emerging from a picture frame dripping liquid. The background shows a starry sky with a large moon and string lights (derived from generated still #2357).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical night scene on a wooden deck features a boy in overalls with a donkey, two robot figures with glowing gingerbread chest panels, and a large octopus emerging from a picture frame dripping liquid. The background shows a starry sky with a large moon and string lights",
+  "inverted_title": "Inverted sketch: Gingerbread Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical night scene on a wooden deck features a boy in overalls with a donkey, two robot figures with glowing gingerbread chest panels, and a large octopus emerging from a picture frame dripping liquid. The background shows a starry sky with a large moon and string lights (from generated still #2357).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical night scene on a wooden deck features a boy in overalls with a donkey, two robot figures with glowing gingerbread chest panels, and a large octopus emerging from a picture frame dripping liquid. The background shows a starry sky with a large moon and string lights",
+  "source_description": "A whimsical night scene on a wooden deck features a boy in overalls with a donkey, two robot figures with glowing gingerbread chest panels, and a large purple octopus emerging from a golden picture frame dripping magenta liquid. The background shows a starry sky with a large yellow moon and string lights.",
+  "source_prompt": "",
+  "source_title": "Gingerbread Portal",
+  "style": "surreal fantasy",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "steampunk",
+    "gingerbread",
+    "octopus",
+    "robots"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2357,
+  "source_url": "/generated/2357.jpg",
+  "image_url": "/sketches/3033.png",
+  "inverted_image_url": "/sketches-inverted/3033.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:44Z"
+}

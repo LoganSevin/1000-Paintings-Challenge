@@ -1,0 +1,42 @@
+{
+  "number": 531,
+  "title": "Line sketch: Silhouette in the Iris",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary figure stands on the lower eyelid of a massive stylized eye, gazing into the reflective pupil. The iris blends and hues within a deep black sclera, all framed by a vibrant eyelid with white highlights (derived from painting #661).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary figure stands on the lower eyelid of a massive stylized eye, gazing into the reflective pupil. The iris blends and hues within a deep black sclera, all framed by a vibrant eyelid with white highlights",
+  "inverted_title": "Inverted sketch: Silhouette in the Iris",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary figure stands on the lower eyelid of a massive stylized eye, gazing into the reflective pupil. The iris blends and hues within a deep black sclera, all framed by a vibrant eyelid with white highlights (from painting #661).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary figure stands on the lower eyelid of a massive stylized eye, gazing into the reflective pupil. The iris blends and hues within a deep black sclera, all framed by a vibrant eyelid with white highlights",
+  "source_description": "A solitary figure stands on the lower eyelid of a massive stylized eye, gazing into the reflective pupil. The iris blends yellow and teal hues within a deep black sclera, all framed by a vibrant purple eyelid with white highlights.",
+  "source_prompt": "",
+  "source_title": "Silhouette in the Iris",
+  "style": "Surrealism",
+  "mood": "Mysterious and introspective",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal eye",
+    "silhouette figure",
+    "iris reflection",
+    "tones",
+    "symbolic art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 661,
+  "source_url": "/paintings/661.jpg",
+  "image_url": "/sketches/531.png",
+  "inverted_image_url": "/sketches-inverted/531.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

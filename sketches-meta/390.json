@@ -1,0 +1,42 @@
+{
+  "number": 390,
+  "title": "Line sketch: Cracked Portrait in",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young boy's serene face emerges from a fractured background, with kintsugi-style repairs. The composition evokes themes of healing and imperfection (derived from painting #458).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young boy's serene face emerges from a fractured background, with kintsugi-style repairs. The composition evokes themes of healing and imperfection",
+  "inverted_title": "Inverted sketch: Cracked Portrait in",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young boy's serene face emerges from a fractured background, with kintsugi-style repairs. The composition evokes themes of healing and imperfection (from painting #458).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young boy's serene face emerges from a fractured background, with kintsugi-style repairs. The composition evokes themes of healing and imperfection",
+  "source_description": "A young boy's serene face emerges from a fractured background, with kintsugi-style golden repairs. The watercolor painting evokes themes of healing and imperfection.",
+  "source_prompt": "",
+  "source_title": "Cracked Portrait in Gold",
+  "style": "Contemporary figurative",
+  "mood": "Melancholic serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "kintsugi",
+    "cracks",
+    "youth",
+    "healing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 458,
+  "source_url": "/paintings/458.jpg",
+  "image_url": "/sketches/390.png",
+  "inverted_image_url": "/sketches-inverted/390.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:39Z"
+}

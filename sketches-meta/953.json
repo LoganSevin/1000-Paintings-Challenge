@@ -1,0 +1,42 @@
+{
+  "number": 953,
+  "title": "Line sketch: Alien Pizza Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large and geometric alien head with glowing eyes floating above a swirling cosmic vortex. A geometric figure sits at a small table on the right, holding a slice of pizza dripping with cheese, while a ringed planet and smaller UFOs appear in the background (derived from generated still #163).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large and geometric alien head with glowing eyes floating above a swirling cosmic vortex. A geometric figure sits at a small table on the right, holding a slice of pizza dripping with cheese, while a ringed planet and smaller UFOs appear in the background",
+  "inverted_title": "Inverted sketch: Alien Pizza Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large and geometric alien head with glowing eyes floating above a swirling cosmic vortex. A geometric figure sits at a small table on the right, holding a slice of pizza dripping with cheese, while a ringed planet and smaller UFOs appear in the background (from generated still #163).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large and geometric alien head with glowing eyes floating above a swirling cosmic vortex. A geometric figure sits at a small table on the right, holding a slice of pizza dripping with cheese, while a ringed planet and smaller UFOs appear in the background",
+  "source_description": "A surreal painting depicts a large green and purple geometric alien head with glowing cyan eyes floating above a swirling purple cosmic vortex. A yellow geometric figure sits at a small table on the right, holding a slice of pizza dripping with orange cheese, while a ringed planet and smaller UFOs appear in the background.",
+  "source_prompt": "",
+  "source_title": "Alien Pizza Vortex",
+  "style": "surreal pop art",
+  "mood": "psychedelic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "pizza",
+    "vortex",
+    "surreal",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 163,
+  "source_url": "/generated/163.jpg",
+  "image_url": "/sketches/953.png",
+  "inverted_image_url": "/sketches-inverted/953.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:40Z"
+}

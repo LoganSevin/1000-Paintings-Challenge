@@ -1,0 +1,42 @@
+{
+  "number": 2773,
+  "title": "Line sketch: Wizard in Magical Courtyard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A smiling elderly wizard with a long grey beard stands in a sunlit Mediterranean courtyard, wearing a patchwork robe and tall pointed hat. He holds a glowing wand in one hand and points with the other, surrounded by hanging stained-glass lanterns, flowering vines, and a vibrant tree (derived from generated still #2054).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A smiling elderly wizard with a long grey beard stands in a sunlit Mediterranean courtyard, wearing a patchwork robe and tall pointed hat. He holds a glowing wand in one hand and points with the other, surrounded by hanging stained-glass lanterns, flowering vines, and a vibrant tree",
+  "inverted_title": "Inverted sketch: Wizard in Magical Courtyard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A smiling elderly wizard with a long grey beard stands in a sunlit Mediterranean courtyard, wearing a patchwork robe and tall pointed hat. He holds a glowing wand in one hand and points with the other, surrounded by hanging stained-glass lanterns, flowering vines, and a vibrant tree (from generated still #2054).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A smiling elderly wizard with a long grey beard stands in a sunlit Mediterranean courtyard, wearing a patchwork robe and tall pointed hat. He holds a glowing wand in one hand and points with the other, surrounded by hanging stained-glass lanterns, flowering vines, and a vibrant tree",
+  "source_description": "A smiling elderly wizard with a long grey beard stands in a sunlit Mediterranean courtyard, wearing a colorful patchwork robe and tall pointed hat. He holds a glowing wand in one hand and points with the other, surrounded by hanging stained-glass lanterns, flowering vines, and a vibrant tree.",
+  "source_prompt": "An elderly wizard with a long grey beard and smiling expression stands in a bright sunlit courtyard with white stucco walls and tiled floors. He wears a tall multicolored patchwork wizard hat and ornate blue and gold robes. In his right hand he holds a glowing magical wand with swirling light, while pointing with his left hand. Colorful stained-glass lanterns in teardrop shapes hang from an ornate metal frame and tree branches. Flowering vines with pink and purple blossoms climb the walls and hang from above. A vibrant tree with multicolored leaves stands behind him, bright daylight, highly detailed fantasy scene.",
+  "source_title": "Wizard in Magical Courtyard",
+  "style": "fantasy illustration",
+  "mood": "whimsical joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "courtyard",
+    "lanterns",
+    "fantasy",
+    "garden"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2054,
+  "source_url": "/generated/2054.jpg",
+  "image_url": "/sketches/2773.png",
+  "inverted_image_url": "/sketches-inverted/2773.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:44Z"
+}

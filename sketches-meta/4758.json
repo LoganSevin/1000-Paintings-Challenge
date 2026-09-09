@@ -1,0 +1,42 @@
+{
+  "number": 4758,
+  "title": "Line sketch: Cosmic Rural Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night landscape depicts a misty rural field with wildflowers, wooden fences, scattered trees, and two barns under a vibrant nebula-filled sky. The entire scene is enclosed within an ornate, textured frame resembling twisted branches with and accents (derived from generated still #4191).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night landscape depicts a misty rural field with wildflowers, wooden fences, scattered trees, and two barns under a vibrant nebula-filled sky. The entire scene is enclosed within an ornate, textured frame resembling twisted branches with and accents",
+  "inverted_title": "Inverted sketch: Cosmic Rural Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night landscape depicts a misty rural field with wildflowers, wooden fences, scattered trees, and two barns under a vibrant nebula-filled sky. The entire scene is enclosed within an ornate, textured frame resembling twisted branches with and accents (from generated still #4191).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night landscape depicts a misty rural field with wildflowers, wooden fences, scattered trees, and two barns under a vibrant nebula-filled sky. The entire scene is enclosed within an ornate, textured frame resembling twisted branches with and accents",
+  "source_description": "A surreal night landscape depicts a misty rural field with yellow wildflowers, wooden fences, scattered trees, and two red barns under a vibrant nebula-filled sky. The entire scene is enclosed within an ornate, textured frame resembling twisted branches with blue and gold accents.",
+  "source_prompt": "A mystical rural night scene with golden fields of wildflowers, wooden fences, scattered trees and red barns in the distance, all under a dramatic colorful nebula and starry sky with swirling purple, blue and yellow cosmic clouds, the entire artwork enclosed in an ornate twisted branch frame with blue and gold details, atmospheric and dreamy lighting",
+  "source_title": "Cosmic Rural Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "nebula",
+    "rural",
+    "fantasy",
+    "frame"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4191,
+  "source_url": "/generated/4191.jpg",
+  "image_url": "/sketches/4758.png",
+  "inverted_image_url": "/sketches-inverted/4758.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:48Z"
+}

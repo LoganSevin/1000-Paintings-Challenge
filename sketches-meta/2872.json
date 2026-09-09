@@ -1,0 +1,42 @@
+{
+  "number": 2872,
+  "title": "Line sketch: Puzzle Dragon Bridge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a blonde woman with closed eyes standing before a crumbling stone bridge made of oversized puzzle pieces. A large dragon flies above while another dragon head emerges from the bridge breathing fire, with scattered puzzle pieces falling into the water below (derived from generated still #2158).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a blonde woman with closed eyes standing before a crumbling stone bridge made of oversized puzzle pieces. A large dragon flies above while another dragon head emerges from the bridge breathing fire, with scattered puzzle pieces falling into the water below",
+  "inverted_title": "Inverted sketch: Puzzle Dragon Bridge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a blonde woman with closed eyes standing before a crumbling stone bridge made of oversized puzzle pieces. A large dragon flies above while another dragon head emerges from the bridge breathing fire, with scattered puzzle pieces falling into the water below (from generated still #2158).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a blonde woman with closed eyes standing before a crumbling stone bridge made of oversized puzzle pieces. A large dragon flies above while another dragon head emerges from the bridge breathing fire, with scattered puzzle pieces falling into the water below",
+  "source_description": "A surreal painting of a blonde woman with closed eyes standing before a crumbling stone bridge made of oversized puzzle pieces. A large dragon flies above while another dragon head emerges from the bridge breathing fire, with scattered puzzle pieces falling into the water below.",
+  "source_prompt": "",
+  "source_title": "Puzzle Dragon Bridge",
+  "style": "fantasy surrealism",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "puzzle",
+    "bridge",
+    "woman",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2158,
+  "source_url": "/generated/2158.jpg",
+  "image_url": "/sketches/2872.png",
+  "inverted_image_url": "/sketches-inverted/2872.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

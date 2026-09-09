@@ -1,0 +1,42 @@
+{
+  "number": 3156,
+  "title": "Line sketch: Surreal Serpent Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene shows a large - snake with detailed scales emerging from the left, its tongue extended toward a smaller snake on the right. Both snakes are surrounded by floating bananas on rocky cliffs, a giant chrysanthemum-like flower with multiple faces in the center, and two stylized female faces with ornate patterns in the background (derived from generated still #2497).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene shows a large - snake with detailed scales emerging from the left, its tongue extended toward a smaller snake on the right. Both snakes are surrounded by floating bananas on rocky cliffs, a giant chrysanthemum-like flower with multiple faces in the center, and two stylized female faces with ornate patterns in the background",
+  "inverted_title": "Inverted sketch: Surreal Serpent Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene shows a large - snake with detailed scales emerging from the left, its tongue extended toward a smaller snake on the right. Both snakes are surrounded by floating bananas on rocky cliffs, a giant chrysanthemum-like flower with multiple faces in the center, and two stylized female faces with ornate patterns in the background (from generated still #2497).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene shows a large - snake with detailed scales emerging from the left, its tongue extended toward a smaller snake on the right. Both snakes are surrounded by floating bananas on rocky cliffs, a giant chrysanthemum-like flower with multiple faces in the center, and two stylized female faces with ornate patterns in the background",
+  "source_description": "A vibrant surreal scene shows a large orange-red snake with detailed scales emerging from the left, its tongue extended toward a smaller magenta snake on the right. Both snakes are surrounded by floating bananas on rocky cliffs, a giant red chrysanthemum-like flower with multiple faces in the center, and two stylized female faces with ornate patterns in the background.",
+  "source_prompt": "Surreal psychedelic landscape featuring a large detailed orange-red snake with open mouth and extended tongue on the left, facing a smaller bright magenta snake on the right. Floating yellow bananas on mossy rock cliffs on both sides. Large red chrysanthemum flower with embedded human faces in the center foreground. Two ornate stylized female faces with curly hair and decorative patterns floating in the background. Floating green and orange geometric shapes, swirling orange sky forms, dramatic sunset lighting, highly detailed digital painting.",
+  "source_title": "Surreal Serpent Garden",
+  "style": "surrealism",
+  "mood": "psychedelic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "snakes",
+    "bananas",
+    "floral",
+    "faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2497,
+  "source_url": "/generated/2497.jpg",
+  "image_url": "/sketches/3156.png",
+  "inverted_image_url": "/sketches-inverted/3156.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4349,
+  "title": "Line sketch: Plasma Fleur-de-Lis Lamp",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with a central electrode emitting vibrant, and electrical arcs forming multiple fleur-de-lis patterns inside a large glass sphere. The metallic base is covered in graffiti with the visible numbers E274489F and E2F20D, set against a vibrant and graffiti wall with dripping paint (derived from generated still #3768).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with a central electrode emitting vibrant, and electrical arcs forming multiple fleur-de-lis patterns inside a large glass sphere. The metallic base is covered in graffiti with the visible numbers E274489F and E2F20D, set against a vibrant and graffiti wall with dripping paint",
+  "inverted_title": "Inverted sketch: Plasma Fleur-de-Lis Lamp",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with a central electrode emitting vibrant, and electrical arcs forming multiple fleur-de-lis patterns inside a large glass sphere. The metallic base is covered in graffiti with the visible numbers E274489F and E2F20D, set against a vibrant and graffiti wall with dripping paint (from generated still #3768).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with a central electrode emitting vibrant, and electrical arcs forming multiple fleur-de-lis patterns inside a large glass sphere. The metallic base is covered in graffiti with the visible numbers E274489F and E2F20D, set against a vibrant and graffiti wall with dripping paint",
+  "source_description": "A glowing plasma globe with a central red electrode emitting vibrant purple, yellow, and blue electrical arcs forming multiple fleur-de-lis patterns inside a large glass sphere. The metallic base is covered in graffiti with the visible numbers E274489F and E2F20D, set against a vibrant purple and magenta graffiti wall with dripping paint.",
+  "source_prompt": "A large plasma globe lamp with a glowing red central electrode shooting bright purple, yellow, and blue lightning arcs that form multiple fleur-de-lis symbols inside the glass sphere. The base is wrapped in black and yellow graffiti tags including E274489F and E2F20D. The background is a dripping purple and magenta graffiti wall with yellow splatters and a cosmic spiral galaxy visible inside the globe, vibrant street art style, detailed digital painting",
+  "source_title": "Plasma Fleur-de-Lis Lamp",
+  "style": "street art",
+  "mood": "vibrant, cosmic, urban",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "fleur-de-lis",
+    "graffiti",
+    "street art",
+    "cyberpunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3768,
+  "source_url": "/generated/3768.jpg",
+  "image_url": "/sketches/4349.png",
+  "inverted_image_url": "/sketches-inverted/4349.png",
+  "curve_count": 116,
+  "built_at": "2026-08-17T00:09:48Z"
+}

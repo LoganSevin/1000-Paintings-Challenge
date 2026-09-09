@@ -1,0 +1,42 @@
+{
+  "number": 3227,
+  "title": "Line sketch: Echo in the Abandoned Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing dress stands in a dilapidated room filled with scattered film reels, VHS tapes, and broken frames. She holds a framed composition of herself while sound waves emanate from her mouth toward an old film projector casting light across a desert landscape visible through the open wall under an aurora borealis sky (derived from generated still #2580).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing dress stands in a dilapidated room filled with scattered film reels, VHS tapes, and broken frames. She holds a framed composition of herself while sound waves emanate from her mouth toward an old film projector casting light across a desert landscape visible through the open wall under an aurora borealis sky",
+  "inverted_title": "Inverted sketch: Echo in the Abandoned Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing dress stands in a dilapidated room filled with scattered film reels, VHS tapes, and broken frames. She holds a framed composition of herself while sound waves emanate from her mouth toward an old film projector casting light across a desert landscape visible through the open wall under an aurora borealis sky (from generated still #2580).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing dress stands in a dilapidated room filled with scattered film reels, VHS tapes, and broken frames. She holds a framed composition of herself while sound waves emanate from her mouth toward an old film projector casting light across a desert landscape visible through the open wall under an aurora borealis sky",
+  "source_description": "A woman in a flowing emerald green dress stands in a dilapidated room filled with scattered film reels, VHS tapes, and broken frames. She holds a framed painting of herself while sound waves emanate from her mouth toward an old film projector casting light across a desert landscape visible through the open wall under an aurora borealis sky.",
+  "source_prompt": "A woman in a flowing emerald green Victorian dress stands inside a decaying room with peeling blue walls covered in old framed paintings. She holds a large portrait of herself while emitting glowing sound waves from her open mouth. An antique film projector on a pedestal beams light across the scene, surrounded by scattered VHS tapes, film reels, and broken cassette tapes on the wooden floor. Through the open side of the room is a vast desert under a purple night sky with green aurora borealis. Cinematic surreal composition, dramatic lighting, highly detailed digital painting.",
+  "source_title": "Echo in the Abandoned Theater",
+  "style": "surreal cinematic",
+  "mood": "melancholic ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "film projector",
+    "abandoned theater",
+    "aurora borealis",
+    "sound waves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2580,
+  "source_url": "/generated/2580.jpg",
+  "image_url": "/sketches/3227.png",
+  "inverted_image_url": "/sketches-inverted/3227.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:45Z"
+}

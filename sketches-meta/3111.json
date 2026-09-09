@@ -1,0 +1,42 @@
+{
+  "number": 3111,
+  "title": "Line sketch: Film Reel Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing cloak walks away down a stone path beside a canal, trailing long strips of film reels from her hand. The scene is set in an ornate open-air gallery with classical frescoes on the walls, glowing lanterns, and an aurora borealis illuminating the night sky above distant mountains (derived from generated still #2446).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing cloak walks away down a stone path beside a canal, trailing long strips of film reels from her hand. The scene is set in an ornate open-air gallery with classical frescoes on the walls, glowing lanterns, and an aurora borealis illuminating the night sky above distant mountains",
+  "inverted_title": "Inverted sketch: Film Reel Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing cloak walks away down a stone path beside a canal, trailing long strips of film reels from her hand. The scene is set in an ornate open-air gallery with classical frescoes on the walls, glowing lanterns, and an aurora borealis illuminating the night sky above distant mountains (from generated still #2446).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing cloak walks away down a stone path beside a canal, trailing long strips of film reels from her hand. The scene is set in an ornate open-air gallery with classical frescoes on the walls, glowing lanterns, and an aurora borealis illuminating the night sky above distant mountains",
+  "source_description": "A woman in a flowing blue cloak walks away down a stone path beside a canal, trailing long strips of film reels from her hand. The scene is set in an ornate open-air gallery with classical frescoes on the walls, glowing lanterns, and an aurora borealis illuminating the night sky above distant mountains.",
+  "source_prompt": "A lone woman in a detailed blue hooded cloak and flowing cape walks down ancient stone steps beside a canal at night, holding and trailing long strips of cinematic film reels that spill across the ground and water. Ornate gallery walls covered in classical frescoes and display cases line the left side, glowing lanterns illuminate the scene, an archway opens to distant mountains under a starry sky with a vibrant green aurora borealis, atmospheric fantasy digital painting",
+  "source_title": "Film Reel Dreamscape",
+  "style": "cinematic fantasy illustration",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "film reels",
+    "aurora",
+    "classical architecture",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2446,
+  "source_url": "/generated/2446.jpg",
+  "image_url": "/sketches/3111.png",
+  "inverted_image_url": "/sketches-inverted/3111.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

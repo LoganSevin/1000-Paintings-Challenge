@@ -1,0 +1,42 @@
+{
+  "number": 4303,
+  "title": "Line sketch: Mushroom Neural Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing spherical apparatus sits on a metallic base, containing a central orb emitting branching energy that connects to mushrooms, birds, and a small mouse holding a sparkling wand. A human finger with a nail touches the sphere from the right, sending and light beams into the scene against a dark cloudy night sky (derived from generated still #3722).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing spherical apparatus sits on a metallic base, containing a central orb emitting branching energy that connects to mushrooms, birds, and a small mouse holding a sparkling wand. A human finger with a nail touches the sphere from the right, sending and light beams into the scene against a dark cloudy night sky",
+  "inverted_title": "Inverted sketch: Mushroom Neural Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing spherical apparatus sits on a metallic base, containing a central orb emitting branching energy that connects to mushrooms, birds, and a small mouse holding a sparkling wand. A human finger with a nail touches the sphere from the right, sending and light beams into the scene against a dark cloudy night sky (from generated still #3722).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing spherical apparatus sits on a metallic base, containing a central orb emitting branching energy that connects to mushrooms, birds, and a small mouse holding a sparkling wand. A human finger with a nail touches the sphere from the right, sending and light beams into the scene against a dark cloudy night sky",
+  "source_description": "A glowing spherical apparatus sits on a metallic base, containing a central orb emitting yellow branching energy that connects to turquoise mushrooms, blue birds, and a small brown mouse holding a sparkling wand. A human finger with a purple nail touches the sphere from the right, sending pink and blue light beams into the scene against a dark cloudy night sky.",
+  "source_prompt": "A surreal glowing glass sphere on a metallic steampunk base contains a central sparkling orb with bright yellow branching neural connections reaching turquoise glowing mushrooms and small blue birds. A tiny brown mouse stands on a leaf holding a magic wand with sparkles. A human finger with purple nail touches the sphere from the right, emitting pink and blue energy beams into the orb, set against a dark cloudy night sky, magical atmosphere, detailed digital painting.",
+  "source_title": "Mushroom Neural Orb",
+  "style": "surreal fantasy",
+  "mood": "magical whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushrooms",
+    "neural network",
+    "mouse",
+    "energy sphere",
+    "bioluminescence"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3722,
+  "source_url": "/generated/3722.jpg",
+  "image_url": "/sketches/4303.png",
+  "inverted_image_url": "/sketches-inverted/4303.png",
+  "curve_count": 166,
+  "built_at": "2026-08-17T00:09:47Z"
+}

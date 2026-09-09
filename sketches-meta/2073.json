@@ -1,0 +1,42 @@
+{
+  "number": 2073,
+  "title": "Line sketch: Banana Bug Hybrid Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman with eyes whose head merges with a large, segmented beetle. A peeled banana emits swirling and smoke patterns from her mouth area while smaller beetles float in the background (derived from generated still #1298).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman with eyes whose head merges with a large, segmented beetle. A peeled banana emits swirling and smoke patterns from her mouth area while smaller beetles float in the background",
+  "inverted_title": "Inverted sketch: Banana Bug Hybrid Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman with eyes whose head merges with a large, segmented beetle. A peeled banana emits swirling and smoke patterns from her mouth area while smaller beetles float in the background (from generated still #1298).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman with eyes whose head merges with a large, segmented beetle. A peeled banana emits swirling and smoke patterns from her mouth area while smaller beetles float in the background",
+  "source_description": "A surreal portrait of a purple-skinned woman with green eyes whose head merges with a large, segmented green beetle. A peeled banana emits swirling purple and yellow smoke patterns from her mouth area while smaller beetles float in the background.",
+  "source_prompt": "",
+  "source_title": "Banana Bug Hybrid Portrait",
+  "style": "surrealism",
+  "mood": "ethereal, bizarre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "beetle",
+    "banana",
+    "skin"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1298,
+  "source_url": "/generated/1298.jpg",
+  "image_url": "/sketches/2073.png",
+  "inverted_image_url": "/sketches-inverted/2073.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:42Z"
+}

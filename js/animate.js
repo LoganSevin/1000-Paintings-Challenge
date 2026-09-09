@@ -13,10 +13,12 @@
   var POLL_MAX_MS = 12 * 60 * 1000;
   var POLL_FETCH_TIMEOUT_MS = 30000;
   var POLL_FETCH_RETRIES = 5;
-  var VIDEO_RESOLUTION = "480p";
+  var DUR_KEY = "animate_duration_sec_v2";
+  var RES_KEY = "animate_resolution_v1";
   var MORPH_REF_MAX_SEC = 8;
-  var SPELL_REF_MAX_SEC = 10;
-  var WHISPER_MAX_SEC = 15;
+  /** Allowed cast lengths — must match xAI video API + server allow-list. */
+  var ALLOWED_DURATIONS = [6, 10, 15];
+  var MAX_CAST_SEC = 15;
   var LOD1_ANALYSES_URL = "data/lod1-analyses.json";
   var VISUAL_INTENT_PREFIX =
     "ANIMATE — museum-quality fine-art MOTION. Adapt spell sight into living frames: " +
@@ -32,9 +34,12 @@
     trayRandomSlice: [],
     segments: [],
     playheadMs: 0,
-    durationSec: 6,
+    durationSec: 15,
+    resolution: "720p",
     morphChain: false,
     appendAtEnd: true,
+    autopilot: false,
+    autopilotBusy: false,
     generating: false,
     cancelRequested: false,
     activeJobId: null,
@@ -432,12 +437,15 @@
             return r.ok ? parseApiResponse(r) : { folders: [] };
           })
           .then(function (index) {
-            var folders = ["lod1s", "saved-stasis"];
+            var folders = ["lod1s", "saved-stasis", "sketches"];
             (index.folders || []).forEach(function (f) {
               if (f.id === "saved-fallout" && f.children) {
                 f.children.forEach(function (c) {
                   folders.push(c.id);
                 });
+              }
+              if (f.id === "sketches" && folders.indexOf("sketches") < 0) {
+                folders.push("sketches");
               }
             });
             return Promise.all(folders.map(fetchAcquiredFolder)).then(function (chunks) {
@@ -1581,16 +1589,33 @@
     return out;
   }
 
+  function normalizeDurationSec(raw) {
+    var n = parseInt(raw, 10);
+    if (ALLOWED_DURATIONS.indexOf(n) >= 0) return n;
+    if (n >= 13) return 15;
+    if (n >= 8) return 10;
+    return 6;
+  }
+
+  /**
+   * Duration sent to the API.
+   * Only Morph-link may shorten the clip (≤8s) — never silently turn 15 into 10.
+   */
   function effectiveDurationSec(opts) {
     opts = opts || {};
-    var requested = opts.duration || state.durationSec;
-    var hasSpells = (opts.spells || []).length > 0;
-    var hasCharacter = castCount() > 0;
+    var requested = normalizeDurationSec(
+      opts.duration != null ? opts.duration : state.durationSec
+    );
     var morph = !!opts.morph_chain;
+    if (morph && requested > MORPH_REF_MAX_SEC) {
+      return MORPH_REF_MAX_SEC;
+    }
+    return requested;
+  }
 
-    if (morph) return Math.min(requested, MORPH_REF_MAX_SEC);
-    if (hasSpells || hasCharacter) return Math.min(requested, SPELL_REF_MAX_SEC);
-    return Math.min(requested, WHISPER_MAX_SEC);
+  function currentResolution() {
+    var r = String(state.resolution || "720p").toLowerCase();
+    return r === "480p" ? "480p" : "720p";
   }
 
   function estimateEtaSec(durationSec, morph) {
@@ -1771,19 +1796,36 @@
   function syncDurationUi() {
     document.querySelectorAll(".an-dur-btn").forEach(function (btn) {
       var d = parseInt(btn.getAttribute("data-dur"), 10);
-      btn.classList.toggle("active", d === state.durationSec);
+      var on = d === state.durationSec;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
+    document.querySelectorAll(".an-res-btn").forEach(function (btn) {
+      var r = String(btn.getAttribute("data-res") || "").toLowerCase();
+      var on = r === currentResolution();
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    var badge = $("an-dur-badge");
+    if (badge) {
+      badge.textContent =
+        "Next cast → " + state.durationSec + "s · " + currentResolution();
+    }
     var hint = $("an-dur-hint");
     if (hint) {
-      hint.textContent =
-        "Each cast is 6–15s — morph uses ≤" +
+      hint.innerHTML =
+        "<strong>Next cast is " +
+        state.durationSec +
+        " seconds at " +
+        currentResolution() +
+        ".</strong> " +
+        "That exact duration is sent to xAI (6 / 10 / 15). " +
+        "Morph link only shortens to ≤" +
         MORPH_REF_MAX_SEC +
-        "s ref · spells ≤" +
-        SPELL_REF_MAX_SEC +
-        "s · prompt-only ≤" +
-        WHISPER_MAX_SEC +
-        "s";
+        "s when checked. Autopilot keeps casting until the 10:00 timeline fills.";
     }
+    var ap = $("an-autopilot");
+    if (ap) ap.checked = !!state.autopilot;
   }
 
   function showGenPreview(url) {
@@ -1844,12 +1886,15 @@
         " elapsed · ETA ~" +
         formatClock(Math.max(0, state.genEtaSec - elapsed)) +
         " · " +
-        VIDEO_RESOLUTION;
+        currentResolution();
     }
     if (eta) {
       eta.textContent =
-        "Usually ~1–2 min at " +
-        VIDEO_RESOLUTION +
+        "Usually ~1–3 min at " +
+        currentResolution() +
+        " / " +
+        state.durationSec +
+        "s" +
         (castCount() ? " · " + castCount() + " actor(s) on cast" : "");
     }
   }
@@ -2058,12 +2103,15 @@
 
   function generateSegment(opts) {
     opts = opts || {};
+    var duration = normalizeDurationSec(
+      opts.duration != null ? opts.duration : state.durationSec
+    );
     var body = {
       stasis: opts.stasis || "",
       prompt: opts.prompt || "",
-      duration: opts.duration || state.durationSec,
+      duration: duration,
       spells: opts.spells || [],
-      resolution: VIDEO_RESOLUTION,
+      resolution: currentResolution(),
       morph_chain: !!opts.morph_chain,
       video_url: opts.video_url || "",
       aspect_ratio: "16:9",
@@ -2164,14 +2212,16 @@
     if (morph.skipped) setStatus(morph.reason, "ok");
 
     var spells = hasSpellVisual ? paintingNumsFromItems([spellItem]) : [];
+    var requested = normalizeDurationSec(state.durationSec);
     var duration = effectiveDurationSec({
-      duration: state.durationSec,
-      spells: spells,
+      duration: requested,
       morph_chain: morph.morph_chain,
     });
+    var morphCapped = !!(morph.morph_chain && requested > duration);
 
     if (!canFitSegment(duration, insertMs)) {
       setStatus("Timeline full (10:00 max) — clear or shorten clips.", "error");
+      if (state.autopilot) stopAutopilot("Timeline full.");
       return Promise.resolve();
     }
 
@@ -2195,7 +2245,19 @@
 
     state.genEtaSec = estimateEtaSec(duration, morph.morph_chain);
     beginGeneration(hasSpellVisual ? spellItem.url : primaryCastCharacter() && primaryCastCharacter().preview_url);
-    setStatus("Casting " + label + " (" + duration + "s)…", "pending");
+    setStatus(
+      "Casting " +
+        label +
+        " · " +
+        duration +
+        "s @ " +
+        currentResolution() +
+        (morphCapped
+          ? " (Morph on — shortened from " + requested + "s)"
+          : " → xAI exact length") +
+        "…",
+      "pending"
+    );
 
     warmCastUploads();
     var stasisPromise = hasSpellVisual
@@ -2228,9 +2290,14 @@
           .then(function (saved) {
             var url =
               (saved && saved.url && absoluteUrl(saved.url)) || prefer || rawUrl;
+            var jobDur =
+              result.job && result.job.duration != null
+                ? normalizeDurationSec(result.job.duration)
+                : duration;
             updateSegmentById(pendingId, {
               url: url,
               pending: false,
+              durationSec: jobDur,
               thumbUrl: hasSpellVisual
                 ? spellItem.url
                 : primaryCastCharacter() && primaryCastCharacter().preview_url,
@@ -2240,11 +2307,14 @@
             updatePlayheadUi();
             showLatestVideo(url);
             setStatus(
-              "Clip ready" +
+              "Clip ready · " +
+                jobDur +
+                "s @ " +
+                currentResolution() +
                 (saved && saved.name ? " — saved-videos/" + saved.name : "") +
                 " · timeline " +
                 formatMs(timelineUsedMs()) +
-                " used.",
+                " / 10:00",
               "ok"
             );
           })
@@ -2252,6 +2322,7 @@
             updateSegmentById(pendingId, {
               url: prefer || rawUrl,
               pending: false,
+              durationSec: duration,
               thumbUrl: hasSpellVisual
                 ? spellItem.url
                 : primaryCastCharacter() && primaryCastCharacter().preview_url,
@@ -2259,14 +2330,77 @@
             state.playheadMs = insertMs;
             updatePlayheadUi();
             showLatestVideo(prefer || rawUrl);
-            setStatus("Clip ready — added to timeline (" + formatMs(timelineUsedMs()) + " used).", "ok");
+            setStatus(
+              "Clip ready · " + duration + "s — added to timeline (" + formatMs(timelineUsedMs()) + " used).",
+              "ok"
+            );
           });
       })
       .catch(function (err) {
         removeSegmentById(pendingId);
         setStatus(friendlyAnimateError(err), "error");
+        if (state.autopilot) stopAutopilot("Autopilot stopped — " + friendlyAnimateError(err));
       })
-      .finally(endGeneration);
+      .finally(function () {
+        endGeneration();
+        maybeContinueAutopilot();
+      });
+  }
+
+  function pickAutopilotSpell() {
+    var pool = state.trayItems && state.trayItems.length ? state.trayItems : state.pool;
+    if (!pool || !pool.length) return null;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function stopAutopilot(reason) {
+    state.autopilot = false;
+    state.autopilotBusy = false;
+    var ap = $("an-autopilot");
+    if (ap) ap.checked = false;
+    document.body.classList.remove("an-autopilot-on");
+    if (reason) setStatus(reason, "ok");
+    syncDurationUi();
+  }
+
+  function maybeContinueAutopilot() {
+    if (!state.autopilot || state.generating || state.autopilotBusy) return;
+    if (timelineUsedMs() >= MAX_TIMELINE_MS - 1500) {
+      stopAutopilot("Autopilot finished — timeline full. Press Play timeline.");
+      return;
+    }
+    var next = pickAutopilotSpell();
+    if (!next) {
+      stopAutopilot("Autopilot needs spells in the tray.");
+      return;
+    }
+    state.autopilotBusy = true;
+    setTimeout(function () {
+      state.autopilotBusy = false;
+      if (!state.autopilot || state.generating) return;
+      castSpell(next);
+    }, 800);
+  }
+
+  function startAutopilot() {
+    state.autopilot = true;
+    document.body.classList.add("an-autopilot-on");
+    // Morph silently shortens clips — turn off for honest 15s autopilot
+    if (state.morphChain) {
+      state.morphChain = false;
+      var morphEl = $("an-morph-chain");
+      if (morphEl) morphEl.checked = false;
+    }
+    setStatus(
+      "Autopilot ON · " +
+        state.durationSec +
+        "s @ " +
+        currentResolution() +
+        " · casting until 10:00 or you stop.",
+      "ok"
+    );
+    syncDurationUi();
+    if (!state.generating) maybeContinueAutopilot();
   }
 
   function pasteClipAtPlayhead() {
@@ -2276,7 +2410,7 @@
       setStatus("Paste a video URL first.", "error");
       return;
     }
-    var duration = clamp(state.durationSec, 1, WHISPER_MAX_SEC);
+    var duration = normalizeDurationSec(state.durationSec);
     var startMs = state.appendAtEnd ? insertStartMsForNew(duration) : state.playheadMs;
     if (!canFitSegment(duration, startMs)) {
       setStatus("Not enough room on timeline (10:00 max).", "error");
@@ -3043,13 +3177,36 @@
   }
 
   function bindUi() {
+    try {
+      var savedDur = normalizeDurationSec(localStorage.getItem(DUR_KEY) || state.durationSec);
+      state.durationSec = savedDur;
+      var savedRes = String(localStorage.getItem(RES_KEY) || state.resolution || "720p");
+      state.resolution = savedRes === "480p" ? "480p" : "720p";
+    } catch (e0) {}
+
     document.querySelectorAll(".an-dur-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var d = parseInt(btn.getAttribute("data-dur"), 10);
-        if (d === 6 || d === 10 || d === 15) {
+        if (ALLOWED_DURATIONS.indexOf(d) >= 0) {
           state.durationSec = d;
+          try {
+            localStorage.setItem(DUR_KEY, String(d));
+          } catch (e1) {}
           syncDurationUi();
+          setStatus("Next cast length locked to " + d + " seconds.", "ok");
         }
+      });
+    });
+
+    document.querySelectorAll(".an-res-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var r = String(btn.getAttribute("data-res") || "720p").toLowerCase();
+        state.resolution = r === "480p" ? "480p" : "720p";
+        try {
+          localStorage.setItem(RES_KEY, state.resolution);
+        } catch (e2) {}
+        syncDurationUi();
+        setStatus("Quality set to " + state.resolution + ".", "ok");
       });
     });
 
@@ -3066,6 +3223,27 @@
       morph.checked = state.morphChain;
       morph.addEventListener("change", function () {
         state.morphChain = !!morph.checked;
+        if (state.morphChain && state.durationSec > MORPH_REF_MAX_SEC) {
+          setStatus(
+            "Morph link is ON — next clip will be ≤" +
+              MORPH_REF_MAX_SEC +
+              "s (not " +
+              state.durationSec +
+              "s). Uncheck Morph for full " +
+              state.durationSec +
+              "s.",
+            "ok"
+          );
+        }
+        syncDurationUi();
+      });
+    }
+
+    var ap = $("an-autopilot");
+    if (ap) {
+      ap.addEventListener("change", function () {
+        if (ap.checked) startAutopilot();
+        else stopAutopilot("Autopilot off.");
       });
     }
 

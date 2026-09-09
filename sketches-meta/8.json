@@ -1,0 +1,42 @@
+{
+  "number": 8,
+  "title": "Line sketch: Women in the Audience",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women in dark attire sit prominently in theater seats, shown in profile and frontal views, with a softly blurred crowd filling the background rows. The composition emphasizes layered figures and strong silhouettes against muted seating. Technique features flat color planes, minimal shading, and clean outlines for a graphic, stylized effect (derived from painting #13).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women in dark attire sit prominently in theater seats, shown in profile and frontal views, with a softly blurred crowd filling the background rows. The composition emphasizes layered figures and strong silhouettes against muted seating. Technique features flat color planes, minimal shading, and clean outlines for a graphic, stylized effect",
+  "inverted_title": "Inverted sketch: Women in the Audience",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women in dark attire sit prominently in theater seats, shown in profile and frontal views, with a softly blurred crowd filling the background rows. The composition emphasizes layered figures and strong silhouettes against muted seating. Technique features flat color planes, minimal shading, and clean outlines for a graphic, stylized effect (from painting #13).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women in dark attire sit prominently in theater seats, shown in profile and frontal views, with a softly blurred crowd filling the background rows. The composition emphasizes layered figures and strong silhouettes against muted seating. Technique features flat color planes, minimal shading, and clean outlines for a graphic, stylized effect",
+  "source_description": "Three women in dark attire sit prominently in theater seats, shown in profile and frontal views, with a softly blurred crowd filling the background rows. The composition emphasizes layered figures and strong silhouettes against muted seating. Technique features flat color planes, minimal shading, and clean outlines for a graphic, stylized effect.",
+  "source_prompt": "",
+  "source_title": "Women in the Audience",
+  "style": "Modernist Figurative",
+  "mood": "Introspective calm",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "women",
+    "theater",
+    "audience",
+    "seated",
+    "crowd"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 13,
+  "source_url": "/paintings/13.jpg",
+  "image_url": "/sketches/8.png",
+  "inverted_image_url": "/sketches-inverted/8.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:38Z"
+}

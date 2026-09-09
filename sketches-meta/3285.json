@@ -1,0 +1,42 @@
+{
+  "number": 3285,
+  "title": "Line sketch: Fractured Ballerina",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cracked porcelain-like ballerina stands en pointe in a decaying theater, her body fractured with seams and black fissures. Her and tutu is torn while her arms are raised in a broken ballet pose, surrounded by floating empty picture frames, dripping paint, and a collapsing wooden floor revealing an underwater city beneath (derived from generated still #2660).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cracked porcelain-like ballerina stands en pointe in a decaying theater, her body fractured with seams and black fissures. Her and tutu is torn while her arms are raised in a broken ballet pose, surrounded by floating empty picture frames, dripping paint, and a collapsing wooden floor revealing an underwater city beneath",
+  "inverted_title": "Inverted sketch: Fractured Ballerina",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cracked porcelain-like ballerina stands en pointe in a decaying theater, her body fractured with seams and black fissures. Her and tutu is torn while her arms are raised in a broken ballet pose, surrounded by floating empty picture frames, dripping paint, and a collapsing wooden floor revealing an underwater city beneath (from generated still #2660).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cracked porcelain-like ballerina stands en pointe in a decaying theater, her body fractured with seams and black fissures. Her and tutu is torn while her arms are raised in a broken ballet pose, surrounded by floating empty picture frames, dripping paint, and a collapsing wooden floor revealing an underwater city beneath",
+  "source_description": "A cracked porcelain-like ballerina stands en pointe in a decaying theater, her body fractured with golden seams and black fissures. Her red and gold tutu is torn while her arms are raised in a broken ballet pose, surrounded by floating empty picture frames, dripping paint, and a collapsing wooden floor revealing an underwater city beneath.",
+  "source_prompt": "A surreal scene of a ballerina whose body is made of cracked porcelain with visible black fissures and golden repair lines, standing en pointe in a decaying ornate theater. Her red and gold tutu is torn and dripping, arms raised in a graceful yet broken pose. Empty gilded picture frames float around her, paint drips down the walls, and the wooden floor is breaking apart to reveal an underwater city with buildings and boats below. Dramatic purple and yellow light beams cut through the dusty air, cinematic surreal painting style.",
+  "source_title": "Fractured Ballerina",
+  "style": "surrealism",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ballerina",
+    "surreal",
+    "fractured",
+    "theater",
+    "decaying"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2660,
+  "source_url": "/generated/2660.jpg",
+  "image_url": "/sketches/3285.png",
+  "inverted_image_url": "/sketches-inverted/3285.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4786,
+  "title": "Line sketch: Infinite Portal Rain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition presented within a weathered frame shows a central vertical portal of falling rain and glowing jellyfish-like orbs. The portal is flanked by repeating concentric rectangular frames that create an infinite mirror effect receding into a misty landscape with a reflective body of water and distant trees (derived from generated still #4220).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition presented within a weathered frame shows a central vertical portal of falling rain and glowing jellyfish-like orbs. The portal is flanked by repeating concentric rectangular frames that create an infinite mirror effect receding into a misty landscape with a reflective body of water and distant trees",
+  "inverted_title": "Inverted sketch: Infinite Portal Rain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition presented within a weathered frame shows a central vertical portal of falling rain and glowing jellyfish-like orbs. The portal is flanked by repeating concentric rectangular frames that create an infinite mirror effect receding into a misty landscape with a reflective body of water and distant trees (from generated still #4220).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition presented within a weathered frame shows a central vertical portal of falling rain and glowing jellyfish-like orbs. The portal is flanked by repeating concentric rectangular frames that create an infinite mirror effect receding into a misty landscape with a reflective body of water and distant trees",
+  "source_description": "A surreal painting presented within a weathered gold frame shows a central vertical portal of falling rain and glowing green jellyfish-like orbs. The portal is flanked by repeating concentric rectangular frames that create an infinite mirror effect receding into a misty purple landscape with a reflective body of water and distant trees.",
+  "source_prompt": "A surreal painting in an antique cracked gold frame featuring a vertical portal of falling rain and glowing green jellyfish-like organisms floating within a column of blue and purple light. The portal is bordered by repeating concentric rectangular frames creating an infinite tunnel effect over a misty purple landscape with reflective water and distant silhouetted trees.",
+  "source_title": "Infinite Portal Rain",
+  "style": "surrealism",
+  "mood": "dreamlike ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portal",
+    "infinite",
+    "jellyfish",
+    "rain"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4220,
+  "source_url": "/generated/4220.jpg",
+  "image_url": "/sketches/4786.png",
+  "inverted_image_url": "/sketches-inverted/4786.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3684,
+  "title": "Line sketch: Kitchen Surprise",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composite image showing two women in a retro 1970s kitchen, one in a dress and glasses and the other in an dress and headscarf, standing in front of a vintage television. Overlaid on the left is a large ink drawing of a cartoonish bald head with wide eyes and an open mouth on spiral notebook paper (derived from generated still #3092).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composite image showing two women in a retro 1970s kitchen, one in a dress and glasses and the other in an dress and headscarf, standing in front of a vintage television. Overlaid on the left is a large ink drawing of a cartoonish bald head with wide eyes and an open mouth on spiral notebook paper",
+  "inverted_title": "Inverted sketch: Kitchen Surprise",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composite image showing two women in a retro 1970s kitchen, one in a dress and glasses and the other in an dress and headscarf, standing in front of a vintage television. Overlaid on the left is a large ink drawing of a cartoonish bald head with wide eyes and an open mouth on spiral notebook paper (from generated still #3092).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composite image showing two women in a retro 1970s kitchen, one in a dress and glasses and the other in an dress and headscarf, standing in front of a vintage television. Overlaid on the left is a large ink drawing of a cartoonish bald head with wide eyes and an open mouth on spiral notebook paper",
+  "source_description": "A surreal composite image showing two women in a retro 1970s kitchen, one in a blue dress and glasses and the other in an orange dress and headscarf, standing in front of a vintage television. Overlaid on the left is a large blue ink drawing of a cartoonish bald head with wide eyes and an open mouth on spiral notebook paper.",
+  "source_prompt": "A surreal composite scene of two middle-aged women standing in a 1970s style kitchen, one wearing glasses and a light blue dress, the other in an orange patterned dress and pink headscarf, both looking at a vintage beige CRT television. A large blue ink sketch of a cartoon bald head with big eyes and open mouth drawn on spiral notebook paper is overlaid on the left side with radiating lines, warm overhead lamp lighting, uncanny atmosphere.",
+  "source_title": "Kitchen Surprise",
+  "style": "surreal collage",
+  "mood": "uncanny, retro",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital composite",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "retro kitchen",
+    "vintage TV",
+    "collage",
+    "1970s"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3092,
+  "source_url": "/generated/3092.jpg",
+  "image_url": "/sketches/3684.png",
+  "inverted_image_url": "/sketches-inverted/3684.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:46Z"
+}

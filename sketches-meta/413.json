@@ -1,0 +1,42 @@
+{
+  "number": 413,
+  "title": "Line sketch: Elegant Muse Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female figure in profile gazes upward with intricate Art Nouveau patterns flowing through her hair and ornate clothing. The composition features bold line work against a pale background with circular motifs and botanical elements (derived from painting #491).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female figure in profile gazes upward with intricate Art Nouveau patterns flowing through her hair and ornate clothing. The composition features bold line work against a pale background with circular motifs and botanical elements",
+  "inverted_title": "Inverted sketch: Elegant Muse Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female figure in profile gazes upward with intricate Art Nouveau patterns flowing through her hair and ornate clothing. The composition features bold line work against a pale background with circular motifs and botanical elements (from painting #491).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female figure in profile gazes upward with intricate Art Nouveau patterns flowing through her hair and ornate clothing. The composition features bold line work against a pale background with circular motifs and botanical elements",
+  "source_description": "A stylized female figure in profile gazes upward with intricate Art Nouveau patterns flowing through her hair and ornate clothing. The composition features bold red line work against a pale background with circular motifs and botanical elements.",
+  "source_prompt": "",
+  "source_title": "Elegant Red Muse Portrait",
+  "style": "Art Nouveau",
+  "mood": "Mysterious elegance",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "art nouveau",
+    "and white",
+    "female figure",
+    "ornate"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 491,
+  "source_url": "/paintings/491.jpg",
+  "image_url": "/sketches/413.png",
+  "inverted_image_url": "/sketches-inverted/413.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:39Z"
+}

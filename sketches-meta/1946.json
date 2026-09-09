@@ -1,0 +1,42 @@
+{
+  "number": 1946,
+  "title": "Line sketch: -Haired Dual Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal split-face portrait of a woman with vibrant hair and eyes. The left side features a -toned line drawing with concentric circles against an background, while the right side shows a fully rendered realistic face with psychedelic swirls, flowers, and bubbles on a background (derived from generated still #1171).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal split-face portrait of a woman with vibrant hair and eyes. The left side features a -toned line drawing with concentric circles against an background, while the right side shows a fully rendered realistic face with psychedelic swirls, flowers, and bubbles on a background",
+  "inverted_title": "Inverted sketch: -Haired Dual Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal split-face portrait of a woman with vibrant hair and eyes. The left side features a -toned line drawing with concentric circles against an background, while the right side shows a fully rendered realistic face with psychedelic swirls, flowers, and bubbles on a background (from generated still #1171).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal split-face portrait of a woman with vibrant hair and eyes. The left side features a -toned line drawing with concentric circles against an background, while the right side shows a fully rendered realistic face with psychedelic swirls, flowers, and bubbles on a background",
+  "source_description": "A surreal split-face portrait of a woman with vibrant red hair and blue eyes. The left side features a sepia-toned line drawing with concentric circles against an orange background, while the right side shows a fully rendered realistic face with colorful psychedelic swirls, flowers, and bubbles on a blue background.",
+  "source_prompt": "",
+  "source_title": "Red-Haired Dual Portrait",
+  "style": "surreal digital art",
+  "mood": "ethereal, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "hair",
+    "surreal",
+    "psychedelic",
+    "dual face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1171,
+  "source_url": "/generated/1171.jpg",
+  "image_url": "/sketches/1946.png",
+  "inverted_image_url": "/sketches-inverted/1946.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3496,
+  "title": "Line sketch: Surreal Elemental Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal collage featuring a large and lotus flower in the upper left, a dark spiky monster with a glowing eye in the upper right, a translucent -maned horse galloping across the center, a woman's face with tears superimposed over a circular landscape, and a detailed sea turtle swimming in the lower right (derived from generated still #2898).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal collage featuring a large and lotus flower in the upper left, a dark spiky monster with a glowing eye in the upper right, a translucent -maned horse galloping across the center, a woman's face with tears superimposed over a circular landscape, and a detailed sea turtle swimming in the lower right",
+  "inverted_title": "Inverted sketch: Surreal Elemental Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal collage featuring a large and lotus flower in the upper left, a dark spiky monster with a glowing eye in the upper right, a translucent -maned horse galloping across the center, a woman's face with tears superimposed over a circular landscape, and a detailed sea turtle swimming in the lower right (from generated still #2898).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal collage featuring a large and lotus flower in the upper left, a dark spiky monster with a glowing eye in the upper right, a translucent -maned horse galloping across the center, a woman's face with tears superimposed over a circular landscape, and a detailed sea turtle swimming in the lower right",
+  "source_description": "A vibrant surreal collage featuring a large purple and green lotus flower in the upper left, a dark spiky monster with a glowing red eye in the upper right, a translucent blue-maned horse galloping across the center, a woman's face with tears superimposed over a green circular landscape, and a detailed sea turtle swimming in the lower right.",
+  "source_prompt": "Surreal fantasy collage with a large intricate purple lotus with green center in the top left, a monstrous black spiky creature with a giant glowing red eye and tentacles in the top right, a translucent blue fiery horse with flowing mane galloping through the middle, a woman's face with tears emerging from a green circular frame showing a red sunset landscape, and a highly detailed sea turtle swimming underwater in the bottom right, dramatic cinematic lighting, vibrant color palette blending land sea and sky elements",
+  "source_title": "Surreal Elemental Dreamscape",
+  "style": "surreal fantasy collage",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "collage",
+    "mythical",
+    "vibrant"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2898,
+  "source_url": "/generated/2898.jpg",
+  "image_url": "/sketches/3496.png",
+  "inverted_image_url": "/sketches-inverted/3496.png",
+  "curve_count": 195,
+  "built_at": "2026-08-17T00:09:45Z"
+}

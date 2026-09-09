@@ -1,0 +1,42 @@
+{
+  "number": 774,
+  "title": "Line sketch: Mysterious Mink Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized weasel or mink peers upward with eyes against a textured background. The animal's deep fur contrasts with its white chest and delicate whiskers in this minimalist illustration (derived from painting #975).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized weasel or mink peers upward with eyes against a textured background. The animal's deep fur contrasts with its white chest and delicate whiskers in this minimalist illustration",
+  "inverted_title": "Inverted sketch: Mysterious Mink Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized weasel or mink peers upward with eyes against a textured background. The animal's deep fur contrasts with its white chest and delicate whiskers in this minimalist illustration (from painting #975).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized weasel or mink peers upward with eyes against a textured background. The animal's deep fur contrasts with its white chest and delicate whiskers in this minimalist illustration",
+  "source_description": "A stylized weasel or mink peers upward with golden eyes against a textured teal background. The animal's deep burgundy fur contrasts with its white chest and delicate whiskers in this minimalist illustration.",
+  "source_prompt": "",
+  "source_title": "Mysterious Maroon Mink Portrait",
+  "style": "Contemporary illustration",
+  "mood": "Curious and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "animal portrait",
+    "weasel",
+    "minimalist",
+    "textured background",
+    "eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 975,
+  "source_url": "/paintings/975.jpg",
+  "image_url": "/sketches/774.png",
+  "inverted_image_url": "/sketches-inverted/774.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4674,
+  "title": "Line sketch: Lunar Dreamweaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large anthropomorphic moon with a feminine face and wide eyes, positioned centrally. swirling nebulae in, and emanate from its mouth and cheek, while two birds perch on bare white branches on either side against a starry cosmic background with floating spheres (derived from generated still #4100).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large anthropomorphic moon with a feminine face and wide eyes, positioned centrally. swirling nebulae in, and emanate from its mouth and cheek, while two birds perch on bare white branches on either side against a starry cosmic background with floating spheres",
+  "inverted_title": "Inverted sketch: Lunar Dreamweaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large anthropomorphic moon with a feminine face and wide eyes, positioned centrally. swirling nebulae in, and emanate from its mouth and cheek, while two birds perch on bare white branches on either side against a starry cosmic background with floating spheres (from generated still #4100).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large anthropomorphic moon with a feminine face and wide eyes, positioned centrally. swirling nebulae in, and emanate from its mouth and cheek, while two birds perch on bare white branches on either side against a starry cosmic background with floating spheres",
+  "source_description": "A surreal painting of a large anthropomorphic moon with a feminine face and wide eyes, positioned centrally. Colorful swirling nebulae in pink, purple, and blue emanate from its mouth and cheek, while two birds perch on bare white branches on either side against a starry cosmic background with floating spheres.",
+  "source_prompt": "Surreal fantasy scene featuring a large grey moon with a detailed feminine human face and wide expressive eyes at the center. Vibrant swirling nebulae in magenta, purple, and blue flow from its mouth and cheek area. Two birds, one black crow and one grey dove, perch on bare white tree branches on the left and right sides. Floating colorful spheres and feathers drift in the cosmic space around the moon, with a soft green and pink gradient background filled with small stars.",
+  "source_title": "Lunar Dreamweaver",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "moon face",
+    "surreal",
+    "cosmic",
+    "nebula",
+    "birds"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4100,
+  "source_url": "/generated/4100.jpg",
+  "image_url": "/sketches/4674.png",
+  "inverted_image_url": "/sketches-inverted/4674.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:48Z"
+}

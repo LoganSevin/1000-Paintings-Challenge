@@ -1,0 +1,42 @@
+{
+  "number": 2797,
+  "title": "Line sketch: Steampunk Aurora Serpent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A steampunk woman with long flowing hair and ornate mechanical goggles stands centered, wearing a detailed gear-adorned corset. A large serpent coils around her shoulders and head while a floating industrial steampunk city with glowing windows hovers in the dark mountainous background beneath a vibrant aurora borealis (derived from generated still #2080).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A steampunk woman with long flowing hair and ornate mechanical goggles stands centered, wearing a detailed gear-adorned corset. A large serpent coils around her shoulders and head while a floating industrial steampunk city with glowing windows hovers in the dark mountainous background beneath a vibrant aurora borealis",
+  "inverted_title": "Inverted sketch: Steampunk Aurora Serpent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A steampunk woman with long flowing hair and ornate mechanical goggles stands centered, wearing a detailed gear-adorned corset. A large serpent coils around her shoulders and head while a floating industrial steampunk city with glowing windows hovers in the dark mountainous background beneath a vibrant aurora borealis (from generated still #2080).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A steampunk woman with long flowing hair and ornate mechanical goggles stands centered, wearing a detailed gear-adorned corset. A large serpent coils around her shoulders and head while a floating industrial steampunk city with glowing windows hovers in the dark mountainous background beneath a vibrant aurora borealis",
+  "source_description": "A steampunk woman with long flowing brown hair and ornate mechanical goggles stands centered, wearing a detailed gear-adorned corset. A large serpent coils around her shoulders and head while a floating industrial steampunk city with glowing windows hovers in the dark mountainous background beneath a vibrant green aurora borealis.",
+  "source_prompt": "A beautiful woman with long flowing curly brown hair wearing intricate steampunk brass goggles and a detailed gear-covered corset, a large realistic serpent coiled around her neck and shoulders, dramatic green aurora borealis swirling in the night sky, a floating steampunk industrial city with glowing windows hovering between dark rocky mountains in the background, cinematic lighting, highly detailed digital painting",
+  "source_title": "Steampunk Aurora Serpent",
+  "style": "steampunk fantasy",
+  "mood": "mysterious dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "aurora borealis",
+    "serpent",
+    "floating city",
+    "goggles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2080,
+  "source_url": "/generated/2080.jpg",
+  "image_url": "/sketches/2797.png",
+  "inverted_image_url": "/sketches-inverted/2797.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:44Z"
+}

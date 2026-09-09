@@ -1,0 +1,42 @@
+{
+  "number": 1115,
+  "title": "Line sketch: Split Face Hybrid Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal split-face portrait showing a wolf-like creature on the left side with a glowing eye, seamlessly merging with a human female face on the right featuring tears and a cracked moon background. Vibrant dripping branches and -black flowers with eye centers frame the composition against a textured black backdrop (derived from generated still #327).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal split-face portrait showing a wolf-like creature on the left side with a glowing eye, seamlessly merging with a human female face on the right featuring tears and a cracked moon background. Vibrant dripping branches and -black flowers with eye centers frame the composition against a textured black backdrop",
+  "inverted_title": "Inverted sketch: Split Face Hybrid Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal split-face portrait showing a wolf-like creature on the left side with a glowing eye, seamlessly merging with a human female face on the right featuring tears and a cracked moon background. Vibrant dripping branches and -black flowers with eye centers frame the composition against a textured black backdrop (from generated still #327).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal split-face portrait showing a wolf-like creature on the left side with a glowing eye, seamlessly merging with a human female face on the right featuring tears and a cracked moon background. Vibrant dripping branches and -black flowers with eye centers frame the composition against a textured black backdrop",
+  "source_description": "A surreal split-face portrait showing a green wolf-like creature on the left side with a glowing yellow eye, seamlessly merging with a human female face on the right featuring blue tears and a cracked golden moon background. Vibrant red dripping branches and dark purple-black flowers with eye centers frame the composition against a textured black backdrop.",
+  "source_prompt": "",
+  "source_title": "Split Face Hybrid Portrait",
+  "style": "surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "split face",
+    "dripping paint",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 327,
+  "source_url": "/generated/327.jpg",
+  "image_url": "/sketches/1115.png",
+  "inverted_image_url": "/sketches-inverted/1115.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:40Z"
+}

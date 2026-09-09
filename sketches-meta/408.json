@@ -1,0 +1,42 @@
+{
+  "number": 408,
+  "title": "Line sketch: Ring in Willow Leaves",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition featuring a prominent circular ring surrounded by flowing and leaf-like forms. The composition evokes a sense of natural movement against a soft background (derived from painting #486).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition featuring a prominent circular ring surrounded by flowing and leaf-like forms. The composition evokes a sense of natural movement against a soft background",
+  "inverted_title": "Inverted sketch: Ring in Willow Leaves",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition featuring a prominent circular ring surrounded by flowing and leaf-like forms. The composition evokes a sense of natural movement against a soft background (from painting #486).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition featuring a prominent circular ring surrounded by flowing and leaf-like forms. The composition evokes a sense of natural movement against a soft background",
+  "source_description": "An abstract painting featuring a prominent blue circular ring surrounded by flowing green and blue leaf-like forms. The composition evokes a sense of natural movement against a soft cream background.",
+  "source_prompt": "",
+  "source_title": "Blue Ring in Willow Leaves",
+  "style": "Abstract Expressionism",
+  "mood": "Serene and fluid",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "botanical",
+    "ring",
+    "willow",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 486,
+  "source_url": "/paintings/486.jpg",
+  "image_url": "/sketches/408.png",
+  "inverted_image_url": "/sketches-inverted/408.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4621,
+  "title": "Line sketch: Surreal Swamp Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal swamp scene at dusk features two figures dueling with glowing lightsabers on a wooden dock and in a hammock, one a skeleton in a hat serving food. Massive twisted trees draped in moss dominate the frame, with floating and dominoes dripping liquid, a cat-like creature, and a city skyline visible behind a bridge (derived from generated still #4043).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal swamp scene at dusk features two figures dueling with glowing lightsabers on a wooden dock and in a hammock, one a skeleton in a hat serving food. Massive twisted trees draped in moss dominate the frame, with floating and dominoes dripping liquid, a cat-like creature, and a city skyline visible behind a bridge",
+  "inverted_title": "Inverted sketch: Surreal Swamp Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal swamp scene at dusk features two figures dueling with glowing lightsabers on a wooden dock and in a hammock, one a skeleton in a hat serving food. Massive twisted trees draped in moss dominate the frame, with floating and dominoes dripping liquid, a cat-like creature, and a city skyline visible behind a bridge (from generated still #4043).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal swamp scene at dusk features two figures dueling with glowing lightsabers on a wooden dock and in a hammock, one a skeleton in a hat serving food. Massive twisted trees draped in moss dominate the frame, with floating and dominoes dripping liquid, a cat-like creature, and a city skyline visible behind a bridge",
+  "source_description": "A surreal swamp scene at dusk features two figures dueling with glowing purple lightsabers on a wooden dock and in a hammock, one a skeleton in a hat serving food. Massive twisted trees draped in moss dominate the frame, with floating red and blue dominoes dripping liquid, a green cat-like creature, and a city skyline visible behind a red bridge.",
+  "source_prompt": "Surreal swamp scene at twilight with massive twisted trees covered in Spanish moss, a skeleton in a hat and blue cap standing in a glowing green hammock holding food trays while dueling with purple lightsabers against a man in a black jacket on a wooden dock labeled STASIS, floating red and blue dominoes dripping liquid from the sky, a green cat-like creature leaping from a tree, colorful masks hanging from branches, city skyline and red bridge in the background, highly detailed, surreal atmosphere",
+  "source_title": "Surreal Swamp Stasis",
+  "style": "surrealism",
+  "mood": "dreamlike chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "swamp",
+    "lightsaber",
+    "dominoes",
+    "mossy trees"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4043,
+  "source_url": "/generated/4043.jpg",
+  "image_url": "/sketches/4621.png",
+  "inverted_image_url": "/sketches-inverted/4621.png",
+  "curve_count": 102,
+  "built_at": "2026-08-17T00:09:48Z"
+}

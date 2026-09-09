@@ -1,0 +1,42 @@
+{
+  "number": 1670,
+  "title": "Line sketch: Castle in Bubbles",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a glowing block with a melting castle structure on top, dripping viscous liquid onto a black, tiered platform. The dark background is filled with translucent bubbles containing stylized female profiles and abstract patterns, surrounded by and abstract shapes (derived from generated still #886).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a glowing block with a melting castle structure on top, dripping viscous liquid onto a black, tiered platform. The dark background is filled with translucent bubbles containing stylized female profiles and abstract patterns, surrounded by and abstract shapes",
+  "inverted_title": "Inverted sketch: Castle in Bubbles",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a glowing block with a melting castle structure on top, dripping viscous liquid onto a black, tiered platform. The dark background is filled with translucent bubbles containing stylized female profiles and abstract patterns, surrounded by and abstract shapes (from generated still #886).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a glowing block with a melting castle structure on top, dripping viscous liquid onto a black, tiered platform. The dark background is filled with translucent bubbles containing stylized female profiles and abstract patterns, surrounded by and abstract shapes",
+  "source_description": "A surreal painting depicts a glowing pink block with a melting castle structure on top, dripping viscous pink liquid onto a black, tiered platform. The dark background is filled with translucent bubbles containing colorful stylized female profiles and abstract patterns, surrounded by green and yellow abstract shapes.",
+  "source_prompt": "",
+  "source_title": "Pink Castle in Bubbles",
+  "style": "surrealism",
+  "mood": "dreamlike psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting castle",
+    "bubbles",
+    "psychedelic",
+    "liquid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 886,
+  "source_url": "/generated/886.jpg",
+  "image_url": "/sketches/1670.png",
+  "inverted_image_url": "/sketches-inverted/1670.png",
+  "curve_count": 153,
+  "built_at": "2026-08-17T00:09:41Z"
+}

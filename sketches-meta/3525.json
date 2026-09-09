@@ -1,0 +1,42 @@
+{
+  "number": 3525,
+  "title": "Line sketch: Robot in Vibrant Alley",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a small retro robot with arms walking along a cobblestone street. The scene is filled with swirling ribbons, large floating circles, fireworks explosions in the sky, and a half-sphere hovering above terraced buildings with flower pots on the stairs (derived from generated still #2927).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a small retro robot with arms walking along a cobblestone street. The scene is filled with swirling ribbons, large floating circles, fireworks explosions in the sky, and a half-sphere hovering above terraced buildings with flower pots on the stairs",
+  "inverted_title": "Inverted sketch: Robot in Vibrant Alley",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a small retro robot with arms walking along a cobblestone street. The scene is filled with swirling ribbons, large floating circles, fireworks explosions in the sky, and a half-sphere hovering above terraced buildings with flower pots on the stairs (from generated still #2927).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a small retro robot with arms walking along a cobblestone street. The scene is filled with swirling ribbons, large floating circles, fireworks explosions in the sky, and a half-sphere hovering above terraced buildings with flower pots on the stairs",
+  "source_description": "A colorful surreal painting depicts a small retro robot with purple arms walking along a cobblestone street. The scene is filled with swirling rainbow ribbons, large floating circles, blue fireworks explosions in the sky, and a green half-sphere hovering above terraced buildings with flower pots on the stairs.",
+  "source_prompt": "surreal vibrant painting of a small retro robot with purple arms walking on a cobblestone alley, surrounded by flowing rainbow ribbons and large floating colored circles, blue fireworks exploding in the sky, green half dome hovering above, colorful Mediterranean buildings with stairs and potted blue flowers, whimsical and playful composition, dynamic splashes of paint",
+  "source_title": "Robot in Vibrant Alley",
+  "style": "surreal pop art",
+  "mood": "whimsical joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "fireworks",
+    "surreal",
+    "cobblestone street",
+    "swirling ribbons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2927,
+  "source_url": "/generated/2927.jpg",
+  "image_url": "/sketches/3525.png",
+  "inverted_image_url": "/sketches-inverted/3525.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:45Z"
+}

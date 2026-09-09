@@ -1,0 +1,42 @@
+{
+  "number": 4063,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a plain gray background. She wears a leather-like bra top, shorts, a black belt with pouches, platform boots, and fingerless gloves while holding a spray can in her right hand (derived from generated still #3480).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a plain gray background. She wears a leather-like bra top, shorts, a black belt with pouches, platform boots, and fingerless gloves while holding a spray can in her right hand",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a plain gray background. She wears a leather-like bra top, shorts, a black belt with pouches, platform boots, and fingerless gloves while holding a spray can in her right hand (from generated still #3480).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a plain gray background. She wears a leather-like bra top, shorts, a black belt with pouches, platform boots, and fingerless gloves while holding a spray can in her right hand",
+  "source_description": "A stylized female character with voluminous, spiky magenta and red hair stands in a dynamic pose against a plain gray background. She wears a red leather-like bra top, red shorts, a black belt with pouches, red platform boots, and fingerless gloves while holding a red spray can in her right hand.",
+  "source_prompt": "A fierce punk girl with massive, wild spiky magenta and red hair, wearing a red bra top, red leather shorts, black belt with studs and pouches, red platform combat boots, and fingerless gloves. She holds a red spray paint can in one hand and stands in an aggressive wide stance with attitude, dramatic makeup, against a solid gray studio background, highly detailed digital character art",
+  "source_title": "Graffiti Punk Girl",
+  "style": "digital character art",
+  "mood": "bold, defiant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "punk girl",
+    "graffiti artist",
+    "hair",
+    "spray can",
+    "platform boots"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3480,
+  "source_url": "/generated/3480.jpg",
+  "image_url": "/sketches/4063.png",
+  "inverted_image_url": "/sketches-inverted/4063.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:47Z"
+}

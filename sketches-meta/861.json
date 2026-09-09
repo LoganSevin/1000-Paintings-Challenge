@@ -1,0 +1,42 @@
+{
+  "number": 861,
+  "title": "Line sketch: Eclipse Over the Dome",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a wide-brimmed hat and ornate cloak sits on a rocky outcrop holding a staff, overlooking a fantastical landscape. In the dramatic sky a large and black solar eclipse dominates above a large -domed ornate building surrounded by floating celestial bodies and glowing flowers (derived from generated still #70).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a wide-brimmed hat and ornate cloak sits on a rocky outcrop holding a staff, overlooking a fantastical landscape. In the dramatic sky a large and black solar eclipse dominates above a large -domed ornate building surrounded by floating celestial bodies and glowing flowers",
+  "inverted_title": "Inverted sketch: Eclipse Over the Dome",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a wide-brimmed hat and ornate cloak sits on a rocky outcrop holding a staff, overlooking a fantastical landscape. In the dramatic sky a large and black solar eclipse dominates above a large -domed ornate building surrounded by floating celestial bodies and glowing flowers (from generated still #70).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a wide-brimmed hat and ornate cloak sits on a rocky outcrop holding a staff, overlooking a fantastical landscape. In the dramatic sky a large and black solar eclipse dominates above a large -domed ornate building surrounded by floating celestial bodies and glowing flowers",
+  "source_description": "A lone figure in a wide-brimmed hat and ornate blue cloak sits on a rocky outcrop holding a staff, overlooking a fantastical landscape. In the dramatic sky a large red and black solar eclipse dominates above a large green-domed ornate building surrounded by floating celestial bodies and glowing flowers.",
+  "source_prompt": "",
+  "source_title": "Eclipse Over the Dome",
+  "style": "fantasy illustration",
+  "mood": "mystical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eclipse",
+    "fantasy landscape",
+    "robed figure",
+    "celestial bodies",
+    "ornate dome"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 70,
+  "source_url": "/generated/70.jpg",
+  "image_url": "/sketches/861.png",
+  "inverted_image_url": "/sketches-inverted/861.png",
+  "curve_count": 90,
+  "built_at": "2026-08-17T00:09:40Z"
+}

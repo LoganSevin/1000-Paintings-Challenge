@@ -1,0 +1,42 @@
+{
+  "number": 3999,
+  "title": "Line sketch: Fierce Female Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A muscular young woman with long dark hair in a topknot stands in a dynamic combat stance against a plain gray background. She wears an cropped top, pants with geometric patterns, and boots, holding a large and warhammer while throwing a punch with her other fist (derived from generated still #3416).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A muscular young woman with long dark hair in a topknot stands in a dynamic combat stance against a plain gray background. She wears an cropped top, pants with geometric patterns, and boots, holding a large and warhammer while throwing a punch with her other fist",
+  "inverted_title": "Inverted sketch: Fierce Female Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A muscular young woman with long dark hair in a topknot stands in a dynamic combat stance against a plain gray background. She wears an cropped top, pants with geometric patterns, and boots, holding a large and warhammer while throwing a punch with her other fist (from generated still #3416).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A muscular young woman with long dark hair in a topknot stands in a dynamic combat stance against a plain gray background. She wears an cropped top, pants with geometric patterns, and boots, holding a large and warhammer while throwing a punch with her other fist",
+  "source_description": "A muscular young woman with long dark hair in a topknot stands in a dynamic combat stance against a plain gray background. She wears an orange cropped top, dark purple pants with geometric patterns, and purple boots, holding a large purple and orange warhammer while throwing a punch with her other fist.",
+  "source_prompt": "A muscular East Asian female warrior with long black hair tied in a topknot with bone ornaments, wearing an orange cropped top that exposes her midriff, dark purple pants with orange tribal patterns, purple wraps on her wrists and ankles, and purple boots. She is in an action pose throwing a powerful punch with her right fist while gripping a large ornate purple and orange warhammer in her left hand, intense expression with gritted teeth, plain gray background, dynamic angle, digital painting style",
+  "source_title": "Fierce Female Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "female fighter",
+    "warhammer",
+    "fantasy character",
+    "muscular woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3416,
+  "source_url": "/generated/3416.jpg",
+  "image_url": "/sketches/3999.png",
+  "inverted_image_url": "/sketches-inverted/3999.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:47Z"
+}

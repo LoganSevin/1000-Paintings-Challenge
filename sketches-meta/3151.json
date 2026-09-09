@@ -1,0 +1,42 @@
+{
+  "number": 3151,
+  "title": "Line sketch: Crying Eye of Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a sorrowful woman with closed eyes and tears streaming down her face, adorned with a crown of and flowers. A large stylized eye with concentric rings emerges from her right side, connected by flowing tendrils, while a film strip with anchors spirals through a swirling cosmic background of vibrant nebulae (derived from generated still #2492).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a sorrowful woman with closed eyes and tears streaming down her face, adorned with a crown of and flowers. A large stylized eye with concentric rings emerges from her right side, connected by flowing tendrils, while a film strip with anchors spirals through a swirling cosmic background of vibrant nebulae",
+  "inverted_title": "Inverted sketch: Crying Eye of Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a sorrowful woman with closed eyes and tears streaming down her face, adorned with a crown of and flowers. A large stylized eye with concentric rings emerges from her right side, connected by flowing tendrils, while a film strip with anchors spirals through a swirling cosmic background of vibrant nebulae (from generated still #2492).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a sorrowful woman with closed eyes and tears streaming down her face, adorned with a crown of and flowers. A large stylized eye with concentric rings emerges from her right side, connected by flowing tendrils, while a film strip with anchors spirals through a swirling cosmic background of vibrant nebulae",
+  "source_description": "A surreal portrait of a sorrowful woman with closed eyes and tears streaming down her face, adorned with a crown of red and blue flowers. A large stylized eye with concentric rings emerges from her right side, connected by flowing tendrils, while a film strip with anchors spirals through a swirling cosmic background of vibrant nebulae.",
+  "source_prompt": "Surreal symbolic portrait of a crying woman with closed eyes and tear-streaked face, wearing a crown of red poppies and blue flowers. A large stylized cosmic eye with concentric rings flows from her cheek, connected by smoky tendrils. A film strip with anchors spirals across the composition against a swirling colorful nebula background in reds, teals, purples and oranges, emotional and dreamlike atmosphere, detailed painting",
+  "source_title": "Crying Eye of Cinema",
+  "style": "surrealism",
+  "mood": "melancholic, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "floral crown",
+    "cosmic",
+    "emotional"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2492,
+  "source_url": "/generated/2492.jpg",
+  "image_url": "/sketches/3151.png",
+  "inverted_image_url": "/sketches-inverted/3151.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2400,
+  "title": "Line sketch: Floating Idea Fusion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a bald woman's head with large white butterfly wings emerging from a artist's palette. The palette holds a pocket watch, paintbrush, paper boat, and key against a dreamy twilight sky with floating papers and abstract forms (derived from generated still #1628).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a bald woman's head with large white butterfly wings emerging from a artist's palette. The palette holds a pocket watch, paintbrush, paper boat, and key against a dreamy twilight sky with floating papers and abstract forms",
+  "inverted_title": "Inverted sketch: Floating Idea Fusion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a bald woman's head with large white butterfly wings emerging from a artist's palette. The palette holds a pocket watch, paintbrush, paper boat, and key against a dreamy twilight sky with floating papers and abstract forms (from generated still #1628).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a bald woman's head with large white butterfly wings emerging from a artist's palette. The palette holds a pocket watch, paintbrush, paper boat, and key against a dreamy twilight sky with floating papers and abstract forms",
+  "source_description": "A surreal painting depicts a bald woman's head with large white butterfly wings emerging from a colorful artist's palette. The palette holds a pocket watch, paintbrush, paper boat, and key against a dreamy twilight sky with floating papers and abstract forms.",
+  "source_prompt": "",
+  "source_title": "Floating Idea Fusion",
+  "style": "Surrealism",
+  "mood": "dreamlike ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "butterfly wings",
+    "artist palette",
+    "woman portrait",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1628,
+  "source_url": "/generated/1628.jpg",
+  "image_url": "/sketches/2400.png",
+  "inverted_image_url": "/sketches-inverted/2400.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:43Z"
+}

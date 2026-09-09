@@ -1,0 +1,42 @@
+{
+  "number": 694,
+  "title": "Line sketch: Portrait of a Young Woman",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed ink drawing of a woman's face with expressive eyes and flowing hair. The portrait captures an emotional gaze with precise linework against a textured background (derived from painting #877).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed ink drawing of a woman's face with expressive eyes and flowing hair. The portrait captures an emotional gaze with precise linework against a textured background",
+  "inverted_title": "Inverted sketch: Portrait of a Young Woman",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed ink drawing of a woman's face with expressive eyes and flowing hair. The portrait captures an emotional gaze with precise linework against a textured background (from painting #877).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed ink drawing of a woman's face with expressive eyes and flowing hair. The portrait captures an emotional gaze with precise linework against a textured background",
+  "source_description": "A detailed ink drawing of a woman's face with expressive eyes and flowing hair. The portrait captures an emotional gaze with precise linework against a textured background.",
+  "source_prompt": "",
+  "source_title": "Portrait of a Young Woman",
+  "style": "Realistic Illustration",
+  "mood": "Intense and contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Ink on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "woman",
+    "realism",
+    "detailed",
+    "emotional"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 877,
+  "source_url": "/paintings/877.jpg",
+  "image_url": "/sketches/694.png",
+  "inverted_image_url": "/sketches-inverted/694.png",
+  "curve_count": 108,
+  "built_at": "2026-08-17T00:09:39Z"
+}

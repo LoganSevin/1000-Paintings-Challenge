@@ -1,0 +1,42 @@
+{
+  "number": 2694,
+  "title": "Line sketch: Spider-Man Noir Turnaround",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A digital character reference displaying eight sequential poses of a young male figure in a black trench coat with a large white spider emblem on the back, accents, and intricate chest armor. The views progress from front, three-quarter, side, and rear angles against a dark gradient background with a subtle glowing outline effect (derived from generated still #1936).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A digital character reference displaying eight sequential poses of a young male figure in a black trench coat with a large white spider emblem on the back, accents, and intricate chest armor. The views progress from front, three-quarter, side, and rear angles against a dark gradient background with a subtle glowing outline effect",
+  "inverted_title": "Inverted sketch: Spider-Man Noir Turnaround",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A digital character reference displaying eight sequential poses of a young male figure in a black trench coat with a large white spider emblem on the back, accents, and intricate chest armor. The views progress from front, three-quarter, side, and rear angles against a dark gradient background with a subtle glowing outline effect (from generated still #1936).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A digital character reference displaying eight sequential poses of a young male figure in a black trench coat with a large white spider emblem on the back, accents, and intricate chest armor. The views progress from front, three-quarter, side, and rear angles against a dark gradient background with a subtle glowing outline effect",
+  "source_description": "A digital character reference displaying eight sequential poses of a young male figure in a black trench coat with a large white spider emblem on the back, purple accents, and intricate chest armor. The views progress from front, three-quarter, side, and rear angles against a dark gradient background with a subtle glowing outline effect.",
+  "source_prompt": "",
+  "source_title": "Spider-Man Noir Turnaround",
+  "style": "digital character concept art",
+  "mood": "moody, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Spider-Man Noir",
+    "character design",
+    "turnaround sheet",
+    "trench coat",
+    "superhero costume"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1936,
+  "source_url": "/generated/1936.jpg",
+  "image_url": "/sketches/2694.png",
+  "inverted_image_url": "/sketches-inverted/2694.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:44Z"
+}

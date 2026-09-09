@@ -1,0 +1,42 @@
+{
+  "number": 4350,
+  "title": "Line sketch: Luminous Angel Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A painted glass sphere sculpture features a central glowing angelic figure with wings, standing on a dark pedestal. Radiating from the angel's core are vibrant branching neural-like structures in, and connecting to a crowd of stylized human silhouettes against a cosmic background with swirling patterns and floating circles (derived from generated still #3769).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A painted glass sphere sculpture features a central glowing angelic figure with wings, standing on a dark pedestal. Radiating from the angel's core are vibrant branching neural-like structures in, and connecting to a crowd of stylized human silhouettes against a cosmic background with swirling patterns and floating circles",
+  "inverted_title": "Inverted sketch: Luminous Angel Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A painted glass sphere sculpture features a central glowing angelic figure with wings, standing on a dark pedestal. Radiating from the angel's core are vibrant branching neural-like structures in, and connecting to a crowd of stylized human silhouettes against a cosmic background with swirling patterns and floating circles (from generated still #3769).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A painted glass sphere sculpture features a central glowing angelic figure with wings, standing on a dark pedestal. Radiating from the angel's core are vibrant branching neural-like structures in, and connecting to a crowd of stylized human silhouettes against a cosmic background with swirling patterns and floating circles",
+  "source_description": "A painted glass sphere sculpture features a central glowing angelic figure with wings, standing on a dark pedestal. Radiating from the angel's core are vibrant branching neural-like structures in yellow, blue, and pink connecting to a crowd of stylized green human silhouettes against a purple cosmic background with swirling patterns and floating circles.",
+  "source_prompt": "A painted glass sphere sculpture showing a glowing purple angel with wings standing at the center of a cosmic scene. Bright yellow, blue and pink branching energy tendrils radiate outward from a luminous orb at the angel's chest connecting to a surrounding crowd of green stylized human silhouettes. The background contains purple sky, white clouds, floating circles and spiral patterns in a vibrant surreal symbolic style.",
+  "source_title": "Luminous Angel Sphere",
+  "style": "Surreal symbolic composition",
+  "mood": "Mystical visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Painted glass orb on stand",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "glass sphere",
+    "angel figure",
+    "neural network",
+    "cosmic crowd",
+    "psychedelic art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3769,
+  "source_url": "/generated/3769.jpg",
+  "image_url": "/sketches/4350.png",
+  "inverted_image_url": "/sketches-inverted/4350.png",
+  "curve_count": 159,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3784,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four nearly identical full-body poses of a dark-skinned female warrior with short white hair, wearing a revealing and fantasy armor set with scaled faulds and arm wraps. She is shown in dynamic combat stances against a solid black background, with subtle smoke effects near her shoulders (derived from generated still #3201).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four nearly identical full-body poses of a dark-skinned female warrior with short white hair, wearing a revealing and fantasy armor set with scaled faulds and arm wraps. She is shown in dynamic combat stances against a solid black background, with subtle smoke effects near her shoulders",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four nearly identical full-body poses of a dark-skinned female warrior with short white hair, wearing a revealing and fantasy armor set with scaled faulds and arm wraps. She is shown in dynamic combat stances against a solid black background, with subtle smoke effects near her shoulders (from generated still #3201).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four nearly identical full-body poses of a dark-skinned female warrior with short white hair, wearing a revealing and fantasy armor set with scaled faulds and arm wraps. She is shown in dynamic combat stances against a solid black background, with subtle smoke effects near her shoulders",
+  "source_description": "Four nearly identical full-body poses of a dark-skinned female warrior with short white hair, wearing a revealing purple and silver fantasy armor set with scaled faulds and arm wraps. She is shown in dynamic combat stances against a solid black background, with subtle purple smoke effects near her shoulders.",
+  "source_prompt": "dark-skinned female warrior with short white hair wearing ornate purple and silver fantasy bikini armor with scaled faulds, arm wraps and greaves, shown in four different dynamic combat poses side by side, purple smoke effect around shoulders, muscular physique, fierce expression, full body view, solid black background, clean 3D character render style",
+  "source_title": "Purple Warrior Poses",
+  "style": "3D character render",
+  "mood": "fierce, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "fantasy armor",
+    "multiple poses",
+    "outfit",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3201,
+  "source_url": "/generated/3201.jpg",
+  "image_url": "/sketches/3784.png",
+  "inverted_image_url": "/sketches-inverted/3784.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:46Z"
+}

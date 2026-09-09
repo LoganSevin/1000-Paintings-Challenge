@@ -1,0 +1,42 @@
+{
+  "number": 4509,
+  "title": "Line sketch: Mystical Mask Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant wooden storefront window displays a large -skinned female figure with closed eyes, adorned with an elaborate headdress of lotus flowers, spirals, and numerous theatrical masks. In front of her sits a large bowl overflowing with blueberries, surrounded by glowing lanterns, an open book, and hanging decorations against a dark nighttime cobblestone street (derived from generated still #3929).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant wooden storefront window displays a large -skinned female figure with closed eyes, adorned with an elaborate headdress of lotus flowers, spirals, and numerous theatrical masks. In front of her sits a large bowl overflowing with blueberries, surrounded by glowing lanterns, an open book, and hanging decorations against a dark nighttime cobblestone street",
+  "inverted_title": "Inverted sketch: Mystical Mask Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant wooden storefront window displays a large -skinned female figure with closed eyes, adorned with an elaborate headdress of lotus flowers, spirals, and numerous theatrical masks. In front of her sits a large bowl overflowing with blueberries, surrounded by glowing lanterns, an open book, and hanging decorations against a dark nighttime cobblestone street (from generated still #3929).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant wooden storefront window displays a large -skinned female figure with closed eyes, adorned with an elaborate headdress of lotus flowers, spirals, and numerous theatrical masks. In front of her sits a large bowl overflowing with blueberries, surrounded by glowing lanterns, an open book, and hanging decorations against a dark nighttime cobblestone street",
+  "source_description": "A vibrant green wooden storefront window displays a large green-skinned female figure with closed eyes, adorned with an elaborate headdress of red lotus flowers, golden spirals, and numerous colorful theatrical masks. In front of her sits a large green bowl overflowing with blueberries, surrounded by glowing lanterns, an open book, and hanging decorations against a dark nighttime cobblestone street.",
+  "source_prompt": "A surreal nighttime scene of a mystical shop window with deep emerald green wooden frame. Inside, a green-skinned female figure with closed eyes emerges from a giant red lotus flower headdress decorated with golden spirals and many colorful Venetian and theatrical masks. A large green bowl filled with blueberries sits in front, with glowing lanterns, an open ancient book, and hanging ornaments. Dark cobblestone street visible outside, rich vibrant colors with intricate patterns and magical atmosphere.",
+  "source_title": "Mystical Mask Shop",
+  "style": "surreal fantasy illustration",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "masks",
+    "lotus headdress",
+    "blueberries",
+    "-skinned figure",
+    "fantasy shop"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3929,
+  "source_url": "/generated/3929.jpg",
+  "image_url": "/sketches/4509.png",
+  "inverted_image_url": "/sketches-inverted/4509.png",
+  "curve_count": 234,
+  "built_at": "2026-08-17T00:09:48Z"
+}

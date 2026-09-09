@@ -1,0 +1,42 @@
+{
+  "number": 4470,
+  "title": "Line sketch: Mystic Alchemist's Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical -hued alchemist's laboratory features a large glass bottle containing a -skinned figure reading a glowing book. The scene includes an ornate wooden desk with an open spellbook, a quill, a lit candle, scattered papers, and shelves filled with glowing potions and herbs. Mystical symbols, hanging scales, and ethereal smoke surround the central figure (derived from generated still #3889).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical -hued alchemist's laboratory features a large glass bottle containing a -skinned figure reading a glowing book. The scene includes an ornate wooden desk with an open spellbook, a quill, a lit candle, scattered papers, and shelves filled with glowing potions and herbs. Mystical symbols, hanging scales, and ethereal smoke surround the central figure",
+  "inverted_title": "Inverted sketch: Mystic Alchemist's Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical -hued alchemist's laboratory features a large glass bottle containing a -skinned figure reading a glowing book. The scene includes an ornate wooden desk with an open spellbook, a quill, a lit candle, scattered papers, and shelves filled with glowing potions and herbs. Mystical symbols, hanging scales, and ethereal smoke surround the central figure (from generated still #3889).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical -hued alchemist's laboratory features a large glass bottle containing a -skinned figure reading a glowing book. The scene includes an ornate wooden desk with an open spellbook, a quill, a lit candle, scattered papers, and shelves filled with glowing potions and herbs. Mystical symbols, hanging scales, and ethereal smoke surround the central figure",
+  "source_description": "A mystical purple-hued alchemist's laboratory features a large green glass bottle containing a purple-skinned figure reading a glowing book. The scene includes an ornate wooden desk with an open spellbook, a quill, a lit red candle, scattered papers, and shelves filled with glowing potions and herbs. Mystical symbols, hanging scales, and ethereal blue smoke surround the central figure.",
+  "source_prompt": "A mystical alchemist laboratory with deep purple walls and curtains, a large ornate green glass bottle in the center containing a purple-skinned mystical figure with glowing hands reading an open book. The figure is surrounded by green ethereal smoke and golden magical runes. In the foreground, a wooden desk holds an open spellbook with purple powder, a peacock feather quill, and a lit red candle. Shelves in the background are filled with glowing green potions and herbs, with hanging scales and mystical symbols above. Dreamy, atmospheric fantasy style.",
+  "source_title": "Mystic Alchemist's Study",
+  "style": "fantasy illustration",
+  "mood": "mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemy",
+    "wizard",
+    "magic",
+    "potion",
+    "occult"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3889,
+  "source_url": "/generated/3889.jpg",
+  "image_url": "/sketches/4470.png",
+  "inverted_image_url": "/sketches-inverted/4470.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:48Z"
+}

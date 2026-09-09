@@ -1,0 +1,42 @@
+{
+  "number": 657,
+  "title": "Line sketch: Stage Under Sunset Cityscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in the warm glow of a large setting sun (derived from painting #834).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in the warm glow of a large setting sun",
+  "inverted_title": "Inverted sketch: Stage Under Sunset Cityscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in the warm glow of a large setting sun (from painting #834).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in the warm glow of a large setting sun",
+  "source_description": "A dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in the warm glow of a large setting sun.",
+  "source_prompt": "",
+  "source_title": "Stage Under Sunset Cityscape",
+  "style": "Pop Art",
+  "mood": "Dramatic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "amphitheater",
+    "cityscape",
+    "sunset",
+    "performance",
+    "archway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 834,
+  "source_url": "/paintings/834.jpg",
+  "image_url": "/sketches/657.png",
+  "inverted_image_url": "/sketches-inverted/657.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 368,
+  "title": "Line sketch: Man with Bird and Hat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed portrait of an older man wearing glasses and a wide-brimmed hat with a bird perched on his shoulder. The realistic drawing features a jacket against a plain background (derived from painting #432).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed portrait of an older man wearing glasses and a wide-brimmed hat with a bird perched on his shoulder. The realistic drawing features a jacket against a plain background",
+  "inverted_title": "Inverted sketch: Man with Bird and Hat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed portrait of an older man wearing glasses and a wide-brimmed hat with a bird perched on his shoulder. The realistic drawing features a jacket against a plain background (from painting #432).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed portrait of an older man wearing glasses and a wide-brimmed hat with a bird perched on his shoulder. The realistic drawing features a jacket against a plain background",
+  "source_description": "A detailed portrait of an older man wearing glasses and a wide-brimmed hat with a bird perched on his shoulder. The realistic drawing features a green jacket against a plain background.",
+  "source_prompt": "",
+  "source_title": "Man with Bird and Hat",
+  "style": "Realistic portrait",
+  "mood": "Contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Graphite and colored pencil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "bird",
+    "elderly man",
+    "hat",
+    "realism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 432,
+  "source_url": "/paintings/432.jpg",
+  "image_url": "/sketches/368.png",
+  "inverted_image_url": "/sketches-inverted/368.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:39Z"
+}

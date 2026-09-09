@@ -1,0 +1,42 @@
+{
+  "number": 67,
+  "title": "Line sketch: Blazing Sunset City Drive",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic city skyline is silhouetted against a massive glowing sun, with bold and clouds filling the sky. A wet highway stretches into the foreground, its surface reflecting the vivid sunset and scattered vehicle lights. Loose, expressive and thick paint application emphasize the dynamic twilight atmosphere (derived from painting #98).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic city skyline is silhouetted against a massive glowing sun, with bold and clouds filling the sky. A wet highway stretches into the foreground, its surface reflecting the vivid sunset and scattered vehicle lights. Loose, expressive and thick paint application emphasize the dynamic twilight atmosphere",
+  "inverted_title": "Inverted sketch: Blazing Sunset City Drive",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic city skyline is silhouetted against a massive glowing sun, with bold and clouds filling the sky. A wet highway stretches into the foreground, its surface reflecting the vivid sunset and scattered vehicle lights. Loose, expressive and thick paint application emphasize the dynamic twilight atmosphere (from painting #98).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic city skyline is silhouetted against a massive glowing sun, with bold and clouds filling the sky. A wet highway stretches into the foreground, its surface reflecting the vivid sunset and scattered vehicle lights. Loose, expressive and thick paint application emphasize the dynamic twilight atmosphere",
+  "source_description": "A dramatic city skyline is silhouetted against a massive glowing sun, with bold orange and red clouds filling the sky. A wet highway stretches into the foreground, its surface reflecting the vivid sunset and scattered vehicle lights. Loose, expressive brushstrokes and thick paint application emphasize the dynamic twilight atmosphere.",
+  "source_prompt": "",
+  "source_title": "Blazing Sunset City Drive",
+  "style": "Impressionism",
+  "mood": "Dramatic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "sunset",
+    "urban",
+    "sun",
+    "highway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 98,
+  "source_url": "/paintings/98.jpg",
+  "image_url": "/sketches/67.png",
+  "inverted_image_url": "/sketches-inverted/67.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:38Z"
+}

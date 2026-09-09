@@ -1,0 +1,42 @@
+{
+  "number": 32,
+  "title": "Line sketch: Barn in Misty Fields",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered barn with a rusty roof sits amid rolling and fields, flanked by scattered trees and simple fences under a hazy sky. The composition leads the eye from the textured foreground grasses toward the distant tree line using atmospheric perspective. Soft blended edges and muted color transitions evoke a calm rural scene painted with smooth, layered technique (derived from painting #45).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered barn with a rusty roof sits amid rolling and fields, flanked by scattered trees and simple fences under a hazy sky. The composition leads the eye from the textured foreground grasses toward the distant tree line using atmospheric perspective. Soft blended edges and muted color transitions evoke a calm rural scene painted with smooth, layered technique",
+  "inverted_title": "Inverted sketch: Barn in Misty Fields",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered barn with a rusty roof sits amid rolling and fields, flanked by scattered trees and simple fences under a hazy sky. The composition leads the eye from the textured foreground grasses toward the distant tree line using atmospheric perspective. Soft blended edges and muted color transitions evoke a calm rural scene painted with smooth, layered technique (from painting #45).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered barn with a rusty roof sits amid rolling and fields, flanked by scattered trees and simple fences under a hazy sky. The composition leads the eye from the textured foreground grasses toward the distant tree line using atmospheric perspective. Soft blended edges and muted color transitions evoke a calm rural scene painted with smooth, layered technique",
+  "source_description": "A weathered barn with a rusty roof sits amid rolling green and golden fields, flanked by scattered trees and simple fences under a hazy sky. The composition leads the eye from the textured foreground grasses toward the distant tree line using atmospheric perspective. Soft blended edges and muted color transitions evoke a calm rural scene painted with smooth, layered technique.",
+  "source_prompt": "",
+  "source_title": "Barn in Misty Fields",
+  "style": "Realism",
+  "mood": "serene hazy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "barn",
+    "field",
+    "rural",
+    "farm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 45,
+  "source_url": "/paintings/45.jpg",
+  "image_url": "/sketches/32.png",
+  "inverted_image_url": "/sketches-inverted/32.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

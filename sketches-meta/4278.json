@@ -1,0 +1,42 @@
+{
+  "number": 4278,
+  "title": "Line sketch: Plasma Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe sits on a metallic base, emitting vibrant, and electrical tendrils that branch outward. Some tendrils morph into leaf-like shapes floating in the dark space around the orb (derived from generated still #3697).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe sits on a metallic base, emitting vibrant, and electrical tendrils that branch outward. Some tendrils morph into leaf-like shapes floating in the dark space around the orb",
+  "inverted_title": "Inverted sketch: Plasma Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe sits on a metallic base, emitting vibrant, and electrical tendrils that branch outward. Some tendrils morph into leaf-like shapes floating in the dark space around the orb (from generated still #3697).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe sits on a metallic base, emitting vibrant, and electrical tendrils that branch outward. Some tendrils morph into leaf-like shapes floating in the dark space around the orb",
+  "source_description": "A glowing plasma globe sits on a metallic base, emitting vibrant pink, purple, and cyan electrical tendrils that branch outward. Some tendrils morph into leaf-like shapes floating in the dark space around the orb.",
+  "source_prompt": "A glowing plasma ball with a bright pink core sits on a reflective metallic base, emitting dynamic streams of neon pink, purple, and cyan electricity that branch out like nerves. Several streams transform into floating leaf shapes in the surrounding dark void, creating a surreal fusion of technology and nature, dramatic lighting, cinematic atmosphere.",
+  "source_title": "Neon Plasma Sphere",
+  "style": "digital fantasy art",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "electric tendrils",
+    "glow",
+    "surreal energy",
+    "bioluminescent"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3697,
+  "source_url": "/generated/3697.jpg",
+  "image_url": "/sketches/4278.png",
+  "inverted_image_url": "/sketches-inverted/4278.png",
+  "curve_count": 319,
+  "built_at": "2026-08-17T00:09:47Z"
+}

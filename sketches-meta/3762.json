@@ -1,0 +1,42 @@
+{
+  "number": 3762,
+  "title": "Line sketch: Warrior Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential panels display the same muscular male warrior with spiky hair performing a fluid combat maneuver. He transitions from drawing a dagger to executing a forward thrust with a glowing energy blade, wearing detailed fantasy armor with and accents, tattered skirt, and gauntlets against a dark background (derived from generated still #3178).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential panels display the same muscular male warrior with spiky hair performing a fluid combat maneuver. He transitions from drawing a dagger to executing a forward thrust with a glowing energy blade, wearing detailed fantasy armor with and accents, tattered skirt, and gauntlets against a dark background",
+  "inverted_title": "Inverted sketch: Warrior Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential panels display the same muscular male warrior with spiky hair performing a fluid combat maneuver. He transitions from drawing a dagger to executing a forward thrust with a glowing energy blade, wearing detailed fantasy armor with and accents, tattered skirt, and gauntlets against a dark background (from generated still #3178).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential panels display the same muscular male warrior with spiky hair performing a fluid combat maneuver. He transitions from drawing a dagger to executing a forward thrust with a glowing energy blade, wearing detailed fantasy armor with and accents, tattered skirt, and gauntlets against a dark background",
+  "source_description": "Four sequential panels display the same muscular male warrior with spiky hair performing a fluid combat maneuver. He transitions from drawing a dagger to executing a forward thrust with a glowing energy blade, wearing detailed fantasy armor with red and gold accents, tattered skirt, and gauntlets against a dark background.",
+  "source_prompt": "A four-panel horizontal sequence showing the exact same muscular young male warrior with spiky brown hair and intense expression, wearing ornate red and gold fantasy armor with tattered dark skirt and leather straps. He begins in a low stance drawing a dagger, then executes a powerful forward thrust with a glowing energy blade extending from his gauntlet. Dramatic cinematic lighting, highly detailed textures, realistic rendering, dark studio background.",
+  "source_title": "Warrior Pose Sequence",
+  "style": "realistic",
+  "mood": "dynamic intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "action sequence",
+    "fantasy armor",
+    "multiple poses",
+    "dagger combat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3178,
+  "source_url": "/generated/3178.jpg",
+  "image_url": "/sketches/3762.png",
+  "inverted_image_url": "/sketches-inverted/3762.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:46Z"
+}

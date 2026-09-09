@@ -1,0 +1,42 @@
+{
+  "number": 1376,
+  "title": "Line sketch: Child and Shadow Wolf",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a -skinned child with eyes and tears emerging from a cracked white circular frame dripping with paint. A large black wolf with glowing lines and bared teeth stands to the right against swirling dark smoke (derived from generated still #591).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a -skinned child with eyes and tears emerging from a cracked white circular frame dripping with paint. A large black wolf with glowing lines and bared teeth stands to the right against swirling dark smoke",
+  "inverted_title": "Inverted sketch: Child and Shadow Wolf",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a -skinned child with eyes and tears emerging from a cracked white circular frame dripping with paint. A large black wolf with glowing lines and bared teeth stands to the right against swirling dark smoke (from generated still #591).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a -skinned child with eyes and tears emerging from a cracked white circular frame dripping with paint. A large black wolf with glowing lines and bared teeth stands to the right against swirling dark smoke",
+  "source_description": "A surreal painting featuring a green-skinned child with orange eyes and blue tears emerging from a cracked white circular frame dripping with gold paint. A large black wolf with glowing orange lines and bared teeth stands to the right against swirling dark smoke.",
+  "source_prompt": "",
+  "source_title": "Emerald Child and Shadow Wolf",
+  "style": "surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child portrait",
+    "black wolf",
+    "melting frame",
+    "floral elements"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 591,
+  "source_url": "/generated/591.jpg",
+  "image_url": "/sketches/1376.png",
+  "inverted_image_url": "/sketches-inverted/1376.png",
+  "curve_count": 139,
+  "built_at": "2026-08-17T00:09:41Z"
+}

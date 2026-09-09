@@ -1,0 +1,42 @@
+{
+  "number": 4215,
+  "title": "Line sketch: Cyberpunk Living Room Pose",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with short black hair kneels on a cracked concrete floor in a retro-futuristic apartment. She wears a crop top, thigh-high stockings with bows, and denim shorts while holding a black and white robotic staff (derived from generated still #3634).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with short black hair kneels on a cracked concrete floor in a retro-futuristic apartment. She wears a crop top, thigh-high stockings with bows, and denim shorts while holding a black and white robotic staff",
+  "inverted_title": "Inverted sketch: Cyberpunk Living Room Pose",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with short black hair kneels on a cracked concrete floor in a retro-futuristic apartment. She wears a crop top, thigh-high stockings with bows, and denim shorts while holding a black and white robotic staff (from generated still #3634).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with short black hair kneels on a cracked concrete floor in a retro-futuristic apartment. She wears a crop top, thigh-high stockings with bows, and denim shorts while holding a black and white robotic staff",
+  "source_description": "A woman with short black hair kneels on a cracked concrete floor in a retro-futuristic apartment. She wears a bright pink crop top, pink thigh-high stockings with bows, and denim shorts while holding a black and white robotic staff.",
+  "source_prompt": "A young woman with short black hair kneeling on a cracked concrete floor inside a retro-futuristic apartment, wearing a bright pink ruffled crop top, denim shorts, and matching pink thigh-high stockings with large bows. She holds a tall black and white robotic staff. The room has mid-century modern teal sofas, wooden furniture, and large panoramic windows revealing a dystopian cyberpunk city with brutalist buildings under a vivid red sunset sky. Cinematic lighting, detailed textures, moody atmosphere.",
+  "source_title": "Cyberpunk Living Room Pose",
+  "style": "cinematic digital art",
+  "mood": "futuristic noir",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "retro-futuristic",
+    "kneeling woman",
+    "dystopian city",
+    "mid-century modern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3634,
+  "source_url": "/generated/3634.jpg",
+  "image_url": "/sketches/4215.png",
+  "inverted_image_url": "/sketches-inverted/4215.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:47Z"
+}

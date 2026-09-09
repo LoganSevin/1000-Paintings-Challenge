@@ -1,0 +1,42 @@
+{
+  "number": 3852,
+  "title": "Line sketch: Bubblegum Princess Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with hair in a high ponytail stands in a dynamic pose against a solid background. She wears a dark armored outfit with accents, a small crown, black gloves, and boots, while blowing a bubblegum bubble and surrounded by floating bubbles (derived from generated still #3269).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with hair in a high ponytail stands in a dynamic pose against a solid background. She wears a dark armored outfit with accents, a small crown, black gloves, and boots, while blowing a bubblegum bubble and surrounded by floating bubbles",
+  "inverted_title": "Inverted sketch: Bubblegum Princess Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with hair in a high ponytail stands in a dynamic pose against a solid background. She wears a dark armored outfit with accents, a small crown, black gloves, and boots, while blowing a bubblegum bubble and surrounded by floating bubbles (from generated still #3269).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with hair in a high ponytail stands in a dynamic pose against a solid background. She wears a dark armored outfit with accents, a small crown, black gloves, and boots, while blowing a bubblegum bubble and surrounded by floating bubbles",
+  "source_description": "A young female character with pink hair in a high ponytail stands in a dynamic pose against a solid lime green background. She wears a dark armored outfit with lime green accents, a small crown, black gloves, and boots, while blowing a pink bubblegum bubble and surrounded by floating green bubbles.",
+  "source_prompt": "A confident young girl with bright pink hair tied in a high bubbly ponytail, wearing a small crown and a dark armored dress with lime green trim and bubble patterns. She is blowing a pink bubblegum bubble, one hand raised in a stop gesture, wearing black gloves and heavy boots. Green slime bubbles float around her. Dynamic stance, cartoon style, solid bright green background, clean vector art look.",
+  "source_title": "Bubblegum Princess Warrior",
+  "style": "cartoon",
+  "mood": "playful, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "bubblegum",
+    "bubbles",
+    "crown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3269,
+  "source_url": "/generated/3269.jpg",
+  "image_url": "/sketches/3852.png",
+  "inverted_image_url": "/sketches-inverted/3852.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:46Z"
+}

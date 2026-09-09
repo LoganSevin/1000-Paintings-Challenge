@@ -1,0 +1,42 @@
+{
+  "number": 2930,
+  "title": "Line sketch: Smoke Apparitions",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark silhouetted male figure is shown from the chest up, exhaling a swirling mass of luminous white and smoke that forms ghostly faces and abstract shapes. The figure is positioned against a nearly black background with faint floating color fragments and a horizontal light bar across the lower portion of the frame (derived from generated still #2223).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark silhouetted male figure is shown from the chest up, exhaling a swirling mass of luminous white and smoke that forms ghostly faces and abstract shapes. The figure is positioned against a nearly black background with faint floating color fragments and a horizontal light bar across the lower portion of the frame",
+  "inverted_title": "Inverted sketch: Smoke Apparitions",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark silhouetted male figure is shown from the chest up, exhaling a swirling mass of luminous white and smoke that forms ghostly faces and abstract shapes. The figure is positioned against a nearly black background with faint floating color fragments and a horizontal light bar across the lower portion of the frame (from generated still #2223).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark silhouetted male figure is shown from the chest up, exhaling a swirling mass of luminous white and smoke that forms ghostly faces and abstract shapes. The figure is positioned against a nearly black background with faint floating color fragments and a horizontal light bar across the lower portion of the frame",
+  "source_description": "A dark silhouetted male figure is shown from the chest up, exhaling a swirling mass of luminous white and pale purple smoke that forms ghostly faces and abstract shapes. The figure is positioned against a nearly black background with faint floating color fragments and a horizontal light bar across the lower portion of the frame.",
+  "source_prompt": "A dark silhouetted man exhaling swirling luminous smoke that morphs into multiple ghostly human faces and abstract forms, the smoke is pale purple and white, dramatic side lighting on his shoulder and head, deep black background with faint floating color fragments, painterly brushwork, moody and surreal atmosphere, dark tones",
+  "source_title": "Smoke Apparitions",
+  "style": "painterly surrealism",
+  "mood": "eerie, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "smoke",
+    "silhouette",
+    "ghostly faces",
+    "surreal",
+    "dark"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2223,
+  "source_url": "/generated/2223.jpg",
+  "image_url": "/sketches/2930.png",
+  "inverted_image_url": "/sketches-inverted/2930.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4891,
+  "title": "Line sketch: Surreal Pixelated Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central humanoid figure with a pixelated metallic body, butterfly wings, and a melting face stands in a surreal dreamscape. The scene is filled with melting clocks, floating eyeballs, jellyfish, city pathways, draped fabrics, and apples against a dark cosmic background with dripping and black liquid from the top (derived from generated still #4326).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central humanoid figure with a pixelated metallic body, butterfly wings, and a melting face stands in a surreal dreamscape. The scene is filled with melting clocks, floating eyeballs, jellyfish, city pathways, draped fabrics, and apples against a dark cosmic background with dripping and black liquid from the top",
+  "inverted_title": "Inverted sketch: Surreal Pixelated Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central humanoid figure with a pixelated metallic body, butterfly wings, and a melting face stands in a surreal dreamscape. The scene is filled with melting clocks, floating eyeballs, jellyfish, city pathways, draped fabrics, and apples against a dark cosmic background with dripping and black liquid from the top (from generated still #4326).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central humanoid figure with a pixelated metallic body, butterfly wings, and a melting face stands in a surreal dreamscape. The scene is filled with melting clocks, floating eyeballs, jellyfish, city pathways, draped fabrics, and apples against a dark cosmic background with dripping and black liquid from the top",
+  "source_description": "A central humanoid figure with a pixelated metallic body, green butterfly wings, and a melting face stands in a surreal dreamscape. The scene is filled with melting clocks, floating eyeballs, jellyfish, golden city pathways, draped fabrics, and apples against a dark cosmic background with dripping orange and black liquid from the top.",
+  "source_prompt": "A surreal dreamscape featuring a tall humanoid figure with a pixelated chrome body covered in colorful flowers, large translucent green butterfly wings, and a melting face with one glowing green eye. The figure raises one hand dramatically. Surrounding elements include melting Dali-style clocks, floating eyeballs, bioluminescent jellyfish, golden pathways leading to a futuristic city in a mirror portal, draped grey fabric over stone ruins, red and silver apples, with black and orange liquid dripping from the top of the frame in a dark cosmic atmosphere.",
+  "source_title": "Surreal Pixelated Muse",
+  "style": "surrealism",
+  "mood": "dreamlike chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting clocks",
+    "pixel art figure",
+    "fantasy",
+    "cosmic horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4326,
+  "source_url": "/generated/4326.jpg",
+  "image_url": "/sketches/4891.png",
+  "inverted_image_url": "/sketches-inverted/4891.png",
+  "curve_count": 124,
+  "built_at": "2026-08-17T00:09:49Z"
+}

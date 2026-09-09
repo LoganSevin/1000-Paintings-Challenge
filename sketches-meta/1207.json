@@ -1,0 +1,42 @@
+{
+  "number": 1207,
+  "title": "Line sketch: Pumpkin Witch Lightning",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with glowing eyes and hair stands beside a massive, menacing jack-o'-lantern. The stormy sky crackles with lightning striking the chained pumpkin as liquid drips from its carved mouth onto a cracked stone surface (derived from generated still #419).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with glowing eyes and hair stands beside a massive, menacing jack-o'-lantern. The stormy sky crackles with lightning striking the chained pumpkin as liquid drips from its carved mouth onto a cracked stone surface",
+  "inverted_title": "Inverted sketch: Pumpkin Witch Lightning",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with glowing eyes and hair stands beside a massive, menacing jack-o'-lantern. The stormy sky crackles with lightning striking the chained pumpkin as liquid drips from its carved mouth onto a cracked stone surface (from generated still #419).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with glowing eyes and hair stands beside a massive, menacing jack-o'-lantern. The stormy sky crackles with lightning striking the chained pumpkin as liquid drips from its carved mouth onto a cracked stone surface",
+  "source_description": "A blue-skinned woman with glowing orange eyes and colorful hair stands beside a massive, menacing purple jack-o'-lantern. The stormy sky crackles with yellow lightning striking the chained pumpkin as red liquid drips from its carved mouth onto a cracked stone surface.",
+  "source_prompt": "",
+  "source_title": "Pumpkin Witch Lightning",
+  "style": "dark fantasy",
+  "mood": "eerie ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "halloween",
+    "jack-o-lantern",
+    "witch",
+    "lightning",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 419,
+  "source_url": "/generated/419.jpg",
+  "image_url": "/sketches/1207.png",
+  "inverted_image_url": "/sketches-inverted/1207.png",
+  "curve_count": 66,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1484,
+  "title": "Line sketch: Surreal Desert Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a giant stylized human eye emerging from sand dunes, its iris containing a tiny mouse and a moon. In the background a woman in a patterned robe walks across the dunes carrying a lantern beneath a large ornate moon in a twilight sky, while a large mouse perches on a leafy branch in the foreground (derived from generated still #699).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a giant stylized human eye emerging from sand dunes, its iris containing a tiny mouse and a moon. In the background a woman in a patterned robe walks across the dunes carrying a lantern beneath a large ornate moon in a twilight sky, while a large mouse perches on a leafy branch in the foreground",
+  "inverted_title": "Inverted sketch: Surreal Desert Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a giant stylized human eye emerging from sand dunes, its iris containing a tiny mouse and a moon. In the background a woman in a patterned robe walks across the dunes carrying a lantern beneath a large ornate moon in a twilight sky, while a large mouse perches on a leafy branch in the foreground (from generated still #699).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a giant stylized human eye emerging from sand dunes, its iris containing a tiny mouse and a moon. In the background a woman in a patterned robe walks across the dunes carrying a lantern beneath a large ornate moon in a twilight sky, while a large mouse perches on a leafy branch in the foreground",
+  "source_description": "A vibrant surreal painting depicts a giant stylized human eye emerging from orange sand dunes, its iris containing a tiny red mouse and a green moon. In the background a woman in a patterned green robe walks across the dunes carrying a lantern beneath a large ornate green moon in a purple twilight sky, while a large red mouse perches on a leafy branch in the foreground.",
+  "source_prompt": "",
+  "source_title": "Surreal Desert Eye",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "desert",
+    "mouse",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 699,
+  "source_url": "/generated/699.jpg",
+  "image_url": "/sketches/1484.png",
+  "inverted_image_url": "/sketches-inverted/1484.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:41Z"
+}

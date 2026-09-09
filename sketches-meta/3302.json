@@ -1,0 +1,42 @@
+{
+  "number": 3302,
+  "title": "Line sketch: Surreal Eastern Horizon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic surreal landscape depicts a large fiery chrysanthemum blooming in a stormy sky, connected by glowing light trails to celestial symbols including a yin-yang and an intricate circular diagram. Below, traditional Chinese pagodas stand on the misty shoreline of a lake where several illuminated boats float on calm water (derived from generated still #2682).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic surreal landscape depicts a large fiery chrysanthemum blooming in a stormy sky, connected by glowing light trails to celestial symbols including a yin-yang and an intricate circular diagram. Below, traditional Chinese pagodas stand on the misty shoreline of a lake where several illuminated boats float on calm water",
+  "inverted_title": "Inverted sketch: Surreal Eastern Horizon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic surreal landscape depicts a large fiery chrysanthemum blooming in a stormy sky, connected by glowing light trails to celestial symbols including a yin-yang and an intricate circular diagram. Below, traditional Chinese pagodas stand on the misty shoreline of a lake where several illuminated boats float on calm water (from generated still #2682).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic surreal landscape depicts a large fiery chrysanthemum blooming in a stormy sky, connected by glowing light trails to celestial symbols including a yin-yang and an intricate circular diagram. Below, traditional Chinese pagodas stand on the misty shoreline of a lake where several illuminated boats float on calm water",
+  "source_description": "A dramatic surreal landscape depicts a large fiery red chrysanthemum blooming in a stormy sky, connected by glowing light trails to celestial symbols including a yin-yang and an intricate circular diagram. Below, traditional Chinese pagodas stand on the misty shoreline of a lake where several illuminated boats float on calm water.",
+  "source_prompt": "Surreal East Asian fantasy landscape at dusk, massive vibrant red chrysanthemum exploding in a stormy sky, connected by glowing energy trails to a large yin-yang symbol and an ancient circular astronomical diagram floating above a misty lake. Traditional Chinese pagodas on the distant shore, several illuminated wooden boats drifting on calm water, dramatic cloudy sky with golden light breaking through, painterly oil painting style with visible brushstrokes.",
+  "source_title": "Surreal Eastern Horizon",
+  "style": "surrealism",
+  "mood": "mystical dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "chrysanthemum",
+    "yin-yang",
+    "pagoda",
+    "chinese landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2682,
+  "source_url": "/generated/2682.jpg",
+  "image_url": "/sketches/3302.png",
+  "inverted_image_url": "/sketches-inverted/3302.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3211,
+  "title": "Line sketch: Stairway to the Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark coat stands on a spiraling metal staircase that ascends through a broken ceiling into a bright sky, surrounded by floating film reels, a clapperboard, a film projector, and an old television set with butterfly wings. The scene is set above dark water with swirling clouds and a dramatic, surreal atmosphere (derived from generated still #2561).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark coat stands on a spiraling metal staircase that ascends through a broken ceiling into a bright sky, surrounded by floating film reels, a clapperboard, a film projector, and an old television set with butterfly wings. The scene is set above dark water with swirling clouds and a dramatic, surreal atmosphere",
+  "inverted_title": "Inverted sketch: Stairway to the Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark coat stands on a spiraling metal staircase that ascends through a broken ceiling into a bright sky, surrounded by floating film reels, a clapperboard, a film projector, and an old television set with butterfly wings. The scene is set above dark water with swirling clouds and a dramatic, surreal atmosphere (from generated still #2561).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark coat stands on a spiraling metal staircase that ascends through a broken ceiling into a bright sky, surrounded by floating film reels, a clapperboard, a film projector, and an old television set with butterfly wings. The scene is set above dark water with swirling clouds and a dramatic, surreal atmosphere",
+  "source_description": "A man in a dark coat stands on a spiraling metal staircase that ascends through a broken ceiling into a bright sky, surrounded by floating film reels, a clapperboard, a film projector, and an old television set with butterfly wings. The scene is set above dark water with swirling purple clouds and a dramatic, surreal atmosphere.",
+  "source_prompt": "A surreal cinematic scene of a man in a long dark coat standing on a twisting metal spiral staircase that rises from dark water into a cracked ceiling framed with blue curtains. Floating around him are vintage film reels, a clapperboard, a film projector casting light, and a television with butterfly wings. Dramatic purple clouds fill the lower sky while bright light breaks through above, in the style of a detailed fantasy painting.",
+  "source_title": "Stairway to the Cosmos",
+  "style": "surrealism",
+  "mood": "dreamlike, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "staircase",
+    "cinema",
+    "dreamscape",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2561,
+  "source_url": "/generated/2561.jpg",
+  "image_url": "/sketches/3211.png",
+  "inverted_image_url": "/sketches-inverted/3211.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:45Z"
+}

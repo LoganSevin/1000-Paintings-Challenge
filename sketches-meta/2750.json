@@ -1,0 +1,42 @@
+{
+  "number": 2750,
+  "title": "Line sketch: Psychedelic Dome Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene featuring a large ornate dome structure on the left with intricate patterns and glowing elements, and a retro-futuristic and hover vehicle carrying two figures on the right. The foreground shows reflective water with vegetation while the sky is filled with floating orbs, dripping liquid from above, and various mechanical elements (derived from generated still #1996).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene featuring a large ornate dome structure on the left with intricate patterns and glowing elements, and a retro-futuristic and hover vehicle carrying two figures on the right. The foreground shows reflective water with vegetation while the sky is filled with floating orbs, dripping liquid from above, and various mechanical elements",
+  "inverted_title": "Inverted sketch: Psychedelic Dome Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene featuring a large ornate dome structure on the left with intricate patterns and glowing elements, and a retro-futuristic and hover vehicle carrying two figures on the right. The foreground shows reflective water with vegetation while the sky is filled with floating orbs, dripping liquid from above, and various mechanical elements (from generated still #1996).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene featuring a large ornate dome structure on the left with intricate patterns and glowing elements, and a retro-futuristic and hover vehicle carrying two figures on the right. The foreground shows reflective water with vegetation while the sky is filled with floating orbs, dripping liquid from above, and various mechanical elements",
+  "source_description": "A surreal psychedelic scene featuring a large ornate purple dome structure on the left with intricate patterns and glowing elements, and a retro-futuristic orange and teal hover vehicle carrying two figures on the right. The foreground shows reflective water with purple vegetation while the sky is filled with colorful floating orbs, dripping orange liquid from above, and various mechanical elements.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Dome Landscape",
+  "style": "surreal psychedelic",
+  "mood": "trippy dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "futuristic",
+    "dome",
+    "hovercraft"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1996,
+  "source_url": "/generated/1996.jpg",
+  "image_url": "/sketches/2750.png",
+  "inverted_image_url": "/sketches-inverted/2750.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

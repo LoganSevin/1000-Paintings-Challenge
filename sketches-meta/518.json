@@ -1,0 +1,42 @@
+{
+  "number": 518,
+  "title": "Line sketch: Broken Heart with Thorns",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A low-poly white heart cracked with liquid oozing from its center, dripping downward. thorns protrude from the top, set against a solid terracotta background (derived from painting #648).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A low-poly white heart cracked with liquid oozing from its center, dripping downward. thorns protrude from the top, set against a solid terracotta background",
+  "inverted_title": "Inverted sketch: Broken Heart with Thorns",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A low-poly white heart cracked with liquid oozing from its center, dripping downward. thorns protrude from the top, set against a solid terracotta background (from painting #648).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A low-poly white heart cracked with liquid oozing from its center, dripping downward. thorns protrude from the top, set against a solid terracotta background",
+  "source_description": "A low-poly white heart cracked with red liquid oozing from its center, dripping downward. Golden thorns protrude from the top, set against a solid terracotta background.",
+  "source_prompt": "",
+  "source_title": "Broken Heart with Golden Thorns",
+  "style": "3D low-poly illustration",
+  "mood": "painful, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "broken heart",
+    "heartbreak",
+    "low poly",
+    "liquid",
+    "thorns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 648,
+  "source_url": "/paintings/648.jpg",
+  "image_url": "/sketches/518.png",
+  "inverted_image_url": "/sketches-inverted/518.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:39Z"
+}

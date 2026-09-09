@@ -1,0 +1,42 @@
+{
+  "number": 2497,
+  "title": "Line sketch: Cosmic Mushroom Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large mushroom with a woman's face and curly hair emerging from its cap. The mushroom cap displays a vibrant galaxy and spiral nebula, while its stem features a stained-glass pattern, set against a swirling cosmic background with vines and grass (derived from generated still #1732).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large mushroom with a woman's face and curly hair emerging from its cap. The mushroom cap displays a vibrant galaxy and spiral nebula, while its stem features a stained-glass pattern, set against a swirling cosmic background with vines and grass",
+  "inverted_title": "Inverted sketch: Cosmic Mushroom Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large mushroom with a woman's face and curly hair emerging from its cap. The mushroom cap displays a vibrant galaxy and spiral nebula, while its stem features a stained-glass pattern, set against a swirling cosmic background with vines and grass (from generated still #1732).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large mushroom with a woman's face and curly hair emerging from its cap. The mushroom cap displays a vibrant galaxy and spiral nebula, while its stem features a stained-glass pattern, set against a swirling cosmic background with vines and grass",
+  "source_description": "A surreal painting of a large mushroom with a woman's face and golden curly hair emerging from its cap. The mushroom cap displays a vibrant galaxy and spiral nebula, while its stem features a colorful stained-glass pattern, set against a swirling blue cosmic background with vines and grass.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mushroom Muse",
+  "style": "surreal fantasy",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "galaxy",
+    "woman",
+    "surreal",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1732,
+  "source_url": "/generated/1732.jpg",
+  "image_url": "/sketches/2497.png",
+  "inverted_image_url": "/sketches-inverted/2497.png",
+  "curve_count": 67,
+  "built_at": "2026-08-17T00:09:43Z"
+}

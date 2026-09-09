@@ -1,0 +1,42 @@
+{
+  "number": 2015,
+  "title": "Line sketch: Surreal Fruit Bowl Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant bowl overflows with sliced, kitchen utensils, and stylized female faces in profile with hair. In the background, a weathered -roofed barn stands in a misty field beneath a glowing sun, surrounded by swirling psychedelic trees (derived from generated still #1240).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant bowl overflows with sliced, kitchen utensils, and stylized female faces in profile with hair. In the background, a weathered -roofed barn stands in a misty field beneath a glowing sun, surrounded by swirling psychedelic trees",
+  "inverted_title": "Inverted sketch: Surreal Fruit Bowl Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant bowl overflows with sliced, kitchen utensils, and stylized female faces in profile with hair. In the background, a weathered -roofed barn stands in a misty field beneath a glowing sun, surrounded by swirling psychedelic trees (from generated still #1240).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant bowl overflows with sliced, kitchen utensils, and stylized female faces in profile with hair. In the background, a weathered -roofed barn stands in a misty field beneath a glowing sun, surrounded by swirling psychedelic trees",
+  "source_description": "A vibrant pink bowl overflows with sliced oranges, kitchen utensils, and stylized female faces in profile with colorful hair. In the background, a weathered red-roofed barn stands in a misty field beneath a glowing sun, surrounded by swirling psychedelic trees.",
+  "source_prompt": "",
+  "source_title": "Surreal Fruit Bowl Dream",
+  "style": "surrealism",
+  "mood": "whimsical psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "farmhouse",
+    "fruit bowl",
+    "faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1240,
+  "source_url": "/generated/1240.jpg",
+  "image_url": "/sketches/2015.png",
+  "inverted_image_url": "/sketches-inverted/2015.png",
+  "curve_count": 42,
+  "built_at": "2026-08-17T00:09:42Z"
+}

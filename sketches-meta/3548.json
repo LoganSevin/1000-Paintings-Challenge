@@ -1,0 +1,42 @@
+{
+  "number": 3548,
+  "title": "Line sketch: Mad Hatter vs Eldritch Horror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale woman with short black hair, dressed in a and white gothic Mad Hatter-style outfit, kneels on broken stone pavement while clutching her head in distress. Behind her looms a massive eldritch monster with a giant central eye, sharp teeth, and numerous writhing tentacles, set against the backdrop of a distorted, -striped Notre-Dame cathedral under a sky (derived from generated still #2956).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale woman with short black hair, dressed in a and white gothic Mad Hatter-style outfit, kneels on broken stone pavement while clutching her head in distress. Behind her looms a massive eldritch monster with a giant central eye, sharp teeth, and numerous writhing tentacles, set against the backdrop of a distorted, -striped Notre-Dame cathedral under a sky",
+  "inverted_title": "Inverted sketch: Mad Hatter vs Eldritch Horror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale woman with short black hair, dressed in a and white gothic Mad Hatter-style outfit, kneels on broken stone pavement while clutching her head in distress. Behind her looms a massive eldritch monster with a giant central eye, sharp teeth, and numerous writhing tentacles, set against the backdrop of a distorted, -striped Notre-Dame cathedral under a sky (from generated still #2956).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale woman with short black hair, dressed in a and white gothic Mad Hatter-style outfit, kneels on broken stone pavement while clutching her head in distress. Behind her looms a massive eldritch monster with a giant central eye, sharp teeth, and numerous writhing tentacles, set against the backdrop of a distorted, -striped Notre-Dame cathedral under a sky",
+  "source_description": "A pale woman with short black hair, dressed in a pink and white gothic Mad Hatter-style outfit, kneels on broken stone pavement while clutching her head in distress. Behind her looms a massive red eldritch monster with a giant central eye, sharp teeth, and numerous writhing tentacles, set against the backdrop of a distorted, pink-striped Notre-Dame cathedral under a magenta sky.",
+  "source_prompt": "A gothic horror scene featuring a distressed female Mad Hatter character with pale skin and black hair kneeling on shattered stone ground, wearing a pink and white outfit with gold epaulets, clutching her head in terror. A gigantic red eldritch monster with one massive bloodshot eye, sharp teeth and dozens of fleshy tentacles emerges behind her. Distorted pink and purple Notre-Dame cathedral in the background with swirling dark clouds and magenta sky, broken teacups and debris scattered on the ground, dark surreal fantasy style, highly detailed digital painting",
+  "source_title": "Mad Hatter vs Eldritch Horror",
+  "style": "dark surreal fantasy",
+  "mood": "chaotic horror",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eldritch horror",
+    "mad hatter",
+    "cathedral",
+    "tentacles",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2956,
+  "source_url": "/generated/2956.jpg",
+  "image_url": "/sketches/3548.png",
+  "inverted_image_url": "/sketches-inverted/3548.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:46Z"
+}

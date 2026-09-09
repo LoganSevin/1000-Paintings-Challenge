@@ -1,0 +1,42 @@
+{
+  "number": 3724,
+  "title": "Line sketch: Arena Spotlight Performance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone performer in a and black futuristic outfit with a glowing shield on their arm stands dynamically in the center of a massive circular arena stage. They are illuminated by powerful spotlights from above against a backdrop of a packed, stadium crowd under a dramatic, swirling, and sky (derived from generated still #3134).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone performer in a and black futuristic outfit with a glowing shield on their arm stands dynamically in the center of a massive circular arena stage. They are illuminated by powerful spotlights from above against a backdrop of a packed, stadium crowd under a dramatic, swirling, and sky",
+  "inverted_title": "Inverted sketch: Arena Spotlight Performance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone performer in a and black futuristic outfit with a glowing shield on their arm stands dynamically in the center of a massive circular arena stage. They are illuminated by powerful spotlights from above against a backdrop of a packed, stadium crowd under a dramatic, swirling, and sky (from generated still #3134).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone performer in a and black futuristic outfit with a glowing shield on their arm stands dynamically in the center of a massive circular arena stage. They are illuminated by powerful spotlights from above against a backdrop of a packed, stadium crowd under a dramatic, swirling, and sky",
+  "source_description": "A lone performer in a green and black futuristic outfit with a glowing blue shield on their arm stands dynamically in the center of a massive circular arena stage. They are illuminated by powerful spotlights from above against a backdrop of a packed, colorful stadium crowd under a dramatic, swirling pink, purple, and yellow sky.",
+  "source_prompt": "A lone performer wearing a green and black armored outfit with a glowing blue energy shield on their left arm strikes a dynamic pose in the center of a vast circular arena stage. The scene is dramatically lit by powerful beams of light from above, with a massive crowd filling the surrounding stadium stands. The sky above is a swirling mix of vibrant pink, purple, and yellow clouds, creating an epic and theatrical atmosphere.",
+  "source_title": "Arena Spotlight Performance",
+  "style": "cinematic",
+  "mood": "dramatic, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "arena",
+    "performer",
+    "spotlight",
+    "crowd",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3134,
+  "source_url": "/generated/3134.jpg",
+  "image_url": "/sketches/3724.png",
+  "inverted_image_url": "/sketches-inverted/3724.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:46Z"
+}

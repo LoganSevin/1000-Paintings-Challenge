@@ -1,0 +1,42 @@
+{
+  "number": 2963,
+  "title": "Line sketch: Mechanical Skull Over Sea",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large mechanical skull with exposed gears and glowing eye dominates the foreground, its mouth pouring a vibrant liquid waterfall containing numerous painted eyes that flows into a stormy sea. A small wooden sailing ship navigates the turbulent waters below while distant rocky islands with lighthouses stand under a dark, aurora-filled sky (derived from generated still #2285).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large mechanical skull with exposed gears and glowing eye dominates the foreground, its mouth pouring a vibrant liquid waterfall containing numerous painted eyes that flows into a stormy sea. A small wooden sailing ship navigates the turbulent waters below while distant rocky islands with lighthouses stand under a dark, aurora-filled sky",
+  "inverted_title": "Inverted sketch: Mechanical Skull Over Sea",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large mechanical skull with exposed gears and glowing eye dominates the foreground, its mouth pouring a vibrant liquid waterfall containing numerous painted eyes that flows into a stormy sea. A small wooden sailing ship navigates the turbulent waters below while distant rocky islands with lighthouses stand under a dark, aurora-filled sky (from generated still #2285).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large mechanical skull with exposed gears and glowing eye dominates the foreground, its mouth pouring a vibrant liquid waterfall containing numerous painted eyes that flows into a stormy sea. A small wooden sailing ship navigates the turbulent waters below while distant rocky islands with lighthouses stand under a dark, aurora-filled sky",
+  "source_description": "A large bronze mechanical skull with exposed gears and blue glowing eye dominates the foreground, its mouth pouring a vibrant blue liquid waterfall containing numerous painted eyes that flows into a stormy sea. A small wooden sailing ship navigates the turbulent blue waters below while distant rocky islands with lighthouses stand under a dark, aurora-filled sky.",
+  "source_prompt": "A massive bronze steampunk skeleton skull with intricate gears, blue glowing eye, and TikTok logo on its forehead, positioned at the edge of a cliff overlooking a stormy ocean. Blue liquid pours from its open mouth like a waterfall, carrying dozens of painted eyeballs that flow down toward a small wooden sailing ship. Dark rocky islands with multiple lighthouses in the background under a dramatic night sky with green and purple aurora borealis, dark moody atmosphere, surreal painting style with visible brushstrokes",
+  "source_title": "Mechanical Skull Over Sea",
+  "style": "surreal fantasy",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical skull",
+    "surreal seascape",
+    "cyberpunk skeleton",
+    "aurora sky",
+    "melting eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2285,
+  "source_url": "/generated/2285.jpg",
+  "image_url": "/sketches/2963.png",
+  "inverted_image_url": "/sketches-inverted/2963.png",
+  "curve_count": 68,
+  "built_at": "2026-08-17T00:09:44Z"
+}

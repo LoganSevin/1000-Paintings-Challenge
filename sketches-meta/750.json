@@ -1,0 +1,42 @@
+{
+  "number": 750,
+  "title": "Line sketch: Grinning Goo Emoji",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant 3D rendered spherical character with a wide toothy smile and expressive eyes, covered in splatters and droplets. It appears to be melting or exploding with liquid against a gradient background (derived from painting #944).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant 3D rendered spherical character with a wide toothy smile and expressive eyes, covered in splatters and droplets. It appears to be melting or exploding with liquid against a gradient background",
+  "inverted_title": "Inverted sketch: Grinning Goo Emoji",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant 3D rendered spherical character with a wide toothy smile and expressive eyes, covered in splatters and droplets. It appears to be melting or exploding with liquid against a gradient background (from painting #944).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant 3D rendered spherical character with a wide toothy smile and expressive eyes, covered in splatters and droplets. It appears to be melting or exploding with liquid against a gradient background",
+  "source_description": "A vibrant 3D rendered green spherical character with a wide toothy smile and expressive eyes, covered in orange splatters and droplets. It appears to be melting or exploding with orange liquid against a soft green gradient background.",
+  "source_prompt": "",
+  "source_title": "Grinning Green Goo Emoji",
+  "style": "3D CGI",
+  "mood": "playful energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "emoji",
+    "3D character",
+    "sphere",
+    "splatter",
+    "smiling face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 944,
+  "source_url": "/paintings/944.jpg",
+  "image_url": "/sketches/750.png",
+  "inverted_image_url": "/sketches-inverted/750.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:39Z"
+}

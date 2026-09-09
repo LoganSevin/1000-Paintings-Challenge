@@ -1,0 +1,42 @@
+{
+  "number": 4514,
+  "title": "Line sketch: The Alchemist's Apothecary",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned, -haired woman with a large snake coiled around her body stands behind an alchemist's workbench filled with potions, scales, and open books. In the foreground, three hooded figures in white, and white robes study magical texts and glowing vials under moonlight streaming through a stained-glass window with a serpent design (derived from generated still #3934).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned, -haired woman with a large snake coiled around her body stands behind an alchemist's workbench filled with potions, scales, and open books. In the foreground, three hooded figures in white, and white robes study magical texts and glowing vials under moonlight streaming through a stained-glass window with a serpent design",
+  "inverted_title": "Inverted sketch: The Alchemist's Apothecary",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned, -haired woman with a large snake coiled around her body stands behind an alchemist's workbench filled with potions, scales, and open books. In the foreground, three hooded figures in white, and white robes study magical texts and glowing vials under moonlight streaming through a stained-glass window with a serpent design (from generated still #3934).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned, -haired woman with a large snake coiled around her body stands behind an alchemist's workbench filled with potions, scales, and open books. In the foreground, three hooded figures in white, and white robes study magical texts and glowing vials under moonlight streaming through a stained-glass window with a serpent design",
+  "source_description": "A blue-skinned, red-haired woman with a large green snake coiled around her body stands behind an alchemist's workbench filled with potions, scales, and open books. In the foreground, three hooded figures in white, red, and white robes study magical texts and glowing vials under moonlight streaming through a stained-glass window with a serpent design.",
+  "source_prompt": "A mystical nighttime scene inside a gothic apothecary tower. A blue-skinned woman with elaborate red headdress and white-and-gold robes stands behind a cluttered wooden workbench, a large vibrant green snake coiled around her shoulders and arms. In front of her, three hooded scholars in flowing robes examine glowing magical potions, ancient tomes, and alchemical tools. Shelves filled with colorful potion bottles line the walls, a tall arched window shows a serpent motif against a twilight sky, scrolls and lanterns hang from above, rich detailed fantasy style with dramatic lighting.",
+  "source_title": "The Alchemist's Apothecary",
+  "style": "fantasy illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "snake",
+    "apothecary",
+    "magic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3934,
+  "source_url": "/generated/3934.jpg",
+  "image_url": "/sketches/4514.png",
+  "inverted_image_url": "/sketches-inverted/4514.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:48Z"
+}

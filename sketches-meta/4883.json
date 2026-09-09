@@ -1,0 +1,42 @@
+{
+  "number": 4883,
+  "title": "Line sketch: Forest Enchantress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with long wavy hair stands centered in a magical forest, wearing an elaborate sheer gown composed of flowing, and fabric interwoven with living vines, flowers, and leaves. She wears a flower crown and is surrounded by glowing light rays, sparkling orbs, and butterflies in a lush, enchanted woodland setting (derived from generated still #4318).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with long wavy hair stands centered in a magical forest, wearing an elaborate sheer gown composed of flowing, and fabric interwoven with living vines, flowers, and leaves. She wears a flower crown and is surrounded by glowing light rays, sparkling orbs, and butterflies in a lush, enchanted woodland setting",
+  "inverted_title": "Inverted sketch: Forest Enchantress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with long wavy hair stands centered in a magical forest, wearing an elaborate sheer gown composed of flowing, and fabric interwoven with living vines, flowers, and leaves. She wears a flower crown and is surrounded by glowing light rays, sparkling orbs, and butterflies in a lush, enchanted woodland setting (from generated still #4318).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with long wavy hair stands centered in a magical forest, wearing an elaborate sheer gown composed of flowing, and fabric interwoven with living vines, flowers, and leaves. She wears a flower crown and is surrounded by glowing light rays, sparkling orbs, and butterflies in a lush, enchanted woodland setting",
+  "source_description": "A young woman with long wavy brown hair stands centered in a magical forest, wearing an elaborate sheer gown composed of flowing emerald green, teal, and iridescent fabric interwoven with living vines, flowers, and leaves. She wears a colorful flower crown and is surrounded by glowing light rays, sparkling orbs, and butterflies in a lush, enchanted woodland setting.",
+  "source_prompt": "A beautiful young woman with fair skin and long flowing wavy brown hair stands in the center of a magical sunlit forest, wearing an intricate fantasy gown made of sheer layered emerald green, teal, and iridescent fabric that clings to her body, heavily adorned with living vines, colorful wildflowers, and leaves. She wears a vibrant flower crown of purple, pink, blue, and orange blossoms. Dramatic god rays pierce through a dense canopy, illuminating floating glowing orbs and sparkles. Butterflies flutter around her. Highly detailed, ethereal fantasy atmosphere, cinematic lighting, iridescent fabric, magical mood, dense foliage and mossy ground",
+  "source_title": "Forest Enchantress",
+  "style": "Fantasy Art",
+  "mood": "Magical, Ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy woman",
+    "flower crown",
+    "enchanted forest",
+    "glowing lights",
+    "nature dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4318,
+  "source_url": "/generated/4318.webp",
+  "image_url": "/sketches/4883.png",
+  "inverted_image_url": "/sketches-inverted/4883.png",
+  "curve_count": 265,
+  "built_at": "2026-08-17T00:09:49Z"
+}

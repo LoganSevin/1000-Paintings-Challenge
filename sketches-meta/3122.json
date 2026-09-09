@@ -1,0 +1,42 @@
+{
+  "number": 3122,
+  "title": "Line sketch: Wanderer in Ruined Hall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an futuristic jumpsuit walks through a decaying, post-apocalyptic hallway with a broken ceiling revealing a desert at sunset. She holds a glowing device in one hand while touching a damaged picture frame on the crumbling wall, surrounded by scattered debris, old film equipment, and faded murals (derived from generated still #2459).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an futuristic jumpsuit walks through a decaying, post-apocalyptic hallway with a broken ceiling revealing a desert at sunset. She holds a glowing device in one hand while touching a damaged picture frame on the crumbling wall, surrounded by scattered debris, old film equipment, and faded murals",
+  "inverted_title": "Inverted sketch: Wanderer in Ruined Hall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an futuristic jumpsuit walks through a decaying, post-apocalyptic hallway with a broken ceiling revealing a desert at sunset. She holds a glowing device in one hand while touching a damaged picture frame on the crumbling wall, surrounded by scattered debris, old film equipment, and faded murals (from generated still #2459).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an futuristic jumpsuit walks through a decaying, post-apocalyptic hallway with a broken ceiling revealing a desert at sunset. She holds a glowing device in one hand while touching a damaged picture frame on the crumbling wall, surrounded by scattered debris, old film equipment, and faded murals",
+  "source_description": "A woman in an orange futuristic jumpsuit walks through a decaying, post-apocalyptic hallway with a broken ceiling revealing a desert at sunset. She holds a glowing green device in one hand while touching a damaged picture frame on the crumbling wall, surrounded by scattered debris, old film equipment, and faded murals.",
+  "source_prompt": "A lone female explorer in a bright orange jumpsuit walks through a crumbling concrete hallway that opens into a vast desert at sunset. The ceiling is destroyed exposing a purple and pink sky. She holds a glowing green device and touches a broken golden picture frame on the decaying wall. Old film projector, scattered paintings, broken pillars and cracked asphalt road with yellow lines cover the floor. Surreal blend of interior ruin and desert landscape, cinematic lighting, highly detailed digital painting.",
+  "source_title": "Wanderer in Ruined Hall",
+  "style": "cinematic surrealism",
+  "mood": "melancholy exploration",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "surreal",
+    "desert",
+    "ruins",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2459,
+  "source_url": "/generated/2459.jpg",
+  "image_url": "/sketches/3122.png",
+  "inverted_image_url": "/sketches-inverted/3122.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:45Z"
+}

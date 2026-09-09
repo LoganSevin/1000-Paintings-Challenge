@@ -1,0 +1,42 @@
+{
+  "number": 3332,
+  "title": "Line sketch: Surreal Moon Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cracked circular form resembling a blood moon dominates the center, containing a surreal composite face split between a -skinned figure with a eye on the left and a black Anubis-like dog head with eyes on the right. A vibrant sits at the center where the faces meet, with paint dripping down from the circle against a dark, ruined landscape with dead trees under a starry night sky (derived from generated still #2727).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cracked circular form resembling a blood moon dominates the center, containing a surreal composite face split between a -skinned figure with a eye on the left and a black Anubis-like dog head with eyes on the right. A vibrant sits at the center where the faces meet, with paint dripping down from the circle against a dark, ruined landscape with dead trees under a starry night sky",
+  "inverted_title": "Inverted sketch: Surreal Moon Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cracked circular form resembling a blood moon dominates the center, containing a surreal composite face split between a -skinned figure with a eye on the left and a black Anubis-like dog head with eyes on the right. A vibrant sits at the center where the faces meet, with paint dripping down from the circle against a dark, ruined landscape with dead trees under a starry night sky (from generated still #2727).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cracked circular form resembling a blood moon dominates the center, containing a surreal composite face split between a -skinned figure with a eye on the left and a black Anubis-like dog head with eyes on the right. A vibrant sits at the center where the faces meet, with paint dripping down from the circle against a dark, ruined landscape with dead trees under a starry night sky",
+  "source_description": "A large cracked circular form resembling a blood moon dominates the center, containing a surreal composite face split between a green-skinned figure with a yellow eye on the left and a black Anubis-like dog head with red eyes on the right. A vibrant red rose sits at the center where the faces meet, with colorful paint dripping down from the circle against a dark, ruined landscape with dead trees under a starry night sky.",
+  "source_prompt": "Surreal dark fantasy painting featuring a massive cracked circular moon in a starry night sky. Inside the moon is a split composite face: on the left a green-skinned figure with golden eye, on the right a black jackal-headed Anubis with glowing red eyes. A vibrant red rose blooms at the center where the two halves meet. Colorful paint in blue, green, orange and red drips heavily from the bottom of the circle. Foreground shows a desolate landscape with dead twisted trees and ruined buildings.",
+  "source_title": "Surreal Moon Eclipse",
+  "style": "surrealism",
+  "mood": "eerie dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "anubis",
+    "moon",
+    "dripping paint",
+    "ruined landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2727,
+  "source_url": "/generated/2727.jpg",
+  "image_url": "/sketches/3332.png",
+  "inverted_image_url": "/sketches-inverted/3332.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

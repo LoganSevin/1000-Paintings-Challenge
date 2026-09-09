@@ -1,0 +1,42 @@
+{
+  "number": 2954,
+  "title": "Line sketch: Cosmic Piano Conjurer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure in a flowing dark robe sits at a black grand piano, hands raised as swirling ribbons of cosmic energy erupt from the instrument. The energy transforms into musical notes, spirals, and glowing particles against a pitch-black background filled with concentric rings and starry specks (derived from generated still #2266).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure in a flowing dark robe sits at a black grand piano, hands raised as swirling ribbons of cosmic energy erupt from the instrument. The energy transforms into musical notes, spirals, and glowing particles against a pitch-black background filled with concentric rings and starry specks",
+  "inverted_title": "Inverted sketch: Cosmic Piano Conjurer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure in a flowing dark robe sits at a black grand piano, hands raised as swirling ribbons of cosmic energy erupt from the instrument. The energy transforms into musical notes, spirals, and glowing particles against a pitch-black background filled with concentric rings and starry specks (from generated still #2266).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure in a flowing dark robe sits at a black grand piano, hands raised as swirling ribbons of cosmic energy erupt from the instrument. The energy transforms into musical notes, spirals, and glowing particles against a pitch-black background filled with concentric rings and starry specks",
+  "source_description": "A hooded figure in a flowing dark robe sits at a black grand piano, hands raised as swirling ribbons of colorful cosmic energy erupt from the instrument. The energy transforms into musical notes, spirals, and glowing particles against a pitch-black background filled with concentric rings and starry specks.",
+  "source_prompt": "A hooded sorcerer in ornate dark robes playing a sleek black grand piano in a void of deep space. From the piano bursts a swirling vortex of colorful ribbons in teal, purple, magenta and gold containing musical notes, glowing spirals, and cosmic particles. Concentric ripple rings emanate from the scene, dark mystical atmosphere, dramatic lighting, surreal fantasy style.",
+  "source_title": "Cosmic Piano Conjurer",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grand piano",
+    "hooded figure",
+    "cosmic energy",
+    "musical magic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2266,
+  "source_url": "/generated/2266.jpg",
+  "image_url": "/sketches/2954.png",
+  "inverted_image_url": "/sketches-inverted/2954.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

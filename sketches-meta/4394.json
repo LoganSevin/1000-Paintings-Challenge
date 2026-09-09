@@ -1,0 +1,42 @@
+{
+  "number": 4394,
+  "title": "Line sketch: Alien Mage Council",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grey alien in ornate white and robes sits centrally holding a glowing orb, flanked by a small alien holding a orb and a tall alien balancing three stacked orbs on its head. They stand within a circular chamber filled with magical artifacts, floating glowing orbs, open scrolls, books, and crystals arranged on tiered stone shelves (derived from generated still #3813).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grey alien in ornate white and robes sits centrally holding a glowing orb, flanked by a small alien holding a orb and a tall alien balancing three stacked orbs on its head. They stand within a circular chamber filled with magical artifacts, floating glowing orbs, open scrolls, books, and crystals arranged on tiered stone shelves",
+  "inverted_title": "Inverted sketch: Alien Mage Council",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grey alien in ornate white and robes sits centrally holding a glowing orb, flanked by a small alien holding a orb and a tall alien balancing three stacked orbs on its head. They stand within a circular chamber filled with magical artifacts, floating glowing orbs, open scrolls, books, and crystals arranged on tiered stone shelves (from generated still #3813).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grey alien in ornate white and robes sits centrally holding a glowing orb, flanked by a small alien holding a orb and a tall alien balancing three stacked orbs on its head. They stand within a circular chamber filled with magical artifacts, floating glowing orbs, open scrolls, books, and crystals arranged on tiered stone shelves",
+  "source_description": "A grey alien in ornate white and gold robes sits centrally holding a glowing green orb, flanked by a small red alien holding a purple orb and a tall blue alien balancing three stacked orbs on its head. They stand within a circular purple chamber filled with magical artifacts, floating glowing orbs, open scrolls, red books, and crystals arranged on tiered stone shelves.",
+  "source_prompt": "A grey alien wizard wearing ornate cream and gold robes sits in the center of a circular purple arcane chamber, holding a glowing green orb. To his left stands a small red alien holding a purple orb, to his right a tall slender blue alien with three glowing orbs stacked on its head. The room is filled with floating magical orbs in red, green and blue, open scrolls with diagrams, red books, glowing crystals on stone shelves, mystical symbols on the floor, and scattered green leaves, in a detailed fantasy illustration style.",
+  "source_title": "Alien Mage Council",
+  "style": "fantasy illustration",
+  "mood": "mystical, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "aliens",
+    "magic",
+    "orb",
+    "arcane library",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3813,
+  "source_url": "/generated/3813.jpg",
+  "image_url": "/sketches/4394.png",
+  "inverted_image_url": "/sketches-inverted/4394.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:48Z"
+}

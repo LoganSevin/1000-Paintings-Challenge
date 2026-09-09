@@ -1,0 +1,42 @@
+{
+  "number": 171,
+  "title": "Line sketch: Vibrant Swirling Abstract Forms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic ribbon-like structures twist and curve through a cosmic space, interwoven with glossy and spheres. The surreal composition blends organic motion with metallic textures, creating a playful yet futuristic 3D visual experience (derived from painting #210).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic ribbon-like structures twist and curve through a cosmic space, interwoven with glossy and spheres. The surreal composition blends organic motion with metallic textures, creating a playful yet futuristic 3D visual experience",
+  "inverted_title": "Inverted sketch: Vibrant Swirling Abstract Forms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic ribbon-like structures twist and curve through a cosmic space, interwoven with glossy and spheres. The surreal composition blends organic motion with metallic textures, creating a playful yet futuristic 3D visual experience (from painting #210).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic ribbon-like structures twist and curve through a cosmic space, interwoven with glossy and spheres. The surreal composition blends organic motion with metallic textures, creating a playful yet futuristic 3D visual experience",
+  "source_description": "Dynamic green ribbon-like structures twist and curve through a cosmic purple space, interwoven with glossy orange and magenta spheres. The surreal composition blends organic motion with metallic textures, creating a playful yet futuristic 3D visual experience.",
+  "source_prompt": "",
+  "source_title": "Vibrant Swirling Abstract Forms",
+  "style": "3D Digital Art",
+  "mood": "Vibrant and Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital 3D Rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "surreal",
+    "3D rendering",
+    "cosmic",
+    "organic forms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 210,
+  "source_url": "/paintings/210.jpg",
+  "image_url": "/sketches/171.png",
+  "inverted_image_url": "/sketches-inverted/171.png",
+  "curve_count": 176,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -98,6 +98,45 @@ def _read_key_file(path: Path) -> str:
         return ""
 
 
+def _is_cloud_host() -> bool:
+    """True on Render (and similar) where start_server.bat does not apply."""
+    return bool(
+        (os.environ.get("RENDER") or "").strip()
+        or (os.environ.get("RENDER_EXTERNAL_URL") or "").strip()
+        or (os.environ.get("PUBLIC_URL") or "").strip()
+    )
+
+
+def _key_file_candidates() -> list[Path]:
+    return [
+        GALLERY / "data" / "xai-api-key.txt",
+        GALLERY / ".xai-api-key",
+        Path.home() / ".grok" / "api-key.txt",
+        Path.home() / ".config" / "grok" / "api-key.txt",
+        # Render Secret Files mount here (Environment → Secret Files)
+        Path("/etc/secrets/xai-api-key"),
+        Path("/etc/secrets/xai-api-key.txt"),
+        Path("/etc/secrets/XAI_API_KEY"),
+    ]
+
+
+def api_key_setup_hint() -> str:
+    """User-facing help when no key is configured (local PC vs Render/cloud)."""
+    if _is_cloud_host():
+        return (
+            "No API key on this cloud server. In the Render dashboard: open your Web Service → "
+            "Environment → Add Environment Variable → name exactly XAI_API_KEY → paste your "
+            "xai-… key from https://console.x.ai/team/default/api-keys → Save Changes "
+            "(triggers redeploy). Optional: set PUBLIC_URL to your public site URL. "
+            "When /api/health shows api_configured: true, Spellforge works on any phone."
+        )
+    return (
+        "No API key. Set XAI_API_KEY or authenticate with Grok CLI (grok). "
+        "Easiest on a new computer: create a key at https://console.x.ai/team/default/api-keys "
+        "and save it as gallery/data/xai-api-key.txt, then run start_server.bat again."
+    )
+
+
 def bootstrap_xai_api_key_env() -> str:
     """
     If XAI_API_KEY is unset, load from portable key files into os.environ.
@@ -113,12 +152,7 @@ def bootstrap_xai_api_key_env() -> str:
         os.environ["XAI_API_KEY"] = existing
         return "environment"
 
-    for path in (
-        GALLERY / "data" / "xai-api-key.txt",
-        GALLERY / ".xai-api-key",
-        Path.home() / ".grok" / "api-key.txt",
-        Path.home() / ".config" / "grok" / "api-key.txt",
-    ):
+    for path in _key_file_candidates():
         file_key = _read_key_file(path)
         if file_key:
             os.environ["XAI_API_KEY"] = file_key
@@ -253,13 +287,8 @@ def get_api_key(*, allow_oauth: bool = True, force_refresh: bool = False) -> str
     if env_key:
         return env_key
 
-    # 2) Portable project-local key file (do not commit)
-    for path in (
-        GALLERY / "data" / "xai-api-key.txt",
-        GALLERY / ".xai-api-key",
-        Path.home() / ".grok" / "api-key.txt",
-        Path.home() / ".config" / "grok" / "api-key.txt",
-    ):
+    # 2) Portable project-local / cloud secret key files (do not commit)
+    for path in _key_file_candidates():
         file_key = _read_key_file(path)
         if not file_key:
             continue
@@ -275,13 +304,10 @@ def get_api_key(*, allow_oauth: bool = True, force_refresh: bool = False) -> str
             return k
 
     if not allow_oauth:
-        raise ValueError(
-            "No API key. Set XAI_API_KEY or put your console key in "
-            "gallery/data/xai-api-key.txt (from https://console.x.ai → API Keys), "
-            "then restart start_server.bat."
-        )
+        raise ValueError(api_key_setup_hint())
 
     # 4) Grok CLI OAuth session — refresh if near expiry / forced
+    # (Usually unavailable on Render; local PC only.)
     for entry_key, entry in entries:
         k = _clean_key_string(entry.get("key") or "")
         if not k:
@@ -294,17 +320,14 @@ def get_api_key(*, allow_oauth: bool = True, force_refresh: bool = False) -> str
         if k:
             return k
 
-    # Same wording as legacy server so UI paths stay consistent
-    raise ValueError(
-        "No API key. Set XAI_API_KEY or authenticate with Grok CLI (grok).\n"
-        "Easiest on a new computer: create a key at https://console.x.ai/team/default/api-keys "
-        "and save it as gallery/data/xai-api-key.txt, then run start_server.bat again."
-    )
+    raise ValueError(api_key_setup_hint())
 
 
 def friendly_xai_auth_error(exc: BaseException | str) -> str:
     msg = str(exc or "")
     low = msg.lower()
+    if "no api key" in low:
+        return api_key_setup_hint()
     if (
         "oauth2" in low
         or "access token" in low
@@ -314,6 +337,13 @@ def friendly_xai_auth_error(exc: BaseException | str) -> str:
         or "unauthenticated" in low
         or "401" in low
     ):
+        if _is_cloud_host():
+            return (
+                "xAI rejected the credential on this cloud host. Set a real console API key "
+                "(not a Grok CLI OAuth token) as environment variable XAI_API_KEY=xai-… in the "
+                "Render dashboard → Environment, then Save Changes and wait for redeploy.\n"
+                f"(Original: {msg[:240]})"
+            )
         return (
             "xAI rejected the login token (OAuth). On this computer, use a real API key "
             "instead of relying on another PC's Grok login:\n"

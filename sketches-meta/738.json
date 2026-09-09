@@ -1,0 +1,42 @@
+{
+  "number": 738,
+  "title": "Line sketch: Intense Cat Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-detailed close-up of a feline eye with striking iris and intricate pupil. The surrounding fur and whiskers are rendered in meticulous black and white linework, creating a sharp contrast with the vibrant colored eye (derived from painting #932).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-detailed close-up of a feline eye with striking iris and intricate pupil. The surrounding fur and whiskers are rendered in meticulous black and white linework, creating a sharp contrast with the vibrant colored eye",
+  "inverted_title": "Inverted sketch: Intense Cat Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-detailed close-up of a feline eye with striking iris and intricate pupil. The surrounding fur and whiskers are rendered in meticulous black and white linework, creating a sharp contrast with the vibrant colored eye (from painting #932).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-detailed close-up of a feline eye with striking iris and intricate pupil. The surrounding fur and whiskers are rendered in meticulous black and white linework, creating a sharp contrast with the vibrant colored eye",
+  "source_description": "A hyper-detailed close-up of a feline eye with striking green iris and intricate pupil. The surrounding fur and whiskers are rendered in meticulous black and white linework, creating a sharp contrast with the vibrant colored eye.",
+  "source_prompt": "",
+  "source_title": "Intense Green Cat Eye",
+  "style": "Realistic illustration",
+  "mood": "Hypnotic and intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Ink and watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat eye",
+    "iris",
+    "detailed drawing",
+    "animal art",
+    "realistic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 932,
+  "source_url": "/paintings/932.jpg",
+  "image_url": "/sketches/738.png",
+  "inverted_image_url": "/sketches-inverted/738.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4946,
+  "title": "Line sketch: Bloodstained Hallway composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit artist's studio contains a wooden desk with a radio, cup, and keys. A large surreal composition leans against the wall, depicting a brutal scene in a blood-splattered hallway where a uniformed man strikes a victim with an axe while another man holds the victim (derived from generated still #4383).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit artist's studio contains a wooden desk with a radio, cup, and keys. A large surreal composition leans against the wall, depicting a brutal scene in a blood-splattered hallway where a uniformed man strikes a victim with an axe while another man holds the victim",
+  "inverted_title": "Inverted sketch: Bloodstained Hallway composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit artist's studio contains a wooden desk with a radio, cup, and keys. A large surreal composition leans against the wall, depicting a brutal scene in a blood-splattered hallway where a uniformed man strikes a victim with an axe while another man holds the victim (from generated still #4383).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit artist's studio contains a wooden desk with a radio, cup, and keys. A large surreal composition leans against the wall, depicting a brutal scene in a blood-splattered hallway where a uniformed man strikes a victim with an axe while another man holds the victim",
+  "source_description": "A dimly lit artist's studio contains a wooden desk with a radio, cup, and keys. A large surreal painting leans against the wall, depicting a brutal scene in a blood-splattered hallway where a uniformed man strikes a victim with an axe while another man holds the victim.",
+  "source_prompt": "A moody artist's studio with a wooden desk holding an old radio, cup, and keys in the foreground. A massive painting leans against the wall showing a horrific violent scene inside a long institutional hallway with green walls, where a man in dark uniform and cap swings an axe into a victim's head as blood sprays and pools on the floor, another man restrains the victim, dramatic overhead lighting with red emergency glow, cinematic and unsettling atmosphere.",
+  "source_title": "Bloodstained Hallway Painting",
+  "style": "realistic",
+  "mood": "sinister, violent",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "violence",
+    "horror",
+    "studio",
+    "hallway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4383,
+  "source_url": "/generated/4383.jpg",
+  "image_url": "/sketches/4946.png",
+  "inverted_image_url": "/sketches-inverted/4946.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:49Z"
+}

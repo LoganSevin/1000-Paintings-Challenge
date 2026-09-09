@@ -1,0 +1,42 @@
+{
+  "number": 2981,
+  "title": "Line sketch: Cosmic Mosaic Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with dark skin whose face, neck, and shoulders are composed of geometric mosaic tiles and digital fragments. Her hair is an explosion of vibrant flowers, social media icons including TikTok logos, hearts, and floating geometric shapes set against a cosmic background of nebulae, stars, and a glowing comet (derived from generated still #2303).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with dark skin whose face, neck, and shoulders are composed of geometric mosaic tiles and digital fragments. Her hair is an explosion of vibrant flowers, social media icons including TikTok logos, hearts, and floating geometric shapes set against a cosmic background of nebulae, stars, and a glowing comet",
+  "inverted_title": "Inverted sketch: Cosmic Mosaic Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with dark skin whose face, neck, and shoulders are composed of geometric mosaic tiles and digital fragments. Her hair is an explosion of vibrant flowers, social media icons including TikTok logos, hearts, and floating geometric shapes set against a cosmic background of nebulae, stars, and a glowing comet (from generated still #2303).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with dark skin whose face, neck, and shoulders are composed of geometric mosaic tiles and digital fragments. Her hair is an explosion of vibrant flowers, social media icons including TikTok logos, hearts, and floating geometric shapes set against a cosmic background of nebulae, stars, and a glowing comet",
+  "source_description": "A surreal portrait of a woman with dark skin whose face, neck, and shoulders are composed of colorful geometric mosaic tiles and digital fragments. Her hair is an explosion of vibrant flowers, social media icons including TikTok logos, hearts, and floating geometric shapes set against a cosmic background of nebulae, stars, and a glowing comet.",
+  "source_prompt": "Surreal portrait of a beautiful Black woman whose face and body are fragmented into a vibrant mosaic of colorful geometric tiles and digital patterns. Her hair explodes into a crown of pink cosmos flowers, TikTok logos, hearts, and floating shapes. She emerges from a pond of lily pads with lotus flowers, set against a dramatic cosmic nebula and comet sky in rich psychedelic colors, intricate details, vibrant fantasy style.",
+  "source_title": "Cosmic Mosaic Muse",
+  "style": "surreal digital collage",
+  "mood": "ethereal vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "cosmic",
+    "floral",
+    "surreal",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2303,
+  "source_url": "/generated/2303.jpg",
+  "image_url": "/sketches/2981.png",
+  "inverted_image_url": "/sketches-inverted/2981.png",
+  "curve_count": 152,
+  "built_at": "2026-08-17T00:09:44Z"
+}

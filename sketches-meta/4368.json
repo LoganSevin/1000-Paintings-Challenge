@@ -1,0 +1,42 @@
+{
+  "number": 4368,
+  "title": "Line sketch: Brain in Crystal Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent crystal sphere sits on a black pedestal in the center of a foggy cyberpunk street. Inside the sphere, a glowing brain-like structure with two swirling tendrils in, and rises from a textured stem, while vibrant paint drips heavily down the sphere's surface and from the top of the image (derived from generated still #3787).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent crystal sphere sits on a black pedestal in the center of a foggy cyberpunk street. Inside the sphere, a glowing brain-like structure with two swirling tendrils in, and rises from a textured stem, while vibrant paint drips heavily down the sphere's surface and from the top of the image",
+  "inverted_title": "Inverted sketch: Brain in Crystal Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent crystal sphere sits on a black pedestal in the center of a foggy cyberpunk street. Inside the sphere, a glowing brain-like structure with two swirling tendrils in, and rises from a textured stem, while vibrant paint drips heavily down the sphere's surface and from the top of the image (from generated still #3787).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent crystal sphere sits on a black pedestal in the center of a foggy cyberpunk street. Inside the sphere, a glowing brain-like structure with two swirling tendrils in, and rises from a textured stem, while vibrant paint drips heavily down the sphere's surface and from the top of the image",
+  "source_description": "A large transparent crystal sphere sits on a black pedestal in the center of a foggy cyberpunk street. Inside the sphere, a glowing brain-like structure with two swirling neon tendrils in yellow, pink, and purple rises from a textured stem, while vibrant paint drips heavily down the sphere's surface and from the top of the image.",
+  "source_prompt": "A surreal cyberpunk scene featuring a massive transparent crystal sphere on a dark pedestal in the middle of a foggy futuristic city street at night. Inside the sphere is a glowing organic brain-like structure with two large swirling neon tendrils in yellow, pink, and purple, connected to a textured stem. Vibrant neon paint in pink, yellow, green, and purple drips heavily down the surface of the sphere and from the top of the frame. Cinematic lighting, moody atmosphere, highly detailed digital painting.",
+  "source_title": "Neon Brain in Crystal Sphere",
+  "style": "cyberpunk surrealism",
+  "mood": "vibrant dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "brain",
+    "dripping paint",
+    "crystal sphere",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3787,
+  "source_url": "/generated/3787.jpg",
+  "image_url": "/sketches/4368.png",
+  "inverted_image_url": "/sketches-inverted/4368.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:48Z"
+}

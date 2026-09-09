@@ -1,0 +1,42 @@
+{
+  "number": 1684,
+  "title": "Line sketch: Cosmic White Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous white cat with vibrant eyes sits upright in the foreground, gazing toward the viewer. Behind it, a swirling vortex of light radiates outward, featuring stylized human and Buddha-like faces floating in a psychedelic cosmic stream (derived from generated still #902).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous white cat with vibrant eyes sits upright in the foreground, gazing toward the viewer. Behind it, a swirling vortex of light radiates outward, featuring stylized human and Buddha-like faces floating in a psychedelic cosmic stream",
+  "inverted_title": "Inverted sketch: Cosmic White Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous white cat with vibrant eyes sits upright in the foreground, gazing toward the viewer. Behind it, a swirling vortex of light radiates outward, featuring stylized human and Buddha-like faces floating in a psychedelic cosmic stream (from generated still #902).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous white cat with vibrant eyes sits upright in the foreground, gazing toward the viewer. Behind it, a swirling vortex of light radiates outward, featuring stylized human and Buddha-like faces floating in a psychedelic cosmic stream",
+  "source_description": "A luminous white cat with vibrant green eyes sits upright in the foreground, gazing toward the viewer. Behind it, a swirling vortex of colorful light radiates outward, featuring stylized human and Buddha-like faces floating in a psychedelic cosmic stream.",
+  "source_prompt": "",
+  "source_title": "Cosmic White Cat",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "white cat",
+    "cosmic energy",
+    "psychedelic",
+    "buddha faces",
+    "swirling vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 902,
+  "source_url": "/generated/902.jpg",
+  "image_url": "/sketches/1684.png",
+  "inverted_image_url": "/sketches-inverted/1684.png",
+  "curve_count": 178,
+  "built_at": "2026-08-17T00:09:41Z"
+}

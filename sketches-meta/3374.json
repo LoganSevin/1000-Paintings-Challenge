@@ -1,0 +1,42 @@
+{
+  "number": 3374,
+  "title": "Line sketch: Lovers by the Lily Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A romantic couple stands intimately in a lily pond, the man in a ornate and historical jacket with tattoos visible on his leg, the woman in a flowing and white clover-patterned dress whispering in his ear. The scene is framed within an old television screen, surrounded by transparent bubbles containing small images, with a classical portrait of a woman floating in the background (derived from generated still #2775).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A romantic couple stands intimately in a lily pond, the man in a ornate and historical jacket with tattoos visible on his leg, the woman in a flowing and white clover-patterned dress whispering in his ear. The scene is framed within an old television screen, surrounded by transparent bubbles containing small images, with a classical portrait of a woman floating in the background",
+  "inverted_title": "Inverted sketch: Lovers by the Lily Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A romantic couple stands intimately in a lily pond, the man in a ornate and historical jacket with tattoos visible on his leg, the woman in a flowing and white clover-patterned dress whispering in his ear. The scene is framed within an old television screen, surrounded by transparent bubbles containing small images, with a classical portrait of a woman floating in the background (from generated still #2775).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A romantic couple stands intimately in a lily pond, the man in a ornate and historical jacket with tattoos visible on his leg, the woman in a flowing and white clover-patterned dress whispering in his ear. The scene is framed within an old television screen, surrounded by transparent bubbles containing small images, with a classical portrait of a woman floating in the background",
+  "source_description": "A romantic couple stands intimately in a lily pond, the man in a ornate blue and green historical jacket with tattoos visible on his leg, the woman in a flowing green and white clover-patterned dress whispering in his ear. The scene is framed within an old television screen, surrounded by transparent bubbles containing small images, with a classical portrait of a woman floating in the background.",
+  "source_prompt": "A romantic couple standing in a lily pond, the man wearing an ornate blue historical jacket with green shirt and black pants with visible tattoos on his leg, the woman in a delicate green and white dress with clover patterns and flower crown whispering into his ear, soft sunset lighting over a serene lake with weeping willow trees, surrounded by floating transparent bubbles containing tiny images, a classical female portrait floating in the background, the entire scene displayed inside an old wooden television set frame, surreal and painterly style.",
+  "source_title": "Lovers by the Lily Pond",
+  "style": "surreal romanticism",
+  "mood": "dreamlike romantic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "romantic couple",
+    "surreal scene",
+    "vintage TV frame",
+    "lily pond",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2775,
+  "source_url": "/generated/2775.jpg",
+  "image_url": "/sketches/3374.png",
+  "inverted_image_url": "/sketches-inverted/3374.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:45Z"
+}

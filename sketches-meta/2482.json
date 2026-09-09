@@ -1,0 +1,42 @@
+{
+  "number": 2482,
+  "title": "Line sketch: Malice Cosmic Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition features a large celestial orb with a detailed human eye and eyebrow on the left, radiating spikes and sparkles. A circular portal reveals a fluffy creature with a mustache and tongue sticking out, while a curly-haired youth gazes upward from the bottom right against a swirling cosmic background with flowers and stars. The word 'Malice' appears in dripping white letters at the bottom (derived from generated still #1717).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition features a large celestial orb with a detailed human eye and eyebrow on the left, radiating spikes and sparkles. A circular portal reveals a fluffy creature with a mustache and tongue sticking out, while a curly-haired youth gazes upward from the bottom right against a swirling cosmic background with flowers and stars. The word 'Malice' appears in dripping white letters at the bottom",
+  "inverted_title": "Inverted sketch: Malice Cosmic Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition features a large celestial orb with a detailed human eye and eyebrow on the left, radiating spikes and sparkles. A circular portal reveals a fluffy creature with a mustache and tongue sticking out, while a curly-haired youth gazes upward from the bottom right against a swirling cosmic background with flowers and stars. The word 'Malice' appears in dripping white letters at the bottom (from generated still #1717).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition features a large celestial orb with a detailed human eye and eyebrow on the left, radiating spikes and sparkles. A circular portal reveals a fluffy creature with a mustache and tongue sticking out, while a curly-haired youth gazes upward from the bottom right against a swirling cosmic background with flowers and stars. The word 'Malice' appears in dripping white letters at the bottom",
+  "source_description": "A vibrant surreal painting features a large green celestial orb with a detailed human eye and eyebrow on the left, radiating purple spikes and golden sparkles. A circular portal reveals a fluffy green creature with a pink mustache and tongue sticking out, while a curly-haired youth gazes upward from the bottom right against a swirling cosmic background with pink flowers and stars. The word 'Malice' appears in dripping white letters at the bottom.",
+  "source_prompt": "",
+  "source_title": "Malice Cosmic Portrait",
+  "style": "surreal digital art",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "orb",
+    "mustache creature",
+    "celestial eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1717,
+  "source_url": "/generated/1717.jpg",
+  "image_url": "/sketches/2482.png",
+  "inverted_image_url": "/sketches-inverted/2482.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:43Z"
+}

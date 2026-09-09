@@ -1,0 +1,42 @@
+{
+  "number": 4738,
+  "title": "Line sketch: Ruined Cliffside Stage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dilapidated stone platform with broken columns, wooden scaffolding, and tattered curtains sits on the edge of a crumbling cliff glowing with cracks. In the background, a vast fantasy landscape unfolds with mountains, a distant castle on a cliff, a stormy sea, and flying creatures under a dramatic twilight sky with swirling patterns (derived from generated still #4168).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dilapidated stone platform with broken columns, wooden scaffolding, and tattered curtains sits on the edge of a crumbling cliff glowing with cracks. In the background, a vast fantasy landscape unfolds with mountains, a distant castle on a cliff, a stormy sea, and flying creatures under a dramatic twilight sky with swirling patterns",
+  "inverted_title": "Inverted sketch: Ruined Cliffside Stage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dilapidated stone platform with broken columns, wooden scaffolding, and tattered curtains sits on the edge of a crumbling cliff glowing with cracks. In the background, a vast fantasy landscape unfolds with mountains, a distant castle on a cliff, a stormy sea, and flying creatures under a dramatic twilight sky with swirling patterns (from generated still #4168).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dilapidated stone platform with broken columns, wooden scaffolding, and tattered curtains sits on the edge of a crumbling cliff glowing with cracks. In the background, a vast fantasy landscape unfolds with mountains, a distant castle on a cliff, a stormy sea, and flying creatures under a dramatic twilight sky with swirling patterns",
+  "source_description": "A dilapidated stone platform with broken columns, wooden scaffolding, and tattered red curtains sits on the edge of a crumbling cliff glowing with yellow cracks. In the background, a vast fantasy landscape unfolds with purple mountains, a distant castle on a cliff, a stormy sea, and flying creatures under a dramatic twilight sky with swirling golden patterns.",
+  "source_prompt": "A surreal fantasy scene of an ancient ruined stone stage perched on a crumbling cliff edge with glowing yellow cracks, broken marble columns, red curtains, and wooden scaffolding. In the distance, a majestic castle sits atop a cliff across a stormy sea with purple mountains behind it. Dramatic twilight sky with swirling golden patterns and flying creatures. Papers floating in the wind, epic melancholic atmosphere.",
+  "source_title": "Ruined Cliffside Stage",
+  "style": "fantasy illustration",
+  "mood": "melancholy epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "ruins",
+    "cliffside",
+    "dramatic sky",
+    "castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4168,
+  "source_url": "/generated/4168.jpg",
+  "image_url": "/sketches/4738.png",
+  "inverted_image_url": "/sketches-inverted/4738.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:48Z"
+}

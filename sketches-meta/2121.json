@@ -1,0 +1,42 @@
+{
+  "number": 2121,
+  "title": "Line sketch: Sailing in Spiral Waters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts two sailboats with women aboard on a body of water dotted with circles. In the foreground on the right, two women with elaborate and spiral hairstyles stand on the shore observing the scene (derived from generated still #1346).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts two sailboats with women aboard on a body of water dotted with circles. In the foreground on the right, two women with elaborate and spiral hairstyles stand on the shore observing the scene",
+  "inverted_title": "Inverted sketch: Sailing in Spiral Waters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts two sailboats with women aboard on a body of water dotted with circles. In the foreground on the right, two women with elaborate and spiral hairstyles stand on the shore observing the scene (from generated still #1346).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts two sailboats with women aboard on a body of water dotted with circles. In the foreground on the right, two women with elaborate and spiral hairstyles stand on the shore observing the scene",
+  "source_description": "A vibrant psychedelic painting depicts two sailboats with women aboard on a body of water dotted with yellow circles. In the foreground on the right, two women with elaborate green and pink spiral hairstyles stand on the shore observing the scene.",
+  "source_prompt": "",
+  "source_title": "Sailing in Spiral Waters",
+  "style": "psychedelic folk art",
+  "mood": "vibrant whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sailing",
+    "psychedelic",
+    "spirals",
+    "women",
+    "boats"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1346,
+  "source_url": "/generated/1346.jpg",
+  "image_url": "/sketches/2121.png",
+  "inverted_image_url": "/sketches-inverted/2121.png",
+  "curve_count": 118,
+  "built_at": "2026-08-17T00:09:42Z"
+}

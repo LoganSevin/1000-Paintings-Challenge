@@ -1,0 +1,42 @@
+{
+  "number": 4871,
+  "title": "Line sketch: Surreal Racing Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene features a Ferrari race car with number 07 driving through stormy clouds. Two large stylized female faces with flowers and vines float in a sky above, flanking a set of black wind chimes, while two bulls charge through the clouds below (derived from generated still #4306).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene features a Ferrari race car with number 07 driving through stormy clouds. Two large stylized female faces with flowers and vines float in a sky above, flanking a set of black wind chimes, while two bulls charge through the clouds below",
+  "inverted_title": "Inverted sketch: Surreal Racing Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene features a Ferrari race car with number 07 driving through stormy clouds. Two large stylized female faces with flowers and vines float in a sky above, flanking a set of black wind chimes, while two bulls charge through the clouds below (from generated still #4306).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene features a Ferrari race car with number 07 driving through stormy clouds. Two large stylized female faces with flowers and vines float in a sky above, flanking a set of black wind chimes, while two bulls charge through the clouds below",
+  "source_description": "A vibrant surreal scene features a red Ferrari race car with number 07 driving through stormy clouds. Two large blue stylized female faces with orange flowers and green vines float in a purple sky above, flanking a set of black wind chimes, while two brown bulls charge through the clouds below.",
+  "source_prompt": "Surreal fantasy scene with a bright red Ferrari race car numbered 07 speeding through purple stormy clouds and smoke. Two giant stylized blue female faces with orange flowers and flowing green vines emerge from the sky on left and right. Black wind chimes hang from a wooden structure in the center. Two powerful brown bulls with green accents charge through the clouds below. Dramatic purple and yellow sky, vibrant colors, dynamic composition, painterly style.",
+  "source_title": "Surreal Racing Dream",
+  "style": "surrealism",
+  "mood": "chaotic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ferrari",
+    "wind chimes",
+    "bulls",
+    "dreamlike"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4306,
+  "source_url": "/generated/4306.jpg",
+  "image_url": "/sketches/4871.png",
+  "inverted_image_url": "/sketches-inverted/4871.png",
+  "curve_count": 125,
+  "built_at": "2026-08-17T00:09:49Z"
+}

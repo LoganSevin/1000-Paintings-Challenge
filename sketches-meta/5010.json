@@ -1,0 +1,42 @@
+{
+  "number": 5010,
+  "title": "Line sketch: Surreal Desert Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two vibrant birds perch on a gnarled branch wrapped in a vine that emerges from a cauldron overflowing with glowing liquid and leaves. In a cracked desert landscape, two stylized female profile faces appear amid floating blocks with letters, with a winding dirt road leading toward distant mountains under a giant ringed planet and flowing ribbons in a sky (derived from generated still #4447).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two vibrant birds perch on a gnarled branch wrapped in a vine that emerges from a cauldron overflowing with glowing liquid and leaves. In a cracked desert landscape, two stylized female profile faces appear amid floating blocks with letters, with a winding dirt road leading toward distant mountains under a giant ringed planet and flowing ribbons in a sky",
+  "inverted_title": "Inverted sketch: Surreal Desert Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two vibrant birds perch on a gnarled branch wrapped in a vine that emerges from a cauldron overflowing with glowing liquid and leaves. In a cracked desert landscape, two stylized female profile faces appear amid floating blocks with letters, with a winding dirt road leading toward distant mountains under a giant ringed planet and flowing ribbons in a sky (from generated still #4447).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two vibrant birds perch on a gnarled branch wrapped in a vine that emerges from a cauldron overflowing with glowing liquid and leaves. In a cracked desert landscape, two stylized female profile faces appear amid floating blocks with letters, with a winding dirt road leading toward distant mountains under a giant ringed planet and flowing ribbons in a sky",
+  "source_description": "Two vibrant green birds perch on a gnarled branch wrapped in a green vine that emerges from a blue cauldron overflowing with glowing blue liquid and golden leaves. In a cracked red desert landscape, two stylized female profile faces appear amid floating colorful blocks with letters, with a winding dirt road leading toward distant red mountains under a giant red ringed planet and pink flowing ribbons in a dark teal sky.",
+  "source_prompt": "Surreal desert scene with two bright green birds perched on a twisted branch wrapped in a green vine growing from a large blue cauldron filled with glowing blue liquid and golden foliage. Two stylized female profile faces in pink and yellow with intricate hair patterns float among colorful blocks with letters. A winding dirt road cuts through cracked red earth toward red mountains. A massive red planet with glowing rings hangs in a dark teal sky with flowing pink ribbons. Vibrant colors, detailed textures, dreamlike atmosphere.",
+  "source_title": "Surreal Desert Vision",
+  "style": "surrealism",
+  "mood": "dreamlike, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "birds",
+    "desert",
+    "celestial",
+    "faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4447,
+  "source_url": "/generated/4447.jpg",
+  "image_url": "/sketches/5010.png",
+  "inverted_image_url": "/sketches-inverted/5010.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:49Z"
+}

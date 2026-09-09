@@ -1,0 +1,42 @@
+{
+  "number": 4202,
+  "title": "Line sketch: Unicorn and Crescent Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A white unicorn wearing a crown stands beside a large stylized tree holding a crescent moon staff. Three reflective metallic spheres rest in rippling water in the foreground, with a giant black and white crescent moon behind the tree under a cloudy sky (derived from generated still #3621).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A white unicorn wearing a crown stands beside a large stylized tree holding a crescent moon staff. Three reflective metallic spheres rest in rippling water in the foreground, with a giant black and white crescent moon behind the tree under a cloudy sky",
+  "inverted_title": "Inverted sketch: Unicorn and Crescent Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A white unicorn wearing a crown stands beside a large stylized tree holding a crescent moon staff. Three reflective metallic spheres rest in rippling water in the foreground, with a giant black and white crescent moon behind the tree under a cloudy sky (from generated still #3621).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A white unicorn wearing a crown stands beside a large stylized tree holding a crescent moon staff. Three reflective metallic spheres rest in rippling water in the foreground, with a giant black and white crescent moon behind the tree under a cloudy sky",
+  "source_description": "A white unicorn wearing a crown stands beside a large stylized blue tree holding a crescent moon staff. Three reflective blue metallic spheres rest in rippling blue water in the foreground, with a giant black and white crescent moon behind the tree under a purple cloudy sky.",
+  "source_prompt": "Surreal fantasy scene featuring a white unicorn with a crown standing on a reflective blue surface, holding a golden staff with a crescent moon. A large stylized swirling blue tree grows behind it. Three shiny metallic blue spheres of different sizes sit in rippling water creating concentric circles. A massive black crescent moon with white outline dominates the background. Purple sky with soft clouds and sparkling particles, dreamy ethereal atmosphere.",
+  "source_title": "Unicorn and Crescent Moon",
+  "style": "surreal fantasy",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "unicorn",
+    "crescent moon",
+    "tree",
+    "metallic spheres",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3621,
+  "source_url": "/generated/3621.jpg",
+  "image_url": "/sketches/4202.png",
+  "inverted_image_url": "/sketches-inverted/4202.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:47Z"
+}

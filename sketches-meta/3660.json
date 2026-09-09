@@ -1,0 +1,42 @@
+{
+  "number": 3660,
+  "title": "Line sketch: Sorceress of the Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure in a flowing black robe stands with back to viewer, arms outstretched, casting glowing magical sigils and symbols. The scene is set in a ruined landscape with broken classical columns, scattered melting clocks, and three birds flying nearby under a blood- eclipsed black sun in a dark starry sky (derived from generated still #3068).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure in a flowing black robe stands with back to viewer, arms outstretched, casting glowing magical sigils and symbols. The scene is set in a ruined landscape with broken classical columns, scattered melting clocks, and three birds flying nearby under a blood- eclipsed black sun in a dark starry sky",
+  "inverted_title": "Inverted sketch: Sorceress of the Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure in a flowing black robe stands with back to viewer, arms outstretched, casting glowing magical sigils and symbols. The scene is set in a ruined landscape with broken classical columns, scattered melting clocks, and three birds flying nearby under a blood- eclipsed black sun in a dark starry sky (from generated still #3068).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure in a flowing black robe stands with back to viewer, arms outstretched, casting glowing magical sigils and symbols. The scene is set in a ruined landscape with broken classical columns, scattered melting clocks, and three birds flying nearby under a blood- eclipsed black sun in a dark starry sky",
+  "source_description": "A hooded figure in a flowing black robe stands with back to viewer, arms outstretched, casting golden glowing magical sigils and symbols. The scene is set in a ruined landscape with broken classical columns, scattered melting clocks, and three blue birds flying nearby under a blood-red eclipsed black sun in a dark starry sky.",
+  "source_prompt": "A mysterious hooded sorceress in a long flowing black cloak stands in an ancient ruined temple, casting intricate glowing golden magical sigils and runes that swirl around her hands. Broken marble columns with melting clocks draped over them are scattered across the cracked stone ground. Three blue birds fly nearby while butterflies flutter around the magic. A striking red and black solar eclipse dominates the dark starry sky filled with alchemical symbols, in a surreal and mystical atmosphere.",
+  "source_title": "Sorceress of the Eclipse",
+  "style": "fantasy surrealism",
+  "mood": "mystical ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "eclipse",
+    "ruins",
+    "melting clocks",
+    "magic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3068,
+  "source_url": "/generated/3068.jpg",
+  "image_url": "/sketches/3660.png",
+  "inverted_image_url": "/sketches-inverted/3660.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:46Z"
+}

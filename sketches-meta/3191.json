@@ -1,0 +1,42 @@
+{
+  "number": 3191,
+  "title": "Line sketch: Stormy Kelp Shore",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dramatic seascape featuring large swirling and kelp fronds in the foreground growing among dark wet rocks. Turbulent ocean waves with white foam crash against the shore under a moody and cloudy sky with a small glowing sun breaking through (derived from generated still #2539).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dramatic seascape featuring large swirling and kelp fronds in the foreground growing among dark wet rocks. Turbulent ocean waves with white foam crash against the shore under a moody and cloudy sky with a small glowing sun breaking through",
+  "inverted_title": "Inverted sketch: Stormy Kelp Shore",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dramatic seascape featuring large swirling and kelp fronds in the foreground growing among dark wet rocks. Turbulent ocean waves with white foam crash against the shore under a moody and cloudy sky with a small glowing sun breaking through (from generated still #2539).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dramatic seascape featuring large swirling and kelp fronds in the foreground growing among dark wet rocks. Turbulent ocean waves with white foam crash against the shore under a moody and cloudy sky with a small glowing sun breaking through",
+  "source_description": "Dramatic seascape featuring large swirling green and yellow kelp fronds in the foreground growing among dark wet rocks. Turbulent ocean waves with white foam crash against the shore under a moody purple and pink cloudy sky with a small glowing sun breaking through.",
+  "source_prompt": "Dramatic realistic painting of a stormy coastline with massive swirling kelp fronds in vibrant green and yellow tones dominating the foreground, growing from wet dark rocks. Turbulent ocean waves with white foam crashing against the shore, moody purple and pink clouds filling the sky with a small glowing sun visible through the clouds, cinematic lighting, highly detailed",
+  "source_title": "Stormy Kelp Shore",
+  "style": "realistic",
+  "mood": "dramatic moody",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "seascape",
+    "kelp",
+    "ocean waves",
+    "dramatic sky",
+    "rocks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2539,
+  "source_url": "/generated/2539.jpg",
+  "image_url": "/sketches/3191.png",
+  "inverted_image_url": "/sketches-inverted/3191.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

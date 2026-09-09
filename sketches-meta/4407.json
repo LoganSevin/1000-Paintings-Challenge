@@ -1,0 +1,42 @@
+{
+  "number": 4407,
+  "title": "Line sketch: Mystic Witch Laboratory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A female witch in a dress stands behind a cluttered wooden workbench in a mystical attic laboratory, mixing glowing potions. The room features floating magical orbs on pedestals, shelves filled with bottles, arcane paintings on stone walls, a glowing lantern, and glowing footprints leading to a door (derived from generated still #3826).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A female witch in a dress stands behind a cluttered wooden workbench in a mystical attic laboratory, mixing glowing potions. The room features floating magical orbs on pedestals, shelves filled with bottles, arcane paintings on stone walls, a glowing lantern, and glowing footprints leading to a door",
+  "inverted_title": "Inverted sketch: Mystic Witch Laboratory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A female witch in a dress stands behind a cluttered wooden workbench in a mystical attic laboratory, mixing glowing potions. The room features floating magical orbs on pedestals, shelves filled with bottles, arcane paintings on stone walls, a glowing lantern, and glowing footprints leading to a door (from generated still #3826).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A female witch in a dress stands behind a cluttered wooden workbench in a mystical attic laboratory, mixing glowing potions. The room features floating magical orbs on pedestals, shelves filled with bottles, arcane paintings on stone walls, a glowing lantern, and glowing footprints leading to a door",
+  "source_description": "A female witch in a dark green dress stands behind a cluttered wooden workbench in a mystical attic laboratory, mixing glowing potions. The room features floating magical orbs on pedestals, shelves filled with colorful bottles, arcane paintings on stone walls, a glowing lantern, and glowing footprints leading to a purple door.",
+  "source_prompt": "A detailed fantasy scene of a female witch with brown hair in a dark green dress and white collar, standing at a wooden alchemy desk inside a stone tower laboratory. She is mixing glowing potions while an open spellbook and various magical items sit on the table. Floating crystal orbs with symbols, a large red lighthouse orb, purple moon orb, and blue crescent moon orb rest on pedestals in the foreground. Shelves filled with colorful potion bottles line the walls, arcane paintings hang on the stone walls, a glowing lantern hangs from the ceiling, and glowing purple and red footprints lead to a purple wooden door.",
+  "source_title": "Mystic Witch Laboratory",
+  "style": "fantasy illustration",
+  "mood": "enchanted, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "alchemy",
+    "magic laboratory",
+    "fantasy interior",
+    "glowing potions"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3826,
+  "source_url": "/generated/3826.jpg",
+  "image_url": "/sketches/4407.png",
+  "inverted_image_url": "/sketches-inverted/4407.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:48Z"
+}

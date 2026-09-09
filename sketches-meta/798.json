@@ -1,0 +1,42 @@
+{
+  "number": 798,
+  "title": "Line sketch: Storm Witch with Crystals",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female figure with long dark hair, pointed ears, and glowing eyes sits upon a large cluster of crystals. She raises one hand toward a lightning bolt while paint drips down her body and clothing against a dramatic stormy sky (derived from generated still #7).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female figure with long dark hair, pointed ears, and glowing eyes sits upon a large cluster of crystals. She raises one hand toward a lightning bolt while paint drips down her body and clothing against a dramatic stormy sky",
+  "inverted_title": "Inverted sketch: Storm Witch with Crystals",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female figure with long dark hair, pointed ears, and glowing eyes sits upon a large cluster of crystals. She raises one hand toward a lightning bolt while paint drips down her body and clothing against a dramatic stormy sky (from generated still #7).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female figure with long dark hair, pointed ears, and glowing eyes sits upon a large cluster of crystals. She raises one hand toward a lightning bolt while paint drips down her body and clothing against a dramatic stormy sky",
+  "source_description": "A green-skinned female figure with long dark hair, pointed ears, and glowing red eyes sits upon a large cluster of purple crystals. She raises one hand toward a bright blue lightning bolt while colorful paint drips down her body and clothing against a dramatic stormy sky.",
+  "source_prompt": "",
+  "source_title": "Storm Witch with Crystals",
+  "style": "fantasy composition",
+  "mood": "chaotic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "lightning",
+    "crystals",
+    "fantasy",
+    "storm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 7,
+  "source_url": "/generated/7.jpg",
+  "image_url": "/sketches/798.png",
+  "inverted_image_url": "/sketches-inverted/798.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:39Z"
+}

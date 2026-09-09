@@ -1,0 +1,41 @@
+{
+  "number": 605,
+  "title": "Line sketch: Bubble Cluster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dense arrangement of translucent spheres with glowing highlights and reflections. The orbs overlap in a dreamy, luminous composition filled with sparkling light particles (derived from painting #774).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dense arrangement of translucent spheres with glowing highlights and reflections. The orbs overlap in a dreamy, luminous composition filled with sparkling light particles",
+  "inverted_title": "Inverted sketch: Bubble Cluster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dense arrangement of translucent spheres with glowing highlights and reflections. The orbs overlap in a dreamy, luminous composition filled with sparkling light particles (from painting #774).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dense arrangement of translucent spheres with glowing highlights and reflections. The orbs overlap in a dreamy, luminous composition filled with sparkling light particles",
+  "source_description": "A dense arrangement of translucent spheres with glowing highlights and reflections. The orbs overlap in a dreamy, luminous composition filled with sparkling light particles.",
+  "source_prompt": "",
+  "source_title": "Iridescent Purple Bubble Cluster",
+  "style": "line sketch",
+  "mood": "ethereal luminous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bubbles",
+    "abstract",
+    "sparkling",
+    "dreamy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 774,
+  "source_url": "/paintings/774.jpg",
+  "image_url": "/sketches/605.png",
+  "inverted_image_url": "/sketches-inverted/605.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:39Z"
+}

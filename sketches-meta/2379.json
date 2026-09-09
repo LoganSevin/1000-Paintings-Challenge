@@ -1,0 +1,42 @@
+{
+  "number": 2379,
+  "title": "Line sketch: Stasis Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a hijab sits upright in bed with white sheets, gazing at a surreal landscape visible through a large arched opening. The scene blends a vibrant sunset over rolling hills and water with a giant mechanical spider robot emitting smoke above a cyberpunk street lined with signs reading 'STASIS' and 'PROTECT' (derived from generated still #1607).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a hijab sits upright in bed with white sheets, gazing at a surreal landscape visible through a large arched opening. The scene blends a vibrant sunset over rolling hills and water with a giant mechanical spider robot emitting smoke above a cyberpunk street lined with signs reading 'STASIS' and 'PROTECT'",
+  "inverted_title": "Inverted sketch: Stasis Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a hijab sits upright in bed with white sheets, gazing at a surreal landscape visible through a large arched opening. The scene blends a vibrant sunset over rolling hills and water with a giant mechanical spider robot emitting smoke above a cyberpunk street lined with signs reading 'STASIS' and 'PROTECT' (from generated still #1607).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a hijab sits upright in bed with white sheets, gazing at a surreal landscape visible through a large arched opening. The scene blends a vibrant sunset over rolling hills and water with a giant mechanical spider robot emitting smoke above a cyberpunk street lined with signs reading 'STASIS' and 'PROTECT'",
+  "source_description": "A woman in a green hijab sits upright in bed with white sheets, gazing at a surreal landscape visible through a large arched opening. The scene blends a vibrant sunset over rolling green hills and water with a giant mechanical spider robot emitting green smoke above a cyberpunk street lined with signs reading 'STASIS' and 'PROTECT'.",
+  "source_prompt": "",
+  "source_title": "Stasis Dreamscape",
+  "style": "surreal",
+  "mood": "dreamlike dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cyberpunk",
+    "mech",
+    "woman in hijab",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1607,
+  "source_url": "/generated/1607.jpg",
+  "image_url": "/sketches/2379.png",
+  "inverted_image_url": "/sketches-inverted/2379.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:43Z"
+}

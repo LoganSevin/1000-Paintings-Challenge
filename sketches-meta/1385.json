@@ -1,0 +1,42 @@
+{
+  "number": 1385,
+  "title": "Line sketch: Surreal Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned figure with eyes and a cracked skull revealing intricate brain patterns, positioned beside a large black amorphous creature with a massive dripping eye containing small skulls. The composition is set against a circular background with cracks, dripping black and liquids, and floating poppies on the figure's body (derived from generated still #600).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned figure with eyes and a cracked skull revealing intricate brain patterns, positioned beside a large black amorphous creature with a massive dripping eye containing small skulls. The composition is set against a circular background with cracks, dripping black and liquids, and floating poppies on the figure's body",
+  "inverted_title": "Inverted sketch: Surreal Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned figure with eyes and a cracked skull revealing intricate brain patterns, positioned beside a large black amorphous creature with a massive dripping eye containing small skulls. The composition is set against a circular background with cracks, dripping black and liquids, and floating poppies on the figure's body (from generated still #600).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned figure with eyes and a cracked skull revealing intricate brain patterns, positioned beside a large black amorphous creature with a massive dripping eye containing small skulls. The composition is set against a circular background with cracks, dripping black and liquids, and floating poppies on the figure's body",
+  "source_description": "A surreal portrait of a green-skinned figure with orange eyes and a cracked skull revealing intricate brain patterns, positioned beside a large black amorphous creature with a massive dripping red eye containing small skulls. The composition is set against a circular magenta background with cracks, dripping black and red liquids, and floating poppies on the figure's body.",
+  "source_prompt": "",
+  "source_title": "Surreal Crimson Entity",
+  "style": "surrealism",
+  "mood": "nightmarish, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "skull",
+    "eye",
+    "poppies"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 600,
+  "source_url": "/generated/600.jpg",
+  "image_url": "/sketches/1385.png",
+  "inverted_image_url": "/sketches-inverted/1385.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:41Z"
+}

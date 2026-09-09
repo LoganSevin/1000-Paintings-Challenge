@@ -1,0 +1,42 @@
+{
+  "number": 2138,
+  "title": "Line sketch: Psychedelic Woman and Lotus",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant profile portrait of a woman with a face and hair filled with swirling patterns, landscapes, and flowers. She gazes toward a large lotus flower containing smaller stylized female figures within its petals, set against a gradient sky with reflective water below (derived from generated still #1363).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant profile portrait of a woman with a face and hair filled with swirling patterns, landscapes, and flowers. She gazes toward a large lotus flower containing smaller stylized female figures within its petals, set against a gradient sky with reflective water below",
+  "inverted_title": "Inverted sketch: Psychedelic Woman and Lotus",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant profile portrait of a woman with a face and hair filled with swirling patterns, landscapes, and flowers. She gazes toward a large lotus flower containing smaller stylized female figures within its petals, set against a gradient sky with reflective water below (from generated still #1363).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant profile portrait of a woman with a face and hair filled with swirling patterns, landscapes, and flowers. She gazes toward a large lotus flower containing smaller stylized female figures within its petals, set against a gradient sky with reflective water below",
+  "source_description": "A vibrant profile portrait of a woman with a multicolored face and hair filled with swirling patterns, landscapes, and flowers. She gazes toward a large red lotus flower containing smaller stylized female figures within its petals, set against a colorful gradient sky with reflective water below.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Woman and Lotus",
+  "style": "psychedelic",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "lotus flower",
+    "psychedelic",
+    "swirls",
+    "profile"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1363,
+  "source_url": "/generated/1363.jpg",
+  "image_url": "/sketches/2138.png",
+  "inverted_image_url": "/sketches-inverted/2138.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:42Z"
+}

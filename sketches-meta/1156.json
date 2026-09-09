@@ -1,0 +1,42 @@
+{
+  "number": 1156,
+  "title": "Line sketch: Psychedelic Mushroom Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, vibrant and mushroom with black spots and glowing bubbles dominates the center of a surreal night scene. Smaller mushrooms and swirling, -colored smoke fill the foreground and starry sky (derived from generated still #368).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, vibrant and mushroom with black spots and glowing bubbles dominates the center of a surreal night scene. Smaller mushrooms and swirling, -colored smoke fill the foreground and starry sky",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, vibrant and mushroom with black spots and glowing bubbles dominates the center of a surreal night scene. Smaller mushrooms and swirling, -colored smoke fill the foreground and starry sky (from generated still #368).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, vibrant and mushroom with black spots and glowing bubbles dominates the center of a surreal night scene. Smaller mushrooms and swirling, -colored smoke fill the foreground and starry sky",
+  "source_description": "A large, vibrant turquoise and purple mushroom with black spots and glowing bubbles dominates the center of a surreal night scene. Smaller mushrooms and swirling, rainbow-colored smoke fill the foreground and starry sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Dreamscape",
+  "style": "surreal psychedelic",
+  "mood": "trippy dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushrooms",
+    "psychedelic",
+    "bubbles",
+    "surreal",
+    "smoke"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 368,
+  "source_url": "/generated/368.jpg",
+  "image_url": "/sketches/1156.png",
+  "inverted_image_url": "/sketches-inverted/1156.png",
+  "curve_count": 331,
+  "built_at": "2026-08-17T00:09:40Z"
+}

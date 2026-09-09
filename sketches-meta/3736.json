@@ -1,0 +1,42 @@
+{
+  "number": 3736,
+  "title": "Line sketch: Angel Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young Black man with curly hair stands in a dynamic combat pose against a dark gray background. He wears ornate and white scale armor with feathered pauldrons, a flowing and cape, matching greaves and boots, and a glowing halo above his head while wielding a long ornate sword (derived from generated still #3146).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young Black man with curly hair stands in a dynamic combat pose against a dark gray background. He wears ornate and white scale armor with feathered pauldrons, a flowing and cape, matching greaves and boots, and a glowing halo above his head while wielding a long ornate sword",
+  "inverted_title": "Inverted sketch: Angel Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young Black man with curly hair stands in a dynamic combat pose against a dark gray background. He wears ornate and white scale armor with feathered pauldrons, a flowing and cape, matching greaves and boots, and a glowing halo above his head while wielding a long ornate sword (from generated still #3146).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young Black man with curly hair stands in a dynamic combat pose against a dark gray background. He wears ornate and white scale armor with feathered pauldrons, a flowing and cape, matching greaves and boots, and a glowing halo above his head while wielding a long ornate sword",
+  "source_description": "A young Black man with curly hair stands in a dynamic combat pose against a dark gray background. He wears ornate golden and white scale armor with feathered pauldrons, a flowing red and gold cape, matching greaves and boots, and a glowing halo above his head while wielding a long ornate golden sword.",
+  "source_prompt": "A young Black man with short curly hair wearing highly detailed golden and white scale armor with layered feathered pauldrons, red velvet tunic, golden cape with fringe, ornate golden greaves and boots, and a glowing broken halo above his head. He stands in a dramatic action pose holding a long ornate golden sword with both hands, one arm raised, intense expression, studio lighting with dramatic shadows, realistic photographic style",
+  "source_title": "Golden Angel Warrior",
+  "style": "realistic cinematic",
+  "mood": "epic heroic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel warrior",
+    "armor",
+    "halo",
+    "fantasy warrior",
+    "Black male"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3146,
+  "source_url": "/generated/3146.jpg",
+  "image_url": "/sketches/3736.png",
+  "inverted_image_url": "/sketches-inverted/3736.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:46Z"
+}

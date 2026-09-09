@@ -1,0 +1,42 @@
+{
+  "number": 1535,
+  "title": "Line sketch: Otter's Enchanted Realm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fantasy composition shows an otter standing on its hind legs gazing upward at two ethereal female faces formed from swirling leaves and vines within a large glowing and circular portal. To the left, ancient stone arches overgrown with foliage lead toward a hillside village topped by a castle under a starry night sky (derived from generated still #750).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fantasy composition shows an otter standing on its hind legs gazing upward at two ethereal female faces formed from swirling leaves and vines within a large glowing and circular portal. To the left, ancient stone arches overgrown with foliage lead toward a hillside village topped by a castle under a starry night sky",
+  "inverted_title": "Inverted sketch: Otter's Enchanted Realm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fantasy composition shows an otter standing on its hind legs gazing upward at two ethereal female faces formed from swirling leaves and vines within a large glowing and circular portal. To the left, ancient stone arches overgrown with foliage lead toward a hillside village topped by a castle under a starry night sky (from generated still #750).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fantasy composition shows an otter standing on its hind legs gazing upward at two ethereal female faces formed from swirling leaves and vines within a large glowing and circular portal. To the left, ancient stone arches overgrown with foliage lead toward a hillside village topped by a castle under a starry night sky",
+  "source_description": "A detailed fantasy painting shows an otter standing on its hind legs gazing upward at two ethereal female faces formed from swirling green leaves and vines within a large glowing blue and purple circular portal. To the left, ancient stone arches overgrown with foliage lead toward a colorful hillside village topped by a castle under a starry night sky.",
+  "source_prompt": "",
+  "source_title": "Otter's Enchanted Realm",
+  "style": "fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "otter",
+    "fantasy",
+    "ethereal",
+    "portal",
+    "ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 750,
+  "source_url": "/generated/750.jpg",
+  "image_url": "/sketches/1535.png",
+  "inverted_image_url": "/sketches-inverted/1535.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:41Z"
+}

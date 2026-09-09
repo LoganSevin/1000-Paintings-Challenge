@@ -1,0 +1,42 @@
+{
+  "number": 3761,
+  "title": "Line sketch: Four Poses of Armored Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical side-by-side photographs of a male warrior figurine in a dynamic combat stance, holding a dagger in his right hand with his left fist raised. The figure wears detailed and fantasy armor with a cape, leather straps, and boots against a dark gradient background (derived from generated still #3177).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical side-by-side photographs of a male warrior figurine in a dynamic combat stance, holding a dagger in his right hand with his left fist raised. The figure wears detailed and fantasy armor with a cape, leather straps, and boots against a dark gradient background",
+  "inverted_title": "Inverted sketch: Four Poses of Armored Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical side-by-side photographs of a male warrior figurine in a dynamic combat stance, holding a dagger in his right hand with his left fist raised. The figure wears detailed and fantasy armor with a cape, leather straps, and boots against a dark gradient background (from generated still #3177).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical side-by-side photographs of a male warrior figurine in a dynamic combat stance, holding a dagger in his right hand with his left fist raised. The figure wears detailed and fantasy armor with a cape, leather straps, and boots against a dark gradient background",
+  "source_description": "Four identical side-by-side photographs of a male warrior figurine in a dynamic combat stance, holding a dagger in his right hand with his left fist raised. The figure wears detailed bronze and gold fantasy armor with a red cape, leather straps, and boots against a dark gradient background.",
+  "source_prompt": "Highly detailed painted miniature of a fantasy rogue warrior in dynamic combat pose, holding a dagger forward with one fist raised, wearing ornate bronze and gold armor with leather straps, red cape, and boots, muscular build, intense expression, standing on a dark studio background, photographed from a slight low angle, four identical copies arranged horizontally",
+  "source_title": "Four Poses of Armored Warrior",
+  "style": "realistic miniature photography",
+  "mood": "dramatic, heroic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "photograph of painted figurine",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "fantasy armor",
+    "miniature figure",
+    "multiple poses",
+    "dagger"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3177,
+  "source_url": "/generated/3177.jpg",
+  "image_url": "/sketches/3761.png",
+  "inverted_image_url": "/sketches-inverted/3761.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:46Z"
+}

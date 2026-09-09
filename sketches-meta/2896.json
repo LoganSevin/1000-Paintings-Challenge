@@ -1,0 +1,42 @@
+{
+  "number": 2896,
+  "title": "Line sketch: Cosmic Eye Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a massive cosmic eye with a black pupil and swirling, and nebula in the sky. In the foreground on a rocky cliff edge sit three ornate pottery vases emitting smoke, alongside a large grey spherical robot character with big shiny eyes (derived from generated still #2183).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a massive cosmic eye with a black pupil and swirling, and nebula in the sky. In the foreground on a rocky cliff edge sit three ornate pottery vases emitting smoke, alongside a large grey spherical robot character with big shiny eyes",
+  "inverted_title": "Inverted sketch: Cosmic Eye Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a massive cosmic eye with a black pupil and swirling, and nebula in the sky. In the foreground on a rocky cliff edge sit three ornate pottery vases emitting smoke, alongside a large grey spherical robot character with big shiny eyes (from generated still #2183).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a massive cosmic eye with a black pupil and swirling, and nebula in the sky. In the foreground on a rocky cliff edge sit three ornate pottery vases emitting smoke, alongside a large grey spherical robot character with big shiny eyes",
+  "source_description": "A surreal desert landscape features a massive cosmic eye with a black pupil and swirling orange, purple and blue nebula in the sky. In the foreground on a rocky cliff edge sit three ornate pottery vases emitting smoke, alongside a large grey spherical robot character with big shiny eyes.",
+  "source_prompt": "Surreal desert cliff scene with a giant cosmic eye dominating the sky, its iris made of swirling orange and purple nebula surrounding a black pupil. Floating teal planets orbit the eye. In the foreground, three ornate pottery vases in purple and orange tones emit mystical smoke. A large cute spherical grey robot with big glossy eyes stands on the cliff edge. Dramatic colorful nebula clouds and distant mesas, in a vibrant fantasy style.",
+  "source_title": "Cosmic Eye Desert",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "desert",
+    "nebula",
+    "robot"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2183,
+  "source_url": "/generated/2183.jpg",
+  "image_url": "/sketches/2896.png",
+  "inverted_image_url": "/sketches-inverted/2896.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:44Z"
+}

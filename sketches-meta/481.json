@@ -1,0 +1,42 @@
+{
+  "number": 481,
+  "title": "Line sketch: Lotus in Ceramic Bowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant lotus flower blooms from a bed of blueberries inside a weathered ceramic bowl. The detailed composition captures the flower's intricate petals and the bowl's textured, painted surface with a single leaf hanging from the rim (derived from painting #577).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant lotus flower blooms from a bed of blueberries inside a weathered ceramic bowl. The detailed composition captures the flower's intricate petals and the bowl's textured, painted surface with a single leaf hanging from the rim",
+  "inverted_title": "Inverted sketch: Lotus in Ceramic Bowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant lotus flower blooms from a bed of blueberries inside a weathered ceramic bowl. The detailed composition captures the flower's intricate petals and the bowl's textured, painted surface with a single leaf hanging from the rim (from painting #577).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant lotus flower blooms from a bed of blueberries inside a weathered ceramic bowl. The detailed composition captures the flower's intricate petals and the bowl's textured, painted surface with a single leaf hanging from the rim",
+  "source_description": "A vibrant red lotus flower blooms from a bed of blueberries inside a weathered green ceramic bowl. The detailed painting captures the flower's intricate petals and the bowl's textured, painted surface with a single leaf hanging from the rim.",
+  "source_prompt": "",
+  "source_title": "Red Lotus in Ceramic Bowl",
+  "style": "Realistic still life",
+  "mood": "Vibrant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lotus flower",
+    "still life",
+    "ceramic bowl",
+    "blueberries",
+    "petals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 577,
+  "source_url": "/paintings/577.jpg",
+  "image_url": "/sketches/481.png",
+  "inverted_image_url": "/sketches-inverted/481.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:39Z"
+}

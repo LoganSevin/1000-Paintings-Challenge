@@ -1,0 +1,42 @@
+{
+  "number": 2519,
+  "title": "Line sketch: Allegory of Time",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic Baroque composition featuring a winged angelic figure atop a stone pillar inscribed with 'TEMPUS FUGIT', restraining a dark skeletal figure of Father Time with an hourglass. In the foreground, two cherubs examine a large book amid scattered symbols of vanity and transience including a skull, jewels, and an overturned goblet, set against opulent curtains and a stormy, cloudy sky (derived from generated still #1755).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic Baroque composition featuring a winged angelic figure atop a stone pillar inscribed with 'TEMPUS FUGIT', restraining a dark skeletal figure of Father Time with an hourglass. In the foreground, two cherubs examine a large book amid scattered symbols of vanity and transience including a skull, jewels, and an overturned goblet, set against opulent curtains and a stormy, cloudy sky",
+  "inverted_title": "Inverted sketch: Allegory of Time",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic Baroque composition featuring a winged angelic figure atop a stone pillar inscribed with 'TEMPUS FUGIT', restraining a dark skeletal figure of Father Time with an hourglass. In the foreground, two cherubs examine a large book amid scattered symbols of vanity and transience including a skull, jewels, and an overturned goblet, set against opulent curtains and a stormy, cloudy sky (from generated still #1755).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic Baroque composition featuring a winged angelic figure atop a stone pillar inscribed with 'TEMPUS FUGIT', restraining a dark skeletal figure of Father Time with an hourglass. In the foreground, two cherubs examine a large book amid scattered symbols of vanity and transience including a skull, jewels, and an overturned goblet, set against opulent curtains and a stormy, cloudy sky",
+  "source_description": "A dramatic Baroque painting featuring a winged angelic figure atop a stone pillar inscribed with 'TEMPUS FUGIT', restraining a dark skeletal figure of Father Time with an hourglass. In the foreground, two cherubs examine a large book amid scattered symbols of vanity and transience including a skull, jewels, and an overturned goblet, set against opulent golden curtains and a stormy, cloudy sky.",
+  "source_prompt": "",
+  "source_title": "Allegory of Time",
+  "style": "Baroque",
+  "mood": "dramatic, allegorical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "vanitas",
+    "allegory",
+    "cherubs",
+    "Father Time",
+    "memento mori"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1755,
+  "source_url": "/generated/1755.jpg",
+  "image_url": "/sketches/2519.png",
+  "inverted_image_url": "/sketches-inverted/2519.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:43Z"
+}

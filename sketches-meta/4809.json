@@ -1,0 +1,42 @@
+{
+  "number": 4809,
+  "title": "Line sketch: Eye of the Pyramid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a vast hall where a large crowd in robes gathers on a checkered floor. A grand spiral staircase ascends toward a massive glowing all-seeing eye set within a cracked hexagonal frame and lotus petals, all enclosed in a giant pyramid. Film reels and film strips float in the dark sky above while two silhouetted figures stand on the stairs (derived from generated still #4244).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a vast hall where a large crowd in robes gathers on a checkered floor. A grand spiral staircase ascends toward a massive glowing all-seeing eye set within a cracked hexagonal frame and lotus petals, all enclosed in a giant pyramid. Film reels and film strips float in the dark sky above while two silhouetted figures stand on the stairs",
+  "inverted_title": "Inverted sketch: Eye of the Pyramid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a vast hall where a large crowd in robes gathers on a checkered floor. A grand spiral staircase ascends toward a massive glowing all-seeing eye set within a cracked hexagonal frame and lotus petals, all enclosed in a giant pyramid. Film reels and film strips float in the dark sky above while two silhouetted figures stand on the stairs (from generated still #4244).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a vast hall where a large crowd in robes gathers on a checkered floor. A grand spiral staircase ascends toward a massive glowing all-seeing eye set within a cracked hexagonal frame and lotus petals, all enclosed in a giant pyramid. Film reels and film strips float in the dark sky above while two silhouetted figures stand on the stairs",
+  "source_description": "A surreal scene inside a vast hall where a large crowd in robes gathers on a checkered floor. A grand spiral staircase ascends toward a massive glowing all-seeing eye set within a cracked hexagonal frame and lotus petals, all enclosed in a giant green pyramid. Film reels and film strips float in the dark sky above while two silhouetted figures stand on the stairs.",
+  "source_prompt": "Surreal symbolic artwork of a vast tiled hall filled with a crowd of robed figures. A dramatic red spiral staircase rises toward a giant glowing all-seeing eye inside a cracked hexagonal emblem surrounded by lotus petals. The eye is framed within a massive green pyramid against a dark stormy sky. Film reels and strips float in the air. Two silhouetted figures stand on the stairs, one holding a film reel. Red floral patterns adorn the walls with a faint world map visible. Dark, mystical and ominous atmosphere.",
+  "source_title": "Eye of the Pyramid",
+  "style": "surreal symbolic",
+  "mood": "ominous mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "all-seeing eye",
+    "pyramid",
+    "spiral staircase",
+    "occult"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4244,
+  "source_url": "/generated/4244.jpg",
+  "image_url": "/sketches/4809.png",
+  "inverted_image_url": "/sketches-inverted/4809.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:49Z"
+}

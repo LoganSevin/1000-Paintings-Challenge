@@ -1,0 +1,42 @@
+{
+  "number": 3644,
+  "title": "Line sketch: Fleur-de-Lis Stained Glass",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An arched stained glass window featuring a large central and fleur-de-lis with intricate scrollwork on both sides. The surrounding panes display a sky- and gradient with small floral motifs, set within an aged, weathered wooden frame with visible peeling paint and cracks (derived from generated still #3052).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An arched stained glass window featuring a large central and fleur-de-lis with intricate scrollwork on both sides. The surrounding panes display a sky- and gradient with small floral motifs, set within an aged, weathered wooden frame with visible peeling paint and cracks",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis Stained Glass",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An arched stained glass window featuring a large central and fleur-de-lis with intricate scrollwork on both sides. The surrounding panes display a sky- and gradient with small floral motifs, set within an aged, weathered wooden frame with visible peeling paint and cracks (from generated still #3052).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An arched stained glass window featuring a large central and fleur-de-lis with intricate scrollwork on both sides. The surrounding panes display a sky- and gradient with small floral motifs, set within an aged, weathered wooden frame with visible peeling paint and cracks",
+  "source_description": "An arched stained glass window featuring a large central blue and teal fleur-de-lis with intricate green scrollwork on both sides. The surrounding panes display a sky-blue and purple gradient with small floral motifs, set within an aged, weathered wooden frame with visible peeling paint and cracks.",
+  "source_prompt": "arched stained glass window with a prominent central blue and teal fleur-de-lis symbol, flanked by flowing green scrollwork and small floral details, set against a gradient of sky blue and lavender glass pieces, showing signs of age with cracked lead lines and weathered wooden frame, natural daylight filtering through, realistic photograph",
+  "source_title": "Fleur-de-Lis Stained Glass",
+  "style": "stained glass",
+  "mood": "ornate, weathered",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "stained glass window",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "stained glass",
+    "arched window",
+    "vintage",
+    "ornamental"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3052,
+  "source_url": "/generated/3052.jpg",
+  "image_url": "/sketches/3644.png",
+  "inverted_image_url": "/sketches-inverted/3644.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:46Z"
+}

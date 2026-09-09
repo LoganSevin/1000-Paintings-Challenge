@@ -1,0 +1,42 @@
+{
+  "number": 4399,
+  "title": "Line sketch: Potion Shop Alchemy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure in a robe stands in a mystical shop, reaching towards shelves filled with glowing potion bottles. The scene is filled with swirling energy, floating sparks, lit candles, scattered vials, and vibrant and paint splatters dripping from above (derived from generated still #3818).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure in a robe stands in a mystical shop, reaching towards shelves filled with glowing potion bottles. The scene is filled with swirling energy, floating sparks, lit candles, scattered vials, and vibrant and paint splatters dripping from above",
+  "inverted_title": "Inverted sketch: Potion Shop Alchemy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure in a robe stands in a mystical shop, reaching towards shelves filled with glowing potion bottles. The scene is filled with swirling energy, floating sparks, lit candles, scattered vials, and vibrant and paint splatters dripping from above (from generated still #3818).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure in a robe stands in a mystical shop, reaching towards shelves filled with glowing potion bottles. The scene is filled with swirling energy, floating sparks, lit candles, scattered vials, and vibrant and paint splatters dripping from above",
+  "source_description": "A hooded figure in a purple robe stands in a mystical shop, reaching towards shelves filled with glowing potion bottles. The scene is filled with swirling blue energy, floating golden sparks, lit candles, scattered vials, and vibrant red and teal paint splatters dripping from above.",
+  "source_prompt": "A hooded wizard in a flowing purple robe stands in an alchemist's shop, reaching for a glowing potion on a shelf. The room is filled with wooden crates and shelves holding colorful magical potions, lit candles, scattered vials on a green and white counter, swirling turquoise magical energy, floating golden particles, with vibrant red and teal paint splatters dramatically dripping from the top of the scene.",
+  "source_title": "Potion Shop Alchemy",
+  "style": "fantasy illustration",
+  "mood": "magical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemy",
+    "potion shop",
+    "wizard",
+    "magic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3818,
+  "source_url": "/generated/3818.jpg",
+  "image_url": "/sketches/4399.png",
+  "inverted_image_url": "/sketches-inverted/4399.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:48Z"
+}

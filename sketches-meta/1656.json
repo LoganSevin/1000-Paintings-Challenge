@@ -1,0 +1,42 @@
+{
+  "number": 1656,
+  "title": "Line sketch: Eye of the Eternal Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a large, bloodshot eye with a iris and pupil, cracked like dry earth and weeping tears. To the right, a serene woman with dark skin and a patterned headwrap emerges from lush foliage beneath a radiant sun (derived from generated still #872).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a large, bloodshot eye with a iris and pupil, cracked like dry earth and weeping tears. To the right, a serene woman with dark skin and a patterned headwrap emerges from lush foliage beneath a radiant sun",
+  "inverted_title": "Inverted sketch: Eye of the Eternal Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a large, bloodshot eye with a iris and pupil, cracked like dry earth and weeping tears. To the right, a serene woman with dark skin and a patterned headwrap emerges from lush foliage beneath a radiant sun (from generated still #872).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a large, bloodshot eye with a iris and pupil, cracked like dry earth and weeping tears. To the right, a serene woman with dark skin and a patterned headwrap emerges from lush foliage beneath a radiant sun",
+  "source_description": "A surreal painting features a large, bloodshot red eye with a golden iris and green pupil, cracked like dry earth and weeping tears. To the right, a serene woman with dark skin and a golden patterned headwrap emerges from lush green foliage beneath a radiant orange sun.",
+  "source_prompt": "",
+  "source_title": "Eye of the Eternal Bloom",
+  "style": "surreal symbolic",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "woman",
+    "nature",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 872,
+  "source_url": "/generated/872.jpg",
+  "image_url": "/sketches/1656.png",
+  "inverted_image_url": "/sketches-inverted/1656.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1517,
+  "title": "Line sketch: Braided Unity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, composition depicts seven women of color in profile, their faces transitioning through a from - to. They are interconnected by a large, metallic braid that loops across the composition against a dynamic background of swirling patterns, dripping paint, and circular motifs (derived from generated still #732).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, composition depicts seven women of color in profile, their faces transitioning through a from - to. They are interconnected by a large, metallic braid that loops across the composition against a dynamic background of swirling patterns, dripping paint, and circular motifs",
+  "inverted_title": "Inverted sketch: Braided Unity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, composition depicts seven women of color in profile, their faces transitioning through a from - to. They are interconnected by a large, metallic braid that loops across the composition against a dynamic background of swirling patterns, dripping paint, and circular motifs (from generated still #732).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, composition depicts seven women of color in profile, their faces transitioning through a from - to. They are interconnected by a large, metallic braid that loops across the composition against a dynamic background of swirling patterns, dripping paint, and circular motifs",
+  "source_description": "A vibrant, colorful painting depicts seven women of color in profile, their faces transitioning through a rainbow spectrum from warm red-orange to cool blue. They are interconnected by a large, metallic silver braid that loops across the composition against a dynamic background of swirling patterns, dripping paint, and circular motifs.",
+  "source_prompt": "",
+  "source_title": "Braided Unity",
+  "style": "surreal symbolic",
+  "mood": "empowering, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "women",
+    "braid",
+    "swirls",
+    "unity",
+    "profile"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 732,
+  "source_url": "/generated/732.jpg",
+  "image_url": "/sketches/1517.png",
+  "inverted_image_url": "/sketches-inverted/1517.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:41Z"
+}

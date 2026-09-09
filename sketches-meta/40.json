@@ -1,0 +1,42 @@
+{
+  "number": 40,
+  "title": "Line sketch: Psychedelic Symmetrical Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This abstract artwork presents symmetrical, flowing organic shapes resembling eyes or petals radiating from a central radiant light. The composition balances mirror-image forms against a wavy background with bold and black accents. Smooth color gradients and fluid transitions suggest digital rendering or airbrush techniques (derived from painting #57).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This abstract artwork presents symmetrical, flowing organic shapes resembling eyes or petals radiating from a central radiant light. The composition balances mirror-image forms against a wavy background with bold and black accents. Smooth color gradients and fluid transitions suggest digital rendering or airbrush techniques",
+  "inverted_title": "Inverted sketch: Psychedelic Symmetrical Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This abstract artwork presents symmetrical, flowing organic shapes resembling eyes or petals radiating from a central radiant light. The composition balances mirror-image forms against a wavy background with bold and black accents. Smooth color gradients and fluid transitions suggest digital rendering or airbrush techniques (from painting #57).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This abstract artwork presents symmetrical, flowing organic shapes resembling eyes or petals radiating from a central radiant light. The composition balances mirror-image forms against a wavy background with bold and black accents. Smooth color gradients and fluid transitions suggest digital rendering or airbrush techniques",
+  "source_description": "This abstract artwork presents symmetrical, flowing organic shapes resembling eyes or petals radiating from a central radiant light. The composition balances mirror-image forms against a wavy lime green background with bold orange and black accents. Smooth color gradients and fluid transitions suggest digital rendering or airbrush techniques.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Symmetrical Bloom",
+  "style": "psychedelic abstract",
+  "mood": "vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "psychedelic",
+    "symmetrical",
+    "organic",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 57,
+  "source_url": "/paintings/57.jpg",
+  "image_url": "/sketches/40.png",
+  "inverted_image_url": "/sketches-inverted/40.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:38Z"
+}

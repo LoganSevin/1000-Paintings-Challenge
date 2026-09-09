@@ -1,0 +1,42 @@
+{
+  "number": 3540,
+  "title": "Line sketch: No Entry Desert Mirage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a woman with long flowing hair adorned with ornate and floral patterns emerging from the sand dunes on the left. A weathered wooden sign reading 'NO ENTRY' stands in the foreground while a massive sun with a black bar across it dominates the and sky above distant mountains (derived from generated still #2948).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a woman with long flowing hair adorned with ornate and floral patterns emerging from the sand dunes on the left. A weathered wooden sign reading 'NO ENTRY' stands in the foreground while a massive sun with a black bar across it dominates the and sky above distant mountains",
+  "inverted_title": "Inverted sketch: No Entry Desert Mirage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a woman with long flowing hair adorned with ornate and floral patterns emerging from the sand dunes on the left. A weathered wooden sign reading 'NO ENTRY' stands in the foreground while a massive sun with a black bar across it dominates the and sky above distant mountains (from generated still #2948).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a woman with long flowing hair adorned with ornate and floral patterns emerging from the sand dunes on the left. A weathered wooden sign reading 'NO ENTRY' stands in the foreground while a massive sun with a black bar across it dominates the and sky above distant mountains",
+  "source_description": "A surreal desert landscape features a woman with long flowing red hair adorned with ornate golden and floral patterns emerging from the sand dunes on the left. A weathered wooden sign reading 'NO ENTRY' stands in the foreground while a massive red sun with a black bar across it dominates the purple and orange sky above distant mountains.",
+  "source_prompt": "Surreal desert scene at dusk with rolling red sand dunes and distant purple mountains. A beautiful woman with long flowing red hair and ornate golden floral patterns growing from her shoulders and hair emerges from the left side of the frame with her eyes closed. In the center foreground stands a weathered wooden sign on a post that reads 'NO ENTRY' in black capital letters. A giant glowing red sun with a thick black horizontal bar across its center fills the sky, creating an ominous and dreamlike atmosphere.",
+  "source_title": "No Entry Desert Mirage",
+  "style": "surreal composition",
+  "mood": "ethereal foreboding",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "redhead",
+    "no entry sign",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2948,
+  "source_url": "/generated/2948.jpg",
+  "image_url": "/sketches/3540.png",
+  "inverted_image_url": "/sketches-inverted/3540.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:46Z"
+}

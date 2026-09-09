@@ -1,0 +1,42 @@
+{
+  "number": 1286,
+  "title": "Line sketch: Cosmic Spiral Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal swirling vortex dominates the center, with glowing spheres orbiting along its path. The upper portion features intricate line-art flowers in, and alongside abstract and white energy bursts against a dark, smoky background (derived from generated still #500).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal swirling vortex dominates the center, with glowing spheres orbiting along its path. The upper portion features intricate line-art flowers in, and alongside abstract and white energy bursts against a dark, smoky background",
+  "inverted_title": "Inverted sketch: Cosmic Spiral Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal swirling vortex dominates the center, with glowing spheres orbiting along its path. The upper portion features intricate line-art flowers in, and alongside abstract and white energy bursts against a dark, smoky background (from generated still #500).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal swirling vortex dominates the center, with glowing spheres orbiting along its path. The upper portion features intricate line-art flowers in, and alongside abstract and white energy bursts against a dark, smoky background",
+  "source_description": "A surreal swirling red vortex dominates the center, with glowing blue spheres orbiting along its path. The upper portion features intricate line-art flowers in pink, yellow, and purple alongside abstract blue and white energy bursts against a dark, smoky background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Spiral Vortex",
+  "style": "surrealism",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "vortex",
+    "cosmic",
+    "floral",
+    "surreal",
+    "orbits"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 500,
+  "source_url": "/generated/500.jpg",
+  "image_url": "/sketches/1286.png",
+  "inverted_image_url": "/sketches-inverted/1286.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:40Z"
+}

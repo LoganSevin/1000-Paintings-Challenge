@@ -1,0 +1,42 @@
+{
+  "number": 4726,
+  "title": "Line sketch: Riverside Clock Tower Town",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon cityscape at sunset featuring a tall ornate clock tower, a canal running through the center with boats, and European-style buildings lining cobblestone streets. A steam train crosses a stone viaduct on the left while a fountain plaza and market stalls occupy the town square (derived from generated still #4156).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon cityscape at sunset featuring a tall ornate clock tower, a canal running through the center with boats, and European-style buildings lining cobblestone streets. A steam train crosses a stone viaduct on the left while a fountain plaza and market stalls occupy the town square",
+  "inverted_title": "Inverted sketch: Riverside Clock Tower Town",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon cityscape at sunset featuring a tall ornate clock tower, a canal running through the center with boats, and European-style buildings lining cobblestone streets. A steam train crosses a stone viaduct on the left while a fountain plaza and market stalls occupy the town square (from generated still #4156).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon cityscape at sunset featuring a tall ornate clock tower, a canal running through the center with boats, and European-style buildings lining cobblestone streets. A steam train crosses a stone viaduct on the left while a fountain plaza and market stalls occupy the town square",
+  "source_description": "A vibrant cartoon cityscape at sunset featuring a tall ornate clock tower, a canal running through the center with boats, and colorful European-style buildings lining cobblestone streets. A steam train crosses a stone viaduct on the left while a fountain plaza and market stalls occupy the town square.",
+  "source_prompt": "Whimsical cartoon cityscape at sunset with a prominent ornate clock tower beside a central canal filled with sailboats. Colorful multi-story buildings with shops and market stalls line the cobblestone streets. A blue steam train travels across a high stone viaduct on the left. Fountain in the town square, warm orange and purple sky with soft clouds, vibrant and playful atmosphere.",
+  "source_title": "Riverside Clock Tower Town",
+  "style": "cartoon illustration",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "clock tower",
+    "canal",
+    "fantasy town",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4156,
+  "source_url": "/generated/4156.jpg",
+  "image_url": "/sketches/4726.png",
+  "inverted_image_url": "/sketches-inverted/4726.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:48Z"
+}

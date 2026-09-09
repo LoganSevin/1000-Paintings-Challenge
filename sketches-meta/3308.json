@@ -1,0 +1,42 @@
+{
+  "number": 3308,
+  "title": "Line sketch: Surreal Cinema Ruins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a glowing white gown sits in a worn theater seat on a crumbling balcony, holding a film strip and ticket while watching a projected scene of a glowing sinkhole with figures. The dilapidated building features movie posters, film reels, and the text 'FOLLOW-ALONG' displayed above in the twilight sky (derived from generated still #2693).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a glowing white gown sits in a worn theater seat on a crumbling balcony, holding a film strip and ticket while watching a projected scene of a glowing sinkhole with figures. The dilapidated building features movie posters, film reels, and the text 'FOLLOW-ALONG' displayed above in the twilight sky",
+  "inverted_title": "Inverted sketch: Surreal Cinema Ruins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a glowing white gown sits in a worn theater seat on a crumbling balcony, holding a film strip and ticket while watching a projected scene of a glowing sinkhole with figures. The dilapidated building features movie posters, film reels, and the text 'FOLLOW-ALONG' displayed above in the twilight sky (from generated still #2693).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a glowing white gown sits in a worn theater seat on a crumbling balcony, holding a film strip and ticket while watching a projected scene of a glowing sinkhole with figures. The dilapidated building features movie posters, film reels, and the text 'FOLLOW-ALONG' displayed above in the twilight sky",
+  "source_description": "A woman in a glowing white gown sits in a worn purple theater seat on a crumbling balcony, holding a film strip and ticket while watching a projected scene of a glowing sinkhole with figures. The dilapidated building features movie posters, film reels, and the text 'FOLLOW-ALONG' displayed above in the twilight sky.",
+  "source_prompt": "A woman in a white gown sits in an old purple theater chair on a decaying balcony overlooking a massive glowing sinkhole filled with silhouettes and purple energy. She holds a film strip and golden ticket. The ruined building walls are covered in old movie posters and film reels. A giant film projector floats nearby casting light. Dramatic twilight sky with purple and orange clouds, text 'FOLLOW-ALONG' visible in the sky, surreal cinematic atmosphere.",
+  "source_title": "Surreal Cinema Ruins",
+  "style": "surrealism",
+  "mood": "melancholy, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "ruins",
+    "film",
+    "apocalyptic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2693,
+  "source_url": "/generated/2693.jpg",
+  "image_url": "/sketches/3308.png",
+  "inverted_image_url": "/sketches-inverted/3308.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

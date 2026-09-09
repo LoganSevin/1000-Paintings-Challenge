@@ -1,0 +1,42 @@
+{
+  "number": 3537,
+  "title": "Line sketch: Elf Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned female elf with long flowing hair stands dramatically against a stormy sky. She wears a dark cropped top, ornate belt and jewelry, and billowing fabric that flows around her body as if caught in powerful wind (derived from generated still #2941).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned female elf with long flowing hair stands dramatically against a stormy sky. She wears a dark cropped top, ornate belt and jewelry, and billowing fabric that flows around her body as if caught in powerful wind",
+  "inverted_title": "Inverted sketch: Elf Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned female elf with long flowing hair stands dramatically against a stormy sky. She wears a dark cropped top, ornate belt and jewelry, and billowing fabric that flows around her body as if caught in powerful wind (from generated still #2941).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned female elf with long flowing hair stands dramatically against a stormy sky. She wears a dark cropped top, ornate belt and jewelry, and billowing fabric that flows around her body as if caught in powerful wind",
+  "source_description": "A blue-skinned female elf with long flowing green hair stands dramatically against a stormy sky. She wears a dark cropped top, ornate golden belt and jewelry, and billowing turquoise fabric that flows around her body as if caught in powerful wind.",
+  "source_prompt": "beautiful blue-skinned female elf with pointed ears and glowing yellow eyes, long flowing emerald green hair whipping in the wind, intricate golden jewelry and armbands, dark cropped top exposing midriff, elaborate golden belt, sheer turquoise fabric and long flowing robes billowing dramatically around her body, dynamic pose with arms outstretched, mystical stormy background with dramatic backlighting and glowing aura, fantasy digital painting style, cinematic lighting, ethereal atmosphere",
+  "source_title": "Blue Elf Sorceress",
+  "style": "fantasy illustration",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elf",
+    "fantasy",
+    "skin",
+    "flowing fabric",
+    "sorceress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2941,
+  "source_url": "/generated/2941.jpg",
+  "image_url": "/sketches/3537.png",
+  "inverted_image_url": "/sketches-inverted/3537.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 296,
+  "title": "Line sketch: Silhouetted Wolf at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking profile of a black wolf gazing right, its form merging with shadows. The single glowing eye creates an intense focal point against the moody twilight background (derived from painting #354).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking profile of a black wolf gazing right, its form merging with shadows. The single glowing eye creates an intense focal point against the moody twilight background",
+  "inverted_title": "Inverted sketch: Silhouetted Wolf at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking profile of a black wolf gazing right, its form merging with shadows. The single glowing eye creates an intense focal point against the moody twilight background (from painting #354).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking profile of a black wolf gazing right, its form merging with shadows. The single glowing eye creates an intense focal point against the moody twilight background",
+  "source_description": "A striking profile of a black wolf gazing right, its form merging with deep purple shadows. The single glowing yellow eye creates an intense focal point against the moody twilight background.",
+  "source_prompt": "",
+  "source_title": "Silhouetted Wolf at Dusk",
+  "style": "line sketch",
+  "mood": "Mysterious and intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "silhouette",
+    "twilight",
+    "eyes",
+    "animal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 354,
+  "source_url": "/paintings/354.jpg",
+  "image_url": "/sketches/296.png",
+  "inverted_image_url": "/sketches-inverted/296.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2036,
+  "title": "Line sketch: Theater of Echoes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal shows three young Black women seated in a vibrant, patterned theater. The central figure stares forward with glowing eyes and digital artifacts floating around her face, flanked by a woman in a patterned hat on the left and a woman with branch-like patterns on her clothing on the right, while two birds perch on a bare branch above them amid a blurred audience with glowing orbs (derived from generated still #1261).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal shows three young Black women seated in a vibrant, patterned theater. The central figure stares forward with glowing eyes and digital artifacts floating around her face, flanked by a woman in a patterned hat on the left and a woman with branch-like patterns on her clothing on the right, while two birds perch on a bare branch above them amid a blurred audience with glowing orbs",
+  "inverted_title": "Inverted sketch: Theater of Echoes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal shows three young Black women seated in a vibrant, patterned theater. The central figure stares forward with glowing eyes and digital artifacts floating around her face, flanked by a woman in a patterned hat on the left and a woman with branch-like patterns on her clothing on the right, while two birds perch on a bare branch above them amid a blurred audience with glowing orbs (from generated still #1261).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal shows three young Black women seated in a vibrant, patterned theater. The central figure stares forward with glowing eyes and digital artifacts floating around her face, flanked by a woman in a patterned hat on the left and a woman with branch-like patterns on her clothing on the right, while two birds perch on a bare branch above them amid a blurred audience with glowing orbs",
+  "source_description": "A surreal digital painting shows three young Black women seated in a vibrant, patterned theater. The central figure stares forward with glowing green eyes and digital artifacts floating around her face, flanked by a woman in a patterned hat on the left and a woman with branch-like patterns on her clothing on the right, while two yellow birds perch on a bare branch above them amid a blurred audience with glowing orbs.",
+  "source_prompt": "",
+  "source_title": "Theater of Echoes",
+  "style": "surreal digital illustration",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "theater",
+    "digital art",
+    "afrofuturism",
+    "glowing eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1261,
+  "source_url": "/generated/1261.jpg",
+  "image_url": "/sketches/2036.png",
+  "inverted_image_url": "/sketches-inverted/2036.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:42Z"
+}

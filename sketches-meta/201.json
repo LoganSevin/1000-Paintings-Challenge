@@ -1,0 +1,42 @@
+{
+  "number": 201,
+  "title": "Line sketch: at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking blooms against a serene sky with a glowing sun on the horizon. The dramatic lighting highlights the flower's velvety petals and leaves (derived from painting #248).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking blooms against a serene sky with a glowing sun on the horizon. The dramatic lighting highlights the flower's velvety petals and leaves",
+  "inverted_title": "Inverted sketch: at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking blooms against a serene sky with a glowing sun on the horizon. The dramatic lighting highlights the flower's velvety petals and leaves (from painting #248).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking blooms against a serene sky with a glowing sun on the horizon. The dramatic lighting highlights the flower's velvety petals and leaves",
+  "source_description": "A striking red rose blooms against a serene teal sky with a glowing sun on the horizon. The dramatic lighting highlights the flower's velvety petals and deep green leaves.",
+  "source_prompt": "",
+  "source_title": "Crimson Rose at Dusk",
+  "style": "Realistic",
+  "mood": "Serene and dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "flower",
+    "sunset",
+    "dramatic lighting",
+    "nature",
+    "botanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 248,
+  "source_url": "/paintings/248.jpg",
+  "image_url": "/sketches/201.png",
+  "inverted_image_url": "/sketches-inverted/201.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:38Z"
+}

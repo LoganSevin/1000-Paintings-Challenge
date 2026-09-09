@@ -1,0 +1,42 @@
+{
+  "number": 318,
+  "title": "Line sketch: Labrador Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized profile of a Labrador retriever rendered in vibrant against a solid background. Bold black outlines define the dog's features with expressive eyes and textured fur details (derived from painting #379).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized profile of a Labrador retriever rendered in vibrant against a solid background. Bold black outlines define the dog's features with expressive eyes and textured fur details",
+  "inverted_title": "Inverted sketch: Labrador Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized profile of a Labrador retriever rendered in vibrant against a solid background. Bold black outlines define the dog's features with expressive eyes and textured fur details (from painting #379).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized profile of a Labrador retriever rendered in vibrant against a solid background. Bold black outlines define the dog's features with expressive eyes and textured fur details",
+  "source_description": "A stylized profile of a Labrador retriever rendered in vibrant lime green against a solid purple background. Bold black outlines define the dog's features with expressive eyes and textured fur details.",
+  "source_prompt": "",
+  "source_title": "Green Labrador Portrait",
+  "style": "Pop Art",
+  "mood": "Bold and graphic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "labrador",
+    "dog portrait",
+    "pop art",
+    "animal illustration",
+    "dog"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 379,
+  "source_url": "/paintings/379.jpg",
+  "image_url": "/sketches/318.png",
+  "inverted_image_url": "/sketches-inverted/318.png",
+  "curve_count": 266,
+  "built_at": "2026-08-17T00:09:39Z"
+}

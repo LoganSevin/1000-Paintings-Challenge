@@ -1,0 +1,42 @@
+{
+  "number": 2611,
+  "title": "Line sketch: Swirling Hair Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized portrait of a woman with large spiral curls in vibrant and, set against a background. White streaks and small snowflake-like details suggest wind or motion across the composition (derived from generated still #1850).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized portrait of a woman with large spiral curls in vibrant and, set against a background. White streaks and small snowflake-like details suggest wind or motion across the composition",
+  "inverted_title": "Inverted sketch: Swirling Hair Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized portrait of a woman with large spiral curls in vibrant and, set against a background. White streaks and small snowflake-like details suggest wind or motion across the composition (from generated still #1850).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized portrait of a woman with large spiral curls in vibrant and, set against a background. White streaks and small snowflake-like details suggest wind or motion across the composition",
+  "source_description": "A stylized portrait of a woman with large spiral curls in vibrant orange and blue, set against a bright yellow background. White streaks and small snowflake-like details suggest wind or motion across the composition.",
+  "source_prompt": "",
+  "source_title": "Swirling Hair Portrait",
+  "style": "pop art",
+  "mood": "vibrant, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "swirling hair",
+    "stylized",
+    "windy",
+    "spirals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1850,
+  "source_url": "/generated/1850.jpg",
+  "image_url": "/sketches/2611.png",
+  "inverted_image_url": "/sketches-inverted/2611.png",
+  "curve_count": 252,
+  "built_at": "2026-08-17T00:09:43Z"
+}

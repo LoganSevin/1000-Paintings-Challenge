@@ -1,0 +1,42 @@
+{
+  "number": 2911,
+  "title": "Line sketch: Woman in Floral Dream Room",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with dark hair in a bun sits on a mustard- sofa, gazing out a large window at a surreal sunset with Ferris wheels. The room features walls adorned with circular floral motifs, lush flowers growing indoors, a wooden coffee table with, and a retro cabinet with a lit lamp (derived from generated still #2200).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with dark hair in a bun sits on a mustard- sofa, gazing out a large window at a surreal sunset with Ferris wheels. The room features walls adorned with circular floral motifs, lush flowers growing indoors, a wooden coffee table with, and a retro cabinet with a lit lamp",
+  "inverted_title": "Inverted sketch: Woman in Floral Dream Room",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with dark hair in a bun sits on a mustard- sofa, gazing out a large window at a surreal sunset with Ferris wheels. The room features walls adorned with circular floral motifs, lush flowers growing indoors, a wooden coffee table with, and a retro cabinet with a lit lamp (from generated still #2200).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with dark hair in a bun sits on a mustard- sofa, gazing out a large window at a surreal sunset with Ferris wheels. The room features walls adorned with circular floral motifs, lush flowers growing indoors, a wooden coffee table with, and a retro cabinet with a lit lamp",
+  "source_description": "A blue-skinned woman with dark hair in a bun sits on a mustard-yellow sofa, gazing out a large window at a surreal sunset with Ferris wheels. The room features turquoise walls adorned with circular floral motifs, lush pink flowers growing indoors, a wooden coffee table with roses, and a retro teal cabinet with a lit lamp.",
+  "source_prompt": "A serene blue-skinned woman with dark hair in a bun sits on a mustard sofa inside a dreamy room, looking out a large window at a vibrant red and teal sunset with distant Ferris wheels. The turquoise walls are covered in overlapping circular frames filled with stylized flowers and leaves, while large pink hibiscus and roses grow throughout the space. A wooden coffee table holds a vase of roses, and a retro teal cabinet with a warm lamp stands nearby. Surreal, whimsical, detailed painting style.",
+  "source_title": "Woman in Floral Dream Room",
+  "style": "surrealism",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal interior",
+    "floral wallpaper",
+    "futuristic sunset",
+    "woman on sofa",
+    "whimsical nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2200,
+  "source_url": "/generated/2200.jpg",
+  "image_url": "/sketches/2911.png",
+  "inverted_image_url": "/sketches-inverted/2911.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

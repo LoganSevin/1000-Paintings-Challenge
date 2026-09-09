@@ -1,0 +1,42 @@
+{
+  "number": 1672,
+  "title": "Line sketch: Cabbage Mandala of Faces",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal circular composition features concentric layers of vibrant cabbage leaves spiraling inward toward a glowing core. Female faces with closed eyes emerge from the leaf edges, surrounded by floating translucent bubbles containing smaller faces, spirals, and floral elements against a background (derived from generated still #888).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal circular composition features concentric layers of vibrant cabbage leaves spiraling inward toward a glowing core. Female faces with closed eyes emerge from the leaf edges, surrounded by floating translucent bubbles containing smaller faces, spirals, and floral elements against a background",
+  "inverted_title": "Inverted sketch: Cabbage Mandala of Faces",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal circular composition features concentric layers of vibrant cabbage leaves spiraling inward toward a glowing core. Female faces with closed eyes emerge from the leaf edges, surrounded by floating translucent bubbles containing smaller faces, spirals, and floral elements against a background (from generated still #888).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal circular composition features concentric layers of vibrant cabbage leaves spiraling inward toward a glowing core. Female faces with closed eyes emerge from the leaf edges, surrounded by floating translucent bubbles containing smaller faces, spirals, and floral elements against a background",
+  "source_description": "A surreal circular composition features concentric layers of vibrant green cabbage leaves spiraling inward toward a glowing red core. Female faces with closed eyes emerge from the leaf edges, surrounded by floating translucent bubbles containing smaller faces, spirals, and floral elements against a dark blue background.",
+  "source_prompt": "",
+  "source_title": "Cabbage Mandala of Faces",
+  "style": "surrealism",
+  "mood": "ethereal hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mandala",
+    "cabbage",
+    "female faces",
+    "bubbles",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 888,
+  "source_url": "/generated/888.jpg",
+  "image_url": "/sketches/1672.png",
+  "inverted_image_url": "/sketches-inverted/1672.png",
+  "curve_count": 131,
+  "built_at": "2026-08-17T00:09:41Z"
+}

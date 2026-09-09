@@ -1,0 +1,42 @@
+{
+  "number": 128,
+  "title": "Line sketch: Verdant Cabbage Spiral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A tight close-up reveals the layered, curving leaves of a cabbage spiraling inward toward a dark center with a single highlight. The composition draws the eye into the rosette pattern through overlapping foliage and soft shadows. Bold, visible and smooth color gradients emphasize the plant's organic texture (derived from painting #165).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A tight close-up reveals the layered, curving leaves of a cabbage spiraling inward toward a dark center with a single highlight. The composition draws the eye into the rosette pattern through overlapping foliage and soft shadows. Bold, visible and smooth color gradients emphasize the plant's organic texture",
+  "inverted_title": "Inverted sketch: Verdant Cabbage Spiral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A tight close-up reveals the layered, curving leaves of a cabbage spiraling inward toward a dark center with a single highlight. The composition draws the eye into the rosette pattern through overlapping foliage and soft shadows. Bold, visible and smooth color gradients emphasize the plant's organic texture (from painting #165).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A tight close-up reveals the layered, curving leaves of a cabbage spiraling inward toward a dark center with a single highlight. The composition draws the eye into the rosette pattern through overlapping foliage and soft shadows. Bold, visible and smooth color gradients emphasize the plant's organic texture",
+  "source_description": "A tight close-up reveals the layered, curving leaves of a green cabbage spiraling inward toward a dark center with a single red highlight. The composition draws the eye into the rosette pattern through overlapping foliage and soft shadows. Bold, visible brushstrokes and smooth color gradients emphasize the plant's organic texture.",
+  "source_prompt": "",
+  "source_title": "Verdant Cabbage Spiral",
+  "style": "impressionism",
+  "mood": "Lush serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage",
+    "leaves",
+    "spiral",
+    "botanical",
+    "close-up"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 165,
+  "source_url": "/paintings/165.jpg",
+  "image_url": "/sketches/128.png",
+  "inverted_image_url": "/sketches-inverted/128.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:38Z"
+}

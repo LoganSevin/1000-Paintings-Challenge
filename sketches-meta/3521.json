@@ -1,0 +1,42 @@
+{
+  "number": 3521,
+  "title": "Line sketch: Surreal Misty Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure rows a small boat across a misty lake toward a glowing symbol on the water. In the background, a massive waterfall flows from rocky cliffs beside a pagoda, while a UFO-like platform hovers between mountains under a sky containing multiple moons, a sunset, and a tall communication tower on a hill (derived from generated still #2923).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure rows a small boat across a misty lake toward a glowing symbol on the water. In the background, a massive waterfall flows from rocky cliffs beside a pagoda, while a UFO-like platform hovers between mountains under a sky containing multiple moons, a sunset, and a tall communication tower on a hill",
+  "inverted_title": "Inverted sketch: Surreal Misty Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure rows a small boat across a misty lake toward a glowing symbol on the water. In the background, a massive waterfall flows from rocky cliffs beside a pagoda, while a UFO-like platform hovers between mountains under a sky containing multiple moons, a sunset, and a tall communication tower on a hill (from generated still #2923).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure rows a small boat across a misty lake toward a glowing symbol on the water. In the background, a massive waterfall flows from rocky cliffs beside a pagoda, while a UFO-like platform hovers between mountains under a sky containing multiple moons, a sunset, and a tall communication tower on a hill",
+  "source_description": "A lone figure rows a small yellow boat across a misty lake toward a glowing pink symbol on the water. In the background, a massive waterfall flows from rocky cliffs beside a red pagoda, while a UFO-like platform hovers between mountains under a sky containing multiple moons, a sunset, and a tall communication tower on a golden hill.",
+  "source_prompt": "Surreal fantasy landscape at twilight with a small yellow boat carrying a lone rower on a misty lake. A glowing pink circular symbol floats on the water near a large waterfall cascading into the lake. On the right a traditional red multi-tiered pagoda sits on a cliff. A metallic communication tower stands on a golden hill to the left. A futuristic glowing platform hovers in the sky between mountains. Multiple celestial bodies including a large red moon, smaller green and blue moons, and a setting sun fill the colorful sky. Fog fills the valley between mountains. Cracked road with a yellow No U-Turn sign in foreground.",
+  "source_title": "Surreal Misty Waterfall",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal landscape",
+    "fantasy scene",
+    "waterfall",
+    "UFO",
+    "multiple moons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2923,
+  "source_url": "/generated/2923.jpg",
+  "image_url": "/sketches/3521.png",
+  "inverted_image_url": "/sketches-inverted/3521.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

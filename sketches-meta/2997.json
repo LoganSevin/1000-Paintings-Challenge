@@ -1,0 +1,42 @@
+{
+  "number": 2997,
+  "title": "Line sketch: Electric Sorcerer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A middle-aged man in military camouflage and cap stands centered, both hands extended emitting vibrant and lightning. To his right, a glowing female figure made of cracked light floats in the sky. Behind them is a dramatic cityscape featuring a large domed building under a swirling cosmic sky filled with stars and nebulae (derived from generated still #2319).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A middle-aged man in military camouflage and cap stands centered, both hands extended emitting vibrant and lightning. To his right, a glowing female figure made of cracked light floats in the sky. Behind them is a dramatic cityscape featuring a large domed building under a swirling cosmic sky filled with stars and nebulae",
+  "inverted_title": "Inverted sketch: Electric Sorcerer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A middle-aged man in military camouflage and cap stands centered, both hands extended emitting vibrant and lightning. To his right, a glowing female figure made of cracked light floats in the sky. Behind them is a dramatic cityscape featuring a large domed building under a swirling cosmic sky filled with stars and nebulae (from generated still #2319).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A middle-aged man in military camouflage and cap stands centered, both hands extended emitting vibrant and lightning. To his right, a glowing female figure made of cracked light floats in the sky. Behind them is a dramatic cityscape featuring a large domed building under a swirling cosmic sky filled with stars and nebulae",
+  "source_description": "A middle-aged man in military camouflage and cap stands centered, both hands extended emitting vibrant purple and blue lightning. To his right, a glowing golden female figure made of cracked light floats in the sky. Behind them is a dramatic cityscape featuring a large domed building under a swirling cosmic sky filled with stars and nebulae.",
+  "source_prompt": "A determined middle-aged man wearing a camouflage military uniform and cap stands in the foreground casting powerful purple and blue lightning from both hands, a glowing golden ethereal female figure composed of cracks and light floating beside him, dramatic city skyline with a large domed building in the background, swirling cosmic starry sky with nebulae and dramatic clouds at sunset, highly detailed cinematic fantasy painting",
+  "source_title": "Electric Sorcerer",
+  "style": "surreal fantasy",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "magic",
+    "military",
+    "cosmic",
+    "lightning"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2319,
+  "source_url": "/generated/2319.jpg",
+  "image_url": "/sketches/2997.png",
+  "inverted_image_url": "/sketches-inverted/2997.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

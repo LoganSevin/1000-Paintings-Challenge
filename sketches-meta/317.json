@@ -1,0 +1,42 @@
+{
+  "number": 317,
+  "title": "Line sketch: Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized dog head in vibrant with bold black outlines against a solid background. The expressive eyes and open mouth create a friendly, lifelike canine portrait with artistic flair (derived from painting #378).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized dog head in vibrant with bold black outlines against a solid background. The expressive eyes and open mouth create a friendly, lifelike canine portrait with artistic flair",
+  "inverted_title": "Inverted sketch: Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized dog head in vibrant with bold black outlines against a solid background. The expressive eyes and open mouth create a friendly, lifelike canine portrait with artistic flair (from painting #378).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized dog head in vibrant with bold black outlines against a solid background. The expressive eyes and open mouth create a friendly, lifelike canine portrait with artistic flair",
+  "source_description": "A stylized dog head in vibrant lime green with bold black outlines against a solid pink background. The expressive eyes and open mouth create a friendly, lifelike canine portrait with artistic flair.",
+  "source_prompt": "",
+  "source_title": "Lime Green Dog Portrait",
+  "style": "Pop Art",
+  "mood": "Playful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "pop art",
+    "bold lines",
+    "animal art",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 378,
+  "source_url": "/paintings/378.jpg",
+  "image_url": "/sketches/317.png",
+  "inverted_image_url": "/sketches-inverted/317.png",
+  "curve_count": 102,
+  "built_at": "2026-08-17T00:09:39Z"
+}

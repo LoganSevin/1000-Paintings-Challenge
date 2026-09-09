@@ -1,0 +1,42 @@
+{
+  "number": 1570,
+  "title": "Line sketch: Psychedelic Woman and Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant street-art style portrait of a woman's face with intricate black line work, dripping paint effects, and glowing eyes. She is accompanied by a stylized cat covered in swirling patterns, set against a white background with floating orbs and abstract splatters (derived from generated still #785).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant street-art style portrait of a woman's face with intricate black line work, dripping paint effects, and glowing eyes. She is accompanied by a stylized cat covered in swirling patterns, set against a white background with floating orbs and abstract splatters",
+  "inverted_title": "Inverted sketch: Psychedelic Woman and Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant street-art style portrait of a woman's face with intricate black line work, dripping paint effects, and glowing eyes. She is accompanied by a stylized cat covered in swirling patterns, set against a white background with floating orbs and abstract splatters (from generated still #785).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant street-art style portrait of a woman's face with intricate black line work, dripping paint effects, and glowing eyes. She is accompanied by a stylized cat covered in swirling patterns, set against a white background with floating orbs and abstract splatters",
+  "source_description": "A vibrant street-art style portrait of a woman's face with intricate black line work, colorful dripping paint effects, and glowing yellow eyes. She is accompanied by a stylized green cat covered in swirling patterns, set against a white background with floating multicolored orbs and abstract splatters.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Woman and Cat",
+  "style": "street art",
+  "mood": "trippy, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "spray paint and acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "portrait",
+    "dripping paint",
+    "cat",
+    "street art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 785,
+  "source_url": "/generated/785.jpg",
+  "image_url": "/sketches/1570.png",
+  "inverted_image_url": "/sketches-inverted/1570.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:41Z"
+}

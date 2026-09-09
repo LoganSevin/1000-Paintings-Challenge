@@ -1,0 +1,42 @@
+{
+  "number": 567,
+  "title": "Line sketch: Circular Mosaic Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant geometric composition featuring overlapping concentric circles in varying, and. The intricate tile-like patterns create a mesmerizing mosaic effect with dynamic interplay of light and color (derived from painting #709).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant geometric composition featuring overlapping concentric circles in varying, and. The intricate tile-like patterns create a mesmerizing mosaic effect with dynamic interplay of light and color",
+  "inverted_title": "Inverted sketch: Circular Mosaic Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant geometric composition featuring overlapping concentric circles in varying, and. The intricate tile-like patterns create a mesmerizing mosaic effect with dynamic interplay of light and color (from painting #709).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant geometric composition featuring overlapping concentric circles in varying, and. The intricate tile-like patterns create a mesmerizing mosaic effect with dynamic interplay of light and color",
+  "source_description": "Vibrant geometric composition featuring overlapping concentric circles in varying shades of blue, teal, and yellow. The intricate tile-like patterns create a mesmerizing mosaic effect with dynamic interplay of light and color.",
+  "source_prompt": "",
+  "source_title": "Circular Mosaic Abstraction",
+  "style": "Abstract Geometric",
+  "mood": "Harmonious and Tranquil",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Mixed Media Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "geometric",
+    "mosaic",
+    "concentric circles",
+    "tones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 709,
+  "source_url": "/paintings/709.jpg",
+  "image_url": "/sketches/567.png",
+  "inverted_image_url": "/sketches-inverted/567.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:39Z"
+}

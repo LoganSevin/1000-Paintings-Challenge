@@ -1,0 +1,42 @@
+{
+  "number": 4011,
+  "title": "Line sketch: Warrior with Giant Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce female warrior with long dark hair stands in a dynamic combat pose, holding a massive warhammer with both hands. A starburst energy explosion emanates from the hammer's head as she looks directly forward with an intense expression (derived from generated still #3428).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce female warrior with long dark hair stands in a dynamic combat pose, holding a massive warhammer with both hands. A starburst energy explosion emanates from the hammer's head as she looks directly forward with an intense expression",
+  "inverted_title": "Inverted sketch: Warrior with Giant Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce female warrior with long dark hair stands in a dynamic combat pose, holding a massive warhammer with both hands. A starburst energy explosion emanates from the hammer's head as she looks directly forward with an intense expression (from generated still #3428).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce female warrior with long dark hair stands in a dynamic combat pose, holding a massive warhammer with both hands. A starburst energy explosion emanates from the hammer's head as she looks directly forward with an intense expression",
+  "source_description": "A fierce female warrior with long dark hair stands in a dynamic combat pose, holding a massive purple warhammer with both hands. A bright yellow starburst energy explosion emanates from the hammer's head as she looks directly forward with an intense expression.",
+  "source_prompt": "A fierce young East Asian female warrior with long dark hair in a topknot, wearing a cropped orange patterned top, dark purple pants with orange accents, and fingerless gloves, stands in a powerful combat stance holding a huge purple warhammer with intricate designs. A bright yellow starburst energy explosion bursts from the hammer head. She has an intense focused expression, looking forward. Comic book style digital illustration with strong outlines and vibrant colors on a solid dark background.",
+  "source_title": "Warrior with Giant Hammer",
+  "style": "comic book",
+  "mood": "powerful, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "energy burst",
+    "fantasy character",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3428,
+  "source_url": "/generated/3428.jpg",
+  "image_url": "/sketches/4011.png",
+  "inverted_image_url": "/sketches-inverted/4011.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:47Z"
+}

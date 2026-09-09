@@ -1,0 +1,42 @@
+{
+  "number": 3367,
+  "title": "Line sketch: Cosmic Paw Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy landscape features a giant and black cosmic orb with a prominent black paw print at its center, surrounded by smaller paw icons. In the foreground, a silhouetted figure in a hat sits on a rocky outcrop overlooking a eclipse, flanked by a reptilian alien with eyes on the left, a mechanical device with a large detailed eye on the right, and a alien head peering from behind the orb (derived from generated still #2768).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy landscape features a giant and black cosmic orb with a prominent black paw print at its center, surrounded by smaller paw icons. In the foreground, a silhouetted figure in a hat sits on a rocky outcrop overlooking a eclipse, flanked by a reptilian alien with eyes on the left, a mechanical device with a large detailed eye on the right, and a alien head peering from behind the orb",
+  "inverted_title": "Inverted sketch: Cosmic Paw Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy landscape features a giant and black cosmic orb with a prominent black paw print at its center, surrounded by smaller paw icons. In the foreground, a silhouetted figure in a hat sits on a rocky outcrop overlooking a eclipse, flanked by a reptilian alien with eyes on the left, a mechanical device with a large detailed eye on the right, and a alien head peering from behind the orb (from generated still #2768).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy landscape features a giant and black cosmic orb with a prominent black paw print at its center, surrounded by smaller paw icons. In the foreground, a silhouetted figure in a hat sits on a rocky outcrop overlooking a eclipse, flanked by a reptilian alien with eyes on the left, a mechanical device with a large detailed eye on the right, and a alien head peering from behind the orb",
+  "source_description": "A surreal fantasy landscape features a giant red and black cosmic orb with a prominent black paw print at its center, surrounded by smaller paw icons. In the foreground, a silhouetted figure in a hat sits on a rocky outcrop overlooking a red eclipse, flanked by a green reptilian alien with red eyes on the left, a mechanical device with a large detailed green eye on the right, and a golden alien head peering from behind the orb.",
+  "source_prompt": "Surreal fantasy landscape at twilight with a massive glowing red orb containing a large black paw print at center, surrounded by orbiting smaller paw prints. A silhouetted figure wearing a hat sits on a rocky cliff in the foreground. To the left a lime green reptilian alien with red eyes, to the right a complex mechanical orb with a huge realistic green iris and metallic tentacles. A golden-skinned alien with large eyes peers from behind the red orb. In the background, an ancient stone aqueduct bridge stretches across misty mountains under a starry sky with multiple moons and a red eclipse.",
+  "source_title": "Cosmic Paw Eclipse",
+  "style": "surreal fantasy",
+  "mood": "mysterious epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "alien",
+    "cosmic",
+    "paw print",
+    "eclipse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2768,
+  "source_url": "/generated/2768.jpg",
+  "image_url": "/sketches/3367.png",
+  "inverted_image_url": "/sketches-inverted/3367.png",
+  "curve_count": 99,
+  "built_at": "2026-08-17T00:09:45Z"
+}

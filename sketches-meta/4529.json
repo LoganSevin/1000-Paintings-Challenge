@@ -1,0 +1,42 @@
+{
+  "number": 4529,
+  "title": "Line sketch: Cyborg Profile",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized black line profile of a cyborg figure facing left, featuring a glowing circular mechanical eye and segmented mechanical head and neck components. Teardrop-shaped elements in, and white drip downward from the head against a textured and black background with vertical drips and brush strokes (derived from generated still #3949).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized black line profile of a cyborg figure facing left, featuring a glowing circular mechanical eye and segmented mechanical head and neck components. Teardrop-shaped elements in, and white drip downward from the head against a textured and black background with vertical drips and brush strokes",
+  "inverted_title": "Inverted sketch: Cyborg Profile",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized black line profile of a cyborg figure facing left, featuring a glowing circular mechanical eye and segmented mechanical head and neck components. Teardrop-shaped elements in, and white drip downward from the head against a textured and black background with vertical drips and brush strokes (from generated still #3949).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized black line profile of a cyborg figure facing left, featuring a glowing circular mechanical eye and segmented mechanical head and neck components. Teardrop-shaped elements in, and white drip downward from the head against a textured and black background with vertical drips and brush strokes",
+  "source_description": "A stylized black line profile of a cyborg figure facing left, featuring a glowing green circular mechanical eye and segmented mechanical head and neck components. Teardrop-shaped elements in green, orange, and white drip downward from the head against a textured orange and black background with vertical drips and brush strokes.",
+  "source_prompt": "Side profile of a futuristic cyborg with segmented black mechanical head and neck, glowing bright green circular mechanical eye, and small glowing green eye on the face. White, green and orange glowing teardrop shapes drip from the head and neck. Dramatic orange background with black vertical brush strokes and dripping paint effects, stylized digital ink painting with visible brush texture",
+  "source_title": "Cyborg Profile",
+  "style": "line sketch",
+  "mood": "cyberpunk, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration with ink and brush textures",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyborg",
+    "profile",
+    "teardrops",
+    "mechanical",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3949,
+  "source_url": "/generated/3949.jpg",
+  "image_url": "/sketches/4529.png",
+  "inverted_image_url": "/sketches-inverted/4529.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:48Z"
+}

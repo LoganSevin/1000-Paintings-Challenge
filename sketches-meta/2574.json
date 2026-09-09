@@ -1,0 +1,42 @@
+{
+  "number": 2574,
+  "title": "Line sketch: Stasis Paused Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A knight in armor stands on a floating hexagonal platform holding a glowing sword, facing ancient ruined Greek-style temple under a sky. The scene is overlaid with, and digital glitch artifacts and a large 'PAUSED' text with 'STASIS 100%' indicator (derived from generated still #1810).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A knight in armor stands on a floating hexagonal platform holding a glowing sword, facing ancient ruined Greek-style temple under a sky. The scene is overlaid with, and digital glitch artifacts and a large 'PAUSED' text with 'STASIS 100%' indicator",
+  "inverted_title": "Inverted sketch: Stasis Paused Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A knight in armor stands on a floating hexagonal platform holding a glowing sword, facing ancient ruined Greek-style temple under a sky. The scene is overlaid with, and digital glitch artifacts and a large 'PAUSED' text with 'STASIS 100%' indicator (from generated still #1810).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A knight in armor stands on a floating hexagonal platform holding a glowing sword, facing ancient ruined Greek-style temple under a sky. The scene is overlaid with, and digital glitch artifacts and a large 'PAUSED' text with 'STASIS 100%' indicator",
+  "source_description": "A knight in teal armor stands on a floating hexagonal platform holding a glowing blue sword, facing ancient ruined Greek-style temple under a purple sky. The scene is overlaid with bright cyan, magenta, and green digital glitch artifacts and a large 'PAUSED' text with 'STASIS 100%' indicator.",
+  "source_prompt": "",
+  "source_title": "Stasis Paused Warrior",
+  "style": "line sketch",
+  "mood": "epic paused",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "video game screenshot",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "knight",
+    "ruins",
+    "glitch",
+    "temple",
+    "paused"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1810,
+  "source_url": "/generated/1810.jpg",
+  "image_url": "/sketches/2574.png",
+  "inverted_image_url": "/sketches-inverted/2574.png",
+  "curve_count": 320,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2016,
+  "title": "Line sketch: Mushroom by the Mystic Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene depicts a large anthropomorphic mushroom with big expressive eyes standing on a grassy bank beside a reflective pond. In the background, a group of silhouetted figures with intricate patterns and headwraps gather under a swirling and sky next to a dark leafless tree (derived from generated still #1241).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene depicts a large anthropomorphic mushroom with big expressive eyes standing on a grassy bank beside a reflective pond. In the background, a group of silhouetted figures with intricate patterns and headwraps gather under a swirling and sky next to a dark leafless tree",
+  "inverted_title": "Inverted sketch: Mushroom by the Mystic Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene depicts a large anthropomorphic mushroom with big expressive eyes standing on a grassy bank beside a reflective pond. In the background, a group of silhouetted figures with intricate patterns and headwraps gather under a swirling and sky next to a dark leafless tree (from generated still #1241).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene depicts a large anthropomorphic mushroom with big expressive eyes standing on a grassy bank beside a reflective pond. In the background, a group of silhouetted figures with intricate patterns and headwraps gather under a swirling and sky next to a dark leafless tree",
+  "source_description": "A vibrant surreal scene depicts a large green anthropomorphic mushroom with big expressive eyes standing on a grassy bank beside a reflective pond. In the background, a group of silhouetted figures with intricate colorful patterns and headwraps gather under a swirling pink and orange sky next to a dark leafless tree.",
+  "source_prompt": "",
+  "source_title": "Mushroom by the Mystic Pond",
+  "style": "surreal illustration",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "silhouettes",
+    "psychedelic",
+    "pond",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1241,
+  "source_url": "/generated/1241.jpg",
+  "image_url": "/sketches/2016.png",
+  "inverted_image_url": "/sketches-inverted/2016.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:42Z"
+}

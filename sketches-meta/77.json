@@ -1,0 +1,42 @@
+{
+  "number": 77,
+  "title": "Line sketch: Orbital Harmony",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition centered on a large translucent circle surrounded by scattered smaller orbs in,, and white against a background. Overlapping shapes with soft gradients and varying opacities create depth and gentle movement across the page. The work employs clean curves and balanced spacing for a modern, layered effect (derived from painting #108).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition centered on a large translucent circle surrounded by scattered smaller orbs in,, and white against a background. Overlapping shapes with soft gradients and varying opacities create depth and gentle movement across the page. The work employs clean curves and balanced spacing for a modern, layered effect",
+  "inverted_title": "Inverted sketch: Orbital Harmony",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition centered on a large translucent circle surrounded by scattered smaller orbs in,, and white against a background. Overlapping shapes with soft gradients and varying opacities create depth and gentle movement across the page. The work employs clean curves and balanced spacing for a modern, layered effect (from painting #108).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition centered on a large translucent circle surrounded by scattered smaller orbs in,, and white against a background. Overlapping shapes with soft gradients and varying opacities create depth and gentle movement across the page. The work employs clean curves and balanced spacing for a modern, layered effect",
+  "source_description": "An abstract composition centered on a large translucent teal circle surrounded by scattered smaller orbs in orange, yellow, green, and white against a deep purple background. Overlapping shapes with soft gradients and varying opacities create depth and gentle movement across the canvas. The work employs clean curves and balanced spacing for a modern, layered effect.",
+  "source_prompt": "",
+  "source_title": "Orbital Teal Harmony",
+  "style": "Geometric Abstract",
+  "mood": "Serene Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circles",
+    "geometric",
+    "modern",
+    "spheres"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 108,
+  "source_url": "/paintings/108.jpg",
+  "image_url": "/sketches/77.png",
+  "inverted_image_url": "/sketches-inverted/77.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:38Z"
+}

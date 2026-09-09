@@ -1,0 +1,42 @@
+{
+  "number": 275,
+  "title": "Line sketch: Alien Eating Flatbread",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A alien sits under a starry night sky, curiously examining a piece of flatbread while a stack and a bowl of more bread rest nearby (derived from painting #332).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A alien sits under a starry night sky, curiously examining a piece of flatbread while a stack and a bowl of more bread rest nearby",
+  "inverted_title": "Inverted sketch: Alien Eating Flatbread",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A alien sits under a starry night sky, curiously examining a piece of flatbread while a stack and a bowl of more bread rest nearby (from painting #332).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A alien sits under a starry night sky, curiously examining a piece of flatbread while a stack and a bowl of more bread rest nearby",
+  "source_description": "A golden alien sits under a starry night sky, curiously examining a piece of flatbread while a stack and a bowl of more bread rest nearby.",
+  "source_prompt": "",
+  "source_title": "Alien Eating Flatbread",
+  "style": "Retro illustration",
+  "mood": "Curious and whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "flatbread",
+    "space",
+    "stars",
+    "retro"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 332,
+  "source_url": "/paintings/332.jpg",
+  "image_url": "/sketches/275.png",
+  "inverted_image_url": "/sketches-inverted/275.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:38Z"
+}

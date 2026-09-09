@@ -1,0 +1,42 @@
+{
+  "number": 4719,
+  "title": "Line sketch: Stasis Grove",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy map illustration of an enchanted circular grove centered around a massive glowing crystal tree. The scene features winding stone paths connecting a flower-filled archway, a fountain, a wooden market stall, a hot air balloon, a lava and stump area with a mine entrance, and a pond zone with lily pads (derived from generated still #4149).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy map illustration of an enchanted circular grove centered around a massive glowing crystal tree. The scene features winding stone paths connecting a flower-filled archway, a fountain, a wooden market stall, a hot air balloon, a lava and stump area with a mine entrance, and a pond zone with lily pads",
+  "inverted_title": "Inverted sketch: Stasis Grove",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy map illustration of an enchanted circular grove centered around a massive glowing crystal tree. The scene features winding stone paths connecting a flower-filled archway, a fountain, a wooden market stall, a hot air balloon, a lava and stump area with a mine entrance, and a pond zone with lily pads (from generated still #4149).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy map illustration of an enchanted circular grove centered around a massive glowing crystal tree. The scene features winding stone paths connecting a flower-filled archway, a fountain, a wooden market stall, a hot air balloon, a lava and stump area with a mine entrance, and a pond zone with lily pads",
+  "source_description": "A vibrant fantasy map illustration of an enchanted circular grove centered around a massive glowing purple crystal tree. The scene features winding stone paths connecting a flower-filled archway, a fountain, a wooden market stall, a red hot air balloon, a lava and stump area with a mine entrance, and a purple pond zone with lily pads.",
+  "source_prompt": "Whimsical fantasy map illustration of a circular grove with a giant glowing purple crystal tree on a turquoise tiled base at the center. Winding stone paths connect various themed areas including a pink flower archway with fountain, a wooden market stall with balloons, lush green trees, a wooden bridge over a purple pond zone filled with lily pads and glowing water, and a volcanic area with lava, tree stumps, and a dark mine entrance. Bright cartoon style with rich colors and clear pathways.",
+  "source_title": "Stasis Grove",
+  "style": "whimsical fantasy illustration",
+  "mood": "enchanted whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "crystal tree",
+    "enchanted grove",
+    "whimsical landscape",
+    "game environment"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4149,
+  "source_url": "/generated/4149.jpg",
+  "image_url": "/sketches/4719.png",
+  "inverted_image_url": "/sketches-inverted/4719.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:48Z"
+}

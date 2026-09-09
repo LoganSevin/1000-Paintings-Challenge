@@ -1,0 +1,42 @@
+{
+  "number": 1853,
+  "title": "Line sketch: Elder in Cosmic Bubbles",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of an elderly man with glasses and a fedora, his right hand raised in a stopping gesture. He is surrounded by a dense field of translucent bubbles containing stylized faces, figures, and patterns, with a small bird perched near his shoulder (derived from generated still #1077).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of an elderly man with glasses and a fedora, his right hand raised in a stopping gesture. He is surrounded by a dense field of translucent bubbles containing stylized faces, figures, and patterns, with a small bird perched near his shoulder",
+  "inverted_title": "Inverted sketch: Elder in Cosmic Bubbles",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of an elderly man with glasses and a fedora, his right hand raised in a stopping gesture. He is surrounded by a dense field of translucent bubbles containing stylized faces, figures, and patterns, with a small bird perched near his shoulder (from generated still #1077).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of an elderly man with glasses and a fedora, his right hand raised in a stopping gesture. He is surrounded by a dense field of translucent bubbles containing stylized faces, figures, and patterns, with a small bird perched near his shoulder",
+  "source_description": "A surreal portrait of an elderly man with glasses and a dark green fedora, his right hand raised in a stopping gesture. He is surrounded by a dense field of translucent blue bubbles containing stylized faces, figures, and patterns, with a small yellow bird perched near his shoulder.",
+  "source_prompt": "",
+  "source_title": "Elder in Cosmic Bubbles",
+  "style": "surrealism",
+  "mood": "mysterious, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elderly man",
+    "surreal portrait",
+    "bubbles",
+    "psychedelic",
+    "hand gesture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1077,
+  "source_url": "/generated/1077.jpg",
+  "image_url": "/sketches/1853.png",
+  "inverted_image_url": "/sketches-inverted/1853.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:42Z"
+}

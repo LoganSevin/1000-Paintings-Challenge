@@ -1,0 +1,42 @@
+{
+  "number": 4941,
+  "title": "Line sketch: The composition Bleeds",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark suit stands in a dimly lit room holding a flashlight and an axe, shining light onto a large ornate composition. The composition depicts a bloody zombie-like figure with a halo of barbed wire, from which blood and viscera are physically spilling out into the real room, pooling on the floor (derived from generated still #4378).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark suit stands in a dimly lit room holding a flashlight and an axe, shining light onto a large ornate composition. The composition depicts a bloody zombie-like figure with a halo of barbed wire, from which blood and viscera are physically spilling out into the real room, pooling on the floor",
+  "inverted_title": "Inverted sketch: The composition Bleeds",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark suit stands in a dimly lit room holding a flashlight and an axe, shining light onto a large ornate composition. The composition depicts a bloody zombie-like figure with a halo of barbed wire, from which blood and viscera are physically spilling out into the real room, pooling on the floor (from generated still #4378).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark suit stands in a dimly lit room holding a flashlight and an axe, shining light onto a large ornate composition. The composition depicts a bloody zombie-like figure with a halo of barbed wire, from which blood and viscera are physically spilling out into the real room, pooling on the floor",
+  "source_description": "A man in a dark suit stands in a dimly lit room holding a flashlight and an axe, shining light onto a large ornate painting. The painting depicts a bloody zombie-like figure with a halo of barbed wire, from which blood and viscera are physically spilling out into the real room, pooling on the floor.",
+  "source_prompt": "A tense noir scene in a dimly lit blue-toned room with rain visible through a skylight. A man in a suit holds a lit flashlight and bloody axe, illuminating a massive gilded painting on the wall. The painting shows a gruesome decaying zombie in a suit with a barbed wire crown, emerging from an exit door background. Blood and torn flesh realistically drip and spill from the canvas onto the floor and desk, creating a horrifying breach between art and reality.",
+  "source_title": "The Painting Bleeds",
+  "style": "dark surrealism",
+  "mood": "horror, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "bloody",
+    "zombie",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4378,
+  "source_url": "/generated/4378.jpg",
+  "image_url": "/sketches/4941.png",
+  "inverted_image_url": "/sketches-inverted/4941.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:49Z"
+}

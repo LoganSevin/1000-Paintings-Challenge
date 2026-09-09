@@ -1,0 +1,42 @@
+{
+  "number": 3163,
+  "title": "Line sketch: Vault 634 Evac",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and Vault-Tec jumpsuit runs hand-in-hand with a woman in a flowing dress through the destroyed interior of a ruined vault. They are fleeing beneath a shattered dome ceiling revealing a toxic and sky, surrounded by falling debris, scattered film reels, playing cards, and damaged classical paintings (derived from generated still #2505).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and Vault-Tec jumpsuit runs hand-in-hand with a woman in a flowing dress through the destroyed interior of a ruined vault. They are fleeing beneath a shattered dome ceiling revealing a toxic and sky, surrounded by falling debris, scattered film reels, playing cards, and damaged classical paintings",
+  "inverted_title": "Inverted sketch: Vault 634 Evac",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and Vault-Tec jumpsuit runs hand-in-hand with a woman in a flowing dress through the destroyed interior of a ruined vault. They are fleeing beneath a shattered dome ceiling revealing a toxic and sky, surrounded by falling debris, scattered film reels, playing cards, and damaged classical paintings (from generated still #2505).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and Vault-Tec jumpsuit runs hand-in-hand with a woman in a flowing dress through the destroyed interior of a ruined vault. They are fleeing beneath a shattered dome ceiling revealing a toxic and sky, surrounded by falling debris, scattered film reels, playing cards, and damaged classical paintings",
+  "source_description": "A woman in a green and yellow Vault-Tec jumpsuit runs hand-in-hand with a woman in a flowing red dress through the destroyed interior of a ruined vault. They are fleeing beneath a shattered dome ceiling revealing a toxic pink and yellow sky, surrounded by falling debris, scattered film reels, playing cards, and damaged classical paintings.",
+  "source_prompt": "A dramatic scene inside a destroyed Vault-Tec shelter with a shattered glass dome ceiling revealing a poisonous pink and yellow sky. A woman in a green Vault 634 jumpsuit with radiation symbols runs hand-in-hand with a woman in a flowing red gown, both looking back in fear as debris falls around them. Scattered across the cracked floor are film reels, playing cards, broken paintings of horses, and a fallen sign reading 'FOLLOW BLINDLY' and 'VAULT-634 EVAC'. Cinematic lighting, detailed textures, painted style.",
+  "source_title": "Vault 634 Evac",
+  "style": "composition",
+  "mood": "chaotic desperate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "vault dweller",
+    "post-apocalyptic",
+    "ruined interior",
+    "fallout",
+    "dramatic escape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2505,
+  "source_url": "/generated/2505.jpg",
+  "image_url": "/sketches/3163.png",
+  "inverted_image_url": "/sketches-inverted/3163.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

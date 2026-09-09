@@ -1,0 +1,42 @@
+{
+  "number": 3931,
+  "title": "Line sketch: Graffiti Girl Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four distinct poses of the same cartoon girl with voluminous hair, wearing a black and tracksuit with 'WTF' on the chest. She holds a spray paint can in multiple views, creating starburst spray effects and a floating black hammer in one pose. All figures stand against a solid dark gray background (derived from generated still #3348).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four distinct poses of the same cartoon girl with voluminous hair, wearing a black and tracksuit with 'WTF' on the chest. She holds a spray paint can in multiple views, creating starburst spray effects and a floating black hammer in one pose. All figures stand against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Graffiti Girl Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four distinct poses of the same cartoon girl with voluminous hair, wearing a black and tracksuit with 'WTF' on the chest. She holds a spray paint can in multiple views, creating starburst spray effects and a floating black hammer in one pose. All figures stand against a solid dark gray background (from generated still #3348).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four distinct poses of the same cartoon girl with voluminous hair, wearing a black and tracksuit with 'WTF' on the chest. She holds a spray paint can in multiple views, creating starburst spray effects and a floating black hammer in one pose. All figures stand against a solid dark gray background",
+  "source_description": "Four distinct poses of the same cartoon girl with voluminous bright yellow hair, wearing a black and yellow tracksuit with 'WTF' on the chest. She holds a spray paint can in multiple views, creating yellow starburst spray effects and a floating black hammer in one pose. All figures stand against a solid dark gray background.",
+  "source_prompt": "A cartoon character sheet showing four different dynamic poses of a cool graffiti girl with huge voluminous bright yellow hair, wearing a black and yellow tracksuit with 'WTF' logo, black boots, and headband. She holds a spray can emitting yellow starburst paint effects in multiple views, one pose includes a floating black hammer. Bold outlines, vibrant colors, clean vector style on dark gray background.",
+  "source_title": "Yellow Graffiti Girl Poses",
+  "style": "cartoon character sheet",
+  "mood": "energetic, bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "graffiti girl",
+    "spray paint",
+    "hair",
+    "urban art",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3348,
+  "source_url": "/generated/3348.jpg",
+  "image_url": "/sketches/3931.png",
+  "inverted_image_url": "/sketches-inverted/3931.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:47Z"
+}

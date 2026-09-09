@@ -1,0 +1,42 @@
+{
+  "number": 4727,
+  "title": "Line sketch: Fantasy Map Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon-style fantasy map depicts a winding wooden roller coaster track traversing a countryside. The scene includes a river with a waterfall, a pond with a log, beehives, flower fields, a windmill, circus tents, a stone castle ruin, desert-like terrain, and a crystal formation under a sky (derived from generated still #4157).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon-style fantasy map depicts a winding wooden roller coaster track traversing a countryside. The scene includes a river with a waterfall, a pond with a log, beehives, flower fields, a windmill, circus tents, a stone castle ruin, desert-like terrain, and a crystal formation under a sky",
+  "inverted_title": "Inverted sketch: Fantasy Map Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon-style fantasy map depicts a winding wooden roller coaster track traversing a countryside. The scene includes a river with a waterfall, a pond with a log, beehives, flower fields, a windmill, circus tents, a stone castle ruin, desert-like terrain, and a crystal formation under a sky (from generated still #4157).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon-style fantasy map depicts a winding wooden roller coaster track traversing a countryside. The scene includes a river with a waterfall, a pond with a log, beehives, flower fields, a windmill, circus tents, a stone castle ruin, desert-like terrain, and a crystal formation under a sky",
+  "source_description": "A vibrant cartoon-style fantasy map depicts a winding wooden roller coaster track traversing a colorful countryside. The scene includes a river with a waterfall, a pond with a log, beehives, flower fields, a windmill, circus tents, a stone castle ruin, desert-like terrain, and a crystal formation under a purple sky.",
+  "source_prompt": "colorful cartoon fantasy map illustration showing a long winding wooden roller coaster track crossing through green fields, a river with waterfall, a central pond with a log bridge, multiple beehives, flower patches, a yellow windmill, red circus tents, a stone castle, desert cliffs, and a glowing crystal in the distance under a purple cloudy sky, vibrant and playful style",
+  "source_title": "Fantasy Map Landscape",
+  "style": "cartoon illustration",
+  "mood": "whimsical adventure",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "roller coaster",
+    "cartoon landscape",
+    "theme park",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4157,
+  "source_url": "/generated/4157.jpg",
+  "image_url": "/sketches/4727.png",
+  "inverted_image_url": "/sketches-inverted/4727.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:48Z"
+}

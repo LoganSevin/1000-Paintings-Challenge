@@ -1,0 +1,42 @@
+{
+  "number": 4168,
+  "title": "Line sketch: Armored Knight on Elephant",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark armored knight with a feathered cape and shield rides a mechanical war elephant through a surreal field. The scene is filled with giant poppies, lilies, pinecones, and floating banners reading 'Foret' beneath a starry cosmic sky with two glowing suns (derived from generated still #3586).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark armored knight with a feathered cape and shield rides a mechanical war elephant through a surreal field. The scene is filled with giant poppies, lilies, pinecones, and floating banners reading 'Foret' beneath a starry cosmic sky with two glowing suns",
+  "inverted_title": "Inverted sketch: Armored Knight on Elephant",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark armored knight with a feathered cape and shield rides a mechanical war elephant through a surreal field. The scene is filled with giant poppies, lilies, pinecones, and floating banners reading 'Foret' beneath a starry cosmic sky with two glowing suns (from generated still #3586).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark armored knight with a feathered cape and shield rides a mechanical war elephant through a surreal field. The scene is filled with giant poppies, lilies, pinecones, and floating banners reading 'Foret' beneath a starry cosmic sky with two glowing suns",
+  "source_description": "A dark armored knight with a feathered cape and blue shield rides a mechanical war elephant through a surreal lavender field. The scene is filled with giant poppies, lilies, pinecones, and floating banners reading 'Foret' beneath a starry cosmic sky with two glowing suns.",
+  "source_prompt": "A majestic dark knight in ornate black armor with pink and white feathered accents and a blue heraldic shield rides a mechanical war elephant adorned with a red cross banner. They stand in an endless field of purple lavender and giant orange poppies, white lilies, and pinecones under a dramatic cosmic sky with stars, nebulae, two glowing suns, and floating banners that say Foret, surreal symbolic fantasy style.",
+  "source_title": "Armored Knight on Elephant",
+  "style": "surreal fantasy",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "knight",
+    "elephant",
+    "field",
+    "surreal",
+    "poppies"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3586,
+  "source_url": "/generated/3586.jpg",
+  "image_url": "/sketches/4168.png",
+  "inverted_image_url": "/sketches-inverted/4168.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:47Z"
+}

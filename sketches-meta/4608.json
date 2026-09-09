@@ -1,0 +1,42 @@
+{
+  "number": 4608,
+  "title": "Line sketch: Surreal Portal Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene depicts a alien holding a glowing lantern on a hill, a large mouse with a bandana standing on a branch by water, a camouflaged soldier crouching beside a glowing skull, and a black cat leaping through a magical portal showing another landscape. A giant cracked moon with a sleeping face looms in the starry sky above a gothic castle and dead tree (derived from generated still #4030).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene depicts a alien holding a glowing lantern on a hill, a large mouse with a bandana standing on a branch by water, a camouflaged soldier crouching beside a glowing skull, and a black cat leaping through a magical portal showing another landscape. A giant cracked moon with a sleeping face looms in the starry sky above a gothic castle and dead tree",
+  "inverted_title": "Inverted sketch: Surreal Portal Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene depicts a alien holding a glowing lantern on a hill, a large mouse with a bandana standing on a branch by water, a camouflaged soldier crouching beside a glowing skull, and a black cat leaping through a magical portal showing another landscape. A giant cracked moon with a sleeping face looms in the starry sky above a gothic castle and dead tree (from generated still #4030).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene depicts a alien holding a glowing lantern on a hill, a large mouse with a bandana standing on a branch by water, a camouflaged soldier crouching beside a glowing skull, and a black cat leaping through a magical portal showing another landscape. A giant cracked moon with a sleeping face looms in the starry sky above a gothic castle and dead tree",
+  "source_description": "A surreal night scene depicts a green alien holding a glowing lantern on a hill, a large red mouse with a bandana standing on a branch by water, a camouflaged soldier crouching beside a glowing green skull, and a black cat leaping through a magical purple portal showing another landscape. A giant cracked moon with a sleeping face looms in the starry sky above a gothic castle and dead tree.",
+  "source_prompt": "Surreal fantasy night scene with a green alien holding a glowing lantern on a sandy hill, a large red mouse wearing a bandana perched on a branch by a stream, a soldier in camouflage crouching next to a glowing green skull with purple eyes, and a black cat leaping through a magical purple and yellow portal that reveals a waterfall and another moon. A massive cracked moon with a sleeping human-like face dominates the starry pink and purple sky above a dark gothic castle and a leafless tree with hanging lanterns.",
+  "source_title": "Surreal Portal Gathering",
+  "style": "fantasy surrealism",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "alien",
+    "portal",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4030,
+  "source_url": "/generated/4030.jpg",
+  "image_url": "/sketches/4608.png",
+  "inverted_image_url": "/sketches-inverted/4608.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:48Z"
+}

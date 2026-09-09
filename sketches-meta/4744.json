@@ -1,0 +1,42 @@
+{
+  "number": 4744,
+  "title": "Line sketch: Parallax Sanctum - Shifted Veins",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed top-down fantasy dungeon map rendered as an aged parchment illustration. The stone complex features an octagonal entrance chamber, numerous pillared rooms, corridors with glowing energy veins, scattered furniture, chests, and debris throughout the interconnected layout (derived from generated still #4175).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed top-down fantasy dungeon map rendered as an aged parchment illustration. The stone complex features an octagonal entrance chamber, numerous pillared rooms, corridors with glowing energy veins, scattered furniture, chests, and debris throughout the interconnected layout",
+  "inverted_title": "Inverted sketch: Parallax Sanctum - Shifted Veins",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed top-down fantasy dungeon map rendered as an aged parchment illustration. The stone complex features an octagonal entrance chamber, numerous pillared rooms, corridors with glowing energy veins, scattered furniture, chests, and debris throughout the interconnected layout (from generated still #4175).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed top-down fantasy dungeon map rendered as an aged parchment illustration. The stone complex features an octagonal entrance chamber, numerous pillared rooms, corridors with glowing energy veins, scattered furniture, chests, and debris throughout the interconnected layout",
+  "source_description": "A detailed top-down fantasy dungeon map rendered as an aged parchment illustration. The stone complex features an octagonal entrance chamber, numerous pillared rooms, corridors with glowing green energy veins, scattered furniture, chests, and debris throughout the interconnected layout.",
+  "source_prompt": "Top-down fantasy dungeon map titled Parallax Sanctum - Shifted Veins, intricate stone architecture with octagonal entrance, multiple interconnected rooms filled with pillars, furniture, chests and rubble, glowing green energy lines running through the stone floors, rendered as a detailed aged parchment illustration with faded edges and vintage texture, isometric dungeon layout, dark teal and gray color palette",
+  "source_title": "Parallax Sanctum - Shifted Veins",
+  "style": "fantasy map illustration",
+  "mood": "mysterious, ancient",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting on aged parchment",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dungeon map",
+    "fantasy architecture",
+    "top-down view",
+    "stone ruins",
+    "glowing veins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4175,
+  "source_url": "/generated/4175.jpg",
+  "image_url": "/sketches/4744.png",
+  "inverted_image_url": "/sketches-inverted/4744.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:48Z"
+}

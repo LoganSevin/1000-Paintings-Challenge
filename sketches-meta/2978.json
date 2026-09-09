@@ -1,0 +1,42 @@
+{
+  "number": 2978,
+  "title": "Line sketch: Witch Unicorn at Twilight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant unicorn with a witch hat, long flowing mane adorned with beads and tassels, and a skeletal lower leg stands rearing in a misty field. It is surrounded by swirling fog, glowing mushrooms, a broken wooden fence, twisted trees with a silhouetted witch, and a large moon in the cloudy night sky (derived from generated still #2300).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant unicorn with a witch hat, long flowing mane adorned with beads and tassels, and a skeletal lower leg stands rearing in a misty field. It is surrounded by swirling fog, glowing mushrooms, a broken wooden fence, twisted trees with a silhouetted witch, and a large moon in the cloudy night sky",
+  "inverted_title": "Inverted sketch: Witch Unicorn at Twilight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant unicorn with a witch hat, long flowing mane adorned with beads and tassels, and a skeletal lower leg stands rearing in a misty field. It is surrounded by swirling fog, glowing mushrooms, a broken wooden fence, twisted trees with a silhouetted witch, and a large moon in the cloudy night sky (from generated still #2300).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant unicorn with a witch hat, long flowing mane adorned with beads and tassels, and a skeletal lower leg stands rearing in a misty field. It is surrounded by swirling fog, glowing mushrooms, a broken wooden fence, twisted trees with a silhouetted witch, and a large moon in the cloudy night sky",
+  "source_description": "A vibrant purple unicorn with a witch hat, long flowing mane adorned with beads and tassels, and a skeletal lower leg stands rearing in a misty green field. It is surrounded by swirling purple fog, glowing mushrooms, a broken wooden fence, twisted trees with a silhouetted witch, and a large red moon in the cloudy night sky.",
+  "source_prompt": "A mystical purple unicorn wearing a pointed witch hat stands in a misty meadow at night, its mane filled with colorful beads and tassels, one front leg skeletal. Twisted gnarled trees, glowing mushrooms, broken wooden fences, and a flying witch silhouette surround it under a large blood-red full moon in a cloudy sky, vibrant fantasy style with swirling purple mist.",
+  "source_title": "Witch Unicorn at Twilight",
+  "style": "fantasy illustration",
+  "mood": "magical spooky",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "unicorn",
+    "witch",
+    "halloween",
+    "fantasy",
+    "moonlit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2300,
+  "source_url": "/generated/2300.jpg",
+  "image_url": "/sketches/2978.png",
+  "inverted_image_url": "/sketches-inverted/2978.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:44Z"
+}

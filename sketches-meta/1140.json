@@ -1,0 +1,42 @@
+{
+  "number": 1140,
+  "title": "Line sketch: Fractured Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A portrait of a young person with closed eyes, their face adorned with and geometric fragments resembling broken stone or kintsugi. Flowing and swirl around the figure against a background with vibrant and paint splatters and drips (derived from generated still #352).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A portrait of a young person with closed eyes, their face adorned with and geometric fragments resembling broken stone or kintsugi. Flowing and swirl around the figure against a background with vibrant and paint splatters and drips",
+  "inverted_title": "Inverted sketch: Fractured Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A portrait of a young person with closed eyes, their face adorned with and geometric fragments resembling broken stone or kintsugi. Flowing and swirl around the figure against a background with vibrant and paint splatters and drips (from generated still #352).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A portrait of a young person with closed eyes, their face adorned with and geometric fragments resembling broken stone or kintsugi. Flowing and swirl around the figure against a background with vibrant and paint splatters and drips",
+  "source_description": "A watercolor portrait of a young person with closed eyes, their face adorned with teal and gold geometric fragments resembling broken stone or kintsugi. Flowing golden and purple brushstrokes swirl around the figure against a muted teal background with vibrant red and purple paint splatters and drips.",
+  "source_prompt": "",
+  "source_title": "Golden Fractured Portrait",
+  "style": "expressionism",
+  "mood": "ethereal melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and mixed media on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "kintsugi",
+    "leaf",
+    "splatter",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 352,
+  "source_url": "/generated/352.jpg",
+  "image_url": "/sketches/1140.png",
+  "inverted_image_url": "/sketches-inverted/1140.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:40Z"
+}

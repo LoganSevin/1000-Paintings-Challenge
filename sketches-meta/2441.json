@@ -1,0 +1,42 @@
+{
+  "number": 2441,
+  "title": "Line sketch: Surreal Meadow Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women in early 20th-century attire sit in theater seats on the left, observing a large translucent sphere floating in a grassy field. Inside the sphere swim fish and butterflies while a rabbit emerges from a swirling vortex beside a circular window containing a cartoon monster (derived from generated still #1675).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women in early 20th-century attire sit in theater seats on the left, observing a large translucent sphere floating in a grassy field. Inside the sphere swim fish and butterflies while a rabbit emerges from a swirling vortex beside a circular window containing a cartoon monster",
+  "inverted_title": "Inverted sketch: Surreal Meadow Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women in early 20th-century attire sit in theater seats on the left, observing a large translucent sphere floating in a grassy field. Inside the sphere swim fish and butterflies while a rabbit emerges from a swirling vortex beside a circular window containing a cartoon monster (from generated still #1675).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women in early 20th-century attire sit in theater seats on the left, observing a large translucent sphere floating in a grassy field. Inside the sphere swim fish and butterflies while a rabbit emerges from a swirling vortex beside a circular window containing a cartoon monster",
+  "source_description": "Three women in early 20th-century attire sit in red theater seats on the left, observing a large translucent maroon sphere floating in a grassy field. Inside the sphere swim turquoise fish and orange butterflies while a brown rabbit emerges from a swirling vortex beside a circular window containing a green cartoon monster.",
+  "source_prompt": "",
+  "source_title": "Surreal Meadow Gathering",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "women",
+    "rabbit",
+    "floating sphere",
+    "theater seats"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1675,
+  "source_url": "/generated/1675.jpg",
+  "image_url": "/sketches/2441.png",
+  "inverted_image_url": "/sketches-inverted/2441.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:43Z"
+}

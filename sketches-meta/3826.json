@@ -1,0 +1,42 @@
+{
+  "number": 3826,
+  "title": "Line sketch: Tribal Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side views of a muscular, stylized male character with and black tribal armor. The left shows him standing wide with both hands lifting two large blocks labeled 'TRIBAL' above his head. The right shows a three-quarter view of the same character in a combat stance with fists raised near his face (derived from generated still #3243).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side views of a muscular, stylized male character with and black tribal armor. The left shows him standing wide with both hands lifting two large blocks labeled 'TRIBAL' above his head. The right shows a three-quarter view of the same character in a combat stance with fists raised near his face",
+  "inverted_title": "Inverted sketch: Tribal Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side views of a muscular, stylized male character with and black tribal armor. The left shows him standing wide with both hands lifting two large blocks labeled 'TRIBAL' above his head. The right shows a three-quarter view of the same character in a combat stance with fists raised near his face (from generated still #3243).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side views of a muscular, stylized male character with and black tribal armor. The left shows him standing wide with both hands lifting two large blocks labeled 'TRIBAL' above his head. The right shows a three-quarter view of the same character in a combat stance with fists raised near his face",
+  "source_description": "Two side-by-side views of a muscular, stylized male character with yellow and black tribal armor. The left shows him standing wide with both hands lifting two large yellow blocks labeled 'TRIBAL' above his head. The right shows a three-quarter view of the same character in a combat stance with fists raised near his face.",
+  "source_prompt": "A highly detailed stylized muscular male warrior with dark skin and tribal face markings, wearing heavy yellow and black armor with skull motifs and knee pads. He has two large yellow blocks labeled TRIBAL balanced on his shoulders. Shown in two poses: one lifting the blocks overhead with wide stance, the other in a fighting stance with fists up, rendered in realistic 3D figure style with dramatic studio lighting on dark background.",
+  "source_title": "Tribal Warrior Poses",
+  "style": "digital character concept art",
+  "mood": "aggressive, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "tribal",
+    "muscular",
+    "armor",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3243,
+  "source_url": "/generated/3243.jpg",
+  "image_url": "/sketches/3826.png",
+  "inverted_image_url": "/sketches-inverted/3826.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:46Z"
+}

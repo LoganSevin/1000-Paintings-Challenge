@@ -1,0 +1,42 @@
+{
+  "number": 2302,
+  "title": "Line sketch: Goddess Over Wasteland",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal double-faced female profile with vibrant skin and intricate swirling patterns dominates the left side. Her hair flows into dripping tendrils above a dark futuristic city skyline, while an desert road winds through a barren landscape toward rocky formations under a large sun (derived from generated still #1529).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal double-faced female profile with vibrant skin and intricate swirling patterns dominates the left side. Her hair flows into dripping tendrils above a dark futuristic city skyline, while an desert road winds through a barren landscape toward rocky formations under a large sun",
+  "inverted_title": "Inverted sketch: Goddess Over Wasteland",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal double-faced female profile with vibrant skin and intricate swirling patterns dominates the left side. Her hair flows into dripping tendrils above a dark futuristic city skyline, while an desert road winds through a barren landscape toward rocky formations under a large sun (from generated still #1529).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal double-faced female profile with vibrant skin and intricate swirling patterns dominates the left side. Her hair flows into dripping tendrils above a dark futuristic city skyline, while an desert road winds through a barren landscape toward rocky formations under a large sun",
+  "source_description": "A surreal double-faced female profile with vibrant green skin and intricate swirling patterns dominates the left side. Her hair flows into dripping green tendrils above a dark futuristic city skyline, while an orange desert road winds through a barren landscape toward rocky formations under a large red sun.",
+  "source_prompt": "",
+  "source_title": "Green Goddess Over Wasteland",
+  "style": "surreal psychedelic",
+  "mood": "ethereal dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "double profile",
+    "goddess",
+    "dystopian landscape",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1529,
+  "source_url": "/generated/1529.jpg",
+  "image_url": "/sketches/2302.png",
+  "inverted_image_url": "/sketches-inverted/2302.png",
+  "curve_count": 247,
+  "built_at": "2026-08-17T00:09:43Z"
+}

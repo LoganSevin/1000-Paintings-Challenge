@@ -1,0 +1,42 @@
+{
+  "number": 199,
+  "title": "Line sketch: Sun Over Silhouetted Island",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking sun dominates the sky, casting its glow over a dark, tree-covered island in a calm lake. The scene is perfectly mirrored in the still water below, creating a serene and symmetrical composition (derived from painting #246).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking sun dominates the sky, casting its glow over a dark, tree-covered island in a calm lake. The scene is perfectly mirrored in the still water below, creating a serene and symmetrical composition",
+  "inverted_title": "Inverted sketch: Sun Over Silhouetted Island",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking sun dominates the sky, casting its glow over a dark, tree-covered island in a calm lake. The scene is perfectly mirrored in the still water below, creating a serene and symmetrical composition (from painting #246).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking sun dominates the sky, casting its glow over a dark, tree-covered island in a calm lake. The scene is perfectly mirrored in the still water below, creating a serene and symmetrical composition",
+  "source_description": "A striking red sun dominates the green sky, casting its glow over a dark, tree-covered island in a calm lake. The scene is perfectly mirrored in the still water below, creating a serene and symmetrical composition.",
+  "source_prompt": "",
+  "source_title": "Red Sun Over Silhouetted Island",
+  "style": "Japanese woodblock print",
+  "mood": "Serene and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital print",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "sunrise",
+    "silhouette",
+    "reflection",
+    "minimalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 246,
+  "source_url": "/paintings/246.jpg",
+  "image_url": "/sketches/199.png",
+  "inverted_image_url": "/sketches-inverted/199.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

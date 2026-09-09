@@ -1,0 +1,42 @@
+{
+  "number": 1773,
+  "title": "Line sketch: Psychedelic Woman and Bear",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal portrait of a -skinned woman with swirling hair adorned with poppies, holding a teddy bear covered in decorative patterns and flowers. The background is a field filled with circular mandala patterns, hearts, and additional poppies (derived from generated still #995).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal portrait of a -skinned woman with swirling hair adorned with poppies, holding a teddy bear covered in decorative patterns and flowers. The background is a field filled with circular mandala patterns, hearts, and additional poppies",
+  "inverted_title": "Inverted sketch: Psychedelic Woman and Bear",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal portrait of a -skinned woman with swirling hair adorned with poppies, holding a teddy bear covered in decorative patterns and flowers. The background is a field filled with circular mandala patterns, hearts, and additional poppies (from generated still #995).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal portrait of a -skinned woman with swirling hair adorned with poppies, holding a teddy bear covered in decorative patterns and flowers. The background is a field filled with circular mandala patterns, hearts, and additional poppies",
+  "source_description": "A vibrant surreal portrait of a yellow-skinned woman with swirling multicolored hair adorned with red poppies, holding a blue teddy bear covered in decorative patterns and flowers. The background is a rich purple field filled with circular mandala patterns, hearts, and additional poppies.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Woman and Bear",
+  "style": "Psychedelic",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "poppies",
+    "teddy bear",
+    "mandala"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 995,
+  "source_url": "/generated/995.jpg",
+  "image_url": "/sketches/1773.png",
+  "inverted_image_url": "/sketches-inverted/1773.png",
+  "curve_count": 125,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3222,
+  "title": "Line sketch: Skull Eye Mountain Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive skull dominates the foreground with one glowing concentric eye and an ornate decorative second eye containing a smaller skull inside. Behind it stretches a surreal mountain landscape under a vibrant sunset sky with swirling clouds, while glowing human silhouettes stand along the ridges and drip from the skull's jaw (derived from generated still #2575).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive skull dominates the foreground with one glowing concentric eye and an ornate decorative second eye containing a smaller skull inside. Behind it stretches a surreal mountain landscape under a vibrant sunset sky with swirling clouds, while glowing human silhouettes stand along the ridges and drip from the skull's jaw",
+  "inverted_title": "Inverted sketch: Skull Eye Mountain Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive skull dominates the foreground with one glowing concentric eye and an ornate decorative second eye containing a smaller skull inside. Behind it stretches a surreal mountain landscape under a vibrant sunset sky with swirling clouds, while glowing human silhouettes stand along the ridges and drip from the skull's jaw (from generated still #2575).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive skull dominates the foreground with one glowing concentric eye and an ornate decorative second eye containing a smaller skull inside. Behind it stretches a surreal mountain landscape under a vibrant sunset sky with swirling clouds, while glowing human silhouettes stand along the ridges and drip from the skull's jaw",
+  "source_description": "A massive green skull dominates the foreground with one glowing pink concentric eye and an ornate decorative second eye containing a smaller skull inside. Behind it stretches a surreal mountain landscape under a vibrant sunset sky with swirling purple clouds, while glowing yellow human silhouettes stand along the ridges and drip from the skull's jaw.",
+  "source_prompt": "Surreal psychedelic landscape featuring a giant green skull in the foreground with one glowing pink spiral eye socket and an ornate decorative eye containing a smaller skull inside its iris. The skull's jaw drips green liquid while glowing yellow human silhouettes stand on its surface and along mountain ridges. Dramatic mountain range in the background with purple and orange peaks under a swirling colorful sunset sky filled with purple vortex clouds, vibrant fantasy colors, detailed digital painting.",
+  "source_title": "Skull Eye Mountain Vision",
+  "style": "surreal fantasy",
+  "mood": "psychedelic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skull",
+    "surreal",
+    "psychedelic",
+    "mountain landscape",
+    "glowing figures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2575,
+  "source_url": "/generated/2575.jpg",
+  "image_url": "/sketches/3222.png",
+  "inverted_image_url": "/sketches-inverted/3222.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 681,
+  "title": "Line sketch: Spheres Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three glossy spheres of varying sizes cast soft shadows on a matching surface. The composition captures smooth reflections and highlights with realistic precision (derived from painting #864).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three glossy spheres of varying sizes cast soft shadows on a matching surface. The composition captures smooth reflections and highlights with realistic precision",
+  "inverted_title": "Inverted sketch: Spheres Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three glossy spheres of varying sizes cast soft shadows on a matching surface. The composition captures smooth reflections and highlights with realistic precision (from painting #864).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three glossy spheres of varying sizes cast soft shadows on a matching surface. The composition captures smooth reflections and highlights with realistic precision",
+  "source_description": "Three glossy green spheres of varying sizes cast soft shadows on a matching green surface. The painting captures smooth reflections and highlights with realistic precision.",
+  "source_prompt": "",
+  "source_title": "Green Spheres Still Life",
+  "style": "Realism",
+  "mood": "Calm and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "still life",
+    "spheres",
+    "reflections",
+    "shadows",
+    "realistic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 864,
+  "source_url": "/paintings/864.jpg",
+  "image_url": "/sketches/681.png",
+  "inverted_image_url": "/sketches-inverted/681.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:39Z"
+}

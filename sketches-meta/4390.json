@@ -1,0 +1,42 @@
+{
+  "number": 4390,
+  "title": "Line sketch: Mystic Library Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly witch in a robe stands at a marble desk in a gothic library, performing a ritual with magical energy flowing from her hands. A large framed composition on the desk depicts a stormy sea with a ship and a mermaid, surrounded by scattered papers, an open spellbook, a dripping candle, and glowing lanterns (derived from generated still #3809).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly witch in a robe stands at a marble desk in a gothic library, performing a ritual with magical energy flowing from her hands. A large framed composition on the desk depicts a stormy sea with a ship and a mermaid, surrounded by scattered papers, an open spellbook, a dripping candle, and glowing lanterns",
+  "inverted_title": "Inverted sketch: Mystic Library Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly witch in a robe stands at a marble desk in a gothic library, performing a ritual with magical energy flowing from her hands. A large framed composition on the desk depicts a stormy sea with a ship and a mermaid, surrounded by scattered papers, an open spellbook, a dripping candle, and glowing lanterns (from generated still #3809).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly witch in a robe stands at a marble desk in a gothic library, performing a ritual with magical energy flowing from her hands. A large framed composition on the desk depicts a stormy sea with a ship and a mermaid, surrounded by scattered papers, an open spellbook, a dripping candle, and glowing lanterns",
+  "source_description": "An elderly witch in a purple robe stands at a marble desk in a gothic library, performing a ritual with green magical energy flowing from her hands. A large framed painting on the desk depicts a stormy sea with a ship and a mermaid, surrounded by scattered papers, an open spellbook, a dripping red candle, and glowing lanterns.",
+  "source_prompt": "An elderly female witch with gray hair in an elegant updo and a dark purple star-patterned robe stands at a marble desk inside a towering gothic library filled with ancient books. She is casting a spell with glowing green energy between her hands. On the desk sits a large ornate painting of a stormy ocean with a sailing ship and a mermaid, surrounded by an open spellbook, scattered magical papers, a lit lantern, and a red candle with dripping wax. Stormy lightning visible through a large arched window, hanging magical lanterns with blue and purple glows, moody atmospheric lighting.",
+  "source_title": "Mystic Library Ritual",
+  "style": "fantasy illustration",
+  "mood": "mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "library",
+    "magic",
+    "mermaid",
+    "storm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3809,
+  "source_url": "/generated/3809.jpg",
+  "image_url": "/sketches/4390.png",
+  "inverted_image_url": "/sketches-inverted/4390.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4299,
+  "title": "Line sketch: Lamp",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing glass orb sits atop a dark vintage lamp base, containing luminous branching -like structures in bright white, and -. Floating organic shapes, bubbles, and swirling light patterns fill the transparent sphere against a dark abstract background (derived from generated still #3718).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing glass orb sits atop a dark vintage lamp base, containing luminous branching -like structures in bright white, and -. Floating organic shapes, bubbles, and swirling light patterns fill the transparent sphere against a dark abstract background",
+  "inverted_title": "Inverted sketch: Lamp",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing glass orb sits atop a dark vintage lamp base, containing luminous branching -like structures in bright white, and -. Floating organic shapes, bubbles, and swirling light patterns fill the transparent sphere against a dark abstract background (from generated still #3718).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing glass orb sits atop a dark vintage lamp base, containing luminous branching -like structures in bright white, and -. Floating organic shapes, bubbles, and swirling light patterns fill the transparent sphere against a dark abstract background",
+  "source_description": "A glowing glass orb sits atop a dark vintage lamp base, containing luminous branching coral-like structures in bright white, magenta, and neon yellow-green. Floating organic shapes, bubbles, and swirling light patterns fill the transparent sphere against a dark abstract background.",
+  "source_prompt": "A surreal glowing glass sphere mounted on a vintage lamp base, containing luminous branching coral and leafy structures in bright white, magenta and neon yellow-green. Swirling patterns, floating bubbles and organic forms fill the transparent orb, bioluminescent light effects, dark moody background with paint splatters, vibrant yet mysterious atmosphere, painterly digital art style.",
+  "source_title": "Neon Coral Lamp",
+  "style": "surreal",
+  "mood": "ethereal bioluminescent",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "glass orb",
+    "lamp",
+    "bioluminescent",
+    "surreal",
+    "glowing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3718,
+  "source_url": "/generated/3718.jpg",
+  "image_url": "/sketches/4299.png",
+  "inverted_image_url": "/sketches-inverted/4299.png",
+  "curve_count": 96,
+  "built_at": "2026-08-17T00:09:47Z"
+}

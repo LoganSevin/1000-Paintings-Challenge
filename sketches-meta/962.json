@@ -1,0 +1,42 @@
+{
+  "number": 962,
+  "title": "Line sketch: Horses by Misty Lakeside",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene landscape composition depicts two horses grazing in a field beside a wooden fence, with a rowboat on the shore. In the background, three sailboats glide across a calm lake surrounded by rolling hills and trees under a vibrant and sunset sky with mist rolling in (derived from generated still #172).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene landscape composition depicts two horses grazing in a field beside a wooden fence, with a rowboat on the shore. In the background, three sailboats glide across a calm lake surrounded by rolling hills and trees under a vibrant and sunset sky with mist rolling in",
+  "inverted_title": "Inverted sketch: Horses by Misty Lakeside",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene landscape composition depicts two horses grazing in a field beside a wooden fence, with a rowboat on the shore. In the background, three sailboats glide across a calm lake surrounded by rolling hills and trees under a vibrant and sunset sky with mist rolling in (from generated still #172).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene landscape composition depicts two horses grazing in a field beside a wooden fence, with a rowboat on the shore. In the background, three sailboats glide across a calm lake surrounded by rolling hills and trees under a vibrant and sunset sky with mist rolling in",
+  "source_description": "A serene landscape painting depicts two brown horses grazing in a golden field beside a wooden fence, with a yellow rowboat on the shore. In the background, three sailboats glide across a calm lake surrounded by rolling green hills and trees under a vibrant orange and purple sunset sky with mist rolling in.",
+  "source_prompt": "",
+  "source_title": "Horses by Misty Lakeside",
+  "style": "realistic landscape composition",
+  "mood": "peaceful, dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horses",
+    "landscape",
+    "sailboats",
+    "sunset",
+    "mist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 172,
+  "source_url": "/generated/172.jpg",
+  "image_url": "/sketches/962.png",
+  "inverted_image_url": "/sketches-inverted/962.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:40Z"
+}

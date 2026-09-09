@@ -1,0 +1,42 @@
+{
+  "number": 4475,
+  "title": "Line sketch: The Alchemist's Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly female alchemist with gray hair and a headpiece stands in a wooden workshop, reading a large glowing book with a on its pages. In front of her, a table holds a lit candle, a coin marked 25, a feather, and a bowl overflowing with dripping potion (derived from generated still #3894).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly female alchemist with gray hair and a headpiece stands in a wooden workshop, reading a large glowing book with a on its pages. In front of her, a table holds a lit candle, a coin marked 25, a feather, and a bowl overflowing with dripping potion",
+  "inverted_title": "Inverted sketch: The Alchemist's Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly female alchemist with gray hair and a headpiece stands in a wooden workshop, reading a large glowing book with a on its pages. In front of her, a table holds a lit candle, a coin marked 25, a feather, and a bowl overflowing with dripping potion (from generated still #3894).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly female alchemist with gray hair and a headpiece stands in a wooden workshop, reading a large glowing book with a on its pages. In front of her, a table holds a lit candle, a coin marked 25, a feather, and a bowl overflowing with dripping potion",
+  "source_description": "An elderly female alchemist with gray hair and a golden headpiece stands in a wooden workshop, reading a large glowing book with a red rose on its pages. In front of her, a table holds a lit red candle, a gold coin marked 25, a purple feather, and a bowl overflowing with dripping purple potion.",
+  "source_prompt": "An elderly female alchemist with gray hair in an updo and ornate golden headpiece, wearing green and purple robes, stands reading a large open magical book that has a glowing red rose on the pages. She is in a wooden alchemy laboratory filled with shelves of colorful potion bottles, hanging lanterns, and dried herbs. In the foreground a table covered with a white cloth holds a large cracked bowl spilling purple liquid, a lit red candle, a golden coin with the number 25, and a large purple quill. A glowing blue magical portal and red poppies are visible on the wall behind her, along with a decorative banner showing a purple moth.",
+  "source_title": "The Alchemist's Study",
+  "style": "fantasy illustration",
+  "mood": "mystical, scholarly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "wizard",
+    "potion",
+    "magic book",
+    "candlelight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3894,
+  "source_url": "/generated/3894.jpg",
+  "image_url": "/sketches/4475.png",
+  "inverted_image_url": "/sketches-inverted/4475.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

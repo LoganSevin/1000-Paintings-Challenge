@@ -1,0 +1,42 @@
+{
+  "number": 3373,
+  "title": "Line sketch: Surreal Eye and Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composite artwork featuring a large realistic human eye in black and white on the right, a glowing orb dripping paint in the upper center, and a vibrant pond with lily pads and flowing ribbons on the left. The lower portion shows a tree-like form with dripping effects against a dark background filled with abstract circles and paint splatters (derived from generated still #2774).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composite artwork featuring a large realistic human eye in black and white on the right, a glowing orb dripping paint in the upper center, and a vibrant pond with lily pads and flowing ribbons on the left. The lower portion shows a tree-like form with dripping effects against a dark background filled with abstract circles and paint splatters",
+  "inverted_title": "Inverted sketch: Surreal Eye and Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composite artwork featuring a large realistic human eye in black and white on the right, a glowing orb dripping paint in the upper center, and a vibrant pond with lily pads and flowing ribbons on the left. The lower portion shows a tree-like form with dripping effects against a dark background filled with abstract circles and paint splatters (from generated still #2774).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composite artwork featuring a large realistic human eye in black and white on the right, a glowing orb dripping paint in the upper center, and a vibrant pond with lily pads and flowing ribbons on the left. The lower portion shows a tree-like form with dripping effects against a dark background filled with abstract circles and paint splatters",
+  "source_description": "A surreal composite artwork featuring a large realistic human eye in black and white on the right, a glowing multicolored orb dripping paint in the upper center, and a vibrant pond with lily pads and colorful flowing ribbons on the left. The lower portion shows a green tree-like form with dripping effects against a dark background filled with abstract circles and paint splatters.",
+  "source_prompt": "Surreal psychedelic painting featuring a highly detailed grayscale human eye on the right side, a glowing green and yellow orb with colorful paint drips floating above a misty green tree form in the center, a pond with lily pads and flowing colorful ribbons in red yellow and green on the left, abstract black circles and splatters in the dark blue background, vibrant dripping paint effects, dreamlike composition",
+  "source_title": "Surreal Eye and Orb",
+  "style": "surrealism",
+  "mood": "dreamlike psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "eye",
+    "orb",
+    "lily pads"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2774,
+  "source_url": "/generated/2774.jpg",
+  "image_url": "/sketches/3373.png",
+  "inverted_image_url": "/sketches-inverted/3373.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:45Z"
+}

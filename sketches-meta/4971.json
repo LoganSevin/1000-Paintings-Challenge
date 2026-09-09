@@ -1,0 +1,42 @@
+{
+  "number": 4971,
+  "title": "Line sketch: The composition Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit, decaying room with a large wooden desk, vintage radio, lit desk lamp, and coffee cup. Rain pours through a broken skylight onto the wet floor, while a man in a suit stands beside an enormous -framed composition depicting an endless -lit hallway with multiple doors (derived from generated still #4408).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit, decaying room with a large wooden desk, vintage radio, lit desk lamp, and coffee cup. Rain pours through a broken skylight onto the wet floor, while a man in a suit stands beside an enormous -framed composition depicting an endless -lit hallway with multiple doors",
+  "inverted_title": "Inverted sketch: The composition Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit, decaying room with a large wooden desk, vintage radio, lit desk lamp, and coffee cup. Rain pours through a broken skylight onto the wet floor, while a man in a suit stands beside an enormous -framed composition depicting an endless -lit hallway with multiple doors (from generated still #4408).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit, decaying room with a large wooden desk, vintage radio, lit desk lamp, and coffee cup. Rain pours through a broken skylight onto the wet floor, while a man in a suit stands beside an enormous -framed composition depicting an endless -lit hallway with multiple doors",
+  "source_description": "A dimly lit, decaying room with a large wooden desk, vintage radio, lit desk lamp, and coffee cup. Rain pours through a broken skylight onto the wet floor, while a man in a suit stands beside an enormous golden-framed painting depicting an endless red-lit hallway with multiple doors.",
+  "source_prompt": "A decaying concrete room with rain pouring through a broken skylight, wet reflective floor, old wooden desk with lit brass lamp, vintage radio, paper coffee cup and coiled rope. A huge golden frame contains a surreal painting of an endless hallway bathed in red light with repeating doors receding into darkness. A man in a dark suit stands touching the frame, moody cinematic lighting, atmospheric and surreal",
+  "source_title": "The Painting Portal",
+  "style": "cinematic",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "rainy interior",
+    "portal composition",
+    "noir atmosphere",
+    "abandoned room"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4408,
+  "source_url": "/generated/4408.jpg",
+  "image_url": "/sketches/4971.png",
+  "inverted_image_url": "/sketches-inverted/4971.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:49Z"
+}

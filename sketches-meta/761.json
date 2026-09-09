@@ -1,0 +1,42 @@
+{
+  "number": 761,
+  "title": "Line sketch: Alien Bird Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed of a fantastical reptilian bird-like creature with a long curved horn and vibrant eyes. The creature stands against a simple gradient background in a dramatic pose (derived from painting #962).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed of a fantastical reptilian bird-like creature with a long curved horn and vibrant eyes. The creature stands against a simple gradient background in a dramatic pose",
+  "inverted_title": "Inverted sketch: Alien Bird Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed of a fantastical reptilian bird-like creature with a long curved horn and vibrant eyes. The creature stands against a simple gradient background in a dramatic pose (from painting #962).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed of a fantastical reptilian bird-like creature with a long curved horn and vibrant eyes. The creature stands against a simple gradient background in a dramatic pose",
+  "source_description": "A detailed digital painting of a fantastical reptilian bird-like creature with a long curved horn and vibrant orange eyes. The creature stands against a simple gradient background in a dramatic pose.",
+  "source_prompt": "",
+  "source_title": "Alien Bird Creature",
+  "style": "Fantasy Concept Art",
+  "mood": "Mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "creature design",
+    "fantasy art",
+    "alien bird",
+    "concept art",
+    "reptilian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 962,
+  "source_url": "/paintings/962.jpg",
+  "image_url": "/sketches/761.png",
+  "inverted_image_url": "/sketches-inverted/761.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:39Z"
+}

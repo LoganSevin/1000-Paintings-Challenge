@@ -1,0 +1,42 @@
+{
+  "number": 4086,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce female warrior with hair stands in a dynamic combat pose, gripping a massive ornate warhammer with both hands. She wears a revealing white and armored outfit with matching gauntlets, greaves, and boots, set against a plain gray studio background (derived from generated still #3503).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce female warrior with hair stands in a dynamic combat pose, gripping a massive ornate warhammer with both hands. She wears a revealing white and armored outfit with matching gauntlets, greaves, and boots, set against a plain gray studio background",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce female warrior with hair stands in a dynamic combat pose, gripping a massive ornate warhammer with both hands. She wears a revealing white and armored outfit with matching gauntlets, greaves, and boots, set against a plain gray studio background (from generated still #3503).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce female warrior with hair stands in a dynamic combat pose, gripping a massive ornate warhammer with both hands. She wears a revealing white and armored outfit with matching gauntlets, greaves, and boots, set against a plain gray studio background",
+  "source_description": "A fierce female warrior with purple hair stands in a dynamic combat pose, gripping a massive ornate purple warhammer with both hands. She wears a revealing white and purple armored outfit with matching gauntlets, greaves, and boots, set against a plain gray studio background.",
+  "source_prompt": "A beautiful athletic female warrior with long dark purple hair and purple eyes, standing in a powerful combat stance holding a very large ornate purple warhammer with glowing crack patterns. She wears a white and purple cropped armored top, white baggy pants with purple accents, armored gauntlets and greaves, detailed fantasy armor, studio lighting, clean gray background, highly detailed digital painting",
+  "source_title": "Purple Hammer Warrior",
+  "style": "line sketch",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "hair",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3503,
+  "source_url": "/generated/3503.jpg",
+  "image_url": "/sketches/4086.png",
+  "inverted_image_url": "/sketches-inverted/4086.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1056,
+  "title": "Line sketch: Cosmic Eclipse Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a classical bust with a cracked face revealing a starry galaxy interior. A silhouetted figure in a hat sits among foliage at the base, beneath a black sun with solar flares against a sky with cloud bands and planets (derived from generated still #268).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a classical bust with a cracked face revealing a starry galaxy interior. A silhouetted figure in a hat sits among foliage at the base, beneath a black sun with solar flares against a sky with cloud bands and planets",
+  "inverted_title": "Inverted sketch: Cosmic Eclipse Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a classical bust with a cracked face revealing a starry galaxy interior. A silhouetted figure in a hat sits among foliage at the base, beneath a black sun with solar flares against a sky with cloud bands and planets (from generated still #268).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a classical bust with a cracked face revealing a starry galaxy interior. A silhouetted figure in a hat sits among foliage at the base, beneath a black sun with solar flares against a sky with cloud bands and planets",
+  "source_description": "A surreal painting features a golden classical bust with a cracked face revealing a starry galaxy interior. A silhouetted figure in a hat sits among dark blue foliage at the base, beneath a black sun with red solar flares against a red sky with teal cloud bands and colorful planets.",
+  "source_prompt": "",
+  "source_title": "Cosmic Eclipse Figure",
+  "style": "surrealism",
+  "mood": "mysterious cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "celestial",
+    "bust",
+    "eclipse",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 268,
+  "source_url": "/generated/268.jpg",
+  "image_url": "/sketches/1056.png",
+  "inverted_image_url": "/sketches-inverted/1056.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:40Z"
+}

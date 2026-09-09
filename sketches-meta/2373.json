@@ -1,0 +1,42 @@
+{
+  "number": 2373,
+  "title": "Line sketch: Psychedelic Fairy Profile",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal illustration shows a large translucent dragonfly-fairy hybrid with a woman's profile face, integrated into flowing and ribbons. The and background is filled with slices, leaves, and smaller fairy figures amid decorative swirls and dots (derived from generated still #1601).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal illustration shows a large translucent dragonfly-fairy hybrid with a woman's profile face, integrated into flowing and ribbons. The and background is filled with slices, leaves, and smaller fairy figures amid decorative swirls and dots",
+  "inverted_title": "Inverted sketch: Psychedelic Fairy Profile",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal illustration shows a large translucent dragonfly-fairy hybrid with a woman's profile face, integrated into flowing and ribbons. The and background is filled with slices, leaves, and smaller fairy figures amid decorative swirls and dots (from generated still #1601).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal illustration shows a large translucent dragonfly-fairy hybrid with a woman's profile face, integrated into flowing and ribbons. The and background is filled with slices, leaves, and smaller fairy figures amid decorative swirls and dots",
+  "source_description": "A vibrant surreal illustration shows a large translucent dragonfly-fairy hybrid with a woman's profile face, integrated into flowing orange and pink ribbons. The dark purple and blue background is filled with orange slices, green leaves, and smaller colorful fairy figures amid decorative swirls and dots.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Fairy Profile",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairy",
+    "dragonfly",
+    "surreal",
+    "psychedelic",
+    "slices"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1601,
+  "source_url": "/generated/1601.jpg",
+  "image_url": "/sketches/2373.png",
+  "inverted_image_url": "/sketches-inverted/2373.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:43Z"
+}

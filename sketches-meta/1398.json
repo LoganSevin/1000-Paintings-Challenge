@@ -1,0 +1,42 @@
+{
+  "number": 1398,
+  "title": "Line sketch: Child and Wolf",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a child's head with cracked skin and a glowing eye, enclosed in a circular frame with dripping liquid. A vibrant wolf with exposed teeth and psychedelic patterns emerges from the right, set against a dark swirling background with branches and flowers (derived from generated still #613).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a child's head with cracked skin and a glowing eye, enclosed in a circular frame with dripping liquid. A vibrant wolf with exposed teeth and psychedelic patterns emerges from the right, set against a dark swirling background with branches and flowers",
+  "inverted_title": "Inverted sketch: Child and Wolf",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a child's head with cracked skin and a glowing eye, enclosed in a circular frame with dripping liquid. A vibrant wolf with exposed teeth and psychedelic patterns emerges from the right, set against a dark swirling background with branches and flowers (from generated still #613).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a child's head with cracked skin and a glowing eye, enclosed in a circular frame with dripping liquid. A vibrant wolf with exposed teeth and psychedelic patterns emerges from the right, set against a dark swirling background with branches and flowers",
+  "source_description": "A surreal painting features a child's head with cracked skin and a glowing yellow eye, enclosed in a golden circular frame with dripping colorful liquid. A vibrant green wolf with exposed teeth and psychedelic patterns emerges from the right, set against a dark swirling background with branches and flowers.",
+  "source_prompt": "",
+  "source_title": "Child and Neon Wolf",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child",
+    "wolf",
+    "psychedelic",
+    "dripping"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 613,
+  "source_url": "/generated/613.jpg",
+  "image_url": "/sketches/1398.png",
+  "inverted_image_url": "/sketches-inverted/1398.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4908,
+  "title": "Line sketch: Infinite Hallway composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large ornate -framed composition hangs on a dark gallery wall, depicting an endless narrow hallway with peeling walls, wooden floor, and multiple doors receding into the distance. The gallery scene includes a wooden desk with a glowing banker's lamp, a person in a dark suit partially visible on the left, other framed paintings on the walls, and rain-streaked windows revealing a stormy night outside (derived from generated still #4344).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large ornate -framed composition hangs on a dark gallery wall, depicting an endless narrow hallway with peeling walls, wooden floor, and multiple doors receding into the distance. The gallery scene includes a wooden desk with a glowing banker's lamp, a person in a dark suit partially visible on the left, other framed paintings on the walls, and rain-streaked windows revealing a stormy night outside",
+  "inverted_title": "Inverted sketch: Infinite Hallway composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large ornate -framed composition hangs on a dark gallery wall, depicting an endless narrow hallway with peeling walls, wooden floor, and multiple doors receding into the distance. The gallery scene includes a wooden desk with a glowing banker's lamp, a person in a dark suit partially visible on the left, other framed paintings on the walls, and rain-streaked windows revealing a stormy night outside (from generated still #4344).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large ornate -framed composition hangs on a dark gallery wall, depicting an endless narrow hallway with peeling walls, wooden floor, and multiple doors receding into the distance. The gallery scene includes a wooden desk with a glowing banker's lamp, a person in a dark suit partially visible on the left, other framed paintings on the walls, and rain-streaked windows revealing a stormy night outside",
+  "source_description": "A large ornate gold-framed painting hangs on a dark gallery wall, depicting an endless narrow hallway with peeling red walls, wooden floor, and multiple doors receding into the distance. The gallery scene includes a wooden desk with a glowing green banker's lamp, a person in a dark suit partially visible on the left, other framed paintings on the walls, and rain-streaked windows revealing a stormy purple night outside.",
+  "source_prompt": "A large classical gold frame painting hanging in a dark moody art gallery at night, the painting itself shows an endless narrow hallway with peeling dark red walls, old wooden floor, wall sconces, and multiple doors receding into infinity. Rain streaks on the large window behind it, green banker's lamp glowing on a wooden desk in the foreground, partial view of a man in a suit, other classical paintings on the walls, atmospheric and surreal lighting",
+  "source_title": "Infinite Hallway Painting",
+  "style": "surreal digital art",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal hallway",
+    "infinite corridor",
+    "frame",
+    "gallery scene",
+    "rainy window"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4344,
+  "source_url": "/generated/4344.jpg",
+  "image_url": "/sketches/4908.png",
+  "inverted_image_url": "/sketches-inverted/4908.png",
+  "curve_count": 141,
+  "built_at": "2026-08-17T00:09:49Z"
+}

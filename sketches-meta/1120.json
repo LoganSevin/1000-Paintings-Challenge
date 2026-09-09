@@ -1,0 +1,42 @@
+{
+  "number": 1120,
+  "title": "Line sketch: Weeping Floral Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted portrait of a dog's head centered within a cracked circular frame. The dog has one eye with tears and one eye with tears, adorned with flowers and black patterns, set against a dark background with branches and dripping paint pools below (derived from generated still #332).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted portrait of a dog's head centered within a cracked circular frame. The dog has one eye with tears and one eye with tears, adorned with flowers and black patterns, set against a dark background with branches and dripping paint pools below",
+  "inverted_title": "Inverted sketch: Weeping Floral Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted portrait of a dog's head centered within a cracked circular frame. The dog has one eye with tears and one eye with tears, adorned with flowers and black patterns, set against a dark background with branches and dripping paint pools below (from generated still #332).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted portrait of a dog's head centered within a cracked circular frame. The dog has one eye with tears and one eye with tears, adorned with flowers and black patterns, set against a dark background with branches and dripping paint pools below",
+  "source_description": "A surreal painted portrait of a green dog's head centered within a cracked circular frame. The dog has one blue eye with blue tears and one orange eye with orange tears, adorned with pink flowers and black patterns, set against a dark background with red branches and dripping paint pools below.",
+  "source_prompt": "",
+  "source_title": "Weeping Floral Dog",
+  "style": "surreal pop art",
+  "mood": "melancholy surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "floral",
+    "dripping paint",
+    "cracked circle",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 332,
+  "source_url": "/generated/332.jpg",
+  "image_url": "/sketches/1120.png",
+  "inverted_image_url": "/sketches-inverted/1120.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:40Z"
+}

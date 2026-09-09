@@ -1,0 +1,42 @@
+{
+  "number": 2834,
+  "title": "Line sketch: Steampunk Fox in Wrecked Machine",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mechanical, cylindrical steampunk vehicle lies broken and rusted in a grassy field, its gears and pipes exposed. A small winged fox with butterfly wings sits atop the wreckage, looking toward a large sun setting behind jagged mountains under a stormy sky (derived from generated still #2119).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mechanical, cylindrical steampunk vehicle lies broken and rusted in a grassy field, its gears and pipes exposed. A small winged fox with butterfly wings sits atop the wreckage, looking toward a large sun setting behind jagged mountains under a stormy sky",
+  "inverted_title": "Inverted sketch: Steampunk Fox in Wrecked Machine",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mechanical, cylindrical steampunk vehicle lies broken and rusted in a grassy field, its gears and pipes exposed. A small winged fox with butterfly wings sits atop the wreckage, looking toward a large sun setting behind jagged mountains under a stormy sky (from generated still #2119).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mechanical, cylindrical steampunk vehicle lies broken and rusted in a grassy field, its gears and pipes exposed. A small winged fox with butterfly wings sits atop the wreckage, looking toward a large sun setting behind jagged mountains under a stormy sky",
+  "source_description": "A mechanical, cylindrical steampunk vehicle lies broken and rusted in a grassy field, its gears and pipes exposed. A small winged fox with butterfly wings sits atop the wreckage, looking toward a large red sun setting behind jagged purple mountains under a stormy sky.",
+  "source_prompt": "A broken cylindrical steampunk machine covered in rust and exposed gears lies abandoned in a grassy field with scattered map pieces and flowers. A small fox with large butterfly wings sits on top of the wreckage. In the background, dramatic purple mountains under a dark cloudy sky with a giant glowing red sun on the horizon. A large red prohibition symbol floats broken in the sky. Surreal fantasy style, cinematic lighting, detailed textures.",
+  "source_title": "Steampunk Fox in Wrecked Machine",
+  "style": "surreal fantasy illustration",
+  "mood": "melancholy, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "fox",
+    "mechanical",
+    "surreal",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2119,
+  "source_url": "/generated/2119.jpg",
+  "image_url": "/sketches/2834.png",
+  "inverted_image_url": "/sketches-inverted/2834.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 631,
+  "title": "Line sketch: Surreal Striped Landscape Wanderers",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Flat geometric fields of color create a dreamlike scene where tiny figures walk alone or lie still among scattered objects under a vast sky (derived from painting #806).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Flat geometric fields of color create a dreamlike scene where tiny figures walk alone or lie still among scattered objects under a vast sky",
+  "inverted_title": "Inverted sketch: Surreal Striped Landscape Wanderers",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Flat geometric fields of color create a dreamlike scene where tiny figures walk alone or lie still among scattered objects under a vast sky (from painting #806).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Flat geometric fields of color create a dreamlike scene where tiny figures walk alone or lie still among scattered objects under a vast sky",
+  "source_description": "Flat geometric fields of color create a dreamlike scene where tiny figures walk alone or lie still among scattered red objects under a vast turquoise sky.",
+  "source_prompt": "",
+  "source_title": "Surreal Striped Landscape Wanderers",
+  "style": "Minimalist illustration",
+  "mood": "Dreamlike solitude",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "minimalism",
+    "surreal landscape",
+    "geometric",
+    "figures in space",
+    "flat colors"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 806,
+  "source_url": "/paintings/806.jpg",
+  "image_url": "/sketches/631.png",
+  "inverted_image_url": "/sketches-inverted/631.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:39Z"
+}

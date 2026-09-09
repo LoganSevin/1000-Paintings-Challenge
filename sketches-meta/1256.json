@@ -1,0 +1,42 @@
+{
+  "number": 1256,
+  "title": "Line sketch: Festive Gothic Cathedral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal night scene featuring an ornate Gothic cathedral with glowing stained glass windows on the left, and a large cracked Christmas ornament resembling a planet with a face, holly leaves, and dripping liquid hovering above a futuristic cityscape (derived from generated still #468).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal night scene featuring an ornate Gothic cathedral with glowing stained glass windows on the left, and a large cracked Christmas ornament resembling a planet with a face, holly leaves, and dripping liquid hovering above a futuristic cityscape",
+  "inverted_title": "Inverted sketch: Festive Gothic Cathedral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal night scene featuring an ornate Gothic cathedral with glowing stained glass windows on the left, and a large cracked Christmas ornament resembling a planet with a face, holly leaves, and dripping liquid hovering above a futuristic cityscape (from generated still #468).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal night scene featuring an ornate Gothic cathedral with glowing stained glass windows on the left, and a large cracked Christmas ornament resembling a planet with a face, holly leaves, and dripping liquid hovering above a futuristic cityscape",
+  "source_description": "A vibrant surreal night scene featuring an ornate Gothic cathedral with glowing stained glass windows on the left, and a large cracked Christmas ornament resembling a planet with a face, holly leaves, and dripping red liquid hovering above a futuristic cityscape.",
+  "source_prompt": "",
+  "source_title": "Festive Gothic Cathedral",
+  "style": "surreal digital art",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gothic cathedral",
+    "christmas ornament",
+    "futuristic city",
+    "surreal",
+    "holly"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 468,
+  "source_url": "/generated/468.jpg",
+  "image_url": "/sketches/1256.png",
+  "inverted_image_url": "/sketches-inverted/1256.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:40Z"
+}

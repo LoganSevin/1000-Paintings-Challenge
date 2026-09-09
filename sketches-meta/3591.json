@@ -1,0 +1,42 @@
+{
+  "number": 3591,
+  "title": "Line sketch: Bikini Pose on Palm Trunk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with long black hair and tattoos sits on a weathered palm tree trunk on a tropical beach. She wears a, white and bikini with a Dominican Republic flag motif, points directly at the viewer with both hands, and has her hair dramatically blowing to the side (derived from generated still #2999).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with long black hair and tattoos sits on a weathered palm tree trunk on a tropical beach. She wears a, white and bikini with a Dominican Republic flag motif, points directly at the viewer with both hands, and has her hair dramatically blowing to the side",
+  "inverted_title": "Inverted sketch: Bikini Pose on Palm Trunk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with long black hair and tattoos sits on a weathered palm tree trunk on a tropical beach. She wears a, white and bikini with a Dominican Republic flag motif, points directly at the viewer with both hands, and has her hair dramatically blowing to the side (from generated still #2999).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with long black hair and tattoos sits on a weathered palm tree trunk on a tropical beach. She wears a, white and bikini with a Dominican Republic flag motif, points directly at the viewer with both hands, and has her hair dramatically blowing to the side",
+  "source_description": "A woman with long black hair and tattoos sits on a weathered palm tree trunk on a tropical beach. She wears a red, white and blue bikini with a Dominican Republic flag motif, points directly at the viewer with both hands, and has her hair dramatically blowing to the side.",
+  "source_prompt": "A confident woman with long flowing black hair sitting on a large weathered gray palm tree trunk on a white sand tropical beach, wearing a red white and blue bikini featuring the Dominican Republic flag on the bottom, multiple tattoos on her torso and thigh, gold body jewelry and anklet, both arms extended forward pointing with index fingers directly at the viewer, hair dramatically swept to the left by wind, palm trees and beach cabanas in the background, natural daylight, realistic phone photograph style, sandy foreground, tropical island atmosphere",
+  "source_title": "Bikini Pose on Palm Trunk",
+  "style": "realistic photography",
+  "mood": "confident, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "beach",
+    "bikini",
+    "tropical",
+    "woman",
+    "palm tree"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2999,
+  "source_url": "/generated/2999.jpg",
+  "image_url": "/sketches/3591.png",
+  "inverted_image_url": "/sketches-inverted/3591.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

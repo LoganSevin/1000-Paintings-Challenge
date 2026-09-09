@@ -1,0 +1,42 @@
+{
+  "number": 2731,
+  "title": "Line sketch: Enchanted Greenhouse Sphere Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene depicts a large glass greenhouse with glowing cracks and a massive circular window showing a mountain sunset. In the foreground pond, two reflective spheres rest on lily pads, one displaying a futuristic city at dusk and the other a cracked white surface, surrounded by cattails and dragonflies (derived from generated still #1977).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene depicts a large glass greenhouse with glowing cracks and a massive circular window showing a mountain sunset. In the foreground pond, two reflective spheres rest on lily pads, one displaying a futuristic city at dusk and the other a cracked white surface, surrounded by cattails and dragonflies",
+  "inverted_title": "Inverted sketch: Enchanted Greenhouse Sphere Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene depicts a large glass greenhouse with glowing cracks and a massive circular window showing a mountain sunset. In the foreground pond, two reflective spheres rest on lily pads, one displaying a futuristic city at dusk and the other a cracked white surface, surrounded by cattails and dragonflies (from generated still #1977).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene depicts a large glass greenhouse with glowing cracks and a massive circular window showing a mountain sunset. In the foreground pond, two reflective spheres rest on lily pads, one displaying a futuristic city at dusk and the other a cracked white surface, surrounded by cattails and dragonflies",
+  "source_description": "A surreal fantasy scene depicts a large glass greenhouse with glowing yellow cracks and a massive circular window showing a mountain sunset. In the foreground pond, two reflective spheres rest on lily pads, one displaying a futuristic city at dusk and the other a cracked white surface, surrounded by cattails and dragonflies.",
+  "source_prompt": "",
+  "source_title": "Enchanted Greenhouse Sphere Pond",
+  "style": "digital fantasy illustration",
+  "mood": "dreamlike serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "greenhouse",
+    "reflective spheres",
+    "fantasy landscape",
+    "sunset",
+    "pond"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1977,
+  "source_url": "/generated/1977.jpg",
+  "image_url": "/sketches/2731.png",
+  "inverted_image_url": "/sketches-inverted/2731.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:44Z"
+}

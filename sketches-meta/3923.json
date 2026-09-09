@@ -1,0 +1,42 @@
+{
+  "number": 3923,
+  "title": "Line sketch: Oni Character Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three distinct full-body poses of a stylized demonic character with white and hair, horns, and skull motifs. The figure wears a and white outfit with swirling patterns, a skull belt, and clawed gauntlets, shown crouching, mid-air jumping, and in a dynamic standing stance against a plain gray background (derived from generated still #3340).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three distinct full-body poses of a stylized demonic character with white and hair, horns, and skull motifs. The figure wears a and white outfit with swirling patterns, a skull belt, and clawed gauntlets, shown crouching, mid-air jumping, and in a dynamic standing stance against a plain gray background",
+  "inverted_title": "Inverted sketch: Oni Character Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three distinct full-body poses of a stylized demonic character with white and hair, horns, and skull motifs. The figure wears a and white outfit with swirling patterns, a skull belt, and clawed gauntlets, shown crouching, mid-air jumping, and in a dynamic standing stance against a plain gray background (from generated still #3340).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three distinct full-body poses of a stylized demonic character with white and hair, horns, and skull motifs. The figure wears a and white outfit with swirling patterns, a skull belt, and clawed gauntlets, shown crouching, mid-air jumping, and in a dynamic standing stance against a plain gray background",
+  "source_description": "Three distinct full-body poses of a stylized demonic character with white and purple hair, horns, and skull motifs. The figure wears a purple and white outfit with swirling patterns, a skull belt, and clawed gauntlets, shown crouching, mid-air jumping, and in a dynamic standing stance against a plain gray background.",
+  "source_prompt": "A Japanese-inspired demonic trickster character with pale skin, purple and white spiky hair, small horns, and a mischievous grin. He wears a purple and off-white outfit with spiral patterns, a black belt with a skull buckle, purple arm wraps, and clawed gauntlets. Three full-body action poses: crouching low with tail visible, leaping in mid-air, and a dynamic combat stance, all on a neutral gray studio background, clean digital illustration style.",
+  "source_title": "Purple Oni Character Poses",
+  "style": "digital concept art",
+  "mood": "playful menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "oni",
+    "fantasy character",
+    "multiple poses",
+    "aesthetic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3340,
+  "source_url": "/generated/3340.jpg",
+  "image_url": "/sketches/3923.png",
+  "inverted_image_url": "/sketches-inverted/3923.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:47Z"
+}

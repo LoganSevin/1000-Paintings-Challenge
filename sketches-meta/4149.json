@@ -1,0 +1,42 @@
+{
+  "number": 4149,
+  "title": "Line sketch: No Entry Desert Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a octagonal 'NO ENTRY' sign with a censored bar in the foreground. In the sky, a large sun with radiating beams sits above a floating bald man's head with wide eyes and an open mouth, stitched marks on his scalp, black lines radiating outward (derived from generated still #3567).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a octagonal 'NO ENTRY' sign with a censored bar in the foreground. In the sky, a large sun with radiating beams sits above a floating bald man's head with wide eyes and an open mouth, stitched marks on his scalp, black lines radiating outward",
+  "inverted_title": "Inverted sketch: No Entry Desert Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a octagonal 'NO ENTRY' sign with a censored bar in the foreground. In the sky, a large sun with radiating beams sits above a floating bald man's head with wide eyes and an open mouth, stitched marks on his scalp, black lines radiating outward (from generated still #3567).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a octagonal 'NO ENTRY' sign with a censored bar in the foreground. In the sky, a large sun with radiating beams sits above a floating bald man's head with wide eyes and an open mouth, stitched marks on his scalp, black lines radiating outward",
+  "source_description": "A surreal desert landscape features a red octagonal 'NO ENTRY' sign with a censored bar in the foreground. In the sky, a large yellow sun with radiating beams sits above a floating bald man's head with wide eyes and an open mouth, stitched marks on his scalp, black lines radiating outward.",
+  "source_prompt": "Surreal desert landscape with rolling red and orange sand dunes under a cracked blue sky. A large yellow sun with brick-like rays shines above a floating bald man's head with wide fearful eyes, open mouth, and stitches on his scalp. Black lines radiate from his head. In the foreground, a red octagonal NO ENTRY sign with a black censored bar across the top, set against a green tiled path with yellow and blue flowers. Artistic painted style with visible brushwork.",
+  "source_title": "No Entry Desert Vision",
+  "style": "surreal composition",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "stop sign",
+    "floating head",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3567,
+  "source_url": "/generated/3567.jpg",
+  "image_url": "/sketches/4149.png",
+  "inverted_image_url": "/sketches-inverted/4149.png",
+  "curve_count": 234,
+  "built_at": "2026-08-17T00:09:47Z"
+}

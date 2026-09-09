@@ -1,0 +1,42 @@
+{
+  "number": 2555,
+  "title": "Line sketch: Stasis Protocol Bunker",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone man in an hazmat-style suit sits pensively at a cluttered desk inside a decaying bunker. He gazes at an old CRT monitor displaying a woman's face while a radioactive wasteland is visible through the broken wall behind him (derived from generated still #1791).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone man in an hazmat-style suit sits pensively at a cluttered desk inside a decaying bunker. He gazes at an old CRT monitor displaying a woman's face while a radioactive wasteland is visible through the broken wall behind him",
+  "inverted_title": "Inverted sketch: Stasis Protocol Bunker",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone man in an hazmat-style suit sits pensively at a cluttered desk inside a decaying bunker. He gazes at an old CRT monitor displaying a woman's face while a radioactive wasteland is visible through the broken wall behind him (from generated still #1791).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone man in an hazmat-style suit sits pensively at a cluttered desk inside a decaying bunker. He gazes at an old CRT monitor displaying a woman's face while a radioactive wasteland is visible through the broken wall behind him",
+  "source_description": "A lone man in an orange hazmat-style suit sits pensively at a cluttered desk inside a decaying bunker. He gazes at an old CRT monitor displaying a woman's face while a radioactive wasteland is visible through the broken wall behind him.",
+  "source_prompt": "",
+  "source_title": "Stasis Protocol Bunker",
+  "style": "line sketch",
+  "mood": "melancholy, desolate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "bunker",
+    "wasteland",
+    "retro-futuristic",
+    "loneliness"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1791,
+  "source_url": "/generated/1791.jpg",
+  "image_url": "/sketches/2555.png",
+  "inverted_image_url": "/sketches-inverted/2555.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:43Z"
+}

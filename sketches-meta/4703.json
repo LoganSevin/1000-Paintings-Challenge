@@ -1,0 +1,42 @@
+{
+  "number": 4703,
+  "title": "Line sketch: Cosmic Skeleton Fan",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal figure with clasped hands emerges from dark swirling smoke in the lower center, holding a large ornate folding fan decorated with patterns. Above, a towering dark robed cosmic entity with multiple arms and a spiky crown floats in a starry sky, surrounded by glowing bubbles containing miniature scenes, while a serpent-like creature coils through the composition amid Buddha statues, flowers, and floating figures (derived from generated still #4133).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal figure with clasped hands emerges from dark swirling smoke in the lower center, holding a large ornate folding fan decorated with patterns. Above, a towering dark robed cosmic entity with multiple arms and a spiky crown floats in a starry sky, surrounded by glowing bubbles containing miniature scenes, while a serpent-like creature coils through the composition amid Buddha statues, flowers, and floating figures",
+  "inverted_title": "Inverted sketch: Cosmic Skeleton Fan",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal figure with clasped hands emerges from dark swirling smoke in the lower center, holding a large ornate folding fan decorated with patterns. Above, a towering dark robed cosmic entity with multiple arms and a spiky crown floats in a starry sky, surrounded by glowing bubbles containing miniature scenes, while a serpent-like creature coils through the composition amid Buddha statues, flowers, and floating figures (from generated still #4133).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal figure with clasped hands emerges from dark swirling smoke in the lower center, holding a large ornate folding fan decorated with patterns. Above, a towering dark robed cosmic entity with multiple arms and a spiky crown floats in a starry sky, surrounded by glowing bubbles containing miniature scenes, while a serpent-like creature coils through the composition amid Buddha statues, flowers, and floating figures",
+  "source_description": "A skeletal figure with clasped hands emerges from dark swirling smoke in the lower center, holding a large ornate blue folding fan decorated with patterns. Above, a towering dark robed cosmic entity with multiple arms and a spiky crown floats in a starry sky, surrounded by glowing bubbles containing miniature scenes, while a green serpent-like creature coils through the composition amid colorful Buddha statues, flowers, and floating figures.",
+  "source_prompt": "A surreal psychedelic scene featuring a skeletal figure rising from black smoke in the foreground holding a large ornate blue decorative folding fan with intricate patterns. A giant dark multi-armed cosmic goddess with a spiky crown floats in a starry night sky surrounded by transparent bubbles containing tiny figures and scenes. A large bright green serpent coils through the center connecting the realms. Colorful Buddha statues and vibrant flowers appear on the left and right. Highly detailed, vibrant fantasy illustration.",
+  "source_title": "Cosmic Skeleton Fan",
+  "style": "surreal psychedelic",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "cosmic entity",
+    "psychedelic",
+    "buddha statues",
+    "folding fan"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4133,
+  "source_url": "/generated/4133.jpg",
+  "image_url": "/sketches/4703.png",
+  "inverted_image_url": "/sketches-inverted/4703.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:48Z"
+}

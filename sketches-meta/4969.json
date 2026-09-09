@@ -1,0 +1,42 @@
+{
+  "number": 4969,
+  "title": "Line sketch: Necromancer's Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a black suit and shirt kneels in a dark graveyard holding a glowing skull with flames. A large melting and hot air balloon with a basket floats above, casting a beam of light, while a shadowy silhouetted figure stands to the right (derived from generated still #4406).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a black suit and shirt kneels in a dark graveyard holding a glowing skull with flames. A large melting and hot air balloon with a basket floats above, casting a beam of light, while a shadowy silhouetted figure stands to the right",
+  "inverted_title": "Inverted sketch: Necromancer's Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a black suit and shirt kneels in a dark graveyard holding a glowing skull with flames. A large melting and hot air balloon with a basket floats above, casting a beam of light, while a shadowy silhouetted figure stands to the right (from generated still #4406).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a black suit and shirt kneels in a dark graveyard holding a glowing skull with flames. A large melting and hot air balloon with a basket floats above, casting a beam of light, while a shadowy silhouetted figure stands to the right",
+  "source_description": "A man in a black suit and red shirt kneels in a dark graveyard holding a glowing skull with flames. A large melting purple and yellow hot air balloon with a basket floats above, casting a beam of light, while a shadowy silhouetted figure stands to the right.",
+  "source_prompt": "A man in a black suit kneels in a gothic graveyard at night holding a flaming skull that emits light, surrounded by crosses, candles, skulls and blood on the ground. A giant melting purple and yellow hot air balloon with a dripping texture and wooden basket floats above, casting a dramatic beam of light onto the man. A dark shadowy figure with glowing eyes stands in the background, dark cloudy sky, highly detailed dark fantasy surreal scene",
+  "source_title": "Necromancer's Ritual",
+  "style": "dark fantasy surrealism",
+  "mood": "ominous, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "necromancy",
+    "graveyard",
+    "hot air balloon",
+    "skull",
+    "dark ritual"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4406,
+  "source_url": "/generated/4406.jpg",
+  "image_url": "/sketches/4969.png",
+  "inverted_image_url": "/sketches-inverted/4969.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:49Z"
+}

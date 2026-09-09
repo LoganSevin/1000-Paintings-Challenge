@@ -1,0 +1,42 @@
+{
+  "number": 3212,
+  "title": "Line sketch: Celestial Observatory Staircase",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dark flowing robe with white accents stands on a flooded spiral staircase inside a decaying circular observatory. The domed ceiling is covered in cracked, peeling maps of the world while an aurora borealis and dramatic light beams illuminate the starry sky above (derived from generated still #2562).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dark flowing robe with white accents stands on a flooded spiral staircase inside a decaying circular observatory. The domed ceiling is covered in cracked, peeling maps of the world while an aurora borealis and dramatic light beams illuminate the starry sky above",
+  "inverted_title": "Inverted sketch: Celestial Observatory Staircase",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dark flowing robe with white accents stands on a flooded spiral staircase inside a decaying circular observatory. The domed ceiling is covered in cracked, peeling maps of the world while an aurora borealis and dramatic light beams illuminate the starry sky above (from generated still #2562).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dark flowing robe with white accents stands on a flooded spiral staircase inside a decaying circular observatory. The domed ceiling is covered in cracked, peeling maps of the world while an aurora borealis and dramatic light beams illuminate the starry sky above",
+  "source_description": "A woman in a dark flowing robe with white accents stands on a flooded spiral staircase inside a decaying circular observatory. The domed ceiling is covered in cracked, peeling maps of the world while an aurora borealis and dramatic light beams illuminate the starry purple sky above.",
+  "source_prompt": "A lone woman in a long dark hooded robe stands on a flooded spiral staircase inside a vast decaying circular observatory with peeling teal and gold world map murals on the dome ceiling. The floor is covered in dark reflective water with floating film strips. Dramatic aurora borealis and golden light beams shine through the open dome into the starry purple sky, cinematic lighting, highly detailed digital painting",
+  "source_title": "Celestial Observatory Staircase",
+  "style": "cinematic",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "observatory",
+    "spiral staircase",
+    "flooded interior",
+    "aurora borealis",
+    "celestial map"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2562,
+  "source_url": "/generated/2562.jpg",
+  "image_url": "/sketches/3212.png",
+  "inverted_image_url": "/sketches-inverted/3212.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 904,
+  "title": "Line sketch: Eye of the Mountain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive blood- eye with white root-like veins embedded in a jagged mountain peak overlooks a winding stone path and a glowing waterfall. The surreal landscape features autumn-colored trees under a dramatic fiery sunset sky with hanging stalactites (derived from generated still #113).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive blood- eye with white root-like veins embedded in a jagged mountain peak overlooks a winding stone path and a glowing waterfall. The surreal landscape features autumn-colored trees under a dramatic fiery sunset sky with hanging stalactites",
+  "inverted_title": "Inverted sketch: Eye of the Mountain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive blood- eye with white root-like veins embedded in a jagged mountain peak overlooks a winding stone path and a glowing waterfall. The surreal landscape features autumn-colored trees under a dramatic fiery sunset sky with hanging stalactites (from generated still #113).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive blood- eye with white root-like veins embedded in a jagged mountain peak overlooks a winding stone path and a glowing waterfall. The surreal landscape features autumn-colored trees under a dramatic fiery sunset sky with hanging stalactites",
+  "source_description": "A massive blood-red eye with white root-like veins embedded in a jagged mountain peak overlooks a winding stone path and a glowing waterfall. The surreal landscape features autumn-colored trees under a dramatic fiery sunset sky with hanging stalactites.",
+  "source_prompt": "",
+  "source_title": "Eye of the Mountain",
+  "style": "surreal fantasy",
+  "mood": "ethereal ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mountain eye",
+    "fantasy landscape",
+    "waterfall",
+    "autumn trees"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 113,
+  "source_url": "/generated/113.jpg",
+  "image_url": "/sketches/904.png",
+  "inverted_image_url": "/sketches-inverted/904.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:40Z"
+}

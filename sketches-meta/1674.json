@@ -1,0 +1,42 @@
+{
+  "number": 1674,
+  "title": "Line sketch: Psychedelic Waterfall Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic landscape featuring a waterfall cascading into a pool with glowing concentric circles. Three stylized women with skin and elaborate hair adornments occupy the foreground, set against rolling hills, pine trees, and distant mountains under a sky (derived from generated still #890).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic landscape featuring a waterfall cascading into a pool with glowing concentric circles. Three stylized women with skin and elaborate hair adornments occupy the foreground, set against rolling hills, pine trees, and distant mountains under a sky",
+  "inverted_title": "Inverted sketch: Psychedelic Waterfall Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic landscape featuring a waterfall cascading into a pool with glowing concentric circles. Three stylized women with skin and elaborate hair adornments occupy the foreground, set against rolling hills, pine trees, and distant mountains under a sky (from generated still #890).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic landscape featuring a waterfall cascading into a pool with glowing concentric circles. Three stylized women with skin and elaborate hair adornments occupy the foreground, set against rolling hills, pine trees, and distant mountains under a sky",
+  "source_description": "A vibrant psychedelic landscape featuring a bright green waterfall cascading into a turquoise pool with glowing concentric circles. Three stylized women with green skin and elaborate colorful hair adornments occupy the foreground, set against rolling hills, pine trees, and distant purple mountains under a teal sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Waterfall Scene",
+  "style": "psychedelic fantasy",
+  "mood": "ethereal vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "waterfall",
+    "fantasy women",
+    "nature landscape",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 890,
+  "source_url": "/generated/890.jpg",
+  "image_url": "/sketches/1674.png",
+  "inverted_image_url": "/sketches-inverted/1674.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:41Z"
+}

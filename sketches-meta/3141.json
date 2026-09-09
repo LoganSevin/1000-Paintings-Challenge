@@ -1,0 +1,42 @@
+{
+  "number": 3141,
+  "title": "Line sketch: Bear Spirit Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal split-face portrait showing a woman's face merged with a bear's head in profile. The woman has intricate swirling patterns on her face and headpiece adorned with poppies and leaves, while the bear has a glowing eye containing star-like sparkles (derived from generated still #2481).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal split-face portrait showing a woman's face merged with a bear's head in profile. The woman has intricate swirling patterns on her face and headpiece adorned with poppies and leaves, while the bear has a glowing eye containing star-like sparkles",
+  "inverted_title": "Inverted sketch: Bear Spirit Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal split-face portrait showing a woman's face merged with a bear's head in profile. The woman has intricate swirling patterns on her face and headpiece adorned with poppies and leaves, while the bear has a glowing eye containing star-like sparkles (from generated still #2481).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal split-face portrait showing a woman's face merged with a bear's head in profile. The woman has intricate swirling patterns on her face and headpiece adorned with poppies and leaves, while the bear has a glowing eye containing star-like sparkles",
+  "source_description": "A surreal split-face portrait showing a woman's face merged with a brown bear's head in profile. The woman has intricate swirling patterns on her face and headpiece adorned with red poppies and green leaves, while the bear has a glowing blue eye containing star-like sparkles.",
+  "source_prompt": "Surreal split portrait of a woman and a brown bear merged together, woman's face covered in intricate green and orange swirling patterns with red poppies and green leaves in her hair, bear has glowing blue eye with golden stars inside, psychedelic swirls and floating numbers in the background, vibrant fantasy style with rich textures and luminous details",
+  "source_title": "Bear Spirit Portrait",
+  "style": "Psychedelic Fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear spirit",
+    "surreal portrait",
+    "floral headdress",
+    "psychedelic art",
+    "split face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2481,
+  "source_url": "/generated/2481.jpg",
+  "image_url": "/sketches/3141.png",
+  "inverted_image_url": "/sketches-inverted/3141.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:45Z"
+}

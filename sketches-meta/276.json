@@ -1,0 +1,42 @@
+{
+  "number": 276,
+  "title": "Line sketch: Surreal Moonlit Tree Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A twisted, gnarled tree with a single large eye and beak-like head reaches its branch-like arm toward the starry night sky. Two glowing moons and a distant castle silhouette create an eerie, dreamlike atmosphere in this dark fantasy scene (derived from painting #333).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A twisted, gnarled tree with a single large eye and beak-like head reaches its branch-like arm toward the starry night sky. Two glowing moons and a distant castle silhouette create an eerie, dreamlike atmosphere in this dark fantasy scene",
+  "inverted_title": "Inverted sketch: Surreal Moonlit Tree Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A twisted, gnarled tree with a single large eye and beak-like head reaches its branch-like arm toward the starry night sky. Two glowing moons and a distant castle silhouette create an eerie, dreamlike atmosphere in this dark fantasy scene (from painting #333).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A twisted, gnarled tree with a single large eye and beak-like head reaches its branch-like arm toward the starry night sky. Two glowing moons and a distant castle silhouette create an eerie, dreamlike atmosphere in this dark fantasy scene",
+  "source_description": "A twisted, gnarled tree with a single large eye and beak-like head reaches its branch-like arm toward the starry night sky. Two glowing moons and a distant castle silhouette create an eerie, dreamlike atmosphere in this dark fantasy scene.",
+  "source_prompt": "",
+  "source_title": "Surreal Moonlit Tree Creature",
+  "style": "Surrealism",
+  "mood": "Eerie, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "moonlit",
+    "creature",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 333,
+  "source_url": "/paintings/333.jpg",
+  "image_url": "/sketches/276.png",
+  "inverted_image_url": "/sketches-inverted/276.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:38Z"
+}

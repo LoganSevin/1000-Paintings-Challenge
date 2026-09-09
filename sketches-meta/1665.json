@@ -1,0 +1,42 @@
+{
+  "number": 1665,
+  "title": "Line sketch: Surreal Eye of Equus",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cracked white orb dominates the center, containing a and eye surrounded by and flowers on vines. Two horses stand in a rolling landscape with a wooden fence, flanked by stylized female profile faces adorned with flowers against a background with spiral patterns (derived from generated still #881).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cracked white orb dominates the center, containing a and eye surrounded by and flowers on vines. Two horses stand in a rolling landscape with a wooden fence, flanked by stylized female profile faces adorned with flowers against a background with spiral patterns",
+  "inverted_title": "Inverted sketch: Surreal Eye of Equus",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cracked white orb dominates the center, containing a and eye surrounded by and flowers on vines. Two horses stand in a rolling landscape with a wooden fence, flanked by stylized female profile faces adorned with flowers against a background with spiral patterns (from generated still #881).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cracked white orb dominates the center, containing a and eye surrounded by and flowers on vines. Two horses stand in a rolling landscape with a wooden fence, flanked by stylized female profile faces adorned with flowers against a background with spiral patterns",
+  "source_description": "A large cracked white orb dominates the center, containing a vivid red and golden eye surrounded by purple and pink flowers on vines. Two brown horses stand in a green rolling landscape with a wooden fence, flanked by stylized female profile faces adorned with flowers against a dark purple background with spiral patterns.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye of Equus",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "horses",
+    "floral",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 881,
+  "source_url": "/generated/881.jpg",
+  "image_url": "/sketches/1665.png",
+  "inverted_image_url": "/sketches-inverted/1665.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:41Z"
+}

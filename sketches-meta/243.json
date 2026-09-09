@@ -1,0 +1,42 @@
+{
+  "number": 243,
+  "title": "Line sketch: Thunderstorm Lightning Over Mountains",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dramatic storm clouds fill the sky with multiple lightning strikes illuminating the scene. Vibrant sunset hues peek through the dark, turbulent formations above a distant mountain peak (derived from painting #296).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dramatic storm clouds fill the sky with multiple lightning strikes illuminating the scene. Vibrant sunset hues peek through the dark, turbulent formations above a distant mountain peak",
+  "inverted_title": "Inverted sketch: Thunderstorm Lightning Over Mountains",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dramatic storm clouds fill the sky with multiple lightning strikes illuminating the scene. Vibrant sunset hues peek through the dark, turbulent formations above a distant mountain peak (from painting #296).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dramatic storm clouds fill the sky with multiple lightning strikes illuminating the scene. Vibrant sunset hues peek through the dark, turbulent formations above a distant mountain peak",
+  "source_description": "Dramatic storm clouds fill the sky with multiple lightning strikes illuminating the scene. Vibrant sunset hues peek through the dark, turbulent formations above a distant mountain peak.",
+  "source_prompt": "",
+  "source_title": "Thunderstorm Lightning Over Mountains",
+  "style": "Impressionistic",
+  "mood": "Dramatic and powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "storm",
+    "lightning",
+    "clouds",
+    "dramatic sky",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 296,
+  "source_url": "/paintings/296.jpg",
+  "image_url": "/sketches/243.png",
+  "inverted_image_url": "/sketches-inverted/243.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:38Z"
+}

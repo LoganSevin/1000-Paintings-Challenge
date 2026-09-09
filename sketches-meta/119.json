@@ -1,0 +1,42 @@
+{
+  "number": 119,
+  "title": "Line sketch: Bubbles of Tomorrow",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Retro-attired figures pose beside two enormous transparent spheres in front of a flat-roofed modernist house. The composition symmetrically frames the reflective orbs with a woman in on the left and a suited man with a woman in on the right. Clean lines, bold color blocks, and glossy highlights mimic mid-century commercial illustration techniques (derived from painting #155).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Retro-attired figures pose beside two enormous transparent spheres in front of a flat-roofed modernist house. The composition symmetrically frames the reflective orbs with a woman in on the left and a suited man with a woman in on the right. Clean lines, bold color blocks, and glossy highlights mimic mid-century commercial illustration techniques",
+  "inverted_title": "Inverted sketch: Bubbles of Tomorrow",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Retro-attired figures pose beside two enormous transparent spheres in front of a flat-roofed modernist house. The composition symmetrically frames the reflective orbs with a woman in on the left and a suited man with a woman in on the right. Clean lines, bold color blocks, and glossy highlights mimic mid-century commercial illustration techniques (from painting #155).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Retro-attired figures pose beside two enormous transparent spheres in front of a flat-roofed modernist house. The composition symmetrically frames the reflective orbs with a woman in on the left and a suited man with a woman in on the right. Clean lines, bold color blocks, and glossy highlights mimic mid-century commercial illustration techniques",
+  "source_description": "Retro-attired figures pose beside two enormous transparent spheres in front of a flat-roofed modernist house. The composition symmetrically frames the reflective orbs with a woman in orange on the left and a suited man with a woman in teal on the right. Clean lines, bold color blocks, and glossy highlights mimic mid-century commercial illustration techniques.",
+  "source_prompt": "",
+  "source_title": "Bubbles of Tomorrow",
+  "style": "retro futurism",
+  "mood": "nostalgic optimistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro",
+    "futurism",
+    "spheres",
+    "mid-century",
+    "fashion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 155,
+  "source_url": "/paintings/155.jpg",
+  "image_url": "/sketches/119.png",
+  "inverted_image_url": "/sketches-inverted/119.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

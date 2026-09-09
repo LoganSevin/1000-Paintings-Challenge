@@ -1,0 +1,42 @@
+{
+  "number": 5016,
+  "title": "Line sketch: Dragonfly Messenger",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with -streaked hair sits pensively by a glowing stream as a large, luminous dragonfly hovers between her and a dark armored knight standing on the opposite bank. The fantasy landscape features koi fish in the reflective water, glowing crystals, lotus flowers, a crescent moon, and a starry sky at twilight (derived from generated still #4455).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with -streaked hair sits pensively by a glowing stream as a large, luminous dragonfly hovers between her and a dark armored knight standing on the opposite bank. The fantasy landscape features koi fish in the reflective water, glowing crystals, lotus flowers, a crescent moon, and a starry sky at twilight",
+  "inverted_title": "Inverted sketch: Dragonfly Messenger",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with -streaked hair sits pensively by a glowing stream as a large, luminous dragonfly hovers between her and a dark armored knight standing on the opposite bank. The fantasy landscape features koi fish in the reflective water, glowing crystals, lotus flowers, a crescent moon, and a starry sky at twilight (from generated still #4455).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with -streaked hair sits pensively by a glowing stream as a large, luminous dragonfly hovers between her and a dark armored knight standing on the opposite bank. The fantasy landscape features koi fish in the reflective water, glowing crystals, lotus flowers, a crescent moon, and a starry sky at twilight",
+  "source_description": "A young woman with blue-streaked hair sits pensively by a glowing stream as a large, luminous dragonfly hovers between her and a dark armored knight standing on the opposite bank. The fantasy landscape features orange koi fish in the reflective water, glowing crystals, lotus flowers, a crescent moon, and a starry purple sky at twilight.",
+  "source_prompt": "A young woman with long dark hair featuring bright blue streaks sits by a magical stream at twilight, resting her chin on her hand with a thoughtful expression. A giant glowing dragonfly flies in the center carrying sparkling particles toward a tall knight in dark ornate armor standing on the opposite grassy bank. Orange koi fish swim in the reflective water, white lotus flowers and glowing crystals are visible, with a purple starry sky, crescent moon, and distant trees in the background.",
+  "source_title": "Dragonfly Messenger",
+  "style": "fantasy",
+  "mood": "ethereal melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "dragonfly",
+    "knight",
+    "mystical",
+    "twilight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4455,
+  "source_url": "/generated/4455.jpg",
+  "image_url": "/sketches/5016.png",
+  "inverted_image_url": "/sketches-inverted/5016.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:49Z"
+}

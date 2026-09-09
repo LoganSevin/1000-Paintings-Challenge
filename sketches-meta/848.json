@@ -1,0 +1,42 @@
+{
+  "number": 848,
+  "title": "Line sketch: Dog at Mystic Falls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A - dog stands on a mossy cliff wearing a dark hooded cloak decorated with glowing symbols. Behind it, an elaborate wooden industrial structure channels a glowing waterfall amid a dramatic, sky with swirling energy patterns (derived from generated still #57).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A - dog stands on a mossy cliff wearing a dark hooded cloak decorated with glowing symbols. Behind it, an elaborate wooden industrial structure channels a glowing waterfall amid a dramatic, sky with swirling energy patterns",
+  "inverted_title": "Inverted sketch: Dog at Mystic Falls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A - dog stands on a mossy cliff wearing a dark hooded cloak decorated with glowing symbols. Behind it, an elaborate wooden industrial structure channels a glowing waterfall amid a dramatic, sky with swirling energy patterns (from generated still #57).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A - dog stands on a mossy cliff wearing a dark hooded cloak decorated with glowing symbols. Behind it, an elaborate wooden industrial structure channels a glowing waterfall amid a dramatic, sky with swirling energy patterns",
+  "source_description": "A lime-green dog stands on a mossy cliff wearing a dark hooded cloak decorated with glowing orange symbols. Behind it, an elaborate wooden industrial structure channels a glowing waterfall amid a dramatic, colorful sky with swirling pink energy patterns.",
+  "source_prompt": "",
+  "source_title": "Lime Dog at Mystic Falls",
+  "style": "fantasy illustration",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy dog",
+    "waterfall",
+    "industrial ruin",
+    "swirling energy",
+    "dramatic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 57,
+  "source_url": "/generated/57.jpg",
+  "image_url": "/sketches/848.png",
+  "inverted_image_url": "/sketches-inverted/848.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:40Z"
+}

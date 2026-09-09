@@ -1,0 +1,42 @@
+{
+  "number": 2216,
+  "title": "Line sketch: Celestial Timekeeper",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a giant cracked clock with a woman's profile emerging from its face, melting like liquid toward the ground. In the foreground, a robed woman with long dark hair walks across dunes while gazing up at the massive timepiece and a glowing celestial orb in a starry sky (derived from generated still #1441).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a giant cracked clock with a woman's profile emerging from its face, melting like liquid toward the ground. In the foreground, a robed woman with long dark hair walks across dunes while gazing up at the massive timepiece and a glowing celestial orb in a starry sky",
+  "inverted_title": "Inverted sketch: Celestial Timekeeper",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a giant cracked clock with a woman's profile emerging from its face, melting like liquid toward the ground. In the foreground, a robed woman with long dark hair walks across dunes while gazing up at the massive timepiece and a glowing celestial orb in a starry sky (from generated still #1441).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a giant cracked clock with a woman's profile emerging from its face, melting like liquid toward the ground. In the foreground, a robed woman with long dark hair walks across dunes while gazing up at the massive timepiece and a glowing celestial orb in a starry sky",
+  "source_description": "A surreal desert landscape features a giant cracked clock with a woman's profile emerging from its face, melting like liquid toward the ground. In the foreground, a robed woman with long dark hair walks across orange dunes while gazing up at the massive timepiece and a glowing celestial orb in a starry sky.",
+  "source_prompt": "",
+  "source_title": "Celestial Timekeeper",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "clock",
+    "desert",
+    "celestial",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1441,
+  "source_url": "/generated/1441.jpg",
+  "image_url": "/sketches/2216.png",
+  "inverted_image_url": "/sketches-inverted/2216.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:42Z"
+}

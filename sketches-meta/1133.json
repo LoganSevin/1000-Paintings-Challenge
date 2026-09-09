@@ -1,0 +1,42 @@
+{
+  "number": 1133,
+  "title": "Line sketch: Melting Canine Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a dog's head merging with a human woman's face, featuring a eye, dripping paint effects, and vibrant floral elements. The composition blends organic forms with vein-like branches against a dark background (derived from generated still #345).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a dog's head merging with a human woman's face, featuring a eye, dripping paint effects, and vibrant floral elements. The composition blends organic forms with vein-like branches against a dark background",
+  "inverted_title": "Inverted sketch: Melting Canine Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a dog's head merging with a human woman's face, featuring a eye, dripping paint effects, and vibrant floral elements. The composition blends organic forms with vein-like branches against a dark background (from generated still #345).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a dog's head merging with a human woman's face, featuring a eye, dripping paint effects, and vibrant floral elements. The composition blends organic forms with vein-like branches against a dark background",
+  "source_description": "A surreal painting of a dog's head merging with a human woman's face, featuring a bright yellow eye, dripping paint effects, and vibrant floral elements. The composition blends organic forms with red vein-like branches against a dark background.",
+  "source_prompt": "",
+  "source_title": "Melting Canine Portrait",
+  "style": "surrealism",
+  "mood": "ethereal, unsettling",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "melting",
+    "floral",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 345,
+  "source_url": "/generated/345.jpg",
+  "image_url": "/sketches/1133.png",
+  "inverted_image_url": "/sketches-inverted/1133.png",
+  "curve_count": 312,
+  "built_at": "2026-08-17T00:09:40Z"
+}

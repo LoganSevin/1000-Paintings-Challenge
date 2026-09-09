@@ -1,0 +1,42 @@
+{
+  "number": 52,
+  "title": "Line sketch: Swirling Circles in Color",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition splits into vibrant organic forms on the left and flowing - shapes on the right, dotted with circles of varying sizes in, and. Bold and fluid transitions create dynamic movement across the page. Scattered dots add rhythmic energy and depth (derived from painting #81).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition splits into vibrant organic forms on the left and flowing - shapes on the right, dotted with circles of varying sizes in, and. Bold and fluid transitions create dynamic movement across the page. Scattered dots add rhythmic energy and depth",
+  "inverted_title": "Inverted sketch: Swirling Circles in Color",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition splits into vibrant organic forms on the left and flowing - shapes on the right, dotted with circles of varying sizes in, and. Bold and fluid transitions create dynamic movement across the page. Scattered dots add rhythmic energy and depth (from painting #81).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition splits into vibrant organic forms on the left and flowing - shapes on the right, dotted with circles of varying sizes in, and. Bold and fluid transitions create dynamic movement across the page. Scattered dots add rhythmic energy and depth",
+  "source_description": "An abstract composition splits into vibrant green organic forms on the left and flowing purple-pink shapes on the right, dotted with circles of varying sizes in yellow, purple, and cyan. Bold brushstrokes and fluid transitions create dynamic movement across the canvas. Scattered dots add rhythmic energy and depth.",
+  "source_prompt": "",
+  "source_title": "Swirling Circles in Color",
+  "style": "abstract",
+  "mood": "vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circles",
+    "swirls",
+    "organic",
+    "fluid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 81,
+  "source_url": "/paintings/81.jpg",
+  "image_url": "/sketches/52.png",
+  "inverted_image_url": "/sketches-inverted/52.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:38Z"
+}

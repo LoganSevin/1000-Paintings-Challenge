@@ -1,0 +1,42 @@
+{
+  "number": 4050,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female character with voluminous and hair stands in a dynamic pose against a solid gray background. She wears a crop top, shorts, a black belt with buckle, platform boots, and holds a spray can with a skull design in her right hand while her left hand is extended with an open palm (derived from generated still #3467).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female character with voluminous and hair stands in a dynamic pose against a solid gray background. She wears a crop top, shorts, a black belt with buckle, platform boots, and holds a spray can with a skull design in her right hand while her left hand is extended with an open palm",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female character with voluminous and hair stands in a dynamic pose against a solid gray background. She wears a crop top, shorts, a black belt with buckle, platform boots, and holds a spray can with a skull design in her right hand while her left hand is extended with an open palm (from generated still #3467).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female character with voluminous and hair stands in a dynamic pose against a solid gray background. She wears a crop top, shorts, a black belt with buckle, platform boots, and holds a spray can with a skull design in her right hand while her left hand is extended with an open palm",
+  "source_description": "A stylized female character with voluminous red and magenta hair stands in a dynamic pose against a solid gray background. She wears a red crop top, red shorts, a black belt with gold buckle, red platform boots, and holds a spray can with a skull design in her right hand while her left hand is extended with an open palm.",
+  "source_prompt": "A fierce punk rock girl with wild voluminous red and magenta hair styled in a large messy updo, wearing a red bra top, red shorts, black belt, and red platform combat boots. She has blue eyes, dramatic makeup, and holds a spray paint can with a skull logo in one hand while posing dynamically with the other hand open. Vibrant digital character art on a plain gray background, cartoonish yet detailed style.",
+  "source_title": "Graffiti Punk Girl",
+  "style": "digital illustration",
+  "mood": "bold, rebellious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "punk girl",
+    "graffiti artist",
+    "hair",
+    "spray can"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3467,
+  "source_url": "/generated/3467.jpg",
+  "image_url": "/sketches/4050.png",
+  "inverted_image_url": "/sketches-inverted/4050.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:47Z"
+}

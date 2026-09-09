@@ -1,0 +1,42 @@
+{
+  "number": 613,
+  "title": "Line sketch: Mysterious Serpent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic snake with eyes coils gracefully through swirling clouds. Its scales shimmer with and hues in this ethereal fantasy scene (derived from painting #784).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic snake with eyes coils gracefully through swirling clouds. Its scales shimmer with and hues in this ethereal fantasy scene",
+  "inverted_title": "Inverted sketch: Mysterious Serpent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic snake with eyes coils gracefully through swirling clouds. Its scales shimmer with and hues in this ethereal fantasy scene (from painting #784).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic snake with eyes coils gracefully through swirling clouds. Its scales shimmer with and hues in this ethereal fantasy scene",
+  "source_description": "A majestic purple snake with yellow eyes coils gracefully through swirling clouds. Its scales shimmer with pink and lavender hues in this ethereal fantasy scene.",
+  "source_prompt": "",
+  "source_title": "Mysterious Purple Serpent",
+  "style": "Fantasy Illustration",
+  "mood": "Mysterious and Ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "serpent",
+    "fantasy",
+    "clouds",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 784,
+  "source_url": "/paintings/784.jpg",
+  "image_url": "/sketches/613.png",
+  "inverted_image_url": "/sketches-inverted/613.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:39Z"
+}

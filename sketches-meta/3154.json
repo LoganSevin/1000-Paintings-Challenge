@@ -1,0 +1,42 @@
+{
+  "number": 3154,
+  "title": "Line sketch: Weeping Moon Face",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant grayscale face resembling a full moon is centered in the composition, with large black eyes, a small nose, and a downturned mouth. A powerful waterfall cascades from the top of its head through the center of its face into a body of water below, surrounded by dark rocky cliffs, barren trees, and a -tinted forest under a moody, swirling sky (derived from generated still #2495).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant grayscale face resembling a full moon is centered in the composition, with large black eyes, a small nose, and a downturned mouth. A powerful waterfall cascades from the top of its head through the center of its face into a body of water below, surrounded by dark rocky cliffs, barren trees, and a -tinted forest under a moody, swirling sky",
+  "inverted_title": "Inverted sketch: Weeping Moon Face",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant grayscale face resembling a full moon is centered in the composition, with large black eyes, a small nose, and a downturned mouth. A powerful waterfall cascades from the top of its head through the center of its face into a body of water below, surrounded by dark rocky cliffs, barren trees, and a -tinted forest under a moody, swirling sky (from generated still #2495).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant grayscale face resembling a full moon is centered in the composition, with large black eyes, a small nose, and a downturned mouth. A powerful waterfall cascades from the top of its head through the center of its face into a body of water below, surrounded by dark rocky cliffs, barren trees, and a -tinted forest under a moody, swirling sky",
+  "source_description": "A giant grayscale face resembling a full moon is centered in the composition, with large black eyes, a small nose, and a downturned mouth. A powerful waterfall cascades from the top of its head through the center of its face into a body of water below, surrounded by dark rocky cliffs, barren trees, and a red-tinted forest under a moody, swirling sky.",
+  "source_prompt": "surreal landscape featuring a giant stone-like moon face with large black eyes and a sad expression centered in the frame. A strong waterfall flows directly from the top of its head down through its face into a pool below. Dark rocky cliffs and barren trees frame the scene, with dense red and black pine forests in the background under a dramatic swirling sky with pink and gray tones.",
+  "source_title": "Weeping Moon Face",
+  "style": "surreal composition",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "waterfall",
+    "moon face",
+    "landscape",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2495,
+  "source_url": "/generated/2495.jpg",
+  "image_url": "/sketches/3154.png",
+  "inverted_image_url": "/sketches-inverted/3154.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

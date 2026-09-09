@@ -1,0 +1,42 @@
+{
+  "number": 937,
+  "title": "Line sketch: Industrial Dreamweaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking portrait of a -skinned indigenous woman with glowing white facial markings and long flowing black hair filled with vibrant, and swirling patterns. Her hair merges into a dystopian industrial cityscape with smoking factories, pollution clouds, and a multi-lane highway filled with cars (derived from generated still #147).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking portrait of a -skinned indigenous woman with glowing white facial markings and long flowing black hair filled with vibrant, and swirling patterns. Her hair merges into a dystopian industrial cityscape with smoking factories, pollution clouds, and a multi-lane highway filled with cars",
+  "inverted_title": "Inverted sketch: Industrial Dreamweaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking portrait of a -skinned indigenous woman with glowing white facial markings and long flowing black hair filled with vibrant, and swirling patterns. Her hair merges into a dystopian industrial cityscape with smoking factories, pollution clouds, and a multi-lane highway filled with cars (from generated still #147).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking portrait of a -skinned indigenous woman with glowing white facial markings and long flowing black hair filled with vibrant, and swirling patterns. Her hair merges into a dystopian industrial cityscape with smoking factories, pollution clouds, and a multi-lane highway filled with cars",
+  "source_description": "A striking portrait of a red-skinned indigenous woman with glowing white facial markings and long flowing black hair filled with vibrant green, purple, and yellow swirling patterns. Her hair merges into a dystopian industrial cityscape with smoking factories, pollution clouds, and a multi-lane highway filled with cars.",
+  "source_prompt": "",
+  "source_title": "Industrial Dreamweaver",
+  "style": "surreal digital illustration",
+  "mood": "ethereal dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "indigenous woman",
+    "industrial pollution",
+    "surreal landscape",
+    "flowing hair",
+    "dystopian city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 147,
+  "source_url": "/generated/147.jpg",
+  "image_url": "/sketches/937.png",
+  "inverted_image_url": "/sketches-inverted/937.png",
+  "curve_count": 277,
+  "built_at": "2026-08-17T00:09:40Z"
+}

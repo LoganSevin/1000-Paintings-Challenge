@@ -1,0 +1,42 @@
+{
+  "number": 1467,
+  "title": "Line sketch: Floating Crown Over Lake",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large ornate crown with lotus flowers and gems floats in the sky, dripping black liquid. Below, a serene lake with small boats reflects a distant pagoda amid misty mountains, while swirling ribbons and skeletal figures streak across the surreal landscape (derived from generated still #682).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large ornate crown with lotus flowers and gems floats in the sky, dripping black liquid. Below, a serene lake with small boats reflects a distant pagoda amid misty mountains, while swirling ribbons and skeletal figures streak across the surreal landscape",
+  "inverted_title": "Inverted sketch: Floating Crown Over Lake",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large ornate crown with lotus flowers and gems floats in the sky, dripping black liquid. Below, a serene lake with small boats reflects a distant pagoda amid misty mountains, while swirling ribbons and skeletal figures streak across the surreal landscape (from generated still #682).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large ornate crown with lotus flowers and gems floats in the sky, dripping black liquid. Below, a serene lake with small boats reflects a distant pagoda amid misty mountains, while swirling ribbons and skeletal figures streak across the surreal landscape",
+  "source_description": "A large ornate golden crown with lotus flowers and red gems floats in the purple sky, dripping black liquid. Below, a serene green lake with small boats reflects a distant pagoda amid misty mountains, while colorful swirling ribbons and skeletal figures streak across the surreal landscape.",
+  "source_prompt": "",
+  "source_title": "Floating Crown Over Lake",
+  "style": "surreal fantasy",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crown",
+    "pagoda",
+    "lake",
+    "surreal",
+    "mountains"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 682,
+  "source_url": "/generated/682.jpg",
+  "image_url": "/sketches/1467.png",
+  "inverted_image_url": "/sketches-inverted/1467.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:41Z"
+}

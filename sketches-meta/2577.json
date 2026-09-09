@@ -1,0 +1,42 @@
+{
+  "number": 2577,
+  "title": "Line sketch: Dachshund Noble in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of an anthropomorphic dachshund dressed as a nobleman with a chain and crescent moon pendant, standing in a desert landscape with footprints leading toward distant dunes. A giant detailed and eye with a reflection of the moon dominates the left side of the composition under a full moon where a rat rides a horse with a flag (derived from generated still #1813).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of an anthropomorphic dachshund dressed as a nobleman with a chain and crescent moon pendant, standing in a desert landscape with footprints leading toward distant dunes. A giant detailed and eye with a reflection of the moon dominates the left side of the composition under a full moon where a rat rides a horse with a flag",
+  "inverted_title": "Inverted sketch: Dachshund Noble in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of an anthropomorphic dachshund dressed as a nobleman with a chain and crescent moon pendant, standing in a desert landscape with footprints leading toward distant dunes. A giant detailed and eye with a reflection of the moon dominates the left side of the composition under a full moon where a rat rides a horse with a flag (from generated still #1813).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of an anthropomorphic dachshund dressed as a nobleman with a chain and crescent moon pendant, standing in a desert landscape with footprints leading toward distant dunes. A giant detailed and eye with a reflection of the moon dominates the left side of the composition under a full moon where a rat rides a horse with a flag",
+  "source_description": "A surreal portrait of an anthropomorphic dachshund dressed as a nobleman with a gold chain and crescent moon pendant, standing in a desert landscape with footprints leading toward distant dunes. A giant detailed pink and brown eye with a reflection of the moon dominates the left side of the composition under a full moon where a rat rides a horse with a flag.",
+  "source_prompt": "",
+  "source_title": "Dachshund Noble in Desert",
+  "style": "surrealism",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anthropomorphic",
+    "dachshund",
+    "surreal",
+    "desert",
+    "nobleman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1813,
+  "source_url": "/generated/1813.jpg",
+  "image_url": "/sketches/2577.png",
+  "inverted_image_url": "/sketches-inverted/2577.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:43Z"
+}

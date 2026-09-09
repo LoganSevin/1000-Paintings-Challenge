@@ -1,0 +1,42 @@
+{
+  "number": 2902,
+  "title": "Line sketch: Surreal Alien Temple",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal landscape features a glowing and black volcanic entity with multiple eyes and dripping lava-like substance in the foreground. Behind it stands a large Mesoamerican-style stepped pyramid under a dramatic sky with two glowing celestial bodies, surrounded by clusters of translucent and orbs (derived from generated still #2189).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal landscape features a glowing and black volcanic entity with multiple eyes and dripping lava-like substance in the foreground. Behind it stands a large Mesoamerican-style stepped pyramid under a dramatic sky with two glowing celestial bodies, surrounded by clusters of translucent and orbs",
+  "inverted_title": "Inverted sketch: Surreal Alien Temple",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal landscape features a glowing and black volcanic entity with multiple eyes and dripping lava-like substance in the foreground. Behind it stands a large Mesoamerican-style stepped pyramid under a dramatic sky with two glowing celestial bodies, surrounded by clusters of translucent and orbs (from generated still #2189).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal landscape features a glowing and black volcanic entity with multiple eyes and dripping lava-like substance in the foreground. Behind it stands a large Mesoamerican-style stepped pyramid under a dramatic sky with two glowing celestial bodies, surrounded by clusters of translucent and orbs",
+  "source_description": "A surreal landscape features a glowing orange and black volcanic entity with multiple eyes and dripping lava-like substance in the foreground. Behind it stands a large Mesoamerican-style stepped pyramid under a dramatic sky with two glowing celestial bodies, surrounded by clusters of translucent blue and purple orbs.",
+  "source_prompt": "Surreal alien landscape at twilight with a massive glowing volcanic creature covered in eyes and dripping orange lava in the foreground. A large ancient stepped pyramid temple sits in the background under a colorful sky containing two large glowing celestial orbs. Clusters of translucent blue and purple bubble-like orbs float throughout the scene with dripping colorful liquid effects.",
+  "source_title": "Surreal Alien Temple",
+  "style": "surreal",
+  "mood": "otherworldly mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "temple",
+    "alien",
+    "volcanic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2189,
+  "source_url": "/generated/2189.jpg",
+  "image_url": "/sketches/2902.png",
+  "inverted_image_url": "/sketches-inverted/2902.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:44Z"
+}

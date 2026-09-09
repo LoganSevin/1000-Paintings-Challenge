@@ -1,0 +1,42 @@
+{
+  "number": 903,
+  "title": "Line sketch: Autumn Alien Encounter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A muscular alien with large black eyes and sharp teeth stands on a leaf-strewn country road. A spectral female figure with flowing hair and glowing eyes emerges from behind its head against a vibrant autumn sunset (derived from generated still #112).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A muscular alien with large black eyes and sharp teeth stands on a leaf-strewn country road. A spectral female figure with flowing hair and glowing eyes emerges from behind its head against a vibrant autumn sunset",
+  "inverted_title": "Inverted sketch: Autumn Alien Encounter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A muscular alien with large black eyes and sharp teeth stands on a leaf-strewn country road. A spectral female figure with flowing hair and glowing eyes emerges from behind its head against a vibrant autumn sunset (from generated still #112).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A muscular alien with large black eyes and sharp teeth stands on a leaf-strewn country road. A spectral female figure with flowing hair and glowing eyes emerges from behind its head against a vibrant autumn sunset",
+  "source_description": "A muscular green alien with large black eyes and sharp teeth stands on a leaf-strewn country road. A spectral female figure with flowing purple hair and glowing orange eyes emerges from behind its head against a vibrant autumn sunset.",
+  "source_prompt": "",
+  "source_title": "Autumn Alien Encounter",
+  "style": "fantasy illustration",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "autumn",
+    "hair",
+    "sunset",
+    "forest road"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 112,
+  "source_url": "/generated/112.jpg",
+  "image_url": "/sketches/903.png",
+  "inverted_image_url": "/sketches-inverted/903.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:40Z"
+}

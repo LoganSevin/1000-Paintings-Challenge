@@ -1,0 +1,42 @@
+{
+  "number": 3102,
+  "title": "Line sketch: The Last Reel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a long dark coat stands in an abandoned, decaying theater projection room, pushing open ornate double doors that emit a glowing light with ghostly silhouettes visible beyond. The floor is littered with scattered film reels, popcorn, and old movie posters on the peeling walls, beneath a damaged ceiling mural and a broken crystal chandelier dripping wax (derived from generated still #2437).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a long dark coat stands in an abandoned, decaying theater projection room, pushing open ornate double doors that emit a glowing light with ghostly silhouettes visible beyond. The floor is littered with scattered film reels, popcorn, and old movie posters on the peeling walls, beneath a damaged ceiling mural and a broken crystal chandelier dripping wax",
+  "inverted_title": "Inverted sketch: The Last Reel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a long dark coat stands in an abandoned, decaying theater projection room, pushing open ornate double doors that emit a glowing light with ghostly silhouettes visible beyond. The floor is littered with scattered film reels, popcorn, and old movie posters on the peeling walls, beneath a damaged ceiling mural and a broken crystal chandelier dripping wax (from generated still #2437).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a long dark coat stands in an abandoned, decaying theater projection room, pushing open ornate double doors that emit a glowing light with ghostly silhouettes visible beyond. The floor is littered with scattered film reels, popcorn, and old movie posters on the peeling walls, beneath a damaged ceiling mural and a broken crystal chandelier dripping wax",
+  "source_description": "A man in a long dark coat stands in an abandoned, decaying theater projection room, pushing open ornate double doors that emit a glowing purple light with ghostly silhouettes visible beyond. The floor is littered with scattered film reels, popcorn, and old movie posters on the peeling purple walls, beneath a damaged ceiling mural and a broken crystal chandelier dripping wax.",
+  "source_prompt": "A man in a long dark coat stands in a dilapidated old movie theater projection room, pushing open large ornate wooden doors that glow with intense purple light revealing ghostly silhouettes inside. The walls are covered in peeling purple wallpaper with torn vintage movie posters, the floor is cluttered with scattered film reels, popcorn, and old tickets. A damaged crystal chandelier hangs from a painted starry ceiling. Cinematic lighting, atmospheric and eerie, detailed digital painting.",
+  "source_title": "The Last Reel",
+  "style": "cinematic illustration",
+  "mood": "eerie nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abandoned theater",
+    "film reels",
+    "mysterious doorway",
+    "decaying interior",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2437,
+  "source_url": "/generated/2437.jpg",
+  "image_url": "/sketches/3102.png",
+  "inverted_image_url": "/sketches-inverted/3102.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4939,
+  "title": "Line sketch: The Bleeding composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit, dilapidated room with peeling walls and blood splatters contains a large, ornate composition of a grotesque undead figure holding a bloody knife and a human heart with a lit candle. In the foreground, a wooden desk holds a lit lamp, vintage radio, open book, coffee cup, gloves, and a police hat. A woman in a dark uniform stands watching as a shadowy figure emerges from a -lit doorway in the background (derived from generated still #4376).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit, dilapidated room with peeling walls and blood splatters contains a large, ornate composition of a grotesque undead figure holding a bloody knife and a human heart with a lit candle. In the foreground, a wooden desk holds a lit lamp, vintage radio, open book, coffee cup, gloves, and a police hat. A woman in a dark uniform stands watching as a shadowy figure emerges from a -lit doorway in the background",
+  "inverted_title": "Inverted sketch: The Bleeding composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit, dilapidated room with peeling walls and blood splatters contains a large, ornate composition of a grotesque undead figure holding a bloody knife and a human heart with a lit candle. In the foreground, a wooden desk holds a lit lamp, vintage radio, open book, coffee cup, gloves, and a police hat. A woman in a dark uniform stands watching as a shadowy figure emerges from a -lit doorway in the background (from generated still #4376).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit, dilapidated room with peeling walls and blood splatters contains a large, ornate composition of a grotesque undead figure holding a bloody knife and a human heart with a lit candle. In the foreground, a wooden desk holds a lit lamp, vintage radio, open book, coffee cup, gloves, and a police hat. A woman in a dark uniform stands watching as a shadowy figure emerges from a -lit doorway in the background",
+  "source_description": "A dimly lit, dilapidated room with peeling green walls and blood splatters contains a large, ornate painting of a grotesque undead figure holding a bloody knife and a human heart with a lit candle. In the foreground, a wooden desk holds a lit lamp, vintage radio, open book, coffee cup, gloves, and a police hat. A woman in a dark uniform stands watching as a shadowy figure emerges from a red-lit doorway in the background.",
+  "source_prompt": "A decaying abandoned office room with peeling green walls and blood splatters, rain coming through a broken skylight. A large ornate painting dominates the wall showing a horrific zombie-like creature tearing open its own chest, holding a bloody knife and a glowing human heart with a lit candle. A wooden desk in the foreground holds a lit desk lamp, vintage radio, open book, coffee cup, gloves and a police hat. A female detective in dark uniform stands observing while a shadowy monstrous figure reaches out from a red-lit doorway in the background, cinematic horror atmosphere, dramatic lighting",
+  "source_title": "The Bleeding Painting",
+  "style": "dark surreal horror",
+  "mood": "sinister eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "surreal",
+    "detective",
+    "macabre",
+    "blood"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4376,
+  "source_url": "/generated/4376.jpg",
+  "image_url": "/sketches/4939.png",
+  "inverted_image_url": "/sketches-inverted/4939.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:49Z"
+}

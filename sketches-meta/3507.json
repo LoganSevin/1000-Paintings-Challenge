@@ -1,0 +1,42 @@
+{
+  "number": 3507,
+  "title": "Line sketch: Abandoned Shopping Cart",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A and grey shopping cart stands alone in an empty, dimly lit institutional hallway. The cart contains an unfolded large page or print, scattered paint tubes, and a long receipt dangling from its side, with more debris and paint splatters on the concrete floor (derived from generated still #2909).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A and grey shopping cart stands alone in an empty, dimly lit institutional hallway. The cart contains an unfolded large page or print, scattered paint tubes, and a long receipt dangling from its side, with more debris and paint splatters on the concrete floor",
+  "inverted_title": "Inverted sketch: Abandoned Shopping Cart",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A and grey shopping cart stands alone in an empty, dimly lit institutional hallway. The cart contains an unfolded large page or print, scattered paint tubes, and a long receipt dangling from its side, with more debris and paint splatters on the concrete floor (from generated still #2909).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A and grey shopping cart stands alone in an empty, dimly lit institutional hallway. The cart contains an unfolded large page or print, scattered paint tubes, and a long receipt dangling from its side, with more debris and paint splatters on the concrete floor",
+  "source_description": "A red and grey shopping cart stands alone in an empty, dimly lit institutional hallway. The cart contains an unfolded large canvas or print, scattered paint tubes, and a long receipt dangling from its side, with more debris and paint splatters on the concrete floor.",
+  "source_prompt": "A realistic painting of a red shopping cart abandoned in the middle of a stark, empty institutional hallway with purple fluorescent lighting. The cart holds an unfolded large white canvas with text, several paint tubes, and a long white receipt hanging from the side. Paint splatters and another receipt lie on the grey concrete floor. Cool blue-grey tones, melancholic and eerie atmosphere, cinematic composition.",
+  "source_title": "Abandoned Shopping Cart",
+  "style": "realistic composition",
+  "mood": "melancholy, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "shopping cart",
+    "abandoned",
+    "institutional hallway",
+    "still life",
+    "urban decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2909,
+  "source_url": "/generated/2909.jpg",
+  "image_url": "/sketches/3507.png",
+  "inverted_image_url": "/sketches-inverted/3507.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:45Z"
+}

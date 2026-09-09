@@ -1,0 +1,42 @@
+{
+  "number": 4343,
+  "title": "Line sketch: Crystal Ball",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large reflective crystal ball on a metallic stand displays a surreal glowing cityscape with, and buildings, palm trees, and two gondola-like boats on reflective water. Bright fireworks explode from the center with sparks and light trails against a dark room background (derived from generated still #3762).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large reflective crystal ball on a metallic stand displays a surreal glowing cityscape with, and buildings, palm trees, and two gondola-like boats on reflective water. Bright fireworks explode from the center with sparks and light trails against a dark room background",
+  "inverted_title": "Inverted sketch: Crystal Ball",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large reflective crystal ball on a metallic stand displays a surreal glowing cityscape with, and buildings, palm trees, and two gondola-like boats on reflective water. Bright fireworks explode from the center with sparks and light trails against a dark room background (from generated still #3762).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large reflective crystal ball on a metallic stand displays a surreal glowing cityscape with, and buildings, palm trees, and two gondola-like boats on reflective water. Bright fireworks explode from the center with sparks and light trails against a dark room background",
+  "source_description": "A large reflective crystal ball on a metallic stand displays a surreal glowing cityscape with neon pink, green, and purple buildings, palm trees, and two gondola-like boats on reflective water. Bright multicolored fireworks explode from the center with sparks and light trails against a dark room background.",
+  "source_prompt": "A large transparent crystal ball resting on a metallic stand in a dark room, inside the sphere is a surreal fantasy city with glowing neon pink, purple and green buildings and palm trees along a canal, two wooden boats floating on reflective water, a massive burst of colorful fireworks exploding from the center with bright yellow, blue and pink light trails and sparks, dramatic lighting with reflections, painterly style",
+  "source_title": "Neon Crystal Ball",
+  "style": "surreal",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "cityscape",
+    "fireworks",
+    "surreal landscape",
+    "reflective sphere"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3762,
+  "source_url": "/generated/3762.jpg",
+  "image_url": "/sketches/4343.png",
+  "inverted_image_url": "/sketches-inverted/4343.png",
+  "curve_count": 327,
+  "built_at": "2026-08-17T00:09:48Z"
+}

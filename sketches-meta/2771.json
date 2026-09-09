@@ -1,0 +1,42 @@
+{
+  "number": 2771,
+  "title": "Line sketch: Wizard Cat and Skeleton Jester",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical scene shows a round, cat dressed as a wizard with a pointed hat and long beard, sitting on a large orb. A skeleton in a jester-like pose balances a glowing, disco ball on one finger while standing on a stone path (derived from generated still #2052).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical scene shows a round, cat dressed as a wizard with a pointed hat and long beard, sitting on a large orb. A skeleton in a jester-like pose balances a glowing, disco ball on one finger while standing on a stone path",
+  "inverted_title": "Inverted sketch: Wizard Cat and Skeleton Jester",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical scene shows a round, cat dressed as a wizard with a pointed hat and long beard, sitting on a large orb. A skeleton in a jester-like pose balances a glowing, disco ball on one finger while standing on a stone path (from generated still #2052).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical scene shows a round, cat dressed as a wizard with a pointed hat and long beard, sitting on a large orb. A skeleton in a jester-like pose balances a glowing, disco ball on one finger while standing on a stone path",
+  "source_description": "A whimsical scene shows a round, orange cat dressed as a wizard with a pointed hat and long beard, sitting on a large golden orb. A golden skeleton in a jester-like pose balances a glowing, multicolored disco ball on one finger while standing on a stone path.",
+  "source_prompt": "A cheerful round orange cat wizard with a long beard and pointed hat sits atop a large glowing golden orb. Beside him, a tall golden skeleton in jester pose balances a sparkling multicolored disco ball on its finger. They are in a sunlit Mediterranean courtyard with ancient stone arches, cascading purple and pink flowers, yellow blossoms, and a giant golden planet in the bright sky, whimsical watercolor painting style.",
+  "source_title": "Wizard Cat and Skeleton Jester",
+  "style": "whimsical fantasy",
+  "mood": "magical playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat wizard",
+    "skeleton jester",
+    "fantasy scene",
+    "disco ball",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2052,
+  "source_url": "/generated/2052.jpg",
+  "image_url": "/sketches/2771.png",
+  "inverted_image_url": "/sketches-inverted/2771.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:44Z"
+}

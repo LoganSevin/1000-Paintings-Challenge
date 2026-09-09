@@ -1,0 +1,42 @@
+{
+  "number": 4234,
+  "title": "Line sketch: Crying Oracle in Bubble",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a crying woman with a tear-streaked face inside a large transparent bubble. The bubble contains a desert landscape with a winding path, a glowing sun, and is surrounded by crackling and lightning, glowing rings, holly with berries at the base, and floating gemstones (derived from generated still #3653).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a crying woman with a tear-streaked face inside a large transparent bubble. The bubble contains a desert landscape with a winding path, a glowing sun, and is surrounded by crackling and lightning, glowing rings, holly with berries at the base, and floating gemstones",
+  "inverted_title": "Inverted sketch: Crying Oracle in Bubble",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a crying woman with a tear-streaked face inside a large transparent bubble. The bubble contains a desert landscape with a winding path, a glowing sun, and is surrounded by crackling and lightning, glowing rings, holly with berries at the base, and floating gemstones (from generated still #3653).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a crying woman with a tear-streaked face inside a large transparent bubble. The bubble contains a desert landscape with a winding path, a glowing sun, and is surrounded by crackling and lightning, glowing rings, holly with berries at the base, and floating gemstones",
+  "source_description": "A surreal portrait of a crying woman with a tear-streaked face inside a large transparent bubble. The bubble contains a desert landscape with a winding path, a glowing red sun, and is surrounded by crackling blue and purple lightning, glowing rings, holly with red berries at the base, and floating gemstones.",
+  "source_prompt": "Surreal portrait of a sorrowful woman with tears streaming down her face, wearing a floral headscarf, trapped inside a large transparent bubble. Inside the bubble is a winding desert road leading toward a massive glowing red sun. The bubble is surrounded by crackling blue and purple lightning, glowing energy rings, floating gemstones, and holly with red berries at the base. Dark cosmic background, highly detailed, vibrant cinematic colors.",
+  "source_title": "Crying Oracle in Bubble",
+  "style": "surreal",
+  "mood": "melancholy surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman",
+    "bubble",
+    "lightning",
+    "desert"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3653,
+  "source_url": "/generated/3653.jpg",
+  "image_url": "/sketches/4234.png",
+  "inverted_image_url": "/sketches-inverted/4234.png",
+  "curve_count": 312,
+  "built_at": "2026-08-17T00:09:47Z"
+}

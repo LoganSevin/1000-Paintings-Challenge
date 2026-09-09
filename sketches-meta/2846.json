@@ -1,0 +1,42 @@
+{
+  "number": 2846,
+  "title": "Line sketch: Dark Fantasy Citadel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone cloaked figure in an cape stands on a small boat on a reflective body of water, facing a massive dark fantasy city with towering gothic spires and colossal guardian statues carved into the buildings. The dramatic and sky features a large glowing spiral symbol and a smaller setting sun, casting fiery reflections across the scene (derived from generated still #2131).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone cloaked figure in an cape stands on a small boat on a reflective body of water, facing a massive dark fantasy city with towering gothic spires and colossal guardian statues carved into the buildings. The dramatic and sky features a large glowing spiral symbol and a smaller setting sun, casting fiery reflections across the scene",
+  "inverted_title": "Inverted sketch: Dark Fantasy Citadel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone cloaked figure in an cape stands on a small boat on a reflective body of water, facing a massive dark fantasy city with towering gothic spires and colossal guardian statues carved into the buildings. The dramatic and sky features a large glowing spiral symbol and a smaller setting sun, casting fiery reflections across the scene (from generated still #2131).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone cloaked figure in an cape stands on a small boat on a reflective body of water, facing a massive dark fantasy city with towering gothic spires and colossal guardian statues carved into the buildings. The dramatic and sky features a large glowing spiral symbol and a smaller setting sun, casting fiery reflections across the scene",
+  "source_description": "A lone cloaked figure in an orange cape stands on a small boat on a reflective body of water, facing a massive dark fantasy city with towering gothic spires and colossal guardian statues carved into the buildings. The dramatic red and orange sky features a large glowing spiral symbol and a smaller setting sun, casting fiery reflections across the scene.",
+  "source_prompt": "",
+  "source_title": "Dark Fantasy Citadel",
+  "style": "dark fantasy",
+  "mood": "epic ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy city",
+    "gothic architecture",
+    "dramatic sky",
+    "lone figure",
+    "colossal statues"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2131,
+  "source_url": "/generated/2131.jpg",
+  "image_url": "/sketches/2846.png",
+  "inverted_image_url": "/sketches-inverted/2846.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

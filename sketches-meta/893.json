@@ -1,0 +1,42 @@
+{
+  "number": 893,
+  "title": "Line sketch: Psychedelic Clock Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant chihuahua with polka-dot ears and a studded collar leaps through a swirling spiral clock face. The hypnotic background features radiating concentric circles, and with floating cat icons and the text TIMES UP (derived from generated still #102).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant chihuahua with polka-dot ears and a studded collar leaps through a swirling spiral clock face. The hypnotic background features radiating concentric circles, and with floating cat icons and the text TIMES UP",
+  "inverted_title": "Inverted sketch: Psychedelic Clock Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant chihuahua with polka-dot ears and a studded collar leaps through a swirling spiral clock face. The hypnotic background features radiating concentric circles, and with floating cat icons and the text TIMES UP (from generated still #102).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant chihuahua with polka-dot ears and a studded collar leaps through a swirling spiral clock face. The hypnotic background features radiating concentric circles, and with floating cat icons and the text TIMES UP",
+  "source_description": "A vibrant green chihuahua with pink polka-dot ears and a studded collar leaps through a swirling spiral clock face. The hypnotic background features radiating concentric circles in bright greens, purples, pinks and yellows with floating purple cat icons and the text TIMES UP.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Clock Dog",
+  "style": "psychedelic pop art",
+  "mood": "trippy energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chihuahua",
+    "clock",
+    "psychedelic",
+    "swirl",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 102,
+  "source_url": "/generated/102.jpg",
+  "image_url": "/sketches/893.png",
+  "inverted_image_url": "/sketches-inverted/893.png",
+  "curve_count": 109,
+  "built_at": "2026-08-17T00:09:40Z"
+}

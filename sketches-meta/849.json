@@ -1,0 +1,42 @@
+{
+  "number": 849,
+  "title": "Line sketch: Dog at Toxic Falls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing dog with eyes stands on a rocky ledge wearing a dark patterned vest. Behind it, a massive waterfall cascades from a wooden treehouse structure built into a mountainside under a swirling and toxic sky (derived from generated still #58).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing dog with eyes stands on a rocky ledge wearing a dark patterned vest. Behind it, a massive waterfall cascades from a wooden treehouse structure built into a mountainside under a swirling and toxic sky",
+  "inverted_title": "Inverted sketch: Dog at Toxic Falls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing dog with eyes stands on a rocky ledge wearing a dark patterned vest. Behind it, a massive waterfall cascades from a wooden treehouse structure built into a mountainside under a swirling and toxic sky (from generated still #58).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing dog with eyes stands on a rocky ledge wearing a dark patterned vest. Behind it, a massive waterfall cascades from a wooden treehouse structure built into a mountainside under a swirling and toxic sky",
+  "source_description": "A glowing green dog with pink eyes stands on a rocky ledge wearing a dark patterned vest. Behind it, a massive waterfall cascades from a wooden treehouse structure built into a mountainside under a swirling pink and green toxic sky.",
+  "source_prompt": "",
+  "source_title": "Green Dog at Toxic Falls",
+  "style": "fantasy illustration",
+  "mood": "surreal eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "glowing dog",
+    "waterfall",
+    "treehouse",
+    "toxic landscape",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 58,
+  "source_url": "/generated/58.jpg",
+  "image_url": "/sketches/849.png",
+  "inverted_image_url": "/sketches-inverted/849.png",
+  "curve_count": 68,
+  "built_at": "2026-08-17T00:09:40Z"
+}

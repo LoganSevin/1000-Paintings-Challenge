@@ -1,0 +1,42 @@
+{
+  "number": 1723,
+  "title": "Line sketch: Bear and Poppy Woman",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic portrait shows the profile of a smiling woman with intricate swirling hair adorned with poppies merging with the head of a friendly bear. The bear has eyes while the woman has one eye and one star-patterned eye, surrounded by floating paw prints and additional poppies against a swirling background (derived from generated still #945).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic portrait shows the profile of a smiling woman with intricate swirling hair adorned with poppies merging with the head of a friendly bear. The bear has eyes while the woman has one eye and one star-patterned eye, surrounded by floating paw prints and additional poppies against a swirling background",
+  "inverted_title": "Inverted sketch: Bear and Poppy Woman",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic portrait shows the profile of a smiling woman with intricate swirling hair adorned with poppies merging with the head of a friendly bear. The bear has eyes while the woman has one eye and one star-patterned eye, surrounded by floating paw prints and additional poppies against a swirling background (from generated still #945).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic portrait shows the profile of a smiling woman with intricate swirling hair adorned with poppies merging with the head of a friendly bear. The bear has eyes while the woman has one eye and one star-patterned eye, surrounded by floating paw prints and additional poppies against a swirling background",
+  "source_description": "A vibrant psychedelic portrait shows the profile of a smiling woman with intricate green swirling hair adorned with red poppies merging with the head of a friendly brown bear. The bear has bright blue eyes while the woman has one blue eye and one yellow star-patterned eye, surrounded by floating paw prints and additional poppies against a colorful swirling background.",
+  "source_prompt": "",
+  "source_title": "Bear and Poppy Woman",
+  "style": "Psychedelic Pop Art",
+  "mood": "Whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "bear",
+    "poppies",
+    "psychedelic",
+    "hybrid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 945,
+  "source_url": "/generated/945.jpg",
+  "image_url": "/sketches/1723.png",
+  "inverted_image_url": "/sketches-inverted/1723.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:41Z"
+}

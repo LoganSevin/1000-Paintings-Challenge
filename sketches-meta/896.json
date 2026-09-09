@@ -1,0 +1,42 @@
+{
+  "number": 896,
+  "title": "Line sketch: Psychedelic Industrial Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant dog with a swirling hypnotic pattern in its mouth stands in the foreground, its tail exploding into floral shapes and floating bones. Behind it looms a massive mechanical flower structure intertwined with dark industrial factories billowing toxic and smoke into a stormy sky (derived from generated still #105).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant dog with a swirling hypnotic pattern in its mouth stands in the foreground, its tail exploding into floral shapes and floating bones. Behind it looms a massive mechanical flower structure intertwined with dark industrial factories billowing toxic and smoke into a stormy sky",
+  "inverted_title": "Inverted sketch: Psychedelic Industrial Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant dog with a swirling hypnotic pattern in its mouth stands in the foreground, its tail exploding into floral shapes and floating bones. Behind it looms a massive mechanical flower structure intertwined with dark industrial factories billowing toxic and smoke into a stormy sky (from generated still #105).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant dog with a swirling hypnotic pattern in its mouth stands in the foreground, its tail exploding into floral shapes and floating bones. Behind it looms a massive mechanical flower structure intertwined with dark industrial factories billowing toxic and smoke into a stormy sky",
+  "source_description": "A vibrant lime green dog with a swirling hypnotic pattern in its mouth stands in the foreground, its tail exploding into purple floral shapes and floating bones. Behind it looms a massive purple mechanical flower structure intertwined with dark industrial factories billowing toxic yellow and pink smoke into a stormy sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Industrial Dog",
+  "style": "surreal street art",
+  "mood": "chaotic psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog",
+    "industrial",
+    "surreal",
+    "psychedelic",
+    "pollution"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 105,
+  "source_url": "/generated/105.jpg",
+  "image_url": "/sketches/896.png",
+  "inverted_image_url": "/sketches-inverted/896.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:40Z"
+}

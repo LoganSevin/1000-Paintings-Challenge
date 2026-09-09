@@ -1,0 +1,42 @@
+{
+  "number": 790,
+  "title": "Line sketch: Dragon Bridge to Floating Realms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a cloak stands atop a massive dragon coiled into an infinity loop, serving as a surreal bridge. Vibrant hot air balloons drift through a dreamy sky filled with clouds and distant mountains (derived from painting #999).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a cloak stands atop a massive dragon coiled into an infinity loop, serving as a surreal bridge. Vibrant hot air balloons drift through a dreamy sky filled with clouds and distant mountains",
+  "inverted_title": "Inverted sketch: Dragon Bridge to Floating Realms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a cloak stands atop a massive dragon coiled into an infinity loop, serving as a surreal bridge. Vibrant hot air balloons drift through a dreamy sky filled with clouds and distant mountains (from painting #999).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a cloak stands atop a massive dragon coiled into an infinity loop, serving as a surreal bridge. Vibrant hot air balloons drift through a dreamy sky filled with clouds and distant mountains",
+  "source_description": "A lone figure in a red cloak stands atop a massive orange dragon coiled into an infinity loop, serving as a surreal bridge. Vibrant hot air balloons drift through a dreamy teal sky filled with clouds and distant mountains.",
+  "source_prompt": "",
+  "source_title": "Dragon Bridge to Floating Realms",
+  "style": "Fantasy Illustration",
+  "mood": "Whimsical Adventure",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon bridge",
+    "fantasy landscape",
+    "hot air balloons",
+    "surreal sky",
+    "lone wanderer"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 999,
+  "source_url": "/paintings/999.jpg",
+  "image_url": "/sketches/790.png",
+  "inverted_image_url": "/sketches-inverted/790.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

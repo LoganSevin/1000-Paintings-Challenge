@@ -1,0 +1,42 @@
+{
+  "number": 610,
+  "title": "Line sketch: Cosmic Dragon Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic dragon coils through a swirling nebula of and cosmic energy. Its glowing eye pierces the starry void as it forms an infinite loop (derived from painting #781).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic dragon coils through a swirling nebula of and cosmic energy. Its glowing eye pierces the starry void as it forms an infinite loop",
+  "inverted_title": "Inverted sketch: Cosmic Dragon Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic dragon coils through a swirling nebula of and cosmic energy. Its glowing eye pierces the starry void as it forms an infinite loop (from painting #781).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic dragon coils through a swirling nebula of and cosmic energy. Its glowing eye pierces the starry void as it forms an infinite loop",
+  "source_description": "A majestic dark blue dragon coils through a swirling nebula of purple and blue cosmic energy. Its glowing orange eye pierces the starry void as it forms an infinite loop.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dragon Vortex",
+  "style": "Fantasy illustration",
+  "mood": "Mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "nebula",
+    "cosmic",
+    "fantasy",
+    "swirl"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 781,
+  "source_url": "/paintings/781.jpg",
+  "image_url": "/sketches/610.png",
+  "inverted_image_url": "/sketches-inverted/610.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:39Z"
+}

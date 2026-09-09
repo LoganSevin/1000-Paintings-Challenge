@@ -1,0 +1,42 @@
+{
+  "number": 2886,
+  "title": "Line sketch: Snail Shell Eye in Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large mechanical snail shell with a prominent human eye at its center floats amidst turbulent ocean waves. The shell is covered in lettered tiles resembling Scrabble pieces while torn book pages and flowers swirl in the stormy air around it (derived from generated still #2173).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large mechanical snail shell with a prominent human eye at its center floats amidst turbulent ocean waves. The shell is covered in lettered tiles resembling Scrabble pieces while torn book pages and flowers swirl in the stormy air around it",
+  "inverted_title": "Inverted sketch: Snail Shell Eye in Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large mechanical snail shell with a prominent human eye at its center floats amidst turbulent ocean waves. The shell is covered in lettered tiles resembling Scrabble pieces while torn book pages and flowers swirl in the stormy air around it (from generated still #2173).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large mechanical snail shell with a prominent human eye at its center floats amidst turbulent ocean waves. The shell is covered in lettered tiles resembling Scrabble pieces while torn book pages and flowers swirl in the stormy air around it",
+  "source_description": "A large mechanical snail shell with a prominent green human eye at its center floats amidst turbulent blue ocean waves. The shell is covered in lettered tiles resembling Scrabble pieces while torn book pages and colorful flowers swirl in the stormy air around it.",
+  "source_prompt": "A surreal mechanical snail shell ship with a large realistic green human eye at its center, covered in wooden letter tiles like Scrabble pieces, floating in turbulent stormy blue ocean waves with white foam. Torn book pages and colorful flowers float in the wind around it, whimsical yet chaotic atmosphere, intricate details, painterly style.",
+  "source_title": "Snail Shell Eye in Storm",
+  "style": "surreal fantasy",
+  "mood": "whimsical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical snail",
+    "giant eye",
+    "ocean storm",
+    "book pages"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2173,
+  "source_url": "/generated/2173.jpg",
+  "image_url": "/sketches/2886.png",
+  "inverted_image_url": "/sketches-inverted/2886.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:44Z"
+}

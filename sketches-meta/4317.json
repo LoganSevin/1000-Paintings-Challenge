@@ -1,0 +1,42 @@
+{
+  "number": 4317,
+  "title": "Line sketch: Crystal Ball Teapot Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball sits on an ornate metallic base, revealing a surreal scene inside. A crowned orb emits energy beams connecting to floating clouds, a smiling teapot with a crown, and silhouettes of people in a -lit interior space, with a curved path swirling around the center (derived from generated still #3736).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball sits on an ornate metallic base, revealing a surreal scene inside. A crowned orb emits energy beams connecting to floating clouds, a smiling teapot with a crown, and silhouettes of people in a -lit interior space, with a curved path swirling around the center",
+  "inverted_title": "Inverted sketch: Crystal Ball Teapot Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball sits on an ornate metallic base, revealing a surreal scene inside. A crowned orb emits energy beams connecting to floating clouds, a smiling teapot with a crown, and silhouettes of people in a -lit interior space, with a curved path swirling around the center (from generated still #3736).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball sits on an ornate metallic base, revealing a surreal scene inside. A crowned orb emits energy beams connecting to floating clouds, a smiling teapot with a crown, and silhouettes of people in a -lit interior space, with a curved path swirling around the center",
+  "source_description": "A glowing crystal ball sits on an ornate metallic base, revealing a surreal scene inside. A crowned pink orb emits colorful energy beams connecting to floating clouds, a smiling turquoise teapot with a crown, and silhouettes of people in a green-lit interior space, with a yellow curved path swirling around the center.",
+  "source_prompt": "A glowing purple crystal ball on a metallic steampunk base contains a surreal inner world. At the center is a pink glowing orb wearing a golden crown emitting vibrant pink, blue, and yellow energy beams that connect to white clouds, a cheerful turquoise cartoon teapot wearing a small crown, and silhouettes of people in a green architectural space. A thick yellow curved path swirls inside the sphere, whimsical fantasy style, vibrant colors, magical atmosphere.",
+  "source_title": "Crystal Ball Teapot Vision",
+  "style": "line sketch",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "teapot",
+    "surreal",
+    "psychedelic",
+    "crown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3736,
+  "source_url": "/generated/3736.jpg",
+  "image_url": "/sketches/4317.png",
+  "inverted_image_url": "/sketches-inverted/4317.png",
+  "curve_count": 285,
+  "built_at": "2026-08-17T00:09:47Z"
+}

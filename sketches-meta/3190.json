@@ -1,0 +1,42 @@
+{
+  "number": 3190,
+  "title": "Line sketch: Stairway to Forgotten Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in a spacesuit stands on a rusted spiral staircase inside a decaying structure, holding a flaming film reel. The walls are lined with glowing framed paintings while a beam of light streams down from above, illuminating floating embers and a giant mechanical vault door in the background (derived from generated still #2538).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in a spacesuit stands on a rusted spiral staircase inside a decaying structure, holding a flaming film reel. The walls are lined with glowing framed paintings while a beam of light streams down from above, illuminating floating embers and a giant mechanical vault door in the background",
+  "inverted_title": "Inverted sketch: Stairway to Forgotten Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in a spacesuit stands on a rusted spiral staircase inside a decaying structure, holding a flaming film reel. The walls are lined with glowing framed paintings while a beam of light streams down from above, illuminating floating embers and a giant mechanical vault door in the background (from generated still #2538).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in a spacesuit stands on a rusted spiral staircase inside a decaying structure, holding a flaming film reel. The walls are lined with glowing framed paintings while a beam of light streams down from above, illuminating floating embers and a giant mechanical vault door in the background",
+  "source_description": "A young woman in a purple spacesuit stands on a rusted spiral staircase inside a decaying structure, holding a flaming film reel. The walls are lined with glowing framed paintings while a beam of light streams down from above, illuminating floating embers and a giant mechanical vault door in the background.",
+  "source_prompt": "A young woman with dark hair wearing a purple futuristic suit stands on a decaying spiral metal staircase, holding a burning film reel that emits flames. The scene is set inside a ruined concrete structure with broken walls, a giant circular vault door in the background, and numerous glowing framed paintings floating on the walls. Dramatic light beams shine down from above, surrounded by floating golden embers and rainbow light refractions, surreal dreamlike atmosphere, cinematic lighting.",
+  "source_title": "Stairway to Forgotten Dreams",
+  "style": "surreal fantasy",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "ruins",
+    "film reel",
+    "staircase"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2538,
+  "source_url": "/generated/2538.jpg",
+  "image_url": "/sketches/3190.png",
+  "inverted_image_url": "/sketches-inverted/3190.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:45Z"
+}

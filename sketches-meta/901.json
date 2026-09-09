@@ -1,0 +1,42 @@
+{
+  "number": 901,
+  "title": "Line sketch: Alien Muse at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A muscular alien with a toothy grin stands in the foreground of a winding dirt road through an autumn forest. Behind the alien's head emerges the translucent face of a beautiful woman with glowing eyes and flowing tentacle-like hair that swirls dramatically against a vibrant sunset sky (derived from generated still #110).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A muscular alien with a toothy grin stands in the foreground of a winding dirt road through an autumn forest. Behind the alien's head emerges the translucent face of a beautiful woman with glowing eyes and flowing tentacle-like hair that swirls dramatically against a vibrant sunset sky",
+  "inverted_title": "Inverted sketch: Alien Muse at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A muscular alien with a toothy grin stands in the foreground of a winding dirt road through an autumn forest. Behind the alien's head emerges the translucent face of a beautiful woman with glowing eyes and flowing tentacle-like hair that swirls dramatically against a vibrant sunset sky (from generated still #110).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A muscular alien with a toothy grin stands in the foreground of a winding dirt road through an autumn forest. Behind the alien's head emerges the translucent face of a beautiful woman with glowing eyes and flowing tentacle-like hair that swirls dramatically against a vibrant sunset sky",
+  "source_description": "A muscular green alien with a toothy grin stands in the foreground of a winding dirt road through an autumn forest. Behind the alien's head emerges the translucent face of a beautiful woman with glowing orange eyes and flowing purple tentacle-like hair that swirls dramatically against a vibrant sunset sky.",
+  "source_prompt": "",
+  "source_title": "Alien Muse at Sunset",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "surreal",
+    "autumn forest",
+    "sunset",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 110,
+  "source_url": "/generated/110.jpg",
+  "image_url": "/sketches/901.png",
+  "inverted_image_url": "/sketches-inverted/901.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:40Z"
+}

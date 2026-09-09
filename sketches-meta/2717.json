@@ -1,0 +1,42 @@
+{
+  "number": 2717,
+  "title": "Line sketch: 07 Race Car",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed illustration of a sleek, black, and white Le Mans-style race car with the number 07 prominently displayed on the hood and side. The vehicle features an aerodynamic body, large rear wing, prominent exhaust pipes, and Goodyear-branded tires against a plain neutral background (derived from generated still #1963).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed illustration of a sleek, black, and white Le Mans-style race car with the number 07 prominently displayed on the hood and side. The vehicle features an aerodynamic body, large rear wing, prominent exhaust pipes, and Goodyear-branded tires against a plain neutral background",
+  "inverted_title": "Inverted sketch: 07 Race Car",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed illustration of a sleek, black, and white Le Mans-style race car with the number 07 prominently displayed on the hood and side. The vehicle features an aerodynamic body, large rear wing, prominent exhaust pipes, and Goodyear-branded tires against a plain neutral background (from generated still #1963).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed illustration of a sleek, black, and white Le Mans-style race car with the number 07 prominently displayed on the hood and side. The vehicle features an aerodynamic body, large rear wing, prominent exhaust pipes, and Goodyear-branded tires against a plain neutral background",
+  "source_description": "A detailed illustration of a sleek red, black, and white Le Mans-style race car with the number 07 prominently displayed on the hood and side. The vehicle features an aerodynamic body, large rear wing, prominent exhaust pipes, and Goodyear-branded tires against a plain neutral background.",
+  "source_prompt": "",
+  "source_title": "Red 07 Race Car",
+  "style": "realistic illustration",
+  "mood": "dynamic, retro",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "race car",
+    "Le Mans",
+    "sports prototype",
+    "number 07",
+    "aerodynamic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1963,
+  "source_url": "/generated/1963.jpg",
+  "image_url": "/sketches/2717.png",
+  "inverted_image_url": "/sketches-inverted/2717.png",
+  "curve_count": 276,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3307,
+  "title": "Line sketch: Ethereal City Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two translucent female figures with flowing and hair merge into a surreal cityscape at sunset. A glowing sun sits between them while a curving elevated highway with light trails cuts through the foreground, leading toward a dense skyline of skyscrapers under a dramatic and sky (derived from generated still #2692).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two translucent female figures with flowing and hair merge into a surreal cityscape at sunset. A glowing sun sits between them while a curving elevated highway with light trails cuts through the foreground, leading toward a dense skyline of skyscrapers under a dramatic and sky",
+  "inverted_title": "Inverted sketch: Ethereal City Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two translucent female figures with flowing and hair merge into a surreal cityscape at sunset. A glowing sun sits between them while a curving elevated highway with light trails cuts through the foreground, leading toward a dense skyline of skyscrapers under a dramatic and sky (from generated still #2692).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two translucent female figures with flowing and hair merge into a surreal cityscape at sunset. A glowing sun sits between them while a curving elevated highway with light trails cuts through the foreground, leading toward a dense skyline of skyscrapers under a dramatic and sky",
+  "source_description": "Two translucent female figures with flowing green and yellow hair merge into a surreal cityscape at sunset. A glowing sun sits between them while a curving elevated highway with light trails cuts through the foreground, leading toward a dense skyline of skyscrapers under a dramatic orange and purple sky.",
+  "source_prompt": "Surreal impressionistic cityscape at sunset featuring two large translucent female profiles with flowing lime green and golden hair merging into the scene, a bright glowing sun between them, dramatic curving elevated highway with light trails in the foreground, dense futuristic skyscrapers in the background, vibrant orange and purple cloudy sky, painterly brushwork, atmospheric and dreamlike",
+  "source_title": "Ethereal City Sunset",
+  "style": "impressionistic",
+  "mood": "dreamlike, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cityscape",
+    "ethereal figures",
+    "highway",
+    "sunset"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2692,
+  "source_url": "/generated/2692.jpg",
+  "image_url": "/sketches/3307.png",
+  "inverted_image_url": "/sketches-inverted/3307.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

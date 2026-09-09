@@ -1,0 +1,42 @@
+{
+  "number": 4925,
+  "title": "Line sketch: Haunted composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A museum security guard in a uniform and gloves stands at a desk with cleaning supplies, a walkie-talkie, and keys. Behind him, a large framed composition depicts a blood-stained hallway with lighting, an exit sign, and dripping blood running down the frame onto the museum floor (derived from generated still #4361).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A museum security guard in a uniform and gloves stands at a desk with cleaning supplies, a walkie-talkie, and keys. Behind him, a large framed composition depicts a blood-stained hallway with lighting, an exit sign, and dripping blood running down the frame onto the museum floor",
+  "inverted_title": "Inverted sketch: Haunted composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A museum security guard in a uniform and gloves stands at a desk with cleaning supplies, a walkie-talkie, and keys. Behind him, a large framed composition depicts a blood-stained hallway with lighting, an exit sign, and dripping blood running down the frame onto the museum floor (from generated still #4361).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A museum security guard in a uniform and gloves stands at a desk with cleaning supplies, a walkie-talkie, and keys. Behind him, a large framed composition depicts a blood-stained hallway with lighting, an exit sign, and dripping blood running down the frame onto the museum floor",
+  "source_description": "A museum security guard in a blue uniform and yellow gloves stands at a desk with cleaning supplies, a walkie-talkie, and keys. Behind him, a large framed painting depicts a blood-stained green hallway with red lighting, an exit sign, and dripping blood running down the frame onto the museum floor.",
+  "source_prompt": "A surreal horror scene inside an art museum where a security guard in blue uniform and yellow rubber gloves cleans a desk with spray bottle, coffee cup and walkie-talkie. A giant ornate painting on the wall shows a terrifying blood-soaked green hallway with red emergency lighting, peeling walls, and an exit sign. Real blood drips from the bottom of the painting frame onto the museum floor as rain falls through a broken skylight.",
+  "source_title": "Haunted Painting",
+  "style": "surreal horror",
+  "mood": "eerie menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "museum",
+    "security guard",
+    "bloody composition",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4361,
+  "source_url": "/generated/4361.jpg",
+  "image_url": "/sketches/4925.png",
+  "inverted_image_url": "/sketches-inverted/4925.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4110,
+  "title": "Line sketch: Mecha Spider Invasion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal multi-legged mechanical spider with glowing eyes rampages through a dark cyberpunk city street at night. and viscous liquid drips from a torn sky, pooling on the ground as panicked human figures flee between towering buildings and elevated trains (derived from generated still #3527).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal multi-legged mechanical spider with glowing eyes rampages through a dark cyberpunk city street at night. and viscous liquid drips from a torn sky, pooling on the ground as panicked human figures flee between towering buildings and elevated trains",
+  "inverted_title": "Inverted sketch: Mecha Spider Invasion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal multi-legged mechanical spider with glowing eyes rampages through a dark cyberpunk city street at night. and viscous liquid drips from a torn sky, pooling on the ground as panicked human figures flee between towering buildings and elevated trains (from generated still #3527).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal multi-legged mechanical spider with glowing eyes rampages through a dark cyberpunk city street at night. and viscous liquid drips from a torn sky, pooling on the ground as panicked human figures flee between towering buildings and elevated trains",
+  "source_description": "A colossal multi-legged mechanical spider with glowing orange eyes rampages through a dark cyberpunk city street at night. Red and pink viscous liquid drips from a torn sky, pooling on the ground as panicked human figures flee between towering buildings and elevated trains.",
+  "source_prompt": "A massive biomechanical spider robot with glowing orange eyes and multiple articulated metal legs rampaging through a rainy cyberpunk city street at night, towering brutalist buildings in the background, panicked humans running away, a torn apocalyptic sky dripping thick red and pink viscous liquid that splashes onto the wet streets, dramatic cinematic lighting, dark moody atmosphere, highly detailed digital painting",
+  "source_title": "Mecha Spider Invasion",
+  "style": "cinematic",
+  "mood": "apocalyptic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital concept art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mecha spider",
+    "cyberpunk city",
+    "apocalypse",
+    "giant robot",
+    "dripping sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3527,
+  "source_url": "/generated/3527.jpg",
+  "image_url": "/sketches/4110.png",
+  "inverted_image_url": "/sketches-inverted/4110.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2647,
+  "title": "Line sketch: Portrait of Duality",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features an ornate oval frame containing two women with contrasting appearances: one with dark hair and flowers, the other with hair and a braid, both in pinkish- attire. The frame is set against a dark, textured background with dramatic liquid dripping from above and scattered petals below, alongside floating geometric shapes (derived from generated still #1887).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features an ornate oval frame containing two women with contrasting appearances: one with dark hair and flowers, the other with hair and a braid, both in pinkish- attire. The frame is set against a dark, textured background with dramatic liquid dripping from above and scattered petals below, alongside floating geometric shapes",
+  "inverted_title": "Inverted sketch: Portrait of Duality",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features an ornate oval frame containing two women with contrasting appearances: one with dark hair and flowers, the other with hair and a braid, both in pinkish- attire. The frame is set against a dark, textured background with dramatic liquid dripping from above and scattered petals below, alongside floating geometric shapes (from generated still #1887).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features an ornate oval frame containing two women with contrasting appearances: one with dark hair and flowers, the other with hair and a braid, both in pinkish- attire. The frame is set against a dark, textured background with dramatic liquid dripping from above and scattered petals below, alongside floating geometric shapes",
+  "source_description": "A surreal painting features an ornate oval frame containing two women with contrasting appearances: one with dark hair and flowers, the other with red hair and a braid, both in pinkish-red attire. The frame is set against a dark, textured background with dramatic red liquid dripping from above and scattered red petals below, alongside floating geometric shapes.",
+  "source_prompt": "",
+  "source_title": "Crimson Portrait of Duality",
+  "style": "surrealism",
+  "mood": "dramatic eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal portrait",
+    "duality",
+    "drips",
+    "ornate frame",
+    "two women"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1887,
+  "source_url": "/generated/1887.jpg",
+  "image_url": "/sketches/2647.png",
+  "inverted_image_url": "/sketches-inverted/2647.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:43Z"
+}

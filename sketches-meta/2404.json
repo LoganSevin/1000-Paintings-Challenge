@@ -1,0 +1,42 @@
+{
+  "number": 2404,
+  "title": "Line sketch: Dreaming in the Greenhouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in a Victorian dress sits at a wooden table inside a dilapidated greenhouse, writing in a notebook while smoking a pipe. A large thought bubble above her head contains a detailed airship, flying books, and mechanical objects against a starry twilight sky (derived from generated still #1633).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in a Victorian dress sits at a wooden table inside a dilapidated greenhouse, writing in a notebook while smoking a pipe. A large thought bubble above her head contains a detailed airship, flying books, and mechanical objects against a starry twilight sky",
+  "inverted_title": "Inverted sketch: Dreaming in the Greenhouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in a Victorian dress sits at a wooden table inside a dilapidated greenhouse, writing in a notebook while smoking a pipe. A large thought bubble above her head contains a detailed airship, flying books, and mechanical objects against a starry twilight sky (from generated still #1633).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in a Victorian dress sits at a wooden table inside a dilapidated greenhouse, writing in a notebook while smoking a pipe. A large thought bubble above her head contains a detailed airship, flying books, and mechanical objects against a starry twilight sky",
+  "source_description": "A young woman in a blue Victorian dress sits at a wooden table inside a dilapidated greenhouse, writing in a notebook while smoking a pipe. A large blue thought bubble above her head contains a detailed airship, flying books, and mechanical objects against a starry twilight sky.",
+  "source_prompt": "",
+  "source_title": "Dreaming in the Greenhouse",
+  "style": "surreal fantasy",
+  "mood": "dreamlike, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "greenhouse",
+    "dream bubble",
+    "steampunk airship",
+    "young woman",
+    "twilight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1633,
+  "source_url": "/generated/1633.jpg",
+  "image_url": "/sketches/2404.png",
+  "inverted_image_url": "/sketches-inverted/2404.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:43Z"
+}

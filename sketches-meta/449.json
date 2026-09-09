@@ -1,0 +1,42 @@
+{
+  "number": 449,
+  "title": "Line sketch: Elegant Woman on Alien Planet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylish woman in a black off-shoulder dress and flowing cape stands on a rocky alien landscape, holding a small orb. She is silhouetted against a massive glowing planet under a starry night sky (derived from painting #539).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylish woman in a black off-shoulder dress and flowing cape stands on a rocky alien landscape, holding a small orb. She is silhouetted against a massive glowing planet under a starry night sky",
+  "inverted_title": "Inverted sketch: Elegant Woman on Alien Planet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylish woman in a black off-shoulder dress and flowing cape stands on a rocky alien landscape, holding a small orb. She is silhouetted against a massive glowing planet under a starry night sky (from painting #539).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylish woman in a black off-shoulder dress and flowing cape stands on a rocky alien landscape, holding a small orb. She is silhouetted against a massive glowing planet under a starry night sky",
+  "source_description": "A stylish woman in a black off-shoulder dress and flowing cape stands on a rocky alien landscape, holding a small red orb. She is silhouetted against a massive glowing red planet under a starry night sky.",
+  "source_prompt": "",
+  "source_title": "Elegant Woman on Alien Planet",
+  "style": "Retro illustration",
+  "mood": "Mysterious and dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro",
+    "sci-fi",
+    "woman",
+    "planet",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 539,
+  "source_url": "/paintings/539.jpg",
+  "image_url": "/sketches/449.png",
+  "inverted_image_url": "/sketches-inverted/449.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2265,
+  "title": "Line sketch: Alien Skull and Astronaut",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal alien with eyes and intricate braids stares directly at the viewer from the left side. In the center, an astronaut in a decorated white spacesuit kneels on a glowing rock, reaching toward a large planet covered in circles and skulls, while a small white egg with spiral patterns rests on a surface in the foreground (derived from generated still #1491).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal alien with eyes and intricate braids stares directly at the viewer from the left side. In the center, an astronaut in a decorated white spacesuit kneels on a glowing rock, reaching toward a large planet covered in circles and skulls, while a small white egg with spiral patterns rests on a surface in the foreground",
+  "inverted_title": "Inverted sketch: Alien Skull and Astronaut",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal alien with eyes and intricate braids stares directly at the viewer from the left side. In the center, an astronaut in a decorated white spacesuit kneels on a glowing rock, reaching toward a large planet covered in circles and skulls, while a small white egg with spiral patterns rests on a surface in the foreground (from generated still #1491).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal alien with eyes and intricate braids stares directly at the viewer from the left side. In the center, an astronaut in a decorated white spacesuit kneels on a glowing rock, reaching toward a large planet covered in circles and skulls, while a small white egg with spiral patterns rests on a surface in the foreground",
+  "source_description": "A green skeletal alien with red eyes and intricate braids stares directly at the viewer from the left side. In the center, an astronaut in a decorated white spacesuit kneels on a glowing yellow rock, reaching toward a large green planet covered in yellow circles and skulls, while a small white egg with spiral patterns rests on a purple surface in the foreground.",
+  "source_prompt": "",
+  "source_title": "Alien Skull and Astronaut",
+  "style": "surreal digital illustration",
+  "mood": "eerie cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "astronaut",
+    "skulls",
+    "planet",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1491,
+  "source_url": "/generated/1491.jpg",
+  "image_url": "/sketches/2265.png",
+  "inverted_image_url": "/sketches-inverted/2265.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:43Z"
+}

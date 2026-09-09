@@ -1,0 +1,404 @@
+/* Stock desk — investment tips workspace */
+
+#panel-stock.panel.active {
+  display: block;
+  min-height: calc(100vh - 120px);
+}
+
+.stk-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem 2.2rem;
+  color: #e6eaf2;
+}
+
+.stk-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.stk-top h2 {
+  margin: 0 0 0.3rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: #d4e4ff;
+}
+
+.stk-hint {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(190, 200, 220, 0.85);
+}
+
+.stk-badge {
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 190, 90, 0.4);
+  background: rgba(60, 40, 10, 0.55);
+  color: #ffd89a;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stk-alert {
+  margin: 0 0 0.9rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 140, 90, 0.4);
+  background: linear-gradient(135deg, rgba(50, 22, 12, 0.92), rgba(28, 14, 10, 0.95));
+  color: #ffd0c0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.stk-alert strong {
+  color: #fff;
+}
+
+.stk-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+  padding: 0.3rem;
+  border-radius: 12px;
+  background: #12141c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stk-nav-btn {
+  min-height: 32px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(190, 198, 220, 0.8);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.stk-nav-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stk-nav-btn.is-active {
+  background: #2a3d6a;
+  border-color: rgba(120, 160, 230, 0.45);
+  color: #fff;
+}
+
+.stk-body {
+  min-height: 320px;
+}
+
+.stk-sec[hidden] {
+  display: none !important;
+}
+
+.stk-sec h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.12rem;
+  color: #b8d0ff;
+}
+
+.stk-subh {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.98rem;
+  color: #c8daf8;
+}
+
+.stk-lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(190, 200, 220, 0.88);
+}
+
+.stk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 780px) {
+  .stk-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stk-card {
+  border-radius: 12px;
+  border: 1px solid rgba(110, 150, 220, 0.28);
+  background: linear-gradient(165deg, rgba(18, 24, 40, 0.96), rgba(10, 12, 18, 0.98));
+  padding: 0.85rem 0.95rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.stk-card h4 {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  color: #9ec0ff;
+}
+
+.stk-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(210, 216, 230, 0.9);
+}
+
+.stk-card-buy {
+  border-color: rgba(90, 200, 140, 0.35);
+}
+
+.stk-card-buy h4 {
+  color: #9ef0c0;
+}
+
+.stk-card-warn {
+  border-color: rgba(230, 120, 90, 0.4);
+}
+
+.stk-card-warn h4 {
+  color: #ffb0a0;
+}
+
+.stk-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: rgba(210, 216, 230, 0.92);
+}
+
+.stk-list li {
+  margin-bottom: 0.35rem;
+}
+
+.stk-callout {
+  margin: 0.75rem 0 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(120, 170, 255, 0.3);
+  background: rgba(30, 50, 90, 0.35);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #dce8ff;
+}
+
+.stk-ladder {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: stk;
+}
+
+.stk-ladder li {
+  position: relative;
+  margin-bottom: 0.55rem;
+  padding: 0.7rem 0.85rem 0.7rem 2.6rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 20, 32, 0.9);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: rgba(210, 216, 230, 0.92);
+}
+
+.stk-ladder li::before {
+  counter-increment: stk;
+  content: counter(stk);
+  position: absolute;
+  left: 0.65rem;
+  top: 0.7rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #2a4a8a;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stk-ladder strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #c8dcff;
+}
+
+.stk-ladder span {
+  display: block;
+  color: rgba(190, 198, 215, 0.9);
+}
+
+.stk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.stk-table th,
+.stk-table td {
+  text-align: left;
+  padding: 0.5rem 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+.stk-table th {
+  color: #9ec0ff;
+  font-weight: 600;
+  background: rgba(20, 30, 50, 0.8);
+}
+
+.stk-table td {
+  color: rgba(210, 216, 230, 0.92);
+}
+
+.stk-table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.stk-formula {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.92rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  background: #0e121c;
+  border: 1px solid rgba(120, 160, 230, 0.3);
+  color: #b8d4ff;
+}
+
+.stk-risk {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stk-risk-q {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.78rem;
+  color: rgba(180, 190, 210, 0.9);
+}
+
+.stk-risk-q select {
+  min-height: 32px;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #151a28;
+  color: #e8ecf5;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.stk-btn {
+  min-height: 34px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 160, 230, 0.45);
+  background: #2a3d6a;
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.stk-btn:hover {
+  background: #354f88;
+}
+
+.stk-btn-ghost {
+  background: transparent;
+  color: rgba(200, 210, 230, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.stk-risk-out {
+  margin: 0.35rem 0 0;
+  min-height: 2.5rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: #c8e0ff;
+}
+
+.stk-check {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+.stk-check li {
+  margin-bottom: 0.4rem;
+}
+
+.stk-check label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: rgba(215, 220, 235, 0.95);
+  cursor: pointer;
+}
+
+.stk-check input {
+  margin-top: 0.2rem;
+  accent-color: #6a9cff;
+}
+
+.stk-notes-label {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(170, 180, 200, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.stk-notes {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 6rem;
+  resize: vertical;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #12161f;
+  color: #e8ecf5;
+  font: inherit;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.stk-plan-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.stk-save-status {
+  font-size: 0.78rem;
+  color: rgba(160, 220, 180, 0.95);
+}

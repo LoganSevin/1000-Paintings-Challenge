@@ -1,0 +1,42 @@
+{
+  "number": 80,
+  "title": "Line sketch: Swirling and Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female portrait dominates the composition, featuring large expressive eyes, rosy cheeks, and voluminous hair rendered in flowing and shapes. The centered face is framed by bold black outlines against a split and background, creating a symmetrical and graphic layout. Flat color fields and simplified features emphasize a decorative, illustrative approach with strong contour lines (derived from painting #111).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female portrait dominates the composition, featuring large expressive eyes, rosy cheeks, and voluminous hair rendered in flowing and shapes. The centered face is framed by bold black outlines against a split and background, creating a symmetrical and graphic layout. Flat color fields and simplified features emphasize a decorative, illustrative approach with strong contour lines",
+  "inverted_title": "Inverted sketch: Swirling and Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female portrait dominates the composition, featuring large expressive eyes, rosy cheeks, and voluminous hair rendered in flowing and shapes. The centered face is framed by bold black outlines against a split and background, creating a symmetrical and graphic layout. Flat color fields and simplified features emphasize a decorative, illustrative approach with strong contour lines (from painting #111).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female portrait dominates the composition, featuring large expressive eyes, rosy cheeks, and voluminous hair rendered in flowing and shapes. The centered face is framed by bold black outlines against a split and background, creating a symmetrical and graphic layout. Flat color fields and simplified features emphasize a decorative, illustrative approach with strong contour lines",
+  "source_description": "A stylized female portrait dominates the composition, featuring large expressive eyes, rosy cheeks, and voluminous hair rendered in flowing orange and blue shapes. The centered face is framed by bold black outlines against a split orange and blue background, creating a symmetrical and graphic layout. Flat color fields and simplified features emphasize a decorative, illustrative approach with strong contour lines.",
+  "source_prompt": "",
+  "source_title": "Swirling Blue and Orange Muse",
+  "style": "Pop Art",
+  "mood": "playful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "woman",
+    "stylized",
+    "hair",
+    "graphic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 111,
+  "source_url": "/paintings/111.jpg",
+  "image_url": "/sketches/80.png",
+  "inverted_image_url": "/sketches-inverted/80.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3283,
+  "title": "Line sketch: Shattered Celluloid Mirror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing gown stands before a large, ornate black mirror with dramatic cracks, her reflection showing a horrified expression as she clutches her chest. The checkered floor is littered with torn film reels, scattered photographs, and ribbons under dramatic beams of light from above (derived from generated still #2658).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing gown stands before a large, ornate black mirror with dramatic cracks, her reflection showing a horrified expression as she clutches her chest. The checkered floor is littered with torn film reels, scattered photographs, and ribbons under dramatic beams of light from above",
+  "inverted_title": "Inverted sketch: Shattered Celluloid Mirror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing gown stands before a large, ornate black mirror with dramatic cracks, her reflection showing a horrified expression as she clutches her chest. The checkered floor is littered with torn film reels, scattered photographs, and ribbons under dramatic beams of light from above (from generated still #2658).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing gown stands before a large, ornate black mirror with dramatic cracks, her reflection showing a horrified expression as she clutches her chest. The checkered floor is littered with torn film reels, scattered photographs, and ribbons under dramatic beams of light from above",
+  "source_description": "A woman in a flowing silver gown stands before a large, ornate black mirror with dramatic golden cracks, her reflection showing a horrified expression as she clutches her chest. The checkered floor is littered with torn film reels, scattered photographs, and red ribbons under dramatic beams of light from above.",
+  "source_prompt": "A terrified woman in a shimmering silver satin gown stands before a tall ornate black mirror with dramatic golden cracks spreading across it, her reflection showing an even more horrified face as she clutches her chest, film reels unspooling onto a black and gold checkered floor covered in scattered old photographs and red ribbons, dramatic god rays cutting through a dark luxurious room with red walls, cinematic surreal horror atmosphere, detailed digital painting",
+  "source_title": "Shattered Celluloid Mirror",
+  "style": "cinematic surrealism",
+  "mood": "dramatic horror",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mirror",
+    "film reel",
+    "broken glass",
+    "horror",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2658,
+  "source_url": "/generated/2658.jpg",
+  "image_url": "/sketches/3283.png",
+  "inverted_image_url": "/sketches-inverted/3283.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:45Z"
+}

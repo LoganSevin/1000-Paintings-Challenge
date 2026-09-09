@@ -1,0 +1,42 @@
+{
+  "number": 1608,
+  "title": "Line sketch: Psychedelic Fish Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, fish with intricate patterns swims through a surreal underwater and sky scene. A floating island with a small house sits in the upper left while a massive spiral with text curves around the composition (derived from generated still #823).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, fish with intricate patterns swims through a surreal underwater and sky scene. A floating island with a small house sits in the upper left while a massive spiral with text curves around the composition",
+  "inverted_title": "Inverted sketch: Psychedelic Fish Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, fish with intricate patterns swims through a surreal underwater and sky scene. A floating island with a small house sits in the upper left while a massive spiral with text curves around the composition (from generated still #823).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, fish with intricate patterns swims through a surreal underwater and sky scene. A floating island with a small house sits in the upper left while a massive spiral with text curves around the composition",
+  "source_description": "A vibrant, multicolored fish with intricate patterns swims through a surreal underwater and sky scene. A floating green island with a small house sits in the upper left while a massive rainbow spiral with text curves around the composition.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Fish Dreamscape",
+  "style": "psychedelic",
+  "mood": "whimsical trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "fish",
+    "floating island",
+    "spiral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 823,
+  "source_url": "/generated/823.jpg",
+  "image_url": "/sketches/1608.png",
+  "inverted_image_url": "/sketches-inverted/1608.png",
+  "curve_count": 145,
+  "built_at": "2026-08-17T00:09:41Z"
+}

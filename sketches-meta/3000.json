@@ -1,0 +1,42 @@
+{
+  "number": 3000,
+  "title": "Line sketch: Soldier in Surreal Jungle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in full military camouflage uniform and cap stands crouched in the foreground with a serious expression, positioned before a swirling circular portal that reveals a scenic waterfall and mountains in the background. Lush tropical plants frame the scene on both sides, with visible throughout the painted composition (derived from generated still #2322).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in full military camouflage uniform and cap stands crouched in the foreground with a serious expression, positioned before a swirling circular portal that reveals a scenic waterfall and mountains in the background. Lush tropical plants frame the scene on both sides, with visible throughout the painted composition",
+  "inverted_title": "Inverted sketch: Soldier in Surreal Jungle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in full military camouflage uniform and cap stands crouched in the foreground with a serious expression, positioned before a swirling circular portal that reveals a scenic waterfall and mountains in the background. Lush tropical plants frame the scene on both sides, with visible throughout the painted composition (from generated still #2322).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in full military camouflage uniform and cap stands crouched in the foreground with a serious expression, positioned before a swirling circular portal that reveals a scenic waterfall and mountains in the background. Lush tropical plants frame the scene on both sides, with visible throughout the painted composition",
+  "source_description": "A man in full military camouflage uniform and cap stands crouched in the foreground with a serious expression, positioned before a swirling circular portal that reveals a scenic waterfall and mountains in the background. Lush green tropical plants frame the scene on both sides, with visible brushstrokes throughout the painted composition.",
+  "source_prompt": "A realistic oil painting of a serious soldier in green camouflage uniform and cap, crouching in a ready stance with hands near knees, standing in shallow water. Behind him is a large swirling circular portal revealing a tropical waterfall cascading into a pool with rocky mountains in the distance. Lush green jungle plants frame the foreground, visible expressive brushstrokes, dramatic lighting, painterly style.",
+  "source_title": "Soldier in Surreal Jungle",
+  "style": "composition",
+  "mood": "surreal tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "soldier",
+    "waterfall",
+    "portal",
+    "jungle",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2322,
+  "source_url": "/generated/2322.jpg",
+  "image_url": "/sketches/3000.png",
+  "inverted_image_url": "/sketches-inverted/3000.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2455,
+  "title": "Line sketch: Surreal Hello Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features multiple overlapping profiles of a -skinned woman with flowing hair that merges into wavy patterns. A large transparent bubble containing fish, aquatic plants and pebbles sits at the center, while a realistic rabbit perches on a swirling spiral to the right, with the word 'Hello' written in the upper background (derived from generated still #1689).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features multiple overlapping profiles of a -skinned woman with flowing hair that merges into wavy patterns. A large transparent bubble containing fish, aquatic plants and pebbles sits at the center, while a realistic rabbit perches on a swirling spiral to the right, with the word 'Hello' written in the upper background",
+  "inverted_title": "Inverted sketch: Surreal Hello Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features multiple overlapping profiles of a -skinned woman with flowing hair that merges into wavy patterns. A large transparent bubble containing fish, aquatic plants and pebbles sits at the center, while a realistic rabbit perches on a swirling spiral to the right, with the word 'Hello' written in the upper background (from generated still #1689).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features multiple overlapping profiles of a -skinned woman with flowing hair that merges into wavy patterns. A large transparent bubble containing fish, aquatic plants and pebbles sits at the center, while a realistic rabbit perches on a swirling spiral to the right, with the word 'Hello' written in the upper background",
+  "source_description": "A surreal painting features multiple overlapping profiles of a green-skinned woman with flowing green hair that merges into colorful wavy patterns. A large transparent bubble containing fish, aquatic plants and pebbles sits at the center, while a realistic brown rabbit perches on a swirling brown spiral to the right, with the word 'Hello' written in the upper background.",
+  "source_prompt": "",
+  "source_title": "Surreal Hello Portrait",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "multiple faces",
+    "rabbit",
+    "bubble",
+    "fish"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1689,
+  "source_url": "/generated/1689.jpg",
+  "image_url": "/sketches/2455.png",
+  "inverted_image_url": "/sketches-inverted/2455.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:43Z"
+}

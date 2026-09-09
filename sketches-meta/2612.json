@@ -1,0 +1,42 @@
+{
+  "number": 2612,
+  "title": "Line sketch: Sinister Pumpkin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, menacing jack-o'-lantern with glowing eyes and a jagged mouth sits in a snowy landscape. slime and icicles drip from its form as snow falls heavily against a vibrant background (derived from generated still #1851).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, menacing jack-o'-lantern with glowing eyes and a jagged mouth sits in a snowy landscape. slime and icicles drip from its form as snow falls heavily against a vibrant background",
+  "inverted_title": "Inverted sketch: Sinister Pumpkin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, menacing jack-o'-lantern with glowing eyes and a jagged mouth sits in a snowy landscape. slime and icicles drip from its form as snow falls heavily against a vibrant background (from generated still #1851).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, menacing jack-o'-lantern with glowing eyes and a jagged mouth sits in a snowy landscape. slime and icicles drip from its form as snow falls heavily against a vibrant background",
+  "source_description": "A large, menacing purple jack-o'-lantern with glowing orange eyes and a jagged mouth sits in a snowy landscape. Purple slime and icicles drip from its form as snow falls heavily against a vibrant green background.",
+  "source_prompt": "",
+  "source_title": "Sinister Purple Pumpkin",
+  "style": "fantasy illustration",
+  "mood": "eerie, menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pumpkin",
+    "halloween",
+    "snow",
+    "horror",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1851,
+  "source_url": "/generated/1851.jpg",
+  "image_url": "/sketches/2612.png",
+  "inverted_image_url": "/sketches-inverted/2612.png",
+  "curve_count": 198,
+  "built_at": "2026-08-17T00:09:43Z"
+}

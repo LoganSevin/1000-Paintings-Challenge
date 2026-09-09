@@ -1,0 +1,42 @@
+{
+  "number": 4155,
+  "title": "Line sketch: Surreal Parisian Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition of a European cobblestone street lined with shops and trees. In the center floats a large outlined bald male head with rays of light emanating from its eyes, while a glowing dome radiates above and two figures with umbrellas walk away down the street (derived from generated still #3573).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition of a European cobblestone street lined with shops and trees. In the center floats a large outlined bald male head with rays of light emanating from its eyes, while a glowing dome radiates above and two figures with umbrellas walk away down the street",
+  "inverted_title": "Inverted sketch: Surreal Parisian Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition of a European cobblestone street lined with shops and trees. In the center floats a large outlined bald male head with rays of light emanating from its eyes, while a glowing dome radiates above and two figures with umbrellas walk away down the street (from generated still #3573).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition of a European cobblestone street lined with shops and trees. In the center floats a large outlined bald male head with rays of light emanating from its eyes, while a glowing dome radiates above and two figures with umbrellas walk away down the street",
+  "source_description": "A vibrant watercolor painting of a European cobblestone street lined with colorful shops and trees. In the center floats a large outlined bald male head with rays of pink light emanating from its eyes, while a glowing golden dome radiates above and two figures with umbrellas walk away down the street.",
+  "source_prompt": "watercolor painting of a European cobblestone street with colorful shops and awnings, two figures walking away holding umbrellas, a large black outlined bald male head floating in the center with bright pink light rays shooting from its eyes, a glowing golden dome with radiating lines above the head, trees with yellow leaves on the right, whimsical and surreal composition, vibrant colors, visible brushstrokes",
+  "source_title": "Surreal Parisian Vision",
+  "style": "composition",
+  "mood": "surreal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cityscape",
+    "dome",
+    "floating head",
+    "cobblestone street"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3573,
+  "source_url": "/generated/3573.jpg",
+  "image_url": "/sketches/4155.png",
+  "inverted_image_url": "/sketches-inverted/4155.png",
+  "curve_count": 262,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2343,
+  "title": "Line sketch: Alien Oracle in City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grey-skinned alien with large eyes and elongated fingers holds a glowing orb containing faint faces. The surreal nighttime street scene features floating orbs with spiral patterns, geometric overlays, and graffiti under a sky (derived from generated still #1571).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grey-skinned alien with large eyes and elongated fingers holds a glowing orb containing faint faces. The surreal nighttime street scene features floating orbs with spiral patterns, geometric overlays, and graffiti under a sky",
+  "inverted_title": "Inverted sketch: Alien Oracle in City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grey-skinned alien with large eyes and elongated fingers holds a glowing orb containing faint faces. The surreal nighttime street scene features floating orbs with spiral patterns, geometric overlays, and graffiti under a sky (from generated still #1571).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grey-skinned alien with large eyes and elongated fingers holds a glowing orb containing faint faces. The surreal nighttime street scene features floating orbs with spiral patterns, geometric overlays, and graffiti under a sky",
+  "source_description": "A grey-skinned alien with large yellow eyes and elongated fingers holds a glowing yellow orb containing faint faces. The surreal nighttime street scene features floating orbs with spiral patterns, geometric overlays, and green graffiti under a purple sky.",
+  "source_prompt": "",
+  "source_title": "Alien Oracle in Neon City",
+  "style": "surreal",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "surreal",
+    "orb",
+    "city",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1571,
+  "source_url": "/generated/1571.jpg",
+  "image_url": "/sketches/2343.png",
+  "inverted_image_url": "/sketches-inverted/2343.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:43Z"
+}

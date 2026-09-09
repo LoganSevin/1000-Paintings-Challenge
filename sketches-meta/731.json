@@ -1,0 +1,42 @@
+{
+  "number": 731,
+  "title": "Line sketch: Fleur-de-Lis in Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic fleur-de-lis emblem glows against a vibrant cosmic background. Sparkling stars and swirling nebulae create an enchanting celestial atmosphere around the ornate metallic symbol (derived from painting #925).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic fleur-de-lis emblem glows against a vibrant cosmic background. Sparkling stars and swirling nebulae create an enchanting celestial atmosphere around the ornate metallic symbol",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis in Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic fleur-de-lis emblem glows against a vibrant cosmic background. Sparkling stars and swirling nebulae create an enchanting celestial atmosphere around the ornate metallic symbol (from painting #925).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic fleur-de-lis emblem glows against a vibrant cosmic background. Sparkling stars and swirling nebulae create an enchanting celestial atmosphere around the ornate metallic symbol",
+  "source_description": "A majestic golden fleur-de-lis emblem glows against a vibrant cosmic background. Sparkling stars and swirling purple nebulae create an enchanting celestial atmosphere around the ornate metallic symbol.",
+  "source_prompt": "",
+  "source_title": "Golden Fleur-de-Lis in Cosmos",
+  "style": "Fantasy illustration",
+  "mood": "Magical and majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "emblem",
+    "cosmic background",
+    "nebulae",
+    "sparkling stars"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 925,
+  "source_url": "/paintings/925.jpg",
+  "image_url": "/sketches/731.png",
+  "inverted_image_url": "/sketches-inverted/731.png",
+  "curve_count": 341,
+  "built_at": "2026-08-17T00:09:39Z"
+}

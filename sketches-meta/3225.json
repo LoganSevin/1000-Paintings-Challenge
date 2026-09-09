@@ -1,0 +1,42 @@
+{
+  "number": 3225,
+  "title": "Line sketch: Serpent Over the City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive serpent with and scales coils through a dramatic sunset sky, its body held by a large disembodied hand. Below lies a glowing cityscape with illuminated buildings, while on the right a -skinned female face with black tears merges into a dripping stone wall covered in skulls (derived from generated still #2578).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive serpent with and scales coils through a dramatic sunset sky, its body held by a large disembodied hand. Below lies a glowing cityscape with illuminated buildings, while on the right a -skinned female face with black tears merges into a dripping stone wall covered in skulls",
+  "inverted_title": "Inverted sketch: Serpent Over the City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive serpent with and scales coils through a dramatic sunset sky, its body held by a large disembodied hand. Below lies a glowing cityscape with illuminated buildings, while on the right a -skinned female face with black tears merges into a dripping stone wall covered in skulls (from generated still #2578).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive serpent with and scales coils through a dramatic sunset sky, its body held by a large disembodied hand. Below lies a glowing cityscape with illuminated buildings, while on the right a -skinned female face with black tears merges into a dripping stone wall covered in skulls",
+  "source_description": "A massive serpent with orange and green scales coils through a dramatic sunset sky, its body held by a large disembodied hand. Below lies a glowing cityscape with illuminated buildings, while on the right a green-skinned female face with black tears merges into a dripping stone wall covered in skulls.",
+  "source_prompt": "Surreal dark fantasy scene at sunset with a giant orange and green scaled serpent coiling through a fiery red and purple sky, held by a giant hand, overlooking a glowing modern city with bokeh lights, on the right a green-skinned female face with black tears emerging from a stone wall with melting green slime and embedded skulls, dramatic cinematic lighting, moody atmosphere",
+  "source_title": "Serpent Over the City",
+  "style": "dark fantasy",
+  "mood": "ominous surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "serpent",
+    "dark fantasy",
+    "cityscape",
+    "woman",
+    "skulls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2578,
+  "source_url": "/generated/2578.jpg",
+  "image_url": "/sketches/3225.png",
+  "inverted_image_url": "/sketches-inverted/3225.png",
+  "curve_count": 89,
+  "built_at": "2026-08-17T00:09:45Z"
+}

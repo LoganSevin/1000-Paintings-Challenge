@@ -1,0 +1,42 @@
+{
+  "number": 3183,
+  "title": "Line sketch: Beat 142 - Descent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a black jacket and boots is captured mid-fall in a derelict concrete room, one arm raised and the other holding a glowing device. Below him, broken stairs lead into a flooded lower level containing a film reel case labeled 'FOLLOW ALONG', while a large framed composition of a black horse in a desert leans against the steps amid scattered fragments (derived from generated still #2530).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a black jacket and boots is captured mid-fall in a derelict concrete room, one arm raised and the other holding a glowing device. Below him, broken stairs lead into a flooded lower level containing a film reel case labeled 'FOLLOW ALONG', while a large framed composition of a black horse in a desert leans against the steps amid scattered fragments",
+  "inverted_title": "Inverted sketch: Beat 142 - Descent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a black jacket and boots is captured mid-fall in a derelict concrete room, one arm raised and the other holding a glowing device. Below him, broken stairs lead into a flooded lower level containing a film reel case labeled 'FOLLOW ALONG', while a large framed composition of a black horse in a desert leans against the steps amid scattered fragments (from generated still #2530).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a black jacket and boots is captured mid-fall in a derelict concrete room, one arm raised and the other holding a glowing device. Below him, broken stairs lead into a flooded lower level containing a film reel case labeled 'FOLLOW ALONG', while a large framed composition of a black horse in a desert leans against the steps amid scattered fragments",
+  "source_description": "A man in a black jacket and boots is captured mid-fall in a derelict concrete room, one arm raised and the other holding a glowing green device. Below him, broken stairs lead into a flooded lower level containing a film reel case labeled 'FOLLOW ALONG', while a large framed painting of a black horse in a desert leans against the steps amid scattered gold fragments.",
+  "source_prompt": "A dramatic cinematic scene of a man falling through the air inside a decaying concrete bunker studio, one hand reaching up, the other holding a glowing green device, film reels and spotlights hanging from a broken ceiling, concrete stairs leading down into flooded water, a large framed painting of a black horse in a desert landscape leaning on the steps, scattered gold fragments, clapperboard and film equipment, moody purple and teal lighting, highly detailed digital painting",
+  "source_title": "Beat 142 - Descent",
+  "style": "cinematic",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "falling man",
+    "abandoned room",
+    "film equipment",
+    "surreal scene",
+    "horse composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2530,
+  "source_url": "/generated/2530.jpg",
+  "image_url": "/sketches/3183.png",
+  "inverted_image_url": "/sketches-inverted/3183.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:45Z"
+}

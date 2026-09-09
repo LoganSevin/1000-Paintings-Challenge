@@ -1,0 +1,42 @@
+{
+  "number": 3314,
+  "title": "Line sketch: Surreal Teacup Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant ornate teacup overflows with and patterned fruits in the foreground. Inside the cup, two stylized female faces in and sit back-to-back while a large black silhouette of a woman's profile looms in the swirling sky above. A rustic barn stands in a misty field under a glowing sun with floating orbs and patterned trees (derived from generated still #2699).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant ornate teacup overflows with and patterned fruits in the foreground. Inside the cup, two stylized female faces in and sit back-to-back while a large black silhouette of a woman's profile looms in the swirling sky above. A rustic barn stands in a misty field under a glowing sun with floating orbs and patterned trees",
+  "inverted_title": "Inverted sketch: Surreal Teacup Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant ornate teacup overflows with and patterned fruits in the foreground. Inside the cup, two stylized female faces in and sit back-to-back while a large black silhouette of a woman's profile looms in the swirling sky above. A rustic barn stands in a misty field under a glowing sun with floating orbs and patterned trees (from generated still #2699).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant ornate teacup overflows with and patterned fruits in the foreground. Inside the cup, two stylized female faces in and sit back-to-back while a large black silhouette of a woman's profile looms in the swirling sky above. A rustic barn stands in a misty field under a glowing sun with floating orbs and patterned trees",
+  "source_description": "A giant ornate pink teacup overflows with oranges and patterned fruits in the foreground. Inside the cup, two stylized female faces in yellow and purple sit back-to-back while a large black silhouette of a woman's profile looms in the swirling purple sky above. A rustic red barn stands in a misty field under a glowing sun with floating orbs and patterned trees.",
+  "source_prompt": "Surreal fantasy landscape featuring a massive ornate pink teacup in the foreground overflowing with oranges and patterned citrus fruits. Two stylized women's faces sit inside the cup, one yellow and one purple, facing opposite directions. A large black silhouette of a woman's profile dominates the swirling purple cloudy sky. In the background stands a weathered red wooden barn in a misty green field, with glowing sun rays, floating orange orbs, and fruit-bearing trees under a vibrant sunset sky.",
+  "source_title": "Surreal Teacup Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "teacup",
+    "silhouette",
+    "barn",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2699,
+  "source_url": "/generated/2699.jpg",
+  "image_url": "/sketches/3314.png",
+  "inverted_image_url": "/sketches-inverted/3314.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:45Z"
+}

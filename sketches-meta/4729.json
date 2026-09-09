@@ -1,0 +1,42 @@
+{
+  "number": 4729,
+  "title": "Line sketch: Fantasy Island Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon-style map of a tropical fantasy island featuring a shipwreck on rocky shores, a river with wooden bridges, a village of mushroom-shaped houses, a circus tent, a pirate ship, a waterfall, and a glowing portal in a lagoon. Snow-capped mountains and an archway gate appear in the distant background under a sky (derived from generated still #4159).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon-style map of a tropical fantasy island featuring a shipwreck on rocky shores, a river with wooden bridges, a village of mushroom-shaped houses, a circus tent, a pirate ship, a waterfall, and a glowing portal in a lagoon. Snow-capped mountains and an archway gate appear in the distant background under a sky",
+  "inverted_title": "Inverted sketch: Fantasy Island Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon-style map of a tropical fantasy island featuring a shipwreck on rocky shores, a river with wooden bridges, a village of mushroom-shaped houses, a circus tent, a pirate ship, a waterfall, and a glowing portal in a lagoon. Snow-capped mountains and an archway gate appear in the distant background under a sky (from generated still #4159).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon-style map of a tropical fantasy island featuring a shipwreck on rocky shores, a river with wooden bridges, a village of mushroom-shaped houses, a circus tent, a pirate ship, a waterfall, and a glowing portal in a lagoon. Snow-capped mountains and an archway gate appear in the distant background under a sky",
+  "source_description": "A vibrant cartoon-style map of a tropical fantasy island featuring a shipwreck on rocky shores, a river with wooden bridges, a village of mushroom-shaped houses, a circus tent, a pirate ship, a waterfall, and a glowing portal in a lagoon. Snow-capped mountains and an archway gate appear in the distant background under a purple sky.",
+  "source_prompt": "colorful cartoon fantasy map of a tropical island, shipwreck on rocky coast, river with bridges, mushroom house village, circus tent, waterfall into lagoon, glowing green portal in water, abandoned pirate ship on land, palm trees, distant snow capped mountains with archway, bright whimsical style, clear overhead view, vibrant and playful atmosphere",
+  "source_title": "Fantasy Island Map",
+  "style": "cartoon map illustration",
+  "mood": "whimsical adventure",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "tropical island",
+    "mushroom village",
+    "pirate shipwreck",
+    "glowing portal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4159,
+  "source_url": "/generated/4159.jpg",
+  "image_url": "/sketches/4729.png",
+  "inverted_image_url": "/sketches-inverted/4729.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:48Z"
+}

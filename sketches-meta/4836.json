@@ -1,0 +1,42 @@
+{
+  "number": 4836,
+  "title": "Line sketch: The Watcher in the Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a flowing robe and single large eye for a head stands on a winding black road in an desert. Above, a massive cracked eye containing a swirling galaxy dominates a surreal cosmic sky filled with smoke trails, floating faces, an egg-shaped planet, spheres, and abstract symbols (derived from generated still #4271).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a flowing robe and single large eye for a head stands on a winding black road in an desert. Above, a massive cracked eye containing a swirling galaxy dominates a surreal cosmic sky filled with smoke trails, floating faces, an egg-shaped planet, spheres, and abstract symbols",
+  "inverted_title": "Inverted sketch: The Watcher in the Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a flowing robe and single large eye for a head stands on a winding black road in an desert. Above, a massive cracked eye containing a swirling galaxy dominates a surreal cosmic sky filled with smoke trails, floating faces, an egg-shaped planet, spheres, and abstract symbols (from generated still #4271).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a flowing robe and single large eye for a head stands on a winding black road in an desert. Above, a massive cracked eye containing a swirling galaxy dominates a surreal cosmic sky filled with smoke trails, floating faces, an egg-shaped planet, spheres, and abstract symbols",
+  "source_description": "A lone figure in a flowing blue robe and single large eye for a head stands on a winding black road in an orange desert. Above, a massive cracked red eye containing a swirling galaxy dominates a surreal cosmic sky filled with colorful smoke trails, floating faces, an egg-shaped planet, spheres, and abstract symbols.",
+  "source_prompt": "A surreal desert scene with orange sand dunes and a winding black road. In the foreground, a mysterious robed figure in deep blue with a single large white eye for a head stands facing forward. The sky is a vibrant cosmic dreamscape dominated by a giant cracked red eye containing a swirling green and blue galaxy. Colorful smoke trails in purple, green and blue flow across the sky containing floating abstract symbols, human faces, a large white egg, and various colored spheres. A yellow road sign reading 'NO PASSAGE' is visible on the right.",
+  "source_title": "The Watcher in the Desert",
+  "style": "surrealism",
+  "mood": "mysterious cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "cosmic eye",
+    "mystical figure",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4271,
+  "source_url": "/generated/4271.jpg",
+  "image_url": "/sketches/4836.png",
+  "inverted_image_url": "/sketches-inverted/4836.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:49Z"
+}

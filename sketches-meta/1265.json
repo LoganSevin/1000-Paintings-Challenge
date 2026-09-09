@@ -1,0 +1,42 @@
+{
+  "number": 1265,
+  "title": "Line sketch: Desert Moon Rabbit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape at night features a large rabbit with oversized ears perched on a sand dune, gazing toward the viewer. A woman's face with flowing - hair merges with the starry sky and sand, while a large glowing moon hangs above crumbling stone ruins (derived from generated still #477).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape at night features a large rabbit with oversized ears perched on a sand dune, gazing toward the viewer. A woman's face with flowing - hair merges with the starry sky and sand, while a large glowing moon hangs above crumbling stone ruins",
+  "inverted_title": "Inverted sketch: Desert Moon Rabbit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape at night features a large rabbit with oversized ears perched on a sand dune, gazing toward the viewer. A woman's face with flowing - hair merges with the starry sky and sand, while a large glowing moon hangs above crumbling stone ruins (from generated still #477).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape at night features a large rabbit with oversized ears perched on a sand dune, gazing toward the viewer. A woman's face with flowing - hair merges with the starry sky and sand, while a large glowing moon hangs above crumbling stone ruins",
+  "source_description": "A surreal desert landscape at night features a large brown rabbit with oversized ears perched on a sand dune, gazing toward the viewer. A woman's face with flowing yellow-green hair merges with the starry sky and sand, while a large glowing moon hangs above crumbling stone ruins.",
+  "source_prompt": "",
+  "source_title": "Desert Moon Rabbit",
+  "style": "fantasy illustration",
+  "mood": "ethereal dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rabbit",
+    "desert",
+    "moon",
+    "woman",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 477,
+  "source_url": "/generated/477.jpg",
+  "image_url": "/sketches/1265.png",
+  "inverted_image_url": "/sketches-inverted/1265.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1113,
+  "title": "Line sketch: Clown Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a clown-like figure with bright hair and melting face paint in dripping, and hues. The figure is centered within a circular decorative plate featuring black and white floral patterns, skulls, and cracked accents against a dark background (derived from generated still #325).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a clown-like figure with bright hair and melting face paint in dripping, and hues. The figure is centered within a circular decorative plate featuring black and white floral patterns, skulls, and cracked accents against a dark background",
+  "inverted_title": "Inverted sketch: Clown Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a clown-like figure with bright hair and melting face paint in dripping, and hues. The figure is centered within a circular decorative plate featuring black and white floral patterns, skulls, and cracked accents against a dark background (from generated still #325).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a clown-like figure with bright hair and melting face paint in dripping, and hues. The figure is centered within a circular decorative plate featuring black and white floral patterns, skulls, and cracked accents against a dark background",
+  "source_description": "A surreal portrait of a clown-like figure with bright lime green hair and melting face paint in dripping blue, red, and purple hues. The figure is centered within a circular decorative plate featuring black and white floral patterns, skulls, and cracked golden accents against a dark background.",
+  "source_prompt": "",
+  "source_title": "Neon Clown Portrait",
+  "style": "surrealism",
+  "mood": "eerie, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "clown",
+    "surreal",
+    "melting",
+    "horror",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 325,
+  "source_url": "/generated/325.jpg",
+  "image_url": "/sketches/1113.png",
+  "inverted_image_url": "/sketches-inverted/1113.png",
+  "curve_count": 155,
+  "built_at": "2026-08-17T00:09:40Z"
+}

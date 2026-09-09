@@ -1,0 +1,42 @@
+{
+  "number": 3280,
+  "title": "Line sketch: Fractured Celluloid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with three faces stands in a decaying, cracked room holding a film reel. Film strips, broken frames, and a large mirror reflecting a shadowy silhouette fill the dilapidated space illuminated by a dramatic beam of light from above (derived from generated still #2655).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with three faces stands in a decaying, cracked room holding a film reel. Film strips, broken frames, and a large mirror reflecting a shadowy silhouette fill the dilapidated space illuminated by a dramatic beam of light from above",
+  "inverted_title": "Inverted sketch: Fractured Celluloid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with three faces stands in a decaying, cracked room holding a film reel. Film strips, broken frames, and a large mirror reflecting a shadowy silhouette fill the dilapidated space illuminated by a dramatic beam of light from above (from generated still #2655).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with three faces stands in a decaying, cracked room holding a film reel. Film strips, broken frames, and a large mirror reflecting a shadowy silhouette fill the dilapidated space illuminated by a dramatic beam of light from above",
+  "source_description": "A woman with three faces stands in a decaying, cracked room holding a film reel. Film strips, broken frames, and a large mirror reflecting a shadowy silhouette fill the dilapidated space illuminated by a dramatic purple beam of light from above.",
+  "source_prompt": "A surreal scene of a woman with three overlapping faces wearing a dark satin gown, standing in a dilapidated ornate room with cracked peeling walls and ceiling. She holds a large film reel as film strips spill across the floor among broken picture frames. A tall mirror reflects only a dark silhouette. Dramatic purple light beam cuts through the darkness. Scattered film canisters, photographs on walls, classical statue fragment. Moody, cinematic surrealism, detailed textures.",
+  "source_title": "Fractured Celluloid",
+  "style": "surrealism",
+  "mood": "eerie, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "film noir",
+    "decaying interior",
+    "multiple faces",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2655,
+  "source_url": "/generated/2655.jpg",
+  "image_url": "/sketches/3280.png",
+  "inverted_image_url": "/sketches-inverted/3280.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3080,
+  "title": "Line sketch: Aurora Station Phantom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a black Victorian dress stands on a marble train platform holding a vintage camera, with film strips scattered at her feet. Behind her, a glowing steam train emerges from curtains under a dramatic aurora borealis sky, with an ornate armchair placed on the tracks (derived from generated still #2409).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a black Victorian dress stands on a marble train platform holding a vintage camera, with film strips scattered at her feet. Behind her, a glowing steam train emerges from curtains under a dramatic aurora borealis sky, with an ornate armchair placed on the tracks",
+  "inverted_title": "Inverted sketch: Aurora Station Phantom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a black Victorian dress stands on a marble train platform holding a vintage camera, with film strips scattered at her feet. Behind her, a glowing steam train emerges from curtains under a dramatic aurora borealis sky, with an ornate armchair placed on the tracks (from generated still #2409).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a black Victorian dress stands on a marble train platform holding a vintage camera, with film strips scattered at her feet. Behind her, a glowing steam train emerges from curtains under a dramatic aurora borealis sky, with an ornate armchair placed on the tracks",
+  "source_description": "A woman in a black Victorian dress stands on a marble train platform holding a vintage camera, with film strips scattered at her feet. Behind her, a glowing steam train emerges from red curtains under a dramatic aurora borealis sky, with an ornate red armchair placed on the tracks.",
+  "source_prompt": "",
+  "source_title": "Aurora Station Phantom",
+  "style": "surreal fantasy",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "steam train",
+    "aurora borealis",
+    "film strips",
+    "victorian dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2409,
+  "source_url": "/generated/2409.jpg",
+  "image_url": "/sketches/3080.png",
+  "inverted_image_url": "/sketches-inverted/3080.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:44Z"
+}

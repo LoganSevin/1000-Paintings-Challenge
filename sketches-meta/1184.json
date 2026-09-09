@@ -1,0 +1,42 @@
+{
+  "number": 1184,
+  "title": "Line sketch: Surreal Fruit Balloon Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a woman's face emerging from a hot air balloon shaped like a giant melting banana with a scaly top. The balloon is encircled by a glowing ring against a swirling and sky, with abundant clusters of grapes, cherries, bananas, and vibrant flowers cascading below (derived from generated still #396).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a woman's face emerging from a hot air balloon shaped like a giant melting banana with a scaly top. The balloon is encircled by a glowing ring against a swirling and sky, with abundant clusters of grapes, cherries, bananas, and vibrant flowers cascading below",
+  "inverted_title": "Inverted sketch: Surreal Fruit Balloon Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a woman's face emerging from a hot air balloon shaped like a giant melting banana with a scaly top. The balloon is encircled by a glowing ring against a swirling and sky, with abundant clusters of grapes, cherries, bananas, and vibrant flowers cascading below (from generated still #396).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a woman's face emerging from a hot air balloon shaped like a giant melting banana with a scaly top. The balloon is encircled by a glowing ring against a swirling and sky, with abundant clusters of grapes, cherries, bananas, and vibrant flowers cascading below",
+  "source_description": "A surreal painting depicts a woman's blue face emerging from a hot air balloon shaped like a giant melting banana with a scaly pink top. The balloon is encircled by a glowing blue ring against a swirling red and pink sky, with abundant clusters of grapes, cherries, bananas, and vibrant flowers cascading below.",
+  "source_prompt": "",
+  "source_title": "Surreal Fruit Balloon Portrait",
+  "style": "surrealism",
+  "mood": "ethereal, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hot air balloon",
+    "melting fruit",
+    "woman portrait",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 396,
+  "source_url": "/generated/396.jpg",
+  "image_url": "/sketches/1184.png",
+  "inverted_image_url": "/sketches-inverted/1184.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:40Z"
+}

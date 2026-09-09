@@ -1,0 +1,42 @@
+{
+  "number": 4383,
+  "title": "Line sketch: Enchanted Turtle Mage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant turtle with glowing and runes on its shell stands on an open book atop a -draped desk in a mystical library. The turtle exhales swirling smoke while surrounded by floating glass orbs containing miniature turtles, shelves of ancient books, potion jars, scrolls, and a framed portrait of a decorated turtle on the wall (derived from generated still #3802).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant turtle with glowing and runes on its shell stands on an open book atop a -draped desk in a mystical library. The turtle exhales swirling smoke while surrounded by floating glass orbs containing miniature turtles, shelves of ancient books, potion jars, scrolls, and a framed portrait of a decorated turtle on the wall",
+  "inverted_title": "Inverted sketch: Enchanted Turtle Mage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant turtle with glowing and runes on its shell stands on an open book atop a -draped desk in a mystical library. The turtle exhales swirling smoke while surrounded by floating glass orbs containing miniature turtles, shelves of ancient books, potion jars, scrolls, and a framed portrait of a decorated turtle on the wall (from generated still #3802).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant turtle with glowing and runes on its shell stands on an open book atop a -draped desk in a mystical library. The turtle exhales swirling smoke while surrounded by floating glass orbs containing miniature turtles, shelves of ancient books, potion jars, scrolls, and a framed portrait of a decorated turtle on the wall",
+  "source_description": "A vibrant green turtle with glowing blue and purple runes on its shell stands on an open book atop a green-draped desk in a mystical library. The turtle exhales swirling smoke while surrounded by floating glass orbs containing miniature turtles, shelves of ancient books, potion jars, scrolls, and a framed portrait of a decorated turtle on the wall.",
+  "source_prompt": "A highly detailed fantasy scene of a wise green turtle mage with glowing arcane symbols on its shell, standing on an ancient tome in a mystical library. The turtle is casting a spell with visible smoke rising from its mouth. Surrounding it are floating glass orbs with tiny turtles inside, bookshelves filled with magical tomes, potion bottles, scrolls on a velvet-covered desk, and a framed portrait of a decorated turtle on the wall. Cinematic lighting with teal and purple magical glows.",
+  "source_title": "Enchanted Turtle Mage",
+  "style": "fantasy illustration",
+  "mood": "magical whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "turtle",
+    "wizard",
+    "library",
+    "runes",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3802,
+  "source_url": "/generated/3802.jpg",
+  "image_url": "/sketches/4383.png",
+  "inverted_image_url": "/sketches-inverted/4383.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:48Z"
+}

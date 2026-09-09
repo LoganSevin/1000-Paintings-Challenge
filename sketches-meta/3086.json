@@ -1,0 +1,42 @@
+{
+  "number": 3086,
+  "title": "Line sketch: Dragon and Cloud Spirit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic black dragon with accents and glowing eyes faces a cute and cloud creature with a braided topknot and a smiling face. They are surrounded by swirling clouds, a starry sky, a small moon, and a sun in a vibrant fantasy landscape (derived from generated still #2418).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic black dragon with accents and glowing eyes faces a cute and cloud creature with a braided topknot and a smiling face. They are surrounded by swirling clouds, a starry sky, a small moon, and a sun in a vibrant fantasy landscape",
+  "inverted_title": "Inverted sketch: Dragon and Cloud Spirit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic black dragon with accents and glowing eyes faces a cute and cloud creature with a braided topknot and a smiling face. They are surrounded by swirling clouds, a starry sky, a small moon, and a sun in a vibrant fantasy landscape (from generated still #2418).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic black dragon with accents and glowing eyes faces a cute and cloud creature with a braided topknot and a smiling face. They are surrounded by swirling clouds, a starry sky, a small moon, and a sun in a vibrant fantasy landscape",
+  "source_description": "A majestic black dragon with golden accents and glowing yellow eyes faces a cute pink and blue cloud creature with a braided topknot and a smiling face. They are surrounded by swirling purple clouds, a green starry sky, a small orange moon, and a yellow sun in a vibrant fantasy landscape.",
+  "source_prompt": "",
+  "source_title": "Dragon and Cloud Spirit",
+  "style": "whimsical fantasy",
+  "mood": "enchanting, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "cloud creature",
+    "fantasy art",
+    "swirling clouds",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2418,
+  "source_url": "/generated/2418.jpg",
+  "image_url": "/sketches/3086.png",
+  "inverted_image_url": "/sketches-inverted/3086.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:44Z"
+}

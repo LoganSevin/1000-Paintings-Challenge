@@ -1,0 +1,42 @@
+{
+  "number": 3342,
+  "title": "Line sketch: Midnight Feature Reel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman wearing a white theatrical comedy mask and 3D glasses sits in a vintage armchair, holding an open book of film strips. She is surrounded by scattered film reels, a lit candle, and walls covered in torn vintage movie posters, with a large arched window revealing a dark city skyline and mountains at night (derived from generated still #2738).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman wearing a white theatrical comedy mask and 3D glasses sits in a vintage armchair, holding an open book of film strips. She is surrounded by scattered film reels, a lit candle, and walls covered in torn vintage movie posters, with a large arched window revealing a dark city skyline and mountains at night",
+  "inverted_title": "Inverted sketch: Midnight Feature Reel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman wearing a white theatrical comedy mask and 3D glasses sits in a vintage armchair, holding an open book of film strips. She is surrounded by scattered film reels, a lit candle, and walls covered in torn vintage movie posters, with a large arched window revealing a dark city skyline and mountains at night (from generated still #2738).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman wearing a white theatrical comedy mask and 3D glasses sits in a vintage armchair, holding an open book of film strips. She is surrounded by scattered film reels, a lit candle, and walls covered in torn vintage movie posters, with a large arched window revealing a dark city skyline and mountains at night",
+  "source_description": "A woman wearing a white theatrical comedy mask and 3D glasses sits in a vintage purple armchair, holding an open book of film strips. She is surrounded by scattered film reels, a lit candle, and walls covered in torn vintage movie posters, with a large arched window revealing a dark city skyline and mountains at night.",
+  "source_prompt": "A mysterious woman wearing a white comedy theater mask and 3D glasses sits in an ornate purple velvet armchair, holding an open book filled with film strips. Scattered 35mm film reels and a lit candle rest on a nearby table. The walls are covered in torn, peeling vintage movie posters. Through a large arched window behind her, a dark city skyline with illuminated buildings and mountains is visible under a deep blue night sky. Cinematic lighting, moody atmosphere, surreal narrative style.",
+  "source_title": "Midnight Feature Reel",
+  "style": "surreal cinematic",
+  "mood": "mysterious nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinema",
+    "theater mask",
+    "film noir",
+    "vintage posters",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2738,
+  "source_url": "/generated/2738.jpg",
+  "image_url": "/sketches/3342.png",
+  "inverted_image_url": "/sketches-inverted/3342.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:45Z"
+}

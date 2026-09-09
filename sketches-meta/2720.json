@@ -1,0 +1,42 @@
+{
+  "number": 2720,
+  "title": "Line sketch: Porsche 911 Turbo Race Car",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered and faded and Porsche 911 Turbo race car, prominently displaying the number 77 in dripping paint. The vintage racing livery features Shell, Goodyear, and 'TURBO' sponsor markings, captured in a detailed side profile against a plain background (derived from generated still #1966).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered and faded and Porsche 911 Turbo race car, prominently displaying the number 77 in dripping paint. The vintage racing livery features Shell, Goodyear, and 'TURBO' sponsor markings, captured in a detailed side profile against a plain background",
+  "inverted_title": "Inverted sketch: Porsche 911 Turbo Race Car",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered and faded and Porsche 911 Turbo race car, prominently displaying the number 77 in dripping paint. The vintage racing livery features Shell, Goodyear, and 'TURBO' sponsor markings, captured in a detailed side profile against a plain background (from generated still #1966).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered and faded and Porsche 911 Turbo race car, prominently displaying the number 77 in dripping paint. The vintage racing livery features Shell, Goodyear, and 'TURBO' sponsor markings, captured in a detailed side profile against a plain background",
+  "source_description": "A weathered and faded blue and beige Porsche 911 Turbo race car, prominently displaying the number 77 in dripping blue paint. The vintage racing livery features Shell, Goodyear, and 'TURBO' sponsor markings, captured in a detailed side profile against a plain background.",
+  "source_prompt": "",
+  "source_title": "Porsche 911 Turbo Race Car",
+  "style": "realistic composition",
+  "mood": "nostalgic, weathered",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic or oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Porsche",
+    "race car",
+    "Le Mans",
+    "turbo",
+    "racing livery"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1966,
+  "source_url": "/generated/1966.jpg",
+  "image_url": "/sketches/2720.png",
+  "inverted_image_url": "/sketches-inverted/2720.png",
+  "curve_count": 313,
+  "built_at": "2026-08-17T00:09:44Z"
+}

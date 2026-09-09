@@ -1,0 +1,42 @@
+{
+  "number": 690,
+  "title": "Line sketch: Luminous Mind Splash",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking profile of a bald, - figure with exposed neck muscles gazes leftward. A vibrant liquid erupts from the top of the head against a gradient background (derived from painting #873).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking profile of a bald, - figure with exposed neck muscles gazes leftward. A vibrant liquid erupts from the top of the head against a gradient background",
+  "inverted_title": "Inverted sketch: Luminous Mind Splash",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking profile of a bald, - figure with exposed neck muscles gazes leftward. A vibrant liquid erupts from the top of the head against a gradient background (from painting #873).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking profile of a bald, - figure with exposed neck muscles gazes leftward. A vibrant liquid erupts from the top of the head against a gradient background",
+  "source_description": "A striking profile of a bald, yellow-green figure with exposed neck muscles gazes leftward. A vibrant blue liquid erupts from the top of the head against a gradient background.",
+  "source_prompt": "",
+  "source_title": "Luminous Mind Splash",
+  "style": "Digital illustration",
+  "mood": "Surreal and introspective",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "profile portrait",
+    "liquid splash",
+    "anatomical",
+    "vibrant colors",
+    "conceptual art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 873,
+  "source_url": "/paintings/873.jpg",
+  "image_url": "/sketches/690.png",
+  "inverted_image_url": "/sketches-inverted/690.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:39Z"
+}

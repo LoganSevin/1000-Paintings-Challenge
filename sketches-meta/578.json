@@ -1,0 +1,42 @@
+{
+  "number": 578,
+  "title": "Line sketch: Splatter Monster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glossy creature with spikes and dripping slime rests on a surface. Its single large eye and open mouth create an eerie yet playful appearance with - drips below (derived from painting #720).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glossy creature with spikes and dripping slime rests on a surface. Its single large eye and open mouth create an eerie yet playful appearance with - drips below",
+  "inverted_title": "Inverted sketch: Splatter Monster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glossy creature with spikes and dripping slime rests on a surface. Its single large eye and open mouth create an eerie yet playful appearance with - drips below (from painting #720).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glossy creature with spikes and dripping slime rests on a surface. Its single large eye and open mouth create an eerie yet playful appearance with - drips below",
+  "source_description": "A glossy magenta creature with spikes and dripping slime rests on a green surface. Its single large eye and open mouth create an eerie yet playful appearance with yellow-green drips below.",
+  "source_prompt": "",
+  "source_title": "Purple Splatter Monster",
+  "style": "surrealist",
+  "mood": "eerie playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "creature",
+    "splatter",
+    "slime",
+    "surreal",
+    "monster"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 720,
+  "source_url": "/paintings/720.jpg",
+  "image_url": "/sketches/578.png",
+  "inverted_image_url": "/sketches-inverted/578.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:39Z"
+}

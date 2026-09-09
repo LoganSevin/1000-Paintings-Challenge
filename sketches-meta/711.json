@@ -1,0 +1,42 @@
+{
+  "number": 711,
+  "title": "Line sketch: Starry Path to Enlightenment",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone traveler stands on a hill gazing at a glowing celestial orb surrounded by swirling stars and trees in a magical circular composition. The scene evokes wonder and introspection against a starry night sky with luminous and tones (derived from painting #901).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone traveler stands on a hill gazing at a glowing celestial orb surrounded by swirling stars and trees in a magical circular composition. The scene evokes wonder and introspection against a starry night sky with luminous and tones",
+  "inverted_title": "Inverted sketch: Starry Path to Enlightenment",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone traveler stands on a hill gazing at a glowing celestial orb surrounded by swirling stars and trees in a magical circular composition. The scene evokes wonder and introspection against a starry night sky with luminous and tones (from painting #901).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone traveler stands on a hill gazing at a glowing celestial orb surrounded by swirling stars and trees in a magical circular composition. The scene evokes wonder and introspection against a starry night sky with luminous and tones",
+  "source_description": "A lone traveler stands on a hill gazing at a glowing celestial orb surrounded by swirling stars and trees in a magical circular composition. The scene evokes wonder and introspection against a starry night sky with luminous yellow and teal tones.",
+  "source_prompt": "",
+  "source_title": "Starry Path to Enlightenment",
+  "style": "Fantasy Illustration",
+  "mood": "Wonder, Mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "celestial",
+    "journey",
+    "silhouette",
+    "starry night",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 901,
+  "source_url": "/paintings/901.jpg",
+  "image_url": "/sketches/711.png",
+  "inverted_image_url": "/sketches-inverted/711.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:39Z"
+}

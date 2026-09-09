@@ -1,0 +1,42 @@
+{
+  "number": 255,
+  "title": "Line sketch: Cartoon Bear Head Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A simple digital illustration of a bear's face with large round ears, glossy black eyes, and a snout. Part of a daily composition challenge with solid background (derived from painting #312).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A simple digital illustration of a bear's face with large round ears, glossy black eyes, and a snout. Part of a daily composition challenge with solid background",
+  "inverted_title": "Inverted sketch: Cartoon Bear Head Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A simple digital illustration of a bear's face with large round ears, glossy black eyes, and a snout. Part of a daily composition challenge with solid background (from painting #312).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A simple digital illustration of a bear's face with large round ears, glossy black eyes, and a snout. Part of a daily composition challenge with solid background",
+  "source_description": "A simple digital illustration of a brown bear's face with large round ears, glossy black eyes, and a snout. Part of a daily painting challenge with solid background.",
+  "source_prompt": "",
+  "source_title": "Cartoon Bear Head Portrait",
+  "style": "Cartoon",
+  "mood": "Cute and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "cartoon",
+    "digital art",
+    "animal portrait",
+    "daily composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 312,
+  "source_url": "/paintings/312.jpg",
+  "image_url": "/sketches/255.png",
+  "inverted_image_url": "/sketches-inverted/255.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 935,
+  "title": "Line sketch: Celestial Wolf and Horse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black wolf with a glowing eye stands protectively behind a vibrant horse, both positioned in the foreground against a surreal cosmic backdrop. A large glowing orb radiates from the center of a gridded celestial sphere surrounded by floating orbs and swirling patterns (derived from generated still #145).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black wolf with a glowing eye stands protectively behind a vibrant horse, both positioned in the foreground against a surreal cosmic backdrop. A large glowing orb radiates from the center of a gridded celestial sphere surrounded by floating orbs and swirling patterns",
+  "inverted_title": "Inverted sketch: Celestial Wolf and Horse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black wolf with a glowing eye stands protectively behind a vibrant horse, both positioned in the foreground against a surreal cosmic backdrop. A large glowing orb radiates from the center of a gridded celestial sphere surrounded by floating orbs and swirling patterns (from generated still #145).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black wolf with a glowing eye stands protectively behind a vibrant horse, both positioned in the foreground against a surreal cosmic backdrop. A large glowing orb radiates from the center of a gridded celestial sphere surrounded by floating orbs and swirling patterns",
+  "source_description": "A black wolf with a glowing yellow eye stands protectively behind a vibrant green horse, both positioned in the foreground against a surreal cosmic backdrop. A large glowing green orb radiates from the center of a gridded celestial sphere surrounded by colorful floating orbs and swirling patterns.",
+  "source_prompt": "",
+  "source_title": "Celestial Wolf and Horse",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "horse",
+    "celestial",
+    "cosmic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 145,
+  "source_url": "/generated/145.jpg",
+  "image_url": "/sketches/935.png",
+  "inverted_image_url": "/sketches-inverted/935.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:40Z"
+}

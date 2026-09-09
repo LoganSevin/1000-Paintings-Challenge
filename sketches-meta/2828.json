@@ -1,0 +1,42 @@
+{
+  "number": 2828,
+  "title": "Line sketch: Surreal Mechanical Wall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vast, multi-layered metallic wall stretches across a barren landscape, covered in rows of weathered, rusted panels featuring painted masks, silhouetted creatures, crosses, and mechanical orbs. In the dramatic sky above, a giant sun glows amid dark swirling clouds, multiple moons, and distant mountains (derived from generated still #2113).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vast, multi-layered metallic wall stretches across a barren landscape, covered in rows of weathered, rusted panels featuring painted masks, silhouetted creatures, crosses, and mechanical orbs. In the dramatic sky above, a giant sun glows amid dark swirling clouds, multiple moons, and distant mountains",
+  "inverted_title": "Inverted sketch: Surreal Mechanical Wall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vast, multi-layered metallic wall stretches across a barren landscape, covered in rows of weathered, rusted panels featuring painted masks, silhouetted creatures, crosses, and mechanical orbs. In the dramatic sky above, a giant sun glows amid dark swirling clouds, multiple moons, and distant mountains (from generated still #2113).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vast, multi-layered metallic wall stretches across a barren landscape, covered in rows of weathered, rusted panels featuring painted masks, silhouetted creatures, crosses, and mechanical orbs. In the dramatic sky above, a giant sun glows amid dark swirling clouds, multiple moons, and distant mountains",
+  "source_description": "A vast, multi-layered metallic wall stretches across a barren landscape, covered in rows of weathered, rusted panels featuring painted masks, silhouetted creatures, crosses, and mechanical orbs. In the dramatic sky above, a giant red sun glows amid dark swirling clouds, multiple moons, and distant mountains.",
+  "source_prompt": "wide cinematic surreal scene of an enormous ancient mechanical wall stretching across a desolate plain, covered in many rows of rusted panels displaying painted white masks, black creature silhouettes, crosses, and hanging metallic spheres with gears, under a dramatic dark sky with a massive glowing red sun, multiple moons, and jagged mountains in the distance, dark fantasy atmosphere",
+  "source_title": "Surreal Mechanical Wall",
+  "style": "surrealism",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical",
+    "masks",
+    "apocalyptic",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2113,
+  "source_url": "/generated/2113.jpg",
+  "image_url": "/sketches/2828.png",
+  "inverted_image_url": "/sketches-inverted/2828.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:44Z"
+}

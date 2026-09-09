@@ -1,0 +1,42 @@
+{
+  "number": 1700,
+  "title": "Line sketch: Queen of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A crowned queen in a dress sits on a throne extending her hand toward a group of seven black skeletons with glowing eyes. liquid drips from their eye sockets, jaws, and the queen's crown and dress against a vibrant and background filled with swirling patterns and floating skulls (derived from generated still #920).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A crowned queen in a dress sits on a throne extending her hand toward a group of seven black skeletons with glowing eyes. liquid drips from their eye sockets, jaws, and the queen's crown and dress against a vibrant and background filled with swirling patterns and floating skulls",
+  "inverted_title": "Inverted sketch: Queen of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A crowned queen in a dress sits on a throne extending her hand toward a group of seven black skeletons with glowing eyes. liquid drips from their eye sockets, jaws, and the queen's crown and dress against a vibrant and background filled with swirling patterns and floating skulls (from generated still #920).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A crowned queen in a dress sits on a throne extending her hand toward a group of seven black skeletons with glowing eyes. liquid drips from their eye sockets, jaws, and the queen's crown and dress against a vibrant and background filled with swirling patterns and floating skulls",
+  "source_description": "A crowned queen in a purple dress sits on a purple throne extending her hand toward a group of seven black skeletons with glowing yellow eyes. Red liquid drips from their eye sockets, jaws, and the queen's crown and dress against a vibrant red and orange background filled with swirling green patterns and floating skulls.",
+  "source_prompt": "",
+  "source_title": "Queen of the Damned",
+  "style": "surreal pop art",
+  "mood": "macabre hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "queen",
+    "skulls",
+    "dripping",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 920,
+  "source_url": "/generated/920.jpg",
+  "image_url": "/sketches/1700.png",
+  "inverted_image_url": "/sketches-inverted/1700.png",
+  "curve_count": 218,
+  "built_at": "2026-08-17T00:09:41Z"
+}

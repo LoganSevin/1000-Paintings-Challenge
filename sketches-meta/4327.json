@@ -1,0 +1,42 @@
+{
+  "number": 4327,
+  "title": "Line sketch: Bird and Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized, geometric bird with sharp angular wings and a large circular eye perches beside a glowing glass plasma globe. The orb contains a fiery central core with neural-like tendrils radiating outward, set on an ornate metal stand atop a wooden table (derived from generated still #3746).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized, geometric bird with sharp angular wings and a large circular eye perches beside a glowing glass plasma globe. The orb contains a fiery central core with neural-like tendrils radiating outward, set on an ornate metal stand atop a wooden table",
+  "inverted_title": "Inverted sketch: Bird and Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized, geometric bird with sharp angular wings and a large circular eye perches beside a glowing glass plasma globe. The orb contains a fiery central core with neural-like tendrils radiating outward, set on an ornate metal stand atop a wooden table (from generated still #3746).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized, geometric bird with sharp angular wings and a large circular eye perches beside a glowing glass plasma globe. The orb contains a fiery central core with neural-like tendrils radiating outward, set on an ornate metal stand atop a wooden table",
+  "source_description": "A stylized, geometric bird with sharp angular wings and a large circular eye perches beside a glowing glass plasma globe. The orb contains a fiery central core with colorful neural-like tendrils radiating outward, set on an ornate metal stand atop a wooden table.",
+  "source_prompt": "surreal fantasy scene of a stylized geometric bird with sharp angular translucent wings and a large pink-rimmed eye, perched next to a glowing glass plasma orb containing a bright fiery core with colorful neural energy tendrils radiating outward, vibrant swirling energy streaks in neon green, pink, yellow and blue fill the dark background, ornate metal stand on a wooden table, dramatic lighting, painterly brushwork",
+  "source_title": "Neon Bird and Plasma Orb",
+  "style": "surreal fantasy",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy creature",
+    "plasma globe",
+    "geometric bird",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3746,
+  "source_url": "/generated/3746.jpg",
+  "image_url": "/sketches/4327.png",
+  "inverted_image_url": "/sketches-inverted/4327.png",
+  "curve_count": 272,
+  "built_at": "2026-08-17T00:09:47Z"
+}

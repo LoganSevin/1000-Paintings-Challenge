@@ -1,0 +1,42 @@
+{
+  "number": 4767,
+  "title": "Line sketch: Surreal Porhole Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular porthole-like frame with rivets, keys, barnacles and paint splatters contains a surreal night scene. Inside, a cracked moon floats above a dark sea with illuminated carnival ships, a Ferris wheel, a haunted house boat, endless rows of theater seats leading to a tall dripping candle with a flame (derived from generated still #4201).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular porthole-like frame with rivets, keys, barnacles and paint splatters contains a surreal night scene. Inside, a cracked moon floats above a dark sea with illuminated carnival ships, a Ferris wheel, a haunted house boat, endless rows of theater seats leading to a tall dripping candle with a flame",
+  "inverted_title": "Inverted sketch: Surreal Porhole Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular porthole-like frame with rivets, keys, barnacles and paint splatters contains a surreal night scene. Inside, a cracked moon floats above a dark sea with illuminated carnival ships, a Ferris wheel, a haunted house boat, endless rows of theater seats leading to a tall dripping candle with a flame (from generated still #4201).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular porthole-like frame with rivets, keys, barnacles and paint splatters contains a surreal night scene. Inside, a cracked moon floats above a dark sea with illuminated carnival ships, a Ferris wheel, a haunted house boat, endless rows of theater seats leading to a tall dripping candle with a flame",
+  "source_description": "A circular porthole-like frame with rivets, keys, barnacles and paint splatters contains a surreal night scene. Inside, a cracked moon floats above a dark sea with illuminated carnival ships, a Ferris wheel, a haunted house boat, endless rows of purple theater seats leading to a tall dripping green candle with a flame.",
+  "source_prompt": "Surreal circular porthole frame covered in barnacles, keys, rivets and paint splatters, looking out into a dark sea at sunset. A cracked moon hangs in the sky above illuminated carnival ships with string lights, a haunted house boat, a Ferris wheel, and endless rows of purple theater seats leading toward a giant melting green candle with a bright flame. Dreamlike and eerie atmosphere.",
+  "source_title": "Surreal Porhole Dreamscape",
+  "style": "surrealism",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "porthole",
+    "carnival",
+    "candle",
+    "theater seats"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4201,
+  "source_url": "/generated/4201.jpg",
+  "image_url": "/sketches/4767.png",
+  "inverted_image_url": "/sketches-inverted/4767.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:48Z"
+}

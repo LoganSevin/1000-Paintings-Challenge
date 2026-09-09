@@ -1,0 +1,42 @@
+{
+  "number": 1713,
+  "title": "Line sketch: Cybernetic Demon Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A metallic android with glowing eyes and the word 'DEMON' on its forehead is connected by a tendril to a massive biomechanical eye featuring a iris, internal orbs, and clockwork elements. The surreal composition is set against a swirling psychedelic background populated with small demons and intricate patterns (derived from generated still #935).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A metallic android with glowing eyes and the word 'DEMON' on its forehead is connected by a tendril to a massive biomechanical eye featuring a iris, internal orbs, and clockwork elements. The surreal composition is set against a swirling psychedelic background populated with small demons and intricate patterns",
+  "inverted_title": "Inverted sketch: Cybernetic Demon Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A metallic android with glowing eyes and the word 'DEMON' on its forehead is connected by a tendril to a massive biomechanical eye featuring a iris, internal orbs, and clockwork elements. The surreal composition is set against a swirling psychedelic background populated with small demons and intricate patterns (from generated still #935).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A metallic android with glowing eyes and the word 'DEMON' on its forehead is connected by a tendril to a massive biomechanical eye featuring a iris, internal orbs, and clockwork elements. The surreal composition is set against a swirling psychedelic background populated with small demons and intricate patterns",
+  "source_description": "A metallic android with glowing yellow eyes and the word 'DEMON' on its forehead is connected by a red tendril to a massive biomechanical eye featuring a red iris, internal orbs, and clockwork elements. The surreal composition is set against a swirling psychedelic background populated with small green demons and intricate patterns.",
+  "source_prompt": "",
+  "source_title": "Cybernetic Demon Eye",
+  "style": "surrealism",
+  "mood": "sinister psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "biomechanical",
+    "demon",
+    "android",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 935,
+  "source_url": "/generated/935.jpg",
+  "image_url": "/sketches/1713.png",
+  "inverted_image_url": "/sketches-inverted/1713.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 475,
+  "title": "Line sketch: Mystic Sorceress Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking portrait of a -skinned woman with glowing eyes and ornate facial markings, her dark curly hair flowing wildly. She wears an intricate and collar against a vibrant cosmic background with swirling patterns and silhouetted buildings (derived from painting #570).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking portrait of a -skinned woman with glowing eyes and ornate facial markings, her dark curly hair flowing wildly. She wears an intricate and collar against a vibrant cosmic background with swirling patterns and silhouetted buildings",
+  "inverted_title": "Inverted sketch: Mystic Sorceress Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking portrait of a -skinned woman with glowing eyes and ornate facial markings, her dark curly hair flowing wildly. She wears an intricate and collar against a vibrant cosmic background with swirling patterns and silhouetted buildings (from painting #570).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking portrait of a -skinned woman with glowing eyes and ornate facial markings, her dark curly hair flowing wildly. She wears an intricate and collar against a vibrant cosmic background with swirling patterns and silhouetted buildings",
+  "source_description": "A striking portrait of a teal-skinned woman with glowing orange eyes and ornate golden facial markings, her dark curly hair flowing wildly. She wears an intricate purple and gold collar against a vibrant cosmic background with swirling patterns and silhouetted buildings.",
+  "source_prompt": "",
+  "source_title": "Mystic Sorceress Portrait",
+  "style": "Fantasy Illustration",
+  "mood": "Mysterious Enigmatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy portrait",
+    "cosmic art",
+    "glowing eyes",
+    "ethereal woman",
+    "ornate details"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 570,
+  "source_url": "/paintings/570.jpg",
+  "image_url": "/sketches/475.png",
+  "inverted_image_url": "/sketches-inverted/475.png",
+  "curve_count": 150,
+  "built_at": "2026-08-17T00:09:39Z"
+}

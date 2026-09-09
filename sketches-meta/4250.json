@@ -1,0 +1,42 @@
+{
+  "number": 4250,
+  "title": "Line sketch: Psychedelic Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent spherical orb rests on rocky terrain, containing a glowing onion-like structure with dripping viscous liquid. Inside and around the orb are vibrant flowers, berries, and branching plasma tendrils, set against a dramatic sky with swirling clouds and streaking light beams (derived from generated still #3669).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent spherical orb rests on rocky terrain, containing a glowing onion-like structure with dripping viscous liquid. Inside and around the orb are vibrant flowers, berries, and branching plasma tendrils, set against a dramatic sky with swirling clouds and streaking light beams",
+  "inverted_title": "Inverted sketch: Psychedelic Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent spherical orb rests on rocky terrain, containing a glowing onion-like structure with dripping viscous liquid. Inside and around the orb are vibrant flowers, berries, and branching plasma tendrils, set against a dramatic sky with swirling clouds and streaking light beams (from generated still #3669).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent spherical orb rests on rocky terrain, containing a glowing onion-like structure with dripping viscous liquid. Inside and around the orb are vibrant flowers, berries, and branching plasma tendrils, set against a dramatic sky with swirling clouds and streaking light beams",
+  "source_description": "A large transparent spherical orb rests on colorful rocky terrain, containing a glowing purple onion-like structure with dripping viscous liquid. Inside and around the orb are vibrant flowers, red berries, and branching purple plasma tendrils, set against a dramatic sky with swirling red clouds and streaking rainbow light beams.",
+  "source_prompt": "surreal fantasy scene of a large transparent glass orb resting on multicolored rocky ground, inside the orb a glowing magenta onion-shaped core with branching purple plasma energy tendrils and dripping viscous purple liquid, surrounded by pink roses, orange flowers, and clusters of red and green berries, dramatic sky with swirling red and dark clouds intersected by bright diagonal beams of rainbow light, highly detailed digital painting with vibrant dripping paint effects",
+  "source_title": "Psychedelic Plasma Orb",
+  "style": "surreal fantasy",
+  "mood": "ethereal psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "orb",
+    "plasma",
+    "dripping",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3669,
+  "source_url": "/generated/3669.jpg",
+  "image_url": "/sketches/4250.png",
+  "inverted_image_url": "/sketches-inverted/4250.png",
+  "curve_count": 183,
+  "built_at": "2026-08-17T00:09:47Z"
+}

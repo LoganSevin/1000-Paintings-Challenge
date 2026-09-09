@@ -1,0 +1,42 @@
+{
+  "number": 2667,
+  "title": "Line sketch: Moon Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an ornate black and Victorian gown stands with her back to the viewer on a rocky outcrop, holding a small object in her raised hand. She gazes at a massive, blood- full moon dominating a starry night sky above a desolate landscape of twisted dead trees and mountains shrouded in mist (derived from generated still #1909).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an ornate black and Victorian gown stands with her back to the viewer on a rocky outcrop, holding a small object in her raised hand. She gazes at a massive, blood- full moon dominating a starry night sky above a desolate landscape of twisted dead trees and mountains shrouded in mist",
+  "inverted_title": "Inverted sketch: Moon Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an ornate black and Victorian gown stands with her back to the viewer on a rocky outcrop, holding a small object in her raised hand. She gazes at a massive, blood- full moon dominating a starry night sky above a desolate landscape of twisted dead trees and mountains shrouded in mist (from generated still #1909).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an ornate black and Victorian gown stands with her back to the viewer on a rocky outcrop, holding a small object in her raised hand. She gazes at a massive, blood- full moon dominating a starry night sky above a desolate landscape of twisted dead trees and mountains shrouded in mist",
+  "source_description": "A woman in an ornate black and red Victorian gown stands with her back to the viewer on a rocky outcrop, holding a small object in her raised hand. She gazes at a massive, blood-red full moon dominating a starry night sky above a desolate landscape of twisted dead trees and purple mountains shrouded in mist.",
+  "source_prompt": "",
+  "source_title": "Crimson Moon Sorceress",
+  "style": "fantasy gothic",
+  "mood": "mysterious ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "moon",
+    "gothic",
+    "sorceress",
+    "fantasy landscape",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1909,
+  "source_url": "/generated/1909.jpg",
+  "image_url": "/sketches/2667.png",
+  "inverted_image_url": "/sketches-inverted/2667.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

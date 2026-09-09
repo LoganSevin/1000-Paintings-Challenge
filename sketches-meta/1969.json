@@ -1,0 +1,42 @@
+{
+  "number": 1969,
+  "title": "Line sketch: Man on Cosmic Turtle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts an elderly man with glasses and a hat riding a large sea turtle. A bird perches on his shoulder as they float through a cosmic space filled with swirling patterns, orbs, and a large translucent vortex (derived from generated still #1194).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts an elderly man with glasses and a hat riding a large sea turtle. A bird perches on his shoulder as they float through a cosmic space filled with swirling patterns, orbs, and a large translucent vortex",
+  "inverted_title": "Inverted sketch: Man on Cosmic Turtle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts an elderly man with glasses and a hat riding a large sea turtle. A bird perches on his shoulder as they float through a cosmic space filled with swirling patterns, orbs, and a large translucent vortex (from generated still #1194).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts an elderly man with glasses and a hat riding a large sea turtle. A bird perches on his shoulder as they float through a cosmic space filled with swirling patterns, orbs, and a large translucent vortex",
+  "source_description": "A vibrant surreal painting depicts an elderly man with glasses and a hat riding a large green sea turtle. A yellow bird perches on his shoulder as they float through a purple cosmic space filled with swirling patterns, colorful orbs, and a large translucent green vortex.",
+  "source_prompt": "",
+  "source_title": "Man on Cosmic Turtle",
+  "style": "surrealism",
+  "mood": "whimsical, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "turtle",
+    "elderly man",
+    "cosmic",
+    "bird"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1194,
+  "source_url": "/generated/1194.jpg",
+  "image_url": "/sketches/1969.png",
+  "inverted_image_url": "/sketches-inverted/1969.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:42Z"
+}

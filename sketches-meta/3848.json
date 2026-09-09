@@ -1,0 +1,42 @@
+{
+  "number": 3848,
+  "title": "Line sketch: Armored Character Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three sequential poses of a female character with short hair, wearing a form-fitting armored outfit with spiked shoulder pads, knee guards, and a long tail. She is shown in dynamic stances against a solid background (derived from generated still #3265).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three sequential poses of a female character with short hair, wearing a form-fitting armored outfit with spiked shoulder pads, knee guards, and a long tail. She is shown in dynamic stances against a solid background",
+  "inverted_title": "Inverted sketch: Armored Character Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three sequential poses of a female character with short hair, wearing a form-fitting armored outfit with spiked shoulder pads, knee guards, and a long tail. She is shown in dynamic stances against a solid background (from generated still #3265).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three sequential poses of a female character with short hair, wearing a form-fitting armored outfit with spiked shoulder pads, knee guards, and a long tail. She is shown in dynamic stances against a solid background",
+  "source_description": "Three sequential poses of a female character with short silver hair, wearing a form-fitting blue armored outfit with spiked shoulder pads, knee guards, and a long blue tail. She is shown in dynamic stances against a solid pink background.",
+  "source_prompt": "A female character with short layered silver hair and fierce expression, wearing detailed blue armored bodysuit with high collar, spiked shoulder armor, knee pads, and a long curved blue tail. She is shown in three different dynamic action poses side by side, full body view, wearing fingerless gloves and heavy boots, against a solid bright pink background, digital painting style, clean studio lighting.",
+  "source_title": "Blue Armored Character Poses",
+  "style": "line sketch",
+  "mood": "dynamic, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "armor",
+    "hair",
+    "multiple poses",
+    "tail"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3265,
+  "source_url": "/generated/3265.jpg",
+  "image_url": "/sketches/3848.png",
+  "inverted_image_url": "/sketches-inverted/3848.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:46Z"
+}

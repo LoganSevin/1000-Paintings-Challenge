@@ -1,0 +1,42 @@
+{
+  "number": 1929,
+  "title": "Line sketch: Psychedelic Alien Overlord",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant alien head with large starry and eyes dominates a surreal landscape. Dripping liquid from a cosmic starry sky above, while stylized human figures, hearts, and geometric patterns appear on a ground below (derived from generated still #1154).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant alien head with large starry and eyes dominates a surreal landscape. Dripping liquid from a cosmic starry sky above, while stylized human figures, hearts, and geometric patterns appear on a ground below",
+  "inverted_title": "Inverted sketch: Psychedelic Alien Overlord",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant alien head with large starry and eyes dominates a surreal landscape. Dripping liquid from a cosmic starry sky above, while stylized human figures, hearts, and geometric patterns appear on a ground below (from generated still #1154).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant alien head with large starry and eyes dominates a surreal landscape. Dripping liquid from a cosmic starry sky above, while stylized human figures, hearts, and geometric patterns appear on a ground below",
+  "source_description": "A giant green alien head with large starry purple and yellow eyes dominates a surreal landscape. Dripping pink liquid from a cosmic starry sky above, while stylized human figures, hearts, and geometric patterns appear on a colorful ground below.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Alien Overlord",
+  "style": "surrealism",
+  "mood": "trippy cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "psychedelic",
+    "surreal",
+    "cosmic",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1154,
+  "source_url": "/generated/1154.jpg",
+  "image_url": "/sketches/1929.png",
+  "inverted_image_url": "/sketches-inverted/1929.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:42Z"
+}

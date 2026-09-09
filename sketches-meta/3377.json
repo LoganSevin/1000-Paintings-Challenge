@@ -1,0 +1,42 @@
+{
+  "number": 3377,
+  "title": "Line sketch: Cosmic Sorcerer Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring a hooded sorcerer with a staff standing on turbulent waves beside a giant glowing mushroom and a massive dragon coiled within a swirling cosmic portal filled with galaxies and stars. Lightning strikes across a sky as glowing orbs float above the stylized ocean and distant mountains (derived from generated still #2778).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring a hooded sorcerer with a staff standing on turbulent waves beside a giant glowing mushroom and a massive dragon coiled within a swirling cosmic portal filled with galaxies and stars. Lightning strikes across a sky as glowing orbs float above the stylized ocean and distant mountains",
+  "inverted_title": "Inverted sketch: Cosmic Sorcerer Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring a hooded sorcerer with a staff standing on turbulent waves beside a giant glowing mushroom and a massive dragon coiled within a swirling cosmic portal filled with galaxies and stars. Lightning strikes across a sky as glowing orbs float above the stylized ocean and distant mountains (from generated still #2778).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring a hooded sorcerer with a staff standing on turbulent waves beside a giant glowing mushroom and a massive dragon coiled within a swirling cosmic portal filled with galaxies and stars. Lightning strikes across a sky as glowing orbs float above the stylized ocean and distant mountains",
+  "source_description": "A surreal fantasy scene featuring a hooded sorcerer with a staff standing on turbulent waves beside a giant glowing mushroom and a massive dragon coiled within a swirling cosmic portal filled with galaxies and stars. Lightning strikes across a purple sky as glowing orbs float above the stylized ocean and distant mountains.",
+  "source_prompt": "",
+  "source_title": "Cosmic Sorcerer Storm",
+  "style": "fantasy illustration",
+  "mood": "mystical epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "surreal",
+    "cosmic",
+    "sorcerer",
+    "dragon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2778,
+  "source_url": "/generated/2778.jpg",
+  "image_url": "/sketches/3377.png",
+  "inverted_image_url": "/sketches-inverted/3377.png",
+  "curve_count": 84,
+  "built_at": "2026-08-17T00:09:45Z"
+}

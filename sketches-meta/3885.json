@@ -1,0 +1,42 @@
+{
+  "number": 3885,
+  "title": "Line sketch: Lion Tail Character Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three vertical panels display the same anime-style female character with a lion tail and steampunk outfit. Left panel shows her standing dynamically with one hand raised, middle panel captures her mid-air in a falling pose, right panel shows her lying on the ground after impact (derived from generated still #3302).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three vertical panels display the same anime-style female character with a lion tail and steampunk outfit. Left panel shows her standing dynamically with one hand raised, middle panel captures her mid-air in a falling pose, right panel shows her lying on the ground after impact",
+  "inverted_title": "Inverted sketch: Lion Tail Character Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three vertical panels display the same anime-style female character with a lion tail and steampunk outfit. Left panel shows her standing dynamically with one hand raised, middle panel captures her mid-air in a falling pose, right panel shows her lying on the ground after impact (from generated still #3302).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three vertical panels display the same anime-style female character with a lion tail and steampunk outfit. Left panel shows her standing dynamically with one hand raised, middle panel captures her mid-air in a falling pose, right panel shows her lying on the ground after impact",
+  "source_description": "Three vertical panels display the same anime-style female character with a lion tail and steampunk outfit. Left panel shows her standing dynamically with one hand raised, middle panel captures her mid-air in a falling pose, right panel shows her lying on the ground after impact.",
+  "source_prompt": "Anime style illustration of a young female character with spiky black hair, yellow goggles, and a mechanical lion tail, wearing a yellow and black steampunk jacket with belts, shorts, and boots. Three vertical panels on a green gradient background: standing pose with hand raised, mid-air falling pose, and lying on the ground after falling. Bold line art, vibrant colors, dynamic action sequence.",
+  "source_title": "Lion Tail Character Poses",
+  "style": "anime illustration",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anime girl",
+    "lion tail",
+    "steampunk",
+    "multiple poses",
+    "action sequence"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3302,
+  "source_url": "/generated/3302.jpg",
+  "image_url": "/sketches/3885.png",
+  "inverted_image_url": "/sketches-inverted/3885.png",
+  "curve_count": 68,
+  "built_at": "2026-08-17T00:09:46Z"
+}

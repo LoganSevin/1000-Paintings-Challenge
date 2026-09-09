@@ -1,0 +1,42 @@
+{
+  "number": 306,
+  "title": "Line sketch: Interior with Sailboat Paintings",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene room interior features two wooden tables against walls, each topped with lit lamps and bottles. Two framed paintings of sailboats on water hang above, flanked by open doors (derived from painting #367).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene room interior features two wooden tables against walls, each topped with lit lamps and bottles. Two framed paintings of sailboats on water hang above, flanked by open doors",
+  "inverted_title": "Inverted sketch: Interior with Sailboat Paintings",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene room interior features two wooden tables against walls, each topped with lit lamps and bottles. Two framed paintings of sailboats on water hang above, flanked by open doors (from painting #367).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene room interior features two wooden tables against walls, each topped with lit lamps and bottles. Two framed paintings of sailboats on water hang above, flanked by open doors",
+  "source_description": "A serene room interior features two wooden tables against light green walls, each topped with lit lamps and bottles. Two framed paintings of sailboats on blue water hang above, flanked by open blue doors.",
+  "source_prompt": "",
+  "source_title": "Interior with Sailboat Paintings",
+  "style": "Realism",
+  "mood": "Calm and inviting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "interior",
+    "still life",
+    "sailboats",
+    "lamps",
+    "walls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 367,
+  "source_url": "/paintings/367.jpg",
+  "image_url": "/sketches/306.png",
+  "inverted_image_url": "/sketches-inverted/306.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:38Z"
+}

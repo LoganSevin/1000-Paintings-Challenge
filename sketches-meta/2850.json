@@ -1,0 +1,42 @@
+{
+  "number": 2850,
+  "title": "Line sketch: Steampunk Airship Silhouette",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, rusty steampunk airship with riveted metal plating, gauges, and pipes floats in the sky. Below it stands the dark silhouette of a person with spiky hair looking up, with a gothic castle visible inside the glowing circular window of the vessel (derived from generated still #2135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, rusty steampunk airship with riveted metal plating, gauges, and pipes floats in the sky. Below it stands the dark silhouette of a person with spiky hair looking up, with a gothic castle visible inside the glowing circular window of the vessel",
+  "inverted_title": "Inverted sketch: Steampunk Airship Silhouette",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, rusty steampunk airship with riveted metal plating, gauges, and pipes floats in the sky. Below it stands the dark silhouette of a person with spiky hair looking up, with a gothic castle visible inside the glowing circular window of the vessel (from generated still #2135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, rusty steampunk airship with riveted metal plating, gauges, and pipes floats in the sky. Below it stands the dark silhouette of a person with spiky hair looking up, with a gothic castle visible inside the glowing circular window of the vessel",
+  "source_description": "A large, rusty steampunk airship with riveted metal plating, gauges, and pipes floats in the sky. Below it stands the dark silhouette of a person with spiky hair looking up, with a gothic castle visible inside the glowing circular window of the vessel.",
+  "source_prompt": "A massive rusty steampunk airship with riveted metal, gears, and pressure gauges floats against a dramatic twilight sky. Inside its large circular window a detailed gothic castle is visible under a full moon. Below the vessel stands the black silhouette of a person with spiky hair looking upward, warm orange sunset glow at the horizon, melancholic and mysterious atmosphere, cinematic composition",
+  "source_title": "Steampunk Airship Silhouette",
+  "style": "surreal",
+  "mood": "mysterious, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "airship",
+    "silhouette",
+    "gothic castle",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2135,
+  "source_url": "/generated/2135.jpg",
+  "image_url": "/sketches/2850.png",
+  "inverted_image_url": "/sketches-inverted/2850.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:44Z"
+}

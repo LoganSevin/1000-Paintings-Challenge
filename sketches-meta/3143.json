@@ -1,0 +1,42 @@
+{
+  "number": 3143,
+  "title": "Line sketch: Alien in Retro Pod",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A reptilian alien with hair and sunglasses sits inside a metallic spherical pod, wearing a patterned scarf. The surreal landscape features a lollipop-like tree with melting spheres, floating patterned orbs, a dripping celestial body, and a swirling wooden floor with checkered and dotted balls (derived from generated still #2483).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A reptilian alien with hair and sunglasses sits inside a metallic spherical pod, wearing a patterned scarf. The surreal landscape features a lollipop-like tree with melting spheres, floating patterned orbs, a dripping celestial body, and a swirling wooden floor with checkered and dotted balls",
+  "inverted_title": "Inverted sketch: Alien in Retro Pod",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A reptilian alien with hair and sunglasses sits inside a metallic spherical pod, wearing a patterned scarf. The surreal landscape features a lollipop-like tree with melting spheres, floating patterned orbs, a dripping celestial body, and a swirling wooden floor with checkered and dotted balls (from generated still #2483).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A reptilian alien with hair and sunglasses sits inside a metallic spherical pod, wearing a patterned scarf. The surreal landscape features a lollipop-like tree with melting spheres, floating patterned orbs, a dripping celestial body, and a swirling wooden floor with checkered and dotted balls",
+  "source_description": "A green reptilian alien with purple hair and yellow sunglasses sits inside a metallic spherical pod, wearing a patterned scarf. The surreal landscape features a colorful lollipop-like tree with melting spheres, floating patterned orbs, a dripping red celestial body, and a swirling wooden floor with checkered and dotted balls.",
+  "source_prompt": "A green reptilian alien with purple afro hair and yellow sunglasses sits inside a metallic spherical pod with bolts, wearing a patterned scarf. Psychedelic surreal landscape with a tall lollipop tree covered in colorful patterned spheres, floating orbs, a large dripping red planet, swirling wooden floor with checkered balls and yellow bead chains, vibrant retro color palette, melting elements, dreamy atmosphere.",
+  "source_title": "Alien in Retro Pod",
+  "style": "surreal pop art",
+  "mood": "psychedelic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "alien",
+    "retro-futuristic",
+    "psychedelic",
+    "melting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2483,
+  "source_url": "/generated/2483.jpg",
+  "image_url": "/sketches/3143.png",
+  "inverted_image_url": "/sketches-inverted/3143.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

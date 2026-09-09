@@ -1,0 +1,42 @@
+{
+  "number": 1790,
+  "title": "Line sketch: Dragon and Paw Print Guardian",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition depicts a silhouetted female figure with a patterned headscarf holding a glowing orb, standing beside the head of a large, ornate and dragon. The dragon's coiled body frames a large circle filled with animal paw prints against a starry night sky with swirling patterns (derived from generated still #1013).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition depicts a silhouetted female figure with a patterned headscarf holding a glowing orb, standing beside the head of a large, ornate and dragon. The dragon's coiled body frames a large circle filled with animal paw prints against a starry night sky with swirling patterns",
+  "inverted_title": "Inverted sketch: Dragon and Paw Print Guardian",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition depicts a silhouetted female figure with a patterned headscarf holding a glowing orb, standing beside the head of a large, ornate and dragon. The dragon's coiled body frames a large circle filled with animal paw prints against a starry night sky with swirling patterns (from generated still #1013).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition depicts a silhouetted female figure with a patterned headscarf holding a glowing orb, standing beside the head of a large, ornate and dragon. The dragon's coiled body frames a large circle filled with animal paw prints against a starry night sky with swirling patterns",
+  "source_description": "A vibrant painting depicts a silhouetted female figure with a patterned headscarf holding a glowing orb, standing beside the head of a large, ornate blue and green dragon. The dragon's coiled body frames a large red circle filled with colorful animal paw prints against a starry purple night sky with swirling patterns.",
+  "source_prompt": "",
+  "source_title": "Dragon and Paw Print Guardian",
+  "style": "whimsical fantasy",
+  "mood": "magical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "paw prints",
+    "silhouette",
+    "fantasy art",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1013,
+  "source_url": "/generated/1013.jpg",
+  "image_url": "/sketches/1790.png",
+  "inverted_image_url": "/sketches-inverted/1790.png",
+  "curve_count": 258,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3995,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A confident female warrior stands in a wide fighting stance holding a large ornate warhammer. She wears and tribal-style armor with cropped top, baggy pants, and matching boots against a solid dark gray background (derived from generated still #3412).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A confident female warrior stands in a wide fighting stance holding a large ornate warhammer. She wears and tribal-style armor with cropped top, baggy pants, and matching boots against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A confident female warrior stands in a wide fighting stance holding a large ornate warhammer. She wears and tribal-style armor with cropped top, baggy pants, and matching boots against a solid dark gray background (from generated still #3412).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A confident female warrior stands in a wide fighting stance holding a large ornate warhammer. She wears and tribal-style armor with cropped top, baggy pants, and matching boots against a solid dark gray background",
+  "source_description": "A confident female warrior stands in a wide fighting stance holding a large ornate purple warhammer. She wears orange and purple tribal-style armor with cropped top, baggy pants, and matching boots against a solid dark gray background.",
+  "source_prompt": "A fierce young East Asian female warrior with long dark hair in a topknot stands in a powerful wide stance, smiling confidently. She wields a massive ornate purple warhammer with both hands. Wearing an orange cropped top with tribal patterns, purple and orange baggy pants, knee pads, and matching boots with purple wraps. Solid dark gray background, clean studio lighting, highly detailed fantasy character design.",
+  "source_title": "Purple Hammer Warrior",
+  "style": "digital character art",
+  "mood": "fierce, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "tribal armor",
+    "fantasy character",
+    "action pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3412,
+  "source_url": "/generated/3412.jpg",
+  "image_url": "/sketches/3995.png",
+  "inverted_image_url": "/sketches-inverted/3995.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:47Z"
+}

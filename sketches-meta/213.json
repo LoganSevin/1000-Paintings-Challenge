@@ -1,0 +1,42 @@
+{
+  "number": 213,
+  "title": "Line sketch: Mushroom Friends in Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cheerful mushroom creature with a spotted cap stands in shallow water next to a smaller companion. They enjoy a sunny day surrounded by lush trees and a sky (derived from painting #260).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cheerful mushroom creature with a spotted cap stands in shallow water next to a smaller companion. They enjoy a sunny day surrounded by lush trees and a sky",
+  "inverted_title": "Inverted sketch: Mushroom Friends in Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cheerful mushroom creature with a spotted cap stands in shallow water next to a smaller companion. They enjoy a sunny day surrounded by lush trees and a sky (from painting #260).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cheerful mushroom creature with a spotted cap stands in shallow water next to a smaller companion. They enjoy a sunny day surrounded by lush trees and a sky",
+  "source_description": "A cheerful blue mushroom creature with a red spotted cap stands in shallow water next to a smaller yellow companion. They enjoy a sunny day surrounded by lush green trees and a bright blue sky.",
+  "source_prompt": "",
+  "source_title": "Mushroom Friends in Pond",
+  "style": "digital illustration",
+  "mood": "cheerful and whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "cute",
+    "pond",
+    "nature",
+    "friends"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 260,
+  "source_url": "/paintings/260.jpg",
+  "image_url": "/sketches/213.png",
+  "inverted_image_url": "/sketches-inverted/213.png",
+  "curve_count": 272,
+  "built_at": "2026-08-17T00:09:38Z"
+}

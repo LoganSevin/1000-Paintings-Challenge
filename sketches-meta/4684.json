@@ -1,0 +1,42 @@
+{
+  "number": 4684,
+  "title": "Line sketch: Kitchen Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sunlit kitchen corner featuring sage cabinets, a refrigerator with its door open, and a black farmhouse sink beneath a vibrant stained glass window. Light streams through the window, casting patterns across the countertops, slow cooker, and patterned rug (derived from generated still #4111).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sunlit kitchen corner featuring sage cabinets, a refrigerator with its door open, and a black farmhouse sink beneath a vibrant stained glass window. Light streams through the window, casting patterns across the countertops, slow cooker, and patterned rug",
+  "inverted_title": "Inverted sketch: Kitchen Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sunlit kitchen corner featuring sage cabinets, a refrigerator with its door open, and a black farmhouse sink beneath a vibrant stained glass window. Light streams through the window, casting patterns across the countertops, slow cooker, and patterned rug (from generated still #4111).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sunlit kitchen corner featuring sage cabinets, a refrigerator with its door open, and a black farmhouse sink beneath a vibrant stained glass window. Light streams through the window, casting patterns across the countertops, slow cooker, and patterned rug",
+  "source_description": "A sunlit kitchen corner featuring sage green cabinets, a bright yellow refrigerator with its door open, and a black farmhouse sink beneath a vibrant stained glass window. Light streams through the multicolored window, casting rainbow patterns across the countertops, red slow cooker, and patterned rug.",
+  "source_prompt": "A cozy kitchen interior with sage green distressed cabinets and countertops, a bright yellow refrigerator with door open revealing food inside, black farmhouse sink under a vibrant multicolored stained glass window, red slow cooker on the right counter, coffee maker, glass jars, and patterned rug on the floor. Warm sunlight streams through the window casting colorful rainbow light patterns across the scene, painterly style with visible brushstrokes.",
+  "source_title": "Colorful Kitchen Still Life",
+  "style": "painterly illustration",
+  "mood": "warm and whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kitchen",
+    "stained glass",
+    "still life",
+    "interior",
+    "light"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4111,
+  "source_url": "/generated/4111.jpg",
+  "image_url": "/sketches/4684.png",
+  "inverted_image_url": "/sketches-inverted/4684.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2336,
+  "title": "Line sketch: Psychedelic Mushroom Swamp",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy landscape featuring a giant Amanita muscaria mushroom with white spots at the center of a dark reflective pool filled with lily pads. In the foreground is a large cabbage-like plant with a glowing core, set against black rocky formations dripping with lava under a swirling and cosmic sky (derived from generated still #1564).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy landscape featuring a giant Amanita muscaria mushroom with white spots at the center of a dark reflective pool filled with lily pads. In the foreground is a large cabbage-like plant with a glowing core, set against black rocky formations dripping with lava under a swirling and cosmic sky",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Swamp",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy landscape featuring a giant Amanita muscaria mushroom with white spots at the center of a dark reflective pool filled with lily pads. In the foreground is a large cabbage-like plant with a glowing core, set against black rocky formations dripping with lava under a swirling and cosmic sky (from generated still #1564).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy landscape featuring a giant Amanita muscaria mushroom with white spots at the center of a dark reflective pool filled with lily pads. In the foreground is a large cabbage-like plant with a glowing core, set against black rocky formations dripping with lava under a swirling and cosmic sky",
+  "source_description": "A surreal fantasy landscape featuring a giant red Amanita muscaria mushroom with white spots at the center of a dark reflective pool filled with lily pads. In the foreground is a large green cabbage-like plant with a glowing red core, set against black rocky formations dripping with orange lava under a swirling red and pink cosmic sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Swamp",
+  "style": "surreal fantasy",
+  "mood": "trippy mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "surreal",
+    "psychedelic",
+    "swamp",
+    "lava"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1564,
+  "source_url": "/generated/1564.jpg",
+  "image_url": "/sketches/2336.png",
+  "inverted_image_url": "/sketches-inverted/2336.png",
+  "curve_count": 377,
+  "built_at": "2026-08-17T00:09:43Z"
+}

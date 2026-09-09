@@ -1,0 +1,42 @@
+{
+  "number": 2024,
+  "title": "Line sketch: Vibrant Women at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composition shows four women in profile facing right, with stylized faces in,, and. Behind them is a tropical landscape with a large sun, reflective water, a island with trees, and decorative bubbles and swirls across a vibrant sky (derived from generated still #1249).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composition shows four women in profile facing right, with stylized faces in,, and. Behind them is a tropical landscape with a large sun, reflective water, a island with trees, and decorative bubbles and swirls across a vibrant sky",
+  "inverted_title": "Inverted sketch: Vibrant Women at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composition shows four women in profile facing right, with stylized faces in,, and. Behind them is a tropical landscape with a large sun, reflective water, a island with trees, and decorative bubbles and swirls across a vibrant sky (from generated still #1249).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composition shows four women in profile facing right, with stylized faces in,, and. Behind them is a tropical landscape with a large sun, reflective water, a island with trees, and decorative bubbles and swirls across a vibrant sky",
+  "source_description": "A colorful painting shows four women in profile facing right, with stylized faces in pink, green, purple, and orange. Behind them is a tropical landscape with a large red sun, reflective water, a green island with trees, and decorative blue bubbles and swirls across a vibrant sky.",
+  "source_prompt": "",
+  "source_title": "Vibrant Women at Sunset",
+  "style": "pop art",
+  "mood": "vibrant, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "women in profile",
+    "tropical landscape",
+    "sun",
+    "bubbles",
+    "island silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1249,
+  "source_url": "/generated/1249.jpg",
+  "image_url": "/sketches/2024.png",
+  "inverted_image_url": "/sketches-inverted/2024.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:42Z"
+}

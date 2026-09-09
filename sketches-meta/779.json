@@ -1,0 +1,42 @@
+{
+  "number": 779,
+  "title": "Line sketch: Curious Mouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed illustration of a mouse standing alert on its hind legs. The creature gazes upward with large, expressive eyes against a leafy background (derived from painting #980).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed illustration of a mouse standing alert on its hind legs. The creature gazes upward with large, expressive eyes against a leafy background",
+  "inverted_title": "Inverted sketch: Curious Mouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed illustration of a mouse standing alert on its hind legs. The creature gazes upward with large, expressive eyes against a leafy background (from painting #980).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed illustration of a mouse standing alert on its hind legs. The creature gazes upward with large, expressive eyes against a leafy background",
+  "source_description": "A detailed illustration of a brown mouse standing alert on its hind legs. The creature gazes upward with large, expressive eyes against a leafy background.",
+  "source_prompt": "",
+  "source_title": "Curious Brown Mouse",
+  "style": "Cartoon Illustration",
+  "mood": "Curious and Alert",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mouse",
+    "wildlife",
+    "illustration",
+    "nature",
+    "cute"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 980,
+  "source_url": "/paintings/980.jpg",
+  "image_url": "/sketches/779.png",
+  "inverted_image_url": "/sketches-inverted/779.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:39Z"
+}

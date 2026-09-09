@@ -1,0 +1,42 @@
+{
+  "number": 672,
+  "title": "Line sketch: Lotus Center",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up photograph of a vibrant water lily in full bloom. The intricate layers of petals spiral inward toward a and center, showcasing nature's geometric beauty (derived from painting #852).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up photograph of a vibrant water lily in full bloom. The intricate layers of petals spiral inward toward a and center, showcasing nature's geometric beauty",
+  "inverted_title": "Inverted sketch: Lotus Center",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up photograph of a vibrant water lily in full bloom. The intricate layers of petals spiral inward toward a and center, showcasing nature's geometric beauty (from painting #852).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up photograph of a vibrant water lily in full bloom. The intricate layers of petals spiral inward toward a and center, showcasing nature's geometric beauty",
+  "source_description": "A close-up photograph of a vibrant purple water lily in full bloom. The intricate layers of petals spiral inward toward a bright green and yellow center, showcasing nature's geometric beauty.",
+  "source_prompt": "",
+  "source_title": "Purple Lotus Center",
+  "style": "photorealistic",
+  "mood": "serene vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lotus",
+    "flower",
+    "macro",
+    "nature",
+    "botanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 852,
+  "source_url": "/paintings/852.jpg",
+  "image_url": "/sketches/672.png",
+  "inverted_image_url": "/sketches-inverted/672.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1081,
+  "title": "Line sketch: Steampunk Cyborg Witch",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a female character with skin, hair in an updo adorned with butterflies and mechanical gears. Her face features prominent stitches, a large glowing mechanical monocle over her right eye, exposed metallic jaw components, and she wears ornate brass and steel armor with a high collar (derived from generated still #293).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a female character with skin, hair in an updo adorned with butterflies and mechanical gears. Her face features prominent stitches, a large glowing mechanical monocle over her right eye, exposed metallic jaw components, and she wears ornate brass and steel armor with a high collar",
+  "inverted_title": "Inverted sketch: Steampunk Cyborg Witch",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a female character with skin, hair in an updo adorned with butterflies and mechanical gears. Her face features prominent stitches, a large glowing mechanical monocle over her right eye, exposed metallic jaw components, and she wears ornate brass and steel armor with a high collar (from generated still #293).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a female character with skin, hair in an updo adorned with butterflies and mechanical gears. Her face features prominent stitches, a large glowing mechanical monocle over her right eye, exposed metallic jaw components, and she wears ornate brass and steel armor with a high collar",
+  "source_description": "A close-up portrait of a female character with green skin, purple hair in an updo adorned with golden butterflies and mechanical gears. Her face features prominent stitches, a large glowing yellow mechanical monocle over her right eye, exposed metallic jaw components, and she wears ornate brass and steel armor with a high collar.",
+  "source_prompt": "",
+  "source_title": "Steampunk Cyborg Witch",
+  "style": "line sketch",
+  "mood": "menacing, grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "cyborg",
+    "horror",
+    "hair",
+    "mechanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 293,
+  "source_url": "/generated/293.jpg",
+  "image_url": "/sketches/1081.png",
+  "inverted_image_url": "/sketches-inverted/1081.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:40Z"
+}

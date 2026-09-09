@@ -1,0 +1,42 @@
+{
+  "number": 2837,
+  "title": "Line sketch: Surreal Moonlit Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composite face split into four distinct sections floats above a grassy field. The left side shows a crystalline night sky with a full moon and boat, the right side displays a vibrant sunset with a sailboat on water, while a large crystalline maple leaf protrudes from the right and a moon with a black boat appears on the far left (derived from generated still #2122).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composite face split into four distinct sections floats above a grassy field. The left side shows a crystalline night sky with a full moon and boat, the right side displays a vibrant sunset with a sailboat on water, while a large crystalline maple leaf protrudes from the right and a moon with a black boat appears on the far left",
+  "inverted_title": "Inverted sketch: Surreal Moonlit Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composite face split into four distinct sections floats above a grassy field. The left side shows a crystalline night sky with a full moon and boat, the right side displays a vibrant sunset with a sailboat on water, while a large crystalline maple leaf protrudes from the right and a moon with a black boat appears on the far left (from generated still #2122).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composite face split into four distinct sections floats above a grassy field. The left side shows a crystalline night sky with a full moon and boat, the right side displays a vibrant sunset with a sailboat on water, while a large crystalline maple leaf protrudes from the right and a moon with a black boat appears on the far left",
+  "source_description": "A surreal composite face split into four distinct sections floats above a grassy field. The left side shows a purple crystalline night sky with a full moon and boat, the right side displays a vibrant orange sunset with a sailboat on water, while a large red crystalline maple leaf protrudes from the right and a golden moon with a black boat appears on the far left.",
+  "source_prompt": "Surreal split portrait of a woman's lower face floating in a dreamy landscape, the circular head divided into four segments showing different times of day: dark purple night sky with full moon and boat on the upper left, vibrant orange sunset with sailboat on the right, a large faceted red maple leaf emerging from the right side, and a glowing golden moon with black boat on the far left, set against a starry night sky over a flower-filled meadow, highly detailed digital painting",
+  "source_title": "Surreal Moonlit Portrait",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "celestial",
+    "split-face",
+    "moon",
+    "maple-leaf"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2122,
+  "source_url": "/generated/2122.jpg",
+  "image_url": "/sketches/2837.png",
+  "inverted_image_url": "/sketches-inverted/2837.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:44Z"
+}

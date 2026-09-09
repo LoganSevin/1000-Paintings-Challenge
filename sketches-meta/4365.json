@@ -1,0 +1,42 @@
+{
+  "number": 4365,
+  "title": "Line sketch: Surreal Crystal Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent crystal ball rests on an ornate dark stand, displaying a surreal miniature world inside. Within the sphere, a glowing central orb emits branches and lightning, while waterfalls cascade from a cliff; outside the sphere a cloaked figure with an umbrella stands on a rock ledge beneath a giant sun, with a vibrant waterfall and dramatic cliffs in the background (derived from generated still #3784).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent crystal ball rests on an ornate dark stand, displaying a surreal miniature world inside. Within the sphere, a glowing central orb emits branches and lightning, while waterfalls cascade from a cliff; outside the sphere a cloaked figure with an umbrella stands on a rock ledge beneath a giant sun, with a vibrant waterfall and dramatic cliffs in the background",
+  "inverted_title": "Inverted sketch: Surreal Crystal Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent crystal ball rests on an ornate dark stand, displaying a surreal miniature world inside. Within the sphere, a glowing central orb emits branches and lightning, while waterfalls cascade from a cliff; outside the sphere a cloaked figure with an umbrella stands on a rock ledge beneath a giant sun, with a vibrant waterfall and dramatic cliffs in the background (from generated still #3784).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent crystal ball rests on an ornate dark stand, displaying a surreal miniature world inside. Within the sphere, a glowing central orb emits branches and lightning, while waterfalls cascade from a cliff; outside the sphere a cloaked figure with an umbrella stands on a rock ledge beneath a giant sun, with a vibrant waterfall and dramatic cliffs in the background",
+  "source_description": "A large transparent crystal ball rests on an ornate dark stand, displaying a surreal miniature world inside. Within the sphere, a glowing central orb emits neon branches and lightning, while waterfalls cascade from a cliff; outside the sphere a cloaked figure with an umbrella stands on a red rock ledge beneath a giant red sun, with a vibrant waterfall and dramatic cliffs in the background.",
+  "source_prompt": "A large transparent crystal sphere on an ornate stand contains a glowing central orb with neon tree-like branches and lightning, waterfalls flowing from a cliff inside it. Outside the sphere a mysterious cloaked figure holding an umbrella stands on a red rock ledge in front of a giant red sun. Dramatic cliffs with a rainbow waterfall and stormy clouds fill the background, surreal fantasy digital painting with neon glows and vibrant colors.",
+  "source_title": "Surreal Crystal Sphere",
+  "style": "surreal fantasy",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "surreal landscape",
+    "lighting",
+    "waterfall",
+    "umbrella figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3784,
+  "source_url": "/generated/3784.jpg",
+  "image_url": "/sketches/4365.png",
+  "inverted_image_url": "/sketches-inverted/4365.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:48Z"
+}

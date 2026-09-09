@@ -1,0 +1,42 @@
+{
+  "number": 4156,
+  "title": "Line sketch: Surreal Mosaic Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a large mosaic-style human face with eyes at center, a giant white lily flower growing from a mechanical elephant tank, and multiple smaller steampunk war elephants traversing a vibrant field of and poppies. A brick wall stretches across the horizon beneath a glowing sun with radiating beams (derived from generated still #3574).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a large mosaic-style human face with eyes at center, a giant white lily flower growing from a mechanical elephant tank, and multiple smaller steampunk war elephants traversing a vibrant field of and poppies. A brick wall stretches across the horizon beneath a glowing sun with radiating beams",
+  "inverted_title": "Inverted sketch: Surreal Mosaic Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a large mosaic-style human face with eyes at center, a giant white lily flower growing from a mechanical elephant tank, and multiple smaller steampunk war elephants traversing a vibrant field of and poppies. A brick wall stretches across the horizon beneath a glowing sun with radiating beams (from generated still #3574).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a large mosaic-style human face with eyes at center, a giant white lily flower growing from a mechanical elephant tank, and multiple smaller steampunk war elephants traversing a vibrant field of and poppies. A brick wall stretches across the horizon beneath a glowing sun with radiating beams",
+  "source_description": "A surreal scene featuring a large mosaic-style human face with orange eyes at center, a giant white lily flower growing from a mechanical elephant tank, and multiple smaller steampunk war elephants traversing a vibrant purple field of lavender and red poppies. A red brick wall stretches across the horizon beneath a glowing yellow sun with radiating pink beams.",
+  "source_prompt": "Surreal psychedelic landscape with a giant mosaic human face with orange eyes floating in the sky, a massive white lily with yellow stamens growing from a mechanical armored elephant tank, multiple smaller steampunk war elephants walking through a dense field of purple lavender and red poppies, a long red brick wall on the horizon, bright yellow sun with dramatic pink radiating beams, vibrant colors, detailed linework",
+  "source_title": "Surreal Mosaic Dreamscape",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mosaic",
+    "mechanical elephants",
+    "poppies",
+    "lily flower"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3574,
+  "source_url": "/generated/3574.jpg",
+  "image_url": "/sketches/4156.png",
+  "inverted_image_url": "/sketches-inverted/4156.png",
+  "curve_count": 107,
+  "built_at": "2026-08-17T00:09:47Z"
+}

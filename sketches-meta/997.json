@@ -1,0 +1,42 @@
+{
+  "number": 997,
+  "title": "Line sketch: Eternal Serpent Clock",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal illustration features a giant serpent with glowing eyes coiled around a large ornate clock face. A small silhouetted woman in a dress stands on the serpent's body, reaching toward the clock hands, while a woman's face with flowing hair emerges from the clock's center amid flames and swirling smoke (derived from generated still #207).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal illustration features a giant serpent with glowing eyes coiled around a large ornate clock face. A small silhouetted woman in a dress stands on the serpent's body, reaching toward the clock hands, while a woman's face with flowing hair emerges from the clock's center amid flames and swirling smoke",
+  "inverted_title": "Inverted sketch: Eternal Serpent Clock",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal illustration features a giant serpent with glowing eyes coiled around a large ornate clock face. A small silhouetted woman in a dress stands on the serpent's body, reaching toward the clock hands, while a woman's face with flowing hair emerges from the clock's center amid flames and swirling smoke (from generated still #207).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal illustration features a giant serpent with glowing eyes coiled around a large ornate clock face. A small silhouetted woman in a dress stands on the serpent's body, reaching toward the clock hands, while a woman's face with flowing hair emerges from the clock's center amid flames and swirling smoke",
+  "source_description": "A surreal illustration features a giant dark blue serpent with glowing orange eyes coiled around a large ornate clock face. A small silhouetted woman in a purple dress stands on the serpent's body, reaching toward the clock hands, while a woman's face with flowing multicolored hair emerges from the clock's center amid flames and swirling smoke.",
+  "source_prompt": "",
+  "source_title": "Eternal Serpent Clock",
+  "style": "fantasy illustration",
+  "mood": "mystical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "serpent",
+    "clock",
+    "surreal",
+    "fantasy",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 207,
+  "source_url": "/generated/207.jpg",
+  "image_url": "/sketches/997.png",
+  "inverted_image_url": "/sketches-inverted/997.png",
+  "curve_count": 208,
+  "built_at": "2026-08-17T00:09:40Z"
+}

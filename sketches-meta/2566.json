@@ -1,0 +1,42 @@
+{
+  "number": 2566,
+  "title": "Line sketch: Stasis on Fractured Plain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale woman with long dark braided hair sits in an ornate crystalline throne on a vast cracked plain. She wears an elaborate ruffled collar and flowing patterned robes while holding a small hourglass, with scattered pocket watches around her under a dramatic, sky (derived from generated still #1802).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale woman with long dark braided hair sits in an ornate crystalline throne on a vast cracked plain. She wears an elaborate ruffled collar and flowing patterned robes while holding a small hourglass, with scattered pocket watches around her under a dramatic, sky",
+  "inverted_title": "Inverted sketch: Stasis on Fractured Plain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale woman with long dark braided hair sits in an ornate crystalline throne on a vast cracked plain. She wears an elaborate ruffled collar and flowing patterned robes while holding a small hourglass, with scattered pocket watches around her under a dramatic, sky (from generated still #1802).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale woman with long dark braided hair sits in an ornate crystalline throne on a vast cracked plain. She wears an elaborate ruffled collar and flowing patterned robes while holding a small hourglass, with scattered pocket watches around her under a dramatic, sky",
+  "source_description": "A pale woman with long dark braided hair sits in an ornate crystalline throne on a vast cracked plain. She wears an elaborate ruffled collar and flowing patterned robes while holding a small hourglass, with scattered pocket watches around her under a dramatic, colorful sky.",
+  "source_prompt": "",
+  "source_title": "Stasis on Fractured Plain",
+  "style": "fantasy composition",
+  "mood": "melancholy, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "throne",
+    "hourglass",
+    "cracked earth",
+    "braided hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1802,
+  "source_url": "/generated/1802.jpg",
+  "image_url": "/sketches/2566.png",
+  "inverted_image_url": "/sketches-inverted/2566.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:43Z"
+}

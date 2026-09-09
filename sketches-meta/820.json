@@ -1,0 +1,42 @@
+{
+  "number": 820,
+  "title": "Line sketch: Cosmic Veil Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman's face split between a floral-decorated left side with tears and a vibrant cosmic nebula right side containing a large eye. Glowing orbs with flowers and insects float around her against a swirling, and vortex background (derived from generated still #29).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman's face split between a floral-decorated left side with tears and a vibrant cosmic nebula right side containing a large eye. Glowing orbs with flowers and insects float around her against a swirling, and vortex background",
+  "inverted_title": "Inverted sketch: Cosmic Veil Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman's face split between a floral-decorated left side with tears and a vibrant cosmic nebula right side containing a large eye. Glowing orbs with flowers and insects float around her against a swirling, and vortex background (from generated still #29).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman's face split between a floral-decorated left side with tears and a vibrant cosmic nebula right side containing a large eye. Glowing orbs with flowers and insects float around her against a swirling, and vortex background",
+  "source_description": "A surreal portrait of a woman's face split between a floral-decorated left side with tears and a vibrant cosmic nebula right side containing a large eye. Glowing green orbs with flowers and insects float around her against a swirling orange, pink, and purple vortex background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Veil Portrait",
+  "style": "surrealism",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "floral",
+    "nebula",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 29,
+  "source_url": "/generated/29.jpg",
+  "image_url": "/sketches/820.png",
+  "inverted_image_url": "/sketches-inverted/820.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:39Z"
+}

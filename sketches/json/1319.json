@@ -1,0 +1,22 @@
+{
+  "num": 1319,
+  "title": "Generated #534",
+  "created": 1786915994.4137673,
+  "source_url": "/generated/534.jpg",
+  "width": 360,
+  "height": 202,
+  "curve_count": 2,
+  "curves": [
+    "((1 - t)^3*251.00 + 3*t*(1 - t)^2*249.67 + 3*t^2*(1 - t)*248.33 + t^3*247.00,(1 - t)^3*153.00 + 3*t*(1 - t)^2*152.00 + 3*t^2*(1 - t)*151.00 + t^3*150.00)",
+    "((1 - t)^3*211.00 + 3*t*(1 - t)^2*209.67 + 3*t^2*(1 - t)*208.33 + t^3*207.00,(1 - t)^3*138.00 + 3*t*(1 - t)^2*137.33 + 3*t^2*(1 - t)*136.67 + t^3*136.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 2,
+    "source": "batch_sketches_all",
+    "collection": "generated",
+    "source_num": 534
+  },
+  "preview_url": "/sketches/1319.png"
+}

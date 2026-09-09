@@ -1,0 +1,42 @@
+{
+  "number": 3272,
+  "title": "Line sketch: Fractured Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an gown stands amid a crumbling wall, holding a white theatrical mask in her right hand while her own face appears split by the cracks. The decaying room features tilted classical portraits on the walls, scattered film reels and photographs on the floor, and a rainy window revealing a sign outside (derived from generated still #2645).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an gown stands amid a crumbling wall, holding a white theatrical mask in her right hand while her own face appears split by the cracks. The decaying room features tilted classical portraits on the walls, scattered film reels and photographs on the floor, and a rainy window revealing a sign outside",
+  "inverted_title": "Inverted sketch: Fractured Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an gown stands amid a crumbling wall, holding a white theatrical mask in her right hand while her own face appears split by the cracks. The decaying room features tilted classical portraits on the walls, scattered film reels and photographs on the floor, and a rainy window revealing a sign outside (from generated still #2645).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an gown stands amid a crumbling wall, holding a white theatrical mask in her right hand while her own face appears split by the cracks. The decaying room features tilted classical portraits on the walls, scattered film reels and photographs on the floor, and a rainy window revealing a sign outside",
+  "source_description": "A woman in an emerald green gown stands amid a crumbling wall, holding a white theatrical mask in her right hand while her own face appears split by the cracks. The decaying room features tilted classical portraits on the walls, scattered film reels and photographs on the floor, and a rainy window revealing a neon sign outside.",
+  "source_prompt": "A beautiful woman in an elegant emerald green off-shoulder gown stands in a decaying room with cracked and crumbling walls revealing golden light. She holds a white comedy mask in her hand, her own face partially split by the fractures. Classical oil portraits hang crooked on the walls, film reels and scattered photographs lie on the wooden floor, rain streaks down the window showing a neon sign. Dramatic cinematic lighting, painterly style, moody atmosphere.",
+  "source_title": "Fractured Muse",
+  "style": "surrealism",
+  "mood": "melancholy, fractured",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cracked wall",
+    "theatrical mask",
+    "film reel",
+    "dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2645,
+  "source_url": "/generated/2645.jpg",
+  "image_url": "/sketches/3272.png",
+  "inverted_image_url": "/sketches-inverted/3272.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:45Z"
+}

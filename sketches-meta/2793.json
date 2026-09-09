@@ -1,0 +1,42 @@
+{
+  "number": 2793,
+  "title": "Line sketch: Steampunk Airship Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with long flowing hair and goggles stands on the wooden balcony of a massive steampunk mechanical airship. The vessel features a giant glowing circular eye at its center, metallic pipes, and rotating elements, floating high above a cloudy sky with a distant silhouetted city below (derived from generated still #2076).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with long flowing hair and goggles stands on the wooden balcony of a massive steampunk mechanical airship. The vessel features a giant glowing circular eye at its center, metallic pipes, and rotating elements, floating high above a cloudy sky with a distant silhouetted city below",
+  "inverted_title": "Inverted sketch: Steampunk Airship Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with long flowing hair and goggles stands on the wooden balcony of a massive steampunk mechanical airship. The vessel features a giant glowing circular eye at its center, metallic pipes, and rotating elements, floating high above a cloudy sky with a distant silhouetted city below (from generated still #2076).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with long flowing hair and goggles stands on the wooden balcony of a massive steampunk mechanical airship. The vessel features a giant glowing circular eye at its center, metallic pipes, and rotating elements, floating high above a cloudy sky with a distant silhouetted city below",
+  "source_description": "A young woman with long flowing brown hair and goggles stands on the wooden balcony of a massive steampunk mechanical airship. The vessel features a giant glowing green circular eye at its center, metallic pipes, and rotating elements, floating high above a cloudy sky with a distant silhouetted city below.",
+  "source_prompt": "A young female inventor with long flowing brown hair and steampunk goggles stands on the ornate wooden balcony of a massive mechanical airship floating through colorful clouds. The airship has a giant glowing green circular eye at its center, brass and copper pipes, rotating metal fins, and industrial details. Dramatic sky with purple, teal and orange clouds, distant dark city silhouette visible below, epic cinematic lighting, digital painting style",
+  "source_title": "Steampunk Airship Girl",
+  "style": "steampunk fantasy",
+  "mood": "epic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "airship",
+    "goggles",
+    "floating machine",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2076,
+  "source_url": "/generated/2076.jpg",
+  "image_url": "/sketches/2793.png",
+  "inverted_image_url": "/sketches-inverted/2793.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:44Z"
+}

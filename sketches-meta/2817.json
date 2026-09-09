@@ -1,0 +1,42 @@
+{
+  "number": 2817,
+  "title": "Line sketch: Laundry Room Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic composition of a vintage top-loading washing machine and matching dryer set in a corner room with walls. On a wooden shelf above sit bottles of bleach, TSP cleaner, and a box of Borax, while a broom, dustpan, and old white freezer occupy the right side of the scene (derived from generated still #2101).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic composition of a vintage top-loading washing machine and matching dryer set in a corner room with walls. On a wooden shelf above sit bottles of bleach, TSP cleaner, and a box of Borax, while a broom, dustpan, and old white freezer occupy the right side of the scene",
+  "inverted_title": "Inverted sketch: Laundry Room Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic composition of a vintage top-loading washing machine and matching dryer set in a corner room with walls. On a wooden shelf above sit bottles of bleach, TSP cleaner, and a box of Borax, while a broom, dustpan, and old white freezer occupy the right side of the scene (from generated still #2101).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic composition of a vintage top-loading washing machine and matching dryer set in a corner room with walls. On a wooden shelf above sit bottles of bleach, TSP cleaner, and a box of Borax, while a broom, dustpan, and old white freezer occupy the right side of the scene",
+  "source_description": "A realistic painting of a vintage top-loading washing machine and matching dryer set in a corner room with light purple walls. On a wooden shelf above sit bottles of bleach, TSP cleaner, and a box of Borax, while a broom, dustpan, and old white freezer occupy the right side of the scene.",
+  "source_prompt": "realistic painting of a corner laundry room with a vintage silver top-load washing machine and matching dryer, wooden shelf above holding a Clorox bleach bottle, yellow TSP spray bottle and green Borax box, broom and old white freezer on the right, light purple walls, concrete floor, soft even lighting, detailed textures, muted domestic atmosphere",
+  "source_title": "Laundry Room Still Life",
+  "style": "realistic composition",
+  "mood": "quiet, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "laundry room",
+    "washing machine",
+    "still life",
+    "vintage appliances",
+    "domestic interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2101,
+  "source_url": "/generated/2101.jpg",
+  "image_url": "/sketches/2817.png",
+  "inverted_image_url": "/sketches-inverted/2817.png",
+  "curve_count": 115,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4528,
+  "title": "Line sketch: Cybernetic Tree Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive mechanical tree-like entity with a metallic mask face dominates the center. It features glowing circuit eyes, a jagged white grin, branching dark limbs with glowing circuitry, and hanging crystalline droplets against a starry and cosmic background (derived from generated still #3948).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive mechanical tree-like entity with a metallic mask face dominates the center. It features glowing circuit eyes, a jagged white grin, branching dark limbs with glowing circuitry, and hanging crystalline droplets against a starry and cosmic background",
+  "inverted_title": "Inverted sketch: Cybernetic Tree Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive mechanical tree-like entity with a metallic mask face dominates the center. It features glowing circuit eyes, a jagged white grin, branching dark limbs with glowing circuitry, and hanging crystalline droplets against a starry and cosmic background (from generated still #3948).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive mechanical tree-like entity with a metallic mask face dominates the center. It features glowing circuit eyes, a jagged white grin, branching dark limbs with glowing circuitry, and hanging crystalline droplets against a starry and cosmic background",
+  "source_description": "A massive mechanical tree-like entity with a metallic mask face dominates the center. It features glowing green circuit eyes, a jagged white grin, branching dark limbs with glowing orange circuitry, and hanging crystalline droplets against a starry blue and green cosmic background.",
+  "source_prompt": "A surreal cybernetic tree entity growing from a canyon, featuring a large metallic mask with intense glowing green circuit eyes and a wide jagged white grin, dark gnarled branches filled with orange glowing circuitry patterns extending into a starry sky, crystalline droplets hanging from the branches, roots and circuits visible in the rocky cliffs below, cosmic green and blue nebula background, highly detailed digital painting",
+  "source_title": "Cybernetic Tree Entity",
+  "style": "digital fantasy art",
+  "mood": "ethereal menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cybernetic",
+    "tree spirit",
+    "glowing mask",
+    "cosmic landscape",
+    "circuit patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3948,
+  "source_url": "/generated/3948.jpg",
+  "image_url": "/sketches/4528.png",
+  "inverted_image_url": "/sketches-inverted/4528.png",
+  "curve_count": 145,
+  "built_at": "2026-08-17T00:09:48Z"
+}

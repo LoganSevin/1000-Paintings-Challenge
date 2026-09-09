@@ -1,0 +1,42 @@
+{
+  "number": 4408,
+  "title": "Line sketch: Stasis & Ember",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical -walled study filled with candles and magical artifacts. A woman with hair in a floral robe sits at a desk writing in a large book beside an ornate glass display cabinet containing glowing potions, a floating magical orb, and dripping liquid (derived from generated still #3827).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical -walled study filled with candles and magical artifacts. A woman with hair in a floral robe sits at a desk writing in a large book beside an ornate glass display cabinet containing glowing potions, a floating magical orb, and dripping liquid",
+  "inverted_title": "Inverted sketch: Stasis & Ember",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical -walled study filled with candles and magical artifacts. A woman with hair in a floral robe sits at a desk writing in a large book beside an ornate glass display cabinet containing glowing potions, a floating magical orb, and dripping liquid (from generated still #3827).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical -walled study filled with candles and magical artifacts. A woman with hair in a floral robe sits at a desk writing in a large book beside an ornate glass display cabinet containing glowing potions, a floating magical orb, and dripping liquid",
+  "source_description": "A mystical purple-walled study filled with candles and magical artifacts. A woman with purple hair in a floral robe sits at a desk writing in a large book beside an ornate glass display cabinet containing glowing potions, a floating magical orb, and dripping green liquid.",
+  "source_prompt": "A cozy yet mystical purple fantasy study interior with a woman with purple braided hair wearing a floral robe sitting at a wooden desk writing in a large tome. Next to her is an ornate white glass display cabinet with open doors revealing glowing magical potions, a large purple magical orb, and dripping green liquid. The room is filled with dozens of lit red, teal and gold candles, scrolls, potion bottles, and framed magical symbols on the walls. A red banner hangs reading 'SLOT 29 STASIS 898e8139'. Warm atmospheric candlelight illuminates the scene.",
+  "source_title": "Stasis & Ember",
+  "style": "fantasy illustration",
+  "mood": "mystical, cozy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "magic shop",
+    "candlelight",
+    "alchemy",
+    "aesthetic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3827,
+  "source_url": "/generated/3827.jpg",
+  "image_url": "/sketches/4408.png",
+  "inverted_image_url": "/sketches-inverted/4408.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:48Z"
+}

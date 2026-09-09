@@ -1,0 +1,42 @@
+{
+  "number": 3983,
+  "title": "Line sketch: Floating Mage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with white hair in an elaborate updo is captured mid-air against a solid gray background, seemingly falling or floating. She wears a white and traditional-style outfit with armor-like accents, her body arched with one arm raised and legs bent, surrounded by floating crystalline shards and glowing magical effects (derived from generated still #3400).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with white hair in an elaborate updo is captured mid-air against a solid gray background, seemingly falling or floating. She wears a white and traditional-style outfit with armor-like accents, her body arched with one arm raised and legs bent, surrounded by floating crystalline shards and glowing magical effects",
+  "inverted_title": "Inverted sketch: Floating Mage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with white hair in an elaborate updo is captured mid-air against a solid gray background, seemingly falling or floating. She wears a white and traditional-style outfit with armor-like accents, her body arched with one arm raised and legs bent, surrounded by floating crystalline shards and glowing magical effects (from generated still #3400).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with white hair in an elaborate updo is captured mid-air against a solid gray background, seemingly falling or floating. She wears a white and traditional-style outfit with armor-like accents, her body arched with one arm raised and legs bent, surrounded by floating crystalline shards and glowing magical effects",
+  "source_description": "A young woman with white hair in an elaborate updo is captured mid-air against a solid gray background, seemingly falling or floating. She wears a white and purple traditional-style outfit with armor-like accents, her body arched with one arm raised and legs bent, surrounded by floating purple crystalline shards and glowing magical effects.",
+  "source_prompt": "A young East Asian woman with long white hair tied in an ornate bun with beads, wearing a white and purple traditional fantasy outfit with armored plates and wraps, is captured dynamically floating and falling in mid-air. Her body is arched, one arm extended upward and legs bent, surrounded by shattered glowing purple crystal fragments and magical energy wisps. Solid neutral gray background, dramatic lighting, clean digital anime-influenced illustration style.",
+  "source_title": "Floating Purple Mage",
+  "style": "digital illustration",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "magic",
+    "floating",
+    "crystals",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3400,
+  "source_url": "/generated/3400.jpg",
+  "image_url": "/sketches/3983.png",
+  "inverted_image_url": "/sketches-inverted/3983.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:47Z"
+}

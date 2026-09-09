@@ -1,0 +1,41 @@
+{
+  "number": 463,
+  "title": "Line sketch: Radiant Cracked Egg Sunrise",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up view of a cracked egg with a yolk centered in a white shell, set against a vibrant radiating background. The thick create an energetic and luminous effect around the egg (derived from painting #555).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up view of a cracked egg with a yolk centered in a white shell, set against a vibrant radiating background. The thick create an energetic and luminous effect around the egg",
+  "inverted_title": "Inverted sketch: Radiant Cracked Egg Sunrise",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up view of a cracked egg with a yolk centered in a white shell, set against a vibrant radiating background. The thick create an energetic and luminous effect around the egg (from painting #555).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up view of a cracked egg with a yolk centered in a white shell, set against a vibrant radiating background. The thick create an energetic and luminous effect around the egg",
+  "source_description": "A close-up view of a cracked egg with a bright yellow yolk centered in a white shell, set against a vibrant radiating background. The thick impasto brushstrokes create an energetic and luminous effect around the egg.",
+  "source_prompt": "",
+  "source_title": "Radiant Cracked Egg Sunrise",
+  "style": "Impressionistic still life",
+  "mood": "Vibrant and energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "egg",
+    "yolk",
+    "still life",
+    "radiating"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 555,
+  "source_url": "/paintings/555.jpg",
+  "image_url": "/sketches/463.png",
+  "inverted_image_url": "/sketches-inverted/463.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3217,
+  "title": "Line sketch: Ascent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a long black dress stands on a surreal spiral staircase made of film reels, looking upward as a giant spotlight shines down from above. The cracked walls display floating paintings of a stormy sea, an empty theater, and shattering ice, with film strips and scattered photographs covering the floor (derived from generated still #2567).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a long black dress stands on a surreal spiral staircase made of film reels, looking upward as a giant spotlight shines down from above. The cracked walls display floating paintings of a stormy sea, an empty theater, and shattering ice, with film strips and scattered photographs covering the floor",
+  "inverted_title": "Inverted sketch: Ascent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a long black dress stands on a surreal spiral staircase made of film reels, looking upward as a giant spotlight shines down from above. The cracked walls display floating paintings of a stormy sea, an empty theater, and shattering ice, with film strips and scattered photographs covering the floor (from generated still #2567).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a long black dress stands on a surreal spiral staircase made of film reels, looking upward as a giant spotlight shines down from above. The cracked walls display floating paintings of a stormy sea, an empty theater, and shattering ice, with film strips and scattered photographs covering the floor",
+  "source_description": "A woman in a long black dress stands on a surreal spiral staircase made of film reels, looking upward as a giant spotlight shines down from above. The cracked walls display floating paintings of a stormy sea, an empty theater, and shattering ice, with film strips and scattered photographs covering the floor.",
+  "source_prompt": "A dramatic surreal scene of a woman in a flowing black Victorian dress standing on an ornate spiral staircase constructed from film reels and movie strips. A massive spotlight from above casts strong beams of light. Cracked walls display floating framed paintings: a stormy ocean with a lone figure, an empty vintage theater with red curtains, and shattering ice. Scattered film strips and photographs cover the floor. Twilight sky visible through broken ceiling, cinematic lighting, highly detailed digital painting.",
+  "source_title": "Ascent",
+  "style": "surrealism",
+  "mood": "dramatic, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "staircase",
+    "film reels",
+    "spotlight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2567,
+  "source_url": "/generated/2567.jpg",
+  "image_url": "/sketches/3217.png",
+  "inverted_image_url": "/sketches-inverted/3217.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

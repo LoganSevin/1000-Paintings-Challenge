@@ -1,0 +1,42 @@
+{
+  "number": 4121,
+  "title": "Line sketch: Stained Glass Selfie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in a jeweled bikini and flowing headscarf takes a selfie with a smartphone while standing in a field. Behind her is an elaborate stained glass window depicting armored elephants and mice in a fantasy procession under a sun (derived from generated still #3538).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in a jeweled bikini and flowing headscarf takes a selfie with a smartphone while standing in a field. Behind her is an elaborate stained glass window depicting armored elephants and mice in a fantasy procession under a sun",
+  "inverted_title": "Inverted sketch: Stained Glass Selfie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in a jeweled bikini and flowing headscarf takes a selfie with a smartphone while standing in a field. Behind her is an elaborate stained glass window depicting armored elephants and mice in a fantasy procession under a sun (from generated still #3538).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in a jeweled bikini and flowing headscarf takes a selfie with a smartphone while standing in a field. Behind her is an elaborate stained glass window depicting armored elephants and mice in a fantasy procession under a sun",
+  "source_description": "A young woman in a jeweled bikini and flowing purple headscarf takes a selfie with a smartphone while standing in a lavender field. Behind her is an elaborate colorful stained glass window depicting armored elephants and mice in a fantasy procession under a golden sun.",
+  "source_prompt": "A beautiful young woman wearing a sparkling jeweled bikini and translucent purple scarf takes a selfie with her smartphone, standing in a field of purple lavender flowers. Behind her is a large vibrant stained glass window showing a fantasy parade of armored war elephants and knight mice carrying banners under a radiant sun, whimsical fantasy style, iridescent light rays, detailed digital painting",
+  "source_title": "Stained Glass Selfie",
+  "style": "fantasy illustration",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "fantasy",
+    "selfie",
+    "elephants",
+    "field"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3538,
+  "source_url": "/generated/3538.jpg",
+  "image_url": "/sketches/4121.png",
+  "inverted_image_url": "/sketches-inverted/4121.png",
+  "curve_count": 106,
+  "built_at": "2026-08-17T00:09:47Z"
+}

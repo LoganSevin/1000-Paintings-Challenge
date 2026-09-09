@@ -1,0 +1,42 @@
+{
+  "number": 4128,
+  "title": "Line sketch: Fractal Cybernetic Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed robotic humanoid figure stands centered in a dark digital void, its body composed of sharp black and geometric facets. The figure's right hand is raised with palm open while its left hand is positioned near its chest, both hands and torso emitting glowing white particles and energy effects (derived from generated still #3545).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed robotic humanoid figure stands centered in a dark digital void, its body composed of sharp black and geometric facets. The figure's right hand is raised with palm open while its left hand is positioned near its chest, both hands and torso emitting glowing white particles and energy effects",
+  "inverted_title": "Inverted sketch: Fractal Cybernetic Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed robotic humanoid figure stands centered in a dark digital void, its body composed of sharp black and geometric facets. The figure's right hand is raised with palm open while its left hand is positioned near its chest, both hands and torso emitting glowing white particles and energy effects (from generated still #3545).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed robotic humanoid figure stands centered in a dark digital void, its body composed of sharp black and geometric facets. The figure's right hand is raised with palm open while its left hand is positioned near its chest, both hands and torso emitting glowing white particles and energy effects",
+  "source_description": "A highly detailed robotic humanoid figure stands centered in a dark digital void, its body composed of sharp black and silver geometric facets. The figure's right hand is raised with palm open while its left hand is positioned near its chest, both hands and torso emitting glowing white particles and energy effects.",
+  "source_prompt": "A powerful humanoid robot made of sharp black crystalline geometric facets and polished silver armor stands in a dark futuristic chamber with circuit patterns on the walls. Its head has glowing white eyes creating a lens flare. The figure's right hand is raised with palm facing forward, left hand positioned near its torso, both hands and body surrounded by glowing white particles and energy shards floating in the air.",
+  "source_title": "Fractal Cybernetic Entity",
+  "style": "digital concept art",
+  "mood": "futuristic, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D CGI rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "cybernetic",
+    "geometric",
+    "particles",
+    "dark tech"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3545,
+  "source_url": "/generated/3545.jpg",
+  "image_url": "/sketches/4128.png",
+  "inverted_image_url": "/sketches-inverted/4128.png",
+  "curve_count": 152,
+  "built_at": "2026-08-17T00:09:47Z"
+}

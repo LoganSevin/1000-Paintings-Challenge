@@ -1,0 +1,42 @@
+{
+  "number": 4669,
+  "title": "Line sketch: Bell of Madness",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant stone hand emerges from the ground holding up a massive dark bell covered in squares, from which a fiery spiked sun-like face with glowing eyes emerges. Below, a lone figure in a and checkered cloak stands on a path lined with tiles, facing an army of hooded figures, with a gothic castle visible in the background under a dark stormy sky with a moon (derived from generated still #4091).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant stone hand emerges from the ground holding up a massive dark bell covered in squares, from which a fiery spiked sun-like face with glowing eyes emerges. Below, a lone figure in a and checkered cloak stands on a path lined with tiles, facing an army of hooded figures, with a gothic castle visible in the background under a dark stormy sky with a moon",
+  "inverted_title": "Inverted sketch: Bell of Madness",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant stone hand emerges from the ground holding up a massive dark bell covered in squares, from which a fiery spiked sun-like face with glowing eyes emerges. Below, a lone figure in a and checkered cloak stands on a path lined with tiles, facing an army of hooded figures, with a gothic castle visible in the background under a dark stormy sky with a moon (from generated still #4091).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant stone hand emerges from the ground holding up a massive dark bell covered in squares, from which a fiery spiked sun-like face with glowing eyes emerges. Below, a lone figure in a and checkered cloak stands on a path lined with tiles, facing an army of hooded figures, with a gothic castle visible in the background under a dark stormy sky with a moon",
+  "source_description": "A giant stone hand emerges from the ground holding up a massive dark bell covered in red squares, from which a fiery red spiked sun-like face with glowing eyes emerges. Below, a lone figure in a blue and red checkered cloak stands on a path lined with red tiles, facing an army of hooded figures, with a gothic castle visible in the background under a dark stormy sky with a yellow moon.",
+  "source_prompt": "Surreal dark fantasy scene of a colossal grey stone hand rising from the earth, palm up, supporting an enormous iron bell covered in glowing red squares. From the bell emerges a terrifying red spiked sun creature with evil glowing eyes and colorful energy ribbons. In the foreground a solitary figure in a blue and red checkered cloak stands on a path of red tiles facing rows of thousands of identical hooded figures. Behind the hand is a gothic castle, dramatic stormy sky with yellow moon, waterfalls flowing from the hand's fingers, highly detailed cinematic painting",
+  "source_title": "Bell of Madness",
+  "style": "surreal fantasy",
+  "mood": "ominous surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dark fantasy",
+    "giant hand",
+    "sinister bell",
+    "hooded figures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4091,
+  "source_url": "/generated/4091.jpg",
+  "image_url": "/sketches/4669.png",
+  "inverted_image_url": "/sketches-inverted/4669.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:48Z"
+}

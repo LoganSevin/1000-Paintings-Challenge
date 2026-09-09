@@ -1,0 +1,42 @@
+{
+  "number": 1935,
+  "title": "Line sketch: Surreal Melting Lighthouse Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts four stylized women in attire standing in stylized water on the left, observing a central and lighthouse atop a hill. The scene is framed by a large circular motif with dripping melting clocks, keys, apples, and playing cards against a starry night sky with drips (derived from generated still #1160).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts four stylized women in attire standing in stylized water on the left, observing a central and lighthouse atop a hill. The scene is framed by a large circular motif with dripping melting clocks, keys, apples, and playing cards against a starry night sky with drips",
+  "inverted_title": "Inverted sketch: Surreal Melting Lighthouse Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts four stylized women in attire standing in stylized water on the left, observing a central and lighthouse atop a hill. The scene is framed by a large circular motif with dripping melting clocks, keys, apples, and playing cards against a starry night sky with drips (from generated still #1160).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts four stylized women in attire standing in stylized water on the left, observing a central and lighthouse atop a hill. The scene is framed by a large circular motif with dripping melting clocks, keys, apples, and playing cards against a starry night sky with drips",
+  "source_description": "A vibrant psychedelic painting depicts four stylized women in colorful attire standing in stylized water on the left, observing a central blue and purple lighthouse atop a green hill. The scene is framed by a large circular motif with dripping melting clocks, keys, apples, and playing cards against a starry night sky with colorful drips.",
+  "source_prompt": "",
+  "source_title": "Surreal Melting Lighthouse Scene",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "lighthouse",
+    "melting clocks",
+    "psychedelic",
+    "women"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1160,
+  "source_url": "/generated/1160.jpg",
+  "image_url": "/sketches/1935.png",
+  "inverted_image_url": "/sketches-inverted/1935.png",
+  "curve_count": 214,
+  "built_at": "2026-08-17T00:09:42Z"
+}

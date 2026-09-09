@@ -1,0 +1,42 @@
+{
+  "number": 4218,
+  "title": "Line sketch: Psychedelic 70s Lounge Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with short black hair kneels on a patterned rug in a retro 1970s living room. She wears a ruffled crop top, denim shorts, and thigh-high boots while holding a glass, surrounded by swirling lines against wood-paneled walls with hypnotic black and white spiral patterns (derived from generated still #3637).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with short black hair kneels on a patterned rug in a retro 1970s living room. She wears a ruffled crop top, denim shorts, and thigh-high boots while holding a glass, surrounded by swirling lines against wood-paneled walls with hypnotic black and white spiral patterns",
+  "inverted_title": "Inverted sketch: Psychedelic 70s Lounge Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with short black hair kneels on a patterned rug in a retro 1970s living room. She wears a ruffled crop top, denim shorts, and thigh-high boots while holding a glass, surrounded by swirling lines against wood-paneled walls with hypnotic black and white spiral patterns (from generated still #3637).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with short black hair kneels on a patterned rug in a retro 1970s living room. She wears a ruffled crop top, denim shorts, and thigh-high boots while holding a glass, surrounded by swirling lines against wood-paneled walls with hypnotic black and white spiral patterns",
+  "source_description": "A woman with short black hair kneels on a patterned rug in a retro 1970s living room. She wears a blue ruffled crop top, denim shorts, and thigh-high blue boots while holding a wine glass, surrounded by swirling magenta lines against wood-paneled walls with hypnotic black and white spiral patterns.",
+  "source_prompt": "A stylish woman with short black hair kneeling on a rug in a 1970s wood-paneled living room, wearing a blue ruffled cut-out top, denim shorts and matching blue thigh-high heeled boots, holding a wine glass, surrounded by floating magenta psychedelic swirls and lines, black and white spiral patterns on walls and rug, retro furniture and large windows showing water outside, surreal retro aesthetic",
+  "source_title": "Psychedelic 70s Lounge Scene",
+  "style": "surreal retro",
+  "mood": "trippy nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "1970s",
+    "psychedelic",
+    "woman",
+    "retro interior",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3637,
+  "source_url": "/generated/3637.jpg",
+  "image_url": "/sketches/4218.png",
+  "inverted_image_url": "/sketches-inverted/4218.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2733,
+  "title": "Line sketch: Portal Pond Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene at dusk featuring a grey gremlin-like creature with large ears standing on a stone path beside a glowing spherical orb containing a cityscape. In the foreground, a small white alien robot with multiple eyes stands on a lily pad near a large wooden building labeled 'INTO THE VOID COLLECTIVE' with a massive circular portal showing a mountain sunset, surrounded by glowing and flowers and floating dragon-like creatures (derived from generated still #1979).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene at dusk featuring a grey gremlin-like creature with large ears standing on a stone path beside a glowing spherical orb containing a cityscape. In the foreground, a small white alien robot with multiple eyes stands on a lily pad near a large wooden building labeled 'INTO THE VOID COLLECTIVE' with a massive circular portal showing a mountain sunset, surrounded by glowing and flowers and floating dragon-like creatures",
+  "inverted_title": "Inverted sketch: Portal Pond Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene at dusk featuring a grey gremlin-like creature with large ears standing on a stone path beside a glowing spherical orb containing a cityscape. In the foreground, a small white alien robot with multiple eyes stands on a lily pad near a large wooden building labeled 'INTO THE VOID COLLECTIVE' with a massive circular portal showing a mountain sunset, surrounded by glowing and flowers and floating dragon-like creatures (from generated still #1979).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene at dusk featuring a grey gremlin-like creature with large ears standing on a stone path beside a glowing spherical orb containing a cityscape. In the foreground, a small white alien robot with multiple eyes stands on a lily pad near a large wooden building labeled 'INTO THE VOID COLLECTIVE' with a massive circular portal showing a mountain sunset, surrounded by glowing and flowers and floating dragon-like creatures",
+  "source_description": "A surreal fantasy scene at dusk featuring a grey gremlin-like creature with large ears standing on a stone path beside a glowing spherical orb containing a red cityscape. In the foreground, a small white alien robot with multiple eyes stands on a lily pad near a large wooden building labeled 'INTO THE VOID COLLECTIVE' with a massive circular portal showing a mountain sunset, surrounded by glowing blue and purple flowers and floating dragon-like creatures.",
+  "source_prompt": "",
+  "source_title": "Portal Pond Gathering",
+  "style": "fantasy illustration",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "portal",
+    "creature",
+    "robot",
+    "glowing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1979,
+  "source_url": "/generated/1979.jpg",
+  "image_url": "/sketches/2733.png",
+  "inverted_image_url": "/sketches-inverted/2733.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:44Z"
+}

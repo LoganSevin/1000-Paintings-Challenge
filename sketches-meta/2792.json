@@ -1,0 +1,42 @@
+{
+  "number": 2792,
+  "title": "Line sketch: Elegant Retro Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a beautiful woman with vintage 1940s hairstyle, wearing an off-shoulder satin dress. She has striking eyes, lipstick, and earrings, set against a textured cinematic background with the word STASIS partially visible (derived from generated still #2075).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a beautiful woman with vintage 1940s hairstyle, wearing an off-shoulder satin dress. She has striking eyes, lipstick, and earrings, set against a textured cinematic background with the word STASIS partially visible",
+  "inverted_title": "Inverted sketch: Elegant Retro Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a beautiful woman with vintage 1940s hairstyle, wearing an off-shoulder satin dress. She has striking eyes, lipstick, and earrings, set against a textured cinematic background with the word STASIS partially visible (from generated still #2075).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a beautiful woman with vintage 1940s hairstyle, wearing an off-shoulder satin dress. She has striking eyes, lipstick, and earrings, set against a textured cinematic background with the word STASIS partially visible",
+  "source_description": "A close-up portrait of a beautiful woman with vintage 1940s hairstyle, wearing an off-shoulder brown satin dress. She has striking teal eyes, red lipstick, and turquoise earrings, set against a textured cinematic background with the word STASIS partially visible.",
+  "source_prompt": "close-up portrait of an elegant woman with 1940s victory rolls hairstyle, striking teal eyes with heavy mascara, bold red lips, wearing an off-the-shoulder shiny brown satin dress and turquoise earrings, dramatic side lighting, textured painterly background in warm brown and teal tones with partial text STASIS visible, cinematic retro atmosphere, detailed skin texture and fabric highlights",
+  "source_title": "Elegant Retro Portrait",
+  "style": "line sketch",
+  "mood": "vintage cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "vintage",
+    "retro",
+    "portrait",
+    "satin dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2075,
+  "source_url": "/generated/2075.jpg",
+  "image_url": "/sketches/2792.png",
+  "inverted_image_url": "/sketches-inverted/2792.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

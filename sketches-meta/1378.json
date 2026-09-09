@@ -1,0 +1,42 @@
+{
+  "number": 1378,
+  "title": "Line sketch: Wolf and Melting Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a large cracked moon with a -skinned face and glowing eyes. A skeletal black wolf with eyes presses its snout against the moon while drips of paint flow downward amid vibrant flowers and swirling smoke (derived from generated still #593).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a large cracked moon with a -skinned face and glowing eyes. A skeletal black wolf with eyes presses its snout against the moon while drips of paint flow downward amid vibrant flowers and swirling smoke",
+  "inverted_title": "Inverted sketch: Wolf and Melting Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a large cracked moon with a -skinned face and glowing eyes. A skeletal black wolf with eyes presses its snout against the moon while drips of paint flow downward amid vibrant flowers and swirling smoke (from generated still #593).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a large cracked moon with a -skinned face and glowing eyes. A skeletal black wolf with eyes presses its snout against the moon while drips of paint flow downward amid vibrant flowers and swirling smoke",
+  "source_description": "A surreal painting features a large cracked moon with a green-skinned face and glowing orange eyes. A skeletal black wolf with red eyes presses its snout against the moon while colorful drips of paint flow downward amid vibrant flowers and swirling smoke.",
+  "source_prompt": "",
+  "source_title": "Wolf and Melting Moon",
+  "style": "surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "wolf",
+    "moon face",
+    "melting",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 593,
+  "source_url": "/generated/593.jpg",
+  "image_url": "/sketches/1378.png",
+  "inverted_image_url": "/sketches-inverted/1378.png",
+  "curve_count": 362,
+  "built_at": "2026-08-17T00:09:41Z"
+}

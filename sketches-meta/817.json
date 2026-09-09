@@ -1,0 +1,42 @@
+{
+  "number": 817,
+  "title": "Line sketch: Eternal Dragon and Wizard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic dragon with an eye forms an infinity loop, its body entwined with a large gnarled tree under a starry night sky. A -cloaked wizard sits atop the dragon while a glowing castle floats among clouds, with jellyfish-like lanterns and celestial bodies floating above (derived from generated still #26).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic dragon with an eye forms an infinity loop, its body entwined with a large gnarled tree under a starry night sky. A -cloaked wizard sits atop the dragon while a glowing castle floats among clouds, with jellyfish-like lanterns and celestial bodies floating above",
+  "inverted_title": "Inverted sketch: Eternal Dragon and Wizard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic dragon with an eye forms an infinity loop, its body entwined with a large gnarled tree under a starry night sky. A -cloaked wizard sits atop the dragon while a glowing castle floats among clouds, with jellyfish-like lanterns and celestial bodies floating above (from generated still #26).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic dragon with an eye forms an infinity loop, its body entwined with a large gnarled tree under a starry night sky. A -cloaked wizard sits atop the dragon while a glowing castle floats among clouds, with jellyfish-like lanterns and celestial bodies floating above",
+  "source_description": "A majestic purple dragon with an orange eye forms an infinity loop, its body entwined with a large gnarled tree under a starry night sky. A red-cloaked wizard sits atop the dragon while a glowing castle floats among clouds, with jellyfish-like lanterns and celestial bodies floating above.",
+  "source_prompt": "",
+  "source_title": "Eternal Dragon and Wizard",
+  "style": "fantasy illustration",
+  "mood": "ethereal magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "wizard",
+    "infinity symbol",
+    "fantasy landscape",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 26,
+  "source_url": "/generated/26.jpg",
+  "image_url": "/sketches/817.png",
+  "inverted_image_url": "/sketches-inverted/817.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:39Z"
+}

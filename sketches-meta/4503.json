@@ -1,0 +1,42 @@
+{
+  "number": 4503,
+  "title": "Line sketch: Stained Glass Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with braided hair and ornate white robes stands before a large, intricate stained glass window. She holds a glowing flower while mystical smoke rises from a bowl on the windowsill beside an open spellbook, scattered gems, and vials (derived from generated still #3923).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with braided hair and ornate white robes stands before a large, intricate stained glass window. She holds a glowing flower while mystical smoke rises from a bowl on the windowsill beside an open spellbook, scattered gems, and vials",
+  "inverted_title": "Inverted sketch: Stained Glass Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with braided hair and ornate white robes stands before a large, intricate stained glass window. She holds a glowing flower while mystical smoke rises from a bowl on the windowsill beside an open spellbook, scattered gems, and vials (from generated still #3923).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with braided hair and ornate white robes stands before a large, intricate stained glass window. She holds a glowing flower while mystical smoke rises from a bowl on the windowsill beside an open spellbook, scattered gems, and vials",
+  "source_description": "A woman with braided hair and ornate white robes stands before a large, intricate stained glass window. She holds a glowing orange flower while green mystical smoke rises from a bowl on the windowsill beside an open spellbook, scattered gems, and vials.",
+  "source_prompt": "A mystical woman with intricate braids and flowing white and gold robes stands at a stone windowsill, reaching up to touch a glowing flower. She is casting magic as green smoke rises from a bowl. Behind her is a tall, ornate stained glass window depicting a bright sun over a red boat on the ocean, large red and blue serpents, and vibrant orange flowers in the center. An open spellbook and magical items rest on the sill. Detailed fantasy digital painting.",
+  "source_title": "Stained Glass Sorceress",
+  "style": "fantasy illustration",
+  "mood": "mystical serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "sorceress",
+    "fantasy",
+    "window",
+    "magic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3923,
+  "source_url": "/generated/3923.jpg",
+  "image_url": "/sketches/4503.png",
+  "inverted_image_url": "/sketches-inverted/4503.png",
+  "curve_count": 108,
+  "built_at": "2026-08-17T00:09:48Z"
+}

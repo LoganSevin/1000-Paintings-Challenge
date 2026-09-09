@@ -1,0 +1,42 @@
+{
+  "number": 1340,
+  "title": "Line sketch: Hands in the Clouds",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with and face paint, her mouth open in a scream or shout, as multiple large disembodied hands emerge from cloudy skies to touch and manipulate her head and face (derived from generated still #555).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with and face paint, her mouth open in a scream or shout, as multiple large disembodied hands emerge from cloudy skies to touch and manipulate her head and face",
+  "inverted_title": "Inverted sketch: Hands in the Clouds",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with and face paint, her mouth open in a scream or shout, as multiple large disembodied hands emerge from cloudy skies to touch and manipulate her head and face (from generated still #555).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with and face paint, her mouth open in a scream or shout, as multiple large disembodied hands emerge from cloudy skies to touch and manipulate her head and face",
+  "source_description": "A surreal portrait of a woman with yellow and green face paint, her mouth open in a scream or shout, as multiple large disembodied hands emerge from cloudy skies to touch and manipulate her head and face.",
+  "source_prompt": "",
+  "source_title": "Hands in the Clouds",
+  "style": "surrealism",
+  "mood": "disturbing, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hands",
+    "clouds",
+    "woman",
+    "face paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 555,
+  "source_url": "/generated/555.jpg",
+  "image_url": "/sketches/1340.png",
+  "inverted_image_url": "/sketches-inverted/1340.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:41Z"
+}

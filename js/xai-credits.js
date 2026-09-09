@@ -128,14 +128,26 @@
       .then(function (data) {
         lastPayload = data;
         render(data);
+        try {
+          window.dispatchEvent(
+            new CustomEvent("xai-usage-updated", { detail: data })
+          );
+        } catch (e) {}
         return data;
       })
       .catch(function (err) {
-        render({
+        var fail = {
           ok: false,
           error: "network",
           message: (err && err.message) || "Network error",
-        });
+        };
+        lastPayload = fail;
+        render(fail);
+        try {
+          window.dispatchEvent(
+            new CustomEvent("xai-usage-updated", { detail: fail })
+          );
+        } catch (e2) {}
       });
   }
 
@@ -176,10 +188,28 @@
     start();
   }
 
+  /**
+   * Whether prepaid/weekly budget allows a paid generation.
+   * @param {number} [minUsd=0.01]
+   * @returns {boolean|null} true = ok, false = known empty, null = unknown
+   */
+  function hasSpendableCredits(minUsd) {
+    minUsd = minUsd == null ? 0.01 : Number(minUsd);
+    var d = lastPayload;
+    if (!d || !d.ok) return null;
+    var c = d.credits_usd;
+    var w = d.week_remaining_usd;
+    if (c != null && Number(c) < minUsd) return false;
+    if (w != null && Number(w) < minUsd) return false;
+    if (c == null && w == null) return null;
+    return true;
+  }
+
   window.XaiCreditsHud = {
     refresh: refresh,
     getLast: function () {
       return lastPayload;
     },
+    hasSpendableCredits: hasSpendableCredits,
   };
 })();

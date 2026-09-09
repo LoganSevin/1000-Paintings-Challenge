@@ -1,0 +1,42 @@
+{
+  "number": 4872,
+  "title": "Line sketch: Surreal Ferrari Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant Ferrari 296 GTB with white racing stripes and the number 07 sits centrally in a surreal, dark environment. The car is surrounded by floating orbs, geometric and crystal shards, flowering vines, and a large stylized woman's face composed of geometric facets in the background (derived from generated still #4307).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant Ferrari 296 GTB with white racing stripes and the number 07 sits centrally in a surreal, dark environment. The car is surrounded by floating orbs, geometric and crystal shards, flowering vines, and a large stylized woman's face composed of geometric facets in the background",
+  "inverted_title": "Inverted sketch: Surreal Ferrari Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant Ferrari 296 GTB with white racing stripes and the number 07 sits centrally in a surreal, dark environment. The car is surrounded by floating orbs, geometric and crystal shards, flowering vines, and a large stylized woman's face composed of geometric facets in the background (from generated still #4307).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant Ferrari 296 GTB with white racing stripes and the number 07 sits centrally in a surreal, dark environment. The car is surrounded by floating orbs, geometric and crystal shards, flowering vines, and a large stylized woman's face composed of geometric facets in the background",
+  "source_description": "A vibrant red Ferrari 296 GTB with white racing stripes and the number 07 sits centrally in a surreal, dark environment. The car is surrounded by floating green orbs, geometric blue and yellow crystal shards, flowering vines, and a large stylized woman's face composed of colorful geometric facets in the background.",
+  "source_prompt": "A striking red Ferrari 296 GTB with white racing stripes and number 07 positioned in the center of a dark surreal dreamscape. The car is intertwined with flowering green vines and surrounded by floating luminous green orbs. To the right, a large stylized female face made of vibrant blue, yellow, and purple geometric facets emerges from the darkness. The ground consists of sharp angular blue, purple and yellow crystal shards. Wind chimes hang in the shadowy background, creating a mystical and ethereal atmosphere.",
+  "source_title": "Surreal Red Ferrari Dreamscape",
+  "style": "surreal",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ferrari",
+    "surrealism",
+    "geometric",
+    "floating orbs",
+    "crystals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4307,
+  "source_url": "/generated/4307.jpg",
+  "image_url": "/sketches/4872.png",
+  "inverted_image_url": "/sketches-inverted/4872.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:49Z"
+}

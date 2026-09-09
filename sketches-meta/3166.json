@@ -1,0 +1,42 @@
+{
+  "number": 3166,
+  "title": "Line sketch: Ghost on the Grand Staircase",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a satin gown stands on a decaying spiral staircase, holding a glowing lantern while reaching toward a translucent ghostly figure of a man floating above her. The once-opulent mansion interior is peeling and ruined, with film reels scattered across the waterlogged floor below (derived from generated still #2509).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a satin gown stands on a decaying spiral staircase, holding a glowing lantern while reaching toward a translucent ghostly figure of a man floating above her. The once-opulent mansion interior is peeling and ruined, with film reels scattered across the waterlogged floor below",
+  "inverted_title": "Inverted sketch: Ghost on the Grand Staircase",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a satin gown stands on a decaying spiral staircase, holding a glowing lantern while reaching toward a translucent ghostly figure of a man floating above her. The once-opulent mansion interior is peeling and ruined, with film reels scattered across the waterlogged floor below (from generated still #2509).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a satin gown stands on a decaying spiral staircase, holding a glowing lantern while reaching toward a translucent ghostly figure of a man floating above her. The once-opulent mansion interior is peeling and ruined, with film reels scattered across the waterlogged floor below",
+  "source_description": "A woman in a silver satin gown stands on a decaying spiral staircase, holding a glowing lantern while reaching toward a translucent ghostly figure of a man floating above her. The once-opulent mansion interior is peeling and ruined, with film reels scattered across the waterlogged floor below.",
+  "source_prompt": "A woman in a flowing silver satin evening gown stands on a crumbling spiral staircase inside a decaying purple and gold mansion, holding a glowing lantern in one hand while reaching out with the other toward a translucent ghostly man in a suit floating in a beam of light. Peeling walls, scattered film reels and broken film strips floating in water at the bottom of the stairs, dramatic cinematic lighting, moody and surreal atmosphere",
+  "source_title": "Ghost on the Grand Staircase",
+  "style": "cinematic surrealism",
+  "mood": "haunting, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghost",
+    "spiral staircase",
+    "decaying mansion",
+    "lantern",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2509,
+  "source_url": "/generated/2509.jpg",
+  "image_url": "/sketches/3166.png",
+  "inverted_image_url": "/sketches-inverted/3166.png",
+  "curve_count": 101,
+  "built_at": "2026-08-17T00:09:45Z"
+}

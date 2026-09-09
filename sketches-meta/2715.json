@@ -1,0 +1,42 @@
+{
+  "number": 2715,
+  "title": "Line sketch: Blueberry Lotus Chalice",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a dark-skinned woman with blueberries in her hair, emerging from a giant lotus inside a large bowl filled with blueberries. She holds a chalice while surrounded by translucent orbs containing silhouettes of figures and nature motifs against a swirling - background (derived from generated still #1961).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a dark-skinned woman with blueberries in her hair, emerging from a giant lotus inside a large bowl filled with blueberries. She holds a chalice while surrounded by translucent orbs containing silhouettes of figures and nature motifs against a swirling - background",
+  "inverted_title": "Inverted sketch: Blueberry Lotus Chalice",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a dark-skinned woman with blueberries in her hair, emerging from a giant lotus inside a large bowl filled with blueberries. She holds a chalice while surrounded by translucent orbs containing silhouettes of figures and nature motifs against a swirling - background (from generated still #1961).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a dark-skinned woman with blueberries in her hair, emerging from a giant lotus inside a large bowl filled with blueberries. She holds a chalice while surrounded by translucent orbs containing silhouettes of figures and nature motifs against a swirling - background",
+  "source_description": "A surreal portrait of a dark-skinned woman with blueberries in her hair, emerging from a giant pink lotus inside a large green bowl filled with blueberries. She holds a silver chalice while surrounded by colorful translucent orbs containing silhouettes of figures and nature motifs against a swirling yellow-green background.",
+  "source_prompt": "",
+  "source_title": "Blueberry Lotus Chalice",
+  "style": "surrealism",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman",
+    "lotus",
+    "blueberries",
+    "chalice"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1961,
+  "source_url": "/generated/1961.jpg",
+  "image_url": "/sketches/2715.png",
+  "inverted_image_url": "/sketches-inverted/2715.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2916,
+  "title": "Line sketch: Window Contemplation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with a flower crown sits in a armchair holding a single, gazing toward a large window. The room features patterned furniture with motifs, a lamp, and oversized blooming visible outside against a dramatic sunset (derived from generated still #2205).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with a flower crown sits in a armchair holding a single, gazing toward a large window. The room features patterned furniture with motifs, a lamp, and oversized blooming visible outside against a dramatic sunset",
+  "inverted_title": "Inverted sketch: Window Contemplation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with a flower crown sits in a armchair holding a single, gazing toward a large window. The room features patterned furniture with motifs, a lamp, and oversized blooming visible outside against a dramatic sunset (from generated still #2205).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with a flower crown sits in a armchair holding a single, gazing toward a large window. The room features patterned furniture with motifs, a lamp, and oversized blooming visible outside against a dramatic sunset",
+  "source_description": "A woman with a flower crown sits in a teal armchair holding a single red rose, gazing toward a large window. The room features patterned furniture with rose motifs, a pink lamp, and oversized blooming roses visible outside against a dramatic red sunset.",
+  "source_prompt": "A woman wearing a green flower crown and pink blouse sits in a teal vintage armchair inside a stylized room, gently holding a red rose and looking toward a large window. Outside the window are giant pink roses against a vibrant red and orange sunset. The room contains a matching rose-patterned sofa, a pink lamp on a wooden cabinet, and a round coffee table with decorative plates. Surreal atmosphere with soft lighting and painterly textures.",
+  "source_title": "Rose Window Contemplation",
+  "style": "surreal",
+  "mood": "dreamlike serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "sunset",
+    "interior",
+    "surreal",
+    "flower crown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2205,
+  "source_url": "/generated/2205.jpg",
+  "image_url": "/sketches/2916.png",
+  "inverted_image_url": "/sketches-inverted/2916.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:44Z"
+}

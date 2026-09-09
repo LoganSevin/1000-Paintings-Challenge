@@ -1,0 +1,42 @@
+{
+  "number": 3542,
+  "title": "Line sketch: Gothic Queen and Goblin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A blonde woman in a black velvet gown and crown stands on a stone path, her long hair adorned with flowers. A goblin-like creature with glowing eyes stands behind her, one chained hand resting on her shoulder, while a sleeping woman lies peacefully among flowers in the foreground (derived from generated still #2950).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A blonde woman in a black velvet gown and crown stands on a stone path, her long hair adorned with flowers. A goblin-like creature with glowing eyes stands behind her, one chained hand resting on her shoulder, while a sleeping woman lies peacefully among flowers in the foreground",
+  "inverted_title": "Inverted sketch: Gothic Queen and Goblin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A blonde woman in a black velvet gown and crown stands on a stone path, her long hair adorned with flowers. A goblin-like creature with glowing eyes stands behind her, one chained hand resting on her shoulder, while a sleeping woman lies peacefully among flowers in the foreground (from generated still #2950).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A blonde woman in a black velvet gown and crown stands on a stone path, her long hair adorned with flowers. A goblin-like creature with glowing eyes stands behind her, one chained hand resting on her shoulder, while a sleeping woman lies peacefully among flowers in the foreground",
+  "source_description": "A blonde woman in a black velvet gown and crown stands on a stone path, her long hair adorned with flowers. A pale green goblin-like creature with glowing orange eyes stands behind her, one chained hand resting on her shoulder, while a sleeping woman lies peacefully among flowers in the foreground.",
+  "source_prompt": "A haunting dark fantasy scene featuring a regal blonde woman in a black velvet off-shoulder gown and crown standing on a cobblestone path leading to a gothic castle surrounded by flowing lava. A pale green goblin creature with glowing orange eyes and chains stands behind her, touching her shoulder. In the foreground, a peaceful sleeping woman with floral hair rests among vibrant flowers and vines under a purple stormy sky.",
+  "source_title": "Gothic Queen and Goblin",
+  "style": "dark fantasy",
+  "mood": "sinister surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark fantasy",
+    "goblin",
+    "gothic queen",
+    "lava castle",
+    "floral surrealism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2950,
+  "source_url": "/generated/2950.jpg",
+  "image_url": "/sketches/3542.png",
+  "inverted_image_url": "/sketches-inverted/3542.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:46Z"
+}

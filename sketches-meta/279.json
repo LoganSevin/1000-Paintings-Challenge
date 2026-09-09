@@ -1,0 +1,42 @@
+{
+  "number": 279,
+  "title": "Line sketch: Sage and the Alien Encounter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man in traditional desert robes stands face-to-face with a -skinned alien under a starry night sky. The two beings gaze at each other with mutual curiosity amid glowing trees and soft bokeh lights (derived from painting #336).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man in traditional desert robes stands face-to-face with a -skinned alien under a starry night sky. The two beings gaze at each other with mutual curiosity amid glowing trees and soft bokeh lights",
+  "inverted_title": "Inverted sketch: Sage and the Alien Encounter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man in traditional desert robes stands face-to-face with a -skinned alien under a starry night sky. The two beings gaze at each other with mutual curiosity amid glowing trees and soft bokeh lights (from painting #336).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man in traditional desert robes stands face-to-face with a -skinned alien under a starry night sky. The two beings gaze at each other with mutual curiosity amid glowing trees and soft bokeh lights",
+  "source_description": "An elderly man in traditional desert robes stands face-to-face with a golden-skinned alien under a starry night sky. The two beings gaze at each other with mutual curiosity amid glowing trees and soft bokeh lights.",
+  "source_prompt": "",
+  "source_title": "Sage and the Alien Encounter",
+  "style": "line sketch",
+  "mood": "Mysterious and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "elderly man",
+    "fantasy",
+    "night scene",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 336,
+  "source_url": "/paintings/336.jpg",
+  "image_url": "/sketches/279.png",
+  "inverted_image_url": "/sketches-inverted/279.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4151,
+  "title": "Line sketch: Montmartre Sun Face",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant street scene of Montmartre in Paris features the Sacré-Cœur Basilica in the background. A large stylized line-art face with radiating sun rays emerges from a central white panel, overlooking pedestrians walking along a cobblestone street lined with shops, awnings, and autumn trees (derived from generated still #3569).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant street scene of Montmartre in Paris features the Sacré-Cœur Basilica in the background. A large stylized line-art face with radiating sun rays emerges from a central white panel, overlooking pedestrians walking along a cobblestone street lined with shops, awnings, and autumn trees",
+  "inverted_title": "Inverted sketch: Montmartre Sun Face",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant street scene of Montmartre in Paris features the Sacré-Cœur Basilica in the background. A large stylized line-art face with radiating sun rays emerges from a central white panel, overlooking pedestrians walking along a cobblestone street lined with shops, awnings, and autumn trees (from generated still #3569).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant street scene of Montmartre in Paris features the Sacré-Cœur Basilica in the background. A large stylized line-art face with radiating sun rays emerges from a central white panel, overlooking pedestrians walking along a cobblestone street lined with shops, awnings, and autumn trees",
+  "source_description": "A vibrant street scene of Montmartre in Paris features the Sacré-Cœur Basilica in the background. A large stylized blue line-art face with radiating sun rays emerges from a central white panel, overlooking pedestrians walking along a colorful cobblestone street lined with shops, awnings, and autumn trees.",
+  "source_prompt": "A lively Parisian street in Montmartre with Sacré-Cœur Basilica visible in the background under a bright sun. In the center of the composition is a large white vertical panel featuring a stylized blue line drawing of a serene face with radiating sun rays. Colorful shops with red, orange, and green awnings line the cobblestone street where pedestrians walk. An autumn tree with yellow leaves stands on the right, flower pots and a blue umbrella on the left. Vibrant illustrative style with energetic brushwork.",
+  "source_title": "Montmartre Sun Face",
+  "style": "vibrant illustrative composition",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Montmartre",
+    "Paris street",
+    "Sacré-Cœur",
+    "sun face",
+    "urban surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3569,
+  "source_url": "/generated/3569.jpg",
+  "image_url": "/sketches/4151.png",
+  "inverted_image_url": "/sketches-inverted/4151.png",
+  "curve_count": 131,
+  "built_at": "2026-08-17T00:09:47Z"
+}

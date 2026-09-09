@@ -1,0 +1,42 @@
+{
+  "number": 4160,
+  "title": "Line sketch: Foret Family Crest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black and white heraldic achievement featuring a shield with three stylized pine cones arranged in a triangle, the top two side by side and one centered below. An ornate helmet with a cross sits above the shield, surrounded by intricate scrolling mantling. A banner beneath displays the name 'Foret' in gothic lettering (derived from generated still #3578).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black and white heraldic achievement featuring a shield with three stylized pine cones arranged in a triangle, the top two side by side and one centered below. An ornate helmet with a cross sits above the shield, surrounded by intricate scrolling mantling. A banner beneath displays the name 'Foret' in gothic lettering",
+  "inverted_title": "Inverted sketch: Foret Family Crest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black and white heraldic achievement featuring a shield with three stylized pine cones arranged in a triangle, the top two side by side and one centered below. An ornate helmet with a cross sits above the shield, surrounded by intricate scrolling mantling. A banner beneath displays the name 'Foret' in gothic lettering (from generated still #3578).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black and white heraldic achievement featuring a shield with three stylized pine cones arranged in a triangle, the top two side by side and one centered below. An ornate helmet with a cross sits above the shield, surrounded by intricate scrolling mantling. A banner beneath displays the name 'Foret' in gothic lettering",
+  "source_description": "A black and white heraldic achievement featuring a shield with three stylized pine cones arranged in a triangle, the top two side by side and one centered below. An ornate helmet with a cross sits above the shield, surrounded by intricate scrolling mantling. A banner beneath displays the name 'Foret' in gothic lettering.",
+  "source_prompt": "Black and white ink drawing of a traditional heraldic coat of arms, a shield divided by horizontal lines containing three large detailed pine cones with textured scales arranged two above and one below, a medieval knight's helmet with cross emblem resting on top, surrounded by dense elaborate leafy acanthus mantling and scrollwork, a ribbon banner at the bottom with the word 'Foret' in ornate gothic blackletter font, vintage engraving style with precise linework and cross-hatching, on off-white paper",
+  "source_title": "Foret Family Crest",
+  "style": "Heraldry",
+  "mood": "formal stately",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "ink drawing",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "coat of arms",
+    "heraldry",
+    "pine cones",
+    "mantling",
+    "family crest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3578,
+  "source_url": "/generated/3578.jpg",
+  "image_url": "/sketches/4160.png",
+  "inverted_image_url": "/sketches-inverted/4160.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

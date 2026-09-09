@@ -1,0 +1,42 @@
+{
+  "number": 3987,
+  "title": "Line sketch: Mage Fighter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with white hair in an updo stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with wide pants and armored details, holding a glowing energy ring in her right hand while her left hand projects a larger swirling magical orb with crescent symbols (derived from generated still #3404).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with white hair in an updo stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with wide pants and armored details, holding a glowing energy ring in her right hand while her left hand projects a larger swirling magical orb with crescent symbols",
+  "inverted_title": "Inverted sketch: Mage Fighter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with white hair in an updo stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with wide pants and armored details, holding a glowing energy ring in her right hand while her left hand projects a larger swirling magical orb with crescent symbols (from generated still #3404).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with white hair in an updo stands in a dynamic combat pose against a solid gray background. She wears a white and traditional-style outfit with wide pants and armored details, holding a glowing energy ring in her right hand while her left hand projects a larger swirling magical orb with crescent symbols",
+  "source_description": "A young woman with white hair in an updo stands in a dynamic combat pose against a solid gray background. She wears a white and purple traditional-style outfit with wide pants and armored details, holding a glowing purple energy ring in her right hand while her left hand projects a larger swirling purple magical orb with crescent symbols.",
+  "source_prompt": "A young East Asian woman with long white hair tied in an ornate topknot with purple ribbons stands in a powerful combat stance. She wears a white and purple traditional fantasy martial arts outfit with wide pants, a laced top, and silver details. Her right hand holds a crackling purple energy ring while her left hand projects a large swirling orb of purple magic with crescent moon symbols. She has a glowing purple halo of energy above her head, purple eyes, and a focused expression. Solid dark gray background, dynamic pose, digital fantasy art style.",
+  "source_title": "Purple Mage Fighter",
+  "style": "digital illustration",
+  "mood": "powerful, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "magic",
+    "fantasy character",
+    "energy manipulation"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3404,
+  "source_url": "/generated/3404.jpg",
+  "image_url": "/sketches/3987.png",
+  "inverted_image_url": "/sketches-inverted/3987.png",
+  "curve_count": 177,
+  "built_at": "2026-08-17T00:09:47Z"
+}

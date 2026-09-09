@@ -1,0 +1,42 @@
+{
+  "number": 4741,
+  "title": "Line sketch: Stasis Veil",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy landscape featuring a winding path that traverses diverse biomes including a glowing cave entrance with Celtic patterns, a striped terracotta hill, ancient stone aqueducts with waterfalls, a floating island with a stone tower, herds of deer, and a distant erupting volcano under a aurora sky (derived from generated still #4172).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy landscape featuring a winding path that traverses diverse biomes including a glowing cave entrance with Celtic patterns, a striped terracotta hill, ancient stone aqueducts with waterfalls, a floating island with a stone tower, herds of deer, and a distant erupting volcano under a aurora sky",
+  "inverted_title": "Inverted sketch: Stasis Veil",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy landscape featuring a winding path that traverses diverse biomes including a glowing cave entrance with Celtic patterns, a striped terracotta hill, ancient stone aqueducts with waterfalls, a floating island with a stone tower, herds of deer, and a distant erupting volcano under a aurora sky (from generated still #4172).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy landscape featuring a winding path that traverses diverse biomes including a glowing cave entrance with Celtic patterns, a striped terracotta hill, ancient stone aqueducts with waterfalls, a floating island with a stone tower, herds of deer, and a distant erupting volcano under a aurora sky",
+  "source_description": "A vibrant fantasy landscape featuring a winding golden path that traverses diverse biomes including a glowing purple cave entrance with Celtic patterns, a striped terracotta hill, ancient stone aqueducts with waterfalls, a floating island with a stone tower, herds of deer, and a distant erupting volcano under a colorful aurora sky.",
+  "source_prompt": "Wide fantasy landscape with a glowing golden winding path crossing multiple biomes. On the left a mossy hill with a glowing purple cave entrance and Celtic knotwork. Center shows a striped terracotta mound, stone Roman-style aqueduct with cascading water, and a floating rocky island with a medieval tower. Herds of deer graze in the meadows. In the background an erupting volcano with lava flows, icy mountains on the right, and a dramatic sky filled with swirling aurora borealis in teal, pink and orange hues. Detailed fantasy illustration style.",
+  "source_title": "Stasis Veil",
+  "style": "fantasy illustration",
+  "mood": "epic wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "aurora sky",
+    "volcano",
+    "floating island",
+    "magical path"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4172,
+  "source_url": "/generated/4172.jpg",
+  "image_url": "/sketches/4741.png",
+  "inverted_image_url": "/sketches-inverted/4741.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:48Z"
+}

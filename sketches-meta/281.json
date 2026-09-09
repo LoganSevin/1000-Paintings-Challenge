@@ -1,0 +1,42 @@
+{
+  "number": 281,
+  "title": "Line sketch: Alien Larva on Desert Planet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal creature with a large orb-like head drips honey-like substance onto a bubbly mound where a small white larva with big eyes rests. In a barren rocky landscape under a giant planet, another larva dangles from a tendril in the distance (derived from painting #338).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal creature with a large orb-like head drips honey-like substance onto a bubbly mound where a small white larva with big eyes rests. In a barren rocky landscape under a giant planet, another larva dangles from a tendril in the distance",
+  "inverted_title": "Inverted sketch: Alien Larva on Desert Planet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal creature with a large orb-like head drips honey-like substance onto a bubbly mound where a small white larva with big eyes rests. In a barren rocky landscape under a giant planet, another larva dangles from a tendril in the distance (from painting #338).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal creature with a large orb-like head drips honey-like substance onto a bubbly mound where a small white larva with big eyes rests. In a barren rocky landscape under a giant planet, another larva dangles from a tendril in the distance",
+  "source_description": "A golden skeletal creature with a large orb-like head drips honey-like substance onto a bubbly mound where a small white larva with big eyes rests. In a barren rocky landscape under a giant planet, another larva dangles from a tendril in the distance.",
+  "source_prompt": "",
+  "source_title": "Alien Larva on Desert Planet",
+  "style": "Surrealism",
+  "mood": "Eerie wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "alien",
+    "creature",
+    "desert",
+    "larva"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 338,
+  "source_url": "/paintings/338.jpg",
+  "image_url": "/sketches/281.png",
+  "inverted_image_url": "/sketches-inverted/281.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:38Z"
+}

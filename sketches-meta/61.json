@@ -1,0 +1,42 @@
+{
+  "number": 61,
+  "title": "Line sketch: Sunset Rails Over the City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elevated train glides along tracks beneath a dramatic city skyline silhouetted against a blazing sunset. The composition leads the eye from foreground rails and bridges toward the glowing sun and clustered skyscrapers, with layered clouds filling the sky. Bold, loose and vibrant color blocking define the painterly technique (derived from painting #91).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elevated train glides along tracks beneath a dramatic city skyline silhouetted against a blazing sunset. The composition leads the eye from foreground rails and bridges toward the glowing sun and clustered skyscrapers, with layered clouds filling the sky. Bold, loose and vibrant color blocking define the painterly technique",
+  "inverted_title": "Inverted sketch: Sunset Rails Over the City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elevated train glides along tracks beneath a dramatic city skyline silhouetted against a blazing sunset. The composition leads the eye from foreground rails and bridges toward the glowing sun and clustered skyscrapers, with layered clouds filling the sky. Bold, loose and vibrant color blocking define the painterly technique (from painting #91).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elevated train glides along tracks beneath a dramatic city skyline silhouetted against a blazing sunset. The composition leads the eye from foreground rails and bridges toward the glowing sun and clustered skyscrapers, with layered clouds filling the sky. Bold, loose and vibrant color blocking define the painterly technique",
+  "source_description": "An elevated train glides along tracks beneath a dramatic city skyline silhouetted against a blazing sunset. The composition leads the eye from foreground rails and bridges toward the glowing sun and clustered skyscrapers, with layered clouds filling the sky. Bold, loose brushwork and vibrant color blocking define the painterly technique.",
+  "source_prompt": "",
+  "source_title": "Sunset Rails Over the City",
+  "style": "Impressionism",
+  "mood": "Vibrant serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sunset",
+    "cityscape",
+    "train",
+    "urban",
+    "skyline"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 91,
+  "source_url": "/paintings/91.jpg",
+  "image_url": "/sketches/61.png",
+  "inverted_image_url": "/sketches-inverted/61.png",
+  "curve_count": 157,
+  "built_at": "2026-08-17T00:09:38Z"
+}

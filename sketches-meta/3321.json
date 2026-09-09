@@ -1,0 +1,42 @@
+{
+  "number": 3321,
+  "title": "Line sketch: Surreal Cinema Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dress and grey jacket sits in a velvet theater seat, projecting a beam of light from her eyes onto a massive surreal scene. The projected image shows an ornate flooded ballroom with floating picture frames, a pocket watch, ghostly figures, a silhouetted man on a ladder, and the numbers 3 2 4 1 visible on the floor (derived from generated still #2708).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dress and grey jacket sits in a velvet theater seat, projecting a beam of light from her eyes onto a massive surreal scene. The projected image shows an ornate flooded ballroom with floating picture frames, a pocket watch, ghostly figures, a silhouetted man on a ladder, and the numbers 3 2 4 1 visible on the floor",
+  "inverted_title": "Inverted sketch: Surreal Cinema Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dress and grey jacket sits in a velvet theater seat, projecting a beam of light from her eyes onto a massive surreal scene. The projected image shows an ornate flooded ballroom with floating picture frames, a pocket watch, ghostly figures, a silhouetted man on a ladder, and the numbers 3 2 4 1 visible on the floor (from generated still #2708).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dress and grey jacket sits in a velvet theater seat, projecting a beam of light from her eyes onto a massive surreal scene. The projected image shows an ornate flooded ballroom with floating picture frames, a pocket watch, ghostly figures, a silhouetted man on a ladder, and the numbers 3 2 4 1 visible on the floor",
+  "source_description": "A woman in a blue dress and grey jacket sits in a red velvet theater seat, projecting a beam of light from her eyes onto a massive surreal scene. The projected image shows an ornate flooded ballroom with floating picture frames, a pocket watch, ghostly figures, a silhouetted man on a ladder, and the numbers 3 2 4 1 visible on the floor.",
+  "source_prompt": "A woman sitting in an old red velvet theater seat projecting a beam of light from her eyes into a giant surreal painting. The painting depicts a flooded elegant ballroom with floating golden picture frames, a giant pocket watch held by a hand, ghostly dancing figures, a silhouetted man climbing a ladder into the sky, and the numbers 3 2 4 1 on the floor. Dramatic cinematic lighting, sparks and embers floating, twilight sky in background, highly detailed surreal scene.",
+  "source_title": "Surreal Cinema Dream",
+  "style": "surrealism",
+  "mood": "dreamlike melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "projection",
+    "theater",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2708,
+  "source_url": "/generated/2708.jpg",
+  "image_url": "/sketches/3321.png",
+  "inverted_image_url": "/sketches-inverted/3321.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

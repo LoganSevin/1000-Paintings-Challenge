@@ -1,0 +1,42 @@
+{
+  "number": 3315,
+  "title": "Line sketch: Cinematic Memory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a satin dress sits in a vintage theater chair, holding a lit candle in one hand and a film reel in the other. She gazes toward a large ornate window displaying a surreal night scene of a winged statue by the sea with floating lanterns, while film strips, a script, and a champagne glass rest on the table before her (derived from generated still #2700).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a satin dress sits in a vintage theater chair, holding a lit candle in one hand and a film reel in the other. She gazes toward a large ornate window displaying a surreal night scene of a winged statue by the sea with floating lanterns, while film strips, a script, and a champagne glass rest on the table before her",
+  "inverted_title": "Inverted sketch: Cinematic Memory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a satin dress sits in a vintage theater chair, holding a lit candle in one hand and a film reel in the other. She gazes toward a large ornate window displaying a surreal night scene of a winged statue by the sea with floating lanterns, while film strips, a script, and a champagne glass rest on the table before her (from generated still #2700).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a satin dress sits in a vintage theater chair, holding a lit candle in one hand and a film reel in the other. She gazes toward a large ornate window displaying a surreal night scene of a winged statue by the sea with floating lanterns, while film strips, a script, and a champagne glass rest on the table before her",
+  "source_description": "A woman in a silver satin dress sits in a vintage red theater chair, holding a lit candle in one hand and a film reel in the other. She gazes toward a large ornate window displaying a surreal night scene of a winged statue by the sea with floating lanterns, while film strips, a script, and a champagne glass rest on the table before her.",
+  "source_prompt": "A woman with dark curly hair wearing a shiny silver satin dress sits pensively in an ornate red velvet theater chair inside a vintage room with heavy curtains. She holds a lit candle in her right hand and a film reel in her lap. In front of her on a table are scattered film strips, an open script, and a glass of champagne. Behind her, a large decorative window reveals a dreamlike night scene of a stone angel statue standing in the ocean under a cloudy sky with many glowing paper lanterns floating above the water. Warm light rays and string lights illuminate the scene, in a detailed cinematic digital painting style.",
+  "source_title": "Cinematic Memory",
+  "style": "cinematic",
+  "mood": "melancholy, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinematic",
+    "surreal",
+    "film noir",
+    "theater",
+    "lanterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2700,
+  "source_url": "/generated/2700.jpg",
+  "image_url": "/sketches/3315.png",
+  "inverted_image_url": "/sketches-inverted/3315.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

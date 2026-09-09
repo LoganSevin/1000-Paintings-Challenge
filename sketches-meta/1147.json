@@ -1,0 +1,42 @@
+{
+  "number": 1147,
+  "title": "Line sketch: Tulips and Swirls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition featuring clusters of tulips with stems rising from the bottom. Above them are large, swirling circular patterns in, and against a light background, with a thick horizontal band dripping and paint across the middle (derived from generated still #359).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition featuring clusters of tulips with stems rising from the bottom. Above them are large, swirling circular patterns in, and against a light background, with a thick horizontal band dripping and paint across the middle",
+  "inverted_title": "Inverted sketch: Tulips and Swirls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition featuring clusters of tulips with stems rising from the bottom. Above them are large, swirling circular patterns in, and against a light background, with a thick horizontal band dripping and paint across the middle (from generated still #359).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition featuring clusters of tulips with stems rising from the bottom. Above them are large, swirling circular patterns in, and against a light background, with a thick horizontal band dripping and paint across the middle",
+  "source_description": "A vibrant painting featuring clusters of yellow tulips with green stems rising from the bottom. Above them are large, swirling circular patterns in blue, red, and green against a light background, with a thick horizontal gold band dripping red and blue paint across the middle.",
+  "source_prompt": "",
+  "source_title": "Tulips and Swirls",
+  "style": "abstract expressionism",
+  "mood": "vibrant, joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tulips",
+    "swirls",
+    "dripping paint",
+    "floral",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 359,
+  "source_url": "/generated/359.jpg",
+  "image_url": "/sketches/1147.png",
+  "inverted_image_url": "/sketches-inverted/1147.png",
+  "curve_count": 281,
+  "built_at": "2026-08-17T00:09:40Z"
+}

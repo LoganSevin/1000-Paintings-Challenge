@@ -1,0 +1,42 @@
+{
+  "number": 3205,
+  "title": "Line sketch: Guardian of the Mystic Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pair of hands holds a glowing miniature Earth emitting warm light from below. Behind it floats a massive translucent cosmic entity with large round eyes, bubbles, and jellyfish-like forms swirling within a vortex against a dark background (derived from generated still #2555).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pair of hands holds a glowing miniature Earth emitting warm light from below. Behind it floats a massive translucent cosmic entity with large round eyes, bubbles, and jellyfish-like forms swirling within a vortex against a dark background",
+  "inverted_title": "Inverted sketch: Guardian of the Mystic Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pair of hands holds a glowing miniature Earth emitting warm light from below. Behind it floats a massive translucent cosmic entity with large round eyes, bubbles, and jellyfish-like forms swirling within a vortex against a dark background (from generated still #2555).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pair of hands holds a glowing miniature Earth emitting warm light from below. Behind it floats a massive translucent cosmic entity with large round eyes, bubbles, and jellyfish-like forms swirling within a vortex against a dark background",
+  "source_description": "A pair of hands holds a glowing miniature Earth emitting warm light from below. Behind it floats a massive translucent purple cosmic entity with large round eyes, bubbles, and jellyfish-like forms swirling within a vortex against a dark background.",
+  "source_prompt": "A pair of pale hands cupping a small glowing globe showing the Earth with visible continents and oceans, radiating warm golden light from below. Looming behind is a giant translucent purple cosmic creature with large cartoonish eyes and teal highlights, swirling vortex of bubbles and glowing jellyfish-like organisms floating inside its form, dark teal background, dramatic fantasy atmosphere, ethereal lighting",
+  "source_title": "Guardian of the Mystic Orb",
+  "style": "fantasy illustration",
+  "mood": "mystical wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic entity",
+    "glowing orb",
+    "miniature earth",
+    "vortex",
+    "jellyfish spirits"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2555,
+  "source_url": "/generated/2555.jpg",
+  "image_url": "/sketches/3205.png",
+  "inverted_image_url": "/sketches-inverted/3205.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

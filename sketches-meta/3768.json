@@ -1,0 +1,42 @@
+{
+  "number": 3768,
+  "title": "Line sketch: Dual Pose Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side static poses of the same male warrior character against a solid dark gray background. The figure wears ornate and armor with a tattered gray coat, boots, and has spiky hair with an undercut (derived from generated still #3184).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side static poses of the same male warrior character against a solid dark gray background. The figure wears ornate and armor with a tattered gray coat, boots, and has spiky hair with an undercut",
+  "inverted_title": "Inverted sketch: Dual Pose Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side static poses of the same male warrior character against a solid dark gray background. The figure wears ornate and armor with a tattered gray coat, boots, and has spiky hair with an undercut (from generated still #3184).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side static poses of the same male warrior character against a solid dark gray background. The figure wears ornate and armor with a tattered gray coat, boots, and has spiky hair with an undercut",
+  "source_description": "Two side-by-side static poses of the same male warrior character against a solid dark gray background. The figure wears ornate gold and red armor with a tattered gray coat, brown boots, and has spiky brown hair with an undercut.",
+  "source_prompt": "A male warrior with spiky brown hair and an undercut, wearing ornate gold and red shoulder armor, a tattered gray coat with gold trim, brown pants, and dark boots. He is shown in two different combat stances side by side against a plain dark gray background, one with hands raised defensively and the other in a fighting pose with fists clenched, highly detailed digital character concept art.",
+  "source_title": "Dual Pose Warrior",
+  "style": "line sketch",
+  "mood": "dynamic, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render to 2D illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "male character",
+    "fantasy armor",
+    "dual pose",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3184,
+  "source_url": "/generated/3184.jpg",
+  "image_url": "/sketches/3768.png",
+  "inverted_image_url": "/sketches-inverted/3768.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

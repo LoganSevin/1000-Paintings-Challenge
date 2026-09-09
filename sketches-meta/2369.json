@@ -1,0 +1,42 @@
+{
+  "number": 2369,
+  "title": "Line sketch: Surreal Spider Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a mechanical spider with glowing eyes and circuit-board patterns standing on a circular platform covered in shamrocks and clovers. In the background, a -lit city street with pedestrians sits below a massive swirling vortex in and containing two floating heads, while a large rock formation pours a waterfall into the mist (derived from generated still #1597).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a mechanical spider with glowing eyes and circuit-board patterns standing on a circular platform covered in shamrocks and clovers. In the background, a -lit city street with pedestrians sits below a massive swirling vortex in and containing two floating heads, while a large rock formation pours a waterfall into the mist",
+  "inverted_title": "Inverted sketch: Surreal Spider Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a mechanical spider with glowing eyes and circuit-board patterns standing on a circular platform covered in shamrocks and clovers. In the background, a -lit city street with pedestrians sits below a massive swirling vortex in and containing two floating heads, while a large rock formation pours a waterfall into the mist (from generated still #1597).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a mechanical spider with glowing eyes and circuit-board patterns standing on a circular platform covered in shamrocks and clovers. In the background, a -lit city street with pedestrians sits below a massive swirling vortex in and containing two floating heads, while a large rock formation pours a waterfall into the mist",
+  "source_description": "A vibrant surreal painting depicts a mechanical spider with glowing eyes and circuit-board patterns standing on a circular platform covered in shamrocks and clovers. In the background, a neon-lit city street with pedestrians sits below a massive swirling vortex in purple and green containing two floating heads, while a large red rock formation pours a multicolored waterfall into the mist.",
+  "source_prompt": "",
+  "source_title": "Surreal Spider Waterfall",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical spider",
+    "city",
+    "waterfall",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1597,
+  "source_url": "/generated/1597.jpg",
+  "image_url": "/sketches/2369.png",
+  "inverted_image_url": "/sketches-inverted/2369.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:43Z"
+}

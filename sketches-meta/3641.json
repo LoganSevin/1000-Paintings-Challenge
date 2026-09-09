@@ -1,0 +1,42 @@
+{
+  "number": 3641,
+  "title": "Line sketch: Stained Glass Mosaic Panel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A six-panel grid of translucent mosaic artwork constructed from fragmented glass pieces. The top-center panel features a radiant - sun with a textured horizon below, while the bottom-center panel displays stylized flowers with black centers against a background; the remaining panels contain dense abstract arrangements of glass shards (derived from generated still #3049).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A six-panel grid of translucent mosaic artwork constructed from fragmented glass pieces. The top-center panel features a radiant - sun with a textured horizon below, while the bottom-center panel displays stylized flowers with black centers against a background; the remaining panels contain dense abstract arrangements of glass shards",
+  "inverted_title": "Inverted sketch: Stained Glass Mosaic Panel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A six-panel grid of translucent mosaic artwork constructed from fragmented glass pieces. The top-center panel features a radiant - sun with a textured horizon below, while the bottom-center panel displays stylized flowers with black centers against a background; the remaining panels contain dense abstract arrangements of glass shards (from generated still #3049).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A six-panel grid of translucent mosaic artwork constructed from fragmented glass pieces. The top-center panel features a radiant - sun with a textured horizon below, while the bottom-center panel displays stylized flowers with black centers against a background; the remaining panels contain dense abstract arrangements of glass shards",
+  "source_description": "A six-panel grid of translucent mosaic artwork constructed from fragmented glass pieces. The top-center panel features a radiant yellow-orange sun with a red textured horizon below, while the bottom-center panel displays stylized orange flowers with black centers against a pale green background; the remaining panels contain dense abstract arrangements of multicolored glass shards.",
+  "source_prompt": "close-up photograph of a six-pane window filled with intricate mosaic made from broken stained glass fragments, top center panel shows a glowing yellow sun with radiating lines over a textured red landscape, bottom center panel shows repeating orange flowers with black centers on pale green, surrounding panels filled with dense abstract collage of blue, green, amber, clear, and gold glass shards with visible texture and leading lines, bright backlit translucent effect, strong daylight passing through colored glass creating luminous patterns, realistic documentary photo",
+  "source_title": "Stained Glass Mosaic Panel",
+  "style": "mosaic",
+  "mood": "vibrant luminous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "stained glass",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "stained glass",
+    "sun motif",
+    "floral",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3049,
+  "source_url": "/generated/3049.jpg",
+  "image_url": "/sketches/3641.png",
+  "inverted_image_url": "/sketches-inverted/3641.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:46Z"
+}

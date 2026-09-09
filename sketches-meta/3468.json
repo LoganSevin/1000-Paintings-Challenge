@@ -1,0 +1,42 @@
+{
+  "number": 3468,
+  "title": "Line sketch: McDonald's Cosmic Knight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up side portrait of a woman with elaborate hair adorned with flowers and mechanical accessories, wearing ornate and metallic armor with white lace at the collar. Floating in a swirling vortex to the left are a Big Mac hamburger, french fries in a McDonald's container, and chicken nuggets, with liquid splattered across her shoulder (derived from generated still #2869).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up side portrait of a woman with elaborate hair adorned with flowers and mechanical accessories, wearing ornate and metallic armor with white lace at the collar. Floating in a swirling vortex to the left are a Big Mac hamburger, french fries in a McDonald's container, and chicken nuggets, with liquid splattered across her shoulder",
+  "inverted_title": "Inverted sketch: McDonald's Cosmic Knight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up side portrait of a woman with elaborate hair adorned with flowers and mechanical accessories, wearing ornate and metallic armor with white lace at the collar. Floating in a swirling vortex to the left are a Big Mac hamburger, french fries in a McDonald's container, and chicken nuggets, with liquid splattered across her shoulder (from generated still #2869).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up side portrait of a woman with elaborate hair adorned with flowers and mechanical accessories, wearing ornate and metallic armor with white lace at the collar. Floating in a swirling vortex to the left are a Big Mac hamburger, french fries in a McDonald's container, and chicken nuggets, with liquid splattered across her shoulder",
+  "source_description": "A close-up side portrait of a woman with elaborate magenta hair adorned with gold flowers and mechanical accessories, wearing ornate green and gold metallic armor with white lace at the collar. Floating in a swirling purple vortex to the left are a Big Mac hamburger, french fries in a red McDonald's container, and chicken nuggets, with red liquid splattered across her shoulder.",
+  "source_prompt": "close-up side view of a female knight with intricate magenta hair in an updo decorated with golden flowers and steampunk mechanical pieces, wearing ornate green and gold armor with white lace collar, a swirling purple cosmic vortex beside her containing a floating Big Mac, McDonald's french fries in a red carton, and chicken nuggets, dramatic red liquid splatter on her shoulder, detailed digital painting with baroque elements",
+  "source_title": "McDonald's Cosmic Knight",
+  "style": "line sketch",
+  "mood": "surreal, baroque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "fast food",
+    "armor",
+    "surrealism",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2869,
+  "source_url": "/generated/2869.jpg",
+  "image_url": "/sketches/3468.png",
+  "inverted_image_url": "/sketches-inverted/3468.png",
+  "curve_count": 96,
+  "built_at": "2026-08-17T00:09:45Z"
+}

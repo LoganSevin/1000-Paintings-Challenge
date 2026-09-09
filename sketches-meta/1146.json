@@ -1,0 +1,42 @@
+{
+  "number": 1146,
+  "title": "Line sketch: Swirling Tulip Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An expressive composition featuring bold, swirling in vibrant, and that sweep across the upper portion of the page. Below the dynamic swirls, a row of stylized tulips in, and emerges from flowing foliage, with thick paint drips cascading downward (derived from generated still #358).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An expressive composition featuring bold, swirling in vibrant, and that sweep across the upper portion of the page. Below the dynamic swirls, a row of stylized tulips in, and emerges from flowing foliage, with thick paint drips cascading downward",
+  "inverted_title": "Inverted sketch: Swirling Tulip Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An expressive composition featuring bold, swirling in vibrant, and that sweep across the upper portion of the page. Below the dynamic swirls, a row of stylized tulips in, and emerges from flowing foliage, with thick paint drips cascading downward (from generated still #358).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An expressive composition featuring bold, swirling in vibrant, and that sweep across the upper portion of the page. Below the dynamic swirls, a row of stylized tulips in, and emerges from flowing foliage, with thick paint drips cascading downward",
+  "source_description": "An expressive painting featuring bold, swirling brushstrokes in vibrant blues, greens, and yellows that sweep across the upper portion of the canvas. Below the dynamic swirls, a row of stylized tulips in yellow, orange, and deep red emerges from flowing green foliage, with thick paint drips cascading downward.",
+  "source_prompt": "",
+  "source_title": "Swirling Tulip Vortex",
+  "style": "expressive",
+  "mood": "vibrant, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "swirls",
+    "tulips",
+    "dripping paint",
+    "expressive",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 358,
+  "source_url": "/generated/358.jpg",
+  "image_url": "/sketches/1146.png",
+  "inverted_image_url": "/sketches-inverted/1146.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2816,
+  "title": "Line sketch: Stacked Laundry Machines",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stacked washer and dryer unit with trim stands in a corner next to a white chest freezer. A -handled broom leans against the wall beside shelves holding various cleaning products including TSP and OxiClean (derived from generated still #2100).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stacked washer and dryer unit with trim stands in a corner next to a white chest freezer. A -handled broom leans against the wall beside shelves holding various cleaning products including TSP and OxiClean",
+  "inverted_title": "Inverted sketch: Stacked Laundry Machines",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stacked washer and dryer unit with trim stands in a corner next to a white chest freezer. A -handled broom leans against the wall beside shelves holding various cleaning products including TSP and OxiClean (from generated still #2100).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stacked washer and dryer unit with trim stands in a corner next to a white chest freezer. A -handled broom leans against the wall beside shelves holding various cleaning products including TSP and OxiClean",
+  "source_description": "A stacked washer and dryer unit with gold trim stands in a corner next to a white chest freezer. A red-handled broom leans against the wall beside shelves holding various cleaning products including TSP and OxiClean.",
+  "source_prompt": "A realistic painting of a stacked washer and dryer with gold trim in a corner of a utility room, a red broom leaning against the wall, white chest freezer to the right, wooden shelf above holding bottles of TSP, OxiClean and other cleaning products, dramatic side lighting casting long shadows, muted color palette with lavender glow from the washer door, quiet domestic atmosphere, detailed textures, oil painting style",
+  "source_title": "Stacked Laundry Machines",
+  "style": "realistic composition",
+  "mood": "quiet, utilitarian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "laundry room",
+    "still life",
+    "stacked washer dryer",
+    "cleaning supplies",
+    "domestic interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2100,
+  "source_url": "/generated/2100.jpg",
+  "image_url": "/sketches/2816.png",
+  "inverted_image_url": "/sketches-inverted/2816.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:44Z"
+}

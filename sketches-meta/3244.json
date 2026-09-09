@@ -1,0 +1,42 @@
+{
+  "number": 3244,
+  "title": "Line sketch: Oracle of the Burnt Reel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale woman with white face paint and eyes sits in a crumbling, fiery archway wearing an ornate and gown. She rests beside a giant vintage film reel while film strips, an open film case labeled 'FEATURE REEL 215 - ORACLE', and scattered tarot cards lie on the ground. Behind her, a broken wall reveals a scorched apocalyptic landscape under spotlights (derived from generated still #2604).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale woman with white face paint and eyes sits in a crumbling, fiery archway wearing an ornate and gown. She rests beside a giant vintage film reel while film strips, an open film case labeled 'FEATURE REEL 215 - ORACLE', and scattered tarot cards lie on the ground. Behind her, a broken wall reveals a scorched apocalyptic landscape under spotlights",
+  "inverted_title": "Inverted sketch: Oracle of the Burnt Reel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale woman with white face paint and eyes sits in a crumbling, fiery archway wearing an ornate and gown. She rests beside a giant vintage film reel while film strips, an open film case labeled 'FEATURE REEL 215 - ORACLE', and scattered tarot cards lie on the ground. Behind her, a broken wall reveals a scorched apocalyptic landscape under spotlights (from generated still #2604).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale woman with white face paint and eyes sits in a crumbling, fiery archway wearing an ornate and gown. She rests beside a giant vintage film reel while film strips, an open film case labeled 'FEATURE REEL 215 - ORACLE', and scattered tarot cards lie on the ground. Behind her, a broken wall reveals a scorched apocalyptic landscape under spotlights",
+  "source_description": "A pale woman with white face paint and purple eyes sits in a crumbling, fiery archway wearing an ornate yellow and purple gown. She rests beside a giant vintage film reel while film strips, an open film case labeled 'FEATURE REEL 215 - ORACLE', and scattered tarot cards lie on the ground. Behind her, a broken wall reveals a scorched apocalyptic landscape under spotlights.",
+  "source_prompt": "A mystical woman with white face paint and striking purple eyes sits in a decaying stone archway with flames and cracks, wearing an ornate vintage yellow and purple gown. A giant old film reel rests beside her as film strips spill across the floor along with an open film case labeled FEATURE REEL 215 - ORACLE and scattered tarot cards. Through the broken archway is a fiery apocalyptic wasteland under dramatic spotlights, dark moody atmosphere, highly detailed symbolic painting",
+  "source_title": "Oracle of the Burnt Reel",
+  "style": "surreal symbolic composition",
+  "mood": "apocalyptic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "apocalypse",
+    "film reel",
+    "oracle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2604,
+  "source_url": "/generated/2604.jpg",
+  "image_url": "/sketches/3244.png",
+  "inverted_image_url": "/sketches-inverted/3244.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:45Z"
+}

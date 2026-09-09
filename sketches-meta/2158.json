@@ -1,0 +1,42 @@
+{
+  "number": 2158,
+  "title": "Line sketch: Oni and Shadow Demon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic illustration features a large Japanese oni mask with horns and intricate patterns, held by a dark clawed hand. To the right floats a black amorphous shadow creature with glowing white eyes and a wide toothy grin, set against swirling circles and a gnarled dark tree under a starry sky (derived from generated still #1383).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic illustration features a large Japanese oni mask with horns and intricate patterns, held by a dark clawed hand. To the right floats a black amorphous shadow creature with glowing white eyes and a wide toothy grin, set against swirling circles and a gnarled dark tree under a starry sky",
+  "inverted_title": "Inverted sketch: Oni and Shadow Demon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic illustration features a large Japanese oni mask with horns and intricate patterns, held by a dark clawed hand. To the right floats a black amorphous shadow creature with glowing white eyes and a wide toothy grin, set against swirling circles and a gnarled dark tree under a starry sky (from generated still #1383).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic illustration features a large Japanese oni mask with horns and intricate patterns, held by a dark clawed hand. To the right floats a black amorphous shadow creature with glowing white eyes and a wide toothy grin, set against swirling circles and a gnarled dark tree under a starry sky",
+  "source_description": "A vibrant psychedelic illustration features a large red Japanese oni mask with golden horns and intricate patterns, held by a dark clawed hand. To the right floats a black amorphous shadow creature with glowing white eyes and a wide toothy grin, set against swirling rainbow circles and a gnarled dark tree under a starry green sky.",
+  "source_prompt": "",
+  "source_title": "Oni and Shadow Demon",
+  "style": "Psychedelic Surrealism",
+  "mood": "eerie hallucinatory",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oni mask",
+    "shadow demon",
+    "psychedelic",
+    "Japanese folklore",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1383,
+  "source_url": "/generated/1383.jpg",
+  "image_url": "/sketches/2158.png",
+  "inverted_image_url": "/sketches-inverted/2158.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:42Z"
+}

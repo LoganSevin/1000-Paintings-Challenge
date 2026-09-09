@@ -1,0 +1,42 @@
+{
+  "number": 2926,
+  "title": "Line sketch: The Cacophony Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark composition depicts a towering amorphous entity composed of multiple distorted screaming faces and heads merging into one another. Long flowing tendrils of, black and liquid-like forms extend from the central mass, dripping onto a dark abandoned office or classroom filled with scattered desks, chairs and papers (derived from generated still #2215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark composition depicts a towering amorphous entity composed of multiple distorted screaming faces and heads merging into one another. Long flowing tendrils of, black and liquid-like forms extend from the central mass, dripping onto a dark abandoned office or classroom filled with scattered desks, chairs and papers",
+  "inverted_title": "Inverted sketch: The Cacophony Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark composition depicts a towering amorphous entity composed of multiple distorted screaming faces and heads merging into one another. Long flowing tendrils of, black and liquid-like forms extend from the central mass, dripping onto a dark abandoned office or classroom filled with scattered desks, chairs and papers (from generated still #2215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark composition depicts a towering amorphous entity composed of multiple distorted screaming faces and heads merging into one another. Long flowing tendrils of, black and liquid-like forms extend from the central mass, dripping onto a dark abandoned office or classroom filled with scattered desks, chairs and papers",
+  "source_description": "A surreal dark painting depicts a towering amorphous entity composed of multiple distorted screaming faces and heads merging into one another. Long flowing tendrils of purple, black and red liquid-like forms extend from the central mass, dripping onto a dark abandoned office or classroom filled with scattered desks, chairs and papers.",
+  "source_prompt": "A towering surreal horror entity made of multiple screaming and melting human faces fused together, with long flowing liquid-like tentacles in purple black and red stretching across a dark abandoned office room, papers and furniture scattered below, viscous drips falling from the mass onto the floor forming puddles, dark atmospheric lighting, grotesque and nightmarish surreal painting",
+  "source_title": "The Cacophony Entity",
+  "style": "surreal horror",
+  "mood": "nightmarish, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "melting faces",
+    "eldritch",
+    "dripping"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2215,
+  "source_url": "/generated/2215.jpg",
+  "image_url": "/sketches/2926.png",
+  "inverted_image_url": "/sketches-inverted/2926.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:44Z"
+}

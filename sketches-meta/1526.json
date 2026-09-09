@@ -1,0 +1,42 @@
+{
+  "number": 1526,
+  "title": "Line sketch: Oni and Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a large, ornate and Japanese oni mask with horns floating above a patterned floor. A small, round creature covered in splotches stands beside it with an open-mouthed expression, set against a black background with swirling patterns and silhouettes (derived from generated still #741).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a large, ornate and Japanese oni mask with horns floating above a patterned floor. A small, round creature covered in splotches stands beside it with an open-mouthed expression, set against a black background with swirling patterns and silhouettes",
+  "inverted_title": "Inverted sketch: Oni and Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a large, ornate and Japanese oni mask with horns floating above a patterned floor. A small, round creature covered in splotches stands beside it with an open-mouthed expression, set against a black background with swirling patterns and silhouettes (from generated still #741).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a large, ornate and Japanese oni mask with horns floating above a patterned floor. A small, round creature covered in splotches stands beside it with an open-mouthed expression, set against a black background with swirling patterns and silhouettes",
+  "source_description": "A surreal scene featuring a large, ornate red and gold Japanese oni mask with horns floating above a purple patterned floor. A small, round blue creature covered in green splotches stands beside it with an open-mouthed expression, set against a black background with swirling patterns and colorful silhouettes.",
+  "source_prompt": "",
+  "source_title": "Oni and Blue Creature",
+  "style": "surreal pop art",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oni mask",
+    "creature",
+    "surreal",
+    "psychedelic",
+    "Japanese folklore"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 741,
+  "source_url": "/generated/741.jpg",
+  "image_url": "/sketches/1526.png",
+  "inverted_image_url": "/sketches-inverted/1526.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:41Z"
+}

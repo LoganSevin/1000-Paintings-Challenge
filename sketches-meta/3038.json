@@ -1,0 +1,42 @@
+{
+  "number": 3038,
+  "title": "Line sketch: Medusa's Lament",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A melancholic Medusa with snake hair and tears sits inside a grand piano that has merged with a cascading waterfall. The surreal night landscape features a ruined castle, distant mountains, a crescent moon, and swirling water at the base (derived from generated still #2364).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A melancholic Medusa with snake hair and tears sits inside a grand piano that has merged with a cascading waterfall. The surreal night landscape features a ruined castle, distant mountains, a crescent moon, and swirling water at the base",
+  "inverted_title": "Inverted sketch: Medusa's Lament",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A melancholic Medusa with snake hair and tears sits inside a grand piano that has merged with a cascading waterfall. The surreal night landscape features a ruined castle, distant mountains, a crescent moon, and swirling water at the base (from generated still #2364).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A melancholic Medusa with snake hair and tears sits inside a grand piano that has merged with a cascading waterfall. The surreal night landscape features a ruined castle, distant mountains, a crescent moon, and swirling water at the base",
+  "source_description": "A melancholic Medusa with green snake hair and tears sits inside a grand piano that has merged with a cascading waterfall. The surreal night landscape features a ruined castle, distant mountains, a crescent moon, and swirling green water at the base.",
+  "source_prompt": "",
+  "source_title": "Medusa's Lament",
+  "style": "fantasy surrealism",
+  "mood": "melancholy, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Medusa",
+    "waterfall",
+    "piano",
+    "surreal",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2364,
+  "source_url": "/generated/2364.jpg",
+  "image_url": "/sketches/3038.png",
+  "inverted_image_url": "/sketches-inverted/3038.png",
+  "curve_count": 156,
+  "built_at": "2026-08-17T00:09:44Z"
+}

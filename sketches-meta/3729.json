@@ -1,0 +1,42 @@
+{
+  "number": 3729,
+  "title": "Line sketch: Fairy Warrior Pose",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body illustration of a female fairy with short hair standing with arms outstretched. She wears ornate and armor with a skirt, large translucent wings, and holds two swords while wearing detailed boots (derived from generated still #3139).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body illustration of a female fairy with short hair standing with arms outstretched. She wears ornate and armor with a skirt, large translucent wings, and holds two swords while wearing detailed boots",
+  "inverted_title": "Inverted sketch: Fairy Warrior Pose",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body illustration of a female fairy with short hair standing with arms outstretched. She wears ornate and armor with a skirt, large translucent wings, and holds two swords while wearing detailed boots (from generated still #3139).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body illustration of a female fairy with short hair standing with arms outstretched. She wears ornate and armor with a skirt, large translucent wings, and holds two swords while wearing detailed boots",
+  "source_description": "A full-body illustration of a female fairy with short pink hair standing with arms outstretched. She wears ornate blue and gold armor with a multicolored skirt, large translucent wings, and holds two swords while wearing detailed purple boots.",
+  "source_prompt": "A confident female fairy with short messy pink hair stands facing forward with arms spread wide, wearing intricate blue and gold breastplate armor, a flowing multicolored skirt with feather and blade details, large translucent insect wings, purple patterned boots, and wields two ornate swords. Vibrant fantasy character design against a solid lime green background, highly detailed digital painting.",
+  "source_title": "Fairy Warrior Pose",
+  "style": "fantasy illustration",
+  "mood": "vibrant, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairy",
+    "warrior",
+    "female character",
+    "fantasy art",
+    "wings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3139,
+  "source_url": "/generated/3139.jpg",
+  "image_url": "/sketches/3729.png",
+  "inverted_image_url": "/sketches-inverted/3729.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:46Z"
+}

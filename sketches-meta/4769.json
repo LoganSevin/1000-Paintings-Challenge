@@ -1,0 +1,42 @@
+{
+  "number": 4769,
+  "title": "Line sketch: Surreal Porhole Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular porthole-like frame contains a surreal night seascape. Inside the frame are a cracked moon with a cloud, multiple ornate ships floating on dark water, a large candle with a flame, rows of theater seats emerging from the sea, and a Ferris wheel in the distance (derived from generated still #4203).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular porthole-like frame contains a surreal night seascape. Inside the frame are a cracked moon with a cloud, multiple ornate ships floating on dark water, a large candle with a flame, rows of theater seats emerging from the sea, and a Ferris wheel in the distance",
+  "inverted_title": "Inverted sketch: Surreal Porhole Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular porthole-like frame contains a surreal night seascape. Inside the frame are a cracked moon with a cloud, multiple ornate ships floating on dark water, a large candle with a flame, rows of theater seats emerging from the sea, and a Ferris wheel in the distance (from generated still #4203).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular porthole-like frame contains a surreal night seascape. Inside the frame are a cracked moon with a cloud, multiple ornate ships floating on dark water, a large candle with a flame, rows of theater seats emerging from the sea, and a Ferris wheel in the distance",
+  "source_description": "A circular porthole-like frame contains a surreal night seascape. Inside the frame are a cracked moon with a cloud, multiple ornate ships floating on dark water, a large green candle with a flame, rows of purple theater seats emerging from the sea, and a Ferris wheel in the distance.",
+  "source_prompt": "Surreal circular porthole frame with rivets and keys, looking into a dark sea at dusk. A large cracked moon hangs in an orange sky, several ornate ghost ships float on the water, a giant melting green candle stands tall with a bright flame, rows of purple theater seats rise from the sea leading toward the candle, and a distant Ferris wheel is visible. Feathers, barnacles and keys decorate the frame, moody and dreamlike atmosphere.",
+  "source_title": "Surreal Porhole Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "porthole",
+    "candle",
+    "theater seats",
+    "ghost ships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4203,
+  "source_url": "/generated/4203.jpg",
+  "image_url": "/sketches/4769.png",
+  "inverted_image_url": "/sketches-inverted/4769.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:48Z"
+}

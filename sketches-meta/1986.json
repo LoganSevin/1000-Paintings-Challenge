@@ -1,0 +1,42 @@
+{
+  "number": 1986,
+  "title": "Line sketch: Man with Dog and Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pop art portrait of a middle-aged man wearing a fedora, positioned centrally with a large dog winking and sticking out its tongue to his left, and a hairless sphynx cat with intricate patterns to his right. A small bird perches on the man's shoulder while the background features a field with circular motifs, paw prints, and smaller circular portraits (derived from generated still #1211).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pop art portrait of a middle-aged man wearing a fedora, positioned centrally with a large dog winking and sticking out its tongue to his left, and a hairless sphynx cat with intricate patterns to his right. A small bird perches on the man's shoulder while the background features a field with circular motifs, paw prints, and smaller circular portraits",
+  "inverted_title": "Inverted sketch: Man with Dog and Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pop art portrait of a middle-aged man wearing a fedora, positioned centrally with a large dog winking and sticking out its tongue to his left, and a hairless sphynx cat with intricate patterns to his right. A small bird perches on the man's shoulder while the background features a field with circular motifs, paw prints, and smaller circular portraits (from generated still #1211).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pop art portrait of a middle-aged man wearing a fedora, positioned centrally with a large dog winking and sticking out its tongue to his left, and a hairless sphynx cat with intricate patterns to his right. A small bird perches on the man's shoulder while the background features a field with circular motifs, paw prints, and smaller circular portraits",
+  "source_description": "A vibrant pop art portrait of a middle-aged man wearing a purple fedora, positioned centrally with a large bright green dog winking and sticking out its tongue to his left, and a hairless sphynx cat with intricate patterns to his right. A small green bird perches on the man's shoulder while the background features a pink field with yellow circular motifs, paw prints, and smaller circular portraits.",
+  "source_prompt": "",
+  "source_title": "Man with Green Dog and Cat",
+  "style": "pop art",
+  "mood": "playful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pop art",
+    "portrait",
+    "dog",
+    "sphinx cat",
+    "fedora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1211,
+  "source_url": "/generated/1211.jpg",
+  "image_url": "/sketches/1986.png",
+  "inverted_image_url": "/sketches-inverted/1986.png",
+  "curve_count": 307,
+  "built_at": "2026-08-17T00:09:42Z"
+}

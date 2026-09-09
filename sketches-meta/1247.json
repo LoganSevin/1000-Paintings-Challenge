@@ -1,0 +1,42 @@
+{
+  "number": 1247,
+  "title": "Line sketch: Medusa Lava Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking portrait of a female figure with tentacle hair and a large spider with a glowing eye resting on her forehead. Her face is covered in vibrant geometric patterns of, set against a volcanic landscape with flowing lava and a starry sky (derived from generated still #459).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking portrait of a female figure with tentacle hair and a large spider with a glowing eye resting on her forehead. Her face is covered in vibrant geometric patterns of, set against a volcanic landscape with flowing lava and a starry sky",
+  "inverted_title": "Inverted sketch: Medusa Lava Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking portrait of a female figure with tentacle hair and a large spider with a glowing eye resting on her forehead. Her face is covered in vibrant geometric patterns of, set against a volcanic landscape with flowing lava and a starry sky (from generated still #459).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking portrait of a female figure with tentacle hair and a large spider with a glowing eye resting on her forehead. Her face is covered in vibrant geometric patterns of, set against a volcanic landscape with flowing lava and a starry sky",
+  "source_description": "A striking portrait of a female figure with purple tentacle hair and a large spider with a glowing red eye resting on her forehead. Her face is covered in vibrant geometric patterns of purple, green, and yellow, set against a volcanic landscape with flowing lava and a starry purple sky.",
+  "source_prompt": "",
+  "source_title": "Medusa Lava Oracle",
+  "style": "digital surrealism",
+  "mood": "mysterious, volcanic, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "medusa",
+    "tentacles",
+    "spider eye",
+    "volcano",
+    "geometric face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 459,
+  "source_url": "/generated/459.jpg",
+  "image_url": "/sketches/1247.png",
+  "inverted_image_url": "/sketches-inverted/1247.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:40Z"
+}

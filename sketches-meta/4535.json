@@ -1,0 +1,42 @@
+{
+  "number": 4535,
+  "title": "Line sketch: Surreal Parisian Lobster Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal street scene in Paris features a giant lobster exploding from a bowl on a cobblestone path. In the background stands the Sacré-Cœur Basilica under a radiant sun, with stained-glass patterns filling the sky above a European street lined with shops and trees (derived from generated still #3955).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal street scene in Paris features a giant lobster exploding from a bowl on a cobblestone path. In the background stands the Sacré-Cœur Basilica under a radiant sun, with stained-glass patterns filling the sky above a European street lined with shops and trees",
+  "inverted_title": "Inverted sketch: Surreal Parisian Lobster Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal street scene in Paris features a giant lobster exploding from a bowl on a cobblestone path. In the background stands the Sacré-Cœur Basilica under a radiant sun, with stained-glass patterns filling the sky above a European street lined with shops and trees (from generated still #3955).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal street scene in Paris features a giant lobster exploding from a bowl on a cobblestone path. In the background stands the Sacré-Cœur Basilica under a radiant sun, with stained-glass patterns filling the sky above a European street lined with shops and trees",
+  "source_description": "A vibrant surreal street scene in Paris features a giant red lobster exploding from a blue bowl on a cobblestone path. In the background stands the Sacré-Cœur Basilica under a radiant sun, with stained-glass patterns filling the colorful sky above a European street lined with shops and trees.",
+  "source_prompt": "A highly detailed surreal scene of a Parisian cobblestone street at sunset with colorful European buildings and flower shops on the left. A giant bright red lobster bursts out of a blue bowl in the foreground, scattering fragments. In the sky, a glowing sun radiates through intricate stained glass patterns and floating diamond shapes. The Sacré-Cœur Basilica is visible in the distance under a dreamy colorful sky, with trees bearing golden leaves on the right and two figures walking in the background.",
+  "source_title": "Surreal Parisian Lobster Scene",
+  "style": "Stained Glass Surrealism",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "Paris",
+    "lobster",
+    "stained glass",
+    "Sacré-Cœur"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3955,
+  "source_url": "/generated/3955.jpg",
+  "image_url": "/sketches/4535.png",
+  "inverted_image_url": "/sketches-inverted/4535.png",
+  "curve_count": 134,
+  "built_at": "2026-08-17T00:09:48Z"
+}

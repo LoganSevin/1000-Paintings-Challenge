@@ -1,0 +1,42 @@
+{
+  "number": 70,
+  "title": "Line sketch: Cosmic Swirl of Orbs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts an abstract arrangement of concentric swirling forms in and, populated by scattered circles of varying sizes and shades. Composition centers on a large curved mass with fluid outlines, creating orbital movement across the page. Bold flat colors and clean black outlines suggest a graphic, stylized technique (derived from painting #101).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts an abstract arrangement of concentric swirling forms in and, populated by scattered circles of varying sizes and shades. Composition centers on a large curved mass with fluid outlines, creating orbital movement across the page. Bold flat colors and clean black outlines suggest a graphic, stylized technique",
+  "inverted_title": "Inverted sketch: Cosmic Swirl of Orbs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts an abstract arrangement of concentric swirling forms in and, populated by scattered circles of varying sizes and shades. Composition centers on a large curved mass with fluid outlines, creating orbital movement across the page. Bold flat colors and clean black outlines suggest a graphic, stylized technique (from painting #101).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts an abstract arrangement of concentric swirling forms in and, populated by scattered circles of varying sizes and shades. Composition centers on a large curved mass with fluid outlines, creating orbital movement across the page. Bold flat colors and clean black outlines suggest a graphic, stylized technique",
+  "source_description": "The artwork depicts an abstract arrangement of concentric swirling forms in teal and purple, populated by scattered circles of varying sizes and shades. Composition centers on a large curved teal mass with fluid purple outlines, creating orbital movement across the canvas. Bold flat colors and clean black outlines suggest a graphic, stylized technique.",
+  "source_prompt": "",
+  "source_title": "Cosmic Swirl of Orbs",
+  "style": "Abstract",
+  "mood": "playful cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "swirls",
+    "circles",
+    "cosmic",
+    "fluid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 101,
+  "source_url": "/paintings/101.jpg",
+  "image_url": "/sketches/70.png",
+  "inverted_image_url": "/sketches-inverted/70.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:38Z"
+}

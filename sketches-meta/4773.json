@@ -1,0 +1,42 @@
+{
+  "number": 4773,
+  "title": "Line sketch: Surreal Moonlit Wanderer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a dark coat and hat stands on a rocky outcrop overlooking a desolate landscape with distant factories under a giant full moon. A large ornate ship's wheel floats in the sky surrounded by paint splashes, bubbles, and clouds, all framed by a glowing border with artistic debris (derived from generated still #4207).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a dark coat and hat stands on a rocky outcrop overlooking a desolate landscape with distant factories under a giant full moon. A large ornate ship's wheel floats in the sky surrounded by paint splashes, bubbles, and clouds, all framed by a glowing border with artistic debris",
+  "inverted_title": "Inverted sketch: Surreal Moonlit Wanderer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a dark coat and hat stands on a rocky outcrop overlooking a desolate landscape with distant factories under a giant full moon. A large ornate ship's wheel floats in the sky surrounded by paint splashes, bubbles, and clouds, all framed by a glowing border with artistic debris (from generated still #4207).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a dark coat and hat stands on a rocky outcrop overlooking a desolate landscape with distant factories under a giant full moon. A large ornate ship's wheel floats in the sky surrounded by paint splashes, bubbles, and clouds, all framed by a glowing border with artistic debris",
+  "source_description": "A lone figure in a dark coat and hat stands on a rocky outcrop overlooking a desolate landscape with distant factories under a giant full moon. A large ornate ship's wheel floats in the sky surrounded by colorful paint splashes, bubbles, and pink clouds, all framed by a glowing border with artistic debris.",
+  "source_prompt": "A lone silhouette of a person in a dark coat and hat standing on a rocky cliff overlooking a barren landscape with distant dark factories, under a giant luminous full moon breaking through dramatic pink and purple clouds. A large ornate wooden ship's wheel floats in the center of the sky surrounded by colorful paint splashes and translucent bubbles. The entire scene is contained within a glowing rectangular frame with painterly colorful borders featuring buttons and feathers, surreal dreamlike atmosphere, cinematic lighting.",
+  "source_title": "Surreal Moonlit Wanderer",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moonlit",
+    "steampunk",
+    "ethereal",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4207,
+  "source_url": "/generated/4207.jpg",
+  "image_url": "/sketches/4773.png",
+  "inverted_image_url": "/sketches-inverted/4773.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:48Z"
+}

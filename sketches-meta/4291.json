@@ -1,0 +1,42 @@
+{
+  "number": 4291,
+  "title": "Line sketch: Einstein Plasma Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with, and electrical arcs radiating from a central electrode. Inside the sphere are two translucent human figures: Albert Einstein with wild hair on the upper left and a serene woman with closed eyes on the lower right, both intertwined with the lightning patterns (derived from generated still #3710).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with, and electrical arcs radiating from a central electrode. Inside the sphere are two translucent human figures: Albert Einstein with wild hair on the upper left and a serene woman with closed eyes on the lower right, both intertwined with the lightning patterns",
+  "inverted_title": "Inverted sketch: Einstein Plasma Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with, and electrical arcs radiating from a central electrode. Inside the sphere are two translucent human figures: Albert Einstein with wild hair on the upper left and a serene woman with closed eyes on the lower right, both intertwined with the lightning patterns (from generated still #3710).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with, and electrical arcs radiating from a central electrode. Inside the sphere are two translucent human figures: Albert Einstein with wild hair on the upper left and a serene woman with closed eyes on the lower right, both intertwined with the lightning patterns",
+  "source_description": "A glowing plasma globe with bright pink, blue, and green electrical arcs radiating from a central electrode. Inside the sphere are two translucent human figures: Albert Einstein with wild hair on the upper left and a serene woman with closed eyes on the lower right, both intertwined with the lightning patterns.",
+  "source_prompt": "A surreal glowing plasma globe with bright pink blue and green electrical arcs radiating from a central electrode, inside the sphere translucent portraits of Albert Einstein with wild hair on the left and a serene woman with closed eyes on the right, both merged with the lightning, set against a dark purple background with faint chemical diagrams, cinematic lighting, highly detailed digital painting",
+  "source_title": "Einstein Plasma Sphere",
+  "style": "digital surrealism",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "Einstein",
+    "surreal",
+    "electrical arcs",
+    "sci-fi art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3710,
+  "source_url": "/generated/3710.jpg",
+  "image_url": "/sketches/4291.png",
+  "inverted_image_url": "/sketches-inverted/4291.png",
+  "curve_count": 141,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1224,
+  "title": "Line sketch: Surreal Cracked Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal circular portrait of a -skinned girl with a braided pigtail, her face painted in dripping, and hues. One eye is a dark bleeding socket while the other is; a rat perches on her shoulder against a cracked eggshell-like frame set in a desert landscape under a large moon (derived from generated still #436).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal circular portrait of a -skinned girl with a braided pigtail, her face painted in dripping, and hues. One eye is a dark bleeding socket while the other is; a rat perches on her shoulder against a cracked eggshell-like frame set in a desert landscape under a large moon",
+  "inverted_title": "Inverted sketch: Surreal Cracked Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal circular portrait of a -skinned girl with a braided pigtail, her face painted in dripping, and hues. One eye is a dark bleeding socket while the other is; a rat perches on her shoulder against a cracked eggshell-like frame set in a desert landscape under a large moon (from generated still #436).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal circular portrait of a -skinned girl with a braided pigtail, her face painted in dripping, and hues. One eye is a dark bleeding socket while the other is; a rat perches on her shoulder against a cracked eggshell-like frame set in a desert landscape under a large moon",
+  "source_description": "A surreal circular portrait of a green-skinned girl with a braided pigtail, her face painted in dripping blue, orange, and red hues. One eye is a dark bleeding socket while the other is golden; a red rat perches on her shoulder against a cracked eggshell-like frame set in a desert landscape under a large yellow moon.",
+  "source_prompt": "",
+  "source_title": "Surreal Cracked Portrait",
+  "style": "surrealism",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portrait",
+    "dripping paint",
+    "desert landscape",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 436,
+  "source_url": "/generated/436.jpg",
+  "image_url": "/sketches/1224.png",
+  "inverted_image_url": "/sketches-inverted/1224.png",
+  "curve_count": 223,
+  "built_at": "2026-08-17T00:09:40Z"
+}

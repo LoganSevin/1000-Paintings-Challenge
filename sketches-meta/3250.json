@@ -1,0 +1,42 @@
+{
+  "number": 3250,
+  "title": "Line sketch: Decaying Film Director",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale, -skinned figure with sunken eyes sits in a ruined room, wearing a dark hooded cloak covered in 'GUESS' text. The figure operates an old film projector that casts a beam of light and unspools bloody film reels, while holding a painter's palette stained with paint (derived from generated still #2613).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale, -skinned figure with sunken eyes sits in a ruined room, wearing a dark hooded cloak covered in 'GUESS' text. The figure operates an old film projector that casts a beam of light and unspools bloody film reels, while holding a painter's palette stained with paint",
+  "inverted_title": "Inverted sketch: Decaying Film Director",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale, -skinned figure with sunken eyes sits in a ruined room, wearing a dark hooded cloak covered in 'GUESS' text. The figure operates an old film projector that casts a beam of light and unspools bloody film reels, while holding a painter's palette stained with paint (from generated still #2613).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale, -skinned figure with sunken eyes sits in a ruined room, wearing a dark hooded cloak covered in 'GUESS' text. The figure operates an old film projector that casts a beam of light and unspools bloody film reels, while holding a painter's palette stained with paint",
+  "source_description": "A pale, green-skinned figure with sunken eyes sits in a ruined room, wearing a dark hooded cloak covered in 'GUESS' text. The figure operates an old film projector that casts a beam of light and unspools bloody film reels, while holding a painter's palette stained with red paint.",
+  "source_prompt": "A haunting surreal scene of a zombie-like artist with green decaying skin and sunken eyes, wearing a dark hooded cloak covered in repeating 'GUESS' text, sitting in a crumbling derelict room with peeling classical frescoes on the walls. He operates a vintage film projector that beams light and spills bloody film strips showing miniature scenes, while holding a painter's palette dripping with red paint. Dramatic cinematic lighting, dark moody atmosphere, decaying cinematic aesthetic.",
+  "source_title": "Decaying Film Director",
+  "style": "surreal horror",
+  "mood": "decaying surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "surreal",
+    "film noir",
+    "decaying",
+    "artist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2613,
+  "source_url": "/generated/2613.jpg",
+  "image_url": "/sketches/3250.png",
+  "inverted_image_url": "/sketches-inverted/3250.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:45Z"
+}

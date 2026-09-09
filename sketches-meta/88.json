@@ -1,0 +1,42 @@
+{
+  "number": 88,
+  "title": "Line sketch: Whimsical Swirling Hair Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up cartoon portrait centers on a smiling woman with voluminous, curly and hair swirling dramatically around her face against a solid background. Her large expressive eyes, arched brows, and open smile dominate the composition, rendered with bold black outlines and flat vibrant color blocks. The technique emphasizes playful exaggeration and dynamic flowing shapes typical of animation-style illustration (derived from painting #119).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up cartoon portrait centers on a smiling woman with voluminous, curly and hair swirling dramatically around her face against a solid background. Her large expressive eyes, arched brows, and open smile dominate the composition, rendered with bold black outlines and flat vibrant color blocks. The technique emphasizes playful exaggeration and dynamic flowing shapes typical of animation-style illustration",
+  "inverted_title": "Inverted sketch: Whimsical Swirling Hair Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up cartoon portrait centers on a smiling woman with voluminous, curly and hair swirling dramatically around her face against a solid background. Her large expressive eyes, arched brows, and open smile dominate the composition, rendered with bold black outlines and flat vibrant color blocks. The technique emphasizes playful exaggeration and dynamic flowing shapes typical of animation-style illustration (from painting #119).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up cartoon portrait centers on a smiling woman with voluminous, curly and hair swirling dramatically around her face against a solid background. Her large expressive eyes, arched brows, and open smile dominate the composition, rendered with bold black outlines and flat vibrant color blocks. The technique emphasizes playful exaggeration and dynamic flowing shapes typical of animation-style illustration",
+  "source_description": "A close-up cartoon portrait centers on a smiling woman with voluminous, curly orange and blue hair swirling dramatically around her face against a solid orange background. Her large expressive eyes, arched brows, and open smile dominate the composition, rendered with bold black outlines and flat vibrant color blocks. The technique emphasizes playful exaggeration and dynamic flowing shapes typical of animation-style illustration.",
+  "source_prompt": "",
+  "source_title": "Whimsical Swirling Hair Portrait",
+  "style": "cartoon",
+  "mood": "joyful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cartoon",
+    "portrait",
+    "woman",
+    "hair",
+    "swirling"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 119,
+  "source_url": "/paintings/119.jpg",
+  "image_url": "/sketches/88.png",
+  "inverted_image_url": "/sketches-inverted/88.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:38Z"
+}

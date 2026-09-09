@@ -1,0 +1,42 @@
+{
+  "number": 2931,
+  "title": "Line sketch: Children in the Attic",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A group of six children sit together in a dark, circular attic space surrounded by pipes and wooden beams. They are illuminated by floating, glowing orbs and crescent shapes that drift through the black air above them (derived from generated still #2228).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A group of six children sit together in a dark, circular attic space surrounded by pipes and wooden beams. They are illuminated by floating, glowing orbs and crescent shapes that drift through the black air above them",
+  "inverted_title": "Inverted sketch: Children in the Attic",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A group of six children sit together in a dark, circular attic space surrounded by pipes and wooden beams. They are illuminated by floating, glowing orbs and crescent shapes that drift through the black air above them (from generated still #2228).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A group of six children sit together in a dark, circular attic space surrounded by pipes and wooden beams. They are illuminated by floating, glowing orbs and crescent shapes that drift through the black air above them",
+  "source_description": "A group of six children sit together in a dark, circular attic space surrounded by pipes and wooden beams. They are illuminated by floating, glowing orbs and crescent shapes that drift through the black air above them.",
+  "source_prompt": "A group of young children sitting closely together inside a dark circular attic filled with wooden beams and curving metal pipes. They look up in amazement at dozens of glowing white crescent moons and luminous orbs floating in the black space above them. Dramatic low lighting, painterly brushwork, moody and mysterious atmosphere, dark fantasy style.",
+  "source_title": "Children in the Attic",
+  "style": "painterly",
+  "mood": "eerie wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "children",
+    "attic",
+    "floating lights",
+    "dark fantasy",
+    "group scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2228,
+  "source_url": "/generated/2228.jpg",
+  "image_url": "/sketches/2931.png",
+  "inverted_image_url": "/sketches-inverted/2931.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:44Z"
+}

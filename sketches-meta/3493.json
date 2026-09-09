@@ -1,0 +1,42 @@
+{
+  "number": 3493,
+  "title": "Line sketch: Surreal Dreamscape Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A six-panel collage of distinct painted scenes. Top row shows a serene pond with lily pads, a cosmic black hole vortex with swirling rings and celestial bodies, and a stylized abstract face with swirling patterns and multiple eyes. Bottom row displays a dark castle under a blood- stormy sky with lightning, and a vibrant lakeside landscape with water and wildflowers (derived from generated still #2894).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A six-panel collage of distinct painted scenes. Top row shows a serene pond with lily pads, a cosmic black hole vortex with swirling rings and celestial bodies, and a stylized abstract face with swirling patterns and multiple eyes. Bottom row displays a dark castle under a blood- stormy sky with lightning, and a vibrant lakeside landscape with water and wildflowers",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A six-panel collage of distinct painted scenes. Top row shows a serene pond with lily pads, a cosmic black hole vortex with swirling rings and celestial bodies, and a stylized abstract face with swirling patterns and multiple eyes. Bottom row displays a dark castle under a blood- stormy sky with lightning, and a vibrant lakeside landscape with water and wildflowers (from generated still #2894).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A six-panel collage of distinct painted scenes. Top row shows a serene pond with lily pads, a cosmic black hole vortex with swirling rings and celestial bodies, and a stylized abstract face with swirling patterns and multiple eyes. Bottom row displays a dark castle under a blood- stormy sky with lightning, and a vibrant lakeside landscape with water and wildflowers",
+  "source_description": "A six-panel collage of distinct painted scenes. Top row shows a serene pond with lily pads, a cosmic black hole vortex with swirling rings and celestial bodies, and a stylized green abstract face with swirling patterns and multiple eyes. Bottom row displays a dark castle under a blood-red stormy sky with lightning, and a vibrant green lakeside landscape with blue water and yellow wildflowers.",
+  "source_prompt": "A six-panel collage of surreal painted scenes, top left a tranquil blue pond with green reeds and lily pads, top center a cosmic black hole vortex with swirling white rings and floating celestial bodies against a starry sky, top right an abstract green stylized face with swirling patterns and multiple expressive eyes, bottom left a gothic castle by water under a dramatic red stormy sky with lightning, bottom right a peaceful lakeside meadow with vibrant green grass, blue reflective water and yellow wildflowers, painterly style with visible brushstrokes",
+  "source_title": "Surreal Dreamscape Collage",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "landscape",
+    "cosmic",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2894,
+  "source_url": "/generated/2894.jpg",
+  "image_url": "/sketches/3493.png",
+  "inverted_image_url": "/sketches-inverted/3493.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3781,
+  "title": "Line sketch: Dying Cyborg Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three sequential views of a shaved-head female cyborg in a armored vest and torn jeans, shown collapsing, falling, and lying dead on the ground with a bullet hole in her forehead and smoke rising from her mouth (derived from generated still #3198).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three sequential views of a shaved-head female cyborg in a armored vest and torn jeans, shown collapsing, falling, and lying dead on the ground with a bullet hole in her forehead and smoke rising from her mouth",
+  "inverted_title": "Inverted sketch: Dying Cyborg Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three sequential views of a shaved-head female cyborg in a armored vest and torn jeans, shown collapsing, falling, and lying dead on the ground with a bullet hole in her forehead and smoke rising from her mouth (from generated still #3198).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three sequential views of a shaved-head female cyborg in a armored vest and torn jeans, shown collapsing, falling, and lying dead on the ground with a bullet hole in her forehead and smoke rising from her mouth",
+  "source_description": "Three sequential views of a shaved-head female cyborg in a copper armored vest and torn jeans, shown collapsing, falling, and lying dead on the ground with a bullet hole in her forehead and smoke rising from her mouth.",
+  "source_prompt": "Three-panel sequence against pure black background showing a female cyborg with shaved head and facial tattoos. She wears a copper armored chest piece, torn blue jeans, brown boots, and fingerless gloves. First panel shows her standing with smoke coming from her open mouth and a bullet hole in her forehead. Second panel shows her falling backwards. Third panel shows her lying dead on the ground. Highly detailed realistic rendering with dramatic lighting.",
+  "source_title": "Dying Cyborg Sequence",
+  "style": "realistic",
+  "mood": "grim, violent",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyborg",
+    "death",
+    "sequence",
+    "bullet wound",
+    "sci-fi"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3198,
+  "source_url": "/generated/3198.jpg",
+  "image_url": "/sketches/3781.png",
+  "inverted_image_url": "/sketches-inverted/3781.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:46Z"
+}

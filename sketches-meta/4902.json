@@ -1,0 +1,42 @@
+{
+  "number": 4902,
+  "title": "Line sketch: Surreal Fruit Fairy Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central fairy woman with large wings stands in the foreground, her body and dress composed of grapes, berries, and flowers. She raises one hand toward a beam of light while surrounded by melting clocks, floating eyeballs, jellyfish, and apples. Through a doorway behind her is a realistic domestic scene of a family sitting together in a living room (derived from generated still #4337).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central fairy woman with large wings stands in the foreground, her body and dress composed of grapes, berries, and flowers. She raises one hand toward a beam of light while surrounded by melting clocks, floating eyeballs, jellyfish, and apples. Through a doorway behind her is a realistic domestic scene of a family sitting together in a living room",
+  "inverted_title": "Inverted sketch: Surreal Fruit Fairy Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central fairy woman with large wings stands in the foreground, her body and dress composed of grapes, berries, and flowers. She raises one hand toward a beam of light while surrounded by melting clocks, floating eyeballs, jellyfish, and apples. Through a doorway behind her is a realistic domestic scene of a family sitting together in a living room (from generated still #4337).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central fairy woman with large wings stands in the foreground, her body and dress composed of grapes, berries, and flowers. She raises one hand toward a beam of light while surrounded by melting clocks, floating eyeballs, jellyfish, and apples. Through a doorway behind her is a realistic domestic scene of a family sitting together in a living room",
+  "source_description": "A central fairy woman with large golden wings stands in the foreground, her body and dress composed of green grapes, red berries, and flowers. She raises one hand toward a beam of light while surrounded by melting clocks, floating eyeballs, jellyfish, and silver apples. Through a doorway behind her is a realistic domestic scene of a family sitting together in a living room.",
+  "source_prompt": "A surreal fantasy scene featuring a beautiful fairy woman with large translucent golden wings, her body and dress entirely made of green grapes, berries and flowers. She stands in a mystical cosmic environment filled with floating eyeballs, jellyfish, silver apples, and melting clocks draped over stairs. A glowing doorway behind her reveals a normal family sitting in a living room. Dramatic lighting, highly detailed symbolic imagery in the style of Dali and classic fantasy art.",
+  "source_title": "Surreal Fruit Fairy Portal",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fairy",
+    "melting clocks",
+    "portal",
+    "grape dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4337,
+  "source_url": "/generated/4337.jpg",
+  "image_url": "/sketches/4902.png",
+  "inverted_image_url": "/sketches-inverted/4902.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:49Z"
+}

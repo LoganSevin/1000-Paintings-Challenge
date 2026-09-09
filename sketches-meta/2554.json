@@ -1,0 +1,42 @@
+{
+  "number": 2554,
+  "title": "Line sketch: Cabbage Dragon in Alley",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A small dragon with large expressive eyes and a toothy grin peeks out from inside an oversized leafy cabbage. The creature rests on a sunlit cobblestone alleyway between buildings adorned with flowers (derived from generated still #1790).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A small dragon with large expressive eyes and a toothy grin peeks out from inside an oversized leafy cabbage. The creature rests on a sunlit cobblestone alleyway between buildings adorned with flowers",
+  "inverted_title": "Inverted sketch: Cabbage Dragon in Alley",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A small dragon with large expressive eyes and a toothy grin peeks out from inside an oversized leafy cabbage. The creature rests on a sunlit cobblestone alleyway between buildings adorned with flowers (from generated still #1790).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A small dragon with large expressive eyes and a toothy grin peeks out from inside an oversized leafy cabbage. The creature rests on a sunlit cobblestone alleyway between buildings adorned with flowers",
+  "source_description": "A small green dragon with large expressive eyes and a toothy grin peeks out from inside an oversized leafy green cabbage. The creature rests on a sunlit cobblestone alleyway between warm yellow buildings adorned with pink flowers.",
+  "source_prompt": "",
+  "source_title": "Cabbage Dragon in Alley",
+  "style": "line sketch",
+  "mood": "cute whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "cabbage",
+    "fantasy creature",
+    "cobblestone",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1790,
+  "source_url": "/generated/1790.jpg",
+  "image_url": "/sketches/2554.png",
+  "inverted_image_url": "/sketches-inverted/2554.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:43Z"
+}

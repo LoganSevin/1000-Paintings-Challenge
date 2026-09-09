@@ -1,0 +1,42 @@
+{
+  "number": 1219,
+  "title": "Line sketch: Surreal Crescent Moon Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a -skinned young Black girl with eyes and tears, her face and neck formed by a large cracked crescent moon with leaf details. Below, a glowing dog with vein-like patterns stands beside a rat on its back, set against a desert landscape with flowers, a scorpion, and a distant silhouetted figure holding a staff under a full moon (derived from generated still #431).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a -skinned young Black girl with eyes and tears, her face and neck formed by a large cracked crescent moon with leaf details. Below, a glowing dog with vein-like patterns stands beside a rat on its back, set against a desert landscape with flowers, a scorpion, and a distant silhouetted figure holding a staff under a full moon",
+  "inverted_title": "Inverted sketch: Surreal Crescent Moon Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a -skinned young Black girl with eyes and tears, her face and neck formed by a large cracked crescent moon with leaf details. Below, a glowing dog with vein-like patterns stands beside a rat on its back, set against a desert landscape with flowers, a scorpion, and a distant silhouetted figure holding a staff under a full moon (from generated still #431).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a -skinned young Black girl with eyes and tears, her face and neck formed by a large cracked crescent moon with leaf details. Below, a glowing dog with vein-like patterns stands beside a rat on its back, set against a desert landscape with flowers, a scorpion, and a distant silhouetted figure holding a staff under a full moon",
+  "source_description": "A vibrant surreal painting depicts a blue-skinned young Black girl with golden eyes and red tears, her face and neck formed by a large cracked crescent moon with gold leaf details. Below, a glowing green dog with red vein-like patterns stands beside a pink rat on its back, set against a desert landscape with purple flowers, a scorpion, and a distant silhouetted figure holding a staff under a full moon.",
+  "source_prompt": "",
+  "source_title": "Surreal Crescent Moon Portrait",
+  "style": "surrealism",
+  "mood": "ethereal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "crescent moon",
+    "portrait",
+    "desert landscape",
+    "fantastical creatures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 431,
+  "source_url": "/generated/431.jpg",
+  "image_url": "/sketches/1219.png",
+  "inverted_image_url": "/sketches-inverted/1219.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:40Z"
+}

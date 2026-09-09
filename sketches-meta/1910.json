@@ -1,0 +1,42 @@
+{
+  "number": 1910,
+  "title": "Line sketch: Desert Women at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition shows four women with and skin standing in profile among blooming cacti and flowers. They wear patterned clothing and headwraps while gazing toward a dramatic sunset over mountains (derived from generated still #1135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition shows four women with and skin standing in profile among blooming cacti and flowers. They wear patterned clothing and headwraps while gazing toward a dramatic sunset over mountains",
+  "inverted_title": "Inverted sketch: Desert Women at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition shows four women with and skin standing in profile among blooming cacti and flowers. They wear patterned clothing and headwraps while gazing toward a dramatic sunset over mountains (from generated still #1135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition shows four women with and skin standing in profile among blooming cacti and flowers. They wear patterned clothing and headwraps while gazing toward a dramatic sunset over mountains",
+  "source_description": "A vibrant painting shows four women with green and purple skin standing in profile among blooming cacti and flowers. They wear colorful patterned clothing and headwraps while gazing toward a dramatic sunset over purple mountains.",
+  "source_prompt": "",
+  "source_title": "Desert Women at Sunset",
+  "style": "Psychedelic folk art",
+  "mood": "Vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "women in profile",
+    "cacti and flowers",
+    "desert landscape",
+    "sunset",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1135,
+  "source_url": "/generated/1135.jpg",
+  "image_url": "/sketches/1910.png",
+  "inverted_image_url": "/sketches-inverted/1910.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:42Z"
+}

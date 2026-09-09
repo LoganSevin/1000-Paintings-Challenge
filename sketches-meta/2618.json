@@ -1,0 +1,42 @@
+{
+  "number": 2618,
+  "title": "Line sketch: Graffiti Wizard Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned female figure with enormous swirling and hair styled in two large spirals adorned with numerous buttons and dripping paint. Her face features large detailed eyes, she wears a turtleneck sweater, and the entire composition is covered in layered graffiti tags and street art elements (derived from generated still #1857).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned female figure with enormous swirling and hair styled in two large spirals adorned with numerous buttons and dripping paint. Her face features large detailed eyes, she wears a turtleneck sweater, and the entire composition is covered in layered graffiti tags and street art elements",
+  "inverted_title": "Inverted sketch: Graffiti Wizard Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned female figure with enormous swirling and hair styled in two large spirals adorned with numerous buttons and dripping paint. Her face features large detailed eyes, she wears a turtleneck sweater, and the entire composition is covered in layered graffiti tags and street art elements (from generated still #1857).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned female figure with enormous swirling and hair styled in two large spirals adorned with numerous buttons and dripping paint. Her face features large detailed eyes, she wears a turtleneck sweater, and the entire composition is covered in layered graffiti tags and street art elements",
+  "source_description": "A surreal portrait of a green-skinned female figure with enormous swirling yellow and blue hair styled in two large spirals adorned with numerous buttons and dripping paint. Her face features large detailed eyes, she wears a turtleneck sweater, and the entire composition is covered in layered graffiti tags and street art elements.",
+  "source_prompt": "",
+  "source_title": "Graffiti Wizard Girl",
+  "style": "surreal street art",
+  "mood": "whimsical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "graffiti",
+    "surreal portrait",
+    "skin",
+    "swirling hair",
+    "buttons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1857,
+  "source_url": "/generated/1857.jpg",
+  "image_url": "/sketches/2618.png",
+  "inverted_image_url": "/sketches-inverted/2618.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:43Z"
+}

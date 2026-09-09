@@ -1,0 +1,42 @@
+{
+  "number": 1704,
+  "title": "Line sketch: Queen of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A crowned skeletal queen with long flowing blonde hair stands at a balcony, her mouth dripping blood. Below her, a line of black skeletons with glowing eyes and dripping substance stand in formation against a swirling psychedelic background (derived from generated still #926).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A crowned skeletal queen with long flowing blonde hair stands at a balcony, her mouth dripping blood. Below her, a line of black skeletons with glowing eyes and dripping substance stand in formation against a swirling psychedelic background",
+  "inverted_title": "Inverted sketch: Queen of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A crowned skeletal queen with long flowing blonde hair stands at a balcony, her mouth dripping blood. Below her, a line of black skeletons with glowing eyes and dripping substance stand in formation against a swirling psychedelic background (from generated still #926).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A crowned skeletal queen with long flowing blonde hair stands at a balcony, her mouth dripping blood. Below her, a line of black skeletons with glowing eyes and dripping substance stand in formation against a swirling psychedelic background",
+  "source_description": "A crowned skeletal queen with long flowing blonde hair stands at a balcony, her mouth dripping blood. Below her, a line of black skeletons with glowing yellow eyes and red dripping substance stand in formation against a swirling psychedelic background.",
+  "source_prompt": "",
+  "source_title": "Queen of the Damned",
+  "style": "psychedelic surrealism",
+  "mood": "macabre hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton queen",
+    "psychedelic art",
+    "horror fantasy",
+    "blood dripping",
+    "crowned figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 926,
+  "source_url": "/generated/926.jpg",
+  "image_url": "/sketches/1704.png",
+  "inverted_image_url": "/sketches-inverted/1704.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:41Z"
+}

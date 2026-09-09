@@ -1,0 +1,42 @@
+{
+  "number": 2095,
+  "title": "Line sketch: Onion Wizard Mushroom City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large anthropomorphic onion with a grumpy face and wizard hat stands in a psychedelic forest surrounded by giant -capped mushrooms. In the background, a glowing city with construction cranes is reflected in a river under a swirling and sky (derived from generated still #1320).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large anthropomorphic onion with a grumpy face and wizard hat stands in a psychedelic forest surrounded by giant -capped mushrooms. In the background, a glowing city with construction cranes is reflected in a river under a swirling and sky",
+  "inverted_title": "Inverted sketch: Onion Wizard Mushroom City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large anthropomorphic onion with a grumpy face and wizard hat stands in a psychedelic forest surrounded by giant -capped mushrooms. In the background, a glowing city with construction cranes is reflected in a river under a swirling and sky (from generated still #1320).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large anthropomorphic onion with a grumpy face and wizard hat stands in a psychedelic forest surrounded by giant -capped mushrooms. In the background, a glowing city with construction cranes is reflected in a river under a swirling and sky",
+  "source_description": "A large anthropomorphic yellow onion with a grumpy face and wizard hat stands in a psychedelic forest surrounded by giant red-capped mushrooms. In the background, a glowing neon city with construction cranes is reflected in a river under a swirling yellow and purple sky.",
+  "source_prompt": "",
+  "source_title": "Onion Wizard Mushroom City",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mushrooms",
+    "psychedelic",
+    "fantasy",
+    "city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1320,
+  "source_url": "/generated/1320.jpg",
+  "image_url": "/sketches/2095.png",
+  "inverted_image_url": "/sketches-inverted/2095.png",
+  "curve_count": 209,
+  "built_at": "2026-08-17T00:09:42Z"
+}

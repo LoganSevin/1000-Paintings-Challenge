@@ -1,0 +1,42 @@
+{
+  "number": 143,
+  "title": "Line sketch: Cosmic Swirls and Stars",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant and swirls dance across a starry cosmic background. This playful illustration features twinkling stars and celestial elements in a repeating pattern (derived from painting #182).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant and swirls dance across a starry cosmic background. This playful illustration features twinkling stars and celestial elements in a repeating pattern",
+  "inverted_title": "Inverted sketch: Cosmic Swirls and Stars",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant and swirls dance across a starry cosmic background. This playful illustration features twinkling stars and celestial elements in a repeating pattern (from painting #182).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant and swirls dance across a starry cosmic background. This playful illustration features twinkling stars and celestial elements in a repeating pattern",
+  "source_description": "Vibrant orange and purple swirls dance across a starry cosmic background. This playful illustration features twinkling stars and celestial elements in a repeating pattern.",
+  "source_prompt": "",
+  "source_title": "Cosmic Swirls and Stars",
+  "style": "Digital Illustration",
+  "mood": "Playful and cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "space",
+    "swirls",
+    "stars",
+    "pattern",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 182,
+  "source_url": "/paintings/182.jpg",
+  "image_url": "/sketches/143.png",
+  "inverted_image_url": "/sketches-inverted/143.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3564,
+  "title": "Line sketch: Gothic Maids and Mailbox",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women in matching and black corset outfits with cat ears stand in a dramatic gothic setting. One kneels looking up at the central standing woman while the third holds a cardboard 'FRAGILE' package next to an open mailbox, surrounded by lit candles and swirling smoke (derived from generated still #2972).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women in matching and black corset outfits with cat ears stand in a dramatic gothic setting. One kneels looking up at the central standing woman while the third holds a cardboard 'FRAGILE' package next to an open mailbox, surrounded by lit candles and swirling smoke",
+  "inverted_title": "Inverted sketch: Gothic Maids and Mailbox",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women in matching and black corset outfits with cat ears stand in a dramatic gothic setting. One kneels looking up at the central standing woman while the third holds a cardboard 'FRAGILE' package next to an open mailbox, surrounded by lit candles and swirling smoke (from generated still #2972).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women in matching and black corset outfits with cat ears stand in a dramatic gothic setting. One kneels looking up at the central standing woman while the third holds a cardboard 'FRAGILE' package next to an open mailbox, surrounded by lit candles and swirling smoke",
+  "source_description": "Three women in matching blue and black corset outfits with cat ears stand in a dramatic gothic setting. One kneels looking up at the central standing woman while the third holds a cardboard 'FRAGILE' package next to an open red mailbox, surrounded by lit red candles and swirling blue smoke.",
+  "source_prompt": "Three beautiful women wearing matching dark blue lace-up corsets and black bottoms with cat ear headbands in a dramatic gothic castle courtyard at dusk. One woman with long blonde braided hair stands centrally, a dark-haired woman kneels before her looking up adoringly, while a smiling blonde woman on the right holds a cardboard fragile package next to an open bright red mailbox. Lit red candles on the stone ground, swirling blue smoke, dark castle with red fence in background, cinematic lighting, detailed digital painting.",
+  "source_title": "Gothic Maids and Red Mailbox",
+  "style": "digital fantasy illustration",
+  "mood": "mysterious seductive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gothic",
+    "catgirls",
+    "corset",
+    "candles",
+    "mailbox"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2972,
+  "source_url": "/generated/2972.jpg",
+  "image_url": "/sketches/3564.png",
+  "inverted_image_url": "/sketches-inverted/3564.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:46Z"
+}

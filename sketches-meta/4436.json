@@ -1,0 +1,42 @@
+{
+  "number": 4436,
+  "title": "Line sketch: The Stasis Jar",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a velvet robe stands at the entrance of a mystical apothecary booth labeled 'THE STASIS JAR'. She holds an open book and an ornate clock, surrounded by hanging dried herbs, glass jars containing glowing specimens, pearls, and scrolls. A calico cat sleeps on a stack of old books in the foreground on a cobblestone street (derived from generated still #3855).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a velvet robe stands at the entrance of a mystical apothecary booth labeled 'THE STASIS JAR'. She holds an open book and an ornate clock, surrounded by hanging dried herbs, glass jars containing glowing specimens, pearls, and scrolls. A calico cat sleeps on a stack of old books in the foreground on a cobblestone street",
+  "inverted_title": "Inverted sketch: The Stasis Jar",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a velvet robe stands at the entrance of a mystical apothecary booth labeled 'THE STASIS JAR'. She holds an open book and an ornate clock, surrounded by hanging dried herbs, glass jars containing glowing specimens, pearls, and scrolls. A calico cat sleeps on a stack of old books in the foreground on a cobblestone street (from generated still #3855).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a velvet robe stands at the entrance of a mystical apothecary booth labeled 'THE STASIS JAR'. She holds an open book and an ornate clock, surrounded by hanging dried herbs, glass jars containing glowing specimens, pearls, and scrolls. A calico cat sleeps on a stack of old books in the foreground on a cobblestone street",
+  "source_description": "A woman in a deep blue velvet robe stands at the entrance of a mystical blue apothecary booth labeled 'THE STASIS JAR'. She holds an open book and an ornate clock, surrounded by hanging dried herbs, glass jars containing glowing specimens, pearls, and scrolls. A calico cat sleeps on a stack of old books in the foreground on a cobblestone street.",
+  "source_prompt": "A detailed fantasy scene of a woman in a dark blue velvet robe standing inside a small ornate blue wooden booth labeled 'THE STASIS JAR'. She holds an open book and a vintage clock. The booth is filled with glowing glass jars, dried herbs hanging from the roof, strings of pearls, and scrolls on the wall. A calico cat sleeps on a stack of antique books in the foreground on wet cobblestones. Mysterious mural visible on the stone wall behind, soft magical lighting, atmospheric fantasy illustration.",
+  "source_title": "The Stasis Jar",
+  "style": "fantasy illustration",
+  "mood": "mysterious, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "apothecary",
+    "magic shop",
+    "fantasy",
+    "witch",
+    "cobblestone"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3855,
+  "source_url": "/generated/3855.jpg",
+  "image_url": "/sketches/4436.png",
+  "inverted_image_url": "/sketches-inverted/4436.png",
+  "curve_count": 98,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 366,
+  "title": "Line sketch: Fantasy Gremlin Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed illustration of a mythical winged creature with large ears, big black eyes, and clawed limbs. The fantastical being stands in a dynamic pose against a solid background (derived from painting #429).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed illustration of a mythical winged creature with large ears, big black eyes, and clawed limbs. The fantastical being stands in a dynamic pose against a solid background",
+  "inverted_title": "Inverted sketch: Fantasy Gremlin Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed illustration of a mythical winged creature with large ears, big black eyes, and clawed limbs. The fantastical being stands in a dynamic pose against a solid background (from painting #429).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed illustration of a mythical winged creature with large ears, big black eyes, and clawed limbs. The fantastical being stands in a dynamic pose against a solid background",
+  "source_description": "A detailed illustration of a mythical winged creature with large ears, big black eyes, and clawed limbs. The fantastical being stands in a dynamic pose against a solid golden background.",
+  "source_prompt": "",
+  "source_title": "Fantasy Gremlin Creature",
+  "style": "Fantasy Illustration",
+  "mood": "Mysterious, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy creature",
+    "gremlin",
+    "mythical beast",
+    "digital art",
+    "tones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 429,
+  "source_url": "/paintings/429.jpg",
+  "image_url": "/sketches/366.png",
+  "inverted_image_url": "/sketches-inverted/366.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:39Z"
+}

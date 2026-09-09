@@ -1,0 +1,42 @@
+{
+  "number": 4765,
+  "title": "Line sketch: Surreal Circular Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular cracked frame decorated with gears, butterflies, jars and mechanical elements encloses a surreal landscape. Within the frame, glowing staircases rise from reflective water toward a distant lighthouse and fruit-bearing trees under a vibrant aurora borealis sky (derived from generated still #4199).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular cracked frame decorated with gears, butterflies, jars and mechanical elements encloses a surreal landscape. Within the frame, glowing staircases rise from reflective water toward a distant lighthouse and fruit-bearing trees under a vibrant aurora borealis sky",
+  "inverted_title": "Inverted sketch: Surreal Circular Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular cracked frame decorated with gears, butterflies, jars and mechanical elements encloses a surreal landscape. Within the frame, glowing staircases rise from reflective water toward a distant lighthouse and fruit-bearing trees under a vibrant aurora borealis sky (from generated still #4199).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular cracked frame decorated with gears, butterflies, jars and mechanical elements encloses a surreal landscape. Within the frame, glowing staircases rise from reflective water toward a distant lighthouse and fruit-bearing trees under a vibrant aurora borealis sky",
+  "source_description": "A circular cracked frame decorated with gears, butterflies, jars and mechanical elements encloses a surreal landscape. Within the frame, glowing green staircases rise from reflective water toward a distant lighthouse and fruit-bearing trees under a vibrant aurora borealis sky.",
+  "source_prompt": "A surreal circular portal with a cracked white and purple frame adorned with gears, butterflies, glass jars and mechanical details. Inside the circle is a dreamlike landscape with glowing green staircases emerging from reflective water, a lighthouse on a small island with fruit trees, and a dramatic sky filled with vibrant red, yellow and green aurora borealis. Mystical atmosphere, painterly style with gold leaf accents.",
+  "source_title": "Surreal Circular Portal",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "circular composition",
+    "lighthouse",
+    "aurora",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4199,
+  "source_url": "/generated/4199.jpg",
+  "image_url": "/sketches/4765.png",
+  "inverted_image_url": "/sketches-inverted/4765.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:48Z"
+}

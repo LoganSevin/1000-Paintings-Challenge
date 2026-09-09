@@ -1,0 +1,42 @@
+{
+  "number": 2297,
+  "title": "Line sketch: Dragon and Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic composition featuring a large dragon coiled through swirling nebulae and a silhouetted female figure with flowing starry hair holding a small glowing orb. In the foreground, a -skinned woman's cracked face with one eye and one eye stares forward, set against a vibrant and galaxy background (derived from generated still #1524).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic composition featuring a large dragon coiled through swirling nebulae and a silhouetted female figure with flowing starry hair holding a small glowing orb. In the foreground, a -skinned woman's cracked face with one eye and one eye stares forward, set against a vibrant and galaxy background",
+  "inverted_title": "Inverted sketch: Dragon and Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic composition featuring a large dragon coiled through swirling nebulae and a silhouetted female figure with flowing starry hair holding a small glowing orb. In the foreground, a -skinned woman's cracked face with one eye and one eye stares forward, set against a vibrant and galaxy background (from generated still #1524).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic composition featuring a large dragon coiled through swirling nebulae and a silhouetted female figure with flowing starry hair holding a small glowing orb. In the foreground, a -skinned woman's cracked face with one eye and one eye stares forward, set against a vibrant and galaxy background",
+  "source_description": "A surreal cosmic painting featuring a large blue dragon coiled through swirling nebulae and a silhouetted female figure with flowing starry hair holding a small glowing orb. In the foreground, a green-skinned woman's cracked face with one yellow eye and one red eye stares forward, set against a vibrant purple and teal galaxy background.",
+  "source_prompt": "",
+  "source_title": "Dragon and Sorceress",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "sorceress",
+    "cosmic",
+    "surreal",
+    "galaxy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1524,
+  "source_url": "/generated/1524.jpg",
+  "image_url": "/sketches/2297.png",
+  "inverted_image_url": "/sketches-inverted/2297.png",
+  "curve_count": 93,
+  "built_at": "2026-08-17T00:09:43Z"
+}

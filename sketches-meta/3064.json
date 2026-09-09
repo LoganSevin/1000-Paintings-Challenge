@@ -1,0 +1,42 @@
+{
+  "number": 3064,
+  "title": "Line sketch: Overture - Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a cape stands on a stage holding a film reel and a small telescope, looking upward. Behind her is a grand, decaying theater with a large screen displaying 'STASIS' and a telescope graphic, surrounded by floating books, film reels, and ornate chandeliers under dramatic beams of light (derived from generated still #2391).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a cape stands on a stage holding a film reel and a small telescope, looking upward. Behind her is a grand, decaying theater with a large screen displaying 'STASIS' and a telescope graphic, surrounded by floating books, film reels, and ornate chandeliers under dramatic beams of light",
+  "inverted_title": "Inverted sketch: Overture - Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a cape stands on a stage holding a film reel and a small telescope, looking upward. Behind her is a grand, decaying theater with a large screen displaying 'STASIS' and a telescope graphic, surrounded by floating books, film reels, and ornate chandeliers under dramatic beams of light (from generated still #2391).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a cape stands on a stage holding a film reel and a small telescope, looking upward. Behind her is a grand, decaying theater with a large screen displaying 'STASIS' and a telescope graphic, surrounded by floating books, film reels, and ornate chandeliers under dramatic beams of light",
+  "source_description": "A woman in a blue cape stands on a stage holding a film reel and a small telescope, looking upward. Behind her is a grand, decaying theater with a large screen displaying 'STASIS' and a telescope graphic, surrounded by floating books, film reels, and ornate chandeliers under dramatic beams of light.",
+  "source_prompt": "",
+  "source_title": "Overture - Stasis",
+  "style": "cinematic",
+  "mood": "mysterious, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theater",
+    "film reel",
+    "woman",
+    "surreal",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2391,
+  "source_url": "/generated/2391.jpg",
+  "image_url": "/sketches/3064.png",
+  "inverted_image_url": "/sketches-inverted/3064.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:44Z"
+}

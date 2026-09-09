@@ -1,0 +1,42 @@
+{
+  "number": 2768,
+  "title": "Line sketch: Cosmic Brain Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal amphibian-like monster with a giant exposed brain floats above a barren mountain range. A solar eclipse looms in a dark, cloudy sky while electricity and mathematical symbols cover the creature's dripping, cracked skin (derived from generated still #2018).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal amphibian-like monster with a giant exposed brain floats above a barren mountain range. A solar eclipse looms in a dark, cloudy sky while electricity and mathematical symbols cover the creature's dripping, cracked skin",
+  "inverted_title": "Inverted sketch: Cosmic Brain Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal amphibian-like monster with a giant exposed brain floats above a barren mountain range. A solar eclipse looms in a dark, cloudy sky while electricity and mathematical symbols cover the creature's dripping, cracked skin (from generated still #2018).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal amphibian-like monster with a giant exposed brain floats above a barren mountain range. A solar eclipse looms in a dark, cloudy sky while electricity and mathematical symbols cover the creature's dripping, cracked skin",
+  "source_description": "A surreal blue amphibian-like monster with a giant exposed brain floats above a barren mountain range. A solar eclipse looms in a dark, cloudy sky while purple electricity and mathematical symbols cover the creature's dripping, cracked skin.",
+  "source_prompt": "",
+  "source_title": "Cosmic Brain Creature",
+  "style": "surrealism",
+  "mood": "eerie, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic horror",
+    "brain creature",
+    "eclipse",
+    "mathematical symbols"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2018,
+  "source_url": "/generated/2018.jpg",
+  "image_url": "/sketches/2768.png",
+  "inverted_image_url": "/sketches-inverted/2768.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:44Z"
+}

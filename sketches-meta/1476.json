@@ -1,0 +1,42 @@
+{
+  "number": 1476,
+  "title": "Line sketch: Cosmic Ocean Turtle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal mural depicts an underwater scene with a large sea turtle swimming near a spacesuit-clad astronaut standing on a grassy ledge, reaching toward floating black orbs containing miniature cosmic scenes. Below, two small figures walk a path through a landscape while the background transitions from a sunlit reef with fish to a starry night sky (derived from generated still #691).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal mural depicts an underwater scene with a large sea turtle swimming near a spacesuit-clad astronaut standing on a grassy ledge, reaching toward floating black orbs containing miniature cosmic scenes. Below, two small figures walk a path through a landscape while the background transitions from a sunlit reef with fish to a starry night sky",
+  "inverted_title": "Inverted sketch: Cosmic Ocean Turtle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal mural depicts an underwater scene with a large sea turtle swimming near a spacesuit-clad astronaut standing on a grassy ledge, reaching toward floating black orbs containing miniature cosmic scenes. Below, two small figures walk a path through a landscape while the background transitions from a sunlit reef with fish to a starry night sky (from generated still #691).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal mural depicts an underwater scene with a large sea turtle swimming near a spacesuit-clad astronaut standing on a grassy ledge, reaching toward floating black orbs containing miniature cosmic scenes. Below, two small figures walk a path through a landscape while the background transitions from a sunlit reef with fish to a starry night sky",
+  "source_description": "A vibrant surreal mural depicts an underwater scene with a large green sea turtle swimming near a spacesuit-clad astronaut standing on a grassy ledge, reaching toward floating black orbs containing miniature cosmic scenes. Below, two small figures walk a path through a green landscape while the background transitions from a sunlit coral reef with fish to a starry night sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Ocean Turtle",
+  "style": "surreal mural",
+  "mood": "whimsical, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted mural",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mural",
+    "sea turtle",
+    "astronaut",
+    "reef"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 691,
+  "source_url": "/generated/691.jpg",
+  "image_url": "/sketches/1476.png",
+  "inverted_image_url": "/sketches-inverted/1476.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:41Z"
+}

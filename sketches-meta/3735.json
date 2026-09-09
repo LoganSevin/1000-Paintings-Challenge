@@ -1,0 +1,42 @@
+{
+  "number": 3735,
+  "title": "Line sketch: Laurel Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stern male warrior with braided hair and a laurel wreath stands in three-quarter view. He wears ornate and armor with large feathered wing pauldrons, a gem brooch, and a glowing halo behind his head (derived from generated still #3145).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stern male warrior with braided hair and a laurel wreath stands in three-quarter view. He wears ornate and armor with large feathered wing pauldrons, a gem brooch, and a glowing halo behind his head",
+  "inverted_title": "Inverted sketch: Laurel Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stern male warrior with braided hair and a laurel wreath stands in three-quarter view. He wears ornate and armor with large feathered wing pauldrons, a gem brooch, and a glowing halo behind his head (from generated still #3145).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stern male warrior with braided hair and a laurel wreath stands in three-quarter view. He wears ornate and armor with large feathered wing pauldrons, a gem brooch, and a glowing halo behind his head",
+  "source_description": "A stern male warrior with braided hair and a golden laurel wreath stands in three-quarter view. He wears ornate golden and silver armor with large feathered wing pauldrons, a red gem brooch, and a glowing golden halo behind his head.",
+  "source_prompt": "A handsome stern male warrior with long braided brown hair, wearing an intricate golden laurel wreath and glowing golden halo. He is clad in highly detailed golden and silver fantasy armor with large feathered wing pauldrons, a red gem at the collar, and a decorative sash. Dramatic cinematic lighting with a strong golden god ray from above, dark blue mystical background with faint columns and laurel motifs, painted in a realistic fantasy style with rich textures.",
+  "source_title": "Golden Laurel Warrior",
+  "style": "fantasy illustration",
+  "mood": "heroic, divine",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "male warrior",
+    "armor",
+    "winged pauldrons",
+    "laurel wreath",
+    "halo"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3145,
+  "source_url": "/generated/3145.jpg",
+  "image_url": "/sketches/3735.png",
+  "inverted_image_url": "/sketches-inverted/3735.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:46Z"
+}

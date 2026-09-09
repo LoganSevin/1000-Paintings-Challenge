@@ -1,0 +1,42 @@
+{
+  "number": 2741,
+  "title": "Line sketch: Gingerbread Man Grid Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 3x5 grid of detailed 3D-rendered gingerbread cookies featuring a female gingerbread character in various angles and expressions. Each figure wears a dress with patterns and stands before a vibrant backdrop on a light surface (derived from generated still #1987).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 3x5 grid of detailed 3D-rendered gingerbread cookies featuring a female gingerbread character in various angles and expressions. Each figure wears a dress with patterns and stands before a vibrant backdrop on a light surface",
+  "inverted_title": "Inverted sketch: Gingerbread Man Grid Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 3x5 grid of detailed 3D-rendered gingerbread cookies featuring a female gingerbread character in various angles and expressions. Each figure wears a dress with patterns and stands before a vibrant backdrop on a light surface (from generated still #1987).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 3x5 grid of detailed 3D-rendered gingerbread cookies featuring a female gingerbread character in various angles and expressions. Each figure wears a dress with patterns and stands before a vibrant backdrop on a light surface",
+  "source_description": "A 3x5 grid of detailed 3D-rendered gingerbread cookies featuring a female gingerbread character in various angles and expressions. Each figure wears a colorful dress with rainbow patterns and stands before a vibrant rainbow backdrop on a light surface.",
+  "source_prompt": "",
+  "source_title": "Gingerbread Man Grid Study",
+  "style": "3D CGI illustration",
+  "mood": "whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gingerbread",
+    "grid",
+    "character study",
+    "3D render",
+    "cookie"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1987,
+  "source_url": "/generated/1987.jpg",
+  "image_url": "/sketches/2741.png",
+  "inverted_image_url": "/sketches-inverted/2741.png",
+  "curve_count": 244,
+  "built_at": "2026-08-17T00:09:44Z"
+}

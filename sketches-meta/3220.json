@@ -1,0 +1,42 @@
+{
+  "number": 3220,
+  "title": "Line sketch: Surreal Colosseum Apocalypse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A chaotic surreal scene centered on the ancient Roman Colosseum under a turbulent sky filled with swirling vortexes, concentric psychedelic circles, a fiery comet, and dark monstrous creatures. The foreground features bizarre organic and mechanical entities on earth while crowds of tiny figures run across the field around the crumbling amphitheater (derived from generated still #2572).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A chaotic surreal scene centered on the ancient Roman Colosseum under a turbulent sky filled with swirling vortexes, concentric psychedelic circles, a fiery comet, and dark monstrous creatures. The foreground features bizarre organic and mechanical entities on earth while crowds of tiny figures run across the field around the crumbling amphitheater",
+  "inverted_title": "Inverted sketch: Surreal Colosseum Apocalypse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A chaotic surreal scene centered on the ancient Roman Colosseum under a turbulent sky filled with swirling vortexes, concentric psychedelic circles, a fiery comet, and dark monstrous creatures. The foreground features bizarre organic and mechanical entities on earth while crowds of tiny figures run across the field around the crumbling amphitheater (from generated still #2572).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A chaotic surreal scene centered on the ancient Roman Colosseum under a turbulent sky filled with swirling vortexes, concentric psychedelic circles, a fiery comet, and dark monstrous creatures. The foreground features bizarre organic and mechanical entities on earth while crowds of tiny figures run across the field around the crumbling amphitheater",
+  "source_description": "A chaotic surreal scene centered on the ancient Roman Colosseum under a turbulent sky filled with swirling vortexes, concentric psychedelic circles, a fiery comet, and dark monstrous creatures. The foreground features bizarre organic and mechanical entities on green earth while crowds of tiny figures run across the field around the crumbling amphitheater.",
+  "source_prompt": "Highly detailed surreal painting of the Roman Colosseum standing in a grassy field during an apocalyptic event. The sky is filled with swirling vortexes, colorful concentric circles, dark storm clouds, a bright yellow comet, and floating monstrous biomechanical creatures. Tiny human figures flee in all directions. Foreground contains bizarre organic tentacled entities and glowing circular patterns on the ground. Vibrant colors, dynamic composition, imaginative fantasy style.",
+  "source_title": "Surreal Colosseum Apocalypse",
+  "style": "surrealism",
+  "mood": "apocalyptic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "colosseum",
+    "surreal",
+    "apocalypse",
+    "psychedelic",
+    "monsters"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2572,
+  "source_url": "/generated/2572.jpg",
+  "image_url": "/sketches/3220.png",
+  "inverted_image_url": "/sketches-inverted/3220.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

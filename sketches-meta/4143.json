@@ -1,0 +1,42 @@
+{
+  "number": 4143,
+  "title": "Line sketch: Crescent Moon Over Mountains",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic twilight landscape featuring two rugged, snow-dusted mountain peaks under a and sky. A thin crescent moon hangs between the summits above a dark reflective lake in the foreground, with small illuminated buildings visible on the slopes (derived from generated still #3561).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic twilight landscape featuring two rugged, snow-dusted mountain peaks under a and sky. A thin crescent moon hangs between the summits above a dark reflective lake in the foreground, with small illuminated buildings visible on the slopes",
+  "inverted_title": "Inverted sketch: Crescent Moon Over Mountains",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic twilight landscape featuring two rugged, snow-dusted mountain peaks under a and sky. A thin crescent moon hangs between the summits above a dark reflective lake in the foreground, with small illuminated buildings visible on the slopes (from generated still #3561).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic twilight landscape featuring two rugged, snow-dusted mountain peaks under a and sky. A thin crescent moon hangs between the summits above a dark reflective lake in the foreground, with small illuminated buildings visible on the slopes",
+  "source_description": "A dramatic twilight landscape featuring two rugged, snow-dusted mountain peaks under a purple and orange sky. A thin crescent moon hangs between the summits above a dark reflective lake in the foreground, with small illuminated buildings visible on the slopes.",
+  "source_prompt": "dramatic twilight mountain landscape with two rugged peaks, one with snow, under a colorful sky of deep purple, magenta and warm orange. A thin glowing crescent moon sits between the summits. Dark reflective lake in the foreground with rocky shores and sparse vegetation. Small warm lights from buildings dot the mountainside, painterly style with visible brushwork and atmospheric color blending",
+  "source_title": "Crescent Moon Over Mountains",
+  "style": "painterly landscape",
+  "mood": "serene dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mountain landscape",
+    "twilight",
+    "crescent moon",
+    "reflective lake",
+    "northern scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3561,
+  "source_url": "/generated/3561.jpg",
+  "image_url": "/sketches/4143.png",
+  "inverted_image_url": "/sketches-inverted/4143.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:47Z"
+}

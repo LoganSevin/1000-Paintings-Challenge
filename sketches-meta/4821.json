@@ -1,0 +1,42 @@
+{
+  "number": 4821,
+  "title": "Line sketch: Enchanted Masquerade Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed sculpted mask featuring a serene feminine face with -trimmed eye openings and a gentle smile. The surface is painted with a whimsical fantasy scene showing a glowing alchemy laboratory on the forehead, complete with potion bottles, books, and a candle, while three small pigs sit on a flowering branch on the right cheek against a cloudy night sky background (derived from generated still #4256).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed sculpted mask featuring a serene feminine face with -trimmed eye openings and a gentle smile. The surface is painted with a whimsical fantasy scene showing a glowing alchemy laboratory on the forehead, complete with potion bottles, books, and a candle, while three small pigs sit on a flowering branch on the right cheek against a cloudy night sky background",
+  "inverted_title": "Inverted sketch: Enchanted Masquerade Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed sculpted mask featuring a serene feminine face with -trimmed eye openings and a gentle smile. The surface is painted with a whimsical fantasy scene showing a glowing alchemy laboratory on the forehead, complete with potion bottles, books, and a candle, while three small pigs sit on a flowering branch on the right cheek against a cloudy night sky background (from generated still #4256).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed sculpted mask featuring a serene feminine face with -trimmed eye openings and a gentle smile. The surface is painted with a whimsical fantasy scene showing a glowing alchemy laboratory on the forehead, complete with potion bottles, books, and a candle, while three small pigs sit on a flowering branch on the right cheek against a cloudy night sky background",
+  "source_description": "A highly detailed sculpted mask featuring a serene feminine face with gold-trimmed eye openings and a gentle smile. The surface is painted with a whimsical fantasy scene showing a glowing alchemy laboratory on the forehead, complete with potion bottles, books, and a candle, while three small pink pigs sit on a flowering branch on the right cheek against a cloudy night sky background.",
+  "source_prompt": "close-up of an ornate sculpted masquerade mask with a gentle smiling female face, gold eyeliner details, the forehead painted as a magical night sky with an illuminated alchemy laboratory filled with potion bottles, books, and candles, three cute pink pigs sitting on a flowering branch on the right cheek, cloudy blue and purple background with stars, highly detailed fantasy artwork",
+  "source_title": "Enchanted Masquerade Mask",
+  "style": "fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted sculpture",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "masquerade mask",
+    "fantasy art",
+    "alchemy lab",
+    "three little pigs",
+    "surreal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4256,
+  "source_url": "/generated/4256.jpg",
+  "image_url": "/sketches/4821.png",
+  "inverted_image_url": "/sketches-inverted/4821.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:49Z"
+}

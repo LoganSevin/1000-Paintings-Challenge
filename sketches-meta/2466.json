@@ -1,0 +1,42 @@
+{
+  "number": 2466,
+  "title": "Line sketch: Tangleleg Amoeba Highway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a swirling, psychedelic highway twisting into infinity symbols above a foggy landscape with silhouetted figures and trees. In the background stands a glowing city skyline beneath a dramatic, and sunset sky (derived from generated still #1701).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a swirling, psychedelic highway twisting into infinity symbols above a foggy landscape with silhouetted figures and trees. In the background stands a glowing city skyline beneath a dramatic, and sunset sky",
+  "inverted_title": "Inverted sketch: Tangleleg Amoeba Highway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a swirling, psychedelic highway twisting into infinity symbols above a foggy landscape with silhouetted figures and trees. In the background stands a glowing city skyline beneath a dramatic, and sunset sky (from generated still #1701).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a swirling, psychedelic highway twisting into infinity symbols above a foggy landscape with silhouetted figures and trees. In the background stands a glowing city skyline beneath a dramatic, and sunset sky",
+  "source_description": "A vibrant surreal painting depicts a swirling, psychedelic highway twisting into colorful infinity symbols above a foggy landscape with silhouetted figures and trees. In the background stands a glowing city skyline beneath a dramatic pink, orange and yellow sunset sky.",
+  "source_prompt": "",
+  "source_title": "Tangleleg Amoeba Highway",
+  "style": "surreal psychedelic",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "highway",
+    "cityscape",
+    "psychedelic",
+    "sunset"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1701,
+  "source_url": "/generated/1701.jpg",
+  "image_url": "/sketches/2466.png",
+  "inverted_image_url": "/sketches-inverted/2466.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:43Z"
+}

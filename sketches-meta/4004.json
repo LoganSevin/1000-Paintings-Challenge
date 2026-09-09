@@ -1,0 +1,42 @@
+{
+  "number": 4004,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A confident young woman with dark hair in a topknot stands in a dynamic pose against a solid gray background. She wears an cropped top, pants with patterns, gauntlets, and boots, while holding a large warhammer with both hands (derived from generated still #3421).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A confident young woman with dark hair in a topknot stands in a dynamic pose against a solid gray background. She wears an cropped top, pants with patterns, gauntlets, and boots, while holding a large warhammer with both hands",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A confident young woman with dark hair in a topknot stands in a dynamic pose against a solid gray background. She wears an cropped top, pants with patterns, gauntlets, and boots, while holding a large warhammer with both hands (from generated still #3421).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A confident young woman with dark hair in a topknot stands in a dynamic pose against a solid gray background. She wears an cropped top, pants with patterns, gauntlets, and boots, while holding a large warhammer with both hands",
+  "source_description": "A confident young woman with dark hair in a topknot stands in a dynamic pose against a solid gray background. She wears an orange cropped top, dark purple pants with red patterns, purple gauntlets, and boots, while holding a large purple warhammer with both hands.",
+  "source_prompt": "A fierce young East Asian female warrior with messy dark hair in a topknot, wearing an orange cropped leather top, dark purple pants with red geometric patterns, purple gauntlets and boots, standing in a powerful stance holding a large ornate purple warhammer, looking directly at viewer with a confident expression, solid dark gray background, clean digital illustration style",
+  "source_title": "Female Warrior with Hammer",
+  "style": "digital illustration",
+  "mood": "bold, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "armor",
+    "dynamic pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3421,
+  "source_url": "/generated/3421.jpg",
+  "image_url": "/sketches/4004.png",
+  "inverted_image_url": "/sketches-inverted/4004.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:47Z"
+}

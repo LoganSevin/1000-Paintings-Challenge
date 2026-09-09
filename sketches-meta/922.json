@@ -1,0 +1,42 @@
+{
+  "number": 922,
+  "title": "Line sketch: Celestial Sun and Moon Face",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait shows a woman's face merged with a sun on the left side, both sharing closed eyes and melting drips. Her hair flows in waves with geometric patterns and leaves, set against a radiant starburst background with floating geometric shapes (derived from generated still #132).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait shows a woman's face merged with a sun on the left side, both sharing closed eyes and melting drips. Her hair flows in waves with geometric patterns and leaves, set against a radiant starburst background with floating geometric shapes",
+  "inverted_title": "Inverted sketch: Celestial Sun and Moon Face",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait shows a woman's face merged with a sun on the left side, both sharing closed eyes and melting drips. Her hair flows in waves with geometric patterns and leaves, set against a radiant starburst background with floating geometric shapes (from generated still #132).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait shows a woman's face merged with a sun on the left side, both sharing closed eyes and melting drips. Her hair flows in waves with geometric patterns and leaves, set against a radiant starburst background with floating geometric shapes",
+  "source_description": "A surreal portrait shows a woman's face merged with a sun on the left side, both sharing closed eyes and melting drips. Her hair flows in colorful waves with geometric patterns and leaves, set against a radiant starburst background with floating geometric shapes.",
+  "source_prompt": "",
+  "source_title": "Celestial Sun and Moon Face",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sun and moon",
+    "female face",
+    "melting drips",
+    "geometric patterns",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 132,
+  "source_url": "/generated/132.jpg",
+  "image_url": "/sketches/922.png",
+  "inverted_image_url": "/sketches-inverted/922.png",
+  "curve_count": 138,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3850,
+  "title": "Line sketch: Catgirl Pose Triptych",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A three-panel composition against a solid background showing the same -haired female character with cat ears and a tail. Left panel: dynamic standing action pose with claws extended. Middle panel: mid-air falling pose with limbs outstretched. Right panel: lying on her side in a relaxed pose (derived from generated still #3267).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A three-panel composition against a solid background showing the same -haired female character with cat ears and a tail. Left panel: dynamic standing action pose with claws extended. Middle panel: mid-air falling pose with limbs outstretched. Right panel: lying on her side in a relaxed pose",
+  "inverted_title": "Inverted sketch: Catgirl Pose Triptych",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A three-panel composition against a solid background showing the same -haired female character with cat ears and a tail. Left panel: dynamic standing action pose with claws extended. Middle panel: mid-air falling pose with limbs outstretched. Right panel: lying on her side in a relaxed pose (from generated still #3267).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A three-panel composition against a solid background showing the same -haired female character with cat ears and a tail. Left panel: dynamic standing action pose with claws extended. Middle panel: mid-air falling pose with limbs outstretched. Right panel: lying on her side in a relaxed pose",
+  "source_description": "A three-panel composition against a solid bright pink background showing the same blue-haired female character with cat ears and a tail. Left panel: dynamic standing action pose with claws extended. Middle panel: mid-air falling pose with limbs outstretched. Right panel: lying on her side in a relaxed pose.",
+  "source_prompt": "A three-panel character study on a solid vibrant pink background, featuring a young female character with short spiky silver-blue hair, cat ears, and a long blue tail, wearing a form-fitting blue armored bodysuit with knee pads and gloves. Left panel shows her in an aggressive action stance with claws out, middle panel shows her falling through the air, right panel shows her lying on the ground. Consistent character design across all three panels, painted in realistic digital art style with strong lighting and clear details.",
+  "source_title": "Blue Catgirl Pose Triptych",
+  "style": "line sketch",
+  "mood": "playful, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "catgirl",
+    "hair",
+    "multiple poses",
+    "background",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3267,
+  "source_url": "/generated/3267.jpg",
+  "image_url": "/sketches/3850.png",
+  "inverted_image_url": "/sketches-inverted/3850.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:46Z"
+}

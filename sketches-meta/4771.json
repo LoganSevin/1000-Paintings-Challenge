@@ -1,0 +1,42 @@
+{
+  "number": 4771,
+  "title": "Line sketch: Moonlit Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a dark coat stands on a rocky outcrop overlooking a surreal desert landscape. In the distance, a grand illuminated castle sits atop mountains under a glowing full moon, with an industrial factory emitting smoke on the left and vibrant and magical bursts in the foreground (derived from generated still #4205).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a dark coat stands on a rocky outcrop overlooking a surreal desert landscape. In the distance, a grand illuminated castle sits atop mountains under a glowing full moon, with an industrial factory emitting smoke on the left and vibrant and magical bursts in the foreground",
+  "inverted_title": "Inverted sketch: Moonlit Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a dark coat stands on a rocky outcrop overlooking a surreal desert landscape. In the distance, a grand illuminated castle sits atop mountains under a glowing full moon, with an industrial factory emitting smoke on the left and vibrant and magical bursts in the foreground (from generated still #4205).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a dark coat stands on a rocky outcrop overlooking a surreal desert landscape. In the distance, a grand illuminated castle sits atop mountains under a glowing full moon, with an industrial factory emitting smoke on the left and vibrant and magical bursts in the foreground",
+  "source_description": "A lone figure in a dark coat stands on a rocky outcrop overlooking a surreal desert landscape. In the distance, a grand illuminated castle sits atop mountains under a glowing full moon, with an industrial factory emitting smoke on the left and vibrant purple and yellow magical bursts in the foreground.",
+  "source_prompt": "A lone figure in a dark coat stands on a cliff overlooking a surreal desert at night. To the left is a dark industrial factory with smokestacks, while a majestic glowing castle sits on a mountain in the center. A large luminous moon illuminates the cloudy sky. Vibrant purple and yellow magical particles float in the air between the scenes. The entire image is framed within a thick, textured painterly border with buttons, keys, feathers, and roots embedded in colorful impasto paint.",
+  "source_title": "Moonlit Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "full moon",
+    "castle",
+    "industrial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4205,
+  "source_url": "/generated/4205.jpg",
+  "image_url": "/sketches/4771.png",
+  "inverted_image_url": "/sketches-inverted/4771.png",
+  "curve_count": 333,
+  "built_at": "2026-08-17T00:09:48Z"
+}

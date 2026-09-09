@@ -1,0 +1,42 @@
+{
+  "number": 1863,
+  "title": "Line sketch: Psychedelic Serpent Hand",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed black and white human hand with palm facing forward is positioned in the foreground against a vibrant, surreal background. A psychedelic snake coils around the wrist and fingers, its body covered in intricate patterns while its head extends toward the upper right, surrounded by floating orbs containing stylized faces and abstract designs (derived from generated still #1088).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed black and white human hand with palm facing forward is positioned in the foreground against a vibrant, surreal background. A psychedelic snake coils around the wrist and fingers, its body covered in intricate patterns while its head extends toward the upper right, surrounded by floating orbs containing stylized faces and abstract designs",
+  "inverted_title": "Inverted sketch: Psychedelic Serpent Hand",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed black and white human hand with palm facing forward is positioned in the foreground against a vibrant, surreal background. A psychedelic snake coils around the wrist and fingers, its body covered in intricate patterns while its head extends toward the upper right, surrounded by floating orbs containing stylized faces and abstract designs (from generated still #1088).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed black and white human hand with palm facing forward is positioned in the foreground against a vibrant, surreal background. A psychedelic snake coils around the wrist and fingers, its body covered in intricate patterns while its head extends toward the upper right, surrounded by floating orbs containing stylized faces and abstract designs",
+  "source_description": "A detailed black and white human hand with palm facing forward is positioned in the foreground against a vibrant, surreal background. A multicolored psychedelic snake coils around the wrist and fingers, its body covered in intricate patterns while its head extends toward the upper right, surrounded by floating colorful orbs containing stylized faces and abstract designs.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Serpent Hand",
+  "style": "psychedelic surrealism",
+  "mood": "trippy mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hand",
+    "snake",
+    "psychedelic",
+    "surreal",
+    "orbs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1088,
+  "source_url": "/generated/1088.jpg",
+  "image_url": "/sketches/1863.png",
+  "inverted_image_url": "/sketches-inverted/1863.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:42Z"
+}

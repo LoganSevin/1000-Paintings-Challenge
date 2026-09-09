@@ -1,0 +1,42 @@
+{
+  "number": 439,
+  "title": "Line sketch: Blonde Beauty Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A of a young woman with blonde hair styled in an updo and loose curls. She has striking eyes, rosy cheeks, and lips, gazing directly at the viewer with a gentle smile (derived from painting #527).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A of a young woman with blonde hair styled in an updo and loose curls. She has striking eyes, rosy cheeks, and lips, gazing directly at the viewer with a gentle smile",
+  "inverted_title": "Inverted sketch: Blonde Beauty Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A of a young woman with blonde hair styled in an updo and loose curls. She has striking eyes, rosy cheeks, and lips, gazing directly at the viewer with a gentle smile (from painting #527).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A of a young woman with blonde hair styled in an updo and loose curls. She has striking eyes, rosy cheeks, and lips, gazing directly at the viewer with a gentle smile",
+  "source_description": "A digital painting of a young woman with golden blonde hair styled in an updo and loose curls. She has striking blue eyes, rosy cheeks, and red lips, gazing directly at the viewer with a gentle smile.",
+  "source_prompt": "",
+  "source_title": "Blonde Beauty Portrait",
+  "style": "realistic",
+  "mood": "serene and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "blonde woman",
+    "digital art",
+    "realistic",
+    "updo hairstyle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 527,
+  "source_url": "/paintings/527.jpg",
+  "image_url": "/sketches/439.png",
+  "inverted_image_url": "/sketches-inverted/439.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

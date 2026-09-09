@@ -1,0 +1,42 @@
+{
+  "number": 342,
+  "title": "Line sketch: Pickles Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up view of numerous overlapping pickles with highlights creating a textured pattern. This daily composition challenge artwork uses simplified forms and varied tones to capture the essence of the vegetables (derived from painting #404).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up view of numerous overlapping pickles with highlights creating a textured pattern. This daily composition challenge artwork uses simplified forms and varied tones to capture the essence of the vegetables",
+  "inverted_title": "Inverted sketch: Pickles Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up view of numerous overlapping pickles with highlights creating a textured pattern. This daily composition challenge artwork uses simplified forms and varied tones to capture the essence of the vegetables (from painting #404).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up view of numerous overlapping pickles with highlights creating a textured pattern. This daily composition challenge artwork uses simplified forms and varied tones to capture the essence of the vegetables",
+  "source_description": "A close-up view of numerous overlapping green pickles with highlights creating a textured pattern. This daily painting challenge artwork uses simplified forms and varied green tones to capture the essence of the vegetables.",
+  "source_prompt": "",
+  "source_title": "Green Pickles Still Life",
+  "style": "Impressionistic",
+  "mood": "Vibrant and fresh",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pickles",
+    "still life",
+    "tones",
+    "daily composition",
+    "vegetables"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 404,
+  "source_url": "/paintings/404.jpg",
+  "image_url": "/sketches/342.png",
+  "inverted_image_url": "/sketches-inverted/342.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4963,
+  "title": "Line sketch: Surreal Rainy Chamber",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark suit sits at a small table inside a dilapidated room with water pouring through a broken skylight. A giant melting and hot air balloon hovers inside the flooded room while an endless hallway with lighting is visible through a large framed composition on the wall (derived from generated still #4400).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark suit sits at a small table inside a dilapidated room with water pouring through a broken skylight. A giant melting and hot air balloon hovers inside the flooded room while an endless hallway with lighting is visible through a large framed composition on the wall",
+  "inverted_title": "Inverted sketch: Surreal Rainy Chamber",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark suit sits at a small table inside a dilapidated room with water pouring through a broken skylight. A giant melting and hot air balloon hovers inside the flooded room while an endless hallway with lighting is visible through a large framed composition on the wall (from generated still #4400).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark suit sits at a small table inside a dilapidated room with water pouring through a broken skylight. A giant melting and hot air balloon hovers inside the flooded room while an endless hallway with lighting is visible through a large framed composition on the wall",
+  "source_description": "A man in a dark suit sits at a small table inside a dilapidated room with water pouring through a broken skylight. A giant melting purple and orange hot air balloon hovers inside the flooded room while an endless hallway with red lighting is visible through a large framed painting on the wall.",
+  "source_prompt": "A surreal scene inside a decaying classical room with water pouring from a broken skylight onto a flooded floor. A man in a black suit sits at a small table looking at a large framed painting that shows an endless hallway with red lighting. A giant melting purple and orange hot air balloon with dripping texture floats inside the room, dramatic lighting, moody atmosphere, cinematic surrealism",
+  "source_title": "Surreal Rainy Chamber",
+  "style": "surrealism",
+  "mood": "melancholy, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "rain",
+    "hot air balloon",
+    "flooded room",
+    "hallway composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4400,
+  "source_url": "/generated/4400.jpg",
+  "image_url": "/sketches/4963.png",
+  "inverted_image_url": "/sketches-inverted/4963.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:49Z"
+}

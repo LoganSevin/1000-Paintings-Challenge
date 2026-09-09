@@ -1,0 +1,42 @@
+{
+  "number": 1002,
+  "title": "Line sketch: Cosmic Eclipse Mermaid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a young girl's face with closed eyes merging into a large fish, floating above an ancient circular amphitheater filled with an audience of silhouettes. A dramatic black hole solar eclipse with a glowing corona dominates the vibrant cosmic sky filled with stars, nebulae, spaceships, and sea creatures (derived from generated still #212).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a young girl's face with closed eyes merging into a large fish, floating above an ancient circular amphitheater filled with an audience of silhouettes. A dramatic black hole solar eclipse with a glowing corona dominates the vibrant cosmic sky filled with stars, nebulae, spaceships, and sea creatures",
+  "inverted_title": "Inverted sketch: Cosmic Eclipse Mermaid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a young girl's face with closed eyes merging into a large fish, floating above an ancient circular amphitheater filled with an audience of silhouettes. A dramatic black hole solar eclipse with a glowing corona dominates the vibrant cosmic sky filled with stars, nebulae, spaceships, and sea creatures (from generated still #212).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a young girl's face with closed eyes merging into a large fish, floating above an ancient circular amphitheater filled with an audience of silhouettes. A dramatic black hole solar eclipse with a glowing corona dominates the vibrant cosmic sky filled with stars, nebulae, spaceships, and sea creatures",
+  "source_description": "A surreal painting depicts a young girl's face with closed eyes merging into a large colorful fish, floating above an ancient circular amphitheater filled with an audience of silhouettes. A dramatic black hole solar eclipse with a glowing orange corona dominates the vibrant cosmic sky filled with stars, nebulae, spaceships, and sea creatures.",
+  "source_prompt": "",
+  "source_title": "Cosmic Eclipse Mermaid",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "mermaid",
+    "eclipse",
+    "amphitheater"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 212,
+  "source_url": "/generated/212.jpg",
+  "image_url": "/sketches/1002.png",
+  "inverted_image_url": "/sketches-inverted/1002.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:40Z"
+}

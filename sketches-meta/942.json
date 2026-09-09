@@ -1,0 +1,42 @@
+{
+  "number": 942,
+  "title": "Line sketch: Psychedelic Cosmic Overmind",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal melting figure with large eyes and an exploding head of light rays and floating orbs sits beside a reflective pool that mirrors a vibrant mountain under a swirling cosmic sky filled with planets, stars, and a radiant -ringed portal (derived from generated still #152).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal melting figure with large eyes and an exploding head of light rays and floating orbs sits beside a reflective pool that mirrors a vibrant mountain under a swirling cosmic sky filled with planets, stars, and a radiant -ringed portal",
+  "inverted_title": "Inverted sketch: Psychedelic Cosmic Overmind",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal melting figure with large eyes and an exploding head of light rays and floating orbs sits beside a reflective pool that mirrors a vibrant mountain under a swirling cosmic sky filled with planets, stars, and a radiant -ringed portal (from generated still #152).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal melting figure with large eyes and an exploding head of light rays and floating orbs sits beside a reflective pool that mirrors a vibrant mountain under a swirling cosmic sky filled with planets, stars, and a radiant -ringed portal",
+  "source_description": "A surreal blue melting figure with large golden eyes and an exploding head of colorful light rays and floating orbs sits beside a reflective pool that mirrors a vibrant green mountain under a swirling cosmic sky filled with planets, stars, and a radiant rainbow-ringed portal.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Cosmic Overmind",
+  "style": "surreal psychedelic",
+  "mood": "trippy visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "melting figure",
+    "mountain landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 152,
+  "source_url": "/generated/152.jpg",
+  "image_url": "/sketches/942.png",
+  "inverted_image_url": "/sketches-inverted/942.png",
+  "curve_count": 112,
+  "built_at": "2026-08-17T00:09:40Z"
+}

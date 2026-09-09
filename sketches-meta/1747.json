@@ -1,0 +1,42 @@
+{
+  "number": 1747,
+  "title": "Line sketch: Woman with Two Bears",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with intricate patterns, large eyes, and dark lips. She is surrounded by two bears with matching psychedelic patterns, eyes, and poppies against a background with spiral motifs (derived from generated still #969).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with intricate patterns, large eyes, and dark lips. She is surrounded by two bears with matching psychedelic patterns, eyes, and poppies against a background with spiral motifs",
+  "inverted_title": "Inverted sketch: Woman with Two Bears",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Psychedelic portrait of a woman with vibrant and swirling hair adorned with intricate patterns, large eyes, and dark lips. She is surrounded by two bears with matching psychedelic patterns, eyes, and poppies against a background with spiral motifs (from generated still #969).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Psychedelic portrait of a woman with vibrant and swirling hair adorned with intricate patterns, large eyes, and dark lips. She is surrounded by two bears with matching psychedelic patterns, eyes, and poppies against a background with spiral motifs",
+  "source_description": "Psychedelic portrait of a woman with vibrant red and orange swirling hair adorned with intricate patterns, large green eyes, and dark lips. She is surrounded by two colorful bears with matching psychedelic patterns, blue eyes, and bright red poppies against a lime green background with spiral motifs.",
+  "source_prompt": "",
+  "source_title": "Woman with Two Bears",
+  "style": "Psychedelic",
+  "mood": "whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "woman",
+    "bears",
+    "poppies",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 969,
+  "source_url": "/generated/969.jpg",
+  "image_url": "/sketches/1747.png",
+  "inverted_image_url": "/sketches-inverted/1747.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:42Z"
+}

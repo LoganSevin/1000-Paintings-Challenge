@@ -1,0 +1,42 @@
+{
+  "number": 1266,
+  "title": "Line sketch: Starry Spectral Swirl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A ghostly figure with glowing white eyes and a jagged grin floats above a vibrant spiral vortex. A luminous female spirit with flowing hair and outstretched hand emerges from the swirling colors against a starry night sky with twisted black branches (derived from generated still #480).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A ghostly figure with glowing white eyes and a jagged grin floats above a vibrant spiral vortex. A luminous female spirit with flowing hair and outstretched hand emerges from the swirling colors against a starry night sky with twisted black branches",
+  "inverted_title": "Inverted sketch: Starry Spectral Swirl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A ghostly figure with glowing white eyes and a jagged grin floats above a vibrant spiral vortex. A luminous female spirit with flowing hair and outstretched hand emerges from the swirling colors against a starry night sky with twisted black branches (from generated still #480).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A ghostly figure with glowing white eyes and a jagged grin floats above a vibrant spiral vortex. A luminous female spirit with flowing hair and outstretched hand emerges from the swirling colors against a starry night sky with twisted black branches",
+  "source_description": "A dark purple ghostly figure with glowing white eyes and a jagged grin floats above a vibrant rainbow spiral vortex. A luminous lavender female spirit with flowing hair and outstretched hand emerges from the swirling colors against a starry green night sky with twisted black branches.",
+  "source_prompt": "",
+  "source_title": "Starry Spectral Swirl",
+  "style": "fantasy illustration",
+  "mood": "ethereal, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghosts",
+    "spirits",
+    "vortex",
+    "starry night",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 480,
+  "source_url": "/generated/480.jpg",
+  "image_url": "/sketches/1266.png",
+  "inverted_image_url": "/sketches-inverted/1266.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:40Z"
+}

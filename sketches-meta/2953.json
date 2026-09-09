@@ -1,0 +1,42 @@
+{
+  "number": 2953,
+  "title": "Line sketch: Rainy Cowboy with Bull",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone cowboy wearing a dark poncho and ornate black hat with stars and dripping horns stands in heavy rain. He holds a coiled lasso in one hand while resting the other on a large dark bull beside him, with a white bird perched on his shoulder amid a desolate barbed wire fence landscape (derived from generated still #2263).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone cowboy wearing a dark poncho and ornate black hat with stars and dripping horns stands in heavy rain. He holds a coiled lasso in one hand while resting the other on a large dark bull beside him, with a white bird perched on his shoulder amid a desolate barbed wire fence landscape",
+  "inverted_title": "Inverted sketch: Rainy Cowboy with Bull",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone cowboy wearing a dark poncho and ornate black hat with stars and dripping horns stands in heavy rain. He holds a coiled lasso in one hand while resting the other on a large dark bull beside him, with a white bird perched on his shoulder amid a desolate barbed wire fence landscape (from generated still #2263).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone cowboy wearing a dark poncho and ornate black hat with stars and dripping horns stands in heavy rain. He holds a coiled lasso in one hand while resting the other on a large dark bull beside him, with a white bird perched on his shoulder amid a desolate barbed wire fence landscape",
+  "source_description": "A lone cowboy wearing a dark poncho and ornate black hat with gold stars and dripping horns stands in heavy rain. He holds a coiled lasso in one hand while resting the other on a large dark bull beside him, with a white bird perched on his shoulder amid a desolate barbed wire fence landscape.",
+  "source_prompt": "A lone cowboy in a dark patterned poncho and black cowboy hat with golden stars and long dripping horns stands in pouring rain at night. He holds a coiled lasso, resting a hand on a large dark bull with prominent horns. A white bird sits on his shoulder. Barbed wire fence and muddy ground with puddles, dramatic cinematic lighting, dark moody western fantasy style, highly detailed digital painting.",
+  "source_title": "Rainy Cowboy with Bull",
+  "style": "dark fantasy illustration",
+  "mood": "somber gritty",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "rain",
+    "bull",
+    "western",
+    "noir"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2263,
+  "source_url": "/generated/2263.jpg",
+  "image_url": "/sketches/2953.png",
+  "inverted_image_url": "/sketches-inverted/2953.png",
+  "curve_count": 69,
+  "built_at": "2026-08-17T00:09:44Z"
+}

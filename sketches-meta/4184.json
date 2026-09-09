@@ -1,0 +1,42 @@
+{
+  "number": 4184,
+  "title": "Line sketch: Winged Celestial Guardian",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A barefoot man with large and mechanical wings stands on ancient stone ruins, looking directly at the viewer. He wears a flowing trench coat over dark clothing, has a glowing halo above his head, tattoos on his arms and left leg, and curly dark hair with a beard (derived from generated still #3602).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A barefoot man with large and mechanical wings stands on ancient stone ruins, looking directly at the viewer. He wears a flowing trench coat over dark clothing, has a glowing halo above his head, tattoos on his arms and left leg, and curly dark hair with a beard",
+  "inverted_title": "Inverted sketch: Winged Celestial Guardian",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A barefoot man with large and mechanical wings stands on ancient stone ruins, looking directly at the viewer. He wears a flowing trench coat over dark clothing, has a glowing halo above his head, tattoos on his arms and left leg, and curly dark hair with a beard (from generated still #3602).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A barefoot man with large and mechanical wings stands on ancient stone ruins, looking directly at the viewer. He wears a flowing trench coat over dark clothing, has a glowing halo above his head, tattoos on his arms and left leg, and curly dark hair with a beard",
+  "source_description": "A barefoot man with large blue and gold mechanical wings stands on ancient stone ruins, looking directly at the viewer. He wears a flowing beige trench coat over dark clothing, has a glowing halo above his head, golden tattoos on his arms and left leg, and curly dark hair with a beard.",
+  "source_prompt": "A majestic barefoot man with curly dark hair and beard standing on cracked ancient stone pavement at sunrise, massive intricate mechanical wings with blue and gold feathers spread wide behind him, wearing a flowing open beige trench coat over dark tunic and pants, intricate glowing golden tattoos on his right arm and left lower leg, a bright electric halo floating above his head, dramatic golden hour lighting, dust and mist swirling around the ruined Greek columns in the background, cinematic realism, highly detailed, majestic and solemn expression",
+  "source_title": "Winged Celestial Guardian",
+  "style": "digital fantasy art",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "wings",
+    "halo",
+    "ruins",
+    "tattoos"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3602,
+  "source_url": "/generated/3602.jpg",
+  "image_url": "/sketches/4184.png",
+  "inverted_image_url": "/sketches-inverted/4184.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:47Z"
+}

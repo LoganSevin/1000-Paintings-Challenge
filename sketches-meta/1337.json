@@ -1,0 +1,42 @@
+{
+  "number": 1337,
+  "title": "Line sketch: Cosmic Dome Metropolis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sprawling futuristic city with illuminated buildings surrounds a massive central domed structure topped by a spiraling tower. In the foreground, a large spherical creature with multiple eyes stands on a rooftop platform, while various floating orbs, planets, and ethereal smoke fill the dramatic twilight sky (derived from generated still #552).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sprawling futuristic city with illuminated buildings surrounds a massive central domed structure topped by a spiraling tower. In the foreground, a large spherical creature with multiple eyes stands on a rooftop platform, while various floating orbs, planets, and ethereal smoke fill the dramatic twilight sky",
+  "inverted_title": "Inverted sketch: Cosmic Dome Metropolis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sprawling futuristic city with illuminated buildings surrounds a massive central domed structure topped by a spiraling tower. In the foreground, a large spherical creature with multiple eyes stands on a rooftop platform, while various floating orbs, planets, and ethereal smoke fill the dramatic twilight sky (from generated still #552).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sprawling futuristic city with illuminated buildings surrounds a massive central domed structure topped by a spiraling tower. In the foreground, a large spherical creature with multiple eyes stands on a rooftop platform, while various floating orbs, planets, and ethereal smoke fill the dramatic twilight sky",
+  "source_description": "A sprawling futuristic city with illuminated buildings surrounds a massive central domed structure topped by a spiraling tower. In the foreground, a large blue spherical creature with multiple eyes stands on a red rooftop platform, while various floating orbs, planets, and ethereal smoke fill the dramatic twilight sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dome Metropolis",
+  "style": "surreal fantasy",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "futuristic city",
+    "dome architecture",
+    "alien creature",
+    "floating orbs",
+    "surreal sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 552,
+  "source_url": "/generated/552.jpg",
+  "image_url": "/sketches/1337.png",
+  "inverted_image_url": "/sketches-inverted/1337.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:41Z"
+}

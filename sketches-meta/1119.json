@@ -1,0 +1,42 @@
+{
+  "number": 1119,
+  "title": "Line sketch: Octopus Veggie Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal octopus with a large smiling cucumber head, and dripping face, and multiple tentacles stands on a reflective surface. It is surrounded by floating vegetables, shrimp, triangular sandwiches, and vibrant flowers against a starry nebula background (derived from generated still #331).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal octopus with a large smiling cucumber head, and dripping face, and multiple tentacles stands on a reflective surface. It is surrounded by floating vegetables, shrimp, triangular sandwiches, and vibrant flowers against a starry nebula background",
+  "inverted_title": "Inverted sketch: Octopus Veggie Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal octopus with a large smiling cucumber head, and dripping face, and multiple tentacles stands on a reflective surface. It is surrounded by floating vegetables, shrimp, triangular sandwiches, and vibrant flowers against a starry nebula background (from generated still #331).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal octopus with a large smiling cucumber head, and dripping face, and multiple tentacles stands on a reflective surface. It is surrounded by floating vegetables, shrimp, triangular sandwiches, and vibrant flowers against a starry nebula background",
+  "source_description": "A surreal green octopus with a large smiling cucumber head, blue and orange dripping face, and multiple tentacles stands on a reflective surface. It is surrounded by floating vegetables, shrimp, triangular sandwiches, and vibrant pink flowers against a starry purple nebula background.",
+  "source_prompt": "",
+  "source_title": "Octopus Veggie Creature",
+  "style": "surreal pop art",
+  "mood": "whimsical psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "octopus",
+    "cucumber",
+    "surreal",
+    "psychedelic",
+    "vegetables"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 331,
+  "source_url": "/generated/331.jpg",
+  "image_url": "/sketches/1119.png",
+  "inverted_image_url": "/sketches-inverted/1119.png",
+  "curve_count": 118,
+  "built_at": "2026-08-17T00:09:40Z"
+}

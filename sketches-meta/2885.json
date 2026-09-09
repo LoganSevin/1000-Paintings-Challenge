@@ -1,0 +1,42 @@
+{
+  "number": 2885,
+  "title": "Line sketch: Owl Teapot and Phoenix Wing",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal still life features a large white owl teapot with antlers and a crown, its body filled with glowing liquid. A massive feathered wing covered in text extends from the teapot across an old wooden table holding an open book, a vintage camera, a scroll with a maze, and scattered petals under a dramatic sunset sky filled with floating letters (derived from generated still #2172).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal still life features a large white owl teapot with antlers and a crown, its body filled with glowing liquid. A massive feathered wing covered in text extends from the teapot across an old wooden table holding an open book, a vintage camera, a scroll with a maze, and scattered petals under a dramatic sunset sky filled with floating letters",
+  "inverted_title": "Inverted sketch: Owl Teapot and Phoenix Wing",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal still life features a large white owl teapot with antlers and a crown, its body filled with glowing liquid. A massive feathered wing covered in text extends from the teapot across an old wooden table holding an open book, a vintage camera, a scroll with a maze, and scattered petals under a dramatic sunset sky filled with floating letters (from generated still #2172).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal still life features a large white owl teapot with antlers and a crown, its body filled with glowing liquid. A massive feathered wing covered in text extends from the teapot across an old wooden table holding an open book, a vintage camera, a scroll with a maze, and scattered petals under a dramatic sunset sky filled with floating letters",
+  "source_description": "A surreal still life features a large white owl teapot with antlers and a golden crown, its body filled with glowing amber liquid. A massive feathered wing covered in text extends from the teapot across an old wooden table holding an open book, a vintage camera, a scroll with a maze, and scattered purple petals under a dramatic sunset sky filled with floating letters.",
+  "source_prompt": "Surreal fantasy still life at sunset, a majestic white owl teapot wearing a golden crown and large antlers, its glass body filled with glowing amber tea, a giant phoenix wing covered in printed text extending from its side across a wooden table. On the table are an open old book, vintage camera, scroll with maze diagram, scattered purple petals, and ink splatters. Dramatic sky with floating letters, rolling hills in background, highly detailed, cinematic lighting.",
+  "source_title": "Owl Teapot and Phoenix Wing",
+  "style": "surreal fantasy",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "owl teapot",
+    "surreal still life",
+    "fantasy art",
+    "floating letters",
+    "text on feathers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2172,
+  "source_url": "/generated/2172.jpg",
+  "image_url": "/sketches/2885.png",
+  "inverted_image_url": "/sketches-inverted/2885.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:44Z"
+}

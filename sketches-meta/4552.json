@@ -1,0 +1,42 @@
+{
+  "number": 4552,
+  "title": "Line sketch: Shadow Puppeteer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a black and Victorian outfit stands centered with arms outstretched on a carpet, controlling massive tentacles emerging from his back. The tentacles feature a large cat-like mask and interact with a shattered mirror revealing a woman in a floral dress and a translucent ghostly woman in a white gown, surrounded by floating film reels, books, and fairies in a cluttered Victorian room with posters on the walls (derived from generated still #3972).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a black and Victorian outfit stands centered with arms outstretched on a carpet, controlling massive tentacles emerging from his back. The tentacles feature a large cat-like mask and interact with a shattered mirror revealing a woman in a floral dress and a translucent ghostly woman in a white gown, surrounded by floating film reels, books, and fairies in a cluttered Victorian room with posters on the walls",
+  "inverted_title": "Inverted sketch: Shadow Puppeteer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a black and Victorian outfit stands centered with arms outstretched on a carpet, controlling massive tentacles emerging from his back. The tentacles feature a large cat-like mask and interact with a shattered mirror revealing a woman in a floral dress and a translucent ghostly woman in a white gown, surrounded by floating film reels, books, and fairies in a cluttered Victorian room with posters on the walls (from generated still #3972).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a black and Victorian outfit stands centered with arms outstretched on a carpet, controlling massive tentacles emerging from his back. The tentacles feature a large cat-like mask and interact with a shattered mirror revealing a woman in a floral dress and a translucent ghostly woman in a white gown, surrounded by floating film reels, books, and fairies in a cluttered Victorian room with posters on the walls",
+  "source_description": "A man in a black and purple Victorian outfit stands centered with arms outstretched on a red carpet, controlling massive purple tentacles emerging from his back. The tentacles feature a large cat-like mask and interact with a shattered mirror revealing a woman in a floral dress and a translucent ghostly woman in a white gown, surrounded by floating film reels, books, and fairies in a cluttered Victorian room with posters on the walls.",
+  "source_prompt": "A dramatic surreal scene of a young man in a black cropped Victorian jacket with purple lining and long black pants standing center with arms spread wide, controlling enormous glowing purple tentacles that emerge from his back. One tentacle ends in a large floating white cat mask with orange eyes. He stands in a cluttered ornate room filled with old film reels, scattered books, posters on the walls, and broken glass. A woman in a floral dress appears inside a shattered mirror behind him while a translucent ghostly woman in a flowing white gown stands to his right, with small glowing fairies flying around, cinematic lighting, rich textures.",
+  "source_title": "Shadow Puppeteer",
+  "style": "surreal digital illustration",
+  "mood": "mysterious chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "tentacles",
+    "victorian",
+    "cinematic",
+    "occult"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3972,
+  "source_url": "/generated/3972.jpg",
+  "image_url": "/sketches/4552.png",
+  "inverted_image_url": "/sketches-inverted/4552.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:48Z"
+}

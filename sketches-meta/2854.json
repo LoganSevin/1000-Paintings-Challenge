@@ -1,0 +1,42 @@
+{
+  "number": 2854,
+  "title": "Line sketch: Explorer's Surreal Stew",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young adventurer with a backpack and helmet stands beside a giant ornate cauldron containing a glowing compass, rolled map, and spoons. The twilight sky swirls with floating cosmic orbs, crescent shapes, and tentacled objects above a dark fantasy landscape (derived from generated still #2139).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young adventurer with a backpack and helmet stands beside a giant ornate cauldron containing a glowing compass, rolled map, and spoons. The twilight sky swirls with floating cosmic orbs, crescent shapes, and tentacled objects above a dark fantasy landscape",
+  "inverted_title": "Inverted sketch: Explorer's Surreal Stew",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young adventurer with a backpack and helmet stands beside a giant ornate cauldron containing a glowing compass, rolled map, and spoons. The twilight sky swirls with floating cosmic orbs, crescent shapes, and tentacled objects above a dark fantasy landscape (from generated still #2139).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young adventurer with a backpack and helmet stands beside a giant ornate cauldron containing a glowing compass, rolled map, and spoons. The twilight sky swirls with floating cosmic orbs, crescent shapes, and tentacled objects above a dark fantasy landscape",
+  "source_description": "A young adventurer with a backpack and helmet stands beside a giant ornate cauldron containing a glowing compass, rolled map, and spoons. The twilight sky swirls with floating cosmic orbs, crescent shapes, and tentacled objects above a dark fantasy landscape.",
+  "source_prompt": "A lone child explorer wearing a helmet and backpack reaches toward a massive ornate cauldron filled with a glowing compass, rolled map, and spoons. The twilight sky is filled with floating rusty orbs, crescent moons with tentacles, and strange cosmic artifacts hovering above a dark silhouetted fantasy city, in a highly detailed surreal fantasy style with rich twilight colors.",
+  "source_title": "Explorer's Surreal Stew",
+  "style": "fantasy surrealism",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "adventure",
+    "cauldron",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2139,
+  "source_url": "/generated/2139.jpg",
+  "image_url": "/sketches/2854.png",
+  "inverted_image_url": "/sketches-inverted/2854.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:44Z"
+}

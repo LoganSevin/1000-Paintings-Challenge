@@ -1,0 +1,42 @@
+{
+  "number": 1504,
+  "title": "Line sketch: Stasis Eye Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic portrait features a person's face and shoulders covered in intricate and face paint, positioned centrally against a dark background. To the right, a large dog-like creature with a massive eye and dripping liquid from its face looms over the figure, surrounded by floating circular symbols and dripping paint effects (derived from generated still #719).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic portrait features a person's face and shoulders covered in intricate and face paint, positioned centrally against a dark background. To the right, a large dog-like creature with a massive eye and dripping liquid from its face looms over the figure, surrounded by floating circular symbols and dripping paint effects",
+  "inverted_title": "Inverted sketch: Stasis Eye Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic portrait features a person's face and shoulders covered in intricate and face paint, positioned centrally against a dark background. To the right, a large dog-like creature with a massive eye and dripping liquid from its face looms over the figure, surrounded by floating circular symbols and dripping paint effects (from generated still #719).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic portrait features a person's face and shoulders covered in intricate and face paint, positioned centrally against a dark background. To the right, a large dog-like creature with a massive eye and dripping liquid from its face looms over the figure, surrounded by floating circular symbols and dripping paint effects",
+  "source_description": "A surreal psychedelic portrait features a person's face and shoulders covered in intricate blue and orange face paint, positioned centrally against a dark background. To the right, a large green dog-like creature with a massive red eye and dripping red liquid from its face looms over the figure, surrounded by floating circular symbols and dripping paint effects.",
+  "source_prompt": "",
+  "source_title": "Stasis Eye Dog Portrait",
+  "style": "surreal psychedelic",
+  "mood": "trippy chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "face paint",
+    "dog",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 719,
+  "source_url": "/generated/719.jpg",
+  "image_url": "/sketches/1504.png",
+  "inverted_image_url": "/sketches-inverted/1504.png",
+  "curve_count": 202,
+  "built_at": "2026-08-17T00:09:41Z"
+}

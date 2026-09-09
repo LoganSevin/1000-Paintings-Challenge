@@ -1,0 +1,42 @@
+{
+  "number": 2755,
+  "title": "Line sketch: Ornamental Orchard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dense, stylized composition of interconnected and spherical fruits hanging from thin branches with leaves against a background. swirling patterns in, and frame the left and right edges of the intricate, folk-art inspired pattern (derived from generated still #2005).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dense, stylized composition of interconnected and spherical fruits hanging from thin branches with leaves against a background. swirling patterns in, and frame the left and right edges of the intricate, folk-art inspired pattern",
+  "inverted_title": "Inverted sketch: Ornamental Orchard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dense, stylized composition of interconnected and spherical fruits hanging from thin branches with leaves against a background. swirling patterns in, and frame the left and right edges of the intricate, folk-art inspired pattern (from generated still #2005).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dense, stylized composition of interconnected and spherical fruits hanging from thin branches with leaves against a background. swirling patterns in, and frame the left and right edges of the intricate, folk-art inspired pattern",
+  "source_description": "A dense, stylized composition of interconnected orange and red spherical fruits hanging from thin branches with green leaves against a dark navy background. Colorful swirling rainbow patterns in purple, green, and blue frame the left and right edges of the intricate, folk-art inspired pattern.",
+  "source_prompt": "",
+  "source_title": "Ornamental Orchard",
+  "style": "folk art",
+  "mood": "vibrant, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fruits",
+    "ornaments",
+    "floral pattern",
+    "folk art",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2005,
+  "source_url": "/generated/2005.jpg",
+  "image_url": "/sketches/2755.png",
+  "inverted_image_url": "/sketches-inverted/2755.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

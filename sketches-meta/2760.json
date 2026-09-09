@@ -1,0 +1,42 @@
+{
+  "number": 2760,
+  "title": "Line sketch: Bleeding Cosmic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-detailed close-up of a human eye with long black lashes. The iris contains a glowing cosmic core surrounded by a -colored ring, while blood splatters and drips across the sclera and lower eyelid (derived from generated still #2010).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-detailed close-up of a human eye with long black lashes. The iris contains a glowing cosmic core surrounded by a -colored ring, while blood splatters and drips across the sclera and lower eyelid",
+  "inverted_title": "Inverted sketch: Bleeding Cosmic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-detailed close-up of a human eye with long black lashes. The iris contains a glowing cosmic core surrounded by a -colored ring, while blood splatters and drips across the sclera and lower eyelid (from generated still #2010).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-detailed close-up of a human eye with long black lashes. The iris contains a glowing cosmic core surrounded by a -colored ring, while blood splatters and drips across the sclera and lower eyelid",
+  "source_description": "A hyper-detailed close-up of a human eye with long black lashes. The iris contains a glowing blue cosmic core surrounded by a rainbow-colored ring, while vivid red blood splatters and drips across the sclera and lower eyelid.",
+  "source_prompt": "extreme close-up of a realistic human eye, long dark lashes, glowing blue cosmic pupil with bright star-like center, rainbow colored iris, dramatic red blood splatter and dripping blood across the white of the eye and lower lid, painted skin with abstract symbolic patterns around the eye, textured brushwork, surreal and unsettling atmosphere, cinematic lighting",
+  "source_title": "Bleeding Cosmic Eye",
+  "style": "surreal",
+  "mood": "disturbing, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "surreal",
+    "blood",
+    "cosmic",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2010,
+  "source_url": "/generated/2010.jpg",
+  "image_url": "/sketches/2760.png",
+  "inverted_image_url": "/sketches-inverted/2760.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

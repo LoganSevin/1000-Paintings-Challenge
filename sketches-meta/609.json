@@ -1,0 +1,42 @@
+{
+  "number": 609,
+  "title": "Line sketch: Cosmic Orbs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Glowing spheres float in a dreamy abstract space with smaller bubbles and radiant highlights. The evokes a sense of cosmic wonder and ethereal beauty (derived from painting #780).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Glowing spheres float in a dreamy abstract space with smaller bubbles and radiant highlights. The evokes a sense of cosmic wonder and ethereal beauty",
+  "inverted_title": "Inverted sketch: Cosmic Orbs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Glowing spheres float in a dreamy abstract space with smaller bubbles and radiant highlights. The evokes a sense of cosmic wonder and ethereal beauty (from painting #780).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Glowing spheres float in a dreamy abstract space with smaller bubbles and radiant highlights. The evokes a sense of cosmic wonder and ethereal beauty",
+  "source_description": "Glowing purple spheres float in a dreamy abstract space with smaller bubbles and radiant highlights. The digital painting evokes a sense of cosmic wonder and ethereal beauty.",
+  "source_prompt": "",
+  "source_title": "Purple Cosmic Orbs",
+  "style": "line sketch",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "cosmic",
+    "orbs",
+    "glowing",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 780,
+  "source_url": "/paintings/780.jpg",
+  "image_url": "/sketches/609.png",
+  "inverted_image_url": "/sketches-inverted/609.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

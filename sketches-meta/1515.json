@@ -1,0 +1,42 @@
+{
+  "number": 1515,
+  "title": "Line sketch: Cucumber Dream Swirl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A metallic female bust in profile with closed eyes, her hair exploding into a vibrant swirling vortex of, and paint. Realistic cucumbers and slices surround her against a patterned background with multiple stylized female faces (derived from generated still #730).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A metallic female bust in profile with closed eyes, her hair exploding into a vibrant swirling vortex of, and paint. Realistic cucumbers and slices surround her against a patterned background with multiple stylized female faces",
+  "inverted_title": "Inverted sketch: Cucumber Dream Swirl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A metallic female bust in profile with closed eyes, her hair exploding into a vibrant swirling vortex of, and paint. Realistic cucumbers and slices surround her against a patterned background with multiple stylized female faces (from generated still #730).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A metallic female bust in profile with closed eyes, her hair exploding into a vibrant swirling vortex of, and paint. Realistic cucumbers and slices surround her against a patterned background with multiple stylized female faces",
+  "source_description": "A metallic green female bust in profile with closed eyes, her hair exploding into a vibrant swirling vortex of red, yellow, blue and pink paint. Realistic green cucumbers and slices surround her against a patterned background with multiple stylized female faces.",
+  "source_prompt": "",
+  "source_title": "Cucumber Dream Swirl",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "female portrait",
+    "cucumbers",
+    "swirling hair",
+    "metallic figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 730,
+  "source_url": "/generated/730.jpg",
+  "image_url": "/sketches/1515.png",
+  "inverted_image_url": "/sketches-inverted/1515.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:41Z"
+}

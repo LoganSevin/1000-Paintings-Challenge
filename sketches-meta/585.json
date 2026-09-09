@@ -1,0 +1,42 @@
+{
+  "number": 585,
+  "title": "Line sketch: Kintsugi Broken Woman Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female bust with closed eyes and lips, her form shattered like porcelain and mended with glowing veins in the Japanese kintsugi tradition. The figure is set against a solid dusty background, creating a striking contrast between fragility and repair (derived from painting #740).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female bust with closed eyes and lips, her form shattered like porcelain and mended with glowing veins in the Japanese kintsugi tradition. The figure is set against a solid dusty background, creating a striking contrast between fragility and repair",
+  "inverted_title": "Inverted sketch: Kintsugi Broken Woman Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female bust with closed eyes and lips, her form shattered like porcelain and mended with glowing veins in the Japanese kintsugi tradition. The figure is set against a solid dusty background, creating a striking contrast between fragility and repair (from painting #740).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female bust with closed eyes and lips, her form shattered like porcelain and mended with glowing veins in the Japanese kintsugi tradition. The figure is set against a solid dusty background, creating a striking contrast between fragility and repair",
+  "source_description": "A stylized female bust with closed eyes and red lips, her form shattered like porcelain and mended with glowing golden veins in the Japanese kintsugi tradition. The figure is set against a solid dusty rose background, creating a striking contrast between fragility and repair.",
+  "source_prompt": "",
+  "source_title": "Kintsugi Broken Woman Portrait",
+  "style": "Contemporary figurative",
+  "mood": "Melancholic serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Mixed media collage with gold leaf",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kintsugi",
+    "female portrait",
+    "repair",
+    "broken beauty",
+    "minimalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 740,
+  "source_url": "/paintings/740.jpg",
+  "image_url": "/sketches/585.png",
+  "inverted_image_url": "/sketches-inverted/585.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:39Z"
+}

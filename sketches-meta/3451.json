@@ -1,0 +1,42 @@
+{
+  "number": 3451,
+  "title": "Line sketch: Cosmic Sailor of Elements",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring a large central astronaut with a bearded face covered in popcorn, floating above a calm sea with a -sailed ship. To the left a giant smiling moon and a dripping creature with eyes appear, while the right side erupts in chaotic fire and smoke against a mountainous backdrop under a crescent moon (derived from generated still #2852).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring a large central astronaut with a bearded face covered in popcorn, floating above a calm sea with a -sailed ship. To the left a giant smiling moon and a dripping creature with eyes appear, while the right side erupts in chaotic fire and smoke against a mountainous backdrop under a crescent moon",
+  "inverted_title": "Inverted sketch: Cosmic Sailor of Elements",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring a large central astronaut with a bearded face covered in popcorn, floating above a calm sea with a -sailed ship. To the left a giant smiling moon and a dripping creature with eyes appear, while the right side erupts in chaotic fire and smoke against a mountainous backdrop under a crescent moon (from generated still #2852).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring a large central astronaut with a bearded face covered in popcorn, floating above a calm sea with a -sailed ship. To the left a giant smiling moon and a dripping creature with eyes appear, while the right side erupts in chaotic fire and smoke against a mountainous backdrop under a crescent moon",
+  "source_description": "A surreal fantasy scene featuring a large central astronaut with a green bearded face covered in popcorn, floating above a calm sea with a red-sailed ship. To the left a giant smiling green moon and a blue dripping creature with yellow eyes appear, while the right side erupts in chaotic orange fire and smoke against a mountainous backdrop under a crescent moon.",
+  "source_prompt": "Surreal fantasy seascape at twilight with a giant central astronaut whose helmet contains a stern green face covered in popcorn, a red-sailed ship sailing on reflective water below, a large smiling green moon with face in the upper left, a blue melting creature with big yellow eyes in the lower left, dramatic orange fire and smoke swirling on the right, snow-capped mountains in the background, crescent moon in the sky, vibrant and dreamlike atmosphere.",
+  "source_title": "Cosmic Sailor of Elements",
+  "style": "surreal fantasy",
+  "mood": "whimsical chaos",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "astronaut",
+    "fantasy seascape",
+    "cosmic",
+    "fire and water"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2852,
+  "source_url": "/generated/2852.jpg",
+  "image_url": "/sketches/3451.png",
+  "inverted_image_url": "/sketches-inverted/3451.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:45Z"
+}

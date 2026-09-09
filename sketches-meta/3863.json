@@ -1,0 +1,42 @@
+{
+  "number": 3863,
+  "title": "Line sketch: Triple -Haired Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three identical poses of a young female character with hair in pigtails, wearing a dark armored dress with accents, a crown, and a cape. One pose shows her jumping forward with one leg raised and hand extended, while the other two show running and crouched stances, all against a solid background with a splash effect at the bottom (derived from generated still #3280).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three identical poses of a young female character with hair in pigtails, wearing a dark armored dress with accents, a crown, and a cape. One pose shows her jumping forward with one leg raised and hand extended, while the other two show running and crouched stances, all against a solid background with a splash effect at the bottom",
+  "inverted_title": "Inverted sketch: Triple -Haired Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three identical poses of a young female character with hair in pigtails, wearing a dark armored dress with accents, a crown, and a cape. One pose shows her jumping forward with one leg raised and hand extended, while the other two show running and crouched stances, all against a solid background with a splash effect at the bottom (from generated still #3280).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three identical poses of a young female character with hair in pigtails, wearing a dark armored dress with accents, a crown, and a cape. One pose shows her jumping forward with one leg raised and hand extended, while the other two show running and crouched stances, all against a solid background with a splash effect at the bottom",
+  "source_description": "Three identical poses of a young female character with pink hair in pigtails, wearing a dark armored dress with green accents, a crown, and a cape. One pose shows her jumping forward with one leg raised and hand extended, while the other two show running and crouched stances, all against a solid bright green background with a green splash effect at the bottom.",
+  "source_prompt": "A cartoon character sheet showing three dynamic action poses of the same young girl with bright pink pigtails, a small crown, and a determined expression while chewing bubblegum. She wears a black and green armored dress with bubble-like patterns, green shoulder pads, black gloves and boots, and a light green cape. Poses include jumping forward, running, and crouching low, all set against a solid vibrant green background with a green liquid splash at her feet.",
+  "source_title": "Triple Pink-Haired Warrior",
+  "style": "cartoon illustration",
+  "mood": "energetic, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "multiple poses",
+    "armor",
+    "cartoon character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3280,
+  "source_url": "/generated/3280.jpg",
+  "image_url": "/sketches/3863.png",
+  "inverted_image_url": "/sketches-inverted/3863.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:46Z"
+}

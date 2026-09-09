@@ -1,0 +1,42 @@
+{
+  "number": 1579,
+  "title": "Line sketch: Skeletal Watchers of the Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A group of black skeletons draped in flowing liquid stands at the edge of a reflective body of water, one skeleton reaching toward a giant cracked stone eye with a iris and skull pupil that drips. The surreal night landscape features a sun or moon, swirling skies, and ornate circular symbols with multiple eyes that also drip, all perfectly mirrored in the water below (derived from generated still #794).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A group of black skeletons draped in flowing liquid stands at the edge of a reflective body of water, one skeleton reaching toward a giant cracked stone eye with a iris and skull pupil that drips. The surreal night landscape features a sun or moon, swirling skies, and ornate circular symbols with multiple eyes that also drip, all perfectly mirrored in the water below",
+  "inverted_title": "Inverted sketch: Skeletal Watchers of the Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A group of black skeletons draped in flowing liquid stands at the edge of a reflective body of water, one skeleton reaching toward a giant cracked stone eye with a iris and skull pupil that drips. The surreal night landscape features a sun or moon, swirling skies, and ornate circular symbols with multiple eyes that also drip, all perfectly mirrored in the water below (from generated still #794).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A group of black skeletons draped in flowing liquid stands at the edge of a reflective body of water, one skeleton reaching toward a giant cracked stone eye with a iris and skull pupil that drips. The surreal night landscape features a sun or moon, swirling skies, and ornate circular symbols with multiple eyes that also drip, all perfectly mirrored in the water below",
+  "source_description": "A group of black skeletons draped in flowing red liquid stands at the edge of a reflective body of water, one skeleton reaching toward a giant cracked stone eye with a yellow iris and skull pupil that drips red. The surreal night landscape features a red sun or moon, colorful swirling skies, and ornate red circular symbols with multiple eyes that also drip red, all perfectly mirrored in the water below.",
+  "source_prompt": "",
+  "source_title": "Skeletal Watchers of the Eye",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "giant eye",
+    "surreal",
+    "psychedelic",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 794,
+  "source_url": "/generated/794.jpg",
+  "image_url": "/sketches/1579.png",
+  "inverted_image_url": "/sketches-inverted/1579.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:41Z"
+}

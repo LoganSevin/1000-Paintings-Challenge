@@ -1,0 +1,42 @@
+{
+  "number": 2342,
+  "title": "Line sketch: Muse Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grayscale woman with long flowing hair streaked with looks upward against a vibrant background. Dynamic and circular patterns, splatters, and swirling lines emanate from her hair and the right side of the composition (derived from generated still #1570).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grayscale woman with long flowing hair streaked with looks upward against a vibrant background. Dynamic and circular patterns, splatters, and swirling lines emanate from her hair and the right side of the composition",
+  "inverted_title": "Inverted sketch: Muse Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grayscale woman with long flowing hair streaked with looks upward against a vibrant background. Dynamic and circular patterns, splatters, and swirling lines emanate from her hair and the right side of the composition (from generated still #1570).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grayscale woman with long flowing hair streaked with looks upward against a vibrant background. Dynamic and circular patterns, splatters, and swirling lines emanate from her hair and the right side of the composition",
+  "source_description": "A grayscale woman with long flowing hair streaked with yellow looks upward against a vibrant green background. Dynamic yellow and gold circular patterns, splatters, and swirling lines emanate from her hair and the right side of the composition.",
+  "source_prompt": "",
+  "source_title": "Golden Muse Portrait",
+  "style": "line sketch",
+  "mood": "ethereal, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art with overhead projector texture",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "flowing hair",
+    "accents",
+    "background",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1570,
+  "source_url": "/generated/1570.jpg",
+  "image_url": "/sketches/2342.png",
+  "inverted_image_url": "/sketches-inverted/2342.png",
+  "curve_count": 226,
+  "built_at": "2026-08-17T00:09:43Z"
+}

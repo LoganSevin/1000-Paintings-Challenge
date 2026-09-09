@@ -1,0 +1,42 @@
+{
+  "number": 2858,
+  "title": "Line sketch: Digital Overload Confession",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a silhouetted figure pointing and shouting at a person with a smartphone for a head, who sits at a desk covered in sticky notes. The background features a large swirling vortex of distorted text, dollar signs, clock faces, and fragmented words like ONE, ID, EL, and social media icons (derived from generated still #2143).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a silhouetted figure pointing and shouting at a person with a smartphone for a head, who sits at a desk covered in sticky notes. The background features a large swirling vortex of distorted text, dollar signs, clock faces, and fragmented words like ONE, ID, EL, and social media icons",
+  "inverted_title": "Inverted sketch: Digital Overload Confession",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a silhouetted figure pointing and shouting at a person with a smartphone for a head, who sits at a desk covered in sticky notes. The background features a large swirling vortex of distorted text, dollar signs, clock faces, and fragmented words like ONE, ID, EL, and social media icons (from generated still #2143).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a silhouetted figure pointing and shouting at a person with a smartphone for a head, who sits at a desk covered in sticky notes. The background features a large swirling vortex of distorted text, dollar signs, clock faces, and fragmented words like ONE, ID, EL, and social media icons",
+  "source_description": "A surreal painting depicts a magenta silhouetted figure pointing and shouting at a lime green person with a smartphone for a head, who sits at a desk covered in sticky notes. The background features a large swirling vortex of distorted text, dollar signs, clock faces, and fragmented words like ONE, ID, EL, and social media icons.",
+  "source_prompt": "Surreal painting of a magenta silhouette figure aggressively pointing and speaking to a lime green humanoid with a glowing smartphone instead of a head, sitting behind a desk covered in sticky notes. The figure has a speech bubble saying 'I WANT TO KNOW WHO YOUR MANAGER IS BECAUSE EVERY TIME I CALL THIS JOINT'. Behind them is a massive swirling colorful vortex made of distorted text, clock faces, dollar signs, and words like ONE, ID, EL, social media icons and notifications in a chaotic spiral, vibrant contrasting colors, painterly style",
+  "source_title": "Digital Overload Confession",
+  "style": "surrealism",
+  "mood": "chaotic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "digital addiction",
+    "social media",
+    "smartphone head",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2143,
+  "source_url": "/generated/2143.jpg",
+  "image_url": "/sketches/2858.png",
+  "inverted_image_url": "/sketches-inverted/2858.png",
+  "curve_count": 104,
+  "built_at": "2026-08-17T00:09:44Z"
+}

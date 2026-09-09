@@ -1,0 +1,42 @@
+{
+  "number": 1882,
+  "title": "Line sketch: Cosmic Dragon Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with flowing black hair stands in profile wearing a vibrant and patterned robe. She is accompanied by a large, coiled, and dragon with eyes, set against a starry cosmic background filled with glowing orbs and swirling patterns (derived from generated still #1107).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with flowing black hair stands in profile wearing a vibrant and patterned robe. She is accompanied by a large, coiled, and dragon with eyes, set against a starry cosmic background filled with glowing orbs and swirling patterns",
+  "inverted_title": "Inverted sketch: Cosmic Dragon Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with flowing black hair stands in profile wearing a vibrant and patterned robe. She is accompanied by a large, coiled, and dragon with eyes, set against a starry cosmic background filled with glowing orbs and swirling patterns (from generated still #1107).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with flowing black hair stands in profile wearing a vibrant and patterned robe. She is accompanied by a large, coiled, and dragon with eyes, set against a starry cosmic background filled with glowing orbs and swirling patterns",
+  "source_description": "A green-skinned woman with flowing black hair stands in profile wearing a vibrant yellow and purple patterned robe. She is accompanied by a large, coiled, iridescent green and blue dragon with golden eyes, set against a starry cosmic background filled with colorful glowing orbs and swirling patterns.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dragon Sorceress",
+  "style": "fantasy illustration",
+  "mood": "mystical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "sorceress",
+    "cosmic",
+    "fantasy",
+    "starry"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1107,
+  "source_url": "/generated/1107.jpg",
+  "image_url": "/sketches/1882.png",
+  "inverted_image_url": "/sketches-inverted/1882.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4753,
+  "title": "Line sketch: Fantasy Mountain Valley",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vast fantasy landscape at twilight featuring snow-capped mountains, a winding river with a stone bridge, a grand castle perched on a peak, and a foreground cliff with a wooden sign reading 'THE END'. Sheep graze on hills while a dragon flies in the sky near a crescent moon (derived from generated still #4184).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vast fantasy landscape at twilight featuring snow-capped mountains, a winding river with a stone bridge, a grand castle perched on a peak, and a foreground cliff with a wooden sign reading 'THE END'. Sheep graze on hills while a dragon flies in the sky near a crescent moon",
+  "inverted_title": "Inverted sketch: Fantasy Mountain Valley",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vast fantasy landscape at twilight featuring snow-capped mountains, a winding river with a stone bridge, a grand castle perched on a peak, and a foreground cliff with a wooden sign reading 'THE END'. Sheep graze on hills while a dragon flies in the sky near a crescent moon (from generated still #4184).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vast fantasy landscape at twilight featuring snow-capped mountains, a winding river with a stone bridge, a grand castle perched on a peak, and a foreground cliff with a wooden sign reading 'THE END'. Sheep graze on hills while a dragon flies in the sky near a crescent moon",
+  "source_description": "A vast fantasy landscape at twilight featuring snow-capped purple mountains, a winding river with a stone bridge, a grand castle perched on a peak, and a foreground cliff with a wooden sign reading 'THE END'. Sheep graze on purple hills while a dragon flies in the sky near a crescent moon.",
+  "source_prompt": "Wide fantasy landscape at twilight with snow-capped purple mountains in the background, a majestic castle built into a distant peak, a winding river flowing through a lush green valley with a stone bridge crossing it, foreground shows a mossy cliff edge with a wooden sign saying THE END, purple flowering hills with grazing sheep, a large gnarled tree, wooden watchtower with red banner, a black dragon flying across the sky near a crescent moon, detailed fantasy illustration style",
+  "source_title": "Fantasy Mountain Valley",
+  "style": "fantasy landscape composition",
+  "mood": "epic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "dragon",
+    "castle",
+    "mountain valley",
+    "twilight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4184,
+  "source_url": "/generated/4184.jpg",
+  "image_url": "/sketches/4753.png",
+  "inverted_image_url": "/sketches-inverted/4753.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:48Z"
+}

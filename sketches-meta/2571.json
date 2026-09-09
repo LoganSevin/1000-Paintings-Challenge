@@ -1,0 +1,42 @@
+{
+  "number": 2571,
+  "title": "Line sketch: Rat and Bear in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant and white rat perches on a leafy branch adorned with flowing, and ribbons in the foreground. In the surreal desert landscape, a wooden bear head floats near a large pale moon while a small human figure walks along a distant sand dune (derived from generated still #1807).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant and white rat perches on a leafy branch adorned with flowing, and ribbons in the foreground. In the surreal desert landscape, a wooden bear head floats near a large pale moon while a small human figure walks along a distant sand dune",
+  "inverted_title": "Inverted sketch: Rat and Bear in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant and white rat perches on a leafy branch adorned with flowing, and ribbons in the foreground. In the surreal desert landscape, a wooden bear head floats near a large pale moon while a small human figure walks along a distant sand dune (from generated still #1807).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant and white rat perches on a leafy branch adorned with flowing, and ribbons in the foreground. In the surreal desert landscape, a wooden bear head floats near a large pale moon while a small human figure walks along a distant sand dune",
+  "source_description": "A vibrant red and white rat perches on a leafy branch adorned with flowing pink, orange, and purple ribbons in the foreground. In the surreal desert landscape, a wooden bear head floats near a large pale moon while a small human figure walks along a distant sand dune.",
+  "source_prompt": "",
+  "source_title": "Rat and Bear in Desert",
+  "style": "surreal illustration",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "rat",
+    "bear",
+    "ribbons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1807,
+  "source_url": "/generated/1807.jpg",
+  "image_url": "/sketches/2571.png",
+  "inverted_image_url": "/sketches-inverted/2571.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:43Z"
+}

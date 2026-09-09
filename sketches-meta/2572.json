@@ -1,0 +1,42 @@
+{
+  "number": 2572,
+  "title": "Line sketch: Surreal Eye Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive human eye with a iris dominates a fantastical landscape, its pupil revealing a cascading waterfall that flows into a pool below. A rat stands on the upper eyelid beside a large moon while a robed figure stands at the water's edge (derived from generated still #1808).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive human eye with a iris dominates a fantastical landscape, its pupil revealing a cascading waterfall that flows into a pool below. A rat stands on the upper eyelid beside a large moon while a robed figure stands at the water's edge",
+  "inverted_title": "Inverted sketch: Surreal Eye Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive human eye with a iris dominates a fantastical landscape, its pupil revealing a cascading waterfall that flows into a pool below. A rat stands on the upper eyelid beside a large moon while a robed figure stands at the water's edge (from generated still #1808).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive human eye with a iris dominates a fantastical landscape, its pupil revealing a cascading waterfall that flows into a pool below. A rat stands on the upper eyelid beside a large moon while a robed figure stands at the water's edge",
+  "source_description": "A massive human eye with a pink iris dominates a fantastical landscape, its pupil revealing a cascading waterfall that flows into a pool below. A red rat stands on the upper eyelid beside a large pink moon while a robed figure stands at the water's edge.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Waterfall",
+  "style": "surrealism",
+  "mood": "dreamlike, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "waterfall",
+    "fantasy landscape",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1808,
+  "source_url": "/generated/1808.jpg",
+  "image_url": "/sketches/2572.png",
+  "inverted_image_url": "/sketches-inverted/2572.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:43Z"
+}

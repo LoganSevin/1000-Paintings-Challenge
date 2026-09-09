@@ -1,0 +1,42 @@
+{
+  "number": 4287,
+  "title": "Line sketch: Cosmic Crystal Ball",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball sits on a metallic base, containing a surreal miniature scene. Inside, a luminous woman in a flowing gown reaches upward toward a central orb emitting electric energy tendrils that connect to floating planets, stars, and a ringed planet, while energy roots spread across a grassy base with small glowing trees (derived from generated still #3706).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball sits on a metallic base, containing a surreal miniature scene. Inside, a luminous woman in a flowing gown reaches upward toward a central orb emitting electric energy tendrils that connect to floating planets, stars, and a ringed planet, while energy roots spread across a grassy base with small glowing trees",
+  "inverted_title": "Inverted sketch: Cosmic Crystal Ball",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball sits on a metallic base, containing a surreal miniature scene. Inside, a luminous woman in a flowing gown reaches upward toward a central orb emitting electric energy tendrils that connect to floating planets, stars, and a ringed planet, while energy roots spread across a grassy base with small glowing trees (from generated still #3706).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball sits on a metallic base, containing a surreal miniature scene. Inside, a luminous woman in a flowing gown reaches upward toward a central orb emitting electric energy tendrils that connect to floating planets, stars, and a ringed planet, while energy roots spread across a grassy base with small glowing trees",
+  "source_description": "A glowing crystal ball sits on a metallic base, containing a surreal miniature scene. Inside, a luminous blue woman in a flowing gown reaches upward toward a central red orb emitting electric blue energy tendrils that connect to floating purple planets, stars, and a red ringed planet, while purple energy roots spread across a green grassy base with small glowing trees.",
+  "source_prompt": "A detailed surreal crystal ball on a dark metallic base containing a glowing blue ethereal woman in a flowing dress reaching toward a central red orb that shoots bright blue electric energy branches connecting to floating purple planets and a red ringed planet in a miniature cosmic scene, purple energy roots spread across a green grassy floor with small neon trees, dramatic lighting with vibrant neon purple and cyan colors against a dark background",
+  "source_title": "Cosmic Crystal Ball",
+  "style": "surreal digital art",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "cosmic scene",
+    "ethereal woman",
+    "energy tendrils",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3706,
+  "source_url": "/generated/3706.jpg",
+  "image_url": "/sketches/4287.png",
+  "inverted_image_url": "/sketches-inverted/4287.png",
+  "curve_count": 178,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4681,
+  "title": "Line sketch: Man at Attic Desk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man with white hair sits in a leather chair at a large wooden desk in a sunlit attic room. He faces a black computer monitor with his back partially to the viewer, surrounded by scattered papers, a mug, telephone, and printer, while a floral still-life composition hangs on the wall behind him (derived from generated still #4108).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man with white hair sits in a leather chair at a large wooden desk in a sunlit attic room. He faces a black computer monitor with his back partially to the viewer, surrounded by scattered papers, a mug, telephone, and printer, while a floral still-life composition hangs on the wall behind him",
+  "inverted_title": "Inverted sketch: Man at Attic Desk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man with white hair sits in a leather chair at a large wooden desk in a sunlit attic room. He faces a black computer monitor with his back partially to the viewer, surrounded by scattered papers, a mug, telephone, and printer, while a floral still-life composition hangs on the wall behind him (from generated still #4108).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man with white hair sits in a leather chair at a large wooden desk in a sunlit attic room. He faces a black computer monitor with his back partially to the viewer, surrounded by scattered papers, a mug, telephone, and printer, while a floral still-life composition hangs on the wall behind him",
+  "source_description": "An elderly man with white hair sits in a burgundy leather chair at a large wooden desk in a sunlit attic room. He faces a black computer monitor with his back partially to the viewer, surrounded by scattered papers, a mug, telephone, and printer, while a floral still-life painting hangs on the warm yellow wall behind him.",
+  "source_prompt": "An elderly man with white hair sits in a leather chair at a large wooden desk inside a sunlit attic with slanted ceilings. He faces a computer monitor, surrounded by papers, a mug, old telephone, and printer. A framed floral still life painting hangs on the warm yellow patterned wall behind him. Soft natural light streams from a dormer window on the left, realistic oil painting style, detailed interior scene",
+  "source_title": "Man at Attic Desk",
+  "style": "realistic composition",
+  "mood": "quiet, contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "office",
+    "attic",
+    "elderly man",
+    "still life",
+    "sunlight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4108,
+  "source_url": "/generated/4108.jpg",
+  "image_url": "/sketches/4681.png",
+  "inverted_image_url": "/sketches-inverted/4681.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:48Z"
+}

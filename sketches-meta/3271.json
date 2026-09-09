@@ -1,0 +1,42 @@
+{
+  "number": 3271,
+  "title": "Line sketch: Fractured Film Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a vintage black dress and hat sits alone in a decaying movie theater, holding a film reel while reaching toward a giant shattered movie screen. The screen displays a broken portrait of a glamorous woman with curly dark hair, a pearl necklace, and puzzle pieces, surrounded by film strips and cracks (derived from generated still #2644).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a vintage black dress and hat sits alone in a decaying movie theater, holding a film reel while reaching toward a giant shattered movie screen. The screen displays a broken portrait of a glamorous woman with curly dark hair, a pearl necklace, and puzzle pieces, surrounded by film strips and cracks",
+  "inverted_title": "Inverted sketch: Fractured Film Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a vintage black dress and hat sits alone in a decaying movie theater, holding a film reel while reaching toward a giant shattered movie screen. The screen displays a broken portrait of a glamorous woman with curly dark hair, a pearl necklace, and puzzle pieces, surrounded by film strips and cracks (from generated still #2644).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a vintage black dress and hat sits alone in a decaying movie theater, holding a film reel while reaching toward a giant shattered movie screen. The screen displays a broken portrait of a glamorous woman with curly dark hair, a pearl necklace, and puzzle pieces, surrounded by film strips and cracks",
+  "source_description": "A woman in a vintage black dress and hat sits alone in a decaying movie theater, holding a film reel while reaching toward a giant shattered movie screen. The screen displays a broken portrait of a glamorous woman with curly dark hair, a pearl necklace, and puzzle pieces, surrounded by film strips and cracks.",
+  "source_prompt": "A lone woman in a 1940s black dress and hat sits in a dilapidated movie theater aisle, holding a film reel and reaching toward a massive shattered cinema screen. The screen shows a glamorous woman's portrait with curly hair and pearl necklace, fractured like broken glass with missing puzzle pieces and film strips. Red curtains, dusty seats, fallen clock and picture frame on the floor, dramatic volumetric lighting, moody and surreal atmosphere.",
+  "source_title": "Fractured Film Sequence",
+  "style": "surreal cinematic",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "broken screen",
+    "vintage theater",
+    "film noir"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2644,
+  "source_url": "/generated/2644.jpg",
+  "image_url": "/sketches/3271.png",
+  "inverted_image_url": "/sketches-inverted/3271.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2440,
+  "title": "Line sketch: Bubble Wonderland Projection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women in 1920s cloche hats and coats sit in a wooden theater row, gazing at a giant translucent bubble floating above a stylized landscape. Inside the bubble is a whimsical miniature world with fish, flowers, a top-hatted figure, and swirling paths, while a rabbit and a frog in a circular frame appear on the right (derived from generated still #1674).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women in 1920s cloche hats and coats sit in a wooden theater row, gazing at a giant translucent bubble floating above a stylized landscape. Inside the bubble is a whimsical miniature world with fish, flowers, a top-hatted figure, and swirling paths, while a rabbit and a frog in a circular frame appear on the right",
+  "inverted_title": "Inverted sketch: Bubble Wonderland Projection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women in 1920s cloche hats and coats sit in a wooden theater row, gazing at a giant translucent bubble floating above a stylized landscape. Inside the bubble is a whimsical miniature world with fish, flowers, a top-hatted figure, and swirling paths, while a rabbit and a frog in a circular frame appear on the right (from generated still #1674).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women in 1920s cloche hats and coats sit in a wooden theater row, gazing at a giant translucent bubble floating above a stylized landscape. Inside the bubble is a whimsical miniature world with fish, flowers, a top-hatted figure, and swirling paths, while a rabbit and a frog in a circular frame appear on the right",
+  "source_description": "Three women in 1920s cloche hats and coats sit in a wooden theater row, gazing at a giant translucent purple bubble floating above a stylized landscape. Inside the bubble is a whimsical miniature world with fish, flowers, a top-hatted figure, and swirling paths, while a brown rabbit and a green frog in a circular frame appear on the right.",
+  "source_prompt": "",
+  "source_title": "Bubble Wonderland Projection",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "1920s fashion",
+    "bubble world",
+    "theater audience",
+    "rabbit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1674,
+  "source_url": "/generated/1674.jpg",
+  "image_url": "/sketches/2440.png",
+  "inverted_image_url": "/sketches-inverted/2440.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:43Z"
+}

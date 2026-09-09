@@ -1,0 +1,42 @@
+{
+  "number": 992,
+  "title": "Line sketch: Mind Explosion Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Profile view of a bald, - humanoid figure with exposed neck muscles, whose head is erupting into a dynamic explosion of paint, swirling ribbons, and flakes flowing toward the right (derived from generated still #202).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Profile view of a bald, - humanoid figure with exposed neck muscles, whose head is erupting into a dynamic explosion of paint, swirling ribbons, and flakes flowing toward the right",
+  "inverted_title": "Inverted sketch: Mind Explosion Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Profile view of a bald, - humanoid figure with exposed neck muscles, whose head is erupting into a dynamic explosion of paint, swirling ribbons, and flakes flowing toward the right (from generated still #202).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Profile view of a bald, - humanoid figure with exposed neck muscles, whose head is erupting into a dynamic explosion of paint, swirling ribbons, and flakes flowing toward the right",
+  "source_description": "Profile view of a bald, yellow-green humanoid figure with exposed neck muscles, whose head is erupting into a dynamic explosion of colorful paint, swirling ribbons, and golden flakes flowing toward the right.",
+  "source_prompt": "",
+  "source_title": "Mind Explosion Portrait",
+  "style": "surreal",
+  "mood": "ethereal, explosive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mind explosion",
+    "splash",
+    "profile portrait",
+    "abstract head"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 202,
+  "source_url": "/generated/202.jpg",
+  "image_url": "/sketches/992.png",
+  "inverted_image_url": "/sketches-inverted/992.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:40Z"
+}

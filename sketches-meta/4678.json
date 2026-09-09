@@ -1,0 +1,42 @@
+{
+  "number": 4678,
+  "title": "Line sketch: Dreaming in Cosmic Swirls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bearded man with closed eyes sleeps peacefully in an ornate wooden bed with pillows, surrounded by poppies. His blanket transforms into a vibrant, swirling cosmic dreamscape featuring a giant stylized eye that contains a miniature version of the sleeping man within its pupil (derived from generated still #4105).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bearded man with closed eyes sleeps peacefully in an ornate wooden bed with pillows, surrounded by poppies. His blanket transforms into a vibrant, swirling cosmic dreamscape featuring a giant stylized eye that contains a miniature version of the sleeping man within its pupil",
+  "inverted_title": "Inverted sketch: Dreaming in Cosmic Swirls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bearded man with closed eyes sleeps peacefully in an ornate wooden bed with pillows, surrounded by poppies. His blanket transforms into a vibrant, swirling cosmic dreamscape featuring a giant stylized eye that contains a miniature version of the sleeping man within its pupil (from generated still #4105).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bearded man with closed eyes sleeps peacefully in an ornate wooden bed with pillows, surrounded by poppies. His blanket transforms into a vibrant, swirling cosmic dreamscape featuring a giant stylized eye that contains a miniature version of the sleeping man within its pupil",
+  "source_description": "A bearded man with closed eyes sleeps peacefully in an ornate wooden bed with pink pillows, surrounded by red poppies. His blanket transforms into a vibrant, swirling cosmic dreamscape featuring a giant stylized eye that contains a miniature version of the sleeping man within its pupil.",
+  "source_prompt": "A bearded man sleeping peacefully in a wooden bed with pink pillows, red poppies scattered on the blanket and around him. His blanket morphs into a flowing psychedelic cosmic river of swirls and stars that becomes a giant stylized eye filled with galaxies and nebulae. Inside the eye's pupil is a tiny version of the same sleeping man, vibrant surreal dream sequence, intricate details, rich textures",
+  "source_title": "Dreaming in Cosmic Swirls",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dreamscape",
+    "psychedelic",
+    "sleep",
+    "cosmic eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4105,
+  "source_url": "/generated/4105.jpg",
+  "image_url": "/sketches/4678.png",
+  "inverted_image_url": "/sketches-inverted/4678.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

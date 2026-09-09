@@ -1,0 +1,42 @@
+{
+  "number": 784,
+  "title": "Line sketch: Lone Voyager in Alien Waters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary figure rows a wooden boat across a tranquil lake, leaving a gentle wake. Towering mountains frame a glowing celestial scene with multiple moons and a radiant sun in a dreamy sky (derived from painting #985).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary figure rows a wooden boat across a tranquil lake, leaving a gentle wake. Towering mountains frame a glowing celestial scene with multiple moons and a radiant sun in a dreamy sky",
+  "inverted_title": "Inverted sketch: Lone Voyager in Alien Waters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary figure rows a wooden boat across a tranquil lake, leaving a gentle wake. Towering mountains frame a glowing celestial scene with multiple moons and a radiant sun in a dreamy sky (from painting #985).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary figure rows a wooden boat across a tranquil lake, leaving a gentle wake. Towering mountains frame a glowing celestial scene with multiple moons and a radiant sun in a dreamy sky",
+  "source_description": "A solitary figure rows a wooden boat across a tranquil blue lake, leaving a gentle wake. Towering mountains frame a glowing celestial scene with multiple moons and a radiant sun in a dreamy green sky.",
+  "source_prompt": "",
+  "source_title": "Lone Voyager in Alien Waters",
+  "style": "Fantasy landscape",
+  "mood": "Serene and ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy art",
+    "celestial landscape",
+    "solitary journey",
+    "mountain lake",
+    "dreamlike"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 985,
+  "source_url": "/paintings/985.jpg",
+  "image_url": "/sketches/784.png",
+  "inverted_image_url": "/sketches-inverted/784.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:39Z"
+}

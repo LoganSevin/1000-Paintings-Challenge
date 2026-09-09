@@ -1,0 +1,42 @@
+{
+  "number": 33,
+  "title": "Line sketch: Moonlit House in Foggy Hills",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary silhouetted building perches on rolling hills beneath a pale moon, shrouded in dense atmospheric fog. Tall foreground grass leads the eye through layered misty fields toward the distant structure. Soft gradients and muted tones create depth with strong atmospheric perspective (derived from painting #49).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary silhouetted building perches on rolling hills beneath a pale moon, shrouded in dense atmospheric fog. Tall foreground grass leads the eye through layered misty fields toward the distant structure. Soft gradients and muted tones create depth with strong atmospheric perspective",
+  "inverted_title": "Inverted sketch: Moonlit House in Foggy Hills",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary silhouetted building perches on rolling hills beneath a pale moon, shrouded in dense atmospheric fog. Tall foreground grass leads the eye through layered misty fields toward the distant structure. Soft gradients and muted tones create depth with strong atmospheric perspective (from painting #49).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary silhouetted building perches on rolling hills beneath a pale moon, shrouded in dense atmospheric fog. Tall foreground grass leads the eye through layered misty fields toward the distant structure. Soft gradients and muted tones create depth with strong atmospheric perspective",
+  "source_description": "A solitary silhouetted building perches on rolling hills beneath a pale moon, shrouded in dense atmospheric fog. Tall foreground grass leads the eye through layered misty fields toward the distant structure. Soft gradients and muted tones create depth with strong atmospheric perspective.",
+  "source_prompt": "",
+  "source_title": "Moonlit House in Foggy Hills",
+  "style": "line sketch",
+  "mood": "Eerie solitude",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "fog",
+    "moon",
+    "silhouette",
+    "hills"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 49,
+  "source_url": "/paintings/49.jpg",
+  "image_url": "/sketches/33.png",
+  "inverted_image_url": "/sketches-inverted/33.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3698,
+  "title": "Line sketch: Create or Observe",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal illustration featuring a large bald human head with wide eyes and open mouth, labeled with 'CREATE? No.' and 'OBSERVE? No.', merged with a greyhound dog wearing a Elizabethan ruff and jacket, gesturing with its paw. The background depicts a Parisian street scene with the Sacré-Cœur Basilica, awnings, and cafe tables (derived from generated still #3106).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal illustration featuring a large bald human head with wide eyes and open mouth, labeled with 'CREATE? No.' and 'OBSERVE? No.', merged with a greyhound dog wearing a Elizabethan ruff and jacket, gesturing with its paw. The background depicts a Parisian street scene with the Sacré-Cœur Basilica, awnings, and cafe tables",
+  "inverted_title": "Inverted sketch: Create or Observe",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal illustration featuring a large bald human head with wide eyes and open mouth, labeled with 'CREATE? No.' and 'OBSERVE? No.', merged with a greyhound dog wearing a Elizabethan ruff and jacket, gesturing with its paw. The background depicts a Parisian street scene with the Sacré-Cœur Basilica, awnings, and cafe tables (from generated still #3106).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal illustration featuring a large bald human head with wide eyes and open mouth, labeled with 'CREATE? No.' and 'OBSERVE? No.', merged with a greyhound dog wearing a Elizabethan ruff and jacket, gesturing with its paw. The background depicts a Parisian street scene with the Sacré-Cœur Basilica, awnings, and cafe tables",
+  "source_description": "A surreal watercolor illustration featuring a large bald human head with wide eyes and open mouth, labeled with 'CREATE? No.' and 'OBSERVE? No.', merged with a greyhound dog wearing a blue Elizabethan ruff and jacket, gesturing with its paw. The background depicts a Parisian street scene with the Sacré-Cœur Basilica, colorful awnings, and cafe tables.",
+  "source_prompt": "",
+  "source_title": "Create or Observe",
+  "style": "surreal illustration",
+  "mood": "whimsical, existential",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dog-human hybrid",
+    "Paris",
+    "Sacré-Cœur",
+    "philosophical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3106,
+  "source_url": "/generated/3106.jpg",
+  "image_url": "/sketches/3698.png",
+  "inverted_image_url": "/sketches-inverted/3698.png",
+  "curve_count": 109,
+  "built_at": "2026-08-17T00:09:46Z"
+}

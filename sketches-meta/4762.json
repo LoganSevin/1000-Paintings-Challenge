@@ -1,0 +1,42 @@
+{
+  "number": 4762,
+  "title": "Line sketch: Cosmic Farm Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night landscape depicts a misty rural farm with barns, scattered trees, and wooden fences under a dramatic nebula-filled sky. A large dark celestial body and glowing stars dominate the cosmic heavens above the foggy and fields (derived from generated still #4195).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night landscape depicts a misty rural farm with barns, scattered trees, and wooden fences under a dramatic nebula-filled sky. A large dark celestial body and glowing stars dominate the cosmic heavens above the foggy and fields",
+  "inverted_title": "Inverted sketch: Cosmic Farm Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night landscape depicts a misty rural farm with barns, scattered trees, and wooden fences under a dramatic nebula-filled sky. A large dark celestial body and glowing stars dominate the cosmic heavens above the foggy and fields (from generated still #4195).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night landscape depicts a misty rural farm with barns, scattered trees, and wooden fences under a dramatic nebula-filled sky. A large dark celestial body and glowing stars dominate the cosmic heavens above the foggy and fields",
+  "source_description": "A surreal night landscape depicts a misty rural farm with red barns, scattered trees, and wooden fences under a dramatic purple nebula-filled sky. A large dark celestial body and glowing stars dominate the cosmic heavens above the foggy green and yellow fields.",
+  "source_prompt": "A surreal night landscape of a rural farm with red barns, wooden fences and scattered trees standing in misty green and yellow fields, dramatic purple and violet nebula swirling across the starry sky with a large dark celestial body and bright stars, atmospheric fog, painterly style with visible brushstrokes",
+  "source_title": "Cosmic Farm Landscape",
+  "style": "surreal landscape",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "farm",
+    "nebula",
+    "surreal",
+    "nightscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4195,
+  "source_url": "/generated/4195.jpg",
+  "image_url": "/sketches/4762.png",
+  "inverted_image_url": "/sketches-inverted/4762.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:48Z"
+}

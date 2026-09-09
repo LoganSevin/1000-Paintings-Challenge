@@ -1,0 +1,42 @@
+{
+  "number": 1320,
+  "title": "Line sketch: Cosmic Mouse Lantern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mouse sits on a glowing vine branch holding a lit lantern, releasing a bright sparkling star. In the night sky above, a giant cosmic eye contains a black hole with glowing rings and stars, surrounded by swirling aurora borealis (derived from generated still #535).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mouse sits on a glowing vine branch holding a lit lantern, releasing a bright sparkling star. In the night sky above, a giant cosmic eye contains a black hole with glowing rings and stars, surrounded by swirling aurora borealis",
+  "inverted_title": "Inverted sketch: Cosmic Mouse Lantern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mouse sits on a glowing vine branch holding a lit lantern, releasing a bright sparkling star. In the night sky above, a giant cosmic eye contains a black hole with glowing rings and stars, surrounded by swirling aurora borealis (from generated still #535).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mouse sits on a glowing vine branch holding a lit lantern, releasing a bright sparkling star. In the night sky above, a giant cosmic eye contains a black hole with glowing rings and stars, surrounded by swirling aurora borealis",
+  "source_description": "A brown mouse sits on a glowing vine branch holding a lit lantern, releasing a bright sparkling star. In the night sky above, a giant cosmic eye contains a black hole with glowing rings and stars, surrounded by swirling aurora borealis.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mouse Lantern",
+  "style": "surreal fantasy",
+  "mood": "wonder, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mouse",
+    "cosmic eye",
+    "black hole",
+    "aurora",
+    "lantern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 535,
+  "source_url": "/generated/535.jpg",
+  "image_url": "/sketches/1320.png",
+  "inverted_image_url": "/sketches-inverted/1320.png",
+  "curve_count": 101,
+  "built_at": "2026-08-17T00:09:41Z"
+}

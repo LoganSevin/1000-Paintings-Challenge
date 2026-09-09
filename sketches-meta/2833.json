@@ -1,0 +1,42 @@
+{
+  "number": 2833,
+  "title": "Line sketch: in Desolation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, blood- with leaves covered in glowing arcane runes stands prominently in a barren desert landscape. In the dramatic sky above, a giant celestial body glows near the horizon while white smoke rises from the center of the flower (derived from generated still #2118).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, blood- with leaves covered in glowing arcane runes stands prominently in a barren desert landscape. In the dramatic sky above, a giant celestial body glows near the horizon while white smoke rises from the center of the flower",
+  "inverted_title": "Inverted sketch: in Desolation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, blood- with leaves covered in glowing arcane runes stands prominently in a barren desert landscape. In the dramatic sky above, a giant celestial body glows near the horizon while white smoke rises from the center of the flower (from generated still #2118).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, blood- with leaves covered in glowing arcane runes stands prominently in a barren desert landscape. In the dramatic sky above, a giant celestial body glows near the horizon while white smoke rises from the center of the flower",
+  "source_description": "A massive, blood-red rose with dark green leaves covered in glowing arcane runes stands prominently in a barren desert landscape. In the dramatic sky above, a giant red celestial body glows near the horizon while white smoke rises from the center of the flower.",
+  "source_prompt": "A colossal blood-red rose with intricate glowing runes and symbols covering its dark green leaves and petals, rising from a barren rocky desert with ancient ruins and jagged rock formations in the background. A massive glowing red celestial body dominates the dark teal sky, white smoke drifting from the flower, dramatic cinematic lighting, surreal fantasy atmosphere.",
+  "source_title": "Crimson Rose in Desolation",
+  "style": "fantasy surrealism",
+  "mood": "ominous mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal landscape",
+    "giant",
+    "arcane runes",
+    "moon",
+    "desert ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2118,
+  "source_url": "/generated/2118.jpg",
+  "image_url": "/sketches/2833.png",
+  "inverted_image_url": "/sketches-inverted/2833.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3246,
+  "title": "Line sketch: Veil of the Reaper",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded skeletal figure with glowing eyes and ornate hood stands behind a young woman with and face paint. The woman has a somber expression with tears dripping down her face while the skeleton's bony hand rests on her shoulder (derived from generated still #2607).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded skeletal figure with glowing eyes and ornate hood stands behind a young woman with and face paint. The woman has a somber expression with tears dripping down her face while the skeleton's bony hand rests on her shoulder",
+  "inverted_title": "Inverted sketch: Veil of the Reaper",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded skeletal figure with glowing eyes and ornate hood stands behind a young woman with and face paint. The woman has a somber expression with tears dripping down her face while the skeleton's bony hand rests on her shoulder (from generated still #2607).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded skeletal figure with glowing eyes and ornate hood stands behind a young woman with and face paint. The woman has a somber expression with tears dripping down her face while the skeleton's bony hand rests on her shoulder",
+  "source_description": "A hooded skeletal figure with glowing purple eyes and ornate red hood stands behind a young woman with blue and orange face paint. The woman has a somber expression with blue tears dripping down her face while the skeleton's bony hand rests on her shoulder.",
+  "source_prompt": "A haunting dark fantasy scene featuring a hooded skeletal grim reaper with glowing purple eyes and intricate red cloak standing behind a young woman. The woman has blue and orange painted face with long blue tears streaming down, wearing a decorative headpiece with lotus motifs. The skeleton's bony hand rests on her shoulder against a swirling background of ancient symbols and runes, dramatic lighting, rich textures and dripping paint effects.",
+  "source_title": "Veil of the Reaper",
+  "style": "dark fantasy illustration",
+  "mood": "ominous melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "skeleton",
+    "woman portrait",
+    "mystical",
+    "symbolism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2607,
+  "source_url": "/generated/2607.jpg",
+  "image_url": "/sketches/3246.png",
+  "inverted_image_url": "/sketches-inverted/3246.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

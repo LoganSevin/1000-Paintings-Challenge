@@ -1,0 +1,42 @@
+{
+  "number": 4583,
+  "title": "Line sketch: Concrete World #3759",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene features a giant serpent coiled around a large glass bottle containing a glowing tree with fruit. The bottle is labeled \"CONCRETE WORLD #3759\" and topped with blooming and lightning. In the foreground, a robed wizard holds a sign with the number 2 while looking at the serpent, which breathes energy toward floating portrait bubbles. A large smiling crescent moon and aurora borealis dominate the night sky (derived from generated still #4004).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene features a giant serpent coiled around a large glass bottle containing a glowing tree with fruit. The bottle is labeled \"CONCRETE WORLD #3759\" and topped with blooming and lightning. In the foreground, a robed wizard holds a sign with the number 2 while looking at the serpent, which breathes energy toward floating portrait bubbles. A large smiling crescent moon and aurora borealis dominate the night sky",
+  "inverted_title": "Inverted sketch: Concrete World #3759",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene features a giant serpent coiled around a large glass bottle containing a glowing tree with fruit. The bottle is labeled \"CONCRETE WORLD #3759\" and topped with blooming and lightning. In the foreground, a robed wizard holds a sign with the number 2 while looking at the serpent, which breathes energy toward floating portrait bubbles. A large smiling crescent moon and aurora borealis dominate the night sky (from generated still #4004).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene features a giant serpent coiled around a large glass bottle containing a glowing tree with fruit. The bottle is labeled \"CONCRETE WORLD #3759\" and topped with blooming and lightning. In the foreground, a robed wizard holds a sign with the number 2 while looking at the serpent, which breathes energy toward floating portrait bubbles. A large smiling crescent moon and aurora borealis dominate the night sky",
+  "source_description": "A surreal fantasy scene features a giant multicolored serpent coiled around a large glass bottle containing a glowing tree with blue fruit. The bottle is labeled \"CONCRETE WORLD #3759\" and topped with blooming pink roses and lightning. In the foreground, a robed wizard holds a sign with the number 2 while looking at the serpent, which breathes orange energy toward floating portrait bubbles. A large smiling crescent moon and aurora borealis dominate the purple night sky.",
+  "source_prompt": "Surreal fantasy scene set in a cracked purple desert landscape under a large smiling crescent moon and vibrant green aurora. A massive iridescent serpent coils around a giant glass bottle containing a glowing tree with blue fruit and pink roses on top with lightning. The base reads Concrete World #3759. A blue-robed wizard holds a sign with the number 2 while observing the serpent breathing orange energy beams. Multiple floating bubbles contain portrait faces scattered across the scene.",
+  "source_title": "Concrete World #3759",
+  "style": "surreal fantasy",
+  "mood": "mystical, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "serpent",
+    "wizard",
+    "aurora",
+    "alchemy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4004,
+  "source_url": "/generated/4004.jpg",
+  "image_url": "/sketches/4583.png",
+  "inverted_image_url": "/sketches-inverted/4583.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:48Z"
+}

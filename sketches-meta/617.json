@@ -1,0 +1,42 @@
+{
+  "number": 617,
+  "title": "Line sketch: Serpentine Dragon in Mist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A graceful dark dragon coils through swirling clouds with highlights on its head and body. The fluid forms create an ethereal and mystical atmosphere against a muted gray background (derived from painting #788).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A graceful dark dragon coils through swirling clouds with highlights on its head and body. The fluid forms create an ethereal and mystical atmosphere against a muted gray background",
+  "inverted_title": "Inverted sketch: Serpentine Dragon in Mist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A graceful dark dragon coils through swirling clouds with highlights on its head and body. The fluid forms create an ethereal and mystical atmosphere against a muted gray background (from painting #788).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A graceful dark dragon coils through swirling clouds with highlights on its head and body. The fluid forms create an ethereal and mystical atmosphere against a muted gray background",
+  "source_description": "A graceful dark dragon coils through swirling purple clouds with golden highlights on its head and body. The fluid watercolor forms create an ethereal and mystical atmosphere against a muted gray background.",
+  "source_prompt": "",
+  "source_title": "Serpentine Dragon in Purple Mist",
+  "style": "composition",
+  "mood": "Mysterious and ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor and ink on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "clouds",
+    "fantasy art",
+    "mythical creature",
+    "fluid form"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 788,
+  "source_url": "/paintings/788.jpg",
+  "image_url": "/sketches/617.png",
+  "inverted_image_url": "/sketches-inverted/617.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:39Z"
+}

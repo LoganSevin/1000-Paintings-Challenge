@@ -1,0 +1,42 @@
+{
+  "number": 1624,
+  "title": "Line sketch: Surreal Desert Heartscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a woman in a patterned dress walking across sand dunes while dragging a large, melting wave-like structure. In the foreground a cracked black heart with dripping edges frames a miniature landscape of trees and a path, set against a vibrant sky with a glowing sun and floating geometric shapes (derived from generated still #839).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a woman in a patterned dress walking across sand dunes while dragging a large, melting wave-like structure. In the foreground a cracked black heart with dripping edges frames a miniature landscape of trees and a path, set against a vibrant sky with a glowing sun and floating geometric shapes",
+  "inverted_title": "Inverted sketch: Surreal Desert Heartscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a woman in a patterned dress walking across sand dunes while dragging a large, melting wave-like structure. In the foreground a cracked black heart with dripping edges frames a miniature landscape of trees and a path, set against a vibrant sky with a glowing sun and floating geometric shapes (from generated still #839).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a woman in a patterned dress walking across sand dunes while dragging a large, melting wave-like structure. In the foreground a cracked black heart with dripping edges frames a miniature landscape of trees and a path, set against a vibrant sky with a glowing sun and floating geometric shapes",
+  "source_description": "A surreal painting depicts a woman in a green patterned dress walking across orange sand dunes while dragging a large, melting blue wave-like structure. In the foreground a cracked black heart with dripping edges frames a miniature landscape of trees and a path, set against a vibrant sky with a glowing purple sun and floating geometric shapes.",
+  "source_prompt": "",
+  "source_title": "Surreal Desert Heartscape",
+  "style": "surrealism",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "melting",
+    "heart",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 839,
+  "source_url": "/generated/839.jpg",
+  "image_url": "/sketches/1624.png",
+  "inverted_image_url": "/sketches-inverted/1624.png",
+  "curve_count": 240,
+  "built_at": "2026-08-17T00:09:41Z"
+}

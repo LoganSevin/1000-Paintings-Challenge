@@ -1,0 +1,42 @@
+{
+  "number": 126,
+  "title": "Line sketch: Split Sun Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vertically divided stylized face with tribal features occupies the center, featuring cheek and forehead dots, outlines, and leaf-like protrusions against a flat sage- background with a sun. The composition is symmetrical yet bisected, using bold flat shapes and clean lines for graphic impact. Technique employs solid color fields and minimal shading for a modern illustrative effect (derived from painting #162).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vertically divided stylized face with tribal features occupies the center, featuring cheek and forehead dots, outlines, and leaf-like protrusions against a flat sage- background with a sun. The composition is symmetrical yet bisected, using bold flat shapes and clean lines for graphic impact. Technique employs solid color fields and minimal shading for a modern illustrative effect",
+  "inverted_title": "Inverted sketch: Split Sun Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vertically divided stylized face with tribal features occupies the center, featuring cheek and forehead dots, outlines, and leaf-like protrusions against a flat sage- background with a sun. The composition is symmetrical yet bisected, using bold flat shapes and clean lines for graphic impact. Technique employs solid color fields and minimal shading for a modern illustrative effect (from painting #162).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vertically divided stylized face with tribal features occupies the center, featuring cheek and forehead dots, outlines, and leaf-like protrusions against a flat sage- background with a sun. The composition is symmetrical yet bisected, using bold flat shapes and clean lines for graphic impact. Technique employs solid color fields and minimal shading for a modern illustrative effect",
+  "source_description": "A vertically divided stylized face with tribal features occupies the center, featuring red cheek and forehead dots, blue outlines, and leaf-like protrusions against a flat sage-green background with a pale yellow sun. The composition is symmetrical yet bisected, using bold flat shapes and clean lines for graphic impact. Technique employs solid color fields and minimal shading for a modern illustrative effect.",
+  "source_prompt": "",
+  "source_title": "Split Sun Mask",
+  "style": "graphic illustration",
+  "mood": "enigmatic playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mask",
+    "face",
+    "sun",
+    "split",
+    "tribal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 162,
+  "source_url": "/paintings/162.jpg",
+  "image_url": "/sketches/126.png",
+  "inverted_image_url": "/sketches-inverted/126.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

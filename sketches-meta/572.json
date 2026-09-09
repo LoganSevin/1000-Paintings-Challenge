@@ -1,0 +1,42 @@
+{
+  "number": 572,
+  "title": "Line sketch: Monster Blob Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical spherical monster with large black eyes, sharp teeth, and tentacles stands in a puddle of mud. Tubular growths and small plants emerge from its top against a solid background (derived from painting #714).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical spherical monster with large black eyes, sharp teeth, and tentacles stands in a puddle of mud. Tubular growths and small plants emerge from its top against a solid background",
+  "inverted_title": "Inverted sketch: Monster Blob Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical spherical monster with large black eyes, sharp teeth, and tentacles stands in a puddle of mud. Tubular growths and small plants emerge from its top against a solid background (from painting #714).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical spherical monster with large black eyes, sharp teeth, and tentacles stands in a puddle of mud. Tubular growths and small plants emerge from its top against a solid background",
+  "source_description": "A whimsical pink spherical monster with large black eyes, sharp teeth, and tentacles stands in a puddle of mud. Tubular growths and small plants emerge from its top against a solid green background.",
+  "source_prompt": "",
+  "source_title": "Pink Monster Blob Creature",
+  "style": "Surrealism",
+  "mood": "Whimsical grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monster",
+    "creature",
+    "surreal",
+    "blob",
+    "tentacles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 714,
+  "source_url": "/paintings/714.jpg",
+  "image_url": "/sketches/572.png",
+  "inverted_image_url": "/sketches-inverted/572.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:39Z"
+}

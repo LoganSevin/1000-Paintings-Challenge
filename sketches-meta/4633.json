@@ -1,0 +1,42 @@
+{
+  "number": 4633,
+  "title": "Line sketch: Wagon Memory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bearded man in a grey t-shirt sits inside a large Radio Flyer wagon holding a vintage lantern, while a smiling blonde woman in a long black dress pulls the wagon along a dirt path. The surreal grassy landscape is scattered with numerous smaller wagons, detached wheels, miniature chairs, and tiny lit lanterns under a sunset sky (derived from generated still #4055).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bearded man in a grey t-shirt sits inside a large Radio Flyer wagon holding a vintage lantern, while a smiling blonde woman in a long black dress pulls the wagon along a dirt path. The surreal grassy landscape is scattered with numerous smaller wagons, detached wheels, miniature chairs, and tiny lit lanterns under a sunset sky",
+  "inverted_title": "Inverted sketch: Wagon Memory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bearded man in a grey t-shirt sits inside a large Radio Flyer wagon holding a vintage lantern, while a smiling blonde woman in a long black dress pulls the wagon along a dirt path. The surreal grassy landscape is scattered with numerous smaller wagons, detached wheels, miniature chairs, and tiny lit lanterns under a sunset sky (from generated still #4055).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bearded man in a grey t-shirt sits inside a large Radio Flyer wagon holding a vintage lantern, while a smiling blonde woman in a long black dress pulls the wagon along a dirt path. The surreal grassy landscape is scattered with numerous smaller wagons, detached wheels, miniature chairs, and tiny lit lanterns under a sunset sky",
+  "source_description": "A bearded man in a grey t-shirt sits inside a large red Radio Flyer wagon holding a vintage lantern, while a smiling blonde woman in a long black dress pulls the wagon along a dirt path. The surreal grassy landscape is scattered with numerous smaller red wagons, detached red wheels, miniature chairs, and tiny lit lanterns under a pastel sunset sky.",
+  "source_prompt": "A surreal pastoral scene at dusk showing a bearded man sitting in an oversized red Radio Flyer wagon holding a glowing lantern while a smiling blonde woman in a flowing black dress pulls him along a winding dirt path through a grassy field. The landscape is filled with many smaller red wagons, detached red wheels, miniature red chairs, and tiny lit lanterns scattered across the meadow with purple wildflowers. Soft pastel sky with hints of sunset, realistic painting style with dreamlike atmosphere.",
+  "source_title": "Red Wagon Memory",
+  "style": "surrealism",
+  "mood": "whimsical, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "wagon",
+    "couple",
+    "lanterns",
+    "pastoral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4055,
+  "source_url": "/generated/4055.jpg",
+  "image_url": "/sketches/4633.png",
+  "inverted_image_url": "/sketches-inverted/4633.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:48Z"
+}

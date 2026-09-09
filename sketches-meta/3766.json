@@ -1,0 +1,42 @@
+{
+  "number": 3766,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential action poses of a muscular male warrior with short hair, wearing ornate shoulder armor, a chest piece, tattered grey skirt, and small wings. He is shown wielding a curved sword with glowing energy effects and sparks surrounding his strikes against a dark background (derived from generated still #3182).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential action poses of a muscular male warrior with short hair, wearing ornate shoulder armor, a chest piece, tattered grey skirt, and small wings. He is shown wielding a curved sword with glowing energy effects and sparks surrounding his strikes against a dark background",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential action poses of a muscular male warrior with short hair, wearing ornate shoulder armor, a chest piece, tattered grey skirt, and small wings. He is shown wielding a curved sword with glowing energy effects and sparks surrounding his strikes against a dark background (from generated still #3182).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential action poses of a muscular male warrior with short hair, wearing ornate shoulder armor, a chest piece, tattered grey skirt, and small wings. He is shown wielding a curved sword with glowing energy effects and sparks surrounding his strikes against a dark background",
+  "source_description": "Four sequential action poses of a muscular male warrior with short brown hair, wearing ornate golden shoulder armor, a red chest piece, tattered grey skirt, and small wings. He is shown wielding a curved sword with glowing yellow energy effects and sparks surrounding his strikes against a dark background.",
+  "source_prompt": "A muscular young male warrior with short brown hair and intense expression, wearing ornate golden pauldrons, red chest armor, tattered grey kilt with gold details, and small feathered wings on his back. Shown in four sequential dynamic combat poses wielding a curved blade, surrounded by bright golden energy effects, sparks and light trails on a solid dark grey background, highly detailed digital character sheet style",
+  "source_title": "Golden Warrior Poses",
+  "style": "digital illustration",
+  "mood": "dynamic, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "action poses",
+    "fantasy character",
+    "energy effects",
+    "sword fighter"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3182,
+  "source_url": "/generated/3182.jpg",
+  "image_url": "/sketches/3766.png",
+  "inverted_image_url": "/sketches-inverted/3766.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 659,
+  "title": "Line sketch: Celestial Metropolis at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grand domed temple with a towering spire rises above a sprawling futuristic city under a dramatic twilight sky. Multiple moons, a large glowing sun, and crescent shapes illuminate the scene with warm and deep light (derived from painting #836).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grand domed temple with a towering spire rises above a sprawling futuristic city under a dramatic twilight sky. Multiple moons, a large glowing sun, and crescent shapes illuminate the scene with warm and deep light",
+  "inverted_title": "Inverted sketch: Celestial Metropolis at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grand domed temple with a towering spire rises above a sprawling futuristic city under a dramatic twilight sky. Multiple moons, a large glowing sun, and crescent shapes illuminate the scene with warm and deep light (from painting #836).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grand domed temple with a towering spire rises above a sprawling futuristic city under a dramatic twilight sky. Multiple moons, a large glowing sun, and crescent shapes illuminate the scene with warm and deep light",
+  "source_description": "A grand domed temple with a towering spire rises above a sprawling futuristic city under a dramatic twilight sky. Multiple moons, a large glowing sun, and crescent shapes illuminate the scene with warm golden and deep crimson light.",
+  "source_prompt": "",
+  "source_title": "Celestial Metropolis at Dusk",
+  "style": "Fantasy Illustration",
+  "mood": "Mysterious Epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "futuristic city",
+    "celestial sky",
+    "domed temple",
+    "multiple moons",
+    "dramatic clouds"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 836,
+  "source_url": "/paintings/836.jpg",
+  "image_url": "/sketches/659.png",
+  "inverted_image_url": "/sketches-inverted/659.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:39Z"
+}

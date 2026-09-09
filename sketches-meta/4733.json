@@ -1,0 +1,42 @@
+{
+  "number": 4733,
+  "title": "Line sketch: Parallax Arena - Shifted Veil",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A torn-paper framed fantasy arena scene featuring ancient stone ruins, wooden bridges, and glowing lanterns over a body of water. The lower portion reveals a dark, maze-like underworld with scattered debris and broken pillars beneath a shifting veil (derived from generated still #4163).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A torn-paper framed fantasy arena scene featuring ancient stone ruins, wooden bridges, and glowing lanterns over a body of water. The lower portion reveals a dark, maze-like underworld with scattered debris and broken pillars beneath a shifting veil",
+  "inverted_title": "Inverted sketch: Parallax Arena - Shifted Veil",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A torn-paper framed fantasy arena scene featuring ancient stone ruins, wooden bridges, and glowing lanterns over a body of water. The lower portion reveals a dark, maze-like underworld with scattered debris and broken pillars beneath a shifting veil (from generated still #4163).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A torn-paper framed fantasy arena scene featuring ancient stone ruins, wooden bridges, and glowing lanterns over a body of water. The lower portion reveals a dark, maze-like underworld with scattered debris and broken pillars beneath a shifting veil",
+  "source_description": "A torn-paper framed fantasy arena scene featuring ancient stone ruins, wooden bridges, and glowing lanterns over a body of water. The lower portion reveals a dark, maze-like underworld with scattered debris and broken pillars beneath a shifting purple veil.",
+  "source_prompt": "Detailed fantasy arena called Parallax Arena - Shifted Veil Stage, ancient stone ruins and columns partially submerged in water with wooden bridges and glowing lanterns crossing over it, large circular stone sundial platform in the background, lower section shows a dark maze-like underworld layer with broken pillars and debris visible beneath a translucent purple shifted veil effect, dramatic lighting with long shadows, all framed by a torn parchment border",
+  "source_title": "Parallax Arena - Shifted Veil",
+  "style": "fantasy illustration",
+  "mood": "mysterious, epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy arena",
+    "ancient ruins",
+    "parallax layers",
+    "wooden bridges",
+    "magical veil"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4163,
+  "source_url": "/generated/4163.jpg",
+  "image_url": "/sketches/4733.png",
+  "inverted_image_url": "/sketches-inverted/4733.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:48Z"
+}

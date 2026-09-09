@@ -1,0 +1,42 @@
+{
+  "number": 4609,
+  "title": "Line sketch: Surreal Mystic Nightscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene depicts a kneeling man in military-style uniform at the edge of reflective water. A glowing circular portal reveals a waterfall and sunset, while a large bubble contains a skeleton and an alien creature. A hooded wizard floats near a giant smiling crescent moon with eyes shooting lightning, accompanied by a black cat. A striped lighthouse stands on the right (derived from generated still #4031).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene depicts a kneeling man in military-style uniform at the edge of reflective water. A glowing circular portal reveals a waterfall and sunset, while a large bubble contains a skeleton and an alien creature. A hooded wizard floats near a giant smiling crescent moon with eyes shooting lightning, accompanied by a black cat. A striped lighthouse stands on the right",
+  "inverted_title": "Inverted sketch: Surreal Mystic Nightscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene depicts a kneeling man in military-style uniform at the edge of reflective water. A glowing circular portal reveals a waterfall and sunset, while a large bubble contains a skeleton and an alien creature. A hooded wizard floats near a giant smiling crescent moon with eyes shooting lightning, accompanied by a black cat. A striped lighthouse stands on the right (from generated still #4031).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene depicts a kneeling man in military-style uniform at the edge of reflective water. A glowing circular portal reveals a waterfall and sunset, while a large bubble contains a skeleton and an alien creature. A hooded wizard floats near a giant smiling crescent moon with eyes shooting lightning, accompanied by a black cat. A striped lighthouse stands on the right",
+  "source_description": "A surreal fantasy scene depicts a kneeling man in green military-style uniform at the edge of reflective water. A glowing circular portal reveals a waterfall and sunset, while a large green bubble contains a skeleton and an alien creature. A hooded wizard floats near a giant smiling crescent moon with blue eyes shooting lightning, accompanied by a black cat. A striped lighthouse stands on the right.",
+  "source_prompt": "Surreal fantasy night scene with a soldier in green uniform kneeling in shallow reflective water, a glowing yellow portal showing a waterfall at sunset, a large green bubble containing a skeleton and green alien, a black cat leaping, a hooded wizard in blue robes floating in the sky holding a staff with lightning, a giant smiling crescent moon with blue eyes and cracks, a green and white striped lighthouse on rocks, vibrant cosmic sky with stars and colorful clouds",
+  "source_title": "Surreal Mystic Nightscape",
+  "style": "surreal fantasy",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "wizard",
+    "moon",
+    "lighthouse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4031,
+  "source_url": "/generated/4031.jpg",
+  "image_url": "/sketches/4609.png",
+  "inverted_image_url": "/sketches-inverted/4609.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:48Z"
+}

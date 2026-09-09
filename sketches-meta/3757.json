@@ -1,0 +1,42 @@
+{
+  "number": 3757,
+  "title": "Line sketch: Tiger Warrior Triptych",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A three-panel composition depicts the same young Black boy in an tiger-striped costume with bells and accessories. In the left panel he stands dynamically with fists raised, in the middle he is captured mid-air performing a flip, and in the right panel he lies on the ground after falling (derived from generated still #3172).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A three-panel composition depicts the same young Black boy in an tiger-striped costume with bells and accessories. In the left panel he stands dynamically with fists raised, in the middle he is captured mid-air performing a flip, and in the right panel he lies on the ground after falling",
+  "inverted_title": "Inverted sketch: Tiger Warrior Triptych",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A three-panel composition depicts the same young Black boy in an tiger-striped costume with bells and accessories. In the left panel he stands dynamically with fists raised, in the middle he is captured mid-air performing a flip, and in the right panel he lies on the ground after falling (from generated still #3172).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A three-panel composition depicts the same young Black boy in an tiger-striped costume with bells and accessories. In the left panel he stands dynamically with fists raised, in the middle he is captured mid-air performing a flip, and in the right panel he lies on the ground after falling",
+  "source_description": "A three-panel painting depicts the same young Black boy in an orange tiger-striped costume with bells and accessories. In the left panel he stands dynamically with fists raised, in the middle he is captured mid-air performing a flip, and in the right panel he lies on the ground after falling.",
+  "source_prompt": "A three-panel vertical painting on dark teal background showing the same young Black boy with spiky dreadlocks wearing a vibrant orange tiger-striped outfit with patches, chains, and bells. Left panel: powerful standing pose with fists clenched. Center panel: mid-air flip with legs extended. Right panel: fallen on the ground. Dramatic lighting, realistic yet painterly style, moody atmosphere.",
+  "source_title": "Tiger Warrior Triptych",
+  "style": "realistic",
+  "mood": "dramatic dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tiger costume",
+    "triptych",
+    "action poses",
+    "black child",
+    "street style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3172,
+  "source_url": "/generated/3172.jpg",
+  "image_url": "/sketches/3757.png",
+  "inverted_image_url": "/sketches-inverted/3757.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:46Z"
+}

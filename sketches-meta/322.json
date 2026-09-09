@@ -1,0 +1,42 @@
+{
+  "number": 322,
+  "title": "Line sketch: Turtle Sculpture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed realistic sculpture of a turtle with textured scales and shell. The artwork captures the creature in a dynamic pose against a neutral background (derived from painting #383).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed realistic sculpture of a turtle with textured scales and shell. The artwork captures the creature in a dynamic pose against a neutral background",
+  "inverted_title": "Inverted sketch: Turtle Sculpture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed realistic sculpture of a turtle with textured scales and shell. The artwork captures the creature in a dynamic pose against a neutral background (from painting #383).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed realistic sculpture of a turtle with textured scales and shell. The artwork captures the creature in a dynamic pose against a neutral background",
+  "source_description": "A highly detailed realistic sculpture of a green turtle with textured scales and shell. The artwork captures the creature in a dynamic pose against a neutral background.",
+  "source_prompt": "",
+  "source_title": "Green Turtle Sculpture",
+  "style": "Realistic 3D Rendering",
+  "mood": "Vibrant and Detailed",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "turtle",
+    "sculpture",
+    "reptile",
+    "realistic",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 383,
+  "source_url": "/paintings/383.jpg",
+  "image_url": "/sketches/322.png",
+  "inverted_image_url": "/sketches-inverted/322.png",
+  "curve_count": 160,
+  "built_at": "2026-08-17T00:09:39Z"
+}

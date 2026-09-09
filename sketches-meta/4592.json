@@ -1,0 +1,42 @@
+{
+  "number": 4592,
+  "title": "Line sketch: Broccoli Tree Scribe",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dress with an exposed anatomical heart sits at a wooden desk writing in an open book. Behind her grows an enormous surreal broccoli tree with multiple screaming faces emerging from its stalks, flowing like banners over a miniature city with spires (derived from generated still #4014).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dress with an exposed anatomical heart sits at a wooden desk writing in an open book. Behind her grows an enormous surreal broccoli tree with multiple screaming faces emerging from its stalks, flowing like banners over a miniature city with spires",
+  "inverted_title": "Inverted sketch: Broccoli Tree Scribe",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dress with an exposed anatomical heart sits at a wooden desk writing in an open book. Behind her grows an enormous surreal broccoli tree with multiple screaming faces emerging from its stalks, flowing like banners over a miniature city with spires (from generated still #4014).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dress with an exposed anatomical heart sits at a wooden desk writing in an open book. Behind her grows an enormous surreal broccoli tree with multiple screaming faces emerging from its stalks, flowing like banners over a miniature city with spires",
+  "source_description": "A woman in a green dress with an exposed anatomical heart sits at a wooden desk writing in an open book. Behind her grows an enormous surreal broccoli tree with multiple screaming faces emerging from its stalks, flowing like banners over a miniature city with red spires.",
+  "source_prompt": "Surreal scene of a woman with long dark hair wearing a green dress and white sleeves, an exposed red anatomical heart visible on her chest, sitting at a wooden desk writing in a book with a quill. Behind her stands a giant vibrant green broccoli tree with multiple screaming human faces flowing out from its stalks like banners. Below the tree is a miniature city with red spires. The background wall is purple with framed anatomical diagrams, the upper background is textured orange. Whimsical dark fantasy style.",
+  "source_title": "Broccoli Tree Scribe",
+  "style": "surreal illustration",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "broccoli tree",
+    "anatomical heart",
+    "screaming faces",
+    "fantasy scribe"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4014,
+  "source_url": "/generated/4014.jpg",
+  "image_url": "/sketches/4592.png",
+  "inverted_image_url": "/sketches-inverted/4592.png",
+  "curve_count": 296,
+  "built_at": "2026-08-17T00:09:48Z"
+}

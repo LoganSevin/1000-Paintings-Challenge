@@ -1,0 +1,42 @@
+{
+  "number": 2898,
+  "title": "Line sketch: Cosmic Eye Volcano",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive cosmic eye dominates the starry sky, its iris filled with a swirling galaxy and a silhouetted figure standing at the center of a black pupil. In the foreground, a -haired woman with flowing hair stands with her back to the viewer, emitting fiery energy, while a volcanic landscape erupts with lava flows and floating glowing orbs below the eye (derived from generated still #2185).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive cosmic eye dominates the starry sky, its iris filled with a swirling galaxy and a silhouetted figure standing at the center of a black pupil. In the foreground, a -haired woman with flowing hair stands with her back to the viewer, emitting fiery energy, while a volcanic landscape erupts with lava flows and floating glowing orbs below the eye",
+  "inverted_title": "Inverted sketch: Cosmic Eye Volcano",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive cosmic eye dominates the starry sky, its iris filled with a swirling galaxy and a silhouetted figure standing at the center of a black pupil. In the foreground, a -haired woman with flowing hair stands with her back to the viewer, emitting fiery energy, while a volcanic landscape erupts with lava flows and floating glowing orbs below the eye (from generated still #2185).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive cosmic eye dominates the starry sky, its iris filled with a swirling galaxy and a silhouetted figure standing at the center of a black pupil. In the foreground, a -haired woman with flowing hair stands with her back to the viewer, emitting fiery energy, while a volcanic landscape erupts with lava flows and floating glowing orbs below the eye",
+  "source_description": "A massive cosmic eye dominates the starry sky, its iris filled with a swirling galaxy and a silhouetted figure standing at the center of a black pupil. In the foreground, a red-haired woman with flowing hair stands with her back to the viewer, emitting fiery orange energy, while a volcanic landscape erupts with lava flows and floating glowing blue orbs below the eye.",
+  "source_prompt": "Surreal cosmic scene featuring an enormous stylized eye filling the upper portion of the image, its iris a vibrant swirling galaxy of purple, blue and orange with a small silhouetted human figure standing inside the black pupil. Below the eye is a volcanic landscape with flowing orange lava. In the left foreground a woman with long flowing red hair faces the eye, her body radiating bright orange and blue energy bursts. Several large translucent blue spheres with glowing trails float in the air between the eye and the volcano, dramatic swirling colorful nebula clouds in the sky, highly detailed digital painting style.",
+  "source_title": "Cosmic Eye Volcano",
+  "style": "surreal fantasy",
+  "mood": "cosmic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic eye",
+    "volcano",
+    "surreal",
+    "galaxy",
+    "floating orbs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2185,
+  "source_url": "/generated/2185.jpg",
+  "image_url": "/sketches/2898.png",
+  "inverted_image_url": "/sketches-inverted/2898.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:44Z"
+}

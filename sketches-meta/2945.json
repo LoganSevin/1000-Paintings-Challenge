@@ -1,0 +1,42 @@
+{
+  "number": 2945,
+  "title": "Line sketch: Wind Chimes on the Porch",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wooden porch at night with an ornate set of wind chimes hanging from the ceiling, surrounded by glowing concentric circles and musical staves. In the dark background, a large shadowy beast with an open mouth lurks near the railing while a clock shows 3 o'clock on the left (derived from generated still #2253).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wooden porch at night with an ornate set of wind chimes hanging from the ceiling, surrounded by glowing concentric circles and musical staves. In the dark background, a large shadowy beast with an open mouth lurks near the railing while a clock shows 3 o'clock on the left",
+  "inverted_title": "Inverted sketch: Wind Chimes on the Porch",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wooden porch at night with an ornate set of wind chimes hanging from the ceiling, surrounded by glowing concentric circles and musical staves. In the dark background, a large shadowy beast with an open mouth lurks near the railing while a clock shows 3 o'clock on the left (from generated still #2253).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wooden porch at night with an ornate set of wind chimes hanging from the ceiling, surrounded by glowing concentric circles and musical staves. In the dark background, a large shadowy beast with an open mouth lurks near the railing while a clock shows 3 o'clock on the left",
+  "source_description": "A wooden porch at night with an ornate set of wind chimes hanging from the ceiling, surrounded by glowing concentric circles and musical staves. In the dark background, a large shadowy beast with an open red mouth lurks near the railing while a clock shows 3 o'clock on the left.",
+  "source_prompt": "A haunting nighttime scene on a weathered wooden porch, an intricate wind chime with metal tubes hangs from the ceiling surrounded by glowing concentric circles and floating musical staves with notes. A large dark shadowy beast with glowing red open mouth lurks in the yard to the right. An old clock showing 3 o'clock is visible on the left wall. Scattered leaves and a small bell on the floor, mysterious glowing particles in the air, dark moody atmosphere, detailed digital painting.",
+  "source_title": "Wind Chimes on the Porch",
+  "style": "surreal dark fantasy",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wind chimes",
+    "porch",
+    "night scene",
+    "surreal",
+    "musical notation"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2253,
+  "source_url": "/generated/2253.jpg",
+  "image_url": "/sketches/2945.png",
+  "inverted_image_url": "/sketches-inverted/2945.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4538,
+  "title": "Line sketch: Stained Glass Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant stained glass style scene depicts a woman in a flowing floral robe standing on a cobblestone Parisian street. She reaches toward a radiant sun while a river with koi fish flows from the roots of a large tree on the right, blending into a surreal landscape with the Sacré-Cœur Basilica, floating buildings, and cherry blossoms (derived from generated still #3958).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant stained glass style scene depicts a woman in a flowing floral robe standing on a cobblestone Parisian street. She reaches toward a radiant sun while a river with koi fish flows from the roots of a large tree on the right, blending into a surreal landscape with the Sacré-Cœur Basilica, floating buildings, and cherry blossoms",
+  "inverted_title": "Inverted sketch: Stained Glass Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant stained glass style scene depicts a woman in a flowing floral robe standing on a cobblestone Parisian street. She reaches toward a radiant sun while a river with koi fish flows from the roots of a large tree on the right, blending into a surreal landscape with the Sacré-Cœur Basilica, floating buildings, and cherry blossoms (from generated still #3958).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant stained glass style scene depicts a woman in a flowing floral robe standing on a cobblestone Parisian street. She reaches toward a radiant sun while a river with koi fish flows from the roots of a large tree on the right, blending into a surreal landscape with the Sacré-Cœur Basilica, floating buildings, and cherry blossoms",
+  "source_description": "A vibrant stained glass style scene depicts a woman in a flowing blue floral robe standing on a colorful cobblestone Parisian street. She reaches toward a radiant sun while a river with koi fish flows from the roots of a large tree on the right, blending into a surreal landscape with the Sacré-Cœur Basilica, floating buildings, and cherry blossoms.",
+  "source_prompt": "A highly detailed stained glass artwork showing a mystical woman in a long blue robe with orange flowers standing on a colorful Parisian street with shops and umbrellas. She reaches upward toward a glowing sun. To the right, a large tree with roots forming a flowing river filled with koi fish and stars. In the background, the Sacré-Cœur Basilica rises above the city under a sunset sky with floating classical buildings and cherry blossoms.",
+  "source_title": "Stained Glass Dreamscape",
+  "style": "stained glass",
+  "mood": "dreamlike, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital stained glass illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "surreal",
+    "Parisian street",
+    "fantasy landscape",
+    "Sacré-Cœur"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3958,
+  "source_url": "/generated/3958.jpg",
+  "image_url": "/sketches/4538.png",
+  "inverted_image_url": "/sketches-inverted/4538.png",
+  "curve_count": 91,
+  "built_at": "2026-08-17T00:09:48Z"
+}

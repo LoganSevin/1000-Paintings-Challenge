@@ -1,0 +1,42 @@
+{
+  "number": 3505,
+  "title": "Line sketch: Hellish Grocery Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a massive demonic creature with a single glowing eye and molten lava dripping from its maw, rising from a cracked, fiery ground littered with shopping debris. In the upper left, two silhouetted human figures with a shopping cart walk toward a swirling galaxy vortex against a chaotic background of turbulent fiery spirals and smoke (derived from generated still #2907).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a massive demonic creature with a single glowing eye and molten lava dripping from its maw, rising from a cracked, fiery ground littered with shopping debris. In the upper left, two silhouetted human figures with a shopping cart walk toward a swirling galaxy vortex against a chaotic background of turbulent fiery spirals and smoke",
+  "inverted_title": "Inverted sketch: Hellish Grocery Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a massive demonic creature with a single glowing eye and molten lava dripping from its maw, rising from a cracked, fiery ground littered with shopping debris. In the upper left, two silhouetted human figures with a shopping cart walk toward a swirling galaxy vortex against a chaotic background of turbulent fiery spirals and smoke (from generated still #2907).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a massive demonic creature with a single glowing eye and molten lava dripping from its maw, rising from a cracked, fiery ground littered with shopping debris. In the upper left, two silhouetted human figures with a shopping cart walk toward a swirling galaxy vortex against a chaotic background of turbulent fiery spirals and smoke",
+  "source_description": "A surreal painting depicts a massive demonic creature with a single glowing red eye and molten lava dripping from its maw, rising from a cracked, fiery ground littered with shopping debris. In the upper left, two silhouetted human figures with a shopping cart walk toward a swirling colorful galaxy vortex against a chaotic background of turbulent fiery spirals and smoke.",
+  "source_prompt": "Surreal apocalyptic painting of a giant black demonic monster with one glowing red eye and molten lava flowing from its mouth, emerging from cracked burning ground covered in shopping trash and receipts. Two human silhouettes pushing a grocery cart walk toward a massive swirling colorful galaxy vortex in the sky, surrounded by fiery orange and green spirals, smoke and cosmic chaos, dramatic painterly brushstrokes, dark fantasy style",
+  "source_title": "Hellish Grocery Abyss",
+  "style": "surreal fantasy composition",
+  "mood": "chaotic infernal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "surreal",
+    "apocalypse",
+    "supermarket",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2907,
+  "source_url": "/generated/2907.jpg",
+  "image_url": "/sketches/3505.png",
+  "inverted_image_url": "/sketches-inverted/3505.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:45Z"
+}

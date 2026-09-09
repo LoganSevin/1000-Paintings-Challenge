@@ -1,0 +1,42 @@
+{
+  "number": 677,
+  "title": "Line sketch: Stained Glass Circular Mandala",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composition depicting a fragmented circular stained glass window with radiating segments. The composition features concentric rings in and with leading lines and a bright central orb (derived from painting #858).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composition depicting a fragmented circular stained glass window with radiating segments. The composition features concentric rings in and with leading lines and a bright central orb",
+  "inverted_title": "Inverted sketch: Stained Glass Circular Mandala",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composition depicting a fragmented circular stained glass window with radiating segments. The composition features concentric rings in and with leading lines and a bright central orb (from painting #858).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composition depicting a fragmented circular stained glass window with radiating segments. The composition features concentric rings in and with leading lines and a bright central orb",
+  "source_description": "A watercolor painting depicting a fragmented circular stained glass window with radiating segments. The composition features concentric rings in blues and greens with gold leading lines and a bright central orb.",
+  "source_prompt": "",
+  "source_title": "Stained Glass Circular Mandala",
+  "style": "line sketch",
+  "mood": "Geometric serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "mandala",
+    "circular",
+    "leaf",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 858,
+  "source_url": "/paintings/858.jpg",
+  "image_url": "/sketches/677.png",
+  "inverted_image_url": "/sketches-inverted/677.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

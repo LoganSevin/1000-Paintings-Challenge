@@ -1,0 +1,21 @@
+{
+  "num": 162,
+  "title": "Painting #201",
+  "created": 1786915903.8250852,
+  "source_url": "/paintings/201.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*312.00 + 3*t*(1 - t)^2*317.67 + 3*t^2*(1 - t)*323.33 + t^3*329.00,(1 - t)^3*217.00 + 3*t*(1 - t)^2*217.00 + 3*t^2*(1 - t)*217.00 + t^3*217.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 201
+  },
+  "preview_url": "/sketches/162.png"
+}

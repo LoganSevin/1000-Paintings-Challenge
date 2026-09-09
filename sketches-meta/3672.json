@@ -1,0 +1,42 @@
+{
+  "number": 3672,
+  "title": "Line sketch: Angel of Thunder",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A winged male angel in ornate and armor descends from a stormy sky, wielding a glowing hammer amid lightning. In the foreground, a woman in a matching gothic dress kneels on a stone terrace overlooking a field of, while armored riders on mechanical elephants charge below (derived from generated still #3080).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A winged male angel in ornate and armor descends from a stormy sky, wielding a glowing hammer amid lightning. In the foreground, a woman in a matching gothic dress kneels on a stone terrace overlooking a field of, while armored riders on mechanical elephants charge below",
+  "inverted_title": "Inverted sketch: Angel of Thunder",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A winged male angel in ornate and armor descends from a stormy sky, wielding a glowing hammer amid lightning. In the foreground, a woman in a matching gothic dress kneels on a stone terrace overlooking a field of, while armored riders on mechanical elephants charge below (from generated still #3080).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A winged male angel in ornate and armor descends from a stormy sky, wielding a glowing hammer amid lightning. In the foreground, a woman in a matching gothic dress kneels on a stone terrace overlooking a field of, while armored riders on mechanical elephants charge below",
+  "source_description": "A winged male angel in ornate pink and gold armor descends from a stormy purple sky, wielding a glowing hammer amid lightning. In the foreground, a woman in a matching pink gothic dress kneels on a stone terrace overlooking a field of lavender, while armored riders on mechanical elephants charge below.",
+  "source_prompt": "",
+  "source_title": "Angel of Thunder",
+  "style": "fantasy illustration",
+  "mood": "dramatic epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "fantasy",
+    "field",
+    "lightning",
+    "gothic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3080,
+  "source_url": "/generated/3080.jpg",
+  "image_url": "/sketches/3672.png",
+  "inverted_image_url": "/sketches-inverted/3672.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:46Z"
+}

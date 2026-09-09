@@ -41,6 +41,18 @@ const GALLERY_COLLECTION_META = {
     paintingFilters: true,
     analyzable: true,
   },
+  sketches: {
+    title: "Line sketches",
+    hint: "Ink line art (black on white) — gallery/sketches/ · prompts from source descriptions (verbatim)",
+    paintingFilters: true,
+    analyzable: true,
+  },
+  "sketches-inverted": {
+    title: "Inverted sketches",
+    hint: "Chalk-style invert (white on black) — gallery/sketches-inverted/",
+    paintingFilters: true,
+    analyzable: true,
+  },
   characters: {
     title: "Characters",
     hint: "Saved character iterations — numbered 1, 2, 3… per name",
@@ -78,6 +90,9 @@ let analyses = {};
 let lod1Manifest = [];
 let lod1Analyses = {};
 let lod1KnownCount = 0;
+/** Sketch # → title/description/prompt (from data/sketch-analyses.json) */
+let sketchAnalyses = {};
+let sketchAnalysesLoadPromise = null;
 let galleryCollection = "paintings";
 let assetItems = [];
 let filtered = [];
@@ -133,6 +148,89 @@ function generatedUrl(num) {
   return `/generated/${num}.jpg`;
 }
 
+function sketchUrl(num) {
+  return `/sketches/${num}.png`;
+}
+
+function getSketchAnalysis(num) {
+  return sketchAnalyses[String(num)] || sketchAnalyses[num] || null;
+}
+
+async function loadSketchAnalyses() {
+  const urls = [];
+  if (CAN_USE_GALLERY_API) {
+    urls.push(galleryApiUrl(`/api/sketch-analyses?t=${Date.now()}`));
+  }
+  urls.push(`data/sketch-analyses.json?t=${Date.now()}`);
+  for (let i = 0; i < urls.length; i++) {
+    try {
+      const res = await fetch(urls[i], { cache: "default" });
+      if (!res.ok) continue;
+      const data = await res.json();
+      // API may return {error:...} for unknown routes on old servers
+      if (data && typeof data === "object" && !data.error) {
+        const keys = Object.keys(data);
+        if (keys.length && !("error" in data && keys.length < 3)) {
+          // bulk map is keyed by sketch number strings
+          const sample = data[keys[0]];
+          if (sample && typeof sample === "object" && (sample.title || sample.description || sample.prompt)) {
+            sketchAnalyses = data;
+            return sketchAnalyses;
+          }
+          // if first keys look numeric, accept
+          if (keys.some((k) => /^\d+$/.test(k))) {
+            sketchAnalyses = data;
+            return sketchAnalyses;
+          }
+        }
+      }
+    } catch (err) {
+      /* try next */
+    }
+  }
+  return sketchAnalyses;
+}
+
+function ensureSketchAnalyses() {
+  if (Object.keys(sketchAnalyses).length > 0) return Promise.resolve(sketchAnalyses);
+  if (sketchAnalysesLoadPromise) return sketchAnalysesLoadPromise;
+  sketchAnalysesLoadPromise = loadSketchAnalyses()
+    .then(() => sketchAnalyses)
+    .finally(() => {
+      sketchAnalysesLoadPromise = null;
+    });
+  return sketchAnalysesLoadPromise;
+}
+
+function sketchAnalysisSearchText(a, num) {
+  if (!a) return String(num || "");
+  return [
+    num,
+    a.title,
+    a.description,
+    a.prompt,
+    a.source_description,
+    a.source_prompt,
+    a.style,
+    a.mood,
+    a.medium,
+    (a.tags || []).join(" "),
+    a.source_collection,
+    a.source_num,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function matchesSketchSearch(num, a, query) {
+  const q = String(query || "").trim().toLowerCase();
+  if (!q) return true;
+  const exact = parseNumberQuery(q);
+  if (exact != null) return paintingNumEquals(num, exact);
+  return sketchAnalysisSearchText(a, num).includes(q);
+}
+
 function mapLod1ManifestItems(data) {
   return (data.items || []).map((item) => ({
     number: item.num,
@@ -160,6 +258,7 @@ async function loadLod1Analyses() {
 
 async function loadLod1Data() {
   try {
+    // Lightweight list only — full lod1-analyses (~4MB) loads later when Generated is opened
     const manifestUrl = CAN_USE_GALLERY_API
       ? galleryApiUrl(`${LOD1_MANIFEST_API}?t=${Date.now()}`)
       : `${LOD1_MANIFEST_URL}?t=${Date.now()}`;
@@ -172,10 +271,24 @@ async function loadLod1Data() {
         lod1Manifest = mapLod1ManifestItems(await fallback.json());
       }
     }
-    await loadLod1Analyses();
+    // Do NOT loadLod1Analyses here — freezes the page on parse
   } catch (e) {
     lod1Manifest = [];
   }
+}
+
+let lod1AnalysesLoadPromise = null;
+
+/** Load heavy Generated analyses only when needed (not on every page open). */
+function ensureLod1Analyses() {
+  if (Object.keys(lod1Analyses).length > 0) return Promise.resolve(lod1Analyses);
+  if (lod1AnalysesLoadPromise) return lod1AnalysesLoadPromise;
+  lod1AnalysesLoadPromise = loadLod1Analyses()
+    .then(() => lod1Analyses)
+    .finally(() => {
+      lod1AnalysesLoadPromise = null;
+    });
+  return lod1AnalysesLoadPromise;
 }
 
 function countLod1Analyzed() {
@@ -306,16 +419,30 @@ function normalizeAssetItems(items, collection) {
     const version = item.version ?? item.number ?? null;
     const num =
       item.number ??
-      (collection === "generated" && version != null ? Number(version) : null);
+      ((collection === "generated" || collection === "sketches") && version != null
+        ? Number(version)
+        : null);
+    const defaultTitle =
+      collection === "sketches" && num != null
+        ? `Sketch #${num}`
+        : collection === "generated" && num != null
+          ? `Generated #${num}`
+          : "Asset";
+    const defaultSub =
+      collection === "sketches" && num != null
+        ? `S#${num}`
+        : collection === "generated" && num != null
+          ? `G#${num}`
+          : version
+            ? `#${version}`
+            : "";
     return {
       ...item,
       collection: item.collection || collection,
       number: num,
       url: resolveGalleryUrl(item.url),
-      title: item.title || item.entity_name || (num != null ? `Generated #${num}` : "Asset"),
-      subtitle:
-        item.subtitle ||
-        (collection === "generated" && num != null ? `G#${num}` : version ? `#${version}` : ""),
+      title: item.title || item.entity_name || defaultTitle,
+      subtitle: item.subtitle || defaultSub,
       version,
     };
   });
@@ -324,29 +451,65 @@ function normalizeAssetItems(items, collection) {
 async function loadAssetCollection(collection) {
   if (collection === "paintings") return [];
 
-  if (CAN_USE_GALLERY_API) {
+  // Generated: compact dream-pool (~20KB) — never pull the full 700KB+ assets list
+  if (collection === "generated" && CAN_USE_GALLERY_API) {
     try {
-      const res = await fetch(
-        galleryApiUrl(
-          `/api/gallery-assets?collection=${encodeURIComponent(collection)}&t=${Date.now()}`
-        ),
-        { cache: "no-store" }
-      );
+      const res = await fetch(galleryApiUrl("/api/dream-pool"), {
+        cache: "default",
+      });
       if (res.ok) {
         const data = await res.json();
-        const items = normalizeAssetItems(data.items, collection);
-        if (collection === "generated") {
-          lod1Manifest = items
-            .filter((i) => i.number != null)
-            .map((i) => ({
-              number: i.number,
-              filename: `${i.number}.jpg`,
-              url: i.url,
-              source: "generated",
-            }));
-          lod1KnownCount = lod1Manifest.length;
+        const nums = Array.isArray(data.generated_nums) ? data.generated_nums : [];
+        const files = data.generated_files || {};
+        // Newest first for gallery grid (same as before)
+        const ordered = nums.slice().reverse();
+        const items = ordered.map((n) => {
+          const name = files[String(n)] || `${n}.jpg`;
+          return {
+            id: `generated/${n}`,
+            url: `/generated/${name}`,
+            title: `Generated #${n}`,
+            subtitle: `G#${n}`,
+            version: n,
+            collection: "generated",
+            number: n,
+            entity_name: `G#${n}`,
+          };
+        });
+        lod1Manifest = ordered.map((n) => ({
+          number: n,
+          filename: files[String(n)] || `${n}.jpg`,
+          url: `/generated/${files[String(n)] || n + ".jpg"}`,
+          source: "generated",
+        }));
+        lod1KnownCount = lod1Manifest.length;
+        return normalizeAssetItems(items, "generated");
+      }
+    } catch (err) {
+      console.warn("dream-pool for gallery failed:", err);
+    }
+  }
+
+  // Sketches first — own APIs + static data files (do not depend on gallery-assets)
+  if (collection === "sketches" || collection === "sketches-inverted") {
+    return loadSketchCollection(collection);
+  }
+
+  if (CAN_USE_GALLERY_API) {
+    try {
+      // Cap payload for other collections; never unbounded generated dump
+      const lim = collection === "generated" ? 96 : "";
+      const q = lim
+        ? `?collection=${encodeURIComponent(collection)}&limit=${lim}&t=${Date.now()}`
+        : `?collection=${encodeURIComponent(collection)}&t=${Date.now()}`;
+      const res = await fetch(galleryApiUrl(`/api/gallery-assets${q}`), {
+        cache: "no-store",
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && !data.error && Array.isArray(data.items)) {
+          return normalizeAssetItems(data.items, collection);
         }
-        return items;
       }
     } catch (err) {
       console.warn("Gallery assets API failed:", collection, err);
@@ -370,6 +533,107 @@ async function loadAssetCollection(collection) {
     );
   }
   return [];
+}
+
+/**
+ * Load line sketches (or inverted chalk-style copies) for the Gallery tab.
+ * Tries API → static data/sketch-manifest.json → key scan of sketch-analyses.
+ */
+async function loadSketchCollection(collection) {
+  const inverted = collection === "sketches-inverted";
+  const folder = inverted ? "sketches-inverted" : "sketches";
+  const prefix = inverted ? "SI" : "S";
+  try {
+    await ensureSketchAnalyses();
+  } catch (e) {
+    /* analyses optional */
+  }
+
+  let rows = [];
+  const tryUrls = [];
+  if (CAN_USE_GALLERY_API) {
+    tryUrls.push(galleryApiUrl(`/api/sketch-manifest?t=${Date.now()}`));
+  }
+  tryUrls.push(`data/sketch-manifest.json?t=${Date.now()}`);
+
+  for (let i = 0; i < tryUrls.length; i++) {
+    try {
+      const res = await fetch(tryUrls[i], { cache: "default" });
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (Array.isArray(data.items) && data.items.length) {
+        rows = data.items;
+        break;
+      }
+      if (Array.isArray(data) && data.length) {
+        rows = data;
+        break;
+      }
+    } catch (err) {
+      /* next */
+    }
+  }
+
+  // Fallback: numbers from sketch-analyses bulk file
+  if (!rows.length && sketchAnalyses && typeof sketchAnalyses === "object") {
+    rows = Object.keys(sketchAnalyses)
+      .map((k) => parseInt(k, 10))
+      .filter((n) => n > 0)
+      .sort((a, b) => a - b)
+      .map((n) => ({ num: n, url: `/${folder}/${n}.png`, name: `${n}.png` }));
+  }
+
+  if (!rows.length && CAN_USE_GALLERY_API) {
+    try {
+      const res = await fetch(
+        galleryApiUrl(
+          `/api/gallery-assets?collection=${encodeURIComponent(collection)}&t=${Date.now()}`
+        ),
+        { cache: "no-store" }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.items) && data.items.length) {
+          return normalizeAssetItems(data.items, collection);
+        }
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  const ordered = rows.slice().sort((a, b) => (b.num || 0) - (a.num || 0));
+  const items = ordered.map((row) => {
+    const n = row.num != null ? row.num : row.number;
+    const a = getSketchAnalysis(n);
+    const url = inverted
+      ? `/sketches-inverted/${n}.png`
+      : row.url || sketchUrl(n);
+    const title = inverted
+      ? (a && a.inverted_title) || (a && a.title) || `Inverted sketch #${n}`
+      : (a && a.title) || `Sketch #${n}`;
+    const description = inverted
+      ? (a && a.inverted_description) || (a && a.description) || ""
+      : (a && a.description) || "";
+    const prompt = inverted
+      ? (a && a.inverted_prompt) || (a && a.prompt) || ""
+      : (a && a.prompt) || "";
+    return {
+      id: `${collection}/${n}`,
+      url,
+      title,
+      subtitle: `${prefix}#${n}`,
+      version: n,
+      collection,
+      number: n,
+      entity_name: `${prefix}#${n}`,
+      description,
+      prompt,
+      tags: (a && a.tags) || [],
+      style: (a && a.style) || "",
+    };
+  });
+  return normalizeAssetItems(items, collection);
 }
 
 function updateCollectionChrome() {
@@ -406,10 +670,30 @@ function updateCollectionChrome() {
   updateLod1AnalyzeStatus();
 }
 
+function sketchCardMetaHtml(num, a, prefix) {
+  const pfx = prefix || "S";
+  const title = a?.title || `Sketch #${num}`;
+  const titleClass = a?.title ? "" : " pending";
+  const tagsHtml = (a?.tags || [])
+    .slice(0, 3)
+    .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+    .join("");
+  return `
+    <div class="card-meta">
+      <div class="card-number">${escapeHtml(pfx)}#${num}</div>
+      <div class="card-title${titleClass}">${escapeHtml(title)}</div>
+      ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ""}
+    </div>
+  `;
+}
+
 function renderAssetCard(item) {
   const card = document.createElement("article");
   card.className = "card card-asset";
   if (item.collection === "generated") card.classList.add("card-generated");
+  if (item.collection === "sketches" || item.collection === "sketches-inverted") {
+    card.classList.add("card-sketch");
+  }
   card.dataset.assetId = item.id;
   if (item.number != null) card.dataset.number = item.number;
   card.setAttribute("role", "listitem");
@@ -419,7 +703,15 @@ function renderAssetCard(item) {
   const metaHtml =
     item.collection === "generated" && item.number != null
       ? generatedCardMetaHtml(item.number, getLod1Analysis(item.number))
-      : assetCardMetaHtml(item);
+      : (item.collection === "sketches" ||
+            item.collection === "sketches-inverted") &&
+          item.number != null
+        ? sketchCardMetaHtml(
+            item.number,
+            getSketchAnalysis(item.number) || item,
+            item.collection === "sketches-inverted" ? "SI" : "S"
+          )
+        : assetCardMetaHtml(item);
 
   card.innerHTML = `
     <div class="card-thumb">
@@ -527,13 +819,31 @@ async function setGalleryCollection(collection) {
   try {
     if (collection !== "paintings") {
       assetItems = await loadAssetCollection(collection);
+      // Render grid first — never block tabs on 4MB analyses JSON
+      applyFilters();
       if (collection === "generated") {
-        await loadLod1Analyses();
-        populateStyleFilter();
+        ensureLod1Analyses().then(() => {
+          if (galleryCollection !== "generated") return;
+          populateStyleFilter();
+          patchAssetCards();
+          updateCollectionChrome();
+        });
       }
-    } else {
-      assetItems = [];
+      if (collection === "sketches" || collection === "sketches-inverted") {
+        ensureSketchAnalyses().then(() => {
+          if (
+            galleryCollection !== "sketches" &&
+            galleryCollection !== "sketches-inverted"
+          )
+            return;
+          populateStyleFilter();
+          applyFilters({ preserveView: true });
+          updateCollectionChrome();
+        });
+      }
+      return;
     }
+    assetItems = [];
   } catch (err) {
     console.error("Failed to load gallery collection:", collection, err);
     assetItems = [];
@@ -645,6 +955,39 @@ function applyFilters(options = {}) {
           return na - nb;
       }
     });
+  } else if (
+    galleryCollection === "sketches" ||
+    galleryCollection === "sketches-inverted"
+  ) {
+    filtered = assetItems.filter((item) => {
+      const num = item.number;
+      const a = num != null ? getSketchAnalysis(num) : null;
+      if (onlyAnalyzed && !a) return false;
+      if (style && (a?.style || item.style) !== style) return false;
+      if (q && !matchesSketchSearch(num, a || item, qRaw)) return false;
+      return true;
+    });
+    filtered.sort((a, b) => {
+      const na = a.number ?? 0;
+      const nb = b.number ?? 0;
+      if (numericQuery != null && window.paintingNumericSearchRank) {
+        const ra = window.paintingNumericSearchRank(na, qRaw);
+        const rb = window.paintingNumericSearchRank(nb, qRaw);
+        if (ra !== rb) return ra - rb;
+      }
+      const ta = (getSketchAnalysis(na)?.title || a.title || "").toLowerCase();
+      const tb = (getSketchAnalysis(nb)?.title || b.title || "").toLowerCase();
+      switch (sort) {
+        case "number-desc":
+          return nb - na;
+        case "title-asc":
+          return ta.localeCompare(tb) || na - nb;
+        case "shuffle":
+          return Math.random() - 0.5;
+        default:
+          return na - nb;
+      }
+    });
   } else {
     filtered = assetItems.filter((item) => {
       if (!q) return true;
@@ -694,6 +1037,13 @@ function populateStyleFilter() {
   const styles = new Set();
   if (galleryCollection === "generated") {
     Object.values(lod1Analyses).forEach((a) => {
+      if (a?.style) styles.add(a.style);
+    });
+  } else if (
+    galleryCollection === "sketches" ||
+    galleryCollection === "sketches-inverted"
+  ) {
+    Object.values(sketchAnalyses).forEach((a) => {
       if (a?.style) styles.add(a.style);
     });
   } else {
@@ -900,6 +1250,64 @@ function renderGeneratedAnalysis(num) {
   `;
 }
 
+function renderSketchAnalysis(num) {
+  const body = $("#analysis-body");
+  const a = getSketchAnalysis(num);
+  const inverted = galleryCollection === "sketches-inverted";
+
+  if (!a) {
+    body.innerHTML = `
+      <h2>Sketch #${num}</h2>
+      <p class="analysis-pending">No prompt meta yet — run <code>python scripts/build_sketch_meta.py</code> then refresh.</p>
+    `;
+    return;
+  }
+
+  const title = inverted
+    ? a.inverted_title || a.title || `Inverted sketch #${num}`
+    : a.title || `Sketch #${num}`;
+  const description = inverted
+    ? a.inverted_description || a.description || ""
+    : a.description || "";
+  const prompt = inverted ? a.inverted_prompt || a.prompt || "" : a.prompt || "";
+  const medium = inverted
+    ? a.inverted_medium || "white chalk on black"
+    : a.medium || "ink line sketch";
+
+  const tags = (a.tags || [])
+    .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+    .join("");
+
+  const origin =
+    a.source_collection && a.source_num
+      ? `${a.source_collection} #${a.source_num}`
+      : a.source_url || "";
+
+  body.innerHTML = `
+    <h2>${escapeHtml(title)}</h2>
+    <p class="description">${escapeHtml(description)}</p>
+    ${
+      prompt
+        ? `<p style="margin-top:0.75rem;font-size:0.9rem"><strong>Prompt</strong></p>
+           <p class="description">${escapeHtml(prompt)}</p>`
+        : ""
+    }
+    ${
+      a.source_description
+        ? `<p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-muted)"><strong>Colored source (reference only)</strong></p>
+           <p class="description">${escapeHtml(a.source_description)}</p>`
+        : ""
+    }
+    <dl class="analysis-meta">
+      <div><dt>Medium</dt><dd>${escapeHtml(medium)}</dd></div>
+      ${a.style ? `<div><dt>Style</dt><dd>${escapeHtml(a.style)}</dd></div>` : ""}
+      ${a.mood ? `<div><dt>Mood</dt><dd>${escapeHtml(a.mood)}</dd></div>` : ""}
+      ${origin ? `<div><dt>From</dt><dd>${escapeHtml(origin)}</dd></div>` : ""}
+    </dl>
+    ${tags ? `<div class="analysis-tags">${tags}</div>` : ""}
+  `;
+}
+
 function renderAnalysis(num) {
   const body = $("#analysis-body");
   const a = getAnalysis(num);
@@ -969,7 +1377,12 @@ function stopLightboxPoll() {
 function openAssetLightbox(item) {
   lightboxAssetId = item.id;
   lightboxNumber = item.number ?? null;
-  lightboxSource = item.collection === "generated" ? "generated" : "asset";
+  lightboxSource =
+    item.collection === "generated"
+      ? "generated"
+      : item.collection === "sketches"
+        ? "sketch"
+        : "asset";
   syncLightboxIndex();
   showLightboxAsset(item);
   if (window.galleryDialog) window.galleryDialog.open($("#lightbox"));
@@ -1008,6 +1421,14 @@ function showLightboxAsset(item) {
     window.GalleryShop?.updateLightbox(window.GalleryShop.fromAsset(item));
     return;
   }
+  if (
+    (item.collection === "sketches" || item.collection === "sketches-inverted") &&
+    item.number != null
+  ) {
+    renderSketchAnalysis(item.number);
+    window.GalleryShop?.updateLightbox(window.GalleryShop.fromAsset(item));
+    return;
+  }
   $("#analysis-body").innerHTML = `
     <h2>${escapeHtml(item.title || "Asset")}</h2>
     <p class="description">${escapeHtml(item.entity_name || "")}${item.version ? ` — iteration #${item.version}` : ""}</p>
@@ -1029,7 +1450,12 @@ function navigateLightbox(delta) {
   } else {
     lightboxAssetId = item.id;
     lightboxNumber = item.number ?? null;
-    lightboxSource = item.collection === "generated" ? "generated" : "asset";
+    lightboxSource =
+      item.collection === "generated"
+        ? "generated"
+        : item.collection === "sketches"
+          ? "sketch"
+          : "asset";
     showLightboxAsset(item);
   }
 }
@@ -1083,14 +1509,25 @@ function bindEvents() {
   });
 
   $("#use-as-spell")?.addEventListener("click", () => {
+    if (lightboxNumber == null && lightboxSource !== "sketch") return;
     if (lightboxNumber == null) return;
     if (window.galleryDialog) window.galleryDialog.close($("#lightbox"));
     else $("#lightbox").close();
     location.hash = "spellforge";
     document.querySelector('.site-tabs .tab[data-tab="spellforge"]')?.click();
-    window.dispatchEvent(
-      new CustomEvent("spellforge-equip", { detail: { number: lightboxNumber } })
-    );
+    const detail = { number: lightboxNumber };
+    if (lightboxSource === "sketch") {
+      // Spellforge arsenal IDs for sketches: SKETCH_BASE (200000) + S#
+      detail.number = 200000 + lightboxNumber;
+      detail.source = "sketch";
+      detail.sketchNum = lightboxNumber;
+      detail.url = sketchUrl(lightboxNumber);
+    } else if (lightboxSource === "generated") {
+      detail.number = 100000 + lightboxNumber;
+      detail.source = "generated";
+      detail.genNum = lightboxNumber;
+    }
+    window.dispatchEvent(new CustomEvent("spellforge-equip", { detail }));
   });
 
   $("#lightbox-tabloid-print")?.addEventListener("click", () => {
@@ -1133,26 +1570,136 @@ async function refreshAnalyses(options = {}) {
   patchVisibleCards();
 }
 
-async function init() {
-  await loadData();
-  await loadLod1Data();
-  lod1KnownCount = lod1Manifest.length;
-  filtered = [...manifest];
-  updateStats();
-  populateStyleFilter();
-  bindEvents();
-  applyFilters();
+/**
+ * Jump to a painting or generated still from other tabs (Dream Stasis, etc.).
+ * @param {number|string} num
+ * @param {{collection?: string}} [opts]
+ */
+async function galleryJumpToNumber(num, opts) {
+  opts = opts || {};
+  const n = parseInt(num, 10);
+  if (!n || n < 1) return false;
+  const collection = opts.collection || "generated";
 
-  if (IS_LOCAL && countAnalyzed() < manifest.length) {
-    setInterval(() => refreshAnalyses(), REFRESH_MS);
+  const tab = document.querySelector('.site-tabs .tab[data-tab="gallery"]');
+  if (tab) tab.click();
+
+  if (collection === "paintings") {
+    if (n > 1000) return false;
+    await setGalleryCollection("paintings");
+    openLightbox(n);
+    const card = document.querySelector(`#gallery .card[data-number="${n}"]`);
+    if (card) card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    return true;
+  }
+
+  await setGalleryCollection("generated");
+  await loadLod1Data();
+  let item = (assetItems || []).find((it) => Number(it.number) === n);
+  if (!item) {
+    item = {
+      id: `generated/${n}`,
+      url: generatedUrl(n),
+      title: `Generated #${n}`,
+      subtitle: `G#${n}`,
+      version: n,
+      collection: "generated",
+      number: n,
+      entity_name: `G#${n}`,
+    };
+  }
+  openAssetLightbox(item);
+  const card = document.querySelector(`#gallery .card-generated[data-number="${n}"]`);
+  if (card) card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  return true;
+}
+
+window.GalleryJump = {
+  toGenerated: (num) => galleryJumpToNumber(num, { collection: "generated" }),
+  toPainting: (num) => galleryJumpToNumber(num, { collection: "paintings" }),
+  toNumber: galleryJumpToNumber,
+};
+
+let galleryDataReady = null;
+
+function activeTabName() {
+  try {
+    const bodyTab = document.body && document.body.getAttribute("data-active-tab");
+    if (bodyTab) return bodyTab;
+    const h = (location.hash || "").replace(/^#/, "").split("?")[0];
+    return h || "gallery";
+  } catch (e) {
+    return "gallery";
+  }
+}
+
+/** Paintings manifest + analyses only — never pull Generated analyses on boot. */
+async function ensureGalleryData() {
+  if (galleryDataReady) return galleryDataReady;
+  galleryDataReady = (async () => {
+    const grid = $("#gallery");
+    if (grid && !manifest.length) {
+      grid.innerHTML = `<p class="empty-state">Loading gallery…</p>`;
+    }
+    await loadData();
+    // Yield so tab clicks are not stuck behind filter/render
+    await new Promise((r) => setTimeout(r, 0));
+    filtered = [...manifest];
+    updateStats();
+    populateStyleFilter();
+    applyFilters();
+    return true;
+  })().catch((err) => {
+    galleryDataReady = null;
+    throw err;
+  });
+  return galleryDataReady;
+}
+
+async function init() {
+  bindEvents();
+
+  const tab = activeTabName();
+  // Only block first paint when Gallery is the active tab
+  const needsGalleryNow = tab === "gallery" || tab === "";
+
+  if (needsGalleryNow) {
+    // Don't await forever — keep UI responsive if JSON is slow
+    ensureGalleryData().catch((err) => {
+      console.error(err);
+      const grid = $("#gallery");
+      if (grid) {
+        grid.innerHTML = `<p class="empty-state">Failed to load gallery data. Is the server running?</p>`;
+      }
+    });
+  } else {
+    const warm = () => {
+      ensureGalleryData().catch((err) => console.warn("gallery warm load", err));
+    };
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(warm, { timeout: 6000 });
+    } else {
+      setTimeout(warm, 1500);
+    }
+  }
+
+  if (IS_LOCAL) {
+    setInterval(() => {
+      if (activeTabName() !== "gallery") return;
+      if (countAnalyzed() < manifest.length) refreshAnalyses();
+    }, REFRESH_MS);
   }
   if (CAN_USE_GALLERY_API) {
     setInterval(() => {
+      if (activeTabName() !== "gallery") return;
       if (galleryCollection === "generated") {
-        loadLod1Analyses().then(() => {
-          patchAssetCards();
-          updateCollectionChrome();
-        });
+        // Only refresh if already loaded once (avoid surprise 4MB download)
+        if (Object.keys(lod1Analyses).length) {
+          loadLod1Analyses().then(() => {
+            patchAssetCards();
+            updateCollectionChrome();
+          });
+        }
       } else if (galleryCollection !== "paintings") {
         refreshActiveCollection({ preserveView: true });
       }
@@ -1160,7 +1707,26 @@ async function init() {
   }
 }
 
+// Load when user opens Gallery tab
+window.addEventListener("tab-changed", (e) => {
+  const tab = (e.detail && e.detail.tab) || "";
+  if (tab === "gallery") {
+    ensureGalleryData().catch((err) => {
+      console.error(err);
+      const grid = $("#gallery");
+      if (grid) {
+        grid.innerHTML = `<p class="empty-state">Failed to load gallery data. Is the server running?</p>`;
+      }
+    });
+  }
+});
+
 init().catch((err) => {
   console.error(err);
-  $("#gallery").innerHTML = `<p class="empty-state">Failed to load gallery data. Is the server running?</p>`;
+  if (activeTabName() === "gallery") {
+    const grid = $("#gallery");
+    if (grid) {
+      grid.innerHTML = `<p class="empty-state">Failed to load gallery data. Is the server running?</p>`;
+    }
+  }
 });

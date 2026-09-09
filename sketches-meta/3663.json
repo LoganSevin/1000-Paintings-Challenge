@@ -1,0 +1,42 @@
+{
+  "number": 3663,
+  "title": "Line sketch: Stained Glass Dragon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large and black dragon with glowing eyes lies coiled on broken stone in the foreground, breathing fire. Behind it is a massive circular stained glass window depicting two additional dragons, a castle, and flames against a dramatic twilight sky (derived from generated still #3071).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large and black dragon with glowing eyes lies coiled on broken stone in the foreground, breathing fire. Behind it is a massive circular stained glass window depicting two additional dragons, a castle, and flames against a dramatic twilight sky",
+  "inverted_title": "Inverted sketch: Stained Glass Dragon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large and black dragon with glowing eyes lies coiled on broken stone in the foreground, breathing fire. Behind it is a massive circular stained glass window depicting two additional dragons, a castle, and flames against a dramatic twilight sky (from generated still #3071).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large and black dragon with glowing eyes lies coiled on broken stone in the foreground, breathing fire. Behind it is a massive circular stained glass window depicting two additional dragons, a castle, and flames against a dramatic twilight sky",
+  "source_description": "A large dark red and black dragon with glowing green eyes lies coiled on broken stone in the foreground, breathing orange fire. Behind it is a massive circular stained glass window depicting two additional dragons, a castle, and flames against a dramatic twilight sky.",
+  "source_prompt": "A massive dark red and black dragon with glowing green eyes and detailed scales lies curled on broken stone rubble in the foreground, breathing fire from its open maw. Behind the dragon is an enormous circular broken stained glass window set in a stone frame, showing multiple dragons, a castle, and flames in vibrant colored glass pieces, dramatic twilight sky with purple and blue clouds, epic fantasy style",
+  "source_title": "Stained Glass Dragon",
+  "style": "fantasy illustration",
+  "mood": "epic, menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "stained glass",
+    "fantasy",
+    "fire",
+    "ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3071,
+  "source_url": "/generated/3071.jpg",
+  "image_url": "/sketches/3663.png",
+  "inverted_image_url": "/sketches-inverted/3663.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

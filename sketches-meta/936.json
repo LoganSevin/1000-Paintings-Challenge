@@ -1,0 +1,42 @@
+{
+  "number": 936,
+  "title": "Line sketch: Cosmic Wolves and Horses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a wolf with glowing eyes leaping alongside two vibrant horses. They run above a geometric, dripping triangular landscape under a swirling sky filled with planets, orbs, and shooting stars (derived from generated still #146).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a wolf with glowing eyes leaping alongside two vibrant horses. They run above a geometric, dripping triangular landscape under a swirling sky filled with planets, orbs, and shooting stars",
+  "inverted_title": "Inverted sketch: Cosmic Wolves and Horses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a wolf with glowing eyes leaping alongside two vibrant horses. They run above a geometric, dripping triangular landscape under a swirling sky filled with planets, orbs, and shooting stars (from generated still #146).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a wolf with glowing eyes leaping alongside two vibrant horses. They run above a geometric, dripping triangular landscape under a swirling sky filled with planets, orbs, and shooting stars",
+  "source_description": "A surreal painting depicts a dark purple wolf with glowing yellow eyes leaping alongside two vibrant green horses. They run above a geometric, dripping triangular landscape under a swirling rainbow sky filled with planets, orbs, and shooting stars.",
+  "source_prompt": "",
+  "source_title": "Cosmic Wolves and Horses",
+  "style": "surreal fantasy",
+  "mood": "ethereal dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "horses",
+    "cosmic",
+    "surreal",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 146,
+  "source_url": "/generated/146.jpg",
+  "image_url": "/sketches/936.png",
+  "inverted_image_url": "/sketches-inverted/936.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 941,
+  "title": "Line sketch: Cosmic Mind Projection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large melting entity with eyes and an exposed brain floats above a reflective surface, projecting vibrant streams of light and energy from its head toward a glowing celestial ring in the swirling cosmic sky. In the background, a crystalline mountain range mirrors perfectly in the water below, surrounded by floating planets, orbs, and small spacecraft in a psychedelic dreamscape (derived from generated still #151).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large melting entity with eyes and an exposed brain floats above a reflective surface, projecting vibrant streams of light and energy from its head toward a glowing celestial ring in the swirling cosmic sky. In the background, a crystalline mountain range mirrors perfectly in the water below, surrounded by floating planets, orbs, and small spacecraft in a psychedelic dreamscape",
+  "inverted_title": "Inverted sketch: Cosmic Mind Projection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large melting entity with eyes and an exposed brain floats above a reflective surface, projecting vibrant streams of light and energy from its head toward a glowing celestial ring in the swirling cosmic sky. In the background, a crystalline mountain range mirrors perfectly in the water below, surrounded by floating planets, orbs, and small spacecraft in a psychedelic dreamscape (from generated still #151).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large melting entity with eyes and an exposed brain floats above a reflective surface, projecting vibrant streams of light and energy from its head toward a glowing celestial ring in the swirling cosmic sky. In the background, a crystalline mountain range mirrors perfectly in the water below, surrounded by floating planets, orbs, and small spacecraft in a psychedelic dreamscape",
+  "source_description": "A large blue melting entity with golden eyes and an exposed brain floats above a reflective purple surface, projecting vibrant streams of light and energy from its head toward a glowing celestial ring in the swirling cosmic sky. In the background, a crystalline green mountain range mirrors perfectly in the water below, surrounded by floating planets, orbs, and small spacecraft in a psychedelic dreamscape.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mind Projection",
+  "style": "surreal psychedelic",
+  "mood": "trippy mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "melting entity",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 151,
+  "source_url": "/generated/151.jpg",
+  "image_url": "/sketches/941.png",
+  "inverted_image_url": "/sketches-inverted/941.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:40Z"
+}

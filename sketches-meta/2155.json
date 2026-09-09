@@ -1,0 +1,42 @@
+{
+  "number": 2155,
+  "title": "Line sketch: Skeleton Reaper with Cosmic Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded skeleton with glowing eyes holds a large spider chrysanthemum while a flowing cosmic scarf extends from its form, containing stars, a banana, and a octopus emerging from a cratered moon-like surface. In the gradient background, a serene woman's face with sunflower-like hair floats beside the grim reaper figure amid floating crescent shapes (derived from generated still #1380).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded skeleton with glowing eyes holds a large spider chrysanthemum while a flowing cosmic scarf extends from its form, containing stars, a banana, and a octopus emerging from a cratered moon-like surface. In the gradient background, a serene woman's face with sunflower-like hair floats beside the grim reaper figure amid floating crescent shapes",
+  "inverted_title": "Inverted sketch: Skeleton Reaper with Cosmic Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded skeleton with glowing eyes holds a large spider chrysanthemum while a flowing cosmic scarf extends from its form, containing stars, a banana, and a octopus emerging from a cratered moon-like surface. In the gradient background, a serene woman's face with sunflower-like hair floats beside the grim reaper figure amid floating crescent shapes (from generated still #1380).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded skeleton with glowing eyes holds a large spider chrysanthemum while a flowing cosmic scarf extends from its form, containing stars, a banana, and a octopus emerging from a cratered moon-like surface. In the gradient background, a serene woman's face with sunflower-like hair floats beside the grim reaper figure amid floating crescent shapes",
+  "source_description": "A hooded skeleton with glowing purple eyes holds a large red spider chrysanthemum while a flowing purple cosmic scarf extends from its form, containing stars, a yellow banana, and a purple octopus emerging from a cratered moon-like surface. In the green gradient background, a serene woman's face with sunflower-like hair floats beside the grim reaper figure amid floating yellow crescent shapes.",
+  "source_prompt": "",
+  "source_title": "Skeleton Reaper with Cosmic Bloom",
+  "style": "surreal digital illustration",
+  "mood": "ethereal macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "reaper",
+    "cosmic",
+    "octopus",
+    "chrysanthemum"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1380,
+  "source_url": "/generated/1380.jpg",
+  "image_url": "/sketches/2155.png",
+  "inverted_image_url": "/sketches-inverted/2155.png",
+  "curve_count": 272,
+  "built_at": "2026-08-17T00:09:42Z"
+}

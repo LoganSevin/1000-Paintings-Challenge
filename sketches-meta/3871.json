@@ -1,0 +1,42 @@
+{
+  "number": 3871,
+  "title": "Line sketch: Sunflower Girl Action Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character in a sunflower-themed outfit against a solid background. The character is shown standing with glowing hands, leaping with tail extended, stomping with an explosive ground effect, and crouching with smoke rising from her boots (derived from generated still #3288).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character in a sunflower-themed outfit against a solid background. The character is shown standing with glowing hands, leaping with tail extended, stomping with an explosive ground effect, and crouching with smoke rising from her boots",
+  "inverted_title": "Inverted sketch: Sunflower Girl Action Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character in a sunflower-themed outfit against a solid background. The character is shown standing with glowing hands, leaping with tail extended, stomping with an explosive ground effect, and crouching with smoke rising from her boots (from generated still #3288).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character in a sunflower-themed outfit against a solid background. The character is shown standing with glowing hands, leaping with tail extended, stomping with an explosive ground effect, and crouching with smoke rising from her boots",
+  "source_description": "Four sequential poses of a female character in a yellow sunflower-themed outfit against a solid green background. The character is shown standing with glowing hands, leaping with tail extended, stomping with an explosive ground effect, and crouching with smoke rising from her boots.",
+  "source_prompt": "A four-panel sequence on a solid lime green background showing the same punk girl character with spiky black hair, sunflower goggles, and a yellow-black outfit with mechanical details and a long black tail. She wears heavy yellow boots. In the first panel she stands with glowing yellow energy around her hands and floating sunflower petals. Second panel she is mid-leap kicking forward with tail swinging. Third panel she stomps creating a bright yellow explosive burst at her feet. Final panel she crouches low with smoke rising from her boots and sunflowers on the ground. Comic book illustration style with bold black outlines.",
+  "source_title": "Sunflower Girl Action Poses",
+  "style": "comic book",
+  "mood": "energetic, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "sunflower motif",
+    "action poses",
+    "costume",
+    "comic style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3288,
+  "source_url": "/generated/3288.jpg",
+  "image_url": "/sketches/3871.png",
+  "inverted_image_url": "/sketches-inverted/3871.png",
+  "curve_count": 109,
+  "built_at": "2026-08-17T00:09:46Z"
+}

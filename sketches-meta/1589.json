@@ -1,0 +1,42 @@
+{
+  "number": 1589,
+  "title": "Line sketch: Wolf and Triple Goddess",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring a large wolf with eyes on the right, its head overlapping three stylized female profiles facing left. Intricate and swirling patterns, circles, dripping effects, and symbolic motifs fill the composition against a background (derived from generated still #804).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring a large wolf with eyes on the right, its head overlapping three stylized female profiles facing left. Intricate and swirling patterns, circles, dripping effects, and symbolic motifs fill the composition against a background",
+  "inverted_title": "Inverted sketch: Wolf and Triple Goddess",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring a large wolf with eyes on the right, its head overlapping three stylized female profiles facing left. Intricate and swirling patterns, circles, dripping effects, and symbolic motifs fill the composition against a background (from generated still #804).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring a large wolf with eyes on the right, its head overlapping three stylized female profiles facing left. Intricate and swirling patterns, circles, dripping effects, and symbolic motifs fill the composition against a background",
+  "source_description": "A vibrant psychedelic artwork featuring a large green wolf with yellow eyes on the right, its head overlapping three stylized female profiles facing left. Intricate blue and green swirling patterns, circles, dripping effects, and symbolic motifs fill the composition against a multicolored background.",
+  "source_prompt": "",
+  "source_title": "Wolf and Triple Goddess",
+  "style": "Psychedelic",
+  "mood": "Mystical, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "triple goddess",
+    "psychedelic",
+    "swirls",
+    "symbolic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 804,
+  "source_url": "/generated/804.jpg",
+  "image_url": "/sketches/1589.png",
+  "inverted_image_url": "/sketches-inverted/1589.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:41Z"
+}

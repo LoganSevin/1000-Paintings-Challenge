@@ -1,0 +1,42 @@
+{
+  "number": 2825,
+  "title": "Line sketch: Surreal Mechanical Face",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large circular mechanical head dominates the center, divided into segmented panels with visible text including 'TODAY', 'INJECT', and 'INDECISION'. The lower portion features a grotesque screaming mouth with sharp teeth, while the left side displays a large eye with gears. A rusty multi-pointed star protrudes from the right side against a swirling cosmic sky with two moons (derived from generated still #2110).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large circular mechanical head dominates the center, divided into segmented panels with visible text including 'TODAY', 'INJECT', and 'INDECISION'. The lower portion features a grotesque screaming mouth with sharp teeth, while the left side displays a large eye with gears. A rusty multi-pointed star protrudes from the right side against a swirling cosmic sky with two moons",
+  "inverted_title": "Inverted sketch: Surreal Mechanical Face",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large circular mechanical head dominates the center, divided into segmented panels with visible text including 'TODAY', 'INJECT', and 'INDECISION'. The lower portion features a grotesque screaming mouth with sharp teeth, while the left side displays a large eye with gears. A rusty multi-pointed star protrudes from the right side against a swirling cosmic sky with two moons (from generated still #2110).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large circular mechanical head dominates the center, divided into segmented panels with visible text including 'TODAY', 'INJECT', and 'INDECISION'. The lower portion features a grotesque screaming mouth with sharp teeth, while the left side displays a large eye with gears. A rusty multi-pointed star protrudes from the right side against a swirling cosmic sky with two moons",
+  "source_description": "A large circular mechanical head dominates the center, divided into segmented panels with visible text including 'TODAY', 'INJECT', and 'INDECISION'. The lower portion features a grotesque screaming mouth with sharp teeth, while the left side displays a large golden eye with gears. A rusty multi-pointed star protrudes from the right side against a swirling cosmic sky with two moons.",
+  "source_prompt": "Surreal mechanical head floating in a cosmic sky, segmented rusty metal face divided into panels with text reading TODAY, INJECT, and INDECISION, grotesque screaming mouth with sharp teeth at the bottom, large golden mechanical eye on the left, rusty star protruding from the right side, two moons in a swirling cloudy sky, dark dystopian atmosphere, detailed oil painting style",
+  "source_title": "Surreal Mechanical Face",
+  "style": "surrealism",
+  "mood": "chaotic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical",
+    "grotesque",
+    "cosmic",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2110,
+  "source_url": "/generated/2110.jpg",
+  "image_url": "/sketches/2825.png",
+  "inverted_image_url": "/sketches-inverted/2825.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:44Z"
+}

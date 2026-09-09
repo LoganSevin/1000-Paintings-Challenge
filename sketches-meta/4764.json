@@ -1,0 +1,42 @@
+{
+  "number": 4764,
+  "title": "Line sketch: Surreal Desert Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular portal framed by an intricate steampunk border of pipes, glass jars containing dried slices, buttons, feathers, and metal bowls. Through the portal is a surreal desert landscape at sunset with long shadows, silhouetted figures walking on sand dunes, a lone wooden door standing in the center, and floating mechanical airships in a and sky (derived from generated still #4198).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular portal framed by an intricate steampunk border of pipes, glass jars containing dried slices, buttons, feathers, and metal bowls. Through the portal is a surreal desert landscape at sunset with long shadows, silhouetted figures walking on sand dunes, a lone wooden door standing in the center, and floating mechanical airships in a and sky",
+  "inverted_title": "Inverted sketch: Surreal Desert Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular portal framed by an intricate steampunk border of pipes, glass jars containing dried slices, buttons, feathers, and metal bowls. Through the portal is a surreal desert landscape at sunset with long shadows, silhouetted figures walking on sand dunes, a lone wooden door standing in the center, and floating mechanical airships in a and sky (from generated still #4198).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular portal framed by an intricate steampunk border of pipes, glass jars containing dried slices, buttons, feathers, and metal bowls. Through the portal is a surreal desert landscape at sunset with long shadows, silhouetted figures walking on sand dunes, a lone wooden door standing in the center, and floating mechanical airships in a and sky",
+  "source_description": "A circular portal framed by an intricate steampunk border of copper pipes, glass jars containing dried orange slices, buttons, feathers, and metal bowls. Through the portal is a surreal desert landscape at sunset with long shadows, silhouetted figures walking on sand dunes, a lone wooden door standing in the center, and floating mechanical airships in a purple and orange sky.",
+  "source_prompt": "Surreal steampunk artwork featuring a large circular portal with an ornate border made of copper pipes, glass jars with dried citrus slices, metal bowls, buttons and feathers. Inside the portal is a vast desert at sunset with rippled sand dunes, several silhouetted human figures casting long dramatic shadows, a single wooden door standing alone in the center, distant mountains, and whimsical floating airships in a vibrant purple, pink and orange sky.",
+  "source_title": "Surreal Desert Portal",
+  "style": "surrealism",
+  "mood": "dreamlike mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "steampunk",
+    "desert",
+    "portal",
+    "floating ships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4198,
+  "source_url": "/generated/4198.jpg",
+  "image_url": "/sketches/4764.png",
+  "inverted_image_url": "/sketches-inverted/4764.png",
+  "curve_count": 156,
+  "built_at": "2026-08-17T00:09:48Z"
+}

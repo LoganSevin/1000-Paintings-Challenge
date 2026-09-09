@@ -1,0 +1,42 @@
+{
+  "number": 1945,
+  "title": "Line sketch: Galactic Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition features a large, fluffy cat with star-patterned eyes leaping joyfully through a cosmic scene. Surrounding it are smaller cats, three stylized African women with intricate headwraps and jewelry, and a swirling and nebula filled with bubbles and constellations (derived from generated still #1170).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition features a large, fluffy cat with star-patterned eyes leaping joyfully through a cosmic scene. Surrounding it are smaller cats, three stylized African women with intricate headwraps and jewelry, and a swirling and nebula filled with bubbles and constellations",
+  "inverted_title": "Inverted sketch: Galactic Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition features a large, fluffy cat with star-patterned eyes leaping joyfully through a cosmic scene. Surrounding it are smaller cats, three stylized African women with intricate headwraps and jewelry, and a swirling and nebula filled with bubbles and constellations (from generated still #1170).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition features a large, fluffy cat with star-patterned eyes leaping joyfully through a cosmic scene. Surrounding it are smaller cats, three stylized African women with intricate headwraps and jewelry, and a swirling and nebula filled with bubbles and constellations",
+  "source_description": "A vibrant watercolor painting features a large, fluffy green cat with star-patterned eyes leaping joyfully through a cosmic scene. Surrounding it are smaller green cats, three stylized African women with intricate headwraps and jewelry, and a swirling purple and green nebula filled with bubbles and constellations.",
+  "source_prompt": "",
+  "source_title": "Galactic Green Cat",
+  "style": "whimsical fantasy",
+  "mood": "joyful cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat",
+    "cosmic",
+    "fantasy",
+    "nebula",
+    "African women"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1170,
+  "source_url": "/generated/1170.jpg",
+  "image_url": "/sketches/1945.png",
+  "inverted_image_url": "/sketches-inverted/1945.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:42Z"
+}

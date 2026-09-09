@@ -1,0 +1,42 @@
+{
+  "number": 3760,
+  "title": "Line sketch: Four Poses of Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical side-by-side images of a muscular male warrior in a dynamic combat stance, holding two curved blades. He wears ornate and armor with leather straps, a tattered dark skirt with trim, and has spiky highlighted hair (derived from generated still #3176).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical side-by-side images of a muscular male warrior in a dynamic combat stance, holding two curved blades. He wears ornate and armor with leather straps, a tattered dark skirt with trim, and has spiky highlighted hair",
+  "inverted_title": "Inverted sketch: Four Poses of Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical side-by-side images of a muscular male warrior in a dynamic combat stance, holding two curved blades. He wears ornate and armor with leather straps, a tattered dark skirt with trim, and has spiky highlighted hair (from generated still #3176).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical side-by-side images of a muscular male warrior in a dynamic combat stance, holding two curved blades. He wears ornate and armor with leather straps, a tattered dark skirt with trim, and has spiky highlighted hair",
+  "source_description": "Four identical side-by-side images of a muscular male warrior in a dynamic combat stance, holding two curved blades. He wears ornate bronze and gold armor with leather straps, a tattered dark skirt with gold trim, and has spiky highlighted hair.",
+  "source_prompt": "A muscular male warrior with spiky styled hair in a low combat stance, holding two curved daggers, wearing detailed bronze and gold shoulder armor with exposed chest, dark tattered skirt with gold trim, leather straps and boots, shown in four identical side-by-side views against a dark studio background, highly detailed realistic rendering",
+  "source_title": "Four Poses of Warrior",
+  "style": "realistic 3D render",
+  "mood": "intense, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "fighter",
+    "multiple poses",
+    "armor",
+    "dual blades"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3176,
+  "source_url": "/generated/3176.jpg",
+  "image_url": "/sketches/3760.png",
+  "inverted_image_url": "/sketches-inverted/3760.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1096,
+  "title": "Line sketch: Psychedelic Dog Eye Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition features a dog's head with swirls and dripping paint, framed within a cracked circular border adorned with flowers and thorny branches. To the right, a large stylized eye with a iris contains a small silhouetted figure, all set against a dark background with dripping paint effects (derived from generated still #308).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition features a dog's head with swirls and dripping paint, framed within a cracked circular border adorned with flowers and thorny branches. To the right, a large stylized eye with a iris contains a small silhouetted figure, all set against a dark background with dripping paint effects",
+  "inverted_title": "Inverted sketch: Psychedelic Dog Eye Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition features a dog's head with swirls and dripping paint, framed within a cracked circular border adorned with flowers and thorny branches. To the right, a large stylized eye with a iris contains a small silhouetted figure, all set against a dark background with dripping paint effects (from generated still #308).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition features a dog's head with swirls and dripping paint, framed within a cracked circular border adorned with flowers and thorny branches. To the right, a large stylized eye with a iris contains a small silhouetted figure, all set against a dark background with dripping paint effects",
+  "source_description": "A vibrant surreal painting features a colorful dog's head with green swirls and dripping paint, framed within a cracked circular border adorned with pink flowers and red thorny branches. To the right, a large stylized eye with a purple iris contains a small silhouetted figure, all set against a dark background with colorful dripping paint effects.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Dog Eye Portrait",
+  "style": "surreal pop art",
+  "mood": "psychedelic vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "surreal",
+    "dripping paint",
+    "psychedelic",
+    "eye motif"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 308,
+  "source_url": "/generated/308.jpg",
+  "image_url": "/sketches/1096.png",
+  "inverted_image_url": "/sketches-inverted/1096.png",
+  "curve_count": 334,
+  "built_at": "2026-08-17T00:09:40Z"
+}

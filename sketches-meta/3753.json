@@ -1,0 +1,42 @@
+{
+  "number": 3753,
+  "title": "Line sketch: Armored Warrior Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A four-panel sequence showing a young Black woman with short curly hair in a dynamic action pose progression. She wears a detailed and black armored outfit with straps, pouches, and mechanical elements, performing combat movements with sparks and particle effects emanating from her right hand (derived from generated still #3165).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A four-panel sequence showing a young Black woman with short curly hair in a dynamic action pose progression. She wears a detailed and black armored outfit with straps, pouches, and mechanical elements, performing combat movements with sparks and particle effects emanating from her right hand",
+  "inverted_title": "Inverted sketch: Armored Warrior Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A four-panel sequence showing a young Black woman with short curly hair in a dynamic action pose progression. She wears a detailed and black armored outfit with straps, pouches, and mechanical elements, performing combat movements with sparks and particle effects emanating from her right hand (from generated still #3165).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A four-panel sequence showing a young Black woman with short curly hair in a dynamic action pose progression. She wears a detailed and black armored outfit with straps, pouches, and mechanical elements, performing combat movements with sparks and particle effects emanating from her right hand",
+  "source_description": "A four-panel sequence showing a young Black woman with short curly hair in a dynamic action pose progression. She wears a detailed orange and black armored outfit with straps, pouches, and mechanical elements, performing combat movements with sparks and particle effects emanating from her right hand.",
+  "source_prompt": "A four-panel cinematic sequence of a fierce young Black woman with short curly hair wearing detailed orange and black tactical armor with straps, buckles and mechanical details. She performs a fluid combat sequence from left to right: defensive stance with fists raised, wide fighting stance, powerful forward strike with bright orange sparks exploding from her right hand, and a final dynamic pose. Dramatic studio lighting against a dark textured background with large fragmented text elements, high detail, realistic rendering.",
+  "source_title": "Orange Armored Warrior Sequence",
+  "style": "cinematic digital art",
+  "mood": "dynamic energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography composite",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "action sequence",
+    "armor",
+    "afrofuturism",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3165,
+  "source_url": "/generated/3165.jpg",
+  "image_url": "/sketches/3753.png",
+  "inverted_image_url": "/sketches-inverted/3753.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

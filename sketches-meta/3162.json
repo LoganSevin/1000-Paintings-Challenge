@@ -1,0 +1,42 @@
+{
+  "number": 3162,
+  "title": "Line sketch: Shattered Serpent Veil",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant snake with eyes coils on the right side of a shattered mirror or glass surface, surrounded by floating white petals. On the left, flowing silk fabrics in, and patterns swirl through the broken glass fragments against a dark background (derived from generated still #2504).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant snake with eyes coils on the right side of a shattered mirror or glass surface, surrounded by floating white petals. On the left, flowing silk fabrics in, and patterns swirl through the broken glass fragments against a dark background",
+  "inverted_title": "Inverted sketch: Shattered Serpent Veil",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant snake with eyes coils on the right side of a shattered mirror or glass surface, surrounded by floating white petals. On the left, flowing silk fabrics in, and patterns swirl through the broken glass fragments against a dark background (from generated still #2504).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant snake with eyes coils on the right side of a shattered mirror or glass surface, surrounded by floating white petals. On the left, flowing silk fabrics in, and patterns swirl through the broken glass fragments against a dark background",
+  "source_description": "A vibrant green snake with orange eyes coils on the right side of a shattered mirror or glass surface, surrounded by floating white petals. On the left, flowing colorful silk fabrics in pink, purple, and gold patterns swirl through the broken glass fragments against a dark background.",
+  "source_prompt": "A surreal scene of a vibrant emerald green snake with orange eyes coiled on the right, surrounded by floating white petals, positioned next to flowing colorful silk drapery in swirling patterns of pink, purple, orange and gold on the left side. The entire image is viewed through a dramatically shattered mirror or glass pane with sharp cracks and floating shards, dark moody background with soft ethereal lighting.",
+  "source_title": "Shattered Serpent Veil",
+  "style": "surreal",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "shattered glass",
+    "silk fabric",
+    "surreal",
+    "petals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2504,
+  "source_url": "/generated/2504.jpg",
+  "image_url": "/sketches/3162.png",
+  "inverted_image_url": "/sketches-inverted/3162.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

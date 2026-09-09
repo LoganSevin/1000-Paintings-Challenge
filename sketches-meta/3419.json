@@ -1,0 +1,42 @@
+{
+  "number": 3419,
+  "title": "Line sketch: Cosmic Bear Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic collage featuring a large bear head with glowing eyes, a cosmic galaxy bear in the center, and a corn cob character wearing a military helmet and smoking at the top. Below are a vibrant swirling portal over a futuristic city, a cosmic dripping donut on a wooden platform, a bird on a floating rock, and a powerful waterfall landscape on the right (derived from generated still #2820).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic collage featuring a large bear head with glowing eyes, a cosmic galaxy bear in the center, and a corn cob character wearing a military helmet and smoking at the top. Below are a vibrant swirling portal over a futuristic city, a cosmic dripping donut on a wooden platform, a bird on a floating rock, and a powerful waterfall landscape on the right",
+  "inverted_title": "Inverted sketch: Cosmic Bear Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic collage featuring a large bear head with glowing eyes, a cosmic galaxy bear in the center, and a corn cob character wearing a military helmet and smoking at the top. Below are a vibrant swirling portal over a futuristic city, a cosmic dripping donut on a wooden platform, a bird on a floating rock, and a powerful waterfall landscape on the right (from generated still #2820).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic collage featuring a large bear head with glowing eyes, a cosmic galaxy bear in the center, and a corn cob character wearing a military helmet and smoking at the top. Below are a vibrant swirling portal over a futuristic city, a cosmic dripping donut on a wooden platform, a bird on a floating rock, and a powerful waterfall landscape on the right",
+  "source_description": "A surreal psychedelic collage featuring a large brown bear head with glowing eyes, a cosmic galaxy bear in the center, and a green corn cob character wearing a military helmet and smoking at the top. Below are a vibrant swirling portal over a futuristic city, a cosmic dripping donut on a wooden platform, a green bird on a floating rock, and a powerful waterfall landscape on the right.",
+  "source_prompt": "Surreal psychedelic collage with a giant brown teddy bear head with glowing starry eyes in the upper left, a green corn cob soldier wearing a metal helmet with smoke coming out in the upper center, a large cosmic galaxy bear with stars and nebulae as its fur in the middle, a swirling colorful pink and orange portal revealing a futuristic city at sunset, a large cosmic donut with colorful stars dripping glaze on a wooden platform, a small green bird perched on a floating rock, and a majestic waterfall cascading through a forested rocky landscape on the right side.",
+  "source_title": "Cosmic Bear Collage",
+  "style": "surreal fantasy collage",
+  "mood": "whimsical psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "bear",
+    "psychedelic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2820,
+  "source_url": "/generated/2820.jpg",
+  "image_url": "/sketches/3419.png",
+  "inverted_image_url": "/sketches-inverted/3419.png",
+  "curve_count": 134,
+  "built_at": "2026-08-17T00:09:45Z"
+}

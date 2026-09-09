@@ -1,0 +1,42 @@
+{
+  "number": 1586,
+  "title": "Line sketch: Surreal Melting Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large stylized human eye dominates the composition, its iris a swirling pattern of and with a black pupil containing a star-like glint. The eye is partially overlapped by a -toned half-face with a detailed iris, surrounded by dripping paint effects, abstract loops, and smaller inset faces within circular motifs (derived from generated still #801).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large stylized human eye dominates the composition, its iris a swirling pattern of and with a black pupil containing a star-like glint. The eye is partially overlapped by a -toned half-face with a detailed iris, surrounded by dripping paint effects, abstract loops, and smaller inset faces within circular motifs",
+  "inverted_title": "Inverted sketch: Surreal Melting Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large stylized human eye dominates the composition, its iris a swirling pattern of and with a black pupil containing a star-like glint. The eye is partially overlapped by a -toned half-face with a detailed iris, surrounded by dripping paint effects, abstract loops, and smaller inset faces within circular motifs (from generated still #801).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large stylized human eye dominates the composition, its iris a swirling pattern of and with a black pupil containing a star-like glint. The eye is partially overlapped by a -toned half-face with a detailed iris, surrounded by dripping paint effects, abstract loops, and smaller inset faces within circular motifs",
+  "source_description": "A large stylized human eye dominates the composition, its iris a swirling pattern of green and yellow with a black pupil containing a star-like glint. The eye is partially overlapped by a red-toned half-face with a detailed red iris, surrounded by dripping paint effects, blue abstract loops, and smaller inset faces within circular motifs.",
+  "source_prompt": "",
+  "source_title": "Surreal Melting Eye",
+  "style": "surreal psychedelic",
+  "mood": "trippy hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "surreal",
+    "psychedelic",
+    "dripping paint",
+    "abstract face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 801,
+  "source_url": "/generated/801.jpg",
+  "image_url": "/sketches/1586.png",
+  "inverted_image_url": "/sketches-inverted/1586.png",
+  "curve_count": 255,
+  "built_at": "2026-08-17T00:09:41Z"
+}

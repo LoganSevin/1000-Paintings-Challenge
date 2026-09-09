@@ -1,0 +1,41 @@
+{
+  "number": 214,
+  "title": "Line sketch: Vibrant Abstract",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic composition of sweeping and transitions into bold and at the top. The energetic paint splatters and drips create a sense of spontaneous movement against the neutral background (derived from painting #261).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic composition of sweeping and transitions into bold and at the top. The energetic paint splatters and drips create a sense of spontaneous movement against the neutral background",
+  "inverted_title": "Inverted sketch: Vibrant Abstract",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic composition of sweeping and transitions into bold and at the top. The energetic paint splatters and drips create a sense of spontaneous movement against the neutral background (from painting #261).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic composition of sweeping and transitions into bold and at the top. The energetic paint splatters and drips create a sense of spontaneous movement against the neutral background",
+  "source_description": "A dynamic composition of sweeping brushstrokes in cool blues and teals transitions into bold red and purple at the top. The energetic paint splatters and drips create a sense of spontaneous movement against the neutral background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Abstract Brushstroke",
+  "style": "Abstract Expressionism",
+  "mood": "Energetic and bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "splash",
+    "composition",
+    "expressionism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 261,
+  "source_url": "/paintings/261.jpg",
+  "image_url": "/sketches/214.png",
+  "inverted_image_url": "/sketches-inverted/214.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:38Z"
+}

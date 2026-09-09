@@ -1,0 +1,42 @@
+{
+  "number": 1168,
+  "title": "Line sketch: Melancholy Highway Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young girl with large eyes and hair rests her chin on her hand while gazing at a futuristic city skyline. Vibrant cars speed along a wet multi-lane highway under a dramatic, sunset sky filled with glowing spiral patterns (derived from generated still #380).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young girl with large eyes and hair rests her chin on her hand while gazing at a futuristic city skyline. Vibrant cars speed along a wet multi-lane highway under a dramatic, sunset sky filled with glowing spiral patterns",
+  "inverted_title": "Inverted sketch: Melancholy Highway Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young girl with large eyes and hair rests her chin on her hand while gazing at a futuristic city skyline. Vibrant cars speed along a wet multi-lane highway under a dramatic, sunset sky filled with glowing spiral patterns (from generated still #380).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young girl with large eyes and hair rests her chin on her hand while gazing at a futuristic city skyline. Vibrant cars speed along a wet multi-lane highway under a dramatic, sunset sky filled with glowing spiral patterns",
+  "source_description": "A young girl with large green eyes and multicolored hair rests her chin on her hand while gazing at a futuristic city skyline. Vibrant cars speed along a wet multi-lane highway under a dramatic, colorful sunset sky filled with glowing spiral patterns.",
+  "source_prompt": "",
+  "source_title": "Melancholy Highway Sunset",
+  "style": "surreal pop art",
+  "mood": "melancholic, dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "highway",
+    "futuristic",
+    "sunset",
+    "spirals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 380,
+  "source_url": "/generated/380.jpg",
+  "image_url": "/sketches/1168.png",
+  "inverted_image_url": "/sketches-inverted/1168.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:40Z"
+}

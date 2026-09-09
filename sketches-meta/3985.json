@@ -1,0 +1,42 @@
+{
+  "number": 3985,
+  "title": "Line sketch: Mage Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with long white hair in an updo floats dynamically against a solid gray background. She wears a white and traditional-style outfit with armored elements, a sash, and matching boots, casting glowing magical energy from both hands with intricate circular spell effects (derived from generated still #3402).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with long white hair in an updo floats dynamically against a solid gray background. She wears a white and traditional-style outfit with armored elements, a sash, and matching boots, casting glowing magical energy from both hands with intricate circular spell effects",
+  "inverted_title": "Inverted sketch: Mage Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with long white hair in an updo floats dynamically against a solid gray background. She wears a white and traditional-style outfit with armored elements, a sash, and matching boots, casting glowing magical energy from both hands with intricate circular spell effects (from generated still #3402).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with long white hair in an updo floats dynamically against a solid gray background. She wears a white and traditional-style outfit with armored elements, a sash, and matching boots, casting glowing magical energy from both hands with intricate circular spell effects",
+  "source_description": "A young female character with long white hair in an updo floats dynamically against a solid gray background. She wears a white and purple traditional-style outfit with armored elements, a purple sash, and matching boots, casting glowing purple magical energy from both hands with intricate circular spell effects.",
+  "source_prompt": "A beautiful young East Asian female sorceress with long flowing white hair in an ornate updo, wearing a detailed white and purple traditional fantasy mage outfit with armored shoulder pieces, purple sash, and matching boots. She is floating mid-air dynamically casting magic, one hand extended forward creating a large glowing purple circular energy shield with runes, the other hand holding a smaller purple energy chain effect. Purple lightning and magical particles surround her head. Clean solid gray background, vibrant colors, detailed digital illustration style.",
+  "source_title": "Purple Mage Sorceress",
+  "style": "digital illustration",
+  "mood": "mystical, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic",
+    "fantasy character",
+    "white hair",
+    "spellcasting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3402,
+  "source_url": "/generated/3402.jpg",
+  "image_url": "/sketches/3985.png",
+  "inverted_image_url": "/sketches-inverted/3985.png",
+  "curve_count": 91,
+  "built_at": "2026-08-17T00:09:47Z"
+}

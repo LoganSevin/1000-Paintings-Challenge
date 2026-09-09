@@ -1,0 +1,42 @@
+{
+  "number": 426,
+  "title": "Line sketch: Alien Overlord Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A extraterrestrial with large eyes stares intensely from the center of a planet. Six metallic tentacles orbit around it against a cosmic background (derived from painting #509).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A extraterrestrial with large eyes stares intensely from the center of a planet. Six metallic tentacles orbit around it against a cosmic background",
+  "inverted_title": "Inverted sketch: Alien Overlord Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A extraterrestrial with large eyes stares intensely from the center of a planet. Six metallic tentacles orbit around it against a cosmic background (from painting #509).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A extraterrestrial with large eyes stares intensely from the center of a planet. Six metallic tentacles orbit around it against a cosmic background",
+  "source_description": "A green extraterrestrial with large red eyes stares intensely from the center of a blue planet. Six metallic tentacles orbit around it against a deep red cosmic background.",
+  "source_prompt": "",
+  "source_title": "Alien Overlord Portrait",
+  "style": "Surrealism",
+  "mood": "Eerie and hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "sci-fi",
+    "surreal",
+    "cosmic",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 509,
+  "source_url": "/paintings/509.jpg",
+  "image_url": "/sketches/426.png",
+  "inverted_image_url": "/sketches-inverted/426.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:39Z"
+}

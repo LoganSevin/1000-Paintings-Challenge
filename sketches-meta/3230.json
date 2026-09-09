@@ -1,0 +1,42 @@
+{
+  "number": 3230,
+  "title": "Line sketch: Apocalyptic Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a peach satin dress sits alone in a decaying, ruined movie theater, holding a film reel on her lap. The ceiling is torn open to a and apocalyptic sky with two nuclear mushroom clouds visible on the movie screen, while film strips, broken seats, and scattered reels litter the scene (derived from generated still #2584).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a peach satin dress sits alone in a decaying, ruined movie theater, holding a film reel on her lap. The ceiling is torn open to a and apocalyptic sky with two nuclear mushroom clouds visible on the movie screen, while film strips, broken seats, and scattered reels litter the scene",
+  "inverted_title": "Inverted sketch: Apocalyptic Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a peach satin dress sits alone in a decaying, ruined movie theater, holding a film reel on her lap. The ceiling is torn open to a and apocalyptic sky with two nuclear mushroom clouds visible on the movie screen, while film strips, broken seats, and scattered reels litter the scene (from generated still #2584).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a peach satin dress sits alone in a decaying, ruined movie theater, holding a film reel on her lap. The ceiling is torn open to a and apocalyptic sky with two nuclear mushroom clouds visible on the movie screen, while film strips, broken seats, and scattered reels litter the scene",
+  "source_description": "A woman in a peach satin dress sits alone in a decaying, ruined movie theater, holding a film reel on her lap. The ceiling is torn open to a purple and yellow apocalyptic sky with two nuclear mushroom clouds visible on the movie screen, while film strips, broken seats, and scattered reels litter the scene.",
+  "source_prompt": "A lone woman in a faded peach satin dress sits in a destroyed vintage movie theater, holding a film reel on her lap, surrounded by scattered broken film reels, old movie posters on decaying yellow walls, and torn red velvet seats. The ceiling is ripped open revealing a dramatic sunset sky, while the movie screen shows two atomic mushroom clouds exploding over a desert, with film strips floating through the air, in a haunting surreal style.",
+  "source_title": "Apocalyptic Cinema",
+  "style": "surreal composition",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "apocalypse",
+    "cinema",
+    "nuclear",
+    "surreal",
+    "ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2584,
+  "source_url": "/generated/2584.jpg",
+  "image_url": "/sketches/3230.png",
+  "inverted_image_url": "/sketches-inverted/3230.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:45Z"
+}

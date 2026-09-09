@@ -1,0 +1,42 @@
+{
+  "number": 4448,
+  "title": "Line sketch: Sevin's Spell Emporium",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A witch in a starry robe and pointed hat stands outside her magical shop at night, holding a glowing orb in one hand and raising the other. A black and white cat sits beside an open chest of potion bottles on the cobblestone street, surrounded by scattered scrolls and festive decorations under a starry sky (derived from generated still #3867).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A witch in a starry robe and pointed hat stands outside her magical shop at night, holding a glowing orb in one hand and raising the other. A black and white cat sits beside an open chest of potion bottles on the cobblestone street, surrounded by scattered scrolls and festive decorations under a starry sky",
+  "inverted_title": "Inverted sketch: Sevin's Spell Emporium",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A witch in a starry robe and pointed hat stands outside her magical shop at night, holding a glowing orb in one hand and raising the other. A black and white cat sits beside an open chest of potion bottles on the cobblestone street, surrounded by scattered scrolls and festive decorations under a starry sky (from generated still #3867).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A witch in a starry robe and pointed hat stands outside her magical shop at night, holding a glowing orb in one hand and raising the other. A black and white cat sits beside an open chest of potion bottles on the cobblestone street, surrounded by scattered scrolls and festive decorations under a starry sky",
+  "source_description": "A witch in a dark blue starry robe and pointed hat stands outside her magical shop at night, holding a glowing orb in one hand and raising the other. A black and white cat sits beside an open chest of potion bottles on the cobblestone street, surrounded by scattered scrolls and festive decorations under a starry sky.",
+  "source_prompt": "A whimsical fantasy scene at night showing a female witch wearing a long dark blue robe with golden stars and a pointed hat, standing on the steps of her shop named Sevin's Spell Emporium. She holds a glowing orb in one hand while casting a spell. A black and white cat sits nearby next to an open wooden chest filled with potion bottles. The shop has blue wooden doors, a striped awning, hanging magical ornaments, and warm glowing lights inside. Cobblestone street with scattered scrolls and gifts, starry night sky with bright stars above, festive and enchanting atmosphere.",
+  "source_title": "Sevin's Spell Emporium",
+  "style": "whimsical fantasy illustration",
+  "mood": "magical festive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "magic shop",
+    "fantasy",
+    "night scene",
+    "cat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3867,
+  "source_url": "/generated/3867.jpg",
+  "image_url": "/sketches/4448.png",
+  "inverted_image_url": "/sketches-inverted/4448.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:48Z"
+}

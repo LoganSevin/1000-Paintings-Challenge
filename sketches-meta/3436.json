@@ -1,0 +1,42 @@
+{
+  "number": 3436,
+  "title": "Line sketch: Gucci Surreal Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in ornate dark armor with a flowing cape stands dynamically in the foreground, holding a large glowing Gucci logo emblem. Behind him on a dark reflective ground are four mysterious figures in black suits and top hats, with a gothic cathedral looming under a fiery and apocalyptic sky (derived from generated still #2837).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in ornate dark armor with a flowing cape stands dynamically in the foreground, holding a large glowing Gucci logo emblem. Behind him on a dark reflective ground are four mysterious figures in black suits and top hats, with a gothic cathedral looming under a fiery and apocalyptic sky",
+  "inverted_title": "Inverted sketch: Gucci Surreal Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in ornate dark armor with a flowing cape stands dynamically in the foreground, holding a large glowing Gucci logo emblem. Behind him on a dark reflective ground are four mysterious figures in black suits and top hats, with a gothic cathedral looming under a fiery and apocalyptic sky (from generated still #2837).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in ornate dark armor with a flowing cape stands dynamically in the foreground, holding a large glowing Gucci logo emblem. Behind him on a dark reflective ground are four mysterious figures in black suits and top hats, with a gothic cathedral looming under a fiery and apocalyptic sky",
+  "source_description": "A man in ornate dark armor with a flowing red cape stands dynamically in the foreground, holding a large glowing golden Gucci logo emblem. Behind him on a dark reflective ground are four mysterious figures in black suits and top hats, with a gothic cathedral looming under a fiery red and orange apocalyptic sky.",
+  "source_prompt": "A confident man in intricate dark armor and flowing red cape stands in a dramatic pose holding a large ornate glowing golden Gucci logo emblem. Behind him stand four mysterious figures in black suits and top hats on a dark reflective ground scattered with glowing blue orbs marked with neon symbols. A towering gothic cathedral rises in the background under a turbulent fiery red and orange sky filled with dramatic clouds, surreal cinematic lighting, highly detailed digital painting.",
+  "source_title": "Gucci Surreal Warrior",
+  "style": "cinematic surrealism",
+  "mood": "dramatic, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "Gucci",
+    "apocalyptic",
+    "warrior",
+    "gothic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2837,
+  "source_url": "/generated/2837.jpg",
+  "image_url": "/sketches/3436.png",
+  "inverted_image_url": "/sketches-inverted/3436.png",
+  "curve_count": 143,
+  "built_at": "2026-08-17T00:09:45Z"
+}

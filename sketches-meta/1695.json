@@ -1,0 +1,42 @@
+{
+  "number": 1695,
+  "title": "Line sketch: Queen and Skeleton Court",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark-skinned queen with a crown sits at a table, facing a line of five identical black skeletons with blood dripping from their skulls and ribcages. The skeletons stand behind the table as if in a macabre procession against a vibrant, explosive background of swirling flames and patterns (derived from generated still #914).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark-skinned queen with a crown sits at a table, facing a line of five identical black skeletons with blood dripping from their skulls and ribcages. The skeletons stand behind the table as if in a macabre procession against a vibrant, explosive background of swirling flames and patterns",
+  "inverted_title": "Inverted sketch: Queen and Skeleton Court",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark-skinned queen with a crown sits at a table, facing a line of five identical black skeletons with blood dripping from their skulls and ribcages. The skeletons stand behind the table as if in a macabre procession against a vibrant, explosive background of swirling flames and patterns (from generated still #914).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark-skinned queen with a crown sits at a table, facing a line of five identical black skeletons with blood dripping from their skulls and ribcages. The skeletons stand behind the table as if in a macabre procession against a vibrant, explosive background of swirling flames and patterns",
+  "source_description": "A dark-skinned queen with a golden crown sits at a purple table, facing a line of five identical black skeletons with red blood dripping from their skulls and ribcages. The skeletons stand behind the table as if in a macabre procession against a vibrant, explosive background of swirling flames and patterns.",
+  "source_prompt": "",
+  "source_title": "Queen and Skeleton Court",
+  "style": "surreal pop art",
+  "mood": "macabre psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "queen",
+    "crown",
+    "blood",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 914,
+  "source_url": "/generated/914.jpg",
+  "image_url": "/sketches/1695.png",
+  "inverted_image_url": "/sketches-inverted/1695.png",
+  "curve_count": 248,
+  "built_at": "2026-08-17T00:09:41Z"
+}

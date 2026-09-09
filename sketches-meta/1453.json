@@ -1,0 +1,42 @@
+{
+  "number": 1453,
+  "title": "Line sketch: Turtle and Octopus Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant octopus with large eyes and a small palm tree on its head sits upright in a wooden bed, covered by a white blanket patterned with and sea creatures. An ornate sea turtle with swirling patterns swims in water beside the bed inside a dark stone cave, with a beam of light shining down from above and swirling patterns on the cave ceiling (derived from generated still #668).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant octopus with large eyes and a small palm tree on its head sits upright in a wooden bed, covered by a white blanket patterned with and sea creatures. An ornate sea turtle with swirling patterns swims in water beside the bed inside a dark stone cave, with a beam of light shining down from above and swirling patterns on the cave ceiling",
+  "inverted_title": "Inverted sketch: Turtle and Octopus Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant octopus with large eyes and a small palm tree on its head sits upright in a wooden bed, covered by a white blanket patterned with and sea creatures. An ornate sea turtle with swirling patterns swims in water beside the bed inside a dark stone cave, with a beam of light shining down from above and swirling patterns on the cave ceiling (from generated still #668).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant octopus with large eyes and a small palm tree on its head sits upright in a wooden bed, covered by a white blanket patterned with and sea creatures. An ornate sea turtle with swirling patterns swims in water beside the bed inside a dark stone cave, with a beam of light shining down from above and swirling patterns on the cave ceiling",
+  "source_description": "A vibrant purple octopus with large eyes and a small palm tree on its head sits upright in a wooden bed, covered by a white blanket patterned with orange and purple sea creatures. An ornate orange sea turtle with swirling patterns swims in blue water beside the bed inside a dark stone cave, with a beam of light shining down from above and swirling colorful patterns on the cave ceiling.",
+  "source_prompt": "",
+  "source_title": "Turtle and Octopus Dream",
+  "style": "whimsical fantasy",
+  "mood": "dreamlike surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "octopus",
+    "sea turtle",
+    "bed",
+    "cave",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 668,
+  "source_url": "/generated/668.jpg",
+  "image_url": "/sketches/1453.png",
+  "inverted_image_url": "/sketches-inverted/1453.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:41Z"
+}

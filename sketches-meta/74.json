@@ -1,0 +1,42 @@
+{
+  "number": 74,
+  "title": "Line sketch: Cosmic Spiral Dance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This abstract composition centers on a large circle with concentric rings and a surrounding orbit, encircled by curved forms, scattered dots, and organic shapes. The design radiates outward in balanced layers against a background, creating a sense of dynamic movement and cosmic harmony. Bold black outlines enclose flat, vibrant color fields with clean edges and minimal shading (derived from painting #105).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This abstract composition centers on a large circle with concentric rings and a surrounding orbit, encircled by curved forms, scattered dots, and organic shapes. The design radiates outward in balanced layers against a background, creating a sense of dynamic movement and cosmic harmony. Bold black outlines enclose flat, vibrant color fields with clean edges and minimal shading",
+  "inverted_title": "Inverted sketch: Cosmic Spiral Dance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This abstract composition centers on a large circle with concentric rings and a surrounding orbit, encircled by curved forms, scattered dots, and organic shapes. The design radiates outward in balanced layers against a background, creating a sense of dynamic movement and cosmic harmony. Bold black outlines enclose flat, vibrant color fields with clean edges and minimal shading (from painting #105).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This abstract composition centers on a large circle with concentric rings and a surrounding orbit, encircled by curved forms, scattered dots, and organic shapes. The design radiates outward in balanced layers against a background, creating a sense of dynamic movement and cosmic harmony. Bold black outlines enclose flat, vibrant color fields with clean edges and minimal shading",
+  "source_description": "This abstract composition centers on a large teal circle with concentric rings and a surrounding purple orbit, encircled by pink curved forms, scattered dots, and organic shapes. The design radiates outward in balanced layers against a deep purple background, creating a sense of dynamic movement and cosmic harmony. Bold black outlines enclose flat, vibrant color fields with clean edges and minimal shading.",
+  "source_prompt": "",
+  "source_title": "Cosmic Teal Spiral Dance",
+  "style": "Psychedelic Abstract",
+  "mood": "Vibrant and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circles",
+    "swirls",
+    "cosmic",
+    "retro"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 105,
+  "source_url": "/paintings/105.jpg",
+  "image_url": "/sketches/74.png",
+  "inverted_image_url": "/sketches-inverted/74.png",
+  "curve_count": 87,
+  "built_at": "2026-08-17T00:09:38Z"
+}

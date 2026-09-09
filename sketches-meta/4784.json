@@ -1,0 +1,42 @@
+{
+  "number": 4784,
+  "title": "Line sketch: Nested Frames at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a coat and hat sits on the threshold of a series of receding, dilapidated wooden frames, looking toward a and sunset over a distant forest. Translucent ribbons and bubbles, and float through the scene, while the outermost frame shows heavy peeling paint and decay (derived from generated still #4218).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a coat and hat sits on the threshold of a series of receding, dilapidated wooden frames, looking toward a and sunset over a distant forest. Translucent ribbons and bubbles, and float through the scene, while the outermost frame shows heavy peeling paint and decay",
+  "inverted_title": "Inverted sketch: Nested Frames at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a coat and hat sits on the threshold of a series of receding, dilapidated wooden frames, looking toward a and sunset over a distant forest. Translucent ribbons and bubbles, and float through the scene, while the outermost frame shows heavy peeling paint and decay (from generated still #4218).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a coat and hat sits on the threshold of a series of receding, dilapidated wooden frames, looking toward a and sunset over a distant forest. Translucent ribbons and bubbles, and float through the scene, while the outermost frame shows heavy peeling paint and decay",
+  "source_description": "A man in a brown coat and hat sits on the threshold of a series of receding, dilapidated wooden frames, looking toward a purple and orange sunset over a distant forest. Translucent ribbons and bubbles in shades of purple, blue, and teal float through the scene, while the outermost frame shows heavy peeling paint and decay.",
+  "source_prompt": "A solitary man wearing a brown hat and green scarf sits with his back to the viewer on the wooden threshold of multiple receding empty picture frames. He gazes at a purple and orange sunset over a pine forest. Translucent flowing ribbons and floating bubbles in purple, blue and teal drift through the scene. The outermost frame is heavily weathered with peeling white and green paint. Surreal symbolic atmosphere, detailed textures, painterly style.",
+  "source_title": "Nested Frames at Dusk",
+  "style": "surreal composition",
+  "mood": "melancholic, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "nested frames",
+    "peeling paint",
+    "twilight",
+    "ribbons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4218,
+  "source_url": "/generated/4218.jpg",
+  "image_url": "/sketches/4784.png",
+  "inverted_image_url": "/sketches-inverted/4784.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:49Z"
+}

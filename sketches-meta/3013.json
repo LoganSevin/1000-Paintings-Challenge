@@ -1,0 +1,42 @@
+{
+  "number": 3013,
+  "title": "Line sketch: Midnight Match Shadow Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a vibrant suit with a 'Christian vs. Legion' sash stands confidently amid large peonies and flowers against a dark background. A menacing shadowy creature with glowing white eyes and a jagged grin hovers behind him, all framed within a vintage television screen (derived from generated still #2335).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a vibrant suit with a 'Christian vs. Legion' sash stands confidently amid large peonies and flowers against a dark background. A menacing shadowy creature with glowing white eyes and a jagged grin hovers behind him, all framed within a vintage television screen",
+  "inverted_title": "Inverted sketch: Midnight Match Shadow Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a vibrant suit with a 'Christian vs. Legion' sash stands confidently amid large peonies and flowers against a dark background. A menacing shadowy creature with glowing white eyes and a jagged grin hovers behind him, all framed within a vintage television screen (from generated still #2335).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a vibrant suit with a 'Christian vs. Legion' sash stands confidently amid large peonies and flowers against a dark background. A menacing shadowy creature with glowing white eyes and a jagged grin hovers behind him, all framed within a vintage television screen",
+  "source_description": "A man in a vibrant blue suit with a 'Christian vs. Legion' sash stands confidently amid large pink peonies and yellow flowers against a dark background. A menacing shadowy creature with glowing white eyes and a jagged grin hovers behind him, all framed within a vintage television screen.",
+  "source_prompt": "",
+  "source_title": "Midnight Match Shadow Garden",
+  "style": "surreal pop art",
+  "mood": "eerie vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "man in suit",
+    "peonies",
+    "shadow creature",
+    "television frame",
+    "floral surrealism"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2335,
+  "source_url": "/generated/2335.jpg",
+  "image_url": "/sketches/3013.png",
+  "inverted_image_url": "/sketches-inverted/3013.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:44Z"
+}

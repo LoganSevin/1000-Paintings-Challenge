@@ -1,0 +1,42 @@
+{
+  "number": 3126,
+  "title": "Line sketch: Wanderer 2067",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone female wanderer with a bandana and glowing wrist device stands on a cracked desert road, looking back toward a massive vault door in the distance. The post-apocalyptic landscape features an abandoned drive-in theater, film reels, cacti, and utility poles under a dramatic twilight sky (derived from generated still #2464).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone female wanderer with a bandana and glowing wrist device stands on a cracked desert road, looking back toward a massive vault door in the distance. The post-apocalyptic landscape features an abandoned drive-in theater, film reels, cacti, and utility poles under a dramatic twilight sky",
+  "inverted_title": "Inverted sketch: Wanderer 2067",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone female wanderer with a bandana and glowing wrist device stands on a cracked desert road, looking back toward a massive vault door in the distance. The post-apocalyptic landscape features an abandoned drive-in theater, film reels, cacti, and utility poles under a dramatic twilight sky (from generated still #2464).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone female wanderer with a bandana and glowing wrist device stands on a cracked desert road, looking back toward a massive vault door in the distance. The post-apocalyptic landscape features an abandoned drive-in theater, film reels, cacti, and utility poles under a dramatic twilight sky",
+  "source_description": "A lone female wanderer with a red bandana and glowing wrist device stands on a cracked desert road, looking back toward a massive vault door in the distance. The post-apocalyptic landscape features an abandoned drive-in theater, film reels, cacti, and utility poles under a dramatic twilight sky.",
+  "source_prompt": "",
+  "source_title": "Wanderer 2067",
+  "style": "line sketch",
+  "mood": "desolate, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "wanderer",
+    "desert",
+    "drive-in theater",
+    "vault door"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2464,
+  "source_url": "/generated/2464.jpg",
+  "image_url": "/sketches/3126.png",
+  "inverted_image_url": "/sketches-inverted/3126.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:45Z"
+}

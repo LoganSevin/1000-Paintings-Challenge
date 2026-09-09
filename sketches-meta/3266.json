@@ -1,0 +1,42 @@
+{
+  "number": 3266,
+  "title": "Line sketch: Shattered Celluloid Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene of a cracked and crumbling classical theater interior. In the foreground, a woman in a dress kneels on a broken floor holding a large film reel, surrounded by scattered film strips, a theatrical mask, and a ticket stub, while a massive tear in reality reveals a ballerina in a black and white dress dancing in an art gallery that transitions into a post-apocalyptic ruined city under an sky, with radiation symbols floating above (derived from generated still #2638).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene of a cracked and crumbling classical theater interior. In the foreground, a woman in a dress kneels on a broken floor holding a large film reel, surrounded by scattered film strips, a theatrical mask, and a ticket stub, while a massive tear in reality reveals a ballerina in a black and white dress dancing in an art gallery that transitions into a post-apocalyptic ruined city under an sky, with radiation symbols floating above",
+  "inverted_title": "Inverted sketch: Shattered Celluloid Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene of a cracked and crumbling classical theater interior. In the foreground, a woman in a dress kneels on a broken floor holding a large film reel, surrounded by scattered film strips, a theatrical mask, and a ticket stub, while a massive tear in reality reveals a ballerina in a black and white dress dancing in an art gallery that transitions into a post-apocalyptic ruined city under an sky, with radiation symbols floating above (from generated still #2638).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene of a cracked and crumbling classical theater interior. In the foreground, a woman in a dress kneels on a broken floor holding a large film reel, surrounded by scattered film strips, a theatrical mask, and a ticket stub, while a massive tear in reality reveals a ballerina in a black and white dress dancing in an art gallery that transitions into a post-apocalyptic ruined city under an sky, with radiation symbols floating above",
+  "source_description": "A surreal scene of a cracked and crumbling classical theater interior. In the foreground, a woman in a red dress kneels on a broken floor holding a large film reel, surrounded by scattered film strips, a theatrical mask, and a ticket stub, while a massive tear in reality reveals a ballerina in a black and white dress dancing in an art gallery that transitions into a post-apocalyptic ruined city under an orange sky, with radiation symbols floating above.",
+  "source_prompt": "A highly detailed surreal painting of a classical theater interior violently cracking apart. In the foreground a woman in a red dress kneels on the broken floor holding a large film reel, surrounded by scattered film strips, a decorative mask and a movie ticket. A massive jagged tear splits the scene revealing a graceful ballerina in a black and white dress dancing inside an art gallery filled with statues, which transitions on the right into a dystopian ruined city under a fiery orange sunset sky. Radiation warning symbols float in the upper corner, cinematic lighting, dramatic atmosphere.",
+  "source_title": "Shattered Celluloid Dream",
+  "style": "surrealism",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "apocalypse",
+    "theater",
+    "film reel"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2638,
+  "source_url": "/generated/2638.jpg",
+  "image_url": "/sketches/3266.png",
+  "inverted_image_url": "/sketches-inverted/3266.png",
+  "curve_count": 88,
+  "built_at": "2026-08-17T00:09:45Z"
+}

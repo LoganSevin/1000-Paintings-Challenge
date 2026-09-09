@@ -1,0 +1,42 @@
+{
+  "number": 2162,
+  "title": "Line sketch: Frog Between Worlds",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows a man with antlers and a glowing cracked head on the left, holding a glowing frog with star-patterned eyes in his palm. On the right, a young boy with a similarly cracked and glowing head stares forward against a vibrant mountainous landscape under a crescent moon (derived from generated still #1387).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows a man with antlers and a glowing cracked head on the left, holding a glowing frog with star-patterned eyes in his palm. On the right, a young boy with a similarly cracked and glowing head stares forward against a vibrant mountainous landscape under a crescent moon",
+  "inverted_title": "Inverted sketch: Frog Between Worlds",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows a man with antlers and a glowing cracked head on the left, holding a glowing frog with star-patterned eyes in his palm. On the right, a young boy with a similarly cracked and glowing head stares forward against a vibrant mountainous landscape under a crescent moon (from generated still #1387).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows a man with antlers and a glowing cracked head on the left, holding a glowing frog with star-patterned eyes in his palm. On the right, a young boy with a similarly cracked and glowing head stares forward against a vibrant mountainous landscape under a crescent moon",
+  "source_description": "A surreal painting shows a man with antlers and a glowing cracked head on the left, holding a glowing green frog with star-patterned eyes in his palm. On the right, a young boy with a similarly cracked and glowing head stares forward against a vibrant mountainous landscape under a crescent moon.",
+  "source_prompt": "",
+  "source_title": "Frog Between Worlds",
+  "style": "surrealism",
+  "mood": "mystical, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "frog",
+    "antlers",
+    "cracked skin",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1387,
+  "source_url": "/generated/1387.jpg",
+  "image_url": "/sketches/2162.png",
+  "inverted_image_url": "/sketches-inverted/2162.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:42Z"
+}

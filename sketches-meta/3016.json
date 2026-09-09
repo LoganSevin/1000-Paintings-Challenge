@@ -1,0 +1,42 @@
+{
+  "number": 3016,
+  "title": "Line sketch: Psychedelic Forest Couple",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with cat ears and a striped tail stands barefoot beside a man in vibrant embroidered attire. They hold hands in a surreal, glowing forest filled with giant luminous mushrooms, oversized flowers, floating eyes, rainbows, and swirling energy tendrils (derived from generated still #2338).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with cat ears and a striped tail stands barefoot beside a man in vibrant embroidered attire. They hold hands in a surreal, glowing forest filled with giant luminous mushrooms, oversized flowers, floating eyes, rainbows, and swirling energy tendrils",
+  "inverted_title": "Inverted sketch: Psychedelic Forest Couple",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with cat ears and a striped tail stands barefoot beside a man in vibrant embroidered attire. They hold hands in a surreal, glowing forest filled with giant luminous mushrooms, oversized flowers, floating eyes, rainbows, and swirling energy tendrils (from generated still #2338).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with cat ears and a striped tail stands barefoot beside a man in vibrant embroidered attire. They hold hands in a surreal, glowing forest filled with giant luminous mushrooms, oversized flowers, floating eyes, rainbows, and swirling energy tendrils",
+  "source_description": "A young woman with cat ears and a striped tail stands barefoot beside a man in vibrant embroidered attire. They hold hands in a surreal, glowing forest filled with giant luminous mushrooms, oversized flowers, floating eyes, rainbows, and swirling purple energy tendrils.",
+  "source_prompt": "A beautiful young woman with cat ears, striped tail, and colorful festival outfit stands barefoot holding hands with a handsome man wearing ornate purple and pink embroidered jacket and pants. They are in a magical glowing forest with giant bioluminescent mushrooms, oversized vibrant flowers, floating eyeballs, rainbows, and swirling purple energy tendrils under a cosmic sky, highly detailed psychedelic fantasy artwork.",
+  "source_title": "Psychedelic Forest Couple",
+  "style": "Psychedelic Fantasy",
+  "mood": "Vibrant, Enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "fantasy",
+    "mushrooms",
+    "catgirl",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2338,
+  "source_url": "/generated/2338.jpg",
+  "image_url": "/sketches/3016.png",
+  "inverted_image_url": "/sketches-inverted/3016.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:44Z"
+}

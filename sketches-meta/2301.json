@@ -1,0 +1,42 @@
+{
+  "number": 2301,
+  "title": "Line sketch: Spiraling Desert Visions",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a procession of identical women with elaborate spiral hair walking along a winding path through a desert landscape dotted with cacti. Large circular motifs resembling vinyl records or cosmic patterns float in the sky around a prominent - sun (derived from generated still #1528).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a procession of identical women with elaborate spiral hair walking along a winding path through a desert landscape dotted with cacti. Large circular motifs resembling vinyl records or cosmic patterns float in the sky around a prominent - sun",
+  "inverted_title": "Inverted sketch: Spiraling Desert Visions",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a procession of identical women with elaborate spiral hair walking along a winding path through a desert landscape dotted with cacti. Large circular motifs resembling vinyl records or cosmic patterns float in the sky around a prominent - sun (from generated still #1528).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a procession of identical women with elaborate spiral hair walking along a winding path through a desert landscape dotted with cacti. Large circular motifs resembling vinyl records or cosmic patterns float in the sky around a prominent - sun",
+  "source_description": "A surreal painting depicts a procession of identical women with elaborate blue spiral hair walking along a winding golden path through a desert landscape dotted with cacti. Large circular motifs resembling vinyl records or cosmic patterns float in the sky around a prominent red-orange sun.",
+  "source_prompt": "",
+  "source_title": "Spiraling Desert Visions",
+  "style": "surreal psychedelic",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "spirals",
+    "women procession",
+    "vinyl records"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1528,
+  "source_url": "/generated/1528.jpg",
+  "image_url": "/sketches/2301.png",
+  "inverted_image_url": "/sketches-inverted/2301.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:43Z"
+}

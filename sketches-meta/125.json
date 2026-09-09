@@ -1,0 +1,42 @@
+{
+  "number": 125,
+  "title": "Line sketch: Melancholy Demon Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork centers on a stylized horned face with closed eyes and a downturned mouth, rendered in flat tones against a background. Bold black outlines and subtle accents define the ears, snout, and facial contours, creating a graphic, mask-like portrait. The composition emphasizes curved shapes and minimal detail for an expressive, symbolic effect (derived from painting #161).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork centers on a stylized horned face with closed eyes and a downturned mouth, rendered in flat tones against a background. Bold black outlines and subtle accents define the ears, snout, and facial contours, creating a graphic, mask-like portrait. The composition emphasizes curved shapes and minimal detail for an expressive, symbolic effect",
+  "inverted_title": "Inverted sketch: Melancholy Demon Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork centers on a stylized horned face with closed eyes and a downturned mouth, rendered in flat tones against a background. Bold black outlines and subtle accents define the ears, snout, and facial contours, creating a graphic, mask-like portrait. The composition emphasizes curved shapes and minimal detail for an expressive, symbolic effect (from painting #161).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork centers on a stylized horned face with closed eyes and a downturned mouth, rendered in flat tones against a background. Bold black outlines and subtle accents define the ears, snout, and facial contours, creating a graphic, mask-like portrait. The composition emphasizes curved shapes and minimal detail for an expressive, symbolic effect",
+  "source_description": "The artwork centers on a stylized horned face with closed eyes and a downturned mouth, rendered in flat yellow tones against a muted green background. Bold black outlines and subtle orange accents define the ears, snout, and facial contours, creating a graphic, mask-like portrait. The composition emphasizes curved shapes and minimal detail for an expressive, symbolic effect.",
+  "source_prompt": "",
+  "source_title": "Melancholy Yellow Demon Mask",
+  "style": "graphic illustration",
+  "mood": "melancholic introspective",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "mask",
+    "horns",
+    "stylized face",
+    "illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 161,
+  "source_url": "/paintings/161.jpg",
+  "image_url": "/sketches/125.png",
+  "inverted_image_url": "/sketches-inverted/125.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1457,
+  "title": "Line sketch: Eye of the Sea Turtle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, intricate human eye with a vibrant iris and black pupil dominates the composition. A sea turtle adorned with patterns swims beside it, surrounded by numerous translucent bubbles containing smaller watchful eyes against a swirling and background (derived from generated still #672).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, intricate human eye with a vibrant iris and black pupil dominates the composition. A sea turtle adorned with patterns swims beside it, surrounded by numerous translucent bubbles containing smaller watchful eyes against a swirling and background",
+  "inverted_title": "Inverted sketch: Eye of the Sea Turtle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, intricate human eye with a vibrant iris and black pupil dominates the composition. A sea turtle adorned with patterns swims beside it, surrounded by numerous translucent bubbles containing smaller watchful eyes against a swirling and background (from generated still #672).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, intricate human eye with a vibrant iris and black pupil dominates the composition. A sea turtle adorned with patterns swims beside it, surrounded by numerous translucent bubbles containing smaller watchful eyes against a swirling and background",
+  "source_description": "A large, intricate human eye with a vibrant green iris and black pupil dominates the composition. A colorful sea turtle adorned with coral patterns swims beside it, surrounded by numerous translucent bubbles containing smaller watchful eyes against a swirling blue and teal background.",
+  "source_prompt": "",
+  "source_title": "Eye of the Sea Turtle",
+  "style": "surreal fantasy",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ocean",
+    "eye",
+    "sea turtle",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 672,
+  "source_url": "/generated/672.jpg",
+  "image_url": "/sketches/1457.png",
+  "inverted_image_url": "/sketches-inverted/1457.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:41Z"
+}

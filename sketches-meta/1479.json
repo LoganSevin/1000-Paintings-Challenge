@@ -1,0 +1,42 @@
+{
+  "number": 1479,
+  "title": "Line sketch: Desert Wanderer and Mouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert scene features a tall, dark-skinned figure in a patterned robe walking away from a giant stylized eye in the sky that contains a smaller robed figure within its pupil. In the foreground, a mouse sits on a vibrant, patterned branch while a large ornate circular celestial body glows in the and sky above sand dunes (derived from generated still #694).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert scene features a tall, dark-skinned figure in a patterned robe walking away from a giant stylized eye in the sky that contains a smaller robed figure within its pupil. In the foreground, a mouse sits on a vibrant, patterned branch while a large ornate circular celestial body glows in the and sky above sand dunes",
+  "inverted_title": "Inverted sketch: Desert Wanderer and Mouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert scene features a tall, dark-skinned figure in a patterned robe walking away from a giant stylized eye in the sky that contains a smaller robed figure within its pupil. In the foreground, a mouse sits on a vibrant, patterned branch while a large ornate circular celestial body glows in the and sky above sand dunes (from generated still #694).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert scene features a tall, dark-skinned figure in a patterned robe walking away from a giant stylized eye in the sky that contains a smaller robed figure within its pupil. In the foreground, a mouse sits on a vibrant, patterned branch while a large ornate circular celestial body glows in the and sky above sand dunes",
+  "source_description": "A surreal desert scene features a tall, dark-skinned figure in a patterned robe walking away from a giant stylized eye in the sky that contains a smaller robed figure within its pupil. In the foreground, a bright red mouse sits on a vibrant, patterned green branch while a large ornate circular celestial body glows in the orange and pink sky above sand dunes.",
+  "source_prompt": "",
+  "source_title": "Desert Wanderer and Red Mouse",
+  "style": "surreal psychedelic",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "psychedelic",
+    "eye",
+    "mouse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 694,
+  "source_url": "/generated/694.jpg",
+  "image_url": "/sketches/1479.png",
+  "inverted_image_url": "/sketches-inverted/1479.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:41Z"
+}

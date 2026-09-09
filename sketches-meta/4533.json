@@ -1,0 +1,42 @@
+{
+  "number": 4533,
+  "title": "Line sketch: Dog and Lobsters",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant dog stands in the foreground looking up at a large circular cosmic mandala filled with exploding lobsters, black insects, and leaves. Below, a massive crowd of people fills an arena, all gazing upward with many raising their hands (derived from generated still #3953).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant dog stands in the foreground looking up at a large circular cosmic mandala filled with exploding lobsters, black insects, and leaves. Below, a massive crowd of people fills an arena, all gazing upward with many raising their hands",
+  "inverted_title": "Inverted sketch: Dog and Lobsters",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant dog stands in the foreground looking up at a large circular cosmic mandala filled with exploding lobsters, black insects, and leaves. Below, a massive crowd of people fills an arena, all gazing upward with many raising their hands (from generated still #3953).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant dog stands in the foreground looking up at a large circular cosmic mandala filled with exploding lobsters, black insects, and leaves. Below, a massive crowd of people fills an arena, all gazing upward with many raising their hands",
+  "source_description": "A vibrant green dog stands in the foreground looking up at a large circular cosmic mandala filled with exploding pink lobsters, black insects, and green leaves. Below, a massive crowd of people fills an arena, all gazing upward with many raising their hands.",
+  "source_prompt": "A large vibrant lime green dog stands in profile looking up toward a massive glowing circular mandala in the sky. The mandala explodes with bright pink lobsters, black insects, and green leaves in a radial pattern. In the foreground the dog is covered with pink lobsters. Below is a huge crowd of people in an arena looking up with hands raised, dramatic lighting, surreal pop art style.",
+  "source_title": "Green Dog and Lobsters",
+  "style": "surreal pop art",
+  "mood": "surreal chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "lobster",
+    "dog",
+    "mandala",
+    "crowd"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3953,
+  "source_url": "/generated/3953.jpg",
+  "image_url": "/sketches/4533.png",
+  "inverted_image_url": "/sketches-inverted/4533.png",
+  "curve_count": 201,
+  "built_at": "2026-08-17T00:09:48Z"
+}

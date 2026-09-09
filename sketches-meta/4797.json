@@ -1,0 +1,42 @@
+{
+  "number": 4797,
+  "title": "Line sketch: Quantum Hive Fracture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene shows a massive metallic machine embedded in cracked earth, its center revealing a glowing spiral vortex containing orbiting spheres. Above the fissure, a field of satellite dishes stretches to the horizon under a sky, while multiple flying mechanical orbs with dragonfly wings hover in the air (derived from generated still #4231).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene shows a massive metallic machine embedded in cracked earth, its center revealing a glowing spiral vortex containing orbiting spheres. Above the fissure, a field of satellite dishes stretches to the horizon under a sky, while multiple flying mechanical orbs with dragonfly wings hover in the air",
+  "inverted_title": "Inverted sketch: Quantum Hive Fracture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene shows a massive metallic machine embedded in cracked earth, its center revealing a glowing spiral vortex containing orbiting spheres. Above the fissure, a field of satellite dishes stretches to the horizon under a sky, while multiple flying mechanical orbs with dragonfly wings hover in the air (from generated still #4231).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene shows a massive metallic machine embedded in cracked earth, its center revealing a glowing spiral vortex containing orbiting spheres. Above the fissure, a field of satellite dishes stretches to the horizon under a sky, while multiple flying mechanical orbs with dragonfly wings hover in the air",
+  "source_description": "A surreal scene shows a massive metallic machine embedded in cracked purple earth, its center revealing a glowing purple spiral vortex containing orbiting spheres. Above the fissure, a field of satellite dishes stretches to the horizon under a green sky, while multiple flying mechanical orbs with dragonfly wings hover in the air.",
+  "source_prompt": "Surreal sci-fi landscape with a giant circular mechanical device cracked open in purple earth revealing an infinite glowing purple spiral vortex with floating spheres inside. A vast field of satellite dishes covers the cracked ground. Multiple spherical mechanical drones with dragonfly wings fly in formation against a swirling green sky. Detailed futuristic machinery, cosmic energy, dystopian atmosphere.",
+  "source_title": "Quantum Hive Fracture",
+  "style": "surrealism",
+  "mood": "cosmic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "sci-fi",
+    "spiral vortex",
+    "mechanical",
+    "drone swarm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4231,
+  "source_url": "/generated/4231.jpg",
+  "image_url": "/sketches/4797.png",
+  "inverted_image_url": "/sketches-inverted/4797.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:49Z"
+}

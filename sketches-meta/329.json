@@ -1,0 +1,42 @@
+{
+  "number": 329,
+  "title": "Line sketch: Vibrant Sea Turtle Odyssey",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic sea turtle with a shell swims gracefully through a sunlit underwater canyon. Surrounded by reefs and tropical fish, its detailed scales and determined gaze create an enchanting marine scene (derived from painting #390).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic sea turtle with a shell swims gracefully through a sunlit underwater canyon. Surrounded by reefs and tropical fish, its detailed scales and determined gaze create an enchanting marine scene",
+  "inverted_title": "Inverted sketch: Vibrant Sea Turtle Odyssey",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic sea turtle with a shell swims gracefully through a sunlit underwater canyon. Surrounded by reefs and tropical fish, its detailed scales and determined gaze create an enchanting marine scene (from painting #390).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic sea turtle with a shell swims gracefully through a sunlit underwater canyon. Surrounded by reefs and tropical fish, its detailed scales and determined gaze create an enchanting marine scene",
+  "source_description": "A majestic sea turtle with a multicolored shell swims gracefully through a sunlit underwater canyon. Surrounded by colorful coral reefs and tropical fish, its detailed scales and determined gaze create an enchanting marine scene.",
+  "source_prompt": "",
+  "source_title": "Vibrant Sea Turtle Odyssey",
+  "style": "Digital Fantasy Illustration",
+  "mood": "Vibrant and majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "underwater",
+    "reef",
+    "marine life",
+    "sunlight rays"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 390,
+  "source_url": "/paintings/390.jpg",
+  "image_url": "/sketches/329.png",
+  "inverted_image_url": "/sketches-inverted/329.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4028,
+  "title": "Line sketch: Punk Rocker Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a solid gray background. She wears a leather-like crop top, shorts, a black studded belt, platform boots, and holds a spray can in her right hand while her left hand is open (derived from generated still #3445).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a solid gray background. She wears a leather-like crop top, shorts, a black studded belt, platform boots, and holds a spray can in her right hand while her left hand is open",
+  "inverted_title": "Inverted sketch: Punk Rocker Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a solid gray background. She wears a leather-like crop top, shorts, a black studded belt, platform boots, and holds a spray can in her right hand while her left hand is open (from generated still #3445).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female character with voluminous, spiky and hair stands in a dynamic pose against a solid gray background. She wears a leather-like crop top, shorts, a black studded belt, platform boots, and holds a spray can in her right hand while her left hand is open",
+  "source_description": "A stylized female character with voluminous, spiky red and purple hair stands in a dynamic pose against a solid gray background. She wears a red leather-like crop top, red shorts, a black studded belt, red platform boots, and holds a red spray can in her right hand while her left hand is open.",
+  "source_prompt": "full body view of a fierce punk rock girl with massive spiky red and purple hair in a high ponytail, wearing red leather crop top, red shorts, black studded belt with gold chains, red platform boots, red armbands, holding a red spray paint can, dynamic action pose with one leg forward, dramatic lighting, clean solid gray background, highly detailed stylized 3D character art",
+  "source_title": "Red Punk Rocker Girl",
+  "style": "digital character art",
+  "mood": "bold, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "punk girl",
+    "hair",
+    "graffiti artist",
+    "stylized character",
+    "platform boots"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3445,
+  "source_url": "/generated/3445.jpg",
+  "image_url": "/sketches/4028.png",
+  "inverted_image_url": "/sketches-inverted/4028.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4320,
+  "title": "Line sketch: Gizmo in Crystal Ball",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing glass snow globe sits on a wooden surface, containing a -outlined Gizmo from Gremlins standing with arms outstretched. Inside the sphere are vibrant electric lines in, a large reptilian eye at the base, and floating mushroom-like shapes. A beam of light enters the globe from the left (derived from generated still #3739).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing glass snow globe sits on a wooden surface, containing a -outlined Gizmo from Gremlins standing with arms outstretched. Inside the sphere are vibrant electric lines in, a large reptilian eye at the base, and floating mushroom-like shapes. A beam of light enters the globe from the left",
+  "inverted_title": "Inverted sketch: Gizmo in Crystal Ball",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing glass snow globe sits on a wooden surface, containing a -outlined Gizmo from Gremlins standing with arms outstretched. Inside the sphere are vibrant electric lines in, a large reptilian eye at the base, and floating mushroom-like shapes. A beam of light enters the globe from the left (from generated still #3739).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing glass snow globe sits on a wooden surface, containing a -outlined Gizmo from Gremlins standing with arms outstretched. Inside the sphere are vibrant electric lines in, a large reptilian eye at the base, and floating mushroom-like shapes. A beam of light enters the globe from the left",
+  "source_description": "A glowing glass snow globe sits on a wooden surface, containing a neon-outlined Gizmo from Gremlins standing with arms outstretched. Inside the sphere are vibrant electric lines in yellow, blue, and pink, a large green reptilian eye at the base, and floating mushroom-like shapes. A bright yellow beam of light enters the globe from the left.",
+  "source_prompt": "A highly detailed surreal painting of a glowing crystal ball resting on a dark wooden table. Inside the transparent sphere stands Gizmo from Gremlins, outlined in bright neon yellow with large ears and green eyes. A large green reptilian eye with a vertical pupil sits at the base of the globe. Vibrant electric energy lines in yellow, cyan, and magenta swirl around him along with floating pink mushrooms. A powerful yellow beam of light shoots into the globe from the left side. Dark moody background with purple wall and light leak.",
+  "source_title": "Gizmo in Crystal Ball",
+  "style": "surreal",
+  "mood": "mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Gizmo",
+    "Gremlins",
+    "snow globe",
+    "aesthetic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3739,
+  "source_url": "/generated/3739.jpg",
+  "image_url": "/sketches/4320.png",
+  "inverted_image_url": "/sketches-inverted/4320.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:47Z"
+}

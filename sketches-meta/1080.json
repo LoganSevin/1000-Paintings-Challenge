@@ -1,0 +1,42 @@
+{
+  "number": 1080,
+  "title": "Line sketch: Cyberpunk Zombie Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a grotesque zombie with exposed mechanical parts, clock faces embedded in its face and neck, one eye and one white eye, and an open screaming mouth showing bloody teeth. The background is a vibrant with dripping and paint splatters (derived from generated still #292).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a grotesque zombie with exposed mechanical parts, clock faces embedded in its face and neck, one eye and one white eye, and an open screaming mouth showing bloody teeth. The background is a vibrant with dripping and paint splatters",
+  "inverted_title": "Inverted sketch: Cyberpunk Zombie Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a grotesque zombie with exposed mechanical parts, clock faces embedded in its face and neck, one eye and one white eye, and an open screaming mouth showing bloody teeth. The background is a vibrant with dripping and paint splatters (from generated still #292).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a grotesque zombie with exposed mechanical parts, clock faces embedded in its face and neck, one eye and one white eye, and an open screaming mouth showing bloody teeth. The background is a vibrant with dripping and paint splatters",
+  "source_description": "A close-up portrait of a grotesque green zombie with exposed mechanical parts, clock faces embedded in its face and neck, one yellow eye and one white eye, and an open screaming mouth showing bloody teeth. The background is a vibrant blue with dripping red and purple paint splatters.",
+  "source_prompt": "",
+  "source_title": "Cyberpunk Zombie Portrait",
+  "style": "surreal horror",
+  "mood": "grotesque chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "cyberpunk",
+    "horror",
+    "mechanical",
+    "clocks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 292,
+  "source_url": "/generated/292.jpg",
+  "image_url": "/sketches/1080.png",
+  "inverted_image_url": "/sketches-inverted/1080.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:40Z"
+}

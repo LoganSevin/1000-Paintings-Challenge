@@ -1,0 +1,42 @@
+{
+  "number": 4421,
+  "title": "Line sketch: Spell Shop Entrance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A magical nighttime street scene featuring the arched wooden door of a Spell Shop with glowing text reading 'STASIS SPELLS - LOCKED FUSIONS ONLY'. The stone building facade is adorned with hanging scrolls, potion bottles in windows, brass bells, and wooden crates displaying framed illustrations of moths and glowing hands. A lit candle rests on parchment in the foreground beside old keys on a cloth (derived from generated still #3840).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A magical nighttime street scene featuring the arched wooden door of a Spell Shop with glowing text reading 'STASIS SPELLS - LOCKED FUSIONS ONLY'. The stone building facade is adorned with hanging scrolls, potion bottles in windows, brass bells, and wooden crates displaying framed illustrations of moths and glowing hands. A lit candle rests on parchment in the foreground beside old keys on a cloth",
+  "inverted_title": "Inverted sketch: Spell Shop Entrance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A magical nighttime street scene featuring the arched wooden door of a Spell Shop with glowing text reading 'STASIS SPELLS - LOCKED FUSIONS ONLY'. The stone building facade is adorned with hanging scrolls, potion bottles in windows, brass bells, and wooden crates displaying framed illustrations of moths and glowing hands. A lit candle rests on parchment in the foreground beside old keys on a cloth (from generated still #3840).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A magical nighttime street scene featuring the arched wooden door of a Spell Shop with glowing text reading 'STASIS SPELLS - LOCKED FUSIONS ONLY'. The stone building facade is adorned with hanging scrolls, potion bottles in windows, brass bells, and wooden crates displaying framed illustrations of moths and glowing hands. A lit candle rests on parchment in the foreground beside old keys on a cloth",
+  "source_description": "A magical nighttime street scene featuring the arched wooden door of a Spell Shop with glowing text reading 'STASIS SPELLS - LOCKED FUSIONS ONLY'. The stone building facade is adorned with hanging scrolls, potion bottles in windows, brass bells, and wooden crates displaying framed illustrations of blue moths and glowing hands. A lit candle rests on parchment in the foreground beside old keys on a cloth.",
+  "source_prompt": "A detailed fantasy nighttime scene of a mysterious spell shop entrance built into an old stone building. An arched wooden door displays glowing text 'STASIS SPELLS - LOCKED FUSIONS ONLY'. Above it hangs a blue sign with a moth and lock. The facade features hanging scrolls, potion bottles in windows, brass bells, and wooden crates holding framed blue moth and glowing hand illustrations. A lit candle and old keys lie on the cobblestone foreground, creating a magical and enchanting atmosphere.",
+  "source_title": "Spell Shop Entrance",
+  "style": "fantasy illustration",
+  "mood": "mysterious enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "magic store",
+    "night scene",
+    "stone building",
+    "arcane symbols"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3840,
+  "source_url": "/generated/3840.jpg",
+  "image_url": "/sketches/4421.png",
+  "inverted_image_url": "/sketches-inverted/4421.png",
+  "curve_count": 100,
+  "built_at": "2026-08-17T00:09:48Z"
+}

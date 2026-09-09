@@ -1,0 +1,42 @@
+{
+  "number": 2876,
+  "title": "Line sketch: Yello Bingo Wizard Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grey anthropomorphic cat wearing a and striped wizard robe and hat sits on stone steps by the water, holding a scroll. In the background, three sailboats with lettered sails float on a sea under a and sky filled with floating glowing letters, with mountains in the distance (derived from generated still #2162).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grey anthropomorphic cat wearing a and striped wizard robe and hat sits on stone steps by the water, holding a scroll. In the background, three sailboats with lettered sails float on a sea under a and sky filled with floating glowing letters, with mountains in the distance",
+  "inverted_title": "Inverted sketch: Yello Bingo Wizard Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grey anthropomorphic cat wearing a and striped wizard robe and hat sits on stone steps by the water, holding a scroll. In the background, three sailboats with lettered sails float on a sea under a and sky filled with floating glowing letters, with mountains in the distance (from generated still #2162).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grey anthropomorphic cat wearing a and striped wizard robe and hat sits on stone steps by the water, holding a scroll. In the background, three sailboats with lettered sails float on a sea under a and sky filled with floating glowing letters, with mountains in the distance",
+  "source_description": "A grey anthropomorphic cat wearing a purple and yellow striped wizard robe and hat sits on stone steps by the water, holding a scroll. In the background, three sailboats with lettered sails float on a purple sea under a golden and violet sky filled with floating glowing letters, with mountains in the distance.",
+  "source_prompt": "A grey cat wizard with yellow eyes wearing a purple and yellow striped robe and pointed hat with a glowing halo sits on cracked stone steps at the edge of a mystical sea. The cat holds a glowing scroll. Three sailboats with lettered sails sail nearby on purple water. The dramatic sky blends orange and purple with many glowing alphabet letters floating in the air. Distant starry mountains in the background. Surreal fantasy scene with magical atmosphere.",
+  "source_title": "Yello Bingo Wizard Cat",
+  "style": "surreal fantasy illustration",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat wizard",
+    "surreal seascape",
+    "bingo",
+    "floating letters",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2162,
+  "source_url": "/generated/2162.jpg",
+  "image_url": "/sketches/2876.png",
+  "inverted_image_url": "/sketches-inverted/2876.png",
+  "curve_count": 116,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4828,
+  "title": "Line sketch: Theater of Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large metallic theatrical mask floats centrally above a surreal night cityscape. The mask features glowing neural branches growing from its forehead, film strips and lanterns along its edges, while below it a -draped table holds potions and coins amid Victorian buildings, floating figures, and a vibrant neural tree against a starry sky (derived from generated still #4263).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large metallic theatrical mask floats centrally above a surreal night cityscape. The mask features glowing neural branches growing from its forehead, film strips and lanterns along its edges, while below it a -draped table holds potions and coins amid Victorian buildings, floating figures, and a vibrant neural tree against a starry sky",
+  "inverted_title": "Inverted sketch: Theater of Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large metallic theatrical mask floats centrally above a surreal night cityscape. The mask features glowing neural branches growing from its forehead, film strips and lanterns along its edges, while below it a -draped table holds potions and coins amid Victorian buildings, floating figures, and a vibrant neural tree against a starry sky (from generated still #4263).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large metallic theatrical mask floats centrally above a surreal night cityscape. The mask features glowing neural branches growing from its forehead, film strips and lanterns along its edges, while below it a -draped table holds potions and coins amid Victorian buildings, floating figures, and a vibrant neural tree against a starry sky",
+  "source_description": "A large metallic theatrical mask floats centrally above a surreal night cityscape. The mask features glowing purple neural branches growing from its forehead, film strips and lanterns along its edges, while below it a green-draped table holds potions and gold coins amid Victorian buildings, floating figures, and a vibrant purple neural tree against a starry sky.",
+  "source_prompt": "Surreal fantasy scene featuring a giant metallic silver theater mask floating in the sky, purple glowing neural branches growing from its forehead into a cosmic tree, film strips and ornate lanterns attached to its surface, set above a misty Victorian city at night with a green draped alchemy table holding potions and gold coins in the foreground, small human figures on balconies and flying, dramatic purple and teal lighting, cinematic atmosphere",
+  "source_title": "Theater of Dreams",
+  "style": "surreal fantasy",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "theatrical mask",
+    "neural tree",
+    "film noir",
+    "fantasy city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4263,
+  "source_url": "/generated/4263.jpg",
+  "image_url": "/sketches/4828.png",
+  "inverted_image_url": "/sketches-inverted/4828.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:49Z"
+}

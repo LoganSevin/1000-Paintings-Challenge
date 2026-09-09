@@ -1,0 +1,42 @@
+{
+  "number": 3764,
+  "title": "Line sketch: Magic Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side views of a muscular male warrior with short dark hair, wearing ornate metallic armor with cape and accents. He dynamically casts swirling magical energy from his hands while holding a dagger, surrounded by floating coins and glowing particles (derived from generated still #3180).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side views of a muscular male warrior with short dark hair, wearing ornate metallic armor with cape and accents. He dynamically casts swirling magical energy from his hands while holding a dagger, surrounded by floating coins and glowing particles",
+  "inverted_title": "Inverted sketch: Magic Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side views of a muscular male warrior with short dark hair, wearing ornate metallic armor with cape and accents. He dynamically casts swirling magical energy from his hands while holding a dagger, surrounded by floating coins and glowing particles (from generated still #3180).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side views of a muscular male warrior with short dark hair, wearing ornate metallic armor with cape and accents. He dynamically casts swirling magical energy from his hands while holding a dagger, surrounded by floating coins and glowing particles",
+  "source_description": "Two side-by-side views of a muscular male warrior with short dark hair, wearing ornate metallic armor with red cape and gold accents. He dynamically casts swirling golden magical energy from his hands while holding a dagger, surrounded by floating golden coins and glowing particles.",
+  "source_prompt": "A muscular young male warrior with styled dark hair and intense expression, wearing detailed metallic shoulder armor, gauntlets, and a flowing red cape, dynamically casting swirling golden magical energy and coins from his hands while holding a dagger in combat stance, shown in two slightly different dynamic poses side by side against a dark background with glowing magical effects and particles",
+  "source_title": "Golden Magic Warrior Poses",
+  "style": "digital fantasy illustration",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "magic",
+    "energy",
+    "fantasy",
+    "coins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3180,
+  "source_url": "/generated/3180.jpg",
+  "image_url": "/sketches/3764.png",
+  "inverted_image_url": "/sketches-inverted/3764.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:46Z"
+}

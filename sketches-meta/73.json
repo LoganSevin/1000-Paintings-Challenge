@@ -1,0 +1,42 @@
+{
+  "number": 73,
+  "title": "Line sketch: Cellular Liquid Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts overlapping organic shapes resembling cells, amoebas, and fluid blobs in vibrant hues. Composition flows across a background with layered and forms, accented by scattered dots and concentric circles. Technique uses bold outlines and flat color fields for a graphic, smooth aesthetic (derived from painting #104).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts overlapping organic shapes resembling cells, amoebas, and fluid blobs in vibrant hues. Composition flows across a background with layered and forms, accented by scattered dots and concentric circles. Technique uses bold outlines and flat color fields for a graphic, smooth aesthetic",
+  "inverted_title": "Inverted sketch: Cellular Liquid Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts overlapping organic shapes resembling cells, amoebas, and fluid blobs in vibrant hues. Composition flows across a background with layered and forms, accented by scattered dots and concentric circles. Technique uses bold outlines and flat color fields for a graphic, smooth aesthetic (from painting #104).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts overlapping organic shapes resembling cells, amoebas, and fluid blobs in vibrant hues. Composition flows across a background with layered and forms, accented by scattered dots and concentric circles. Technique uses bold outlines and flat color fields for a graphic, smooth aesthetic",
+  "source_description": "The artwork depicts overlapping organic shapes resembling cells, amoebas, and fluid blobs in vibrant hues. Composition flows across a teal background with layered purple and pink forms, accented by scattered dots and concentric circles. Technique uses bold outlines and flat color fields for a graphic, smooth aesthetic.",
+  "source_prompt": "",
+  "source_title": "Cellular Liquid Dreams",
+  "style": "Psychedelic Abstract",
+  "mood": "Dreamy Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "organic",
+    "cells",
+    "fluid",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 104,
+  "source_url": "/paintings/104.jpg",
+  "image_url": "/sketches/73.png",
+  "inverted_image_url": "/sketches-inverted/73.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:38Z"
+}

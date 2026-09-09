@@ -1,0 +1,42 @@
+{
+  "number": 2842,
+  "title": "Line sketch: Surreal Moonlit Menagerie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three boars with glowing eyes stand on a sandy dune beside a massive twisted tree that morphs into an ornate long-necked creature with a large eye. In the background a gothic castle glows with lights under a starry night sky containing two large moons (derived from generated still #2127).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three boars with glowing eyes stand on a sandy dune beside a massive twisted tree that morphs into an ornate long-necked creature with a large eye. In the background a gothic castle glows with lights under a starry night sky containing two large moons",
+  "inverted_title": "Inverted sketch: Surreal Moonlit Menagerie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three boars with glowing eyes stand on a sandy dune beside a massive twisted tree that morphs into an ornate long-necked creature with a large eye. In the background a gothic castle glows with lights under a starry night sky containing two large moons (from generated still #2127).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three boars with glowing eyes stand on a sandy dune beside a massive twisted tree that morphs into an ornate long-necked creature with a large eye. In the background a gothic castle glows with lights under a starry night sky containing two large moons",
+  "source_description": "Three dark blue boars with glowing eyes stand on a sandy dune beside a massive twisted tree that morphs into an ornate long-necked creature with a large eye. In the background a gothic castle glows with lights under a starry night sky containing two large moons.",
+  "source_prompt": "Surreal night scene featuring three dark blue boars with glowing eyes standing on a sandy dune next to a massive twisted tree that transforms into a long-necked creature with an ornate head and large glowing eye. Distant gothic castle with lit windows sits under a deep blue starry sky containing two large luminous moons, one significantly larger than the other, in a dreamlike fantasy style.",
+  "source_title": "Surreal Moonlit Menagerie",
+  "style": "fantasy surrealism",
+  "mood": "mysterious eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "boars",
+    "mystical tree",
+    "double moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2127,
+  "source_url": "/generated/2127.jpg",
+  "image_url": "/sketches/2842.png",
+  "inverted_image_url": "/sketches-inverted/2842.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:44Z"
+}

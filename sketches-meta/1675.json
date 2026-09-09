@@ -1,0 +1,42 @@
+{
+  "number": 1675,
+  "title": "Line sketch: Bubbles of Memory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with vibrant hair and bangs is shown in profile, facing right as she blows a stream of translucent bubbles. Each bubble contains miniature scenes and figures, including cat-like creatures and human forms, set against a swirling cosmic background of and luminous (derived from generated still #891).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with vibrant hair and bangs is shown in profile, facing right as she blows a stream of translucent bubbles. Each bubble contains miniature scenes and figures, including cat-like creatures and human forms, set against a swirling cosmic background of and luminous",
+  "inverted_title": "Inverted sketch: Bubbles of Memory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with vibrant hair and bangs is shown in profile, facing right as she blows a stream of translucent bubbles. Each bubble contains miniature scenes and figures, including cat-like creatures and human forms, set against a swirling cosmic background of and luminous (from generated still #891).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with vibrant hair and bangs is shown in profile, facing right as she blows a stream of translucent bubbles. Each bubble contains miniature scenes and figures, including cat-like creatures and human forms, set against a swirling cosmic background of and luminous",
+  "source_description": "A woman with vibrant red hair and bangs is shown in profile, facing right as she blows a stream of translucent pink bubbles. Each bubble contains miniature scenes and figures, including yellow cat-like creatures and human forms, set against a swirling cosmic background of deep blue and luminous green.",
+  "source_prompt": "",
+  "source_title": "Bubbles of Memory",
+  "style": "Psychedelic illustration",
+  "mood": "Dreamlike, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hair",
+    "bubbles",
+    "surreal",
+    "profile portrait",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 891,
+  "source_url": "/generated/891.jpg",
+  "image_url": "/sketches/1675.png",
+  "inverted_image_url": "/sketches-inverted/1675.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:41Z"
+}

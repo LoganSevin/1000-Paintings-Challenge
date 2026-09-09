@@ -1,0 +1,42 @@
+{
+  "number": 3286,
+  "title": "Line sketch: Fallout Beat 270 Fracture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a Vault-Tec jumpsuit numbered 828 stands in a ruined underground vault, holding a magazine titled '1001 Paintings'. The entire scene is split by a jagged, fiery crack running from top to bottom, with one side showing a surreal melting composition reminiscent of Dali's Persistence of Memory amid scattered film reels, broken records, and debris (derived from generated still #2661).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a Vault-Tec jumpsuit numbered 828 stands in a ruined underground vault, holding a magazine titled '1001 Paintings'. The entire scene is split by a jagged, fiery crack running from top to bottom, with one side showing a surreal melting composition reminiscent of Dali's Persistence of Memory amid scattered film reels, broken records, and debris",
+  "inverted_title": "Inverted sketch: Fallout Beat 270 Fracture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a Vault-Tec jumpsuit numbered 828 stands in a ruined underground vault, holding a magazine titled '1001 Paintings'. The entire scene is split by a jagged, fiery crack running from top to bottom, with one side showing a surreal melting composition reminiscent of Dali's Persistence of Memory amid scattered film reels, broken records, and debris (from generated still #2661).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a Vault-Tec jumpsuit numbered 828 stands in a ruined underground vault, holding a magazine titled '1001 Paintings'. The entire scene is split by a jagged, fiery crack running from top to bottom, with one side showing a surreal melting composition reminiscent of Dali's Persistence of Memory amid scattered film reels, broken records, and debris",
+  "source_description": "A lone figure in a yellow Vault-Tec jumpsuit numbered 828 stands in a ruined underground vault, holding a magazine titled '1001 Paintings'. The entire scene is split by a jagged, fiery crack running from top to bottom, with one side showing a surreal melting painting reminiscent of Dali's Persistence of Memory amid scattered film reels, broken records, and debris.",
+  "source_prompt": "A Vault Dweller in a yellow 828 jumpsuit and Pip-Boy stands inside a decaying concrete vault interior, holding an art magazine. A dramatic glowing red fracture splits the entire image vertically, revealing fiery energy. Scattered across the floor are broken film reels, vinyl records, and a large melting surrealist painting in a golden frame. Fluorescent tube lights hang from the ceiling, retro sci-fi atmosphere, detailed textures, cinematic lighting.",
+  "source_title": "Fallout Beat 270 Fracture",
+  "style": "surreal",
+  "mood": "dystopian fractured",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fallout",
+    "vault dweller",
+    "surreal",
+    "melting composition",
+    "dystopian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2661,
+  "source_url": "/generated/2661.jpg",
+  "image_url": "/sketches/3286.png",
+  "inverted_image_url": "/sketches-inverted/3286.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:45Z"
+}

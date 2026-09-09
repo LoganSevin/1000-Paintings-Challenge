@@ -1,0 +1,42 @@
+{
+  "number": 2912,
+  "title": "Line sketch: Three Cats on a Bench",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three cats sit side by side on a upholstered bench with wooden legs. A cat on the left, a fluffy cat in the center raising one paw, and a sleek black cat on the right (derived from generated still #2201).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three cats sit side by side on a upholstered bench with wooden legs. A cat on the left, a fluffy cat in the center raising one paw, and a sleek black cat on the right",
+  "inverted_title": "Inverted sketch: Three Cats on a Bench",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three cats sit side by side on a upholstered bench with wooden legs. A cat on the left, a fluffy cat in the center raising one paw, and a sleek black cat on the right (from generated still #2201).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three cats sit side by side on a upholstered bench with wooden legs. A cat on the left, a fluffy cat in the center raising one paw, and a sleek black cat on the right",
+  "source_description": "Three cats sit side by side on a turquoise upholstered bench with wooden legs. A lavender cat on the left, a fluffy orange cat in the center raising one paw, and a sleek black cat on the right.",
+  "source_prompt": "Three cats sitting on a turquoise bench with wooden legs: a lavender-grey cat on the left, a fluffy orange Persian cat in the center raising its paw, and a sleek midnight blue cat on the right. They are positioned in front of a decorative folding screen covered in pink roses and green leaves. Blue and clear bubbles float throughout the scene. The background shows a patterned wall on the left and a pink patterned curtain on the right. Artistic, detailed, painterly style with soft lighting.",
+  "source_title": "Three Cats on a Bench",
+  "style": "surreal fantasy composition",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cats",
+    "surreal",
+    "bubbles",
+    "floral screen",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2201,
+  "source_url": "/generated/2201.jpg",
+  "image_url": "/sketches/2912.png",
+  "inverted_image_url": "/sketches-inverted/2912.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

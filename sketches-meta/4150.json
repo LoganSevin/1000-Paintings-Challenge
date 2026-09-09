@@ -1,0 +1,42 @@
+{
+  "number": 4150,
+  "title": "Line sketch: Stained Glass Radiance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mixed-media artwork depicting a stylized human face with an open mouth at the center, wearing a fan-like headdress. The composition is framed by a broken stained glass window with fragments in, featuring a sun at the top and rays emanating from the figure's right eye, with flowers growing across the torso (derived from generated still #3568).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mixed-media artwork depicting a stylized human face with an open mouth at the center, wearing a fan-like headdress. The composition is framed by a broken stained glass window with fragments in, featuring a sun at the top and rays emanating from the figure's right eye, with flowers growing across the torso",
+  "inverted_title": "Inverted sketch: Stained Glass Radiance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mixed-media artwork depicting a stylized human face with an open mouth at the center, wearing a fan-like headdress. The composition is framed by a broken stained glass window with fragments in, featuring a sun at the top and rays emanating from the figure's right eye, with flowers growing across the torso (from generated still #3568).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mixed-media artwork depicting a stylized human face with an open mouth at the center, wearing a fan-like headdress. The composition is framed by a broken stained glass window with fragments in, featuring a sun at the top and rays emanating from the figure's right eye, with flowers growing across the torso",
+  "source_description": "A mixed-media artwork depicting a stylized human face with an open mouth at the center, wearing a blue fan-like headdress. The composition is framed by a broken stained glass window with colorful fragments in blue, green, orange and yellow, featuring a bright yellow sun at the top and blue rays emanating from the figure's right eye, with flowers growing across the torso.",
+  "source_prompt": "Surreal mixed-media painting of a stylized human face with open mouth centered in a broken stained glass window. The figure wears a blue fan headdress, has one eye visible while the other emits intense blue rays across the composition. Yellow sun sits at the top, flowers with green stems grow across the chest and neck. Fragmented stained glass border in blue, green, orange and yellow surrounds the scene with visible cracks and shards.",
+  "source_title": "Stained Glass Radiance",
+  "style": "Surreal mixed media",
+  "mood": "Vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor, marker and colored pencil on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "surreal portrait",
+    "radiating light",
+    "floral motifs",
+    "rays"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3568,
+  "source_url": "/generated/3568.jpg",
+  "image_url": "/sketches/4150.png",
+  "inverted_image_url": "/sketches-inverted/4150.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

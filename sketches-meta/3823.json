@@ -1,0 +1,42 @@
+{
+  "number": 3823,
+  "title": "Line sketch: Armored Boy Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential views of a young male character with spiky blond hair wearing a bulky and black armored suit with mechanical details. The panels show him standing ready, running forward with motion blur, punching with a energy explosion effect from his fist, and returning to a neutral standing pose (derived from generated still #3240).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential views of a young male character with spiky blond hair wearing a bulky and black armored suit with mechanical details. The panels show him standing ready, running forward with motion blur, punching with a energy explosion effect from his fist, and returning to a neutral standing pose",
+  "inverted_title": "Inverted sketch: Armored Boy Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential views of a young male character with spiky blond hair wearing a bulky and black armored suit with mechanical details. The panels show him standing ready, running forward with motion blur, punching with a energy explosion effect from his fist, and returning to a neutral standing pose (from generated still #3240).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential views of a young male character with spiky blond hair wearing a bulky and black armored suit with mechanical details. The panels show him standing ready, running forward with motion blur, punching with a energy explosion effect from his fist, and returning to a neutral standing pose",
+  "source_description": "Four sequential views of a young male character with spiky blond hair wearing a bulky yellow and black armored suit with mechanical details. The panels show him standing ready, running forward with motion blur, punching with a bright yellow energy explosion effect from his fist, and returning to a neutral standing pose.",
+  "source_prompt": "A four-panel sequence of a fierce young boy with spiky blond hair and an angry expression, wearing a bulky yellow and black mechanical armored suit with glowing details. First panel standing ready pose, second panel running forward with motion lines, third panel powerful punch with bright yellow energy explosion and sparks bursting from his fist, fourth panel standing neutral. Dramatic lighting, painted digital art style on dark gradient background.",
+  "source_title": "Yellow Armored Boy Poses",
+  "style": "line sketch",
+  "mood": "dynamic, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "armor suit",
+    "action poses",
+    "energy effect",
+    "blond hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3240,
+  "source_url": "/generated/3240.jpg",
+  "image_url": "/sketches/3823.png",
+  "inverted_image_url": "/sketches-inverted/3823.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1679,
+  "title": "Line sketch: Psychedelic Bubble Portraits",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition features two large circular frames containing stylized female profile heads with elaborate swirling hair patterns in bright colors. The background radiates with starburst lines while surrounded by numerous translucent bubbles of varying sizes, some containing smaller abstract figures (derived from generated still #896).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition features two large circular frames containing stylized female profile heads with elaborate swirling hair patterns in bright colors. The background radiates with starburst lines while surrounded by numerous translucent bubbles of varying sizes, some containing smaller abstract figures",
+  "inverted_title": "Inverted sketch: Psychedelic Bubble Portraits",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition features two large circular frames containing stylized female profile heads with elaborate swirling hair patterns in bright colors. The background radiates with starburst lines while surrounded by numerous translucent bubbles of varying sizes, some containing smaller abstract figures (from generated still #896).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition features two large circular frames containing stylized female profile heads with elaborate swirling hair patterns in bright colors. The background radiates with starburst lines while surrounded by numerous translucent bubbles of varying sizes, some containing smaller abstract figures",
+  "source_description": "A vibrant psychedelic composition features two large circular frames containing stylized female profile heads with elaborate swirling hair patterns in bright colors. The pink background radiates with colorful starburst lines while surrounded by numerous translucent blue bubbles of varying sizes, some containing smaller abstract figures.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Bubble Portraits",
+  "style": "Psychedelic",
+  "mood": "Trippy, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "bubbles",
+    "female profiles",
+    "swirls",
+    "starburst"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 896,
+  "source_url": "/generated/896.jpg",
+  "image_url": "/sketches/1679.png",
+  "inverted_image_url": "/sketches-inverted/1679.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:41Z"
+}

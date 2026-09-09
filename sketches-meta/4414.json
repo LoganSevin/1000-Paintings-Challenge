@@ -1,0 +1,42 @@
+{
+  "number": 4414,
+  "title": "Line sketch: Arcane Alchemist's Observatory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wizard in a flowing robe stands reading an ancient glowing tome before a massive arched marble wall filled with shelves of glowing potions and magical orbs. In the foreground, a -draped table holds an open chest with coins, scattered parchment, candles, and a small glowing vial, while a large balance scale hangs centrally with one pan holding flowers (derived from generated still #3833).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wizard in a flowing robe stands reading an ancient glowing tome before a massive arched marble wall filled with shelves of glowing potions and magical orbs. In the foreground, a -draped table holds an open chest with coins, scattered parchment, candles, and a small glowing vial, while a large balance scale hangs centrally with one pan holding flowers",
+  "inverted_title": "Inverted sketch: Arcane Alchemist's Observatory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wizard in a flowing robe stands reading an ancient glowing tome before a massive arched marble wall filled with shelves of glowing potions and magical orbs. In the foreground, a -draped table holds an open chest with coins, scattered parchment, candles, and a small glowing vial, while a large balance scale hangs centrally with one pan holding flowers (from generated still #3833).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wizard in a flowing robe stands reading an ancient glowing tome before a massive arched marble wall filled with shelves of glowing potions and magical orbs. In the foreground, a -draped table holds an open chest with coins, scattered parchment, candles, and a small glowing vial, while a large balance scale hangs centrally with one pan holding flowers",
+  "source_description": "A wizard in a flowing purple robe stands reading an ancient glowing tome before a massive arched marble wall filled with shelves of glowing green potions and magical orbs. In the foreground, a purple-draped table holds an open green chest with gold coins, scattered parchment, candles, and a small glowing vial, while a large golden balance scale hangs centrally with one pan holding flowers.",
+  "source_prompt": "A solitary wizard in a long purple hooded robe stands reading a glowing blue tome inside a majestic arcane laboratory. Behind him is a towering arched marble wall with dozens of glowing green potion bottles and crystal orbs arranged symmetrically. A large golden balance scale hangs in the center with flowers on one side. Foreground shows a purple velvet table with an open green treasure chest spilling gold coins, scrolls, and candles. The ceiling is a starry purple night sky with glowing constellations, highly detailed fantasy digital art.",
+  "source_title": "Arcane Alchemist's Observatory",
+  "style": "fantasy illustration",
+  "mood": "mystical, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "alchemy",
+    "magic laboratory",
+    "glowing potions",
+    "celestial ceiling"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3833,
+  "source_url": "/generated/3833.jpg",
+  "image_url": "/sketches/4414.png",
+  "inverted_image_url": "/sketches-inverted/4414.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2650,
+  "title": "Line sketch: Twin Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic oval portrait featuring two women with dark hair and highlights, one in profile and the other facing forward, both in attire. They hold a small bird between them, set against a dark, chaotic background with dripping paint, scattered coins, and broken stone arches (derived from generated still #1890).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic oval portrait featuring two women with dark hair and highlights, one in profile and the other facing forward, both in attire. They hold a small bird between them, set against a dark, chaotic background with dripping paint, scattered coins, and broken stone arches",
+  "inverted_title": "Inverted sketch: Twin Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic oval portrait featuring two women with dark hair and highlights, one in profile and the other facing forward, both in attire. They hold a small bird between them, set against a dark, chaotic background with dripping paint, scattered coins, and broken stone arches (from generated still #1890).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic oval portrait featuring two women with dark hair and highlights, one in profile and the other facing forward, both in attire. They hold a small bird between them, set against a dark, chaotic background with dripping paint, scattered coins, and broken stone arches",
+  "source_description": "A dramatic oval portrait featuring two women with dark hair and golden highlights, one in profile and the other facing forward, both in red attire. They hold a small red bird between them, set against a dark, chaotic background with dripping red paint, scattered gold coins, and broken stone arches.",
+  "source_prompt": "",
+  "source_title": "Crimson Twin Portrait",
+  "style": "dark fantasy",
+  "mood": "dramatic, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "twins",
+    "bird",
+    "dripping paint",
+    "coins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1890,
+  "source_url": "/generated/1890.jpg",
+  "image_url": "/sketches/2650.png",
+  "inverted_image_url": "/sketches-inverted/2650.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 669,
+  "title": "Line sketch: Robot Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized robot with glowing eyes stares intently against a solid background. The mechanical features and angular helmet suggest a futuristic military design with accents (derived from painting #849).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized robot with glowing eyes stares intently against a solid background. The mechanical features and angular helmet suggest a futuristic military design with accents",
+  "inverted_title": "Inverted sketch: Robot Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized robot with glowing eyes stares intently against a solid background. The mechanical features and angular helmet suggest a futuristic military design with accents (from painting #849).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized robot with glowing eyes stares intently against a solid background. The mechanical features and angular helmet suggest a futuristic military design with accents",
+  "source_description": "A stylized green robot with glowing yellow eyes stares intently against a solid red background. The mechanical features and angular helmet suggest a futuristic military design with red accents.",
+  "source_prompt": "",
+  "source_title": "Green Robot Portrait",
+  "style": "digital illustration",
+  "mood": "intense futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "portrait",
+    "sci-fi",
+    "mechanical",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 849,
+  "source_url": "/paintings/849.jpg",
+  "image_url": "/sketches/669.png",
+  "inverted_image_url": "/sketches-inverted/669.png",
+  "curve_count": 397,
+  "built_at": "2026-08-17T00:09:39Z"
+}

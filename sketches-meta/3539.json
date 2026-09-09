@@ -1,0 +1,42 @@
+{
+  "number": 3539,
+  "title": "Line sketch: Queen of the Infernal Realm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale queen with long white braided hair stands on a cracked stone path in a volcanic wasteland. She wears a black crown, a gothic gown with a high slit, fishnet stockings, and holds a heavy chain, with a massive blood- sun dominating the fiery sky behind her and a ruined gothic castle to the left (derived from generated still #2947).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale queen with long white braided hair stands on a cracked stone path in a volcanic wasteland. She wears a black crown, a gothic gown with a high slit, fishnet stockings, and holds a heavy chain, with a massive blood- sun dominating the fiery sky behind her and a ruined gothic castle to the left",
+  "inverted_title": "Inverted sketch: Queen of the Infernal Realm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale queen with long white braided hair stands on a cracked stone path in a volcanic wasteland. She wears a black crown, a gothic gown with a high slit, fishnet stockings, and holds a heavy chain, with a massive blood- sun dominating the fiery sky behind her and a ruined gothic castle to the left (from generated still #2947).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale queen with long white braided hair stands on a cracked stone path in a volcanic wasteland. She wears a black crown, a gothic gown with a high slit, fishnet stockings, and holds a heavy chain, with a massive blood- sun dominating the fiery sky behind her and a ruined gothic castle to the left",
+  "source_description": "A pale queen with long white braided hair stands on a cracked stone path in a volcanic wasteland. She wears a black crown, a dark purple gothic gown with a high slit, fishnet stockings, and holds a heavy chain, with a massive blood-red sun dominating the fiery sky behind her and a ruined gothic castle to the left.",
+  "source_prompt": "A beautiful pale queen with long flowing white braided hair and a black spiked crown stands on broken volcanic stone in a hellish landscape. She wears a tight black and purple gothic dress with a high slit revealing fishnet stockings and holds a heavy iron chain. Behind her is a crumbling dark gothic castle with glowing windows, rivers of lava, and a giant cracked blood-red sun filling the smoky sky. A weathered sign on the right reads 'NO RETURN' with a crossed-out E symbol. Dramatic cinematic lighting, dark fantasy style.",
+  "source_title": "Queen of the Infernal Realm",
+  "style": "dark fantasy",
+  "mood": "ominous, infernal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark fantasy",
+    "evil queen",
+    "volcanic landscape",
+    "moon",
+    "gothic castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2947,
+  "source_url": "/generated/2947.jpg",
+  "image_url": "/sketches/3539.png",
+  "inverted_image_url": "/sketches-inverted/3539.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:46Z"
+}

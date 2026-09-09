@@ -1,0 +1,42 @@
+{
+  "number": 3751,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A triptych of three sequential views of a female character with long flowing white hair wearing a and black outfit. The left panel shows her in a dynamic combat stance with energy effects, the middle panel captures her mid-air in a leaping pose, and the right panel shows her lying motionless on the ground (derived from generated still #3161).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A triptych of three sequential views of a female character with long flowing white hair wearing a and black outfit. The left panel shows her in a dynamic combat stance with energy effects, the middle panel captures her mid-air in a leaping pose, and the right panel shows her lying motionless on the ground",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A triptych of three sequential views of a female character with long flowing white hair wearing a and black outfit. The left panel shows her in a dynamic combat stance with energy effects, the middle panel captures her mid-air in a leaping pose, and the right panel shows her lying motionless on the ground (from generated still #3161).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A triptych of three sequential views of a female character with long flowing white hair wearing a and black outfit. The left panel shows her in a dynamic combat stance with energy effects, the middle panel captures her mid-air in a leaping pose, and the right panel shows her lying motionless on the ground",
+  "source_description": "A triptych of three sequential views of a female character with long flowing white hair wearing a red and black outfit. The left panel shows her in a dynamic combat stance with red energy effects, the middle panel captures her mid-air in a leaping pose, and the right panel shows her lying motionless on the ground.",
+  "source_prompt": "A female character with long flowing white hair and dark skin wearing a detailed red and black fantasy outfit with armored details and red boots. She is shown in three sequential cinematic panels against a dark gray background: left panel in a fierce combat stance with red energy shards exploding around her, middle panel leaping through the air with hair dramatically flowing, right panel lying defeated on the ground with limbs splayed. Dramatic lighting, high detail digital painting.",
+  "source_title": "Crimson Warrior Poses",
+  "style": "digital concept art",
+  "mood": "dramatic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "white hair",
+    "costume",
+    "action poses",
+    "triptych"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3161,
+  "source_url": "/generated/3161.jpg",
+  "image_url": "/sketches/3751.png",
+  "inverted_image_url": "/sketches-inverted/3751.png",
+  "curve_count": 185,
+  "built_at": "2026-08-17T00:09:46Z"
+}

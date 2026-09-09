@@ -1,0 +1,42 @@
+{
+  "number": 3006,
+  "title": "Line sketch: Man Among Surreal Spheres",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a black pinstripe shirt and jeans crouches dynamically in the foreground, one arm raised, surrounded by large translucent spheres, abstract rings, and geometric shapes. In the background, five silhouetted men in black suits and top hats stand in a line against a vibrant and sunset over water (derived from generated still #2328).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a black pinstripe shirt and jeans crouches dynamically in the foreground, one arm raised, surrounded by large translucent spheres, abstract rings, and geometric shapes. In the background, five silhouetted men in black suits and top hats stand in a line against a vibrant and sunset over water",
+  "inverted_title": "Inverted sketch: Man Among Surreal Spheres",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a black pinstripe shirt and jeans crouches dynamically in the foreground, one arm raised, surrounded by large translucent spheres, abstract rings, and geometric shapes. In the background, five silhouetted men in black suits and top hats stand in a line against a vibrant and sunset over water (from generated still #2328).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a black pinstripe shirt and jeans crouches dynamically in the foreground, one arm raised, surrounded by large translucent spheres, abstract rings, and geometric shapes. In the background, five silhouetted men in black suits and top hats stand in a line against a vibrant and sunset over water",
+  "source_description": "A man in a black pinstripe shirt and jeans crouches dynamically in the foreground, one arm raised, surrounded by large translucent blue spheres, colorful abstract rings, and geometric shapes. In the background, five silhouetted men in black suits and top hats stand in a line against a vibrant orange and red sunset over water.",
+  "source_prompt": "A man in a black pinstripe shirt and jeans crouches in the foreground with one arm raised, surrounded by large translucent blue spheres, glowing orange and pink geometric rings, and abstract shapes floating in the air. Behind him, five identical men in black suits and top hats stand in a line on the shore, facing forward. Dramatic fiery orange and red sunset over the ocean, vibrant surreal atmosphere, painterly style with visible brushwork.",
+  "source_title": "Man Among Surreal Spheres",
+  "style": "surrealism",
+  "mood": "dreamlike, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "geometric",
+    "cinematic",
+    "sunset",
+    "floating spheres"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2328,
+  "source_url": "/generated/2328.jpg",
+  "image_url": "/sketches/3006.png",
+  "inverted_image_url": "/sketches-inverted/3006.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 340,
+  "title": "Line sketch: Cosmic Tree Monster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene featuring a large, eerie creature with glowing white eyes and a jagged smile floating among dark, twisted tree branches against a starry sky. The illustration has a whimsical yet spooky atmosphere typical of fantasy art (derived from painting #402).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene featuring a large, eerie creature with glowing white eyes and a jagged smile floating among dark, twisted tree branches against a starry sky. The illustration has a whimsical yet spooky atmosphere typical of fantasy art",
+  "inverted_title": "Inverted sketch: Cosmic Tree Monster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene featuring a large, eerie creature with glowing white eyes and a jagged smile floating among dark, twisted tree branches against a starry sky. The illustration has a whimsical yet spooky atmosphere typical of fantasy art (from painting #402).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene featuring a large, eerie creature with glowing white eyes and a jagged smile floating among dark, twisted tree branches against a starry sky. The illustration has a whimsical yet spooky atmosphere typical of fantasy art",
+  "source_description": "A surreal night scene featuring a large, eerie creature with glowing white eyes and a jagged smile floating among dark, twisted tree branches against a starry green sky. The illustration has a whimsical yet spooky atmosphere typical of fantasy art.",
+  "source_prompt": "",
+  "source_title": "Cosmic Tree Monster",
+  "style": "illustration",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "creature",
+    "night sky",
+    "surreal",
+    "fantasy art",
+    "spooky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 402,
+  "source_url": "/paintings/402.jpg",
+  "image_url": "/sketches/340.png",
+  "inverted_image_url": "/sketches-inverted/340.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:39Z"
+}

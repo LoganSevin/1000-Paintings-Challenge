@@ -1,0 +1,42 @@
+{
+  "number": 3236,
+  "title": "Line sketch: Echo in the Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a shiny dress sits in a velvet theater seat, exhaling a visible beam of light from her mouth that projects upward. On the large cinema screen above her, the same woman appears in an identical pose, with a ghostly male figure standing beside her also emitting a light beam (derived from generated still #2593).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a shiny dress sits in a velvet theater seat, exhaling a visible beam of light from her mouth that projects upward. On the large cinema screen above her, the same woman appears in an identical pose, with a ghostly male figure standing beside her also emitting a light beam",
+  "inverted_title": "Inverted sketch: Echo in the Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a shiny dress sits in a velvet theater seat, exhaling a visible beam of light from her mouth that projects upward. On the large cinema screen above her, the same woman appears in an identical pose, with a ghostly male figure standing beside her also emitting a light beam (from generated still #2593).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a shiny dress sits in a velvet theater seat, exhaling a visible beam of light from her mouth that projects upward. On the large cinema screen above her, the same woman appears in an identical pose, with a ghostly male figure standing beside her also emitting a light beam",
+  "source_description": "A woman in a shiny silver dress sits in a red velvet theater seat, exhaling a visible beam of light from her mouth that projects upward. On the large cinema screen above her, the same woman appears in an identical pose, with a ghostly male figure standing beside her also emitting a light beam.",
+  "source_prompt": "A woman with dark curly hair wearing a metallic silver satin dress sits alone in an ornate old theater with red velvet seats. She exhales a bright beam of light from her mouth that projects toward the large screen in front of her. The screen displays the exact same scene of her sitting and projecting light, with a translucent man in a suit standing beside her also emitting a light beam from his mouth. Dramatic cinematic lighting, painterly style with visible brushstrokes and gold leaf accents.",
+  "source_title": "Echo in the Theater",
+  "style": "painterly",
+  "mood": "surreal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinema",
+    "projection",
+    "light beam",
+    "dress",
+    "theater"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2593,
+  "source_url": "/generated/2593.jpg",
+  "image_url": "/sketches/3236.png",
+  "inverted_image_url": "/sketches-inverted/3236.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3288,
+  "title": "Line sketch: Surreal composition Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a gown kneels on the debris-strewn floor of a ruined room, reaching toward a large surreal composition on an easel. The composition depicts a woman's face split between beauty and decay, with slime dripping from the frame onto scattered film reels labeled 'FEATURE REEL' and 'STATUS LOCKED FUSION' (derived from generated still #2663).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a gown kneels on the debris-strewn floor of a ruined room, reaching toward a large surreal composition on an easel. The composition depicts a woman's face split between beauty and decay, with slime dripping from the frame onto scattered film reels labeled 'FEATURE REEL' and 'STATUS LOCKED FUSION'",
+  "inverted_title": "Inverted sketch: Surreal composition Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a gown kneels on the debris-strewn floor of a ruined room, reaching toward a large surreal composition on an easel. The composition depicts a woman's face split between beauty and decay, with slime dripping from the frame onto scattered film reels labeled 'FEATURE REEL' and 'STATUS LOCKED FUSION' (from generated still #2663).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a gown kneels on the debris-strewn floor of a ruined room, reaching toward a large surreal composition on an easel. The composition depicts a woman's face split between beauty and decay, with slime dripping from the frame onto scattered film reels labeled 'FEATURE REEL' and 'STATUS LOCKED FUSION'",
+  "source_description": "A woman in a bronze gown kneels on the debris-strewn floor of a ruined room, reaching toward a large surreal painting on an easel. The painting depicts a woman's face split between beauty and decay, with green slime dripping from the frame onto scattered film reels labeled 'FEATURE REEL' and 'STATUS LOCKED FUSION'.",
+  "source_prompt": "A cinematic surreal scene inside a decaying room with broken windows showing a desert wasteland at dusk. A woman in a flowing bronze satin gown kneels on a cracked wooden floor covered in debris, reaching toward a large ornate painting on an easel. The painting shows a beautiful woman's face half-covered in circuitry and melting into a post-apocalyptic desert with a mushroom cloud. Green slime drips heavily from the painting frame. Scattered film reels on the floor read 'FEATURE REEL' and 'STATUS LOCKED FUSION'. Chandelier overhead, cinematic lighting, highly detailed, surreal atmosphere.",
+  "source_title": "Surreal Painting Ritual",
+  "style": "surrealism",
+  "mood": "eerie, decaying",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ruined interior",
+    "artistic ritual",
+    "dripping paint",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2663,
+  "source_url": "/generated/2663.jpg",
+  "image_url": "/sketches/3288.png",
+  "inverted_image_url": "/sketches-inverted/3288.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:45Z"
+}

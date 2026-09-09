@@ -1,0 +1,42 @@
+{
+  "number": 1023,
+  "title": "Line sketch: Eye of Enchanted Swirls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal close-up of a human eye with a at its pupil, surrounded by flowing ribbons of and smoke. A woman's hand with nails and a ring reaches toward the eye from the right, enveloped in swirling translucent patterns (derived from generated still #234).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal close-up of a human eye with a at its pupil, surrounded by flowing ribbons of and smoke. A woman's hand with nails and a ring reaches toward the eye from the right, enveloped in swirling translucent patterns",
+  "inverted_title": "Inverted sketch: Eye of Enchanted Swirls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal close-up of a human eye with a at its pupil, surrounded by flowing ribbons of and smoke. A woman's hand with nails and a ring reaches toward the eye from the right, enveloped in swirling translucent patterns (from generated still #234).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal close-up of a human eye with a at its pupil, surrounded by flowing ribbons of and smoke. A woman's hand with nails and a ring reaches toward the eye from the right, enveloped in swirling translucent patterns",
+  "source_description": "A surreal close-up of a human eye with a purple rose at its pupil, surrounded by flowing ribbons of pink and purple smoke. A woman's hand with bright pink nails and a ring reaches toward the eye from the right, enveloped in swirling translucent patterns.",
+  "source_prompt": "",
+  "source_title": "Eye of Enchanted Swirls",
+  "style": "surrealism",
+  "mood": "ethereal hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal eye",
+    "flowing ribbons",
+    "nails",
+    "ethereal hand",
+    "dreamlike"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 234,
+  "source_url": "/generated/234.jpg",
+  "image_url": "/sketches/1023.png",
+  "inverted_image_url": "/sketches-inverted/1023.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:40Z"
+}

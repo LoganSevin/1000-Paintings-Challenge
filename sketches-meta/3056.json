@@ -1,0 +1,42 @@
+{
+  "number": 3056,
+  "title": "Line sketch: Surreal Camouflage Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in military camouflage stands on a wooden pier, holding a centipede-like creature with a flower. Her hair is a mass of swirling tentacles with eyes, a dog rests on her shoulder, while a volcanic mountain with a giant watching eye and hanging flower chimes dominate the psychedelic background (derived from generated still #2382).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in military camouflage stands on a wooden pier, holding a centipede-like creature with a flower. Her hair is a mass of swirling tentacles with eyes, a dog rests on her shoulder, while a volcanic mountain with a giant watching eye and hanging flower chimes dominate the psychedelic background",
+  "inverted_title": "Inverted sketch: Surreal Camouflage Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in military camouflage stands on a wooden pier, holding a centipede-like creature with a flower. Her hair is a mass of swirling tentacles with eyes, a dog rests on her shoulder, while a volcanic mountain with a giant watching eye and hanging flower chimes dominate the psychedelic background (from generated still #2382).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in military camouflage stands on a wooden pier, holding a centipede-like creature with a flower. Her hair is a mass of swirling tentacles with eyes, a dog rests on her shoulder, while a volcanic mountain with a giant watching eye and hanging flower chimes dominate the psychedelic background",
+  "source_description": "A woman in military camouflage stands on a wooden pier, holding a centipede-like creature with a red flower. Her hair is a mass of swirling blue tentacles with eyes, a bright green dog rests on her shoulder, while a volcanic mountain with a giant watching eye and hanging flower chimes dominate the psychedelic background.",
+  "source_prompt": "",
+  "source_title": "Surreal Camouflage Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "military",
+    "psychedelic",
+    "volcano",
+    "tentacle hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2382,
+  "source_url": "/generated/2382.jpg",
+  "image_url": "/sketches/3056.png",
+  "inverted_image_url": "/sketches-inverted/3056.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2830,
+  "title": "Line sketch: Steampunk Vortex Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A intricate steampunk machine with gears and a glowing eye hovers at the center of a massive swirling vortex of fire and energy. The scene is set in a dark alien landscape with rocky formations, multiple floating orbs, strange mechanical eyes on the ground, and smaller spacecraft drifting in the sky (derived from generated still #2115).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A intricate steampunk machine with gears and a glowing eye hovers at the center of a massive swirling vortex of fire and energy. The scene is set in a dark alien landscape with rocky formations, multiple floating orbs, strange mechanical eyes on the ground, and smaller spacecraft drifting in the sky",
+  "inverted_title": "Inverted sketch: Steampunk Vortex Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A intricate steampunk machine with gears and a glowing eye hovers at the center of a massive swirling vortex of fire and energy. The scene is set in a dark alien landscape with rocky formations, multiple floating orbs, strange mechanical eyes on the ground, and smaller spacecraft drifting in the sky (from generated still #2115).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A intricate steampunk machine with gears and a glowing eye hovers at the center of a massive swirling vortex of fire and energy. The scene is set in a dark alien landscape with rocky formations, multiple floating orbs, strange mechanical eyes on the ground, and smaller spacecraft drifting in the sky",
+  "source_description": "A intricate steampunk machine with gears and a glowing blue eye hovers at the center of a massive swirling vortex of fire and red energy. The scene is set in a dark alien landscape with rocky formations, multiple floating colorful orbs, strange mechanical eyes on the ground, and smaller spacecraft drifting in the purple sky.",
+  "source_prompt": "A highly detailed surreal painting of a complex brass steampunk orb with gears and a glowing blue central eye floating at the center of a massive swirling fiery red and orange energy vortex. The vortex is surrounded by floating colorful crystal orbs, small spacecraft, and mechanical eye-like structures on a dark rocky alien landscape under a purple twilight sky with dramatic red atmospheric glow.",
+  "source_title": "Steampunk Vortex Portal",
+  "style": "surreal fantasy",
+  "mood": "epic cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "cosmic portal",
+    "surreal landscape",
+    "floating orbs",
+    "fiery vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2115,
+  "source_url": "/generated/2115.jpg",
+  "image_url": "/sketches/2830.png",
+  "inverted_image_url": "/sketches-inverted/2830.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:44Z"
+}

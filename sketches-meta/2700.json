@@ -1,0 +1,42 @@
+{
+  "number": 2700,
+  "title": "Line sketch: Spider-Human Hybrid Grid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 4x6 grid of twenty-four hand-drawn illustrations showing a humanoid figure with a large spider-like abdomen and multiple legs in various hunched, bent-over poses. The figures wear overalls and are depicted against a solid background (derived from generated still #1943).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 4x6 grid of twenty-four hand-drawn illustrations showing a humanoid figure with a large spider-like abdomen and multiple legs in various hunched, bent-over poses. The figures wear overalls and are depicted against a solid background",
+  "inverted_title": "Inverted sketch: Spider-Human Hybrid Grid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 4x6 grid of twenty-four hand-drawn illustrations showing a humanoid figure with a large spider-like abdomen and multiple legs in various hunched, bent-over poses. The figures wear overalls and are depicted against a solid background (from generated still #1943).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 4x6 grid of twenty-four hand-drawn illustrations showing a humanoid figure with a large spider-like abdomen and multiple legs in various hunched, bent-over poses. The figures wear overalls and are depicted against a solid background",
+  "source_description": "A 4x6 grid of twenty-four hand-drawn illustrations showing a humanoid figure with a large spider-like abdomen and multiple legs in various hunched, bent-over poses. The figures wear blue overalls and are depicted against a solid light purple background.",
+  "source_prompt": "",
+  "source_title": "Spider-Human Hybrid Grid",
+  "style": "character study",
+  "mood": "eerie, methodical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hybrid creature",
+    "arachnid humanoid",
+    "posed grid",
+    "overalls",
+    "monstrous figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1943,
+  "source_url": "/generated/1943.jpg",
+  "image_url": "/sketches/2700.png",
+  "inverted_image_url": "/sketches-inverted/2700.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:44Z"
+}

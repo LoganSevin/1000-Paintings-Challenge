@@ -1,0 +1,42 @@
+{
+  "number": 801,
+  "title": "Line sketch: Mouse in Cosmic Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows a blonde woman with flowing hair smiling as her head emerges from swirling concentric rings of, and. A and mouse stands on a glowing orb at the vortex center while petals fall from above (derived from generated still #10).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows a blonde woman with flowing hair smiling as her head emerges from swirling concentric rings of, and. A and mouse stands on a glowing orb at the vortex center while petals fall from above",
+  "inverted_title": "Inverted sketch: Mouse in Cosmic Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows a blonde woman with flowing hair smiling as her head emerges from swirling concentric rings of, and. A and mouse stands on a glowing orb at the vortex center while petals fall from above (from generated still #10).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows a blonde woman with flowing hair smiling as her head emerges from swirling concentric rings of, and. A and mouse stands on a glowing orb at the vortex center while petals fall from above",
+  "source_description": "A surreal painting shows a blonde woman with flowing golden hair smiling as her head emerges from swirling concentric rings of red, orange and purple. A colorful purple and orange mouse stands on a glowing orb at the vortex center while pink petals fall from above.",
+  "source_prompt": "",
+  "source_title": "Mouse in Cosmic Vortex",
+  "style": "fantasy illustration",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "vortex",
+    "woman",
+    "mouse",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 10,
+  "source_url": "/generated/10.jpg",
+  "image_url": "/sketches/801.png",
+  "inverted_image_url": "/sketches-inverted/801.png",
+  "curve_count": 217,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 379,
+  "title": "Line sketch: Corn Alien Astronaut",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A humanoid figure with a face made of corn wears a retro spacesuit and helmet. Smoke rises from the corn cob antenna atop its helmet against a muted starry background (derived from painting #444).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A humanoid figure with a face made of corn wears a retro spacesuit and helmet. Smoke rises from the corn cob antenna atop its helmet against a muted starry background",
+  "inverted_title": "Inverted sketch: Corn Alien Astronaut",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A humanoid figure with a face made of corn wears a retro spacesuit and helmet. Smoke rises from the corn cob antenna atop its helmet against a muted starry background (from painting #444).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A humanoid figure with a face made of corn wears a retro spacesuit and helmet. Smoke rises from the corn cob antenna atop its helmet against a muted starry background",
+  "source_description": "A green humanoid figure with a face made of corn wears a retro green spacesuit and helmet. Smoke rises from the corn cob antenna atop its helmet against a muted starry background.",
+  "source_prompt": "",
+  "source_title": "Corn Alien Astronaut",
+  "style": "Digital illustration",
+  "mood": "Humorous, retro",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "corn",
+    "astronaut",
+    "alien",
+    "spacesuit",
+    "character design"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 444,
+  "source_url": "/paintings/444.jpg",
+  "image_url": "/sketches/379.png",
+  "inverted_image_url": "/sketches-inverted/379.png",
+  "curve_count": 227,
+  "built_at": "2026-08-17T00:09:39Z"
+}

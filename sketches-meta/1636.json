@@ -1,0 +1,42 @@
+{
+  "number": 1636,
+  "title": "Line sketch: Psychedelic Skull Voyage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a small wooden boat rows across a calm lake at night, gazing up at a giant, exploding skull floating in the sky. The surreal scene features vibrant aurora borealis, glowing orbs, and psychedelic patterns over a distant forested shoreline (derived from generated still #851).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a small wooden boat rows across a calm lake at night, gazing up at a giant, exploding skull floating in the sky. The surreal scene features vibrant aurora borealis, glowing orbs, and psychedelic patterns over a distant forested shoreline",
+  "inverted_title": "Inverted sketch: Psychedelic Skull Voyage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a small wooden boat rows across a calm lake at night, gazing up at a giant, exploding skull floating in the sky. The surreal scene features vibrant aurora borealis, glowing orbs, and psychedelic patterns over a distant forested shoreline (from generated still #851).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a small wooden boat rows across a calm lake at night, gazing up at a giant, exploding skull floating in the sky. The surreal scene features vibrant aurora borealis, glowing orbs, and psychedelic patterns over a distant forested shoreline",
+  "source_description": "A woman in a small wooden boat rows across a calm lake at night, gazing up at a giant, colorful, exploding skull floating in the sky. The surreal scene features vibrant aurora borealis, glowing orbs, and psychedelic patterns over a distant forested shoreline.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Skull Voyage",
+  "style": "surreal psychedelic",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "skull",
+    "aurora",
+    "boat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 851,
+  "source_url": "/generated/851.jpg",
+  "image_url": "/sketches/1636.png",
+  "inverted_image_url": "/sketches-inverted/1636.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4728,
+  "title": "Line sketch: Whimsical Fantasy Festival",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon-style landscape depicts a circular wooden festival platform with a large ornate wooden cross at its center, surrounded by pathways and lanterns. The scene includes a -and- striped circus tent, wheat fields, clusters of mushrooms, a wooden windmill on a hill, a stone bridge over a winding river with a small boat, and a lush countryside under a and sky (derived from generated still #4158).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon-style landscape depicts a circular wooden festival platform with a large ornate wooden cross at its center, surrounded by pathways and lanterns. The scene includes a -and- striped circus tent, wheat fields, clusters of mushrooms, a wooden windmill on a hill, a stone bridge over a winding river with a small boat, and a lush countryside under a and sky",
+  "inverted_title": "Inverted sketch: Whimsical Fantasy Festival",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon-style landscape depicts a circular wooden festival platform with a large ornate wooden cross at its center, surrounded by pathways and lanterns. The scene includes a -and- striped circus tent, wheat fields, clusters of mushrooms, a wooden windmill on a hill, a stone bridge over a winding river with a small boat, and a lush countryside under a and sky (from generated still #4158).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon-style landscape depicts a circular wooden festival platform with a large ornate wooden cross at its center, surrounded by pathways and lanterns. The scene includes a -and- striped circus tent, wheat fields, clusters of mushrooms, a wooden windmill on a hill, a stone bridge over a winding river with a small boat, and a lush countryside under a and sky",
+  "source_description": "A vibrant cartoon-style landscape depicts a circular wooden festival platform with a large ornate wooden cross at its center, surrounded by purple pathways and lanterns. The scene includes a red-and-yellow striped circus tent, golden wheat fields, clusters of colorful mushrooms, a wooden windmill on a hill, a stone bridge over a winding river with a small boat, and a lush countryside under a pink and purple sky.",
+  "source_prompt": "Whimsical fantasy landscape featuring a large circular wooden stage with intricate carvings and a tall decorative wooden cross at its center, set upon purple rocky terrain. Nearby stands a red and yellow striped circus tent, golden wheat fields, a cluster of pink, purple and blue mushrooms, a wooden windmill on a hilltop, a stone bridge crossing a turquoise river with a small wooden boat, all under a dreamy pink and purple cloudy sky in a vibrant cartoon style.",
+  "source_title": "Whimsical Fantasy Festival",
+  "style": "whimsical cartoon illustration",
+  "mood": "magical cheerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "festival grounds",
+    "whimsical village",
+    "mushroom circle",
+    "windmill"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4158,
+  "source_url": "/generated/4158.jpg",
+  "image_url": "/sketches/4728.png",
+  "inverted_image_url": "/sketches-inverted/4728.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:48Z"
+}

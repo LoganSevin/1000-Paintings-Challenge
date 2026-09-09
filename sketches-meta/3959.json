@@ -1,0 +1,42 @@
+{
+  "number": 3959,
+  "title": "Line sketch: Mage Conjuring",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with white and hair in an ornate updo stands dynamically against a solid gray background. She wears a white and traditional outfit with armored shoulder plates and a flowing cape, her right hand extended forward emitting glowing magical energy and crescent symbols while her left hand holds a swirling energy chain (derived from generated still #3376).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with white and hair in an ornate updo stands dynamically against a solid gray background. She wears a white and traditional outfit with armored shoulder plates and a flowing cape, her right hand extended forward emitting glowing magical energy and crescent symbols while her left hand holds a swirling energy chain",
+  "inverted_title": "Inverted sketch: Mage Conjuring",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with white and hair in an ornate updo stands dynamically against a solid gray background. She wears a white and traditional outfit with armored shoulder plates and a flowing cape, her right hand extended forward emitting glowing magical energy and crescent symbols while her left hand holds a swirling energy chain (from generated still #3376).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with white and hair in an ornate updo stands dynamically against a solid gray background. She wears a white and traditional outfit with armored shoulder plates and a flowing cape, her right hand extended forward emitting glowing magical energy and crescent symbols while her left hand holds a swirling energy chain",
+  "source_description": "A young female character with white and lavender hair in an ornate updo stands dynamically against a solid gray background. She wears a white and purple traditional outfit with armored shoulder plates and a flowing cape, her right hand extended forward emitting glowing purple magical energy and crescent symbols while her left hand holds a swirling purple energy chain.",
+  "source_prompt": "A fierce young East Asian female sorceress with white hair in an elaborate topknot and bangs, wearing a detailed white and purple traditional warrior mage outfit with shoulder armor and flowing sleeves, dynamically posed with right fist extended casting glowing purple magical energy and crescent moon symbols, left hand holding a swirling purple energy chain, mystical purple halo of energy above her head, dramatic lighting, solid gray background, clean digital illustration style",
+  "source_title": "Purple Mage Conjuring",
+  "style": "digital illustration",
+  "mood": "mystical powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic",
+    "fantasy character",
+    "energy effects",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3376,
+  "source_url": "/generated/3376.jpg",
+  "image_url": "/sketches/3959.png",
+  "inverted_image_url": "/sketches-inverted/3959.png",
+  "curve_count": 223,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 423,
+  "title": "Line sketch: Surreal Sphere with Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A metallic humanoid figure stands on a massive reflective sphere against a background. Smaller colored orbs float in the minimalist surreal space, casting gentle shadows (derived from painting #506).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A metallic humanoid figure stands on a massive reflective sphere against a background. Smaller colored orbs float in the minimalist surreal space, casting gentle shadows",
+  "inverted_title": "Inverted sketch: Surreal Sphere with Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A metallic humanoid figure stands on a massive reflective sphere against a background. Smaller colored orbs float in the minimalist surreal space, casting gentle shadows (from painting #506).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A metallic humanoid figure stands on a massive reflective sphere against a background. Smaller colored orbs float in the minimalist surreal space, casting gentle shadows",
+  "source_description": "A metallic green humanoid figure stands on a massive reflective sphere against a soft purple background. Smaller colored orbs float in the minimalist surreal space, casting gentle shadows.",
+  "source_prompt": "",
+  "source_title": "Surreal Sphere with Green Figure",
+  "style": "Surrealism",
+  "mood": "Dreamlike mystery",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "sphere",
+    "minimalist",
+    "figure",
+    "reflection"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 506,
+  "source_url": "/paintings/506.jpg",
+  "image_url": "/sketches/423.png",
+  "inverted_image_url": "/sketches-inverted/423.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

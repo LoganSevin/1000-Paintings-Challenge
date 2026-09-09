@@ -1,0 +1,42 @@
+{
+  "number": 3214,
+  "title": "Line sketch: Horse in Ruined Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A horse with a white blaze stands in the foreground behind a weathered wooden fence, looking directly at the viewer. Behind it stretches a misty, overgrown landscape filled with ancient stone ruins and crumbling towers under a dramatic, fiery and cloudy sky (derived from generated still #2564).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A horse with a white blaze stands in the foreground behind a weathered wooden fence, looking directly at the viewer. Behind it stretches a misty, overgrown landscape filled with ancient stone ruins and crumbling towers under a dramatic, fiery and cloudy sky",
+  "inverted_title": "Inverted sketch: Horse in Ruined Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A horse with a white blaze stands in the foreground behind a weathered wooden fence, looking directly at the viewer. Behind it stretches a misty, overgrown landscape filled with ancient stone ruins and crumbling towers under a dramatic, fiery and cloudy sky (from generated still #2564).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A horse with a white blaze stands in the foreground behind a weathered wooden fence, looking directly at the viewer. Behind it stretches a misty, overgrown landscape filled with ancient stone ruins and crumbling towers under a dramatic, fiery and cloudy sky",
+  "source_description": "A brown horse with a white blaze stands in the foreground behind a weathered wooden fence, looking directly at the viewer. Behind it stretches a misty, overgrown landscape filled with ancient stone ruins and crumbling towers under a dramatic, fiery red and purple cloudy sky.",
+  "source_prompt": "A majestic chestnut brown horse with a white blaze on its face stands behind an old wooden fence in the foreground, gazing at the viewer. Behind the horse are misty green fields dotted with ancient overgrown stone ruins and broken towers. The sky above is filled with dramatic swirling clouds in fiery red, orange, and deep purple tones, cinematic fantasy style, atmospheric lighting",
+  "source_title": "Horse in Ruined Landscape",
+  "style": "fantasy realism",
+  "mood": "eerie, majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horse",
+    "ruins",
+    "apocalyptic",
+    "dramatic sky",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2564,
+  "source_url": "/generated/2564.jpg",
+  "image_url": "/sketches/3214.png",
+  "inverted_image_url": "/sketches-inverted/3214.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

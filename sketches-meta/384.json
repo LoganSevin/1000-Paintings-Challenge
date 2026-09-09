@@ -1,0 +1,42 @@
+{
+  "number": 384,
+  "title": "Line sketch: Gas Mask in Cornfield",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mysterious figure wearing a detailed gas mask emerges from a dense cornfield, with fresh corn cobs prominently displayed in the foreground. The hyperrealistic composition creates an eerie and surreal atmosphere through its masterful rendering of textures and lighting (derived from painting #449).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mysterious figure wearing a detailed gas mask emerges from a dense cornfield, with fresh corn cobs prominently displayed in the foreground. The hyperrealistic composition creates an eerie and surreal atmosphere through its masterful rendering of textures and lighting",
+  "inverted_title": "Inverted sketch: Gas Mask in Cornfield",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mysterious figure wearing a detailed gas mask emerges from a dense cornfield, with fresh corn cobs prominently displayed in the foreground. The hyperrealistic composition creates an eerie and surreal atmosphere through its masterful rendering of textures and lighting (from painting #449).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mysterious figure wearing a detailed gas mask emerges from a dense cornfield, with fresh corn cobs prominently displayed in the foreground. The hyperrealistic composition creates an eerie and surreal atmosphere through its masterful rendering of textures and lighting",
+  "source_description": "A mysterious figure wearing a detailed gas mask emerges from a dense cornfield, with fresh corn cobs prominently displayed in the foreground. The hyperrealistic painting creates an eerie and surreal atmosphere through its masterful rendering of textures and lighting.",
+  "source_prompt": "",
+  "source_title": "Gas Mask in Cornfield",
+  "style": "Hyperrealistic surrealism",
+  "mood": "Eerie and mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gas mask",
+    "cornfield",
+    "surreal",
+    "hyperrealistic",
+    "agricultural"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 449,
+  "source_url": "/paintings/449.jpg",
+  "image_url": "/sketches/384.png",
+  "inverted_image_url": "/sketches-inverted/384.png",
+  "curve_count": 161,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2377,
+  "title": "Line sketch: Stained Glass Citrus Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant circular stained glass style artwork featuring a stylized woman's profile with elaborate swirling and hair. She holds a textured against a background of segmented citrus slices and leaves set within a border (derived from generated still #1605).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant circular stained glass style artwork featuring a stylized woman's profile with elaborate swirling and hair. She holds a textured against a background of segmented citrus slices and leaves set within a border",
+  "inverted_title": "Inverted sketch: Stained Glass Citrus Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant circular stained glass style artwork featuring a stylized woman's profile with elaborate swirling and hair. She holds a textured against a background of segmented citrus slices and leaves set within a border (from generated still #1605).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant circular stained glass style artwork featuring a stylized woman's profile with elaborate swirling and hair. She holds a textured against a background of segmented citrus slices and leaves set within a border",
+  "source_description": "A vibrant circular stained glass style artwork featuring a stylized woman's profile with elaborate swirling blue and orange hair. She holds a textured orange against a background of segmented citrus slices and green leaves set within a purple border.",
+  "source_prompt": "",
+  "source_title": "Stained Glass Citrus Portrait",
+  "style": "stained glass",
+  "mood": "vibrant, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "stained glass",
+    "citrus",
+    "swirling hair",
+    "profile"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1605,
+  "source_url": "/generated/1605.jpg",
+  "image_url": "/sketches/2377.png",
+  "inverted_image_url": "/sketches-inverted/2377.png",
+  "curve_count": 188,
+  "built_at": "2026-08-17T00:09:43Z"
+}

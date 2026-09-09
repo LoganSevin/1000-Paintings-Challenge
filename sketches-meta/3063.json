@@ -1,0 +1,42 @@
+{
+  "number": 3063,
+  "title": "Line sketch: Dual Faces with Dragonfly",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal profile portrait shows a -skinned woman with elaborate floral headdress facing a - woman with closed eyes, their lips nearly touching. An ornate mechanical dragonfly with filigree rests on the woman's shoulder against a vibrant swirling background of concentric circles and organic patterns (derived from generated still #2390).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal profile portrait shows a -skinned woman with elaborate floral headdress facing a - woman with closed eyes, their lips nearly touching. An ornate mechanical dragonfly with filigree rests on the woman's shoulder against a vibrant swirling background of concentric circles and organic patterns",
+  "inverted_title": "Inverted sketch: Dual Faces with Dragonfly",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal profile portrait shows a -skinned woman with elaborate floral headdress facing a - woman with closed eyes, their lips nearly touching. An ornate mechanical dragonfly with filigree rests on the woman's shoulder against a vibrant swirling background of concentric circles and organic patterns (from generated still #2390).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal profile portrait shows a -skinned woman with elaborate floral headdress facing a - woman with closed eyes, their lips nearly touching. An ornate mechanical dragonfly with filigree rests on the woman's shoulder against a vibrant swirling background of concentric circles and organic patterns",
+  "source_description": "A surreal profile portrait shows a red-skinned woman with elaborate dark red floral headdress facing a golden-yellow woman with closed eyes, their lips nearly touching. An ornate mechanical dragonfly with golden filigree rests on the red woman's shoulder against a vibrant swirling background of concentric circles and organic patterns.",
+  "source_prompt": "",
+  "source_title": "Dual Faces with Dragonfly",
+  "style": "surrealism",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal portrait",
+    "dual faces",
+    "dragonfly",
+    "floral headdress",
+    "concentric circles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2390,
+  "source_url": "/generated/2390.jpg",
+  "image_url": "/sketches/3063.png",
+  "inverted_image_url": "/sketches-inverted/3063.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:44Z"
+}

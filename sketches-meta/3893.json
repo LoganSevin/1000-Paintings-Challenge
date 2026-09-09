@@ -1,0 +1,42 @@
+{
+  "number": 3893,
+  "title": "Line sketch: Mage Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with hair performing magical attacks. She wears a and outfit with star patterns, a flowing black cape, and casts glowing energy rings and bursts from her hands (derived from generated still #3310).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with hair performing magical attacks. She wears a and outfit with star patterns, a flowing black cape, and casts glowing energy rings and bursts from her hands",
+  "inverted_title": "Inverted sketch: Mage Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with hair performing magical attacks. She wears a and outfit with star patterns, a flowing black cape, and casts glowing energy rings and bursts from her hands (from generated still #3310).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with hair performing magical attacks. She wears a and outfit with star patterns, a flowing black cape, and casts glowing energy rings and bursts from her hands",
+  "source_description": "Four sequential poses of a female character with teal hair performing magical attacks. She wears a purple and teal outfit with star patterns, a flowing black cape, and casts glowing cyan energy rings and bursts from her hands.",
+  "source_prompt": "A female warrior mage with short teal hair and glowing eyes, wearing a dark purple cropped top, teal pants with star motifs, black cape, and boots. She is shown in four different dynamic fighting poses casting bright cyan magical energy rings and bursts from her fists against a plain gray background, anime-influenced digital painting style with strong rim lighting and motion effects.",
+  "source_title": "Teal Mage Pose Sequence",
+  "style": "digital illustration",
+  "mood": "dynamic, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic poses",
+    "energy",
+    "fantasy character",
+    "action sequence"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3310,
+  "source_url": "/generated/3310.jpg",
+  "image_url": "/sketches/3893.png",
+  "inverted_image_url": "/sketches-inverted/3893.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:46Z"
+}

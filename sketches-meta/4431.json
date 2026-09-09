@@ -1,0 +1,42 @@
+{
+  "number": 4431,
+  "title": "Line sketch: Stasis Spells & Reflections",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nighttime view of a magical apothecary shop named 'Stasis Spells & Reflections' on a cobblestone street. A woman in a robe stands inside the large arched window, holding a glowing bottle, surrounded by floating potions, dried herbs, and shelves of magical bottles (derived from generated still #3850).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nighttime view of a magical apothecary shop named 'Stasis Spells & Reflections' on a cobblestone street. A woman in a robe stands inside the large arched window, holding a glowing bottle, surrounded by floating potions, dried herbs, and shelves of magical bottles",
+  "inverted_title": "Inverted sketch: Stasis Spells & Reflections",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nighttime view of a magical apothecary shop named 'Stasis Spells & Reflections' on a cobblestone street. A woman in a robe stands inside the large arched window, holding a glowing bottle, surrounded by floating potions, dried herbs, and shelves of magical bottles (from generated still #3850).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nighttime view of a magical apothecary shop named 'Stasis Spells & Reflections' on a cobblestone street. A woman in a robe stands inside the large arched window, holding a glowing bottle, surrounded by floating potions, dried herbs, and shelves of magical bottles",
+  "source_description": "A nighttime view of a magical apothecary shop named 'Stasis Spells & Reflections' on a cobblestone street. A woman in a dark blue robe stands inside the large arched window, holding a glowing bottle, surrounded by floating potions, dried herbs, and shelves of magical bottles.",
+  "source_prompt": "A magical apothecary shop at dusk on a cobblestone street with a large arched display window. A woman in a dark blue robe stands inside holding a glowing potion bottle. Floating bottles, dried herbs, and hanging decorations fill the window display. The shop sign reads 'Stasis Spells & Reflections'. Warm lantern light illuminates the scene against a deep twilight sky, realistic digital painting style.",
+  "source_title": "Stasis Spells & Reflections",
+  "style": "realistic",
+  "mood": "mysterious, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic shop",
+    "apothecary",
+    "night scene",
+    "fantasy",
+    "cobblestone street"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3850,
+  "source_url": "/generated/3850.jpg",
+  "image_url": "/sketches/4431.png",
+  "inverted_image_url": "/sketches-inverted/4431.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:48Z"
+}

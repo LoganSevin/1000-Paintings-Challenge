@@ -1,0 +1,42 @@
+{
+  "number": 4443,
+  "title": "Line sketch: The Arcane Archivist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly woman with white hair in a bun stands in a dimly lit study, wearing a robe with trim. She holds a glowing vial in her right hand while examining scrolls and documents spread across a large wooden desk surrounded by candles (derived from generated still #3862).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly woman with white hair in a bun stands in a dimly lit study, wearing a robe with trim. She holds a glowing vial in her right hand while examining scrolls and documents spread across a large wooden desk surrounded by candles",
+  "inverted_title": "Inverted sketch: The Arcane Archivist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly woman with white hair in a bun stands in a dimly lit study, wearing a robe with trim. She holds a glowing vial in her right hand while examining scrolls and documents spread across a large wooden desk surrounded by candles (from generated still #3862).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly woman with white hair in a bun stands in a dimly lit study, wearing a robe with trim. She holds a glowing vial in her right hand while examining scrolls and documents spread across a large wooden desk surrounded by candles",
+  "source_description": "An elderly woman with white hair in a bun stands in a dimly lit study, wearing a dark blue robe with silver trim. She holds a glowing vial in her right hand while examining scrolls and documents spread across a large wooden desk surrounded by candles.",
+  "source_prompt": "An elderly female scholar with white hair tied in a neat bun stands in a dark blue mystical study filled with floating candles hanging from the ceiling. She wears a long dark blue robe with intricate silver trim and holds up a glowing vial, examining it closely. A large wooden desk in front of her is covered with ancient scrolls, framed documents, and more lit candles. Bookshelves line the walls, a large painting of a butterfly hangs behind her, and the entire scene is illuminated by warm candlelight creating a mysterious atmosphere.",
+  "source_title": "The Arcane Archivist",
+  "style": "realistic",
+  "mood": "mysterious, scholarly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "library",
+    "candles",
+    "arcane",
+    "scholar"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3862,
+  "source_url": "/generated/3862.jpg",
+  "image_url": "/sketches/4443.png",
+  "inverted_image_url": "/sketches-inverted/4443.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:48Z"
+}

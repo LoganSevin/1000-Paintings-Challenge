@@ -1,0 +1,42 @@
+{
+  "number": 3554,
+  "title": "Line sketch: Catgirl at the Mailbox",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with blonde hair, cat ears, and facial markings stands beside a rural mailbox, holding a cardboard package with both hands. She has a slight smile while looking down at the box, set against a suburban backdrop with houses, trees, and warm sunlight (derived from generated still #2962).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with blonde hair, cat ears, and facial markings stands beside a rural mailbox, holding a cardboard package with both hands. She has a slight smile while looking down at the box, set against a suburban backdrop with houses, trees, and warm sunlight",
+  "inverted_title": "Inverted sketch: Catgirl at the Mailbox",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with blonde hair, cat ears, and facial markings stands beside a rural mailbox, holding a cardboard package with both hands. She has a slight smile while looking down at the box, set against a suburban backdrop with houses, trees, and warm sunlight (from generated still #2962).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with blonde hair, cat ears, and facial markings stands beside a rural mailbox, holding a cardboard package with both hands. She has a slight smile while looking down at the box, set against a suburban backdrop with houses, trees, and warm sunlight",
+  "source_description": "A young woman with blonde hair, cat ears, and facial markings stands beside a red rural mailbox, holding a cardboard package with both hands. She has a slight smile while looking down at the box, set against a suburban backdrop with houses, trees, and warm golden sunlight.",
+  "source_prompt": "A young woman with short messy blonde hair, prominent cat ears, and orange facial markings stands in a suburban front yard at sunset, wearing a beige plaid button-up shirt and cargo pants. She holds a plain cardboard box with both hands while standing next to a classic red metal mailbox with its flag up. She has a gentle smile and is looking down at the package. Warm golden hour sunlight creates a strong backlight and lens flare, soft bokeh background with green lawn, trees, and a house visible. Photorealistic, natural lighting, cinematic composition.",
+  "source_title": "Catgirl at the Mailbox",
+  "style": "photorealistic",
+  "mood": "warm serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "catgirl",
+    "mailbox",
+    "package",
+    "hour",
+    "suburban"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2962,
+  "source_url": "/generated/2962.jpg",
+  "image_url": "/sketches/3554.png",
+  "inverted_image_url": "/sketches-inverted/3554.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:46Z"
+}

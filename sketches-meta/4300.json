@@ -1,0 +1,42 @@
+{
+  "number": 4300,
+  "title": "Line sketch: Cosmic Neural Flower Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing, intricate glass orb sits on an ornate metallic stand against a swirling cosmic background. Inside the transparent sphere, a vibrant surreal composition features a central flower connected by glowing neural-like pathways to trumpet flowers, a large spiral, and various other blossoms and fleur-de-lis symbols (derived from generated still #3719).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing, intricate glass orb sits on an ornate metallic stand against a swirling cosmic background. Inside the transparent sphere, a vibrant surreal composition features a central flower connected by glowing neural-like pathways to trumpet flowers, a large spiral, and various other blossoms and fleur-de-lis symbols",
+  "inverted_title": "Inverted sketch: Cosmic Neural Flower Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing, intricate glass orb sits on an ornate metallic stand against a swirling cosmic background. Inside the transparent sphere, a vibrant surreal composition features a central flower connected by glowing neural-like pathways to trumpet flowers, a large spiral, and various other blossoms and fleur-de-lis symbols (from generated still #3719).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing, intricate glass orb sits on an ornate metallic stand against a swirling cosmic background. Inside the transparent sphere, a vibrant surreal composition features a central flower connected by glowing neural-like pathways to trumpet flowers, a large spiral, and various other blossoms and fleur-de-lis symbols",
+  "source_description": "A glowing, intricate glass orb sits on an ornate metallic stand against a swirling cosmic background. Inside the transparent sphere, a vibrant surreal composition features a central pink flower connected by glowing blue neural-like pathways to purple trumpet flowers, a large yellow spiral, and various other blossoms and fleur-de-lis symbols.",
+  "source_prompt": "A large transparent glass orb on an ornate dark metal stand contains a surreal glowing botanical neural network. A central pink flower connects via bright blue luminous pathways to purple trumpet flowers, a vibrant yellow spiral pattern, smaller blossoms, and fleur-de-lis symbols. The orb floats in a dark cosmic space with swirling red and grey nebulae, stars, and floating fleur-de-lis motifs.",
+  "source_title": "Cosmic Neural Flower Orb",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "glass orb",
+    "neural flower",
+    "cosmic surreal",
+    "fleur-de-lis",
+    "glowing pathways"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3719,
+  "source_url": "/generated/3719.jpg",
+  "image_url": "/sketches/4300.png",
+  "inverted_image_url": "/sketches-inverted/4300.png",
+  "curve_count": 196,
+  "built_at": "2026-08-17T00:09:47Z"
+}

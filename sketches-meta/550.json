@@ -1,0 +1,42 @@
+{
+  "number": 550,
+  "title": "Line sketch: Muscular Alien Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed composition of a muscular alien with large black eyes and a slight smirk. The creature's textured skin and shiny highlights create a lifelike extraterrestrial character against a plain background (derived from painting #688).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed composition of a muscular alien with large black eyes and a slight smirk. The creature's textured skin and shiny highlights create a lifelike extraterrestrial character against a plain background",
+  "inverted_title": "Inverted sketch: Muscular Alien Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed composition of a muscular alien with large black eyes and a slight smirk. The creature's textured skin and shiny highlights create a lifelike extraterrestrial character against a plain background (from painting #688).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed composition of a muscular alien with large black eyes and a slight smirk. The creature's textured skin and shiny highlights create a lifelike extraterrestrial character against a plain background",
+  "source_description": "A detailed painting of a muscular green alien with large black eyes and a slight smirk. The creature's textured skin and shiny highlights create a lifelike extraterrestrial character against a plain background.",
+  "source_prompt": "",
+  "source_title": "Muscular Green Alien Portrait",
+  "style": "Realistic",
+  "mood": "Curious and confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "portrait",
+    "sci-fi",
+    "creature",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 688,
+  "source_url": "/paintings/688.jpg",
+  "image_url": "/sketches/550.png",
+  "inverted_image_url": "/sketches-inverted/550.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:39Z"
+}

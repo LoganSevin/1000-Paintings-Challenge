@@ -1,0 +1,42 @@
+{
+  "number": 4722,
+  "title": "Line sketch: Whimsical Dragon Rollercoaster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant fantasy landscape features a large dragon-shaped rollercoaster with tracks winding across rolling hills. The scene includes a traditional East Asian pagoda on a cliff with a waterfall, a winding river with wooden bridges, windmills, a fox-like creature peeking from a stone archway, and lanterns illuminating paths under a sky (derived from generated still #4152).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant fantasy landscape features a large dragon-shaped rollercoaster with tracks winding across rolling hills. The scene includes a traditional East Asian pagoda on a cliff with a waterfall, a winding river with wooden bridges, windmills, a fox-like creature peeking from a stone archway, and lanterns illuminating paths under a sky",
+  "inverted_title": "Inverted sketch: Whimsical Dragon Rollercoaster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant fantasy landscape features a large dragon-shaped rollercoaster with tracks winding across rolling hills. The scene includes a traditional East Asian pagoda on a cliff with a waterfall, a winding river with wooden bridges, windmills, a fox-like creature peeking from a stone archway, and lanterns illuminating paths under a sky (from generated still #4152).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant fantasy landscape features a large dragon-shaped rollercoaster with tracks winding across rolling hills. The scene includes a traditional East Asian pagoda on a cliff with a waterfall, a winding river with wooden bridges, windmills, a fox-like creature peeking from a stone archway, and lanterns illuminating paths under a sky",
+  "source_description": "A vibrant fantasy landscape features a large green dragon-shaped rollercoaster with red tracks winding across rolling green hills. The scene includes a traditional East Asian pagoda on a cliff with a waterfall, a blue winding river with wooden bridges, windmills, a fox-like creature peeking from a stone archway, and colorful lanterns illuminating paths under a pastel sky.",
+  "source_prompt": "A vibrant whimsical fantasy landscape with a giant green dragon whose body forms a red-tracked rollercoaster winding over lush green hills. Traditional multi-tiered East Asian pagoda sits on a cliff beside a cascading waterfall. Blue river winds through the scene with wooden bridges, windmills, glowing lanterns, and a fox-like creature emerging from a stone tunnel. Pastel sky with clouds and kites, colorful flowers and mushrooms dot the terrain, storybook illustration style.",
+  "source_title": "Whimsical Dragon Rollercoaster",
+  "style": "whimsical fantasy illustration",
+  "mood": "playful magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "rollercoaster",
+    "dragon",
+    "pagoda",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4152,
+  "source_url": "/generated/4152.jpg",
+  "image_url": "/sketches/4722.png",
+  "inverted_image_url": "/sketches-inverted/4722.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:48Z"
+}

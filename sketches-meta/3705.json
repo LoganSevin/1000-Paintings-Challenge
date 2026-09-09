@@ -1,0 +1,42 @@
+{
+  "number": 3705,
+  "title": "Line sketch: Stained Glass Canine Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal ink sketch of a bald, wide-eyed humanoid figure with radiating lines and symbols on its head is positioned on a spiral-bound notebook page. To the right, a finished colored composition shows a Cavalier King Charles Spaniel dressed in Elizabethan attire with a ruff collar, holding a chain in front of an ornate stained-glass window depicting the same humanoid face and smaller dogs (derived from generated still #3113).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal ink sketch of a bald, wide-eyed humanoid figure with radiating lines and symbols on its head is positioned on a spiral-bound notebook page. To the right, a finished colored composition shows a Cavalier King Charles Spaniel dressed in Elizabethan attire with a ruff collar, holding a chain in front of an ornate stained-glass window depicting the same humanoid face and smaller dogs",
+  "inverted_title": "Inverted sketch: Stained Glass Canine Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal ink sketch of a bald, wide-eyed humanoid figure with radiating lines and symbols on its head is positioned on a spiral-bound notebook page. To the right, a finished colored composition shows a Cavalier King Charles Spaniel dressed in Elizabethan attire with a ruff collar, holding a chain in front of an ornate stained-glass window depicting the same humanoid face and smaller dogs (from generated still #3113).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal ink sketch of a bald, wide-eyed humanoid figure with radiating lines and symbols on its head is positioned on a spiral-bound notebook page. To the right, a finished colored composition shows a Cavalier King Charles Spaniel dressed in Elizabethan attire with a ruff collar, holding a chain in front of an ornate stained-glass window depicting the same humanoid face and smaller dogs",
+  "source_description": "A surreal blue ink sketch of a bald, wide-eyed humanoid figure with radiating lines and symbols on its head is positioned on a spiral-bound notebook page. To the right, a finished colored painting shows a Cavalier King Charles Spaniel dressed in Elizabethan attire with a ruff collar, holding a chain in front of an ornate stained-glass window depicting the same humanoid face and smaller dogs.",
+  "source_prompt": "",
+  "source_title": "Stained Glass Canine Portrait",
+  "style": "surreal illustration",
+  "mood": "eccentric, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media (ink and digital painting)",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "stained glass",
+    "dog portrait",
+    "Elizabethan",
+    "notebook sketch"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3113,
+  "source_url": "/generated/3113.jpg",
+  "image_url": "/sketches/3705.png",
+  "inverted_image_url": "/sketches-inverted/3705.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 20,
+  "title": "Line sketch: Orbs on Blush",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Numerous spheres with - rims float and overlap across a - background. Varying sizes and gentle highlights create depth and movement in a scattered yet balanced composition. The work uses visible and subtle shading to suggest volume and light (derived from painting #31).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Numerous spheres with - rims float and overlap across a - background. Varying sizes and gentle highlights create depth and movement in a scattered yet balanced composition. The work uses visible and subtle shading to suggest volume and light",
+  "inverted_title": "Inverted sketch: Orbs on Blush",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Numerous spheres with - rims float and overlap across a - background. Varying sizes and gentle highlights create depth and movement in a scattered yet balanced composition. The work uses visible and subtle shading to suggest volume and light (from painting #31).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Numerous spheres with - rims float and overlap across a - background. Varying sizes and gentle highlights create depth and movement in a scattered yet balanced composition. The work uses visible and subtle shading to suggest volume and light",
+  "source_description": "Numerous blue spheres with soft red-pink rims float and overlap across a muted peach-pink background. Varying sizes and gentle highlights create depth and movement in a scattered yet balanced composition. The work uses visible brushwork and subtle shading to suggest volume and light.",
+  "source_prompt": "",
+  "source_title": "Indigo Orbs on Blush",
+  "style": "Abstract",
+  "mood": "Whimsical serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "spheres",
+    "bubbles",
+    "circles",
+    "berries"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 31,
+  "source_url": "/paintings/31.jpg",
+  "image_url": "/sketches/20.png",
+  "inverted_image_url": "/sketches-inverted/20.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:38Z"
+}

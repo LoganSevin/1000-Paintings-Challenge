@@ -1,0 +1,42 @@
+{
+  "number": 960,
+  "title": "Line sketch: Surreal Eye Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed surreal composition of a giant human eye with long black lashes, where the iris contains a vibrant landscape with rolling hills, a wooden fence, two horses, and a large bowl overflowing with fruit at the center. The sclera shows a and sunset sky with stars (derived from generated still #170).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed surreal composition of a giant human eye with long black lashes, where the iris contains a vibrant landscape with rolling hills, a wooden fence, two horses, and a large bowl overflowing with fruit at the center. The sclera shows a and sunset sky with stars",
+  "inverted_title": "Inverted sketch: Surreal Eye Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed surreal composition of a giant human eye with long black lashes, where the iris contains a vibrant landscape with rolling hills, a wooden fence, two horses, and a large bowl overflowing with fruit at the center. The sclera shows a and sunset sky with stars (from generated still #170).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed surreal composition of a giant human eye with long black lashes, where the iris contains a vibrant landscape with rolling hills, a wooden fence, two horses, and a large bowl overflowing with fruit at the center. The sclera shows a and sunset sky with stars",
+  "source_description": "A highly detailed surreal painting of a giant human eye with long black lashes, where the iris contains a vibrant green landscape with rolling hills, a wooden fence, two brown horses, and a large pink bowl overflowing with colorful fruit at the center. The sclera shows a purple and orange sunset sky with stars.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Landscape",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "landscape",
+    "fruit bowl",
+    "horses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 170,
+  "source_url": "/generated/170.jpg",
+  "image_url": "/sketches/960.png",
+  "inverted_image_url": "/sketches-inverted/960.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2306,
+  "title": "Line sketch: Snake Charmer in Psychedelic Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a stylized woman with hair and a large hat smoking a pipe, from which a snake with eyes emerges. The winding road below transforms into multiple snakes slithering through a foggy mountain range under a dramatic fiery and sky (derived from generated still #1533).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a stylized woman with hair and a large hat smoking a pipe, from which a snake with eyes emerges. The winding road below transforms into multiple snakes slithering through a foggy mountain range under a dramatic fiery and sky",
+  "inverted_title": "Inverted sketch: Snake Charmer in Psychedelic Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a stylized woman with hair and a large hat smoking a pipe, from which a snake with eyes emerges. The winding road below transforms into multiple snakes slithering through a foggy mountain range under a dramatic fiery and sky (from generated still #1533).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a stylized woman with hair and a large hat smoking a pipe, from which a snake with eyes emerges. The winding road below transforms into multiple snakes slithering through a foggy mountain range under a dramatic fiery and sky",
+  "source_description": "A vibrant surreal painting depicts a stylized woman with green hair and a large green hat smoking a pipe, from which a purple snake with yellow eyes emerges. The winding road below transforms into multiple purple snakes slithering through a foggy mountain range under a dramatic fiery orange and purple sky.",
+  "source_prompt": "",
+  "source_title": "Snake Charmer in Psychedelic Landscape",
+  "style": "psychedelic surrealism",
+  "mood": "trippy mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake charmer",
+    "psychedelic",
+    "surreal landscape",
+    "snakes",
+    "hat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1533,
+  "source_url": "/generated/1533.jpg",
+  "image_url": "/sketches/2306.png",
+  "inverted_image_url": "/sketches-inverted/2306.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3204,
+  "title": "Line sketch: Cosmic Desert Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women with stylized faces and ornate headwear stand in the foreground looking toward a winding path that leads to a vibrant domed city built into a large hill. A massive sun sets behind the city while two glowing spiral galaxies float in the sky above (derived from generated still #2554).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women with stylized faces and ornate headwear stand in the foreground looking toward a winding path that leads to a vibrant domed city built into a large hill. A massive sun sets behind the city while two glowing spiral galaxies float in the sky above",
+  "inverted_title": "Inverted sketch: Cosmic Desert Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women with stylized faces and ornate headwear stand in the foreground looking toward a winding path that leads to a vibrant domed city built into a large hill. A massive sun sets behind the city while two glowing spiral galaxies float in the sky above (from generated still #2554).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women with stylized faces and ornate headwear stand in the foreground looking toward a winding path that leads to a vibrant domed city built into a large hill. A massive sun sets behind the city while two glowing spiral galaxies float in the sky above",
+  "source_description": "Three women with colorful stylized faces and ornate headwear stand in the foreground looking toward a winding golden path that leads to a vibrant domed city built into a large hill. A massive red sun sets behind the city while two glowing spiral galaxies float in the purple sky above.",
+  "source_prompt": "Three stylized women with magenta, turquoise, and pink skin stand in profile in the foreground, adorned with intricate facial markings and ornate headdresses. They gaze across a winding golden path toward a colorful domed city built on a green hill. A giant red sun sets behind the city, casting dramatic rays, while two glowing spiral galaxies swirl in the purple and orange sky. Psychedelic desert landscape with floating patterns, vibrant fantasy style.",
+  "source_title": "Cosmic Desert Vision",
+  "style": "fantasy surrealism",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "futuristic city",
+    "cosmic sky",
+    "three women",
+    "desert path"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2554,
+  "source_url": "/generated/2554.jpg",
+  "image_url": "/sketches/3204.png",
+  "inverted_image_url": "/sketches-inverted/3204.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

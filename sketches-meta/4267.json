@@ -1,0 +1,42 @@
+{
+  "number": 4267,
+  "title": "Line sketch: Cosmic Crystal Ball",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball sits on a metallic stand against a starry nebula background. Inside, a surreal glowing skull emits lightning that connects to floating test tubes, orbs, and swirling liquid patterns with miniature mountains (derived from generated still #3686).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball sits on a metallic stand against a starry nebula background. Inside, a surreal glowing skull emits lightning that connects to floating test tubes, orbs, and swirling liquid patterns with miniature mountains",
+  "inverted_title": "Inverted sketch: Cosmic Crystal Ball",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball sits on a metallic stand against a starry nebula background. Inside, a surreal glowing skull emits lightning that connects to floating test tubes, orbs, and swirling liquid patterns with miniature mountains (from generated still #3686).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball sits on a metallic stand against a starry nebula background. Inside, a surreal glowing skull emits lightning that connects to floating test tubes, orbs, and swirling liquid patterns with miniature mountains",
+  "source_description": "A glowing crystal ball sits on a metallic stand against a starry green nebula background. Inside, a surreal glowing pink skull emits bright blue lightning that connects to floating test tubes, green orbs, and swirling blue liquid patterns with miniature green mountains.",
+  "source_prompt": "A surreal glowing crystal ball on a metallic stand, containing a bright pink skull at its center emitting electric blue lightning bolts that reach floating test tubes and green orbs at the top. Swirling blue liquid with glowing concentric rings and miniature green mountains fill the bottom. Pink dripping liquid runs down the interior glass. Set against a dark green space nebula with stars, vibrant neon colors, highly detailed digital painting.",
+  "source_title": "Cosmic Crystal Ball",
+  "style": "surreal digital art",
+  "mood": "ethereal, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "skull",
+    "lightning",
+    "surreal",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3686,
+  "source_url": "/generated/3686.jpg",
+  "image_url": "/sketches/4267.png",
+  "inverted_image_url": "/sketches-inverted/4267.png",
+  "curve_count": 217,
+  "built_at": "2026-08-17T00:09:47Z"
+}

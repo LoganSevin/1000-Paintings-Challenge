@@ -1,0 +1,42 @@
+{
+  "number": 471,
+  "title": "Line sketch: Ruins Reclaimed by Nature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Tall flowering plants thrive on a mound of earth in the foreground, with a massive circular futuristic structure looming in the misty background. The scene evokes a post-apocalyptic world where technology has been overtaken by resilient vegetation (derived from painting #566).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Tall flowering plants thrive on a mound of earth in the foreground, with a massive circular futuristic structure looming in the misty background. The scene evokes a post-apocalyptic world where technology has been overtaken by resilient vegetation",
+  "inverted_title": "Inverted sketch: Ruins Reclaimed by Nature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Tall flowering plants thrive on a mound of earth in the foreground, with a massive circular futuristic structure looming in the misty background. The scene evokes a post-apocalyptic world where technology has been overtaken by resilient vegetation (from painting #566).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Tall flowering plants thrive on a mound of earth in the foreground, with a massive circular futuristic structure looming in the misty background. The scene evokes a post-apocalyptic world where technology has been overtaken by resilient vegetation",
+  "source_description": "Tall flowering plants thrive on a mound of earth in the foreground, with a massive circular futuristic structure looming in the misty background. The scene evokes a post-apocalyptic world where technology has been overtaken by resilient vegetation.",
+  "source_prompt": "",
+  "source_title": "Ruins Reclaimed by Nature",
+  "style": "line sketch",
+  "mood": "eerie, hopeful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "nature",
+    "ruins",
+    "futuristic",
+    "overgrowth",
+    "misty"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 566,
+  "source_url": "/paintings/566.jpg",
+  "image_url": "/sketches/471.png",
+  "inverted_image_url": "/sketches-inverted/471.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:39Z"
+}

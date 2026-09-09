@@ -1,0 +1,42 @@
+{
+  "number": 1246,
+  "title": "Line sketch: Serpent and Mouse in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large serpent with eyes and a flickering tongue rises in an S-curve above desert dunes. In the foreground a small mouse stands on the sand while a tiny -cloaked figure with a glowing lantern stands nearby, all under a sky with a large moon and paint drips (derived from generated still #458).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large serpent with eyes and a flickering tongue rises in an S-curve above desert dunes. In the foreground a small mouse stands on the sand while a tiny -cloaked figure with a glowing lantern stands nearby, all under a sky with a large moon and paint drips",
+  "inverted_title": "Inverted sketch: Serpent and Mouse in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large serpent with eyes and a flickering tongue rises in an S-curve above desert dunes. In the foreground a small mouse stands on the sand while a tiny -cloaked figure with a glowing lantern stands nearby, all under a sky with a large moon and paint drips (from generated still #458).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large serpent with eyes and a flickering tongue rises in an S-curve above desert dunes. In the foreground a small mouse stands on the sand while a tiny -cloaked figure with a glowing lantern stands nearby, all under a sky with a large moon and paint drips",
+  "source_description": "A large blue serpent with red eyes and a flickering tongue rises in an S-curve above golden desert dunes. In the foreground a small red mouse stands on the sand while a tiny blue-cloaked figure with a glowing lantern stands nearby, all under a purple sky with a large moon and colorful paint drips.",
+  "source_prompt": "",
+  "source_title": "Serpent and Mouse in Desert",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "mouse",
+    "desert",
+    "surreal",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 458,
+  "source_url": "/generated/458.jpg",
+  "image_url": "/sketches/1246.png",
+  "inverted_image_url": "/sketches-inverted/1246.png",
+  "curve_count": 132,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3416,
+  "title": "Line sketch: Cosmic Serpent Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a woman with closed eyes and long flowing hair, wearing an ornate crown. A cosmic snake with glowing eyes coils around her head and neck while she holds a cracked egg containing a glowing sphere (derived from generated still #2817).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a woman with closed eyes and long flowing hair, wearing an ornate crown. A cosmic snake with glowing eyes coils around her head and neck while she holds a cracked egg containing a glowing sphere",
+  "inverted_title": "Inverted sketch: Cosmic Serpent Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a woman with closed eyes and long flowing hair, wearing an ornate crown. A cosmic snake with glowing eyes coils around her head and neck while she holds a cracked egg containing a glowing sphere (from generated still #2817).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a woman with closed eyes and long flowing hair, wearing an ornate crown. A cosmic snake with glowing eyes coils around her head and neck while she holds a cracked egg containing a glowing sphere",
+  "source_description": "A close-up portrait of a woman with closed eyes and long flowing purple hair, wearing an ornate golden crown. A cosmic purple snake with glowing yellow eyes coils around her head and neck while she holds a cracked egg containing a glowing orange sphere.",
+  "source_prompt": "A beautiful pale-skinned woman with closed eyes and long wavy purple hair wearing an intricate golden crown, a large cosmic snake with purple and blue galaxy patterns and glowing yellow eyes coils around her neck and head, she holds a cracked eggshell containing a luminous orange sphere, intricate mechanical cosmic gears and glowing nebulae fill the background, surreal fantasy style, rich colors, dramatic lighting",
+  "source_title": "Cosmic Serpent Oracle",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "cosmic snake",
+    "crown",
+    "hair",
+    "glowing egg"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2817,
+  "source_url": "/generated/2817.jpg",
+  "image_url": "/sketches/3416.png",
+  "inverted_image_url": "/sketches-inverted/3416.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:45Z"
+}

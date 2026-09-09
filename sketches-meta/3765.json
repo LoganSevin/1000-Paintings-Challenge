@@ -1,0 +1,42 @@
+{
+  "number": 3765,
+  "title": "Line sketch: Winged Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a muscular male warrior with large feathered wings, wearing ornate shoulder armor, a tattered grey skirt, and sandals. He is shown in dynamic action stances holding a glowing sword that emits bright sparks and light trails against a dark studio background (derived from generated still #3181).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a muscular male warrior with large feathered wings, wearing ornate shoulder armor, a tattered grey skirt, and sandals. He is shown in dynamic action stances holding a glowing sword that emits bright sparks and light trails against a dark studio background",
+  "inverted_title": "Inverted sketch: Winged Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a muscular male warrior with large feathered wings, wearing ornate shoulder armor, a tattered grey skirt, and sandals. He is shown in dynamic action stances holding a glowing sword that emits bright sparks and light trails against a dark studio background (from generated still #3181).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a muscular male warrior with large feathered wings, wearing ornate shoulder armor, a tattered grey skirt, and sandals. He is shown in dynamic action stances holding a glowing sword that emits bright sparks and light trails against a dark studio background",
+  "source_description": "Four sequential poses of a muscular male warrior with large feathered wings, wearing ornate bronze shoulder armor, a tattered grey skirt, and sandals. He is shown in dynamic action stances holding a glowing sword that emits bright sparks and light trails against a dark studio background.",
+  "source_prompt": "A muscular male warrior with large feathered wings, bare chest, ornate bronze shoulder armor and tassets, wearing a flowing tattered grey skirt and sandals. Shown in four distinct dynamic action poses with a glowing magical sword that creates bright yellow sparks and light trails. Studio lighting, dark background, highly detailed realistic rendering, fantasy character study.",
+  "source_title": "Winged Warrior Poses",
+  "style": "realistic",
+  "mood": "epic dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "wings",
+    "fantasy",
+    "action poses",
+    "armor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3181,
+  "source_url": "/generated/3181.jpg",
+  "image_url": "/sketches/3765.png",
+  "inverted_image_url": "/sketches-inverted/3765.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:46Z"
+}

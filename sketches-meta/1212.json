@@ -1,0 +1,42 @@
+{
+  "number": 1212,
+  "title": "Line sketch: Demon Bubbles Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal featuring a -skinned woman with eyes and long dark hair in the background, alongside a smug man in a fedora and striped scarf smoking a pipe in the foreground. bubbles containing miniature scenes and text like 'DEMONS', 'MINIMUS', and 'RETURN TO AIR' float throughout the composition against a twilight backdrop with silhouetted figures (derived from generated still #424).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal featuring a -skinned woman with eyes and long dark hair in the background, alongside a smug man in a fedora and striped scarf smoking a pipe in the foreground. bubbles containing miniature scenes and text like 'DEMONS', 'MINIMUS', and 'RETURN TO AIR' float throughout the composition against a twilight backdrop with silhouetted figures",
+  "inverted_title": "Inverted sketch: Demon Bubbles Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal featuring a -skinned woman with eyes and long dark hair in the background, alongside a smug man in a fedora and striped scarf smoking a pipe in the foreground. bubbles containing miniature scenes and text like 'DEMONS', 'MINIMUS', and 'RETURN TO AIR' float throughout the composition against a twilight backdrop with silhouetted figures (from generated still #424).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal featuring a -skinned woman with eyes and long dark hair in the background, alongside a smug man in a fedora and striped scarf smoking a pipe in the foreground. bubbles containing miniature scenes and text like 'DEMONS', 'MINIMUS', and 'RETURN TO AIR' float throughout the composition against a twilight backdrop with silhouetted figures",
+  "source_description": "A surreal digital painting featuring a blue-skinned woman with golden eyes and long dark hair in the background, alongside a smug man in a green fedora and striped scarf smoking a pipe in the foreground. Iridescent bubbles containing miniature scenes and text like 'DEMONS', 'MINIMUS', and 'RETURN TO AIR' float throughout the composition against a purple twilight backdrop with silhouetted figures.",
+  "source_prompt": "",
+  "source_title": "Demon Bubbles Portrait",
+  "style": "digital illustration",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bubbles",
+    "fantasy",
+    "portrait",
+    "demon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 424,
+  "source_url": "/generated/424.jpg",
+  "image_url": "/sketches/1212.png",
+  "inverted_image_url": "/sketches-inverted/1212.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -27,6 +27,7 @@
     prices_usd: {
       paintings: 89,
       generated: 45,
+      sketches: 29,
       commercial: 55,
       characters: 35,
       objects: 29,

@@ -1,0 +1,41 @@
+{
+  "number": 670,
+  "title": "Line sketch: Robot Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed bust of a weathered robot with glowing eyes and intricate mechanical details. Set against a textured background in a realistic painted style (derived from painting #850).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed bust of a weathered robot with glowing eyes and intricate mechanical details. Set against a textured background in a realistic painted style",
+  "inverted_title": "Inverted sketch: Robot Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed bust of a weathered robot with glowing eyes and intricate mechanical details. Set against a textured background in a realistic painted style (from painting #850).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed bust of a weathered robot with glowing eyes and intricate mechanical details. Set against a textured background in a realistic painted style",
+  "source_description": "A detailed bust of a weathered yellow robot with glowing eyes and intricate mechanical details. Set against a textured red background in a realistic painted style.",
+  "source_prompt": "",
+  "source_title": "Golden Robot Portrait",
+  "style": "Realism",
+  "mood": "Intense, mechanical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "portrait",
+    "mechanical",
+    "daily composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 850,
+  "source_url": "/paintings/850.jpg",
+  "image_url": "/sketches/670.png",
+  "inverted_image_url": "/sketches-inverted/670.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:39Z"
+}

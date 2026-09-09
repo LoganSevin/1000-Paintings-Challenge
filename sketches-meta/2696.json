@@ -1,0 +1,42 @@
+{
+  "number": 2696,
+  "title": "Line sketch: Spider-Man Suit Turnaround",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A digital character model sheet displaying eight sequential poses of a young male figure in a and white Spider-Man inspired suit with spider emblems and web patterns. The character is shown from front, three-quarter, side, and back angles against a solid background (derived from generated still #1939).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A digital character model sheet displaying eight sequential poses of a young male figure in a and white Spider-Man inspired suit with spider emblems and web patterns. The character is shown from front, three-quarter, side, and back angles against a solid background",
+  "inverted_title": "Inverted sketch: Spider-Man Suit Turnaround",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A digital character model sheet displaying eight sequential poses of a young male figure in a and white Spider-Man inspired suit with spider emblems and web patterns. The character is shown from front, three-quarter, side, and back angles against a solid background (from generated still #1939).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A digital character model sheet displaying eight sequential poses of a young male figure in a and white Spider-Man inspired suit with spider emblems and web patterns. The character is shown from front, three-quarter, side, and back angles against a solid background",
+  "source_description": "A digital character model sheet displaying eight sequential poses of a young male figure in a blue and white Spider-Man inspired suit with spider emblems and web patterns. The character is shown from front, three-quarter, side, and back angles against a solid dark blue background.",
+  "source_prompt": "",
+  "source_title": "Spider-Man Blue Suit Turnaround",
+  "style": "Digital character design",
+  "mood": "Clean and technical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D CGI render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character turnaround",
+    "spider-man",
+    "suit",
+    "multiple poses",
+    "digital model"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1939,
+  "source_url": "/generated/1939.jpg",
+  "image_url": "/sketches/2696.png",
+  "inverted_image_url": "/sketches-inverted/2696.png",
+  "curve_count": 268,
+  "built_at": "2026-08-17T00:09:44Z"
+}

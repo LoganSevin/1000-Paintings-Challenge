@@ -1,0 +1,42 @@
+{
+  "number": 4933,
+  "title": "Line sketch: Surreal Cheerleader Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three pale, nude, hairless humanoid figures with white masks perform a synchronized dance while holding pom-poms in a dilapidated artist's studio. The chaotic room features splattered paint on the walls, torn classical paintings, broken furniture, scattered petals, and dramatic theatrical lighting from above (derived from generated still #4370).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three pale, nude, hairless humanoid figures with white masks perform a synchronized dance while holding pom-poms in a dilapidated artist's studio. The chaotic room features splattered paint on the walls, torn classical paintings, broken furniture, scattered petals, and dramatic theatrical lighting from above",
+  "inverted_title": "Inverted sketch: Surreal Cheerleader Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three pale, nude, hairless humanoid figures with white masks perform a synchronized dance while holding pom-poms in a dilapidated artist's studio. The chaotic room features splattered paint on the walls, torn classical paintings, broken furniture, scattered petals, and dramatic theatrical lighting from above (from generated still #4370).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three pale, nude, hairless humanoid figures with white masks perform a synchronized dance while holding pom-poms in a dilapidated artist's studio. The chaotic room features splattered paint on the walls, torn classical paintings, broken furniture, scattered petals, and dramatic theatrical lighting from above",
+  "source_description": "Three pale, nude, hairless humanoid figures with white masks perform a synchronized dance while holding bright pink pom-poms in a dilapidated artist's studio. The chaotic room features splattered paint on the walls, torn classical paintings, broken furniture, scattered red petals, and dramatic theatrical lighting from above.",
+  "source_prompt": "Three pale, hairless, nude humanoid figures wearing smooth white masks dance dynamically in a destroyed painter's studio, vigorously waving bright pink pom-poms that leave motion trails. The room has paint-splattered walls, torn classical paintings in ornate frames, broken easels, red rose petals and feathers scattered across the floor, dramatic spotlight from above cutting through dusty air, dark curtains, surreal and unsettling atmosphere, highly detailed cinematic lighting",
+  "source_title": "Surreal Cheerleader Ritual",
+  "style": "surreal cinematic",
+  "mood": "chaotic eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "pom-poms",
+    "art studio",
+    "masked figures",
+    "dramatic lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4370,
+  "source_url": "/generated/4370.jpg",
+  "image_url": "/sketches/4933.png",
+  "inverted_image_url": "/sketches-inverted/4933.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:49Z"
+}

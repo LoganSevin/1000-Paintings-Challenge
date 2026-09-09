@@ -1,0 +1,42 @@
+{
+  "number": 3242,
+  "title": "Line sketch: Beat 213 - Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale, -skinned woman with glowing white eyes sits enthroned in an ornate chair inside a cluttered, arched chamber. She operates a glowing turntable with one hand while a film clapperboard, film reels, scattered VHS tapes, popcorn, and movie posters surround her in a cinematic, mystical setting (derived from generated still #2602).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale, -skinned woman with glowing white eyes sits enthroned in an ornate chair inside a cluttered, arched chamber. She operates a glowing turntable with one hand while a film clapperboard, film reels, scattered VHS tapes, popcorn, and movie posters surround her in a cinematic, mystical setting",
+  "inverted_title": "Inverted sketch: Beat 213 - Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale, -skinned woman with glowing white eyes sits enthroned in an ornate chair inside a cluttered, arched chamber. She operates a glowing turntable with one hand while a film clapperboard, film reels, scattered VHS tapes, popcorn, and movie posters surround her in a cinematic, mystical setting (from generated still #2602).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale, -skinned woman with glowing white eyes sits enthroned in an ornate chair inside a cluttered, arched chamber. She operates a glowing turntable with one hand while a film clapperboard, film reels, scattered VHS tapes, popcorn, and movie posters surround her in a cinematic, mystical setting",
+  "source_description": "A pale, blue-skinned woman with glowing white eyes sits enthroned in an ornate golden chair inside a cluttered, arched chamber. She operates a glowing turntable with one hand while a film clapperboard, film reels, scattered VHS tapes, popcorn, and movie posters surround her in a cinematic, mystical setting.",
+  "source_prompt": "A mystical blue-skinned oracle woman with glowing white eyes wearing ornate golden robes sits on a decorated throne in a dark arched chamber. She is DJing on a glowing turntable with one hand while a film clapperboard rests on a pedestal beside her. The walls are covered with vintage movie posters, film reels hang from the ceiling, VHS tapes and popcorn are scattered on the floor. Cinematic surreal atmosphere, intricate details, moody lighting.",
+  "source_title": "Beat 213 - Oracle",
+  "style": "surreal",
+  "mood": "mysterious cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oracle",
+    "cinema",
+    "turntable",
+    "film",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2602,
+  "source_url": "/generated/2602.jpg",
+  "image_url": "/sketches/3242.png",
+  "inverted_image_url": "/sketches-inverted/3242.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:45Z"
+}

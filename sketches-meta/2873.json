@@ -1,0 +1,42 @@
+{
+  "number": 2873,
+  "title": "Line sketch: Surreal Mustache Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal collage-style portrait of a man with a large curled mustache, his face and neck composed of interlocking jigsaw puzzle pieces filled with text and symbols. A black cat with glowing eyes sits on his shoulder. The background features two suns, floating letters, musical notes, cats, mustaches, and puzzle pieces scattered across a and painted sky (derived from generated still #2159).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal collage-style portrait of a man with a large curled mustache, his face and neck composed of interlocking jigsaw puzzle pieces filled with text and symbols. A black cat with glowing eyes sits on his shoulder. The background features two suns, floating letters, musical notes, cats, mustaches, and puzzle pieces scattered across a and painted sky",
+  "inverted_title": "Inverted sketch: Surreal Mustache Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal collage-style portrait of a man with a large curled mustache, his face and neck composed of interlocking jigsaw puzzle pieces filled with text and symbols. A black cat with glowing eyes sits on his shoulder. The background features two suns, floating letters, musical notes, cats, mustaches, and puzzle pieces scattered across a and painted sky (from generated still #2159).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal collage-style portrait of a man with a large curled mustache, his face and neck composed of interlocking jigsaw puzzle pieces filled with text and symbols. A black cat with glowing eyes sits on his shoulder. The background features two suns, floating letters, musical notes, cats, mustaches, and puzzle pieces scattered across a and painted sky",
+  "source_description": "A surreal collage-style portrait of a man with a large curled mustache, his face and neck composed of interlocking jigsaw puzzle pieces filled with text and symbols. A black cat with glowing eyes sits on his shoulder. The background features two golden suns, floating letters, musical notes, cats, mustaches, and puzzle pieces scattered across a purple and yellow painted sky.",
+  "source_prompt": "Surreal mixed media painting of a man's head and shoulders made from interlocking white jigsaw puzzle pieces covered in black text and symbols, featuring a prominent curled mustache. A sleek black cat with yellow eyes sits on his right shoulder. Scattered floating elements include golden suns with rays, large colorful letters, musical notes, small purple cats, and mustache icons against a dreamy purple and yellow sky.",
+  "source_title": "Surreal Mustache Portrait",
+  "style": "surreal collage",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "puzzle portrait",
+    "mustache",
+    "collage",
+    "black cat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2159,
+  "source_url": "/generated/2159.jpg",
+  "image_url": "/sketches/2873.png",
+  "inverted_image_url": "/sketches-inverted/2873.png",
+  "curve_count": 141,
+  "built_at": "2026-08-17T00:09:44Z"
+}

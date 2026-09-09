@@ -1,0 +1,42 @@
+{
+  "number": 4807,
+  "title": "Line sketch: The Cosmic Bell Ringer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal muscular titan stands at the center of a cosmic vortex, holding a large bell high in his right hand. His body is covered in intricate glowing circuitry patterns as books, papers, and staircases emerge from his torso and splash into turbulent waves at his waist (derived from generated still #4242).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal muscular titan stands at the center of a cosmic vortex, holding a large bell high in his right hand. His body is covered in intricate glowing circuitry patterns as books, papers, and staircases emerge from his torso and splash into turbulent waves at his waist",
+  "inverted_title": "Inverted sketch: The Cosmic Bell Ringer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal muscular titan stands at the center of a cosmic vortex, holding a large bell high in his right hand. His body is covered in intricate glowing circuitry patterns as books, papers, and staircases emerge from his torso and splash into turbulent waves at his waist (from generated still #4242).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal muscular titan stands at the center of a cosmic vortex, holding a large bell high in his right hand. His body is covered in intricate glowing circuitry patterns as books, papers, and staircases emerge from his torso and splash into turbulent waves at his waist",
+  "source_description": "A colossal muscular titan stands at the center of a cosmic vortex, holding a large golden bell high in his right hand. His body is covered in intricate glowing circuitry patterns as books, papers, and staircases emerge from his torso and splash into turbulent blue waves at his waist.",
+  "source_prompt": "A massive muscular titan made of dark stone and glowing golden circuitry stands in the center of a swirling cosmic vortex, holding a large ornate golden bell aloft in his right hand while books and papers cascade from his body into turbulent ocean waves at his waist, dramatic light rays shining from the bell, surrounded by stars, nebulae and floating architectural fragments in a highly detailed surreal fantasy style",
+  "source_title": "The Cosmic Bell Ringer",
+  "style": "surreal fantasy",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic titan",
+    "bell",
+    "circuitry patterns",
+    "surreal",
+    "ocean waves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4242,
+  "source_url": "/generated/4242.jpg",
+  "image_url": "/sketches/4807.png",
+  "inverted_image_url": "/sketches-inverted/4807.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

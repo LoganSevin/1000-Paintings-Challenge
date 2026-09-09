@@ -1,0 +1,42 @@
+{
+  "number": 2901,
+  "title": "Line sketch: Cosmic Melting Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a massive black spherical orb with a glowing eye and lava-like cracks, melting vibrant paint downwards. In the background stands a stepped stone pyramid, two celestial bodies in the sky, comets, and numerous translucent bubbles floating throughout the scene (derived from generated still #2188).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a massive black spherical orb with a glowing eye and lava-like cracks, melting vibrant paint downwards. In the background stands a stepped stone pyramid, two celestial bodies in the sky, comets, and numerous translucent bubbles floating throughout the scene",
+  "inverted_title": "Inverted sketch: Cosmic Melting Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a massive black spherical orb with a glowing eye and lava-like cracks, melting vibrant paint downwards. In the background stands a stepped stone pyramid, two celestial bodies in the sky, comets, and numerous translucent bubbles floating throughout the scene (from generated still #2188).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a massive black spherical orb with a glowing eye and lava-like cracks, melting vibrant paint downwards. In the background stands a stepped stone pyramid, two celestial bodies in the sky, comets, and numerous translucent bubbles floating throughout the scene",
+  "source_description": "A surreal desert landscape features a massive black spherical orb with a glowing orange eye and lava-like cracks, melting vibrant colorful paint downwards. In the background stands a stepped stone pyramid, two celestial bodies in the purple sky, comets, and numerous translucent bubbles floating throughout the scene.",
+  "source_prompt": "Surreal desert scene with a giant black orb floating in the left foreground, cracked with glowing orange lava and a central eye, dripping colorful paint in yellow, green, purple and red. Stepped ancient pyramid on the right, two moons in the purple sky, shooting stars, and many translucent bubbles scattered across the composition, dramatic cosmic lighting, painterly style.",
+  "source_title": "Cosmic Melting Orb",
+  "style": "surreal fantasy",
+  "mood": "ethereal apocalyptic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "melting",
+    "desert",
+    "pyramid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2188,
+  "source_url": "/generated/2188.jpg",
+  "image_url": "/sketches/2901.png",
+  "inverted_image_url": "/sketches-inverted/2901.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:44Z"
+}

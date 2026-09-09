@@ -1,0 +1,42 @@
+{
+  "number": 4451,
+  "title": "Line sketch: Mystic Alchemist in Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned alchemist wearing a robe and crown stands in a arcane laboratory, holding a glowing orb connected by a chain. The room is filled with shelves of glowing potions, floating eye symbols, open spellbooks, a candle with wax drips, scales, and an ornate cabinet containing a large eye-like artifact (derived from generated still #3870).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned alchemist wearing a robe and crown stands in a arcane laboratory, holding a glowing orb connected by a chain. The room is filled with shelves of glowing potions, floating eye symbols, open spellbooks, a candle with wax drips, scales, and an ornate cabinet containing a large eye-like artifact",
+  "inverted_title": "Inverted sketch: Mystic Alchemist in Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned alchemist wearing a robe and crown stands in a arcane laboratory, holding a glowing orb connected by a chain. The room is filled with shelves of glowing potions, floating eye symbols, open spellbooks, a candle with wax drips, scales, and an ornate cabinet containing a large eye-like artifact (from generated still #3870).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned alchemist wearing a robe and crown stands in a arcane laboratory, holding a glowing orb connected by a chain. The room is filled with shelves of glowing potions, floating eye symbols, open spellbooks, a candle with wax drips, scales, and an ornate cabinet containing a large eye-like artifact",
+  "source_description": "A blue-skinned alchemist wearing a red robe and golden crown stands in a purple arcane laboratory, holding a glowing orb connected by a red chain. The room is filled with shelves of glowing potions, floating eye symbols, open spellbooks, a red candle with wax drips, scales, and an ornate golden cabinet containing a large red eye-like artifact.",
+  "source_prompt": "A blue-skinned sorcerer in a flowing red robe and golden crown stands inside a mystical purple laboratory, holding a glowing white orb connected by a red chain. Shelves are packed with glowing green and blue potion bottles, floating eye symbols adorn the walls, an ornate golden display case holds a large red and blue eye artifact, open spellbooks and a dripping red candle sit on a marble table, scales and scrolls scattered around, lanterns hanging from ceiling, rich fantasy detail, atmospheric lighting",
+  "source_title": "Mystic Alchemist in Study",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "arcane laboratory",
+    "magic potions",
+    "fantasy wizard",
+    "occult symbols"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3870,
+  "source_url": "/generated/3870.jpg",
+  "image_url": "/sketches/4451.png",
+  "inverted_image_url": "/sketches-inverted/4451.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

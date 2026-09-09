@@ -1,0 +1,42 @@
+{
+  "number": 144,
+  "title": "Line sketch: Cosmic Swirls in Space",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic abstract swirls of, and dance across a deep space background. Celestial bodies and stars dot the composition, creating a vibrant cosmic energy (derived from painting #183).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic abstract swirls of, and dance across a deep space background. Celestial bodies and stars dot the composition, creating a vibrant cosmic energy",
+  "inverted_title": "Inverted sketch: Cosmic Swirls in Space",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic abstract swirls of, and dance across a deep space background. Celestial bodies and stars dot the composition, creating a vibrant cosmic energy (from painting #183).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic abstract swirls of, and dance across a deep space background. Celestial bodies and stars dot the composition, creating a vibrant cosmic energy",
+  "source_description": "Dynamic abstract swirls of orange, teal, and purple dance across a deep space background. Celestial bodies and stars dot the composition, creating a vibrant cosmic energy.",
+  "source_prompt": "",
+  "source_title": "Cosmic Swirls in Purple Space",
+  "style": "Abstract",
+  "mood": "Energetic, Cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "cosmic",
+    "swirls",
+    "space",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 183,
+  "source_url": "/paintings/183.jpg",
+  "image_url": "/sketches/144.png",
+  "inverted_image_url": "/sketches-inverted/144.png",
+  "curve_count": 242,
+  "built_at": "2026-08-17T00:09:38Z"
+}

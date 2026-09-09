@@ -1,0 +1,42 @@
+{
+  "number": 2532,
+  "title": "Line sketch: Film Reel Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring three large film reels in a vine-covered room. A glowing film strip flows from a weathered reel into a one, while a reel pours a cascading waterfall into a basin filled with papers and flowers (derived from generated still #1768).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring three large film reels in a vine-covered room. A glowing film strip flows from a weathered reel into a one, while a reel pours a cascading waterfall into a basin filled with papers and flowers",
+  "inverted_title": "Inverted sketch: Film Reel Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring three large film reels in a vine-covered room. A glowing film strip flows from a weathered reel into a one, while a reel pours a cascading waterfall into a basin filled with papers and flowers (from generated still #1768).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring three large film reels in a vine-covered room. A glowing film strip flows from a weathered reel into a one, while a reel pours a cascading waterfall into a basin filled with papers and flowers",
+  "source_description": "A surreal scene featuring three large film reels in a vine-covered room. A glowing orange film strip flows from a weathered green reel into a red one, while a blue reel pours a cascading waterfall into a basin filled with papers and purple flowers.",
+  "source_prompt": "",
+  "source_title": "Film Reel Waterfall",
+  "style": "surrealism",
+  "mood": "whimsical, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "film reels",
+    "waterfall",
+    "surreal",
+    "vines",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1768,
+  "source_url": "/generated/1768.jpg",
+  "image_url": "/sketches/2532.png",
+  "inverted_image_url": "/sketches-inverted/2532.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2951,
+  "title": "Line sketch: The Bellwether King",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A crowned figure in a black and white patterned cloak and wide-brimmed hat stands in a dark arena holding a staff topped with a bell, beside a large black bull. The scene is enclosed by a wooden fence lined with glowing white bells, with ghostly bull spirits and sparks visible in the lower portion against a dark, dripping background (derived from generated still #2260).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A crowned figure in a black and white patterned cloak and wide-brimmed hat stands in a dark arena holding a staff topped with a bell, beside a large black bull. The scene is enclosed by a wooden fence lined with glowing white bells, with ghostly bull spirits and sparks visible in the lower portion against a dark, dripping background",
+  "inverted_title": "Inverted sketch: The Bellwether King",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A crowned figure in a black and white patterned cloak and wide-brimmed hat stands in a dark arena holding a staff topped with a bell, beside a large black bull. The scene is enclosed by a wooden fence lined with glowing white bells, with ghostly bull spirits and sparks visible in the lower portion against a dark, dripping background (from generated still #2260).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A crowned figure in a black and white patterned cloak and wide-brimmed hat stands in a dark arena holding a staff topped with a bell, beside a large black bull. The scene is enclosed by a wooden fence lined with glowing white bells, with ghostly bull spirits and sparks visible in the lower portion against a dark, dripping background",
+  "source_description": "A crowned figure in a black and white patterned cloak and wide-brimmed hat stands in a dark arena holding a staff topped with a bell, beside a large black bull. The scene is enclosed by a wooden fence lined with glowing white bells, with ghostly bull spirits and sparks visible in the lower portion against a dark, dripping background.",
+  "source_prompt": "A mysterious crowned figure wearing a wide-brimmed hat and black-and-white cow-patterned cloak stands in a dark bullfighting arena at night, holding a long staff with a bell. A large black bull stands beside him. The wooden fence surrounding them is covered in glowing white bells. Ghostly white bull spirits emerge from the bottom with sparks flying. Dark, dripping paint texture in the sky, surreal and ominous atmosphere, dramatic lighting.",
+  "source_title": "The Bellwether King",
+  "style": "surreal dark fantasy",
+  "mood": "ominous ritualistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bull",
+    "crowned figure",
+    "bells",
+    "surreal",
+    "dark arena"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2260,
+  "source_url": "/generated/2260.jpg",
+  "image_url": "/sketches/2951.png",
+  "inverted_image_url": "/sketches-inverted/2951.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:44Z"
+}

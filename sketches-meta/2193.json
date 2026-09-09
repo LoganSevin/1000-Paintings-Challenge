@@ -1,0 +1,42 @@
+{
+  "number": 2193,
+  "title": "Line sketch: Psychedelic Dream Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman in profile with her eyes closed, her flowing hair transforming into swirling and organic forms that drip and merge with a vibrant landscape. The background features rolling and hills, a body of water with swirls, a large sun, and a field of flowers under a gradient sky (derived from generated still #1418).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman in profile with her eyes closed, her flowing hair transforming into swirling and organic forms that drip and merge with a vibrant landscape. The background features rolling and hills, a body of water with swirls, a large sun, and a field of flowers under a gradient sky",
+  "inverted_title": "Inverted sketch: Psychedelic Dream Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman in profile with her eyes closed, her flowing hair transforming into swirling and organic forms that drip and merge with a vibrant landscape. The background features rolling and hills, a body of water with swirls, a large sun, and a field of flowers under a gradient sky (from generated still #1418).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman in profile with her eyes closed, her flowing hair transforming into swirling and organic forms that drip and merge with a vibrant landscape. The background features rolling and hills, a body of water with swirls, a large sun, and a field of flowers under a gradient sky",
+  "source_description": "A surreal portrait of a purple-skinned woman in profile with her eyes closed, her flowing hair transforming into swirling green and yellow organic forms that drip and merge with a vibrant landscape. The background features rolling purple and green hills, a turquoise body of water with golden swirls, a large yellow sun, and a field of colorful flowers under a gradient sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Dream Landscape",
+  "style": "psychedelic surrealism",
+  "mood": "dreamlike ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "portrait",
+    "landscape",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1418,
+  "source_url": "/generated/1418.jpg",
+  "image_url": "/sketches/2193.png",
+  "inverted_image_url": "/sketches-inverted/2193.png",
+  "curve_count": 171,
+  "built_at": "2026-08-17T00:09:42Z"
+}

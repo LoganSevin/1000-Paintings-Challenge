@@ -1,0 +1,42 @@
+{
+  "number": 4924,
+  "title": "Line sketch: Rainy Room with Exit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit interior room with rain pouring through a broken skylight onto a wooden table and floor. The table holds a vintage radio, desk lamp, mug, spray bottle, bloody cloth, keys, and a human hand reaching toward the lamp, while a large composition on the right wall depicts an endless -lit hallway with glowing exit signs (derived from generated still #4360).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit interior room with rain pouring through a broken skylight onto a wooden table and floor. The table holds a vintage radio, desk lamp, mug, spray bottle, bloody cloth, keys, and a human hand reaching toward the lamp, while a large composition on the right wall depicts an endless -lit hallway with glowing exit signs",
+  "inverted_title": "Inverted sketch: Rainy Room with Exit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit interior room with rain pouring through a broken skylight onto a wooden table and floor. The table holds a vintage radio, desk lamp, mug, spray bottle, bloody cloth, keys, and a human hand reaching toward the lamp, while a large composition on the right wall depicts an endless -lit hallway with glowing exit signs (from generated still #4360).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit interior room with rain pouring through a broken skylight onto a wooden table and floor. The table holds a vintage radio, desk lamp, mug, spray bottle, bloody cloth, keys, and a human hand reaching toward the lamp, while a large composition on the right wall depicts an endless -lit hallway with glowing exit signs",
+  "source_description": "A dimly lit interior room with rain pouring through a broken skylight onto a wooden table and floor. The table holds a vintage radio, desk lamp, mug, spray bottle, bloody cloth, keys, and a human hand reaching toward the lamp, while a large painting on the right wall depicts an endless red-lit hallway with glowing exit signs.",
+  "source_prompt": "A surreal moody interior of a blue-walled room with rain heavily pouring in through a shattered glass skylight at night. A wooden table in the foreground holds a vintage radio, lit brass desk lamp, white mug with red liquid, spray bottle, blood-stained cloth, set of keys, and a human hand reaching out. On the right wall hangs a large painting showing an infinite recursive hallway bathed in red light with glowing exit signs, in a realistic yet cinematic painting style with dramatic lighting and visible brushstrokes.",
+  "source_title": "Rainy Room with Exit",
+  "style": "painterly realism",
+  "mood": "eerie, tense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "noir",
+    "rain",
+    "liminal",
+    "mystery"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4360,
+  "source_url": "/generated/4360.jpg",
+  "image_url": "/sketches/4924.png",
+  "inverted_image_url": "/sketches-inverted/4924.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:49Z"
+}

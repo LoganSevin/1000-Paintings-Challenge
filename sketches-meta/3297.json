@@ -1,0 +1,42 @@
+{
+  "number": 3297,
+  "title": "Line sketch: Surreal Portrait Fusion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a woman's face is overlaid with vibrant psychedelic colors and patterns. Her hair and cheek merge into a fantastical scene featuring a girl with flowing hair riding a horse, a frog-like humanoid character in a jacket, large flowers with centers, rolling hills, and a small horse on a hill under a moody sky (derived from generated still #2676).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a woman's face is overlaid with vibrant psychedelic colors and patterns. Her hair and cheek merge into a fantastical scene featuring a girl with flowing hair riding a horse, a frog-like humanoid character in a jacket, large flowers with centers, rolling hills, and a small horse on a hill under a moody sky",
+  "inverted_title": "Inverted sketch: Surreal Portrait Fusion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a woman's face is overlaid with vibrant psychedelic colors and patterns. Her hair and cheek merge into a fantastical scene featuring a girl with flowing hair riding a horse, a frog-like humanoid character in a jacket, large flowers with centers, rolling hills, and a small horse on a hill under a moody sky (from generated still #2676).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a woman's face is overlaid with vibrant psychedelic colors and patterns. Her hair and cheek merge into a fantastical scene featuring a girl with flowing hair riding a horse, a frog-like humanoid character in a jacket, large flowers with centers, rolling hills, and a small horse on a hill under a moody sky",
+  "source_description": "A close-up portrait of a woman's face is overlaid with vibrant psychedelic colors and patterns. Her hair and cheek merge into a fantastical scene featuring a girl with flowing orange hair riding a colorful horse, a frog-like humanoid character in a green jacket, large pink flowers with yellow centers, rolling green hills, and a small horse on a hill under a moody sky.",
+  "source_prompt": "A vibrant surreal portrait of a young woman's face with one side in natural skin tones and the other covered in geometric patches of magenta, yellow, and green. Her hair transforms into a fantastical landscape where a girl with long flowing orange hair rides a colorful patterned horse. A frog-like humanoid character in a green jacket stands among oversized pink flowers with yellow centers. Rolling green hills and a smaller horse appear in the background under a dark cloudy sky, psychedelic color blending, detailed painting style.",
+  "source_title": "Surreal Portrait Fusion",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "portrait",
+    "fantastical",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2676,
+  "source_url": "/generated/2676.jpg",
+  "image_url": "/sketches/3297.png",
+  "inverted_image_url": "/sketches-inverted/3297.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

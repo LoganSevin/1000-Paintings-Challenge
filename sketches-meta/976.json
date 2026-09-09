@@ -1,0 +1,42 @@
+{
+  "number": 976,
+  "title": "Line sketch: Mountain Muse Silhouette",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a woman's profile whose body merges with a landscape. Her hair flows into dark pine trees while a winding road leads from a misty city through her form toward snow-capped mountains under a dramatic and sky with a large crescent moon (derived from generated still #186).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a woman's profile whose body merges with a landscape. Her hair flows into dark pine trees while a winding road leads from a misty city through her form toward snow-capped mountains under a dramatic and sky with a large crescent moon",
+  "inverted_title": "Inverted sketch: Mountain Muse Silhouette",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a woman's profile whose body merges with a landscape. Her hair flows into dark pine trees while a winding road leads from a misty city through her form toward snow-capped mountains under a dramatic and sky with a large crescent moon (from generated still #186).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a woman's profile whose body merges with a landscape. Her hair flows into dark pine trees while a winding road leads from a misty city through her form toward snow-capped mountains under a dramatic and sky with a large crescent moon",
+  "source_description": "A surreal painting of a green woman's profile whose body merges with a landscape. Her hair flows into dark pine trees while a winding golden road leads from a misty city through her form toward snow-capped mountains under a dramatic red and purple sky with a large crescent moon.",
+  "source_prompt": "",
+  "source_title": "Mountain Muse Silhouette",
+  "style": "surreal expressionism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal landscape",
+    "woman silhouette",
+    "mountain city",
+    "crescent moon",
+    "double exposure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 186,
+  "source_url": "/generated/186.jpg",
+  "image_url": "/sketches/976.png",
+  "inverted_image_url": "/sketches-inverted/976.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:40Z"
+}

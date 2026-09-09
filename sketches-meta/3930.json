@@ -1,0 +1,42 @@
+{
+  "number": 3930,
+  "title": "Line sketch: Energy Blast Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential panels show a female character with wild hair performing an energy attack. She starts in a ready stance, then unleashes a starburst energy blast from her hands with dynamic motion lines and sparks (derived from generated still #3347).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential panels show a female character with wild hair performing an energy attack. She starts in a ready stance, then unleashes a starburst energy blast from her hands with dynamic motion lines and sparks",
+  "inverted_title": "Inverted sketch: Energy Blast Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential panels show a female character with wild hair performing an energy attack. She starts in a ready stance, then unleashes a starburst energy blast from her hands with dynamic motion lines and sparks (from generated still #3347).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential panels show a female character with wild hair performing an energy attack. She starts in a ready stance, then unleashes a starburst energy blast from her hands with dynamic motion lines and sparks",
+  "source_description": "Four sequential panels show a female character with wild yellow hair performing an energy attack. She starts in a ready stance, then unleashes a bright yellow starburst energy blast from her hands with dynamic motion lines and sparks.",
+  "source_prompt": "A four-panel sequence of a stylized female character with spiky bright yellow hair wearing a black and gold futuristic outfit with boots and belts. She performs an energy attack, starting in a combat stance then firing a powerful bright yellow starburst blast from her hands with dramatic speed lines and sparks, cartoon comic book style, clean bold outlines, dynamic action poses, solid gray background",
+  "source_title": "Yellow Energy Blast Sequence",
+  "style": "comic book",
+  "mood": "dynamic energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "energy blast",
+    "action sequence",
+    "hair",
+    "comic style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3347,
+  "source_url": "/generated/3347.jpg",
+  "image_url": "/sketches/3930.png",
+  "inverted_image_url": "/sketches-inverted/3930.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1005,
+  "title": "Line sketch: Cosmic Teapot Puzzle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large teapot constructed from jigsaw puzzle pieces, featuring a cartoonish smiling face on one side and a realistic woman's face with flowing hair on the other. The teapot's lid is a swirling black hole in space, set within a futuristic auditorium filled with an audience, while spaceships fly through a vibrant cosmic nebula in the background (derived from generated still #215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large teapot constructed from jigsaw puzzle pieces, featuring a cartoonish smiling face on one side and a realistic woman's face with flowing hair on the other. The teapot's lid is a swirling black hole in space, set within a futuristic auditorium filled with an audience, while spaceships fly through a vibrant cosmic nebula in the background",
+  "inverted_title": "Inverted sketch: Cosmic Teapot Puzzle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large teapot constructed from jigsaw puzzle pieces, featuring a cartoonish smiling face on one side and a realistic woman's face with flowing hair on the other. The teapot's lid is a swirling black hole in space, set within a futuristic auditorium filled with an audience, while spaceships fly through a vibrant cosmic nebula in the background (from generated still #215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large teapot constructed from jigsaw puzzle pieces, featuring a cartoonish smiling face on one side and a realistic woman's face with flowing hair on the other. The teapot's lid is a swirling black hole in space, set within a futuristic auditorium filled with an audience, while spaceships fly through a vibrant cosmic nebula in the background",
+  "source_description": "A surreal painting of a large turquoise teapot constructed from jigsaw puzzle pieces, featuring a cartoonish smiling face on one side and a realistic woman's face with flowing brown hair on the other. The teapot's lid is a swirling black hole in space, set within a futuristic auditorium filled with an audience, while spaceships fly through a vibrant cosmic nebula in the background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Teapot Puzzle",
+  "style": "surrealism",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "teapot",
+    "black hole",
+    "puzzle",
+    "spaceships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 215,
+  "source_url": "/generated/215.jpg",
+  "image_url": "/sketches/1005.png",
+  "inverted_image_url": "/sketches-inverted/1005.png",
+  "curve_count": 124,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,743 @@
+/* Zoo — taxonomy desk, circular creature, three 1/3 arc spell slots */
+
+#panel-zoo.panel[hidden] {
+  display: none !important;
+}
+
+#panel-zoo.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.zoo-tab-active #panel-zoo.panel.active {
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+
+body.zoo-tab-active .site-footer,
+body.zoo-tab-active .site-header .subtitle {
+  display: none;
+}
+
+body.zoo-tab-active .site-header {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.zoo-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 90% 60% at 30% 0%, #243018 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, #1a2818 0%, transparent 50%),
+    linear-gradient(180deg, #12180e 0%, #0a0e08 55%, #080a07 100%);
+  color: #e8f0dc;
+}
+
+.zoo-top {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.85rem 0.4rem;
+  border-bottom: 1px solid rgba(180, 160, 70, 0.22);
+}
+
+.zoo-top h2 {
+  margin: 0 0 0.1rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  background: linear-gradient(90deg, #d4e8a0, #e8c86a, #f4f0d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.zoo-hint {
+  margin: 0;
+  font-size: 0.76rem;
+  color: #9aaa88;
+  line-height: 1.4;
+  max-width: 58rem;
+}
+
+.zoo-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+@media (max-width: 960px) {
+  .zoo-body {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+}
+
+.zoo-col {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(140, 160, 80, 0.16);
+  background: rgba(8, 12, 6, 0.45);
+}
+
+.zoo-col-head {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid rgba(140, 160, 80, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.zoo-col-head h3 {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #d4e0b8;
+}
+
+.zoo-realm-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.zoo-realm-row button {
+  flex: 1 1 0;
+  appearance: none;
+  border: 1px solid rgba(160, 180, 90, 0.32);
+  background: rgba(24, 32, 16, 0.9);
+  color: #b8c8a0;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.38rem 0.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.zoo-realm-row button.active {
+  border-color: rgba(220, 190, 70, 0.65);
+  color: #ffe8b0;
+  background: rgba(60, 48, 16, 0.65);
+}
+
+.zoo-rank-row,
+.zoo-cat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.zoo-rank-btn,
+.zoo-cat-btn {
+  appearance: none;
+  border: 1px solid rgba(160, 180, 90, 0.28);
+  background: rgba(24, 32, 16, 0.85);
+  color: #b8c8a0;
+  font: inherit;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.42rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.zoo-rank-btn.active,
+.zoo-cat-btn.active {
+  border-color: rgba(220, 190, 70, 0.6);
+  color: #ffe8b0;
+  background: rgba(60, 48, 16, 0.6);
+}
+
+.zoo-rank-btn em,
+.zoo-cat-btn em {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.58rem;
+  opacity: 0.78;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+  margin-top: 0.08rem;
+}
+
+#zoo-domains .zoo-rank-btn {
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+#zoo-kingdoms .zoo-rank-btn[data-kingdom="Animalia"] {
+  border-color: rgba(180, 200, 90, 0.4);
+}
+
+.zoo-crumb {
+  font-size: 0.66rem;
+  color: #a8b890;
+  line-height: 1.35;
+  min-height: 1.1rem;
+}
+
+.zoo-crumb button {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: #d4c070;
+  font: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.zoo-search-row {
+  display: flex;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.zoo-search-row .zoo-search {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.zoo-search-row .zoo-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.zoo-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.38rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(160, 180, 90, 0.3);
+  background: rgba(10, 14, 8, 0.95);
+  color: #e8f0dc;
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.zoo-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.zoo-card {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 150, 70, 0.22);
+  background: rgba(16, 22, 12, 0.88);
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+
+.zoo-card:hover {
+  border-color: rgba(200, 190, 90, 0.45);
+}
+
+.zoo-card.selected {
+  border-color: rgba(220, 190, 70, 0.7);
+  box-shadow: 0 0 0 1px rgba(200, 170, 50, 0.28);
+  background: rgba(48, 42, 14, 0.5);
+}
+
+.zoo-card img {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a2210;
+  flex: 0 0 auto;
+  border: 1px solid rgba(180, 170, 80, 0.35);
+}
+
+.zoo-card-meta {
+  min-width: 0;
+}
+
+.zoo-card-meta strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #eef4dc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zoo-card-meta em {
+  display: block;
+  font-size: 0.62rem;
+  font-style: italic;
+  color: #b8c898;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zoo-card-rank {
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c9b86a;
+  margin-top: 0.08rem;
+}
+
+.zoo-main {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 0.55rem 0.75rem 0.8rem;
+  gap: 0.55rem;
+}
+
+.zoo-stage-row {
+  display: grid;
+  grid-template-columns: minmax(16rem, 28rem) minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .zoo-stage-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zoo-arena-wrap {
+  position: relative;
+  width: min(100%, 28rem);
+  margin: 0 auto;
+}
+
+.zoo-arena {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.zoo-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.zoo-ring path {
+  pointer-events: auto;
+  cursor: pointer;
+  fill: rgba(28, 36, 16, 0.92);
+  stroke: rgba(210, 180, 70, 0.55);
+  stroke-width: 1.4;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+.zoo-ring path:hover,
+.zoo-ring path.on {
+  fill: rgba(48, 52, 22, 0.96);
+  stroke: rgba(255, 220, 90, 0.9);
+}
+
+.zoo-ring path[data-slot="0"] {
+  fill: rgba(42, 36, 14, 0.92);
+}
+.zoo-ring path[data-slot="1"] {
+  fill: rgba(22, 38, 18, 0.92);
+}
+.zoo-ring path[data-slot="2"] {
+  fill: rgba(28, 24, 38, 0.92);
+}
+
+.zoo-creature {
+  position: absolute;
+  inset: 18.5%;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 40% 30%, #2a3420 0%, #101408 70%);
+  border: 3px solid rgba(232, 200, 80, 0.75);
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.45),
+    0 0 0 6px rgba(12, 16, 8, 0.85);
+  z-index: 2;
+}
+
+.zoo-creature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zoo-creature img[hidden] {
+  display: none !important;
+}
+
+.zoo-creature-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.78rem;
+  color: #9aaa80;
+  line-height: 1.35;
+}
+
+.zoo-creature-empty[hidden] {
+  display: none !important;
+}
+
+.zoo-slot-well {
+  position: absolute;
+  width: 18%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(240, 210, 90, 0.7);
+  background: rgba(10, 12, 8, 0.92);
+  overflow: hidden;
+  z-index: 3;
+  cursor: pointer;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 3px rgba(8, 10, 6, 0.8), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.zoo-slot-well img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zoo-slot-well span {
+  position: absolute;
+  left: 50%;
+  bottom: -1.15rem;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e8d080;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px #000;
+}
+
+.zoo-slot-well.empty {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(80, 90, 40, 0.35), rgba(12, 14, 8, 0.95));
+}
+
+.zoo-view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  margin-top: 0.35rem;
+}
+
+.zoo-view-toggle button {
+  appearance: none;
+  border: 1px solid rgba(160, 180, 90, 0.3);
+  background: rgba(20, 26, 14, 0.9);
+  color: #c8d4b0;
+  font: inherit;
+  font-size: 0.68rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.zoo-view-toggle button.active {
+  border-color: rgba(220, 190, 70, 0.6);
+  color: #ffe8b0;
+  background: rgba(55, 45, 16, 0.7);
+}
+
+.zoo-side {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.zoo-lineage {
+  display: grid;
+  grid-template-columns: 5.6rem 1fr;
+  gap: 0.2rem 0.45rem;
+  padding: 0.5rem 0.55rem;
+  border-radius: 10px;
+  border: 1px solid rgba(160, 170, 80, 0.22);
+  background: rgba(12, 16, 10, 0.7);
+  font-size: 0.74rem;
+}
+
+.zoo-lineage .k {
+  color: #c9b86a;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-top: 0.12rem;
+}
+
+.zoo-lineage .v {
+  color: #e8f0dc;
+  min-width: 0;
+}
+
+.zoo-lineage .v.missing {
+  color: #6a7a58;
+  font-style: italic;
+}
+
+select.zoo-dd {
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  margin: 0;
+  padding: 0.18rem 1.4rem 0.18rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(160, 180, 90, 0.32);
+  background: rgba(10, 14, 8, 0.95)
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path fill='%23c9b86a' d='M0 0l5 6 5-6z'/></svg>")
+    no-repeat right 0.45rem center;
+  color: #e8f0dc;
+  font: inherit;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+
+select.zoo-dd:focus {
+  outline: none;
+  border-color: rgba(220, 190, 70, 0.65);
+}
+
+select.zoo-dd.missing {
+  color: #8a9a78;
+  font-style: italic;
+}
+
+select.zoo-dd:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.zoo-extract {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #b8c4a4;
+  line-height: 1.4;
+  max-height: 4.6rem;
+  overflow: auto;
+}
+
+.zoo-gen-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(180, 170, 80, 0.28);
+  background: rgba(10, 12, 8, 0.8);
+  min-height: 10rem;
+  aspect-ratio: 1;
+  max-height: 22rem;
+}
+
+.zoo-gen-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zoo-gen-frame img[hidden],
+.zoo-gen-empty[hidden] {
+  display: none !important;
+}
+
+.zoo-gen-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: #8a9a78;
+  font-size: 0.76rem;
+}
+
+.zoo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.zoo-prompt {
+  flex: 1 1 14rem;
+  min-width: 10rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(160, 180, 90, 0.3);
+  background: rgba(10, 14, 8, 0.95);
+  color: #e8f0dc;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.zoo-select {
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(160, 180, 90, 0.3);
+  background: rgba(16, 22, 12, 0.95);
+  color: #e8f0dc;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.zoo-btn {
+  appearance: none;
+  border: 1px solid rgba(160, 180, 90, 0.4);
+  background: linear-gradient(180deg, #4a5e30 0%, #334220 100%);
+  color: #f4f8e8;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.38rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.zoo-btn.accent {
+  border-color: rgba(220, 180, 70, 0.55);
+  background: linear-gradient(180deg, #b89028 0%, #7a5c14 100%);
+  color: #fff8e4;
+}
+
+.zoo-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.zoo-status {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #a8b890;
+  min-height: 1.1rem;
+}
+
+.zoo-status.pending {
+  color: #e0c86a;
+}
+
+.zoo-status.error {
+  color: #e08080;
+}
+
+.zoo-status.ok {
+  color: #8dca7a;
+}
+
+.zoo-book {
+  position: absolute;
+  inset: 4%;
+  z-index: 8;
+  display: none;
+  flex-direction: column;
+  background: rgba(8, 10, 6, 0.96);
+  border: 1px solid rgba(210, 180, 70, 0.4);
+  border-radius: 12px;
+  padding: 0.45rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+.zoo-book.on {
+  display: flex;
+}
+
+.zoo-book-top,
+.zoo-book-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.zoo-book-top strong {
+  color: #f0e0a0;
+  font-size: 0.8rem;
+}
+
+.zoo-book-top span {
+  font-size: 0.7rem;
+  color: #a8b890;
+  margin-right: auto;
+}
+
+.zoo-book-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.28rem;
+  overflow: auto;
+}
+
+.zoo-book-tile {
+  appearance: none;
+  border: 1px solid rgba(160, 170, 80, 0.3);
+  background: #12180c;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.zoo-book-tile.on {
+  border-color: #e8c84a;
+  box-shadow: 0 0 0 1px #e8c84a;
+}
+
+.zoo-book-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zoo-book-tile span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 0.55rem;
+  padding: 0.12rem 0.15rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: #f4ecd0;
+}

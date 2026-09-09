@@ -1,0 +1,42 @@
+{
+  "number": 2832,
+  "title": "Line sketch: Apocalyptic Mechanical Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive mechanical eye with gears and metal casing floats at the center of a blazing - fiery portal in a dark stormy sky. The barren cracked desert below is littered with floating orbs, dripping paint-like elements, and broken glass, while ghostly screaming faces emerge from the turbulent clouds above jagged mountains (derived from generated still #2117).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive mechanical eye with gears and metal casing floats at the center of a blazing - fiery portal in a dark stormy sky. The barren cracked desert below is littered with floating orbs, dripping paint-like elements, and broken glass, while ghostly screaming faces emerge from the turbulent clouds above jagged mountains",
+  "inverted_title": "Inverted sketch: Apocalyptic Mechanical Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive mechanical eye with gears and metal casing floats at the center of a blazing - fiery portal in a dark stormy sky. The barren cracked desert below is littered with floating orbs, dripping paint-like elements, and broken glass, while ghostly screaming faces emerge from the turbulent clouds above jagged mountains (from generated still #2117).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive mechanical eye with gears and metal casing floats at the center of a blazing - fiery portal in a dark stormy sky. The barren cracked desert below is littered with floating orbs, dripping paint-like elements, and broken glass, while ghostly screaming faces emerge from the turbulent clouds above jagged mountains",
+  "source_description": "A massive mechanical eye with gears and metal casing floats at the center of a blazing red-orange fiery portal in a dark stormy sky. The barren cracked desert below is littered with floating colorful orbs, dripping paint-like elements, and broken glass, while ghostly screaming faces emerge from the turbulent clouds above jagged mountains.",
+  "source_prompt": "Surreal apocalyptic scene featuring a giant intricate mechanical eye with gears and metal details floating at the center of a massive blazing red and orange circular fiery portal. Dark stormy sky filled with screaming ghostly faces and swirling clouds. Barren cracked desert ground with jagged mountains in the background. Numerous colorful spheres and dripping yellow and green liquid elements float throughout the composition, dramatic lighting, dark fantasy atmosphere.",
+  "source_title": "Apocalyptic Mechanical Eye",
+  "style": "surreal fantasy",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "apocalypse",
+    "mechanical eye",
+    "fiery portal",
+    "floating orbs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2117,
+  "source_url": "/generated/2117.jpg",
+  "image_url": "/sketches/2832.png",
+  "inverted_image_url": "/sketches-inverted/2832.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:44Z"
+}

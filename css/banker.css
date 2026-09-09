@@ -1,0 +1,217 @@
+/* Banker — sim ledger for supermarket 100 */
+.bk-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.1rem 2rem;
+  color: #e6ebe8;
+}
+
+.bk-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.bk-top h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.35rem;
+  color: #d4c48a;
+}
+
+.bk-hint {
+  margin: 0;
+  max-width: 46rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(210, 214, 200, 0.9);
+}
+
+.bk-hint code {
+  font-size: 0.82em;
+  color: #f0e0a8;
+}
+
+.bk-warn {
+  margin: 0 0 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 170, 80, 0.4);
+  background: rgba(40, 32, 8, 0.55);
+  font-size: 0.8rem;
+  color: #f3d9a0;
+}
+
+.bk-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.bk-stats > div {
+  border-radius: 10px;
+  border: 1px solid rgba(180, 150, 70, 0.28);
+  background: rgba(18, 16, 10, 0.9);
+  padding: 0.55rem 0.7rem;
+}
+
+.bk-stats span {
+  display: block;
+  font-size: 0.72rem;
+  color: rgba(200, 190, 150, 0.75);
+}
+
+.bk-stats strong {
+  font-size: 1.05rem;
+  color: #f4e7b0;
+}
+
+.bk-you {
+  margin-bottom: 0.85rem;
+}
+
+.bk-plastic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .bk-plastic {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bk-card-face {
+  border-radius: 14px;
+  padding: 1rem 1.1rem 0.9rem;
+  min-height: 8.5rem;
+  color: #f4f0e4;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.bk-card-face.debit {
+  background: linear-gradient(135deg, #1a3a4a, #0c1c24 55%, #163028);
+  border: 1px solid rgba(120, 200, 170, 0.35);
+}
+
+.bk-card-face.credit {
+  background: linear-gradient(135deg, #3a2410, #1a1208 55%, #402818);
+  border: 1px solid rgba(220, 170, 80, 0.4);
+}
+
+.bk-card-face .bk-chip {
+  width: 2.1rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #e8d48a, #b89440);
+  margin-bottom: 0.85rem;
+}
+
+.bk-pan {
+  font-family: ui-monospace, Consolas, monospace;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  margin: 0 0 0.55rem;
+}
+
+.bk-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: rgba(230, 220, 190, 0.85);
+}
+
+.bk-card-name {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.55rem;
+}
+
+.bk-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.bk-toolbar input[type="search"] {
+  flex: 1;
+  min-width: 12rem;
+  font: inherit;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(160, 140, 80, 0.35);
+  background: rgba(12, 12, 10, 0.85);
+  color: inherit;
+}
+
+.bk-check {
+  font-size: 0.82rem;
+  color: rgba(210, 200, 160, 0.9);
+}
+
+.bk-table-wrap {
+  overflow: auto;
+  max-height: 62vh;
+  border-radius: 12px;
+  border: 1px solid rgba(160, 140, 80, 0.25);
+}
+
+.bk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.bk-table th,
+.bk-table td {
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+}
+
+.bk-table th {
+  position: sticky;
+  top: 0;
+  background: #16140e;
+  color: #dcc888;
+  font-weight: 600;
+}
+
+.bk-table tr.bk-you-row {
+  background: rgba(60, 90, 50, 0.22);
+}
+
+.bk-mono {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.76rem;
+}
+
+.bk-ok {
+  color: #8ee0a8;
+}
+
+.bk-bad {
+  color: #e88a8a;
+}
+
+.bk-f {
+  color: #f0b8d0;
+}
+
+.bk-m {
+  color: #9ec8f0;
+}
+
+.bk-muted {
+  color: rgba(180, 180, 170, 0.7);
+}

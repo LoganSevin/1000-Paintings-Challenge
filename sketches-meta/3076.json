@@ -1,0 +1,42 @@
+{
+  "number": 3076,
+  "title": "Line sketch: Cosmic Bubble Head",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a large spherical head with glowing eyes, a stitched smile, and prominent ears, centered against a cosmic background. Translucent bubbles float around the figure while swirling and patterns emanate from the right side, with light rays and stars filling the dark space (derived from generated still #2404).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a large spherical head with glowing eyes, a stitched smile, and prominent ears, centered against a cosmic background. Translucent bubbles float around the figure while swirling and patterns emanate from the right side, with light rays and stars filling the dark space",
+  "inverted_title": "Inverted sketch: Cosmic Bubble Head",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a large spherical head with glowing eyes, a stitched smile, and prominent ears, centered against a cosmic background. Translucent bubbles float around the figure while swirling and patterns emanate from the right side, with light rays and stars filling the dark space (from generated still #2404).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a large spherical head with glowing eyes, a stitched smile, and prominent ears, centered against a cosmic background. Translucent bubbles float around the figure while swirling and patterns emanate from the right side, with light rays and stars filling the dark space",
+  "source_description": "A surreal portrait of a large teal spherical head with glowing pink eyes, a stitched smile, and prominent ears, centered against a cosmic background. Translucent bubbles float around the figure while swirling blue and purple patterns emanate from the right side, with light rays and stars filling the dark space.",
+  "source_prompt": "",
+  "source_title": "Cosmic Bubble Head",
+  "style": "surrealism",
+  "mood": "dreamlike, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "bubbles",
+    "psychedelic",
+    "otherworldly"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2404,
+  "source_url": "/generated/2404.jpg",
+  "image_url": "/sketches/3076.png",
+  "inverted_image_url": "/sketches-inverted/3076.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

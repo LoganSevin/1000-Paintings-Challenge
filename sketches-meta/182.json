@@ -1,0 +1,42 @@
+{
+  "number": 182,
+  "title": "Line sketch: Stylized Black Cats and Dogs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A collection of nine playful black cat and dog silhouettes in various poses against a warm terracotta background. The minimalist figures feature bold white accents, expressive eyes, and charming details like collars and markings (derived from painting #224).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A collection of nine playful black cat and dog silhouettes in various poses against a warm terracotta background. The minimalist figures feature bold white accents, expressive eyes, and charming details like collars and markings",
+  "inverted_title": "Inverted sketch: Stylized Black Cats and Dogs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A collection of nine playful black cat and dog silhouettes in various poses against a warm terracotta background. The minimalist figures feature bold white accents, expressive eyes, and charming details like collars and markings (from painting #224).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A collection of nine playful black cat and dog silhouettes in various poses against a warm terracotta background. The minimalist figures feature bold white accents, expressive eyes, and charming details like collars and markings",
+  "source_description": "A collection of nine playful black cat and dog silhouettes in various poses against a warm terracotta background. The minimalist figures feature bold white accents, expressive eyes, and charming details like collars and markings.",
+  "source_prompt": "",
+  "source_title": "Stylized Black Cats and Dogs",
+  "style": "Mid-century modern illustration",
+  "mood": "Playful and whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cats",
+    "dogs",
+    "silhouettes",
+    "minimalist",
+    "terracotta"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 224,
+  "source_url": "/paintings/224.jpg",
+  "image_url": "/sketches/182.png",
+  "inverted_image_url": "/sketches-inverted/182.png",
+  "curve_count": 290,
+  "built_at": "2026-08-17T00:09:38Z"
+}

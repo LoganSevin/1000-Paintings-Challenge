@@ -1,0 +1,42 @@
+{
+  "number": 4750,
+  "title": "Line sketch: Parallax Shift - Locked Horizon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal illustrated landscape divided into distinct horizontal bands. The top shows a mountain range with a winding river and three floating horse-like creatures. The middle band features arid hills with a central glowing structure labeled 'The Locked Core' emitting radial light beams. The bottom displays lush terrain with a circular stone city labeled 'The Eternal Verge' and a dark spire labeled 'The Last Watch' with radiating lines (derived from generated still #4181).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal illustrated landscape divided into distinct horizontal bands. The top shows a mountain range with a winding river and three floating horse-like creatures. The middle band features arid hills with a central glowing structure labeled 'The Locked Core' emitting radial light beams. The bottom displays lush terrain with a circular stone city labeled 'The Eternal Verge' and a dark spire labeled 'The Last Watch' with radiating lines",
+  "inverted_title": "Inverted sketch: Parallax Shift - Locked Horizon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal illustrated landscape divided into distinct horizontal bands. The top shows a mountain range with a winding river and three floating horse-like creatures. The middle band features arid hills with a central glowing structure labeled 'The Locked Core' emitting radial light beams. The bottom displays lush terrain with a circular stone city labeled 'The Eternal Verge' and a dark spire labeled 'The Last Watch' with radiating lines (from generated still #4181).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal illustrated landscape divided into distinct horizontal bands. The top shows a mountain range with a winding river and three floating horse-like creatures. The middle band features arid hills with a central glowing structure labeled 'The Locked Core' emitting radial light beams. The bottom displays lush terrain with a circular stone city labeled 'The Eternal Verge' and a dark spire labeled 'The Last Watch' with radiating lines",
+  "source_description": "A surreal illustrated landscape divided into distinct horizontal bands. The top shows a blue mountain range with a winding river and three floating horse-like creatures. The middle band features arid brown hills with a central red glowing structure labeled 'The Locked Core' emitting radial light beams. The bottom displays lush green terrain with a circular stone city labeled 'The Eternal Verge' and a dark spire labeled 'The Last Watch' with radiating lines.",
+  "source_prompt": "Detailed fantasy illustration showing a vertical cross-section of a surreal world divided into three distinct horizontal layers. Top layer: blue mountains and winding river with three floating horse-like beings in the sky. Middle arid brown desert layer features a glowing red cubic structure labeled The Locked Core emitting bright radial beams. Bottom lush green valley contains a large circular stone city labeled The Eternal Verge and a dark spire labeled The Last Watch with energy lines. Title at bottom reads PARALLAX SHIFT - Stage of the Locked Horizon. Vintage painted aesthetic with decorative border elements.",
+  "source_title": "Parallax Shift - Locked Horizon",
+  "style": "fantasy illustration",
+  "mood": "mystical epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal landscape",
+    "fantasy map",
+    "parallax view",
+    "glowing core",
+    "circular city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4181,
+  "source_url": "/generated/4181.jpg",
+  "image_url": "/sketches/4750.png",
+  "inverted_image_url": "/sketches-inverted/4750.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:48Z"
+}

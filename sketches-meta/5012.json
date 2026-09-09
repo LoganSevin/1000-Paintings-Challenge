@@ -1,0 +1,42 @@
+{
+  "number": 5012,
+  "title": "Line sketch: Cosmic Sorcerer Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene depicts a hooded sorcerer standing on a rocky outcrop between massive swirling ocean waves, holding a glowing staff that shoots lightning toward a giant black hole sun in a cloudy sky. To the left is a massive cosmic sphere containing a dragon and galaxies, while a large dragonfly hovers near a giant glowing mushroom house on the right (derived from generated still #4449).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene depicts a hooded sorcerer standing on a rocky outcrop between massive swirling ocean waves, holding a glowing staff that shoots lightning toward a giant black hole sun in a cloudy sky. To the left is a massive cosmic sphere containing a dragon and galaxies, while a large dragonfly hovers near a giant glowing mushroom house on the right",
+  "inverted_title": "Inverted sketch: Cosmic Sorcerer Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene depicts a hooded sorcerer standing on a rocky outcrop between massive swirling ocean waves, holding a glowing staff that shoots lightning toward a giant black hole sun in a cloudy sky. To the left is a massive cosmic sphere containing a dragon and galaxies, while a large dragonfly hovers near a giant glowing mushroom house on the right (from generated still #4449).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene depicts a hooded sorcerer standing on a rocky outcrop between massive swirling ocean waves, holding a glowing staff that shoots lightning toward a giant black hole sun in a cloudy sky. To the left is a massive cosmic sphere containing a dragon and galaxies, while a large dragonfly hovers near a giant glowing mushroom house on the right",
+  "source_description": "A surreal fantasy scene depicts a hooded sorcerer standing on a rocky outcrop between massive swirling ocean waves, holding a glowing red staff that shoots lightning toward a giant black hole sun in a pink cloudy sky. To the left is a massive cosmic sphere containing a purple dragon and galaxies, while a large dragonfly hovers near a giant glowing mushroom house on the right.",
+  "source_prompt": "A dramatic surreal fantasy landscape featuring a hooded sorcerer in purple robes standing on an orange rocky path between giant stylized ocean waves, holding a staff emitting red lightning toward a black hole sun with orange corona in a pink cloudy sky, a massive cosmic orb on the left containing a swirling purple dragon and galaxies, a giant dragonfly hovering near an enormous glowing mushroom house with windows, small potted plants floating in the waves, distant mountains, in a vibrant psychedelic style with intricate details",
+  "source_title": "Cosmic Sorcerer Eclipse",
+  "style": "surreal fantasy",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "fantasy",
+    "dragon",
+    "eclipse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4449,
+  "source_url": "/generated/4449.jpg",
+  "image_url": "/sketches/5012.png",
+  "inverted_image_url": "/sketches-inverted/5012.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4922,
+  "title": "Line sketch: Handprint in the Rain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nighttime rainy urban street scene viewed through a large glass panel. A human hand covered in dripping paint presses against the glass leaving a handprint, while in the reflection a person in a dark coat stands on the wet street with one arm raised under lights (derived from generated still #4358).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nighttime rainy urban street scene viewed through a large glass panel. A human hand covered in dripping paint presses against the glass leaving a handprint, while in the reflection a person in a dark coat stands on the wet street with one arm raised under lights",
+  "inverted_title": "Inverted sketch: Handprint in the Rain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nighttime rainy urban street scene viewed through a large glass panel. A human hand covered in dripping paint presses against the glass leaving a handprint, while in the reflection a person in a dark coat stands on the wet street with one arm raised under lights (from generated still #4358).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nighttime rainy urban street scene viewed through a large glass panel. A human hand covered in dripping paint presses against the glass leaving a handprint, while in the reflection a person in a dark coat stands on the wet street with one arm raised under lights",
+  "source_description": "A nighttime rainy urban street scene viewed through a large glass panel. A human hand covered in dripping orange paint presses against the glass leaving a bright orange handprint, while in the reflection a person in a dark coat stands on the wet street with one arm raised under neon lights.",
+  "source_prompt": "A dramatic nighttime scene of a rainy city street with wet reflective pavement and glowing neon signs. A large glass panel in the foreground shows a human hand covered in thick dripping orange paint pressed against the glass, creating a vivid handprint. In the reflection, a solitary figure in a long dark coat stands on the street with one arm raised. Cinematic lighting, moody atmosphere, heavy rain, high detail, realistic textures.",
+  "source_title": "Handprint in the Rain",
+  "style": "cinematic digital art",
+  "mood": "melancholy, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rainy night",
+    "lights",
+    "handprint",
+    "urban street",
+    "reflection"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4358,
+  "source_url": "/generated/4358.jpg",
+  "image_url": "/sketches/4922.png",
+  "inverted_image_url": "/sketches-inverted/4922.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:49Z"
+}

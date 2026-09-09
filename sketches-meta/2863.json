@@ -1,0 +1,42 @@
+{
+  "number": 2863,
+  "title": "Line sketch: Digital Overload Spell",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman with wild flowing hair filled with floating numbers, letters, and wilted flowers. She points forward with an angry expression while three decaying humanoid figures sit at a wooden desk using glowing smartphones displaying error messages and code (derived from generated still #2149).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman with wild flowing hair filled with floating numbers, letters, and wilted flowers. She points forward with an angry expression while three decaying humanoid figures sit at a wooden desk using glowing smartphones displaying error messages and code",
+  "inverted_title": "Inverted sketch: Digital Overload Spell",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman with wild flowing hair filled with floating numbers, letters, and wilted flowers. She points forward with an angry expression while three decaying humanoid figures sit at a wooden desk using glowing smartphones displaying error messages and code (from generated still #2149).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman with wild flowing hair filled with floating numbers, letters, and wilted flowers. She points forward with an angry expression while three decaying humanoid figures sit at a wooden desk using glowing smartphones displaying error messages and code",
+  "source_description": "A surreal portrait of a blue-skinned woman with wild flowing red hair filled with floating numbers, letters, and wilted flowers. She points forward with an angry expression while three decaying humanoid figures sit at a wooden desk using glowing smartphones displaying error messages and code.",
+  "source_prompt": "Surreal symbolic painting of an angry blue-skinned woman with intense eyes and open mouth, her voluminous red hair flowing wildly and filled with floating numbers, letters, broken flowers and smartphones. She points directly forward. In the background three decaying zombie-like figures sit at a long wooden desk, hunched over and obsessively staring at glowing smartphones displaying code and error messages. Dark chaotic atmosphere with dripping paint effects and floating symbols throughout the composition.",
+  "source_title": "Digital Overload Spell",
+  "style": "surreal",
+  "mood": "chaotic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "technology",
+    "digital overload",
+    "cyberpunk",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2149,
+  "source_url": "/generated/2149.jpg",
+  "image_url": "/sketches/2863.png",
+  "inverted_image_url": "/sketches-inverted/2863.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

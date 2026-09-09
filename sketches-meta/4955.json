@@ -1,0 +1,42 @@
+{
+  "number": 4955,
+  "title": "Line sketch: Demonic Transformation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a tormented humanoid figure split into multiple colored demonic forms. The central being has a pale face with closed eyes, a skeletal torso, a muscular arm, and a clawed hand, all dripping paint. Dark smoke emanates from its head while it clutches its chest, set against a bedroom scene with a haunted bed and curtains (derived from generated still #4392).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a tormented humanoid figure split into multiple colored demonic forms. The central being has a pale face with closed eyes, a skeletal torso, a muscular arm, and a clawed hand, all dripping paint. Dark smoke emanates from its head while it clutches its chest, set against a bedroom scene with a haunted bed and curtains",
+  "inverted_title": "Inverted sketch: Demonic Transformation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a tormented humanoid figure split into multiple colored demonic forms. The central being has a pale face with closed eyes, a skeletal torso, a muscular arm, and a clawed hand, all dripping paint. Dark smoke emanates from its head while it clutches its chest, set against a bedroom scene with a haunted bed and curtains (from generated still #4392).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a tormented humanoid figure split into multiple colored demonic forms. The central being has a pale face with closed eyes, a skeletal torso, a muscular arm, and a clawed hand, all dripping paint. Dark smoke emanates from its head while it clutches its chest, set against a bedroom scene with a haunted bed and curtains",
+  "source_description": "A surreal painting depicts a tormented humanoid figure split into multiple colored demonic forms. The central being has a pale face with closed eyes, a green skeletal torso, a red muscular arm, and a blue clawed hand, all dripping paint. Dark smoke emanates from its head while it clutches its chest, set against a bedroom scene with a haunted bed and purple curtains.",
+  "source_prompt": "A surreal horror painting of a tormented androgynous figure split into multiple demonic aspects, pale face with closed eyes, green skeletal torso, red muscular left arm, blue clawed right hand, all dripping thick paint, dark smoke rising from its head, the being clutching its chest which contains an eye, standing in front of a haunted yellow bed with a screaming pillow in a dark purple bedroom, dramatic lighting, visible brushstrokes, macabre atmosphere",
+  "source_title": "Demonic Transformation",
+  "style": "surreal horror",
+  "mood": "nightmarish torment",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "demonic",
+    "body horror",
+    "multi-colored figure",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4392,
+  "source_url": "/generated/4392.jpg",
+  "image_url": "/sketches/4955.png",
+  "inverted_image_url": "/sketches-inverted/4955.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

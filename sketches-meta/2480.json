@@ -1,0 +1,42 @@
+{
+  "number": 2480,
+  "title": "Line sketch: Yello Bingo Surreal Pasture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal landscape features a horse by a decorative fence and a horse running through a field dotted with flowers. Above, a swirling and sky opens into a glowing portal where three stylized penguins float among translucent bubbles, with two more penguins and the text \"YELLO BINGO\" visible below (derived from generated still #1715).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal landscape features a horse by a decorative fence and a horse running through a field dotted with flowers. Above, a swirling and sky opens into a glowing portal where three stylized penguins float among translucent bubbles, with two more penguins and the text \"YELLO BINGO\" visible below",
+  "inverted_title": "Inverted sketch: Yello Bingo Surreal Pasture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal landscape features a horse by a decorative fence and a horse running through a field dotted with flowers. Above, a swirling and sky opens into a glowing portal where three stylized penguins float among translucent bubbles, with two more penguins and the text \"YELLO BINGO\" visible below (from generated still #1715).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal landscape features a horse by a decorative fence and a horse running through a field dotted with flowers. Above, a swirling and sky opens into a glowing portal where three stylized penguins float among translucent bubbles, with two more penguins and the text \"YELLO BINGO\" visible below",
+  "source_description": "A vibrant surreal landscape features a brown horse by a decorative fence and a purple horse running through a green field dotted with yellow flowers. Above, a swirling pink and blue sky opens into a glowing green portal where three stylized purple penguins float among translucent bubbles, with two more penguins and the text \"YELLO BINGO\" visible below.",
+  "source_prompt": "",
+  "source_title": "Yello Bingo Surreal Pasture",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "penguins",
+    "horses",
+    "bubbles",
+    "pastoral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1715,
+  "source_url": "/generated/1715.jpg",
+  "image_url": "/sketches/2480.png",
+  "inverted_image_url": "/sketches-inverted/2480.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

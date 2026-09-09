@@ -1,0 +1,42 @@
+{
+  "number": 2197,
+  "title": "Line sketch: Enchanted Forest Silhouettes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, stylized composition depicts four female silhouettes with intricate spiral patterns walking along a glowing path through a dense, magical forest. The scene is filled with layered foliage, trees, and swirling psychedelic details in a rich autumnal palette (derived from generated still #1422).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, stylized composition depicts four female silhouettes with intricate spiral patterns walking along a glowing path through a dense, magical forest. The scene is filled with layered foliage, trees, and swirling psychedelic details in a rich autumnal palette",
+  "inverted_title": "Inverted sketch: Enchanted Forest Silhouettes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, stylized composition depicts four female silhouettes with intricate spiral patterns walking along a glowing path through a dense, magical forest. The scene is filled with layered foliage, trees, and swirling psychedelic details in a rich autumnal palette (from generated still #1422).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, stylized composition depicts four female silhouettes with intricate spiral patterns walking along a glowing path through a dense, magical forest. The scene is filled with layered foliage, trees, and swirling psychedelic details in a rich autumnal palette",
+  "source_description": "A vibrant, stylized painting depicts four colorful female silhouettes with intricate spiral patterns walking along a glowing yellow path through a dense, magical forest. The scene is filled with layered foliage, trees, and swirling psychedelic details in a rich autumnal palette.",
+  "source_prompt": "",
+  "source_title": "Enchanted Forest Silhouettes",
+  "style": "Psychedelic folk art",
+  "mood": "Magical, vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouettes",
+    "forest path",
+    "psychedelic",
+    "female figures",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1422,
+  "source_url": "/generated/1422.jpg",
+  "image_url": "/sketches/2197.png",
+  "inverted_image_url": "/sketches-inverted/2197.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:42Z"
+}

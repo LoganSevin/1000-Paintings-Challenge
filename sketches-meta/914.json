@@ -1,0 +1,42 @@
+{
+  "number": 914,
+  "title": "Line sketch: Cosmic Eye Metropolis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive surreal eye dominates the sky above a vibrant futuristic city at night. The iris contains a detailed face, while spaceships, flying cars, and a glowing orbital highway with crowds of people fill the bustling cyberpunk scene (derived from generated still #124).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive surreal eye dominates the sky above a vibrant futuristic city at night. The iris contains a detailed face, while spaceships, flying cars, and a glowing orbital highway with crowds of people fill the bustling cyberpunk scene",
+  "inverted_title": "Inverted sketch: Cosmic Eye Metropolis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive surreal eye dominates the sky above a vibrant futuristic city at night. The iris contains a detailed face, while spaceships, flying cars, and a glowing orbital highway with crowds of people fill the bustling cyberpunk scene (from generated still #124).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive surreal eye dominates the sky above a vibrant futuristic city at night. The iris contains a detailed face, while spaceships, flying cars, and a glowing orbital highway with crowds of people fill the bustling cyberpunk scene",
+  "source_description": "A massive surreal green eye dominates the sky above a vibrant futuristic city at night. The iris contains a detailed face, while spaceships, flying cars, and a glowing orbital highway with crowds of people fill the bustling cyberpunk scene.",
+  "source_prompt": "",
+  "source_title": "Cosmic Eye Metropolis",
+  "style": "surrealism",
+  "mood": "wonder, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "futuristic city",
+    "giant eye",
+    "cyberpunk",
+    "spacecraft"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 124,
+  "source_url": "/generated/124.jpg",
+  "image_url": "/sketches/914.png",
+  "inverted_image_url": "/sketches-inverted/914.png",
+  "curve_count": 144,
+  "built_at": "2026-08-17T00:09:40Z"
+}

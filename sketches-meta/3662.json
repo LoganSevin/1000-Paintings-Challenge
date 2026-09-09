@@ -1,0 +1,42 @@
+{
+  "number": 3662,
+  "title": "Line sketch: Dragon in the Shadows",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive dark dragon with black and reddish- scales lies in the foreground, its head turned to the right with a glowing eye and visible sharp teeth. Stone steps and the lower legs of a giant armored figure are visible in the fiery background (derived from generated still #3070).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive dark dragon with black and reddish- scales lies in the foreground, its head turned to the right with a glowing eye and visible sharp teeth. Stone steps and the lower legs of a giant armored figure are visible in the fiery background",
+  "inverted_title": "Inverted sketch: Dragon in the Shadows",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive dark dragon with black and reddish- scales lies in the foreground, its head turned to the right with a glowing eye and visible sharp teeth. Stone steps and the lower legs of a giant armored figure are visible in the fiery background (from generated still #3070).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive dark dragon with black and reddish- scales lies in the foreground, its head turned to the right with a glowing eye and visible sharp teeth. Stone steps and the lower legs of a giant armored figure are visible in the fiery background",
+  "source_description": "A massive dark dragon with black and reddish-brown scales lies in the foreground, its head turned to the right with a glowing green eye and visible sharp teeth. Stone steps and the lower legs of a giant armored figure are visible in the fiery orange background.",
+  "source_prompt": "close-up of a colossal dragon with heavy dark obsidian scales and sharp triangular spines along its back, resting on broken stone, head turned right showing glowing emerald green eye and menacing open mouth with sharp teeth, dramatic side lighting, warm fiery orange glow emanating from behind, ancient stone steps and giant armored feet visible in smoky background, cinematic low angle perspective, moody atmospheric lighting, highly detailed reptilian texture, dark fantasy atmosphere",
+  "source_title": "Dragon in the Shadows",
+  "style": "cinematic",
+  "mood": "menacing dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "fantasy",
+    "fire",
+    "stone",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3070,
+  "source_url": "/generated/3070.jpg",
+  "image_url": "/sketches/3662.png",
+  "inverted_image_url": "/sketches-inverted/3662.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:46Z"
+}

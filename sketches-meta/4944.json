@@ -1,0 +1,42 @@
+{
+  "number": 4944,
+  "title": "Line sketch: Tortured Angel composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark jacket stands at a bar counter on the left, looking toward a massive surreal composition that dominates the room. The composition depicts a demonic man in a suit torturing a bloodied, winged female angel with a crown of thorns in a -lit hallway, with blood dramatically spilling out from the bottom of the page onto the floor (derived from generated still #4381).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark jacket stands at a bar counter on the left, looking toward a massive surreal composition that dominates the room. The composition depicts a demonic man in a suit torturing a bloodied, winged female angel with a crown of thorns in a -lit hallway, with blood dramatically spilling out from the bottom of the page onto the floor",
+  "inverted_title": "Inverted sketch: Tortured Angel composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark jacket stands at a bar counter on the left, looking toward a massive surreal composition that dominates the room. The composition depicts a demonic man in a suit torturing a bloodied, winged female angel with a crown of thorns in a -lit hallway, with blood dramatically spilling out from the bottom of the page onto the floor (from generated still #4381).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark jacket stands at a bar counter on the left, looking toward a massive surreal composition that dominates the room. The composition depicts a demonic man in a suit torturing a bloodied, winged female angel with a crown of thorns in a -lit hallway, with blood dramatically spilling out from the bottom of the page onto the floor",
+  "source_description": "A man in a dark jacket stands at a bar counter on the left, looking toward a massive surreal painting that dominates the room. The painting depicts a demonic man in a suit torturing a bloodied, winged female angel with a crown of thorns in a red-lit hallway, with blood dramatically spilling out from the bottom of the canvas onto the floor.",
+  "source_prompt": "A man in a dark jacket stands beside a bar counter with a coffee cup and gun, staring at an enormous hyperrealistic painting on the wall. The painting shows a demonic grinning man in a black suit torturing a kneeling, blood-covered female angel with white wings and a crown of thorns in a long red-lit hallway. Blood realistically drips from the bottom edge of the canvas onto the floor, creating a surreal and horrifying scene.",
+  "source_title": "Tortured Angel Painting",
+  "style": "surreal horror",
+  "mood": "sinister grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "angel",
+    "torture",
+    "blood"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4381,
+  "source_url": "/generated/4381.jpg",
+  "image_url": "/sketches/4944.png",
+  "inverted_image_url": "/sketches-inverted/4944.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:49Z"
+}

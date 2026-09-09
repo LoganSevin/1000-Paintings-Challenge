@@ -1,0 +1,42 @@
+{
+  "number": 951,
+  "title": "Line sketch: Cosmic Octopus Overlord",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant octopus-like alien with a wide toothy grin stands at the center of a swirling cosmic vortex. It wears ornate robes and holds spheres while standing among large flowers on a reflective liquid surface (derived from generated still #161).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant octopus-like alien with a wide toothy grin stands at the center of a swirling cosmic vortex. It wears ornate robes and holds spheres while standing among large flowers on a reflective liquid surface",
+  "inverted_title": "Inverted sketch: Cosmic Octopus Overlord",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant octopus-like alien with a wide toothy grin stands at the center of a swirling cosmic vortex. It wears ornate robes and holds spheres while standing among large flowers on a reflective liquid surface (from generated still #161).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant octopus-like alien with a wide toothy grin stands at the center of a swirling cosmic vortex. It wears ornate robes and holds spheres while standing among large flowers on a reflective liquid surface",
+  "source_description": "A vibrant green octopus-like alien with a wide toothy grin stands at the center of a swirling cosmic vortex. It wears ornate golden robes and holds colorful spheres while standing among large purple flowers on a reflective liquid surface.",
+  "source_prompt": "",
+  "source_title": "Cosmic Octopus Overlord",
+  "style": "surreal fantasy",
+  "mood": "whimsical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "octopus alien",
+    "cosmic vortex",
+    "psychedelic",
+    "surreal",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 161,
+  "source_url": "/generated/161.jpg",
+  "image_url": "/sketches/951.png",
+  "inverted_image_url": "/sketches-inverted/951.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:40Z"
+}

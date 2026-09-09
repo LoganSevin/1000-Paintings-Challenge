@@ -1,0 +1,42 @@
+{
+  "number": 1174,
+  "title": "Line sketch: Cosmic Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant -skinned female figure with elaborate braided hair and a mask stands before a swirling cosmic portal. Her hand is outstretched toward a bright central light as paint drips from the circular composition against a starry nebula background (derived from generated still #386).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant -skinned female figure with elaborate braided hair and a mask stands before a swirling cosmic portal. Her hand is outstretched toward a bright central light as paint drips from the circular composition against a starry nebula background",
+  "inverted_title": "Inverted sketch: Cosmic Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant -skinned female figure with elaborate braided hair and a mask stands before a swirling cosmic portal. Her hand is outstretched toward a bright central light as paint drips from the circular composition against a starry nebula background (from generated still #386).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant -skinned female figure with elaborate braided hair and a mask stands before a swirling cosmic portal. Her hand is outstretched toward a bright central light as paint drips from the circular composition against a starry nebula background",
+  "source_description": "A vibrant green-skinned female figure with elaborate braided hair and a purple mask stands before a swirling cosmic portal. Her hand is outstretched toward a bright central light as colorful paint drips from the circular composition against a starry nebula background.",
+  "source_prompt": "",
+  "source_title": "Green Cosmic Sorceress",
+  "style": "psychedelic surrealism",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic portal",
+    "alien",
+    "mask",
+    "dripping paint",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 386,
+  "source_url": "/generated/386.jpg",
+  "image_url": "/sketches/1174.png",
+  "inverted_image_url": "/sketches-inverted/1174.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:40Z"
+}

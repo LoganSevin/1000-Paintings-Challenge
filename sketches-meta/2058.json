@@ -1,0 +1,42 @@
+{
+  "number": 2058,
+  "title": "Line sketch: Celestial Woman Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant profile portrait of a woman with elaborate flowing hair filled with celestial patterns including moons, stars, and swirls. A circular window to her right reveals a stylized mountain landscape with a glowing sun or moon on the horizon under a starry sky (derived from generated still #1283).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant profile portrait of a woman with elaborate flowing hair filled with celestial patterns including moons, stars, and swirls. A circular window to her right reveals a stylized mountain landscape with a glowing sun or moon on the horizon under a starry sky",
+  "inverted_title": "Inverted sketch: Celestial Woman Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant profile portrait of a woman with elaborate flowing hair filled with celestial patterns including moons, stars, and swirls. A circular window to her right reveals a stylized mountain landscape with a glowing sun or moon on the horizon under a starry sky (from generated still #1283).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant profile portrait of a woman with elaborate flowing hair filled with celestial patterns including moons, stars, and swirls. A circular window to her right reveals a stylized mountain landscape with a glowing sun or moon on the horizon under a starry sky",
+  "source_description": "Vibrant profile portrait of a woman with elaborate flowing hair filled with colorful celestial patterns including moons, stars, and swirls. A circular window to her right reveals a stylized mountain landscape with a glowing sun or moon on the horizon under a starry sky.",
+  "source_prompt": "",
+  "source_title": "Celestial Woman Portrait",
+  "style": "Psychedelic illustration",
+  "mood": "Mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "celestial",
+    "woman",
+    "mountains",
+    "psychedelic",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1283,
+  "source_url": "/generated/1283.jpg",
+  "image_url": "/sketches/2058.png",
+  "inverted_image_url": "/sketches-inverted/2058.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:42Z"
+}

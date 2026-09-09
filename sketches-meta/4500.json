@@ -1,0 +1,42 @@
+{
+  "number": 4500,
+  "title": "Line sketch: Grim Reaper Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal Grim Reaper in a black robe stands at the center of a glowing spiral portal, holding a lit candle. The surreal scene includes a giant draped figure with a single eye watching from above, a cracked planet, scattered shards, white butterflies, mystical books and objects on -draped tables, and dark mountains in the background (derived from generated still #3919).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal Grim Reaper in a black robe stands at the center of a glowing spiral portal, holding a lit candle. The surreal scene includes a giant draped figure with a single eye watching from above, a cracked planet, scattered shards, white butterflies, mystical books and objects on -draped tables, and dark mountains in the background",
+  "inverted_title": "Inverted sketch: Grim Reaper Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal Grim Reaper in a black robe stands at the center of a glowing spiral portal, holding a lit candle. The surreal scene includes a giant draped figure with a single eye watching from above, a cracked planet, scattered shards, white butterflies, mystical books and objects on -draped tables, and dark mountains in the background (from generated still #3919).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal Grim Reaper in a black robe stands at the center of a glowing spiral portal, holding a lit candle. The surreal scene includes a giant draped figure with a single eye watching from above, a cracked planet, scattered shards, white butterflies, mystical books and objects on -draped tables, and dark mountains in the background",
+  "source_description": "A skeletal Grim Reaper in a black robe stands at the center of a glowing green spiral portal, holding a lit green candle. The surreal scene includes a giant purple draped figure with a single green eye watching from above, a cracked red planet, scattered red shards, white butterflies, mystical books and objects on blue-draped tables, and dark mountains in the background.",
+  "source_prompt": "Surreal fantasy scene with a skeletal Grim Reaper in black robes standing in the center of a glowing green spiral vortex, holding a lit green candle. A giant purple draped cosmic figure with one large green eye watches from the top left. A cracked red planet floats in the sky above dark jagged mountains. White butterflies flutter around the scene. Mystical books, candles, and occult objects rest on blue draped tables on both sides. Dramatic lighting, intricate details, painted style.",
+  "source_title": "Grim Reaper Ritual",
+  "style": "surreal fantasy",
+  "mood": "mystical ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "surreal",
+    "occult ritual",
+    "spiral portal",
+    "giant eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3919,
+  "source_url": "/generated/3919.jpg",
+  "image_url": "/sketches/4500.png",
+  "inverted_image_url": "/sketches-inverted/4500.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4531,
+  "title": "Line sketch: Cosmic Eye Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal landscape features a giant glowing eye with a pupil floating in a swirling cosmic vortex in the sky, emitting beams of light. Below, a large crowd of people sits in an outdoor amphitheater facing a winding, river that flows through a vibrant and mountain valley lined with stylized trees and flamingos (derived from generated still #3951).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal landscape features a giant glowing eye with a pupil floating in a swirling cosmic vortex in the sky, emitting beams of light. Below, a large crowd of people sits in an outdoor amphitheater facing a winding, river that flows through a vibrant and mountain valley lined with stylized trees and flamingos",
+  "inverted_title": "Inverted sketch: Cosmic Eye Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal landscape features a giant glowing eye with a pupil floating in a swirling cosmic vortex in the sky, emitting beams of light. Below, a large crowd of people sits in an outdoor amphitheater facing a winding, river that flows through a vibrant and mountain valley lined with stylized trees and flamingos (from generated still #3951).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal landscape features a giant glowing eye with a pupil floating in a swirling cosmic vortex in the sky, emitting beams of light. Below, a large crowd of people sits in an outdoor amphitheater facing a winding, river that flows through a vibrant and mountain valley lined with stylized trees and flamingos",
+  "source_description": "A surreal landscape features a giant glowing eye with a purple pupil floating in a swirling cosmic vortex in the sky, emitting beams of light. Below, a large crowd of people sits in an outdoor amphitheater facing a winding, colorful river that flows through a vibrant purple and orange mountain valley lined with stylized trees and flamingos.",
+  "source_prompt": "A surreal fantasy landscape with a massive glowing eye with orange and purple iris floating in a swirling blue and purple cosmic vortex in the sky, casting beams of light down onto a winding colorful river. In the foreground, a large audience sits facing the river in an outdoor setting surrounded by stylized trees with orange and blue leaves, pink flamingos, and purple and orange mountains in the background, vibrant colors, dreamy atmosphere.",
+  "source_title": "Cosmic Eye Gathering",
+  "style": "surreal fantasy",
+  "mood": "mystical wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic eye",
+    "surreal landscape",
+    "glowing vortex",
+    "outdoor gathering",
+    "fantasy river"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3951,
+  "source_url": "/generated/3951.jpg",
+  "image_url": "/sketches/4531.png",
+  "inverted_image_url": "/sketches-inverted/4531.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:48Z"
+}

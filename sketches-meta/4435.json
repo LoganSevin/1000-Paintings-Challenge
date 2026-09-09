@@ -1,0 +1,42 @@
+{
+  "number": 4435,
+  "title": "Line sketch: Stasis Spells & Locked Mercury",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nighttime street scene featuring the corner of a magical shop with a large door covered in glowing white runes and a wooden hanging sign reading 'STASIS SPELLS & LOCKED MERCURY'. The shop window displays potion bottles, an hourglass, a clock, and various magical symbols. A small wooden step stool sits on the cobblestone street in front (derived from generated still #3854).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nighttime street scene featuring the corner of a magical shop with a large door covered in glowing white runes and a wooden hanging sign reading 'STASIS SPELLS & LOCKED MERCURY'. The shop window displays potion bottles, an hourglass, a clock, and various magical symbols. A small wooden step stool sits on the cobblestone street in front",
+  "inverted_title": "Inverted sketch: Stasis Spells & Locked Mercury",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nighttime street scene featuring the corner of a magical shop with a large door covered in glowing white runes and a wooden hanging sign reading 'STASIS SPELLS & LOCKED MERCURY'. The shop window displays potion bottles, an hourglass, a clock, and various magical symbols. A small wooden step stool sits on the cobblestone street in front (from generated still #3854).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nighttime street scene featuring the corner of a magical shop with a large door covered in glowing white runes and a wooden hanging sign reading 'STASIS SPELLS & LOCKED MERCURY'. The shop window displays potion bottles, an hourglass, a clock, and various magical symbols. A small wooden step stool sits on the cobblestone street in front",
+  "source_description": "A nighttime street scene featuring the corner of a magical shop with a large blue door covered in glowing white runes and a wooden hanging sign reading 'STASIS SPELLS & LOCKED MERCURY'. The shop window displays potion bottles, an hourglass, a clock, and various magical symbols. A small wooden step stool sits on the cobblestone street in front.",
+  "source_prompt": "Nighttime view of a magical storefront on a cobblestone street, brick building with a large blue door covered in glowing white alchemical runes, wooden hanging sign that reads STASIS SPELLS & LOCKED MERCURY with a lock and flower symbol, shop window displaying potion bottles with snakes and eyes, an hourglass, a clock, and paper with symbols, blue awning above the window, old lantern on the wall, mysterious and enchanting atmosphere, detailed digital illustration",
+  "source_title": "Stasis Spells & Locked Mercury",
+  "style": "digital illustration",
+  "mood": "mysterious, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic shop",
+    "fantasy street",
+    "night scene",
+    "potion bottles",
+    "runes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3854,
+  "source_url": "/generated/3854.jpg",
+  "image_url": "/sketches/4435.png",
+  "inverted_image_url": "/sketches-inverted/4435.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:48Z"
+}

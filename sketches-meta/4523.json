@@ -1,0 +1,42 @@
+{
+  "number": 4523,
+  "title": "Line sketch: Cosmic Lakeside Cabin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wooden cabin with a dock sits on the shore of a glowing lake under a swirling and night sky filled with shooting stars, multiple moons, and a sun. In the foreground, a lone figure rows a small wooden boat across water that reflects the cosmic colors and contains floating luminous orbs (derived from generated still #3943).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wooden cabin with a dock sits on the shore of a glowing lake under a swirling and night sky filled with shooting stars, multiple moons, and a sun. In the foreground, a lone figure rows a small wooden boat across water that reflects the cosmic colors and contains floating luminous orbs",
+  "inverted_title": "Inverted sketch: Cosmic Lakeside Cabin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wooden cabin with a dock sits on the shore of a glowing lake under a swirling and night sky filled with shooting stars, multiple moons, and a sun. In the foreground, a lone figure rows a small wooden boat across water that reflects the cosmic colors and contains floating luminous orbs (from generated still #3943).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wooden cabin with a dock sits on the shore of a glowing lake under a swirling and night sky filled with shooting stars, multiple moons, and a sun. In the foreground, a lone figure rows a small wooden boat across water that reflects the cosmic colors and contains floating luminous orbs",
+  "source_description": "A red wooden cabin with a dock sits on the shore of a glowing lake under a swirling purple and green night sky filled with shooting stars, multiple moons, and a bright orange sun. In the foreground, a lone figure rows a small wooden boat across water that reflects the cosmic colors and contains floating luminous orbs.",
+  "source_prompt": "Surreal fantasy landscape at night featuring a bright red wooden cabin with chimney on a rocky shore with wooden dock, a lone rower in a small wooden boat on a calm lake, dramatic swirling purple and green aurora sky filled with numerous shooting stars, multiple moons of different sizes, and one bright orange sun, glowing purple orbs floating in the water, distant dark mountains, vibrant cinematic colors, dreamy atmosphere",
+  "source_title": "Cosmic Lakeside Cabin",
+  "style": "fantasy landscape",
+  "mood": "ethereal surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic landscape",
+    "northern lights",
+    "shooting stars",
+    "cabin",
+    "fantasy lake"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3943,
+  "source_url": "/generated/3943.jpg",
+  "image_url": "/sketches/4523.png",
+  "inverted_image_url": "/sketches-inverted/4523.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:48Z"
+}

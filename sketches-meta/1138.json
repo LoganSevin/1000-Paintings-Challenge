@@ -1,0 +1,42 @@
+{
+  "number": 1138,
+  "title": "Line sketch: Alien Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned humanoid with large eyes and a black nose, featuring paint drips running down its face and vein-like patterns across its neck and shoulder. The figure emerges from a cracked circular frame against a vibrant background adorned with stylized flowers and dripping elements (derived from generated still #350).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned humanoid with large eyes and a black nose, featuring paint drips running down its face and vein-like patterns across its neck and shoulder. The figure emerges from a cracked circular frame against a vibrant background adorned with stylized flowers and dripping elements",
+  "inverted_title": "Inverted sketch: Alien Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned humanoid with large eyes and a black nose, featuring paint drips running down its face and vein-like patterns across its neck and shoulder. The figure emerges from a cracked circular frame against a vibrant background adorned with stylized flowers and dripping elements (from generated still #350).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned humanoid with large eyes and a black nose, featuring paint drips running down its face and vein-like patterns across its neck and shoulder. The figure emerges from a cracked circular frame against a vibrant background adorned with stylized flowers and dripping elements",
+  "source_description": "A surreal portrait of a green-skinned humanoid with large golden eyes and a black nose, featuring colorful paint drips running down its face and red vein-like patterns across its neck and shoulder. The figure emerges from a cracked circular frame against a vibrant magenta background adorned with stylized purple flowers and dripping elements.",
+  "source_prompt": "",
+  "source_title": "Green Alien Portrait",
+  "style": "surreal digital art",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "surreal",
+    "psychedelic",
+    "floral",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 350,
+  "source_url": "/generated/350.jpg",
+  "image_url": "/sketches/1138.png",
+  "inverted_image_url": "/sketches-inverted/1138.png",
+  "curve_count": 99,
+  "built_at": "2026-08-17T00:09:40Z"
+}

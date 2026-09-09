@@ -1,0 +1,42 @@
+{
+  "number": 3520,
+  "title": "Line sketch: Surreal Cosmic Throne",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned queen with a crown and long flowing hair sits on a large geometric platform, holding a sad theatrical mask with horns. Below her, a crowd of silhouetted figures reach upward with glowing hands. The background features a swirling cosmic vortex with planets, a black hole eclipse, a distant castle on a hill, barren trees, and a woman in a patterned headscarf standing in mist (derived from generated still #2922).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned queen with a crown and long flowing hair sits on a large geometric platform, holding a sad theatrical mask with horns. Below her, a crowd of silhouetted figures reach upward with glowing hands. The background features a swirling cosmic vortex with planets, a black hole eclipse, a distant castle on a hill, barren trees, and a woman in a patterned headscarf standing in mist",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Throne",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned queen with a crown and long flowing hair sits on a large geometric platform, holding a sad theatrical mask with horns. Below her, a crowd of silhouetted figures reach upward with glowing hands. The background features a swirling cosmic vortex with planets, a black hole eclipse, a distant castle on a hill, barren trees, and a woman in a patterned headscarf standing in mist (from generated still #2922).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned queen with a crown and long flowing hair sits on a large geometric platform, holding a sad theatrical mask with horns. Below her, a crowd of silhouetted figures reach upward with glowing hands. The background features a swirling cosmic vortex with planets, a black hole eclipse, a distant castle on a hill, barren trees, and a woman in a patterned headscarf standing in mist",
+  "source_description": "A purple-skinned queen with a golden crown and long flowing hair sits on a large purple geometric platform, holding a sad yellow theatrical mask with horns. Below her, a crowd of silhouetted figures reach upward with glowing yellow hands. The background features a swirling cosmic vortex with planets, a black hole eclipse, a distant castle on a hill, barren trees, and a woman in a green patterned headscarf standing in mist.",
+  "source_prompt": "A mystical purple-skinned queen wearing a golden crown sits on a floating purple geometric platform in a surreal dreamscape, holding a sad yellow demon mask with horns. Below her, a crowd of green silhouettes desperately reach up with glowing hands. A swirling galaxy vortex with planets, stars, and a black hole eclipse fills the sky above a distant castle on a hill, barren trees, and a woman in a green headscarf standing in mist, dramatic sunset lighting, intricate fantasy illustration.",
+  "source_title": "Surreal Cosmic Throne",
+  "style": "surreal fantasy",
+  "mood": "mysterious, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "queen",
+    "theatrical mask",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2922,
+  "source_url": "/generated/2922.jpg",
+  "image_url": "/sketches/3520.png",
+  "inverted_image_url": "/sketches-inverted/3520.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:45Z"
+}

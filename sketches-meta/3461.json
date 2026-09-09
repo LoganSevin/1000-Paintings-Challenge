@@ -1,0 +1,42 @@
+{
+  "number": 3461,
+  "title": "Line sketch: Surreal Dream Realm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composite scene divided into distinct realms. The upper portion features a massive twisted tree with a glowing spiral eye and a dark gothic castle under a starry night sky with multiple moons. The lower left shows two bloody skeletons with drips, while the lower right depicts a large and mushroom character with big white eyes standing in water next to a small mushroom and a rat with white belly looking toward it (derived from generated still #2862).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composite scene divided into distinct realms. The upper portion features a massive twisted tree with a glowing spiral eye and a dark gothic castle under a starry night sky with multiple moons. The lower left shows two bloody skeletons with drips, while the lower right depicts a large and mushroom character with big white eyes standing in water next to a small mushroom and a rat with white belly looking toward it",
+  "inverted_title": "Inverted sketch: Surreal Dream Realm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composite scene divided into distinct realms. The upper portion features a massive twisted tree with a glowing spiral eye and a dark gothic castle under a starry night sky with multiple moons. The lower left shows two bloody skeletons with drips, while the lower right depicts a large and mushroom character with big white eyes standing in water next to a small mushroom and a rat with white belly looking toward it (from generated still #2862).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composite scene divided into distinct realms. The upper portion features a massive twisted tree with a glowing spiral eye and a dark gothic castle under a starry night sky with multiple moons. The lower left shows two bloody skeletons with drips, while the lower right depicts a large and mushroom character with big white eyes standing in water next to a small mushroom and a rat with white belly looking toward it",
+  "source_description": "A surreal composite scene divided into distinct realms. The upper portion features a massive twisted tree with a glowing green spiral eye and a dark gothic castle under a starry night sky with multiple moons. The lower left shows two bloody skeletons with red drips, while the lower right depicts a large blue and red mushroom character with big white eyes standing in water next to a small yellow mushroom and a red rat with white belly looking toward it.",
+  "source_prompt": "Surreal fantasy painting split into multiple realms: top features a giant gnarled tree with a massive hypnotic green and yellow spiral eye for a canopy and a dark gothic castle silhouette against a starry purple night sky with three glowing moons. Bottom left shows two grim skeletons with blood dripping from their skulls. Bottom right shows a cute but eerie large blue mushroom character with red cap and white spots standing in reflective water next to a tiny yellow mushroom and a red rat with white chest looking at them.",
+  "source_title": "Surreal Dream Realm",
+  "style": "surreal fantasy",
+  "mood": "whimsical macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "mushroom",
+    "gothic",
+    "eye tree"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2862,
+  "source_url": "/generated/2862.jpg",
+  "image_url": "/sketches/3461.png",
+  "inverted_image_url": "/sketches-inverted/3461.png",
+  "curve_count": 85,
+  "built_at": "2026-08-17T00:09:45Z"
+}

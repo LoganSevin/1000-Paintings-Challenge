@@ -1,0 +1,42 @@
+{
+  "number": 4643,
+  "title": "Line sketch: Surreal Cosmic Encounter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene depicts a wooden bridge connecting a platform with a skull wearing braided hair and eyes to a rock where an astronaut kneels. Multiple glowing orbs containing human hands float throughout the psychedelic alien landscape under a swirling sky with a large planet (derived from generated still #4065).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene depicts a wooden bridge connecting a platform with a skull wearing braided hair and eyes to a rock where an astronaut kneels. Multiple glowing orbs containing human hands float throughout the psychedelic alien landscape under a swirling sky with a large planet",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Encounter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene depicts a wooden bridge connecting a platform with a skull wearing braided hair and eyes to a rock where an astronaut kneels. Multiple glowing orbs containing human hands float throughout the psychedelic alien landscape under a swirling sky with a large planet (from generated still #4065).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene depicts a wooden bridge connecting a platform with a skull wearing braided hair and eyes to a rock where an astronaut kneels. Multiple glowing orbs containing human hands float throughout the psychedelic alien landscape under a swirling sky with a large planet",
+  "source_description": "A surreal scene depicts a wooden bridge connecting a purple platform with a green skull wearing braided hair and red eyes to a yellow rock where an astronaut kneels. Multiple glowing green orbs containing human hands float throughout the psychedelic alien landscape under a swirling pink sky with a large turquoise planet.",
+  "source_prompt": "A surreal psychedelic landscape featuring a wooden bridge between a purple platform holding a green skull with long black braided hair, red glowing eyes, and colorful beads, and a yellow rock where a kneeling astronaut in a white spacesuit rests. Multiple transparent green bubbles containing realistic human hands float in the air. The background shows an alien planet covered in yellow skull patterns, purple rock formations with orange foliage, and a swirling pink cosmic sky with a large glowing turquoise planet emitting light rays.",
+  "source_title": "Surreal Cosmic Encounter",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "astronaut",
+    "skull",
+    "alien planet",
+    "floating hands"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4065,
+  "source_url": "/generated/4065.jpg",
+  "image_url": "/sketches/4643.png",
+  "inverted_image_url": "/sketches-inverted/4643.png",
+  "curve_count": 111,
+  "built_at": "2026-08-17T00:09:48Z"
+}

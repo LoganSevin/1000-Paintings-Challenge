@@ -1,0 +1,42 @@
+{
+  "number": 3529,
+  "title": "Line sketch: Stasis in Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a stylized city skyline under a night sky with hanging crescent moons and diamond shapes. In the foreground, three women in dresses and hats carry glowing circular objects along a cracked path, while large abstract calligraphic forms, paint splatters, and concentric circles dominate the left side (derived from generated still #2931).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a stylized city skyline under a night sky with hanging crescent moons and diamond shapes. In the foreground, three women in dresses and hats carry glowing circular objects along a cracked path, while large abstract calligraphic forms, paint splatters, and concentric circles dominate the left side",
+  "inverted_title": "Inverted sketch: Stasis in Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a stylized city skyline under a night sky with hanging crescent moons and diamond shapes. In the foreground, three women in dresses and hats carry glowing circular objects along a cracked path, while large abstract calligraphic forms, paint splatters, and concentric circles dominate the left side (from generated still #2931).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a stylized city skyline under a night sky with hanging crescent moons and diamond shapes. In the foreground, three women in dresses and hats carry glowing circular objects along a cracked path, while large abstract calligraphic forms, paint splatters, and concentric circles dominate the left side",
+  "source_description": "A vibrant surreal painting depicts a stylized green city skyline under a deep purple night sky with hanging crescent moons and diamond shapes. In the foreground, three women in colorful dresses and hats carry glowing pink circular objects along a cracked golden path, while large abstract purple calligraphic forms, paint splatters, and concentric circles dominate the left side.",
+  "source_prompt": "Surreal vibrant painting featuring a glowing green futuristic city skyline against a deep purple night sky with hanging crescent moons and geometric diamond ornaments. In the foreground, three women wearing hats and colorful dresses carry large glowing pink circular objects along a cracked golden path. Large flowing purple abstract calligraphic shapes and paint splatters dominate the left side alongside concentric pink and orange circles. Teal and gold paint drips at the bottom, whimsical and energetic composition with visible brushwork.",
+  "source_title": "Stasis in Bloom",
+  "style": "surreal pop art",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal cityscape",
+    "abstract calligraphy",
+    "women with lanterns",
+    "cosmic night",
+    "splatters"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2931,
+  "source_url": "/generated/2931.jpg",
+  "image_url": "/sketches/3529.png",
+  "inverted_image_url": "/sketches-inverted/3529.png",
+  "curve_count": 125,
+  "built_at": "2026-08-17T00:09:45Z"
+}

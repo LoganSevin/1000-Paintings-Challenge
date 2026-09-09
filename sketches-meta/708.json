@@ -1,0 +1,42 @@
+{
+  "number": 708,
+  "title": "Line sketch: Crowned Solitude",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary queen in profile sits poised on a geometric ledge, her crown and flowing hair glowing against a deep, shadowy void. The minimalist scene evokes a sense of majestic isolation and quiet contemplation (derived from painting #898).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary queen in profile sits poised on a geometric ledge, her crown and flowing hair glowing against a deep, shadowy void. The minimalist scene evokes a sense of majestic isolation and quiet contemplation",
+  "inverted_title": "Inverted sketch: Crowned Solitude",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary queen in profile sits poised on a geometric ledge, her crown and flowing hair glowing against a deep, shadowy void. The minimalist scene evokes a sense of majestic isolation and quiet contemplation (from painting #898).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary queen in profile sits poised on a geometric ledge, her crown and flowing hair glowing against a deep, shadowy void. The minimalist scene evokes a sense of majestic isolation and quiet contemplation",
+  "source_description": "A solitary queen in profile sits poised on a geometric purple ledge, her golden crown and flowing hair glowing against a deep, shadowy void. The minimalist scene evokes a sense of majestic isolation and quiet contemplation.",
+  "source_prompt": "",
+  "source_title": "Golden Crowned Solitude",
+  "style": "Digital illustration",
+  "mood": "Mysterious and regal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "queen",
+    "silhouette",
+    "geometric",
+    "minimalist",
+    "solitude"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 898,
+  "source_url": "/paintings/898.jpg",
+  "image_url": "/sketches/708.png",
+  "inverted_image_url": "/sketches-inverted/708.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:39Z"
+}

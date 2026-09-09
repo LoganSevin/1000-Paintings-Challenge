@@ -1,0 +1,42 @@
+{
+  "number": 1883,
+  "title": "Line sketch: Alien Girl with Satellite",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned alien girl with pigtails and antennae holds a pineapple grenade while standing beside a large satellite dish. The vibrant psychedelic background features swirling patterns, dripping paint effects, and floating icons in a cartoon style (derived from generated still #1108).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned alien girl with pigtails and antennae holds a pineapple grenade while standing beside a large satellite dish. The vibrant psychedelic background features swirling patterns, dripping paint effects, and floating icons in a cartoon style",
+  "inverted_title": "Inverted sketch: Alien Girl with Satellite",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned alien girl with pigtails and antennae holds a pineapple grenade while standing beside a large satellite dish. The vibrant psychedelic background features swirling patterns, dripping paint effects, and floating icons in a cartoon style (from generated still #1108).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned alien girl with pigtails and antennae holds a pineapple grenade while standing beside a large satellite dish. The vibrant psychedelic background features swirling patterns, dripping paint effects, and floating icons in a cartoon style",
+  "source_description": "A green-skinned alien girl with pigtails and antennae holds a pineapple grenade while standing beside a large satellite dish. The vibrant psychedelic background features swirling patterns, dripping paint effects, and floating icons in a cartoon style.",
+  "source_prompt": "",
+  "source_title": "Alien Girl with Satellite",
+  "style": "cartoon",
+  "mood": "psychedelic vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien girl",
+    "satellite dish",
+    "pineapple grenade",
+    "psychedelic",
+    "cartoon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1108,
+  "source_url": "/generated/1108.jpg",
+  "image_url": "/sketches/1883.png",
+  "inverted_image_url": "/sketches-inverted/1883.png",
+  "curve_count": 240,
+  "built_at": "2026-08-17T00:09:42Z"
+}

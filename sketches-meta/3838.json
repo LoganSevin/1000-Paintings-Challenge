@@ -1,0 +1,42 @@
+{
+  "number": 3838,
+  "title": "Line sketch: Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A triptych of cartoon figures showing one bald man in a white shirt and black shorts in three sequential falling poses against backgrounds, mounted on a textured white page. The entire piece is layered over large stenciled black text reading STASIS on a vibrant hot painted surface (derived from generated still #3255).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A triptych of cartoon figures showing one bald man in a white shirt and black shorts in three sequential falling poses against backgrounds, mounted on a textured white page. The entire piece is layered over large stenciled black text reading STASIS on a vibrant hot painted surface",
+  "inverted_title": "Inverted sketch: Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A triptych of cartoon figures showing one bald man in a white shirt and black shorts in three sequential falling poses against backgrounds, mounted on a textured white page. The entire piece is layered over large stenciled black text reading STASIS on a vibrant hot painted surface (from generated still #3255).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A triptych of cartoon figures showing one bald man in a white shirt and black shorts in three sequential falling poses against backgrounds, mounted on a textured white page. The entire piece is layered over large stenciled black text reading STASIS on a vibrant hot painted surface",
+  "source_description": "A triptych of cartoon figures showing one bald man in a white shirt and black shorts in three sequential falling poses against bright pink backgrounds, mounted on a textured white canvas. The entire piece is layered over large stenciled black text reading STASIS on a vibrant hot pink painted surface.",
+  "source_prompt": "A mixed media painting featuring three sequential panels of a bald cartoon man wearing a white t-shirt and black shorts, shown in progressive stages of falling: standing and reacting, mid-air upside down, and lying on the ground. The panels have bright pink backgrounds and are mounted on a textured white canvas. Large stenciled black letters spelling STASIS appear behind the panels on a vibrant hot pink painted surface with visible brushstrokes and layered translucent sheets.",
+  "source_title": "Stasis",
+  "style": "pop art",
+  "mood": "dynamic, stark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "triptych",
+    "falling sequence",
+    "stencil text",
+    "background",
+    "cartoon figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3255,
+  "source_url": "/generated/3255.jpg",
+  "image_url": "/sketches/3838.png",
+  "inverted_image_url": "/sketches-inverted/3838.png",
+  "curve_count": 96,
+  "built_at": "2026-08-17T00:09:46Z"
+}

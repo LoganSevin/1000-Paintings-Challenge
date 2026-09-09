@@ -1,0 +1,42 @@
+{
+  "number": 2819,
+  "title": "Line sketch: Repeating Figure Grid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 4x6 grid of identical digital artworks showing a -skinned woman with long hair wearing a vibrant and black patterned outfit. Each panel displays her in slightly different poses against a surreal background with floating translucent orbs, a small house, and a dark atmospheric setting (derived from generated still #2103).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 4x6 grid of identical digital artworks showing a -skinned woman with long hair wearing a vibrant and black patterned outfit. Each panel displays her in slightly different poses against a surreal background with floating translucent orbs, a small house, and a dark atmospheric setting",
+  "inverted_title": "Inverted sketch: Repeating Figure Grid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 4x6 grid of identical digital artworks showing a -skinned woman with long hair wearing a vibrant and black patterned outfit. Each panel displays her in slightly different poses against a surreal background with floating translucent orbs, a small house, and a dark atmospheric setting (from generated still #2103).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 4x6 grid of identical digital artworks showing a -skinned woman with long hair wearing a vibrant and black patterned outfit. Each panel displays her in slightly different poses against a surreal background with floating translucent orbs, a small house, and a dark atmospheric setting",
+  "source_description": "A 4x6 grid of identical digital artworks showing a green-skinned woman with long red hair wearing a vibrant orange and black patterned outfit. Each panel displays her in slightly different poses against a surreal background with floating translucent orbs, a small house, and a dark atmospheric setting.",
+  "source_prompt": "A green-skinned female figure with long flowing red hair, wearing a detailed orange and black patterned wide-leg outfit, standing in various poses. Surreal background features a small house, large translucent floating spheres with purple and blue tones, dark misty atmosphere, consistent character design repeated across a grid, digital painting style with smooth shading and atmospheric lighting.",
+  "source_title": "Repeating Figure Grid",
+  "style": "digital surrealism",
+  "mood": "ethereal, repetitive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skin",
+    "hair",
+    "patterned outfit",
+    "floating orbs",
+    "grid layout"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2103,
+  "source_url": "/generated/2103.jpg",
+  "image_url": "/sketches/2819.png",
+  "inverted_image_url": "/sketches-inverted/2819.png",
+  "curve_count": 122,
+  "built_at": "2026-08-17T00:09:44Z"
+}

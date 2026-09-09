@@ -1,0 +1,42 @@
+{
+  "number": 465,
+  "title": "Line sketch: Daisies in Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two vibrant flowers burst with energy against a dynamic and background. Bold and splatters create a lively, expressive composition filled with movement (derived from painting #557).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two vibrant flowers burst with energy against a dynamic and background. Bold and splatters create a lively, expressive composition filled with movement",
+  "inverted_title": "Inverted sketch: Daisies in Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two vibrant flowers burst with energy against a dynamic and background. Bold and splatters create a lively, expressive composition filled with movement (from painting #557).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two vibrant flowers burst with energy against a dynamic and background. Bold and splatters create a lively, expressive composition filled with movement",
+  "source_description": "Two vibrant yellow flowers burst with energy against a dynamic red and purple background. Bold brushstrokes and splatters create a lively, expressive composition filled with movement.",
+  "source_prompt": "",
+  "source_title": "Yellow Daisies in Bloom",
+  "style": "Impressionistic",
+  "mood": "Vibrant and energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "floral",
+    "daisies",
+    "expressive",
+    "botanical",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 557,
+  "source_url": "/paintings/557.jpg",
+  "image_url": "/sketches/465.png",
+  "inverted_image_url": "/sketches-inverted/465.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:39Z"
+}

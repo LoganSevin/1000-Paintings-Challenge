@@ -1,0 +1,42 @@
+{
+  "number": 1873,
+  "title": "Line sketch: Dragon Eye Surreal Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic close-up of a woman's face dominated by a large eye containing a black dragon and swirling patterns. A detailed and Eastern dragon with eyes floats beside it against a cosmic starry background with swirls (derived from generated still #1098).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic close-up of a woman's face dominated by a large eye containing a black dragon and swirling patterns. A detailed and Eastern dragon with eyes floats beside it against a cosmic starry background with swirls",
+  "inverted_title": "Inverted sketch: Dragon Eye Surreal Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic close-up of a woman's face dominated by a large eye containing a black dragon and swirling patterns. A detailed and Eastern dragon with eyes floats beside it against a cosmic starry background with swirls (from generated still #1098).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic close-up of a woman's face dominated by a large eye containing a black dragon and swirling patterns. A detailed and Eastern dragon with eyes floats beside it against a cosmic starry background with swirls",
+  "source_description": "A vibrant psychedelic close-up of a woman's face dominated by a large magenta eye containing a black dragon and swirling patterns. A detailed green and gold Eastern dragon with purple eyes floats beside it against a cosmic starry background with colorful swirls.",
+  "source_prompt": "",
+  "source_title": "Dragon Eye Surreal Portrait",
+  "style": "psychedelic surrealism",
+  "mood": "mystical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "psychedelic",
+    "surreal",
+    "eye",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1098,
+  "source_url": "/generated/1098.jpg",
+  "image_url": "/sketches/1873.png",
+  "inverted_image_url": "/sketches-inverted/1873.png",
+  "curve_count": 196,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 258,
+  "title": "Line sketch: Cosmic Bear Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant of a bear's head centered in a swirling cosmic vortex. The bear features and fur with bright, curious eyes surrounded by paint splashes and starry specks (derived from painting #315).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant of a bear's head centered in a swirling cosmic vortex. The bear features and fur with bright, curious eyes surrounded by paint splashes and starry specks",
+  "inverted_title": "Inverted sketch: Cosmic Bear Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant of a bear's head centered in a swirling cosmic vortex. The bear features and fur with bright, curious eyes surrounded by paint splashes and starry specks (from painting #315).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant of a bear's head centered in a swirling cosmic vortex. The bear features and fur with bright, curious eyes surrounded by paint splashes and starry specks",
+  "source_description": "Vibrant digital painting of a bear's head centered in a swirling cosmic vortex. The bear features warm orange and red fur with bright, curious eyes surrounded by colorful paint splashes and starry specks.",
+  "source_prompt": "",
+  "source_title": "Cosmic Bear Portrait",
+  "style": "Digital Fantasy",
+  "mood": "Wonderful, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "cosmic",
+    "vortex",
+    "digital art",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 315,
+  "source_url": "/paintings/315.jpg",
+  "image_url": "/sketches/258.png",
+  "inverted_image_url": "/sketches-inverted/258.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3782,
+  "title": "Line sketch: Triple Pose Warrior Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side views of a female character with a shaved head in a combat stance, shown in sequential motion from left to right. She wears a leather and metal armored top, pants with stripes, knee pads, and boots, with chains and straps visible on her outfit (derived from generated still #3199).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side views of a female character with a shaved head in a combat stance, shown in sequential motion from left to right. She wears a leather and metal armored top, pants with stripes, knee pads, and boots, with chains and straps visible on her outfit",
+  "inverted_title": "Inverted sketch: Triple Pose Warrior Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side views of a female character with a shaved head in a combat stance, shown in sequential motion from left to right. She wears a leather and metal armored top, pants with stripes, knee pads, and boots, with chains and straps visible on her outfit (from generated still #3199).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side views of a female character with a shaved head in a combat stance, shown in sequential motion from left to right. She wears a leather and metal armored top, pants with stripes, knee pads, and boots, with chains and straps visible on her outfit",
+  "source_description": "Three side-by-side views of a female character with a shaved head in a combat stance, shown in sequential motion from left to right. She wears a brown leather and metal armored top, blue pants with red stripes, knee pads, and brown boots, with chains and straps visible on her outfit.",
+  "source_prompt": "A female fighter with a shaved head and intense expression shown in three sequential combat poses side by side against a dark background. She wears a brown leather armored top with metal accents, blue pants with red vertical stripes, brown knee pads, and heavy brown boots. Her arms are wrapped in straps and chains hang from her belt, realistic digital painting style with dramatic lighting and cinematic composition",
+  "source_title": "Triple Pose Warrior Study",
+  "style": "realistic",
+  "mood": "intense, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "shaved head",
+    "combat pose",
+    "leather armor",
+    "motion study"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3199,
+  "source_url": "/generated/3199.jpg",
+  "image_url": "/sketches/3782.png",
+  "inverted_image_url": "/sketches-inverted/3782.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:46Z"
+}

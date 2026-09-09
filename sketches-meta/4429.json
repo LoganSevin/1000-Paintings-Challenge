@@ -1,0 +1,42 @@
+{
+  "number": 4429,
+  "title": "Line sketch: Dog Library",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down view of an octagonal library room with brick walls and a white marble floor. A large glowing dog stands in the center while a human hand holds a glowing vial in the foreground. Shelves filled with bottles line the walls, open books with dog illustrations float in the corners, and a wooden table displays multiple dog poses with a 'TREATS' sign (derived from generated still #3848).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down view of an octagonal library room with brick walls and a white marble floor. A large glowing dog stands in the center while a human hand holds a glowing vial in the foreground. Shelves filled with bottles line the walls, open books with dog illustrations float in the corners, and a wooden table displays multiple dog poses with a 'TREATS' sign",
+  "inverted_title": "Inverted sketch: Dog Library",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down view of an octagonal library room with brick walls and a white marble floor. A large glowing dog stands in the center while a human hand holds a glowing vial in the foreground. Shelves filled with bottles line the walls, open books with dog illustrations float in the corners, and a wooden table displays multiple dog poses with a 'TREATS' sign (from generated still #3848).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down view of an octagonal library room with brick walls and a white marble floor. A large glowing dog stands in the center while a human hand holds a glowing vial in the foreground. Shelves filled with bottles line the walls, open books with dog illustrations float in the corners, and a wooden table displays multiple dog poses with a 'TREATS' sign",
+  "source_description": "A top-down view of an octagonal library room with blue brick walls and a white marble floor. A large glowing green dog stands in the center while a human hand holds a glowing vial in the foreground. Shelves filled with bottles line the walls, open books with green dog illustrations float in the corners, and a wooden table displays multiple green dog poses with a 'TREATS' sign.",
+  "source_prompt": "Top-down view of a circular fantasy library with dark blue brick walls and white marble floor. A large luminous lime-green dog stands in the center. Wooden shelves filled with potions and bottles line the octagonal walls. Several open books with green dog illustrations float in the corners. A wooden table in the foreground displays multiple green dog poses under a TREATS sign. A hand holds a glowing potion vial. Bones and paw prints scattered around, cartoon illustration style.",
+  "source_title": "Green Dog Library",
+  "style": "illustration",
+  "mood": "whimsical mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog",
+    "library",
+    "top-down",
+    "alchemy",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3848,
+  "source_url": "/generated/3848.jpg",
+  "image_url": "/sketches/4429.png",
+  "inverted_image_url": "/sketches-inverted/4429.png",
+  "curve_count": 259,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4590,
+  "title": "Line sketch: Heart's Whisper",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a Victorian dress sits at a wooden desk writing in a notebook with a quill. A giant stylized mouth with metallic teeth emerges from a tiled wall behind her, releasing long flowing ribbons that wrap around the scene while she holds a glowing orb containing a realistic anatomical heart (derived from generated still #4012).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a Victorian dress sits at a wooden desk writing in a notebook with a quill. A giant stylized mouth with metallic teeth emerges from a tiled wall behind her, releasing long flowing ribbons that wrap around the scene while she holds a glowing orb containing a realistic anatomical heart",
+  "inverted_title": "Inverted sketch: Heart's Whisper",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a Victorian dress sits at a wooden desk writing in a notebook with a quill. A giant stylized mouth with metallic teeth emerges from a tiled wall behind her, releasing long flowing ribbons that wrap around the scene while she holds a glowing orb containing a realistic anatomical heart (from generated still #4012).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a Victorian dress sits at a wooden desk writing in a notebook with a quill. A giant stylized mouth with metallic teeth emerges from a tiled wall behind her, releasing long flowing ribbons that wrap around the scene while she holds a glowing orb containing a realistic anatomical heart",
+  "source_description": "A woman in a green Victorian dress sits at a wooden desk writing in a notebook with a red quill. A giant stylized mouth with metallic teeth emerges from a purple tiled wall behind her, releasing long flowing pink ribbons that wrap around the scene while she holds a glowing blue orb containing a realistic anatomical heart.",
+  "source_prompt": "A surreal scene of a young woman with dark hair in an ornate green Victorian dress with white sleeves, sitting at a wooden desk writing with a red quill. Behind her a giant stylized open mouth with metallic teeth emerges from a purple mosaic tiled wall with floral patterns. Long flowing pink ribbons with heart motifs stream from the mouth and wrap around her. She holds a glowing blue orb containing a detailed anatomical heart. Framed pictures of anatomical hearts and a red rose hang on the wall. Moody atmospheric lighting, intricate details.",
+  "source_title": "Heart's Whisper",
+  "style": "surrealism",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "victorian",
+    "anatomical heart",
+    "giant mouth",
+    "ribbons"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4012,
+  "source_url": "/generated/4012.jpg",
+  "image_url": "/sketches/4590.png",
+  "inverted_image_url": "/sketches-inverted/4590.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1523,
+  "title": "Line sketch: Psychedelic Cosmic Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring two figures in outdoor gear holding circular devices, standing beside a large patterned fish. A giant stylized woman's face with glowing eyes and tentacle-like hair dominates the composition next to a cracked planetary eye containing a smaller scene (derived from generated still #738).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring two figures in outdoor gear holding circular devices, standing beside a large patterned fish. A giant stylized woman's face with glowing eyes and tentacle-like hair dominates the composition next to a cracked planetary eye containing a smaller scene",
+  "inverted_title": "Inverted sketch: Psychedelic Cosmic Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring two figures in outdoor gear holding circular devices, standing beside a large patterned fish. A giant stylized woman's face with glowing eyes and tentacle-like hair dominates the composition next to a cracked planetary eye containing a smaller scene (from generated still #738).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring two figures in outdoor gear holding circular devices, standing beside a large patterned fish. A giant stylized woman's face with glowing eyes and tentacle-like hair dominates the composition next to a cracked planetary eye containing a smaller scene",
+  "source_description": "A vibrant surreal painting featuring two figures in outdoor gear holding circular devices, standing beside a large patterned fish. A giant stylized woman's face with glowing green eyes and tentacle-like hair dominates the composition next to a cracked red planetary eye containing a smaller scene.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Cosmic Vision",
+  "style": "surreal psychedelic",
+  "mood": "trippy cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "portrait",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 738,
+  "source_url": "/generated/738.jpg",
+  "image_url": "/sketches/1523.png",
+  "inverted_image_url": "/sketches-inverted/1523.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:41Z"
+}

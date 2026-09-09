@@ -1,0 +1,42 @@
+{
+  "number": 561,
+  "title": "Line sketch: Vibrant Flower Burst",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic floral composition with explosive and. Features and accents against a soft neutral background (derived from painting #703).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic floral composition with explosive and. Features and accents against a soft neutral background",
+  "inverted_title": "Inverted sketch: Vibrant Flower Burst",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic floral composition with explosive and. Features and accents against a soft neutral background (from painting #703).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic floral composition with explosive and. Features and accents against a soft neutral background",
+  "source_description": "Dynamic floral painting with explosive brushstrokes in vivid blues and greens. Features bright orange and yellow accents against a soft neutral background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Blue Flower Burst",
+  "style": "Impressionistic",
+  "mood": "Energetic and joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "floral",
+    "abstract",
+    "impressionistic",
+    "daily composition",
+    "botanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 703,
+  "source_url": "/paintings/703.jpg",
+  "image_url": "/sketches/561.png",
+  "inverted_image_url": "/sketches-inverted/561.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1507,
+  "title": "Line sketch: Stasis Surreal Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a dog with intricate patterns looking toward a large central eye with a slit pupil, set within an ornate circular frame. To the right, a human head with detailed line work and dripping paint effects merges with the scene, surrounded by cosmic circles, small dog silhouettes, and dripping elements against a dark background (derived from generated still #722).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a dog with intricate patterns looking toward a large central eye with a slit pupil, set within an ornate circular frame. To the right, a human head with detailed line work and dripping paint effects merges with the scene, surrounded by cosmic circles, small dog silhouettes, and dripping elements against a dark background",
+  "inverted_title": "Inverted sketch: Stasis Surreal Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a dog with intricate patterns looking toward a large central eye with a slit pupil, set within an ornate circular frame. To the right, a human head with detailed line work and dripping paint effects merges with the scene, surrounded by cosmic circles, small dog silhouettes, and dripping elements against a dark background (from generated still #722).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a dog with intricate patterns looking toward a large central eye with a slit pupil, set within an ornate circular frame. To the right, a human head with detailed line work and dripping paint effects merges with the scene, surrounded by cosmic circles, small dog silhouettes, and dripping elements against a dark background",
+  "source_description": "A vibrant surreal painting depicts a green dog with intricate patterns looking toward a large central red eye with a slit pupil, set within an ornate circular frame. To the right, a blue human head with detailed line work and dripping paint effects merges with the scene, surrounded by cosmic circles, small dog silhouettes, and colorful dripping elements against a dark background.",
+  "source_prompt": "",
+  "source_title": "Stasis Surreal Portrait",
+  "style": "surrealism",
+  "mood": "psychedelic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "dog",
+    "eye",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 722,
+  "source_url": "/generated/722.jpg",
+  "image_url": "/sketches/1507.png",
+  "inverted_image_url": "/sketches-inverted/1507.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:41Z"
+}

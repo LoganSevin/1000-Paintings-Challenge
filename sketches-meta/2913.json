@@ -1,0 +1,42 @@
+{
+  "number": 2913,
+  "title": "Line sketch: Woman with Two Dogs",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with dark hair in buns sits on a sofa, gently touching a small black and dachshund while a large boxer rests its head on her lap. The stylized interior features -patterned walls, floating bubbles, scattered petals, and a retro cocktail table under a brass lamp (derived from generated still #2202).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with dark hair in buns sits on a sofa, gently touching a small black and dachshund while a large boxer rests its head on her lap. The stylized interior features -patterned walls, floating bubbles, scattered petals, and a retro cocktail table under a brass lamp",
+  "inverted_title": "Inverted sketch: Woman with Two Dogs",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with dark hair in buns sits on a sofa, gently touching a small black and dachshund while a large boxer rests its head on her lap. The stylized interior features -patterned walls, floating bubbles, scattered petals, and a retro cocktail table under a brass lamp (from generated still #2202).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with dark hair in buns sits on a sofa, gently touching a small black and dachshund while a large boxer rests its head on her lap. The stylized interior features -patterned walls, floating bubbles, scattered petals, and a retro cocktail table under a brass lamp",
+  "source_description": "A woman with dark hair in buns sits on a green sofa, gently touching a small black and tan dachshund while a large brown boxer rests its head on her lap. The stylized interior features rose-patterned walls, floating bubbles, scattered rose petals, and a retro cocktail table under a brass lamp.",
+  "source_prompt": "A woman with dark hair styled in two buns with a green ribbon sits on a green mid-century sofa, wearing a red patterned dress. She is accompanied by a small black and tan dachshund sitting beside her and a large brown boxer dog resting its head on her lap. The room has rose-covered walls in pink and blue tones, floating transparent bubbles, red rose petals on the floor, a brass floor lamp, and a round coffee table with a martini glass. Stylized cinematic lighting, detailed textures, surreal domestic atmosphere.",
+  "source_title": "Woman with Two Dogs",
+  "style": "surreal pop art",
+  "mood": "intimate, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "dachshund",
+    "boxer dog",
+    "sofa",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2202,
+  "source_url": "/generated/2202.jpg",
+  "image_url": "/sketches/2913.png",
+  "inverted_image_url": "/sketches-inverted/2913.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:44Z"
+}

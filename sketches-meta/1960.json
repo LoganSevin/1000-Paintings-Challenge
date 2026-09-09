@@ -1,0 +1,42 @@
+{
+  "number": 1960,
+  "title": "Line sketch: Braided Redhead Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a young woman with vibrant hair in intricate braids, wearing a patterned garment. Multiple overlapping semi-transparent faces of the same woman with varying hair colors appear behind her against a background, intersected by bold diagonal brush strokes in warm tones (derived from generated still #1185).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a young woman with vibrant hair in intricate braids, wearing a patterned garment. Multiple overlapping semi-transparent faces of the same woman with varying hair colors appear behind her against a background, intersected by bold diagonal brush strokes in warm tones",
+  "inverted_title": "Inverted sketch: Braided Redhead Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a young woman with vibrant hair in intricate braids, wearing a patterned garment. Multiple overlapping semi-transparent faces of the same woman with varying hair colors appear behind her against a background, intersected by bold diagonal brush strokes in warm tones (from generated still #1185).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a young woman with vibrant hair in intricate braids, wearing a patterned garment. Multiple overlapping semi-transparent faces of the same woman with varying hair colors appear behind her against a background, intersected by bold diagonal brush strokes in warm tones",
+  "source_description": "A close-up portrait of a young woman with vibrant red hair in intricate braids, wearing a green patterned garment. Multiple overlapping semi-transparent faces of the same woman with varying hair colors appear behind her against a light blue background, intersected by bold diagonal brush strokes in warm tones.",
+  "source_prompt": "",
+  "source_title": "Braided Redhead Portrait",
+  "style": "surreal portrait",
+  "mood": "ethereal contemplative",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "redhead",
+    "braids",
+    "overlapping faces",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1185,
+  "source_url": "/generated/1185.jpg",
+  "image_url": "/sketches/1960.png",
+  "inverted_image_url": "/sketches-inverted/1960.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:42Z"
+}

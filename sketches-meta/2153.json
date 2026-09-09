@@ -1,0 +1,42 @@
+{
+  "number": 2153,
+  "title": "Line sketch: Grim Reaper and Cthulhu",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal Grim Reaper in a black hooded robe adorned with spirals holds two large chrysanthemums. To the right, a octopus-like creature with spots emerges from a rocky mound beneath a swirling cosmic nebula (derived from generated still #1378).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal Grim Reaper in a black hooded robe adorned with spirals holds two large chrysanthemums. To the right, a octopus-like creature with spots emerges from a rocky mound beneath a swirling cosmic nebula",
+  "inverted_title": "Inverted sketch: Grim Reaper and Cthulhu",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal Grim Reaper in a black hooded robe adorned with spirals holds two large chrysanthemums. To the right, a octopus-like creature with spots emerges from a rocky mound beneath a swirling cosmic nebula (from generated still #1378).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal Grim Reaper in a black hooded robe adorned with spirals holds two large chrysanthemums. To the right, a octopus-like creature with spots emerges from a rocky mound beneath a swirling cosmic nebula",
+  "source_description": "A skeletal Grim Reaper in a black hooded robe adorned with colorful spirals holds two large red chrysanthemums. To the right, a purple octopus-like creature with yellow spots emerges from a rocky mound beneath a swirling cosmic nebula.",
+  "source_prompt": "",
+  "source_title": "Grim Reaper and Cthulhu",
+  "style": "surreal psychedelic",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "skeleton",
+    "octopus",
+    "chrysanthemums",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1378,
+  "source_url": "/generated/1378.jpg",
+  "image_url": "/sketches/2153.png",
+  "inverted_image_url": "/sketches-inverted/2153.png",
+  "curve_count": 236,
+  "built_at": "2026-08-17T00:09:42Z"
+}

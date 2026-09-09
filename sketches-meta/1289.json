@@ -1,0 +1,42 @@
+{
+  "number": 1289,
+  "title": "Line sketch: Psychedelic Sea Turtle Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant sea turtle with and fleur-de-lis patterns on its shell swims across a swirling, fiery and vortex. The surreal composition features skulls, skeletal hands, and dripping paint against a cosmic background (derived from generated still #503).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant sea turtle with and fleur-de-lis patterns on its shell swims across a swirling, fiery and vortex. The surreal composition features skulls, skeletal hands, and dripping paint against a cosmic background",
+  "inverted_title": "Inverted sketch: Psychedelic Sea Turtle Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant sea turtle with and fleur-de-lis patterns on its shell swims across a swirling, fiery and vortex. The surreal composition features skulls, skeletal hands, and dripping paint against a cosmic background (from generated still #503).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant sea turtle with and fleur-de-lis patterns on its shell swims across a swirling, fiery and vortex. The surreal composition features skulls, skeletal hands, and dripping paint against a cosmic background",
+  "source_description": "A vibrant sea turtle with green and yellow fleur-de-lis patterns on its shell swims across a swirling, fiery red and orange vortex. The surreal composition features skulls, skeletal hands, and dripping rainbow paint against a purple cosmic background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Sea Turtle Vortex",
+  "style": "surreal pop art",
+  "mood": "psychedelic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "vortex",
+    "skulls",
+    "fleur-de-lis",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 503,
+  "source_url": "/generated/503.jpg",
+  "image_url": "/sketches/1289.png",
+  "inverted_image_url": "/sketches-inverted/1289.png",
+  "curve_count": 376,
+  "built_at": "2026-08-17T00:09:40Z"
+}

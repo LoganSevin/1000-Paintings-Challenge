@@ -1,0 +1,42 @@
+{
+  "number": 4314,
+  "title": "Line sketch: Alien Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent spherical plasma device with a glowing core emits vibrant tendrils of, and light. Inside the orb, a -skinned alien with large dark eyes and ornate head markings peers out, surrounded by floating bubbles and two planets against a cosmic and nebula background (derived from generated still #3733).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent spherical plasma device with a glowing core emits vibrant tendrils of, and light. Inside the orb, a -skinned alien with large dark eyes and ornate head markings peers out, surrounded by floating bubbles and two planets against a cosmic and nebula background",
+  "inverted_title": "Inverted sketch: Alien Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent spherical plasma device with a glowing core emits vibrant tendrils of, and light. Inside the orb, a -skinned alien with large dark eyes and ornate head markings peers out, surrounded by floating bubbles and two planets against a cosmic and nebula background (from generated still #3733).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent spherical plasma device with a glowing core emits vibrant tendrils of, and light. Inside the orb, a -skinned alien with large dark eyes and ornate head markings peers out, surrounded by floating bubbles and two planets against a cosmic and nebula background",
+  "source_description": "A large transparent spherical plasma device with a glowing pink core emits vibrant neon tendrils of pink, green, and blue light. Inside the orb, a green-skinned alien with large dark eyes and ornate head markings peers out, surrounded by floating blue bubbles and two orange planets against a cosmic pink and purple nebula background.",
+  "source_prompt": "A surreal cosmic scene featuring a large transparent spherical plasma device mounted on a metallic base. Inside the glowing orb, a green-skinned alien with large black eyes and intricate head patterns looks outward. Bright neon pink, green, and blue energy tendrils radiate from a bright pink central core. Blue translucent bubbles and two small orange planets float within and around the sphere. The background is a vibrant pink and purple nebula with floating particles, in a detailed psychedelic digital painting style.",
+  "source_title": "Alien Plasma Orb",
+  "style": "surreal",
+  "mood": "psychedelic cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "plasma orb",
+    "glow",
+    "surreal",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3733,
+  "source_url": "/generated/3733.jpg",
+  "image_url": "/sketches/4314.png",
+  "inverted_image_url": "/sketches-inverted/4314.png",
+  "curve_count": 222,
+  "built_at": "2026-08-17T00:09:47Z"
+}

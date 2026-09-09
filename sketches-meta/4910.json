@@ -1,0 +1,42 @@
+{
+  "number": 4910,
+  "title": "Line sketch: The composition Speaks",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit desk holds an old CRT television displaying a haunted hallway with the text 'IF THE composition SPEAKS, DO NOT FOLLOW ALONE'. An open drawer reveals a large flashlight, a 'LOFT' key fob, a set of keys, and a handwritten note repeating the same warning. A police officer stands partially visible in the background beside a worn leather chair and a glowing desk lamp (derived from generated still #4346).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit desk holds an old CRT television displaying a haunted hallway with the text 'IF THE composition SPEAKS, DO NOT FOLLOW ALONE'. An open drawer reveals a large flashlight, a 'LOFT' key fob, a set of keys, and a handwritten note repeating the same warning. A police officer stands partially visible in the background beside a worn leather chair and a glowing desk lamp",
+  "inverted_title": "Inverted sketch: The composition Speaks",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit desk holds an old CRT television displaying a haunted hallway with the text 'IF THE composition SPEAKS, DO NOT FOLLOW ALONE'. An open drawer reveals a large flashlight, a 'LOFT' key fob, a set of keys, and a handwritten note repeating the same warning. A police officer stands partially visible in the background beside a worn leather chair and a glowing desk lamp (from generated still #4346).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit desk holds an old CRT television displaying a haunted hallway with the text 'IF THE composition SPEAKS, DO NOT FOLLOW ALONE'. An open drawer reveals a large flashlight, a 'LOFT' key fob, a set of keys, and a handwritten note repeating the same warning. A police officer stands partially visible in the background beside a worn leather chair and a glowing desk lamp",
+  "source_description": "A dimly lit desk holds an old CRT television displaying a haunted hallway with the text 'IF THE PAINTING SPEAKS, DO NOT FOLLOW ALONE'. An open drawer reveals a large flashlight, a red 'LOFT' key fob, a set of keys, and a handwritten note repeating the same warning. A police officer stands partially visible in the background beside a worn leather chair and a glowing desk lamp.",
+  "source_prompt": "A tense horror scene in a dimly lit office, an old wooden desk with an open drawer containing a large black flashlight, red LOFT keychain, keys, and a handwritten note saying 'If the painting speaks, do not follow alone'. A vintage CRT television on the desk shows a creepy empty hallway with peeling paint and the same warning text on screen. A police officer stands in the shadows to the left, warm light from a brass desk lamp, smoky atmosphere, worn leather chair, cinematic lighting, moody and unsettling.",
+  "source_title": "The Painting Speaks",
+  "style": "cinematic",
+  "mood": "eerie suspense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "mystery",
+    "vintage tv",
+    "police",
+    "liminal space"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4346,
+  "source_url": "/generated/4346.jpg",
+  "image_url": "/sketches/4910.png",
+  "inverted_image_url": "/sketches-inverted/4910.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:49Z"
+}

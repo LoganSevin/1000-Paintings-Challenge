@@ -1,0 +1,42 @@
+{
+  "number": 509,
+  "title": "Line sketch: Rusted Pod on Stilts",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered, - metallic pod with bolts, hatches, and dangling drips stands atop a mechanical stalk. The eerie structure contrasts sharply against a solid dusty background (derived from painting #628).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered, - metallic pod with bolts, hatches, and dangling drips stands atop a mechanical stalk. The eerie structure contrasts sharply against a solid dusty background",
+  "inverted_title": "Inverted sketch: Rusted Pod on Stilts",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered, - metallic pod with bolts, hatches, and dangling drips stands atop a mechanical stalk. The eerie structure contrasts sharply against a solid dusty background (from painting #628).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered, - metallic pod with bolts, hatches, and dangling drips stands atop a mechanical stalk. The eerie structure contrasts sharply against a solid dusty background",
+  "source_description": "A weathered, olive-green metallic pod with bolts, hatches, and dangling drips stands atop a mechanical stalk. The eerie structure contrasts sharply against a solid dusty rose background.",
+  "source_prompt": "",
+  "source_title": "Rusted Pod on Stilts",
+  "style": "illustration",
+  "mood": "eerie industrial",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical pod",
+    "steampunk",
+    "dystopian",
+    "rusted metal",
+    "surreal structure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 628,
+  "source_url": "/paintings/628.jpg",
+  "image_url": "/sketches/509.png",
+  "inverted_image_url": "/sketches-inverted/509.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 928,
+  "title": "Line sketch: Mechanical Heart of Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal mechanical heart with gears, bolts, and a glowing keyhole at its center dominates the composition. Black liquid drips from the bottom while spiral patterns and abstract mechanical forms float against a vibrant and background (derived from generated still #138).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal mechanical heart with gears, bolts, and a glowing keyhole at its center dominates the composition. Black liquid drips from the bottom while spiral patterns and abstract mechanical forms float against a vibrant and background",
+  "inverted_title": "Inverted sketch: Mechanical Heart of Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal mechanical heart with gears, bolts, and a glowing keyhole at its center dominates the composition. Black liquid drips from the bottom while spiral patterns and abstract mechanical forms float against a vibrant and background (from generated still #138).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal mechanical heart with gears, bolts, and a glowing keyhole at its center dominates the composition. Black liquid drips from the bottom while spiral patterns and abstract mechanical forms float against a vibrant and background",
+  "source_description": "A surreal mechanical heart with gears, bolts, and a glowing yellow keyhole at its center dominates the composition. Black liquid drips from the bottom while colorful spiral patterns and abstract mechanical forms float against a vibrant red and orange background.",
+  "source_prompt": "",
+  "source_title": "Mechanical Heart of Stasis",
+  "style": "surrealism",
+  "mood": "mysterious, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical heart",
+    "surreal",
+    "keyhole",
+    "spirals",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 138,
+  "source_url": "/generated/138.jpg",
+  "image_url": "/sketches/928.png",
+  "inverted_image_url": "/sketches-inverted/928.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:40Z"
+}

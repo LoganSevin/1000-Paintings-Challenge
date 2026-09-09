@@ -1,0 +1,42 @@
+{
+  "number": 4424,
+  "title": "Line sketch: Spell Shop at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mysterious old wooden shop facade at night with a large oval sign reading 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS'. A cloaked figure stands in the open doorway holding a small glowing vial. The storefront is filled with shelves of magical potions, specimens, and occult symbols under lantern light (derived from generated still #3843).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mysterious old wooden shop facade at night with a large oval sign reading 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS'. A cloaked figure stands in the open doorway holding a small glowing vial. The storefront is filled with shelves of magical potions, specimens, and occult symbols under lantern light",
+  "inverted_title": "Inverted sketch: Spell Shop at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mysterious old wooden shop facade at night with a large oval sign reading 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS'. A cloaked figure stands in the open doorway holding a small glowing vial. The storefront is filled with shelves of magical potions, specimens, and occult symbols under lantern light (from generated still #3843).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mysterious old wooden shop facade at night with a large oval sign reading 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS'. A cloaked figure stands in the open doorway holding a small glowing vial. The storefront is filled with shelves of magical potions, specimens, and occult symbols under lantern light",
+  "source_description": "A mysterious old wooden shop facade at night with a large oval sign reading 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS'. A cloaked figure stands in the open doorway holding a small glowing vial. The storefront is filled with shelves of magical potions, specimens, and occult symbols under lantern light.",
+  "source_prompt": "A moody nighttime view of an ancient timber-framed spell shop with a large oval hanging sign that reads 'SPELL SHOP LOCKED FUSIONS & STASIS VIALS' surrounded by bats and bones. A cloaked figure stands in the open arched doorway holding a glowing potion vial. Windows display shelves filled with labeled magical bottles, roots, butterflies, and specimens. Lanterns cast warm light on the weathered facade and stone steps scattered with papers and a broom. Dark fantasy atmosphere with cool moonlight and warm interior glow.",
+  "source_title": "Spell Shop at Dusk",
+  "style": "dark fantasy illustration",
+  "mood": "mysterious, nocturnal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic shop",
+    "fantasy storefront",
+    "potion bottles",
+    "night scene",
+    "occult symbols"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3843,
+  "source_url": "/generated/3843.jpg",
+  "image_url": "/sketches/4424.png",
+  "inverted_image_url": "/sketches-inverted/4424.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:48Z"
+}

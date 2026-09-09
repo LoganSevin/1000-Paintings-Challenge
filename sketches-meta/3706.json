@@ -1,0 +1,42 @@
+{
+  "number": 3706,
+  "title": "Line sketch: Stasis 3/17 - 5:33",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal overhead projector drawing shows a large bald head with wide eyes and an open mouth emitting radiating lines, connected to bouncing balls, inner tubes, and small cartoon creatures across a hilly landscape. In the upper right, a stained-glass window contains more distressed faces and creatures trapped within its panes (derived from generated still #3114).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal overhead projector drawing shows a large bald head with wide eyes and an open mouth emitting radiating lines, connected to bouncing balls, inner tubes, and small cartoon creatures across a hilly landscape. In the upper right, a stained-glass window contains more distressed faces and creatures trapped within its panes",
+  "inverted_title": "Inverted sketch: Stasis 3/17 - 5:33",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal overhead projector drawing shows a large bald head with wide eyes and an open mouth emitting radiating lines, connected to bouncing balls, inner tubes, and small cartoon creatures across a hilly landscape. In the upper right, a stained-glass window contains more distressed faces and creatures trapped within its panes (from generated still #3114).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal overhead projector drawing shows a large bald head with wide eyes and an open mouth emitting radiating lines, connected to bouncing balls, inner tubes, and small cartoon creatures across a hilly landscape. In the upper right, a stained-glass window contains more distressed faces and creatures trapped within its panes",
+  "source_description": "A surreal overhead projector drawing shows a large bald head with wide eyes and an open mouth emitting blue radiating lines, connected to colorful bouncing balls, inner tubes, and small cartoon creatures across a green hilly landscape. In the upper right, a stained-glass window contains more distressed faces and creatures trapped within its panes.",
+  "source_prompt": "",
+  "source_title": "Stasis 3/17 - 5:33",
+  "style": "surreal cartoon",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "overhead projector transparency",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bald head",
+    "stained glass",
+    "bouncy balls",
+    "radiating lines"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3114,
+  "source_url": "/generated/3114.jpg",
+  "image_url": "/sketches/3706.png",
+  "inverted_image_url": "/sketches-inverted/3706.png",
+  "curve_count": 162,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1229,
+  "title": "Line sketch: Crying Child in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a -skinned child's head with large and eyes shedding tears, enclosed within a cracked circular frame adorned with flowers and branching vines. In a barren desert landscape under a large full moon, a rat stands on its hind legs touching the frame as paint drips downward onto the sand (derived from generated still #441).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a -skinned child's head with large and eyes shedding tears, enclosed within a cracked circular frame adorned with flowers and branching vines. In a barren desert landscape under a large full moon, a rat stands on its hind legs touching the frame as paint drips downward onto the sand",
+  "inverted_title": "Inverted sketch: Crying Child in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a -skinned child's head with large and eyes shedding tears, enclosed within a cracked circular frame adorned with flowers and branching vines. In a barren desert landscape under a large full moon, a rat stands on its hind legs touching the frame as paint drips downward onto the sand (from generated still #441).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a -skinned child's head with large and eyes shedding tears, enclosed within a cracked circular frame adorned with flowers and branching vines. In a barren desert landscape under a large full moon, a rat stands on its hind legs touching the frame as paint drips downward onto the sand",
+  "source_description": "A surreal painting depicts a green-skinned child's head with large orange and red eyes shedding multicolored tears, enclosed within a cracked circular frame adorned with purple flowers and branching vines. In a barren desert landscape under a large full moon, a red rat stands on its hind legs touching the frame as colorful paint drips downward onto the sand.",
+  "source_prompt": "",
+  "source_title": "Crying Child in Desert",
+  "style": "surrealism",
+  "mood": "melancholy surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child",
+    "desert",
+    "moon",
+    "rat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 441,
+  "source_url": "/generated/441.jpg",
+  "image_url": "/sketches/1229.png",
+  "inverted_image_url": "/sketches-inverted/1229.png",
+  "curve_count": 269,
+  "built_at": "2026-08-17T00:09:40Z"
+}

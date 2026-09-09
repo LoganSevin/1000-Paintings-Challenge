@@ -1,0 +1,42 @@
+{
+  "number": 4601,
+  "title": "Line sketch: Skeleton Queen of Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal queen with long flowing hair and a floral crown sits on an ornate throne, holding a film reel and chain. Skeletons march in a line from a shattered picture frame on the right, while a film strip of dancing skeletons curves across the starry sky (derived from generated still #4023).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal queen with long flowing hair and a floral crown sits on an ornate throne, holding a film reel and chain. Skeletons march in a line from a shattered picture frame on the right, while a film strip of dancing skeletons curves across the starry sky",
+  "inverted_title": "Inverted sketch: Skeleton Queen of Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal queen with long flowing hair and a floral crown sits on an ornate throne, holding a film reel and chain. Skeletons march in a line from a shattered picture frame on the right, while a film strip of dancing skeletons curves across the starry sky (from generated still #4023).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal queen with long flowing hair and a floral crown sits on an ornate throne, holding a film reel and chain. Skeletons march in a line from a shattered picture frame on the right, while a film strip of dancing skeletons curves across the starry sky",
+  "source_description": "A skeletal queen with long flowing golden hair and a floral crown sits on an ornate purple throne, holding a film reel and chain. Skeletons march in a line from a shattered golden picture frame on the right, while a film strip of dancing skeletons curves across the starry magenta sky.",
+  "source_prompt": "A skeletal queen wearing a crown of pink roses and a flowing white and purple gown sits on a purple throne, long golden hair flowing behind her. She holds a film reel attached to a chain. A procession of dancing skeletons emerges from a broken golden picture frame on the right. A film strip showing skeletons dances across a swirling magenta and green starry sky. Large pink and white peonies surround the throne, scattered petals on the floor, surreal fantasy style.",
+  "source_title": "Skeleton Queen of Cinema",
+  "style": "surreal fantasy",
+  "mood": "macabre whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "cinema",
+    "floral crown",
+    "film reel",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4023,
+  "source_url": "/generated/4023.jpg",
+  "image_url": "/sketches/4601.png",
+  "inverted_image_url": "/sketches-inverted/4601.png",
+  "curve_count": 143,
+  "built_at": "2026-08-17T00:09:48Z"
+}

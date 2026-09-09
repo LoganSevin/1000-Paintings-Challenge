@@ -1,0 +1,42 @@
+{
+  "number": 3066,
+  "title": "Line sketch: Skeleton with Flowers",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A translucent human skeleton sits in a curled, contemplative pose at the center of an ethereal composition. It is surrounded by vibrant, grapes, and swirling ornate patterns against a dreamy, atmospheric background (derived from generated still #2394).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A translucent human skeleton sits in a curled, contemplative pose at the center of an ethereal composition. It is surrounded by vibrant, grapes, and swirling ornate patterns against a dreamy, atmospheric background",
+  "inverted_title": "Inverted sketch: Skeleton with Flowers",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A translucent human skeleton sits in a curled, contemplative pose at the center of an ethereal composition. It is surrounded by vibrant, grapes, and swirling ornate patterns against a dreamy, atmospheric background (from generated still #2394).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A translucent human skeleton sits in a curled, contemplative pose at the center of an ethereal composition. It is surrounded by vibrant, grapes, and swirling ornate patterns against a dreamy, atmospheric background",
+  "source_description": "A translucent human skeleton sits in a curled, contemplative pose at the center of an ethereal composition. It is surrounded by vibrant yellow roses, purple grapes, and swirling ornate patterns against a dreamy, multicolored atmospheric background.",
+  "source_prompt": "",
+  "source_title": "Skeleton with Flowers",
+  "style": "surrealism",
+  "mood": "ethereal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "flowers",
+    "surreal",
+    "ornate",
+    "translucent"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2394,
+  "source_url": "/generated/2394.jpg",
+  "image_url": "/sketches/3066.png",
+  "inverted_image_url": "/sketches-inverted/3066.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

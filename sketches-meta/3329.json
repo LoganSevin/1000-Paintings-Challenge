@@ -1,0 +1,42 @@
+{
+  "number": 3329,
+  "title": "Line sketch: Verdant Overgrowth",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night landscape features a giant man's head and shoulders formed from living trees and vines on the right, with ancient stone ruins and scaffolding on the left. The starry sky contains multiple moons, clouds, and swirling ribbons floating through a mystical, overgrown foreground (derived from generated still #2724).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night landscape features a giant man's head and shoulders formed from living trees and vines on the right, with ancient stone ruins and scaffolding on the left. The starry sky contains multiple moons, clouds, and swirling ribbons floating through a mystical, overgrown foreground",
+  "inverted_title": "Inverted sketch: Verdant Overgrowth",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night landscape features a giant man's head and shoulders formed from living trees and vines on the right, with ancient stone ruins and scaffolding on the left. The starry sky contains multiple moons, clouds, and swirling ribbons floating through a mystical, overgrown foreground (from generated still #2724).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night landscape features a giant man's head and shoulders formed from living trees and vines on the right, with ancient stone ruins and scaffolding on the left. The starry sky contains multiple moons, clouds, and swirling ribbons floating through a mystical, overgrown foreground",
+  "source_description": "A surreal night landscape features a giant green man's head and shoulders formed from living trees and vines on the right, with ancient stone ruins and scaffolding on the left. The starry sky contains multiple moons, clouds, and swirling colorful ribbons floating through a mystical, overgrown foreground.",
+  "source_prompt": "",
+  "source_title": "Verdant Overgrowth",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "nature spirit",
+    "cosmic sky",
+    "ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2724,
+  "source_url": "/generated/2724.jpg",
+  "image_url": "/sketches/3329.png",
+  "inverted_image_url": "/sketches-inverted/3329.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2683,
+  "title": "Line sketch: Uniform Character Turnaround",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A digital illustration showing eight sequential poses of a young male character with dark hair in a military-style uniform featuring a spider emblem on the back. The figures are arranged in a row displaying front, side, and rear views against a plain neutral background (derived from generated still #1925).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A digital illustration showing eight sequential poses of a young male character with dark hair in a military-style uniform featuring a spider emblem on the back. The figures are arranged in a row displaying front, side, and rear views against a plain neutral background",
+  "inverted_title": "Inverted sketch: Uniform Character Turnaround",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A digital illustration showing eight sequential poses of a young male character with dark hair in a military-style uniform featuring a spider emblem on the back. The figures are arranged in a row displaying front, side, and rear views against a plain neutral background (from generated still #1925).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A digital illustration showing eight sequential poses of a young male character with dark hair in a military-style uniform featuring a spider emblem on the back. The figures are arranged in a row displaying front, side, and rear views against a plain neutral background",
+  "source_description": "A digital illustration showing eight sequential poses of a young male character with dark hair in a blue military-style uniform featuring a spider emblem on the back. The figures are arranged in a row displaying front, side, and rear views against a plain neutral background.",
+  "source_prompt": "",
+  "source_title": "Blue Uniform Character Turnaround",
+  "style": "2D digital illustration",
+  "mood": "neutral reference",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "turnaround",
+    "uniform",
+    "spider emblem",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1925,
+  "source_url": "/generated/1925.jpg",
+  "image_url": "/sketches/2683.png",
+  "inverted_image_url": "/sketches-inverted/2683.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:44Z"
+}

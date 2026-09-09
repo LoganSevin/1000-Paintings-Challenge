@@ -1,0 +1,42 @@
+{
+  "number": 4169,
+  "title": "Line sketch: Forest Heraldic Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed heraldic illustration featuring a shield with two pinecones and a white lily, topped by a helmeted mouse knight. Below and around the shield, an army of armored mouse knights ride elephants through a field of and poppies, with decorative and foliage framing the composition. A banner on the right reads 'FORGET' (derived from generated still #3587).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed heraldic illustration featuring a shield with two pinecones and a white lily, topped by a helmeted mouse knight. Below and around the shield, an army of armored mouse knights ride elephants through a field of and poppies, with decorative and foliage framing the composition. A banner on the right reads 'FORGET'",
+  "inverted_title": "Inverted sketch: Forest Heraldic Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed heraldic illustration featuring a shield with two pinecones and a white lily, topped by a helmeted mouse knight. Below and around the shield, an army of armored mouse knights ride elephants through a field of and poppies, with decorative and foliage framing the composition. A banner on the right reads 'FORGET' (from generated still #3587).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed heraldic illustration featuring a shield with two pinecones and a white lily, topped by a helmeted mouse knight. Below and around the shield, an army of armored mouse knights ride elephants through a field of and poppies, with decorative and foliage framing the composition. A banner on the right reads 'FORGET'",
+  "source_description": "A detailed heraldic illustration featuring a blue shield with two golden pinecones and a white lily, topped by a helmeted mouse knight. Below and around the shield, an army of armored mouse knights ride elephants through a field of purple lavender and red poppies, with decorative pink and yellow foliage framing the composition. A golden banner on the right reads 'FORGET'.",
+  "source_prompt": "Heraldic scene with a blue shield displaying two large golden pinecones and a white lily at its base, surmounted by a helmeted brown mouse knight. Armored mouse knights riding brown elephants march across a field of purple lavender and red poppies. Ornate pink and yellow foliage frames the composition against a cloudy sky. A golden banner on the right side reads 'FORGET' in black letters, whimsical fantasy style, rich colors, detailed illustration.",
+  "source_title": "Forest Heraldic Scene",
+  "style": "heraldic illustration",
+  "mood": "whimsical epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "heraldry",
+    "mouse knights",
+    "elephants",
+    "pinecones",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3587,
+  "source_url": "/generated/3587.jpg",
+  "image_url": "/sketches/4169.png",
+  "inverted_image_url": "/sketches-inverted/4169.png",
+  "curve_count": 122,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2672,
+  "title": "Line sketch: Digital Skeleton Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned skeletal figure stands centrally with mouth open, one hand raised and dripping while the other holds a floral wreath and a small glowing orb. The background features fragmented geometric panels with circuit patterns, sheet music, fern leaves, and the numbers 41 and 11 under a dark cloudy sky (derived from generated still #1914).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned skeletal figure stands centrally with mouth open, one hand raised and dripping while the other holds a floral wreath and a small glowing orb. The background features fragmented geometric panels with circuit patterns, sheet music, fern leaves, and the numbers 41 and 11 under a dark cloudy sky",
+  "inverted_title": "Inverted sketch: Digital Skeleton Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned skeletal figure stands centrally with mouth open, one hand raised and dripping while the other holds a floral wreath and a small glowing orb. The background features fragmented geometric panels with circuit patterns, sheet music, fern leaves, and the numbers 41 and 11 under a dark cloudy sky (from generated still #1914).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned skeletal figure stands centrally with mouth open, one hand raised and dripping while the other holds a floral wreath and a small glowing orb. The background features fragmented geometric panels with circuit patterns, sheet music, fern leaves, and the numbers 41 and 11 under a dark cloudy sky",
+  "source_description": "A blue-skinned skeletal figure stands centrally with mouth open, one hand raised and dripping while the other holds a floral wreath and a small glowing orb. The background features fragmented geometric panels with circuit patterns, sheet music, fern leaves, and the numbers 41 and 11 under a dark cloudy sky.",
+  "source_prompt": "",
+  "source_title": "Digital Skeleton Oracle",
+  "style": "surreal symbolic",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeleton",
+    "cyber-organic",
+    "surreal",
+    "symbolic",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1914,
+  "source_url": "/generated/1914.jpg",
+  "image_url": "/sketches/2672.png",
+  "inverted_image_url": "/sketches-inverted/2672.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:44Z"
+}

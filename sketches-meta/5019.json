@@ -1,0 +1,42 @@
+{
+  "number": 5019,
+  "title": "Line sketch: Knight of the Mystic Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A armored knight stands in a glowing pond with koi fish, extending one hand toward the water as light swirls around it. The scene features a spiral staircase lined with vibrant and flowers leading into the pond, set against a dramatic, cosmic sky with swirling clouds, aurora, and multiple celestial bodies (derived from generated still #4458).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A armored knight stands in a glowing pond with koi fish, extending one hand toward the water as light swirls around it. The scene features a spiral staircase lined with vibrant and flowers leading into the pond, set against a dramatic, cosmic sky with swirling clouds, aurora, and multiple celestial bodies",
+  "inverted_title": "Inverted sketch: Knight of the Mystic Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A armored knight stands in a glowing pond with koi fish, extending one hand toward the water as light swirls around it. The scene features a spiral staircase lined with vibrant and flowers leading into the pond, set against a dramatic, cosmic sky with swirling clouds, aurora, and multiple celestial bodies (from generated still #4458).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A armored knight stands in a glowing pond with koi fish, extending one hand toward the water as light swirls around it. The scene features a spiral staircase lined with vibrant and flowers leading into the pond, set against a dramatic, cosmic sky with swirling clouds, aurora, and multiple celestial bodies",
+  "source_description": "A purple armored knight stands in a glowing pond with koi fish, extending one hand toward the water as golden light swirls around it. The scene features a green spiral staircase lined with vibrant blue and purple flowers leading into the pond, set against a dramatic, colorful cosmic sky with swirling clouds, aurora, and multiple celestial bodies.",
+  "source_prompt": "A majestic knight in ornate purple armor standing inside a circular pond filled with orange and white koi fish, one hand extended creating glowing ripples on the water. A green spiral staircase adorned with large blue and purple flowers descends into the pond. Dramatic swirling cosmic sky with vibrant orange clouds, green aurora, and multiple glowing moons and planets. Surreal fantasy scene with painterly brushwork and vibrant color contrasts.",
+  "source_title": "Knight of the Mystic Pond",
+  "style": "fantasy illustration",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy knight",
+    "cosmic sky",
+    "koi pond",
+    "aurora",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4458,
+  "source_url": "/generated/4458.jpg",
+  "image_url": "/sketches/5019.png",
+  "inverted_image_url": "/sketches-inverted/5019.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:49Z"
+}

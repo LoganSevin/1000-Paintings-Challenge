@@ -1,0 +1,42 @@
+{
+  "number": 90,
+  "title": "Line sketch: Leaping Hares in Moonlight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two hares bound mid-leap across a backdrop scattered with abstract leaves, circles, and a large floral-patterned orb. Overlapping figures and partial rabbits at the edges create rhythmic motion and depth. Flat color blocks with minimal shading define a clean, graphic approach (derived from painting #121).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two hares bound mid-leap across a backdrop scattered with abstract leaves, circles, and a large floral-patterned orb. Overlapping figures and partial rabbits at the edges create rhythmic motion and depth. Flat color blocks with minimal shading define a clean, graphic approach",
+  "inverted_title": "Inverted sketch: Leaping Hares in Moonlight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two hares bound mid-leap across a backdrop scattered with abstract leaves, circles, and a large floral-patterned orb. Overlapping figures and partial rabbits at the edges create rhythmic motion and depth. Flat color blocks with minimal shading define a clean, graphic approach (from painting #121).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two hares bound mid-leap across a backdrop scattered with abstract leaves, circles, and a large floral-patterned orb. Overlapping figures and partial rabbits at the edges create rhythmic motion and depth. Flat color blocks with minimal shading define a clean, graphic approach",
+  "source_description": "Two brown hares bound mid-leap across a soft teal backdrop scattered with abstract leaves, circles, and a large floral-patterned orb. Overlapping figures and partial rabbits at the edges create rhythmic motion and depth. Flat color blocks with minimal shading define a clean, graphic approach.",
+  "source_prompt": "",
+  "source_title": "Leaping Hares in Moonlight",
+  "style": "flat illustration",
+  "mood": "playful dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hares",
+    "rabbits",
+    "running",
+    "pattern",
+    "motion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 121,
+  "source_url": "/paintings/121.jpg",
+  "image_url": "/sketches/90.png",
+  "inverted_image_url": "/sketches-inverted/90.png",
+  "curve_count": 206,
+  "built_at": "2026-08-17T00:09:38Z"
+}

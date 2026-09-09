@@ -1,0 +1,42 @@
+{
+  "number": 433,
+  "title": "Line sketch: Alien Planet with Glowing Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene alien landscape features a vast body of reflective water under a sky. A bright celestial body emits a luminous beam across the horizon, illuminating the wavy terrain (derived from painting #519).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene alien landscape features a vast body of reflective water under a sky. A bright celestial body emits a luminous beam across the horizon, illuminating the wavy terrain",
+  "inverted_title": "Inverted sketch: Alien Planet with Glowing Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene alien landscape features a vast body of reflective water under a sky. A bright celestial body emits a luminous beam across the horizon, illuminating the wavy terrain (from painting #519).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene alien landscape features a vast body of reflective water under a sky. A bright celestial body emits a luminous beam across the horizon, illuminating the wavy terrain",
+  "source_description": "A serene alien landscape features a vast body of reflective water under a green sky. A bright celestial body emits a luminous beam across the horizon, illuminating the wavy terrain.",
+  "source_prompt": "",
+  "source_title": "Alien Planet with Glowing Moon",
+  "style": "line sketch",
+  "mood": "Mysterious and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien landscape",
+    "celestial body",
+    "reflective water",
+    "sky",
+    "luminous beam"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 519,
+  "source_url": "/paintings/519.jpg",
+  "image_url": "/sketches/433.png",
+  "inverted_image_url": "/sketches-inverted/433.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

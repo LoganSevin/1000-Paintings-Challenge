@@ -1,0 +1,42 @@
+{
+  "number": 2285,
+  "title": "Line sketch: Mushroom Guardian",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large robot with a solemn expression sits beneath an enormous glowing mushroom cap adorned with white spots. In the foreground, three small girls in dresses hold hands while walking along a winding glowing path through a psychedelic forest (derived from generated still #1512).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large robot with a solemn expression sits beneath an enormous glowing mushroom cap adorned with white spots. In the foreground, three small girls in dresses hold hands while walking along a winding glowing path through a psychedelic forest",
+  "inverted_title": "Inverted sketch: Mushroom Guardian",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large robot with a solemn expression sits beneath an enormous glowing mushroom cap adorned with white spots. In the foreground, three small girls in dresses hold hands while walking along a winding glowing path through a psychedelic forest (from generated still #1512).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large robot with a solemn expression sits beneath an enormous glowing mushroom cap adorned with white spots. In the foreground, three small girls in dresses hold hands while walking along a winding glowing path through a psychedelic forest",
+  "source_description": "A large yellow robot with a solemn expression sits beneath an enormous glowing green mushroom cap adorned with white spots. In the foreground, three small girls in yellow dresses hold hands while walking along a winding glowing path through a psychedelic forest.",
+  "source_prompt": "",
+  "source_title": "Mushroom Guardian",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "mushroom",
+    "psychedelic",
+    "forest",
+    "children"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1512,
+  "source_url": "/generated/1512.jpg",
+  "image_url": "/sketches/2285.png",
+  "inverted_image_url": "/sketches-inverted/2285.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3905,
+  "title": "Line sketch: Warrior Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential views of a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, armored gauntlets and boots. She is shown in dynamic fighting stances from left to right, with the third panel showing sparks and energy effects emanating from her fists (derived from generated still #3322).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential views of a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, armored gauntlets and boots. She is shown in dynamic fighting stances from left to right, with the third panel showing sparks and energy effects emanating from her fists",
+  "inverted_title": "Inverted sketch: Warrior Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential views of a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, armored gauntlets and boots. She is shown in dynamic fighting stances from left to right, with the third panel showing sparks and energy effects emanating from her fists (from generated still #3322).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential views of a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, armored gauntlets and boots. She is shown in dynamic fighting stances from left to right, with the third panel showing sparks and energy effects emanating from her fists",
+  "source_description": "Four sequential views of a female warrior with long dark hair in a high ponytail, wearing a red and black outfit with corset, short skirt, armored gauntlets and boots. She is shown in dynamic fighting stances from left to right, with the third panel showing bright yellow sparks and energy effects emanating from her fists.",
+  "source_prompt": "A female warrior with long flowing dark hair in a high ponytail and bangs, wearing a red leather-like corset top with black accents, short red skirt, red gauntlets, and heavy black boots with red laces. She has pale skin and a determined expression. Shown in four sequential dynamic fighting poses against a plain gray background, progressing from left to right. In the third pose bright yellow sparks and light effects burst from her fists. Detailed digital painting style with strong lighting and fabric folds.",
+  "source_title": "Red Warrior Pose Sequence",
+  "style": "digital illustration",
+  "mood": "dynamic, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "action poses",
+    "outfit",
+    "ponytail",
+    "combat stance"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3322,
+  "source_url": "/generated/3322.jpg",
+  "image_url": "/sketches/3905.png",
+  "inverted_image_url": "/sketches-inverted/3905.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:46Z"
+}

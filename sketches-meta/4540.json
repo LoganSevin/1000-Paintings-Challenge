@@ -1,0 +1,42 @@
+{
+  "number": 4540,
+  "title": "Line sketch: Turtle Taco Tempest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant sea turtle with a blanket covered in animal patterns swims through turbulent, psychedelic waters. On its back sits a man in military uniform with a parrot on his shoulder, while a black raven holds a paper note nearby. A taco food truck floats in the stormy sea beside them, with lightning, skulls, and a castle in the background. Tacos, and a Fusion soda bottle appear in the foreground (derived from generated still #3960).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant sea turtle with a blanket covered in animal patterns swims through turbulent, psychedelic waters. On its back sits a man in military uniform with a parrot on his shoulder, while a black raven holds a paper note nearby. A taco food truck floats in the stormy sea beside them, with lightning, skulls, and a castle in the background. Tacos, and a Fusion soda bottle appear in the foreground",
+  "inverted_title": "Inverted sketch: Turtle Taco Tempest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant sea turtle with a blanket covered in animal patterns swims through turbulent, psychedelic waters. On its back sits a man in military uniform with a parrot on his shoulder, while a black raven holds a paper note nearby. A taco food truck floats in the stormy sea beside them, with lightning, skulls, and a castle in the background. Tacos, and a Fusion soda bottle appear in the foreground (from generated still #3960).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant sea turtle with a blanket covered in animal patterns swims through turbulent, psychedelic waters. On its back sits a man in military uniform with a parrot on his shoulder, while a black raven holds a paper note nearby. A taco food truck floats in the stormy sea beside them, with lightning, skulls, and a castle in the background. Tacos, and a Fusion soda bottle appear in the foreground",
+  "source_description": "A giant sea turtle with a purple blanket covered in animal patterns swims through turbulent, colorful psychedelic waters. On its back sits a man in military uniform with a yellow parrot on his shoulder, while a black raven holds a paper note nearby. A bright pink taco food truck floats in the stormy sea beside them, with lightning, skulls, and a castle in the background. Tacos, limes, and a Fusion soda bottle appear in the foreground.",
+  "source_prompt": "Surreal scene of a giant sea turtle swimming through swirling colorful waves, carrying a man in military uniform and peaked cap sitting on a purple blanket decorated with animal silhouettes. A yellow parrot perches on the man's shoulder and a black raven holds a note. A bright pink taco food truck with turtle patterns floats in the stormy sea. Dark cloudy sky with lightning bolts, floating skulls, and a distant black castle. Fresh tacos with purple cabbage, limes, and a Fusion soda bottle in the foreground. Psychedelic, detailed, vibrant colors.",
+  "source_title": "Turtle Taco Tempest",
+  "style": "surrealism",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "turtle",
+    "taco truck",
+    "stormy sea",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3960,
+  "source_url": "/generated/3960.jpg",
+  "image_url": "/sketches/4540.png",
+  "inverted_image_url": "/sketches-inverted/4540.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:48Z"
+}

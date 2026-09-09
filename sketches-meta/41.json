@@ -1,0 +1,42 @@
+{
+  "number": 41,
+  "title": "Line sketch: Loops in Motion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This abstract artwork features bold, looping in vibrant, and forming interconnected curves across a white field. Scattered circles, black dots, and a crescent shape create dynamic focal points amid energetic splatters. background waves frame the central composition with expressive drips and splashes (derived from painting #58).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This abstract artwork features bold, looping in vibrant, and forming interconnected curves across a white field. Scattered circles, black dots, and a crescent shape create dynamic focal points amid energetic splatters. background waves frame the central composition with expressive drips and splashes",
+  "inverted_title": "Inverted sketch: Loops in Motion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This abstract artwork features bold, looping in vibrant, and forming interconnected curves across a white field. Scattered circles, black dots, and a crescent shape create dynamic focal points amid energetic splatters. background waves frame the central composition with expressive drips and splashes (from painting #58).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This abstract artwork features bold, looping in vibrant, and forming interconnected curves across a white field. Scattered circles, black dots, and a crescent shape create dynamic focal points amid energetic splatters. background waves frame the central composition with expressive drips and splashes",
+  "source_description": "This abstract artwork features bold, looping brushstrokes in vibrant orange, red, and purple forming interconnected curves across a white field. Scattered orange circles, black dots, and a green crescent shape create dynamic focal points amid energetic splatters. Green background waves frame the central composition with expressive drips and splashes.",
+  "source_prompt": "",
+  "source_title": "Neon Loops in Motion",
+  "style": "Abstract expressionism",
+  "mood": "vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "splatter",
+    "loops",
+    "circles",
+    "vibrant"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 58,
+  "source_url": "/paintings/58.jpg",
+  "image_url": "/sketches/41.png",
+  "inverted_image_url": "/sketches-inverted/41.png",
+  "curve_count": 263,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3221,
+  "title": "Line sketch: Ghosts in the Ruined Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two women stand in the center of a derelict, graffiti-covered room with a collapsed ceiling. One woman is translucent like a ghost while the other is solid, both wearing vintage dresses. A vintage film projector on a stone pedestal casts a beam of light, with film reels, strips, and cans scattered across the cracked floor (derived from generated still #2574).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two women stand in the center of a derelict, graffiti-covered room with a collapsed ceiling. One woman is translucent like a ghost while the other is solid, both wearing vintage dresses. A vintage film projector on a stone pedestal casts a beam of light, with film reels, strips, and cans scattered across the cracked floor",
+  "inverted_title": "Inverted sketch: Ghosts in the Ruined Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two women stand in the center of a derelict, graffiti-covered room with a collapsed ceiling. One woman is translucent like a ghost while the other is solid, both wearing vintage dresses. A vintage film projector on a stone pedestal casts a beam of light, with film reels, strips, and cans scattered across the cracked floor (from generated still #2574).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two women stand in the center of a derelict, graffiti-covered room with a collapsed ceiling. One woman is translucent like a ghost while the other is solid, both wearing vintage dresses. A vintage film projector on a stone pedestal casts a beam of light, with film reels, strips, and cans scattered across the cracked floor",
+  "source_description": "Two women stand in the center of a derelict, graffiti-covered room with a collapsed ceiling. One woman is translucent like a ghost while the other is solid, both wearing vintage purple dresses. A vintage film projector on a stone pedestal casts a beam of light, with film reels, strips, and cans scattered across the cracked floor.",
+  "source_prompt": "Two women in vintage purple dresses stand inside a decaying concrete room with a large hole in the ceiling revealing overgrown foliage. One woman is a translucent ghost, the other is solid and touching her. A large vintage film projector on a stone pedestal projects a beam of light. Film reels and strips are scattered on the cracked floor. The walls are covered in colorful murals and graffiti. Surreal, atmospheric, cinematic lighting.",
+  "source_title": "Ghosts in the Ruined Cinema",
+  "style": "surreal",
+  "mood": "eerie nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ruined building",
+    "film projector",
+    "ghostly figure",
+    "graffiti walls",
+    "cinema decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2574,
+  "source_url": "/generated/2574.jpg",
+  "image_url": "/sketches/3221.png",
+  "inverted_image_url": "/sketches-inverted/3221.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:45Z"
+}

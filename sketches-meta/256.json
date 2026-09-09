@@ -1,0 +1,42 @@
+{
+  "number": 256,
+  "title": "Line sketch: Cartoon Bear Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized bear head with large expressive eyes and rounded ears sits centered against a plain background. Its smooth fur and cute snout create a charming, minimalist character study with a reflective shadow below (derived from painting #313).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized bear head with large expressive eyes and rounded ears sits centered against a plain background. Its smooth fur and cute snout create a charming, minimalist character study with a reflective shadow below",
+  "inverted_title": "Inverted sketch: Cartoon Bear Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized bear head with large expressive eyes and rounded ears sits centered against a plain background. Its smooth fur and cute snout create a charming, minimalist character study with a reflective shadow below (from painting #313).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized bear head with large expressive eyes and rounded ears sits centered against a plain background. Its smooth fur and cute snout create a charming, minimalist character study with a reflective shadow below",
+  "source_description": "A stylized bear head with large expressive blue eyes and rounded ears sits centered against a plain background. Its smooth brown fur and cute snout create a charming, minimalist character study with a reflective shadow below.",
+  "source_prompt": "",
+  "source_title": "Cartoon Bear Portrait",
+  "style": "Digital Illustration",
+  "mood": "Cute and whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "cartoon",
+    "portrait",
+    "digital art",
+    "cute"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 313,
+  "source_url": "/paintings/313.jpg",
+  "image_url": "/sketches/256.png",
+  "inverted_image_url": "/sketches-inverted/256.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:38Z"
+}

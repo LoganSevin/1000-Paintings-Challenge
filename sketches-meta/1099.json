@@ -1,0 +1,42 @@
+{
+  "number": 1099,
+  "title": "Line sketch: Dog and Child",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait shows the profile of a young child with black hair whose face is partially covered by dripping, and liquid. A large dog's head with one realistic human eye and one animal eye overlaps the child, with veins and blood-like drips flowing from its eye socket (derived from generated still #311).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait shows the profile of a young child with black hair whose face is partially covered by dripping, and liquid. A large dog's head with one realistic human eye and one animal eye overlaps the child, with veins and blood-like drips flowing from its eye socket",
+  "inverted_title": "Inverted sketch: Dog and Child",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait shows the profile of a young child with black hair whose face is partially covered by dripping, and liquid. A large dog's head with one realistic human eye and one animal eye overlaps the child, with veins and blood-like drips flowing from its eye socket (from generated still #311).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait shows the profile of a young child with black hair whose face is partially covered by dripping, and liquid. A large dog's head with one realistic human eye and one animal eye overlaps the child, with veins and blood-like drips flowing from its eye socket",
+  "source_description": "A surreal portrait shows the profile of a young child with black hair whose face is partially covered by dripping blue, red, and orange liquid. A large green dog's head with one realistic human eye and one golden animal eye overlaps the child, with vivid red veins and blood-like drips flowing from its eye socket.",
+  "source_prompt": "",
+  "source_title": "Green Dog and Child",
+  "style": "surrealism",
+  "mood": "disturbing, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "dripping paint",
+    "veins",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 311,
+  "source_url": "/generated/311.jpg",
+  "image_url": "/sketches/1099.png",
+  "inverted_image_url": "/sketches-inverted/1099.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:40Z"
+}

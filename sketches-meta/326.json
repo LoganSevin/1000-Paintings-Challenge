@@ -1,0 +1,42 @@
+{
+  "number": 326,
+  "title": "Line sketch: Majestic Sea Turtle Underwater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant sea turtle glides gracefully through sunlit ocean waters above a reef. The detailed illustration captures the turtle's patterned shell and scales with beams of light penetrating from the surface (derived from painting #387).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant sea turtle glides gracefully through sunlit ocean waters above a reef. The detailed illustration captures the turtle's patterned shell and scales with beams of light penetrating from the surface",
+  "inverted_title": "Inverted sketch: Majestic Sea Turtle Underwater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant sea turtle glides gracefully through sunlit ocean waters above a reef. The detailed illustration captures the turtle's patterned shell and scales with beams of light penetrating from the surface (from painting #387).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant sea turtle glides gracefully through sunlit ocean waters above a reef. The detailed illustration captures the turtle's patterned shell and scales with beams of light penetrating from the surface",
+  "source_description": "A vibrant sea turtle glides gracefully through sunlit ocean waters above a colorful coral reef. The detailed illustration captures the turtle's patterned shell and scales with beams of light penetrating from the surface.",
+  "source_prompt": "",
+  "source_title": "Majestic Sea Turtle Underwater",
+  "style": "Digital Illustration",
+  "mood": "Serene and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "underwater",
+    "reef",
+    "marine life",
+    "sunlight rays"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 387,
+  "source_url": "/paintings/387.jpg",
+  "image_url": "/sketches/326.png",
+  "inverted_image_url": "/sketches-inverted/326.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

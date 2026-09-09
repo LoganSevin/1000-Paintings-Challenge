@@ -1,0 +1,42 @@
+{
+  "number": 18,
+  "title": "Line sketch: Luminous Liquid Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts swirling, viscous liquid forms in vibrant and tones, with glossy highlights and scattered droplets against a gradient background. Dynamic curves and splashes create a sense of fluid motion and energy throughout the composition. Smooth digital rendering emphasizes the glossy, translucent quality of the forms (derived from painting #29).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts swirling, viscous liquid forms in vibrant and tones, with glossy highlights and scattered droplets against a gradient background. Dynamic curves and splashes create a sense of fluid motion and energy throughout the composition. Smooth digital rendering emphasizes the glossy, translucent quality of the forms",
+  "inverted_title": "Inverted sketch: Luminous Liquid Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts swirling, viscous liquid forms in vibrant and tones, with glossy highlights and scattered droplets against a gradient background. Dynamic curves and splashes create a sense of fluid motion and energy throughout the composition. Smooth digital rendering emphasizes the glossy, translucent quality of the forms (from painting #29).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts swirling, viscous liquid forms in vibrant and tones, with glossy highlights and scattered droplets against a gradient background. Dynamic curves and splashes create a sense of fluid motion and energy throughout the composition. Smooth digital rendering emphasizes the glossy, translucent quality of the forms",
+  "source_description": "The artwork depicts swirling, viscous liquid forms in vibrant green and yellow tones, with glossy highlights and scattered droplets against a blue gradient background. Dynamic curves and splashes create a sense of fluid motion and energy throughout the composition. Smooth digital rendering emphasizes the glossy, translucent quality of the forms.",
+  "source_prompt": "",
+  "source_title": "Luminous Green Liquid Vortex",
+  "style": "Abstract",
+  "mood": "Vibrant Energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fluid",
+    "abstract",
+    "swirls",
+    "liquid",
+    "splashes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 29,
+  "source_url": "/paintings/29.jpg",
+  "image_url": "/sketches/18.png",
+  "inverted_image_url": "/sketches-inverted/18.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 420,
+  "title": "Line sketch: Surprised Moon in Sky",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical anthropomorphic moon with large glossy eyes and an open mouth floats against a vibrant background. Surrounded by shooting stars and orbiting pearls, the composition captures a dreamy celestial scene (derived from painting #503).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical anthropomorphic moon with large glossy eyes and an open mouth floats against a vibrant background. Surrounded by shooting stars and orbiting pearls, the composition captures a dreamy celestial scene",
+  "inverted_title": "Inverted sketch: Surprised Moon in Sky",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical anthropomorphic moon with large glossy eyes and an open mouth floats against a vibrant background. Surrounded by shooting stars and orbiting pearls, the composition captures a dreamy celestial scene (from painting #503).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical anthropomorphic moon with large glossy eyes and an open mouth floats against a vibrant background. Surrounded by shooting stars and orbiting pearls, the composition captures a dreamy celestial scene",
+  "source_description": "A whimsical anthropomorphic moon with large glossy eyes and an open mouth floats against a vibrant pink background. Surrounded by shooting stars and orbiting pearls, the painting captures a dreamy celestial scene.",
+  "source_prompt": "",
+  "source_title": "Surprised Moon in Pink Sky",
+  "style": "Whimsical",
+  "mood": "Dreamy and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "moon",
+    "celestial",
+    "whimsical",
+    "shooting stars",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 503,
+  "source_url": "/paintings/503.jpg",
+  "image_url": "/sketches/420.png",
+  "inverted_image_url": "/sketches-inverted/420.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

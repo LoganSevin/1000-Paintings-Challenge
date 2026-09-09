@@ -1,0 +1,42 @@
+{
+  "number": 2261,
+  "title": "Line sketch: Psychedelic Mushroom Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene features a massive glowing mushroom with white dripping patterns and circular panels containing groups of tiny human figures. Below it, a line of stylized women with patterned skin and elaborate hairstyles stand in a glowing, otherworldly forest with hanging lights and melting forms (derived from generated still #1487).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene features a massive glowing mushroom with white dripping patterns and circular panels containing groups of tiny human figures. Below it, a line of stylized women with patterned skin and elaborate hairstyles stand in a glowing, otherworldly forest with hanging lights and melting forms",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene features a massive glowing mushroom with white dripping patterns and circular panels containing groups of tiny human figures. Below it, a line of stylized women with patterned skin and elaborate hairstyles stand in a glowing, otherworldly forest with hanging lights and melting forms (from generated still #1487).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene features a massive glowing mushroom with white dripping patterns and circular panels containing groups of tiny human figures. Below it, a line of stylized women with patterned skin and elaborate hairstyles stand in a glowing, otherworldly forest with hanging lights and melting forms",
+  "source_description": "A vibrant surreal scene features a massive glowing mushroom with white dripping patterns and circular panels containing groups of tiny human figures. Below it, a line of stylized women with colorful patterned skin and elaborate hairstyles stand in a glowing, otherworldly forest with hanging lights and melting forms.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Gathering",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal hallucinatory",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "psychedelic",
+    "women",
+    "surreal",
+    "glowing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1487,
+  "source_url": "/generated/1487.jpg",
+  "image_url": "/sketches/2261.png",
+  "inverted_image_url": "/sketches-inverted/2261.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:43Z"
+}

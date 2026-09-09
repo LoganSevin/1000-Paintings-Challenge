@@ -1,0 +1,42 @@
+{
+  "number": 1391,
+  "title": "Line sketch: Cracked Child Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a child's face with cracked porcelain-like skin, visible veins, and one glowing eye. The circular frame is fractured with paint dripping down, surrounded by flowers, skulls, and swirling smoke against a black background (derived from generated still #606).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a child's face with cracked porcelain-like skin, visible veins, and one glowing eye. The circular frame is fractured with paint dripping down, surrounded by flowers, skulls, and swirling smoke against a black background",
+  "inverted_title": "Inverted sketch: Cracked Child Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a child's face with cracked porcelain-like skin, visible veins, and one glowing eye. The circular frame is fractured with paint dripping down, surrounded by flowers, skulls, and swirling smoke against a black background (from generated still #606).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a child's face with cracked porcelain-like skin, visible veins, and one glowing eye. The circular frame is fractured with paint dripping down, surrounded by flowers, skulls, and swirling smoke against a black background",
+  "source_description": "A surreal portrait of a child's face with cracked porcelain-like skin, visible red veins, and one glowing orange eye. The circular frame is fractured with colorful paint dripping down, surrounded by dark purple flowers, skulls, and swirling smoke against a black background.",
+  "source_prompt": "",
+  "source_title": "Cracked Child Portrait",
+  "style": "surrealism",
+  "mood": "eerie haunting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child portrait",
+    "cracked skin",
+    "glowing eye",
+    "skulls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 606,
+  "source_url": "/generated/606.jpg",
+  "image_url": "/sketches/1391.png",
+  "inverted_image_url": "/sketches-inverted/1391.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:41Z"
+}

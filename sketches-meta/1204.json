@@ -1,0 +1,42 @@
+{
+  "number": 1204,
+  "title": "Line sketch: Stormbound Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with glowing eyes emerges from dark water, her hand touching a large orb wrapped in thorny vines and crackling with lightning. The dramatic sky swirls with storm clouds, lightning, and flying creatures above a rocky, reflective shore (derived from generated still #416).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with glowing eyes emerges from dark water, her hand touching a large orb wrapped in thorny vines and crackling with lightning. The dramatic sky swirls with storm clouds, lightning, and flying creatures above a rocky, reflective shore",
+  "inverted_title": "Inverted sketch: Stormbound Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with glowing eyes emerges from dark water, her hand touching a large orb wrapped in thorny vines and crackling with lightning. The dramatic sky swirls with storm clouds, lightning, and flying creatures above a rocky, reflective shore (from generated still #416).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with glowing eyes emerges from dark water, her hand touching a large orb wrapped in thorny vines and crackling with lightning. The dramatic sky swirls with storm clouds, lightning, and flying creatures above a rocky, reflective shore",
+  "source_description": "A blue-skinned woman with glowing orange eyes emerges from dark water, her hand touching a large iridescent orb wrapped in thorny vines and crackling with lightning. The dramatic sky swirls with dark purple storm clouds, lightning, and flying creatures above a rocky, reflective shore.",
+  "source_prompt": "",
+  "source_title": "Stormbound Oracle",
+  "style": "fantasy surrealism",
+  "mood": "dramatic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "storm",
+    "oracle",
+    "glowing orb",
+    "lightning",
+    "ethereal woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 416,
+  "source_url": "/generated/416.jpg",
+  "image_url": "/sketches/1204.png",
+  "inverted_image_url": "/sketches-inverted/1204.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2764,
+  "title": "Line sketch: Psyduck Surreal Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant circular surreal composition depicts Psyduck glowing with energy in a flower field, surrounded by a detailed fantasy landscape with mountains, a castle, sailboat, tower, and celestial bodies. The orb is set against an aged parchment background with a pendulum, butterfly, and various symbolic objects floating around it (derived from generated still #2014).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant circular surreal composition depicts Psyduck glowing with energy in a flower field, surrounded by a detailed fantasy landscape with mountains, a castle, sailboat, tower, and celestial bodies. The orb is set against an aged parchment background with a pendulum, butterfly, and various symbolic objects floating around it",
+  "inverted_title": "Inverted sketch: Psyduck Surreal Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant circular surreal composition depicts Psyduck glowing with energy in a flower field, surrounded by a detailed fantasy landscape with mountains, a castle, sailboat, tower, and celestial bodies. The orb is set against an aged parchment background with a pendulum, butterfly, and various symbolic objects floating around it (from generated still #2014).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant circular surreal composition depicts Psyduck glowing with energy in a flower field, surrounded by a detailed fantasy landscape with mountains, a castle, sailboat, tower, and celestial bodies. The orb is set against an aged parchment background with a pendulum, butterfly, and various symbolic objects floating around it",
+  "source_description": "A vibrant circular surreal painting depicts Psyduck glowing with purple energy in a colorful flower field, surrounded by a detailed fantasy landscape with mountains, a castle, sailboat, tower, and celestial bodies. The orb is set against an aged parchment background with a pendulum, butterfly, and various symbolic objects floating around it.",
+  "source_prompt": "Surreal circular painting of Psyduck glowing with purple magical energy standing in a vibrant flower meadow, inside a detailed fantasy world showing mountains, a castle, sailboat on a lake, and a tall tower under a cosmic sky with planets and a crescent moon, all contained within a round orb on an aged parchment background with a black pendulum, butterfly, and symbolic objects floating around the edges, intricate details, vibrant colors",
+  "source_title": "Psyduck Surreal Orb",
+  "style": "surreal fantasy",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Psyduck",
+    "surreal",
+    "fantasy landscape",
+    "orb",
+    "pokemon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2014,
+  "source_url": "/generated/2014.jpg",
+  "image_url": "/sketches/2764.png",
+  "inverted_image_url": "/sketches-inverted/2764.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

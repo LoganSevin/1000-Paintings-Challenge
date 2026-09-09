@@ -1,0 +1,42 @@
+{
+  "number": 4806,
+  "title": "Line sketch: Clockwork Abyss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a geometric tunnel with glowing horizontal stripes. A large ornate clock with Roman numerals and a hypnotic eye at its center hangs at the top, dripping. Below, a hooded figure reads a book on the left while two men in black suits and top hats stand amid floating glowing orbs and swirling light patterns (derived from generated still #4241).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a geometric tunnel with glowing horizontal stripes. A large ornate clock with Roman numerals and a hypnotic eye at its center hangs at the top, dripping. Below, a hooded figure reads a book on the left while two men in black suits and top hats stand amid floating glowing orbs and swirling light patterns",
+  "inverted_title": "Inverted sketch: Clockwork Abyss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a geometric tunnel with glowing horizontal stripes. A large ornate clock with Roman numerals and a hypnotic eye at its center hangs at the top, dripping. Below, a hooded figure reads a book on the left while two men in black suits and top hats stand amid floating glowing orbs and swirling light patterns (from generated still #4241).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a geometric tunnel with glowing horizontal stripes. A large ornate clock with Roman numerals and a hypnotic eye at its center hangs at the top, dripping. Below, a hooded figure reads a book on the left while two men in black suits and top hats stand amid floating glowing orbs and swirling light patterns",
+  "source_description": "A surreal scene inside a geometric purple tunnel with glowing horizontal stripes. A large ornate clock with Roman numerals and a hypnotic eye at its center hangs at the top, dripping gold. Below, a hooded purple figure reads a book on the left while two men in black suits and top hats stand amid floating blue glowing orbs and swirling light patterns.",
+  "source_prompt": "Surreal symbolic artwork of a vast geometric purple tunnel with glowing red and green horizontal bands converging toward a vanishing point. At the top center hangs an ornate red and gold clock with Roman numerals featuring a large hypnotic blue and red eye in the middle, with gold drips. In the lower left a hooded purple-robed figure holds an open book. Two men in elegant black suits and top hats stand in the center and foreground surrounded by floating bright blue glowing orbs, energy swirls, and light beams.",
+  "source_title": "Clockwork Abyss",
+  "style": "surrealism",
+  "mood": "mysterious, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "occult",
+    "clock",
+    "eye",
+    "tunnel"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4241,
+  "source_url": "/generated/4241.jpg",
+  "image_url": "/sketches/4806.png",
+  "inverted_image_url": "/sketches-inverted/4806.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:49Z"
+}

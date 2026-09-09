@@ -1,0 +1,42 @@
+{
+  "number": 4912,
+  "title": "Line sketch: The composition's Warning",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit, grimy wooden desk holds an open drawer containing a lit flashlight, two keys, and a handwritten note. Behind it, four old CRT televisions display eerie, empty institutional hallways, one showing a dark silhouetted figure and another labeled 'Failure 4' (derived from generated still #4348).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit, grimy wooden desk holds an open drawer containing a lit flashlight, two keys, and a handwritten note. Behind it, four old CRT televisions display eerie, empty institutional hallways, one showing a dark silhouetted figure and another labeled 'Failure 4'",
+  "inverted_title": "Inverted sketch: The composition's Warning",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit, grimy wooden desk holds an open drawer containing a lit flashlight, two keys, and a handwritten note. Behind it, four old CRT televisions display eerie, empty institutional hallways, one showing a dark silhouetted figure and another labeled 'Failure 4' (from generated still #4348).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit, grimy wooden desk holds an open drawer containing a lit flashlight, two keys, and a handwritten note. Behind it, four old CRT televisions display eerie, empty institutional hallways, one showing a dark silhouetted figure and another labeled 'Failure 4'",
+  "source_description": "A dimly lit, grimy wooden desk holds an open drawer containing a lit flashlight, two keys, and a handwritten note. Behind it, four old CRT televisions display eerie, empty institutional hallways, one showing a dark silhouetted figure and another labeled 'Failure 4'.",
+  "source_prompt": "A gritty wooden desk in a dark abandoned room with an open drawer revealing a black flashlight, brass keys, and a note that reads 'If the painting speaks, do not follow alone'. Four old CRT televisions sit on the desk displaying eerie empty hallways and institutional corridors, one with a dark silhouetted figure standing in the center, another labeled Failure 4, moody cinematic lighting with a single warm desk lamp, dusty and unsettling atmosphere",
+  "source_title": "The Painting's Warning",
+  "style": "cinematic digital art",
+  "mood": "ominous, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abandoned",
+    "horror",
+    "vintage tvs",
+    "mysterious note",
+    "liminal space"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4348,
+  "source_url": "/generated/4348.jpg",
+  "image_url": "/sketches/4912.png",
+  "inverted_image_url": "/sketches-inverted/4912.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:49Z"
+}

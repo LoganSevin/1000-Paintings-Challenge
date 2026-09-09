@@ -1,0 +1,42 @@
+{
+  "number": 783,
+  "title": "Line sketch: Sailing Beneath Starlit Peaks",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone sailboat with vibrant sails glides across calm waters toward majestic snow-capped mountains under a mystical twilight sky. The scene captures a serene yet adventurous journey illuminated by a crescent moon and shooting stars (derived from painting #984).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone sailboat with vibrant sails glides across calm waters toward majestic snow-capped mountains under a mystical twilight sky. The scene captures a serene yet adventurous journey illuminated by a crescent moon and shooting stars",
+  "inverted_title": "Inverted sketch: Sailing Beneath Starlit Peaks",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone sailboat with vibrant sails glides across calm waters toward majestic snow-capped mountains under a mystical twilight sky. The scene captures a serene yet adventurous journey illuminated by a crescent moon and shooting stars (from painting #984).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone sailboat with vibrant sails glides across calm waters toward majestic snow-capped mountains under a mystical twilight sky. The scene captures a serene yet adventurous journey illuminated by a crescent moon and shooting stars",
+  "source_description": "A lone sailboat with vibrant orange sails glides across calm waters toward majestic snow-capped mountains under a mystical twilight sky. The scene captures a serene yet adventurous journey illuminated by a crescent moon and shooting stars.",
+  "source_prompt": "",
+  "source_title": "Sailing Beneath Starlit Peaks",
+  "style": "Fantasy landscape",
+  "mood": "Serene and adventurous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mountain landscape",
+    "sailboat",
+    "twilight",
+    "fantasy art",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 984,
+  "source_url": "/paintings/984.jpg",
+  "image_url": "/sketches/783.png",
+  "inverted_image_url": "/sketches-inverted/783.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:39Z"
+}

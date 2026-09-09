@@ -1,0 +1,42 @@
+{
+  "number": 10,
+  "title": "Line sketch: Waving Figures",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract composition of tall vertical forms resembling stylized figures or trees, each topped with circular shapes suggesting raised hands or crowns. A broad curving band sweeps across the bottom against a and white background, with overlapping shapes creating depth. Bold, flat and simplified color fields define the technique (derived from painting #17).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract composition of tall vertical forms resembling stylized figures or trees, each topped with circular shapes suggesting raised hands or crowns. A broad curving band sweeps across the bottom against a and white background, with overlapping shapes creating depth. Bold, flat and simplified color fields define the technique",
+  "inverted_title": "Inverted sketch: Waving Figures",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract composition of tall vertical forms resembling stylized figures or trees, each topped with circular shapes suggesting raised hands or crowns. A broad curving band sweeps across the bottom against a and white background, with overlapping shapes creating depth. Bold, flat and simplified color fields define the technique (from painting #17).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract composition of tall vertical forms resembling stylized figures or trees, each topped with circular shapes suggesting raised hands or crowns. A broad curving band sweeps across the bottom against a and white background, with overlapping shapes creating depth. Bold, flat and simplified color fields define the technique",
+  "source_description": "Abstract composition of tall green vertical forms resembling stylized figures or trees, each topped with yellow circular shapes suggesting raised hands or crowns. A broad curving yellow band sweeps across the bottom against a pale blue and white background, with overlapping shapes creating depth. Bold, flat brushstrokes and simplified color fields define the technique.",
+  "source_prompt": "",
+  "source_title": "Waving Green Figures",
+  "style": "Abstract",
+  "mood": "Vibrant Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "figures",
+    "waving",
+    "trees",
+    "modern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 17,
+  "source_url": "/paintings/17.jpg",
+  "image_url": "/sketches/10.png",
+  "inverted_image_url": "/sketches-inverted/10.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:38Z"
+}

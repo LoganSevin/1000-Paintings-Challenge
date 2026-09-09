@@ -1,0 +1,42 @@
+{
+  "number": 3028,
+  "title": "Line sketch: Midnight Bass Session",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man wearing a black cap and heavy chain sits at a wooden table playing an electric bass guitar in a dark room. Musical notes float through the air around him, a lit hanging bulb illuminates the scene, and a white styrofoam cup and -wrapped item rest on the table while large speakers dominate the shadowy background (derived from generated still #2352).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man wearing a black cap and heavy chain sits at a wooden table playing an electric bass guitar in a dark room. Musical notes float through the air around him, a lit hanging bulb illuminates the scene, and a white styrofoam cup and -wrapped item rest on the table while large speakers dominate the shadowy background",
+  "inverted_title": "Inverted sketch: Midnight Bass Session",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man wearing a black cap and heavy chain sits at a wooden table playing an electric bass guitar in a dark room. Musical notes float through the air around him, a lit hanging bulb illuminates the scene, and a white styrofoam cup and -wrapped item rest on the table while large speakers dominate the shadowy background (from generated still #2352).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man wearing a black cap and heavy chain sits at a wooden table playing an electric bass guitar in a dark room. Musical notes float through the air around him, a lit hanging bulb illuminates the scene, and a white styrofoam cup and -wrapped item rest on the table while large speakers dominate the shadowy background",
+  "source_description": "A man wearing a black cap and heavy silver chain sits at a wooden table playing an electric bass guitar in a dark room. Musical notes float through the air around him, a lit hanging bulb illuminates the scene, and a white styrofoam cup and gold-wrapped item rest on the table while large speakers dominate the shadowy background.",
+  "source_prompt": "A Black man wearing a backward cap and thick silver chain sits in a dark, gritty room playing an electric bass guitar at a wooden table. A single bare lightbulb hangs above, casting dramatic light and shadows through blinds on the wall. Swirling musical notes and smoke fill the air, large speakers are visible in the background, a white styrofoam cup and a gold-wrapped item sit on the table, cinematic lighting, moody atmosphere, realistic painting style",
+  "source_title": "Midnight Bass Session",
+  "style": "realistic composition",
+  "mood": "moody, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "musician",
+    "bass guitar",
+    "musical notes",
+    "dark interior",
+    "hanging bulb"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2352,
+  "source_url": "/generated/2352.jpg",
+  "image_url": "/sketches/3028.png",
+  "inverted_image_url": "/sketches-inverted/3028.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:44Z"
+}

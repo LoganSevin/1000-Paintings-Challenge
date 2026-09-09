@@ -1,0 +1,42 @@
+{
+  "number": 3665,
+  "title": "Line sketch: Dragon and Demon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive black dragon with glowing scales and eyes coils through a stone archway on a European cobblestone street, its body wrapped around the broken masonry. A muscular demon with large horns stands in the archway holding a lantern, overlooking a narrow street lined with shops, awnings, and the distant dome of Sacré-Cœur under a dramatic twilight sky (derived from generated still #3073).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive black dragon with glowing scales and eyes coils through a stone archway on a European cobblestone street, its body wrapped around the broken masonry. A muscular demon with large horns stands in the archway holding a lantern, overlooking a narrow street lined with shops, awnings, and the distant dome of Sacré-Cœur under a dramatic twilight sky",
+  "inverted_title": "Inverted sketch: Dragon and Demon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive black dragon with glowing scales and eyes coils through a stone archway on a European cobblestone street, its body wrapped around the broken masonry. A muscular demon with large horns stands in the archway holding a lantern, overlooking a narrow street lined with shops, awnings, and the distant dome of Sacré-Cœur under a dramatic twilight sky (from generated still #3073).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive black dragon with glowing scales and eyes coils through a stone archway on a European cobblestone street, its body wrapped around the broken masonry. A muscular demon with large horns stands in the archway holding a lantern, overlooking a narrow street lined with shops, awnings, and the distant dome of Sacré-Cœur under a dramatic twilight sky",
+  "source_description": "A massive black dragon with glowing orange scales and green eyes coils through a stone archway on a European cobblestone street, its body wrapped around the broken masonry. A muscular blue demon with large horns stands in the archway holding a lantern, overlooking a narrow street lined with shops, awnings, and the distant dome of Sacré-Cœur under a dramatic twilight sky.",
+  "source_prompt": "A colossal black dragon with glowing orange vein-like scales and piercing green eyes coils aggressively through a shattered stone archway on a narrow Parisian cobblestone street at dusk. A muscular blue demon with large curved horns stands beneath the arch holding a lit lantern. In the background, the illuminated dome of Sacré-Cœur rises above colorful shops with red and green awnings under a fiery purple and orange sky, dramatic fantasy style, cinematic lighting",
+  "source_title": "Dragon and Blue Demon",
+  "style": "fantasy illustration",
+  "mood": "epic, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "demon",
+    "parisian street",
+    "sacré-cœur",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3073,
+  "source_url": "/generated/3073.jpg",
+  "image_url": "/sketches/3665.png",
+  "inverted_image_url": "/sketches-inverted/3665.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:46Z"
+}

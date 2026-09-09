@@ -1,0 +1,42 @@
+{
+  "number": 3168,
+  "title": "Line sketch: Stairway to Forgotten Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a sparkling dark evening gown ascends a grand, damaged staircase inside a decaying old theater. She holds the railing with one hand while film strips, photographs, and scattered papers litter the steps around her under dramatic beams of light from above (derived from generated still #2511).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a sparkling dark evening gown ascends a grand, damaged staircase inside a decaying old theater. She holds the railing with one hand while film strips, photographs, and scattered papers litter the steps around her under dramatic beams of light from above",
+  "inverted_title": "Inverted sketch: Stairway to Forgotten Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a sparkling dark evening gown ascends a grand, damaged staircase inside a decaying old theater. She holds the railing with one hand while film strips, photographs, and scattered papers litter the steps around her under dramatic beams of light from above (from generated still #2511).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a sparkling dark evening gown ascends a grand, damaged staircase inside a decaying old theater. She holds the railing with one hand while film strips, photographs, and scattered papers litter the steps around her under dramatic beams of light from above",
+  "source_description": "A woman in a sparkling dark evening gown ascends a grand, damaged staircase inside a decaying old theater. She holds the railing with one hand while film strips, photographs, and scattered papers litter the steps around her under dramatic beams of light from above.",
+  "source_prompt": "A woman in a shimmering dark sequined gown ascends a wide marble staircase inside a ruined vintage movie theater. The walls are covered in peeling classical murals and framed pictures. Old film strips, photographs, and papers are scattered across the steps. Dramatic god rays shine down from broken skylights, red velvet curtains and empty red theater seats visible in the background, moody cinematic atmosphere, highly detailed digital painting",
+  "source_title": "Stairway to Forgotten Cinema",
+  "style": "cinematic surrealism",
+  "mood": "melancholy, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theater",
+    "staircase",
+    "film noir",
+    "decaying opulence",
+    "dramatic lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2511,
+  "source_url": "/generated/2511.jpg",
+  "image_url": "/sketches/3168.png",
+  "inverted_image_url": "/sketches-inverted/3168.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:45Z"
+}

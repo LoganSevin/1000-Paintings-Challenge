@@ -1,0 +1,42 @@
+{
+  "number": 3773,
+  "title": "Line sketch: Female Warrior Pose Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential views of a woman with short white hair in a combat stance, wearing leather armor with metal accents, dark pants, knee pads, and boots. She maintains a defensive fighting pose with fists raised across the four panels against a dark studio backdrop (derived from generated still #3189).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential views of a woman with short white hair in a combat stance, wearing leather armor with metal accents, dark pants, knee pads, and boots. She maintains a defensive fighting pose with fists raised across the four panels against a dark studio backdrop",
+  "inverted_title": "Inverted sketch: Female Warrior Pose Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential views of a woman with short white hair in a combat stance, wearing leather armor with metal accents, dark pants, knee pads, and boots. She maintains a defensive fighting pose with fists raised across the four panels against a dark studio backdrop (from generated still #3189).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential views of a woman with short white hair in a combat stance, wearing leather armor with metal accents, dark pants, knee pads, and boots. She maintains a defensive fighting pose with fists raised across the four panels against a dark studio backdrop",
+  "source_description": "Four sequential views of a woman with short white hair in a combat stance, wearing brown leather armor with metal accents, dark pants, knee pads, and boots. She maintains a defensive fighting pose with fists raised across the four panels against a dark studio backdrop.",
+  "source_prompt": "A woman with short bleached white hair and intense expression in a combat stance, wearing detailed brown leather cuirass with metal buckles, black tactical pants with red stripes, knee pads, and brown boots. She stands in a low fighting pose with fists raised in guard position, shown in four sequential angles from left to right against a dark studio background with dramatic lighting, realistic digital painting style",
+  "source_title": "Female Warrior Pose Study",
+  "style": "realistic",
+  "mood": "intense, focused",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "female fighter",
+    "leather armor",
+    "pose study",
+    "action stance"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3189,
+  "source_url": "/generated/3189.jpg",
+  "image_url": "/sketches/3773.png",
+  "inverted_image_url": "/sketches-inverted/3773.png",
+  "curve_count": 86,
+  "built_at": "2026-08-17T00:09:46Z"
+}

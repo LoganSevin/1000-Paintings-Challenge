@@ -1,0 +1,42 @@
+{
+  "number": 4081,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic full-body illustration of a young female warrior with dark hair in a high ponytail, captured mid-action. She wears a white and cropped top with matching arm wraps, loose white pants with accents, and is performing a high kick while wielding a massive warhammer with glowing crack patterns (derived from generated still #3498).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic full-body illustration of a young female warrior with dark hair in a high ponytail, captured mid-action. She wears a white and cropped top with matching arm wraps, loose white pants with accents, and is performing a high kick while wielding a massive warhammer with glowing crack patterns",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic full-body illustration of a young female warrior with dark hair in a high ponytail, captured mid-action. She wears a white and cropped top with matching arm wraps, loose white pants with accents, and is performing a high kick while wielding a massive warhammer with glowing crack patterns (from generated still #3498).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic full-body illustration of a young female warrior with dark hair in a high ponytail, captured mid-action. She wears a white and cropped top with matching arm wraps, loose white pants with accents, and is performing a high kick while wielding a massive warhammer with glowing crack patterns",
+  "source_description": "A dynamic full-body illustration of a young female warrior with dark hair in a high ponytail, captured mid-action. She wears a white and purple cropped top with matching arm wraps, loose white pants with purple accents, and is performing a high kick while wielding a massive purple warhammer with glowing crack patterns.",
+  "source_prompt": "A fierce young East Asian female warrior with dark hair in a high ponytail, wearing a cropped white and purple patterned top that exposes her midriff, loose white pants with purple wraps and tassels, and matching purple arm guards and boots. She is captured in a dynamic mid-air kick pose, powerfully swinging a large purple warhammer with glowing crackle patterns on the head. Clean studio lighting against a solid gray background, detailed digital character art style.",
+  "source_title": "Female Warrior with Hammer",
+  "style": "digital illustration",
+  "mood": "fierce dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "martial artist",
+    "fantasy character",
+    "action pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3498,
+  "source_url": "/generated/3498.jpg",
+  "image_url": "/sketches/4081.png",
+  "inverted_image_url": "/sketches-inverted/4081.png",
+  "curve_count": 64,
+  "built_at": "2026-08-17T00:09:47Z"
+}

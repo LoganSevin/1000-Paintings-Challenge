@@ -1,0 +1,42 @@
+{
+  "number": 4525,
+  "title": "Line sketch: Skull Vortex Over Seaside",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant metallic skull with a spiraling vortex emerging from its cranium rises from turbulent ocean waves. A small house with a striped roof sits on the sandy beach to the left, surrounded by white picket fence pieces, while particles stream from the skull's mouth toward the house (derived from generated still #3945).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant metallic skull with a spiraling vortex emerging from its cranium rises from turbulent ocean waves. A small house with a striped roof sits on the sandy beach to the left, surrounded by white picket fence pieces, while particles stream from the skull's mouth toward the house",
+  "inverted_title": "Inverted sketch: Skull Vortex Over Seaside",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant metallic skull with a spiraling vortex emerging from its cranium rises from turbulent ocean waves. A small house with a striped roof sits on the sandy beach to the left, surrounded by white picket fence pieces, while particles stream from the skull's mouth toward the house (from generated still #3945).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant metallic skull with a spiraling vortex emerging from its cranium rises from turbulent ocean waves. A small house with a striped roof sits on the sandy beach to the left, surrounded by white picket fence pieces, while particles stream from the skull's mouth toward the house",
+  "source_description": "A giant metallic skull with a spiraling colorful vortex emerging from its cranium rises from turbulent ocean waves. A small red house with a striped roof sits on the sandy beach to the left, surrounded by white picket fence pieces, while golden particles stream from the skull's mouth toward the house.",
+  "source_prompt": "Surreal scene of a massive metallic human skull emerging from a stormy sea, its cranium replaced by a swirling colorful vortex of purple, teal, orange and black shapes with orbiting dotted rings. Golden particles flow from its open jaw toward a small red wooden house with striped roof sitting on the beach. Turbulent waves with colorful swirling patterns at the base, dramatic cloudy sky, highly detailed digital painting in a vibrant psychedelic style.",
+  "source_title": "Skull Vortex Over Seaside",
+  "style": "surrealism",
+  "mood": "psychedelic, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skull",
+    "vortex",
+    "ocean",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3945,
+  "source_url": "/generated/3945.jpg",
+  "image_url": "/sketches/4525.png",
+  "inverted_image_url": "/sketches-inverted/4525.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3804,
+  "title": "Line sketch: Lightning Dancer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark-skinned female character with short white hair is shown in three sequential poses against a black background. She wears a revealing and white fantasy outfit with leaf-like armor details and matching leg wraps. In the left panel she stands dynamically with arms raised as smoke and energy emanate from her body, in the middle she is captured mid-fall with limbs loose, and in the right panel she lies motionless on the ground with lingering energy (derived from generated still #3221).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark-skinned female character with short white hair is shown in three sequential poses against a black background. She wears a revealing and white fantasy outfit with leaf-like armor details and matching leg wraps. In the left panel she stands dynamically with arms raised as smoke and energy emanate from her body, in the middle she is captured mid-fall with limbs loose, and in the right panel she lies motionless on the ground with lingering energy",
+  "inverted_title": "Inverted sketch: Lightning Dancer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark-skinned female character with short white hair is shown in three sequential poses against a black background. She wears a revealing and white fantasy outfit with leaf-like armor details and matching leg wraps. In the left panel she stands dynamically with arms raised as smoke and energy emanate from her body, in the middle she is captured mid-fall with limbs loose, and in the right panel she lies motionless on the ground with lingering energy (from generated still #3221).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark-skinned female character with short white hair is shown in three sequential poses against a black background. She wears a revealing and white fantasy outfit with leaf-like armor details and matching leg wraps. In the left panel she stands dynamically with arms raised as smoke and energy emanate from her body, in the middle she is captured mid-fall with limbs loose, and in the right panel she lies motionless on the ground with lingering energy",
+  "source_description": "A dark-skinned female character with short white hair is shown in three sequential poses against a black background. She wears a revealing purple and white fantasy outfit with leaf-like armor details and matching leg wraps. In the left panel she stands dynamically with arms raised as purple smoke and energy emanate from her body, in the middle she is captured mid-fall with limbs loose, and in the right panel she lies motionless on the ground with lingering purple energy.",
+  "source_prompt": "A dark-skinned athletic female warrior with short spiky white hair wearing a revealing white and purple fantasy battle outfit with leaf-shaped armor pieces and purple leg wraps, shown in three sequential action poses against a solid black background. First pose is powerful standing stance with arms raised, purple smoke and energy effects swirling around her. Second pose is mid-air falling with limbs relaxed. Third pose is lying defeated on the ground. Cinematic lighting, highly detailed 3D character render style.",
+  "source_title": "Purple Lightning Dancer",
+  "style": "3D character render",
+  "mood": "dramatic sequence",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "energy",
+    "action sequence",
+    "fantasy costume",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3221,
+  "source_url": "/generated/3221.jpg",
+  "image_url": "/sketches/3804.png",
+  "inverted_image_url": "/sketches-inverted/3804.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:46Z"
+}

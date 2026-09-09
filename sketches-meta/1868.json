@@ -1,0 +1,42 @@
+{
+  "number": 1868,
+  "title": "Line sketch: Trinity Heart",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition features three stylized female faces in profile and three-quarter view sharing one head, enclosed within a large dripping heart. The composition is set against a dynamic background of sweeping, and with decorative spiral patterns and paint drips (derived from generated still #1093).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition features three stylized female faces in profile and three-quarter view sharing one head, enclosed within a large dripping heart. The composition is set against a dynamic background of sweeping, and with decorative spiral patterns and paint drips",
+  "inverted_title": "Inverted sketch: Trinity Heart",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition features three stylized female faces in profile and three-quarter view sharing one head, enclosed within a large dripping heart. The composition is set against a dynamic background of sweeping, and with decorative spiral patterns and paint drips (from generated still #1093).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition features three stylized female faces in profile and three-quarter view sharing one head, enclosed within a large dripping heart. The composition is set against a dynamic background of sweeping, and with decorative spiral patterns and paint drips",
+  "source_description": "A vibrant painting features three stylized female faces in profile and three-quarter view sharing one head, enclosed within a large dripping pink heart. The composition is set against a dynamic background of sweeping blue, teal, and deep red brushstrokes with decorative spiral patterns and paint drips.",
+  "source_prompt": "",
+  "source_title": "Trinity Heart",
+  "style": "Psychedelic",
+  "mood": "vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "heart",
+    "female faces",
+    "psychedelic",
+    "dripping paint",
+    "spirals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1093,
+  "source_url": "/generated/1093.jpg",
+  "image_url": "/sketches/1868.png",
+  "inverted_image_url": "/sketches-inverted/1868.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:42Z"
+}

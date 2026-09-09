@@ -1,0 +1,42 @@
+{
+  "number": 4468,
+  "title": "Line sketch: Mosaic Keeper of Shattered Names",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal mosaic portrait of an elderly woman with cracked, tile-like skin and piercing eyes is centered within a glowing circular frame. She is surrounded by floating scrolls bearing similar mosaic faces, glowing potion bottles, hanging lanterns, a bowl of broken fragments, and swirling and smoke against a dark, mystical background (derived from generated still #3887).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal mosaic portrait of an elderly woman with cracked, tile-like skin and piercing eyes is centered within a glowing circular frame. She is surrounded by floating scrolls bearing similar mosaic faces, glowing potion bottles, hanging lanterns, a bowl of broken fragments, and swirling and smoke against a dark, mystical background",
+  "inverted_title": "Inverted sketch: Mosaic Keeper of Shattered Names",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal mosaic portrait of an elderly woman with cracked, tile-like skin and piercing eyes is centered within a glowing circular frame. She is surrounded by floating scrolls bearing similar mosaic faces, glowing potion bottles, hanging lanterns, a bowl of broken fragments, and swirling and smoke against a dark, mystical background (from generated still #3887).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal mosaic portrait of an elderly woman with cracked, tile-like skin and piercing eyes is centered within a glowing circular frame. She is surrounded by floating scrolls bearing similar mosaic faces, glowing potion bottles, hanging lanterns, a bowl of broken fragments, and swirling and smoke against a dark, mystical background",
+  "source_description": "A surreal mosaic portrait of an elderly woman with cracked, multicolored tile-like skin and piercing eyes is centered within a glowing circular frame. She is surrounded by floating scrolls bearing similar mosaic faces, glowing potion bottles, hanging lanterns, a bowl of colorful broken fragments, and swirling purple and red smoke against a dark, mystical background.",
+  "source_prompt": "Surreal fantasy painting of an elderly woman's face rendered as a cracked mosaic of green, red, and teal tiles with gold grout lines, floating inside an ornate circular frame. She has purple eyeshadow and red lips. Floating around her are ancient scrolls with similar mosaic faces, glowing potion bottles, dried herbs, hanging lanterns, and a wooden bowl filled with colorful broken mosaic pieces. Swirling purple and red magical smoke fills the dark background with faint glowing runes.",
+  "source_title": "Mosaic Keeper of Shattered Names",
+  "style": "surreal mosaic fantasy",
+  "mood": "mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic portrait",
+    "elderly woman",
+    "fantasy alchemy",
+    "scrolls and potions",
+    "smoke"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3887,
+  "source_url": "/generated/3887.jpg",
+  "image_url": "/sketches/4468.png",
+  "inverted_image_url": "/sketches-inverted/4468.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:48Z"
+}

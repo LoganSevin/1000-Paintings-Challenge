@@ -1,0 +1,42 @@
+{
+  "number": 446,
+  "title": "Line sketch: Eclipse Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone sorceress in a flowing dark gown stands atop a jagged rocky outcrop, silhouetted against a massive glowing moon in a cosmic sky filled with swirling nebulae and distant planets (derived from painting #536).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone sorceress in a flowing dark gown stands atop a jagged rocky outcrop, silhouetted against a massive glowing moon in a cosmic sky filled with swirling nebulae and distant planets",
+  "inverted_title": "Inverted sketch: Eclipse Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone sorceress in a flowing dark gown stands atop a jagged rocky outcrop, silhouetted against a massive glowing moon in a cosmic sky filled with swirling nebulae and distant planets (from painting #536).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone sorceress in a flowing dark gown stands atop a jagged rocky outcrop, silhouetted against a massive glowing moon in a cosmic sky filled with swirling nebulae and distant planets",
+  "source_description": "A lone sorceress in a flowing dark gown stands atop a jagged rocky outcrop, silhouetted against a massive glowing red moon in a cosmic sky filled with swirling nebulae and distant planets.",
+  "source_prompt": "",
+  "source_title": "Crimson Eclipse Sorceress",
+  "style": "Fantasy digital art",
+  "mood": "Mysterious and ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "sorceress",
+    "moon",
+    "cosmic",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 536,
+  "source_url": "/paintings/536.jpg",
+  "image_url": "/sketches/446.png",
+  "inverted_image_url": "/sketches-inverted/446.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

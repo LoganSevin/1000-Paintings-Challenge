@@ -1,0 +1,42 @@
+{
+  "number": 2298,
+  "title": "Line sketch: Celestial Dragon and Moon Goddesses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork depicts a large and dragon coiled around a crescent moon with radiating spikes. Four stylized female faces with intricate headdresses emerge from the moon against a background with circular motifs (derived from generated still #1525).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork depicts a large and dragon coiled around a crescent moon with radiating spikes. Four stylized female faces with intricate headdresses emerge from the moon against a background with circular motifs",
+  "inverted_title": "Inverted sketch: Celestial Dragon and Moon Goddesses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork depicts a large and dragon coiled around a crescent moon with radiating spikes. Four stylized female faces with intricate headdresses emerge from the moon against a background with circular motifs (from generated still #1525).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork depicts a large and dragon coiled around a crescent moon with radiating spikes. Four stylized female faces with intricate headdresses emerge from the moon against a background with circular motifs",
+  "source_description": "A vibrant psychedelic artwork depicts a large blue and purple dragon coiled around a bright green crescent moon with radiating blue spikes. Four stylized female faces with intricate headdresses emerge from the moon against a deep magenta background with colorful circular motifs.",
+  "source_prompt": "",
+  "source_title": "Celestial Dragon and Moon Goddesses",
+  "style": "Psychedelic folk art",
+  "mood": "Mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "crescent moon",
+    "goddesses",
+    "psychedelic",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1525,
+  "source_url": "/generated/1525.jpg",
+  "image_url": "/sketches/2298.png",
+  "inverted_image_url": "/sketches-inverted/2298.png",
+  "curve_count": 66,
+  "built_at": "2026-08-17T00:09:43Z"
+}

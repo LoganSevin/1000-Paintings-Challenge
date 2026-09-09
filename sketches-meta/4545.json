@@ -1,0 +1,42 @@
+{
+  "number": 4545,
+  "title": "Line sketch: Death's Psychedelic Hunt",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal Grim Reaper in a hooded robe holds a large pocket watch and a glowing scythe while being pulled forward by three identical -haired archers and a striped dog on ropes. The background features a giant stylized eye with a hypnotic iris containing a smaller eye, surrounded by black and white swirling patterns, Roman numerals, and floating beetles (derived from generated still #3965).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal Grim Reaper in a hooded robe holds a large pocket watch and a glowing scythe while being pulled forward by three identical -haired archers and a striped dog on ropes. The background features a giant stylized eye with a hypnotic iris containing a smaller eye, surrounded by black and white swirling patterns, Roman numerals, and floating beetles",
+  "inverted_title": "Inverted sketch: Death's Psychedelic Hunt",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal Grim Reaper in a hooded robe holds a large pocket watch and a glowing scythe while being pulled forward by three identical -haired archers and a striped dog on ropes. The background features a giant stylized eye with a hypnotic iris containing a smaller eye, surrounded by black and white swirling patterns, Roman numerals, and floating beetles (from generated still #3965).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal Grim Reaper in a hooded robe holds a large pocket watch and a glowing scythe while being pulled forward by three identical -haired archers and a striped dog on ropes. The background features a giant stylized eye with a hypnotic iris containing a smaller eye, surrounded by black and white swirling patterns, Roman numerals, and floating beetles",
+  "source_description": "A skeletal Grim Reaper in a purple hooded robe holds a large pocket watch and a glowing green scythe while being pulled forward by three identical pink-haired archers and a green striped dog on red ropes. The background features a giant stylized eye with a green hypnotic iris containing a smaller eye, surrounded by black and white swirling patterns, Roman numerals, and floating green beetles.",
+  "source_prompt": "Surreal psychedelic scene of a skeletal Grim Reaper in flowing purple robes holding a large ornate pocket watch and glowing green scythe, being dragged forward by three identical girls with pink hair in green outfits shooting glowing arrows, and a bright green dog with black stripes on red ropes. Massive stylized eye with green swirling hypnotic iris in the center, black and white optical illusion swirls, Roman clock numerals, and floating green beetles, vibrant trippy color palette.",
+  "source_title": "Death's Psychedelic Hunt",
+  "style": "surreal psychedelic",
+  "mood": "chaotic hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "psychedelic",
+    "surreal",
+    "hypnotic eye",
+    "archers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3965,
+  "source_url": "/generated/3965.jpg",
+  "image_url": "/sketches/4545.png",
+  "inverted_image_url": "/sketches-inverted/4545.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:48Z"
+}

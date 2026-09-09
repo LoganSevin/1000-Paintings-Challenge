@@ -1,0 +1,42 @@
+{
+  "number": 2242,
+  "title": "Line sketch: Braided Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a pale woman with closed eyes and long braided hair that flows like a river across a psychedelic landscape. Her braid leads to a transparent hanging chair holding patterned pillows, while a tree of glowing orbs stands nearby beneath a large spiral sun (derived from generated still #1467).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a pale woman with closed eyes and long braided hair that flows like a river across a psychedelic landscape. Her braid leads to a transparent hanging chair holding patterned pillows, while a tree of glowing orbs stands nearby beneath a large spiral sun",
+  "inverted_title": "Inverted sketch: Braided Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a pale woman with closed eyes and long braided hair that flows like a river across a psychedelic landscape. Her braid leads to a transparent hanging chair holding patterned pillows, while a tree of glowing orbs stands nearby beneath a large spiral sun (from generated still #1467).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a pale woman with closed eyes and long braided hair that flows like a river across a psychedelic landscape. Her braid leads to a transparent hanging chair holding patterned pillows, while a tree of glowing orbs stands nearby beneath a large spiral sun",
+  "source_description": "A surreal painting depicts a pale woman with closed eyes and long orange braided hair that flows like a river across a psychedelic landscape. Her braid leads to a transparent hanging chair holding patterned pillows, while a colorful tree of glowing orbs stands nearby beneath a large red spiral sun.",
+  "source_prompt": "",
+  "source_title": "Braided Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman",
+    "braided hair",
+    "psychedelic",
+    "floating chair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1467,
+  "source_url": "/generated/1467.jpg",
+  "image_url": "/sketches/2242.png",
+  "inverted_image_url": "/sketches-inverted/2242.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:43Z"
+}

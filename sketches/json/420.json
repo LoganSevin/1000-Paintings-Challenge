@@ -1,0 +1,21 @@
+{
+  "num": 420,
+  "title": "Painting #503",
+  "created": 1786915924.7440767,
+  "source_url": "/paintings/503.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*172.00 + 3*t*(1 - t)^2*168.00 + 3*t^2*(1 - t)*164.00 + t^3*160.00,(1 - t)^3*143.00 + 3*t*(1 - t)^2*139.33 + 3*t^2*(1 - t)*135.67 + t^3*132.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 503
+  },
+  "preview_url": "/sketches/420.png"
+}

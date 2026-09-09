@@ -1,0 +1,42 @@
+{
+  "number": 1415,
+  "title": "Line sketch: Witch and Candy Altar",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale woman with long flowing hair and skull tattoos sits in the foreground holding a small fox. Behind her rises a large dripping cake-like structure covered in melting candles, skulls, and bones, set against a background filled with repeating deer and bird silhouettes (derived from generated still #630).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale woman with long flowing hair and skull tattoos sits in the foreground holding a small fox. Behind her rises a large dripping cake-like structure covered in melting candles, skulls, and bones, set against a background filled with repeating deer and bird silhouettes",
+  "inverted_title": "Inverted sketch: Witch and Candy Altar",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale woman with long flowing hair and skull tattoos sits in the foreground holding a small fox. Behind her rises a large dripping cake-like structure covered in melting candles, skulls, and bones, set against a background filled with repeating deer and bird silhouettes (from generated still #630).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale woman with long flowing hair and skull tattoos sits in the foreground holding a small fox. Behind her rises a large dripping cake-like structure covered in melting candles, skulls, and bones, set against a background filled with repeating deer and bird silhouettes",
+  "source_description": "A pale woman with long flowing red hair and skull tattoos sits in the foreground holding a small orange fox. Behind her rises a large dripping pink cake-like structure covered in melting candles, skulls, and bones, set against a dark purple background filled with repeating orange deer and bird silhouettes.",
+  "source_prompt": "",
+  "source_title": "Crimson Witch and Candy Altar",
+  "style": "surreal fantasy",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "skulls",
+    "candle cake",
+    "fox",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 630,
+  "source_url": "/generated/630.jpg",
+  "image_url": "/sketches/1415.png",
+  "inverted_image_url": "/sketches-inverted/1415.png",
+  "curve_count": 153,
+  "built_at": "2026-08-17T00:09:41Z"
+}

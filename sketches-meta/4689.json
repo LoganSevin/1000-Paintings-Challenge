@@ -1,0 +1,42 @@
+{
+  "number": 4689,
+  "title": "Line sketch: Podlings in Cryo Chamber",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three stacks of smooth, matte oval pods are arranged on a circular white platform in the foreground. In the background, two small white alien-like figures with horns hang suspended by cables inside a large glowing circular portal or chamber (derived from generated still #4118).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three stacks of smooth, matte oval pods are arranged on a circular white platform in the foreground. In the background, two small white alien-like figures with horns hang suspended by cables inside a large glowing circular portal or chamber",
+  "inverted_title": "Inverted sketch: Podlings in Cryo Chamber",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three stacks of smooth, matte oval pods are arranged on a circular white platform in the foreground. In the background, two small white alien-like figures with horns hang suspended by cables inside a large glowing circular portal or chamber (from generated still #4118).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three stacks of smooth, matte oval pods are arranged on a circular white platform in the foreground. In the background, two small white alien-like figures with horns hang suspended by cables inside a large glowing circular portal or chamber",
+  "source_description": "Three stacks of smooth, matte blue oval pods are arranged on a circular white platform in the foreground. In the background, two small white alien-like figures with horns hang suspended by cables inside a large glowing blue circular portal or chamber.",
+  "source_prompt": "futuristic sci-fi scene with three stacks of smooth matte light-blue oval pods arranged on a circular white platform, varying stack heights, in the background two small white alien creatures with horns and tails hanging from cables inside a large glowing blue circular portal with ethereal blue energy and particles, clean minimalist white architecture, soft volumetric lighting, cool blue color palette, 3D render aesthetic, cinematic composition",
+  "source_title": "Blue Podlings in Cryo Chamber",
+  "style": "3D render",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital 3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sci-fi",
+    "alien",
+    "pods",
+    "futuristic",
+    "installation"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4118,
+  "source_url": "/generated/4118.jpg",
+  "image_url": "/sketches/4689.png",
+  "inverted_image_url": "/sketches-inverted/4689.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:48Z"
+}

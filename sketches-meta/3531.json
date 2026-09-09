@@ -1,0 +1,42 @@
+{
+  "number": 3531,
+  "title": "Line sketch: Serpent and Polluted Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive serpent with open jaws and glowing eye coils in the right foreground beside a winding road with cars. The left foreground features tall wildflowers and rocky terrain. In the sky looms a giant dark planet with nebulae and glow, wrapped in black ethereal bands, while a polluted industrial city billows thick black smoke in the background (derived from generated still #2933).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive serpent with open jaws and glowing eye coils in the right foreground beside a winding road with cars. The left foreground features tall wildflowers and rocky terrain. In the sky looms a giant dark planet with nebulae and glow, wrapped in black ethereal bands, while a polluted industrial city billows thick black smoke in the background",
+  "inverted_title": "Inverted sketch: Serpent and Polluted Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive serpent with open jaws and glowing eye coils in the right foreground beside a winding road with cars. The left foreground features tall wildflowers and rocky terrain. In the sky looms a giant dark planet with nebulae and glow, wrapped in black ethereal bands, while a polluted industrial city billows thick black smoke in the background (from generated still #2933).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive serpent with open jaws and glowing eye coils in the right foreground beside a winding road with cars. The left foreground features tall wildflowers and rocky terrain. In the sky looms a giant dark planet with nebulae and glow, wrapped in black ethereal bands, while a polluted industrial city billows thick black smoke in the background",
+  "source_description": "A massive purple serpent with open jaws and glowing eye coils in the right foreground beside a winding road with cars. The left foreground features tall green wildflowers and rocky terrain. In the sky looms a giant dark planet with colorful nebulae and orange glow, wrapped in black ethereal bands, while a polluted industrial city billows thick black smoke in the background.",
+  "source_prompt": "Surreal fantasy landscape showing a giant purple snake with open mouth and orange eye in the foreground on the right, dramatic dark celestial body with colorful nebula and orange rim surrounded by black swirling energy bands dominating the sky, polluted futuristic city with many smokestacks emitting thick black smoke on the right, winding road with cars leading toward the city, tall green wildflowers and rocky terrain on the left foreground, dramatic cinematic lighting, apocalyptic atmosphere",
+  "source_title": "Serpent and Polluted Eclipse",
+  "style": "surreal fantasy",
+  "mood": "apocalyptic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "serpent",
+    "industrial city",
+    "pollution",
+    "celestial body",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2933,
+  "source_url": "/generated/2933.jpg",
+  "image_url": "/sketches/3531.png",
+  "inverted_image_url": "/sketches-inverted/3531.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:45Z"
+}

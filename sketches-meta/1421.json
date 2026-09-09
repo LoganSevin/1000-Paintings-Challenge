@@ -1,0 +1,42 @@
+{
+  "number": 1421,
+  "title": "Line sketch: Puppy and Serpent Spiral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic retriever puppy sits amid swirling, vibrant foliage and flowers. A large and black serpent coils in a dynamic spiral on the right, contrasting the soft puppy and ethereal smoke below (derived from generated still #636).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic retriever puppy sits amid swirling, vibrant foliage and flowers. A large and black serpent coils in a dynamic spiral on the right, contrasting the soft puppy and ethereal smoke below",
+  "inverted_title": "Inverted sketch: Puppy and Serpent Spiral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic retriever puppy sits amid swirling, vibrant foliage and flowers. A large and black serpent coils in a dynamic spiral on the right, contrasting the soft puppy and ethereal smoke below (from generated still #636).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic retriever puppy sits amid swirling, vibrant foliage and flowers. A large and black serpent coils in a dynamic spiral on the right, contrasting the soft puppy and ethereal smoke below",
+  "source_description": "A realistic golden retriever puppy sits amid swirling, vibrant foliage and flowers. A large red and black serpent coils in a dynamic spiral on the right, contrasting the soft puppy and ethereal smoke below.",
+  "source_prompt": "",
+  "source_title": "Golden Puppy and Serpent Spiral",
+  "style": "fantasy surrealism",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retriever",
+    "puppy",
+    "serpent",
+    "swirling foliage",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 636,
+  "source_url": "/generated/636.jpg",
+  "image_url": "/sketches/1421.png",
+  "inverted_image_url": "/sketches-inverted/1421.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:41Z"
+}

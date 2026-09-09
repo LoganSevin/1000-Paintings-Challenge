@@ -1,0 +1,42 @@
+{
+  "number": 400,
+  "title": "Line sketch: Aurora Over Mountain Valley",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic aurora borealis illuminates the night sky above a series of layered mountain ranges. The foreground features a dense forest and -hued field creating depth in this minimalist landscape (derived from painting #473).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic aurora borealis illuminates the night sky above a series of layered mountain ranges. The foreground features a dense forest and -hued field creating depth in this minimalist landscape",
+  "inverted_title": "Inverted sketch: Aurora Over Mountain Valley",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic aurora borealis illuminates the night sky above a series of layered mountain ranges. The foreground features a dense forest and -hued field creating depth in this minimalist landscape (from painting #473).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic aurora borealis illuminates the night sky above a series of layered mountain ranges. The foreground features a dense forest and -hued field creating depth in this minimalist landscape",
+  "source_description": "A dramatic green aurora borealis illuminates the night sky above a series of layered mountain ranges. The foreground features a dense forest and purple-hued field creating depth in this minimalist landscape.",
+  "source_prompt": "",
+  "source_title": "Aurora Over Mountain Valley",
+  "style": "Minimalist landscape",
+  "mood": "Mysterious serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "aurora",
+    "mountains",
+    "night landscape",
+    "sky",
+    "minimalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 473,
+  "source_url": "/paintings/473.jpg",
+  "image_url": "/sketches/400.png",
+  "inverted_image_url": "/sketches-inverted/400.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

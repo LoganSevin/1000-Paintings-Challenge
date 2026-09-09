@@ -1,0 +1,42 @@
+{
+  "number": 4825,
+  "title": "Line sketch: Ancient Ceramic Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A single ornate ceramic mask with closed eyes and slightly parted lips, featuring a weathered face in earthy tones with flowing and glaze patterns. The top and side edges display bands of ancient script-like symbols against a dark background (derived from generated still #4260).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A single ornate ceramic mask with closed eyes and slightly parted lips, featuring a weathered face in earthy tones with flowing and glaze patterns. The top and side edges display bands of ancient script-like symbols against a dark background",
+  "inverted_title": "Inverted sketch: Ancient Ceramic Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A single ornate ceramic mask with closed eyes and slightly parted lips, featuring a weathered face in earthy tones with flowing and glaze patterns. The top and side edges display bands of ancient script-like symbols against a dark background (from generated still #4260).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A single ornate ceramic mask with closed eyes and slightly parted lips, featuring a weathered face in earthy tones with flowing and glaze patterns. The top and side edges display bands of ancient script-like symbols against a dark background",
+  "source_description": "A single ornate ceramic mask with closed eyes and slightly parted lips, featuring a weathered face in earthy tones with flowing blue and purple glaze patterns. The top and side edges display bands of ancient script-like symbols against a dark background.",
+  "source_prompt": "Highly detailed ancient ceramic mask with closed eyes and serene expression, weathered earthy brown surface with flowing abstract patterns of blue and purple glaze dripping across the cheeks and forehead, golden accents, bands of mysterious ancient script along the top and side borders, realistic ceramic texture with subtle cracks and patina, dramatic studio lighting on dark background",
+  "source_title": "Ancient Ceramic Mask",
+  "style": "ceramic sculpture",
+  "mood": "mysterious, ancient",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "glazed ceramic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ceramic mask",
+    "ancient artifact",
+    "glazed pottery",
+    "glaze",
+    "script border"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4260,
+  "source_url": "/generated/4260.jpg",
+  "image_url": "/sketches/4825.png",
+  "inverted_image_url": "/sketches-inverted/4825.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:49Z"
+}

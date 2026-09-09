@@ -1,0 +1,42 @@
+{
+  "number": 3327,
+  "title": "Line sketch: Cinema Reverie at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a satin blouse sits in a velvet chair inside an ornate room, holding a glowing film reel that unwinds into the air. Through a large open balcony, a surreal cinematic landscape unfolds with a flooded classical colonnade, floating movie screens, and a lone figure standing before a giant glowing screen under a vibrant sunset sky (derived from generated still #2721).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a satin blouse sits in a velvet chair inside an ornate room, holding a glowing film reel that unwinds into the air. Through a large open balcony, a surreal cinematic landscape unfolds with a flooded classical colonnade, floating movie screens, and a lone figure standing before a giant glowing screen under a vibrant sunset sky",
+  "inverted_title": "Inverted sketch: Cinema Reverie at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a satin blouse sits in a velvet chair inside an ornate room, holding a glowing film reel that unwinds into the air. Through a large open balcony, a surreal cinematic landscape unfolds with a flooded classical colonnade, floating movie screens, and a lone figure standing before a giant glowing screen under a vibrant sunset sky (from generated still #2721).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a satin blouse sits in a velvet chair inside an ornate room, holding a glowing film reel that unwinds into the air. Through a large open balcony, a surreal cinematic landscape unfolds with a flooded classical colonnade, floating movie screens, and a lone figure standing before a giant glowing screen under a vibrant sunset sky",
+  "source_description": "A woman in a green satin blouse sits in a red velvet chair inside an ornate room, holding a glowing film reel that unwinds into the air. Through a large open balcony, a surreal cinematic landscape unfolds with a flooded classical colonnade, floating movie screens, and a lone figure standing before a giant glowing screen under a vibrant sunset sky.",
+  "source_prompt": "A woman in an emerald green satin blouse sits relaxed in a luxurious red velvet armchair inside an ornate classical room with blue patterned walls and framed pictures. She holds a large glowing film reel with light trails unwinding from it. Through a grand balcony with ornate railing, a surreal flooded landscape with a Greek temple colonnade partially submerged in still water, multiple floating cinema screens, and a lone silhouetted figure standing before a massive glowing movie screen under a dramatic colorful sunset sky.",
+  "source_title": "Cinema Reverie at Dusk",
+  "style": "cinematic surrealism",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "film reel",
+    "balcony",
+    "twilight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2721,
+  "source_url": "/generated/2721.jpg",
+  "image_url": "/sketches/3327.png",
+  "inverted_image_url": "/sketches-inverted/3327.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:45Z"
+}

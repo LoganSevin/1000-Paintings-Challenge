@@ -1,0 +1,42 @@
+{
+  "number": 3365,
+  "title": "Line sketch: Surreal Dreamscape Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composite surreal composition divided into distinct scenes. Top section shows a futuristic city with boats on reflective water at sunset under a dramatic fabric-like sky; two large snakes coil in the upper right. Bottom left features a dark hooded silhouette with glowing drips against a cosmic background. Center displays a classical still life with flowers, fruit and a glowing lantern. Bottom right shows a close-up of a blonde woman with closed eyes and tears streaming from her mouth, framed by a glowing arc (derived from generated still #2766).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composite surreal composition divided into distinct scenes. Top section shows a futuristic city with boats on reflective water at sunset under a dramatic fabric-like sky; two large snakes coil in the upper right. Bottom left features a dark hooded silhouette with glowing drips against a cosmic background. Center displays a classical still life with flowers, fruit and a glowing lantern. Bottom right shows a close-up of a blonde woman with closed eyes and tears streaming from her mouth, framed by a glowing arc",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composite surreal composition divided into distinct scenes. Top section shows a futuristic city with boats on reflective water at sunset under a dramatic fabric-like sky; two large snakes coil in the upper right. Bottom left features a dark hooded silhouette with glowing drips against a cosmic background. Center displays a classical still life with flowers, fruit and a glowing lantern. Bottom right shows a close-up of a blonde woman with closed eyes and tears streaming from her mouth, framed by a glowing arc (from generated still #2766).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composite surreal composition divided into distinct scenes. Top section shows a futuristic city with boats on reflective water at sunset under a dramatic fabric-like sky; two large snakes coil in the upper right. Bottom left features a dark hooded silhouette with glowing drips against a cosmic background. Center displays a classical still life with flowers, fruit and a glowing lantern. Bottom right shows a close-up of a blonde woman with closed eyes and tears streaming from her mouth, framed by a glowing arc",
+  "source_description": "A composite surreal painting divided into distinct scenes. Top section shows a futuristic city with boats on reflective water at sunset under a dramatic blue fabric-like sky; two large iridescent green snakes coil in the upper right. Bottom left features a dark hooded silhouette with glowing orange drips against a red cosmic background. Center displays a classical still life with flowers, fruit and a glowing lantern. Bottom right shows a close-up of a blonde woman with closed eyes and golden tears streaming from her mouth, framed by a glowing blue arc.",
+  "source_prompt": "Surreal composite painting featuring multiple distinct scenes: a futuristic sunset city with boats on reflective water and dramatic flowing blue fabric sky, two large iridescent green snakes coiled in the mist, a dark hooded silhouette with glowing orange drips against a red cosmic background, a classical floral still life with lantern and fruit, and a close-up of a pale blonde woman with closed eyes and golden tears flowing from her mouth, all blended together in a dreamlike composition with rich painterly textures.",
+  "source_title": "Surreal Dreamscape Collage",
+  "style": "surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "snakes",
+    "futuristic city",
+    "still life"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2766,
+  "source_url": "/generated/2766.jpg",
+  "image_url": "/sketches/3365.png",
+  "inverted_image_url": "/sketches-inverted/3365.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:45Z"
+}

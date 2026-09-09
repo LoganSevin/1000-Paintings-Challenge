@@ -1,0 +1,42 @@
+{
+  "number": 4736,
+  "title": "Line sketch: Parallax Stage - Shift Layer 7",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cinematic fantasy scene depicts an ancient stone stage with massive carved pillars and murals of dancing figures, connected by wooden bridges and platforms over a misty mountain landscape. In the background, two contrasting cities appear under a dramatic night sky with a large glowing full moon (derived from generated still #4166).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cinematic fantasy scene depicts an ancient stone stage with massive carved pillars and murals of dancing figures, connected by wooden bridges and platforms over a misty mountain landscape. In the background, two contrasting cities appear under a dramatic night sky with a large glowing full moon",
+  "inverted_title": "Inverted sketch: Parallax Stage - Shift Layer 7",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cinematic fantasy scene depicts an ancient stone stage with massive carved pillars and murals of dancing figures, connected by wooden bridges and platforms over a misty mountain landscape. In the background, two contrasting cities appear under a dramatic night sky with a large glowing full moon (from generated still #4166).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cinematic fantasy scene depicts an ancient stone stage with massive carved pillars and murals of dancing figures, connected by wooden bridges and platforms over a misty mountain landscape. In the background, two contrasting cities appear under a dramatic night sky with a large glowing full moon",
+  "source_description": "A cinematic fantasy scene depicts an ancient stone stage with massive carved pillars and murals of dancing figures, connected by wooden bridges and platforms over a misty mountain landscape. In the background, two contrasting cities appear under a dramatic purple night sky with a large glowing full moon.",
+  "source_prompt": "A vast fantasy parallax stage built on a mountainside with ancient carved stone pillars and murals showing silhouetted dancers, connected by wooden walkways and platforms, overlooking a deep valley with two distant cities under a swirling purple twilight sky and a large luminous moon, moody atmospheric lighting, detailed digital concept art",
+  "source_title": "Parallax Stage - Shift Layer 7",
+  "style": "concept art",
+  "mood": "mysterious epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "ancient ruins",
+    "mountain city",
+    "moonlit sky",
+    "parallax stage"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4166,
+  "source_url": "/generated/4166.jpg",
+  "image_url": "/sketches/4736.png",
+  "inverted_image_url": "/sketches-inverted/4736.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

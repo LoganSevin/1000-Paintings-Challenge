@@ -1,0 +1,42 @@
+{
+  "number": 698,
+  "title": "Line sketch: Smoky Industrial Nightscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic monochrome scene depicts a hillside industrial complex with pagoda-style buildings belching thick black smoke into the cloudy night sky. A bright full moon illuminates the ominous clouds above the dark silhouettes of factories and fences (derived from painting #882).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic monochrome scene depicts a hillside industrial complex with pagoda-style buildings belching thick black smoke into the cloudy night sky. A bright full moon illuminates the ominous clouds above the dark silhouettes of factories and fences",
+  "inverted_title": "Inverted sketch: Smoky Industrial Nightscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic monochrome scene depicts a hillside industrial complex with pagoda-style buildings belching thick black smoke into the cloudy night sky. A bright full moon illuminates the ominous clouds above the dark silhouettes of factories and fences (from painting #882).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic monochrome scene depicts a hillside industrial complex with pagoda-style buildings belching thick black smoke into the cloudy night sky. A bright full moon illuminates the ominous clouds above the dark silhouettes of factories and fences",
+  "source_description": "A dramatic monochrome scene depicts a hillside industrial complex with pagoda-style buildings belching thick black smoke into the cloudy night sky. A bright full moon illuminates the ominous clouds above the dark silhouettes of factories and fences.",
+  "source_prompt": "",
+  "source_title": "Smoky Industrial Nightscape",
+  "style": "Realism",
+  "mood": "Ominous and atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Charcoal drawing",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "industrial",
+    "smokestacks",
+    "night scene",
+    "pollution",
+    "dramatic clouds"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 882,
+  "source_url": "/paintings/882.jpg",
+  "image_url": "/sketches/698.png",
+  "inverted_image_url": "/sketches-inverted/698.png",
+  "curve_count": 324,
+  "built_at": "2026-08-17T00:09:39Z"
+}

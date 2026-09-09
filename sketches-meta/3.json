@@ -1,0 +1,42 @@
+{
+  "number": 3,
+  "title": "Line sketch: Swirling Dual Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The composition depicts two large interlocking spirals with dynamic, sweeping that create a sense of fluid motion. Composition is symmetrical yet energetic, using layered curves of, and against white negative space. Visible gestural technique emphasizes rhythm and movement through thick, expressive paint application (derived from painting #5).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The composition depicts two large interlocking spirals with dynamic, sweeping that create a sense of fluid motion. Composition is symmetrical yet energetic, using layered curves of, and against white negative space. Visible gestural technique emphasizes rhythm and movement through thick, expressive paint application",
+  "inverted_title": "Inverted sketch: Swirling Dual Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The composition depicts two large interlocking spirals with dynamic, sweeping that create a sense of fluid motion. Composition is symmetrical yet energetic, using layered curves of, and against white negative space. Visible gestural technique emphasizes rhythm and movement through thick, expressive paint application (from painting #5).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The composition depicts two large interlocking spirals with dynamic, sweeping that create a sense of fluid motion. Composition is symmetrical yet energetic, using layered curves of, and against white negative space. Visible gestural technique emphasizes rhythm and movement through thick, expressive paint application",
+  "source_description": "The painting depicts two large interlocking spirals with dynamic, sweeping brushstrokes that create a sense of fluid motion. Composition is symmetrical yet energetic, using layered curves of purple, pink, and blue against white negative space. Visible gestural technique emphasizes rhythm and movement through thick, expressive paint application.",
+  "source_prompt": "",
+  "source_title": "Swirling Dual Vortex",
+  "style": "Abstract Expressionism",
+  "mood": "Dynamic Vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "swirls",
+    "spirals",
+    "fluid",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 5,
+  "source_url": "/paintings/5.jpg",
+  "image_url": "/sketches/3.png",
+  "inverted_image_url": "/sketches-inverted/3.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

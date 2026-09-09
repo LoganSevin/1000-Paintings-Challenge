@@ -1,0 +1,42 @@
+{
+  "number": 4508,
+  "title": "Line sketch: Mystic Alchemist in Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with and braided hair wearing an ornate headdress and white robes stands at a wooden table performing magic. She holds smoke in her hands while surrounded by alchemical tools, scrolls, potion bottles, scales, an open book, and hanging glass orbs in a warmly lit study with mystical paintings on the walls (derived from generated still #3928).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with and braided hair wearing an ornate headdress and white robes stands at a wooden table performing magic. She holds smoke in her hands while surrounded by alchemical tools, scrolls, potion bottles, scales, an open book, and hanging glass orbs in a warmly lit study with mystical paintings on the walls",
+  "inverted_title": "Inverted sketch: Mystic Alchemist in Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with and braided hair wearing an ornate headdress and white robes stands at a wooden table performing magic. She holds smoke in her hands while surrounded by alchemical tools, scrolls, potion bottles, scales, an open book, and hanging glass orbs in a warmly lit study with mystical paintings on the walls (from generated still #3928).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with and braided hair wearing an ornate headdress and white robes stands at a wooden table performing magic. She holds smoke in her hands while surrounded by alchemical tools, scrolls, potion bottles, scales, an open book, and hanging glass orbs in a warmly lit study with mystical paintings on the walls",
+  "source_description": "A woman with blue and purple braided hair wearing an ornate golden headdress and white robes stands at a wooden table performing magic. She holds green smoke in her hands while surrounded by alchemical tools, scrolls, potion bottles, scales, an open book, and hanging glass orbs in a warmly lit study with mystical paintings on the walls.",
+  "source_prompt": "A mystical female alchemist with intricate blue and purple braids and a golden swirling headdress stands in her study, conjuring green magical smoke between her hands. She wears flowing white robes. The wooden table before her is covered with scrolls, an open spellbook, scales, glowing potion bottles, and a bowl of golden runes. Colorful glass orbs hang from the ceiling. Behind her is a large colorful painting of a serpent and flames. Warm light streams through an arched window, creating an atmosphere of arcane study and magic.",
+  "source_title": "Mystic Alchemist in Study",
+  "style": "fantasy illustration",
+  "mood": "mystical, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "magic",
+    "fantasy",
+    "wizard",
+    "studio"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3928,
+  "source_url": "/generated/3928.jpg",
+  "image_url": "/sketches/4508.png",
+  "inverted_image_url": "/sketches-inverted/4508.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:48Z"
+}

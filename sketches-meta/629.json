@@ -1,0 +1,42 @@
+{
+  "number": 629,
+  "title": "Line sketch: Layered Coastal Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This composition depicts serene ocean waves in a simplified, horizontal layered style. sands and waters create a calm, stylized seascape with gentle undulating forms (derived from painting #803).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This composition depicts serene ocean waves in a simplified, horizontal layered style. sands and waters create a calm, stylized seascape with gentle undulating forms",
+  "inverted_title": "Inverted sketch: Layered Coastal Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This composition depicts serene ocean waves in a simplified, horizontal layered style. sands and waters create a calm, stylized seascape with gentle undulating forms (from painting #803).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This composition depicts serene ocean waves in a simplified, horizontal layered style. sands and waters create a calm, stylized seascape with gentle undulating forms",
+  "source_description": "This painting depicts serene ocean waves in a simplified, horizontal layered style. Soft yellow sands and turquoise waters create a calm, stylized seascape with gentle undulating forms.",
+  "source_prompt": "",
+  "source_title": "Layered Coastal Abstraction",
+  "style": "Abstract",
+  "mood": "Calm and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "seascape",
+    "ocean waves",
+    "abstract landscape",
+    "coastal art",
+    "minimalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 803,
+  "source_url": "/paintings/803.jpg",
+  "image_url": "/sketches/629.png",
+  "inverted_image_url": "/sketches-inverted/629.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:39Z"
+}

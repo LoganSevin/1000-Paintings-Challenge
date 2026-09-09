@@ -1,0 +1,42 @@
+{
+  "number": 2848,
+  "title": "Line sketch: Rusted Zeppelin Over Gothic City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, rusted oval airship with riveted metal plating and dangling cables hovers above a dark, intricate gothic cityscape. In the foreground, a lone cloaked figure stands on a metal platform overlooking the scene under a large full moon in a twilight sky (derived from generated still #2133).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, rusted oval airship with riveted metal plating and dangling cables hovers above a dark, intricate gothic cityscape. In the foreground, a lone cloaked figure stands on a metal platform overlooking the scene under a large full moon in a twilight sky",
+  "inverted_title": "Inverted sketch: Rusted Zeppelin Over Gothic City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, rusted oval airship with riveted metal plating and dangling cables hovers above a dark, intricate gothic cityscape. In the foreground, a lone cloaked figure stands on a metal platform overlooking the scene under a large full moon in a twilight sky (from generated still #2133).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, rusted oval airship with riveted metal plating and dangling cables hovers above a dark, intricate gothic cityscape. In the foreground, a lone cloaked figure stands on a metal platform overlooking the scene under a large full moon in a twilight sky",
+  "source_description": "A massive, rusted green oval airship with riveted metal plating and dangling cables hovers above a dark, intricate gothic cityscape. In the foreground, a lone cloaked figure stands on a metal platform overlooking the scene under a large full moon in a twilight sky.",
+  "source_prompt": "A colossal rusted green oval steampunk airship with heavy metal plating, rivets, and dangling cables hovers on a thick support tower above a sprawling intricate gothic city with countless spires. A solitary cloaked figure in a flowing cape stands on an observation platform in the foreground, back to viewer. Dramatic twilight sky with a giant luminous full moon, orange sunset glow on the horizon, dark stormy clouds above, cinematic atmosphere, highly detailed digital painting",
+  "source_title": "Rusted Zeppelin Over Gothic City",
+  "style": "steampunk surrealism",
+  "mood": "melancholy, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "gothic city",
+    "airship",
+    "full moon",
+    "dystopian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2133,
+  "source_url": "/generated/2133.jpg",
+  "image_url": "/sketches/2848.png",
+  "inverted_image_url": "/sketches-inverted/2848.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:44Z"
+}

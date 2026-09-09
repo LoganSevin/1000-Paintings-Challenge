@@ -1,0 +1,42 @@
+{
+  "number": 3208,
+  "title": "Line sketch: Chromatic Wanderer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with and skin, her face partially melting with dripping paint. Two vibrant and starburst splashes float beside her against a rolling hills landscape under a dramatic and sunset sky (derived from generated still #2558).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with and skin, her face partially melting with dripping paint. Two vibrant and starburst splashes float beside her against a rolling hills landscape under a dramatic and sunset sky",
+  "inverted_title": "Inverted sketch: Chromatic Wanderer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with and skin, her face partially melting with dripping paint. Two vibrant and starburst splashes float beside her against a rolling hills landscape under a dramatic and sunset sky (from generated still #2558).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with and skin, her face partially melting with dripping paint. Two vibrant and starburst splashes float beside her against a rolling hills landscape under a dramatic and sunset sky",
+  "source_description": "A surreal portrait of a woman with blue and orange skin, her face partially melting with dripping paint. Two vibrant blue and yellow starburst splashes float beside her against a rolling golden hills landscape under a dramatic purple and orange sunset sky.",
+  "source_prompt": "surreal portrait of a woman with blue and orange skin tones, colorful paint dripping down her face and neck, glowing yellow eye, two large exploding starburst splashes in bright blue, green and yellow floating nearby, set in a vast landscape of rolling golden hills under a dramatic purple and orange twilight sky, painterly style with visible brushwork and splatter effects",
+  "source_title": "Chromatic Wanderer",
+  "style": "surrealism",
+  "mood": "ethereal melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portrait",
+    "melting",
+    "starburst",
+    "hills"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2558,
+  "source_url": "/generated/2558.jpg",
+  "image_url": "/sketches/3208.png",
+  "inverted_image_url": "/sketches-inverted/3208.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

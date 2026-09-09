@@ -1,0 +1,42 @@
+{
+  "number": 2409,
+  "title": "Line sketch: Muted Murmurs Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with dark hair in a bun stands in profile facing a large mirror leaning against an brick wall. Her hands are pressed against the mirror surface, which reflects her face and hands marked with handprints (derived from generated still #1641).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with dark hair in a bun stands in profile facing a large mirror leaning against an brick wall. Her hands are pressed against the mirror surface, which reflects her face and hands marked with handprints",
+  "inverted_title": "Inverted sketch: Muted Murmurs Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with dark hair in a bun stands in profile facing a large mirror leaning against an brick wall. Her hands are pressed against the mirror surface, which reflects her face and hands marked with handprints (from generated still #1641).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with dark hair in a bun stands in profile facing a large mirror leaning against an brick wall. Her hands are pressed against the mirror surface, which reflects her face and hands marked with handprints",
+  "source_description": "A woman with dark hair in a bun stands in profile facing a large mirror leaning against an orange brick wall. Her hands are pressed against the mirror surface, which reflects her face and hands marked with orange handprints.",
+  "source_prompt": "",
+  "source_title": "Muted Murmurs Reflection",
+  "style": "realistic composition",
+  "mood": "introspective, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "mirror",
+    "reflection",
+    "brick wall",
+    "handprints"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1641,
+  "source_url": "/generated/1641.jpg",
+  "image_url": "/sketches/2409.png",
+  "inverted_image_url": "/sketches-inverted/2409.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:43Z"
+}

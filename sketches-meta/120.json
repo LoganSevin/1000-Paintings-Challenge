@@ -1,0 +1,42 @@
+{
+  "number": 120,
+  "title": "Line sketch: Vibrant Bubble Cluster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts a dense field of overlapping translucent bubbles in varying sizes, rendered, and against a background. Composition fills the frame with dynamic layering and scattered highlights to suggest depth and movement. Glossy reflections and soft gradients indicate a smooth, polished technique typical of digital illustration (derived from painting #156).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts a dense field of overlapping translucent bubbles in varying sizes, rendered, and against a background. Composition fills the frame with dynamic layering and scattered highlights to suggest depth and movement. Glossy reflections and soft gradients indicate a smooth, polished technique typical of digital illustration",
+  "inverted_title": "Inverted sketch: Vibrant Bubble Cluster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts a dense field of overlapping translucent bubbles in varying sizes, rendered, and against a background. Composition fills the frame with dynamic layering and scattered highlights to suggest depth and movement. Glossy reflections and soft gradients indicate a smooth, polished technique typical of digital illustration (from painting #156).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts a dense field of overlapping translucent bubbles in varying sizes, rendered, and against a background. Composition fills the frame with dynamic layering and scattered highlights to suggest depth and movement. Glossy reflections and soft gradients indicate a smooth, polished technique typical of digital illustration",
+  "source_description": "The artwork depicts a dense field of overlapping translucent bubbles in varying sizes, rendered in shades of pink, red, and teal against a deep blue background. Composition fills the frame with dynamic layering and scattered highlights to suggest depth and movement. Glossy reflections and soft gradients indicate a smooth, polished technique typical of digital illustration.",
+  "source_prompt": "",
+  "source_title": "Vibrant Bubble Cluster",
+  "style": "abstract",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bubbles",
+    "abstract",
+    "pattern",
+    "spheres",
+    "glossy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 156,
+  "source_url": "/paintings/156.jpg",
+  "image_url": "/sketches/120.png",
+  "inverted_image_url": "/sketches-inverted/120.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

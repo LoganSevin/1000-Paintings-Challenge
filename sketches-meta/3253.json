@@ -1,0 +1,42 @@
+{
+  "number": 3253,
+  "title": "Line sketch: Cosmic Ladybug Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive surreal ladybug-like creature with a single large eye and two smaller white eyes stands in shallow water. Floating white letter tiles spelling variations of '0', '1', 'L', 'O', 'R', 'D', 'E' drift around it against a dramatic twilight sky with swirling clouds and distant mountains (derived from generated still #2621).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive surreal ladybug-like creature with a single large eye and two smaller white eyes stands in shallow water. Floating white letter tiles spelling variations of '0', '1', 'L', 'O', 'R', 'D', 'E' drift around it against a dramatic twilight sky with swirling clouds and distant mountains",
+  "inverted_title": "Inverted sketch: Cosmic Ladybug Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive surreal ladybug-like creature with a single large eye and two smaller white eyes stands in shallow water. Floating white letter tiles spelling variations of '0', '1', 'L', 'O', 'R', 'D', 'E' drift around it against a dramatic twilight sky with swirling clouds and distant mountains (from generated still #2621).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive surreal ladybug-like creature with a single large eye and two smaller white eyes stands in shallow water. Floating white letter tiles spelling variations of '0', '1', 'L', 'O', 'R', 'D', 'E' drift around it against a dramatic twilight sky with swirling clouds and distant mountains",
+  "source_description": "A massive surreal ladybug-like creature with a single large red eye and two smaller white eyes stands in shallow water. Floating white letter tiles spelling variations of '0', '1', 'L', 'O', 'R', 'D', 'E' drift around it against a dramatic twilight sky with swirling clouds and distant mountains.",
+  "source_prompt": "A giant surreal monstrous ladybug creature with a glossy red shell covered in white spots, a huge central glowing red eye, and two smaller white eyes stands in a shallow reflective pool of water in a misty field. Its body is dark and spiky with purple glowing elements. White floating tiles with letters O R D L E 1 0 drift around it. Dramatic twilight sky with swirling clouds, stars, and distant mountains in the background, painted in a dark fantasy style with visible brush strokes.",
+  "source_title": "Cosmic Ladybug Entity",
+  "style": "surreal fantasy composition",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "ladybug monster",
+    "cosmic horror",
+    "floating letters",
+    "twilight landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2621,
+  "source_url": "/generated/2621.jpg",
+  "image_url": "/sketches/3253.png",
+  "inverted_image_url": "/sketches-inverted/3253.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

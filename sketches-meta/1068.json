@@ -1,0 +1,42 @@
+{
+  "number": 1068,
+  "title": "Line sketch: Vibrant River Cityscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized composition of a futuristic city skyline at sunset, reflected in a winding river that flows through a foreground of and fields. The sky is filled with swirling and clouds, floating luminous orbs, and shooting stars (derived from generated still #280).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized composition of a futuristic city skyline at sunset, reflected in a winding river that flows through a foreground of and fields. The sky is filled with swirling and clouds, floating luminous orbs, and shooting stars",
+  "inverted_title": "Inverted sketch: Vibrant River Cityscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized composition of a futuristic city skyline at sunset, reflected in a winding river that flows through a foreground of and fields. The sky is filled with swirling and clouds, floating luminous orbs, and shooting stars (from generated still #280).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized composition of a futuristic city skyline at sunset, reflected in a winding river that flows through a foreground of and fields. The sky is filled with swirling and clouds, floating luminous orbs, and shooting stars",
+  "source_description": "A stylized painting of a futuristic green city skyline at sunset, reflected in a winding river that flows through a colorful foreground of yellow and green fields. The sky is filled with swirling pink and orange clouds, floating luminous orbs, and shooting stars.",
+  "source_prompt": "",
+  "source_title": "Vibrant River Cityscape",
+  "style": "Expressionistic landscape",
+  "mood": "Whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic or oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "river",
+    "sunset",
+    "fantasy",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 280,
+  "source_url": "/generated/280.jpg",
+  "image_url": "/sketches/1068.png",
+  "inverted_image_url": "/sketches-inverted/1068.png",
+  "curve_count": 51,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4791,
+  "title": "Line sketch: Melting Teacup Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant white teacup tilts in a vast grassy field, pouring a glowing liquid that forms a river toward the foreground. Rows of empty chairs and tables are arranged on both sides under a twilight sky, framed within a cracked, weathered oval wooden border resembling an old television screen with moss and peeling paint (derived from generated still #4225).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant white teacup tilts in a vast grassy field, pouring a glowing liquid that forms a river toward the foreground. Rows of empty chairs and tables are arranged on both sides under a twilight sky, framed within a cracked, weathered oval wooden border resembling an old television screen with moss and peeling paint",
+  "inverted_title": "Inverted sketch: Melting Teacup Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant white teacup tilts in a vast grassy field, pouring a glowing liquid that forms a river toward the foreground. Rows of empty chairs and tables are arranged on both sides under a twilight sky, framed within a cracked, weathered oval wooden border resembling an old television screen with moss and peeling paint (from generated still #4225).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant white teacup tilts in a vast grassy field, pouring a glowing liquid that forms a river toward the foreground. Rows of empty chairs and tables are arranged on both sides under a twilight sky, framed within a cracked, weathered oval wooden border resembling an old television screen with moss and peeling paint",
+  "source_description": "A giant white teacup tilts in a vast grassy field, pouring a glowing orange liquid that forms a river toward the foreground. Rows of empty red chairs and tables are arranged on both sides under a twilight sky, framed within a cracked, weathered oval wooden border resembling an old television screen with moss and peeling paint.",
+  "source_prompt": "Surreal scene of a giant cracked white teacup tilted on its side in the middle of a vast grassy field at twilight, pouring glowing molten orange liquid that flows like a river between hundreds of empty red chairs and tables arranged in neat rows, small glowing orbs and flowers scattered around, dramatic purple and teal sky with falling sparks, the entire image contained within a thick weathered wooden oval frame that looks like an old broken television screen with moss and peeling paint on the edges",
+  "source_title": "Melting Teacup Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "teacup",
+    "twilight",
+    "abandoned",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4225,
+  "source_url": "/generated/4225.jpg",
+  "image_url": "/sketches/4791.png",
+  "inverted_image_url": "/sketches-inverted/4791.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:49Z"
+}

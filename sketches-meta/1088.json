@@ -1,0 +1,42 @@
+{
+  "number": 1088,
+  "title": "Line sketch: Cosmic Cthulhu Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal octopus-like creature with sharp teeth and a single large eye containing a small dog wearing a flower crown. The monster has multiple tentacles holding a book labeled 'GOOD DOG', a skull flower, and a lollipop, set against a starry cosmic background with large flowers and a reflective surface below (derived from generated still #300).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal octopus-like creature with sharp teeth and a single large eye containing a small dog wearing a flower crown. The monster has multiple tentacles holding a book labeled 'GOOD DOG', a skull flower, and a lollipop, set against a starry cosmic background with large flowers and a reflective surface below",
+  "inverted_title": "Inverted sketch: Cosmic Cthulhu Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal octopus-like creature with sharp teeth and a single large eye containing a small dog wearing a flower crown. The monster has multiple tentacles holding a book labeled 'GOOD DOG', a skull flower, and a lollipop, set against a starry cosmic background with large flowers and a reflective surface below (from generated still #300).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal octopus-like creature with sharp teeth and a single large eye containing a small dog wearing a flower crown. The monster has multiple tentacles holding a book labeled 'GOOD DOG', a skull flower, and a lollipop, set against a starry cosmic background with large flowers and a reflective surface below",
+  "source_description": "A surreal green octopus-like creature with sharp teeth and a single large eye containing a small dog wearing a flower crown. The monster has multiple tentacles holding a book labeled 'GOOD DOG', a skull flower, and a lollipop, set against a starry cosmic background with large magenta flowers and a reflective surface below.",
+  "source_prompt": "",
+  "source_title": "Cosmic Cthulhu Dog",
+  "style": "surreal digital art",
+  "mood": "whimsical horror",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cthulhu",
+    "octopus monster",
+    "cosmic horror",
+    "psychedelic",
+    "dog"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 300,
+  "source_url": "/generated/300.jpg",
+  "image_url": "/sketches/1088.png",
+  "inverted_image_url": "/sketches-inverted/1088.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:40Z"
+}

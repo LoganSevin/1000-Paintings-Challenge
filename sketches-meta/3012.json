@@ -1,0 +1,42 @@
+{
+  "number": 3012,
+  "title": "Line sketch: Chess in Surreal Garden",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young man in a vibrant patterned suit crouches over a glowing, futuristic chessboard set on a cracked floor. He is carefully placing a luminous pawn among large and flowers, tubes, and floating spheres in a surreal, dilapidated hall (derived from generated still #2334).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young man in a vibrant patterned suit crouches over a glowing, futuristic chessboard set on a cracked floor. He is carefully placing a luminous pawn among large and flowers, tubes, and floating spheres in a surreal, dilapidated hall",
+  "inverted_title": "Inverted sketch: Chess in Surreal Garden",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young man in a vibrant patterned suit crouches over a glowing, futuristic chessboard set on a cracked floor. He is carefully placing a luminous pawn among large and flowers, tubes, and floating spheres in a surreal, dilapidated hall (from generated still #2334).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young man in a vibrant patterned suit crouches over a glowing, futuristic chessboard set on a cracked floor. He is carefully placing a luminous pawn among large and flowers, tubes, and floating spheres in a surreal, dilapidated hall",
+  "source_description": "A young man in a vibrant blue patterned suit crouches over a glowing, futuristic chessboard set on a cracked floor. He is carefully placing a luminous blue pawn among large pink and yellow flowers, neon tubes, and floating colorful spheres in a surreal, dilapidated hall.",
+  "source_prompt": "A young man with dark hair wearing a dark blue patterned suit and colorful pants crouches low while playing chess, carefully moving a glowing blue piece on a futuristic chessboard that floats above a cracked floor. The scene is filled with oversized pink and yellow flowers, glowing neon tubes in purple and blue, and floating colorful spheres in a surreal dilapidated hall with classical arches, vibrant psychedelic colors, highly detailed digital painting",
+  "source_title": "Neon Chess in Surreal Garden",
+  "style": "surreal digital art",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "chess",
+    "futuristic",
+    "floral",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2334,
+  "source_url": "/generated/2334.jpg",
+  "image_url": "/sketches/3012.png",
+  "inverted_image_url": "/sketches-inverted/3012.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:44Z"
+}

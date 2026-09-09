@@ -1,0 +1,42 @@
+{
+  "number": 1190,
+  "title": "Line sketch: Psychedelic Storm Goddess",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman with glowing eyes and leafy hair, set against a dramatic stormy sky with lightning., and liquids drip from the dark clouds while a glass bong swirls with smoke in the upper right, and white vapor emanates from her mouth (derived from generated still #402).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman with glowing eyes and leafy hair, set against a dramatic stormy sky with lightning., and liquids drip from the dark clouds while a glass bong swirls with smoke in the upper right, and white vapor emanates from her mouth",
+  "inverted_title": "Inverted sketch: Psychedelic Storm Goddess",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman with glowing eyes and leafy hair, set against a dramatic stormy sky with lightning., and liquids drip from the dark clouds while a glass bong swirls with smoke in the upper right, and white vapor emanates from her mouth (from generated still #402).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman with glowing eyes and leafy hair, set against a dramatic stormy sky with lightning., and liquids drip from the dark clouds while a glass bong swirls with smoke in the upper right, and white vapor emanates from her mouth",
+  "source_description": "A surreal portrait of a blue-skinned woman with glowing yellow eyes and green leafy hair, set against a dramatic stormy sky with lightning. Red, purple, and green liquids drip from the dark clouds while a glass bong swirls with smoke in the upper right, and white vapor emanates from her mouth.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Storm Goddess",
+  "style": "surreal psychedelic",
+  "mood": "trippy chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "storm",
+    "dripping liquid",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 402,
+  "source_url": "/generated/402.jpg",
+  "image_url": "/sketches/1190.png",
+  "inverted_image_url": "/sketches-inverted/1190.png",
+  "curve_count": 143,
+  "built_at": "2026-08-17T00:09:40Z"
+}

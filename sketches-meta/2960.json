@@ -1,0 +1,42 @@
+{
+  "number": 2960,
+  "title": "Line sketch: Melody from the Grand Piano",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark grand piano with its lid open sits in a shadowy room, illuminated by a faint warm glow from within. Swirling streams of ethereal, and musical notes and ribbons flow outward from the piano, cascading across the foreground in luminous, fluid patterns (derived from generated still #2278).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark grand piano with its lid open sits in a shadowy room, illuminated by a faint warm glow from within. Swirling streams of ethereal, and musical notes and ribbons flow outward from the piano, cascading across the foreground in luminous, fluid patterns",
+  "inverted_title": "Inverted sketch: Melody from the Grand Piano",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark grand piano with its lid open sits in a shadowy room, illuminated by a faint warm glow from within. Swirling streams of ethereal, and musical notes and ribbons flow outward from the piano, cascading across the foreground in luminous, fluid patterns (from generated still #2278).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark grand piano with its lid open sits in a shadowy room, illuminated by a faint warm glow from within. Swirling streams of ethereal, and musical notes and ribbons flow outward from the piano, cascading across the foreground in luminous, fluid patterns",
+  "source_description": "A dark grand piano with its lid open sits in a shadowy room, illuminated by a faint warm glow from within. Swirling streams of ethereal purple, pink, and gold musical notes and ribbons flow outward from the piano, cascading across the foreground in luminous, fluid patterns.",
+  "source_prompt": "A dark grand piano with its lid raised stands in a dimly lit room with deep blue and black shadows. From inside the piano, glowing streams of purple, magenta, and gold musical notes and ribbon-like swirls pour out in elegant flowing patterns, cascading toward the foreground. Painterly style with visible brushstrokes, dramatic lighting, mysterious and melancholic atmosphere.",
+  "source_title": "Melody from the Grand Piano",
+  "style": "painterly",
+  "mood": "ethereal, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grand piano",
+    "musical notes",
+    "surreal",
+    "ethereal",
+    "dark atmosphere"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2278,
+  "source_url": "/generated/2278.jpg",
+  "image_url": "/sketches/2960.png",
+  "inverted_image_url": "/sketches-inverted/2960.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:44Z"
+}

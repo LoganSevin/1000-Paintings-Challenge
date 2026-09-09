@@ -1,0 +1,42 @@
+{
+  "number": 3181,
+  "title": "Line sketch: Level 4 Containment",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an jumpsuit climbs a metal staircase while carrying a glowing device, surrounded by flooded industrial ruins. The scene features a large mural of classical figures on the decaying wall, floating film reels, a submerged armchair, and a glowing sign reading 'LEVEL 4 - CONTAINMENT' (derived from generated still #2527).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an jumpsuit climbs a metal staircase while carrying a glowing device, surrounded by flooded industrial ruins. The scene features a large mural of classical figures on the decaying wall, floating film reels, a submerged armchair, and a glowing sign reading 'LEVEL 4 - CONTAINMENT'",
+  "inverted_title": "Inverted sketch: Level 4 Containment",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an jumpsuit climbs a metal staircase while carrying a glowing device, surrounded by flooded industrial ruins. The scene features a large mural of classical figures on the decaying wall, floating film reels, a submerged armchair, and a glowing sign reading 'LEVEL 4 - CONTAINMENT' (from generated still #2527).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an jumpsuit climbs a metal staircase while carrying a glowing device, surrounded by flooded industrial ruins. The scene features a large mural of classical figures on the decaying wall, floating film reels, a submerged armchair, and a glowing sign reading 'LEVEL 4 - CONTAINMENT'",
+  "source_description": "A woman in an orange jumpsuit climbs a metal staircase while carrying a glowing device, surrounded by flooded industrial ruins. The scene features a large colorful mural of classical figures on the decaying wall, floating film reels, a submerged red armchair, and a glowing red sign reading 'LEVEL 4 - CONTAINMENT'.",
+  "source_prompt": "A lone woman in an orange prison jumpsuit ascends a flooded metal staircase inside a decaying industrial containment facility, carrying a glowing teal device. A massive colorful classical mural with angels and figures covers the crumbling wall behind her. Dark water fills the lower level with a red armchair and scattered film reels floating. Red neon sign reads LEVEL 4 - CONTAINMENT. Cinematic lighting, atmospheric and moody, detailed digital painting.",
+  "source_title": "Level 4 Containment",
+  "style": "cinematic",
+  "mood": "tense dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dystopian",
+    "flooded facility",
+    "mural",
+    "staircase",
+    "containment"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2527,
+  "source_url": "/generated/2527.jpg",
+  "image_url": "/sketches/3181.png",
+  "inverted_image_url": "/sketches-inverted/3181.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:45Z"
+}

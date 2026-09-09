@@ -1,0 +1,42 @@
+{
+  "number": 3404,
+  "title": "Line sketch: Mushroom Overlord Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal bioluminescent mushroom with a glowing core and gills dominates a stormy fantasy landscape, raining droplets. Below, a large multi-eyed creature with tentacle-like appendages stands on a vibrant hillside overlooking a lake with boats, a pagoda, and lightning-filled skies (derived from generated still #2805).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal bioluminescent mushroom with a glowing core and gills dominates a stormy fantasy landscape, raining droplets. Below, a large multi-eyed creature with tentacle-like appendages stands on a vibrant hillside overlooking a lake with boats, a pagoda, and lightning-filled skies",
+  "inverted_title": "Inverted sketch: Mushroom Overlord Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal bioluminescent mushroom with a glowing core and gills dominates a stormy fantasy landscape, raining droplets. Below, a large multi-eyed creature with tentacle-like appendages stands on a vibrant hillside overlooking a lake with boats, a pagoda, and lightning-filled skies (from generated still #2805).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal bioluminescent mushroom with a glowing core and gills dominates a stormy fantasy landscape, raining droplets. Below, a large multi-eyed creature with tentacle-like appendages stands on a vibrant hillside overlooking a lake with boats, a pagoda, and lightning-filled skies",
+  "source_description": "A colossal bioluminescent mushroom with a glowing yellow core and pink gills dominates a stormy fantasy landscape, raining pink droplets. Below, a large blue multi-eyed creature with tentacle-like appendages stands on a vibrant hillside overlooking a lake with boats, a pagoda, and lightning-filled skies.",
+  "source_prompt": "",
+  "source_title": "Mushroom Overlord Storm",
+  "style": "fantasy surrealism",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "fantasy creature",
+    "storm",
+    "bioluminescent",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2805,
+  "source_url": "/generated/2805.jpg",
+  "image_url": "/sketches/3404.png",
+  "inverted_image_url": "/sketches-inverted/3404.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:45Z"
+}

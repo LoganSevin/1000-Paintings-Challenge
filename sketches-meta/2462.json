@@ -1,0 +1,42 @@
+{
+  "number": 2462,
+  "title": "Line sketch: Next Thursday",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted artwork features a dark twisted tree with a large eye and beak resembling a bird, intertwined with flowers, and grapes, and vibrant dripping paint. The background shows concentric glowing circles in and with a sun or moon, while bright paint drips cascade downward from the central composition (derived from generated still #1697).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted artwork features a dark twisted tree with a large eye and beak resembling a bird, intertwined with flowers, and grapes, and vibrant dripping paint. The background shows concentric glowing circles in and with a sun or moon, while bright paint drips cascade downward from the central composition",
+  "inverted_title": "Inverted sketch: Next Thursday",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted artwork features a dark twisted tree with a large eye and beak resembling a bird, intertwined with flowers, and grapes, and vibrant dripping paint. The background shows concentric glowing circles in and with a sun or moon, while bright paint drips cascade downward from the central composition (from generated still #1697).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted artwork features a dark twisted tree with a large eye and beak resembling a bird, intertwined with flowers, and grapes, and vibrant dripping paint. The background shows concentric glowing circles in and with a sun or moon, while bright paint drips cascade downward from the central composition",
+  "source_description": "A surreal painted artwork features a dark twisted tree with a large yellow eye and beak resembling a bird, intertwined with colorful flowers, red and green grapes, and vibrant dripping paint. The background shows concentric glowing circles in blue and purple with a yellow sun or moon, while bright paint drips cascade downward from the central composition.",
+  "source_prompt": "",
+  "source_title": "Yellow Next Thursday",
+  "style": "surrealism",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bird-tree",
+    "eye",
+    "dripping paint",
+    "floral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1697,
+  "source_url": "/generated/1697.jpg",
+  "image_url": "/sketches/2462.png",
+  "inverted_image_url": "/sketches-inverted/2462.png",
+  "curve_count": 148,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2769,
+  "title": "Line sketch: Cosmic Tentacle Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal monochrome composition depicts a massive, ornate tentacled creature with spiral patterns and an eye, coiling around a swirling black vortex in a barren mountainous landscape. In the stormy sky above, a total solar eclipse is visible behind dark clouds (derived from generated still #2019).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal monochrome composition depicts a massive, ornate tentacled creature with spiral patterns and an eye, coiling around a swirling black vortex in a barren mountainous landscape. In the stormy sky above, a total solar eclipse is visible behind dark clouds",
+  "inverted_title": "Inverted sketch: Cosmic Tentacle Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal monochrome composition depicts a massive, ornate tentacled creature with spiral patterns and an eye, coiling around a swirling black vortex in a barren mountainous landscape. In the stormy sky above, a total solar eclipse is visible behind dark clouds (from generated still #2019).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal monochrome composition depicts a massive, ornate tentacled creature with spiral patterns and an eye, coiling around a swirling black vortex in a barren mountainous landscape. In the stormy sky above, a total solar eclipse is visible behind dark clouds",
+  "source_description": "A surreal monochrome painting depicts a massive, ornate tentacled creature with spiral patterns and an eye, coiling around a swirling black vortex in a barren mountainous landscape. In the stormy sky above, a total solar eclipse is visible behind dark clouds.",
+  "source_prompt": "Surrealist oil painting of a giant ornate spiral tentacle creature with detailed patterns and a single eye, wrapping around a swirling black vortex portal, set in a desolate rocky mountain range under a dark stormy sky with a total solar eclipse, dramatic lighting, monochromatic sepia and black color palette, ominous atmosphere",
+  "source_title": "Cosmic Tentacle Eclipse",
+  "style": "surrealist",
+  "mood": "ominous, cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "tentacle",
+    "eclipse",
+    "cosmic horror",
+    "mountains"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2019,
+  "source_url": "/generated/2019.jpg",
+  "image_url": "/sketches/2769.png",
+  "inverted_image_url": "/sketches-inverted/2769.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:44Z"
+}

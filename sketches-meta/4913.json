@@ -1,0 +1,42 @@
+{
+  "number": 4913,
+  "title": "Line sketch: Security Room Surveillance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit security office desk features multiple vintage CRT monitors displaying black and white footage of empty institutional hallways and stairwells. An open drawer reveals a flashlight, keys, and a handwritten note reading 'If the composition moves, do not follow it,' next to a lit banker's lamp and a steaming 'World's Okayest Boss' mug (derived from generated still #4349).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit security office desk features multiple vintage CRT monitors displaying black and white footage of empty institutional hallways and stairwells. An open drawer reveals a flashlight, keys, and a handwritten note reading 'If the composition moves, do not follow it,' next to a lit banker's lamp and a steaming 'World's Okayest Boss' mug",
+  "inverted_title": "Inverted sketch: Security Room Surveillance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit security office desk features multiple vintage CRT monitors displaying black and white footage of empty institutional hallways and stairwells. An open drawer reveals a flashlight, keys, and a handwritten note reading 'If the composition moves, do not follow it,' next to a lit banker's lamp and a steaming 'World's Okayest Boss' mug (from generated still #4349).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit security office desk features multiple vintage CRT monitors displaying black and white footage of empty institutional hallways and stairwells. An open drawer reveals a flashlight, keys, and a handwritten note reading 'If the composition moves, do not follow it,' next to a lit banker's lamp and a steaming 'World's Okayest Boss' mug",
+  "source_description": "A dimly lit security office desk features multiple vintage CRT monitors displaying black and white footage of empty institutional hallways and stairwells. An open drawer reveals a flashlight, keys, and a handwritten note reading 'If the painting moves, do not follow it,' next to a lit green banker's lamp and a steaming 'World's Okayest Boss' mug.",
+  "source_prompt": "A tense security monitoring room with multiple old CRT televisions showing black and white footage of endless empty hallways and staircases, vintage wooden desk with an open drawer containing a flashlight, set of keys, and a note saying 'If the painting moves, do not follow it', green banker's lamp casting warm light, steaming coffee mug, cigarette smoke, keys and papers scattered, pinned photos and maps on the wall, ominous red exit sign in background, moody cinematic lighting, eerie atmosphere",
+  "source_title": "Security Room Surveillance",
+  "style": "cinematic",
+  "mood": "eerie tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surveillance",
+    "horror",
+    "liminal space",
+    "retro technology",
+    "security room"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4349,
+  "source_url": "/generated/4349.jpg",
+  "image_url": "/sketches/4913.png",
+  "inverted_image_url": "/sketches-inverted/4913.png",
+  "curve_count": 140,
+  "built_at": "2026-08-17T00:09:49Z"
+}

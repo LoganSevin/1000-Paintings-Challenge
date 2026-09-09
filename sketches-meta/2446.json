@@ -1,0 +1,42 @@
+{
+  "number": 2446,
+  "title": "Line sketch: Flappers and Fishbowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three 1920s flapper women in elegant dresses and cloche hats sit on ornate chairs in a grassy field, one applying makeup, as a giant transparent sphere filled with swimming fish rests beside them. A large stylized rabbit peeks from behind a swirling scroll-like structure under a sunset sky (derived from generated still #1680).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three 1920s flapper women in elegant dresses and cloche hats sit on ornate chairs in a grassy field, one applying makeup, as a giant transparent sphere filled with swimming fish rests beside them. A large stylized rabbit peeks from behind a swirling scroll-like structure under a sunset sky",
+  "inverted_title": "Inverted sketch: Flappers and Fishbowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three 1920s flapper women in elegant dresses and cloche hats sit on ornate chairs in a grassy field, one applying makeup, as a giant transparent sphere filled with swimming fish rests beside them. A large stylized rabbit peeks from behind a swirling scroll-like structure under a sunset sky (from generated still #1680).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three 1920s flapper women in elegant dresses and cloche hats sit on ornate chairs in a grassy field, one applying makeup, as a giant transparent sphere filled with swimming fish rests beside them. A large stylized rabbit peeks from behind a swirling scroll-like structure under a sunset sky",
+  "source_description": "Three 1920s flapper women in elegant dresses and cloche hats sit on ornate red chairs in a grassy field, one applying makeup, as a giant transparent sphere filled with colorful swimming fish rests beside them. A large stylized brown rabbit peeks from behind a swirling scroll-like structure under a pastel sunset sky.",
+  "source_prompt": "",
+  "source_title": "Flappers and Fishbowl",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "flappers",
+    "1920s",
+    "surreal",
+    "fishbowl",
+    "giant rabbit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1680,
+  "source_url": "/generated/1680.jpg",
+  "image_url": "/sketches/2446.png",
+  "inverted_image_url": "/sketches-inverted/2446.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:43Z"
+}

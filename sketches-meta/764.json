@@ -1,0 +1,42 @@
+{
+  "number": 764,
+  "title": "Line sketch: Sorceress with Lightning",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned elven woman with long dark hair conjures a lightning bolt in her hand. She sits serenely against a dramatic sky, her dark robes flowing around her (derived from painting #965).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned elven woman with long dark hair conjures a lightning bolt in her hand. She sits serenely against a dramatic sky, her dark robes flowing around her",
+  "inverted_title": "Inverted sketch: Sorceress with Lightning",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned elven woman with long dark hair conjures a lightning bolt in her hand. She sits serenely against a dramatic sky, her dark robes flowing around her (from painting #965).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned elven woman with long dark hair conjures a lightning bolt in her hand. She sits serenely against a dramatic sky, her dark robes flowing around her",
+  "source_description": "A blue-skinned elven woman with long dark hair conjures a bright blue lightning bolt in her hand. She sits serenely against a dramatic purple sky, her dark robes flowing around her.",
+  "source_prompt": "",
+  "source_title": "Blue Sorceress with Lightning",
+  "style": "Fantasy illustration",
+  "mood": "Mystical and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "lightning magic",
+    "fantasy art",
+    "skin",
+    "sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 965,
+  "source_url": "/paintings/965.jpg",
+  "image_url": "/sketches/764.png",
+  "inverted_image_url": "/sketches-inverted/764.png",
+  "curve_count": 145,
+  "built_at": "2026-08-17T00:09:39Z"
+}

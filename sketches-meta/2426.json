@@ -1,0 +1,42 @@
+{
+  "number": 2426,
+  "title": "Line sketch: Cosmic Whale Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large whale-like creature with a smiling face floats in space, its body forming a swirling vortex that leads to a planet with a happy face at the center. Smaller smiling planets, stars, and playful tentacled creatures surround the scene against a vibrant cosmic background (derived from generated still #1659).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large whale-like creature with a smiling face floats in space, its body forming a swirling vortex that leads to a planet with a happy face at the center. Smaller smiling planets, stars, and playful tentacled creatures surround the scene against a vibrant cosmic background",
+  "inverted_title": "Inverted sketch: Cosmic Whale Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large whale-like creature with a smiling face floats in space, its body forming a swirling vortex that leads to a planet with a happy face at the center. Smaller smiling planets, stars, and playful tentacled creatures surround the scene against a vibrant cosmic background (from generated still #1659).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large whale-like creature with a smiling face floats in space, its body forming a swirling vortex that leads to a planet with a happy face at the center. Smaller smiling planets, stars, and playful tentacled creatures surround the scene against a vibrant cosmic background",
+  "source_description": "A large teal whale-like creature with a smiling face floats in space, its body forming a swirling colorful vortex that leads to a purple planet with a happy face at the center. Smaller smiling planets, stars, and playful tentacled creatures surround the scene against a vibrant cosmic background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Whale Vortex",
+  "style": "whimsical surrealism",
+  "mood": "joyful psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "whale",
+    "cosmic vortex",
+    "smiling planets",
+    "space art",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1659,
+  "source_url": "/generated/1659.jpg",
+  "image_url": "/sketches/2426.png",
+  "inverted_image_url": "/sketches-inverted/2426.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

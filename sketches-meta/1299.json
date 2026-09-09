@@ -1,0 +1,42 @@
+{
+  "number": 1299,
+  "title": "Line sketch: Cabbage Monster Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a cute yet menacing cabbage-like monster with large black eyes and a wide toothy grin standing on a cracked desert road. To its left, an ornate oval mirror reflects the creature as a smaller figure walking along a winding path through mountains under a sun (derived from generated still #513).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a cute yet menacing cabbage-like monster with large black eyes and a wide toothy grin standing on a cracked desert road. To its left, an ornate oval mirror reflects the creature as a smaller figure walking along a winding path through mountains under a sun",
+  "inverted_title": "Inverted sketch: Cabbage Monster Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a cute yet menacing cabbage-like monster with large black eyes and a wide toothy grin standing on a cracked desert road. To its left, an ornate oval mirror reflects the creature as a smaller figure walking along a winding path through mountains under a sun (from generated still #513).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a cute yet menacing cabbage-like monster with large black eyes and a wide toothy grin standing on a cracked desert road. To its left, an ornate oval mirror reflects the creature as a smaller figure walking along a winding path through mountains under a sun",
+  "source_description": "A surreal scene featuring a cute yet menacing cabbage-like monster with large black eyes and a wide toothy grin standing on a cracked desert road. To its left, an ornate oval mirror reflects the creature as a smaller figure walking along a winding path through orange mountains under a red sun.",
+  "source_prompt": "",
+  "source_title": "Cabbage Monster Reflection",
+  "style": "surreal fantasy",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "monster",
+    "cabbage",
+    "mirror",
+    "desert road"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 513,
+  "source_url": "/generated/513.jpg",
+  "image_url": "/sketches/1299.png",
+  "inverted_image_url": "/sketches-inverted/1299.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:41Z"
+}

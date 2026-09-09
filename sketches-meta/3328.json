@@ -1,0 +1,42 @@
+{
+  "number": 3328,
+  "title": "Line sketch: Cosmic Eye Lanterns",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene featuring a giant cosmic eye in the sky shaped like a swirling galaxy with a black hole pupil and glowing rings. In the foreground, a large glowing lantern sits on a mossy ledge beside a fish-like creature holding a smaller lantern, surrounded by glowing mushrooms, vines, and sparkling magical particles (derived from generated still #2723).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene featuring a giant cosmic eye in the sky shaped like a swirling galaxy with a black hole pupil and glowing rings. In the foreground, a large glowing lantern sits on a mossy ledge beside a fish-like creature holding a smaller lantern, surrounded by glowing mushrooms, vines, and sparkling magical particles",
+  "inverted_title": "Inverted sketch: Cosmic Eye Lanterns",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene featuring a giant cosmic eye in the sky shaped like a swirling galaxy with a black hole pupil and glowing rings. In the foreground, a large glowing lantern sits on a mossy ledge beside a fish-like creature holding a smaller lantern, surrounded by glowing mushrooms, vines, and sparkling magical particles (from generated still #2723).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene featuring a giant cosmic eye in the sky shaped like a swirling galaxy with a black hole pupil and glowing rings. In the foreground, a large glowing lantern sits on a mossy ledge beside a fish-like creature holding a smaller lantern, surrounded by glowing mushrooms, vines, and sparkling magical particles",
+  "source_description": "A surreal night scene featuring a giant cosmic eye in the sky shaped like a swirling purple galaxy with a black hole pupil and glowing rings. In the foreground, a large glowing lantern sits on a mossy ledge beside a fish-like creature holding a smaller lantern, surrounded by glowing mushrooms, vines, and sparkling magical particles.",
+  "source_prompt": "Surreal fantasy night scene with a massive cosmic eye dominating the purple swirling galaxy sky, the eye formed from a glowing black hole with bright accretion disk and orbiting rings. In the foreground on a mossy cliff edge, a large ornate glowing lantern stands beside a fish creature walking upright while holding a smaller lantern, surrounded by bioluminescent mushrooms, twisting vines, and sparkling golden particles under a starry sky.",
+  "source_title": "Cosmic Eye Lanterns",
+  "style": "fantasy surrealism",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic eye",
+    "black hole",
+    "lanterns",
+    "fantasy landscape",
+    "mushrooms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2723,
+  "source_url": "/generated/2723.jpg",
+  "image_url": "/sketches/3328.png",
+  "inverted_image_url": "/sketches-inverted/3328.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:45Z"
+}

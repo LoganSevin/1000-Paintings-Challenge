@@ -1,0 +1,42 @@
+{
+  "number": 4796,
+  "title": "Line sketch: Ghostly Boat Procession",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene viewed through an ornate oval frame decorated with skulls, flowers, insects, and candy. Multiple silhouetted figures stand in paper boats floating on dark water under a glowing sunset sky, with a large vortex, a cracked moon emitting smoke, and scattered birds (derived from generated still #4230).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene viewed through an ornate oval frame decorated with skulls, flowers, insects, and candy. Multiple silhouetted figures stand in paper boats floating on dark water under a glowing sunset sky, with a large vortex, a cracked moon emitting smoke, and scattered birds",
+  "inverted_title": "Inverted sketch: Ghostly Boat Procession",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene viewed through an ornate oval frame decorated with skulls, flowers, insects, and candy. Multiple silhouetted figures stand in paper boats floating on dark water under a glowing sunset sky, with a large vortex, a cracked moon emitting smoke, and scattered birds (from generated still #4230).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene viewed through an ornate oval frame decorated with skulls, flowers, insects, and candy. Multiple silhouetted figures stand in paper boats floating on dark water under a glowing sunset sky, with a large vortex, a cracked moon emitting smoke, and scattered birds",
+  "source_description": "A surreal scene viewed through an ornate oval frame decorated with skulls, flowers, insects, and candy. Multiple silhouetted figures stand in paper boats floating on dark water under a glowing sunset sky, with a large purple vortex, a cracked moon emitting purple smoke, and scattered birds.",
+  "source_prompt": "Surreal fantasy scene framed in an ornate pink oval border covered with skulls, flowers, insects and candy. Multiple black silhouetted figures sailing in paper boats on dark water, some holding swords or lanterns, purple flowers blooming from boats. Dramatic cracked glowing moon with purple smoke trails, swirling purple vortex in the sky, flock of birds, sunset clouds. Dreamlike and eerie atmosphere.",
+  "source_title": "Ghostly Boat Procession",
+  "style": "surreal fantasy",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "boats",
+    "silhouettes",
+    "skulls",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4230,
+  "source_url": "/generated/4230.jpg",
+  "image_url": "/sketches/4796.png",
+  "inverted_image_url": "/sketches-inverted/4796.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:49Z"
+}

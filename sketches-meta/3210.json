@@ -1,0 +1,42 @@
+{
+  "number": 3210,
+  "title": "Line sketch: Bioluminescent Sea Turtle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large sea turtle swims through dark water, its shell and flippers detailed with realistic scales. Surrounding the turtle is a glowing and ethereal aura composed of translucent bubbles and luminous rings emitting soft light (derived from generated still #2560).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large sea turtle swims through dark water, its shell and flippers detailed with realistic scales. Surrounding the turtle is a glowing and ethereal aura composed of translucent bubbles and luminous rings emitting soft light",
+  "inverted_title": "Inverted sketch: Bioluminescent Sea Turtle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large sea turtle swims through dark water, its shell and flippers detailed with realistic scales. Surrounding the turtle is a glowing and ethereal aura composed of translucent bubbles and luminous rings emitting soft light (from generated still #2560).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large sea turtle swims through dark water, its shell and flippers detailed with realistic scales. Surrounding the turtle is a glowing and ethereal aura composed of translucent bubbles and luminous rings emitting soft light",
+  "source_description": "A large green sea turtle swims through dark water, its shell and flippers detailed with realistic scales. Surrounding the turtle is a glowing purple and pink ethereal aura composed of translucent bubbles and luminous rings emitting soft light.",
+  "source_prompt": "A majestic green sea turtle with detailed scaly shell and flippers swimming through dark ocean depths, surrounded by a flowing ethereal aura of translucent purple and pink glowing bubbles and luminous rings that emit soft bioluminescent light, dramatic god rays filtering from above, mystical and surreal atmosphere, dark moody background with subtle golden highlights",
+  "source_title": "Bioluminescent Sea Turtle",
+  "style": "fantasy illustration",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "bioluminescent",
+    "glowing aura",
+    "underwater fantasy",
+    "energy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2560,
+  "source_url": "/generated/2560.jpg",
+  "image_url": "/sketches/3210.png",
+  "inverted_image_url": "/sketches-inverted/3210.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

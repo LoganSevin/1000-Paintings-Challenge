@@ -1,0 +1,42 @@
+{
+  "number": 2950,
+  "title": "Line sketch: Smoking Doorway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark, surreal nighttime scene featuring an open door on a weathered building with a glowing interior light. A severed, pale arm protrudes from the bottom of the doorway, exhaling thick smoke that swirls into, serpentine ribbons across the ground (derived from generated still #2259).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark, surreal nighttime scene featuring an open door on a weathered building with a glowing interior light. A severed, pale arm protrudes from the bottom of the doorway, exhaling thick smoke that swirls into, serpentine ribbons across the ground",
+  "inverted_title": "Inverted sketch: Smoking Doorway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark, surreal nighttime scene featuring an open door on a weathered building with a glowing interior light. A severed, pale arm protrudes from the bottom of the doorway, exhaling thick smoke that swirls into, serpentine ribbons across the ground (from generated still #2259).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark, surreal nighttime scene featuring an open door on a weathered building with a glowing interior light. A severed, pale arm protrudes from the bottom of the doorway, exhaling thick smoke that swirls into, serpentine ribbons across the ground",
+  "source_description": "A dark, surreal nighttime scene featuring an open blue door on a weathered building with a glowing pink interior light. A severed, pale arm protrudes from the bottom of the doorway, exhaling thick purple smoke that swirls into colorful, serpentine ribbons across the ground.",
+  "source_prompt": "A dark surreal night scene of an old building with a glowing open blue door revealing a pink interior. A severed pale human arm sticks out from the bottom of the doorway, exhaling thick purple smoke that swirls into colorful glowing ribbons across the asphalt. Parked cars and trucks are visible in the background under a twilight sky, dramatic painterly brushstrokes, moody and unsettling atmosphere.",
+  "source_title": "Smoking Doorway",
+  "style": "painterly",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "night scene",
+    "doorway",
+    "smoke",
+    "urban decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2259,
+  "source_url": "/generated/2259.jpg",
+  "image_url": "/sketches/2950.png",
+  "inverted_image_url": "/sketches-inverted/2950.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 87,
+  "title": "Line sketch: Swirling Muse in",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bold close-up portrait of a woman with a heart-shaped face, voluminous swirling hair in and tones, and striking lips and eyes. The composition centers the face against a split and background, using thick black outlines and flat color blocks. The technique employs graphic illustration with high contrast and stylized shading (derived from painting #118).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bold close-up portrait of a woman with a heart-shaped face, voluminous swirling hair in and tones, and striking lips and eyes. The composition centers the face against a split and background, using thick black outlines and flat color blocks. The technique employs graphic illustration with high contrast and stylized shading",
+  "inverted_title": "Inverted sketch: Swirling Muse in",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bold close-up portrait of a woman with a heart-shaped face, voluminous swirling hair in and tones, and striking lips and eyes. The composition centers the face against a split and background, using thick black outlines and flat color blocks. The technique employs graphic illustration with high contrast and stylized shading (from painting #118).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bold close-up portrait of a woman with a heart-shaped face, voluminous swirling hair in and tones, and striking lips and eyes. The composition centers the face against a split and background, using thick black outlines and flat color blocks. The technique employs graphic illustration with high contrast and stylized shading",
+  "source_description": "A bold close-up portrait of a woman with a heart-shaped face, voluminous swirling hair in blue and orange tones, and striking blue lips and eyes. The composition centers the face against a split orange and blue background, using thick black outlines and flat color blocks. The technique employs graphic illustration with high contrast and stylized shading.",
+  "source_prompt": "",
+  "source_title": "Swirling Muse in Orange Blue",
+  "style": "Pop Art",
+  "mood": "Vibrant Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "woman",
+    "swirling hair",
+    "graphic",
+    "pop art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 118,
+  "source_url": "/paintings/118.jpg",
+  "image_url": "/sketches/87.png",
+  "inverted_image_url": "/sketches-inverted/87.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:38Z"
+}

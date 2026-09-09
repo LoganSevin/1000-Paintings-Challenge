@@ -1,0 +1,42 @@
+{
+  "number": 1011,
+  "title": "Line sketch: Humpty Dumpty in Cosmic Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Humpty Dumpty stands smiling on a bed of clouds, wearing a pinstripe suit while holding a flowing scroll. A massive, vibrant flower explodes with a fiery - center against a starry night sky with comets and silhouetted buildings (derived from generated still #221).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Humpty Dumpty stands smiling on a bed of clouds, wearing a pinstripe suit while holding a flowing scroll. A massive, vibrant flower explodes with a fiery - center against a starry night sky with comets and silhouetted buildings",
+  "inverted_title": "Inverted sketch: Humpty Dumpty in Cosmic Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Humpty Dumpty stands smiling on a bed of clouds, wearing a pinstripe suit while holding a flowing scroll. A massive, vibrant flower explodes with a fiery - center against a starry night sky with comets and silhouetted buildings (from generated still #221).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Humpty Dumpty stands smiling on a bed of clouds, wearing a pinstripe suit while holding a flowing scroll. A massive, vibrant flower explodes with a fiery - center against a starry night sky with comets and silhouetted buildings",
+  "source_description": "Humpty Dumpty stands smiling on a bed of purple clouds, wearing a pinstripe suit while holding a flowing scroll. A massive, vibrant magenta flower explodes with a fiery yellow-orange center against a starry night sky with comets and silhouetted buildings.",
+  "source_prompt": "",
+  "source_title": "Humpty Dumpty in Cosmic Bloom",
+  "style": "surreal illustration",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Humpty Dumpty",
+    "surreal",
+    "night sky",
+    "cosmic flower",
+    "clouds"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 221,
+  "source_url": "/generated/221.jpg",
+  "image_url": "/sketches/1011.png",
+  "inverted_image_url": "/sketches-inverted/1011.png",
+  "curve_count": 172,
+  "built_at": "2026-08-17T00:09:40Z"
+}

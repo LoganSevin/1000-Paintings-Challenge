@@ -1,0 +1,42 @@
+{
+  "number": 2594,
+  "title": "Line sketch: Trinity of Winged Angels",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three ethereal female figures with large feathered wings stand closely embraced in the center of the composition, their heads touching. They wear ornate robes decorated with spheres and white floral patterns, set against a dramatic sunset sky with light rays breaking through dark clouds above a distant cityscape (derived from generated still #1832).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three ethereal female figures with large feathered wings stand closely embraced in the center of the composition, their heads touching. They wear ornate robes decorated with spheres and white floral patterns, set against a dramatic sunset sky with light rays breaking through dark clouds above a distant cityscape",
+  "inverted_title": "Inverted sketch: Trinity of Winged Angels",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three ethereal female figures with large feathered wings stand closely embraced in the center of the composition, their heads touching. They wear ornate robes decorated with spheres and white floral patterns, set against a dramatic sunset sky with light rays breaking through dark clouds above a distant cityscape (from generated still #1832).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three ethereal female figures with large feathered wings stand closely embraced in the center of the composition, their heads touching. They wear ornate robes decorated with spheres and white floral patterns, set against a dramatic sunset sky with light rays breaking through dark clouds above a distant cityscape",
+  "source_description": "Three ethereal female figures with large feathered wings stand closely embraced in the center of the composition, their heads touching. They wear ornate blue robes decorated with orange spheres and white floral patterns, set against a dramatic sunset sky with golden light rays breaking through dark clouds above a distant cityscape.",
+  "source_prompt": "",
+  "source_title": "Trinity of Winged Angels",
+  "style": "symbolic fantasy",
+  "mood": "ethereal divine",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angels",
+    "trinity",
+    "wings",
+    "celestial",
+    "dramatic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1832,
+  "source_url": "/generated/1832.jpg",
+  "image_url": "/sketches/2594.png",
+  "inverted_image_url": "/sketches-inverted/2594.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:43Z"
+}

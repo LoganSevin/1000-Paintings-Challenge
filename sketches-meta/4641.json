@@ -1,0 +1,42 @@
+{
+  "number": 4641,
+  "title": "Line sketch: Wooden Hand and Lace Glove",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wooden artist's mannequin hand on the left gently touches the fingertips of a delicate human hand on the right, which is covered in a sheer white lace glove with floral embroidery. The background shows blurred wooden mannequins and soft dramatic light rays streaming from above (derived from generated still #4063).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wooden artist's mannequin hand on the left gently touches the fingertips of a delicate human hand on the right, which is covered in a sheer white lace glove with floral embroidery. The background shows blurred wooden mannequins and soft dramatic light rays streaming from above",
+  "inverted_title": "Inverted sketch: Wooden Hand and Lace Glove",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wooden artist's mannequin hand on the left gently touches the fingertips of a delicate human hand on the right, which is covered in a sheer white lace glove with floral embroidery. The background shows blurred wooden mannequins and soft dramatic light rays streaming from above (from generated still #4063).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wooden artist's mannequin hand on the left gently touches the fingertips of a delicate human hand on the right, which is covered in a sheer white lace glove with floral embroidery. The background shows blurred wooden mannequins and soft dramatic light rays streaming from above",
+  "source_description": "A wooden artist's mannequin hand on the left gently touches the fingertips of a delicate human hand on the right, which is covered in a sheer white lace glove with floral embroidery. The background shows blurred wooden mannequins and soft dramatic light rays streaming from above.",
+  "source_prompt": "close-up of a smooth light wooden artist's mannequin hand with visible ball joints reaching to tenderly touch the fingertips of a pale human hand wearing an elegant sheer white lace glove with intricate floral patterns and scalloped edges, soft dramatic god rays beaming down from top left creating volumetric light, shallow depth of field, out of focus wooden artist mannequins and crates in background, warm natural light, cinematic atmosphere, realistic textures, soft shadows, delicate and poetic mood",
+  "source_title": "Wooden Hand and Lace Glove",
+  "style": "photorealistic",
+  "mood": "poetic ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wooden mannequin",
+    "lace glove",
+    "hands touching",
+    "dramatic light",
+    "artist studio"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4063,
+  "source_url": "/generated/4063.jpg",
+  "image_url": "/sketches/4641.png",
+  "inverted_image_url": "/sketches-inverted/4641.png",
+  "curve_count": 71,
+  "built_at": "2026-08-17T00:09:48Z"
+}

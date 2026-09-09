@@ -1,0 +1,42 @@
+{
+  "number": 3833,
+  "title": "Line sketch: Static Samurai",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mixed-media artwork featuring a horizontal comic strip of four sequential poses of a bald, muscular figure in a white gi performing dynamic martial arts movements with glowing energy effects around his hands. The strip is centered over large, bold black 3D text reading 'STATIC SAMURAI' against a vibrant hot -painted background with visible texture (derived from generated still #3250).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mixed-media artwork featuring a horizontal comic strip of four sequential poses of a bald, muscular figure in a white gi performing dynamic martial arts movements with glowing energy effects around his hands. The strip is centered over large, bold black 3D text reading 'STATIC SAMURAI' against a vibrant hot -painted background with visible texture",
+  "inverted_title": "Inverted sketch: Static Samurai",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mixed-media artwork featuring a horizontal comic strip of four sequential poses of a bald, muscular figure in a white gi performing dynamic martial arts movements with glowing energy effects around his hands. The strip is centered over large, bold black 3D text reading 'STATIC SAMURAI' against a vibrant hot -painted background with visible texture (from generated still #3250).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mixed-media artwork featuring a horizontal comic strip of four sequential poses of a bald, muscular figure in a white gi performing dynamic martial arts movements with glowing energy effects around his hands. The strip is centered over large, bold black 3D text reading 'STATIC SAMURAI' against a vibrant hot -painted background with visible texture",
+  "source_description": "A mixed-media artwork featuring a horizontal comic strip of four sequential poses of a bald, muscular figure in a white gi performing dynamic martial arts movements with glowing energy effects around his hands. The strip is centered over large, bold black 3D text reading 'STATIC SAMURAI' against a vibrant hot pink impasto-painted background with visible texture.",
+  "source_prompt": "A mixed media painting on a textured hot pink impasto background featuring a white rectangular panel containing four sequential comic-style panels. Inside each panel is the same bald muscular man in a white gi performing different fighting poses with glowing white and pink energy effects around his fists. Large bold black 3D letters spelling STATIC SAMURAI are positioned behind the white panel. Vibrant, graphic, comic book style with strong outlines.",
+  "source_title": "Static Samurai",
+  "style": "pop art comic illustration",
+  "mood": "energetic, bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media, acrylic on canvas with paper collage",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "comic strip",
+    "martial arts",
+    "samurai",
+    "background",
+    "sequential art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3250,
+  "source_url": "/generated/3250.jpg",
+  "image_url": "/sketches/3833.png",
+  "inverted_image_url": "/sketches-inverted/3833.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:46Z"
+}

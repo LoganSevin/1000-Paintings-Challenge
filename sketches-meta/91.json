@@ -1,0 +1,42 @@
+{
+  "number": 91,
+  "title": "Line sketch: Hare Behind the Swirl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized rabbit with white markings and large ears peeks curiously over a sweeping abstract form. Organic floating shapes in muted earth tones surround the central figure against a plain backdrop. Flat color fields and clean edges define the minimalist composition (derived from painting #122).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized rabbit with white markings and large ears peeks curiously over a sweeping abstract form. Organic floating shapes in muted earth tones surround the central figure against a plain backdrop. Flat color fields and clean edges define the minimalist composition",
+  "inverted_title": "Inverted sketch: Hare Behind the Swirl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized rabbit with white markings and large ears peeks curiously over a sweeping abstract form. Organic floating shapes in muted earth tones surround the central figure against a plain backdrop. Flat color fields and clean edges define the minimalist composition (from painting #122).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized rabbit with white markings and large ears peeks curiously over a sweeping abstract form. Organic floating shapes in muted earth tones surround the central figure against a plain backdrop. Flat color fields and clean edges define the minimalist composition",
+  "source_description": "A stylized brown rabbit with white markings and large ears peeks curiously over a sweeping abstract brown form. Organic floating shapes in muted earth tones surround the central figure against a plain beige backdrop. Flat color fields and clean edges define the minimalist composition.",
+  "source_prompt": "",
+  "source_title": "Hare Behind the Swirl",
+  "style": "Modern Illustration",
+  "mood": "Whimsical Curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rabbit",
+    "hare",
+    "abstract",
+    "illustration",
+    "animal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 122,
+  "source_url": "/paintings/122.jpg",
+  "image_url": "/sketches/91.png",
+  "inverted_image_url": "/sketches-inverted/91.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:38Z"
+}

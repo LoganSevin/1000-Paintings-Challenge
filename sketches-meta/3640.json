@@ -1,0 +1,42 @@
+{
+  "number": 3640,
+  "title": "Line sketch: Montmartre Street Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An impressionistic composition of a narrow Parisian street lined with multi-story buildings and awnings, leading toward the white dome of Sacré-Cœur basilica visible in the background. Silhouetted figures walk along the sunlit path while a large tree with and foliage frames the right side (derived from generated still #3048).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An impressionistic composition of a narrow Parisian street lined with multi-story buildings and awnings, leading toward the white dome of Sacré-Cœur basilica visible in the background. Silhouetted figures walk along the sunlit path while a large tree with and foliage frames the right side",
+  "inverted_title": "Inverted sketch: Montmartre Street Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An impressionistic composition of a narrow Parisian street lined with multi-story buildings and awnings, leading toward the white dome of Sacré-Cœur basilica visible in the background. Silhouetted figures walk along the sunlit path while a large tree with and foliage frames the right side (from generated still #3048).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An impressionistic composition of a narrow Parisian street lined with multi-story buildings and awnings, leading toward the white dome of Sacré-Cœur basilica visible in the background. Silhouetted figures walk along the sunlit path while a large tree with and foliage frames the right side",
+  "source_description": "An impressionistic painting of a narrow Parisian street lined with multi-story buildings and colorful awnings, leading toward the white dome of Sacré-Cœur basilica visible in the background. Silhouetted figures walk along the sunlit path while a large tree with green and yellow foliage frames the right side.",
+  "source_prompt": "Impressionistic oil painting of a steep narrow Parisian street in Montmartre, vibrant loose brushstrokes, colorful shop awnings in red and green, multi-story buildings with shutters on left, large tree with dappled yellow-green leaves on right, two figures walking toward the viewer, distant white dome of Sacré-Cœur basilica rising above rooftops under a pale blue sky, strong sunlight casting highlights on the pavement, visible energetic brushwork, painterly texture, urban scene with blue umbrella and flower pots in foreground",
+  "source_title": "Montmartre Street Scene",
+  "style": "Impressionism",
+  "mood": "vibrant sunny",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Paris",
+    "Montmartre",
+    "Sacré-Cœur",
+    "street scene",
+    "urban landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3048,
+  "source_url": "/generated/3048.jpg",
+  "image_url": "/sketches/3640.png",
+  "inverted_image_url": "/sketches-inverted/3640.png",
+  "curve_count": 152,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4898,
+  "title": "Line sketch: Surreal Mosaic Fairy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central female figure with large wings stands in a highly detailed surreal dreamscape. Her bodysuit is covered in a vibrant mosaic of flowers and reflective mirror tiles, one arm raised as a beam of light shines down upon her (derived from generated still #4333).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central female figure with large wings stands in a highly detailed surreal dreamscape. Her bodysuit is covered in a vibrant mosaic of flowers and reflective mirror tiles, one arm raised as a beam of light shines down upon her",
+  "inverted_title": "Inverted sketch: Surreal Mosaic Fairy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central female figure with large wings stands in a highly detailed surreal dreamscape. Her bodysuit is covered in a vibrant mosaic of flowers and reflective mirror tiles, one arm raised as a beam of light shines down upon her (from generated still #4333).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central female figure with large wings stands in a highly detailed surreal dreamscape. Her bodysuit is covered in a vibrant mosaic of flowers and reflective mirror tiles, one arm raised as a beam of light shines down upon her",
+  "source_description": "A central female figure with large golden wings stands in a highly detailed surreal dreamscape. Her bodysuit is covered in a vibrant mosaic of flowers and reflective mirror tiles, one arm raised as a beam of light shines down upon her.",
+  "source_prompt": "A beautiful fairy woman with large translucent golden wings stands at the center of a chaotic surreal dream world. Her futuristic bodysuit is composed of intricate floral mosaic patterns and reflective mirror tiles. One arm is raised toward a beam of divine light from above. The scene is filled with floating eyeballs, jellyfish, black ravens, melting clocks draped over stairs, a small golden dog, a red and blue snake, a framed painting of a dark castle, and crumbling stone ruins under a cosmic sky.",
+  "source_title": "Surreal Mosaic Fairy",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fairy",
+    "surreal",
+    "mosaic",
+    "dreamscape",
+    "melting clocks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4333,
+  "source_url": "/generated/4333.jpg",
+  "image_url": "/sketches/4898.png",
+  "inverted_image_url": "/sketches-inverted/4898.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

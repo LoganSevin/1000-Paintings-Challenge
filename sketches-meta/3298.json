@@ -1,0 +1,42 @@
+{
+  "number": 3298,
+  "title": "Line sketch: Graffiti Restoration",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an jumpsuit stands on debris-covered floor, spray-composition a large ornate wall mural featuring swirling smoke, gears, and a reaching hand. In the background, a man in dark tactical gear and hat stands under dramatic theatrical spotlights in a dilapidated art gallery (derived from generated still #2677).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an jumpsuit stands on debris-covered floor, spray-composition a large ornate wall mural featuring swirling smoke, gears, and a reaching hand. In the background, a man in dark tactical gear and hat stands under dramatic theatrical spotlights in a dilapidated art gallery",
+  "inverted_title": "Inverted sketch: Graffiti Restoration",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an jumpsuit stands on debris-covered floor, spray-composition a large ornate wall mural featuring swirling smoke, gears, and a reaching hand. In the background, a man in dark tactical gear and hat stands under dramatic theatrical spotlights in a dilapidated art gallery (from generated still #2677).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an jumpsuit stands on debris-covered floor, spray-composition a large ornate wall mural featuring swirling smoke, gears, and a reaching hand. In the background, a man in dark tactical gear and hat stands under dramatic theatrical spotlights in a dilapidated art gallery",
+  "source_description": "A woman in an orange jumpsuit stands on debris-covered floor, spray-painting a large ornate wall mural featuring swirling smoke, gears, and a reaching hand. In the background, a man in dark tactical gear and hat stands under dramatic theatrical spotlights in a dilapidated art gallery.",
+  "source_prompt": "A woman in an orange jumpsuit with a spray can is carefully painting an intricate classical mural on a decaying gallery wall, the mural shows swirling smoke, mechanical gears and a reaching hand. A man in dark tactical gear and wide-brimmed hat stands watch in the background. Broken frames and glass litter the floor, dramatic theatrical spotlights cut through the dusty air, cinematic lighting, moody atmosphere.",
+  "source_title": "Graffiti Restoration",
+  "style": "cinematic",
+  "mood": "mysterious, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "graffiti",
+    "art restoration",
+    "dystopian",
+    "theatrical lighting",
+    "urban decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2677,
+  "source_url": "/generated/2677.jpg",
+  "image_url": "/sketches/3298.png",
+  "inverted_image_url": "/sketches-inverted/3298.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:45Z"
+}

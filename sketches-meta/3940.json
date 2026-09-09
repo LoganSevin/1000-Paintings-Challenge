@@ -1,0 +1,42 @@
+{
+  "number": 3940,
+  "title": "Line sketch: Hammer Girl Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with hair and a large hammer. From left to right: standing with hammer on shoulder, swinging the hammer with energy trails, striking impact with a starburst explosion, and a ready stance holding the hammer (derived from generated still #3357).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with hair and a large hammer. From left to right: standing with hammer on shoulder, swinging the hammer with energy trails, striking impact with a starburst explosion, and a ready stance holding the hammer",
+  "inverted_title": "Inverted sketch: Hammer Girl Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with hair and a large hammer. From left to right: standing with hammer on shoulder, swinging the hammer with energy trails, striking impact with a starburst explosion, and a ready stance holding the hammer (from generated still #3357).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with hair and a large hammer. From left to right: standing with hammer on shoulder, swinging the hammer with energy trails, striking impact with a starburst explosion, and a ready stance holding the hammer",
+  "source_description": "Four sequential poses of a female character with pink hair and a large purple hammer. From left to right: standing with hammer on shoulder, swinging the hammer with pink energy trails, striking impact with a bright yellow starburst explosion, and a ready stance holding the hammer.",
+  "source_prompt": "A punk girl with bright pink hair in pigtails, wearing a pink and black cropped jacket, short skirt, and black boots with green laces. She wields a massive purple and black warhammer. Four sequential action poses shown side by side: idle stance with hammer over shoulder, powerful swing creating pink motion trails and energy, direct hit impact with bright yellow starburst explosion, and final ready stance. Bold comic book line art, vibrant colors, dynamic action effects on a solid gray background.",
+  "source_title": "Pink Hammer Girl Poses",
+  "style": "comic book",
+  "mood": "dynamic energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "hair",
+    "warhammer",
+    "action poses",
+    "comic style"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3357,
+  "source_url": "/generated/3357.jpg",
+  "image_url": "/sketches/3940.png",
+  "inverted_image_url": "/sketches-inverted/3940.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:47Z"
+}

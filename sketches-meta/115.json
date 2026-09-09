@@ -1,0 +1,42 @@
+{
+  "number": 115,
+  "title": "Line sketch: Shadows Over the Kitchen Counter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two women in vintage attire occupy a mid-century kitchen dominated by a large overhead lamp, retro appliances, and a prominent television on the counter. The composition places the viewer across the island, with one figure leaning forward and the other standing alert amid framed wall pictures. Bold outlines and smooth tonal gradients define the monochromatic technique (derived from painting #151).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two women in vintage attire occupy a mid-century kitchen dominated by a large overhead lamp, retro appliances, and a prominent television on the counter. The composition places the viewer across the island, with one figure leaning forward and the other standing alert amid framed wall pictures. Bold outlines and smooth tonal gradients define the monochromatic technique",
+  "inverted_title": "Inverted sketch: Shadows Over the Kitchen Counter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two women in vintage attire occupy a mid-century kitchen dominated by a large overhead lamp, retro appliances, and a prominent television on the counter. The composition places the viewer across the island, with one figure leaning forward and the other standing alert amid framed wall pictures. Bold outlines and smooth tonal gradients define the monochromatic technique (from painting #151).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two women in vintage attire occupy a mid-century kitchen dominated by a large overhead lamp, retro appliances, and a prominent television on the counter. The composition places the viewer across the island, with one figure leaning forward and the other standing alert amid framed wall pictures. Bold outlines and smooth tonal gradients define the monochromatic technique",
+  "source_description": "Two women in vintage attire occupy a mid-century kitchen dominated by a large overhead lamp, retro appliances, and a prominent television on the counter. The composition places the viewer across the island, with one figure leaning forward and the other standing alert amid framed wall pictures. Bold outlines and smooth tonal gradients define the monochromatic technique.",
+  "source_prompt": "",
+  "source_title": "Shadows Over the Kitchen Counter",
+  "style": "graphic illustration",
+  "mood": "nostalgic mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kitchen",
+    "women",
+    "retro",
+    "television",
+    "1950s"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 151,
+  "source_url": "/paintings/151.jpg",
+  "image_url": "/sketches/115.png",
+  "inverted_image_url": "/sketches-inverted/115.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

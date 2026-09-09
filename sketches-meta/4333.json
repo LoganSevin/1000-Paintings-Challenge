@@ -1,0 +1,42 @@
+{
+  "number": 4333,
+  "title": "Line sketch: Mystical Plasma Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing glass plasma orb sits on a metallic stand atop a wooden table. Inside the transparent sphere, a central orb emits energy tendrils connecting to floating circular and flower-shaped elements, with a dog-like creature standing in a pool of flowing liquid (derived from generated still #3752).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing glass plasma orb sits on a metallic stand atop a wooden table. Inside the transparent sphere, a central orb emits energy tendrils connecting to floating circular and flower-shaped elements, with a dog-like creature standing in a pool of flowing liquid",
+  "inverted_title": "Inverted sketch: Mystical Plasma Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing glass plasma orb sits on a metallic stand atop a wooden table. Inside the transparent sphere, a central orb emits energy tendrils connecting to floating circular and flower-shaped elements, with a dog-like creature standing in a pool of flowing liquid (from generated still #3752).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing glass plasma orb sits on a metallic stand atop a wooden table. Inside the transparent sphere, a central orb emits energy tendrils connecting to floating circular and flower-shaped elements, with a dog-like creature standing in a pool of flowing liquid",
+  "source_description": "A glowing glass plasma orb sits on a metallic stand atop a wooden table. Inside the transparent sphere, a pink central orb emits bright yellow energy tendrils connecting to floating circular and flower-shaped elements, with a green dog-like creature standing in a pool of flowing blue liquid.",
+  "source_prompt": "Surreal nighttime scene featuring a large transparent glass plasma orb on a metallic stand placed on a wooden table. Inside the orb, a bright pink glowing core emits vibrant yellow energy beams connecting to floating blue flower shapes and circular patterns. A lime green dog-like creature with pink eyes stands inside the orb in a pool of flowing blue liquid. Background shows a dark purple landscape with cliffs, pine trees and a glowing horizontal energy band with orange light streaks. Vibrant colors, painterly style.",
+  "source_title": "Mystical Plasma Orb",
+  "style": "surreal",
+  "mood": "ethereal surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma orb",
+    "fantasy machine",
+    "dog",
+    "energy tendrils",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3752,
+  "source_url": "/generated/3752.jpg",
+  "image_url": "/sketches/4333.png",
+  "inverted_image_url": "/sketches-inverted/4333.png",
+  "curve_count": 69,
+  "built_at": "2026-08-17T00:09:48Z"
+}

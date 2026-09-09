@@ -1,0 +1,42 @@
+{
+  "number": 4190,
+  "title": "Line sketch: Surreal Butterfly Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale, bald female figure with large white and butterfly wings stands in the center of a decaying classical ruin under a fiery sunset sky. She holds a melting clock on a painter's palette populated by four small stylized African figures, surrounded by sunflowers, crumbling columns, and floating papers (derived from generated still #3609).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale, bald female figure with large white and butterfly wings stands in the center of a decaying classical ruin under a fiery sunset sky. She holds a melting clock on a painter's palette populated by four small stylized African figures, surrounded by sunflowers, crumbling columns, and floating papers",
+  "inverted_title": "Inverted sketch: Surreal Butterfly Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale, bald female figure with large white and butterfly wings stands in the center of a decaying classical ruin under a fiery sunset sky. She holds a melting clock on a painter's palette populated by four small stylized African figures, surrounded by sunflowers, crumbling columns, and floating papers (from generated still #3609).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale, bald female figure with large white and butterfly wings stands in the center of a decaying classical ruin under a fiery sunset sky. She holds a melting clock on a painter's palette populated by four small stylized African figures, surrounded by sunflowers, crumbling columns, and floating papers",
+  "source_description": "A pale, bald female figure with large white and gold butterfly wings stands in the center of a decaying classical ruin under a fiery sunset sky. She holds a melting clock on a painter's palette populated by four small stylized African figures, surrounded by sunflowers, crumbling columns, and floating papers.",
+  "source_prompt": "",
+  "source_title": "Surreal Butterfly Muse",
+  "style": "surrealism",
+  "mood": "melancholy, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "butterfly wings",
+    "melting clock",
+    "ruins",
+    "sunflowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3609,
+  "source_url": "/generated/3609.jpg",
+  "image_url": "/sketches/4190.png",
+  "inverted_image_url": "/sketches-inverted/4190.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:47Z"
+}

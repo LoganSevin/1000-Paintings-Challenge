@@ -1,0 +1,42 @@
+{
+  "number": 1070,
+  "title": "Line sketch: Floating Island Reverie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with hair sits pensively by a winding river in a glowing meadow, gazing toward a levitating island covered in trees that hovers in a vibrant twilight sky. The surreal fantasy landscape features a reflective stream, glowing flora, and a starry heavens with a comet streaking across (derived from generated still #282).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with hair sits pensively by a winding river in a glowing meadow, gazing toward a levitating island covered in trees that hovers in a vibrant twilight sky. The surreal fantasy landscape features a reflective stream, glowing flora, and a starry heavens with a comet streaking across",
+  "inverted_title": "Inverted sketch: Floating Island Reverie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with hair sits pensively by a winding river in a glowing meadow, gazing toward a levitating island covered in trees that hovers in a vibrant twilight sky. The surreal fantasy landscape features a reflective stream, glowing flora, and a starry heavens with a comet streaking across (from generated still #282).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with hair sits pensively by a winding river in a glowing meadow, gazing toward a levitating island covered in trees that hovers in a vibrant twilight sky. The surreal fantasy landscape features a reflective stream, glowing flora, and a starry heavens with a comet streaking across",
+  "source_description": "A young woman with multicolored hair sits pensively by a winding river in a glowing meadow, gazing toward a levitating island covered in trees that hovers in a vibrant twilight sky. The surreal fantasy landscape features a reflective stream, glowing flora, and a starry purple heavens with a comet streaking across.",
+  "source_prompt": "",
+  "source_title": "Floating Island Reverie",
+  "style": "fantasy illustration",
+  "mood": "dreamlike wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "floating island",
+    "ethereal glow",
+    "twilight sky",
+    "reflective river"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 282,
+  "source_url": "/generated/282.jpg",
+  "image_url": "/sketches/1070.png",
+  "inverted_image_url": "/sketches-inverted/1070.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4111,
+  "title": "Line sketch: Mechanical Eye Over Dystopia",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal biomechanical eye dominates the right foreground, its intricate iris reflecting a dark city silhouette. To the left, a massive steampunk spider robot with glowing eyes and multiple mechanical limbs towers over a ruined cobblestone street lined with damaged buildings, smoke, and flickering lights (derived from generated still #3528).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal biomechanical eye dominates the right foreground, its intricate iris reflecting a dark city silhouette. To the left, a massive steampunk spider robot with glowing eyes and multiple mechanical limbs towers over a ruined cobblestone street lined with damaged buildings, smoke, and flickering lights",
+  "inverted_title": "Inverted sketch: Mechanical Eye Over Dystopia",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal biomechanical eye dominates the right foreground, its intricate iris reflecting a dark city silhouette. To the left, a massive steampunk spider robot with glowing eyes and multiple mechanical limbs towers over a ruined cobblestone street lined with damaged buildings, smoke, and flickering lights (from generated still #3528).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal biomechanical eye dominates the right foreground, its intricate iris reflecting a dark city silhouette. To the left, a massive steampunk spider robot with glowing eyes and multiple mechanical limbs towers over a ruined cobblestone street lined with damaged buildings, smoke, and flickering lights",
+  "source_description": "A colossal green biomechanical eye dominates the right foreground, its intricate iris reflecting a dark city silhouette. To the left, a massive steampunk spider robot with glowing orange eyes and multiple mechanical limbs towers over a ruined cobblestone street lined with damaged buildings, smoke, and flickering lights.",
+  "source_prompt": "Surreal cyberpunk scene featuring a gigantic intricate green biomechanical eye with detailed iris and pupil reflection of a dark city, positioned on the right. A massive rusty steampunk spider robot with glowing orange eyes and many mechanical limbs stands on the left over a broken cobblestone street. Decaying gothic buildings, smoke, fire, and hanging signs fill the dystopian background under a stormy sky.",
+  "source_title": "Mechanical Eye Over Dystopia",
+  "style": "surreal",
+  "mood": "dystopian surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "steampunk",
+    "giant eye",
+    "mechanical spider",
+    "dystopian city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3528,
+  "source_url": "/generated/3528.jpg",
+  "image_url": "/sketches/4111.png",
+  "inverted_image_url": "/sketches-inverted/4111.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:47Z"
+}

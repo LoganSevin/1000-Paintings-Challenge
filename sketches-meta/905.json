@@ -1,0 +1,42 @@
+{
+  "number": 905,
+  "title": "Line sketch: Midcentury Terrarium Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal midcentury modern scene depicts a woman in an and geometric suit and a man in a striped sweater standing on the roof of a modernist house. They are flanked by two large transparent spheres containing miniature mountain landscapes, surrounded by stylized pottery with plants (derived from generated still #114).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal midcentury modern scene depicts a woman in an and geometric suit and a man in a striped sweater standing on the roof of a modernist house. They are flanked by two large transparent spheres containing miniature mountain landscapes, surrounded by stylized pottery with plants",
+  "inverted_title": "Inverted sketch: Midcentury Terrarium Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal midcentury modern scene depicts a woman in an and geometric suit and a man in a striped sweater standing on the roof of a modernist house. They are flanked by two large transparent spheres containing miniature mountain landscapes, surrounded by stylized pottery with plants (from generated still #114).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal midcentury modern scene depicts a woman in an and geometric suit and a man in a striped sweater standing on the roof of a modernist house. They are flanked by two large transparent spheres containing miniature mountain landscapes, surrounded by stylized pottery with plants",
+  "source_description": "A surreal midcentury modern scene depicts a woman in an orange and teal geometric suit and a man in a striped sweater standing on the roof of a modernist house. They are flanked by two large transparent spheres containing miniature mountain landscapes, surrounded by stylized pottery with plants.",
+  "source_prompt": "",
+  "source_title": "Midcentury Terrarium Landscape",
+  "style": "retro illustration",
+  "mood": "surreal tranquility",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "midcentury modern",
+    "surreal landscape",
+    "terraniums",
+    "geometric patterns",
+    "mountain vista"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 114,
+  "source_url": "/generated/114.jpg",
+  "image_url": "/sketches/905.png",
+  "inverted_image_url": "/sketches-inverted/905.png",
+  "curve_count": 196,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1201,
+  "title": "Line sketch: Storm Goddess in Field",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned woman with glowing eyes and lightning in her braided hair, set against a dramatic stormy sky with a setting sun over a field and distant lake (derived from generated still #413).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned woman with glowing eyes and lightning in her braided hair, set against a dramatic stormy sky with a setting sun over a field and distant lake",
+  "inverted_title": "Inverted sketch: Storm Goddess in Field",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned woman with glowing eyes and lightning in her braided hair, set against a dramatic stormy sky with a setting sun over a field and distant lake (from generated still #413).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned woman with glowing eyes and lightning in her braided hair, set against a dramatic stormy sky with a setting sun over a field and distant lake",
+  "source_description": "A surreal portrait of a blue-skinned woman with glowing golden eyes and lightning in her braided hair, set against a dramatic stormy sky with a setting sun over a lavender field and distant lake.",
+  "source_prompt": "",
+  "source_title": "Storm Goddess in Lavender Field",
+  "style": "fantasy surrealism",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy woman",
+    "lightning magic",
+    "field",
+    "storm clouds",
+    "eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 413,
+  "source_url": "/generated/413.jpg",
+  "image_url": "/sketches/1201.png",
+  "inverted_image_url": "/sketches-inverted/1201.png",
+  "curve_count": 102,
+  "built_at": "2026-08-17T00:09:40Z"
+}

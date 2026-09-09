@@ -1,0 +1,42 @@
+{
+  "number": 1905,
+  "title": "Line sketch: Hooded Lantern Mystic",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned hooded figure in a cloak covered in intricate glowing circles stands in profile, holding a lit candle. The vibrant background features a radiant sunset over mountains with concentric circles and abstract patterns filling the sky (derived from generated still #1130).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned hooded figure in a cloak covered in intricate glowing circles stands in profile, holding a lit candle. The vibrant background features a radiant sunset over mountains with concentric circles and abstract patterns filling the sky",
+  "inverted_title": "Inverted sketch: Hooded Lantern Mystic",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned hooded figure in a cloak covered in intricate glowing circles stands in profile, holding a lit candle. The vibrant background features a radiant sunset over mountains with concentric circles and abstract patterns filling the sky (from generated still #1130).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned hooded figure in a cloak covered in intricate glowing circles stands in profile, holding a lit candle. The vibrant background features a radiant sunset over mountains with concentric circles and abstract patterns filling the sky",
+  "source_description": "A green-skinned hooded figure in a dark blue cloak covered in intricate glowing circles stands in profile, holding a lit candle. The vibrant background features a radiant sunset over mountains with concentric circles and colorful abstract patterns filling the sky.",
+  "source_prompt": "",
+  "source_title": "Hooded Lantern Mystic",
+  "style": "psychedelic surrealism",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hooded figure",
+    "lantern bearer",
+    "psychedelic",
+    "sunset",
+    "glowing patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1130,
+  "source_url": "/generated/1130.jpg",
+  "image_url": "/sketches/1905.png",
+  "inverted_image_url": "/sketches-inverted/1905.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:42Z"
+}

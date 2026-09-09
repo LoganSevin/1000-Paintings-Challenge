@@ -1,0 +1,42 @@
+{
+  "number": 3727,
+  "title": "Line sketch: Xulio Protector",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A full-body illustration of a young man with dark skin and short black hair, standing with arms outstretched. He wears ornate and armor with flame motifs, a sun emblem on his chest, a flowing sash, and matching greaves, while holding two flaming swords with both hands extended to the sides (derived from generated still #3137).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A full-body illustration of a young man with dark skin and short black hair, standing with arms outstretched. He wears ornate and armor with flame motifs, a sun emblem on his chest, a flowing sash, and matching greaves, while holding two flaming swords with both hands extended to the sides",
+  "inverted_title": "Inverted sketch: Xulio Protector",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A full-body illustration of a young man with dark skin and short black hair, standing with arms outstretched. He wears ornate and armor with flame motifs, a sun emblem on his chest, a flowing sash, and matching greaves, while holding two flaming swords with both hands extended to the sides (from generated still #3137).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A full-body illustration of a young man with dark skin and short black hair, standing with arms outstretched. He wears ornate and armor with flame motifs, a sun emblem on his chest, a flowing sash, and matching greaves, while holding two flaming swords with both hands extended to the sides",
+  "source_description": "A full-body illustration of a young man with dark skin and short black hair, standing with arms outstretched. He wears ornate red and gold armor with flame motifs, a golden sun emblem on his chest, a flowing golden sash, and matching greaves, while holding two flaming swords with both hands extended to the sides.",
+  "source_prompt": "A young dark-skinned male warrior with short black hair stands centered against a solid green background with arms outstretched horizontally. He wears elaborate red and gold fantasy armor featuring a radiant sun emblem on the chest, flame patterns, a golden sash tied at the waist, and ornate golden greaves. He holds two flaming swords with both hands extended, flames licking the blades. He has a serious expression and wears a golden crown-like headpiece with flame details.",
+  "source_title": "Xulio Golden Protector",
+  "style": "digital illustration",
+  "mood": "heroic, fiery",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "fantasy armor",
+    "flame swords",
+    "regalia",
+    "male character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3137,
+  "source_url": "/generated/3137.jpg",
+  "image_url": "/sketches/3727.png",
+  "inverted_image_url": "/sketches-inverted/3727.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:46Z"
+}

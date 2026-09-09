@@ -1,0 +1,42 @@
+{
+  "number": 4522,
+  "title": "Line sketch: Candle Mage Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure in a patterned robe stands holding a melting candle with dripping wax. The character has a stylized and mask-like face, one hand raised in a gesture while a large glowing circular sigil filled with arcane symbols floats behind them against a mountain landscape at sunset (derived from generated still #3942).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure in a patterned robe stands holding a melting candle with dripping wax. The character has a stylized and mask-like face, one hand raised in a gesture while a large glowing circular sigil filled with arcane symbols floats behind them against a mountain landscape at sunset",
+  "inverted_title": "Inverted sketch: Candle Mage Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure in a patterned robe stands holding a melting candle with dripping wax. The character has a stylized and mask-like face, one hand raised in a gesture while a large glowing circular sigil filled with arcane symbols floats behind them against a mountain landscape at sunset (from generated still #3942).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure in a patterned robe stands holding a melting candle with dripping wax. The character has a stylized and mask-like face, one hand raised in a gesture while a large glowing circular sigil filled with arcane symbols floats behind them against a mountain landscape at sunset",
+  "source_description": "A hooded figure in a green patterned robe stands holding a melting candle with dripping wax. The character has a stylized pink and green mask-like face, one hand raised in a gesture while a large glowing circular sigil filled with arcane symbols floats behind them against a mountain landscape at sunset.",
+  "source_prompt": "A mysterious hooded mage wearing a flowing green robe covered in yellow triangular symbols, standing in front of dark mountains under a green and pink gradient sky. The figure has a stylized pink and green mask for a face, holds a tall melting candle with dripping wax in one hand while raising the other in a ritual gesture. A large circular magical sigil with glowing yellow arcane symbols floats behind them. Dramatic atmosphere with swirling mist, digital illustration style.",
+  "source_title": "Candle Mage Ritual",
+  "style": "digital illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "candle",
+    "sigil",
+    "mountain",
+    "hooded figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3942,
+  "source_url": "/generated/3942.jpg",
+  "image_url": "/sketches/4522.png",
+  "inverted_image_url": "/sketches-inverted/4522.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2732,
+  "title": "Line sketch: Enchanted Greenhouse Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical greenhouse structure with a large circular portal showing a mountain sunset, surrounded by glowing butterflies and crackling light. In the foreground pond, two reflective spheres display a cyberpunk cityscape at dusk while dragonflies and fairies hover throughout the surreal landscape (derived from generated still #1978).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical greenhouse structure with a large circular portal showing a mountain sunset, surrounded by glowing butterflies and crackling light. In the foreground pond, two reflective spheres display a cyberpunk cityscape at dusk while dragonflies and fairies hover throughout the surreal landscape",
+  "inverted_title": "Inverted sketch: Enchanted Greenhouse Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical greenhouse structure with a large circular portal showing a mountain sunset, surrounded by glowing butterflies and crackling light. In the foreground pond, two reflective spheres display a cyberpunk cityscape at dusk while dragonflies and fairies hover throughout the surreal landscape (from generated still #1978).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical greenhouse structure with a large circular portal showing a mountain sunset, surrounded by glowing butterflies and crackling light. In the foreground pond, two reflective spheres display a cyberpunk cityscape at dusk while dragonflies and fairies hover throughout the surreal landscape",
+  "source_description": "A mystical greenhouse structure with a large circular portal showing a mountain sunset, surrounded by glowing butterflies and crackling golden light. In the foreground pond, two reflective spheres display a cyberpunk cityscape at dusk while dragonflies and fairies hover throughout the surreal landscape.",
+  "source_prompt": "",
+  "source_title": "Enchanted Greenhouse Portal",
+  "style": "surreal fantasy",
+  "mood": "ethereal magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portal",
+    "greenhouse",
+    "fantasy",
+    "butterflies",
+    "spheres"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1978,
+  "source_url": "/generated/1978.jpg",
+  "image_url": "/sketches/2732.png",
+  "inverted_image_url": "/sketches-inverted/2732.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:44Z"
+}

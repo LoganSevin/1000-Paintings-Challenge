@@ -1,0 +1,42 @@
+{
+  "number": 169,
+  "title": "Line sketch: Vibrant Cosmos Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lively of and cosmos flowers with lush and foliage against a background. This artwork captures the joyful essence of a summer garden in bold, saturated colors (derived from painting #208).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lively of and cosmos flowers with lush and foliage against a background. This artwork captures the joyful essence of a summer garden in bold, saturated colors",
+  "inverted_title": "Inverted sketch: Vibrant Cosmos Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lively of and cosmos flowers with lush and foliage against a background. This artwork captures the joyful essence of a summer garden in bold, saturated colors (from painting #208).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lively of and cosmos flowers with lush and foliage against a background. This artwork captures the joyful essence of a summer garden in bold, saturated colors",
+  "source_description": "A lively digital painting of pink and purple cosmos flowers with lush green and yellow foliage against a bright blue background. This artwork captures the joyful essence of a summer garden in bold, saturated colors.",
+  "source_prompt": "",
+  "source_title": "Vibrant Pink Cosmos Bloom",
+  "style": "line sketch",
+  "mood": "Vibrant and cheerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmos flowers",
+    "floral art",
+    "bold colors",
+    "garden composition",
+    "digital artwork"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 208,
+  "source_url": "/paintings/208.jpg",
+  "image_url": "/sketches/169.png",
+  "inverted_image_url": "/sketches-inverted/169.png",
+  "curve_count": 282,
+  "built_at": "2026-08-17T00:09:38Z"
+}

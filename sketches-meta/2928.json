@@ -1,0 +1,42 @@
+{
+  "number": 2928,
+  "title": "Line sketch: Prison of Souls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark hooded figure kneels in a stone dungeon, one hand pressed against the wall as ghostly translucent faces and hands emerge from behind heavy iron prison bars. Ethereal white and smoke-like spirits swirl upward toward a barred window, while multiple pale hands reach up from the floor (derived from generated still #2220).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark hooded figure kneels in a stone dungeon, one hand pressed against the wall as ghostly translucent faces and hands emerge from behind heavy iron prison bars. Ethereal white and smoke-like spirits swirl upward toward a barred window, while multiple pale hands reach up from the floor",
+  "inverted_title": "Inverted sketch: Prison of Souls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark hooded figure kneels in a stone dungeon, one hand pressed against the wall as ghostly translucent faces and hands emerge from behind heavy iron prison bars. Ethereal white and smoke-like spirits swirl upward toward a barred window, while multiple pale hands reach up from the floor (from generated still #2220).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark hooded figure kneels in a stone dungeon, one hand pressed against the wall as ghostly translucent faces and hands emerge from behind heavy iron prison bars. Ethereal white and smoke-like spirits swirl upward toward a barred window, while multiple pale hands reach up from the floor",
+  "source_description": "A dark hooded figure kneels in a stone dungeon, one hand pressed against the wall as ghostly translucent faces and hands emerge from behind heavy iron prison bars. Ethereal white and purple smoke-like spirits swirl upward toward a barred window, while multiple pale hands reach up from the floor.",
+  "source_prompt": "A solitary hooded figure in a dark coat kneels inside a decrepit stone dungeon prison, hand pressed to the wall, surrounded by multiple ghostly pale faces and hands emerging from behind heavy iron bars. Translucent spirits made of swirling smoke rise toward a small barred window, dramatic rim lighting, gloomy atmosphere, horror fantasy scene",
+  "source_title": "Prison of Souls",
+  "style": "dark fantasy composition",
+  "mood": "haunting, despair",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghosts",
+    "prison",
+    "supernatural",
+    "dungeon",
+    "spirits"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2220,
+  "source_url": "/generated/2220.jpg",
+  "image_url": "/sketches/2928.png",
+  "inverted_image_url": "/sketches-inverted/2928.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:44Z"
+}

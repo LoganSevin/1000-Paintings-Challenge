@@ -1,0 +1,42 @@
+{
+  "number": 4763,
+  "title": "Line sketch: Rusted Porthole Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A circular, heavily corroded metal porthole covered in barnacles, seashells, and white encrustations frames a surreal landscape. Inside the porthole view, three illuminated train cars sit on a plain under an aurora sky, with human silhouettes standing inside, while a spiral staircase rises in the distance (derived from generated still #4197).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A circular, heavily corroded metal porthole covered in barnacles, seashells, and white encrustations frames a surreal landscape. Inside the porthole view, three illuminated train cars sit on a plain under an aurora sky, with human silhouettes standing inside, while a spiral staircase rises in the distance",
+  "inverted_title": "Inverted sketch: Rusted Porthole Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A circular, heavily corroded metal porthole covered in barnacles, seashells, and white encrustations frames a surreal landscape. Inside the porthole view, three illuminated train cars sit on a plain under an aurora sky, with human silhouettes standing inside, while a spiral staircase rises in the distance (from generated still #4197).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A circular, heavily corroded metal porthole covered in barnacles, seashells, and white encrustations frames a surreal landscape. Inside the porthole view, three illuminated train cars sit on a plain under an aurora sky, with human silhouettes standing inside, while a spiral staircase rises in the distance",
+  "source_description": "A circular, heavily corroded metal porthole covered in barnacles, seashells, and white encrustations frames a surreal landscape. Inside the porthole view, three illuminated train cars sit on a purple plain under an aurora sky, with human silhouettes standing inside, while a spiral staircase rises in the distance.",
+  "source_prompt": "A large circular corroded metal porthole covered in barnacles, seashells, and dripping white crustaceans frames a surreal dreamlike scene. Inside the round window are three illuminated train cars standing on a vast purple plain, with human silhouettes visible inside, a glowing aurora borealis in the teal and orange sky, and a twisting spiral staircase floating in the distance, surreal painting style.",
+  "source_title": "Rusted Porthole Vision",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "porthole",
+    "aurora",
+    "abandoned",
+    "train cars"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4197,
+  "source_url": "/generated/4197.jpg",
+  "image_url": "/sketches/4763.png",
+  "inverted_image_url": "/sketches-inverted/4763.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:48Z"
+}

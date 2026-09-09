@@ -1,0 +1,42 @@
+{
+  "number": 447,
+  "title": "Line sketch: Moon Temple",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic multi-tiered pagoda stands atop a mountain peak under a giant blood- supermoon. Small figures climb the stairs toward the illuminated temple as a glowing city sprawls in the distant valley below (derived from painting #537).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic multi-tiered pagoda stands atop a mountain peak under a giant blood- supermoon. Small figures climb the stairs toward the illuminated temple as a glowing city sprawls in the distant valley below",
+  "inverted_title": "Inverted sketch: Moon Temple",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic multi-tiered pagoda stands atop a mountain peak under a giant blood- supermoon. Small figures climb the stairs toward the illuminated temple as a glowing city sprawls in the distant valley below (from painting #537).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic multi-tiered pagoda stands atop a mountain peak under a giant blood- supermoon. Small figures climb the stairs toward the illuminated temple as a glowing city sprawls in the distant valley below",
+  "source_description": "A majestic multi-tiered pagoda stands atop a mountain peak under a giant blood-red supermoon. Small figures climb the stairs toward the illuminated temple as a glowing city sprawls in the distant valley below.",
+  "source_prompt": "",
+  "source_title": "Red Moon Temple",
+  "style": "fantasy landscape",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pagoda",
+    "supermoon",
+    "mountain",
+    "fantasy",
+    "nightscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 537,
+  "source_url": "/paintings/537.jpg",
+  "image_url": "/sketches/447.png",
+  "inverted_image_url": "/sketches-inverted/447.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:39Z"
+}

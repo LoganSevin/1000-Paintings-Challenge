@@ -1,0 +1,42 @@
+{
+  "number": 4813,
+  "title": "Line sketch: Wolf in the Potion Library",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A black wolf with glowing eyes emerges from an open dark doorway into a narrow, endless library corridor lined with shelves of glowing potion bottles. Floating magical books with glowing symbols hover in the air, surrounded by swirling and energy trails under a misty light (derived from generated still #4248).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A black wolf with glowing eyes emerges from an open dark doorway into a narrow, endless library corridor lined with shelves of glowing potion bottles. Floating magical books with glowing symbols hover in the air, surrounded by swirling and energy trails under a misty light",
+  "inverted_title": "Inverted sketch: Wolf in the Potion Library",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A black wolf with glowing eyes emerges from an open dark doorway into a narrow, endless library corridor lined with shelves of glowing potion bottles. Floating magical books with glowing symbols hover in the air, surrounded by swirling and energy trails under a misty light (from generated still #4248).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A black wolf with glowing eyes emerges from an open dark doorway into a narrow, endless library corridor lined with shelves of glowing potion bottles. Floating magical books with glowing symbols hover in the air, surrounded by swirling and energy trails under a misty light",
+  "source_description": "A black wolf with glowing purple eyes emerges from an open dark doorway into a narrow, endless library corridor lined with shelves of glowing potion bottles. Floating magical books with green glowing symbols hover in the air, surrounded by swirling purple and pink energy trails under a misty green light.",
+  "source_prompt": "A black wolf with glowing purple eyes steps out from a dark doorway into an infinite narrow corridor lined with tall shelves packed with glowing potion bottles on both sides. Several ancient books float in the air with bright green magical symbols and runes glowing on their pages. Swirling trails of purple and pink energy flow through the scene, dramatic misty green light emanates from the center, dark fantasy atmosphere, painterly style",
+  "source_title": "Wolf in the Potion Library",
+  "style": "surreal fantasy",
+  "mood": "mysterious eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "magic library",
+    "floating books",
+    "potions",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4248,
+  "source_url": "/generated/4248.jpg",
+  "image_url": "/sketches/4813.png",
+  "inverted_image_url": "/sketches-inverted/4813.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4903,
+  "title": "Line sketch: Lunar Dream Weaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large grey moon face with glowing eyes and intricate spiral patterns dominates the left side against a swirling and vortex. On the right, an elderly couple sits on a living room couch watching the scene, while a flowing ribbon filled with smaller faces and figures streams from the moon into the room (derived from generated still #4338).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large grey moon face with glowing eyes and intricate spiral patterns dominates the left side against a swirling and vortex. On the right, an elderly couple sits on a living room couch watching the scene, while a flowing ribbon filled with smaller faces and figures streams from the moon into the room",
+  "inverted_title": "Inverted sketch: Lunar Dream Weaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large grey moon face with glowing eyes and intricate spiral patterns dominates the left side against a swirling and vortex. On the right, an elderly couple sits on a living room couch watching the scene, while a flowing ribbon filled with smaller faces and figures streams from the moon into the room (from generated still #4338).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large grey moon face with glowing eyes and intricate spiral patterns dominates the left side against a swirling and vortex. On the right, an elderly couple sits on a living room couch watching the scene, while a flowing ribbon filled with smaller faces and figures streams from the moon into the room",
+  "source_description": "A large grey moon face with glowing yellow eyes and intricate green spiral patterns dominates the left side against a swirling pink and blue vortex. On the right, an elderly couple sits on a living room couch watching the scene, while a flowing red ribbon filled with smaller faces and figures streams from the moon into the room.",
+  "source_prompt": "Surreal psychedelic scene featuring a giant grey moon with a human face, glowing yellow eyes, and intricate green spiral patterns set against a swirling pink and blue vortex background. A flowing red fabric ribbon filled with multiple faces and figures streams from the moon into a cozy living room where an elderly couple sits on a couch watching a lamp-lit scene with two large stylized female faces on the wall.",
+  "source_title": "Lunar Dream Weaver",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moon face",
+    "psychedelic",
+    "elderly couple",
+    "dream sequence"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4338,
+  "source_url": "/generated/4338.jpg",
+  "image_url": "/sketches/4903.png",
+  "inverted_image_url": "/sketches-inverted/4903.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:49Z"
+}

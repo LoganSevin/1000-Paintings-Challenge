@@ -1,0 +1,42 @@
+{
+  "number": 380,
+  "title": "Line sketch: Corn Soldier Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stern anthropomorphic corn character wears a military uniform and helmet with a cob protruding from the top. Smoke rises from the ears while a corn beard frames the face against a background (derived from painting #445).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stern anthropomorphic corn character wears a military uniform and helmet with a cob protruding from the top. Smoke rises from the ears while a corn beard frames the face against a background",
+  "inverted_title": "Inverted sketch: Corn Soldier Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stern anthropomorphic corn character wears a military uniform and helmet with a cob protruding from the top. Smoke rises from the ears while a corn beard frames the face against a background (from painting #445).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stern anthropomorphic corn character wears a military uniform and helmet with a cob protruding from the top. Smoke rises from the ears while a corn beard frames the face against a background",
+  "source_description": "A stern anthropomorphic corn character wears a green military uniform and helmet with a cob protruding from the top. Smoke rises from the ears while a corn beard frames the face against a muted green background.",
+  "source_prompt": "",
+  "source_title": "Corn Soldier Portrait",
+  "style": "Cartoon illustration",
+  "mood": "Humorous, stern",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "corn character",
+    "military helmet",
+    "anthropomorphic",
+    "digital art",
+    "tones"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 445,
+  "source_url": "/paintings/445.jpg",
+  "image_url": "/sketches/380.png",
+  "inverted_image_url": "/sketches-inverted/380.png",
+  "curve_count": 168,
+  "built_at": "2026-08-17T00:09:39Z"
+}

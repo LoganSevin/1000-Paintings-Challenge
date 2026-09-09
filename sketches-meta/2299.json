@@ -1,0 +1,42 @@
+{
+  "number": 2299,
+  "title": "Line sketch: Surreal Procession to Sun",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a winding path leading toward a large sun with circular patterns, set against a dramatic and sky. In the foreground, stylized women with elaborate patterned headwraps and attire stand near a cluster of faces, while dark gothic castles with glowing windows loom in the background (derived from generated still #1526).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a winding path leading toward a large sun with circular patterns, set against a dramatic and sky. In the foreground, stylized women with elaborate patterned headwraps and attire stand near a cluster of faces, while dark gothic castles with glowing windows loom in the background",
+  "inverted_title": "Inverted sketch: Surreal Procession to Sun",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a winding path leading toward a large sun with circular patterns, set against a dramatic and sky. In the foreground, stylized women with elaborate patterned headwraps and attire stand near a cluster of faces, while dark gothic castles with glowing windows loom in the background (from generated still #1526).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a winding path leading toward a large sun with circular patterns, set against a dramatic and sky. In the foreground, stylized women with elaborate patterned headwraps and attire stand near a cluster of faces, while dark gothic castles with glowing windows loom in the background",
+  "source_description": "A vibrant surreal painting depicts a winding golden path leading toward a large red sun with circular patterns, set against a dramatic red and orange sky. In the foreground, stylized women with elaborate patterned headwraps and colorful attire stand near a cluster of multicolored faces, while dark gothic castles with glowing windows loom in the background.",
+  "source_prompt": "",
+  "source_title": "Surreal Procession to Red Sun",
+  "style": "surreal fantasy",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy landscape",
+    "procession",
+    "gothic castles",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1526,
+  "source_url": "/generated/1526.jpg",
+  "image_url": "/sketches/2299.png",
+  "inverted_image_url": "/sketches-inverted/2299.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:43Z"
+}

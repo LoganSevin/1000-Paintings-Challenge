@@ -1,0 +1,42 @@
+{
+  "number": 3384,
+  "title": "Line sketch: Surreal Time Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composite digital artwork divided into distinct sections. The top half features a large clock with Roman numerals, a translucent young woman with crossed arms, and an elderly bearded man in a hat with a bird on his shoulder. The bottom half shows a lone figure in a boat on reflective water, a glowing ornate building with and light, and a large smiley face orb with swirling particles (derived from generated still #2785).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composite digital artwork divided into distinct sections. The top half features a large clock with Roman numerals, a translucent young woman with crossed arms, and an elderly bearded man in a hat with a bird on his shoulder. The bottom half shows a lone figure in a boat on reflective water, a glowing ornate building with and light, and a large smiley face orb with swirling particles",
+  "inverted_title": "Inverted sketch: Surreal Time Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composite digital artwork divided into distinct sections. The top half features a large clock with Roman numerals, a translucent young woman with crossed arms, and an elderly bearded man in a hat with a bird on his shoulder. The bottom half shows a lone figure in a boat on reflective water, a glowing ornate building with and light, and a large smiley face orb with swirling particles (from generated still #2785).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composite digital artwork divided into distinct sections. The top half features a large clock with Roman numerals, a translucent young woman with crossed arms, and an elderly bearded man in a hat with a bird on his shoulder. The bottom half shows a lone figure in a boat on reflective water, a glowing ornate building with and light, and a large smiley face orb with swirling particles",
+  "source_description": "A composite digital artwork divided into distinct sections. The top half features a large pink clock with Roman numerals, a translucent young woman with crossed arms, and an elderly bearded man in a hat with a bird on his shoulder. The bottom half shows a lone figure in a boat on reflective water, a glowing ornate building with purple and yellow light, and a large neon green smiley face orb with swirling particles.",
+  "source_prompt": "A surreal composite artwork split horizontally. Top section shows a large translucent pink clock with Roman numerals floating in a cloudy sky, a young woman with bare shoulders and crossed arms fading into the center, and a detailed monochrome portrait of an old bearded man wearing a hat with a crow on his shoulder. Bottom section displays a lone rower in a wooden boat on calm reflective water with mountains and a yellow moon behind, an ornate glowing building with purple and yellow light in the center, and a large glowing green smiley face orb with energy rings on the right. Dreamlike collage style, blended transitions, atmospheric lighting.",
+  "source_title": "Surreal Time Collage",
+  "style": "surreal digital collage",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "clock",
+    "portrait",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2785,
+  "source_url": "/generated/2785.jpg",
+  "image_url": "/sketches/3384.png",
+  "inverted_image_url": "/sketches-inverted/3384.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

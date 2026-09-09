@@ -312,6 +312,30 @@
   gap: 0.45rem;
 }
 
+.tf-load-more {
+  display: block;
+  width: 100%;
+  margin: 0.65rem 0 0.25rem;
+  font: inherit;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 180, 140, 0.4);
+  background: rgba(16, 28, 22, 0.9);
+  color: #d8f0e0;
+  cursor: pointer;
+}
+
+.tf-vid-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4rem;
+  color: #b8f0c8;
+  background: rgba(0, 20, 12, 0.55);
+}
+
 .tf-gitem {
   position: relative;
   aspect-ratio: 1;
@@ -512,6 +536,16 @@ body.tf-tab-active .site-header .stats {
   padding: 0.35rem 0;
   background: rgba(8, 14, 20, 0.92);
   backdrop-filter: blur(6px);
+}
+
+@media (max-width: 720px) {
+  .tf-portal-qr {
+    display: none !important;
+  }
+  .tf-gitem {
+    content-visibility: auto;
+    contain-intrinsic-size: 5.2rem 5.2rem;
+  }
 }
 
 @media (max-width: 640px) {

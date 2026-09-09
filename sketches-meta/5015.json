@@ -1,0 +1,42 @@
+{
+  "number": 5015,
+  "title": "Line sketch: Dreaming by the River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with and hair sits pensively on the riverbank in the foreground, resting her chin on her gloved hand beside a handbag. Behind her, a serene river reflects a surreal twilight landscape featuring floating islands with glowing trees, firefly-like dragons flying through the sky, and a vibrant mix of sunset and starry night colors (derived from generated still #4454).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with and hair sits pensively on the riverbank in the foreground, resting her chin on her gloved hand beside a handbag. Behind her, a serene river reflects a surreal twilight landscape featuring floating islands with glowing trees, firefly-like dragons flying through the sky, and a vibrant mix of sunset and starry night colors",
+  "inverted_title": "Inverted sketch: Dreaming by the River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with and hair sits pensively on the riverbank in the foreground, resting her chin on her gloved hand beside a handbag. Behind her, a serene river reflects a surreal twilight landscape featuring floating islands with glowing trees, firefly-like dragons flying through the sky, and a vibrant mix of sunset and starry night colors (from generated still #4454).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with and hair sits pensively on the riverbank in the foreground, resting her chin on her gloved hand beside a handbag. Behind her, a serene river reflects a surreal twilight landscape featuring floating islands with glowing trees, firefly-like dragons flying through the sky, and a vibrant mix of sunset and starry night colors",
+  "source_description": "A young woman with blue and purple hair sits pensively on the riverbank in the foreground, resting her chin on her gloved hand beside a brown handbag. Behind her, a serene river reflects a surreal twilight landscape featuring floating islands with glowing trees, firefly-like dragons flying through the sky, and a vibrant mix of sunset and starry night colors.",
+  "source_prompt": "A young woman with long blue and purple hair wearing an orange patterned top and white gloves sits pensively on a grassy riverbank, chin resting on her hand next to a brown handbag. A calm river reflects the dreamy landscape of floating tree-covered islands, giant glowing dragonflies flying across a magical sky that blends sunset orange and deep starry purple with nebulae and mist, whimsical fantasy scene, detailed digital painting.",
+  "source_title": "Dreaming by the River",
+  "style": "fantasy illustration",
+  "mood": "dreamlike melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy landscape",
+    "dragonflies",
+    "floating islands",
+    "twilight sky",
+    "ethereal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4454,
+  "source_url": "/generated/4454.jpg",
+  "image_url": "/sketches/5015.png",
+  "inverted_image_url": "/sketches-inverted/5015.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3276,
+  "title": "Line sketch: Fractured Cinema",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a long velvet dress and glasses stands in a dilapidated room, holding a film reel in one hand and a film strip in the other. The wall behind her is cracked open like torn paper, revealing a cosmic scene with floating vintage film projectors and a starry night sky visible through tall arched windows (derived from generated still #2651).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a long velvet dress and glasses stands in a dilapidated room, holding a film reel in one hand and a film strip in the other. The wall behind her is cracked open like torn paper, revealing a cosmic scene with floating vintage film projectors and a starry night sky visible through tall arched windows",
+  "inverted_title": "Inverted sketch: Fractured Cinema",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a long velvet dress and glasses stands in a dilapidated room, holding a film reel in one hand and a film strip in the other. The wall behind her is cracked open like torn paper, revealing a cosmic scene with floating vintage film projectors and a starry night sky visible through tall arched windows (from generated still #2651).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a long velvet dress and glasses stands in a dilapidated room, holding a film reel in one hand and a film strip in the other. The wall behind her is cracked open like torn paper, revealing a cosmic scene with floating vintage film projectors and a starry night sky visible through tall arched windows",
+  "source_description": "A woman in a long green velvet dress and glasses stands in a dilapidated room, holding a film reel in one hand and a film strip in the other. The wall behind her is cracked open like torn paper, revealing a cosmic scene with floating vintage film projectors and a starry night sky visible through tall arched windows.",
+  "source_prompt": "A woman wearing glasses and an elegant emerald green velvet dress stands in a decaying room with cracked floors and arched windows showing a starry night. She holds a film reel and a long strip of film. The wall is dramatically torn open like old paper, revealing a cosmic blue space with multiple floating antique film projectors connected by brass mechanisms, cinematic surrealism, detailed textures, moody lighting",
+  "source_title": "Fractured Cinema",
+  "style": "surreal composition",
+  "mood": "melancholy, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "cinema",
+    "film reels",
+    "cosmic",
+    "ruined interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2651,
+  "source_url": "/generated/2651.jpg",
+  "image_url": "/sketches/3276.png",
+  "inverted_image_url": "/sketches-inverted/3276.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:45Z"
+}

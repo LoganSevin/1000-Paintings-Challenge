@@ -1,0 +1,42 @@
+{
+  "number": 600,
+  "title": "Line sketch: One-Eyed Cosmic Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A playful blob-like alien with a large expressive eye and wide smile floats in a swirling cosmic vortex. The dark swirling shapes and speckled stars create a whimsical outer space atmosphere (derived from painting #764).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A playful blob-like alien with a large expressive eye and wide smile floats in a swirling cosmic vortex. The dark swirling shapes and speckled stars create a whimsical outer space atmosphere",
+  "inverted_title": "Inverted sketch: One-Eyed Cosmic Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A playful blob-like alien with a large expressive eye and wide smile floats in a swirling cosmic vortex. The dark swirling shapes and speckled stars create a whimsical outer space atmosphere (from painting #764).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A playful blob-like alien with a large expressive eye and wide smile floats in a swirling cosmic vortex. The dark swirling shapes and speckled stars create a whimsical outer space atmosphere",
+  "source_description": "A playful green blob-like alien with a large expressive eye and wide smile floats in a swirling cosmic vortex. The dark swirling shapes and speckled stars create a whimsical outer space atmosphere.",
+  "source_prompt": "",
+  "source_title": "One-Eyed Green Cosmic Creature",
+  "style": "Digital illustration",
+  "mood": "Whimsical and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "cosmic",
+    "cartoon",
+    "one-eyed",
+    "swirl"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 764,
+  "source_url": "/paintings/764.jpg",
+  "image_url": "/sketches/600.png",
+  "inverted_image_url": "/sketches-inverted/600.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 316,
+  "title": "Line sketch: Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A striking profile of a dog rendered in vibrant with intricate black linework. The background features a pattern of leaves and flowers creating bold contrast (derived from painting #377).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A striking profile of a dog rendered in vibrant with intricate black linework. The background features a pattern of leaves and flowers creating bold contrast",
+  "inverted_title": "Inverted sketch: Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A striking profile of a dog rendered in vibrant with intricate black linework. The background features a pattern of leaves and flowers creating bold contrast (from painting #377).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A striking profile of a dog rendered in vibrant with intricate black linework. The background features a pattern of leaves and flowers creating bold contrast",
+  "source_description": "A striking profile of a dog rendered in vibrant lime green with intricate black linework. The background features a rich magenta pattern of leaves and flowers creating bold contrast.",
+  "source_prompt": "",
+  "source_title": "Lime Green Dog Portrait",
+  "style": "Pop Art",
+  "mood": "Bold and Vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Print",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "pop art",
+    "animal art",
+    "graphic style",
+    "floral background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 377,
+  "source_url": "/paintings/377.jpg",
+  "image_url": "/sketches/316.png",
+  "inverted_image_url": "/sketches-inverted/316.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:39Z"
+}

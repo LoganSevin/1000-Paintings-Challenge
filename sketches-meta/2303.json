@@ -1,0 +1,42 @@
+{
+  "number": 2303,
+  "title": "Line sketch: Woman and Luminous Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts a black silhouette of a woman gently cupping the face of a large, glowing - dog. Her long, flowing hair merges with swirling, fiery cosmic patterns against a starry, nebula background (derived from generated still #1530).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts a black silhouette of a woman gently cupping the face of a large, glowing - dog. Her long, flowing hair merges with swirling, fiery cosmic patterns against a starry, nebula background",
+  "inverted_title": "Inverted sketch: Woman and Luminous Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts a black silhouette of a woman gently cupping the face of a large, glowing - dog. Her long, flowing hair merges with swirling, fiery cosmic patterns against a starry, nebula background (from generated still #1530).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts a black silhouette of a woman gently cupping the face of a large, glowing - dog. Her long, flowing hair merges with swirling, fiery cosmic patterns against a starry, nebula background",
+  "source_description": "A vibrant psychedelic painting depicts a black silhouette of a woman gently cupping the face of a large, glowing lime-green dog. Her long, flowing hair merges with swirling, fiery cosmic patterns against a starry, multicolored nebula background.",
+  "source_prompt": "",
+  "source_title": "Woman and Luminous Dog",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "silhouette",
+    "cosmic",
+    "dog",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1530,
+  "source_url": "/generated/1530.jpg",
+  "image_url": "/sketches/2303.png",
+  "inverted_image_url": "/sketches-inverted/2303.png",
+  "curve_count": 195,
+  "built_at": "2026-08-17T00:09:43Z"
+}

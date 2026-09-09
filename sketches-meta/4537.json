@@ -1,0 +1,42 @@
+{
+  "number": 4537,
+  "title": "Line sketch: Montmartre Stained Glass",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant stained glass style composition depicts a sunny Parisian street scene in Montmartre. A couple with a umbrella walks along a cobblestone path lined with shops including a Home Depot store, flower pots, and shutters, with Sacré-Cœur Basilica visible on the hill under a bright sun (derived from generated still #3957).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant stained glass style composition depicts a sunny Parisian street scene in Montmartre. A couple with a umbrella walks along a cobblestone path lined with shops including a Home Depot store, flower pots, and shutters, with Sacré-Cœur Basilica visible on the hill under a bright sun",
+  "inverted_title": "Inverted sketch: Montmartre Stained Glass",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant stained glass style composition depicts a sunny Parisian street scene in Montmartre. A couple with a umbrella walks along a cobblestone path lined with shops including a Home Depot store, flower pots, and shutters, with Sacré-Cœur Basilica visible on the hill under a bright sun (from generated still #3957).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant stained glass style composition depicts a sunny Parisian street scene in Montmartre. A couple with a umbrella walks along a cobblestone path lined with shops including a Home Depot store, flower pots, and shutters, with Sacré-Cœur Basilica visible on the hill under a bright sun",
+  "source_description": "A vibrant stained glass style painting depicts a sunny Parisian street scene in Montmartre. A couple with a blue umbrella walks along a colorful cobblestone path lined with shops including a Home Depot store, flower pots, and green shutters, with Sacré-Cœur Basilica visible on the hill under a bright sun.",
+  "source_prompt": "Vibrant stained glass artwork of a sunny day in Montmartre Paris, a couple holding a blue umbrella walking on colorful cobblestone street lined with shops and flower pots, one shop sign reads HOME DEPOT, green shutters and orange awnings on buildings, Sacré-Cœur Basilica on the hill in the background, large bright sun in the sky, trees with yellow leaves, rich colors and bold black leading lines typical of stained glass",
+  "source_title": "Montmartre Stained Glass",
+  "style": "stained glass",
+  "mood": "cheerful, romantic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Paris",
+    "Montmartre",
+    "Sacré-Cœur",
+    "cobblestone street",
+    "stained glass"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3957,
+  "source_url": "/generated/3957.jpg",
+  "image_url": "/sketches/4537.png",
+  "inverted_image_url": "/sketches-inverted/4537.png",
+  "curve_count": 268,
+  "built_at": "2026-08-17T00:09:48Z"
+}

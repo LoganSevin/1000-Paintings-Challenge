@@ -1,0 +1,42 @@
+{
+  "number": 1904,
+  "title": "Line sketch: Dreamscape Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized profile of a woman with closed eyes, her hair and body transforming into swirling flowers and circular patterns across a rolling landscape. A vibrant sunset with sun and mountains forms the background in this psychedelic artwork (derived from generated still #1129).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized profile of a woman with closed eyes, her hair and body transforming into swirling flowers and circular patterns across a rolling landscape. A vibrant sunset with sun and mountains forms the background in this psychedelic artwork",
+  "inverted_title": "Inverted sketch: Dreamscape Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized profile of a woman with closed eyes, her hair and body transforming into swirling flowers and circular patterns across a rolling landscape. A vibrant sunset with sun and mountains forms the background in this psychedelic artwork (from generated still #1129).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized profile of a woman with closed eyes, her hair and body transforming into swirling flowers and circular patterns across a rolling landscape. A vibrant sunset with sun and mountains forms the background in this psychedelic artwork",
+  "source_description": "A stylized profile of a woman with closed eyes, her hair and body transforming into swirling colorful flowers and circular patterns across a rolling green landscape. A vibrant sunset with orange sun and purple mountains forms the background in this psychedelic artwork.",
+  "source_prompt": "",
+  "source_title": "Dreamscape Portrait",
+  "style": "Psychedelic",
+  "mood": "dreamlike, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman profile",
+    "psychedelic art",
+    "floral surrealism",
+    "sunset landscape",
+    "swirling patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1129,
+  "source_url": "/generated/1129.jpg",
+  "image_url": "/sketches/1904.png",
+  "inverted_image_url": "/sketches-inverted/1904.png",
+  "curve_count": 220,
+  "built_at": "2026-08-17T00:09:42Z"
+}

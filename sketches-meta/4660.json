@@ -1,0 +1,42 @@
+{
+  "number": 4660,
+  "title": "Line sketch: The Mantid Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted man stands in the foreground observing a large ornate oval frame containing three ethereal winged female figures with floral crowns whose bodies merge into a swirling flame-like vortex. Above the frame perches a giant praying mantis with translucent wings, while below it an tabby cat, grey cat, and black cat rest near an open book and a lit candle on stacked books, surrounded by floating bubbles and flowers (derived from generated still #4082).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted man stands in the foreground observing a large ornate oval frame containing three ethereal winged female figures with floral crowns whose bodies merge into a swirling flame-like vortex. Above the frame perches a giant praying mantis with translucent wings, while below it an tabby cat, grey cat, and black cat rest near an open book and a lit candle on stacked books, surrounded by floating bubbles and flowers",
+  "inverted_title": "Inverted sketch: The Mantid Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted man stands in the foreground observing a large ornate oval frame containing three ethereal winged female figures with floral crowns whose bodies merge into a swirling flame-like vortex. Above the frame perches a giant praying mantis with translucent wings, while below it an tabby cat, grey cat, and black cat rest near an open book and a lit candle on stacked books, surrounded by floating bubbles and flowers (from generated still #4082).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted man stands in the foreground observing a large ornate oval frame containing three ethereal winged female figures with floral crowns whose bodies merge into a swirling flame-like vortex. Above the frame perches a giant praying mantis with translucent wings, while below it an tabby cat, grey cat, and black cat rest near an open book and a lit candle on stacked books, surrounded by floating bubbles and flowers",
+  "source_description": "A silhouetted man stands in the foreground observing a large ornate golden oval frame containing three ethereal winged female figures with floral crowns whose bodies merge into a swirling orange flame-like vortex. Above the frame perches a giant green praying mantis with translucent wings, while below it an orange tabby cat, grey cat, and black cat rest near an open book and a lit candle on stacked books, surrounded by floating bubbles and pink flowers.",
+  "source_prompt": "A giant emerald green praying mantis with delicate wings perches atop a large ornate golden oval frame. Inside the frame are three beautiful winged women with flower crowns whose lower bodies dissolve into a swirling fiery orange vortex. In the foreground a black silhouette of a man watches, while three cats (orange tabby, grey, and black) sit near an open illuminated book and a lit red candle on stacked books. The scene is filled with floating transparent bubbles and pink flowers against a dark teal patterned wallpaper background with smaller framed pictures, in a highly detailed fantasy surreal style.",
+  "source_title": "The Mantid Oracle",
+  "style": "fantasy surrealism",
+  "mood": "mystical enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "surreal",
+    "mantis",
+    "triple goddess",
+    "magical portal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4082,
+  "source_url": "/generated/4082.jpg",
+  "image_url": "/sketches/4660.png",
+  "inverted_image_url": "/sketches-inverted/4660.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3692,
+  "title": "Line sketch: Psychedelic Pool Ritual",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene shows two dark-skinned figures with braided hair sitting in a glowing and circular pool with swirling patterns. Above them floats a large disembodied bald head with wide eyes and an open mouth, set against a cosmic background with mushrooms, vines, and a grid of dripping mosaic-like panels containing eyes and abstract shapes (derived from generated still #3100).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene shows two dark-skinned figures with braided hair sitting in a glowing and circular pool with swirling patterns. Above them floats a large disembodied bald head with wide eyes and an open mouth, set against a cosmic background with mushrooms, vines, and a grid of dripping mosaic-like panels containing eyes and abstract shapes",
+  "inverted_title": "Inverted sketch: Psychedelic Pool Ritual",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene shows two dark-skinned figures with braided hair sitting in a glowing and circular pool with swirling patterns. Above them floats a large disembodied bald head with wide eyes and an open mouth, set against a cosmic background with mushrooms, vines, and a grid of dripping mosaic-like panels containing eyes and abstract shapes (from generated still #3100).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene shows two dark-skinned figures with braided hair sitting in a glowing and circular pool with swirling patterns. Above them floats a large disembodied bald head with wide eyes and an open mouth, set against a cosmic background with mushrooms, vines, and a grid of dripping mosaic-like panels containing eyes and abstract shapes",
+  "source_description": "A surreal scene shows two dark-skinned figures with braided hair sitting in a glowing pink and purple circular pool with swirling patterns. Above them floats a large disembodied bald head with wide eyes and an open mouth, set against a cosmic background with mushrooms, vines, and a grid of dripping mosaic-like panels containing eyes and abstract shapes.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Pool Ritual",
+  "style": "surreal",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "psychedelic",
+    "mushrooms",
+    "cosmic",
+    "ritual"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3100,
+  "source_url": "/generated/3100.jpg",
+  "image_url": "/sketches/3692.png",
+  "inverted_image_url": "/sketches-inverted/3692.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:46Z"
+}

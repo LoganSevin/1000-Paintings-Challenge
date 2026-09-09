@@ -1,0 +1,42 @@
+{
+  "number": 1186,
+  "title": "Line sketch: Cosmic Storm Goddess",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with glowing eyes and flowing dark hair adorned with crescent moons emerges from swirling clouds. She is set against a dramatic sky of fiery and, with molten drips falling from above and bright lightning striking in the background (derived from generated still #398).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with glowing eyes and flowing dark hair adorned with crescent moons emerges from swirling clouds. She is set against a dramatic sky of fiery and, with molten drips falling from above and bright lightning striking in the background",
+  "inverted_title": "Inverted sketch: Cosmic Storm Goddess",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with glowing eyes and flowing dark hair adorned with crescent moons emerges from swirling clouds. She is set against a dramatic sky of fiery and, with molten drips falling from above and bright lightning striking in the background (from generated still #398).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with glowing eyes and flowing dark hair adorned with crescent moons emerges from swirling clouds. She is set against a dramatic sky of fiery and, with molten drips falling from above and bright lightning striking in the background",
+  "source_description": "A blue-skinned woman with glowing golden eyes and flowing dark hair adorned with crescent moons emerges from swirling clouds. She is set against a dramatic sky of fiery orange and deep purple, with red molten drips falling from above and bright lightning striking in the background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Storm Goddess",
+  "style": "fantasy illustration",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "goddess",
+    "lightning",
+    "crescent moons",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 398,
+  "source_url": "/generated/398.jpg",
+  "image_url": "/sketches/1186.png",
+  "inverted_image_url": "/sketches-inverted/1186.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:40Z"
+}

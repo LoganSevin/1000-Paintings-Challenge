@@ -1,0 +1,42 @@
+{
+  "number": 3173,
+  "title": "Line sketch: Spiral Staircase Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an elegant dark gown and jeweled headpiece descends a grand spiral staircase that curves through a surreal, flooded fantasy hall. The scene is filled with floating jellyfish, a submerged grand piano, dripping curtains, classical figures in the background, and a glowing ornate chandelier hovering above dark reflective water (derived from generated still #2516).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an elegant dark gown and jeweled headpiece descends a grand spiral staircase that curves through a surreal, flooded fantasy hall. The scene is filled with floating jellyfish, a submerged grand piano, dripping curtains, classical figures in the background, and a glowing ornate chandelier hovering above dark reflective water",
+  "inverted_title": "Inverted sketch: Spiral Staircase Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an elegant dark gown and jeweled headpiece descends a grand spiral staircase that curves through a surreal, flooded fantasy hall. The scene is filled with floating jellyfish, a submerged grand piano, dripping curtains, classical figures in the background, and a glowing ornate chandelier hovering above dark reflective water (from generated still #2516).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an elegant dark gown and jeweled headpiece descends a grand spiral staircase that curves through a surreal, flooded fantasy hall. The scene is filled with floating jellyfish, a submerged grand piano, dripping curtains, classical figures in the background, and a glowing ornate chandelier hovering above dark reflective water",
+  "source_description": "A woman in an elegant dark gown and jeweled headpiece descends a grand spiral staircase that curves through a surreal, flooded fantasy hall. The scene is filled with floating jellyfish, a submerged grand piano, dripping crimson curtains, classical figures in the background, and a glowing ornate chandelier hovering above dark reflective water.",
+  "source_prompt": "A woman in a flowing dark purple gown and jeweled headpiece descends a dramatic spiral staircase inside a flooded, decaying classical hall. Floating bioluminescent jellyfish illuminate the scene, a grand piano sits partially submerged in dark reflective water below, ornate chandelier hangs in mid-air, tattered red curtains drip from above, classical figures appear in the misty background, surreal dreamlike atmosphere, cinematic lighting",
+  "source_title": "Spiral Staircase Dream",
+  "style": "surreal fantasy",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "spiral staircase",
+    "jellyfish",
+    "grand piano",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2516,
+  "source_url": "/generated/2516.jpg",
+  "image_url": "/sketches/3173.png",
+  "inverted_image_url": "/sketches-inverted/3173.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:45Z"
+}

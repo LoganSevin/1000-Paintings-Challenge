@@ -1,0 +1,42 @@
+{
+  "number": 3155,
+  "title": "Line sketch: Dimensional Film Rift",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dress and 3D glasses leaps dramatically from a ruined, decaying room filled with old film reels, movie posters, and broken televisions, reaching toward a cinematic camera floating in mid-air. Through a massive jagged hole in the wall, a surreal alien landscape with a glowing and sky is visible, where a lone figure in a hazmat suit stands among wrecked cars (derived from generated still #2496).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dress and 3D glasses leaps dramatically from a ruined, decaying room filled with old film reels, movie posters, and broken televisions, reaching toward a cinematic camera floating in mid-air. Through a massive jagged hole in the wall, a surreal alien landscape with a glowing and sky is visible, where a lone figure in a hazmat suit stands among wrecked cars",
+  "inverted_title": "Inverted sketch: Dimensional Film Rift",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dress and 3D glasses leaps dramatically from a ruined, decaying room filled with old film reels, movie posters, and broken televisions, reaching toward a cinematic camera floating in mid-air. Through a massive jagged hole in the wall, a surreal alien landscape with a glowing and sky is visible, where a lone figure in a hazmat suit stands among wrecked cars (from generated still #2496).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dress and 3D glasses leaps dramatically from a ruined, decaying room filled with old film reels, movie posters, and broken televisions, reaching toward a cinematic camera floating in mid-air. Through a massive jagged hole in the wall, a surreal alien landscape with a glowing and sky is visible, where a lone figure in a hazmat suit stands among wrecked cars",
+  "source_description": "A woman in a red dress and 3D glasses leaps dramatically from a ruined, decaying room filled with old film reels, movie posters, and broken televisions, reaching toward a cinematic camera floating in mid-air. Through a massive jagged hole in the wall, a surreal alien landscape with a glowing green and pink sky is visible, where a lone figure in a yellow hazmat suit stands among wrecked cars.",
+  "source_prompt": "A woman in a red dress and 3D glasses leaping from a decaying abandoned room covered in old movie posters, reaching for a floating vintage film camera as film reels and debris fly through the air. A giant broken hole in the wall reveals a surreal toxic green and magenta alien landscape with a person in a yellow hazmat suit standing among wrecked cars under a glowing sky, dramatic cinematic lighting, highly detailed digital painting",
+  "source_title": "Dimensional Film Rift",
+  "style": "cinematic surrealism",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "film noir",
+    "dimensional rift",
+    "retro horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2496,
+  "source_url": "/generated/2496.jpg",
+  "image_url": "/sketches/3155.png",
+  "inverted_image_url": "/sketches-inverted/3155.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:45Z"
+}

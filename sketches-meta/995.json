@@ -1,0 +1,42 @@
+{
+  "number": 995,
+  "title": "Line sketch: Serpent of the Eternal Circle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal skeletal serpent with glowing eyes and bones coils around a series of concentric glowing and magical circles. In the foreground, a small silhouetted girl in a white dress stands holding a staff, gazing up at the massive creature as sparks and dark smoke fill the air (derived from generated still #205).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal skeletal serpent with glowing eyes and bones coils around a series of concentric glowing and magical circles. In the foreground, a small silhouetted girl in a white dress stands holding a staff, gazing up at the massive creature as sparks and dark smoke fill the air",
+  "inverted_title": "Inverted sketch: Serpent of the Eternal Circle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal skeletal serpent with glowing eyes and bones coils around a series of concentric glowing and magical circles. In the foreground, a small silhouetted girl in a white dress stands holding a staff, gazing up at the massive creature as sparks and dark smoke fill the air (from generated still #205).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal skeletal serpent with glowing eyes and bones coils around a series of concentric glowing and magical circles. In the foreground, a small silhouetted girl in a white dress stands holding a staff, gazing up at the massive creature as sparks and dark smoke fill the air",
+  "source_description": "A colossal skeletal serpent with glowing orange eyes and turquoise bones coils around a series of concentric glowing green and purple magical circles. In the foreground, a small silhouetted girl in a white dress stands holding a staff, gazing up at the massive creature as sparks and dark smoke fill the air.",
+  "source_prompt": "",
+  "source_title": "Serpent of the Eternal Circle",
+  "style": "fantasy illustration",
+  "mood": "mystical ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletal dragon",
+    "magic circles",
+    "fantasy creature",
+    "glowing runes",
+    "silhouetted girl"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 205,
+  "source_url": "/generated/205.jpg",
+  "image_url": "/sketches/995.png",
+  "inverted_image_url": "/sketches-inverted/995.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:40Z"
+}

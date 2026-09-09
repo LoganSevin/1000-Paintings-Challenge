@@ -1,0 +1,42 @@
+{
+  "number": 2633,
+  "title": "Line sketch: The Alchemists' Workshop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lively group of medieval scholars, alchemists, and wizards gather around a long wooden table covered in papers, maps, and candles inside a cluttered study. The -hued room is filled with hanging lanterns, walls covered in esoteric diagrams and artwork, while servants bring refreshments through a doorway in the background (derived from generated still #1872).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lively group of medieval scholars, alchemists, and wizards gather around a long wooden table covered in papers, maps, and candles inside a cluttered study. The -hued room is filled with hanging lanterns, walls covered in esoteric diagrams and artwork, while servants bring refreshments through a doorway in the background",
+  "inverted_title": "Inverted sketch: The Alchemists' Workshop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lively group of medieval scholars, alchemists, and wizards gather around a long wooden table covered in papers, maps, and candles inside a cluttered study. The -hued room is filled with hanging lanterns, walls covered in esoteric diagrams and artwork, while servants bring refreshments through a doorway in the background (from generated still #1872).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lively group of medieval scholars, alchemists, and wizards gather around a long wooden table covered in papers, maps, and candles inside a cluttered study. The -hued room is filled with hanging lanterns, walls covered in esoteric diagrams and artwork, while servants bring refreshments through a doorway in the background",
+  "source_description": "A lively group of medieval scholars, alchemists, and wizards gather around a long wooden table covered in papers, maps, and candles inside a cluttered study. The purple-hued room is filled with hanging lanterns, walls covered in esoteric diagrams and artwork, while servants bring refreshments through a doorway in the background.",
+  "source_prompt": "",
+  "source_title": "The Alchemists' Workshop",
+  "style": "fantasy illustration",
+  "mood": "scholarly, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemy",
+    "scholars",
+    "fantasy",
+    "workshop",
+    "candlelight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1872,
+  "source_url": "/generated/1872.jpg",
+  "image_url": "/sketches/2633.png",
+  "inverted_image_url": "/sketches-inverted/2633.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:43Z"
+}

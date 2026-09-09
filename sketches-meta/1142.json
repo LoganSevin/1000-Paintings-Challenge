@@ -1,0 +1,42 @@
+{
+  "number": 1142,
+  "title": "Line sketch: Melting Boy and Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a young boy with a and melting face, one glowing eye dripping liquid, embracing a vibrant dog with dripping patterns. The background is a dark ornate pattern of flowers, skulls, and butterflies (derived from generated still #354).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a young boy with a and melting face, one glowing eye dripping liquid, embracing a vibrant dog with dripping patterns. The background is a dark ornate pattern of flowers, skulls, and butterflies",
+  "inverted_title": "Inverted sketch: Melting Boy and Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a young boy with a and melting face, one glowing eye dripping liquid, embracing a vibrant dog with dripping patterns. The background is a dark ornate pattern of flowers, skulls, and butterflies (from generated still #354).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a young boy with a and melting face, one glowing eye dripping liquid, embracing a vibrant dog with dripping patterns. The background is a dark ornate pattern of flowers, skulls, and butterflies",
+  "source_description": "A surreal portrait of a young boy with a blue and orange melting face, one red glowing eye dripping red liquid, embracing a vibrant green dog with yellow dripping patterns. The background is a dark ornate pattern of pink flowers, skulls, and butterflies.",
+  "source_prompt": "",
+  "source_title": "Melting Boy and Green Dog",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "glowing eye",
+    "floral pattern",
+    "skulls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 354,
+  "source_url": "/generated/354.jpg",
+  "image_url": "/sketches/1142.png",
+  "inverted_image_url": "/sketches-inverted/1142.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:40Z"
+}

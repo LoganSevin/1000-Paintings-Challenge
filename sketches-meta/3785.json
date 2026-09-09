@@ -1,0 +1,42 @@
+{
+  "number": 3785,
+  "title": "Line sketch: Four Warriors",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical poses of a dark-skinned female warrior with short hair, wearing matching and fantasy armor with leaf-like patterns, arm wraps, and leg bindings. The figures are arranged in a horizontal row against a solid black background, each in a dynamic combat stance with energy effects near their heads (derived from generated still #3202).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical poses of a dark-skinned female warrior with short hair, wearing matching and fantasy armor with leaf-like patterns, arm wraps, and leg bindings. The figures are arranged in a horizontal row against a solid black background, each in a dynamic combat stance with energy effects near their heads",
+  "inverted_title": "Inverted sketch: Four Warriors",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical poses of a dark-skinned female warrior with short hair, wearing matching and fantasy armor with leaf-like patterns, arm wraps, and leg bindings. The figures are arranged in a horizontal row against a solid black background, each in a dynamic combat stance with energy effects near their heads (from generated still #3202).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical poses of a dark-skinned female warrior with short hair, wearing matching and fantasy armor with leaf-like patterns, arm wraps, and leg bindings. The figures are arranged in a horizontal row against a solid black background, each in a dynamic combat stance with energy effects near their heads",
+  "source_description": "Four identical poses of a dark-skinned female warrior with short silver hair, wearing matching purple and silver fantasy armor with leaf-like patterns, arm wraps, and leg bindings. The figures are arranged in a horizontal row against a solid black background, each in a dynamic combat stance with purple energy effects near their heads.",
+  "source_prompt": "dark-skinned female warrior with short messy silver hair, wearing ornate purple and silver fantasy armor with leaf motifs, bare midriff, arm wraps and purple leg bindings, standing in a dynamic combat stance with one leg forward, purple energy effect around head, four identical copies arranged in a row, full body view, black background, stylized 3D character render",
+  "source_title": "Four Purple Warriors",
+  "style": "digital character concept art",
+  "mood": "fierce, stylized",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "armor",
+    "hair",
+    "multiple poses",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3202,
+  "source_url": "/generated/3202.jpg",
+  "image_url": "/sketches/3785.png",
+  "inverted_image_url": "/sketches-inverted/3785.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:46Z"
+}

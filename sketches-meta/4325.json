@@ -1,0 +1,42 @@
+{
+  "number": 4325,
+  "title": "Line sketch: Mystic Crystal Ball",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball sits on an ornate base atop a wooden desk. Inside the sphere, a swirling vortex of, and energy surrounds a small character in a hat and scarf, standing on a stylized landscape with a tiny silhouetted figure on a distant hill. lightning and energy bolts erupt from the orb into the dark surrounding space (derived from generated still #3744).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball sits on an ornate base atop a wooden desk. Inside the sphere, a swirling vortex of, and energy surrounds a small character in a hat and scarf, standing on a stylized landscape with a tiny silhouetted figure on a distant hill. lightning and energy bolts erupt from the orb into the dark surrounding space",
+  "inverted_title": "Inverted sketch: Mystic Crystal Ball",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball sits on an ornate base atop a wooden desk. Inside the sphere, a swirling vortex of, and energy surrounds a small character in a hat and scarf, standing on a stylized landscape with a tiny silhouetted figure on a distant hill. lightning and energy bolts erupt from the orb into the dark surrounding space (from generated still #3744).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball sits on an ornate base atop a wooden desk. Inside the sphere, a swirling vortex of, and energy surrounds a small character in a hat and scarf, standing on a stylized landscape with a tiny silhouetted figure on a distant hill. lightning and energy bolts erupt from the orb into the dark surrounding space",
+  "source_description": "A glowing crystal ball sits on an ornate base atop a wooden desk. Inside the sphere, a swirling vortex of orange, red and blue energy surrounds a small green character in a hat and scarf, standing on a stylized landscape with a tiny silhouetted figure on a distant hill. Pink lightning and magenta energy bolts erupt from the orb into the dark surrounding space.",
+  "source_prompt": "A glowing crystal ball on a dark wooden desk in a dimly lit room, containing a swirling orange and blue energy vortex. Inside stands a small cartoonish green character wearing a fedora and scarf with arms outstretched. A tiny silhouetted figure stands on a distant hill within the orb. Bright pink lightning and magenta energy bolts explode outward from the sphere. Dramatic lighting, painterly digital art style, dark mystical atmosphere.",
+  "source_title": "Mystic Crystal Ball",
+  "style": "line sketch",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "surreal",
+    "energy vortex",
+    "character",
+    "lightning"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3744,
+  "source_url": "/generated/3744.jpg",
+  "image_url": "/sketches/4325.png",
+  "inverted_image_url": "/sketches-inverted/4325.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:47Z"
+}

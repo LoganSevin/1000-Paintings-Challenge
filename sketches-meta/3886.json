@@ -1,0 +1,42 @@
+{
+  "number": 3886,
+  "title": "Line sketch: Sunflower Punk Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A triptych composition on a background shows three poses of the same anime-style character with spiky black hair, sunflower accessories, and a -and-black punk outfit. The left panel depicts the character crouching with sunflowers in hand, the center shows a dynamic standing dance pose with one hand raised, and the right panel captures a confident striding pose with tail-like sunflower chain (derived from generated still #3303).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A triptych composition on a background shows three poses of the same anime-style character with spiky black hair, sunflower accessories, and a -and-black punk outfit. The left panel depicts the character crouching with sunflowers in hand, the center shows a dynamic standing dance pose with one hand raised, and the right panel captures a confident striding pose with tail-like sunflower chain",
+  "inverted_title": "Inverted sketch: Sunflower Punk Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A triptych composition on a background shows three poses of the same anime-style character with spiky black hair, sunflower accessories, and a -and-black punk outfit. The left panel depicts the character crouching with sunflowers in hand, the center shows a dynamic standing dance pose with one hand raised, and the right panel captures a confident striding pose with tail-like sunflower chain (from generated still #3303).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A triptych composition on a background shows three poses of the same anime-style character with spiky black hair, sunflower accessories, and a -and-black punk outfit. The left panel depicts the character crouching with sunflowers in hand, the center shows a dynamic standing dance pose with one hand raised, and the right panel captures a confident striding pose with tail-like sunflower chain",
+  "source_description": "A triptych painting on a bright green background shows three poses of the same anime-style character with spiky black hair, sunflower accessories, and a yellow-and-black punk outfit. The left panel depicts the character crouching with sunflowers in hand, the center shows a dynamic standing dance pose with one hand raised, and the right panel captures a confident striding pose with tail-like sunflower chain.",
+  "source_prompt": "A triptych acrylic painting on a vibrant lime green background featuring three distinct poses of a fierce anime-style male character with spiky black hair, yellow sunflower hair accessories, and a yellow and black punk rock outfit with belts, chains, and sunflower details. Left panel shows him crouching playfully holding sunflowers, center panel shows him in a dynamic dance stance with one hand raised, right panel shows him striding forward confidently with a tail-like sunflower chain, all rendered in a bold illustrative style with thick outlines.",
+  "source_title": "Sunflower Punk Poses",
+  "style": "anime illustration",
+  "mood": "energetic, bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anime character",
+    "sunflower motif",
+    "punk fashion",
+    "triptych",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3303,
+  "source_url": "/generated/3303.jpg",
+  "image_url": "/sketches/3886.png",
+  "inverted_image_url": "/sketches-inverted/3886.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:46Z"
+}

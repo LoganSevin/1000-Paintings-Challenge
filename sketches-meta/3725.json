@@ -1,0 +1,42 @@
+{
+  "number": 3725,
+  "title": "Line sketch: Ruined Temple Beacon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal ruined stone temple complex with crumbling walls and broken stairs stands under a dark stormy sky. Multiple towering plumes of glowing, and ethereal smoke rise from the ground, illuminated by a dramatic beam of -white light piercing through the clouds onto the cracked stone courtyard (derived from generated still #3135).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal ruined stone temple complex with crumbling walls and broken stairs stands under a dark stormy sky. Multiple towering plumes of glowing, and ethereal smoke rise from the ground, illuminated by a dramatic beam of -white light piercing through the clouds onto the cracked stone courtyard",
+  "inverted_title": "Inverted sketch: Ruined Temple Beacon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal ruined stone temple complex with crumbling walls and broken stairs stands under a dark stormy sky. Multiple towering plumes of glowing, and ethereal smoke rise from the ground, illuminated by a dramatic beam of -white light piercing through the clouds onto the cracked stone courtyard (from generated still #3135).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal ruined stone temple complex with crumbling walls and broken stairs stands under a dark stormy sky. Multiple towering plumes of glowing, and ethereal smoke rise from the ground, illuminated by a dramatic beam of -white light piercing through the clouds onto the cracked stone courtyard",
+  "source_description": "A surreal ruined stone temple complex with crumbling walls and broken stairs stands under a dark stormy sky. Multiple towering plumes of glowing blue, cyan, and green ethereal smoke rise from the ground, illuminated by a dramatic beam of purple-white light piercing through the clouds onto the cracked stone courtyard.",
+  "source_prompt": "Surreal ruined ancient stone temple with broken walls and crumbling stairs, multiple towering columns of glowing blue cyan and vibrant green ethereal magical smoke rising from the ground, cracked dark stone courtyard floor with glowing fissures, dramatic beam of purple white light breaking through dark stormy clouds, ominous fantasy atmosphere, highly detailed digital painting",
+  "source_title": "Ruined Temple Beacon",
+  "style": "digital fantasy composition",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ruins",
+    "ethereal smoke",
+    "dramatic lighting",
+    "fantasy landscape",
+    "apocalyptic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3135,
+  "source_url": "/generated/3135.jpg",
+  "image_url": "/sketches/3725.png",
+  "inverted_image_url": "/sketches-inverted/3725.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:46Z"
+}

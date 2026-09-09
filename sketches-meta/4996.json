@@ -1,0 +1,42 @@
+{
+  "number": 4996,
+  "title": "Line sketch: Fox in Heartlit Nightmare",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fox stands in the foreground of a decaying ornate room, surrounded by broken teacups, paint splatters and glowing hearts dripping from thin black stems. In the background a massive grotesque tree-like monster with a pale cracked face, glowing white eyes and sharp teeth looms against a vibrant starry sky (derived from generated still #4433).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fox stands in the foreground of a decaying ornate room, surrounded by broken teacups, paint splatters and glowing hearts dripping from thin black stems. In the background a massive grotesque tree-like monster with a pale cracked face, glowing white eyes and sharp teeth looms against a vibrant starry sky",
+  "inverted_title": "Inverted sketch: Fox in Heartlit Nightmare",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fox stands in the foreground of a decaying ornate room, surrounded by broken teacups, paint splatters and glowing hearts dripping from thin black stems. In the background a massive grotesque tree-like monster with a pale cracked face, glowing white eyes and sharp teeth looms against a vibrant starry sky (from generated still #4433).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fox stands in the foreground of a decaying ornate room, surrounded by broken teacups, paint splatters and glowing hearts dripping from thin black stems. In the background a massive grotesque tree-like monster with a pale cracked face, glowing white eyes and sharp teeth looms against a vibrant starry sky",
+  "source_description": "A detailed fox stands in the foreground of a decaying ornate room, surrounded by broken teacups, paint splatters and glowing magenta hearts dripping from thin black stems. In the background a massive grotesque tree-like monster with a pale cracked face, glowing white eyes and sharp teeth looms against a vibrant green starry sky.",
+  "source_prompt": "A realistic fox standing in an abandoned elegant room with peeling walls and a lit wall sconce, broken teacups and paint on the floor, swarms of glowing bright pink hearts floating on black stems, in the background a giant terrifying tree creature with a humanoid cracked pale face, glowing white eyes and wide sharp-toothed grin emerging from twisted branches against a vibrant green starry night sky, dark surreal fantasy style",
+  "source_title": "Fox in Heartlit Nightmare",
+  "style": "surreal dark fantasy",
+  "mood": "eerie whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fox",
+    "monster",
+    "hearts",
+    "surreal",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4433,
+  "source_url": "/generated/4433.jpg",
+  "image_url": "/sketches/4996.png",
+  "inverted_image_url": "/sketches-inverted/4996.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:49Z"
+}

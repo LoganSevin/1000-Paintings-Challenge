@@ -1,0 +1,42 @@
+{
+  "number": 2551,
+  "title": "Line sketch: Moonlit Duality",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a large anthropomorphic moon with a serene face and one glowing eye, set against a swirling and sky filled with concentric glowing circles. On the left, four identical -skinned female figures with braided hair and glowing spiral patterns stand in profile, while on the right, three black skeletons with glowing eyes and blood-like drips emerge from a bare, blood-dripping tree branch (derived from generated still #1787).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a large anthropomorphic moon with a serene face and one glowing eye, set against a swirling and sky filled with concentric glowing circles. On the left, four identical -skinned female figures with braided hair and glowing spiral patterns stand in profile, while on the right, three black skeletons with glowing eyes and blood-like drips emerge from a bare, blood-dripping tree branch",
+  "inverted_title": "Inverted sketch: Moonlit Duality",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a large anthropomorphic moon with a serene face and one glowing eye, set against a swirling and sky filled with concentric glowing circles. On the left, four identical -skinned female figures with braided hair and glowing spiral patterns stand in profile, while on the right, three black skeletons with glowing eyes and blood-like drips emerge from a bare, blood-dripping tree branch (from generated still #1787).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a large anthropomorphic moon with a serene face and one glowing eye, set against a swirling and sky filled with concentric glowing circles. On the left, four identical -skinned female figures with braided hair and glowing spiral patterns stand in profile, while on the right, three black skeletons with glowing eyes and blood-like drips emerge from a bare, blood-dripping tree branch",
+  "source_description": "A surreal painting featuring a large anthropomorphic moon with a serene face and one glowing green eye, set against a swirling pink and purple sky filled with concentric glowing circles. On the left, four identical green-skinned female figures with braided hair and glowing spiral patterns stand in profile, while on the right, three black skeletons with glowing red eyes and blood-like drips emerge from a bare, blood-dripping tree branch.",
+  "source_prompt": "",
+  "source_title": "Moonlit Duality",
+  "style": "surrealism",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moon",
+    "skeletons",
+    "women",
+    "duality"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1787,
+  "source_url": "/generated/1787.jpg",
+  "image_url": "/sketches/2551.png",
+  "inverted_image_url": "/sketches-inverted/2551.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:43Z"
+}

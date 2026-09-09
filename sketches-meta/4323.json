@@ -1,0 +1,42 @@
+{
+  "number": 4323,
+  "title": "Line sketch: Plasma Globe in Sunset Room",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large plasma globe sits on a wooden desk, its central electrode glowing with branching tendrils of, and electricity arcing toward the glass. Through the transparent sphere, a miniature painted landscape of hills, a winding dirt road and fence is visible, perfectly aligned with the real rural sunset landscape seen through the large window behind it (derived from generated still #3742).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large plasma globe sits on a wooden desk, its central electrode glowing with branching tendrils of, and electricity arcing toward the glass. Through the transparent sphere, a miniature painted landscape of hills, a winding dirt road and fence is visible, perfectly aligned with the real rural sunset landscape seen through the large window behind it",
+  "inverted_title": "Inverted sketch: Plasma Globe in Sunset Room",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large plasma globe sits on a wooden desk, its central electrode glowing with branching tendrils of, and electricity arcing toward the glass. Through the transparent sphere, a miniature painted landscape of hills, a winding dirt road and fence is visible, perfectly aligned with the real rural sunset landscape seen through the large window behind it (from generated still #3742).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large plasma globe sits on a wooden desk, its central electrode glowing with branching tendrils of, and electricity arcing toward the glass. Through the transparent sphere, a miniature painted landscape of hills, a winding dirt road and fence is visible, perfectly aligned with the real rural sunset landscape seen through the large window behind it",
+  "source_description": "A large plasma globe sits on a wooden desk, its central electrode glowing pink with branching neon tendrils of pink, blue, yellow and green electricity arcing toward the glass. Through the transparent sphere, a miniature painted landscape of green hills, a winding dirt road and fence is visible, perfectly aligned with the real rural sunset landscape seen through the large window behind it.",
+  "source_prompt": "A large vintage plasma globe resting on a wooden desk in a wood-paneled mid-century room. Inside the glowing glass sphere is a detailed miniature landscape of rolling green hills and a winding dirt road that perfectly matches the real landscape visible through the window behind it. Bright pink, blue, yellow and green plasma tendrils arc from the central electrode. A retro orange sofa, starburst clock, ashtray and books are visible. Warm sunset light bathes the scene with purple and orange sky outside, surreal and dreamlike atmosphere.",
+  "source_title": "Plasma Globe in Sunset Room",
+  "style": "surrealism",
+  "mood": "dreamlike, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "surreal landscape",
+    "retro interior",
+    "electricity",
+    "sunset"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3742,
+  "source_url": "/generated/3742.jpg",
+  "image_url": "/sketches/4323.png",
+  "inverted_image_url": "/sketches-inverted/4323.png",
+  "curve_count": 104,
+  "built_at": "2026-08-17T00:09:47Z"
+}

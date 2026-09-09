@@ -1,0 +1,42 @@
+{
+  "number": 1884,
+  "title": "Line sketch: Cosmic Bubble Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a silhouetted figure in a flowing robe with an elaborate headdress of circular forms standing atop a winding, glowing serpent-like creature. The cosmic night sky background is filled with vibrant translucent bubbles containing smaller figures, stars, and constellations (derived from generated still #1109).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a silhouetted figure in a flowing robe with an elaborate headdress of circular forms standing atop a winding, glowing serpent-like creature. The cosmic night sky background is filled with vibrant translucent bubbles containing smaller figures, stars, and constellations",
+  "inverted_title": "Inverted sketch: Cosmic Bubble Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a silhouetted figure in a flowing robe with an elaborate headdress of circular forms standing atop a winding, glowing serpent-like creature. The cosmic night sky background is filled with vibrant translucent bubbles containing smaller figures, stars, and constellations (from generated still #1109).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a silhouetted figure in a flowing robe with an elaborate headdress of circular forms standing atop a winding, glowing serpent-like creature. The cosmic night sky background is filled with vibrant translucent bubbles containing smaller figures, stars, and constellations",
+  "source_description": "A surreal painting depicts a silhouetted figure in a flowing purple robe with an elaborate headdress of colorful circular forms standing atop a winding, glowing green serpent-like creature. The cosmic night sky background is filled with vibrant translucent bubbles containing smaller figures, stars, and constellations.",
+  "source_prompt": "",
+  "source_title": "Cosmic Bubble Sorceress",
+  "style": "surreal psychedelic",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "bubbles",
+    "sorceress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1109,
+  "source_url": "/generated/1109.jpg",
+  "image_url": "/sketches/1884.png",
+  "inverted_image_url": "/sketches-inverted/1884.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:42Z"
+}

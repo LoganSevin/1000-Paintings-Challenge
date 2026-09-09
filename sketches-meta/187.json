@@ -1,0 +1,42 @@
+{
+  "number": 187,
+  "title": "Line sketch: Shadowy Devil Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sleek black silhouette of a devilish character with glowing eyes stands against a cosmic backdrop. The minimalist design features a large circular shape resembling a moon or portal behind the mysterious figure (derived from painting #232).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sleek black silhouette of a devilish character with glowing eyes stands against a cosmic backdrop. The minimalist design features a large circular shape resembling a moon or portal behind the mysterious figure",
+  "inverted_title": "Inverted sketch: Shadowy Devil Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sleek black silhouette of a devilish character with glowing eyes stands against a cosmic backdrop. The minimalist design features a large circular shape resembling a moon or portal behind the mysterious figure (from painting #232).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sleek black silhouette of a devilish character with glowing eyes stands against a cosmic backdrop. The minimalist design features a large circular shape resembling a moon or portal behind the mysterious figure",
+  "source_description": "A sleek black silhouette of a devilish character with glowing pink eyes stands against a cosmic purple backdrop. The minimalist design features a large circular shape resembling a moon or portal behind the mysterious figure.",
+  "source_prompt": "",
+  "source_title": "Shadowy Devil Figure",
+  "style": "Minimalist graphic art",
+  "mood": "Mysterious and eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouette",
+    "devil",
+    "minimalist",
+    "cosmic",
+    "shadow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 232,
+  "source_url": "/paintings/232.jpg",
+  "image_url": "/sketches/187.png",
+  "inverted_image_url": "/sketches-inverted/187.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

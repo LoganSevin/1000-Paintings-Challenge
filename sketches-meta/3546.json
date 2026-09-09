@@ -1,0 +1,42 @@
+{
+  "number": 3546,
+  "title": "Line sketch: Bubbles of Gothic Reverie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal gothic scene featuring multiple stylized anime-style girls in black and frilled dresses floating inside large soap bubbles. The background consists of abstract and geometric panels with faint gothic architectural arches against a backdrop. Thin glowing lines and sparkles connect the floating bubbles (derived from generated still #2954).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal gothic scene featuring multiple stylized anime-style girls in black and frilled dresses floating inside large soap bubbles. The background consists of abstract and geometric panels with faint gothic architectural arches against a backdrop. Thin glowing lines and sparkles connect the floating bubbles",
+  "inverted_title": "Inverted sketch: Bubbles of Gothic Reverie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal gothic scene featuring multiple stylized anime-style girls in black and frilled dresses floating inside large soap bubbles. The background consists of abstract and geometric panels with faint gothic architectural arches against a backdrop. Thin glowing lines and sparkles connect the floating bubbles (from generated still #2954).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal gothic scene featuring multiple stylized anime-style girls in black and frilled dresses floating inside large soap bubbles. The background consists of abstract and geometric panels with faint gothic architectural arches against a backdrop. Thin glowing lines and sparkles connect the floating bubbles",
+  "source_description": "A surreal gothic scene featuring multiple stylized anime-style girls in black and pink frilled dresses floating inside large iridescent soap bubbles. The background consists of abstract orange and red geometric panels with faint gothic architectural arches against a dark teal backdrop. Thin glowing lines and sparkles connect the floating bubbles.",
+  "source_prompt": "surreal gothic scene with multiple anime girls wearing black and pink frilly lolita dresses floating inside large transparent iridescent soap bubbles, some bubbles contain pairs of girls embracing, background of abstract overlapping orange and red geometric panels with faint gothic cathedral arches, dark teal atmosphere, glowing lines and golden sparkles connecting the bubbles, ethereal and melancholic mood, detailed digital painting",
+  "source_title": "Bubbles of Gothic Reverie",
+  "style": "surreal digital illustration",
+  "mood": "ethereal melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gothic",
+    "bubbles",
+    "floating",
+    "anime girl",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2954,
+  "source_url": "/generated/2954.jpg",
+  "image_url": "/sketches/3546.png",
+  "inverted_image_url": "/sketches-inverted/3546.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1943,
+  "title": "Line sketch: Psychedelic Bear Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large bear with a hypnotic spiral eye and gentle smile is surrounded by vibrant, swirling psychedelic patterns, braided vines, smiley faces, and stylized women's faces with hair emerging from and floral forms (derived from generated still #1168).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large bear with a hypnotic spiral eye and gentle smile is surrounded by vibrant, swirling psychedelic patterns, braided vines, smiley faces, and stylized women's faces with hair emerging from and floral forms",
+  "inverted_title": "Inverted sketch: Psychedelic Bear Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large bear with a hypnotic spiral eye and gentle smile is surrounded by vibrant, swirling psychedelic patterns, braided vines, smiley faces, and stylized women's faces with hair emerging from and floral forms (from generated still #1168).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large bear with a hypnotic spiral eye and gentle smile is surrounded by vibrant, swirling psychedelic patterns, braided vines, smiley faces, and stylized women's faces with hair emerging from and floral forms",
+  "source_description": "A large brown bear with a hypnotic spiral eye and gentle smile is surrounded by vibrant, swirling psychedelic patterns, green braided vines, yellow smiley faces, and stylized women's faces with yellow hair emerging from purple and pink floral forms.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Bear Vision",
+  "style": "Psychedelic Pop Art",
+  "mood": "whimsical trippy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "psychedelic",
+    "floral",
+    "smiley faces",
+    "vines"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1168,
+  "source_url": "/generated/1168.jpg",
+  "image_url": "/sketches/1943.png",
+  "inverted_image_url": "/sketches-inverted/1943.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:42Z"
+}

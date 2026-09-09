@@ -1,0 +1,42 @@
+{
+  "number": 2525,
+  "title": "Line sketch: Vault 1298 Projection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in an vault suit and leather jacket sits in a derelict, sand-filled bunker room holding a film reel. Behind him a large projection on the cracked wall shows a desert landscape with a massive nuclear mushroom cloud labeled 370 in (derived from generated still #1761).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in an vault suit and leather jacket sits in a derelict, sand-filled bunker room holding a film reel. Behind him a large projection on the cracked wall shows a desert landscape with a massive nuclear mushroom cloud labeled 370 in",
+  "inverted_title": "Inverted sketch: Vault 1298 Projection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in an vault suit and leather jacket sits in a derelict, sand-filled bunker room holding a film reel. Behind him a large projection on the cracked wall shows a desert landscape with a massive nuclear mushroom cloud labeled 370 in (from generated still #1761).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in an vault suit and leather jacket sits in a derelict, sand-filled bunker room holding a film reel. Behind him a large projection on the cracked wall shows a desert landscape with a massive nuclear mushroom cloud labeled 370 in",
+  "source_description": "A man in an orange vault suit and leather jacket sits in a derelict, sand-filled bunker room holding a film reel. Behind him a large projection on the cracked wall shows a desert landscape with a massive nuclear mushroom cloud labeled 370 in red.",
+  "source_prompt": "",
+  "source_title": "Vault 1298 Projection",
+  "style": "realistic",
+  "mood": "dystopian melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "vault dweller",
+    "nuclear explosion",
+    "film reels",
+    "desert bunker"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1761,
+  "source_url": "/generated/1761.jpg",
+  "image_url": "/sketches/2525.png",
+  "inverted_image_url": "/sketches-inverted/2525.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3827,
+  "title": "Line sketch: Mech Boy Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three views of a young male character in a black and robotic mech suit with exposed mechanical joints and dripping substance. Left shows him standing aggressively with fists raised, middle shows him upside down in mid-air, right shows him lying defeated on the ground (derived from generated still #3244).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three views of a young male character in a black and robotic mech suit with exposed mechanical joints and dripping substance. Left shows him standing aggressively with fists raised, middle shows him upside down in mid-air, right shows him lying defeated on the ground",
+  "inverted_title": "Inverted sketch: Mech Boy Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three views of a young male character in a black and robotic mech suit with exposed mechanical joints and dripping substance. Left shows him standing aggressively with fists raised, middle shows him upside down in mid-air, right shows him lying defeated on the ground (from generated still #3244).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three views of a young male character in a black and robotic mech suit with exposed mechanical joints and dripping substance. Left shows him standing aggressively with fists raised, middle shows him upside down in mid-air, right shows him lying defeated on the ground",
+  "source_description": "Three views of a young male character in a black and yellow robotic mech suit with exposed mechanical joints and dripping yellow substance. Left shows him standing aggressively with fists raised, middle shows him upside down in mid-air, right shows him lying defeated on the ground.",
+  "source_prompt": "A young blonde boy wearing a black and bright yellow mechanical armored suit with exposed joints and dripping yellow liquid effects. Three separate poses on dark background: standing combat stance with fists up and aggressive expression, upside down falling pose, and lying defeated on the ground. Detailed digital painting showing mechanical textures, splatter effects, and dramatic lighting.",
+  "source_title": "Yellow Mech Boy Poses",
+  "style": "line sketch",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mech suit",
+    "blonde boy",
+    "multiple poses",
+    "armor",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3244,
+  "source_url": "/generated/3244.jpg",
+  "image_url": "/sketches/3827.png",
+  "inverted_image_url": "/sketches-inverted/3827.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:46Z"
+}

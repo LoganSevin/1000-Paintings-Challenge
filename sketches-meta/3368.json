@@ -1,0 +1,42 @@
+{
+  "number": 3368,
+  "title": "Line sketch: Surreal Figure with Bird Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a stern young boy with a buzz cut and dark eyes in the foreground. Behind him stands a tall composite figure wearing a textured coat, black-rimmed glasses, and a large bird-of-prey mask made of seeds or pods with a long beak, set against a cosmic background with flowers, a bleeding broken heart, and running hares (derived from generated still #2769).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a stern young boy with a buzz cut and dark eyes in the foreground. Behind him stands a tall composite figure wearing a textured coat, black-rimmed glasses, and a large bird-of-prey mask made of seeds or pods with a long beak, set against a cosmic background with flowers, a bleeding broken heart, and running hares",
+  "inverted_title": "Inverted sketch: Surreal Figure with Bird Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a stern young boy with a buzz cut and dark eyes in the foreground. Behind him stands a tall composite figure wearing a textured coat, black-rimmed glasses, and a large bird-of-prey mask made of seeds or pods with a long beak, set against a cosmic background with flowers, a bleeding broken heart, and running hares (from generated still #2769).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a stern young boy with a buzz cut and dark eyes in the foreground. Behind him stands a tall composite figure wearing a textured coat, black-rimmed glasses, and a large bird-of-prey mask made of seeds or pods with a long beak, set against a cosmic background with flowers, a bleeding broken heart, and running hares",
+  "source_description": "A surreal painting features a stern young boy with a buzz cut and dark eyes in the foreground. Behind him stands a tall composite figure wearing a green textured coat, black-rimmed glasses, and a large bird-of-prey mask made of seeds or pods with a long beak, set against a cosmic background with magenta flowers, a bleeding broken heart, and running hares.",
+  "source_prompt": "Surreal symbolic painting featuring a stern young boy with a buzz cut and large dark eyes in the foreground, behind him a tall mysterious figure wearing a green textured coat, black glasses, and an elaborate bird mask constructed from seed pods with a long dark beak. A large broken white heart drips blood on the left. Two brown hares run across the scene. Background transitions from deep magenta floral patterns to a starry purple cosmic sky. Dark, melancholic and eerie atmosphere.",
+  "source_title": "Surreal Figure with Bird Mask",
+  "style": "surrealism",
+  "mood": "eerie, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bird mask",
+    "bleeding heart",
+    "cosmic",
+    "macabre"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2769,
+  "source_url": "/generated/2769.jpg",
+  "image_url": "/sketches/3368.png",
+  "inverted_image_url": "/sketches-inverted/3368.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:45Z"
+}

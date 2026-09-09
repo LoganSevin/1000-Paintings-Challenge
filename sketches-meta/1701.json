@@ -1,0 +1,42 @@
+{
+  "number": 1701,
+  "title": "Line sketch: Queen of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned queen with a crown and flowing hair sits on a throne, gazing left. She is accompanied by a row of black dripping skeletons with glowing eyes and mouths against a swirling psychedelic background of, and with skull motifs (derived from generated still #922).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned queen with a crown and flowing hair sits on a throne, gazing left. She is accompanied by a row of black dripping skeletons with glowing eyes and mouths against a swirling psychedelic background of, and with skull motifs",
+  "inverted_title": "Inverted sketch: Queen of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned queen with a crown and flowing hair sits on a throne, gazing left. She is accompanied by a row of black dripping skeletons with glowing eyes and mouths against a swirling psychedelic background of, and with skull motifs (from generated still #922).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned queen with a crown and flowing hair sits on a throne, gazing left. She is accompanied by a row of black dripping skeletons with glowing eyes and mouths against a swirling psychedelic background of, and with skull motifs",
+  "source_description": "A blue-skinned queen with a golden crown and flowing green hair sits on a purple throne, gazing left. She is accompanied by a row of black dripping skeletons with glowing red eyes and mouths against a swirling psychedelic background of red, orange, and green with skull motifs.",
+  "source_prompt": "",
+  "source_title": "Queen of the Damned",
+  "style": "psychedelic surrealism",
+  "mood": "macabre hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "queen",
+    "psychedelic",
+    "skulls",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 922,
+  "source_url": "/generated/922.jpg",
+  "image_url": "/sketches/1701.png",
+  "inverted_image_url": "/sketches-inverted/1701.png",
+  "curve_count": 112,
+  "built_at": "2026-08-17T00:09:41Z"
+}

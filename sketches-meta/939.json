@@ -1,0 +1,42 @@
+{
+  "number": 939,
+  "title": "Line sketch: Industrial Magic Release",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A human hand extends from the bottom left with fingers spread, releasing swirling ribbons of, and energy with glowing particles that flow toward an ominous industrial complex of factories and smokestacks in the background (derived from generated still #149).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A human hand extends from the bottom left with fingers spread, releasing swirling ribbons of, and energy with glowing particles that flow toward an ominous industrial complex of factories and smokestacks in the background",
+  "inverted_title": "Inverted sketch: Industrial Magic Release",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A human hand extends from the bottom left with fingers spread, releasing swirling ribbons of, and energy with glowing particles that flow toward an ominous industrial complex of factories and smokestacks in the background (from generated still #149).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A human hand extends from the bottom left with fingers spread, releasing swirling ribbons of, and energy with glowing particles that flow toward an ominous industrial complex of factories and smokestacks in the background",
+  "source_description": "A human hand extends from the bottom left with fingers spread, releasing swirling ribbons of purple, pink, and blue energy with glowing particles that flow toward an ominous industrial complex of factories and smokestacks in the background.",
+  "source_prompt": "",
+  "source_title": "Industrial Magic Release",
+  "style": "surreal fantasy",
+  "mood": "ethereal dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "industrial",
+    "magic",
+    "hand",
+    "smokestacks",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 149,
+  "source_url": "/generated/149.jpg",
+  "image_url": "/sketches/939.png",
+  "inverted_image_url": "/sketches-inverted/939.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:40Z"
+}

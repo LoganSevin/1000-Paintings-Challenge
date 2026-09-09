@@ -1,0 +1,42 @@
+{
+  "number": 1534,
+  "title": "Line sketch: Otter and Dog in Fantasy Archway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A otter with large sparkling eyes peers over a brick archway adorned with flowers, facing a vibrant dog covered in intricate patterns. In the background, a glowing castle sits atop a hill under a starry night sky, with silhouetted figures walking along the arches (derived from generated still #749).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A otter with large sparkling eyes peers over a brick archway adorned with flowers, facing a vibrant dog covered in intricate patterns. In the background, a glowing castle sits atop a hill under a starry night sky, with silhouetted figures walking along the arches",
+  "inverted_title": "Inverted sketch: Otter and Dog in Fantasy Archway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A otter with large sparkling eyes peers over a brick archway adorned with flowers, facing a vibrant dog covered in intricate patterns. In the background, a glowing castle sits atop a hill under a starry night sky, with silhouetted figures walking along the arches (from generated still #749).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A otter with large sparkling eyes peers over a brick archway adorned with flowers, facing a vibrant dog covered in intricate patterns. In the background, a glowing castle sits atop a hill under a starry night sky, with silhouetted figures walking along the arches",
+  "source_description": "A brown otter with large sparkling eyes peers over a brick archway adorned with flowers, facing a vibrant green dog covered in intricate patterns. In the background, a glowing yellow castle sits atop a hill under a starry night sky, with silhouetted figures walking along the arches.",
+  "source_prompt": "",
+  "source_title": "Otter and Dog in Fantasy Archway",
+  "style": "Whimsical fantasy illustration",
+  "mood": "Magical and enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "otter",
+    "dog",
+    "fantasy architecture",
+    "glowing castle",
+    "starry night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 749,
+  "source_url": "/generated/749.jpg",
+  "image_url": "/sketches/1534.png",
+  "inverted_image_url": "/sketches-inverted/1534.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:41Z"
+}

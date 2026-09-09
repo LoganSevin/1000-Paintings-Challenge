@@ -1,0 +1,42 @@
+{
+  "number": 4145,
+  "title": "Line sketch: Cosmic Monk Awakening",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene featuring a glowing bald monk in a patchwork robe standing behind a stone altar. The background displays a large circular cosmic mandala with a sun, spiral galaxy center, vibrant nebula swirls, floating crystals, and a dark mountain range over reflective water with ethereal hands emerging from below (derived from generated still #3563).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene featuring a glowing bald monk in a patchwork robe standing behind a stone altar. The background displays a large circular cosmic mandala with a sun, spiral galaxy center, vibrant nebula swirls, floating crystals, and a dark mountain range over reflective water with ethereal hands emerging from below",
+  "inverted_title": "Inverted sketch: Cosmic Monk Awakening",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene featuring a glowing bald monk in a patchwork robe standing behind a stone altar. The background displays a large circular cosmic mandala with a sun, spiral galaxy center, vibrant nebula swirls, floating crystals, and a dark mountain range over reflective water with ethereal hands emerging from below (from generated still #3563).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene featuring a glowing bald monk in a patchwork robe standing behind a stone altar. The background displays a large circular cosmic mandala with a sun, spiral galaxy center, vibrant nebula swirls, floating crystals, and a dark mountain range over reflective water with ethereal hands emerging from below",
+  "source_description": "A surreal psychedelic scene featuring a glowing bald monk in a multicolored patchwork robe standing behind a stone altar. The background displays a large circular cosmic mandala with a sun, spiral galaxy center, vibrant nebula swirls, floating crystals, and a dark mountain range over reflective water with ethereal hands emerging from below.",
+  "source_prompt": "A surreal psychedelic painting of a glowing bald monk with wide eyes wearing a multicolored patchwork robe standing behind a stone altar. Behind him is a massive circular cosmic mandala containing a sun, spiral galaxy, and vibrant orange flowers. The scene includes swirling colorful nebulae, floating black crystals, dark jagged mountains reflected in water, and glowing ethereal hands reaching upward from the foreground, in a vibrant mystical style.",
+  "source_title": "Cosmic Monk Awakening",
+  "style": "psychedelic surrealism",
+  "mood": "mystical visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "mandala",
+    "monk",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3563,
+  "source_url": "/generated/3563.jpg",
+  "image_url": "/sketches/4145.png",
+  "inverted_image_url": "/sketches-inverted/4145.png",
+  "curve_count": 98,
+  "built_at": "2026-08-17T00:09:47Z"
+}

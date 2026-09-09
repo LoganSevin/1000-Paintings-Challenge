@@ -1,0 +1,42 @@
+{
+  "number": 1373,
+  "title": "Line sketch: Skeleton Sisters Spiral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four skeletal figures with long flowing hair stand in a row against a vibrant psychedelic background. The first three show progressive decay from living profile to fully skeletal with liquid dripping from their skulls, while a large hypnotic spiral swirls behind them (derived from generated still #588).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four skeletal figures with long flowing hair stand in a row against a vibrant psychedelic background. The first three show progressive decay from living profile to fully skeletal with liquid dripping from their skulls, while a large hypnotic spiral swirls behind them",
+  "inverted_title": "Inverted sketch: Skeleton Sisters Spiral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four skeletal figures with long flowing hair stand in a row against a vibrant psychedelic background. The first three show progressive decay from living profile to fully skeletal with liquid dripping from their skulls, while a large hypnotic spiral swirls behind them (from generated still #588).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four skeletal figures with long flowing hair stand in a row against a vibrant psychedelic background. The first three show progressive decay from living profile to fully skeletal with liquid dripping from their skulls, while a large hypnotic spiral swirls behind them",
+  "source_description": "Four skeletal figures with long flowing green hair stand in a row against a vibrant psychedelic background. The first three show progressive decay from living profile to fully skeletal with red liquid dripping from their skulls, while a large hypnotic rainbow spiral swirls behind them.",
+  "source_prompt": "",
+  "source_title": "Skeleton Sisters Spiral",
+  "style": "psychedelic surrealism",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "psychedelic",
+    "spiral",
+    "hair",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 588,
+  "source_url": "/generated/588.jpg",
+  "image_url": "/sketches/1373.png",
+  "inverted_image_url": "/sketches-inverted/1373.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:41Z"
+}

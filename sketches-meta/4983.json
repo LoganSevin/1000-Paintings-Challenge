@@ -1,0 +1,42 @@
+{
+  "number": 4983,
+  "title": "Line sketch: Beetle Alchemist and Eden Tree",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark fantasy scene shows a large anthropomorphic beetle creature in a blood-stained coat holding a revolver in one hand and a bloody heart in the other. In the sky above, a glowing winged angelic figure with a halo hovers near a massive circular frame containing a -leafed tree with roots extending into dark swirling waters below (derived from generated still #4420).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark fantasy scene shows a large anthropomorphic beetle creature in a blood-stained coat holding a revolver in one hand and a bloody heart in the other. In the sky above, a glowing winged angelic figure with a halo hovers near a massive circular frame containing a -leafed tree with roots extending into dark swirling waters below",
+  "inverted_title": "Inverted sketch: Beetle Alchemist and Eden Tree",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark fantasy scene shows a large anthropomorphic beetle creature in a blood-stained coat holding a revolver in one hand and a bloody heart in the other. In the sky above, a glowing winged angelic figure with a halo hovers near a massive circular frame containing a -leafed tree with roots extending into dark swirling waters below (from generated still #4420).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark fantasy scene shows a large anthropomorphic beetle creature in a blood-stained coat holding a revolver in one hand and a bloody heart in the other. In the sky above, a glowing winged angelic figure with a halo hovers near a massive circular frame containing a -leafed tree with roots extending into dark swirling waters below",
+  "source_description": "A surreal dark fantasy scene shows a large anthropomorphic beetle creature in a blood-stained beige coat holding a revolver in one hand and a bloody heart in the other. In the sky above, a glowing winged angelic figure with a halo hovers near a massive circular frame containing a golden-leafed tree with roots extending into dark swirling waters below.",
+  "source_prompt": "A surreal dark fantasy painting featuring a giant anthropomorphic beetle in a tattered beige coat and goggles, holding a revolver and a dripping human heart. In the background, a radiant blue-winged angel with a halo floats near a massive circular stone frame containing a mystical golden-leafed tree with gnarled roots. Cracked yellow moon, ruined stone arches, skulls, dark swirling water with skulls, purple night sky, highly detailed, atmospheric lighting.",
+  "source_title": "Beetle Alchemist and Eden Tree",
+  "style": "dark fantasy surrealism",
+  "mood": "occult macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dark fantasy",
+    "surreal",
+    "beetle humanoid",
+    "angelic figure",
+    "forbidden tree"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4420,
+  "source_url": "/generated/4420.jpg",
+  "image_url": "/sketches/4983.png",
+  "inverted_image_url": "/sketches-inverted/4983.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

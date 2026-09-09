@@ -1,0 +1,42 @@
+{
+  "number": 3180,
+  "title": "Line sketch: Stairway to Chaos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a jacket stands on a spiraling staircase, holding a glowing candle that emits smoke. The scene depicts a surreal, disintegrating cinema interior with floating film reels, broken picture frames, clapperboards, and scattered movie memorabilia amid collapsing painted ceilings and flooded lower levels (derived from generated still #2526).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a jacket stands on a spiraling staircase, holding a glowing candle that emits smoke. The scene depicts a surreal, disintegrating cinema interior with floating film reels, broken picture frames, clapperboards, and scattered movie memorabilia amid collapsing painted ceilings and flooded lower levels",
+  "inverted_title": "Inverted sketch: Stairway to Chaos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a jacket stands on a spiraling staircase, holding a glowing candle that emits smoke. The scene depicts a surreal, disintegrating cinema interior with floating film reels, broken picture frames, clapperboards, and scattered movie memorabilia amid collapsing painted ceilings and flooded lower levels (from generated still #2526).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a jacket stands on a spiraling staircase, holding a glowing candle that emits smoke. The scene depicts a surreal, disintegrating cinema interior with floating film reels, broken picture frames, clapperboards, and scattered movie memorabilia amid collapsing painted ceilings and flooded lower levels",
+  "source_description": "A woman in a red jacket stands on a spiraling staircase, holding a glowing pink candle that emits purple smoke. The scene depicts a surreal, disintegrating cinema interior with floating film reels, broken golden picture frames, clapperboards, and scattered movie memorabilia amid collapsing painted ceilings and flooded lower levels.",
+  "source_prompt": "A dramatic surreal scene of a woman with flowing dark hair wearing a red jacket and white skirt standing on a golden spiral staircase, holding a glowing pink candle that emits purple magical smoke, surrounded by a disintegrating ornate cinema interior with floating film reels, broken golden picture frames, clapperboards, scattered papers and movie equipment, collapsing painted ceiling with floating figures, flooded lower level, cinematic lighting with dramatic beams from above, highly detailed digital painting",
+  "source_title": "Stairway to Chaos",
+  "style": "surrealism",
+  "mood": "chaotic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinema",
+    "staircase",
+    "floating objects",
+    "film reels"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2526,
+  "source_url": "/generated/2526.jpg",
+  "image_url": "/sketches/3180.png",
+  "inverted_image_url": "/sketches-inverted/3180.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:45Z"
+}

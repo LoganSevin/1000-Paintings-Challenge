@@ -1,0 +1,42 @@
+{
+  "number": 4504,
+  "title": "Line sketch: Celestial Alchemist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in traditional Indian attire stands at a table covered with a cloth, gesturing toward a glowing potion bottle labeled 'Elixir of Life'. The scene is filled with magical and astronomical elements including a smiling comet, a smiling Saturn-like planet, floating potion bottles, scrolls, an open book with a quill, and a starry night sky visible through an arched window (derived from generated still #3924).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in traditional Indian attire stands at a table covered with a cloth, gesturing toward a glowing potion bottle labeled 'Elixir of Life'. The scene is filled with magical and astronomical elements including a smiling comet, a smiling Saturn-like planet, floating potion bottles, scrolls, an open book with a quill, and a starry night sky visible through an arched window",
+  "inverted_title": "Inverted sketch: Celestial Alchemist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in traditional Indian attire stands at a table covered with a cloth, gesturing toward a glowing potion bottle labeled 'Elixir of Life'. The scene is filled with magical and astronomical elements including a smiling comet, a smiling Saturn-like planet, floating potion bottles, scrolls, an open book with a quill, and a starry night sky visible through an arched window (from generated still #3924).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in traditional Indian attire stands at a table covered with a cloth, gesturing toward a glowing potion bottle labeled 'Elixir of Life'. The scene is filled with magical and astronomical elements including a smiling comet, a smiling Saturn-like planet, floating potion bottles, scrolls, an open book with a quill, and a starry night sky visible through an arched window",
+  "source_description": "A woman in traditional Indian attire stands at a table covered with a deep blue cloth, gesturing toward a glowing green potion bottle labeled 'Elixir of Life'. The scene is filled with magical and astronomical elements including a smiling comet, a smiling Saturn-like planet, floating potion bottles, scrolls, an open book with a quill, and a starry night sky visible through an arched window.",
+  "source_prompt": "A mystical Indian female alchemist wearing a white and orange sari stands beside a table with a blue velvet cloth, reaching toward a large glowing green potion labeled 'Elixir of Life'. The room is an ancient stone chamber with an arched window showing a vibrant cosmic night sky with swirling nebulae, smiling stars, a smiling comet with a rainbow tail, and a large smiling Saturn-like planet. Various magical potion bottles, scrolls, an open book with a green quill, and alchemical tools are arranged on the table. A glowing lantern hangs from the ceiling. Whimsical, colorful, and detailed fantasy illustration.",
+  "source_title": "Celestial Alchemist",
+  "style": "fantasy illustration",
+  "mood": "magical, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "alchemy",
+    "celestial",
+    "magic",
+    "astronomy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3924,
+  "source_url": "/generated/3924.jpg",
+  "image_url": "/sketches/4504.png",
+  "inverted_image_url": "/sketches-inverted/4504.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:48Z"
+}

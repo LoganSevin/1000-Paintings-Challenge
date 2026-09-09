@@ -1,0 +1,42 @@
+{
+  "number": 2127,
+  "title": "Line sketch: Eternal Duality",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition showing four identical -haired women in profile on the left, adorned with intricate spiral patterns, gradually transitioning into as skeletal grim reaper figures with bleeding eyes emerge on the right. The background features vibrant psychedelic circular motifs in, and that blend into dark, ominous patterns behind the skeletal figures (derived from generated still #1352).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition showing four identical -haired women in profile on the left, adorned with intricate spiral patterns, gradually transitioning into as skeletal grim reaper figures with bleeding eyes emerge on the right. The background features vibrant psychedelic circular motifs in, and that blend into dark, ominous patterns behind the skeletal figures",
+  "inverted_title": "Inverted sketch: Eternal Duality",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition showing four identical -haired women in profile on the left, adorned with intricate spiral patterns, gradually transitioning into as skeletal grim reaper figures with bleeding eyes emerge on the right. The background features vibrant psychedelic circular motifs in, and that blend into dark, ominous patterns behind the skeletal figures (from generated still #1352).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition showing four identical -haired women in profile on the left, adorned with intricate spiral patterns, gradually transitioning into as skeletal grim reaper figures with bleeding eyes emerge on the right. The background features vibrant psychedelic circular motifs in, and that blend into dark, ominous patterns behind the skeletal figures",
+  "source_description": "A surreal painting showing four identical green-haired women in profile on the left, adorned with intricate yellow spiral patterns, gradually transitioning into red as skeletal grim reaper figures with bleeding eyes emerge on the right. The background features vibrant psychedelic circular motifs in purple, yellow, and red that blend into dark, ominous patterns behind the skeletal figures.",
+  "source_prompt": "",
+  "source_title": "Eternal Duality",
+  "style": "surreal psychedelic",
+  "mood": "eerie transition",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "duality",
+    "skeletal figures",
+    "psychedelic",
+    "spiral patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1352,
+  "source_url": "/generated/1352.jpg",
+  "image_url": "/sketches/2127.png",
+  "inverted_image_url": "/sketches-inverted/2127.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:42Z"
+}

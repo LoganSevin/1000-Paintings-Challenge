@@ -1,0 +1,42 @@
+{
+  "number": 1269,
+  "title": "Line sketch: Ghost and Mechanical Tree",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing ghost with eyes floats beside a large mechanical tree-like robot with a metallic head, glowing white eyes, and a toothy grin. The scene swirls with vibrant and energy rings and bubbles against a starry night sky with aurora lights (derived from generated still #483).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing ghost with eyes floats beside a large mechanical tree-like robot with a metallic head, glowing white eyes, and a toothy grin. The scene swirls with vibrant and energy rings and bubbles against a starry night sky with aurora lights",
+  "inverted_title": "Inverted sketch: Ghost and Mechanical Tree",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing ghost with eyes floats beside a large mechanical tree-like robot with a metallic head, glowing white eyes, and a toothy grin. The scene swirls with vibrant and energy rings and bubbles against a starry night sky with aurora lights (from generated still #483).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing ghost with eyes floats beside a large mechanical tree-like robot with a metallic head, glowing white eyes, and a toothy grin. The scene swirls with vibrant and energy rings and bubbles against a starry night sky with aurora lights",
+  "source_description": "A glowing purple ghost with blue eyes floats beside a large mechanical tree-like robot with a metallic head, glowing white eyes, and a toothy grin. The scene swirls with vibrant purple and green energy rings and bubbles against a starry night sky with aurora lights.",
+  "source_prompt": "",
+  "source_title": "Ghost and Mechanical Tree",
+  "style": "fantasy illustration",
+  "mood": "whimsical magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghost",
+    "mechanical tree",
+    "robot",
+    "aurora",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 483,
+  "source_url": "/generated/483.jpg",
+  "image_url": "/sketches/1269.png",
+  "inverted_image_url": "/sketches-inverted/1269.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:40Z"
+}

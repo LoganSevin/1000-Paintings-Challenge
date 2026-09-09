@@ -1,0 +1,42 @@
+{
+  "number": 544,
+  "title": "Line sketch: Intense Praying Mantis Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-realistic close-up of a vibrant praying mantis staring directly at the viewer with large compound eyes. The detailed composition captures the insect's intricate exoskeleton and delicate antennae against a neutral background (derived from painting #681).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-realistic close-up of a vibrant praying mantis staring directly at the viewer with large compound eyes. The detailed composition captures the insect's intricate exoskeleton and delicate antennae against a neutral background",
+  "inverted_title": "Inverted sketch: Intense Praying Mantis Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-realistic close-up of a vibrant praying mantis staring directly at the viewer with large compound eyes. The detailed composition captures the insect's intricate exoskeleton and delicate antennae against a neutral background (from painting #681).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-realistic close-up of a vibrant praying mantis staring directly at the viewer with large compound eyes. The detailed composition captures the insect's intricate exoskeleton and delicate antennae against a neutral background",
+  "source_description": "A hyper-realistic close-up of a vibrant green praying mantis staring directly at the viewer with large compound eyes. The detailed painting captures the insect's intricate exoskeleton and delicate antennae against a neutral background.",
+  "source_prompt": "",
+  "source_title": "Intense Praying Mantis Portrait",
+  "style": "Realistic composition",
+  "mood": "Intense and curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "praying mantis",
+    "insect art",
+    "realistic composition",
+    "close-up portrait",
+    "insect"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 681,
+  "source_url": "/paintings/681.jpg",
+  "image_url": "/sketches/544.png",
+  "inverted_image_url": "/sketches-inverted/544.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:39Z"
+}

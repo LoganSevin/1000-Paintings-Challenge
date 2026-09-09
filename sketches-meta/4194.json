@@ -1,0 +1,42 @@
+{
+  "number": 4194,
+  "title": "Line sketch: Horned Angel Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned, horned angel with large and wings stands powerfully in the center, holding a glowing orb. He wears a trench coat over a vest with a halo above his head, surrounded by floating arcane symbols and ethereal creatures (derived from generated still #3613).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned, horned angel with large and wings stands powerfully in the center, holding a glowing orb. He wears a trench coat over a vest with a halo above his head, surrounded by floating arcane symbols and ethereal creatures",
+  "inverted_title": "Inverted sketch: Horned Angel Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned, horned angel with large and wings stands powerfully in the center, holding a glowing orb. He wears a trench coat over a vest with a halo above his head, surrounded by floating arcane symbols and ethereal creatures (from generated still #3613).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned, horned angel with large and wings stands powerfully in the center, holding a glowing orb. He wears a trench coat over a vest with a halo above his head, surrounded by floating arcane symbols and ethereal creatures",
+  "source_description": "A blue-skinned, horned angel with large blue and gold wings stands powerfully in the center, holding a glowing orb. He wears a beige trench coat over a red vest with a golden halo above his head, surrounded by floating arcane symbols and blue ethereal creatures.",
+  "source_prompt": "A majestic blue-skinned horned male angel with massive blue and gold feathered wings, wearing an open beige trench coat over a red vest and boots, stands in an ancient stone temple. He holds a glowing blue orb in one hand while a golden halo floats above his head. Behind him is a large arched stone portal revealing a mystical blue forest with glowing trees and light rays. Floating golden runes and blue spirit creatures swirl around him in a dramatic, ethereal atmosphere.",
+  "source_title": "Horned Angel Portal",
+  "style": "fantasy illustration",
+  "mood": "mystical epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "portal",
+    "arcane",
+    "fantasy",
+    "wings"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3613,
+  "source_url": "/generated/3613.jpg",
+  "image_url": "/sketches/4194.png",
+  "inverted_image_url": "/sketches-inverted/4194.png",
+  "curve_count": 121,
+  "built_at": "2026-08-17T00:09:47Z"
+}

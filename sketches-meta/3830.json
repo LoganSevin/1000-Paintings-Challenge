@@ -1,0 +1,42 @@
+{
+  "number": 3830,
+  "title": "Line sketch: Baby Gangsta Sprite Sheet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A white rectangular card displays four sequential poses of a cartoon baby with a mohawk, wearing a white tank top and black shorts, set against backgrounds. The card is taped over a textured hot composition featuring large black stenciled text reading 'SEAS' and 'SAMM' (derived from generated still #3247).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A white rectangular card displays four sequential poses of a cartoon baby with a mohawk, wearing a white tank top and black shorts, set against backgrounds. The card is taped over a textured hot composition featuring large black stenciled text reading 'SEAS' and 'SAMM'",
+  "inverted_title": "Inverted sketch: Baby Gangsta Sprite Sheet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A white rectangular card displays four sequential poses of a cartoon baby with a mohawk, wearing a white tank top and black shorts, set against backgrounds. The card is taped over a textured hot composition featuring large black stenciled text reading 'SEAS' and 'SAMM' (from generated still #3247).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A white rectangular card displays four sequential poses of a cartoon baby with a mohawk, wearing a white tank top and black shorts, set against backgrounds. The card is taped over a textured hot composition featuring large black stenciled text reading 'SEAS' and 'SAMM'",
+  "source_description": "A white rectangular card displays four sequential poses of a cartoon baby with a mohawk, wearing a white tank top and black shorts, set against bright pink backgrounds. The card is taped over a textured hot pink painting featuring large black stenciled text reading 'SEAS' and 'SAMM'.",
+  "source_prompt": "A white horizontal card centered on a heavily textured bright pink canvas, displaying four side-by-side panels of a cartoon baby with a tall black mohawk, angry expression, white tank top and black shorts walking in sequence like a sprite sheet, each panel has a solid hot pink background, large black stenciled graffiti text partially visible behind the card spelling SEAS and SAMM, raw painted texture with visible brush strokes and tape, vibrant street art style",
+  "source_title": "Baby Gangsta Sprite Sheet",
+  "style": "pop art street art",
+  "mood": "bold playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media, acrylic and stencil on canvas with printed card",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cartoon baby",
+    "mohawk",
+    "urban art",
+    "aesthetic",
+    "stencil art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3247,
+  "source_url": "/generated/3247.jpg",
+  "image_url": "/sketches/3830.png",
+  "inverted_image_url": "/sketches-inverted/3830.png",
+  "curve_count": 356,
+  "built_at": "2026-08-17T00:09:46Z"
+}

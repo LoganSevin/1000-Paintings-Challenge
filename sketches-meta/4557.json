@@ -1,0 +1,42 @@
+{
+  "number": 4557,
+  "title": "Line sketch: Cosmic Menagerie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene centered on a cracked globe with glowing core. A black silhouette woman with flowing hair touches the globe while a black wolf with glowing eyes and zebra-striped legs leaps above it. In the foreground, a horse and dog stand together. The background features swirling nebulae, multiple floating bubbles containing miniature scenes, and a human skull near the top (derived from generated still #3977).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene centered on a cracked globe with glowing core. A black silhouette woman with flowing hair touches the globe while a black wolf with glowing eyes and zebra-striped legs leaps above it. In the foreground, a horse and dog stand together. The background features swirling nebulae, multiple floating bubbles containing miniature scenes, and a human skull near the top",
+  "inverted_title": "Inverted sketch: Cosmic Menagerie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene centered on a cracked globe with glowing core. A black silhouette woman with flowing hair touches the globe while a black wolf with glowing eyes and zebra-striped legs leaps above it. In the foreground, a horse and dog stand together. The background features swirling nebulae, multiple floating bubbles containing miniature scenes, and a human skull near the top (from generated still #3977).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene centered on a cracked globe with glowing core. A black silhouette woman with flowing hair touches the globe while a black wolf with glowing eyes and zebra-striped legs leaps above it. In the foreground, a horse and dog stand together. The background features swirling nebulae, multiple floating bubbles containing miniature scenes, and a human skull near the top",
+  "source_description": "A surreal cosmic scene centered on a cracked blue globe with glowing green core. A black silhouette woman with flowing colorful hair touches the globe while a black wolf with glowing yellow eyes and zebra-striped legs leaps above it. In the foreground, a bright green horse and dog stand together. The background features swirling colorful nebulae, multiple floating bubbles containing miniature scenes, and a human skull near the top.",
+  "source_prompt": "Surreal cosmic painting featuring a cracked blue globe with glowing green core at the center. A black female silhouette with long flowing colorful hair reaches toward the globe. A black wolf with glowing yellow eyes and zebra-striped hind legs leaps above it. In the foreground, a luminous green horse with a green dog on its back. Swirling colorful nebulae, floating bubbles with miniature scenes, and a floating skull fill the dark space background.",
+  "source_title": "Cosmic Menagerie",
+  "style": "surreal fantasy",
+  "mood": "mystical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "mythical creatures",
+    "celestial",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3977,
+  "source_url": "/generated/3977.jpg",
+  "image_url": "/sketches/4557.png",
+  "inverted_image_url": "/sketches-inverted/4557.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:48Z"
+}

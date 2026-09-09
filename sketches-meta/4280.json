@@ -1,0 +1,42 @@
+{
+  "number": 4280,
+  "title": "Line sketch: Plasma Orb Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe with and electrical tendrils radiating from a central orb. Inside the transparent sphere, the face of a young girl with dark hair and a tear on her cheek is visible, merged with the energy streams against a starry black background (derived from generated still #3699).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe with and electrical tendrils radiating from a central orb. Inside the transparent sphere, the face of a young girl with dark hair and a tear on her cheek is visible, merged with the energy streams against a starry black background",
+  "inverted_title": "Inverted sketch: Plasma Orb Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe with and electrical tendrils radiating from a central orb. Inside the transparent sphere, the face of a young girl with dark hair and a tear on her cheek is visible, merged with the energy streams against a starry black background (from generated still #3699).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe with and electrical tendrils radiating from a central orb. Inside the transparent sphere, the face of a young girl with dark hair and a tear on her cheek is visible, merged with the energy streams against a starry black background",
+  "source_description": "A glowing plasma globe with bright blue and pink electrical tendrils radiating from a central orb. Inside the transparent sphere, the face of a young girl with dark hair and a tear on her cheek is visible, merged with the energy streams against a starry black background.",
+  "source_prompt": "A surreal plasma globe sitting on a dark wooden surface, its transparent sphere filled with vibrant pink and blue electrical arcs radiating from a glowing central electrode. The face of a young girl with dark hair, wide eyes and a single tear is faintly visible within the glass, merging with the energy streams, cosmic starry background, dramatic lighting, highly detailed digital painting.",
+  "source_title": "Plasma Orb Girl",
+  "style": "surreal digital art",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "surreal portrait",
+    "cosmic energy",
+    "electric tendrils",
+    "ethereal girl"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3699,
+  "source_url": "/generated/3699.jpg",
+  "image_url": "/sketches/4280.png",
+  "inverted_image_url": "/sketches-inverted/4280.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:47Z"
+}

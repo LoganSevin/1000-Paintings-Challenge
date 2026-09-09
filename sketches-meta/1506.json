@@ -1,0 +1,42 @@
+{
+  "number": 1506,
+  "title": "Line sketch: Surreal Eye and Canine Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring a large cracked eyeball with a iris dripping blood on the left, a woman's face with paint dripping from her eyes and mouth in the center, and a patterned dog with a eye and blood-like drips on the right. The composition is set against a dark background with intricate circular patterns and vein-like lines connecting the elements (derived from generated still #721).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring a large cracked eyeball with a iris dripping blood on the left, a woman's face with paint dripping from her eyes and mouth in the center, and a patterned dog with a eye and blood-like drips on the right. The composition is set against a dark background with intricate circular patterns and vein-like lines connecting the elements",
+  "inverted_title": "Inverted sketch: Surreal Eye and Canine Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring a large cracked eyeball with a iris dripping blood on the left, a woman's face with paint dripping from her eyes and mouth in the center, and a patterned dog with a eye and blood-like drips on the right. The composition is set against a dark background with intricate circular patterns and vein-like lines connecting the elements (from generated still #721).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring a large cracked eyeball with a iris dripping blood on the left, a woman's face with paint dripping from her eyes and mouth in the center, and a patterned dog with a eye and blood-like drips on the right. The composition is set against a dark background with intricate circular patterns and vein-like lines connecting the elements",
+  "source_description": "A vibrant surreal painting featuring a large cracked eyeball with a red iris dripping blood on the left, a woman's face with multicolored paint dripping from her eyes and mouth in the center, and a green patterned dog with a red eye and blood-like drips on the right. The composition is set against a dark background with intricate circular patterns and red vein-like lines connecting the elements.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye and Canine Portrait",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "woman",
+    "dog",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 721,
+  "source_url": "/generated/721.jpg",
+  "image_url": "/sketches/1506.png",
+  "inverted_image_url": "/sketches-inverted/1506.png",
+  "curve_count": 296,
+  "built_at": "2026-08-17T00:09:41Z"
+}

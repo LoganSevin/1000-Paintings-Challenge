@@ -1,0 +1,42 @@
+{
+  "number": 4572,
+  "title": "Line sketch: Chess in the Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in ornate and robes sits on a throne playing chess with a kneeling jester in a harlequin costume. They are surrounded by swirling smoke containing silhouettes of armed figures with hashtags like #BOSS and #FEAR, film reels, a glowing crystal ball showing a village, and a soldier standing in a desert landscape under a giant sun (derived from generated still #3993).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in ornate and robes sits on a throne playing chess with a kneeling jester in a harlequin costume. They are surrounded by swirling smoke containing silhouettes of armed figures with hashtags like #BOSS and #FEAR, film reels, a glowing crystal ball showing a village, and a soldier standing in a desert landscape under a giant sun",
+  "inverted_title": "Inverted sketch: Chess in the Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in ornate and robes sits on a throne playing chess with a kneeling jester in a harlequin costume. They are surrounded by swirling smoke containing silhouettes of armed figures with hashtags like #BOSS and #FEAR, film reels, a glowing crystal ball showing a village, and a soldier standing in a desert landscape under a giant sun (from generated still #3993).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in ornate and robes sits on a throne playing chess with a kneeling jester in a harlequin costume. They are surrounded by swirling smoke containing silhouettes of armed figures with hashtags like #BOSS and #FEAR, film reels, a glowing crystal ball showing a village, and a soldier standing in a desert landscape under a giant sun",
+  "source_description": "A woman in ornate blue and gold robes sits on a golden throne playing chess with a kneeling jester in a colorful harlequin costume. They are surrounded by swirling purple smoke containing silhouettes of armed figures with hashtags like #BOSS and #FEAR, film reels, a glowing crystal ball showing a village, and a soldier standing in a desert landscape under a giant red sun.",
+  "source_prompt": "Surreal symbolic scene of a powerful woman in intricate blue and gold royal robes seated on an ornate golden throne, playing chess with a colorful jester in harlequin costume who is kneeling before her. They are enveloped in thick swirling purple smoke containing black silhouettes of armed figures with floating text hashtags #BOSS #FEAR. A glowing crystal ball beside her shows a detailed village scene. In the background is a desert with sand dunes, a large red sun, and a soldier in green camouflage standing on a cracked road. Film reels and purple flowers are scattered around the composition in a cinematic collage style.",
+  "source_title": "Chess in the Desert",
+  "style": "surrealism",
+  "mood": "surreal ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "chess",
+    "jester",
+    "desert",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3993,
+  "source_url": "/generated/3993.jpg",
+  "image_url": "/sketches/4572.png",
+  "inverted_image_url": "/sketches-inverted/4572.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:48Z"
+}

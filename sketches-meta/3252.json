@@ -1,0 +1,42 @@
+{
+  "number": 3252,
+  "title": "Line sketch: Oracle of the Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A pale oracle wearing a circuit-board headdress and dark ornate robes sits on a gothic throne inside an observatory. She holds a film reel while a beam of light from an overhead projector illuminates the scene, surrounded by framed pictures and a view of planets and stars through the dome window (derived from generated still #2620).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A pale oracle wearing a circuit-board headdress and dark ornate robes sits on a gothic throne inside an observatory. She holds a film reel while a beam of light from an overhead projector illuminates the scene, surrounded by framed pictures and a view of planets and stars through the dome window",
+  "inverted_title": "Inverted sketch: Oracle of the Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A pale oracle wearing a circuit-board headdress and dark ornate robes sits on a gothic throne inside an observatory. She holds a film reel while a beam of light from an overhead projector illuminates the scene, surrounded by framed pictures and a view of planets and stars through the dome window (from generated still #2620).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A pale oracle wearing a circuit-board headdress and dark ornate robes sits on a gothic throne inside an observatory. She holds a film reel while a beam of light from an overhead projector illuminates the scene, surrounded by framed pictures and a view of planets and stars through the dome window",
+  "source_description": "A pale oracle wearing a circuit-board headdress and dark ornate robes sits on a gothic throne inside an observatory. She holds a film reel while a beam of light from an overhead projector illuminates the scene, surrounded by framed pictures and a view of planets and stars through the dome window.",
+  "source_prompt": "",
+  "source_title": "Oracle of the Cosmos",
+  "style": "fantasy illustration",
+  "mood": "mysterious, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oracle",
+    "sci-fi fantasy",
+    "observatory",
+    "film reel",
+    "circuit headdress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2620,
+  "source_url": "/generated/2620.jpg",
+  "image_url": "/sketches/3252.png",
+  "inverted_image_url": "/sketches-inverted/3252.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:45Z"
+}

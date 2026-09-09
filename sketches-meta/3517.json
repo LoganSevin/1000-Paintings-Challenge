@@ -1,0 +1,42 @@
+{
+  "number": 3517,
+  "title": "Line sketch: Turtle of Lost Kittens",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large -eyed sea turtle swims through a surreal landscape, its shell carrying multiple small black kittens. In the sky, a giant bald woman's head with eyes watches as more black kittens and water splash from her head. Below is a cracked road with a 'no cats' sign, foxes, and a sun setting over mountains (derived from generated still #2919).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large -eyed sea turtle swims through a surreal landscape, its shell carrying multiple small black kittens. In the sky, a giant bald woman's head with eyes watches as more black kittens and water splash from her head. Below is a cracked road with a 'no cats' sign, foxes, and a sun setting over mountains",
+  "inverted_title": "Inverted sketch: Turtle of Lost Kittens",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large -eyed sea turtle swims through a surreal landscape, its shell carrying multiple small black kittens. In the sky, a giant bald woman's head with eyes watches as more black kittens and water splash from her head. Below is a cracked road with a 'no cats' sign, foxes, and a sun setting over mountains (from generated still #2919).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large -eyed sea turtle swims through a surreal landscape, its shell carrying multiple small black kittens. In the sky, a giant bald woman's head with eyes watches as more black kittens and water splash from her head. Below is a cracked road with a 'no cats' sign, foxes, and a sun setting over mountains",
+  "source_description": "A large green-eyed sea turtle swims through a surreal landscape, its shell carrying multiple small black kittens. In the sky, a giant bald woman's head with bright green eyes watches as more black kittens and blue water splash from her head. Below is a cracked red road with a 'no cats' sign, colorful coral, orange foxes, and a red sun setting over mountains.",
+  "source_prompt": "Surreal fantasy scene of a large detailed sea turtle with bright green eyes swimming through the air, its shell populated by many small black kittens. A giant bald woman's head with green eyes and green collar floats in the sky, with blue water and more black kittens pouring from her head. Cracked red road leads toward a red sun, with a 'no cats' sign, colorful coral reefs, orange foxes, and purple mountains in the background.",
+  "source_title": "Turtle of Lost Kittens",
+  "style": "surreal fantasy",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "turtle",
+    "kittens",
+    "fantasy landscape",
+    "giant head"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2919,
+  "source_url": "/generated/2919.jpg",
+  "image_url": "/sketches/3517.png",
+  "inverted_image_url": "/sketches-inverted/3517.png",
+  "curve_count": 90,
+  "built_at": "2026-08-17T00:09:45Z"
+}

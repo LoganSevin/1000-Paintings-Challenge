@@ -1,0 +1,42 @@
+{
+  "number": 2139,
+  "title": "Line sketch: Crystal of Many Faces",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone hiker with a backpack stands on a mossy cliff overlooking a vast field, gazing up at a large transparent crystal sphere containing four stylized overlapping female profiles in,, and. The surreal landscape features a winding river at sunset with swirling skies and decorative spiral patterns throughout the scene (derived from generated still #1364).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone hiker with a backpack stands on a mossy cliff overlooking a vast field, gazing up at a large transparent crystal sphere containing four stylized overlapping female profiles in,, and. The surreal landscape features a winding river at sunset with swirling skies and decorative spiral patterns throughout the scene",
+  "inverted_title": "Inverted sketch: Crystal of Many Faces",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone hiker with a backpack stands on a mossy cliff overlooking a vast field, gazing up at a large transparent crystal sphere containing four stylized overlapping female profiles in,, and. The surreal landscape features a winding river at sunset with swirling skies and decorative spiral patterns throughout the scene (from generated still #1364).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone hiker with a backpack stands on a mossy cliff overlooking a vast field, gazing up at a large transparent crystal sphere containing four stylized overlapping female profiles in,, and. The surreal landscape features a winding river at sunset with swirling skies and decorative spiral patterns throughout the scene",
+  "source_description": "A lone hiker with a red backpack stands on a mossy cliff overlooking a vast lavender field, gazing up at a large transparent crystal sphere containing four stylized overlapping female profiles in purple, green, pink, and yellow. The surreal landscape features a winding river at sunset with colorful swirling skies and decorative spiral patterns throughout the scene.",
+  "source_prompt": "",
+  "source_title": "Crystal of Many Faces",
+  "style": "surreal psychedelic",
+  "mood": "wonder, introspection",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "crystal ball",
+    "field",
+    "multiple faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1364,
+  "source_url": "/generated/1364.jpg",
+  "image_url": "/sketches/2139.png",
+  "inverted_image_url": "/sketches-inverted/2139.png",
+  "curve_count": 114,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3569,
+  "title": "Line sketch: Surreal Gothic Flower Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene set on a stone courtyard features an enormous flower with a woman in a dark dress kneeling beside it and another woman emerging from its center. In the background stands a towering Gothic cathedral with a window, while to the right a couple in formal attire toasts with martini glasses inside a large transparent bubble surrounded by smaller bubbles (derived from generated still #2977).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene set on a stone courtyard features an enormous flower with a woman in a dark dress kneeling beside it and another woman emerging from its center. In the background stands a towering Gothic cathedral with a window, while to the right a couple in formal attire toasts with martini glasses inside a large transparent bubble surrounded by smaller bubbles",
+  "inverted_title": "Inverted sketch: Surreal Gothic Flower Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene set on a stone courtyard features an enormous flower with a woman in a dark dress kneeling beside it and another woman emerging from its center. In the background stands a towering Gothic cathedral with a window, while to the right a couple in formal attire toasts with martini glasses inside a large transparent bubble surrounded by smaller bubbles (from generated still #2977).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene set on a stone courtyard features an enormous flower with a woman in a dark dress kneeling beside it and another woman emerging from its center. In the background stands a towering Gothic cathedral with a window, while to the right a couple in formal attire toasts with martini glasses inside a large transparent bubble surrounded by smaller bubbles",
+  "source_description": "A surreal scene set on a stone courtyard features an enormous purple flower with a woman in a dark dress kneeling beside it and another woman emerging from its center. In the background stands a towering purple Gothic cathedral with a rose window, while to the right a couple in formal attire toasts with martini glasses inside a large transparent bubble surrounded by smaller bubbles.",
+  "source_prompt": "A surreal fantasy scene on a stone courtyard with a massive vibrant purple flower in the foreground. A woman in a dark patterned dress kneels beside it while another woman rises from the flower's green center. In the background a tall purple Gothic cathedral with rose window stands under a yellow and purple sky. To the right a man in a white suit and a woman in a magenta dress sit inside a large transparent bubble, toasting with martini glasses, surrounded by floating bubbles.",
+  "source_title": "Surreal Gothic Flower Scene",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "gothic",
+    "giant flower",
+    "bubble",
+    "cathedral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2977,
+  "source_url": "/generated/2977.jpg",
+  "image_url": "/sketches/3569.png",
+  "inverted_image_url": "/sketches-inverted/3569.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:46Z"
+}

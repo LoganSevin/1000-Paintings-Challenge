@@ -1,0 +1,42 @@
+{
+  "number": 3109,
+  "title": "Line sketch: Woman at the Threshold",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dark coat and peach satin dress stands in a decaying arched doorway, her right hand touching a heavily damaged door covered in lightning-like cracks, old photos, and graffiti reading 'Geburt' and 'Gehalt'. The derelict interior features peeling paint, scattered debris, broken objects and a fluorescent light above the doorway revealing a shadowy figure in the background room (derived from generated still #2444).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dark coat and peach satin dress stands in a decaying arched doorway, her right hand touching a heavily damaged door covered in lightning-like cracks, old photos, and graffiti reading 'Geburt' and 'Gehalt'. The derelict interior features peeling paint, scattered debris, broken objects and a fluorescent light above the doorway revealing a shadowy figure in the background room",
+  "inverted_title": "Inverted sketch: Woman at the Threshold",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dark coat and peach satin dress stands in a decaying arched doorway, her right hand touching a heavily damaged door covered in lightning-like cracks, old photos, and graffiti reading 'Geburt' and 'Gehalt'. The derelict interior features peeling paint, scattered debris, broken objects and a fluorescent light above the doorway revealing a shadowy figure in the background room (from generated still #2444).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dark coat and peach satin dress stands in a decaying arched doorway, her right hand touching a heavily damaged door covered in lightning-like cracks, old photos, and graffiti reading 'Geburt' and 'Gehalt'. The derelict interior features peeling paint, scattered debris, broken objects and a fluorescent light above the doorway revealing a shadowy figure in the background room",
+  "source_description": "A woman in a dark coat and peach satin dress stands in a decaying arched doorway, her right hand touching a heavily damaged yellow door covered in purple lightning-like cracks, old photos, and graffiti reading 'Geburt' and 'Gehalt'. The derelict interior features peeling paint, scattered debris, broken objects and a fluorescent light above the doorway revealing a shadowy figure in the background room.",
+  "source_prompt": "A mysterious woman wearing a dark overcoat and a flowing peach satin dress stands at the threshold of a decaying arched doorway, reaching toward a heavily damaged yellow door covered in purple energy cracks, taped photographs, and graffiti. The surrounding walls are covered in peeling paint and colorful abstract murals. Debris, broken objects, and red fabric litter the cracked floor. A fluorescent light flickers above. Moody cinematic lighting, painterly digital art style.",
+  "source_title": "Woman at the Threshold",
+  "style": "painterly digital art",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "abandoned",
+    "mysterious woman",
+    "cracked door",
+    "urban decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2444,
+  "source_url": "/generated/2444.jpg",
+  "image_url": "/sketches/3109.png",
+  "inverted_image_url": "/sketches-inverted/3109.png",
+  "curve_count": 133,
+  "built_at": "2026-08-17T00:09:45Z"
+}

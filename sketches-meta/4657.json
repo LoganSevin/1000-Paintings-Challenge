@@ -1,0 +1,42 @@
+{
+  "number": 4657,
+  "title": "Line sketch: Surreal Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts a large dog covered in stars and patterns blowing bubbles that contain tiny surreal scenes. A silhouetted man stands observing while a giant woman's face with crescent moon and skulls emerges from a framed composition, her hair flowing into a swirling cosmic sky with a blood moon dripping liquid. Three horned female figures stand on a wavy landscape to the left (derived from generated still #4079).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts a large dog covered in stars and patterns blowing bubbles that contain tiny surreal scenes. A silhouetted man stands observing while a giant woman's face with crescent moon and skulls emerges from a framed composition, her hair flowing into a swirling cosmic sky with a blood moon dripping liquid. Three horned female figures stand on a wavy landscape to the left",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts a large dog covered in stars and patterns blowing bubbles that contain tiny surreal scenes. A silhouetted man stands observing while a giant woman's face with crescent moon and skulls emerges from a framed composition, her hair flowing into a swirling cosmic sky with a blood moon dripping liquid. Three horned female figures stand on a wavy landscape to the left (from generated still #4079).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts a large dog covered in stars and patterns blowing bubbles that contain tiny surreal scenes. A silhouetted man stands observing while a giant woman's face with crescent moon and skulls emerges from a framed composition, her hair flowing into a swirling cosmic sky with a blood moon dripping liquid. Three horned female figures stand on a wavy landscape to the left",
+  "source_description": "A vibrant psychedelic painting depicts a large dog covered in stars and patterns blowing bubbles that contain tiny surreal scenes. A silhouetted man stands observing while a giant woman's face with crescent moon and skulls emerges from a framed painting, her hair flowing into a swirling cosmic sky with a blood moon dripping red liquid. Three horned female figures stand on a wavy landscape to the left.",
+  "source_prompt": "A highly detailed surreal psychedelic scene featuring a large colorful dog covered in stars and cosmic patterns sitting in the foreground blowing transparent bubbles containing tiny figures and scenes. A black silhouette of a man stands watching. Behind them is a large framed painting of a beautiful woman's face with black tears, crescent moon on forehead, and skulls in her flowing multicolored hair that merges with a swirling starry sky containing a large dripping blood moon. Three horned female figures stand on a wavy colorful ground to the left, all rendered in a vibrant imaginative painting style.",
+  "source_title": "Surreal Dreamscape",
+  "style": "Surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "whimsical",
+    "fantastical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4079,
+  "source_url": "/generated/4079.jpg",
+  "image_url": "/sketches/4657.png",
+  "inverted_image_url": "/sketches-inverted/4657.png",
+  "curve_count": 151,
+  "built_at": "2026-08-17T00:09:48Z"
+}

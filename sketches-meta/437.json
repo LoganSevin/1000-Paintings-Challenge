@@ -1,0 +1,40 @@
+{
+  "number": 437,
+  "title": "Line sketch: Kintsugi Hand composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An open hand rendered with and fragments separated by bold black lines, evoking the Japanese art of repairing broken pottery with. The on paper creates a striking contrast against the plain white background (derived from painting #525).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An open hand rendered with and fragments separated by bold black lines, evoking the Japanese art of repairing broken pottery with. The on paper creates a striking contrast against the plain white background",
+  "inverted_title": "Inverted sketch: Kintsugi Hand composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An open hand rendered with and fragments separated by bold black lines, evoking the Japanese art of repairing broken pottery with. The on paper creates a striking contrast against the plain white background (from painting #525).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An open hand rendered with and fragments separated by bold black lines, evoking the Japanese art of repairing broken pottery with. The on paper creates a striking contrast against the plain white background",
+  "source_description": "An open hand rendered with pink and golden fragments separated by bold black lines, evoking the Japanese art of repairing broken pottery with gold. The watercolor on paper creates a striking contrast against the plain white background.",
+  "source_prompt": "",
+  "source_title": "Kintsugi Hand Painting",
+  "style": "Contemporary",
+  "mood": "Healing, delicate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hand",
+    "kintsugi",
+    "fragments"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 525,
+  "source_url": "/paintings/525.jpg",
+  "image_url": "/sketches/437.png",
+  "inverted_image_url": "/sketches-inverted/437.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:39Z"
+}

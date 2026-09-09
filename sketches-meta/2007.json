@@ -1,0 +1,42 @@
+{
+  "number": 2007,
+  "title": "Line sketch: Vibrant Still Life with Bird",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A folk art composition featuring a large bowl filled with grains and slices, surrounded by and pitchers, a cup, and a stylized -- bird perched on a ginkgo branch. The background is with swirling patterns, fruits, and decorative foliage in, and (derived from generated still #1232).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A folk art composition featuring a large bowl filled with grains and slices, surrounded by and pitchers, a cup, and a stylized -- bird perched on a ginkgo branch. The background is with swirling patterns, fruits, and decorative foliage in, and",
+  "inverted_title": "Inverted sketch: Vibrant Still Life with Bird",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A folk art composition featuring a large bowl filled with grains and slices, surrounded by and pitchers, a cup, and a stylized -- bird perched on a ginkgo branch. The background is with swirling patterns, fruits, and decorative foliage in, and (from generated still #1232).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A folk art composition featuring a large bowl filled with grains and slices, surrounded by and pitchers, a cup, and a stylized -- bird perched on a ginkgo branch. The background is with swirling patterns, fruits, and decorative foliage in, and",
+  "source_description": "A colorful folk art painting featuring a large pink bowl filled with yellow grains and orange slices, surrounded by blue and orange pitchers, a green cup, and a stylized blue-green-orange bird perched on a ginkgo branch. The background is dark maroon with swirling patterns, fruits, and decorative foliage in turquoise, yellow, and purple.",
+  "source_prompt": "",
+  "source_title": "Vibrant Still Life with Bird",
+  "style": "folk art",
+  "mood": "joyful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "still life",
+    "folk art",
+    "bird",
+    "kitchenware",
+    "gingko"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1232,
+  "source_url": "/generated/1232.jpg",
+  "image_url": "/sketches/2007.png",
+  "inverted_image_url": "/sketches-inverted/2007.png",
+  "curve_count": 209,
+  "built_at": "2026-08-17T00:09:42Z"
+}

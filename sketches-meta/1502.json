@@ -1,0 +1,42 @@
+{
+  "number": 1502,
+  "title": "Line sketch: Psychedelic Dream Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a bald figure in a patterned robe standing on a winding path in an alien forest. In the night sky, a glowing crystal city floats within a circular portal framed by a crescent moon, while melting forms drip from the top of the scene (derived from generated still #717).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a bald figure in a patterned robe standing on a winding path in an alien forest. In the night sky, a glowing crystal city floats within a circular portal framed by a crescent moon, while melting forms drip from the top of the scene",
+  "inverted_title": "Inverted sketch: Psychedelic Dream Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a bald figure in a patterned robe standing on a winding path in an alien forest. In the night sky, a glowing crystal city floats within a circular portal framed by a crescent moon, while melting forms drip from the top of the scene (from generated still #717).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a bald figure in a patterned robe standing on a winding path in an alien forest. In the night sky, a glowing crystal city floats within a circular portal framed by a crescent moon, while melting forms drip from the top of the scene",
+  "source_description": "A surreal painting depicts a bald figure in a patterned robe standing on a winding path in an alien forest. In the purple night sky, a glowing green crystal city floats within a circular portal framed by a crescent moon, while melting colorful forms drip from the top of the scene.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Dream Portal",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "portal",
+    "crystal city",
+    "alien forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 717,
+  "source_url": "/generated/717.jpg",
+  "image_url": "/sketches/1502.png",
+  "inverted_image_url": "/sketches-inverted/1502.png",
+  "curve_count": 42,
+  "built_at": "2026-08-17T00:09:41Z"
+}

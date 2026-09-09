@@ -1,0 +1,42 @@
+{
+  "number": 705,
+  "title": "Line sketch: Mayfly in Mist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed illustration of a mayfly with translucent wings and long delicate tails. The insect is depicted against a soft, cloudy background with organic shapes (derived from painting #890).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed illustration of a mayfly with translucent wings and long delicate tails. The insect is depicted against a soft, cloudy background with organic shapes",
+  "inverted_title": "Inverted sketch: Mayfly in Mist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed illustration of a mayfly with translucent wings and long delicate tails. The insect is depicted against a soft, cloudy background with organic shapes (from painting #890).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed illustration of a mayfly with translucent wings and long delicate tails. The insect is depicted against a soft, cloudy background with organic shapes",
+  "source_description": "A detailed illustration of a golden mayfly with translucent wings and long delicate tails. The insect is depicted against a soft, cloudy green background with organic shapes.",
+  "source_prompt": "",
+  "source_title": "Golden Mayfly in Green Mist",
+  "style": "Realistic illustration",
+  "mood": "Serene and delicate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor and ink",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mayfly",
+    "insect art",
+    "entomology",
+    "insect",
+    "nature illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 890,
+  "source_url": "/paintings/890.jpg",
+  "image_url": "/sketches/705.png",
+  "inverted_image_url": "/sketches-inverted/705.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:39Z"
+}

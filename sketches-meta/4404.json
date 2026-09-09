@@ -1,0 +1,42 @@
+{
+  "number": 4404,
+  "title": "Line sketch: Mystic Astronomers",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two figures in hooded robes sit at a wooden desk inside a stone study filled with framed celestial paintings. A large arched window reveals a vibrant night sky with a glowing planet, mountains, and stars (derived from generated still #3823).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two figures in hooded robes sit at a wooden desk inside a stone study filled with framed celestial paintings. A large arched window reveals a vibrant night sky with a glowing planet, mountains, and stars",
+  "inverted_title": "Inverted sketch: Mystic Astronomers",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two figures in hooded robes sit at a wooden desk inside a stone study filled with framed celestial paintings. A large arched window reveals a vibrant night sky with a glowing planet, mountains, and stars (from generated still #3823).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two figures in hooded robes sit at a wooden desk inside a stone study filled with framed celestial paintings. A large arched window reveals a vibrant night sky with a glowing planet, mountains, and stars",
+  "source_description": "Two figures in hooded robes sit at a wooden desk inside a stone study filled with framed celestial paintings. A large arched window reveals a vibrant night sky with a glowing multicolored planet, mountains, and stars.",
+  "source_prompt": "A cozy stone-walled study filled with framed paintings of planets and moons on the walls. Two figures in ornate blue and purple hooded robes sit at a wooden desk covered with an open illuminated book, colorful mineral specimens, and glowing lanterns. Through a large arched window, a dramatic night landscape shows purple mountains under a massive glowing planet with swirling colorful patterns and bright stars. Magical herbs and lanterns hang on the walls, warm and cool lighting, detailed fantasy illustration.",
+  "source_title": "Mystic Astronomers",
+  "style": "fantasy illustration",
+  "mood": "mystical wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "astronomy",
+    "wizard",
+    "celestial",
+    "study"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3823,
+  "source_url": "/generated/3823.jpg",
+  "image_url": "/sketches/4404.png",
+  "inverted_image_url": "/sketches-inverted/4404.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:48Z"
+}

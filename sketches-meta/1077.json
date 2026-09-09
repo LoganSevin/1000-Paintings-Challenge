@@ -1,0 +1,42 @@
+{
+  "number": 1077,
+  "title": "Line sketch: Stasis Road",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man in a coat and hat walks with a cane along a cracked desert highway, a small robot perched on his back. To the right stands a weathered circular sign reading 'STASIS 8 MILES' wrapped in caution tape, set against a barren landscape with a large sun (derived from generated still #289).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man in a coat and hat walks with a cane along a cracked desert highway, a small robot perched on his back. To the right stands a weathered circular sign reading 'STASIS 8 MILES' wrapped in caution tape, set against a barren landscape with a large sun",
+  "inverted_title": "Inverted sketch: Stasis Road",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man in a coat and hat walks with a cane along a cracked desert highway, a small robot perched on his back. To the right stands a weathered circular sign reading 'STASIS 8 MILES' wrapped in caution tape, set against a barren landscape with a large sun (from generated still #289).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man in a coat and hat walks with a cane along a cracked desert highway, a small robot perched on his back. To the right stands a weathered circular sign reading 'STASIS 8 MILES' wrapped in caution tape, set against a barren landscape with a large sun",
+  "source_description": "An elderly man in a green coat and hat walks with a cane along a cracked desert highway, a small blue robot perched on his back. To the right stands a weathered circular sign reading 'STASIS 8 MILES' wrapped in caution tape, set against a barren landscape with a large red sun.",
+  "source_prompt": "",
+  "source_title": "Stasis Road",
+  "style": "surreal illustration",
+  "mood": "desolate, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert",
+    "robot",
+    "elderly man",
+    "road",
+    "stasis sign"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 289,
+  "source_url": "/generated/289.jpg",
+  "image_url": "/sketches/1077.png",
+  "inverted_image_url": "/sketches-inverted/1077.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:40Z"
+}

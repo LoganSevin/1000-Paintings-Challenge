@@ -1,0 +1,42 @@
+{
+  "number": 494,
+  "title": "Line sketch: Three Sculptural Forms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three abstract teardrop-shaped sculptures with vibrant, segmented colors stand against a minimalist background. The central piece is largest, featuring a complex interwoven design with metallic and earthy tones (derived from painting #600).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three abstract teardrop-shaped sculptures with vibrant, segmented colors stand against a minimalist background. The central piece is largest, featuring a complex interwoven design with metallic and earthy tones",
+  "inverted_title": "Inverted sketch: Three Sculptural Forms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three abstract teardrop-shaped sculptures with vibrant, segmented colors stand against a minimalist background. The central piece is largest, featuring a complex interwoven design with metallic and earthy tones (from painting #600).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three abstract teardrop-shaped sculptures with vibrant, segmented colors stand against a minimalist background. The central piece is largest, featuring a complex interwoven design with metallic and earthy tones",
+  "source_description": "Three abstract teardrop-shaped sculptures with vibrant, segmented colors stand against a minimalist background. The central piece is largest, featuring a complex interwoven design with metallic and earthy tones.",
+  "source_prompt": "",
+  "source_title": "Three Colorful Sculptural Forms",
+  "style": "Contemporary Realism",
+  "mood": "Serene and Elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sculpture",
+    "abstract forms",
+    "still life",
+    "teardrop",
+    "modern art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 600,
+  "source_url": "/paintings/600.jpg",
+  "image_url": "/sketches/494.png",
+  "inverted_image_url": "/sketches-inverted/494.png",
+  "curve_count": 382,
+  "built_at": "2026-08-17T00:09:39Z"
+}

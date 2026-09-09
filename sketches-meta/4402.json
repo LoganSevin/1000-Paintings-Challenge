@@ -1,0 +1,42 @@
+{
+  "number": 4402,
+  "title": "Line sketch: Arcane Spell Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical arcane shop interior with walls filled with framed magical artworks, including stasis spells, locked fusions, moths, and alchemical symbols. A woman with hair and a Victorian dress stands at a wooden desk, casting a spell that projects a glowing circular image of two figures while writing in a large illuminated book (derived from generated still #3821).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical arcane shop interior with walls filled with framed magical artworks, including stasis spells, locked fusions, moths, and alchemical symbols. A woman with hair and a Victorian dress stands at a wooden desk, casting a spell that projects a glowing circular image of two figures while writing in a large illuminated book",
+  "inverted_title": "Inverted sketch: Arcane Spell Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical arcane shop interior with walls filled with framed magical artworks, including stasis spells, locked fusions, moths, and alchemical symbols. A woman with hair and a Victorian dress stands at a wooden desk, casting a spell that projects a glowing circular image of two figures while writing in a large illuminated book (from generated still #3821).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical arcane shop interior with walls filled with framed magical artworks, including stasis spells, locked fusions, moths, and alchemical symbols. A woman with hair and a Victorian dress stands at a wooden desk, casting a spell that projects a glowing circular image of two figures while writing in a large illuminated book",
+  "source_description": "A mystical arcane shop interior with deep purple walls filled with framed magical artworks, including stasis spells, locked fusions, green moths, and alchemical symbols. A woman with red hair and a purple Victorian dress stands at a wooden desk, casting a spell that projects a glowing circular image of two figures while writing in a large illuminated book.",
+  "source_prompt": "A detailed fantasy illustration of a mystical arcane shop with deep purple walls covered in ornate framed artworks showing geometric magic circles, green moths, and alchemical diagrams. A beautiful woman with red hair wearing a purple Victorian dress and red headband stands at a wooden desk, one hand casting a glowing circular spell projection showing two figures, while her other hand writes in a large open illuminated book. Lanterns, potion bottles, and magical artifacts fill the scene in a rich, atmospheric style.",
+  "source_title": "Arcane Spell Shop",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "arcane shop",
+    "wizard",
+    "magic",
+    "aesthetic",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3821,
+  "source_url": "/generated/3821.jpg",
+  "image_url": "/sketches/4402.png",
+  "inverted_image_url": "/sketches-inverted/4402.png",
+  "curve_count": 91,
+  "built_at": "2026-08-17T00:09:48Z"
+}

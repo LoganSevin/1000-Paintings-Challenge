@@ -1,0 +1,42 @@
+{
+  "number": 59,
+  "title": "Line sketch: Cosmic Spirals",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant swirling celestial orbs float across a gradient space backdrop, evoking distant galaxies or planets. Bright spirals in hues are scattered with light trails and scattered stars, creating dynamic visual movement. Smooth glowing blends and luminous effects suggest a technique (derived from painting #89).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant swirling celestial orbs float across a gradient space backdrop, evoking distant galaxies or planets. Bright spirals in hues are scattered with light trails and scattered stars, creating dynamic visual movement. Smooth glowing blends and luminous effects suggest a technique",
+  "inverted_title": "Inverted sketch: Cosmic Spirals",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant swirling celestial orbs float across a gradient space backdrop, evoking distant galaxies or planets. Bright spirals in hues are scattered with light trails and scattered stars, creating dynamic visual movement. Smooth glowing blends and luminous effects suggest a technique (from painting #89).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant swirling celestial orbs float across a gradient space backdrop, evoking distant galaxies or planets. Bright spirals in hues are scattered with light trails and scattered stars, creating dynamic visual movement. Smooth glowing blends and luminous effects suggest a technique",
+  "source_description": "Vibrant swirling celestial orbs float across a gradient space backdrop, evoking distant galaxies or planets. Bright spirals in neon hues are scattered with light trails and scattered stars, creating dynamic visual movement. Smooth glowing blends and luminous effects suggest a digital painting technique.",
+  "source_prompt": "",
+  "source_title": "Neon Cosmic Spirals",
+  "style": "abstract digital",
+  "mood": "vibrant ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "abstract",
+    "swirls",
+    "space",
+    "galaxies"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 89,
+  "source_url": "/paintings/89.jpg",
+  "image_url": "/sketches/59.png",
+  "inverted_image_url": "/sketches-inverted/59.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:38Z"
+}

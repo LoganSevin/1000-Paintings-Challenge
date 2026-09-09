@@ -1,0 +1,42 @@
+{
+  "number": 45,
+  "title": "Line sketch: Vibrant Peonies in Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Large peonies dominate the composition, interspersed with flowers and lush foliage in a dense, overlapping arrangement. The composition uses bold, visible and flat color areas to define petals and leaves with minimal shading. Strong contrast between and creates a lively, close-up floral scene (derived from painting #64).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Large peonies dominate the composition, interspersed with flowers and lush foliage in a dense, overlapping arrangement. The composition uses bold, visible and flat color areas to define petals and leaves with minimal shading. Strong contrast between and creates a lively, close-up floral scene",
+  "inverted_title": "Inverted sketch: Vibrant Peonies in Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Large peonies dominate the composition, interspersed with flowers and lush foliage in a dense, overlapping arrangement. The composition uses bold, visible and flat color areas to define petals and leaves with minimal shading. Strong contrast between and creates a lively, close-up floral scene (from painting #64).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Large peonies dominate the composition, interspersed with flowers and lush foliage in a dense, overlapping arrangement. The composition uses bold, visible and flat color areas to define petals and leaves with minimal shading. Strong contrast between and creates a lively, close-up floral scene",
+  "source_description": "Large pink peonies dominate the composition, interspersed with bright yellow flowers and lush green foliage in a dense, overlapping arrangement. The painting uses bold, visible brushstrokes and flat color areas to define petals and leaves with minimal shading. Strong contrast between warm pinks and cool greens creates a lively, close-up floral scene.",
+  "source_prompt": "",
+  "source_title": "Vibrant Peonies in Bloom",
+  "style": "impressionist",
+  "mood": "vibrant joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "flowers",
+    "peonies",
+    "floral",
+    "botanical",
+    "composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 64,
+  "source_url": "/paintings/64.jpg",
+  "image_url": "/sketches/45.png",
+  "inverted_image_url": "/sketches-inverted/45.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:38Z"
+}

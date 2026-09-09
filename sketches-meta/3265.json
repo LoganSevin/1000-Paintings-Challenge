@@ -1,0 +1,42 @@
+{
+  "number": 3265,
+  "title": "Line sketch: Film Reel Nightmare",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A distressed woman in a and dress stands in an ornate room filled with framed paintings, holding a large film reel while film strip unwinds from her body and neck. A ghostly screaming face emerges from her chest as a beam of light from a tall arched window illuminates floating film particles and a 'FOLLOW ALONG' sign outside (derived from generated still #2637).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A distressed woman in a and dress stands in an ornate room filled with framed paintings, holding a large film reel while film strip unwinds from her body and neck. A ghostly screaming face emerges from her chest as a beam of light from a tall arched window illuminates floating film particles and a 'FOLLOW ALONG' sign outside",
+  "inverted_title": "Inverted sketch: Film Reel Nightmare",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A distressed woman in a and dress stands in an ornate room filled with framed paintings, holding a large film reel while film strip unwinds from her body and neck. A ghostly screaming face emerges from her chest as a beam of light from a tall arched window illuminates floating film particles and a 'FOLLOW ALONG' sign outside (from generated still #2637).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A distressed woman in a and dress stands in an ornate room filled with framed paintings, holding a large film reel while film strip unwinds from her body and neck. A ghostly screaming face emerges from her chest as a beam of light from a tall arched window illuminates floating film particles and a 'FOLLOW ALONG' sign outside",
+  "source_description": "A distressed woman in a pink and multicolored dress stands in an ornate room filled with framed paintings, holding a large film reel while film strip unwinds from her body and neck. A ghostly screaming face emerges from her chest as a beam of light from a tall arched window illuminates floating film particles and a 'FOLLOW ALONG' sign outside.",
+  "source_prompt": "A surreal painting of a terrified woman with brown hair wearing a pink dress with yellow and blue sleeves, standing in a cluttered ornate room with many framed paintings on the walls. She holds a large film reel as film strip unwinds from her torso revealing a screaming ghostly face emerging from her chest. A strong beam of light shines through a tall arched window showing a dark castle silhouette and the words FOLLOW ALONG in the night sky, with film particles floating in the air.",
+  "source_title": "Film Reel Nightmare",
+  "style": "surrealism",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "cinema",
+    "film reel",
+    "distorted figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2637,
+  "source_url": "/generated/2637.jpg",
+  "image_url": "/sketches/3265.png",
+  "inverted_image_url": "/sketches-inverted/3265.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:45Z"
+}

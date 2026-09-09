@@ -1,0 +1,42 @@
+{
+  "number": 3198,
+  "title": "Line sketch: Cinematic Dream Weaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman in a patterned dress stands barefoot on a crumbling staircase, one arm raised as film strips, movie reels, and framed pictures float around her. The ceiling is torn open revealing a surreal apocalyptic cityscape at sunset with ruined towers under a and sky, while a film projector in the foreground casts a beam of light (derived from generated still #2547).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman in a patterned dress stands barefoot on a crumbling staircase, one arm raised as film strips, movie reels, and framed pictures float around her. The ceiling is torn open revealing a surreal apocalyptic cityscape at sunset with ruined towers under a and sky, while a film projector in the foreground casts a beam of light",
+  "inverted_title": "Inverted sketch: Cinematic Dream Weaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman in a patterned dress stands barefoot on a crumbling staircase, one arm raised as film strips, movie reels, and framed pictures float around her. The ceiling is torn open revealing a surreal apocalyptic cityscape at sunset with ruined towers under a and sky, while a film projector in the foreground casts a beam of light (from generated still #2547).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman in a patterned dress stands barefoot on a crumbling staircase, one arm raised as film strips, movie reels, and framed pictures float around her. The ceiling is torn open revealing a surreal apocalyptic cityscape at sunset with ruined towers under a and sky, while a film projector in the foreground casts a beam of light",
+  "source_description": "A green-skinned woman in a red patterned dress stands barefoot on a crumbling staircase, one arm raised as film strips, movie reels, and framed pictures float around her. The ceiling is torn open revealing a surreal apocalyptic cityscape at sunset with ruined towers under a purple and orange sky, while a film projector in the foreground casts a beam of light.",
+  "source_prompt": "A surreal scene of a green-skinned woman with long dark hair wearing a flowing red patterned dress, standing barefoot on a broken stone staircase inside a decaying room. She reaches upward as film strips, movie reels, and framed pictures float around her. The ceiling is ripped open exposing a dystopian ruined city skyline against a dramatic purple and orange sunset. A vintage film projector sits in the foreground casting a beam of light, cinematic surrealism, detailed digital painting.",
+  "source_title": "Cinematic Dream Weaver",
+  "style": "surreal fantasy",
+  "mood": "ethereal decay",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cinematic",
+    "film reels",
+    "ruins",
+    "staircase"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2547,
+  "source_url": "/generated/2547.jpg",
+  "image_url": "/sketches/3198.png",
+  "inverted_image_url": "/sketches-inverted/3198.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:45Z"
+}

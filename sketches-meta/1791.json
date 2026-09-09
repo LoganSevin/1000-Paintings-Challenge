@@ -1,0 +1,42 @@
+{
+  "number": 1791,
+  "title": "Line sketch: Stasis Bear",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cartoon bear covered in spiral and paw print patterns stands on a circular rug with paw prints. The bear has large white eyes, a snout, and is positioned in front of a vibrant background featuring a giant black bear paw print, circular motifs, and repeated 'STASIS SURPRISE!' text (derived from generated still #1014).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cartoon bear covered in spiral and paw print patterns stands on a circular rug with paw prints. The bear has large white eyes, a snout, and is positioned in front of a vibrant background featuring a giant black bear paw print, circular motifs, and repeated 'STASIS SURPRISE!' text",
+  "inverted_title": "Inverted sketch: Stasis Bear",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cartoon bear covered in spiral and paw print patterns stands on a circular rug with paw prints. The bear has large white eyes, a snout, and is positioned in front of a vibrant background featuring a giant black bear paw print, circular motifs, and repeated 'STASIS SURPRISE!' text (from generated still #1014).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cartoon bear covered in spiral and paw print patterns stands on a circular rug with paw prints. The bear has large white eyes, a snout, and is positioned in front of a vibrant background featuring a giant black bear paw print, circular motifs, and repeated 'STASIS SURPRISE!' text",
+  "source_description": "A large blue cartoon bear covered in green spiral and paw print patterns stands on a purple circular rug with pink paw prints. The bear has large white eyes, a yellow snout, and is positioned in front of a vibrant red background featuring a giant black bear paw print, yellow circular motifs, and repeated 'STASIS SURPRISE!' text.",
+  "source_prompt": "",
+  "source_title": "Blue Stasis Bear",
+  "style": "psychedelic cartoon",
+  "mood": "playful energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "psychedelic",
+    "paw prints",
+    "cartoon",
+    "spirals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1014,
+  "source_url": "/generated/1014.jpg",
+  "image_url": "/sketches/1791.png",
+  "inverted_image_url": "/sketches-inverted/1791.png",
+  "curve_count": 280,
+  "built_at": "2026-08-17T00:09:42Z"
+}

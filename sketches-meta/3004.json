@@ -1,0 +1,42 @@
+{
+  "number": 3004,
+  "title": "Line sketch: Alien Portal on Mars",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A soldier in camouflage uniform and cap stands cautiously on cracked desert terrain, looking toward an structure containing a glowing circular portal with and reflections. In the background, a small grey alien crouches on the structure's edge while a large sun sets behind rocky mountains under a starry sky with multiple moons (derived from generated still #2326).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A soldier in camouflage uniform and cap stands cautiously on cracked desert terrain, looking toward an structure containing a glowing circular portal with and reflections. In the background, a small grey alien crouches on the structure's edge while a large sun sets behind rocky mountains under a starry sky with multiple moons",
+  "inverted_title": "Inverted sketch: Alien Portal on Mars",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A soldier in camouflage uniform and cap stands cautiously on cracked desert terrain, looking toward an structure containing a glowing circular portal with and reflections. In the background, a small grey alien crouches on the structure's edge while a large sun sets behind rocky mountains under a starry sky with multiple moons (from generated still #2326).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A soldier in camouflage uniform and cap stands cautiously on cracked desert terrain, looking toward an structure containing a glowing circular portal with and reflections. In the background, a small grey alien crouches on the structure's edge while a large sun sets behind rocky mountains under a starry sky with multiple moons",
+  "source_description": "A soldier in green camouflage uniform and cap stands cautiously on cracked red desert terrain, looking toward an orange structure containing a glowing circular portal with purple and pink reflections. In the background, a small grey alien crouches on the structure's edge while a large red sun sets behind rocky mountains under a starry sky with multiple moons.",
+  "source_prompt": "A realistic painting of a soldier in full camouflage uniform and cap standing on cracked red Martian desert, cautiously approaching an orange geometric structure with a glowing circular portal emitting purple and pink light. A small grey alien crouches on the edge of the structure. Dramatic red sunset behind rocky mountains, starry sky with several moons visible, rusty warning sign on the left. Surreal sci-fi atmosphere.",
+  "source_title": "Alien Portal on Mars",
+  "style": "surreal realism",
+  "mood": "eerie tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "soldier",
+    "alien",
+    "portal",
+    "mars",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2326,
+  "source_url": "/generated/2326.jpg",
+  "image_url": "/sketches/3004.png",
+  "inverted_image_url": "/sketches-inverted/3004.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:44Z"
+}

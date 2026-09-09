@@ -1,0 +1,42 @@
+{
+  "number": 2489,
+  "title": "Line sketch: Angels and Demons Tavern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A complex surreal collage combines multiple painted scenes: a large central eye with fiery interior, a glowing smiley-face spider in a dark city, swirling vortex, and an ornate hall filled with a crowd of people under lamps. Text overlays include 'Time to Think' and 'Tavern Circa 2026' (derived from generated still #1724).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A complex surreal collage combines multiple painted scenes: a large central eye with fiery interior, a glowing smiley-face spider in a dark city, swirling vortex, and an ornate hall filled with a crowd of people under lamps. Text overlays include 'Time to Think' and 'Tavern Circa 2026'",
+  "inverted_title": "Inverted sketch: Angels and Demons Tavern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A complex surreal collage combines multiple painted scenes: a large central eye with fiery interior, a glowing smiley-face spider in a dark city, swirling vortex, and an ornate hall filled with a crowd of people under lamps. Text overlays include 'Time to Think' and 'Tavern Circa 2026' (from generated still #1724).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A complex surreal collage combines multiple painted scenes: a large central eye with fiery interior, a glowing smiley-face spider in a dark city, swirling vortex, and an ornate hall filled with a crowd of people under lamps. Text overlays include 'Time to Think' and 'Tavern Circa 2026'",
+  "source_description": "A complex surreal collage combines multiple painted scenes: a large central eye with fiery interior, a glowing green smiley-face spider in a dark city, swirling purple vortex, and an ornate hall filled with a crowd of people under green lamps. Text overlays include 'Time to Think' and 'Tavern Circa 2026'.",
+  "source_prompt": "",
+  "source_title": "Angels and Demons Tavern",
+  "style": "surrealism",
+  "mood": "hallucinatory, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital collage",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "eye",
+    "spider",
+    "tavern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1724,
+  "source_url": "/generated/1724.jpg",
+  "image_url": "/sketches/2489.png",
+  "inverted_image_url": "/sketches-inverted/2489.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:43Z"
+}

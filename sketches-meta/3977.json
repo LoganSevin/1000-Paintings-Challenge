@@ -1,0 +1,42 @@
+{
+  "number": 3977,
+  "title": "Line sketch: Mage Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with hair in buns stands in a dynamic combat pose. She wears a white and traditional-inspired outfit with a corset top, flowing sleeves, and ornate accents, casting a glowing magical orb from her right hand while holding a magical ring in her left (derived from generated still #3394).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with hair in buns stands in a dynamic combat pose. She wears a white and traditional-inspired outfit with a corset top, flowing sleeves, and ornate accents, casting a glowing magical orb from her right hand while holding a magical ring in her left",
+  "inverted_title": "Inverted sketch: Mage Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with hair in buns stands in a dynamic combat pose. She wears a white and traditional-inspired outfit with a corset top, flowing sleeves, and ornate accents, casting a glowing magical orb from her right hand while holding a magical ring in her left (from generated still #3394).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with hair in buns stands in a dynamic combat pose. She wears a white and traditional-inspired outfit with a corset top, flowing sleeves, and ornate accents, casting a glowing magical orb from her right hand while holding a magical ring in her left",
+  "source_description": "A young female character with light purple hair in buns stands in a dynamic combat pose. She wears a white and purple traditional-inspired outfit with a corset top, flowing sleeves, and ornate purple accents, casting a glowing purple magical orb from her right hand while holding a magical ring in her left.",
+  "source_prompt": "A young East Asian female sorceress with pale lavender hair styled in two buns and a glowing purple crown of magical energy, wearing a white and purple traditional fantasy outfit with corset, long sleeves, and ornate details, standing in a dynamic combat stance, casting a swirling purple energy orb from her outstretched right hand while holding a crackling purple magical ring in her left, dramatic lighting, clean digital painting style",
+  "source_title": "Purple Mage Sorceress",
+  "style": "digital illustration",
+  "mood": "powerful, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female mage",
+    "magic",
+    "fantasy character",
+    "sorceress",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3394,
+  "source_url": "/generated/3394.jpg",
+  "image_url": "/sketches/3977.png",
+  "inverted_image_url": "/sketches-inverted/3977.png",
+  "curve_count": 104,
+  "built_at": "2026-08-17T00:09:47Z"
+}

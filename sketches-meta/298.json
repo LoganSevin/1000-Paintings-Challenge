@@ -1,0 +1,42 @@
+{
+  "number": 298,
+  "title": "Line sketch: Horned Silhouette Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic profile silhouette of a demonic figure with curved horns and flowing curly hair against a solid background. The mysterious character gazes rightward with an elegant yet sinister presence (derived from painting #358).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic profile silhouette of a demonic figure with curved horns and flowing curly hair against a solid background. The mysterious character gazes rightward with an elegant yet sinister presence",
+  "inverted_title": "Inverted sketch: Horned Silhouette Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic profile silhouette of a demonic figure with curved horns and flowing curly hair against a solid background. The mysterious character gazes rightward with an elegant yet sinister presence (from painting #358).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic profile silhouette of a demonic figure with curved horns and flowing curly hair against a solid background. The mysterious character gazes rightward with an elegant yet sinister presence",
+  "source_description": "A dramatic profile silhouette of a demonic figure with curved horns and flowing curly hair against a solid purple background. The mysterious character gazes rightward with an elegant yet sinister presence.",
+  "source_prompt": "",
+  "source_title": "Horned Silhouette Portrait",
+  "style": "Digital Illustration",
+  "mood": "Mysterious and dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouette",
+    "demon",
+    "profile",
+    "horns",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 358,
+  "source_url": "/paintings/358.jpg",
+  "image_url": "/sketches/298.png",
+  "inverted_image_url": "/sketches-inverted/298.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:38Z"
+}

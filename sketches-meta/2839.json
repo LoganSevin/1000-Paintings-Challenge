@@ -1,0 +1,42 @@
+{
+  "number": 2839,
+  "title": "Line sketch: Surreal Cosmic Face",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large circular surreal face is split into four distinct quadrants against a grassy field at dusk. The left side shows a glowing sun with a black slit eye and a white crescent moon, the top features a night sky with a black obelisk and stars, the right displays a bright full moon over landscape, and the bottom right shows an sunset with a black sailboat. A large crystalline maple leaf protrudes from the right side of the face, which has visible lips with teeth and a nose (derived from generated still #2124).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large circular surreal face is split into four distinct quadrants against a grassy field at dusk. The left side shows a glowing sun with a black slit eye and a white crescent moon, the top features a night sky with a black obelisk and stars, the right displays a bright full moon over landscape, and the bottom right shows an sunset with a black sailboat. A large crystalline maple leaf protrudes from the right side of the face, which has visible lips with teeth and a nose",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Face",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large circular surreal face is split into four distinct quadrants against a grassy field at dusk. The left side shows a glowing sun with a black slit eye and a white crescent moon, the top features a night sky with a black obelisk and stars, the right displays a bright full moon over landscape, and the bottom right shows an sunset with a black sailboat. A large crystalline maple leaf protrudes from the right side of the face, which has visible lips with teeth and a nose (from generated still #2124).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large circular surreal face is split into four distinct quadrants against a grassy field at dusk. The left side shows a glowing sun with a black slit eye and a white crescent moon, the top features a night sky with a black obelisk and stars, the right displays a bright full moon over landscape, and the bottom right shows an sunset with a black sailboat. A large crystalline maple leaf protrudes from the right side of the face, which has visible lips with teeth and a nose",
+  "source_description": "A large circular surreal face is split into four distinct quadrants against a grassy field at dusk. The left side shows a glowing yellow sun with a black slit eye and a white crescent moon, the top features a purple night sky with a black obelisk and stars, the right displays a bright full moon over green landscape, and the bottom right shows an orange sunset with a black sailboat. A large red crystalline maple leaf protrudes from the right side of the face, which has visible lips with teeth and a nose.",
+  "source_prompt": "Surreal circular face split into four quadrants floating above a grassy field at twilight. Left quadrant contains a glowing golden sun with black slit eye and white crescent moon. Top quadrant shows dark purple night sky with tall black obelisk and stars. Right quadrant features a bright full moon over green hills. Bottom right shows orange sunset with black sailboat on water. A large faceted red crystalline maple leaf emerges from the right side. The face has realistic lips with teeth and a defined nose. Dramatic sky with clouds and distant hills in background, symbolic and mystical atmosphere.",
+  "source_title": "Surreal Cosmic Face",
+  "style": "surrealism",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "celestial",
+    "cosmic",
+    "maple leaf",
+    "moon phases"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2124,
+  "source_url": "/generated/2124.jpg",
+  "image_url": "/sketches/2839.png",
+  "inverted_image_url": "/sketches-inverted/2839.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:44Z"
+}

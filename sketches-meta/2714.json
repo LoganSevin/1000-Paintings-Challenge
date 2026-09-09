@@ -1,0 +1,42 @@
+{
+  "number": 2714,
+  "title": "Line sketch: Torn Portrait Sculpture",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted sculpture of a classical male profile in side view sits on a wooden surface, its face rendered in earthy tones with visible linework. The head is dramatically split by a vertically torn, aged paper-like structure bearing the text 'SPQR' and 'BOSCO', with broken fragments scattered in front and a sculpting tool nearby (derived from generated still #1960).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted sculpture of a classical male profile in side view sits on a wooden surface, its face rendered in earthy tones with visible linework. The head is dramatically split by a vertically torn, aged paper-like structure bearing the text 'SPQR' and 'BOSCO', with broken fragments scattered in front and a sculpting tool nearby",
+  "inverted_title": "Inverted sketch: Torn Portrait Sculpture",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted sculpture of a classical male profile in side view sits on a wooden surface, its face rendered in earthy tones with visible linework. The head is dramatically split by a vertically torn, aged paper-like structure bearing the text 'SPQR' and 'BOSCO', with broken fragments scattered in front and a sculpting tool nearby (from generated still #1960).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted sculpture of a classical male profile in side view sits on a wooden surface, its face rendered in earthy tones with visible linework. The head is dramatically split by a vertically torn, aged paper-like structure bearing the text 'SPQR' and 'BOSCO', with broken fragments scattered in front and a sculpting tool nearby",
+  "source_description": "A surreal painted sculpture of a classical male profile in side view sits on a wooden surface, its face rendered in earthy tones with visible linework. The head is dramatically split by a vertically torn, aged paper-like structure bearing the text 'SPQR' and 'BOSCO', with broken fragments scattered in front and a sculpting tool nearby.",
+  "source_prompt": "",
+  "source_title": "Torn Portrait Sculpture",
+  "style": "surreal mixed media",
+  "mood": "enigmatic, fragmented",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted sculpture and collage",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "sculpture",
+    "torn paper",
+    "classical profile",
+    "SPQR"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1960,
+  "source_url": "/generated/1960.jpg",
+  "image_url": "/sketches/2714.png",
+  "inverted_image_url": "/sketches-inverted/2714.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:44Z"
+}

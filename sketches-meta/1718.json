@@ -1,0 +1,42 @@
+{
+  "number": 1718,
+  "title": "Line sketch: Crown of the Grim Council",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A group of seven skeletal figures in ornate black robes with patterns stand in a row, their skulls dripping long streams of liquid. One skeleton holds a staff while another reaches toward an elaborate crown adorned with skulls, jewels, and pearls resting on a cushion (derived from generated still #940).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A group of seven skeletal figures in ornate black robes with patterns stand in a row, their skulls dripping long streams of liquid. One skeleton holds a staff while another reaches toward an elaborate crown adorned with skulls, jewels, and pearls resting on a cushion",
+  "inverted_title": "Inverted sketch: Crown of the Grim Council",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A group of seven skeletal figures in ornate black robes with patterns stand in a row, their skulls dripping long streams of liquid. One skeleton holds a staff while another reaches toward an elaborate crown adorned with skulls, jewels, and pearls resting on a cushion (from generated still #940).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A group of seven skeletal figures in ornate black robes with patterns stand in a row, their skulls dripping long streams of liquid. One skeleton holds a staff while another reaches toward an elaborate crown adorned with skulls, jewels, and pearls resting on a cushion",
+  "source_description": "A group of seven skeletal figures in ornate black robes with gold patterns stand in a row, their skulls dripping long streams of red liquid. One skeleton holds a golden staff while another reaches toward an elaborate golden crown adorned with skulls, jewels, and pearls resting on a purple cushion.",
+  "source_prompt": "",
+  "source_title": "Crown of the Grim Council",
+  "style": "surreal dark fantasy",
+  "mood": "ominous macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "crown",
+    "grim reaper",
+    "dark fantasy",
+    "skulls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 940,
+  "source_url": "/generated/940.jpg",
+  "image_url": "/sketches/1718.png",
+  "inverted_image_url": "/sketches-inverted/1718.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 248,
+  "title": "Line sketch: Curious Horse in Sky",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A horse peers directly at the viewer from behind a wooden fence in a pastoral landscape. The dramatic sky contrasts with the simplified trees and fields in this stylized composition (derived from painting #303).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A horse peers directly at the viewer from behind a wooden fence in a pastoral landscape. The dramatic sky contrasts with the simplified trees and fields in this stylized composition",
+  "inverted_title": "Inverted sketch: Curious Horse in Sky",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A horse peers directly at the viewer from behind a wooden fence in a pastoral landscape. The dramatic sky contrasts with the simplified trees and fields in this stylized composition (from painting #303).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A horse peers directly at the viewer from behind a wooden fence in a pastoral landscape. The dramatic sky contrasts with the simplified trees and fields in this stylized composition",
+  "source_description": "A brown horse peers directly at the viewer from behind a wooden fence in a pastoral landscape. The dramatic red sky contrasts with the simplified green trees and fields in this stylized painting.",
+  "source_prompt": "",
+  "source_title": "Curious Horse in Red Sky",
+  "style": "Pop Art",
+  "mood": "Curious and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horse",
+    "pastoral",
+    "fence",
+    "sky",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 303,
+  "source_url": "/paintings/303.jpg",
+  "image_url": "/sketches/248.png",
+  "inverted_image_url": "/sketches-inverted/248.png",
+  "curve_count": 132,
+  "built_at": "2026-08-17T00:09:38Z"
+}

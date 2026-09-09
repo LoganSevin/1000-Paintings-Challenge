@@ -1,0 +1,42 @@
+{
+  "number": 106,
+  "title": "Line sketch: Vortex of Fiery Whorls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition of intertwining, wave-like forms that create a sense of fluid motion across the entire page. Bold, undulating lines in warm hues twist and overlap, evoking organic flow. The technique appears to be fluid pouring or marbling, with smooth color transitions and high contrast between dark and vibrant tones (derived from painting #137).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition of intertwining, wave-like forms that create a sense of fluid motion across the entire page. Bold, undulating lines in warm hues twist and overlap, evoking organic flow. The technique appears to be fluid pouring or marbling, with smooth color transitions and high contrast between dark and vibrant tones",
+  "inverted_title": "Inverted sketch: Vortex of Fiery Whorls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition of intertwining, wave-like forms that create a sense of fluid motion across the entire page. Bold, undulating lines in warm hues twist and overlap, evoking organic flow. The technique appears to be fluid pouring or marbling, with smooth color transitions and high contrast between dark and vibrant tones (from painting #137).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition of intertwining, wave-like forms that create a sense of fluid motion across the entire page. Bold, undulating lines in warm hues twist and overlap, evoking organic flow. The technique appears to be fluid pouring or marbling, with smooth color transitions and high contrast between dark and vibrant tones",
+  "source_description": "An abstract composition of intertwining, wave-like forms that create a sense of fluid motion across the entire canvas. Bold, undulating lines in warm hues twist and overlap, evoking organic flow. The technique appears to be fluid acrylic pouring or marbling, with smooth color transitions and high contrast between dark and vibrant tones.",
+  "source_prompt": "",
+  "source_title": "Vortex of Fiery Whorls",
+  "style": "abstract",
+  "mood": "Dynamic Fiery",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "swirls",
+    "fluid",
+    "marble",
+    "warm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 137,
+  "source_url": "/paintings/137.jpg",
+  "image_url": "/sketches/106.png",
+  "inverted_image_url": "/sketches-inverted/106.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:38Z"
+}

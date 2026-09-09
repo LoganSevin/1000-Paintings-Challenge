@@ -1,0 +1,42 @@
+{
+  "number": 3014,
+  "title": "Line sketch: Psychedelic Fantasy Couple",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young man in ornate and patterned attire stands beside a smiling woman wearing cat ears and a dress, both positioned in the center of a vibrant, surreal forest filled with giant glowing mushrooms, oversized flowers, twisting vines, and a sky (derived from generated still #2336).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young man in ornate and patterned attire stands beside a smiling woman wearing cat ears and a dress, both positioned in the center of a vibrant, surreal forest filled with giant glowing mushrooms, oversized flowers, twisting vines, and a sky",
+  "inverted_title": "Inverted sketch: Psychedelic Fantasy Couple",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young man in ornate and patterned attire stands beside a smiling woman wearing cat ears and a dress, both positioned in the center of a vibrant, surreal forest filled with giant glowing mushrooms, oversized flowers, twisting vines, and a sky (from generated still #2336).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young man in ornate and patterned attire stands beside a smiling woman wearing cat ears and a dress, both positioned in the center of a vibrant, surreal forest filled with giant glowing mushrooms, oversized flowers, twisting vines, and a sky",
+  "source_description": "A young man in ornate purple and green patterned attire stands beside a smiling woman wearing cat ears and a colorful dress, both positioned in the center of a vibrant, surreal forest filled with giant glowing mushrooms, oversized flowers, twisting vines, and a rainbow sky.",
+  "source_prompt": "A young man with dark hair wearing a purple embroidered tunic and colorful patterned pants stands next to a smiling woman with cat ears and a multicolored dress, both centered in a highly detailed psychedelic fantasy forest with enormous glowing mushrooms, giant pink and orange flowers, twisted vines, floating eyeballs in the clouds, and a vibrant rainbow arching across the sky, whimsical surreal style, intricate details",
+  "source_title": "Psychedelic Fantasy Couple",
+  "style": "fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "fantasy couple",
+    "giant mushrooms",
+    "cat ears",
+    "sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2336,
+  "source_url": "/generated/2336.jpg",
+  "image_url": "/sketches/3014.png",
+  "inverted_image_url": "/sketches-inverted/3014.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:44Z"
+}

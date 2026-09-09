@@ -1,0 +1,42 @@
+{
+  "number": 4829,
+  "title": "Line sketch: Surreal Desert Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a cracked earth road leading through sand dunes under a massive glowing sun. In the sky, the head and shoulders of a woman with closed eyes emerge from swirling floral and vine patterns, while a large ornate mechanical device with concentric glowing and circles stands on a post in the foreground (derived from generated still #4264).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a cracked earth road leading through sand dunes under a massive glowing sun. In the sky, the head and shoulders of a woman with closed eyes emerge from swirling floral and vine patterns, while a large ornate mechanical device with concentric glowing and circles stands on a post in the foreground",
+  "inverted_title": "Inverted sketch: Surreal Desert Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a cracked earth road leading through sand dunes under a massive glowing sun. In the sky, the head and shoulders of a woman with closed eyes emerge from swirling floral and vine patterns, while a large ornate mechanical device with concentric glowing and circles stands on a post in the foreground (from generated still #4264).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a cracked earth road leading through sand dunes under a massive glowing sun. In the sky, the head and shoulders of a woman with closed eyes emerge from swirling floral and vine patterns, while a large ornate mechanical device with concentric glowing and circles stands on a post in the foreground",
+  "source_description": "A surreal desert landscape features a cracked earth road leading through orange sand dunes under a massive glowing red sun. In the sky, the head and shoulders of a woman with closed eyes emerge from swirling floral and vine patterns, while a large ornate mechanical device with concentric glowing red and blue circles stands on a post in the foreground.",
+  "source_prompt": "Surreal desert scene with cracked dry earth path winding through orange sand dunes. A giant glowing red sun dominates the sky. From swirling dark floral vines and clouds emerges the head of a serene woman with closed eyes and flowing hair. In the foreground stands an ornate circular mechanical device on a metal post featuring glowing concentric rings with a red center. Dreamlike symbolic atmosphere, detailed textures, cinematic lighting.",
+  "source_title": "Surreal Desert Oracle",
+  "style": "surrealism",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "celestial woman",
+    "sun",
+    "mechanical device"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4264,
+  "source_url": "/generated/4264.jpg",
+  "image_url": "/sketches/4829.png",
+  "inverted_image_url": "/sketches-inverted/4829.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1976,
+  "title": "Line sketch: Psychedelic Elder Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man with glasses and a decorated hat holds a large peony while a vibrant hummingbird hovers near his shoulder. The futuristic room features glowing patterns, swirling psychedelic motifs, and figures in uniforms dancing in the background (derived from generated still #1201).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man with glasses and a decorated hat holds a large peony while a vibrant hummingbird hovers near his shoulder. The futuristic room features glowing patterns, swirling psychedelic motifs, and figures in uniforms dancing in the background",
+  "inverted_title": "Inverted sketch: Psychedelic Elder Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man with glasses and a decorated hat holds a large peony while a vibrant hummingbird hovers near his shoulder. The futuristic room features glowing patterns, swirling psychedelic motifs, and figures in uniforms dancing in the background (from generated still #1201).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man with glasses and a decorated hat holds a large peony while a vibrant hummingbird hovers near his shoulder. The futuristic room features glowing patterns, swirling psychedelic motifs, and figures in uniforms dancing in the background",
+  "source_description": "An elderly man with glasses and a decorated hat holds a large purple peony while a vibrant hummingbird hovers near his shoulder. The futuristic room features glowing neon patterns, swirling psychedelic motifs, and figures in green uniforms dancing in the background.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Elder Portrait",
+  "style": "surreal psychedelic",
+  "mood": "dreamlike enigmatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "elderly man",
+    "hummingbird",
+    "peony",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1201,
+  "source_url": "/generated/1201.jpg",
+  "image_url": "/sketches/1976.png",
+  "inverted_image_url": "/sketches-inverted/1976.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:42Z"
+}

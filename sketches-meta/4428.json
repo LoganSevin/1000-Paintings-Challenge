@@ -1,0 +1,42 @@
+{
+  "number": 4428,
+  "title": "Line sketch: Stasis Spells & Locked Fusions",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A moody nighttime view of a mystical apothecary shop facade with a large wooden sign reading 'Stasis Spells Locked Fusions'. The door is covered in runes, sealed with multiple locks and an eye-shaped padlock. Above the door hangs a composition of a boy reading while two ethereal female faces watch from behind a gate. Bottles containing swirling potions and faces line the windows and shelves (derived from generated still #3847).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A moody nighttime view of a mystical apothecary shop facade with a large wooden sign reading 'Stasis Spells Locked Fusions'. The door is covered in runes, sealed with multiple locks and an eye-shaped padlock. Above the door hangs a composition of a boy reading while two ethereal female faces watch from behind a gate. Bottles containing swirling potions and faces line the windows and shelves",
+  "inverted_title": "Inverted sketch: Stasis Spells & Locked Fusions",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A moody nighttime view of a mystical apothecary shop facade with a large wooden sign reading 'Stasis Spells Locked Fusions'. The door is covered in runes, sealed with multiple locks and an eye-shaped padlock. Above the door hangs a composition of a boy reading while two ethereal female faces watch from behind a gate. Bottles containing swirling potions and faces line the windows and shelves (from generated still #3847).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A moody nighttime view of a mystical apothecary shop facade with a large wooden sign reading 'Stasis Spells Locked Fusions'. The door is covered in runes, sealed with multiple locks and an eye-shaped padlock. Above the door hangs a composition of a boy reading while two ethereal female faces watch from behind a gate. Bottles containing swirling potions and faces line the windows and shelves",
+  "source_description": "A moody nighttime view of a mystical apothecary shop facade with a large wooden sign reading 'Stasis Spells Locked Fusions'. The dark blue door is covered in runes, sealed with multiple locks and an eye-shaped padlock. Above the door hangs a painting of a boy reading while two ethereal female faces watch from behind a gate. Bottles containing swirling blue potions and faces line the windows and shelves.",
+  "source_prompt": "Nighttime view of an old mystical shop facade with ornate wooden architecture. A large dark blue sign reads 'Stasis Spells Locked Fusions'. Below it is a heavy wooden door covered in white runes, secured with multiple locks and a large eye-shaped padlock. A framed painting above the door shows a boy in a blue coat reading a book, while two ghostly female faces with flowing hair watch him from behind a gate. Potion bottles containing swirling blue liquid and miniature faces are displayed in the window and on shelves. Old papers and notes are pinned to the walls, lantern light illuminates the scene, dark blue and purple color palette, atmospheric and mysterious fantasy style.",
+  "source_title": "Stasis Spells & Locked Fusions",
+  "style": "fantasy illustration",
+  "mood": "mysterious eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic shop",
+    "apothecary",
+    "runes",
+    "potions",
+    "ethereal faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3847,
+  "source_url": "/generated/3847.jpg",
+  "image_url": "/sketches/4428.png",
+  "inverted_image_url": "/sketches-inverted/4428.png",
+  "curve_count": 84,
+  "built_at": "2026-08-17T00:09:48Z"
+}

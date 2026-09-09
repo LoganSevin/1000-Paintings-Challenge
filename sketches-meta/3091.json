@@ -1,0 +1,42 @@
+{
+  "number": 3091,
+  "title": "Line sketch: Vault Door to Nightmare",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A figure in an prison jumpsuit labeled GHI827 stands with their back to the viewer, opening a massive circular vault door. Beyond the doorway is a surreal, hellish landscape with twisted trees, string lights, and a - sky. Film reels and torn movie posters litter the concrete floor of the derelict room (derived from generated still #2424).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A figure in an prison jumpsuit labeled GHI827 stands with their back to the viewer, opening a massive circular vault door. Beyond the doorway is a surreal, hellish landscape with twisted trees, string lights, and a - sky. Film reels and torn movie posters litter the concrete floor of the derelict room",
+  "inverted_title": "Inverted sketch: Vault Door to Nightmare",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A figure in an prison jumpsuit labeled GHI827 stands with their back to the viewer, opening a massive circular vault door. Beyond the doorway is a surreal, hellish landscape with twisted trees, string lights, and a - sky. Film reels and torn movie posters litter the concrete floor of the derelict room (from generated still #2424).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A figure in an prison jumpsuit labeled GHI827 stands with their back to the viewer, opening a massive circular vault door. Beyond the doorway is a surreal, hellish landscape with twisted trees, string lights, and a - sky. Film reels and torn movie posters litter the concrete floor of the derelict room",
+  "source_description": "A figure in an orange prison jumpsuit labeled GHI827 stands with their back to the viewer, opening a massive circular vault door. Beyond the doorway is a surreal, hellish landscape with twisted trees, string lights, and a purple-green sky. Film reels and torn movie posters litter the concrete floor of the derelict room.",
+  "source_prompt": "A prisoner in an orange jumpsuit with GHI827 printed on the back stands at a giant open bank vault door, one hand on the wheel lock. The character has a pale white face with dark makeup and is looking back over their shoulder. Beyond the door is a twisted purple and green nightmare landscape with dead trees and string lights. Old film reels and movie posters are scattered on the floor of a decaying room, cinematic lighting, detailed digital painting.",
+  "source_title": "Vault Door to Nightmare",
+  "style": "composition",
+  "mood": "eerie, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "surreal",
+    "prisoner",
+    "vault door",
+    "film reel"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2424,
+  "source_url": "/generated/2424.jpg",
+  "image_url": "/sketches/3091.png",
+  "inverted_image_url": "/sketches-inverted/3091.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:44Z"
+}

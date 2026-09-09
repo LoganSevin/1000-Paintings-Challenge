@@ -1,0 +1,42 @@
+{
+  "number": 1565,
+  "title": "Line sketch: Ouroboros Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork depicts a woman with elaborate swirling hair and lips alongside an older man wearing a beret and round glasses. An dragon forms an infinity loop around them while a -cloaked figure holds a glowing orb, all set against a spiral background (derived from generated still #780).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork depicts a woman with elaborate swirling hair and lips alongside an older man wearing a beret and round glasses. An dragon forms an infinity loop around them while a -cloaked figure holds a glowing orb, all set against a spiral background",
+  "inverted_title": "Inverted sketch: Ouroboros Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork depicts a woman with elaborate swirling hair and lips alongside an older man wearing a beret and round glasses. An dragon forms an infinity loop around them while a -cloaked figure holds a glowing orb, all set against a spiral background (from generated still #780).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork depicts a woman with elaborate swirling hair and lips alongside an older man wearing a beret and round glasses. An dragon forms an infinity loop around them while a -cloaked figure holds a glowing orb, all set against a spiral background",
+  "source_description": "A vibrant psychedelic artwork depicts a woman with elaborate blue swirling hair and blue lips alongside an older man wearing a beret and round glasses. An orange dragon forms an infinity loop around them while a red-cloaked figure holds a glowing orb, all set against a colorful spiral background.",
+  "source_prompt": "",
+  "source_title": "Ouroboros Dream",
+  "style": "Psychedelic",
+  "mood": "Mystical, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ouroboros",
+    "psychedelic",
+    "dragon",
+    "portrait",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 780,
+  "source_url": "/generated/780.jpg",
+  "image_url": "/sketches/1565.png",
+  "inverted_image_url": "/sketches-inverted/1565.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3860,
+  "title": "Line sketch: Bubblegum Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three side-by-side illustrations of a young female character with bubblegum hair and a crown, wearing and black armor with a cape. She is shown in three distinct action poses: blowing a bubble with fist raised, arms crossed in a fighting stance, and walking forward with an alert expression (derived from generated still #3277).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three side-by-side illustrations of a young female character with bubblegum hair and a crown, wearing and black armor with a cape. She is shown in three distinct action poses: blowing a bubble with fist raised, arms crossed in a fighting stance, and walking forward with an alert expression",
+  "inverted_title": "Inverted sketch: Bubblegum Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three side-by-side illustrations of a young female character with bubblegum hair and a crown, wearing and black armor with a cape. She is shown in three distinct action poses: blowing a bubble with fist raised, arms crossed in a fighting stance, and walking forward with an alert expression (from generated still #3277).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three side-by-side illustrations of a young female character with bubblegum hair and a crown, wearing and black armor with a cape. She is shown in three distinct action poses: blowing a bubble with fist raised, arms crossed in a fighting stance, and walking forward with an alert expression",
+  "source_description": "Three side-by-side illustrations of a young female character with pink bubblegum hair and a crown, wearing dark green and black armor with a cape. She is shown in three distinct action poses: blowing a bubble with fist raised, arms crossed in a fighting stance, and walking forward with an alert expression.",
+  "source_prompt": "A cartoon character sheet on a solid bright green background showing three full-body poses of a tough young girl with voluminous pink curly hair in pigtails, wearing a small golden crown, dark green and black fantasy armor with bubble-like details, green cape, and heavy boots. She is blowing a pink bubblegum bubble in the first pose, standing in a combat stance with arms crossed in the middle, and walking forward with a surprised expression in the third. Vibrant colors, clean line art, dynamic character design.",
+  "source_title": "Bubblegum Warrior Poses",
+  "style": "cartoon",
+  "mood": "energetic, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "bubblegum",
+    "armor",
+    "multiple poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3277,
+  "source_url": "/generated/3277.jpg",
+  "image_url": "/sketches/3860.png",
+  "inverted_image_url": "/sketches-inverted/3860.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:46Z"
+}

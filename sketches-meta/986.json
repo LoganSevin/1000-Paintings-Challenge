@@ -1,0 +1,42 @@
+{
+  "number": 986,
+  "title": "Line sketch: Cosmic Vortex Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous spherical orb filled with galaxies and stars sits at the center of swirling, cosmic rings against a dark space background. The fluid, painterly rings in vibrant hues twist and flow outward like a psychedelic accretion disk (derived from generated still #196).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous spherical orb filled with galaxies and stars sits at the center of swirling, cosmic rings against a dark space background. The fluid, painterly rings in vibrant hues twist and flow outward like a psychedelic accretion disk",
+  "inverted_title": "Inverted sketch: Cosmic Vortex Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous spherical orb filled with galaxies and stars sits at the center of swirling, cosmic rings against a dark space background. The fluid, painterly rings in vibrant hues twist and flow outward like a psychedelic accretion disk (from generated still #196).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous spherical orb filled with galaxies and stars sits at the center of swirling, cosmic rings against a dark space background. The fluid, painterly rings in vibrant hues twist and flow outward like a psychedelic accretion disk",
+  "source_description": "A luminous spherical orb filled with galaxies and stars sits at the center of swirling, multicolored cosmic rings against a dark space background. The fluid, painterly rings in vibrant hues twist and flow outward like a psychedelic accretion disk.",
+  "source_prompt": "",
+  "source_title": "Cosmic Vortex Orb",
+  "style": "surreal cosmic fantasy",
+  "mood": "ethereal, vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "galaxy",
+    "swirling rings",
+    "nebula",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 196,
+  "source_url": "/generated/196.jpg",
+  "image_url": "/sketches/986.png",
+  "inverted_image_url": "/sketches-inverted/986.png",
+  "curve_count": 165,
+  "built_at": "2026-08-17T00:09:40Z"
+}

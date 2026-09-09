@@ -1,0 +1,42 @@
+{
+  "number": 1958,
+  "title": "Line sketch: Stasis Cyber Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A robot with glowing eyes and circuit patterns stands on the left, its hand extended toward a fluffy cat floating in mid-air. The cat leaps toward a large vibrant and flower containing a small skull at its center, set against a cosmic swirling space background (derived from generated still #1183).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A robot with glowing eyes and circuit patterns stands on the left, its hand extended toward a fluffy cat floating in mid-air. The cat leaps toward a large vibrant and flower containing a small skull at its center, set against a cosmic swirling space background",
+  "inverted_title": "Inverted sketch: Stasis Cyber Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A robot with glowing eyes and circuit patterns stands on the left, its hand extended toward a fluffy cat floating in mid-air. The cat leaps toward a large vibrant and flower containing a small skull at its center, set against a cosmic swirling space background (from generated still #1183).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A robot with glowing eyes and circuit patterns stands on the left, its hand extended toward a fluffy cat floating in mid-air. The cat leaps toward a large vibrant and flower containing a small skull at its center, set against a cosmic swirling space background",
+  "source_description": "A green robot with glowing yellow eyes and circuit patterns stands on the left, its hand extended toward a fluffy multicolored cat floating in mid-air. The cat leaps toward a large vibrant pink and orange flower containing a small green skull at its center, set against a cosmic swirling space background.",
+  "source_prompt": "",
+  "source_title": "Stasis Cyber Cat",
+  "style": "surreal",
+  "mood": "psychedelic cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "cat",
+    "flower",
+    "cyberpunk",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1183,
+  "source_url": "/generated/1183.jpg",
+  "image_url": "/sketches/1958.png",
+  "inverted_image_url": "/sketches-inverted/1958.png",
+  "curve_count": 70,
+  "built_at": "2026-08-17T00:09:42Z"
+}

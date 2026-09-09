@@ -1,0 +1,42 @@
+{
+  "number": 4959,
+  "title": "Line sketch: Fox and the Faded Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic fox stands in a dilapidated classical room, looking toward a large cracked portrait of a bald, pale child with large dark eyes. On the dusty floor lie withered, a broken teacup, scattered papers, and a glowing hexagonal device (derived from generated still #4396).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic fox stands in a dilapidated classical room, looking toward a large cracked portrait of a bald, pale child with large dark eyes. On the dusty floor lie withered, a broken teacup, scattered papers, and a glowing hexagonal device",
+  "inverted_title": "Inverted sketch: Fox and the Faded Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic fox stands in a dilapidated classical room, looking toward a large cracked portrait of a bald, pale child with large dark eyes. On the dusty floor lie withered, a broken teacup, scattered papers, and a glowing hexagonal device (from generated still #4396).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic fox stands in a dilapidated classical room, looking toward a large cracked portrait of a bald, pale child with large dark eyes. On the dusty floor lie withered, a broken teacup, scattered papers, and a glowing hexagonal device",
+  "source_description": "A realistic fox stands in a dilapidated classical room, looking toward a large cracked portrait of a bald, pale child with large dark eyes. On the dusty floor lie withered roses, a broken teacup, scattered papers, and a glowing purple hexagonal device.",
+  "source_prompt": "A realistic fox with detailed fur stands in a decaying ornate room with peeling walls and gilded panels, illuminated by a single wall sconce. In the background leans a large heavily cracked portrait of a bald child with enormous haunting eyes and pale skin. On the floor are withered black roses, a broken teacup, old papers, and a glowing purple hexagonal magical device emitting light. Dark surreal atmosphere, cinematic lighting, highly detailed digital painting.",
+  "source_title": "Fox and the Faded Portrait",
+  "style": "surreal dark fantasy",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fox",
+    "cracked portrait",
+    "abandoned interior",
+    "surreal",
+    "glowing artifact"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4396,
+  "source_url": "/generated/4396.jpg",
+  "image_url": "/sketches/4959.png",
+  "inverted_image_url": "/sketches-inverted/4959.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:49Z"
+}

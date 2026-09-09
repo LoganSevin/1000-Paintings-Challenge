@@ -1,0 +1,42 @@
+{
+  "number": 277,
+  "title": "Line sketch: Alien in Moonlit Forest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal grey alien crouches in a barren landscape under a starry night sky with multiple moons. The eerie scene features silhouetted leafless trees in a mysterious foggy atmosphere (derived from painting #334).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal grey alien crouches in a barren landscape under a starry night sky with multiple moons. The eerie scene features silhouetted leafless trees in a mysterious foggy atmosphere",
+  "inverted_title": "Inverted sketch: Alien in Moonlit Forest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal grey alien crouches in a barren landscape under a starry night sky with multiple moons. The eerie scene features silhouetted leafless trees in a mysterious foggy atmosphere (from painting #334).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal grey alien crouches in a barren landscape under a starry night sky with multiple moons. The eerie scene features silhouetted leafless trees in a mysterious foggy atmosphere",
+  "source_description": "A skeletal grey alien crouches in a barren landscape under a starry night sky with multiple moons. The eerie scene features silhouetted leafless trees in a mysterious foggy atmosphere.",
+  "source_prompt": "",
+  "source_title": "Alien in Moonlit Forest",
+  "style": "surrealism",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "surreal",
+    "moonlit",
+    "sci-fi",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 334,
+  "source_url": "/paintings/334.jpg",
+  "image_url": "/sketches/277.png",
+  "inverted_image_url": "/sketches-inverted/277.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:38Z"
+}

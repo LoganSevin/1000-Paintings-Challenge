@@ -1,0 +1,42 @@
+{
+  "number": 697,
+  "title": "Line sketch: Apocalyptic Industrial Cloudscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal monochrome landscape depicts massive, tree-like industrial structures merging with billowing dark clouds, evoking a haunting post-apocalyptic world. Intricate scaffolding and buildings emerge from the smoky forms, creating an ominous fusion of nature and decaying industry (derived from painting #881).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal monochrome landscape depicts massive, tree-like industrial structures merging with billowing dark clouds, evoking a haunting post-apocalyptic world. Intricate scaffolding and buildings emerge from the smoky forms, creating an ominous fusion of nature and decaying industry",
+  "inverted_title": "Inverted sketch: Apocalyptic Industrial Cloudscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal monochrome landscape depicts massive, tree-like industrial structures merging with billowing dark clouds, evoking a haunting post-apocalyptic world. Intricate scaffolding and buildings emerge from the smoky forms, creating an ominous fusion of nature and decaying industry (from painting #881).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal monochrome landscape depicts massive, tree-like industrial structures merging with billowing dark clouds, evoking a haunting post-apocalyptic world. Intricate scaffolding and buildings emerge from the smoky forms, creating an ominous fusion of nature and decaying industry",
+  "source_description": "A surreal monochrome landscape depicts massive, tree-like industrial structures merging with billowing dark clouds, evoking a haunting post-apocalyptic world. Intricate scaffolding and buildings emerge from the smoky forms, creating an ominous fusion of nature and decaying industry.",
+  "source_prompt": "",
+  "source_title": "Apocalyptic Industrial Cloudscape",
+  "style": "Surrealism",
+  "mood": "Ominous and haunting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "apocalyptic",
+    "industrial",
+    "surreal",
+    "cloudscape",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 881,
+  "source_url": "/paintings/881.jpg",
+  "image_url": "/sketches/697.png",
+  "inverted_image_url": "/sketches-inverted/697.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:39Z"
+}

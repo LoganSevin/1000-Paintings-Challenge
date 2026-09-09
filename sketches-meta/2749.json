@@ -1,0 +1,42 @@
+{
+  "number": 2749,
+  "title": "Line sketch: Alien Dome Haven",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal night scene featuring glowing geodesic domes with intricate patterns, set on a platform above reflective water with dripping liquid. A sleek and futuristic hovercraft with visible silhouetted figures floats to the right, surrounded by floating orbs, crescent moons, and a psychedelic starry sky with aurora waves (derived from generated still #1995).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal night scene featuring glowing geodesic domes with intricate patterns, set on a platform above reflective water with dripping liquid. A sleek and futuristic hovercraft with visible silhouetted figures floats to the right, surrounded by floating orbs, crescent moons, and a psychedelic starry sky with aurora waves",
+  "inverted_title": "Inverted sketch: Alien Dome Haven",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal night scene featuring glowing geodesic domes with intricate patterns, set on a platform above reflective water with dripping liquid. A sleek and futuristic hovercraft with visible silhouetted figures floats to the right, surrounded by floating orbs, crescent moons, and a psychedelic starry sky with aurora waves (from generated still #1995).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal night scene featuring glowing geodesic domes with intricate patterns, set on a platform above reflective water with dripping liquid. A sleek and futuristic hovercraft with visible silhouetted figures floats to the right, surrounded by floating orbs, crescent moons, and a psychedelic starry sky with aurora waves",
+  "source_description": "A vibrant surreal night scene featuring glowing purple geodesic domes with intricate patterns, set on a platform above reflective water with dripping magenta liquid. A sleek red and blue futuristic hovercraft with visible silhouetted figures floats to the right, surrounded by floating orbs, crescent moons, and a psychedelic starry sky with green aurora waves.",
+  "source_prompt": "",
+  "source_title": "Neon Alien Dome Haven",
+  "style": "psychedelic digital art",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "futuristic",
+    "alien landscape",
+    "psychedelic",
+    "dome architecture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1995,
+  "source_url": "/generated/1995.jpg",
+  "image_url": "/sketches/2749.png",
+  "inverted_image_url": "/sketches-inverted/2749.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:44Z"
+}

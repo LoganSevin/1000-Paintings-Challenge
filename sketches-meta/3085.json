@@ -1,0 +1,42 @@
+{
+  "number": 3085,
+  "title": "Line sketch: Cosmic Egg Guardian",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal central creature with large black eyes and multiple smaller eyes holds a pale egg while surrounded by floating planets, feathers, and esoteric symbols. A translucent human profile appears on the right, facing the entity within a swirling vortex of cosmic patterns and mystical iconography (derived from generated still #2417).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal central creature with large black eyes and multiple smaller eyes holds a pale egg while surrounded by floating planets, feathers, and esoteric symbols. A translucent human profile appears on the right, facing the entity within a swirling vortex of cosmic patterns and mystical iconography",
+  "inverted_title": "Inverted sketch: Cosmic Egg Guardian",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal central creature with large black eyes and multiple smaller eyes holds a pale egg while surrounded by floating planets, feathers, and esoteric symbols. A translucent human profile appears on the right, facing the entity within a swirling vortex of cosmic patterns and mystical iconography (from generated still #2417).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal central creature with large black eyes and multiple smaller eyes holds a pale egg while surrounded by floating planets, feathers, and esoteric symbols. A translucent human profile appears on the right, facing the entity within a swirling vortex of cosmic patterns and mystical iconography",
+  "source_description": "A surreal central creature with large black eyes and multiple smaller eyes holds a pale egg while surrounded by floating planets, feathers, and esoteric symbols. A translucent human profile appears on the right, facing the entity within a swirling vortex of cosmic patterns and mystical iconography.",
+  "source_prompt": "A surreal cosmic scene featuring a strange grey-skinned creature with enormous black eyes and smaller eyes on stalks, wearing a green floral eye mask, holding a large pale egg. Floating around it are Earth-like planets, ancient runes, feathers, and mystical symbols. A translucent human side profile emerges from the right side of the frame. Swirling vortex of purple, teal and gold with intricate esoteric patterns filling the background.",
+  "source_title": "Cosmic Egg Guardian",
+  "style": "surrealism",
+  "mood": "mystical, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "mystical",
+    "creature",
+    "esoteric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2417,
+  "source_url": "/generated/2417.jpg",
+  "image_url": "/sketches/3085.png",
+  "inverted_image_url": "/sketches-inverted/3085.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:44Z"
+}

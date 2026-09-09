@@ -1,0 +1,42 @@
+{
+  "number": 1560,
+  "title": "Line sketch: Cosmic Eye and Spectral Cats",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a giant bloodshot eyeball with a fiery iris emerging from cracked earth with dark tendrils, emitting swirling and galaxy patterns. In the foreground, an patterned cat with mismatched and eyes sits beside a larger white and cat with glowing eyes, both staring forward against a cosmic background of nebulae and floating faces (derived from generated still #775).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a giant bloodshot eyeball with a fiery iris emerging from cracked earth with dark tendrils, emitting swirling and galaxy patterns. In the foreground, an patterned cat with mismatched and eyes sits beside a larger white and cat with glowing eyes, both staring forward against a cosmic background of nebulae and floating faces",
+  "inverted_title": "Inverted sketch: Cosmic Eye and Spectral Cats",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a giant bloodshot eyeball with a fiery iris emerging from cracked earth with dark tendrils, emitting swirling and galaxy patterns. In the foreground, an patterned cat with mismatched and eyes sits beside a larger white and cat with glowing eyes, both staring forward against a cosmic background of nebulae and floating faces (from generated still #775).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a giant bloodshot eyeball with a fiery iris emerging from cracked earth with dark tendrils, emitting swirling and galaxy patterns. In the foreground, an patterned cat with mismatched and eyes sits beside a larger white and cat with glowing eyes, both staring forward against a cosmic background of nebulae and floating faces",
+  "source_description": "A surreal painting depicts a giant bloodshot eyeball with a fiery red iris emerging from cracked earth with dark tendrils, emitting swirling green and purple galaxy patterns. In the foreground, an orange patterned cat with mismatched red and green eyes sits beside a larger white and green cat with glowing green eyes, both staring forward against a cosmic background of nebulae and floating colorful faces.",
+  "source_prompt": "",
+  "source_title": "Cosmic Eye and Spectral Cats",
+  "style": "surreal psychedelic",
+  "mood": "psychedelic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "cats",
+    "eyeball",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 775,
+  "source_url": "/generated/775.jpg",
+  "image_url": "/sketches/1560.png",
+  "inverted_image_url": "/sketches-inverted/1560.png",
+  "curve_count": 134,
+  "built_at": "2026-08-17T00:09:41Z"
+}

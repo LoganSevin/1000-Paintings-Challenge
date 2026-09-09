@@ -1,0 +1,42 @@
+{
+  "number": 2405,
+  "title": "Line sketch: Dreamscape with Runes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large glowing stone covered in intricate spiral carvings floats centrally in an abstract swirling vortex of earthy tones. Ornate stylized symbols resembling ancient runes drip with and hues from the upper left, surrounded by floating circular patterns and coin-like medallions (derived from generated still #1634).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large glowing stone covered in intricate spiral carvings floats centrally in an abstract swirling vortex of earthy tones. Ornate stylized symbols resembling ancient runes drip with and hues from the upper left, surrounded by floating circular patterns and coin-like medallions",
+  "inverted_title": "Inverted sketch: Dreamscape with Runes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large glowing stone covered in intricate spiral carvings floats centrally in an abstract swirling vortex of earthy tones. Ornate stylized symbols resembling ancient runes drip with and hues from the upper left, surrounded by floating circular patterns and coin-like medallions (from generated still #1634).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large glowing stone covered in intricate spiral carvings floats centrally in an abstract swirling vortex of earthy tones. Ornate stylized symbols resembling ancient runes drip with and hues from the upper left, surrounded by floating circular patterns and coin-like medallions",
+  "source_description": "A large glowing amber stone covered in intricate spiral carvings floats centrally in an abstract swirling vortex of earthy tones. Ornate stylized symbols resembling ancient runes drip with blue and purple hues from the upper left, surrounded by floating circular patterns and coin-like medallions.",
+  "source_prompt": "",
+  "source_title": "Amber Dreamscape with Runes",
+  "style": "surreal symbolic",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stone",
+    "runes",
+    "swirling vortex",
+    "spiral carvings",
+    "symbolic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1634,
+  "source_url": "/generated/1634.jpg",
+  "image_url": "/sketches/2405.png",
+  "inverted_image_url": "/sketches-inverted/2405.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:43Z"
+}

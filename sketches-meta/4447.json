@@ -1,0 +1,42 @@
+{
+  "number": 4447,
+  "title": "Line sketch: Fog & Thorn Spellery",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered wooden spell shop stands at the edge of a misty meadow, its facade adorned with hanging herbs, lanterns, and magical curios. An open book rests on a wooden table under a awning, with hand-painted signs advertising 'Fog Among the Meadow Trees' and 'Breath of Night On The Snake' (derived from generated still #3866).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered wooden spell shop stands at the edge of a misty meadow, its facade adorned with hanging herbs, lanterns, and magical curios. An open book rests on a wooden table under a awning, with hand-painted signs advertising 'Fog Among the Meadow Trees' and 'Breath of Night On The Snake'",
+  "inverted_title": "Inverted sketch: Fog & Thorn Spellery",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered wooden spell shop stands at the edge of a misty meadow, its facade adorned with hanging herbs, lanterns, and magical curios. An open book rests on a wooden table under a awning, with hand-painted signs advertising 'Fog Among the Meadow Trees' and 'Breath of Night On The Snake' (from generated still #3866).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered wooden spell shop stands at the edge of a misty meadow, its facade adorned with hanging herbs, lanterns, and magical curios. An open book rests on a wooden table under a awning, with hand-painted signs advertising 'Fog Among the Meadow Trees' and 'Breath of Night On The Snake'",
+  "source_description": "A weathered wooden spell shop stands at the edge of a misty meadow, its facade adorned with hanging herbs, lanterns, and magical curios. An open book rests on a wooden table under a blue awning, with hand-painted signs advertising 'Fog Among the Meadow Trees' and 'Breath of Night On The Snake'.",
+  "source_prompt": "A rustic wooden spell shop named Fog & Thorn Spellery stands in a misty autumn meadow surrounded by dark trees. The weathered blue facade has a blue awning, hanging dried herbs, lanterns, and magical items. An open book with a black bird illustration sits on a wooden display table. Hand-painted signs read Fog Among the Meadow Trees 1 dram and Breath of Night On The Snake. Soft diffused light and heavy fog create an atmospheric scene, painted in a realistic oil painting style.",
+  "source_title": "Fog & Thorn Spellery",
+  "style": "painterly fantasy illustration",
+  "mood": "mysterious, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch shop",
+    "wooden cabin",
+    "foggy meadow",
+    "fantasy market",
+    "herbalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3866,
+  "source_url": "/generated/3866.jpg",
+  "image_url": "/sketches/4447.png",
+  "inverted_image_url": "/sketches-inverted/4447.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:48Z"
+}

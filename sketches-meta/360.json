@@ -1,0 +1,42 @@
+{
+  "number": 360,
+  "title": "Line sketch: Abstract Waves",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Flowing metallic curves create an elegant abstract composition with layered forms. The smooth undulating shapes evoke a sense of movement and luxury in this daily composition challenge piece (derived from painting #422).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Flowing metallic curves create an elegant abstract composition with layered forms. The smooth undulating shapes evoke a sense of movement and luxury in this daily composition challenge piece",
+  "inverted_title": "Inverted sketch: Abstract Waves",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Flowing metallic curves create an elegant abstract composition with layered forms. The smooth undulating shapes evoke a sense of movement and luxury in this daily composition challenge piece (from painting #422).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Flowing metallic curves create an elegant abstract composition with layered forms. The smooth undulating shapes evoke a sense of movement and luxury in this daily composition challenge piece",
+  "source_description": "Flowing metallic curves create an elegant abstract composition with layered golden forms. The smooth undulating shapes evoke a sense of movement and luxury in this daily painting challenge piece.",
+  "source_prompt": "",
+  "source_title": "Golden Abstract Waves",
+  "style": "Abstract",
+  "mood": "Elegant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "metallic",
+    "waves",
+    "curves",
+    "luxury"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 422,
+  "source_url": "/paintings/422.jpg",
+  "image_url": "/sketches/360.png",
+  "inverted_image_url": "/sketches-inverted/360.png",
+  "curve_count": 81,
+  "built_at": "2026-08-17T00:09:39Z"
+}

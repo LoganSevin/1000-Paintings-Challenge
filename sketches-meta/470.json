@@ -1,0 +1,42 @@
+{
+  "number": 470,
+  "title": "Line sketch: Mysterious Hooded Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cloaked figure with a glowing head holds a flickering candle while standing on a dark mountain peak. Swirling energy forms a massive circular portal in the background with ethereal smoke drifting nearby (derived from painting #565).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cloaked figure with a glowing head holds a flickering candle while standing on a dark mountain peak. Swirling energy forms a massive circular portal in the background with ethereal smoke drifting nearby",
+  "inverted_title": "Inverted sketch: Mysterious Hooded Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cloaked figure with a glowing head holds a flickering candle while standing on a dark mountain peak. Swirling energy forms a massive circular portal in the background with ethereal smoke drifting nearby (from painting #565).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cloaked figure with a glowing head holds a flickering candle while standing on a dark mountain peak. Swirling energy forms a massive circular portal in the background with ethereal smoke drifting nearby",
+  "source_description": "A cloaked figure with a glowing green head holds a flickering candle while standing on a dark mountain peak. Swirling green energy forms a massive circular portal in the background with ethereal smoke drifting nearby.",
+  "source_prompt": "",
+  "source_title": "Mysterious Green Hooded Figure",
+  "style": "digital illustration",
+  "mood": "mysterious eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hooded figure",
+    "glow",
+    "portal",
+    "candle",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 565,
+  "source_url": "/paintings/565.jpg",
+  "image_url": "/sketches/470.png",
+  "inverted_image_url": "/sketches-inverted/470.png",
+  "curve_count": 65,
+  "built_at": "2026-08-17T00:09:39Z"
+}

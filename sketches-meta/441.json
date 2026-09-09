@@ -1,0 +1,42 @@
+{
+  "number": 441,
+  "title": "Line sketch: Dreamy Portrait in Hues",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant portrait captures a woman's face partially obscured by flowing, abstract strokes of and. Her striking eyes and lips create a captivating focal point amidst the soft, expressive background (derived from painting #529).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant portrait captures a woman's face partially obscured by flowing, abstract strokes of and. Her striking eyes and lips create a captivating focal point amidst the soft, expressive background",
+  "inverted_title": "Inverted sketch: Dreamy Portrait in Hues",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant portrait captures a woman's face partially obscured by flowing, abstract strokes of and. Her striking eyes and lips create a captivating focal point amidst the soft, expressive background (from painting #529).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant portrait captures a woman's face partially obscured by flowing, abstract strokes of and. Her striking eyes and lips create a captivating focal point amidst the soft, expressive background",
+  "source_description": "A vibrant watercolor portrait captures a woman's face partially obscured by flowing, abstract strokes of yellow and green. Her striking blue eyes and red lips create a captivating focal point amidst the soft, expressive background.",
+  "source_prompt": "",
+  "source_title": "Dreamy Portrait in Yellow Hues",
+  "style": "Impressionistic",
+  "mood": "Dreamy and ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "abstract",
+    "female face",
+    "vibrant",
+    "expressive"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 529,
+  "source_url": "/paintings/529.jpg",
+  "image_url": "/sketches/441.png",
+  "inverted_image_url": "/sketches-inverted/441.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:39Z"
+}

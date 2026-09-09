@@ -1,0 +1,42 @@
+{
+  "number": 4780,
+  "title": "Line sketch: Umbrella in Clockwork Rain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lizard-like creature stands in the center of a surreal corridor holding a umbrella while rain falls. The floor and stairs are covered with dozens of scattered clocks and pocket watches, with glowing bubbles and twisted trees lining the recursive arched passageways (derived from generated still #4214).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lizard-like creature stands in the center of a surreal corridor holding a umbrella while rain falls. The floor and stairs are covered with dozens of scattered clocks and pocket watches, with glowing bubbles and twisted trees lining the recursive arched passageways",
+  "inverted_title": "Inverted sketch: Umbrella in Clockwork Rain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lizard-like creature stands in the center of a surreal corridor holding a umbrella while rain falls. The floor and stairs are covered with dozens of scattered clocks and pocket watches, with glowing bubbles and twisted trees lining the recursive arched passageways (from generated still #4214).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lizard-like creature stands in the center of a surreal corridor holding a umbrella while rain falls. The floor and stairs are covered with dozens of scattered clocks and pocket watches, with glowing bubbles and twisted trees lining the recursive arched passageways",
+  "source_description": "A green lizard-like creature stands in the center of a surreal corridor holding a bright red umbrella while rain falls. The floor and stairs are covered with dozens of scattered clocks and pocket watches, with glowing bubbles and twisted trees lining the recursive arched passageways.",
+  "source_prompt": "A green anthropomorphic lizard creature walking away down the center of a surreal recursive hallway made of twisted trees and glowing arches, holding a bright red umbrella as rain pours down. The ground is littered with numerous scattered clocks and pocket watches. Iridescent bubbles and sparkles float throughout the scene. Dreamlike fantasy atmosphere with purple and teal color palette, whimsical and mysterious.",
+  "source_title": "Umbrella in Clockwork Rain",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "time",
+    "rain",
+    "lizard",
+    "clocks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4214,
+  "source_url": "/generated/4214.jpg",
+  "image_url": "/sketches/4780.png",
+  "inverted_image_url": "/sketches-inverted/4780.png",
+  "curve_count": 304,
+  "built_at": "2026-08-17T00:09:48Z"
+}

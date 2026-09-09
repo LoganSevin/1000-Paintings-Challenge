@@ -1,0 +1,42 @@
+{
+  "number": 3262,
+  "title": "Line sketch: Cactus Bubble Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert scene features anthropomorphic cacti with human-like faces enclosed in transparent floating bubbles. Vibrant - cactus flowers bloom atop the segmented cacti while smaller bubbles drift across a rolling hill under a swirling, and sky (derived from generated still #2633).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert scene features anthropomorphic cacti with human-like faces enclosed in transparent floating bubbles. Vibrant - cactus flowers bloom atop the segmented cacti while smaller bubbles drift across a rolling hill under a swirling, and sky",
+  "inverted_title": "Inverted sketch: Cactus Bubble Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert scene features anthropomorphic cacti with human-like faces enclosed in transparent floating bubbles. Vibrant - cactus flowers bloom atop the segmented cacti while smaller bubbles drift across a rolling hill under a swirling, and sky (from generated still #2633).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert scene features anthropomorphic cacti with human-like faces enclosed in transparent floating bubbles. Vibrant - cactus flowers bloom atop the segmented cacti while smaller bubbles drift across a rolling hill under a swirling, and sky",
+  "source_description": "A surreal desert scene features anthropomorphic green cacti with human-like faces enclosed in transparent floating bubbles. Vibrant red-orange cactus flowers bloom atop the segmented cacti while smaller bubbles drift across a rolling golden hill under a swirling purple, pink, and yellow sky.",
+  "source_prompt": "Surreal desert landscape with anthropomorphic green cacti that have human faces trapped inside large transparent soap bubbles floating above a golden hill. Some cacti have bright red-orange blooming flowers on top, smaller bubbles drift around, dramatic swirling purple pink and yellow sky, vibrant whimsical fantasy style, painterly texture",
+  "source_title": "Cactus Bubble Dreamscape",
+  "style": "surreal fantasy composition",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cacti",
+    "bubbles",
+    "fantasy landscape",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2633,
+  "source_url": "/generated/2633.jpg",
+  "image_url": "/sketches/3262.png",
+  "inverted_image_url": "/sketches-inverted/3262.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

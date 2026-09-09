@@ -1,0 +1,42 @@
+{
+  "number": 4547,
+  "title": "Line sketch: Surreal Time and Decay",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal spiral composition features a giant cracked baby head with glowing eyes and tears, a robot head above it, and the Grim Reaper in a cloak holding a clock-faced beetle. In the lower right, an elderly couple sits at a dining table with a creature on a plate, surrounded by skulls, clocks, and melting elements against a swirling cosmic background (derived from generated still #3967).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal spiral composition features a giant cracked baby head with glowing eyes and tears, a robot head above it, and the Grim Reaper in a cloak holding a clock-faced beetle. In the lower right, an elderly couple sits at a dining table with a creature on a plate, surrounded by skulls, clocks, and melting elements against a swirling cosmic background",
+  "inverted_title": "Inverted sketch: Surreal Time and Decay",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal spiral composition features a giant cracked baby head with glowing eyes and tears, a robot head above it, and the Grim Reaper in a cloak holding a clock-faced beetle. In the lower right, an elderly couple sits at a dining table with a creature on a plate, surrounded by skulls, clocks, and melting elements against a swirling cosmic background (from generated still #3967).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal spiral composition features a giant cracked baby head with glowing eyes and tears, a robot head above it, and the Grim Reaper in a cloak holding a clock-faced beetle. In the lower right, an elderly couple sits at a dining table with a creature on a plate, surrounded by skulls, clocks, and melting elements against a swirling cosmic background",
+  "source_description": "A surreal spiral composition features a giant cracked baby head with glowing orange eyes and blue tears, a green robot head above it, and the Grim Reaper in a purple cloak holding a clock-faced beetle. In the lower right, an elderly couple sits at a dining table with a green creature on a plate, surrounded by skulls, clocks, and melting elements against a swirling cosmic background.",
+  "source_prompt": "Surreal symbolic painting featuring a giant cracked porcelain baby head with glowing orange eyes crying blue tears, a green robot head with blue eyes floating above, the Grim Reaper in flowing purple robes holding a golden pocket watch with a beetle body, an elderly couple sitting at a dinner table with a green creature on a plate, swirling spiral clock face background with skeletons and melting elements, dark cosmic atmosphere with lightning and dripping textures",
+  "source_title": "Surreal Time and Decay",
+  "style": "surrealism",
+  "mood": "nightmarish, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "macabre",
+    "time",
+    "death",
+    "melting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3967,
+  "source_url": "/generated/3967.jpg",
+  "image_url": "/sketches/4547.png",
+  "inverted_image_url": "/sketches-inverted/4547.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:48Z"
+}

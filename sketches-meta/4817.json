@@ -1,0 +1,42 @@
+{
+  "number": 4817,
+  "title": "Line sketch: Ornate Theatrical Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A realistic photograph of a single ornate theatrical mask centered against a dark gradient background. The mask is painted in -gray with intricate hand-decorated details including tree branches, musical notation, envelopes, a jeweled forehead piece, and delicate metallic accents (derived from generated still #4252).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A realistic photograph of a single ornate theatrical mask centered against a dark gradient background. The mask is painted in -gray with intricate hand-decorated details including tree branches, musical notation, envelopes, a jeweled forehead piece, and delicate metallic accents",
+  "inverted_title": "Inverted sketch: Ornate Theatrical Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A realistic photograph of a single ornate theatrical mask centered against a dark gradient background. The mask is painted in -gray with intricate hand-decorated details including tree branches, musical notation, envelopes, a jeweled forehead piece, and delicate metallic accents (from generated still #4252).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A realistic photograph of a single ornate theatrical mask centered against a dark gradient background. The mask is painted in -gray with intricate hand-decorated details including tree branches, musical notation, envelopes, a jeweled forehead piece, and delicate metallic accents",
+  "source_description": "A realistic photograph of a single ornate theatrical mask centered against a dark gradient background. The mask is painted in muted blue-gray with intricate hand-decorated details including golden tree branches, musical notation, envelopes, a jeweled forehead piece, and delicate metallic accents.",
+  "source_prompt": "A highly detailed ornate theatrical mask in muted blue-gray tones, decorated with delicate golden tree branches, strips of musical notation, small envelopes, a central jeweled silver oval on the forehead, and scattered metallic and pearl accents. The mask has hollow eye cutouts and realistic facial features, displayed against a solid dark background, studio lighting, intricate craftsmanship",
+  "source_title": "Ornate Blue Theatrical Mask",
+  "style": "mixed media sculpture",
+  "mood": "mysterious, artistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted mask with collage and metallic embellishments",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theatrical mask",
+    "venetian mask",
+    "mixed media",
+    "ornate mask",
+    "mask"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4252,
+  "source_url": "/generated/4252.jpg",
+  "image_url": "/sketches/4817.png",
+  "inverted_image_url": "/sketches-inverted/4817.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:49Z"
+}

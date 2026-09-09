@@ -1,0 +1,42 @@
+{
+  "number": 1334,
+  "title": "Line sketch: Wizard's Cosmic Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -robed wizard stands on a rocky mountain peak holding a glowing staff, gazing toward a massive fiery eye in a turbulent sky. The surreal landscape contrasts a vibrant mountain range on the left with a dark, barren hellscape of dead trees, bones, and lava on the right (derived from generated still #549).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -robed wizard stands on a rocky mountain peak holding a glowing staff, gazing toward a massive fiery eye in a turbulent sky. The surreal landscape contrasts a vibrant mountain range on the left with a dark, barren hellscape of dead trees, bones, and lava on the right",
+  "inverted_title": "Inverted sketch: Wizard's Cosmic Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -robed wizard stands on a rocky mountain peak holding a glowing staff, gazing toward a massive fiery eye in a turbulent sky. The surreal landscape contrasts a vibrant mountain range on the left with a dark, barren hellscape of dead trees, bones, and lava on the right (from generated still #549).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -robed wizard stands on a rocky mountain peak holding a glowing staff, gazing toward a massive fiery eye in a turbulent sky. The surreal landscape contrasts a vibrant mountain range on the left with a dark, barren hellscape of dead trees, bones, and lava on the right",
+  "source_description": "A blue-robed wizard stands on a rocky mountain peak holding a glowing staff, gazing toward a massive fiery eye in a turbulent sky. The surreal landscape contrasts a vibrant orange mountain range on the left with a dark, barren hellscape of dead trees, bones, and lava on the right.",
+  "source_prompt": "",
+  "source_title": "Wizard's Cosmic Vision",
+  "style": "surreal fantasy",
+  "mood": "apocalyptic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "cosmic eye",
+    "surreal landscape",
+    "hellscape",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 549,
+  "source_url": "/generated/549.jpg",
+  "image_url": "/sketches/1334.png",
+  "inverted_image_url": "/sketches-inverted/1334.png",
+  "curve_count": 101,
+  "built_at": "2026-08-17T00:09:41Z"
+}

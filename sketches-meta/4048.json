@@ -1,0 +1,42 @@
+{
+  "number": 4048,
+  "title": "Line sketch: Graffiti Punk Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fierce cartoon woman with voluminous hair stands in a dynamic pose, wearing a crop top, shorts, platform boots, and a cape. She aims a spray can forward, releasing a vibrant burst of and paint (derived from generated still #3465).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fierce cartoon woman with voluminous hair stands in a dynamic pose, wearing a crop top, shorts, platform boots, and a cape. She aims a spray can forward, releasing a vibrant burst of and paint",
+  "inverted_title": "Inverted sketch: Graffiti Punk Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fierce cartoon woman with voluminous hair stands in a dynamic pose, wearing a crop top, shorts, platform boots, and a cape. She aims a spray can forward, releasing a vibrant burst of and paint (from generated still #3465).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fierce cartoon woman with voluminous hair stands in a dynamic pose, wearing a crop top, shorts, platform boots, and a cape. She aims a spray can forward, releasing a vibrant burst of and paint",
+  "source_description": "A fierce cartoon woman with voluminous bright red hair stands in a dynamic pose, wearing a red crop top, red shorts, red platform boots, and a red cape. She aims a spray can forward, releasing a vibrant burst of pink and purple paint.",
+  "source_prompt": "A dynamic cartoon illustration of a fierce young woman with massive voluminous bright red hair, wearing a red leather crop top, red shorts, red platform boots, and a short red cape. She is in an action pose spraying a metallic can that emits a colorful cloud of pink and purple paint, dramatic lighting, clean cel-shaded style on a solid dark gray background",
+  "source_title": "Graffiti Punk Girl",
+  "style": "cartoon",
+  "mood": "bold, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "graffiti artist",
+    "punk style",
+    "spray paint",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3465,
+  "source_url": "/generated/3465.jpg",
+  "image_url": "/sketches/4048.png",
+  "inverted_image_url": "/sketches-inverted/4048.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:47Z"
+}

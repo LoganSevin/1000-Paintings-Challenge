@@ -1,0 +1,42 @@
+{
+  "number": 4873,
+  "title": "Line sketch: Racing Through the Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large stylized white character with a minimalist face and black hair stands in pouring rain, wearing a race car numbered 07 as a collar. The surreal landscape features mountains, hills, two large flowers, and a sun with radiating beams under a sky (derived from generated still #4308).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large stylized white character with a minimalist face and black hair stands in pouring rain, wearing a race car numbered 07 as a collar. The surreal landscape features mountains, hills, two large flowers, and a sun with radiating beams under a sky",
+  "inverted_title": "Inverted sketch: Racing Through the Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large stylized white character with a minimalist face and black hair stands in pouring rain, wearing a race car numbered 07 as a collar. The surreal landscape features mountains, hills, two large flowers, and a sun with radiating beams under a sky (from generated still #4308).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large stylized white character with a minimalist face and black hair stands in pouring rain, wearing a race car numbered 07 as a collar. The surreal landscape features mountains, hills, two large flowers, and a sun with radiating beams under a sky",
+  "source_description": "A large stylized white character with a minimalist face and black hair stands in pouring rain, wearing a red race car numbered 07 as a collar. The surreal landscape features blue mountains, orange hills, two large turquoise flowers, and a bright yellow sun with radiating beams under a colorful sky.",
+  "source_prompt": "Surreal pop art painting of a giant minimalist white character with a simple black line face and spiky hair, looking surprised as a red Ferrari race car with number 07 drives through its neck like a collar, splashing water in heavy rain. Two large turquoise flowers flank the scene, with blue and orange mountains in the background and a bright glowing yellow sun with rays in a colorful sky.",
+  "source_title": "Racing Through the Storm",
+  "style": "surreal pop art",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "racing car",
+    "rain",
+    "big head",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4308,
+  "source_url": "/generated/4308.jpg",
+  "image_url": "/sketches/4873.png",
+  "inverted_image_url": "/sketches-inverted/4873.png",
+  "curve_count": 250,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 620,
+  "title": "Line sketch: Mountain Lake Serenity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A tranquil circular lake nestled in a lush valley surrounded by towering snow-capped mountains. Small cabins dot the shoreline under a sky in this stylized landscape (derived from painting #791).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A tranquil circular lake nestled in a lush valley surrounded by towering snow-capped mountains. Small cabins dot the shoreline under a sky in this stylized landscape",
+  "inverted_title": "Inverted sketch: Mountain Lake Serenity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A tranquil circular lake nestled in a lush valley surrounded by towering snow-capped mountains. Small cabins dot the shoreline under a sky in this stylized landscape (from painting #791).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A tranquil circular lake nestled in a lush valley surrounded by towering snow-capped mountains. Small cabins dot the shoreline under a sky in this stylized landscape",
+  "source_description": "A tranquil circular lake nestled in a lush green valley surrounded by towering snow-capped mountains. Small cabins dot the shoreline under a deep blue sky in this stylized landscape.",
+  "source_prompt": "",
+  "source_title": "Mountain Lake Serenity",
+  "style": "Digital illustration",
+  "mood": "Peaceful and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "mountains",
+    "lake",
+    "nature",
+    "cabins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 791,
+  "source_url": "/paintings/791.jpg",
+  "image_url": "/sketches/620.png",
+  "inverted_image_url": "/sketches-inverted/620.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:39Z"
+}

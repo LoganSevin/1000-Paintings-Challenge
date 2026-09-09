@@ -1,0 +1,42 @@
+{
+  "number": 1297,
+  "title": "Line sketch: Serpent's Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A small creature with leafy hair, sharp teeth and a bandana stands on the coils of a massive serpent with glowing eyes. The serpent looms behind with open mouth while a decorated mirror on the right reflects the creature, all set against a volcanic landscape with a glowing celestial body in the sky (derived from generated still #511).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A small creature with leafy hair, sharp teeth and a bandana stands on the coils of a massive serpent with glowing eyes. The serpent looms behind with open mouth while a decorated mirror on the right reflects the creature, all set against a volcanic landscape with a glowing celestial body in the sky",
+  "inverted_title": "Inverted sketch: Serpent's Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A small creature with leafy hair, sharp teeth and a bandana stands on the coils of a massive serpent with glowing eyes. The serpent looms behind with open mouth while a decorated mirror on the right reflects the creature, all set against a volcanic landscape with a glowing celestial body in the sky (from generated still #511).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A small creature with leafy hair, sharp teeth and a bandana stands on the coils of a massive serpent with glowing eyes. The serpent looms behind with open mouth while a decorated mirror on the right reflects the creature, all set against a volcanic landscape with a glowing celestial body in the sky",
+  "source_description": "A small green creature with purple leafy hair, sharp teeth and a red bandana stands on the coils of a massive dark blue serpent with glowing orange eyes. The serpent looms behind with open mouth while a decorated mirror on the right reflects the creature, all set against a volcanic landscape with a glowing red celestial body in the sky.",
+  "source_prompt": "",
+  "source_title": "Serpent's Reflection",
+  "style": "fantasy illustration",
+  "mood": "menacing surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy creature",
+    "giant serpent",
+    "mirror reflection",
+    "volcanic landscape",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 511,
+  "source_url": "/generated/511.jpg",
+  "image_url": "/sketches/1297.png",
+  "inverted_image_url": "/sketches-inverted/1297.png",
+  "curve_count": 53,
+  "built_at": "2026-08-17T00:09:41Z"
+}

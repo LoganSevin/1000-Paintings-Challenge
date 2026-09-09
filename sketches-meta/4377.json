@@ -1,0 +1,42 @@
+{
+  "number": 4377,
+  "title": "Line sketch: Plasma Tree Lamp",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma globe lamp with a black base sits centrally, its transparent sphere filled with branching, tendrils in, and resembling a stylized tree or neural network with leaves and flowers. The lamp is surrounded by a swirling cosmic background of, and with floating botanical elements (derived from generated still #3796).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma globe lamp with a black base sits centrally, its transparent sphere filled with branching, tendrils in, and resembling a stylized tree or neural network with leaves and flowers. The lamp is surrounded by a swirling cosmic background of, and with floating botanical elements",
+  "inverted_title": "Inverted sketch: Plasma Tree Lamp",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma globe lamp with a black base sits centrally, its transparent sphere filled with branching, tendrils in, and resembling a stylized tree or neural network with leaves and flowers. The lamp is surrounded by a swirling cosmic background of, and with floating botanical elements (from generated still #3796).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma globe lamp with a black base sits centrally, its transparent sphere filled with branching, tendrils in, and resembling a stylized tree or neural network with leaves and flowers. The lamp is surrounded by a swirling cosmic background of, and with floating botanical elements",
+  "source_description": "A glowing plasma globe lamp with a black base sits centrally, its transparent sphere filled with branching, colorful tendrils in pink, blue, green and yellow resembling a stylized tree or neural network with leaves and flowers. The lamp is surrounded by a swirling cosmic background of dark blue, green and purple with floating botanical elements.",
+  "source_prompt": "A surreal glowing plasma globe lamp with a black base and clear sphere, inside which colorful branching structures in pink, blue, green and yellow form a stylized tree with leaves and flowers. The lamp emits bright light against a swirling cosmic background of dark blue, green and purple hues with floating botanical elements and vines, vibrant ethereal atmosphere, detailed digital painting.",
+  "source_title": "Neon Plasma Tree Lamp",
+  "style": "surreal",
+  "mood": "ethereal, vibrant, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma lamp",
+    "bioluminescent",
+    "surreal flora",
+    "cosmic art",
+    "botanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3796,
+  "source_url": "/generated/3796.jpg",
+  "image_url": "/sketches/4377.png",
+  "inverted_image_url": "/sketches-inverted/4377.png",
+  "curve_count": 228,
+  "built_at": "2026-08-17T00:09:48Z"
+}

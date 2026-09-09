@@ -1,0 +1,42 @@
+{
+  "number": 2806,
+  "title": "Line sketch: Dog and Dream Tree",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert scene at night featuring a large dog with tree branches growing from its body. The dark branches are adorned with glowing orbs containing miniature scenes including a cat, a person walking, and a crescent moon. A young man's face with closed eyes is embedded in the dog's fur, while a small mouse sits near the roots in the sand (derived from generated still #2090).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert scene at night featuring a large dog with tree branches growing from its body. The dark branches are adorned with glowing orbs containing miniature scenes including a cat, a person walking, and a crescent moon. A young man's face with closed eyes is embedded in the dog's fur, while a small mouse sits near the roots in the sand",
+  "inverted_title": "Inverted sketch: Dog and Dream Tree",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert scene at night featuring a large dog with tree branches growing from its body. The dark branches are adorned with glowing orbs containing miniature scenes including a cat, a person walking, and a crescent moon. A young man's face with closed eyes is embedded in the dog's fur, while a small mouse sits near the roots in the sand (from generated still #2090).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert scene at night featuring a large dog with tree branches growing from its body. The dark branches are adorned with glowing orbs containing miniature scenes including a cat, a person walking, and a crescent moon. A young man's face with closed eyes is embedded in the dog's fur, while a small mouse sits near the roots in the sand",
+  "source_description": "A surreal desert scene at night featuring a large green dog with tree branches growing from its body. The dark branches are adorned with glowing orbs containing miniature scenes including a red cat, a person walking, and a crescent moon. A young man's face with closed eyes is embedded in the dog's fur, while a small red mouse sits near the roots in the sand.",
+  "source_prompt": "Surreal nighttime desert landscape with rolling dunes under a starry sky. A giant lime-green dog stands in profile, its body transforming into a dark gnarled tree with intricate branches. The branches bear translucent glowing spheres containing miniature dream scenes: a red cat, a lone walker, and crescent moons. A peaceful young man's face with closed eyes and visible cracks is embedded in the dog's neck and shoulder. A small red mouse stands near the tree roots in the sand. Mystical and ethereal atmosphere.",
+  "source_title": "Green Dog and Dream Tree",
+  "style": "surreal illustration",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dreamscape",
+    "desert",
+    "tree-dog",
+    "night sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2090,
+  "source_url": "/generated/2090.jpg",
+  "image_url": "/sketches/2806.png",
+  "inverted_image_url": "/sketches-inverted/2806.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:44Z"
+}

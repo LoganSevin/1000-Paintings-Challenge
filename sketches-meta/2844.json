@@ -1,0 +1,42 @@
+{
+  "number": 2844,
+  "title": "Line sketch: Gnarled Night Rider",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal creature with a large ornate letter G for a head and a long scythe-like neck stands atop a massive, swirling wooden wave-like structure under a starry night sky. Several plump piglets cling to its twisted, vine-covered body while a gothic castle silhouette appears in the distant background below two glowing moons (derived from generated still #2129).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal creature with a large ornate letter G for a head and a long scythe-like neck stands atop a massive, swirling wooden wave-like structure under a starry night sky. Several plump piglets cling to its twisted, vine-covered body while a gothic castle silhouette appears in the distant background below two glowing moons",
+  "inverted_title": "Inverted sketch: Gnarled Night Rider",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal creature with a large ornate letter G for a head and a long scythe-like neck stands atop a massive, swirling wooden wave-like structure under a starry night sky. Several plump piglets cling to its twisted, vine-covered body while a gothic castle silhouette appears in the distant background below two glowing moons (from generated still #2129).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal creature with a large ornate letter G for a head and a long scythe-like neck stands atop a massive, swirling wooden wave-like structure under a starry night sky. Several plump piglets cling to its twisted, vine-covered body while a gothic castle silhouette appears in the distant background below two glowing moons",
+  "source_description": "A surreal creature with a large ornate letter G for a head and a long scythe-like neck stands atop a massive, swirling wooden wave-like structure under a starry night sky. Several plump pink piglets cling to its twisted, vine-covered body while a gothic castle silhouette appears in the distant background below two glowing moons.",
+  "source_prompt": "Surreal night scene featuring a bizarre creature with an ornate capital letter G as its head and a long scythe blade extending from its neck. The body is a twisted dark vine-like structure with several plump pink piglets clinging to it. The creature stands on a massive swirling wooden wave formation that frames the scene. Starry dark blue sky with two glowing moons and a distant gothic castle silhouette on the horizon, in an intricate detailed fantasy painting style.",
+  "source_title": "Gnarled Night Rider",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy creature",
+    "night sky",
+    "moons",
+    "gothic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2129,
+  "source_url": "/generated/2129.jpg",
+  "image_url": "/sketches/2844.png",
+  "inverted_image_url": "/sketches-inverted/2844.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

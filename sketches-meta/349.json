@@ -1,0 +1,42 @@
+{
+  "number": 349,
+  "title": "Line sketch: Mushroom in Enchanted Forest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large fly agaric mushroom stands prominently in a dark forest clearing, surrounded by smaller fungi and foliage. The detailed black and white illustration captures the intricate textures of the mushroom's spotted cap and ribbed stem against a starry night background (derived from painting #411).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large fly agaric mushroom stands prominently in a dark forest clearing, surrounded by smaller fungi and foliage. The detailed black and white illustration captures the intricate textures of the mushroom's spotted cap and ribbed stem against a starry night background",
+  "inverted_title": "Inverted sketch: Mushroom in Enchanted Forest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large fly agaric mushroom stands prominently in a dark forest clearing, surrounded by smaller fungi and foliage. The detailed black and white illustration captures the intricate textures of the mushroom's spotted cap and ribbed stem against a starry night background (from painting #411).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large fly agaric mushroom stands prominently in a dark forest clearing, surrounded by smaller fungi and foliage. The detailed black and white illustration captures the intricate textures of the mushroom's spotted cap and ribbed stem against a starry night background",
+  "source_description": "A large fly agaric mushroom stands prominently in a dark forest clearing, surrounded by smaller fungi and foliage. The detailed black and white illustration captures the intricate textures of the mushroom's spotted cap and ribbed stem against a starry night background.",
+  "source_prompt": "",
+  "source_title": "Mushroom in Enchanted Forest",
+  "style": "Realistic illustration",
+  "mood": "Mysterious and magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital drawing",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "forest",
+    "night scene",
+    "detailed illustration",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 411,
+  "source_url": "/paintings/411.jpg",
+  "image_url": "/sketches/349.png",
+  "inverted_image_url": "/sketches-inverted/349.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

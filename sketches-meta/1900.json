@@ -1,0 +1,42 @@
+{
+  "number": 1900,
+  "title": "Line sketch: Psychedelic Wolf Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant wolf with intricate black patterns faces right, its eye glowing. Swirling psychedelic smoke emanates from its mouth containing three stylized human faces with afros amid spirals and patterns (derived from generated still #1125).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant wolf with intricate black patterns faces right, its eye glowing. Swirling psychedelic smoke emanates from its mouth containing three stylized human faces with afros amid spirals and patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Wolf Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant wolf with intricate black patterns faces right, its eye glowing. Swirling psychedelic smoke emanates from its mouth containing three stylized human faces with afros amid spirals and patterns (from generated still #1125).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant wolf with intricate black patterns faces right, its eye glowing. Swirling psychedelic smoke emanates from its mouth containing three stylized human faces with afros amid spirals and patterns",
+  "source_description": "A vibrant green wolf with intricate black patterns faces right, its eye glowing yellow. Swirling psychedelic smoke emanates from its mouth containing three stylized human faces with afros amid colorful spirals and patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Wolf Vision",
+  "style": "Psychedelic",
+  "mood": "Trippy, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "psychedelic",
+    "swirls",
+    "afro portraits",
+    "vision"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1125,
+  "source_url": "/generated/1125.jpg",
+  "image_url": "/sketches/1900.png",
+  "inverted_image_url": "/sketches-inverted/1900.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:42Z"
+}

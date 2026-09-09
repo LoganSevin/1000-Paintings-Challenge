@@ -1,0 +1,42 @@
+{
+  "number": 4739,
+  "title": "Line sketch: Parallax Fantasy Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed fantasy map illustration shows a winding river flowing from volcanic badlands with glowing lava in the southwest, through agricultural fields and a stone bridge, past a windmill and forests, toward a large lake with a floating island connected by chains in the north. A compass sits in the bottom left corner while the word PARALLAX appears in the bottom right (derived from generated still #4169).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed fantasy map illustration shows a winding river flowing from volcanic badlands with glowing lava in the southwest, through agricultural fields and a stone bridge, past a windmill and forests, toward a large lake with a floating island connected by chains in the north. A compass sits in the bottom left corner while the word PARALLAX appears in the bottom right",
+  "inverted_title": "Inverted sketch: Parallax Fantasy Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed fantasy map illustration shows a winding river flowing from volcanic badlands with glowing lava in the southwest, through agricultural fields and a stone bridge, past a windmill and forests, toward a large lake with a floating island connected by chains in the north. A compass sits in the bottom left corner while the word PARALLAX appears in the bottom right (from generated still #4169).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed fantasy map illustration shows a winding river flowing from volcanic badlands with glowing lava in the southwest, through agricultural fields and a stone bridge, past a windmill and forests, toward a large lake with a floating island connected by chains in the north. A compass sits in the bottom left corner while the word PARALLAX appears in the bottom right",
+  "source_description": "A detailed fantasy map illustration shows a winding river flowing from volcanic badlands with glowing lava in the southwest, through golden agricultural fields and a stone bridge, past a windmill and forests, toward a large lake with a floating island connected by chains in the north. A compass rose sits in the bottom left corner while the word PARALLAX appears in the bottom right.",
+  "source_prompt": "Detailed fantasy map artwork showing a continuous landscape divided into distinct biomes: a volcanic region with flowing lava and dark smoke in the southwest, transitioning into fertile green and golden agricultural fields with a stone arch bridge over a wide blue river, a windmill, dense forests, a mysterious dark lake with circular ripples, and a large floating island chained to the ground in the northern waters, with a compass rose in the corner and the word PARALLAX in the bottom right, painted in a storybook fantasy style",
+  "source_title": "Parallax Fantasy Map",
+  "style": "fantasy map illustration",
+  "mood": "epic, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "landscape",
+    "volcano",
+    "river",
+    "floating island"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4169,
+  "source_url": "/generated/4169.jpg",
+  "image_url": "/sketches/4739.png",
+  "inverted_image_url": "/sketches-inverted/4739.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:48Z"
+}

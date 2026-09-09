@@ -1,0 +1,42 @@
+{
+  "number": 1129,
+  "title": "Line sketch: Cosmic Vortex Swirl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic abstract composition featuring a central vortex spiraling inward with energetic, and radiating outward like cosmic energy streams. The composition includes scattered glowing dots and small crescent shapes against a dark swirling background, creating a sense of deep space motion (derived from generated still #341).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic abstract composition featuring a central vortex spiraling inward with energetic, and radiating outward like cosmic energy streams. The composition includes scattered glowing dots and small crescent shapes against a dark swirling background, creating a sense of deep space motion",
+  "inverted_title": "Inverted sketch: Cosmic Vortex Swirl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic abstract composition featuring a central vortex spiraling inward with energetic, and radiating outward like cosmic energy streams. The composition includes scattered glowing dots and small crescent shapes against a dark swirling background, creating a sense of deep space motion (from generated still #341).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic abstract composition featuring a central vortex spiraling inward with energetic, and radiating outward like cosmic energy streams. The composition includes scattered glowing dots and small crescent shapes against a dark swirling background, creating a sense of deep space motion",
+  "source_description": "A dynamic abstract painting featuring a central purple vortex spiraling inward with energetic yellow, pink, and teal brushstrokes radiating outward like cosmic energy streams. The composition includes scattered glowing dots and small crescent shapes against a dark swirling background, creating a sense of deep space motion.",
+  "source_prompt": "",
+  "source_title": "Cosmic Vortex Swirl",
+  "style": "abstract",
+  "mood": "ethereal, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "vortex",
+    "cosmic",
+    "swirl",
+    "nebula",
+    "abstract"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 341,
+  "source_url": "/generated/341.jpg",
+  "image_url": "/sketches/1129.png",
+  "inverted_image_url": "/sketches-inverted/1129.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:40Z"
+}

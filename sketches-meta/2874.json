@@ -1,0 +1,42 @@
+{
+  "number": 2874,
+  "title": "Line sketch: Surreal Desert Siren",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene depicts a -skinned woman with a flower crown and bone necklace emerging from the desert sand, her lower body transforming into a skeletal horse with a flowing mane. A winding river of blood cuts through the sandy landscape toward a distant castle, surrounded by oversized flies, dragonflies, flowers, and agave plants under a sky (derived from generated still #2160).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene depicts a -skinned woman with a flower crown and bone necklace emerging from the desert sand, her lower body transforming into a skeletal horse with a flowing mane. A winding river of blood cuts through the sandy landscape toward a distant castle, surrounded by oversized flies, dragonflies, flowers, and agave plants under a sky",
+  "inverted_title": "Inverted sketch: Surreal Desert Siren",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene depicts a -skinned woman with a flower crown and bone necklace emerging from the desert sand, her lower body transforming into a skeletal horse with a flowing mane. A winding river of blood cuts through the sandy landscape toward a distant castle, surrounded by oversized flies, dragonflies, flowers, and agave plants under a sky (from generated still #2160).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene depicts a -skinned woman with a flower crown and bone necklace emerging from the desert sand, her lower body transforming into a skeletal horse with a flowing mane. A winding river of blood cuts through the sandy landscape toward a distant castle, surrounded by oversized flies, dragonflies, flowers, and agave plants under a sky",
+  "source_description": "A surreal scene depicts a red-skinned woman with a flower crown and bone necklace emerging from the desert sand, her lower body transforming into a skeletal horse with a flowing purple mane. A winding river of blood cuts through the sandy landscape toward a distant castle, surrounded by oversized flies, dragonflies, pink flowers, and agave plants under a pale blue sky.",
+  "source_prompt": "Surreal desert landscape with a red-skinned woman wearing a flower crown and bone necklace rising from the sand, her body merging into a skeletal horse with purple mane standing on cracked earth. A red blood river winds through the scene toward a distant castle, large flies and dragonflies hover in the air, pink flowers bloom along the riverbank, agave plants in foreground, pale blue sky, detailed symbolic painting style",
+  "source_title": "Surreal Desert Siren",
+  "style": "surrealism",
+  "mood": "ethereal macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "skeleton horse",
+    "blood river",
+    "insect"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2160,
+  "source_url": "/generated/2160.jpg",
+  "image_url": "/sketches/2874.png",
+  "inverted_image_url": "/sketches-inverted/2874.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:44Z"
+}

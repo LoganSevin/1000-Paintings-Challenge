@@ -1,0 +1,42 @@
+{
+  "number": 135,
+  "title": "Line sketch: Astronaut with a Worried Look",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cartoonish portrait of a middle-aged man in a spacesuit and helmet, displaying a concerned facial expression with raised eyebrows. The illustration uses flat colors and bold outlines against a solid warm background (derived from painting #172).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cartoonish portrait of a middle-aged man in a spacesuit and helmet, displaying a concerned facial expression with raised eyebrows. The illustration uses flat colors and bold outlines against a solid warm background",
+  "inverted_title": "Inverted sketch: Astronaut with a Worried Look",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cartoonish portrait of a middle-aged man in a spacesuit and helmet, displaying a concerned facial expression with raised eyebrows. The illustration uses flat colors and bold outlines against a solid warm background (from painting #172).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cartoonish portrait of a middle-aged man in a spacesuit and helmet, displaying a concerned facial expression with raised eyebrows. The illustration uses flat colors and bold outlines against a solid warm background",
+  "source_description": "A cartoonish portrait of a middle-aged man in a green spacesuit and helmet, displaying a concerned facial expression with raised eyebrows. The illustration uses flat colors and bold outlines against a solid warm background.",
+  "source_prompt": "",
+  "source_title": "Astronaut with a Worried Look",
+  "style": "Cartoon",
+  "mood": "Concerned",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cartoon",
+    "astronaut",
+    "portrait",
+    "spacesuit",
+    "character design"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 172,
+  "source_url": "/paintings/172.jpg",
+  "image_url": "/sketches/135.png",
+  "inverted_image_url": "/sketches-inverted/135.png",
+  "curve_count": 84,
+  "built_at": "2026-08-17T00:09:38Z"
+}

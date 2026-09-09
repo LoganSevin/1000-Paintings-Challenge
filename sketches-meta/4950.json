@@ -1,0 +1,42 @@
+{
+  "number": 4950,
+  "title": "Line sketch: Venus Flytrap Horror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark coat stands inside a derelict greenhouse holding a long pole with a glowing tip toward a giant monstrous Venus flytrap. In the foreground, a woman in a trench coat stands at a table with a vintage radio and a coffee cup, watching the scene. The floor is wet, an exit sign glows in the background, and heavy rain streaks down the glass walls (derived from generated still #4387).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark coat stands inside a derelict greenhouse holding a long pole with a glowing tip toward a giant monstrous Venus flytrap. In the foreground, a woman in a trench coat stands at a table with a vintage radio and a coffee cup, watching the scene. The floor is wet, an exit sign glows in the background, and heavy rain streaks down the glass walls",
+  "inverted_title": "Inverted sketch: Venus Flytrap Horror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark coat stands inside a derelict greenhouse holding a long pole with a glowing tip toward a giant monstrous Venus flytrap. In the foreground, a woman in a trench coat stands at a table with a vintage radio and a coffee cup, watching the scene. The floor is wet, an exit sign glows in the background, and heavy rain streaks down the glass walls (from generated still #4387).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark coat stands inside a derelict greenhouse holding a long pole with a glowing tip toward a giant monstrous Venus flytrap. In the foreground, a woman in a trench coat stands at a table with a vintage radio and a coffee cup, watching the scene. The floor is wet, an exit sign glows in the background, and heavy rain streaks down the glass walls",
+  "source_description": "A man in a dark coat stands inside a derelict greenhouse holding a long pole with a glowing tip toward a giant monstrous Venus flytrap. In the foreground, a woman in a green trench coat stands at a table with a vintage radio and a coffee cup, watching the scene. The floor is wet, an exit sign glows red in the background, and heavy rain streaks down the glass walls.",
+  "source_prompt": "A tense cinematic scene inside an old abandoned greenhouse at night during heavy rain. A man in a long coat stands in the middle ground holding a long pole with a glowing red tip towards a giant monstrous carnivorous plant with teeth and hanging prey. In the foreground, a woman in a trench coat stands near a table with a vintage radio and coffee cup, observing. Red exit sign glowing in the background, wet reflective floor, dramatic volumetric lighting, moody and unsettling atmosphere.",
+  "source_title": "Venus Flytrap Horror",
+  "style": "cinematic",
+  "mood": "eerie, tense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "greenhouse",
+    "monster plant",
+    "noir",
+    "rain"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4387,
+  "source_url": "/generated/4387.jpg",
+  "image_url": "/sketches/4950.png",
+  "inverted_image_url": "/sketches-inverted/4950.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:49Z"
+}

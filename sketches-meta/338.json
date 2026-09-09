@@ -1,0 +1,42 @@
+{
+  "number": 338,
+  "title": "Line sketch: Contemplating the Wave",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary figure stands before an enormous stylized wave composed of layered patterns. The scene evokes a sense of wonder and the sublime power of nature (derived from painting #400).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary figure stands before an enormous stylized wave composed of layered patterns. The scene evokes a sense of wonder and the sublime power of nature",
+  "inverted_title": "Inverted sketch: Contemplating the Wave",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary figure stands before an enormous stylized wave composed of layered patterns. The scene evokes a sense of wonder and the sublime power of nature (from painting #400).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary figure stands before an enormous stylized wave composed of layered patterns. The scene evokes a sense of wonder and the sublime power of nature",
+  "source_description": "A solitary figure stands before an enormous stylized wave composed of colorful layered patterns. The scene evokes a sense of wonder and the sublime power of nature.",
+  "source_prompt": "",
+  "source_title": "Contemplating the Wave",
+  "style": "Minimalist illustration",
+  "mood": "Serene and awe-inspiring",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wave",
+    "minimalism",
+    "nature",
+    "solitude",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 400,
+  "source_url": "/paintings/400.jpg",
+  "image_url": "/sketches/338.png",
+  "inverted_image_url": "/sketches-inverted/338.png",
+  "curve_count": 123,
+  "built_at": "2026-08-17T00:09:39Z"
+}

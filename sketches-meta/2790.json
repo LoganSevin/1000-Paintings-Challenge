@@ -1,0 +1,42 @@
+{
+  "number": 2790,
+  "title": "Line sketch: Cosmic Detective with Eye Wheel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a man in a trench coat and fedora, holding a pipe and magnifying glass, with his face partially obscured by a large circular wheel containing an oversized realistic human eye at its center. The wheel is marked with repeating letters S, T, G and stylized patterns against a vibrant cosmic background (derived from generated still #2073).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a man in a trench coat and fedora, holding a pipe and magnifying glass, with his face partially obscured by a large circular wheel containing an oversized realistic human eye at its center. The wheel is marked with repeating letters S, T, G and stylized patterns against a vibrant cosmic background",
+  "inverted_title": "Inverted sketch: Cosmic Detective with Eye Wheel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a man in a trench coat and fedora, holding a pipe and magnifying glass, with his face partially obscured by a large circular wheel containing an oversized realistic human eye at its center. The wheel is marked with repeating letters S, T, G and stylized patterns against a vibrant cosmic background (from generated still #2073).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a man in a trench coat and fedora, holding a pipe and magnifying glass, with his face partially obscured by a large circular wheel containing an oversized realistic human eye at its center. The wheel is marked with repeating letters S, T, G and stylized patterns against a vibrant cosmic background",
+  "source_description": "A surreal portrait of a man in a green trench coat and fedora, holding a pipe and magnifying glass, with his face partially obscured by a large circular wheel containing an oversized realistic human eye at its center. The wheel is marked with repeating letters S, T, G and stylized patterns against a vibrant cosmic background.",
+  "source_prompt": "Surreal oil painting of a mysterious detective wearing a green fedora and trench coat, holding a pipe, his face replaced by a large circular wheel with a giant realistic human eye at the center. The wheel features repeating letters S, T, G and hypnotic patterns. Dramatic cosmic background with swirling colorful nebulae, stars, and fiery clouds in vibrant hues of orange, purple, blue and green, highly detailed, painterly style",
+  "source_title": "Cosmic Detective with Eye Wheel",
+  "style": "surrealism",
+  "mood": "psychedelic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "detective",
+    "cosmic",
+    "eye",
+    "wheel"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2073,
+  "source_url": "/generated/2073.jpg",
+  "image_url": "/sketches/2790.png",
+  "inverted_image_url": "/sketches-inverted/2790.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:44Z"
+}

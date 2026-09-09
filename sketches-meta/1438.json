@@ -1,0 +1,42 @@
+{
+  "number": 1438,
+  "title": "Line sketch: Surreal Pagoda Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal landscape features a traditional multi-tiered Chinese pagoda on a misty lake with small boats. The left side dissolves into swirling slime, tentacles, and circular organisms blending into cosmic and vortexes against a mountainous backdrop (derived from generated still #653).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal landscape features a traditional multi-tiered Chinese pagoda on a misty lake with small boats. The left side dissolves into swirling slime, tentacles, and circular organisms blending into cosmic and vortexes against a mountainous backdrop",
+  "inverted_title": "Inverted sketch: Surreal Pagoda Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal landscape features a traditional multi-tiered Chinese pagoda on a misty lake with small boats. The left side dissolves into swirling slime, tentacles, and circular organisms blending into cosmic and vortexes against a mountainous backdrop (from generated still #653).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal landscape features a traditional multi-tiered Chinese pagoda on a misty lake with small boats. The left side dissolves into swirling slime, tentacles, and circular organisms blending into cosmic and vortexes against a mountainous backdrop",
+  "source_description": "A vibrant surreal landscape features a traditional multi-tiered Chinese pagoda on a misty lake with small boats. The left side dissolves into swirling green slime, tentacles, and colorful circular organisms blending into cosmic turquoise and purple vortexes against a mountainous backdrop.",
+  "source_prompt": "",
+  "source_title": "Surreal Pagoda Vortex",
+  "style": "surrealism",
+  "mood": "dreamlike psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "pagoda",
+    "cosmic",
+    "slime",
+    "tentacles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 653,
+  "source_url": "/generated/653.jpg",
+  "image_url": "/sketches/1438.png",
+  "inverted_image_url": "/sketches-inverted/1438.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 875,
+  "title": "Line sketch: Bamboo Flute Dreamer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man with glasses and a fedora plays a cluster of bamboo flutes while a small bird perches on his shoulder. He stands in the foreground against a vibrant, surreal background of oversized bubbles and a crowd of people with raised arms (derived from generated still #84).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man with glasses and a fedora plays a cluster of bamboo flutes while a small bird perches on his shoulder. He stands in the foreground against a vibrant, surreal background of oversized bubbles and a crowd of people with raised arms",
+  "inverted_title": "Inverted sketch: Bamboo Flute Dreamer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man with glasses and a fedora plays a cluster of bamboo flutes while a small bird perches on his shoulder. He stands in the foreground against a vibrant, surreal background of oversized bubbles and a crowd of people with raised arms (from generated still #84).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man with glasses and a fedora plays a cluster of bamboo flutes while a small bird perches on his shoulder. He stands in the foreground against a vibrant, surreal background of oversized bubbles and a crowd of people with raised arms",
+  "source_description": "An elderly man with glasses and a fedora plays a cluster of green bamboo flutes while a small brown bird perches on his shoulder. He stands in the foreground against a vibrant, surreal background of oversized iridescent bubbles and a colorful crowd of people with raised arms.",
+  "source_prompt": "",
+  "source_title": "Bamboo Flute Dreamer",
+  "style": "surrealism",
+  "mood": "whimsical, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elderly man",
+    "bamboo flutes",
+    "bird",
+    "bubbles",
+    "crowd"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 84,
+  "source_url": "/generated/84.jpg",
+  "image_url": "/sketches/875.png",
+  "inverted_image_url": "/sketches-inverted/875.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:40Z"
+}

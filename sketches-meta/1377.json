@@ -1,0 +1,42 @@
+{
+  "number": 1377,
+  "title": "Line sketch: Wolf Child Hybrid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a -skinned child with glowing eyes, whose head is split between a human face and a black wolf with bared teeth. The image features dripping paint effects in, black, and against a cracked circular backdrop (derived from generated still #592).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a -skinned child with glowing eyes, whose head is split between a human face and a black wolf with bared teeth. The image features dripping paint effects in, black, and against a cracked circular backdrop",
+  "inverted_title": "Inverted sketch: Wolf Child Hybrid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a -skinned child with glowing eyes, whose head is split between a human face and a black wolf with bared teeth. The image features dripping paint effects in, black, and against a cracked circular backdrop (from generated still #592).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a -skinned child with glowing eyes, whose head is split between a human face and a black wolf with bared teeth. The image features dripping paint effects in, black, and against a cracked circular backdrop",
+  "source_description": "A surreal portrait of a green-skinned child with glowing orange eyes, whose head is split between a human face and a black wolf with bared teeth. The image features dripping paint effects in red, blue, black, and orange against a cracked circular backdrop.",
+  "source_prompt": "",
+  "source_title": "Wolf Child Hybrid",
+  "style": "surrealism",
+  "mood": "eerie, dark",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hybrid creature",
+    "dripping paint",
+    "wolf",
+    "child portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 592,
+  "source_url": "/generated/592.jpg",
+  "image_url": "/sketches/1377.png",
+  "inverted_image_url": "/sketches-inverted/1377.png",
+  "curve_count": 174,
+  "built_at": "2026-08-17T00:09:41Z"
+}

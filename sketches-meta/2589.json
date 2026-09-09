@@ -1,0 +1,42 @@
+{
+  "number": 2589,
+  "title": "Line sketch: Three Pigs Huddle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three pigs lie closely together on a surface, their heads touching affectionately in the center with one pig resting its head on the others. The composition features expressive eyes and visible tails curled together (derived from generated still #1825).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three pigs lie closely together on a surface, their heads touching affectionately in the center with one pig resting its head on the others. The composition features expressive eyes and visible tails curled together",
+  "inverted_title": "Inverted sketch: Three Pigs Huddle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three pigs lie closely together on a surface, their heads touching affectionately in the center with one pig resting its head on the others. The composition features expressive eyes and visible tails curled together (from generated still #1825).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three pigs lie closely together on a surface, their heads touching affectionately in the center with one pig resting its head on the others. The composition features expressive eyes and visible tails curled together",
+  "source_description": "Three pink pigs lie closely together on a purple surface, their heads touching affectionately in the center with one pig resting its head on the others. The painting features expressive eyes and visible tails curled together.",
+  "source_prompt": "",
+  "source_title": "Three Pigs Huddle",
+  "style": "expressive realism",
+  "mood": "whimsical tender",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pigs",
+    "animals",
+    "huddle",
+    "affectionate",
+    "expressive"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1825,
+  "source_url": "/generated/1825.jpg",
+  "image_url": "/sketches/2589.png",
+  "inverted_image_url": "/sketches-inverted/2589.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

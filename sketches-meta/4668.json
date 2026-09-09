@@ -1,0 +1,42 @@
+{
+  "number": 4668,
+  "title": "Line sketch: Stasis Wagon of Doom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A macabre surreal scene shows a man in a black suit and a woman in a flowing black dress riding a wagon labeled \"Rub a Dub\" pulled by two skeletons. A giant spiky virus-like creature with glowing eyes and a toothy grin hovers beside them, emitting energy streams. A heron perches atop a dilapidated wooden building labeled \"STASIS\" in the background under a full moon with rings (derived from generated still #4090).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A macabre surreal scene shows a man in a black suit and a woman in a flowing black dress riding a wagon labeled \"Rub a Dub\" pulled by two skeletons. A giant spiky virus-like creature with glowing eyes and a toothy grin hovers beside them, emitting energy streams. A heron perches atop a dilapidated wooden building labeled \"STASIS\" in the background under a full moon with rings",
+  "inverted_title": "Inverted sketch: Stasis Wagon of Doom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A macabre surreal scene shows a man in a black suit and a woman in a flowing black dress riding a wagon labeled \"Rub a Dub\" pulled by two skeletons. A giant spiky virus-like creature with glowing eyes and a toothy grin hovers beside them, emitting energy streams. A heron perches atop a dilapidated wooden building labeled \"STASIS\" in the background under a full moon with rings (from generated still #4090).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A macabre surreal scene shows a man in a black suit and a woman in a flowing black dress riding a wagon labeled \"Rub a Dub\" pulled by two skeletons. A giant spiky virus-like creature with glowing eyes and a toothy grin hovers beside them, emitting energy streams. A heron perches atop a dilapidated wooden building labeled \"STASIS\" in the background under a full moon with rings",
+  "source_description": "A macabre surreal scene shows a man in a black suit and a woman in a flowing black dress riding a red wagon labeled \"Rub a Dub\" pulled by two skeletons. A giant red spiky virus-like creature with glowing eyes and a toothy grin hovers beside them, emitting colorful energy streams. A heron perches atop a dilapidated green wooden building labeled \"STASIS\" in the background under a full moon with rings.",
+  "source_prompt": "Surreal dark fantasy scene of a man in a black suit and a gothic woman in a long black dress riding a red wagon labeled Rub a Dub, pulled by two walking skeletons through a swampy landscape. A massive red spiky virus monster with glowing orange eyes, sharp teeth and blue nodes floats beside them emitting colorful energy ribbons. A blue heron stands on the roof of a decaying green wooden house labeled STASIS. Full moon with rings in a twilight sky, scattered red cards on the ground, ominous and macabre atmosphere.",
+  "source_title": "Stasis Wagon of Doom",
+  "style": "surreal dark fantasy",
+  "mood": "eerie macabre",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "skeletons",
+    "virus monster",
+    "wagon",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4090,
+  "source_url": "/generated/4090.jpg",
+  "image_url": "/sketches/4668.png",
+  "inverted_image_url": "/sketches-inverted/4668.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:48Z"
+}

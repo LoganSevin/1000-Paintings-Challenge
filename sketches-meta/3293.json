@@ -1,0 +1,42 @@
+{
+  "number": 3293,
+  "title": "Line sketch: Vault Dweller's Last Warning",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a hazmat suit and helmet ascends concrete stairs toward an open circular vault door, flashlight beam cutting through the dusty air. The decaying bunker walls are covered in peeling posters depicting a grim reaper, a nuclear explosion, and hazard tape, with a director's chair and scattered debris in the foreground (derived from generated still #2671).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a hazmat suit and helmet ascends concrete stairs toward an open circular vault door, flashlight beam cutting through the dusty air. The decaying bunker walls are covered in peeling posters depicting a grim reaper, a nuclear explosion, and hazard tape, with a director's chair and scattered debris in the foreground",
+  "inverted_title": "Inverted sketch: Vault Dweller's Last Warning",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a hazmat suit and helmet ascends concrete stairs toward an open circular vault door, flashlight beam cutting through the dusty air. The decaying bunker walls are covered in peeling posters depicting a grim reaper, a nuclear explosion, and hazard tape, with a director's chair and scattered debris in the foreground (from generated still #2671).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a hazmat suit and helmet ascends concrete stairs toward an open circular vault door, flashlight beam cutting through the dusty air. The decaying bunker walls are covered in peeling posters depicting a grim reaper, a nuclear explosion, and hazard tape, with a director's chair and scattered debris in the foreground",
+  "source_description": "A lone figure in a yellow hazmat suit and helmet ascends concrete stairs toward an open circular vault door, flashlight beam cutting through the dusty air. The decaying bunker walls are covered in peeling posters depicting a grim reaper, a nuclear explosion, and hazard tape, with a director's chair and scattered debris in the foreground.",
+  "source_prompt": "A solitary figure in a yellow radiation suit with helmet and glowing green device climbs concrete stairs toward a massive open vault door leading to daylight. The dilapidated underground bunker has peeling purple paint, hazard tape, a director's chair, and large dramatic posters on the walls showing a grim reaper with a snake and a nuclear mushroom cloud explosion. Cinematic lighting with a strong flashlight beam, dusty atmosphere, highly detailed digital painting.",
+  "source_title": "Vault Dweller's Last Warning",
+  "style": "cinematic",
+  "mood": "ominous, desolate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "vault dweller",
+    "nuclear bunker",
+    "hazardous",
+    "urban decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2671,
+  "source_url": "/generated/2671.jpg",
+  "image_url": "/sketches/3293.png",
+  "inverted_image_url": "/sketches-inverted/3293.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:45Z"
+}

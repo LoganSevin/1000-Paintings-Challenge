@@ -1,0 +1,42 @@
+{
+  "number": 3579,
+  "title": "Line sketch: Winter Elf in Aurora",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female elf with long -white hair and pointed ears stands confidently on an icy surface. She wears a hooded coat with thick white fur trim, a turtleneck, white shorts, sheer tights, and black combat boots, posing with one leg raised and hand near her face against a glowing aurora backdrop (derived from generated still #2987).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female elf with long -white hair and pointed ears stands confidently on an icy surface. She wears a hooded coat with thick white fur trim, a turtleneck, white shorts, sheer tights, and black combat boots, posing with one leg raised and hand near her face against a glowing aurora backdrop",
+  "inverted_title": "Inverted sketch: Winter Elf in Aurora",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female elf with long -white hair and pointed ears stands confidently on an icy surface. She wears a hooded coat with thick white fur trim, a turtleneck, white shorts, sheer tights, and black combat boots, posing with one leg raised and hand near her face against a glowing aurora backdrop (from generated still #2987).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female elf with long -white hair and pointed ears stands confidently on an icy surface. She wears a hooded coat with thick white fur trim, a turtleneck, white shorts, sheer tights, and black combat boots, posing with one leg raised and hand near her face against a glowing aurora backdrop",
+  "source_description": "A young female elf with long silver-white hair and pointed ears stands confidently on an icy surface. She wears a dark blue hooded coat with thick white fur trim, a light blue turtleneck, white shorts, sheer tights, and black combat boots, posing with one leg raised and hand near her face against a glowing aurora backdrop.",
+  "source_prompt": "A beautiful young female elf with long flowing silver-white hair and pointed ears, fair skin, smiling at viewer. She wears a long dark blue hooded coat with thick white fur trim on hood, cuffs and hem, light blue turtleneck sweater, white shorts with silver heart-shaped belt, sheer white tights, and black lace-up combat boots with white fur trim. Posing dynamically with one knee raised, one hand near her face and the other on her hip. Standing on a reflective icy floor. Background features glowing vertical crystalline pillars emitting blue, cyan and purple light, vibrant green and purple aurora borealis in night sky, magical sparkling particles, cinematic winter fantasy atmosphere, highly detailed, photorealistic",
+  "source_title": "Winter Elf in Aurora",
+  "style": "Fantasy Photography",
+  "mood": "ethereal, confident, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elf",
+    "aurora",
+    "winter fashion",
+    "fantasy",
+    "ice"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2987,
+  "source_url": "/generated/2987.jpg",
+  "image_url": "/sketches/3579.png",
+  "inverted_image_url": "/sketches-inverted/3579.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:46Z"
+}

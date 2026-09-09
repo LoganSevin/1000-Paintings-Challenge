@@ -1,0 +1,42 @@
+{
+  "number": 324,
+  "title": "Line sketch: Sea Turtle Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic sea turtle glides through space with intricate and shell patterns. The detailed scales and reflective highlights create a stunning digital artwork from a daily composition series (derived from painting #385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic sea turtle glides through space with intricate and shell patterns. The detailed scales and reflective highlights create a stunning digital artwork from a daily composition series",
+  "inverted_title": "Inverted sketch: Sea Turtle Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic sea turtle glides through space with intricate and shell patterns. The detailed scales and reflective highlights create a stunning digital artwork from a daily composition series (from painting #385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic sea turtle glides through space with intricate and shell patterns. The detailed scales and reflective highlights create a stunning digital artwork from a daily composition series",
+  "source_description": "A majestic sea turtle glides through space with intricate green and gold shell patterns. The detailed scales and reflective highlights create a stunning digital artwork from a daily painting series.",
+  "source_prompt": "",
+  "source_title": "Golden Sea Turtle Portrait",
+  "style": "Realistic",
+  "mood": "Serene and Majestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "digital art",
+    "animal portrait",
+    "and",
+    "marine life"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 385,
+  "source_url": "/paintings/385.jpg",
+  "image_url": "/sketches/324.png",
+  "inverted_image_url": "/sketches-inverted/324.png",
+  "curve_count": 135,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1401,
+  "title": "Line sketch: Cosmic Horned Raven",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark bird with a long curved horn and multiple glowing eyes stands on a cracked alien landscape. The swirling psychedelic sky contains skeletal forms, eyeballs, and dripping orbs while the ground features glowing spheres and viscous - pools (derived from generated still #616).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark bird with a long curved horn and multiple glowing eyes stands on a cracked alien landscape. The swirling psychedelic sky contains skeletal forms, eyeballs, and dripping orbs while the ground features glowing spheres and viscous - pools",
+  "inverted_title": "Inverted sketch: Cosmic Horned Raven",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark bird with a long curved horn and multiple glowing eyes stands on a cracked alien landscape. The swirling psychedelic sky contains skeletal forms, eyeballs, and dripping orbs while the ground features glowing spheres and viscous - pools (from generated still #616).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark bird with a long curved horn and multiple glowing eyes stands on a cracked alien landscape. The swirling psychedelic sky contains skeletal forms, eyeballs, and dripping orbs while the ground features glowing spheres and viscous - pools",
+  "source_description": "A surreal dark bird with a long curved orange horn and multiple glowing eyes stands on a cracked red alien landscape. The swirling psychedelic sky contains skeletal forms, eyeballs, and dripping colorful orbs while the ground features glowing spheres and viscous orange-purple pools.",
+  "source_prompt": "",
+  "source_title": "Cosmic Horned Raven",
+  "style": "surreal psychedelic",
+  "mood": "eerie hallucinatory",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bird",
+    "psychedelic",
+    "cosmic horror",
+    "alien landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 616,
+  "source_url": "/generated/616.jpg",
+  "image_url": "/sketches/1401.png",
+  "inverted_image_url": "/sketches-inverted/1401.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:41Z"
+}

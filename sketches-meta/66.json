@@ -1,0 +1,42 @@
+{
+  "number": 66,
+  "title": "Line sketch: Blazing Sunset Over Metropolis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A futuristic city skyline is silhouetted against a massive glowing sun dominating a fiery - sky. Tall spired towers frame the central composition, with layered atmospheric perspective and reflective light on distant structures. Bold color blocking and painterly create dramatic depth and mood (derived from painting #97).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A futuristic city skyline is silhouetted against a massive glowing sun dominating a fiery - sky. Tall spired towers frame the central composition, with layered atmospheric perspective and reflective light on distant structures. Bold color blocking and painterly create dramatic depth and mood",
+  "inverted_title": "Inverted sketch: Blazing Sunset Over Metropolis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A futuristic city skyline is silhouetted against a massive glowing sun dominating a fiery - sky. Tall spired towers frame the central composition, with layered atmospheric perspective and reflective light on distant structures. Bold color blocking and painterly create dramatic depth and mood (from painting #97).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A futuristic city skyline is silhouetted against a massive glowing sun dominating a fiery - sky. Tall spired towers frame the central composition, with layered atmospheric perspective and reflective light on distant structures. Bold color blocking and painterly create dramatic depth and mood",
+  "source_description": "A futuristic city skyline is silhouetted against a massive glowing sun dominating a fiery orange-red sky. Tall spired towers frame the central composition, with layered atmospheric perspective and reflective light on distant structures. Bold color blocking and painterly brushwork create dramatic depth and mood.",
+  "source_prompt": "",
+  "source_title": "Blazing Sunset Over Metropolis",
+  "style": "Digital Concept Art",
+  "mood": "epic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sunset",
+    "cityscape",
+    "skyscrapers",
+    "futuristic",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 97,
+  "source_url": "/paintings/97.jpg",
+  "image_url": "/sketches/66.png",
+  "inverted_image_url": "/sketches-inverted/66.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:38Z"
+}

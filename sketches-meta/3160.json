@@ -1,0 +1,42 @@
+{
+  "number": 3160,
+  "title": "Line sketch: Fallout Shelter Showdown",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a transparent raincoat and polka-dot dress holds a film reel toward a shirtless, muscular man with a scarred torso and pants. They stand in a dilapidated, graffiti-covered room filled with scattered film reels, broken frames, and Fallout-themed posters (derived from generated still #2502).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a transparent raincoat and polka-dot dress holds a film reel toward a shirtless, muscular man with a scarred torso and pants. They stand in a dilapidated, graffiti-covered room filled with scattered film reels, broken frames, and Fallout-themed posters",
+  "inverted_title": "Inverted sketch: Fallout Shelter Showdown",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a transparent raincoat and polka-dot dress holds a film reel toward a shirtless, muscular man with a scarred torso and pants. They stand in a dilapidated, graffiti-covered room filled with scattered film reels, broken frames, and Fallout-themed posters (from generated still #2502).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a transparent raincoat and polka-dot dress holds a film reel toward a shirtless, muscular man with a scarred torso and pants. They stand in a dilapidated, graffiti-covered room filled with scattered film reels, broken frames, and Fallout-themed posters",
+  "source_description": "A woman in a transparent raincoat and polka-dot dress holds a film reel toward a shirtless, muscular man with a scarred torso and blue pants. They stand in a dilapidated, graffiti-covered room filled with scattered film reels, broken frames, and Fallout-themed posters.",
+  "source_prompt": "A tense confrontation in a destroyed Fallout vault room covered in colorful graffiti reading 'G#1970 FALLOUT SHELTER G#2028'. A woman wearing a transparent raincoat over a polka dot dress holds a film reel toward a shirtless muscular man with scars and blue jeans. The wet floor is littered with broken picture frames, film slides, and movie posters. Cinematic lighting with hanging bulbs and neon tubes, highly detailed digital painting.",
+  "source_title": "Fallout Shelter Showdown",
+  "style": "cinematic",
+  "mood": "dramatic, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fallout",
+    "post-apocalyptic",
+    "film noir",
+    "graffiti",
+    "confrontation"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2502,
+  "source_url": "/generated/2502.jpg",
+  "image_url": "/sketches/3160.png",
+  "inverted_image_url": "/sketches-inverted/3160.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:45Z"
+}

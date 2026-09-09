@@ -1,0 +1,42 @@
+{
+  "number": 378,
+  "title": "Line sketch: Corn Robot in Trash Can",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A menacing alien with eyes peers from inside a metallic trash can suit, surrounded by ears of corn. The whimsical yet eerie character stands against a plain background (derived from painting #443).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A menacing alien with eyes peers from inside a metallic trash can suit, surrounded by ears of corn. The whimsical yet eerie character stands against a plain background",
+  "inverted_title": "Inverted sketch: Corn Robot in Trash Can",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A menacing alien with eyes peers from inside a metallic trash can suit, surrounded by ears of corn. The whimsical yet eerie character stands against a plain background (from painting #443).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A menacing alien with eyes peers from inside a metallic trash can suit, surrounded by ears of corn. The whimsical yet eerie character stands against a plain background",
+  "source_description": "A menacing green alien with orange eyes peers from inside a metallic trash can suit, surrounded by ears of corn. The whimsical yet eerie character stands against a plain muted green background.",
+  "source_prompt": "",
+  "source_title": "Corn Robot in Trash Can",
+  "style": "digital illustration",
+  "mood": "quirky eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "alien",
+    "corn",
+    "trash can",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 443,
+  "source_url": "/paintings/443.jpg",
+  "image_url": "/sketches/378.png",
+  "inverted_image_url": "/sketches-inverted/378.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:39Z"
+}

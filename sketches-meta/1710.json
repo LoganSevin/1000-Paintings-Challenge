@@ -1,0 +1,42 @@
+{
+  "number": 1710,
+  "title": "Line sketch: Surreal Psychedelic Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a woman's face split in color, with the left side and the right side featuring intricate patterns. A large dog-like creature with swirling designs rests its head on top of hers, while a massive cracked eye with a yin-yang pupil drips liquid on the right (derived from generated still #932).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a woman's face split in color, with the left side and the right side featuring intricate patterns. A large dog-like creature with swirling designs rests its head on top of hers, while a massive cracked eye with a yin-yang pupil drips liquid on the right",
+  "inverted_title": "Inverted sketch: Surreal Psychedelic Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a woman's face split in color, with the left side and the right side featuring intricate patterns. A large dog-like creature with swirling designs rests its head on top of hers, while a massive cracked eye with a yin-yang pupil drips liquid on the right (from generated still #932).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a woman's face split in color, with the left side and the right side featuring intricate patterns. A large dog-like creature with swirling designs rests its head on top of hers, while a massive cracked eye with a yin-yang pupil drips liquid on the right",
+  "source_description": "A vibrant surreal painting depicts a woman's face split in color, with the left side blue and the right side featuring intricate patterns. A large green dog-like creature with swirling designs rests its head on top of hers, while a massive cracked red eye with a yin-yang pupil drips golden liquid on the right.",
+  "source_prompt": "",
+  "source_title": "Surreal Psychedelic Portrait",
+  "style": "Surrealism",
+  "mood": "psychedelic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "woman portrait",
+    "dog",
+    "cracked eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 932,
+  "source_url": "/generated/932.jpg",
+  "image_url": "/sketches/1710.png",
+  "inverted_image_url": "/sketches-inverted/1710.png",
+  "curve_count": 261,
+  "built_at": "2026-08-17T00:09:41Z"
+}

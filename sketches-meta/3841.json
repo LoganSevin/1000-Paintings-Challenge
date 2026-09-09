@@ -1,0 +1,42 @@
+{
+  "number": 3841,
+  "title": "Line sketch: Dragon Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with short hair and streaks stands in a dynamic pose against a solid background. She wears a form-fitting armored outfit with glowing circuit-like patterns, matching gauntlets and boots, and has a living dragon coiled around her shoulders and waist with its head resting near her shoulder (derived from generated still #3258).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with short hair and streaks stands in a dynamic pose against a solid background. She wears a form-fitting armored outfit with glowing circuit-like patterns, matching gauntlets and boots, and has a living dragon coiled around her shoulders and waist with its head resting near her shoulder",
+  "inverted_title": "Inverted sketch: Dragon Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with short hair and streaks stands in a dynamic pose against a solid background. She wears a form-fitting armored outfit with glowing circuit-like patterns, matching gauntlets and boots, and has a living dragon coiled around her shoulders and waist with its head resting near her shoulder (from generated still #3258).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with short hair and streaks stands in a dynamic pose against a solid background. She wears a form-fitting armored outfit with glowing circuit-like patterns, matching gauntlets and boots, and has a living dragon coiled around her shoulders and waist with its head resting near her shoulder",
+  "source_description": "A young woman with short silver hair and blue streaks stands in a dynamic pose against a solid pink background. She wears a form-fitting blue armored outfit with glowing blue circuit-like patterns, matching gauntlets and boots, and has a living blue dragon coiled around her shoulders and waist with its head resting near her shoulder.",
+  "source_prompt": "A confident young woman with short silver hair featuring a bright blue streak, standing in a dynamic three-quarter pose against a solid magenta background. She wears intricate blue futuristic armored bodysuit with glowing cyan circuit patterns, matching gauntlets and heavy boots. A sleek blue dragon is coiled around her body with its head resting on her left shoulder. Sharp detailed digital painting style with dramatic lighting.",
+  "source_title": "Blue Dragon Girl",
+  "style": "line sketch",
+  "mood": "bold, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "dragon companion",
+    "fantasy armor",
+    "hair",
+    "cyberpunk fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3258,
+  "source_url": "/generated/3258.jpg",
+  "image_url": "/sketches/3841.png",
+  "inverted_image_url": "/sketches-inverted/3841.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:46Z"
+}

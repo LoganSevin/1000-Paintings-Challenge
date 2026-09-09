@@ -1,0 +1,42 @@
+{
+  "number": 3879,
+  "title": "Line sketch: Sunflower Fighter Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with black hair and sunflower accessories, wearing a and black outfit with a sunflower-themed belt and boots. The character progresses from a standing pose with raised hands, to a dynamic high kick with one leg extended, set against a solid background (derived from generated still #3296).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with black hair and sunflower accessories, wearing a and black outfit with a sunflower-themed belt and boots. The character progresses from a standing pose with raised hands, to a dynamic high kick with one leg extended, set against a solid background",
+  "inverted_title": "Inverted sketch: Sunflower Fighter Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with black hair and sunflower accessories, wearing a and black outfit with a sunflower-themed belt and boots. The character progresses from a standing pose with raised hands, to a dynamic high kick with one leg extended, set against a solid background (from generated still #3296).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with black hair and sunflower accessories, wearing a and black outfit with a sunflower-themed belt and boots. The character progresses from a standing pose with raised hands, to a dynamic high kick with one leg extended, set against a solid background",
+  "source_description": "Four sequential poses of a female character with black hair and sunflower accessories, wearing a yellow and black outfit with a sunflower-themed belt and boots. The character progresses from a standing pose with raised hands, to a dynamic high kick with one leg extended, set against a solid bright green background.",
+  "source_prompt": "A four-panel character sheet on a solid bright green background showing the same anime-style female character with short black hair, sunflower hair accessories, and a fierce expression. She wears a yellow frilly dress with black corset belt, black gloves, thigh-high black stockings with circular patterns, and yellow combat boots. The sequence shows her in different action poses: standing with hands raised, another standing variation, performing a high kick, and a final dynamic pose. Cartoon style with bold black outlines and vibrant colors.",
+  "source_title": "Sunflower Fighter Poses",
+  "style": "cartoon",
+  "mood": "energetic, playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anime style",
+    "female character",
+    "sunflower theme",
+    "action poses",
+    "dress"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3296,
+  "source_url": "/generated/3296.jpg",
+  "image_url": "/sketches/3879.png",
+  "inverted_image_url": "/sketches-inverted/3879.png",
+  "curve_count": 103,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3437,
+  "title": "Line sketch: Mystic Portal and Mask",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal dark fantasy scene featuring an ornate tribal mask with spiral patterns on the left, and a glowing, elongated portal-like object with a prominent interlocking 'GG' logo at its center. The portal emits light and is surrounded by dense, dark foliage, ferns, and dramatic god rays piercing through a misty jungle atmosphere (derived from generated still #2838).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal dark fantasy scene featuring an ornate tribal mask with spiral patterns on the left, and a glowing, elongated portal-like object with a prominent interlocking 'GG' logo at its center. The portal emits light and is surrounded by dense, dark foliage, ferns, and dramatic god rays piercing through a misty jungle atmosphere",
+  "inverted_title": "Inverted sketch: Mystic Portal and Mask",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal dark fantasy scene featuring an ornate tribal mask with spiral patterns on the left, and a glowing, elongated portal-like object with a prominent interlocking 'GG' logo at its center. The portal emits light and is surrounded by dense, dark foliage, ferns, and dramatic god rays piercing through a misty jungle atmosphere (from generated still #2838).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal dark fantasy scene featuring an ornate tribal mask with spiral patterns on the left, and a glowing, elongated portal-like object with a prominent interlocking 'GG' logo at its center. The portal emits light and is surrounded by dense, dark foliage, ferns, and dramatic god rays piercing through a misty jungle atmosphere",
+  "source_description": "A surreal dark fantasy scene featuring an ornate golden tribal mask with spiral patterns on the left, and a glowing, elongated portal-like object with a prominent interlocking 'GG' logo at its center. The portal emits iridescent light and is surrounded by dense, dark foliage, golden ferns, and dramatic god rays piercing through a misty jungle atmosphere.",
+  "source_prompt": "Surreal dark fantasy scene in a misty jungle, an ancient golden tribal mask with spiral carvings on the left, a long glowing portal shaped like an eye with a metallic interlocking GG logo at its center, surrounded by glowing ferns and dramatic god rays cutting through dense foliage, ethereal and mysterious atmosphere, intricate details, cinematic lighting",
+  "source_title": "Mystic Portal and Golden Mask",
+  "style": "surreal fantasy",
+  "mood": "mysterious, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "tribal mask",
+    "glowing portal",
+    "jungle",
+    "mask"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2838,
+  "source_url": "/generated/2838.jpg",
+  "image_url": "/sketches/3437.png",
+  "inverted_image_url": "/sketches-inverted/3437.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:45Z"
+}

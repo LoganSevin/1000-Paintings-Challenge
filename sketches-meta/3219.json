@@ -1,0 +1,42 @@
+{
+  "number": 3219,
+  "title": "Line sketch: Mirror of Electric Memories",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing gown stands in an ornate, flooded room holding two film reels connected by a ribbon. She faces a large oval mirror reflecting multiple versions of herself with shocked expressions as lightning strikes from the stormy sky through the mirror (derived from generated still #2570).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing gown stands in an ornate, flooded room holding two film reels connected by a ribbon. She faces a large oval mirror reflecting multiple versions of herself with shocked expressions as lightning strikes from the stormy sky through the mirror",
+  "inverted_title": "Inverted sketch: Mirror of Electric Memories",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing gown stands in an ornate, flooded room holding two film reels connected by a ribbon. She faces a large oval mirror reflecting multiple versions of herself with shocked expressions as lightning strikes from the stormy sky through the mirror (from generated still #2570).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing gown stands in an ornate, flooded room holding two film reels connected by a ribbon. She faces a large oval mirror reflecting multiple versions of herself with shocked expressions as lightning strikes from the stormy sky through the mirror",
+  "source_description": "A woman in a flowing golden gown stands in an ornate, flooded room holding two film reels connected by a ribbon. She faces a large oval mirror reflecting multiple versions of herself with shocked expressions as green lightning strikes from the stormy sky through the mirror.",
+  "source_prompt": "A woman in a flowing golden-brown gown stands in an opulent baroque room filled with shallow water, holding two vintage film reels connected by a ribbon. She faces a large ornate oval mirror that reflects multiple versions of herself with horrified expressions. Bright green lightning strikes from a stormy night sky outside an arched window, arcing into the mirror. Scattered papers and film strips lie on the wet tiled floor, dramatic cinematic lighting, moody atmosphere.",
+  "source_title": "Mirror of Electric Memories",
+  "style": "surreal fantasy",
+  "mood": "eerie mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mirror",
+    "lightning",
+    "film reels",
+    "flooded room"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2570,
+  "source_url": "/generated/2570.jpg",
+  "image_url": "/sketches/3219.png",
+  "inverted_image_url": "/sketches-inverted/3219.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:45Z"
+}

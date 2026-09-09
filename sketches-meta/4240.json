@@ -1,0 +1,42 @@
+{
+  "number": 4240,
+  "title": "Line sketch: Rat in Electric Bubble",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a glowing transparent sphere containing a vibrant rat perched on a flowering branch, a woman's face with flower crown, and crackling and electricity. The sphere floats against a dark background with a faint moon visible inside (derived from generated still #3659).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a glowing transparent sphere containing a vibrant rat perched on a flowering branch, a woman's face with flower crown, and crackling and electricity. The sphere floats against a dark background with a faint moon visible inside",
+  "inverted_title": "Inverted sketch: Rat in Electric Bubble",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a glowing transparent sphere containing a vibrant rat perched on a flowering branch, a woman's face with flower crown, and crackling and electricity. The sphere floats against a dark background with a faint moon visible inside (from generated still #3659).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a glowing transparent sphere containing a vibrant rat perched on a flowering branch, a woman's face with flower crown, and crackling and electricity. The sphere floats against a dark background with a faint moon visible inside",
+  "source_description": "A surreal scene inside a glowing transparent sphere containing a vibrant red rat perched on a flowering branch, a woman's face with flower crown, and crackling blue and pink electricity. The sphere floats against a dark background with a faint moon visible inside.",
+  "source_prompt": "A red rat with white underbelly perched on a flowering branch inside a large transparent bubble, a beautiful woman's face with blue eyes and flower crown emerging beside it, intense blue and pink lightning bolts crackling throughout the sphere, vibrant orange and pink flowers, dark mysterious background with faint moon, glowing ethereal atmosphere, highly detailed digital painting",
+  "source_title": "Rat in Electric Bubble",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "rat",
+    "woman portrait",
+    "electricity",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3659,
+  "source_url": "/generated/3659.jpg",
+  "image_url": "/sketches/4240.png",
+  "inverted_image_url": "/sketches-inverted/4240.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4553,
+  "title": "Line sketch: Portal of Whispers",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene set in a decaying room overgrown with vines and littered with film reels, dice, and skulls. A woman in ornate and robes reaches toward a large gilded mirror that acts as a portal revealing a mountainous landscape at sunset, where a ghostly white figure in a dress stands; a large octopus-like creature with glowing eyes emerges from the left while translucent spirits, butterflies, and a panda float throughout the chaotic space (derived from generated still #3973).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene set in a decaying room overgrown with vines and littered with film reels, dice, and skulls. A woman in ornate and robes reaches toward a large gilded mirror that acts as a portal revealing a mountainous landscape at sunset, where a ghostly white figure in a dress stands; a large octopus-like creature with glowing eyes emerges from the left while translucent spirits, butterflies, and a panda float throughout the chaotic space",
+  "inverted_title": "Inverted sketch: Portal of Whispers",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene set in a decaying room overgrown with vines and littered with film reels, dice, and skulls. A woman in ornate and robes reaches toward a large gilded mirror that acts as a portal revealing a mountainous landscape at sunset, where a ghostly white figure in a dress stands; a large octopus-like creature with glowing eyes emerges from the left while translucent spirits, butterflies, and a panda float throughout the chaotic space (from generated still #3973).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene set in a decaying room overgrown with vines and littered with film reels, dice, and skulls. A woman in ornate and robes reaches toward a large gilded mirror that acts as a portal revealing a mountainous landscape at sunset, where a ghostly white figure in a dress stands; a large octopus-like creature with glowing eyes emerges from the left while translucent spirits, butterflies, and a panda float throughout the chaotic space",
+  "source_description": "A surreal scene set in a decaying green room overgrown with vines and littered with film reels, dice, and skulls. A woman in ornate orange and purple robes reaches toward a large gilded mirror that acts as a portal revealing a mountainous landscape at sunset, where a ghostly white figure in a purple dress stands; a large purple octopus-like creature with glowing eyes emerges from the left while translucent spirits, butterflies, and a panda float throughout the chaotic space.",
+  "source_prompt": "Surreal fantasy scene inside a decaying room with green vine-covered walls and scattered film reels, skulls and dice. A woman in flowing orange pants and ornate purple robes reaches toward a large ornate gilded mirror that serves as a portal to a mountain landscape at sunset. Inside the portal stands a translucent woman in a white and orange dress. A large purple octopus creature with glowing yellow eyes emerges from the left side. Translucent spirits, butterflies, a small panda, and a black bird float in the air. Ethereal glowing particles and magical atmosphere fill the room.",
+  "source_title": "Portal of Whispers",
+  "style": "surreal fantasy",
+  "mood": "ethereal chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "portal",
+    "octopus creature",
+    "ghostly figures",
+    "overgrown room"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3973,
+  "source_url": "/generated/3973.jpg",
+  "image_url": "/sketches/4553.png",
+  "inverted_image_url": "/sketches-inverted/4553.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:48Z"
+}

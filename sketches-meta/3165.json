@@ -1,0 +1,42 @@
+{
+  "number": 3165,
+  "title": "Line sketch: Fallout Shelter Descent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in an jumpsuit and respirator walks down a dilapidated concrete staircase inside a flooded fallout shelter marked 732. Floating debris, film reels, broken picture frames, and a 'DANGER RADIATION' sign drift in the air as beams of, and light pierce through a broken ceiling skylight, casting reflections on the water below (derived from generated still #2507).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in an jumpsuit and respirator walks down a dilapidated concrete staircase inside a flooded fallout shelter marked 732. Floating debris, film reels, broken picture frames, and a 'DANGER RADIATION' sign drift in the air as beams of, and light pierce through a broken ceiling skylight, casting reflections on the water below",
+  "inverted_title": "Inverted sketch: Fallout Shelter Descent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in an jumpsuit and respirator walks down a dilapidated concrete staircase inside a flooded fallout shelter marked 732. Floating debris, film reels, broken picture frames, and a 'DANGER RADIATION' sign drift in the air as beams of, and light pierce through a broken ceiling skylight, casting reflections on the water below (from generated still #2507).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in an jumpsuit and respirator walks down a dilapidated concrete staircase inside a flooded fallout shelter marked 732. Floating debris, film reels, broken picture frames, and a 'DANGER RADIATION' sign drift in the air as beams of, and light pierce through a broken ceiling skylight, casting reflections on the water below",
+  "source_description": "A man in an orange jumpsuit and respirator walks down a dilapidated concrete staircase inside a flooded fallout shelter marked 732. Floating debris, film reels, broken picture frames, and a 'DANGER RADIATION' sign drift in the air as colorful beams of red, green, and yellow light pierce through a broken ceiling skylight, casting rainbow reflections on the water below.",
+  "source_prompt": "A man wearing an orange jumpsuit, hard hat and gas mask walks down a decaying concrete staircase inside an abandoned flooded fallout shelter numbered 732. Broken picture frames, film reels, and a radiation warning sign float in the air. Dramatic beams of red green and yellow light shine down from a shattered skylight above, creating colorful reflections on the water covering the floor, cinematic surreal composition, detailed textures, atmospheric lighting",
+  "source_title": "Fallout Shelter Descent",
+  "style": "cinematic surrealism",
+  "mood": "dystopian chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fallout shelter",
+    "post-apocalyptic",
+    "surreal",
+    "flooded interior",
+    "dramatic lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2507,
+  "source_url": "/generated/2507.jpg",
+  "image_url": "/sketches/3165.png",
+  "inverted_image_url": "/sketches-inverted/3165.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

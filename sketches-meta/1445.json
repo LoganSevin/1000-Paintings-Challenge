@@ -1,0 +1,42 @@
+{
+  "number": 1445,
+  "title": "Line sketch: Surreal Melting Eye Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a massive cracked - eye dominating the composition, with a swirling iris containing a skeletal figure. Below it, a -toned woman's face melts with dripping paint, set against a dark cloudy background with floating musical notes and ornate patterns (derived from generated still #660).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a massive cracked - eye dominating the composition, with a swirling iris containing a skeletal figure. Below it, a -toned woman's face melts with dripping paint, set against a dark cloudy background with floating musical notes and ornate patterns",
+  "inverted_title": "Inverted sketch: Surreal Melting Eye Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a massive cracked - eye dominating the composition, with a swirling iris containing a skeletal figure. Below it, a -toned woman's face melts with dripping paint, set against a dark cloudy background with floating musical notes and ornate patterns (from generated still #660).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a massive cracked - eye dominating the composition, with a swirling iris containing a skeletal figure. Below it, a -toned woman's face melts with dripping paint, set against a dark cloudy background with floating musical notes and ornate patterns",
+  "source_description": "A surreal painting features a massive cracked orange-red eye dominating the composition, with a swirling colorful iris containing a skeletal figure. Below it, a blue-toned woman's face melts with dripping paint, set against a dark cloudy background with floating musical notes and ornate patterns.",
+  "source_prompt": "",
+  "source_title": "Surreal Melting Eye Portrait",
+  "style": "surrealism",
+  "mood": "psychedelic, haunting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "eye",
+    "skeleton",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 660,
+  "source_url": "/generated/660.jpg",
+  "image_url": "/sketches/1445.png",
+  "inverted_image_url": "/sketches-inverted/1445.png",
+  "curve_count": 105,
+  "built_at": "2026-08-17T00:09:41Z"
+}

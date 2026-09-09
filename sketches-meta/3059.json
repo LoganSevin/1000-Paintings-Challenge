@@ -1,0 +1,42 @@
+{
+  "number": 3059,
+  "title": "Line sketch: Phantom Projectionist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A masked woman in an elegant gown adorned with vines and lilies stands on a decaying theater stage, operating a vintage film projector that casts a beam of light into the darkness. The scene features theater seats, old movie posters on the walls, scattered playing cards, and ghostly silhouettes under dramatic cinematic lighting (derived from generated still #2385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A masked woman in an elegant gown adorned with vines and lilies stands on a decaying theater stage, operating a vintage film projector that casts a beam of light into the darkness. The scene features theater seats, old movie posters on the walls, scattered playing cards, and ghostly silhouettes under dramatic cinematic lighting",
+  "inverted_title": "Inverted sketch: Phantom Projectionist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A masked woman in an elegant gown adorned with vines and lilies stands on a decaying theater stage, operating a vintage film projector that casts a beam of light into the darkness. The scene features theater seats, old movie posters on the walls, scattered playing cards, and ghostly silhouettes under dramatic cinematic lighting (from generated still #2385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A masked woman in an elegant gown adorned with vines and lilies stands on a decaying theater stage, operating a vintage film projector that casts a beam of light into the darkness. The scene features theater seats, old movie posters on the walls, scattered playing cards, and ghostly silhouettes under dramatic cinematic lighting",
+  "source_description": "A masked woman in an elegant gown adorned with vines and lilies stands on a decaying theater stage, operating a vintage film projector that casts a beam of light into the darkness. The scene features red theater seats, old movie posters on the walls, scattered playing cards, and ghostly silhouettes under dramatic cinematic lighting.",
+  "source_prompt": "",
+  "source_title": "Phantom Projectionist",
+  "style": "cinematic digital art",
+  "mood": "mysterious, theatrical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "theater",
+    "projector",
+    "masked woman",
+    "vintage",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2385,
+  "source_url": "/generated/2385.jpg",
+  "image_url": "/sketches/3059.png",
+  "inverted_image_url": "/sketches-inverted/3059.png",
+  "curve_count": 88,
+  "built_at": "2026-08-17T00:09:44Z"
+}

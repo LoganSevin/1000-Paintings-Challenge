@@ -1,0 +1,42 @@
+{
+  "number": 315,
+  "title": "Line sketch: Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pop art style portrait of a Labrador retriever in profile. The dog is rendered in bright with bold black outlines against a solid background (derived from painting #376).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pop art style portrait of a Labrador retriever in profile. The dog is rendered in bright with bold black outlines against a solid background",
+  "inverted_title": "Inverted sketch: Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pop art style portrait of a Labrador retriever in profile. The dog is rendered in bright with bold black outlines against a solid background (from painting #376).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pop art style portrait of a Labrador retriever in profile. The dog is rendered in bright with bold black outlines against a solid background",
+  "source_description": "A vibrant pop art style portrait of a Labrador retriever in profile. The dog is rendered in bright lime green with bold black outlines against a solid pink background.",
+  "source_prompt": "",
+  "source_title": "Green Dog Portrait",
+  "style": "Pop Art",
+  "mood": "Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog",
+    "pop art",
+    "portrait",
+    "labrador",
+    "illustration"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 376,
+  "source_url": "/paintings/376.jpg",
+  "image_url": "/sketches/315.png",
+  "inverted_image_url": "/sketches-inverted/315.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4709,
+  "title": "Line sketch: Mysterious Dungeon Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down fantasy dungeon map rendered as an illustrated artwork. The complex stone layout includes a large circular chamber with an eye symbol and glowing orbs, glowing magical pools, toxic water channels, statues in a ritual room, mechanical gears, and various connecting corridors with vines and glowing elements (derived from generated still #4139).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down fantasy dungeon map rendered as an illustrated artwork. The complex stone layout includes a large circular chamber with an eye symbol and glowing orbs, glowing magical pools, toxic water channels, statues in a ritual room, mechanical gears, and various connecting corridors with vines and glowing elements",
+  "inverted_title": "Inverted sketch: Mysterious Dungeon Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down fantasy dungeon map rendered as an illustrated artwork. The complex stone layout includes a large circular chamber with an eye symbol and glowing orbs, glowing magical pools, toxic water channels, statues in a ritual room, mechanical gears, and various connecting corridors with vines and glowing elements (from generated still #4139).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down fantasy dungeon map rendered as an illustrated artwork. The complex stone layout includes a large circular chamber with an eye symbol and glowing orbs, glowing magical pools, toxic water channels, statues in a ritual room, mechanical gears, and various connecting corridors with vines and glowing elements",
+  "source_description": "A top-down fantasy dungeon map rendered as an illustrated artwork. The complex stone layout includes a large circular chamber with an eye symbol and glowing teal orbs, glowing purple magical pools, green toxic water channels, statues in a purple ritual room, mechanical gears, and various connecting corridors with vines and glowing elements.",
+  "source_prompt": "Top-down view of an intricate fantasy dungeon map with stone walls and pathways. Features a large circular chamber containing a central eye symbol surrounded by four glowing teal orbs, glowing purple magical pools, channels of green water, a room with multiple statues on pedestals, mechanical gears with a keyhole, and connecting corridors overgrown with vines, in a hand-painted fantasy illustration style on aged parchment.",
+  "source_title": "Mysterious Dungeon Map",
+  "style": "Fantasy map illustration",
+  "mood": "Mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dungeon map",
+    "fantasy map",
+    "top-down view",
+    "magic runes",
+    "stone architecture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4139,
+  "source_url": "/generated/4139.jpg",
+  "image_url": "/sketches/4709.png",
+  "inverted_image_url": "/sketches-inverted/4709.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:48Z"
+}

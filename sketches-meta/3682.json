@@ -1,0 +1,42 @@
+{
+  "number": 3682,
+  "title": "Line sketch: Devil on Motorcycle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A terrified screaming face with horns is being overtaken by a demonic figure aggressively riding a motorcycle with spiked tires. The scene is drawn on torn, lined notebook paper with dynamic speed lines and motion effects (derived from generated still #3090).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A terrified screaming face with horns is being overtaken by a demonic figure aggressively riding a motorcycle with spiked tires. The scene is drawn on torn, lined notebook paper with dynamic speed lines and motion effects",
+  "inverted_title": "Inverted sketch: Devil on Motorcycle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A terrified screaming face with horns is being overtaken by a demonic figure aggressively riding a motorcycle with spiked tires. The scene is drawn on torn, lined notebook paper with dynamic speed lines and motion effects (from generated still #3090).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A terrified screaming face with horns is being overtaken by a demonic figure aggressively riding a motorcycle with spiked tires. The scene is drawn on torn, lined notebook paper with dynamic speed lines and motion effects",
+  "source_description": "A terrified blue screaming face with horns is being overtaken by a red demonic figure aggressively riding a red motorcycle with spiked tires. The scene is drawn on torn, lined notebook paper with dynamic speed lines and motion effects.",
+  "source_prompt": "",
+  "source_title": "Devil on Motorcycle",
+  "style": "comic book",
+  "mood": "chaotic, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "ink and marker on notebook paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "motorcycle",
+    "screaming face",
+    "notebook art",
+    "speed lines"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3090,
+  "source_url": "/generated/3090.jpg",
+  "image_url": "/sketches/3682.png",
+  "inverted_image_url": "/sketches-inverted/3682.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:46Z"
+}

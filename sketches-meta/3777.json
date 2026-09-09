@@ -1,0 +1,42 @@
+{
+  "number": 3777,
+  "title": "Line sketch: Female Cyberpunk Spellcaster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of the same short-haired woman in a futuristic armored outfit performing a magical attack. Glowing and energy effects swirl around her hands and form an orb above her head as she progresses through casting motions against a dark background (derived from generated still #3193).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of the same short-haired woman in a futuristic armored outfit performing a magical attack. Glowing and energy effects swirl around her hands and form an orb above her head as she progresses through casting motions against a dark background",
+  "inverted_title": "Inverted sketch: Female Cyberpunk Spellcaster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of the same short-haired woman in a futuristic armored outfit performing a magical attack. Glowing and energy effects swirl around her hands and form an orb above her head as she progresses through casting motions against a dark background (from generated still #3193).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of the same short-haired woman in a futuristic armored outfit performing a magical attack. Glowing and energy effects swirl around her hands and form an orb above her head as she progresses through casting motions against a dark background",
+  "source_description": "Four sequential poses of the same short-haired woman in a futuristic armored outfit performing a magical attack. Glowing orange and blue energy effects swirl around her hands and form an orb above her head as she progresses through casting motions against a dark background.",
+  "source_prompt": "A female character with short white hair wearing black tactical gear, brown leather straps, knee pads and boots, shown in four sequential action poses casting a spell. She manipulates glowing orange and blue magical energy that forms swirling rings and a bright orb between her hands. Dynamic combat stances against a solid dark gray background, sci-fi fantasy aesthetic, highly detailed digital artwork.",
+  "source_title": "Female Cyberpunk Spellcaster",
+  "style": "digital concept art",
+  "mood": "dynamic, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D rendered character study",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "cyberpunk",
+    "magic effects",
+    "action poses",
+    "energy orb"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3193,
+  "source_url": "/generated/3193.jpg",
+  "image_url": "/sketches/3777.png",
+  "inverted_image_url": "/sketches-inverted/3777.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:46Z"
+}

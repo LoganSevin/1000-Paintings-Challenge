@@ -1,0 +1,42 @@
+{
+  "number": 308,
+  "title": "Line sketch: Cybernetic Frog-Turtle Hybrid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed composition of a frog with a mechanical turtle shell fused to its back, perched on a cracked concrete ledge. The creature features eyes, metallic bolts, and glowing elements against a background (derived from painting #369).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed composition of a frog with a mechanical turtle shell fused to its back, perched on a cracked concrete ledge. The creature features eyes, metallic bolts, and glowing elements against a background",
+  "inverted_title": "Inverted sketch: Cybernetic Frog-Turtle Hybrid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed composition of a frog with a mechanical turtle shell fused to its back, perched on a cracked concrete ledge. The creature features eyes, metallic bolts, and glowing elements against a background (from painting #369).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed composition of a frog with a mechanical turtle shell fused to its back, perched on a cracked concrete ledge. The creature features eyes, metallic bolts, and glowing elements against a background",
+  "source_description": "A highly detailed painting of a green frog with a mechanical turtle shell fused to its back, perched on a cracked concrete ledge. The creature features orange eyes, metallic bolts, and glowing blue elements against a muted purple background.",
+  "source_prompt": "",
+  "source_title": "Cybernetic Frog-Turtle Hybrid",
+  "style": "Realistic",
+  "mood": "Surreal and eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cybernetic creature",
+    "frog turtle hybrid",
+    "mechanical shell",
+    "detailed composition",
+    "sci-fi animal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 369,
+  "source_url": "/paintings/369.jpg",
+  "image_url": "/sketches/308.png",
+  "inverted_image_url": "/sketches-inverted/308.png",
+  "curve_count": 159,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3621,
+  "title": "Line sketch: Dominican Devil's Lair",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal beach scene featuring a tattooed woman in a Dominican flag bikini sitting on a rock at the water's edge, extending her hand toward a horned devil emerging from a stone cave. A scuba diver in a full black wetsuit with fins floats upside down in the water nearby, surrounded by numerous Dominican Republic flags floating in the sea and sky (derived from generated still #3029).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal beach scene featuring a tattooed woman in a Dominican flag bikini sitting on a rock at the water's edge, extending her hand toward a horned devil emerging from a stone cave. A scuba diver in a full black wetsuit with fins floats upside down in the water nearby, surrounded by numerous Dominican Republic flags floating in the sea and sky",
+  "inverted_title": "Inverted sketch: Dominican Devil's Lair",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal beach scene featuring a tattooed woman in a Dominican flag bikini sitting on a rock at the water's edge, extending her hand toward a horned devil emerging from a stone cave. A scuba diver in a full black wetsuit with fins floats upside down in the water nearby, surrounded by numerous Dominican Republic flags floating in the sea and sky (from generated still #3029).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal beach scene featuring a tattooed woman in a Dominican flag bikini sitting on a rock at the water's edge, extending her hand toward a horned devil emerging from a stone cave. A scuba diver in a full black wetsuit with fins floats upside down in the water nearby, surrounded by numerous Dominican Republic flags floating in the sea and sky",
+  "source_description": "A surreal beach scene featuring a tattooed woman in a Dominican flag bikini sitting on a rock at the water's edge, extending her hand toward a blue horned devil emerging from a stone cave. A scuba diver in a full black wetsuit with pink fins floats upside down in the water nearby, surrounded by numerous Dominican Republic flags floating in the sea and sky.",
+  "source_prompt": "A surreal tropical beach scene at sunset with palm trees, a tattooed Dominican woman wearing a flag bikini sitting on a rock covered in sea plants, reaching toward a blue demonic creature with horns emerging from a carved stone cave entrance. A female scuba diver in a black wetsuit and bright pink fins is floating upside down in the clear water, surrounded by dozens of floating Dominican Republic flags both above and below the water surface.",
+  "source_title": "Dominican Devil's Lair",
+  "style": "fantasy realism",
+  "mood": "surreal tropical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "devil",
+    "beach",
+    "scuba diver",
+    "Dominican Republic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3029,
+  "source_url": "/generated/3029.jpg",
+  "image_url": "/sketches/3621.png",
+  "inverted_image_url": "/sketches-inverted/3621.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:46Z"
+}

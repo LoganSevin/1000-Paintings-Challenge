@@ -1,0 +1,42 @@
+{
+  "number": 3615,
+  "title": "Line sketch: Mystic Sorceress Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A blonde woman in a black and corset with lace sleeves and a patterned bandana stands in the foreground, smiling at the viewer. Behind her a large glowing circular magical portal with runes floats in a cosmic nebula sky, with a framed portrait of the same woman resting on velvet fabric surrounded by lit candles (derived from generated still #3023).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A blonde woman in a black and corset with lace sleeves and a patterned bandana stands in the foreground, smiling at the viewer. Behind her a large glowing circular magical portal with runes floats in a cosmic nebula sky, with a framed portrait of the same woman resting on velvet fabric surrounded by lit candles",
+  "inverted_title": "Inverted sketch: Mystic Sorceress Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A blonde woman in a black and corset with lace sleeves and a patterned bandana stands in the foreground, smiling at the viewer. Behind her a large glowing circular magical portal with runes floats in a cosmic nebula sky, with a framed portrait of the same woman resting on velvet fabric surrounded by lit candles (from generated still #3023).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A blonde woman in a black and corset with lace sleeves and a patterned bandana stands in the foreground, smiling at the viewer. Behind her a large glowing circular magical portal with runes floats in a cosmic nebula sky, with a framed portrait of the same woman resting on velvet fabric surrounded by lit candles",
+  "source_description": "A blonde woman in a black and blue corset with lace sleeves and a patterned bandana stands in the foreground, smiling at the viewer. Behind her a large glowing circular magical portal with runes floats in a cosmic nebula sky, with a framed portrait of the same woman resting on red velvet fabric surrounded by lit candles.",
+  "source_prompt": "A beautiful blonde woman wearing a black leather corset with blue details, intricate black lace sleeves, and a black and white patterned bandana on her head stands smiling in a cosmic scene. A large glowing circular magical portal with floating runes and bright blue energy swirls in the starry nebula background. In the foreground, a golden framed portrait of the same woman sits on rich red velvet fabric surrounded by several lit candles, mystical atmosphere, highly detailed digital fantasy art.",
+  "source_title": "Mystic Sorceress Portal",
+  "style": "digital fantasy illustration",
+  "mood": "mystical enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorceress",
+    "magical portal",
+    "cosmic background",
+    "candles",
+    "framed portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3023,
+  "source_url": "/generated/3023.jpg",
+  "image_url": "/sketches/3615.png",
+  "inverted_image_url": "/sketches-inverted/3615.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:46Z"
+}

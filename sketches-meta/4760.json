@@ -1,0 +1,42 @@
+{
+  "number": 4760,
+  "title": "Line sketch: Starry Farm Night",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene rural landscape at night features a wheat field in the foreground, a wooden fence, scattered trees, and a barn in the distance under a dramatic sky. The sky is filled with stars, a glowing crescent moon, a spiral galaxy, and a bright comet streaking downward (derived from generated still #4193).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene rural landscape at night features a wheat field in the foreground, a wooden fence, scattered trees, and a barn in the distance under a dramatic sky. The sky is filled with stars, a glowing crescent moon, a spiral galaxy, and a bright comet streaking downward",
+  "inverted_title": "Inverted sketch: Starry Farm Night",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene rural landscape at night features a wheat field in the foreground, a wooden fence, scattered trees, and a barn in the distance under a dramatic sky. The sky is filled with stars, a glowing crescent moon, a spiral galaxy, and a bright comet streaking downward (from generated still #4193).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene rural landscape at night features a wheat field in the foreground, a wooden fence, scattered trees, and a barn in the distance under a dramatic sky. The sky is filled with stars, a glowing crescent moon, a spiral galaxy, and a bright comet streaking downward",
+  "source_description": "A serene rural landscape at night features a golden wheat field in the foreground, a wooden fence, scattered trees, and a red barn in the distance under a dramatic purple sky. The sky is filled with stars, a glowing blue crescent moon, a spiral galaxy, and a bright comet streaking downward.",
+  "source_prompt": "A mystical nighttime farm landscape with golden wheat fields in the foreground, wooden fence, scattered trees, and a red barn in the misty distance. The dramatic purple sky is filled with stars, a glowing blue crescent moon, a large spiral galaxy, and a bright comet streaking across, all rendered in a dreamy fantasy painting style with soft atmospheric lighting.",
+  "source_title": "Starry Farm Night",
+  "style": "fantasy landscape",
+  "mood": "magical serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "night landscape",
+    "cosmic sky",
+    "farm scene",
+    "galaxy",
+    "crescent moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4193,
+  "source_url": "/generated/4193.jpg",
+  "image_url": "/sketches/4760.png",
+  "inverted_image_url": "/sketches-inverted/4760.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:48Z"
+}

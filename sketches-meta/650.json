@@ -1,0 +1,42 @@
+{
+  "number": 650,
+  "title": "Line sketch: Desert No Sign Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stark prohibition sign stands in a barren desert landscape under a massive sun. rock mountains rise in the background of this minimalist scene (derived from painting #827).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stark prohibition sign stands in a barren desert landscape under a massive sun. rock mountains rise in the background of this minimalist scene",
+  "inverted_title": "Inverted sketch: Desert No Sign Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stark prohibition sign stands in a barren desert landscape under a massive sun. rock mountains rise in the background of this minimalist scene (from painting #827).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stark prohibition sign stands in a barren desert landscape under a massive sun. rock mountains rise in the background of this minimalist scene",
+  "source_description": "A stark prohibition sign stands in a barren desert landscape under a massive red sun. Red rock mountains rise in the background of this minimalist scene.",
+  "source_prompt": "",
+  "source_title": "Desert No Sign Sunset",
+  "style": "Minimalist digital illustration",
+  "mood": "Eerie and desolate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert",
+    "prohibition sign",
+    "sun",
+    "mountains",
+    "minimalist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 827,
+  "source_url": "/paintings/827.jpg",
+  "image_url": "/sketches/650.png",
+  "inverted_image_url": "/sketches-inverted/650.png",
+  "curve_count": 150,
+  "built_at": "2026-08-17T00:09:39Z"
+}

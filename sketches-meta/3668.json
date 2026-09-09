@@ -1,0 +1,42 @@
+{
+  "number": 3668,
+  "title": "Line sketch: Armored Mice in Lily Field",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large group of armored mice ride upon mechanical elephant-like mounts across a vast field of. In the center, a mouse knight stands atop a larger mount in front of an enormous white lily flower, with giant and poppies towering in the background under a warm, hazy sky (derived from generated still #3076).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large group of armored mice ride upon mechanical elephant-like mounts across a vast field of. In the center, a mouse knight stands atop a larger mount in front of an enormous white lily flower, with giant and poppies towering in the background under a warm, hazy sky",
+  "inverted_title": "Inverted sketch: Armored Mice in Lily Field",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large group of armored mice ride upon mechanical elephant-like mounts across a vast field of. In the center, a mouse knight stands atop a larger mount in front of an enormous white lily flower, with giant and poppies towering in the background under a warm, hazy sky (from generated still #3076).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large group of armored mice ride upon mechanical elephant-like mounts across a vast field of. In the center, a mouse knight stands atop a larger mount in front of an enormous white lily flower, with giant and poppies towering in the background under a warm, hazy sky",
+  "source_description": "A large group of armored mice ride upon mechanical elephant-like mounts across a vast field of purple lavender. In the center, a mouse knight stands atop a larger mount in front of an enormous white lily flower, with giant red and orange poppies towering in the background under a warm, hazy sky.",
+  "source_prompt": "whimsical fantasy scene of an army of armored mice riding mechanical bronze elephant mounts with howdahs, marching through a dense field of purple lavender flowers, a central mouse warrior standing triumphantly on the lead mount in front of a gigantic blooming white lily with yellow stamens, surrounded by massive red and orange poppies and green foliage, warm golden hour sunlight, cinematic atmosphere, highly detailed, storybook illustration style, rich textures, soft atmospheric haze",
+  "source_title": "Armored Mice in Lily Field",
+  "style": "fantasy illustration",
+  "mood": "epic whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mice army",
+    "mechanical elephants",
+    "giant flowers",
+    "fantasy battle",
+    "field"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3076,
+  "source_url": "/generated/3076.jpg",
+  "image_url": "/sketches/3668.png",
+  "inverted_image_url": "/sketches-inverted/3668.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:46Z"
+}

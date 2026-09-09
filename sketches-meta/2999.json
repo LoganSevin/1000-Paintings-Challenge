@@ -1,0 +1,42 @@
+{
+  "number": 2999,
+  "title": "Line sketch: Surreal Camouflage Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in military camouflage and cap stares forward from a rocky shore, with turbulent ocean waves crashing behind him and a serene lakeside castle in the distance. A worried cartoon creature stands on a patterned rug surrounded by floating bubbles and ceramic vases (derived from generated still #2321).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in military camouflage and cap stares forward from a rocky shore, with turbulent ocean waves crashing behind him and a serene lakeside castle in the distance. A worried cartoon creature stands on a patterned rug surrounded by floating bubbles and ceramic vases",
+  "inverted_title": "Inverted sketch: Surreal Camouflage Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in military camouflage and cap stares forward from a rocky shore, with turbulent ocean waves crashing behind him and a serene lakeside castle in the distance. A worried cartoon creature stands on a patterned rug surrounded by floating bubbles and ceramic vases (from generated still #2321).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in military camouflage and cap stares forward from a rocky shore, with turbulent ocean waves crashing behind him and a serene lakeside castle in the distance. A worried cartoon creature stands on a patterned rug surrounded by floating bubbles and ceramic vases",
+  "source_description": "A man in military camouflage and cap stares forward from a rocky shore, with turbulent ocean waves crashing behind him and a serene lakeside castle in the distance. A worried blue cartoon creature stands on a colorful patterned rug surrounded by floating iridescent bubbles and ceramic vases.",
+  "source_prompt": "",
+  "source_title": "Surreal Camouflage Dreamscape",
+  "style": "surrealist composition",
+  "mood": "dreamlike tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "military",
+    "ocean waves",
+    "cartoon creature",
+    "castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2321,
+  "source_url": "/generated/2321.jpg",
+  "image_url": "/sketches/2999.png",
+  "inverted_image_url": "/sketches-inverted/2999.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:44Z"
+}

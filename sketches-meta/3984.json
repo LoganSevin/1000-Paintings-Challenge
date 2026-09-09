@@ -1,0 +1,42 @@
+{
+  "number": 3984,
+  "title": "Line sketch: Fallen Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with white hair and eyes lies supine on a dark floor, wearing ornate white and traditional robes with armored gauntlets. Broken shards, a shattered chain, and crescent moon symbols are scattered around her body (derived from generated still #3401).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with white hair and eyes lies supine on a dark floor, wearing ornate white and traditional robes with armored gauntlets. Broken shards, a shattered chain, and crescent moon symbols are scattered around her body",
+  "inverted_title": "Inverted sketch: Fallen Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with white hair and eyes lies supine on a dark floor, wearing ornate white and traditional robes with armored gauntlets. Broken shards, a shattered chain, and crescent moon symbols are scattered around her body (from generated still #3401).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with white hair and eyes lies supine on a dark floor, wearing ornate white and traditional robes with armored gauntlets. Broken shards, a shattered chain, and crescent moon symbols are scattered around her body",
+  "source_description": "A young woman with white hair and purple eyes lies supine on a dark floor, wearing ornate white and purple traditional robes with armored gauntlets. Broken purple shards, a shattered purple chain, and crescent moon symbols are scattered around her body.",
+  "source_prompt": "A young dark-skinned sorceress with long flowing white hair lies motionless on her back on a dark gray floor, wearing intricate white and purple East Asian inspired robes with silver details and armored gauntlets. Her eyes are open with a vacant expression. Shattered purple crystalline shards, broken purple chain links, and glowing purple crescent moons are scattered around her body. Dramatic lighting, highly detailed digital painting style.",
+  "source_title": "Fallen Purple Sorceress",
+  "style": "line sketch",
+  "mood": "melancholy, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render with painterly style",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "magic",
+    "shattered objects",
+    "white hair",
+    "fantasy robes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3401,
+  "source_url": "/generated/3401.jpg",
+  "image_url": "/sketches/3984.png",
+  "inverted_image_url": "/sketches-inverted/3984.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:47Z"
+}

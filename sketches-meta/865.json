@@ -1,0 +1,42 @@
+{
+  "number": 865,
+  "title": "Line sketch: Witch by Blood Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted witch with raised arms and pointed hat stands on a hill covered in glowing flowers, overlooking a calm sea with a lone sailboat. The dramatic night sky features a large blood moon surrounded by swirling cosmic rings, vibrant aurora borealis, and scattered stars (derived from generated still #74).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted witch with raised arms and pointed hat stands on a hill covered in glowing flowers, overlooking a calm sea with a lone sailboat. The dramatic night sky features a large blood moon surrounded by swirling cosmic rings, vibrant aurora borealis, and scattered stars",
+  "inverted_title": "Inverted sketch: Witch by Blood Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted witch with raised arms and pointed hat stands on a hill covered in glowing flowers, overlooking a calm sea with a lone sailboat. The dramatic night sky features a large blood moon surrounded by swirling cosmic rings, vibrant aurora borealis, and scattered stars (from generated still #74).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted witch with raised arms and pointed hat stands on a hill covered in glowing flowers, overlooking a calm sea with a lone sailboat. The dramatic night sky features a large blood moon surrounded by swirling cosmic rings, vibrant aurora borealis, and scattered stars",
+  "source_description": "A silhouetted witch with raised arms and pointed hat stands on a hill covered in glowing red flowers, overlooking a calm sea with a lone sailboat. The dramatic night sky features a large red blood moon surrounded by swirling cosmic rings, vibrant aurora borealis, and scattered stars.",
+  "source_prompt": "",
+  "source_title": "Witch by Blood Moon",
+  "style": "fantasy illustration",
+  "mood": "mystical, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "blood moon",
+    "aurora",
+    "flowers",
+    "sailboat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 74,
+  "source_url": "/generated/74.jpg",
+  "image_url": "/sketches/865.png",
+  "inverted_image_url": "/sketches-inverted/865.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:40Z"
+}

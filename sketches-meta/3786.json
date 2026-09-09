@@ -1,0 +1,42 @@
+{
+  "number": 3786,
+  "title": "Line sketch: Sorceress Action Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a dark-skinned female warrior with white hair, wearing ornate and fantasy armor with leaf-like patterns and boots. She performs a magical attack, with energy and bright white- light effects emanating from her hands, shown against a dark gradient background (derived from generated still #3203).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a dark-skinned female warrior with white hair, wearing ornate and fantasy armor with leaf-like patterns and boots. She performs a magical attack, with energy and bright white- light effects emanating from her hands, shown against a dark gradient background",
+  "inverted_title": "Inverted sketch: Sorceress Action Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a dark-skinned female warrior with white hair, wearing ornate and fantasy armor with leaf-like patterns and boots. She performs a magical attack, with energy and bright white- light effects emanating from her hands, shown against a dark gradient background (from generated still #3203).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a dark-skinned female warrior with white hair, wearing ornate and fantasy armor with leaf-like patterns and boots. She performs a magical attack, with energy and bright white- light effects emanating from her hands, shown against a dark gradient background",
+  "source_description": "Four sequential poses of a dark-skinned female warrior with white hair, wearing ornate purple and silver fantasy armor with leaf-like patterns and purple boots. She performs a magical attack, with purple energy and bright white-purple light effects emanating from her hands, shown against a dark gradient background.",
+  "source_prompt": "A dark-skinned female fantasy warrior with short white hair and tribal markings, wearing detailed purple and silver leaf-patterned armor, purple boots and armbands, shown in four sequential action poses casting a powerful purple magical spell. Bright purple and white energy bursts and particles explode from her hands as she shifts from a ready stance to an aggressive casting pose, dynamic lighting, studio render on dark background.",
+  "source_title": "Purple Sorceress Action Poses",
+  "style": "3D character render",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital 3D animation still",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "fantasy character",
+    "magic",
+    "action poses",
+    "energy blast"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3203,
+  "source_url": "/generated/3203.jpg",
+  "image_url": "/sketches/3786.png",
+  "inverted_image_url": "/sketches-inverted/3786.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:46Z"
+}

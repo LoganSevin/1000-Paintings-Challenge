@@ -1,0 +1,42 @@
+{
+  "number": 3963,
+  "title": "Line sketch: Mage Fighter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female warrior with white hair in buns and braids stands in a dynamic fighting pose against a solid dark gray background. She wears a white and traditional-inspired outfit with armored elements, holding a glowing energy ring in her right hand while casting a swirling magical orb from her raised left hand, surrounded by crackling energy effects around her head (derived from generated still #3380).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female warrior with white hair in buns and braids stands in a dynamic fighting pose against a solid dark gray background. She wears a white and traditional-inspired outfit with armored elements, holding a glowing energy ring in her right hand while casting a swirling magical orb from her raised left hand, surrounded by crackling energy effects around her head",
+  "inverted_title": "Inverted sketch: Mage Fighter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female warrior with white hair in buns and braids stands in a dynamic fighting pose against a solid dark gray background. She wears a white and traditional-inspired outfit with armored elements, holding a glowing energy ring in her right hand while casting a swirling magical orb from her raised left hand, surrounded by crackling energy effects around her head (from generated still #3380).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female warrior with white hair in buns and braids stands in a dynamic fighting pose against a solid dark gray background. She wears a white and traditional-inspired outfit with armored elements, holding a glowing energy ring in her right hand while casting a swirling magical orb from her raised left hand, surrounded by crackling energy effects around her head",
+  "source_description": "A young female warrior with white hair in buns and braids stands in a dynamic fighting pose against a solid dark gray background. She wears a white and purple traditional-inspired outfit with armored elements, holding a glowing purple energy ring in her right hand while casting a swirling purple magical orb from her raised left hand, surrounded by crackling purple energy effects around her head.",
+  "source_prompt": "A young East Asian female warrior with long white hair styled in buns and braids, wearing a white and purple traditional fantasy outfit with lace-up chest piece, wide pants, and purple sash. She is in a dynamic combat stance with one leg raised, holding a glowing purple energy ring weapon in one hand and casting a swirling purple magical orb from the other. Purple lightning and magical particles surround her head and hands, digital painting style, clean dark gray background",
+  "source_title": "Purple Mage Fighter",
+  "style": "digital illustration",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "mage",
+    "magic",
+    "fantasy character",
+    "energy effects"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3380,
+  "source_url": "/generated/3380.jpg",
+  "image_url": "/sketches/3963.png",
+  "inverted_image_url": "/sketches-inverted/3963.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:47Z"
+}

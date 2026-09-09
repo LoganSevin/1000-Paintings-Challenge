@@ -1,0 +1,42 @@
+{
+  "number": 3767,
+  "title": "Line sketch: Armored Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three sequential views of a male warrior in dynamic action poses against a solid black background. He wears ornate and armor with tattered wing-like shoulder pads, wields a dagger, and displays aggressive facial expressions with an open mouth (derived from generated still #3183).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three sequential views of a male warrior in dynamic action poses against a solid black background. He wears ornate and armor with tattered wing-like shoulder pads, wields a dagger, and displays aggressive facial expressions with an open mouth",
+  "inverted_title": "Inverted sketch: Armored Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three sequential views of a male warrior in dynamic action poses against a solid black background. He wears ornate and armor with tattered wing-like shoulder pads, wields a dagger, and displays aggressive facial expressions with an open mouth (from generated still #3183).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three sequential views of a male warrior in dynamic action poses against a solid black background. He wears ornate and armor with tattered wing-like shoulder pads, wields a dagger, and displays aggressive facial expressions with an open mouth",
+  "source_description": "Three sequential views of a male warrior in dynamic action poses against a solid black background. He wears ornate pink and gold armor with tattered wing-like shoulder pads, wields a dagger, and displays aggressive facial expressions with an open mouth.",
+  "source_prompt": "A muscular male warrior with spiky brown hair in three different dynamic action poses, wearing ornate pink and gold fantasy armor with tattered brown wing-like shoulder pads, blue-grey skirt, and brown boots. He holds a dagger in one hand, has an aggressive open-mouthed expression, shown in left, center, and right views against a pure black background, highly detailed digital painting style",
+  "source_title": "Armored Warrior Poses",
+  "style": "line sketch",
+  "mood": "dynamic aggressive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D render to 2D painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "armor",
+    "action poses",
+    "fantasy",
+    "male character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3183,
+  "source_url": "/generated/3183.jpg",
+  "image_url": "/sketches/3767.png",
+  "inverted_image_url": "/sketches-inverted/3767.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2467,
+  "title": "Line sketch: Surreal Psychedelic Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, dripping surreal composition featuring a large bird-like tree creature with a prominent eye under a full moon. The composition includes floating landscape panels with swirling patterns, a city skyline, a 'Chicken Shi' sign, and the text 'TOTALLY! WACKY STUFF', all rendered in a melting, style with visible paint drips (derived from generated still #1702).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, dripping surreal composition featuring a large bird-like tree creature with a prominent eye under a full moon. The composition includes floating landscape panels with swirling patterns, a city skyline, a 'Chicken Shi' sign, and the text 'TOTALLY! WACKY STUFF', all rendered in a melting, style with visible paint drips",
+  "inverted_title": "Inverted sketch: Surreal Psychedelic Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, dripping surreal composition featuring a large bird-like tree creature with a prominent eye under a full moon. The composition includes floating landscape panels with swirling patterns, a city skyline, a 'Chicken Shi' sign, and the text 'TOTALLY! WACKY STUFF', all rendered in a melting, style with visible paint drips (from generated still #1702).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, dripping surreal composition featuring a large bird-like tree creature with a prominent eye under a full moon. The composition includes floating landscape panels with swirling patterns, a city skyline, a 'Chicken Shi' sign, and the text 'TOTALLY! WACKY STUFF', all rendered in a melting, style with visible paint drips",
+  "source_description": "A vibrant, dripping surreal painting featuring a large bird-like tree creature with a prominent yellow eye under a full moon. The composition includes floating landscape panels with swirling patterns, a city skyline, a 'Chicken Shi' sign, and the text 'TOTALLY! WACKY STUFF', all rendered in a melting, colorful style with visible paint drips.",
+  "source_prompt": "",
+  "source_title": "Surreal Psychedelic Landscape",
+  "style": "surreal psychedelic",
+  "mood": "trippy whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "bird-tree",
+    "melting",
+    "moonlit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1702,
+  "source_url": "/generated/1702.jpg",
+  "image_url": "/sketches/2467.png",
+  "inverted_image_url": "/sketches-inverted/2467.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:43Z"
+}

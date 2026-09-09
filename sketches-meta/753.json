@@ -1,0 +1,42 @@
+{
+  "number": 753,
+  "title": "Line sketch: Smiling Orb in Glow",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cheerful smiley face floats at the center of a luminous orb surrounded by swirling rings and paint splatters. The vibrant digital artwork captures a sense of cosmic joy and energy against a radiant gradient background (derived from painting #950).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cheerful smiley face floats at the center of a luminous orb surrounded by swirling rings and paint splatters. The vibrant digital artwork captures a sense of cosmic joy and energy against a radiant gradient background",
+  "inverted_title": "Inverted sketch: Smiling Orb in Glow",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cheerful smiley face floats at the center of a luminous orb surrounded by swirling rings and paint splatters. The vibrant digital artwork captures a sense of cosmic joy and energy against a radiant gradient background (from painting #950).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cheerful smiley face floats at the center of a luminous orb surrounded by swirling rings and paint splatters. The vibrant digital artwork captures a sense of cosmic joy and energy against a radiant gradient background",
+  "source_description": "A cheerful smiley face floats at the center of a luminous green orb surrounded by swirling colorful rings and paint splatters. The vibrant digital artwork captures a sense of cosmic joy and energy against a radiant green gradient background.",
+  "source_prompt": "",
+  "source_title": "Smiling Orb in Green Glow",
+  "style": "Digital Illustration",
+  "mood": "Joyful and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "smiley face",
+    "glowing orb",
+    "cosmic energy",
+    "digital art",
+    "gradient"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 950,
+  "source_url": "/paintings/950.jpg",
+  "image_url": "/sketches/753.png",
+  "inverted_image_url": "/sketches-inverted/753.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2488,
+  "title": "Line sketch: Tavern Circa 2026",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal collage of overlapping fantasy and cosmic artworks arranged on a dark, fiery and black background. Visible elements include a large central human eye with a cosmic iris, a glowing spider with a smiley face, multiple smaller eyes, a swirling galaxy, a crowded tavern scene, sailing ships, and text elements reading 'Tavern Circa 2026', 'Which is', 'Time to Think', and 'Goblins & Ghouls' (derived from generated still #1723).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal collage of overlapping fantasy and cosmic artworks arranged on a dark, fiery and black background. Visible elements include a large central human eye with a cosmic iris, a glowing spider with a smiley face, multiple smaller eyes, a swirling galaxy, a crowded tavern scene, sailing ships, and text elements reading 'Tavern Circa 2026', 'Which is', 'Time to Think', and 'Goblins & Ghouls'",
+  "inverted_title": "Inverted sketch: Tavern Circa 2026",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal collage of overlapping fantasy and cosmic artworks arranged on a dark, fiery and black background. Visible elements include a large central human eye with a cosmic iris, a glowing spider with a smiley face, multiple smaller eyes, a swirling galaxy, a crowded tavern scene, sailing ships, and text elements reading 'Tavern Circa 2026', 'Which is', 'Time to Think', and 'Goblins & Ghouls' (from generated still #1723).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal collage of overlapping fantasy and cosmic artworks arranged on a dark, fiery and black background. Visible elements include a large central human eye with a cosmic iris, a glowing spider with a smiley face, multiple smaller eyes, a swirling galaxy, a crowded tavern scene, sailing ships, and text elements reading 'Tavern Circa 2026', 'Which is', 'Time to Think', and 'Goblins & Ghouls'",
+  "source_description": "A surreal collage of overlapping fantasy and cosmic artworks arranged on a dark, fiery red and black background. Visible elements include a large central human eye with a colorful cosmic iris, a glowing green spider with a smiley face, multiple smaller eyes, a swirling purple galaxy, a crowded tavern scene, sailing ships, and text elements reading 'Tavern Circa 2026', 'Which is', 'Time to Think', and 'Goblins & Ghouls'.",
+  "source_prompt": "",
+  "source_title": "Tavern Circa 2026",
+  "style": "surreal collage",
+  "mood": "psychedelic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "fantasy",
+    "collage",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1723,
+  "source_url": "/generated/1723.jpg",
+  "image_url": "/sketches/2488.png",
+  "inverted_image_url": "/sketches-inverted/2488.png",
+  "curve_count": 154,
+  "built_at": "2026-08-17T00:09:43Z"
+}

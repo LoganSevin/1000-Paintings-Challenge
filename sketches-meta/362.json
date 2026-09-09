@@ -1,0 +1,41 @@
+{
+  "number": 362,
+  "title": "Line sketch: Diagonal Strokes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An abstract composition featuring dynamic diagonal in earthy tones. The layered paint creates a sense of movement across the page with shimmering accents (derived from painting #424).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An abstract composition featuring dynamic diagonal in earthy tones. The layered paint creates a sense of movement across the page with shimmering accents",
+  "inverted_title": "Inverted sketch: Diagonal Strokes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An abstract composition featuring dynamic diagonal in earthy tones. The layered paint creates a sense of movement across the page with shimmering accents (from painting #424).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An abstract composition featuring dynamic diagonal in earthy tones. The layered paint creates a sense of movement across the page with shimmering accents",
+  "source_description": "An abstract composition featuring dynamic diagonal brushstrokes in earthy tones. The layered paint creates a sense of movement across the canvas with shimmering gold accents.",
+  "source_prompt": "",
+  "source_title": "Golden Diagonal Strokes",
+  "style": "Abstract",
+  "mood": "Serene and dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "diagonal",
+    "earthy tones",
+    "minimal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 424,
+  "source_url": "/paintings/424.jpg",
+  "image_url": "/sketches/362.png",
+  "inverted_image_url": "/sketches-inverted/362.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:39Z"
+}

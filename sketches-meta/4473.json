@@ -1,0 +1,42 @@
+{
+  "number": 4473,
+  "title": "Line sketch: Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and Victorian-style dress stands at a wooden desk, writing in a notebook with a quill while holding a glowing orb containing a anatomical heart. The room has walls covered in framed alchemical and anatomical diagrams (derived from generated still #3892).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and Victorian-style dress stands at a wooden desk, writing in a notebook with a quill while holding a glowing orb containing a anatomical heart. The room has walls covered in framed alchemical and anatomical diagrams",
+  "inverted_title": "Inverted sketch: Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and Victorian-style dress stands at a wooden desk, writing in a notebook with a quill while holding a glowing orb containing a anatomical heart. The room has walls covered in framed alchemical and anatomical diagrams (from generated still #3892).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and Victorian-style dress stands at a wooden desk, writing in a notebook with a quill while holding a glowing orb containing a anatomical heart. The room has walls covered in framed alchemical and anatomical diagrams",
+  "source_description": "A woman in a green and cream Victorian-style dress stands at a wooden desk, writing in a notebook with a quill while holding a glowing blue orb containing a red anatomical heart. The room has purple walls covered in framed alchemical and anatomical diagrams.",
+  "source_prompt": "A beautiful dark-haired woman in an emerald green Victorian dress with cream sleeves and red embroidery stands at a large wooden desk in a study with purple walls. She is writing with a quill in one hand and holding a glowing blue orb containing a red anatomical heart in the other. The desk is covered with an open book of glowing purple arcane circles, scrolls, a red lantern, green wax seals, and scissors. The walls are filled with many framed anatomical and occult diagrams in teal and gold frames. Warm magical lighting, intricate details, rich colors.",
+  "source_title": "Stasis",
+  "style": "detailed digital illustration",
+  "mood": "mysterious, scholarly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "occult",
+    "victorian",
+    "magic",
+    "anatomy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3892,
+  "source_url": "/generated/3892.jpg",
+  "image_url": "/sketches/4473.png",
+  "inverted_image_url": "/sketches-inverted/4473.png",
+  "curve_count": 316,
+  "built_at": "2026-08-17T00:09:48Z"
+}

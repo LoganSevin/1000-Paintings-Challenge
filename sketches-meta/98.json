@@ -1,0 +1,42 @@
+{
+  "number": 98,
+  "title": "Line sketch: Cosmic Face in Orbit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The composition centers on a large circular face with eyes and an mouth, surrounded by sweeping curves, overlapping circles, and dangling linear forms. Bold flat shapes in contrasting colors create a dynamic, balanced composition across a light background. Technique features crisp outlines and unmodulated color fields typical of graphic abstraction (derived from painting #129).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The composition centers on a large circular face with eyes and an mouth, surrounded by sweeping curves, overlapping circles, and dangling linear forms. Bold flat shapes in contrasting colors create a dynamic, balanced composition across a light background. Technique features crisp outlines and unmodulated color fields typical of graphic abstraction",
+  "inverted_title": "Inverted sketch: Cosmic Face in Orbit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The composition centers on a large circular face with eyes and an mouth, surrounded by sweeping curves, overlapping circles, and dangling linear forms. Bold flat shapes in contrasting colors create a dynamic, balanced composition across a light background. Technique features crisp outlines and unmodulated color fields typical of graphic abstraction (from painting #129).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The composition centers on a large circular face with eyes and an mouth, surrounded by sweeping curves, overlapping circles, and dangling linear forms. Bold flat shapes in contrasting colors create a dynamic, balanced composition across a light background. Technique features crisp outlines and unmodulated color fields typical of graphic abstraction",
+  "source_description": "The painting centers on a large blue circular face with yellow eyes and an orange mouth, surrounded by sweeping curves, overlapping circles, and dangling linear forms. Bold flat shapes in contrasting colors create a dynamic, balanced composition across a light background. Technique features crisp outlines and unmodulated color fields typical of graphic abstraction.",
+  "source_prompt": "",
+  "source_title": "Cosmic Face in Orbit",
+  "style": "Biomorphic Abstraction",
+  "mood": "whimsical playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "circles",
+    "face",
+    "surreal",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 129,
+  "source_url": "/paintings/129.jpg",
+  "image_url": "/sketches/98.png",
+  "inverted_image_url": "/sketches-inverted/98.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4889,
+  "title": "Line sketch: Surreal Time Fairy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with large butterfly wings stands at the center of a surreal dreamscape. She wears a scaled bodysuit with flowing vines, a crown of flowers, and is surrounded by melting clocks, hands emerging from water, glowing jellyfish, a futuristic city, and a cosmic sky filled with floating eyeballs and swirling galaxies (derived from generated still #4324).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with large butterfly wings stands at the center of a surreal dreamscape. She wears a scaled bodysuit with flowing vines, a crown of flowers, and is surrounded by melting clocks, hands emerging from water, glowing jellyfish, a futuristic city, and a cosmic sky filled with floating eyeballs and swirling galaxies",
+  "inverted_title": "Inverted sketch: Surreal Time Fairy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with large butterfly wings stands at the center of a surreal dreamscape. She wears a scaled bodysuit with flowing vines, a crown of flowers, and is surrounded by melting clocks, hands emerging from water, glowing jellyfish, a futuristic city, and a cosmic sky filled with floating eyeballs and swirling galaxies (from generated still #4324).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with large butterfly wings stands at the center of a surreal dreamscape. She wears a scaled bodysuit with flowing vines, a crown of flowers, and is surrounded by melting clocks, hands emerging from water, glowing jellyfish, a futuristic city, and a cosmic sky filled with floating eyeballs and swirling galaxies",
+  "source_description": "A woman with large iridescent green butterfly wings stands at the center of a surreal dreamscape. She wears a golden scaled bodysuit with flowing green vines, a crown of colorful flowers, and is surrounded by melting clocks, golden hands emerging from water, glowing jellyfish, a futuristic city, and a cosmic sky filled with floating eyeballs and swirling galaxies.",
+  "source_prompt": "A beautiful woman with long wavy brown hair and large translucent green butterfly wings stands in the center of a surreal landscape. She wears a form-fitting golden metallic bodysuit covered in green vines and a crown of vibrant red, purple, and yellow flowers. Melting clocks drip from dead trees and stone platforms, giant golden hands rise from glowing blue water filled with jellyfish, while a futuristic neon city appears in the background under a swirling cosmic sky with floating eyeballs and galaxies.",
+  "source_title": "Surreal Time Fairy",
+  "style": "surrealism",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fairy",
+    "melting clocks",
+    "fantasy",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4324,
+  "source_url": "/generated/4324.jpg",
+  "image_url": "/sketches/4889.png",
+  "inverted_image_url": "/sketches-inverted/4889.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:49Z"
+}

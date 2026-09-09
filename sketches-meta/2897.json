@@ -1,0 +1,42 @@
+{
+  "number": 2897,
+  "title": "Line sketch: Surreal Desert Nebula",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a large flat-topped mesa in the background under a night sky filled with glowing celestial orbs, swirling galaxies, and ringed planets. In the foreground, stylized cacti and melting spherical objects with dripping liquid stand on the desert floor, blending cosmic and terrestrial elements (derived from generated still #2184).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a large flat-topped mesa in the background under a night sky filled with glowing celestial orbs, swirling galaxies, and ringed planets. In the foreground, stylized cacti and melting spherical objects with dripping liquid stand on the desert floor, blending cosmic and terrestrial elements",
+  "inverted_title": "Inverted sketch: Surreal Desert Nebula",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a large flat-topped mesa in the background under a night sky filled with glowing celestial orbs, swirling galaxies, and ringed planets. In the foreground, stylized cacti and melting spherical objects with dripping liquid stand on the desert floor, blending cosmic and terrestrial elements (from generated still #2184).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a large flat-topped mesa in the background under a night sky filled with glowing celestial orbs, swirling galaxies, and ringed planets. In the foreground, stylized cacti and melting spherical objects with dripping liquid stand on the desert floor, blending cosmic and terrestrial elements",
+  "source_description": "A surreal desert landscape features a large flat-topped mesa in the background under a dark purple night sky filled with glowing celestial orbs, swirling galaxies, and ringed planets. In the foreground, stylized cacti and melting spherical objects with dripping colorful liquid stand on the desert floor, blending cosmic and terrestrial elements.",
+  "source_prompt": "Surreal desert landscape at night with a large flat-topped mesa in the background, dark purple sky filled with swirling galaxies, glowing orbs, ringed planets and celestial bodies. In the foreground, melting spherical objects and cacti drip vibrant colorful liquid in teal, magenta, yellow and blue. Psychedelic cosmic desert scene with dreamlike atmosphere, vibrant dripping paint effects, otherworldly glowing elements.",
+  "source_title": "Surreal Desert Nebula",
+  "style": "surrealism",
+  "mood": "dreamlike cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "cosmic",
+    "melting",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2184,
+  "source_url": "/generated/2184.jpg",
+  "image_url": "/sketches/2897.png",
+  "inverted_image_url": "/sketches-inverted/2897.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:44Z"
+}

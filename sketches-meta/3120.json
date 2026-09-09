@@ -1,0 +1,42 @@
+{
+  "number": 3120,
+  "title": "Line sketch: Reptilian Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-detailed close-up of a reptilian eye with a iris and vertical slit pupil. The eye features textured and scales on the upper eyelid, long black lashes, and a moist lower lid with visible tear duct, set against a dark abstract background with faint architectural shapes (derived from generated still #2457).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-detailed close-up of a reptilian eye with a iris and vertical slit pupil. The eye features textured and scales on the upper eyelid, long black lashes, and a moist lower lid with visible tear duct, set against a dark abstract background with faint architectural shapes",
+  "inverted_title": "Inverted sketch: Reptilian Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-detailed close-up of a reptilian eye with a iris and vertical slit pupil. The eye features textured and scales on the upper eyelid, long black lashes, and a moist lower lid with visible tear duct, set against a dark abstract background with faint architectural shapes (from generated still #2457).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-detailed close-up of a reptilian eye with a iris and vertical slit pupil. The eye features textured and scales on the upper eyelid, long black lashes, and a moist lower lid with visible tear duct, set against a dark abstract background with faint architectural shapes",
+  "source_description": "A hyper-detailed close-up of a reptilian eye with a vivid green iris and vertical slit pupil. The eye features textured green and yellow scales on the upper eyelid, long black lashes, and a moist lower lid with visible tear duct, set against a dark abstract background with faint architectural shapes.",
+  "source_prompt": "extreme close-up of a reptilian eye with vibrant emerald green iris and sharp vertical black pupil, textured green and gold scales covering the upper eyelid, long dark lashes, moist lower lid with visible tear duct, highly detailed scales and skin texture, dramatic lighting, dark abstract background with faint architectural forms, realistic yet fantastical style",
+  "source_title": "Reptilian Emerald Eye",
+  "style": "fantasy realism",
+  "mood": "mesmerizing, primal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "reptilian eye",
+    "iris",
+    "scales",
+    "fantasy creature",
+    "detailed texture"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2457,
+  "source_url": "/generated/2457.jpg",
+  "image_url": "/sketches/3120.png",
+  "inverted_image_url": "/sketches-inverted/3120.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

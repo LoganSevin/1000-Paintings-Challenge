@@ -1,0 +1,42 @@
+{
+  "number": 621,
+  "title": "Line sketch: Pond on Hills",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene landscape featuring a circular pond nestled within vibrant rolling hills. Two trees stand on a small hill in the background under a sky (derived from painting #793).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene landscape featuring a circular pond nestled within vibrant rolling hills. Two trees stand on a small hill in the background under a sky",
+  "inverted_title": "Inverted sketch: Pond on Hills",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene landscape featuring a circular pond nestled within vibrant rolling hills. Two trees stand on a small hill in the background under a sky (from painting #793).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene landscape featuring a circular pond nestled within vibrant rolling hills. Two trees stand on a small hill in the background under a sky",
+  "source_description": "A serene landscape featuring a deep blue circular pond nestled within vibrant green rolling hills. Two trees stand on a small hill in the background under a dark blue sky.",
+  "source_prompt": "",
+  "source_title": "Blue Pond on Green Hills",
+  "style": "Expressionism",
+  "mood": "Serene and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "pond",
+    "hills",
+    "nature",
+    "and"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 793,
+  "source_url": "/paintings/793.jpg",
+  "image_url": "/sketches/621.png",
+  "inverted_image_url": "/sketches-inverted/621.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

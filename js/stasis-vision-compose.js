@@ -66,6 +66,33 @@
     return "paintings/" + num + ".jpg";
   }
 
+  function hexToRgbTriplet(hex) {
+    var s = String(hex || "")
+      .trim()
+      .replace(/^#/, "");
+    if (/^[0-9a-fA-F]{3}$/.test(s)) {
+      s = s[0] + s[0] + s[1] + s[1] + s[2] + s[2];
+    }
+    if (!/^[0-9a-fA-F]{6}$/.test(s)) return null;
+    return [
+      parseInt(s.slice(0, 2), 16),
+      parseInt(s.slice(2, 4), 16),
+      parseInt(s.slice(4, 6), 16),
+    ];
+  }
+
+  function paletteFromOpts(opts) {
+    opts = opts || {};
+    var out = [];
+    var hexes = opts.palette_hex || opts.paletteHex || [];
+    for (var i = 0; i < hexes.length && out.length < 8; i++) {
+      var rgb = hexToRgbTriplet(hexes[i]);
+      if (rgb) out.push(rgb);
+    }
+    if (out.length) return out;
+    return paletteFromBuzz(opts.buzz_words || [], opts.stasis || "");
+  }
+
   function paletteFromBuzz(buzz, stasis) {
     var map = {
       pink: [232, 121, 169],
@@ -82,6 +109,13 @@
     var out = [];
     var text = (buzz || []).join(" ") + " " + (stasis || "");
     var lower = text.toLowerCase();
+    // Honor #HEX tokens in stasis / buzz (bold color locks)
+    var hexRe = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b/g;
+    var hm;
+    while ((hm = hexRe.exec(text)) && out.length < 8) {
+      var trip = hexToRgbTriplet("#" + hm[1]);
+      if (trip) out.push(trip);
+    }
     Object.keys(map).forEach(function (k) {
       if (lower.indexOf(k) >= 0) out.push(map[k]);
     });
@@ -106,7 +140,7 @@
     ctx.restore();
   }
 
-  function composePropHero(images, nums, buzz, stasis, slot, dims) {
+  function composePropHero(images, nums, buzz, stasis, slot, dims, paletteHex) {
     dims = dims || { w: W, h: H };
     var cw = dims.w;
     var ch = dims.h;
@@ -115,8 +149,14 @@
     canvas.height = ch;
     var ctx = canvas.getContext("2d");
     var img = images[0];
-    var pal = paletteFromBuzz(buzz, stasis);
-    var seed = hashStr(stasis + nums.join(",") + String(slot || 0));
+    var pal = paletteFromOpts({
+      palette_hex: paletteHex,
+      buzz_words: buzz,
+      stasis: stasis,
+    });
+    var seed = hashStr(
+      stasis + nums.join(",") + String(slot || 0) + (paletteHex || []).join(",")
+    );
 
     ctx.fillStyle = "#0a0908";
     ctx.fillRect(0, 0, cw, ch);
@@ -192,7 +232,15 @@
       })
     ).then(function (images) {
       if (opts.prop && images.length === 1) {
-        return composePropHero(images, nums, buzz, stasis, opts.slot, dims);
+        return composePropHero(
+          images,
+          nums,
+          buzz,
+          stasis,
+          opts.slot,
+          dims,
+          opts.palette_hex || opts.paletteHex
+        );
       }
       var cw = dims.w;
       var ch = dims.h;
@@ -201,22 +249,32 @@
       canvas.height = ch;
       var ctx = canvas.getContext("2d");
       var n = images.length;
-      var pal = paletteFromBuzz(buzz, stasis);
-      var seed = hashStr(stasis + nums.join(","));
+      var pal = paletteFromOpts(opts);
+      var seed = hashStr(stasis + nums.join(",") + (opts.palette_hex || []).join(","));
 
       ctx.fillStyle = "#0a0908";
       ctx.fillRect(0, 0, cw, ch);
 
+      // Stronger locked-palette wash so bold color rewrites show even on local fuse
       for (var p = 0; p < pal.length; p++) {
         var rgb = pal[p];
-        var px = cw * (0.2 + 0.6 * (((p + seed) % 100) / 100));
-        var py = ch * (0.25 + 0.5 * (((p * 2 + seed) % 100) / 100));
-        var r = Math.min(cw, ch) * 0.45;
+        var px = cw * (0.15 + 0.7 * (((p * 37 + seed) % 100) / 100));
+        var py = ch * (0.18 + 0.64 * (((p * 53 + seed) % 100) / 100));
+        var r = Math.min(cw, ch) * (0.42 + 0.12 * (p % 3));
         var grd = ctx.createRadialGradient(px, py, 0, px, py, r);
-        grd.addColorStop(0, "rgba(" + rgb.join(",") + ",0.35)");
+        var a0 = 0.42 + (p % 3) * 0.06;
+        grd.addColorStop(0, "rgba(" + rgb.join(",") + "," + a0 + ")");
         grd.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = grd;
         ctx.fillRect(0, 0, cw, ch);
+      }
+      if (pal[0]) {
+        ctx.save();
+        ctx.globalCompositeOperation = "color";
+        ctx.globalAlpha = 0.28;
+        ctx.fillStyle = "rgb(" + pal[0].join(",") + ")";
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.restore();
       }
 
       var weights = [];

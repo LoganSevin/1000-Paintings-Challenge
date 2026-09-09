@@ -1,0 +1,42 @@
+{
+  "number": 3429,
+  "title": "Line sketch: Surreal Child Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted portrait of a young boy with a serious expression, his head dissolving into dripping paint and dark smoke. The composition blends a vibrant melting castle on a hill to the left, large and peonies in the foreground, and a desolate ruined cityscape under a hazy sky to the right, with a smaller grayscale duplicate of the boy's face in the bottom right corner (derived from generated still #2830).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted portrait of a young boy with a serious expression, his head dissolving into dripping paint and dark smoke. The composition blends a vibrant melting castle on a hill to the left, large and peonies in the foreground, and a desolate ruined cityscape under a hazy sky to the right, with a smaller grayscale duplicate of the boy's face in the bottom right corner",
+  "inverted_title": "Inverted sketch: Surreal Child Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted portrait of a young boy with a serious expression, his head dissolving into dripping paint and dark smoke. The composition blends a vibrant melting castle on a hill to the left, large and peonies in the foreground, and a desolate ruined cityscape under a hazy sky to the right, with a smaller grayscale duplicate of the boy's face in the bottom right corner (from generated still #2830).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted portrait of a young boy with a serious expression, his head dissolving into dripping paint and dark smoke. The composition blends a vibrant melting castle on a hill to the left, large and peonies in the foreground, and a desolate ruined cityscape under a hazy sky to the right, with a smaller grayscale duplicate of the boy's face in the bottom right corner",
+  "source_description": "A surreal painted portrait of a young boy with a serious expression, his head dissolving into colorful dripping paint and dark smoke. The composition blends a vibrant pink melting castle on a green hill to the left, large pink and yellow peonies in the foreground, and a desolate ruined cityscape under a hazy sky to the right, with a smaller grayscale duplicate of the boy's face in the bottom right corner.",
+  "source_prompt": "Surreal symbolic portrait of a young boy with a solemn gaze, his hair melting into vibrant red, green and yellow paint drips mixed with dark smoke. To the left a pink melting castle with dripping forms on a green hill, large pink and yellow peonies with red abstract shapes in the foreground. To the right a desolate ruined city under a sickly yellow sky, a smaller grayscale version of the same boy's face in the lower right corner, painterly style with visible brushwork and dripping effects.",
+  "source_title": "Surreal Child Portrait",
+  "style": "surrealism",
+  "mood": "melancholy, dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "child portrait",
+    "dripping paint",
+    "melting castle",
+    "ruined city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2830,
+  "source_url": "/generated/2830.jpg",
+  "image_url": "/sketches/3429.png",
+  "inverted_image_url": "/sketches-inverted/3429.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:45Z"
+}

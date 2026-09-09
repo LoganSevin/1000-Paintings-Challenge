@@ -1,0 +1,42 @@
+{
+  "number": 4909,
+  "title": "Line sketch: The Warning Note",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit desk scene viewed from over the shoulder of a person in a jacket. An open wooden drawer reveals a black flashlight, a set of keys, a string, a coin, and a handwritten note that reads 'If the composition appears, do not follow alone.' (derived from generated still #4345).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit desk scene viewed from over the shoulder of a person in a jacket. An open wooden drawer reveals a black flashlight, a set of keys, a string, a coin, and a handwritten note that reads 'If the composition appears, do not follow alone.'",
+  "inverted_title": "Inverted sketch: The Warning Note",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit desk scene viewed from over the shoulder of a person in a jacket. An open wooden drawer reveals a black flashlight, a set of keys, a string, a coin, and a handwritten note that reads 'If the composition appears, do not follow alone.' (from generated still #4345).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit desk scene viewed from over the shoulder of a person in a jacket. An open wooden drawer reveals a black flashlight, a set of keys, a string, a coin, and a handwritten note that reads 'If the composition appears, do not follow alone.'",
+  "source_description": "A dimly lit desk scene viewed from over the shoulder of a person in a green jacket. An open wooden drawer reveals a black flashlight, a set of keys, a red string, a coin, and a handwritten note that reads 'If the painting appears, do not follow alone.'",
+  "source_prompt": "over the shoulder view of a dimly lit wooden desk in a mysterious room, green banker's lamp casting warm light, old CRT television showing a long empty hospital hallway labeled CAMERA 4 - EAST WING, open drawer containing a black flashlight, keys on a red string, a coin, and a handwritten note saying 'If the painting appears, do not follow alone', steaming paper cup, vintage walkie-talkie, scattered photos, moody atmospheric lighting, cinematic composition",
+  "source_title": "The Warning Note",
+  "style": "cinematic",
+  "mood": "eerie suspense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "noir",
+    "mystery",
+    "desk",
+    "vintage",
+    "surveillance"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4345,
+  "source_url": "/generated/4345.jpg",
+  "image_url": "/sketches/4909.png",
+  "inverted_image_url": "/sketches-inverted/4909.png",
+  "curve_count": 132,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2623,
+  "title": "Line sketch: Melting Piano and Violin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grand piano with its lid open has - melting substance dripping down its keys and body, while a fiery violin floats above it emitting light rays. Sheet music floats and drapes around the instruments against a and draped background with glowing musical notes (derived from generated still #1862).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grand piano with its lid open has - melting substance dripping down its keys and body, while a fiery violin floats above it emitting light rays. Sheet music floats and drapes around the instruments against a and draped background with glowing musical notes",
+  "inverted_title": "Inverted sketch: Melting Piano and Violin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grand piano with its lid open has - melting substance dripping down its keys and body, while a fiery violin floats above it emitting light rays. Sheet music floats and drapes around the instruments against a and draped background with glowing musical notes (from generated still #1862).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grand piano with its lid open has - melting substance dripping down its keys and body, while a fiery violin floats above it emitting light rays. Sheet music floats and drapes around the instruments against a and draped background with glowing musical notes",
+  "source_description": "A grand piano with its lid open has yellow-green melting substance dripping down its keys and body, while a fiery orange violin floats above it emitting golden light rays. Sheet music floats and drapes around the instruments against a dark purple and teal draped background with glowing musical notes.",
+  "source_prompt": "",
+  "source_title": "Melting Piano and Violin",
+  "style": "surreal fantasy",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "piano",
+    "violin",
+    "melting",
+    "musical notes",
+    "sheet music"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1862,
+  "source_url": "/generated/1862.jpg",
+  "image_url": "/sketches/2623.png",
+  "inverted_image_url": "/sketches-inverted/2623.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:43Z"
+}

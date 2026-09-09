@@ -1,0 +1,42 @@
+{
+  "number": 3941,
+  "title": "Line sketch: -haired Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with hair, wearing a and black armored outfit with thigh-high boots. She is shown holding a large hammer, a flame, a flowing energy cape, and a rifle across four distinct action stances (derived from generated still #3358).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with hair, wearing a and black armored outfit with thigh-high boots. She is shown holding a large hammer, a flame, a flowing energy cape, and a rifle across four distinct action stances",
+  "inverted_title": "Inverted sketch: -haired Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with hair, wearing a and black armored outfit with thigh-high boots. She is shown holding a large hammer, a flame, a flowing energy cape, and a rifle across four distinct action stances (from generated still #3358).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with hair, wearing a and black armored outfit with thigh-high boots. She is shown holding a large hammer, a flame, a flowing energy cape, and a rifle across four distinct action stances",
+  "source_description": "Four sequential poses of a female character with bright pink hair, wearing a pink and black armored outfit with thigh-high boots. She is shown holding a large purple hammer, a pink flame, a flowing pink energy cape, and a purple rifle across four distinct action stances.",
+  "source_prompt": "A female character with vibrant pink hair in a high ponytail, wearing a pink and black tactical outfit with armored shoulder pads, short shorts, thigh straps and black boots with purple laces. She appears in four sequential poses: holding a giant purple hammer with a pink energy orb, summoning a pink flame, dramatically wielding a large flowing pink energy cape, and aiming a purple futuristic rifle, all against a plain dark gray background, comic book illustration style, clean lines, vibrant colors",
+  "source_title": "Pink-haired Warrior Poses",
+  "style": "comic book",
+  "mood": "bold, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "hair",
+    "multiple poses",
+    "comic style",
+    "action poses"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3358,
+  "source_url": "/generated/3358.jpg",
+  "image_url": "/sketches/3941.png",
+  "inverted_image_url": "/sketches-inverted/3941.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:47Z"
+}

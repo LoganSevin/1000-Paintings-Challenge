@@ -1,0 +1,42 @@
+{
+  "number": 599,
+  "title": "Line sketch: Curious Creature Closeup",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical monster with large expressive eyes and an open mouth. The stylized cartoon features soft shading and a playful, curious expression (derived from painting #763).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical monster with large expressive eyes and an open mouth. The stylized cartoon features soft shading and a playful, curious expression",
+  "inverted_title": "Inverted sketch: Curious Creature Closeup",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical monster with large expressive eyes and an open mouth. The stylized cartoon features soft shading and a playful, curious expression (from painting #763).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical monster with large expressive eyes and an open mouth. The stylized cartoon features soft shading and a playful, curious expression",
+  "source_description": "A whimsical green monster with large expressive eyes and an open mouth. The stylized cartoon features soft shading and a playful, curious expression.",
+  "source_prompt": "",
+  "source_title": "Curious Green Creature Closeup",
+  "style": "Cartoon",
+  "mood": "Playful curious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monster",
+    "cartoon",
+    "creature",
+    "whimsical",
+    "closeup"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 763,
+  "source_url": "/paintings/763.jpg",
+  "image_url": "/sketches/599.png",
+  "inverted_image_url": "/sketches-inverted/599.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:39Z"
+}

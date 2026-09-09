@@ -1,0 +1,42 @@
+{
+  "number": 1990,
+  "title": "Line sketch: Dripping Psychedelic Faces",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition shows four stylized female profiles in a row, their faces and elaborate headdresses melting downward into pools of liquid. leaf at the top drips and paint over swirling, and background patterns (derived from generated still #1215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition shows four stylized female profiles in a row, their faces and elaborate headdresses melting downward into pools of liquid. leaf at the top drips and paint over swirling, and background patterns",
+  "inverted_title": "Inverted sketch: Dripping Psychedelic Faces",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition shows four stylized female profiles in a row, their faces and elaborate headdresses melting downward into pools of liquid. leaf at the top drips and paint over swirling, and background patterns (from generated still #1215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition shows four stylized female profiles in a row, their faces and elaborate headdresses melting downward into pools of liquid. leaf at the top drips and paint over swirling, and background patterns",
+  "source_description": "A vibrant surreal painting shows four stylized female profiles in a row, their colorful faces and elaborate headdresses melting downward into pools of liquid. Gold leaf at the top drips crimson and magenta paint over swirling blue, teal, and yellow background patterns.",
+  "source_prompt": "",
+  "source_title": "Dripping Psychedelic Faces",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media with gold leaf",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "female profiles",
+    "melting",
+    "leaf"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1215,
+  "source_url": "/generated/1215.jpg",
+  "image_url": "/sketches/1990.png",
+  "inverted_image_url": "/sketches-inverted/1990.png",
+  "curve_count": 112,
+  "built_at": "2026-08-17T00:09:42Z"
+}

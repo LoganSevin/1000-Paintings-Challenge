@@ -1,0 +1,42 @@
+{
+  "number": 2145,
+  "title": "Line sketch: Cosmic Frog at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal landscape features a large frog with intricate patterns and big eyes, sitting in a dark cosmic pool while holding a glowing orb. The scene includes a winding road, reflective water, rolling hills, and a massive sun with silhouettes against a and sky (derived from generated still #1370).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal landscape features a large frog with intricate patterns and big eyes, sitting in a dark cosmic pool while holding a glowing orb. The scene includes a winding road, reflective water, rolling hills, and a massive sun with silhouettes against a and sky",
+  "inverted_title": "Inverted sketch: Cosmic Frog at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal landscape features a large frog with intricate patterns and big eyes, sitting in a dark cosmic pool while holding a glowing orb. The scene includes a winding road, reflective water, rolling hills, and a massive sun with silhouettes against a and sky (from generated still #1370).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal landscape features a large frog with intricate patterns and big eyes, sitting in a dark cosmic pool while holding a glowing orb. The scene includes a winding road, reflective water, rolling hills, and a massive sun with silhouettes against a and sky",
+  "source_description": "A vibrant surreal landscape features a large green frog with intricate patterns and big colorful eyes, sitting in a dark cosmic pool while holding a glowing yellow orb. The scene includes a winding road, reflective water, rolling green hills, and a massive red sun with silhouettes against a purple and orange sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Frog at Sunset",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "frog",
+    "surreal",
+    "cosmic",
+    "landscape",
+    "sunset"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1370,
+  "source_url": "/generated/1370.jpg",
+  "image_url": "/sketches/2145.png",
+  "inverted_image_url": "/sketches-inverted/2145.png",
+  "curve_count": 121,
+  "built_at": "2026-08-17T00:09:42Z"
+}

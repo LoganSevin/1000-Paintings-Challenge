@@ -1,0 +1,42 @@
+{
+  "number": 2636,
+  "title": "Line sketch: Chaotic Artist's Dinner Party",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lively group of artists and eccentrics gather around a long wooden table laden with pizza boxes, candles, and scattered papers in a cluttered, warmly lit room. The walls are covered with numerous artworks, sketches, and a large abstract composition, while a woman serves drinks and a cat rests on a stack of books nearby (derived from generated still #1875).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lively group of artists and eccentrics gather around a long wooden table laden with pizza boxes, candles, and scattered papers in a cluttered, warmly lit room. The walls are covered with numerous artworks, sketches, and a large abstract composition, while a woman serves drinks and a cat rests on a stack of books nearby",
+  "inverted_title": "Inverted sketch: Chaotic Artist's Dinner Party",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lively group of artists and eccentrics gather around a long wooden table laden with pizza boxes, candles, and scattered papers in a cluttered, warmly lit room. The walls are covered with numerous artworks, sketches, and a large abstract composition, while a woman serves drinks and a cat rests on a stack of books nearby (from generated still #1875).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lively group of artists and eccentrics gather around a long wooden table laden with pizza boxes, candles, and scattered papers in a cluttered, warmly lit room. The walls are covered with numerous artworks, sketches, and a large abstract composition, while a woman serves drinks and a cat rests on a stack of books nearby",
+  "source_description": "A lively group of artists and eccentrics gather around a long wooden table laden with pizza boxes, candles, and scattered papers in a cluttered, warmly lit room. The walls are covered with numerous artworks, sketches, and a large colorful abstract painting, while a woman serves drinks and a cat rests on a stack of books nearby.",
+  "source_prompt": "",
+  "source_title": "Chaotic Artist's Dinner Party",
+  "style": "realistic composition with cinematic lighting",
+  "mood": "festive chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artists",
+    "dinner party",
+    "cluttered studio",
+    "pizza night",
+    "candlelight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1875,
+  "source_url": "/generated/1875.jpg",
+  "image_url": "/sketches/2636.png",
+  "inverted_image_url": "/sketches-inverted/2636.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:43Z"
+}

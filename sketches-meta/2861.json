@@ -1,0 +1,42 @@
+{
+  "number": 2861,
+  "title": "Line sketch: Who Is Your Manager",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A middle-aged Black woman in an uniform covered in text stands angrily pointing her finger upward. Her uniform bears a name tag reading \"YOUR MANAGER?\" while the surreal background features floating letters spelling \"EVOLVE\", clocks, flowers, and ghostly figures on a ledge (derived from generated still #2146).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A middle-aged Black woman in an uniform covered in text stands angrily pointing her finger upward. Her uniform bears a name tag reading \"YOUR MANAGER?\" while the surreal background features floating letters spelling \"EVOLVE\", clocks, flowers, and ghostly figures on a ledge",
+  "inverted_title": "Inverted sketch: Who Is Your Manager",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A middle-aged Black woman in an uniform covered in text stands angrily pointing her finger upward. Her uniform bears a name tag reading \"YOUR MANAGER?\" while the surreal background features floating letters spelling \"EVOLVE\", clocks, flowers, and ghostly figures on a ledge (from generated still #2146).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A middle-aged Black woman in an uniform covered in text stands angrily pointing her finger upward. Her uniform bears a name tag reading \"YOUR MANAGER?\" while the surreal background features floating letters spelling \"EVOLVE\", clocks, flowers, and ghostly figures on a ledge",
+  "source_description": "A middle-aged Black woman in an orange uniform covered in text stands angrily pointing her finger upward. Her uniform bears a name tag reading \"YOUR MANAGER?\" while the surreal background features floating letters spelling \"EVOLVE\", clocks, flowers, and ghostly figures on a teal ledge.",
+  "source_prompt": "A furious middle-aged Black woman wearing a bright orange uniform covered in repeating black text stands in the foreground pointing her index finger upward. Her name tag reads \"YOUR MANAGER?\". She has an angry expression with furrowed brows. Behind her is a surreal chaotic scene with large floating letters spelling EVOLVE, clocks, yellow and purple flowers, ghostly white figures, and papers on a teal shelf against a textured earthy background.",
+  "source_title": "Who Is Your Manager",
+  "style": "surreal composition",
+  "mood": "confrontational, chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman",
+    "manager",
+    "text art",
+    "pointing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2146,
+  "source_url": "/generated/2146.jpg",
+  "image_url": "/sketches/2861.png",
+  "inverted_image_url": "/sketches-inverted/2861.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:44Z"
+}

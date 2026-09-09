@@ -1,0 +1,42 @@
+{
+  "number": 393,
+  "title": "Line sketch: Vibrant Underwater Fish Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large fish with exaggerated eyes swims prominently in a lively reef. Smaller fish of various species populate the ocean background (derived from painting #461).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large fish with exaggerated eyes swims prominently in a lively reef. Smaller fish of various species populate the ocean background",
+  "inverted_title": "Inverted sketch: Vibrant Underwater Fish Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large fish with exaggerated eyes swims prominently in a lively reef. Smaller fish of various species populate the ocean background (from painting #461).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large fish with exaggerated eyes swims prominently in a lively reef. Smaller fish of various species populate the ocean background",
+  "source_description": "A large colorful fish with exaggerated eyes swims prominently in a lively coral reef. Smaller fish of various species populate the deep blue ocean background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Underwater Fish Scene",
+  "style": "Realistic",
+  "mood": "Vibrant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "marine life",
+    "reef",
+    "tropical fish",
+    "ocean scene",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 461,
+  "source_url": "/paintings/461.jpg",
+  "image_url": "/sketches/393.png",
+  "inverted_image_url": "/sketches-inverted/393.png",
+  "curve_count": 275,
+  "built_at": "2026-08-17T00:09:39Z"
+}

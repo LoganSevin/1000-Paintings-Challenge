@@ -1,0 +1,42 @@
+{
+  "number": 3900,
+  "title": "Line sketch: Four Poses of Warrior Woman",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical side-by-side panels showing a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, gauntlets and laced boots. She stands in a combat stance with fists raised against a plain gray background (derived from generated still #3317).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical side-by-side panels showing a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, gauntlets and laced boots. She stands in a combat stance with fists raised against a plain gray background",
+  "inverted_title": "Inverted sketch: Four Poses of Warrior Woman",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical side-by-side panels showing a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, gauntlets and laced boots. She stands in a combat stance with fists raised against a plain gray background (from generated still #3317).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical side-by-side panels showing a female warrior with long dark hair in a high ponytail, wearing a and black outfit with corset, short skirt, gauntlets and laced boots. She stands in a combat stance with fists raised against a plain gray background",
+  "source_description": "Four identical side-by-side panels showing a female warrior with long dark hair in a high ponytail, wearing a red and black outfit with corset, short skirt, gauntlets and laced boots. She stands in a combat stance with fists raised against a plain gray background.",
+  "source_prompt": "A young female warrior with long flowing dark red hair in a high ponytail and bangs, wearing a revealing red and black corset top with matching short skirt, red gauntlets, and tall black lace-up boots. She stands in a dynamic fighting stance with fists raised and legs apart, looking toward the viewer with a confident expression, shown as four identical panels arranged horizontally against a solid neutral gray background, digital painting style with clean lines and dramatic lighting",
+  "source_title": "Four Poses of Warrior Woman",
+  "style": "line sketch",
+  "mood": "fierce, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "ponytail",
+    "combat pose",
+    "outfit",
+    "multiple views"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3317,
+  "source_url": "/generated/3317.jpg",
+  "image_url": "/sketches/3900.png",
+  "inverted_image_url": "/sketches-inverted/3900.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:46Z"
+}

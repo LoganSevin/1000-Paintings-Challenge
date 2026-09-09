@@ -1,0 +1,42 @@
+{
+  "number": 2083,
+  "title": "Line sketch: Floral Muse Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant portrait of a woman with hair adorned with peonies, bananas, and ornaments. She wears a patterned top against a swirling background of, and abstract shapes with additional flowers and dripping paint effects (derived from generated still #1308).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant portrait of a woman with hair adorned with peonies, bananas, and ornaments. She wears a patterned top against a swirling background of, and abstract shapes with additional flowers and dripping paint effects",
+  "inverted_title": "Inverted sketch: Floral Muse Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant portrait of a woman with hair adorned with peonies, bananas, and ornaments. She wears a patterned top against a swirling background of, and abstract shapes with additional flowers and dripping paint effects (from generated still #1308).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant portrait of a woman with hair adorned with peonies, bananas, and ornaments. She wears a patterned top against a swirling background of, and abstract shapes with additional flowers and dripping paint effects",
+  "source_description": "A vibrant portrait of a woman with magenta hair adorned with pink peonies, bananas, and golden ornaments. She wears a patterned green top against a swirling background of blue, green, and yellow abstract shapes with additional flowers and dripping paint effects.",
+  "source_prompt": "",
+  "source_title": "Floral Muse Portrait",
+  "style": "Psychedelic Pop Art",
+  "mood": "vibrant ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "peonies",
+    "bananas",
+    "floral",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1308,
+  "source_url": "/generated/1308.jpg",
+  "image_url": "/sketches/2083.png",
+  "inverted_image_url": "/sketches-inverted/2083.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:42Z"
+}

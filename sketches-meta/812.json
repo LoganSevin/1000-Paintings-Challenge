@@ -1,0 +1,42 @@
+{
+  "number": 812,
+  "title": "Line sketch: Psychedelic Monkey Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant monkey head with glowing eyes and a stitched grin emerges from a cracked, greenish surface. An elaborate headdress of concentric circles, leaves, and dripping black ink floats above it, surrounded by glowing and lotus-like flowers (derived from generated still #21).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant monkey head with glowing eyes and a stitched grin emerges from a cracked, greenish surface. An elaborate headdress of concentric circles, leaves, and dripping black ink floats above it, surrounded by glowing and lotus-like flowers",
+  "inverted_title": "Inverted sketch: Psychedelic Monkey Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant monkey head with glowing eyes and a stitched grin emerges from a cracked, greenish surface. An elaborate headdress of concentric circles, leaves, and dripping black ink floats above it, surrounded by glowing and lotus-like flowers (from generated still #21).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant monkey head with glowing eyes and a stitched grin emerges from a cracked, greenish surface. An elaborate headdress of concentric circles, leaves, and dripping black ink floats above it, surrounded by glowing and lotus-like flowers",
+  "source_description": "A vibrant turquoise monkey head with glowing pink eyes and a stitched grin emerges from a cracked, greenish surface. An elaborate headdress of concentric rainbow circles, leaves, and dripping black ink floats above it, surrounded by glowing pink and purple lotus-like flowers.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Monkey Oracle",
+  "style": "psychedelic surrealism",
+  "mood": "trippy hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "monkey",
+    "psychedelic",
+    "circles",
+    "glowing eyes",
+    "lotus flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 21,
+  "source_url": "/generated/21.jpg",
+  "image_url": "/sketches/812.png",
+  "inverted_image_url": "/sketches-inverted/812.png",
+  "curve_count": 113,
+  "built_at": "2026-08-17T00:09:39Z"
+}

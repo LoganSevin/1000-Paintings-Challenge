@@ -1,0 +1,42 @@
+{
+  "number": 647,
+  "title": "Line sketch: Desert Road with Mirror Sign",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a winding dirt road leading toward distant mountains under a large sun. A roadside mirror reflects the path ahead, adding an enigmatic element to the scene (derived from painting #824).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a winding dirt road leading toward distant mountains under a large sun. A roadside mirror reflects the path ahead, adding an enigmatic element to the scene",
+  "inverted_title": "Inverted sketch: Desert Road with Mirror Sign",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a winding dirt road leading toward distant mountains under a large sun. A roadside mirror reflects the path ahead, adding an enigmatic element to the scene (from painting #824).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a winding dirt road leading toward distant mountains under a large sun. A roadside mirror reflects the path ahead, adding an enigmatic element to the scene",
+  "source_description": "A surreal desert landscape features a winding dirt road leading toward distant orange mountains under a large red sun. A roadside mirror reflects the path ahead, adding an enigmatic element to the scene.",
+  "source_prompt": "",
+  "source_title": "Desert Road with Mirror Sign",
+  "style": "Surrealism",
+  "mood": "Eerie and desolate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert landscape",
+    "surreal",
+    "road",
+    "mirror",
+    "mountains"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 824,
+  "source_url": "/paintings/824.jpg",
+  "image_url": "/sketches/647.png",
+  "inverted_image_url": "/sketches-inverted/647.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:39Z"
+}

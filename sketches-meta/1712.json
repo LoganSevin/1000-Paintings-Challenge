@@ -1,0 +1,42 @@
+{
+  "number": 1712,
+  "title": "Line sketch: Psychedelic Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large dog with intricate black patterns and a metallic dripping texture, shown in profile facing right. The dog stands before a large circular backdrop against a and cosmic background filled with floating transparent bubbles containing stylized human figures and ornate designs (derived from generated still #934).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large dog with intricate black patterns and a metallic dripping texture, shown in profile facing right. The dog stands before a large circular backdrop against a and cosmic background filled with floating transparent bubbles containing stylized human figures and ornate designs",
+  "inverted_title": "Inverted sketch: Psychedelic Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large dog with intricate black patterns and a metallic dripping texture, shown in profile facing right. The dog stands before a large circular backdrop against a and cosmic background filled with floating transparent bubbles containing stylized human figures and ornate designs (from generated still #934).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large dog with intricate black patterns and a metallic dripping texture, shown in profile facing right. The dog stands before a large circular backdrop against a and cosmic background filled with floating transparent bubbles containing stylized human figures and ornate designs",
+  "source_description": "A surreal painting of a large green dog with intricate black patterns and a metallic dripping texture, shown in profile facing right. The dog stands before a large yellow circular backdrop against a dark blue and purple cosmic background filled with floating transparent bubbles containing stylized human figures and ornate yellow designs.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Green Dog",
+  "style": "Psychedelic surrealism",
+  "mood": "trippy cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "dog",
+    "surreal",
+    "cosmic",
+    "intricate patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 934,
+  "source_url": "/generated/934.jpg",
+  "image_url": "/sketches/1712.png",
+  "inverted_image_url": "/sketches-inverted/1712.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:41Z"
+}

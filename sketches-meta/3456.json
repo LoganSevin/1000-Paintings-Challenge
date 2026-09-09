@@ -1,0 +1,42 @@
+{
+  "number": 3456,
+  "title": "Line sketch: Cadillac Surreal Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts three Cadillac vehicles driving through a reflective, liquid surface under a massive melting sun with dripping lava. On the left, a large melting ghost-like creature with eyes and a Cadillac sign stands beside a crumbling building labeled cadillac.com, while on the right a silhouetted woman floats above a black XT5 Series Cadillac against a starry cosmic sky (derived from generated still #2857).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts three Cadillac vehicles driving through a reflective, liquid surface under a massive melting sun with dripping lava. On the left, a large melting ghost-like creature with eyes and a Cadillac sign stands beside a crumbling building labeled cadillac.com, while on the right a silhouetted woman floats above a black XT5 Series Cadillac against a starry cosmic sky",
+  "inverted_title": "Inverted sketch: Cadillac Surreal Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts three Cadillac vehicles driving through a reflective, liquid surface under a massive melting sun with dripping lava. On the left, a large melting ghost-like creature with eyes and a Cadillac sign stands beside a crumbling building labeled cadillac.com, while on the right a silhouetted woman floats above a black XT5 Series Cadillac against a starry cosmic sky (from generated still #2857).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts three Cadillac vehicles driving through a reflective, liquid surface under a massive melting sun with dripping lava. On the left, a large melting ghost-like creature with eyes and a Cadillac sign stands beside a crumbling building labeled cadillac.com, while on the right a silhouetted woman floats above a black XT5 Series Cadillac against a starry cosmic sky",
+  "source_description": "A vibrant surreal painting depicts three Cadillac vehicles driving through a reflective, colorful liquid surface under a massive melting red sun with dripping lava. On the left, a large blue melting ghost-like creature with yellow eyes and a Cadillac sign stands beside a crumbling building labeled cadillac.com, while on the right a silhouetted woman floats above a black XT5 Series Cadillac against a starry purple cosmic sky.",
+  "source_prompt": "Surreal psychedelic painting of three Cadillac cars driving through reflective colorful liquid under a giant melting red sun with dripping lava. A large blue melting ghost creature with yellow eyes stands on the left next to a decaying building with cadillac.com sign. On the right, a silhouetted woman with long hair floats above a black Cadillac XT5 against a starry purple cosmic background, vibrant dripping paint effects, chaotic dreamlike atmosphere.",
+  "source_title": "Cadillac Surreal Dreamscape",
+  "style": "surrealism",
+  "mood": "psychedelic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cadillac",
+    "melting",
+    "automotive",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2857,
+  "source_url": "/generated/2857.jpg",
+  "image_url": "/sketches/3456.png",
+  "inverted_image_url": "/sketches-inverted/3456.png",
+  "curve_count": 154,
+  "built_at": "2026-08-17T00:09:45Z"
+}

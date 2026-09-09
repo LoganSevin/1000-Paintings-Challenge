@@ -1,0 +1,21 @@
+{
+  "num": 478,
+  "title": "Painting #574",
+  "created": 1786915931.0171273,
+  "source_url": "/paintings/574.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*202.00 + 3*t*(1 - t)^2*204.33 + 3*t^2*(1 - t)*206.67 + t^3*209.00,(1 - t)^3*1.00 + 3*t*(1 - t)^2*1.00 + 3*t^2*(1 - t)*1.00 + t^3*1.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 574
+  },
+  "preview_url": "/sketches/478.png"
+}

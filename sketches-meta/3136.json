@@ -1,0 +1,42 @@
+{
+  "number": 3136,
+  "title": "Line sketch: Cosmic Collision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in an ornate floral suit and a woman in a flowing dress stand dramatically in an old theater as a powerful beam of light strikes his chest, exploding into sparks and debris. The background shows a shattered movie screen revealing a giant eye in a stormy sky, while the theater is filled with floating film reels, papers, and an audience under a vibrant cosmic nebula ceiling (derived from generated still #2476).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in an ornate floral suit and a woman in a flowing dress stand dramatically in an old theater as a powerful beam of light strikes his chest, exploding into sparks and debris. The background shows a shattered movie screen revealing a giant eye in a stormy sky, while the theater is filled with floating film reels, papers, and an audience under a vibrant cosmic nebula ceiling",
+  "inverted_title": "Inverted sketch: Cosmic Collision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in an ornate floral suit and a woman in a flowing dress stand dramatically in an old theater as a powerful beam of light strikes his chest, exploding into sparks and debris. The background shows a shattered movie screen revealing a giant eye in a stormy sky, while the theater is filled with floating film reels, papers, and an audience under a vibrant cosmic nebula ceiling (from generated still #2476).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in an ornate floral suit and a woman in a flowing dress stand dramatically in an old theater as a powerful beam of light strikes his chest, exploding into sparks and debris. The background shows a shattered movie screen revealing a giant eye in a stormy sky, while the theater is filled with floating film reels, papers, and an audience under a vibrant cosmic nebula ceiling",
+  "source_description": "A man in an ornate floral suit and a woman in a flowing green dress stand dramatically in an old theater as a powerful beam of light strikes his chest, exploding into sparks and debris. The background shows a shattered movie screen revealing a giant eye in a stormy sky, while the theater is filled with floating film reels, papers, and an audience under a vibrant cosmic nebula ceiling.",
+  "source_prompt": "A man in a highly detailed ornate floral suit and a woman in a flowing emerald green Victorian dress stand in an old theater as a powerful beam of light strikes his chest causing an explosion of sparks and debris. Behind them a massive movie screen is shattered revealing a giant eye in a stormy sky. The theater is filled with floating film reels, papers, broken frames and an audience watching from the balcony under a ceiling that opens into a vibrant colorful nebula and galaxy. Dramatic cinematic lighting, surreal atmosphere.",
+  "source_title": "Cosmic Collision",
+  "style": "surreal",
+  "mood": "dramatic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "theater",
+    "cosmic",
+    "explosion",
+    "cinematic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2476,
+  "source_url": "/generated/2476.jpg",
+  "image_url": "/sketches/3136.png",
+  "inverted_image_url": "/sketches-inverted/3136.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1404,
+  "title": "Line sketch: Fiery Mythical Creature",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A and chimeric creature with glowing eyes, curved horns, and feathered wings stands in a dramatic pose. and liquid drips from its head and body while flames and ghostly skull motifs swirl in the smoky background (derived from generated still #619).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A and chimeric creature with glowing eyes, curved horns, and feathered wings stands in a dramatic pose. and liquid drips from its head and body while flames and ghostly skull motifs swirl in the smoky background",
+  "inverted_title": "Inverted sketch: Fiery Mythical Creature",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A and chimeric creature with glowing eyes, curved horns, and feathered wings stands in a dramatic pose. and liquid drips from its head and body while flames and ghostly skull motifs swirl in the smoky background (from generated still #619).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A and chimeric creature with glowing eyes, curved horns, and feathered wings stands in a dramatic pose. and liquid drips from its head and body while flames and ghostly skull motifs swirl in the smoky background",
+  "source_description": "A blue and orange chimeric creature with glowing orange eyes, curved horns, and feathered wings stands in a dramatic pose. Red and blue liquid drips from its head and body while flames and ghostly skull motifs swirl in the smoky background.",
+  "source_prompt": "",
+  "source_title": "Fiery Mythical Creature",
+  "style": "fantasy illustration",
+  "mood": "ominous, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mythical creature",
+    "chimera",
+    "fantasy art",
+    "flames",
+    "glowing eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 619,
+  "source_url": "/generated/619.jpg",
+  "image_url": "/sketches/1404.png",
+  "inverted_image_url": "/sketches-inverted/1404.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:41Z"
+}

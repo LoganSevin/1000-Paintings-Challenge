@@ -1,0 +1,42 @@
+{
+  "number": 4706,
+  "title": "Line sketch: Stasis Chamber Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down isometric view of an intricate fantasy dungeon map labeled 'STASIS CHAMBER' at the bottom. The central feature is a glowing cylindrical glass pod containing a dragon, surrounded by concentric circular stone platforms, pathways, glowing runes, magical crystals, waterfalls, torches, and various connected chambers including a prison cell, library, and fungal grotto (derived from generated still #4136).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down isometric view of an intricate fantasy dungeon map labeled 'STASIS CHAMBER' at the bottom. The central feature is a glowing cylindrical glass pod containing a dragon, surrounded by concentric circular stone platforms, pathways, glowing runes, magical crystals, waterfalls, torches, and various connected chambers including a prison cell, library, and fungal grotto",
+  "inverted_title": "Inverted sketch: Stasis Chamber Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down isometric view of an intricate fantasy dungeon map labeled 'STASIS CHAMBER' at the bottom. The central feature is a glowing cylindrical glass pod containing a dragon, surrounded by concentric circular stone platforms, pathways, glowing runes, magical crystals, waterfalls, torches, and various connected chambers including a prison cell, library, and fungal grotto (from generated still #4136).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down isometric view of an intricate fantasy dungeon map labeled 'STASIS CHAMBER' at the bottom. The central feature is a glowing cylindrical glass pod containing a dragon, surrounded by concentric circular stone platforms, pathways, glowing runes, magical crystals, waterfalls, torches, and various connected chambers including a prison cell, library, and fungal grotto",
+  "source_description": "A top-down isometric view of an intricate fantasy dungeon map labeled 'STASIS CHAMBER' at the bottom. The central feature is a glowing cylindrical glass pod containing a dragon, surrounded by concentric circular stone platforms, pathways, glowing runes, magical crystals, waterfalls, torches, and various connected chambers including a prison cell, library, and fungal grotto.",
+  "source_prompt": "Top-down isometric fantasy dungeon map of a stasis chamber, central glowing cylindrical glass pod with a dragon inside, surrounded by concentric circular stone walkways with glowing runes, connected to multiple themed rooms including a barred prison cell with spiral floor, a library with bookshelves, a glowing crystal and mushroom grotto, underground river with lily pads, waterfalls, stalactites, torches, and magical artifacts, dark atmospheric lighting, detailed game asset style",
+  "source_title": "Stasis Chamber Map",
+  "style": "isometric pixel art",
+  "mood": "mysterious, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dungeon map",
+    "fantasy interior",
+    "isometric view",
+    "stasis chamber",
+    "dragon pod"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4136,
+  "source_url": "/generated/4136.jpg",
+  "image_url": "/sketches/4706.png",
+  "inverted_image_url": "/sketches-inverted/4706.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:48Z"
+}

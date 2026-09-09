@@ -1,0 +1,42 @@
+{
+  "number": 3039,
+  "title": "Line sketch: Bear Playing Piano",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A whimsical bear with rosy cheeks sits at a gray upright piano, wearing a vibrant dress. Its long, flowing hair streams behind it in swirling patterns of, filled with fish and bubbles against a textured gray background (derived from generated still #2365).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A whimsical bear with rosy cheeks sits at a gray upright piano, wearing a vibrant dress. Its long, flowing hair streams behind it in swirling patterns of, filled with fish and bubbles against a textured gray background",
+  "inverted_title": "Inverted sketch: Bear Playing Piano",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A whimsical bear with rosy cheeks sits at a gray upright piano, wearing a vibrant dress. Its long, flowing hair streams behind it in swirling patterns of, filled with fish and bubbles against a textured gray background (from generated still #2365).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A whimsical bear with rosy cheeks sits at a gray upright piano, wearing a vibrant dress. Its long, flowing hair streams behind it in swirling patterns of, filled with fish and bubbles against a textured gray background",
+  "source_description": "A whimsical brown bear with rosy cheeks sits at a gray upright piano, wearing a vibrant magenta dress. Its long, flowing hair streams behind it in swirling patterns of pink, purple, and blue, filled with colorful fish and bubbles against a textured gray background.",
+  "source_prompt": "",
+  "source_title": "Bear Playing Piano",
+  "style": "whimsical fantasy composition",
+  "mood": "playful, dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bear",
+    "piano",
+    "fantasy",
+    "whimsical",
+    "musical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2365,
+  "source_url": "/generated/2365.jpg",
+  "image_url": "/sketches/3039.png",
+  "inverted_image_url": "/sketches-inverted/3039.png",
+  "curve_count": 229,
+  "built_at": "2026-08-17T00:09:44Z"
+}

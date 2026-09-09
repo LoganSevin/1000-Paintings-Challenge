@@ -1,0 +1,42 @@
+{
+  "number": 4956,
+  "title": "Line sketch: Tortured Soul in Gallery",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large surreal composition hangs on a decaying gallery wall, depicting a gaunt, emaciated figure with exposed ribs screaming in agony, blood dripping from its hands and chest. The surrounding room features a lit candelabra, scattered torn papers and cards on the wooden floor, and multiple smaller eerie paintings with melting faces and ghostly figures on the walls (derived from generated still #4393).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large surreal composition hangs on a decaying gallery wall, depicting a gaunt, emaciated figure with exposed ribs screaming in agony, blood dripping from its hands and chest. The surrounding room features a lit candelabra, scattered torn papers and cards on the wooden floor, and multiple smaller eerie paintings with melting faces and ghostly figures on the walls",
+  "inverted_title": "Inverted sketch: Tortured Soul in Gallery",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large surreal composition hangs on a decaying gallery wall, depicting a gaunt, emaciated figure with exposed ribs screaming in agony, blood dripping from its hands and chest. The surrounding room features a lit candelabra, scattered torn papers and cards on the wooden floor, and multiple smaller eerie paintings with melting faces and ghostly figures on the walls (from generated still #4393).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large surreal composition hangs on a decaying gallery wall, depicting a gaunt, emaciated figure with exposed ribs screaming in agony, blood dripping from its hands and chest. The surrounding room features a lit candelabra, scattered torn papers and cards on the wooden floor, and multiple smaller eerie paintings with melting faces and ghostly figures on the walls",
+  "source_description": "A large surreal painting hangs on a decaying gallery wall, depicting a gaunt, emaciated figure with exposed ribs screaming in agony, blood dripping from its hands and chest. The surrounding room features a lit candelabra, scattered torn papers and cards on the wooden floor, and multiple smaller eerie paintings with melting faces and ghostly figures on the walls.",
+  "source_prompt": "dark surreal horror scene inside an old decaying art gallery, large central painting shows a screaming emaciated humanoid figure with exposed ribs, bleeding wounds and hands, surrounded by swirling ghostly faces and abstract forms, multiple smaller grotesque paintings with melting faces hang on the walls, lit candelabra on the floor casting dramatic light, torn papers and bloody cards scattered across wooden floor, paint visibly dripping down the walls, eerie and oppressive atmosphere",
+  "source_title": "Tortured Soul in Gallery",
+  "style": "dark surrealism",
+  "mood": "macabre, nightmarish",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal horror",
+    "tortured figure",
+    "art gallery",
+    "dripping paint",
+    "candelabra"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4393,
+  "source_url": "/generated/4393.jpg",
+  "image_url": "/sketches/4956.png",
+  "inverted_image_url": "/sketches-inverted/4956.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2030,
+  "title": "Line sketch: Surreal Skull Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large skull with glowing spiral eyes dominates the left side, its surface dripping with liquid. An ornate mechanical eye protrudes from its right socket containing a smaller skull, set against a vibrant sunset over reflective water with an island of dark trees (derived from generated still #1255).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large skull with glowing spiral eyes dominates the left side, its surface dripping with liquid. An ornate mechanical eye protrudes from its right socket containing a smaller skull, set against a vibrant sunset over reflective water with an island of dark trees",
+  "inverted_title": "Inverted sketch: Surreal Skull Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large skull with glowing spiral eyes dominates the left side, its surface dripping with liquid. An ornate mechanical eye protrudes from its right socket containing a smaller skull, set against a vibrant sunset over reflective water with an island of dark trees (from generated still #1255).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large skull with glowing spiral eyes dominates the left side, its surface dripping with liquid. An ornate mechanical eye protrudes from its right socket containing a smaller skull, set against a vibrant sunset over reflective water with an island of dark trees",
+  "source_description": "A large green skull with glowing pink spiral eyes dominates the left side, its surface dripping with green liquid. An ornate mechanical eye protrudes from its right socket containing a smaller skull, set against a vibrant sunset over reflective water with an island of dark trees.",
+  "source_prompt": "",
+  "source_title": "Surreal Green Skull Eye",
+  "style": "surrealism",
+  "mood": "psychedelic dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skull",
+    "mechanical eye",
+    "psychedelic",
+    "sunset",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1255,
+  "source_url": "/generated/1255.jpg",
+  "image_url": "/sketches/2030.png",
+  "inverted_image_url": "/sketches-inverted/2030.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:42Z"
+}

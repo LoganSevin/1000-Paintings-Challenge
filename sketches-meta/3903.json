@@ -1,0 +1,42 @@
+{
+  "number": 3903,
+  "title": "Line sketch: Warrior Pose Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of the same female character with long dark hair and outfit, progressing from a high kick to a powerful ground stomp that creates impact sparks. She wears a tattered dress, black corset, gloves, and boots with a flowing cape (derived from generated still #3320).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of the same female character with long dark hair and outfit, progressing from a high kick to a powerful ground stomp that creates impact sparks. She wears a tattered dress, black corset, gloves, and boots with a flowing cape",
+  "inverted_title": "Inverted sketch: Warrior Pose Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of the same female character with long dark hair and outfit, progressing from a high kick to a powerful ground stomp that creates impact sparks. She wears a tattered dress, black corset, gloves, and boots with a flowing cape (from generated still #3320).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of the same female character with long dark hair and outfit, progressing from a high kick to a powerful ground stomp that creates impact sparks. She wears a tattered dress, black corset, gloves, and boots with a flowing cape",
+  "source_description": "Four sequential poses of the same female character with long dark hair and red outfit, progressing from a high kick to a powerful ground stomp that creates red impact sparks. She wears a tattered red dress, black corset, gloves, and boots with a flowing red cape.",
+  "source_prompt": "A female character with long flowing dark hair in a high ponytail, wearing a revealing tattered red dress with black corset, red cape, black gloves and heavy boots, shown in four progressive action poses from left to right: high knee kick, mid kick, preparing stomp, and powerful ground stomp creating red sparks and impact effect, consistent character design, clean white background, anime influenced digital art style",
+  "source_title": "Red Warrior Pose Sequence",
+  "style": "digital character concept art",
+  "mood": "dynamic fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "action poses",
+    "costume",
+    "multiple views",
+    "impact effect"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3320,
+  "source_url": "/generated/3320.jpg",
+  "image_url": "/sketches/3903.png",
+  "inverted_image_url": "/sketches-inverted/3903.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:46Z"
+}

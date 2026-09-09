@@ -1,0 +1,42 @@
+{
+  "number": 222,
+  "title": "Line sketch: Floating Spheres Explosion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic cluster of glossy spheres merges with sharp metallic spikes and glowing elements in a surreal composition. The abstract sculpture appears to burst outward against a clean, minimalist background (derived from painting #269).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic cluster of glossy spheres merges with sharp metallic spikes and glowing elements in a surreal composition. The abstract sculpture appears to burst outward against a clean, minimalist background",
+  "inverted_title": "Inverted sketch: Floating Spheres Explosion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic cluster of glossy spheres merges with sharp metallic spikes and glowing elements in a surreal composition. The abstract sculpture appears to burst outward against a clean, minimalist background (from painting #269).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic cluster of glossy spheres merges with sharp metallic spikes and glowing elements in a surreal composition. The abstract sculpture appears to burst outward against a clean, minimalist background",
+  "source_description": "A dynamic cluster of glossy blue spheres merges with sharp metallic spikes and glowing neon elements in a surreal composition. The abstract sculpture appears to burst outward against a clean, minimalist background.",
+  "source_prompt": "",
+  "source_title": "Floating Blue Spheres Explosion",
+  "style": "3D CGI",
+  "mood": "Futuristic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital 3D rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "3D art",
+    "abstract sculpture",
+    "spheres",
+    "glow",
+    "metallic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 269,
+  "source_url": "/paintings/269.jpg",
+  "image_url": "/sketches/222.png",
+  "inverted_image_url": "/sketches-inverted/222.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1031,
+  "title": "Line sketch: Goddess at Sunset Falls",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a -skinned woman with a melting crown of leaves and dripping paint effects in the foreground, overlooking a vibrant landscape with a large waterfall, reflective lake, distant city skyline, pine forests, and a massive sun setting under a dramatic fiery sky (derived from generated still #243).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a -skinned woman with a melting crown of leaves and dripping paint effects in the foreground, overlooking a vibrant landscape with a large waterfall, reflective lake, distant city skyline, pine forests, and a massive sun setting under a dramatic fiery sky",
+  "inverted_title": "Inverted sketch: Goddess at Sunset Falls",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a -skinned woman with a melting crown of leaves and dripping paint effects in the foreground, overlooking a vibrant landscape with a large waterfall, reflective lake, distant city skyline, pine forests, and a massive sun setting under a dramatic fiery sky (from generated still #243).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a -skinned woman with a melting crown of leaves and dripping paint effects in the foreground, overlooking a vibrant landscape with a large waterfall, reflective lake, distant city skyline, pine forests, and a massive sun setting under a dramatic fiery sky",
+  "source_description": "A surreal painting depicts a green-skinned woman with a melting crown of leaves and dripping paint effects in the foreground, overlooking a vibrant landscape with a large waterfall, reflective lake, distant city skyline, pine forests, and a massive red sun setting under a dramatic fiery sky.",
+  "source_prompt": "",
+  "source_title": "Green Goddess at Sunset Falls",
+  "style": "surrealism",
+  "mood": "ethereal dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "waterfall",
+    "woman",
+    "sun",
+    "cityscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 243,
+  "source_url": "/generated/243.jpg",
+  "image_url": "/sketches/1031.png",
+  "inverted_image_url": "/sketches-inverted/1031.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:40Z"
+}

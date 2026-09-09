@@ -1,0 +1,42 @@
+{
+  "number": 4393,
+  "title": "Line sketch: Potion Master's Workshop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly female alchemist with hair and small horns stands behind a wooden table filled with glowing potions, gemstones, and an open spellbook. She holds up a round flask of swirling liquid, surrounded by hanging scrolls, a lantern, curtains, and various magical bottles in a dimly lit studio (derived from generated still #3812).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly female alchemist with hair and small horns stands behind a wooden table filled with glowing potions, gemstones, and an open spellbook. She holds up a round flask of swirling liquid, surrounded by hanging scrolls, a lantern, curtains, and various magical bottles in a dimly lit studio",
+  "inverted_title": "Inverted sketch: Potion Master's Workshop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly female alchemist with hair and small horns stands behind a wooden table filled with glowing potions, gemstones, and an open spellbook. She holds up a round flask of swirling liquid, surrounded by hanging scrolls, a lantern, curtains, and various magical bottles in a dimly lit studio (from generated still #3812).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly female alchemist with hair and small horns stands behind a wooden table filled with glowing potions, gemstones, and an open spellbook. She holds up a round flask of swirling liquid, surrounded by hanging scrolls, a lantern, curtains, and various magical bottles in a dimly lit studio",
+  "source_description": "An elderly female alchemist with green hair and small horns stands behind a wooden table filled with glowing potions, colorful gemstones, and an open spellbook. She holds up a round flask of swirling red liquid, surrounded by hanging scrolls, a lantern, purple curtains, and various magical bottles in a dimly lit studio.",
+  "source_prompt": "An elderly female alchemist with green hair, small red horns, and ornate white robes stands in her magical workshop, holding up a round glass flask filled with glowing red potion. She has a slight smile. The table in front of her is covered with an open illuminated spellbook, scattered colorful gemstones, lit red candles, and various glowing potion bottles. Purple curtains, hanging scrolls, a blue lantern, and a pocket watch are visible in the background. Fantasy style, rich colors, detailed digital painting.",
+  "source_title": "Potion Master's Workshop",
+  "style": "fantasy illustration",
+  "mood": "mystical, arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alchemist",
+    "witch",
+    "potions",
+    "magic shop",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3812,
+  "source_url": "/generated/3812.jpg",
+  "image_url": "/sketches/4393.png",
+  "inverted_image_url": "/sketches-inverted/4393.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:48Z"
+}

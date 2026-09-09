@@ -1,0 +1,42 @@
+{
+  "number": 4366,
+  "title": "Line sketch: Neuron Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing, neuron-like structure with branching dendrites and nodes floats inside a transparent spherical glass orb. The orb rests on a dark metallic stand with dripping paint effects, set against a misty forest background with vibrant paint splatters radiating outward (derived from generated still #3785).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing, neuron-like structure with branching dendrites and nodes floats inside a transparent spherical glass orb. The orb rests on a dark metallic stand with dripping paint effects, set against a misty forest background with vibrant paint splatters radiating outward",
+  "inverted_title": "Inverted sketch: Neuron Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing, neuron-like structure with branching dendrites and nodes floats inside a transparent spherical glass orb. The orb rests on a dark metallic stand with dripping paint effects, set against a misty forest background with vibrant paint splatters radiating outward (from generated still #3785).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing, neuron-like structure with branching dendrites and nodes floats inside a transparent spherical glass orb. The orb rests on a dark metallic stand with dripping paint effects, set against a misty forest background with vibrant paint splatters radiating outward",
+  "source_description": "A glowing, multicolored neuron-like structure with branching dendrites and pink nodes floats inside a transparent spherical glass orb. The orb rests on a dark metallic stand with dripping paint effects, set against a misty forest background with vibrant paint splatters radiating outward.",
+  "source_prompt": "A surreal glowing neuron with bright pink nodes and colorful branching dendrites in yellow, green, purple and blue, floating inside a large transparent glass sphere. The sphere sits on a dark pedestal with colorful paint dripping down. Behind the orb is a misty green forest. Vibrant paint splatters in pink, purple and yellow explode around the sphere against a soft gradient background.",
+  "source_title": "Neon Neuron Orb",
+  "style": "surreal",
+  "mood": "psychedelic, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "neuron",
+    "glass orb",
+    "surreal",
+    "psychedelic",
+    "forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3785,
+  "source_url": "/generated/3785.jpg",
+  "image_url": "/sketches/4366.png",
+  "inverted_image_url": "/sketches-inverted/4366.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

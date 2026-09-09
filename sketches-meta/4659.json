@@ -1,0 +1,42 @@
+{
+  "number": 4659,
+  "title": "Line sketch: Mystic Portal Watcher",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted man stands in rippling water holding a glowing orb, facing a large ornate composition of a horned goddess with a cosmic headdress. In the foreground, three cats sit on a mossy bank watching the scene while floating luminous orbs, flowers, and vines frame the surreal night setting (derived from generated still #4081).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted man stands in rippling water holding a glowing orb, facing a large ornate composition of a horned goddess with a cosmic headdress. In the foreground, three cats sit on a mossy bank watching the scene while floating luminous orbs, flowers, and vines frame the surreal night setting",
+  "inverted_title": "Inverted sketch: Mystic Portal Watcher",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted man stands in rippling water holding a glowing orb, facing a large ornate composition of a horned goddess with a cosmic headdress. In the foreground, three cats sit on a mossy bank watching the scene while floating luminous orbs, flowers, and vines frame the surreal night setting (from generated still #4081).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted man stands in rippling water holding a glowing orb, facing a large ornate composition of a horned goddess with a cosmic headdress. In the foreground, three cats sit on a mossy bank watching the scene while floating luminous orbs, flowers, and vines frame the surreal night setting",
+  "source_description": "A silhouetted man stands in rippling water holding a glowing orb, facing a large ornate painting of a horned goddess with a cosmic headdress. In the foreground, three cats sit on a mossy bank watching the scene while floating luminous orbs, flowers, and vines frame the surreal night setting.",
+  "source_prompt": "Surreal fantasy scene at twilight, a silhouetted man holding a glowing orb stands in rippling reflective water facing a large ornate painting of a beautiful horned goddess with intricate headdress and cosmic hair. Three cats, one orange tabby, one grey, and one black, sit on a mossy ledge watching. The painting depicts a mountain lake and three smaller horned figures. Lush glowing flowers, vines, and floating luminous orbs surround the scene under a starry purple sky.",
+  "source_title": "Mystic Portal Watcher",
+  "style": "fantasy surrealism",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy art",
+    "cosmic portal",
+    "magical cats",
+    "horned goddess",
+    "ethereal night"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4081,
+  "source_url": "/generated/4081.jpg",
+  "image_url": "/sketches/4659.png",
+  "inverted_image_url": "/sketches-inverted/4659.png",
+  "curve_count": 107,
+  "built_at": "2026-08-17T00:09:48Z"
+}

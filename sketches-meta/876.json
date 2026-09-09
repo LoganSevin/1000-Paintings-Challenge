@@ -1,0 +1,42 @@
+{
+  "number": 876,
+  "title": "Line sketch: Solar Eclipse Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned figure with a dual-faced head sits surrounded by stylized foliage. The head displays a smiling sun and moon merged together, framed by a radiant solar eclipse with flames against a dark starry sky (derived from generated still #85).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned figure with a dual-faced head sits surrounded by stylized foliage. The head displays a smiling sun and moon merged together, framed by a radiant solar eclipse with flames against a dark starry sky",
+  "inverted_title": "Inverted sketch: Solar Eclipse Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned figure with a dual-faced head sits surrounded by stylized foliage. The head displays a smiling sun and moon merged together, framed by a radiant solar eclipse with flames against a dark starry sky (from generated still #85).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned figure with a dual-faced head sits surrounded by stylized foliage. The head displays a smiling sun and moon merged together, framed by a radiant solar eclipse with flames against a dark starry sky",
+  "source_description": "A blue-skinned figure with a dual-faced head sits surrounded by stylized foliage. The head displays a smiling sun and moon merged together, framed by a radiant solar eclipse with orange flames against a dark starry sky.",
+  "source_prompt": "",
+  "source_title": "Solar Eclipse Figure",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "solar eclipse",
+    "dual face",
+    "celestial being",
+    "fantasy art",
+    "figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 85,
+  "source_url": "/generated/85.jpg",
+  "image_url": "/sketches/876.png",
+  "inverted_image_url": "/sketches-inverted/876.png",
+  "curve_count": 196,
+  "built_at": "2026-08-17T00:09:40Z"
+}

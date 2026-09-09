@@ -1,0 +1,42 @@
+{
+  "number": 1169,
+  "title": "Line sketch: Cosmic Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a giant -skinned female figure with an elaborate updo rising above a wet city highway at sunset. She wears a sparkling face mask and holds swirling energy rings while planets and a starry nebula fill the dramatic sky (derived from generated still #381).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a giant -skinned female figure with an elaborate updo rising above a wet city highway at sunset. She wears a sparkling face mask and holds swirling energy rings while planets and a starry nebula fill the dramatic sky",
+  "inverted_title": "Inverted sketch: Cosmic Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a giant -skinned female figure with an elaborate updo rising above a wet city highway at sunset. She wears a sparkling face mask and holds swirling energy rings while planets and a starry nebula fill the dramatic sky (from generated still #381).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a giant -skinned female figure with an elaborate updo rising above a wet city highway at sunset. She wears a sparkling face mask and holds swirling energy rings while planets and a starry nebula fill the dramatic sky",
+  "source_description": "A vibrant surreal painting depicts a giant green-skinned female figure with an elaborate updo rising above a wet city highway at sunset. She wears a sparkling purple face mask and holds swirling turquoise energy rings while planets and a starry nebula fill the dramatic sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Green Oracle",
+  "style": "surreal digital art",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "futuristic",
+    "nebula",
+    "highway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 381,
+  "source_url": "/generated/381.jpg",
+  "image_url": "/sketches/1169.png",
+  "inverted_image_url": "/sketches-inverted/1169.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 5001,
+  "title": "Line sketch: Wolf and Monster by the Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring a black wolf with glowing eyes standing on the left shore of a reflective pond, facing a large monstrous creature with flowing hair and sharp teeth on the right. In the foreground sits a potted plant, while a sun bursts behind a pile of geometric shapes in the center. Multiple floating eyes appear in the dark clouds above (derived from generated still #4438).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring a black wolf with glowing eyes standing on the left shore of a reflective pond, facing a large monstrous creature with flowing hair and sharp teeth on the right. In the foreground sits a potted plant, while a sun bursts behind a pile of geometric shapes in the center. Multiple floating eyes appear in the dark clouds above",
+  "inverted_title": "Inverted sketch: Wolf and Monster by the Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring a black wolf with glowing eyes standing on the left shore of a reflective pond, facing a large monstrous creature with flowing hair and sharp teeth on the right. In the foreground sits a potted plant, while a sun bursts behind a pile of geometric shapes in the center. Multiple floating eyes appear in the dark clouds above (from generated still #4438).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring a black wolf with glowing eyes standing on the left shore of a reflective pond, facing a large monstrous creature with flowing hair and sharp teeth on the right. In the foreground sits a potted plant, while a sun bursts behind a pile of geometric shapes in the center. Multiple floating eyes appear in the dark clouds above",
+  "source_description": "A surreal fantasy scene featuring a black wolf with glowing yellow eyes standing on the left shore of a reflective pond, facing a large green monstrous creature with purple flowing hair and sharp teeth on the right. In the foreground sits a potted green plant, while a bright yellow sun bursts behind a pile of red geometric shapes in the center. Multiple floating eyes appear in the dark clouds above.",
+  "source_prompt": "A surreal fantasy landscape with a black wolf with glowing eyes standing on the left bank of a calm pond, facing a large green monstrous creature with sharp teeth and flowing purple hair on the right. A bright yellow sun radiates behind a pile of red broken shapes in the center sky. A potted green plant sits in the foreground on the near shore. Multiple floating eyeballs hover in the stormy clouds above the wolf. Mystical atmosphere with reflective water and vibrant contrasting colors.",
+  "source_title": "Wolf and Monster by the Pond",
+  "style": "surreal fantasy",
+  "mood": "mystical confrontation",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy creature",
+    "wolf",
+    "monster",
+    "pond"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4438,
+  "source_url": "/generated/4438.jpg",
+  "image_url": "/sketches/5001.png",
+  "inverted_image_url": "/sketches-inverted/5001.png",
+  "curve_count": 72,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1010,
+  "title": "Line sketch: Steampunk Humpty Dumpty",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal steampunk scene featuring a mustached Humpty Dumpty in a top hat and pinstripe suit, standing on clouds while holding a cane. Mechanical fish with gears and keys swim around him beneath a giant moon in a starry night sky over a spooky village (derived from generated still #220).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal steampunk scene featuring a mustached Humpty Dumpty in a top hat and pinstripe suit, standing on clouds while holding a cane. Mechanical fish with gears and keys swim around him beneath a giant moon in a starry night sky over a spooky village",
+  "inverted_title": "Inverted sketch: Steampunk Humpty Dumpty",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal steampunk scene featuring a mustached Humpty Dumpty in a top hat and pinstripe suit, standing on clouds while holding a cane. Mechanical fish with gears and keys swim around him beneath a giant moon in a starry night sky over a spooky village (from generated still #220).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal steampunk scene featuring a mustached Humpty Dumpty in a top hat and pinstripe suit, standing on clouds while holding a cane. Mechanical fish with gears and keys swim around him beneath a giant moon in a starry night sky over a spooky village",
+  "source_description": "A surreal steampunk scene featuring a mustached Humpty Dumpty in a top hat and pinstripe suit, standing on purple clouds while holding a cane. Mechanical fish with gears and keys swim around him beneath a giant red moon in a starry night sky over a spooky village.",
+  "source_prompt": "",
+  "source_title": "Steampunk Humpty Dumpty",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "Humpty Dumpty",
+    "mechanical fish",
+    "moon",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 220,
+  "source_url": "/generated/220.jpg",
+  "image_url": "/sketches/1010.png",
+  "inverted_image_url": "/sketches-inverted/1010.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:40Z"
+}

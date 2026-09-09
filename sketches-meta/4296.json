@@ -1,0 +1,42 @@
+{
+  "number": 4296,
+  "title": "Line sketch: Mushroom Terrarium",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing spherical glass terrarium sits on a metallic base, containing a vibrant mushroom with dripping liquid., and leaves and roots extend from the central mushroom, illuminated from within against a dark background with floating particles (derived from generated still #3715).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing spherical glass terrarium sits on a metallic base, containing a vibrant mushroom with dripping liquid., and leaves and roots extend from the central mushroom, illuminated from within against a dark background with floating particles",
+  "inverted_title": "Inverted sketch: Mushroom Terrarium",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing spherical glass terrarium sits on a metallic base, containing a vibrant mushroom with dripping liquid., and leaves and roots extend from the central mushroom, illuminated from within against a dark background with floating particles (from generated still #3715).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing spherical glass terrarium sits on a metallic base, containing a vibrant mushroom with dripping liquid., and leaves and roots extend from the central mushroom, illuminated from within against a dark background with floating particles",
+  "source_description": "A glowing spherical glass terrarium sits on a metallic base, containing a vibrant neon mushroom with dripping pink liquid. Bright cyan, purple, and green leaves and roots extend from the central mushroom, illuminated from within against a dark background with floating particles.",
+  "source_prompt": "A spherical glass terrarium glowing with neon purple light, containing a central mushroom with a pink dripping cap and vibrant glowing turquoise and green leaves connected by glowing roots. Liquid drips down the glass surface. The orb rests on a dark metallic base with engraved text. Dark background with floating luminous particles, surreal digital painting style.",
+  "source_title": "Neon Mushroom Terrarium",
+  "style": "line sketch",
+  "mood": "ethereal, bioluminescent",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "terrarium",
+    "bioluminescent",
+    "cyberpunk nature",
+    "glowing orb"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3715,
+  "source_url": "/generated/3715.jpg",
+  "image_url": "/sketches/4296.png",
+  "inverted_image_url": "/sketches-inverted/4296.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:47Z"
+}

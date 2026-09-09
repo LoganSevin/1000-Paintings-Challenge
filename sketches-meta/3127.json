@@ -1,0 +1,42 @@
+{
+  "number": 3127,
+  "title": "Line sketch: Fractured Cosmic Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a dark-skinned man with glasses and a beard, positioned centrally. His figure is intersected by a white grid of rotating diamond-shaped panels filled with vibrant colors, while a large ammonite fossil and swirling cosmic nebulae, and fiery occupy the background (derived from generated still #2465).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a dark-skinned man with glasses and a beard, positioned centrally. His figure is intersected by a white grid of rotating diamond-shaped panels filled with vibrant colors, while a large ammonite fossil and swirling cosmic nebulae, and fiery occupy the background",
+  "inverted_title": "Inverted sketch: Fractured Cosmic Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a dark-skinned man with glasses and a beard, positioned centrally. His figure is intersected by a white grid of rotating diamond-shaped panels filled with vibrant colors, while a large ammonite fossil and swirling cosmic nebulae, and fiery occupy the background (from generated still #2465).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a dark-skinned man with glasses and a beard, positioned centrally. His figure is intersected by a white grid of rotating diamond-shaped panels filled with vibrant colors, while a large ammonite fossil and swirling cosmic nebulae, and fiery occupy the background",
+  "source_description": "A surreal portrait of a dark-skinned man with glasses and a beard, positioned centrally. His figure is intersected by a white grid of rotating diamond-shaped panels filled with vibrant colors, while a large ammonite fossil and swirling cosmic nebulae in deep blues, purples, and fiery oranges occupy the background.",
+  "source_prompt": "Surreal portrait of a thoughtful Black man with round glasses and a beard, centered in frame, his face and torso intersected by a white diamond grid of colorful rotating squares. A large detailed ammonite shell spirals in the foreground. Background features swirling cosmic nebulae, stars, and smoke in deep indigo, purple, fiery orange and yellow tones, dramatic lighting, painterly digital art style",
+  "source_title": "Fractured Cosmic Portrait",
+  "style": "surrealism",
+  "mood": "mysterious cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "portrait",
+    "ammonite",
+    "grid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2465,
+  "source_url": "/generated/2465.jpg",
+  "image_url": "/sketches/3127.png",
+  "inverted_image_url": "/sketches-inverted/3127.png",
+  "curve_count": 337,
+  "built_at": "2026-08-17T00:09:45Z"
+}

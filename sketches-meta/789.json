@@ -1,0 +1,42 @@
+{
+  "number": 789,
+  "title": "Line sketch: Vibrant Poppy Bloom Cluster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Bold and poppies emerge from lush foliage in this expressive floral composition. The dynamic composition captures the energy and warmth of a sunlit garden with rich, flowing (derived from painting #997).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Bold and poppies emerge from lush foliage in this expressive floral composition. The dynamic composition captures the energy and warmth of a sunlit garden with rich, flowing",
+  "inverted_title": "Inverted sketch: Vibrant Poppy Bloom Cluster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Bold and poppies emerge from lush foliage in this expressive floral composition. The dynamic composition captures the energy and warmth of a sunlit garden with rich, flowing (from painting #997).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Bold and poppies emerge from lush foliage in this expressive floral composition. The dynamic composition captures the energy and warmth of a sunlit garden with rich, flowing",
+  "source_description": "Bold red and orange poppies emerge from lush green foliage in this expressive floral painting. The dynamic composition captures the energy and warmth of a sunlit garden with rich, flowing brushstrokes.",
+  "source_prompt": "",
+  "source_title": "Vibrant Poppy Bloom Cluster",
+  "style": "Expressionism",
+  "mood": "Vibrant and energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "poppies",
+    "floral",
+    "botanical",
+    "expressive",
+    "garden"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 997,
+  "source_url": "/paintings/997.jpg",
+  "image_url": "/sketches/789.png",
+  "inverted_image_url": "/sketches-inverted/789.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

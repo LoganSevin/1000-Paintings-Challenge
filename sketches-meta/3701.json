@@ -1,0 +1,42 @@
+{
+  "number": 3701,
+  "title": "Line sketch: Stasis Overload",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a terrified bald man with wide eyes and open mouth, a borzoi dog wearing an Elizabethan ruff, and a demonic figure riding a flaming motorcycle that shoots energy beams. Text elements including 'Create?', 'No.', 'Observe.', and 'Stasis' radiate from the central screaming face against a background (derived from generated still #3109).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a terrified bald man with wide eyes and open mouth, a borzoi dog wearing an Elizabethan ruff, and a demonic figure riding a flaming motorcycle that shoots energy beams. Text elements including 'Create?', 'No.', 'Observe.', and 'Stasis' radiate from the central screaming face against a background",
+  "inverted_title": "Inverted sketch: Stasis Overload",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a terrified bald man with wide eyes and open mouth, a borzoi dog wearing an Elizabethan ruff, and a demonic figure riding a flaming motorcycle that shoots energy beams. Text elements including 'Create?', 'No.', 'Observe.', and 'Stasis' radiate from the central screaming face against a background (from generated still #3109).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a terrified bald man with wide eyes and open mouth, a borzoi dog wearing an Elizabethan ruff, and a demonic figure riding a flaming motorcycle that shoots energy beams. Text elements including 'Create?', 'No.', 'Observe.', and 'Stasis' radiate from the central screaming face against a background",
+  "source_description": "A surreal scene featuring a terrified bald man with wide eyes and open mouth, a borzoi dog wearing an Elizabethan ruff, and a red demonic figure riding a flaming motorcycle that shoots green energy beams. Text elements including 'Create?', 'No.', 'Observe.', and 'Stasis' radiate from the central screaming face against a watercolor background.",
+  "source_prompt": "",
+  "source_title": "Stasis Overload",
+  "style": "surreal illustration",
+  "mood": "chaotic panic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink on notebook paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "demonic",
+    "motorcycle",
+    "borzoi",
+    "screaming face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3109,
+  "source_url": "/generated/3109.jpg",
+  "image_url": "/sketches/3701.png",
+  "inverted_image_url": "/sketches-inverted/3701.png",
+  "curve_count": 208,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4076,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with hair stands in a dynamic combat stance, gripping a massive warhammer with both hands. She wears a white and cropped top with matching armored boots and leg wraps, exposing her midriff against a plain gray gradient background (derived from generated still #3493).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with hair stands in a dynamic combat stance, gripping a massive warhammer with both hands. She wears a white and cropped top with matching armored boots and leg wraps, exposing her midriff against a plain gray gradient background",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with hair stands in a dynamic combat stance, gripping a massive warhammer with both hands. She wears a white and cropped top with matching armored boots and leg wraps, exposing her midriff against a plain gray gradient background (from generated still #3493).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with hair stands in a dynamic combat stance, gripping a massive warhammer with both hands. She wears a white and cropped top with matching armored boots and leg wraps, exposing her midriff against a plain gray gradient background",
+  "source_description": "A young woman with purple hair stands in a dynamic combat stance, gripping a massive purple warhammer with both hands. She wears a white and purple cropped top with matching armored boots and leg wraps, exposing her midriff against a plain gray gradient background.",
+  "source_prompt": "A fierce young woman with long dark purple hair in a ponytail stands in a wide combat stance, holding a gigantic purple warhammer with intricate patterns. She wears a white cropped top with purple trim, white baggy pants with purple accents, and matching armored boots. Dynamic action pose, muscular definition, clean digital illustration style, solid gray background, strong lighting, character art.",
+  "source_title": "Female Warrior with Hammer",
+  "style": "digital illustration",
+  "mood": "fierce, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "hair",
+    "combat pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3493,
+  "source_url": "/generated/3493.jpg",
+  "image_url": "/sketches/4076.png",
+  "inverted_image_url": "/sketches-inverted/4076.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:47Z"
+}

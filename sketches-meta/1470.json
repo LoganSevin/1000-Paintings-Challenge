@@ -1,0 +1,42 @@
+{
+  "number": 1470,
+  "title": "Line sketch: Surreal Desert Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a lone hooded figure in a dark cloak walking up a sand dune, leaving footprints. In the foreground a mouse sits on a branch with leaves, while a massive stylized eye with a spiral pupil and dripping tears dominates the sky next to a glowing moon containing faint human-like figures (derived from generated still #685).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a lone hooded figure in a dark cloak walking up a sand dune, leaving footprints. In the foreground a mouse sits on a branch with leaves, while a massive stylized eye with a spiral pupil and dripping tears dominates the sky next to a glowing moon containing faint human-like figures",
+  "inverted_title": "Inverted sketch: Surreal Desert Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a lone hooded figure in a dark cloak walking up a sand dune, leaving footprints. In the foreground a mouse sits on a branch with leaves, while a massive stylized eye with a spiral pupil and dripping tears dominates the sky next to a glowing moon containing faint human-like figures (from generated still #685).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a lone hooded figure in a dark cloak walking up a sand dune, leaving footprints. In the foreground a mouse sits on a branch with leaves, while a massive stylized eye with a spiral pupil and dripping tears dominates the sky next to a glowing moon containing faint human-like figures",
+  "source_description": "A surreal desert landscape features a lone hooded figure in a dark cloak walking up a sand dune, leaving footprints. In the foreground a bright red mouse sits on a branch with green leaves, while a massive stylized eye with a spiral pupil and dripping orange tears dominates the sky next to a glowing moon containing faint human-like figures.",
+  "source_prompt": "",
+  "source_title": "Surreal Desert Eye",
+  "style": "surrealism",
+  "mood": "eerie dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "eye",
+    "moon",
+    "mouse"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 685,
+  "source_url": "/generated/685.jpg",
+  "image_url": "/sketches/1470.png",
+  "inverted_image_url": "/sketches-inverted/1470.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:41Z"
+}

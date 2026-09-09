@@ -1,0 +1,42 @@
+{
+  "number": 1042,
+  "title": "Line sketch: Sphinx Woman at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A profile portrait of a woman with elaborate braids and bare shoulders, accompanied by a hairless sphynx cat resting on her neck and shoulder. The background features a vibrant sunset over water with a bright sun, horizontal color bands, and scattered black paw prints across the sky and foreground (derived from generated still #254).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A profile portrait of a woman with elaborate braids and bare shoulders, accompanied by a hairless sphynx cat resting on her neck and shoulder. The background features a vibrant sunset over water with a bright sun, horizontal color bands, and scattered black paw prints across the sky and foreground",
+  "inverted_title": "Inverted sketch: Sphinx Woman at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A profile portrait of a woman with elaborate braids and bare shoulders, accompanied by a hairless sphynx cat resting on her neck and shoulder. The background features a vibrant sunset over water with a bright sun, horizontal color bands, and scattered black paw prints across the sky and foreground (from generated still #254).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A profile portrait of a woman with elaborate braids and bare shoulders, accompanied by a hairless sphynx cat resting on her neck and shoulder. The background features a vibrant sunset over water with a bright sun, horizontal color bands, and scattered black paw prints across the sky and foreground",
+  "source_description": "A profile portrait of a woman with elaborate pink braids and bare shoulders, accompanied by a hairless pink sphynx cat resting on her neck and shoulder. The background features a vibrant sunset over water with a bright sun, horizontal color bands, and scattered black paw prints across the sky and foreground.",
+  "source_prompt": "",
+  "source_title": "Sphinx Woman at Sunset",
+  "style": "pop art illustration",
+  "mood": "vibrant surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "sphinx cat",
+    "sunset",
+    "braids",
+    "paw prints"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 254,
+  "source_url": "/generated/254.jpg",
+  "image_url": "/sketches/1042.png",
+  "inverted_image_url": "/sketches-inverted/1042.png",
+  "curve_count": 67,
+  "built_at": "2026-08-17T00:09:40Z"
+}

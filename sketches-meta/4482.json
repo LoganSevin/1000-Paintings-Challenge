@@ -1,0 +1,42 @@
+{
+  "number": 4482,
+  "title": "Line sketch: Morpho Vortex Elixir",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, ornate glass potion bottle sits centered on a marble pedestal draped in cloth. The bottle features swirling patterns of,, and with white butterfly motifs, sealed with a cord and a paper tag. Its stopper is a detailed insectoid creature with large compound eyes and antennae, set against a mystical background with floating smoke swirls (derived from generated still #3901).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, ornate glass potion bottle sits centered on a marble pedestal draped in cloth. The bottle features swirling patterns of,, and with white butterfly motifs, sealed with a cord and a paper tag. Its stopper is a detailed insectoid creature with large compound eyes and antennae, set against a mystical background with floating smoke swirls",
+  "inverted_title": "Inverted sketch: Morpho Vortex Elixir",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, ornate glass potion bottle sits centered on a marble pedestal draped in cloth. The bottle features swirling patterns of,, and with white butterfly motifs, sealed with a cord and a paper tag. Its stopper is a detailed insectoid creature with large compound eyes and antennae, set against a mystical background with floating smoke swirls (from generated still #3901).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, ornate glass potion bottle sits centered on a marble pedestal draped in cloth. The bottle features swirling patterns of,, and with white butterfly motifs, sealed with a cord and a paper tag. Its stopper is a detailed insectoid creature with large compound eyes and antennae, set against a mystical background with floating smoke swirls",
+  "source_description": "A vibrant, ornate glass potion bottle sits centered on a marble pedestal draped in purple cloth. The bottle features swirling patterns of teal, emerald, red, and gold with white butterfly motifs, sealed with a red cord and a paper tag. Its stopper is a detailed green insectoid creature with large red compound eyes and golden antennae, set against a mystical purple background with floating colorful smoke swirls.",
+  "source_prompt": "A highly detailed ornate glass potion bottle with swirling teal, green, red and gold patterns and small white butterflies, sealed with a red cord and labeled Morpho Vortex Elixir. The stopper is a shiny green insectoid creature with large red compound eyes and golden antennae. The bottle rests on a white marble pedestal covered with purple velvet cloth, set in an alchemist's study with purple swirling background and colorful magical smoke trails.",
+  "source_title": "Morpho Vortex Elixir",
+  "style": "fantasy illustration",
+  "mood": "mystical enchanted",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "potion bottle",
+    "insect stopper",
+    "swirling patterns",
+    "butterfly motifs",
+    "magical elixir"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3901,
+  "source_url": "/generated/3901.jpg",
+  "image_url": "/sketches/4482.png",
+  "inverted_image_url": "/sketches-inverted/4482.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:48Z"
+}

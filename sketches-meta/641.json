@@ -1,0 +1,42 @@
+{
+  "number": 641,
+  "title": "Line sketch: Humpty Dumpty's Steampunk Empire",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal cracked egg character with an beak and large eyes stands regally, adorned with miniature castles and mechanical elements on its shell. It holds a staff and a small building, exuding a whimsical yet imposing presence against a muted background (derived from painting #817).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal cracked egg character with an beak and large eyes stands regally, adorned with miniature castles and mechanical elements on its shell. It holds a staff and a small building, exuding a whimsical yet imposing presence against a muted background",
+  "inverted_title": "Inverted sketch: Humpty Dumpty's Steampunk Empire",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal cracked egg character with an beak and large eyes stands regally, adorned with miniature castles and mechanical elements on its shell. It holds a staff and a small building, exuding a whimsical yet imposing presence against a muted background (from painting #817).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal cracked egg character with an beak and large eyes stands regally, adorned with miniature castles and mechanical elements on its shell. It holds a staff and a small building, exuding a whimsical yet imposing presence against a muted background",
+  "source_description": "A colossal cracked egg character with an orange beak and large blue eyes stands regally, adorned with miniature castles and mechanical elements on its shell. It holds a staff and a small building, exuding a whimsical yet imposing presence against a muted background.",
+  "source_prompt": "",
+  "source_title": "Humpty Dumpty's Steampunk Empire",
+  "style": "Fantasy Illustration",
+  "mood": "Whimsical Surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Humpty Dumpty",
+    "steampunk",
+    "fantasy creature",
+    "cracked egg",
+    "surreal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 817,
+  "source_url": "/paintings/817.jpg",
+  "image_url": "/sketches/641.png",
+  "inverted_image_url": "/sketches-inverted/641.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

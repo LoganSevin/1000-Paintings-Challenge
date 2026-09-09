@@ -1,0 +1,42 @@
+{
+  "number": 2588,
+  "title": "Line sketch: Crystal Sorceress Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with flowing hair and crystalline armor stands in a decaying ornate room, holding a key and flowers as she gazes at her fractured mirror reflection. crystal formations and light beams illuminate the cracked walls covered in floral patterns (derived from generated still #1824).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with flowing hair and crystalline armor stands in a decaying ornate room, holding a key and flowers as she gazes at her fractured mirror reflection. crystal formations and light beams illuminate the cracked walls covered in floral patterns",
+  "inverted_title": "Inverted sketch: Crystal Sorceress Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with flowing hair and crystalline armor stands in a decaying ornate room, holding a key and flowers as she gazes at her fractured mirror reflection. crystal formations and light beams illuminate the cracked walls covered in floral patterns (from generated still #1824).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with flowing hair and crystalline armor stands in a decaying ornate room, holding a key and flowers as she gazes at her fractured mirror reflection. crystal formations and light beams illuminate the cracked walls covered in floral patterns",
+  "source_description": "A woman with flowing red hair and crystalline pink armor stands in a decaying ornate room, holding a key and purple flowers as she gazes at her fractured mirror reflection. Purple crystal formations and golden light beams illuminate the cracked walls covered in floral patterns.",
+  "source_prompt": "",
+  "source_title": "Crystal Sorceress Reflection",
+  "style": "fantasy illustration",
+  "mood": "ethereal mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal woman",
+    "mirror reflection",
+    "fantasy art",
+    "crystals",
+    "ornate decay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1824,
+  "source_url": "/generated/1824.jpg",
+  "image_url": "/sketches/2588.png",
+  "inverted_image_url": "/sketches-inverted/2588.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:43Z"
+}

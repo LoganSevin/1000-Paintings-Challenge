@@ -1,0 +1,42 @@
+{
+  "number": 2170,
+  "title": "Line sketch: Dancing Citrus Spiral",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon character with a smiling face, stick legs, and an slice skirt dances at the center of a swirling vortex of colors. The dark background is patterned with repeating illustrations of and leaves (derived from generated still #1395).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon character with a smiling face, stick legs, and an slice skirt dances at the center of a swirling vortex of colors. The dark background is patterned with repeating illustrations of and leaves",
+  "inverted_title": "Inverted sketch: Dancing Citrus Spiral",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon character with a smiling face, stick legs, and an slice skirt dances at the center of a swirling vortex of colors. The dark background is patterned with repeating illustrations of and leaves (from generated still #1395).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon character with a smiling face, stick legs, and an slice skirt dances at the center of a swirling vortex of colors. The dark background is patterned with repeating illustrations of and leaves",
+  "source_description": "A vibrant purple cartoon character with a smiling face, stick legs, and an orange slice skirt dances at the center of a swirling vortex of rainbow colors. The dark background is patterned with repeating illustrations of oranges and green leaves.",
+  "source_prompt": "",
+  "source_title": "Dancing Citrus Spiral",
+  "style": "cartoon",
+  "mood": "playful energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cartoon character",
+    "slices",
+    "spiral pattern",
+    "fruit motif",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1395,
+  "source_url": "/generated/1395.jpg",
+  "image_url": "/sketches/2170.png",
+  "inverted_image_url": "/sketches-inverted/2170.png",
+  "curve_count": 216,
+  "built_at": "2026-08-17T00:09:42Z"
+}

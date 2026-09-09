@@ -1,0 +1,42 @@
+{
+  "number": 1488,
+  "title": "Line sketch: Desert Wanderer and Mouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert landscape features a woman in a flowing robe and headscarf walking across sand dunes. In the sky, a giant stylized eye with a iris overlooks the scene while a large mouse perches on a spiraling plant branch (derived from generated still #703).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert landscape features a woman in a flowing robe and headscarf walking across sand dunes. In the sky, a giant stylized eye with a iris overlooks the scene while a large mouse perches on a spiraling plant branch",
+  "inverted_title": "Inverted sketch: Desert Wanderer and Mouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert landscape features a woman in a flowing robe and headscarf walking across sand dunes. In the sky, a giant stylized eye with a iris overlooks the scene while a large mouse perches on a spiraling plant branch (from generated still #703).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert landscape features a woman in a flowing robe and headscarf walking across sand dunes. In the sky, a giant stylized eye with a iris overlooks the scene while a large mouse perches on a spiraling plant branch",
+  "source_description": "A surreal desert landscape features a woman in a flowing purple robe and headscarf walking across orange sand dunes. In the sky, a giant stylized eye with a pink iris overlooks the scene while a large red mouse perches on a spiraling green plant branch.",
+  "source_prompt": "",
+  "source_title": "Desert Wanderer and Red Mouse",
+  "style": "surrealism",
+  "mood": "dreamlike, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "woman",
+    "mouse",
+    "eye"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 703,
+  "source_url": "/generated/703.jpg",
+  "image_url": "/sketches/1488.png",
+  "inverted_image_url": "/sketches-inverted/1488.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:41Z"
+}

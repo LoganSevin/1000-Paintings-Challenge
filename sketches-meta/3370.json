@@ -1,0 +1,42 @@
+{
+  "number": 3370,
+  "title": "Line sketch: Surreal Cosmic Encounter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene features a large smiling spherical spaceship with a broken shell revealing a starry night landscape inside, floating above a barren mountain landscape with a black hole below. To the left is a furry monster holding a painter's palette, while to the right stands an elegant woman in a large white feathered hat (derived from generated still #2771).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene features a large smiling spherical spaceship with a broken shell revealing a starry night landscape inside, floating above a barren mountain landscape with a black hole below. To the left is a furry monster holding a painter's palette, while to the right stands an elegant woman in a large white feathered hat",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Encounter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene features a large smiling spherical spaceship with a broken shell revealing a starry night landscape inside, floating above a barren mountain landscape with a black hole below. To the left is a furry monster holding a painter's palette, while to the right stands an elegant woman in a large white feathered hat (from generated still #2771).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene features a large smiling spherical spaceship with a broken shell revealing a starry night landscape inside, floating above a barren mountain landscape with a black hole below. To the left is a furry monster holding a painter's palette, while to the right stands an elegant woman in a large white feathered hat",
+  "source_description": "A vibrant surreal scene features a large smiling blue spherical spaceship with a broken shell revealing a starry night landscape inside, floating above a barren mountain landscape with a black hole below. To the left is a green furry monster holding a painter's palette, while to the right stands an elegant woman in a large white feathered hat.",
+  "source_prompt": "Surreal psychedelic painting of a large cracked blue spherical spaceship with a smiling face and mechanical details, its broken shell revealing a starry night forest inside. A green furry one-eyed monster holding an artist's palette floats on the left, while an elegant beautiful woman in a large white feathered hat and white dress poses on the right. Swirling green and yellow nebulae surround them above a barren brown mountain range with a black hole at the center, in a vibrant whimsical cosmic style.",
+  "source_title": "Surreal Cosmic Encounter",
+  "style": "surrealism",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "spaceship",
+    "monster",
+    "portrait",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2771,
+  "source_url": "/generated/2771.jpg",
+  "image_url": "/sketches/3370.png",
+  "inverted_image_url": "/sketches-inverted/3370.png",
+  "curve_count": 60,
+  "built_at": "2026-08-17T00:09:45Z"
+}

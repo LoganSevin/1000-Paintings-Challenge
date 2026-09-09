@@ -1,0 +1,42 @@
+{
+  "number": 1909,
+  "title": "Line sketch: Psychedelic Melting Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic landscape depicts four humanoid figures with melting faces in the foreground, standing before a serene lake reflecting a dripping cosmic sky. The night sky swirls with vibrant nebulae and stars while viscous liquid pours down from above, creating ripples and patterns across the mountains and water (derived from generated still #1134).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic landscape depicts four humanoid figures with melting faces in the foreground, standing before a serene lake reflecting a dripping cosmic sky. The night sky swirls with vibrant nebulae and stars while viscous liquid pours down from above, creating ripples and patterns across the mountains and water",
+  "inverted_title": "Inverted sketch: Psychedelic Melting Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic landscape depicts four humanoid figures with melting faces in the foreground, standing before a serene lake reflecting a dripping cosmic sky. The night sky swirls with vibrant nebulae and stars while viscous liquid pours down from above, creating ripples and patterns across the mountains and water (from generated still #1134).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic landscape depicts four humanoid figures with melting faces in the foreground, standing before a serene lake reflecting a dripping cosmic sky. The night sky swirls with vibrant nebulae and stars while viscous liquid pours down from above, creating ripples and patterns across the mountains and water",
+  "source_description": "A surreal psychedelic landscape depicts four colorful humanoid figures with melting faces in the foreground, standing before a serene blue lake reflecting a dripping pink cosmic sky. The night sky swirls with vibrant nebulae and stars while viscous magenta liquid pours down from above, creating ripples and patterns across the green mountains and water.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Melting Cosmos",
+  "style": "psychedelic surrealism",
+  "mood": "trippy ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "cosmic",
+    "melting",
+    "fantasy landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1134,
+  "source_url": "/generated/1134.jpg",
+  "image_url": "/sketches/1909.png",
+  "inverted_image_url": "/sketches-inverted/1909.png",
+  "curve_count": 159,
+  "built_at": "2026-08-17T00:09:42Z"
+}

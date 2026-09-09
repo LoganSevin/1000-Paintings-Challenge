@@ -1,0 +1,42 @@
+{
+  "number": 191,
+  "title": "Line sketch: Futuristic Spherical Robot",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up view of a sleek, white and robotic sphere with glowing accents and a illuminated panel displaying a 'K' logo. The mechanical design features smooth curves and dark structural elements against a moody background (derived from painting #237).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up view of a sleek, white and robotic sphere with glowing accents and a illuminated panel displaying a 'K' logo. The mechanical design features smooth curves and dark structural elements against a moody background",
+  "inverted_title": "Inverted sketch: Futuristic Spherical Robot",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up view of a sleek, white and robotic sphere with glowing accents and a illuminated panel displaying a 'K' logo. The mechanical design features smooth curves and dark structural elements against a moody background (from painting #237).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up view of a sleek, white and robotic sphere with glowing accents and a illuminated panel displaying a 'K' logo. The mechanical design features smooth curves and dark structural elements against a moody background",
+  "source_description": "A close-up view of a sleek, white and purple robotic sphere with glowing orange accents and a purple illuminated panel displaying a 'K' logo. The mechanical design features smooth curves and dark structural elements against a moody blue background.",
+  "source_prompt": "",
+  "source_title": "Futuristic Spherical Robot",
+  "style": "3D CGI",
+  "mood": "futuristic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "robot",
+    "spherical",
+    "sci-fi",
+    "glowing",
+    "mechanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 237,
+  "source_url": "/paintings/237.jpg",
+  "image_url": "/sketches/191.png",
+  "inverted_image_url": "/sketches-inverted/191.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:38Z"
+}

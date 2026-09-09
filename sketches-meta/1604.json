@@ -1,0 +1,42 @@
+{
+  "number": 1604,
+  "title": "Line sketch: Psychedelic Forest Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal profile portrait of a -skinned figure whose large eye contains a swirling forest with trees, vines, and glowing orbs. Smaller translucent faces and cosmic nebulae appear in the background alongside intricate glowing patterns (derived from generated still #819).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal profile portrait of a -skinned figure whose large eye contains a swirling forest with trees, vines, and glowing orbs. Smaller translucent faces and cosmic nebulae appear in the background alongside intricate glowing patterns",
+  "inverted_title": "Inverted sketch: Psychedelic Forest Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal profile portrait of a -skinned figure whose large eye contains a swirling forest with trees, vines, and glowing orbs. Smaller translucent faces and cosmic nebulae appear in the background alongside intricate glowing patterns (from generated still #819).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal profile portrait of a -skinned figure whose large eye contains a swirling forest with trees, vines, and glowing orbs. Smaller translucent faces and cosmic nebulae appear in the background alongside intricate glowing patterns",
+  "source_description": "A surreal profile portrait of a purple-skinned figure whose large eye contains a swirling green forest with trees, vines, and glowing orbs. Smaller translucent faces and cosmic purple nebulae appear in the background alongside intricate glowing patterns.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Forest Eye",
+  "style": "surreal psychedelic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "forest eye",
+    "cosmic",
+    "profile portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 819,
+  "source_url": "/generated/819.jpg",
+  "image_url": "/sketches/1604.png",
+  "inverted_image_url": "/sketches-inverted/1604.png",
+  "curve_count": 90,
+  "built_at": "2026-08-17T00:09:41Z"
+}

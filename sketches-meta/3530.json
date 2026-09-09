@@ -1,0 +1,42 @@
+{
+  "number": 3530,
+  "title": "Line sketch: Moon and Lighthouse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene features a giant smiling crescent moon with eyes and swirling patterns, from which a robed figure floats while shooting a lightning bolt toward a striped and white lighthouse. Below is a glowing orb containing a sunset over mountains, all reflected in a calm body of water with a small house on an island (derived from generated still #2932).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene features a giant smiling crescent moon with eyes and swirling patterns, from which a robed figure floats while shooting a lightning bolt toward a striped and white lighthouse. Below is a glowing orb containing a sunset over mountains, all reflected in a calm body of water with a small house on an island",
+  "inverted_title": "Inverted sketch: Moon and Lighthouse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene features a giant smiling crescent moon with eyes and swirling patterns, from which a robed figure floats while shooting a lightning bolt toward a striped and white lighthouse. Below is a glowing orb containing a sunset over mountains, all reflected in a calm body of water with a small house on an island (from generated still #2932).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene features a giant smiling crescent moon with eyes and swirling patterns, from which a robed figure floats while shooting a lightning bolt toward a striped and white lighthouse. Below is a glowing orb containing a sunset over mountains, all reflected in a calm body of water with a small house on an island",
+  "source_description": "A surreal night scene features a giant smiling crescent moon with blue eyes and swirling patterns, from which a blue robed figure floats while shooting a lightning bolt toward a striped green and white lighthouse. Below is a glowing green orb containing a red sunset over mountains, all reflected in a calm body of water with a small house on an island.",
+  "source_prompt": "Surreal fantasy landscape at twilight with a giant smiling anthropomorphic moon with blue eyes in the sky, a blue robed wizard-like figure floating in front of it shooting a bright blue lightning bolt, a large glowing green orb containing a red sunset over dark mountains, a tall green and white striped lighthouse with scaffolding on rocky shore, all perfectly reflected in a calm pool of water with a small dark house on an island in the foreground, vibrant cosmic colors, whimsical and magical atmosphere",
+  "source_title": "Moon and Lighthouse",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "lighthouse",
+    "celestial",
+    "fantasy landscape",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2932,
+  "source_url": "/generated/2932.jpg",
+  "image_url": "/sketches/3530.png",
+  "inverted_image_url": "/sketches-inverted/3530.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:45Z"
+}

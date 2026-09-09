@@ -1,0 +1,42 @@
+{
+  "number": 1975,
+  "title": "Line sketch: Pandemic Solum Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant pop-art style portrait of an older man wearing a patterned hat and glasses, accompanied by a large dog on the left and a bird on his shoulder. The background features autumn maple leaves, circular patterns, paint drips, and small stylized human figures integrated into the composition (derived from generated still #1200).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant pop-art style portrait of an older man wearing a patterned hat and glasses, accompanied by a large dog on the left and a bird on his shoulder. The background features autumn maple leaves, circular patterns, paint drips, and small stylized human figures integrated into the composition",
+  "inverted_title": "Inverted sketch: Pandemic Solum Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant pop-art style portrait of an older man wearing a patterned hat and glasses, accompanied by a large dog on the left and a bird on his shoulder. The background features autumn maple leaves, circular patterns, paint drips, and small stylized human figures integrated into the composition (from generated still #1200).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant pop-art style portrait of an older man wearing a patterned hat and glasses, accompanied by a large dog on the left and a bird on his shoulder. The background features autumn maple leaves, circular patterns, paint drips, and small stylized human figures integrated into the composition",
+  "source_description": "A vibrant pop-art style portrait of an older man wearing a patterned hat and glasses, accompanied by a large green dog on the left and a bright red bird on his shoulder. The background features colorful autumn maple leaves, circular patterns, paint drips, and small stylized human figures integrated into the composition.",
+  "source_prompt": "",
+  "source_title": "Pandemic Solum Portrait",
+  "style": "pop art",
+  "mood": "vibrant, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "dog",
+    "bird",
+    "autumn leaves",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1200,
+  "source_url": "/generated/1200.jpg",
+  "image_url": "/sketches/1975.png",
+  "inverted_image_url": "/sketches-inverted/1975.png",
+  "curve_count": 153,
+  "built_at": "2026-08-17T00:09:42Z"
+}

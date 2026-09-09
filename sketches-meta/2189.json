@@ -1,0 +1,42 @@
+{
+  "number": 2189,
+  "title": "Line sketch: Celestial Silhouettes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four silhouetted female figures with intricate spiral and swirl patterns in their hair stand in profile against a dreamy, cloudy sky. A large glowing crescent moon decorated with swirls and dots hangs in the and twilight above rolling hills (derived from generated still #1414).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four silhouetted female figures with intricate spiral and swirl patterns in their hair stand in profile against a dreamy, cloudy sky. A large glowing crescent moon decorated with swirls and dots hangs in the and twilight above rolling hills",
+  "inverted_title": "Inverted sketch: Celestial Silhouettes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four silhouetted female figures with intricate spiral and swirl patterns in their hair stand in profile against a dreamy, cloudy sky. A large glowing crescent moon decorated with swirls and dots hangs in the and twilight above rolling hills (from generated still #1414).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four silhouetted female figures with intricate spiral and swirl patterns in their hair stand in profile against a dreamy, cloudy sky. A large glowing crescent moon decorated with swirls and dots hangs in the and twilight above rolling hills",
+  "source_description": "Four colorful silhouetted female figures with intricate spiral and swirl patterns in their hair stand in profile against a dreamy, cloudy sky. A large glowing crescent moon decorated with swirls and dots hangs in the purple and yellow twilight above rolling green hills.",
+  "source_prompt": "",
+  "source_title": "Celestial Silhouettes",
+  "style": "surreal",
+  "mood": "ethereal dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouettes",
+    "crescent moon",
+    "swirls",
+    "celestial",
+    "profiles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1414,
+  "source_url": "/generated/1414.jpg",
+  "image_url": "/sketches/2189.png",
+  "inverted_image_url": "/sketches-inverted/2189.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:42Z"
+}

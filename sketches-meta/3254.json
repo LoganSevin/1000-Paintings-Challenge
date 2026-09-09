@@ -1,0 +1,42 @@
+{
+  "number": 3254,
+  "title": "Line sketch: Cosmic Skull Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive skeletal skull with spiral teeth and curved horns dominates the foreground, its eye sockets glowing. Behind it floats a large circular cosmic portal with glowing rings covered in runes, containing layered surreal landscapes including a dripping orb and a silhouetted forest inside smaller orbs (derived from generated still #2623).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive skeletal skull with spiral teeth and curved horns dominates the foreground, its eye sockets glowing. Behind it floats a large circular cosmic portal with glowing rings covered in runes, containing layered surreal landscapes including a dripping orb and a silhouetted forest inside smaller orbs",
+  "inverted_title": "Inverted sketch: Cosmic Skull Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive skeletal skull with spiral teeth and curved horns dominates the foreground, its eye sockets glowing. Behind it floats a large circular cosmic portal with glowing rings covered in runes, containing layered surreal landscapes including a dripping orb and a silhouetted forest inside smaller orbs (from generated still #2623).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive skeletal skull with spiral teeth and curved horns dominates the foreground, its eye sockets glowing. Behind it floats a large circular cosmic portal with glowing rings covered in runes, containing layered surreal landscapes including a dripping orb and a silhouetted forest inside smaller orbs",
+  "source_description": "A massive skeletal skull with golden spiral teeth and curved horns dominates the foreground, its eye sockets glowing. Behind it floats a large circular cosmic portal with glowing purple rings covered in runes, containing layered surreal landscapes including a yellow dripping orb and a silhouetted forest inside smaller orbs.",
+  "source_prompt": "A monumental skeletal skull with ornate golden spiral teeth and large curved horns floating in space, its eye sockets glowing with green light. Behind the skull is a giant circular cosmic portal made of glowing purple rings inscribed with runes and alchemical symbols, containing nested surreal orbs with dripping golden liquid, a silhouetted pine forest, and vibrant nebulae. Dark starry background with purple and teal cosmic clouds, highly detailed surreal fantasy style.",
+  "source_title": "Cosmic Skull Portal",
+  "style": "surreal fantasy",
+  "mood": "mystical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skull",
+    "cosmic portal",
+    "surreal",
+    "runes",
+    "horns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2623,
+  "source_url": "/generated/2623.jpg",
+  "image_url": "/sketches/3254.png",
+  "inverted_image_url": "/sketches-inverted/3254.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

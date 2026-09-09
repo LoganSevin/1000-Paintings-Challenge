@@ -1,0 +1,42 @@
+{
+  "number": 4628,
+  "title": "Line sketch: Surreal Bayou Twilight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene set on a wooden dock over a bayou at sunset. A bearded man sits in a Radio Flyer wagon building a miniature house while a glowing vortex swirls around him; nearby a blonde woman in a black dress sits in a hammock, another blonde woman emerges from a swirling vortex in the sky, and a mouse floats inside a smaller glowing ring (derived from generated still #4050).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene set on a wooden dock over a bayou at sunset. A bearded man sits in a Radio Flyer wagon building a miniature house while a glowing vortex swirls around him; nearby a blonde woman in a black dress sits in a hammock, another blonde woman emerges from a swirling vortex in the sky, and a mouse floats inside a smaller glowing ring",
+  "inverted_title": "Inverted sketch: Surreal Bayou Twilight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene set on a wooden dock over a bayou at sunset. A bearded man sits in a Radio Flyer wagon building a miniature house while a glowing vortex swirls around him; nearby a blonde woman in a black dress sits in a hammock, another blonde woman emerges from a swirling vortex in the sky, and a mouse floats inside a smaller glowing ring (from generated still #4050).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene set on a wooden dock over a bayou at sunset. A bearded man sits in a Radio Flyer wagon building a miniature house while a glowing vortex swirls around him; nearby a blonde woman in a black dress sits in a hammock, another blonde woman emerges from a swirling vortex in the sky, and a mouse floats inside a smaller glowing ring",
+  "source_description": "A surreal scene set on a wooden dock over a bayou at sunset. A bearded man sits in a red Radio Flyer wagon building a miniature house while a glowing purple vortex swirls around him; nearby a blonde woman in a black dress sits in a purple hammock, another blonde woman emerges from a swirling vortex in the sky, and a purple mouse floats inside a smaller glowing ring.",
+  "source_prompt": "Surreal twilight bayou scene with Spanish moss on ancient trees. A man with dark curly hair and beard sits in a red Radio Flyer wagon on a wooden dock, building a tiny wooden house as a glowing purple spiral vortex swirls around him. A blonde woman in a black dress relaxes in a purple hammock on the porch. In the sky, a giant swirling vortex reveals another smiling blonde woman with flowing hair, while a purple cartoon mouse floats inside a smaller glowing ring. Pink petals drift through the air, warm sunset light over the water, detailed digital painting style.",
+  "source_title": "Surreal Bayou Twilight",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bayou",
+    "vortex",
+    "floating mouse",
+    "wagon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4050,
+  "source_url": "/generated/4050.jpg",
+  "image_url": "/sketches/4628.png",
+  "inverted_image_url": "/sketches-inverted/4628.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:48Z"
+}

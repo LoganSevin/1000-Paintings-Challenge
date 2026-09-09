@@ -1,0 +1,42 @@
+{
+  "number": 2451,
+  "title": "Line sketch: Kaleidoscopic Meadow Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a giant bear's head made of cabbage leaves with a lotus on its forehead, resting on a grassy hill. Four women sit in armchairs watching a large rabbit formed of swirling patterns blow bubbles containing a fish, set against a mountainous sunset landscape (derived from generated still #1685).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a giant bear's head made of cabbage leaves with a lotus on its forehead, resting on a grassy hill. Four women sit in armchairs watching a large rabbit formed of swirling patterns blow bubbles containing a fish, set against a mountainous sunset landscape",
+  "inverted_title": "Inverted sketch: Kaleidoscopic Meadow Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a giant bear's head made of cabbage leaves with a lotus on its forehead, resting on a grassy hill. Four women sit in armchairs watching a large rabbit formed of swirling patterns blow bubbles containing a fish, set against a mountainous sunset landscape (from generated still #1685).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a giant bear's head made of cabbage leaves with a lotus on its forehead, resting on a grassy hill. Four women sit in armchairs watching a large rabbit formed of swirling patterns blow bubbles containing a fish, set against a mountainous sunset landscape",
+  "source_description": "A surreal painting depicts a giant bear's head made of green cabbage leaves with a pink lotus on its forehead, resting on a grassy hill. Four women sit in red armchairs watching a large rabbit formed of swirling brown patterns blow iridescent bubbles containing a golden fish, set against a mountainous sunset landscape.",
+  "source_prompt": "",
+  "source_title": "Kaleidoscopic Meadow Gathering",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bear",
+    "rabbit",
+    "bubbles",
+    "women"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1685,
+  "source_url": "/generated/1685.jpg",
+  "image_url": "/sketches/2451.png",
+  "inverted_image_url": "/sketches-inverted/2451.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 524,
+  "title": "Line sketch: Blossoms on",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant flowers bloom on delicate branches against a background. This composition captures the fresh beauty of spring with simple yet elegant (derived from painting #654).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant flowers bloom on delicate branches against a background. This composition captures the fresh beauty of spring with simple yet elegant",
+  "inverted_title": "Inverted sketch: Blossoms on",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant flowers bloom on delicate branches against a background. This composition captures the fresh beauty of spring with simple yet elegant (from painting #654).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant flowers bloom on delicate branches against a background. This composition captures the fresh beauty of spring with simple yet elegant",
+  "source_description": "Vibrant yellow flowers bloom on delicate branches against a soft blue background. This painting captures the fresh beauty of spring with simple yet elegant brushwork.",
+  "source_prompt": "",
+  "source_title": "Yellow Blossoms on Blue",
+  "style": "Impressionism",
+  "mood": "Serene and fresh",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "floral",
+    "spring",
+    "botanical",
+    "flowers",
+    "branches"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 654,
+  "source_url": "/paintings/654.jpg",
+  "image_url": "/sketches/524.png",
+  "inverted_image_url": "/sketches-inverted/524.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

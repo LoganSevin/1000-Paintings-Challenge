@@ -1,0 +1,42 @@
+{
+  "number": 4420,
+  "title": "Line sketch: Lunar Bindery & Spells",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A witch in a long robe and wide-brimmed hat stands at the wooden door of a mystical shop named Lunar Bindery & Spells, holding a glowing lantern. The storefront is filled with hanging scrolls, dried herbs, open chests of potion bottles, and a crystal ball on a table under a full moon at night (derived from generated still #3839).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A witch in a long robe and wide-brimmed hat stands at the wooden door of a mystical shop named Lunar Bindery & Spells, holding a glowing lantern. The storefront is filled with hanging scrolls, dried herbs, open chests of potion bottles, and a crystal ball on a table under a full moon at night",
+  "inverted_title": "Inverted sketch: Lunar Bindery & Spells",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A witch in a long robe and wide-brimmed hat stands at the wooden door of a mystical shop named Lunar Bindery & Spells, holding a glowing lantern. The storefront is filled with hanging scrolls, dried herbs, open chests of potion bottles, and a crystal ball on a table under a full moon at night (from generated still #3839).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A witch in a long robe and wide-brimmed hat stands at the wooden door of a mystical shop named Lunar Bindery & Spells, holding a glowing lantern. The storefront is filled with hanging scrolls, dried herbs, open chests of potion bottles, and a crystal ball on a table under a full moon at night",
+  "source_description": "A witch in a long dark blue robe and wide-brimmed hat stands at the wooden door of a mystical shop named Lunar Bindery & Spells, holding a glowing lantern. The storefront is filled with hanging scrolls, dried herbs, open chests of potion bottles, and a crystal ball on a table under a full moon at night.",
+  "source_prompt": "A nighttime fantasy street scene featuring an ornate dark blue storefront called Lunar Bindery & Spells. A witch wearing a long blue robe and wide-brimmed hat stands at the wooden door holding a glowing lantern. The shop exterior is covered with hanging scrolls, dried herbs, wooden crates filled with potion vials, and a large crystal ball resting on a blue-clothed table. Full moon illuminates the alley with hanging papers and mystical signs, detailed digital painting, atmospheric lighting.",
+  "source_title": "Lunar Bindery & Spells",
+  "style": "detailed digital illustration",
+  "mood": "mysterious nocturnal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "magic shop",
+    "fantasy street",
+    "full moon",
+    "arcane bookstore"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3839,
+  "source_url": "/generated/3839.jpg",
+  "image_url": "/sketches/4420.png",
+  "inverted_image_url": "/sketches-inverted/4420.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:48Z"
+}

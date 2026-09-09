@@ -1,0 +1,42 @@
+{
+  "number": 3245,
+  "title": "Line sketch: Astronomer in the Library",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with long dark hair and floral accessories sits in an ornate library, holding an armillary sphere while gazing at a large celestial globe. She is surrounded by glowing candles, scattered tarot cards, bookshelves, and a massive telescope projecting a beam of warm light across a painted dome ceiling with floating moths (derived from generated still #2606).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with long dark hair and floral accessories sits in an ornate library, holding an armillary sphere while gazing at a large celestial globe. She is surrounded by glowing candles, scattered tarot cards, bookshelves, and a massive telescope projecting a beam of warm light across a painted dome ceiling with floating moths",
+  "inverted_title": "Inverted sketch: Astronomer in the Library",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with long dark hair and floral accessories sits in an ornate library, holding an armillary sphere while gazing at a large celestial globe. She is surrounded by glowing candles, scattered tarot cards, bookshelves, and a massive telescope projecting a beam of warm light across a painted dome ceiling with floating moths (from generated still #2606).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with long dark hair and floral accessories sits in an ornate library, holding an armillary sphere while gazing at a large celestial globe. She is surrounded by glowing candles, scattered tarot cards, bookshelves, and a massive telescope projecting a beam of warm light across a painted dome ceiling with floating moths",
+  "source_description": "A young woman with long dark hair and floral accessories sits in an ornate library, holding an armillary sphere while gazing at a large celestial globe. She is surrounded by glowing candles, scattered tarot cards, bookshelves, and a massive telescope projecting a beam of warm light across a painted dome ceiling with floating moths.",
+  "source_prompt": "A young woman with long dark hair adorned with white flowers sits in a grand ornate library with painted dome ceiling. She wears a dark blue and gold Victorian-style dress with a cloak, holding an armillary sphere in one hand while seated beside a large detailed terrestrial and celestial globe. A massive brass telescope angles down from above, casting a dramatic warm orange beam of light. Scattered tarot cards and glowing candles cover the floor around her. Moths flutter in the light, cinematic lighting, intricate details, atmospheric fantasy scene.",
+  "source_title": "Astronomer in the Library",
+  "style": "fantasy illustration",
+  "mood": "mysterious, scholarly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "astronomer",
+    "library",
+    "celestial globe",
+    "tarot cards",
+    "telescope"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2606,
+  "source_url": "/generated/2606.jpg",
+  "image_url": "/sketches/3245.png",
+  "inverted_image_url": "/sketches-inverted/3245.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

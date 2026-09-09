@@ -1,0 +1,42 @@
+{
+  "number": 920,
+  "title": "Line sketch: Cosmic Mask Spectacle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large split-face mask with one tribal-patterned side and one side, adorned with leaves, centered within a rectangular frame. A vast crowd of horned, dark figures fills a circular amphitheater below, while a fiery black hole, radiant sun, floating orbs containing miniature scenes, and UFOs dominate the apocalyptic sky (derived from generated still #130).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large split-face mask with one tribal-patterned side and one side, adorned with leaves, centered within a rectangular frame. A vast crowd of horned, dark figures fills a circular amphitheater below, while a fiery black hole, radiant sun, floating orbs containing miniature scenes, and UFOs dominate the apocalyptic sky",
+  "inverted_title": "Inverted sketch: Cosmic Mask Spectacle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large split-face mask with one tribal-patterned side and one side, adorned with leaves, centered within a rectangular frame. A vast crowd of horned, dark figures fills a circular amphitheater below, while a fiery black hole, radiant sun, floating orbs containing miniature scenes, and UFOs dominate the apocalyptic sky (from generated still #130).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large split-face mask with one tribal-patterned side and one side, adorned with leaves, centered within a rectangular frame. A vast crowd of horned, dark figures fills a circular amphitheater below, while a fiery black hole, radiant sun, floating orbs containing miniature scenes, and UFOs dominate the apocalyptic sky",
+  "source_description": "A surreal painting depicts a large split-face mask with one blue tribal-patterned side and one orange side, adorned with leaves, centered within a green rectangular frame. A vast crowd of horned, dark figures fills a circular amphitheater below, while a fiery black hole, radiant sun, floating blue orbs containing miniature scenes, and UFOs dominate the apocalyptic orange sky.",
+  "source_prompt": "",
+  "source_title": "Cosmic Mask Spectacle",
+  "style": "surrealism",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "mask",
+    "amphitheater",
+    "black hole"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 130,
+  "source_url": "/generated/130.jpg",
+  "image_url": "/sketches/920.png",
+  "inverted_image_url": "/sketches-inverted/920.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3200,
+  "title": "Line sketch: Vault Dweller and Power Armor",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in a Vault jumpsuit stands on a metal railing holding a futuristic device, looking up with a concerned expression. Behind her a massive power armor suit aims a pistol while a small robot stands beside it, all within a ruined industrial shaft filled with glowing radiation and towering cranes under a sky (derived from generated still #2550).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in a Vault jumpsuit stands on a metal railing holding a futuristic device, looking up with a concerned expression. Behind her a massive power armor suit aims a pistol while a small robot stands beside it, all within a ruined industrial shaft filled with glowing radiation and towering cranes under a sky",
+  "inverted_title": "Inverted sketch: Vault Dweller and Power Armor",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in a Vault jumpsuit stands on a metal railing holding a futuristic device, looking up with a concerned expression. Behind her a massive power armor suit aims a pistol while a small robot stands beside it, all within a ruined industrial shaft filled with glowing radiation and towering cranes under a sky (from generated still #2550).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in a Vault jumpsuit stands on a metal railing holding a futuristic device, looking up with a concerned expression. Behind her a massive power armor suit aims a pistol while a small robot stands beside it, all within a ruined industrial shaft filled with glowing radiation and towering cranes under a sky",
+  "source_description": "A young woman in a blue Vault jumpsuit stands on a metal railing holding a futuristic device, looking up with a concerned expression. Behind her a massive green power armor suit aims a pistol while a small robot stands beside it, all within a ruined industrial shaft filled with glowing green radiation and towering cranes under a purple sky.",
+  "source_prompt": "A dramatic low angle view inside a massive decaying industrial reactor shaft with broken concrete walls and glowing green radioactive slime. In the foreground a young woman in a blue and yellow Vault 111 jumpsuit stands on a rusty railing holding a Pip-Boy, looking upward with concern. Behind her stands a large green T-60 power armor suit firing a pistol with muzzle flash and smoke, accompanied by a small floating robot. Giant construction cranes loom above against a toxic purple and yellow sky, with red warning banners and flickering lights, cinematic lighting, detailed environment",
+  "source_title": "Vault Dweller and Power Armor",
+  "style": "cinematic",
+  "mood": "tense dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fallout",
+    "vault dweller",
+    "power armor",
+    "post-apocalyptic",
+    "industrial ruin"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2550,
+  "source_url": "/generated/2550.jpg",
+  "image_url": "/sketches/3200.png",
+  "inverted_image_url": "/sketches-inverted/3200.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

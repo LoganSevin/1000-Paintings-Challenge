@@ -1,0 +1,42 @@
+{
+  "number": 2398,
+  "title": "Line sketch: Surreal Mind Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dress sits upright in a wooden chair with a distressed expression as a chaotic stream of books, clocks, birds, and symbols erupts from her head into a glowing bubble. The surrounding room features bookshelves, scattered papers, an artist's palette, and a stormy sky with lightning above (derived from generated still #1626).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dress sits upright in a wooden chair with a distressed expression as a chaotic stream of books, clocks, birds, and symbols erupts from her head into a glowing bubble. The surrounding room features bookshelves, scattered papers, an artist's palette, and a stormy sky with lightning above",
+  "inverted_title": "Inverted sketch: Surreal Mind Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dress sits upright in a wooden chair with a distressed expression as a chaotic stream of books, clocks, birds, and symbols erupts from her head into a glowing bubble. The surrounding room features bookshelves, scattered papers, an artist's palette, and a stormy sky with lightning above (from generated still #1626).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dress sits upright in a wooden chair with a distressed expression as a chaotic stream of books, clocks, birds, and symbols erupts from her head into a glowing bubble. The surrounding room features bookshelves, scattered papers, an artist's palette, and a stormy sky with lightning above",
+  "source_description": "A woman in a blue dress sits upright in a wooden chair with a distressed expression as a chaotic stream of books, clocks, birds, and symbols erupts from her head into a glowing bubble. The surrounding room features bookshelves, scattered papers, an artist's palette, and a stormy sky with lightning above.",
+  "source_prompt": "",
+  "source_title": "Surreal Mind Storm",
+  "style": "surrealism",
+  "mood": "chaotic, introspective",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "books",
+    "mind",
+    "chaos",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1626,
+  "source_url": "/generated/1626.jpg",
+  "image_url": "/sketches/2398.png",
+  "inverted_image_url": "/sketches-inverted/2398.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:43Z"
+}

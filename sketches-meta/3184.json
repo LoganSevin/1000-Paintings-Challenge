@@ -1,0 +1,42 @@
+{
+  "number": 3184,
+  "title": "Line sketch: Cosmic Eye Cavern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive surreal eye with a starry galaxy iris and glowing sclera floats in the center of an abstract cavern. molten formations drip from the ceiling while layered rock strata in,, and cracked stone form the surrounding environment (derived from generated still #2531).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive surreal eye with a starry galaxy iris and glowing sclera floats in the center of an abstract cavern. molten formations drip from the ceiling while layered rock strata in,, and cracked stone form the surrounding environment",
+  "inverted_title": "Inverted sketch: Cosmic Eye Cavern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive surreal eye with a starry galaxy iris and glowing sclera floats in the center of an abstract cavern. molten formations drip from the ceiling while layered rock strata in,, and cracked stone form the surrounding environment (from generated still #2531).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive surreal eye with a starry galaxy iris and glowing sclera floats in the center of an abstract cavern. molten formations drip from the ceiling while layered rock strata in,, and cracked stone form the surrounding environment",
+  "source_description": "A massive surreal eye with a starry galaxy iris and glowing teal sclera floats in the center of an abstract cavern. Golden molten formations drip from the ceiling while layered rock strata in deep purple, turquoise, orange, and cracked stone form the surrounding environment.",
+  "source_prompt": "Surreal fantasy cavern interior with a gigantic central eye floating in the middle. The eye has a deep space galaxy iris with stars and glowing turquoise sclera decorated with spiral symbols. Layered horizontal rock strata in deep purple, teal, and burnt orange. Dripping molten gold formations hang from the ceiling like stalactites. Cracked stone floor with gold veins. Dramatic god rays, ethereal atmosphere, intricate details.",
+  "source_title": "Cosmic Eye Cavern",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic eye",
+    "cavern",
+    "molten",
+    "galaxy iris"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2531,
+  "source_url": "/generated/2531.jpg",
+  "image_url": "/sketches/3184.png",
+  "inverted_image_url": "/sketches-inverted/3184.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:45Z"
+}

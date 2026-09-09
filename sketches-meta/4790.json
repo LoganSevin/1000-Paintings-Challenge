@@ -1,0 +1,42 @@
+{
+  "number": 4790,
+  "title": "Line sketch: Dragon and Child at Pier",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young girl in a coat walks across a torn fabric foreground, pulling a rope attached to a small dragon with a wagon wheel and lantern on its back. They stand on a wooden pier leading to a lighthouse at sunset, all enclosed within a surreal, decaying picture frame with pins, peeling paint and floating eyes (derived from generated still #4224).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young girl in a coat walks across a torn fabric foreground, pulling a rope attached to a small dragon with a wagon wheel and lantern on its back. They stand on a wooden pier leading to a lighthouse at sunset, all enclosed within a surreal, decaying picture frame with pins, peeling paint and floating eyes",
+  "inverted_title": "Inverted sketch: Dragon and Child at Pier",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young girl in a coat walks across a torn fabric foreground, pulling a rope attached to a small dragon with a wagon wheel and lantern on its back. They stand on a wooden pier leading to a lighthouse at sunset, all enclosed within a surreal, decaying picture frame with pins, peeling paint and floating eyes (from generated still #4224).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young girl in a coat walks across a torn fabric foreground, pulling a rope attached to a small dragon with a wagon wheel and lantern on its back. They stand on a wooden pier leading to a lighthouse at sunset, all enclosed within a surreal, decaying picture frame with pins, peeling paint and floating eyes",
+  "source_description": "A young girl in a green coat walks across a torn purple fabric foreground, pulling a golden rope attached to a small green dragon with a wagon wheel and lantern on its back. They stand on a wooden pier leading to a lighthouse at sunset, all enclosed within a surreal, decaying picture frame with pins, peeling paint and floating eyes.",
+  "source_prompt": "A young girl wearing a green coat walks across a torn purple fabric surface, pulling a thick golden rope. Beside her is a small green dragon wearing a harness with a wagon wheel and lantern. They are on a wooden pier leading toward a distant lighthouse at sunset. The entire scene is contained within a heavily damaged, decaying picture frame with peeling gold paint, pins, and floating eyes in green mist, surreal fantasy style.",
+  "source_title": "Dragon and Child at Pier",
+  "style": "surreal fantasy illustration",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "dragon",
+    "lighthouse",
+    "frame"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4224,
+  "source_url": "/generated/4224.jpg",
+  "image_url": "/sketches/4790.png",
+  "inverted_image_url": "/sketches-inverted/4790.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:49Z"
+}

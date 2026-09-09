@@ -1,0 +1,42 @@
+{
+  "number": 2777,
+  "title": "Line sketch: Melting Cosmic River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a giant melting stomach-like organ in the foreground spilling a winding river composed of starry space, earth, and melting clock faces. The river flows across a barren landscape toward distant mountains under a vibrant cosmic sky filled with stars, galaxies, and nebulae, with a lone tree on the right and paint drips throughout (derived from generated still #2059).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a giant melting stomach-like organ in the foreground spilling a winding river composed of starry space, earth, and melting clock faces. The river flows across a barren landscape toward distant mountains under a vibrant cosmic sky filled with stars, galaxies, and nebulae, with a lone tree on the right and paint drips throughout",
+  "inverted_title": "Inverted sketch: Melting Cosmic River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a giant melting stomach-like organ in the foreground spilling a winding river composed of starry space, earth, and melting clock faces. The river flows across a barren landscape toward distant mountains under a vibrant cosmic sky filled with stars, galaxies, and nebulae, with a lone tree on the right and paint drips throughout (from generated still #2059).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a giant melting stomach-like organ in the foreground spilling a winding river composed of starry space, earth, and melting clock faces. The river flows across a barren landscape toward distant mountains under a vibrant cosmic sky filled with stars, galaxies, and nebulae, with a lone tree on the right and paint drips throughout",
+  "source_description": "A surreal painting depicts a giant melting stomach-like organ in the foreground spilling a winding river composed of starry blue space, brown earth, and melting clock faces. The river flows across a barren landscape toward distant mountains under a vibrant cosmic sky filled with stars, galaxies, and nebulae, with a lone olive tree on the right and paint drips throughout.",
+  "source_prompt": "Surreal acrylic painting of a giant fleshy melting stomach organ in the foreground, spewing a winding river made of starry night sky, brown terrain, and melting Dali-style clocks that drip over the edges. The river flows through a barren desert landscape with distant orange mountains under a purple cosmic sky filled with galaxies and stars. A solitary olive tree with golden lights stands on the right. Paint drips visible on the canvas surface.",
+  "source_title": "Melting Cosmic River",
+  "style": "surrealism",
+  "mood": "dreamlike cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting clocks",
+    "cosmic landscape",
+    "organic form",
+    "starry river"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2059,
+  "source_url": "/generated/2059.jpg",
+  "image_url": "/sketches/2777.png",
+  "inverted_image_url": "/sketches-inverted/2777.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -248,9 +248,10 @@
     });
   }
 
-  function generateCloud(nums, stasis, buzz, onStatus) {
+  function generateCloud(nums, stasis, buzz, onStatus, aspect) {
     nums = normalizeSpellNums(nums);
     stasis = String(stasis || "").trim();
+    aspect = String(aspect || "16:9");
     if (nums.length < 2) {
       return Promise.reject(new Error("Equip at least 2 spells before generating."));
     }
@@ -268,7 +269,18 @@
         job_id: jobId,
         stasis: stasis,
         buzz_words: buzz,
-        spells: nums,
+        spells: nums.filter(function (n) {
+          return n >= 1 && n <= 1000;
+        }),
+        aspect_ratio: aspect,
+        mag_fresh: true,
+        fresh_variation: true,
+        spell_cast: false,
+        attach_references: false,
+        reference_image: "",
+        spell_reference_image: "",
+        source: "spellforge",
+        product_mode: "original_fusion",
       }),
     }).then(function (r) {
       if (r.status === 202) {
@@ -285,27 +297,29 @@
     });
   }
 
-  function generateLocal(nums, stasis, buzz) {
+  function generateLocal(nums, stasis, buzz, aspect) {
     return window.composeStasisVisionLocal({
       spells: nums,
       stasis: stasis,
       buzz_words: buzz,
+      aspect_ratio: aspect || "16:9",
     });
   }
 
-  function generateVision(nums, stasis, buzz, health, onStatus) {
+  function generateVision(nums, stasis, buzz, health, onStatus, aspect) {
     if (!stasis || !stasis.trim()) {
       return Promise.reject(new Error("Stasis text is empty."));
     }
+    aspect = aspect || "16:9";
     if (useLocalGenerate(health)) {
       if (onStatus) onStatus("Fusing paintings (stasis-guided)…");
-      return generateLocal(nums, stasis, buzz);
+      return generateLocal(nums, stasis, buzz, aspect);
     }
     if (onStatus) onStatus("AI painting from stasis… (starting)");
-    return generateCloud(nums, stasis, buzz, onStatus).catch(function (err) {
+    return generateCloud(nums, stasis, buzz, onStatus, aspect).catch(function (err) {
       if (isCreditsError(err.message) && typeof window.composeStasisVisionLocal === "function") {
         if (onStatus) onStatus("Fusing paintings locally…");
-        return generateLocal(nums, stasis, buzz);
+        return generateLocal(nums, stasis, buzz, aspect);
       }
       throw err;
     });
@@ -412,7 +426,7 @@
           opts.buzz_words && opts.buzz_words.length
             ? uniqueStrings(opts.buzz_words)
             : collectBuzz(meta);
-        return generateVision(nums, text, buzz, health, onStatus).then(function (url) {
+        return generateVision(nums, text, buzz, health, onStatus, opts.aspect_ratio).then(function (url) {
           return {
             url: url,
             stasis: text,

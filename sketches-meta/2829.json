@@ -1,0 +1,42 @@
+{
+  "number": 2829,
+  "title": "Line sketch: Desert Dream Machine",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A steampunk-style machine with a large screen displays a girl with mechanical goggles and raised hands, positioned inside a derelict wooden room filled with sand. Behind it, a chalkboard reads 'NOX GAB' surrounded by anarchy symbols, while an open wall reveals a surreal desert landscape with sand dunes, a large sun, and a twilight sky (derived from generated still #2114).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A steampunk-style machine with a large screen displays a girl with mechanical goggles and raised hands, positioned inside a derelict wooden room filled with sand. Behind it, a chalkboard reads 'NOX GAB' surrounded by anarchy symbols, while an open wall reveals a surreal desert landscape with sand dunes, a large sun, and a twilight sky",
+  "inverted_title": "Inverted sketch: Desert Dream Machine",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A steampunk-style machine with a large screen displays a girl with mechanical goggles and raised hands, positioned inside a derelict wooden room filled with sand. Behind it, a chalkboard reads 'NOX GAB' surrounded by anarchy symbols, while an open wall reveals a surreal desert landscape with sand dunes, a large sun, and a twilight sky (from generated still #2114).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A steampunk-style machine with a large screen displays a girl with mechanical goggles and raised hands, positioned inside a derelict wooden room filled with sand. Behind it, a chalkboard reads 'NOX GAB' surrounded by anarchy symbols, while an open wall reveals a surreal desert landscape with sand dunes, a large sun, and a twilight sky",
+  "source_description": "A steampunk-style machine with a large screen displays a girl with mechanical goggles and raised hands, positioned inside a derelict wooden room filled with sand. Behind it, a chalkboard reads 'NOX GAB' surrounded by anarchy symbols, while an open wall reveals a surreal desert landscape with sand dunes, a large red sun, and a purple twilight sky.",
+  "source_prompt": "A detailed surreal scene of a vintage steampunk machine with brass pipes and gears sitting in a derelict wooden room overtaken by sand dunes. The machine's large screen shows a girl wearing mechanical goggles with one large yellow lens, her hands pressed against the glass. A chalkboard behind reads 'NOX GAB' with crossed out symbols and anarchy signs. Through a broken wall, a vast desert with rolling dunes stretches under a dramatic red sun setting on the horizon in a purple and orange twilight sky.",
+  "source_title": "Desert Dream Machine",
+  "style": "surreal",
+  "mood": "mysterious dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "surreal",
+    "desert",
+    "machinery",
+    "dystopian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2114,
+  "source_url": "/generated/2114.jpg",
+  "image_url": "/sketches/2829.png",
+  "inverted_image_url": "/sketches-inverted/2829.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:44Z"
+}

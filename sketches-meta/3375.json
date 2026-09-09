@@ -1,0 +1,42 @@
+{
+  "number": 3375,
+  "title": "Line sketch: Surreal Melting Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young boy's face with closed eyes emerges from a cracked and tiled floor. His head is engulfed by a large, dripping organic form with bubbles and accents, from which a glowing four-petaled flower grows upward. The background is a cosmic space scene with swirling and nebulae, stars, and a distant planet (derived from generated still #2776).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young boy's face with closed eyes emerges from a cracked and tiled floor. His head is engulfed by a large, dripping organic form with bubbles and accents, from which a glowing four-petaled flower grows upward. The background is a cosmic space scene with swirling and nebulae, stars, and a distant planet",
+  "inverted_title": "Inverted sketch: Surreal Melting Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young boy's face with closed eyes emerges from a cracked and tiled floor. His head is engulfed by a large, dripping organic form with bubbles and accents, from which a glowing four-petaled flower grows upward. The background is a cosmic space scene with swirling and nebulae, stars, and a distant planet (from generated still #2776).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young boy's face with closed eyes emerges from a cracked and tiled floor. His head is engulfed by a large, dripping organic form with bubbles and accents, from which a glowing four-petaled flower grows upward. The background is a cosmic space scene with swirling and nebulae, stars, and a distant planet",
+  "source_description": "A young boy's face with closed eyes emerges from a cracked golden and turquoise tiled floor. His head is engulfed by a large, dripping purple organic form with bubbles and gold accents, from which a glowing yellow four-petaled flower grows upward. The background is a cosmic space scene with swirling green and purple nebulae, stars, and a distant planet.",
+  "source_prompt": "surreal dreamscape featuring a young boy's serene face with closed eyes emerging from a cracked turquoise and gold leaf tiled ground. His head is being overtaken by a glossy purple melting organic mass with bubbles and gold drips. A large glowing yellow flower with four petals grows from the mass. Swirling green and purple cosmic nebulae, stars and planets fill the dark space background, psychedelic melting textures, high detail, vibrant colors",
+  "source_title": "Surreal Melting Portrait",
+  "style": "surrealism",
+  "mood": "dreamlike psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "cosmic",
+    "psychedelic",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2776,
+  "source_url": "/generated/2776.jpg",
+  "image_url": "/sketches/3375.png",
+  "inverted_image_url": "/sketches-inverted/3375.png",
+  "curve_count": 243,
+  "built_at": "2026-08-17T00:09:45Z"
+}

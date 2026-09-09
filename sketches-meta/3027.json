@@ -1,0 +1,42 @@
+{
+  "number": 3027,
+  "title": "Line sketch: Cosmic Octopus Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a black shirt steps through an ornate picture frame onto a grey lunar surface. A large octopus with eyes and tentacles emerges from a crater filled with flowers and dripping liquid, set against a starry space background with a large moon (derived from generated still #2350).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a black shirt steps through an ornate picture frame onto a grey lunar surface. A large octopus with eyes and tentacles emerges from a crater filled with flowers and dripping liquid, set against a starry space background with a large moon",
+  "inverted_title": "Inverted sketch: Cosmic Octopus Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a black shirt steps through an ornate picture frame onto a grey lunar surface. A large octopus with eyes and tentacles emerges from a crater filled with flowers and dripping liquid, set against a starry space background with a large moon (from generated still #2350).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a black shirt steps through an ornate picture frame onto a grey lunar surface. A large octopus with eyes and tentacles emerges from a crater filled with flowers and dripping liquid, set against a starry space background with a large moon",
+  "source_description": "A man in a black shirt steps through an ornate golden picture frame onto a grey lunar surface. A large magenta octopus with blue eyes and tentacles emerges from a crater filled with colorful flowers and dripping purple liquid, set against a starry space background with a large yellow moon.",
+  "source_prompt": "",
+  "source_title": "Cosmic Octopus Portal",
+  "style": "surrealism",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "octopus",
+    "portal",
+    "lunar landscape",
+    "space"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2350,
+  "source_url": "/generated/2350.jpg",
+  "image_url": "/sketches/3027.png",
+  "inverted_image_url": "/sketches-inverted/3027.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:44Z"
+}

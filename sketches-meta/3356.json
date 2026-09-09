@@ -1,0 +1,42 @@
+{
+  "number": 3356,
+  "title": "Line sketch: Smiling Sun Entity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large spherical being with glowing crescent eyes and a wide smile dominates the center of a surreal desert scene. To its left are floating spheres and mechanical-organic structures with pipes and vegetation, while a stylized woman's profile with intricate patterns appears on the right against a cracked stone floor and distant mountains (derived from generated still #2756).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large spherical being with glowing crescent eyes and a wide smile dominates the center of a surreal desert scene. To its left are floating spheres and mechanical-organic structures with pipes and vegetation, while a stylized woman's profile with intricate patterns appears on the right against a cracked stone floor and distant mountains",
+  "inverted_title": "Inverted sketch: Smiling Sun Entity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large spherical being with glowing crescent eyes and a wide smile dominates the center of a surreal desert scene. To its left are floating spheres and mechanical-organic structures with pipes and vegetation, while a stylized woman's profile with intricate patterns appears on the right against a cracked stone floor and distant mountains (from generated still #2756).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large spherical being with glowing crescent eyes and a wide smile dominates the center of a surreal desert scene. To its left are floating spheres and mechanical-organic structures with pipes and vegetation, while a stylized woman's profile with intricate patterns appears on the right against a cracked stone floor and distant mountains",
+  "source_description": "A large dark blue spherical being with glowing yellow crescent eyes and a wide golden smile dominates the center of a surreal desert scene. To its left are floating blue spheres and mechanical-organic structures with pipes and vegetation, while a stylized woman's profile with intricate patterns appears on the right against a cracked stone floor and distant mountains.",
+  "source_prompt": "Surreal desert scene featuring a giant dark blue spherical creature with glowing yellow crescent eyes and a wide smiling mouth floating in the center. Floating blue spheres and biomechanical structures with pipes and palm-like plants occupy the left side. A stylized woman's profile with ornate golden patterns appears on the right. Cracked stone floor, distant mountains, warm golden sky, whimsical and mystical atmosphere, highly detailed digital painting.",
+  "source_title": "Smiling Blue Sun Entity",
+  "style": "surrealism",
+  "mood": "whimsical, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "sphere",
+    "mechanical",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2756,
+  "source_url": "/generated/2756.jpg",
+  "image_url": "/sketches/3356.png",
+  "inverted_image_url": "/sketches-inverted/3356.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4018,
+  "title": "Line sketch: Punk Girl with Spray Can",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with pale skin and spiky black hair stands in a dynamic pose against a plain gray background. She wears a leather jacket, black pants with straps, boots, and a bandana, holding a spray can emitting mist in one hand and a large ornate knife in the other (derived from generated still #3435).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with pale skin and spiky black hair stands in a dynamic pose against a plain gray background. She wears a leather jacket, black pants with straps, boots, and a bandana, holding a spray can emitting mist in one hand and a large ornate knife in the other",
+  "inverted_title": "Inverted sketch: Punk Girl with Spray Can",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with pale skin and spiky black hair stands in a dynamic pose against a plain gray background. She wears a leather jacket, black pants with straps, boots, and a bandana, holding a spray can emitting mist in one hand and a large ornate knife in the other (from generated still #3435).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with pale skin and spiky black hair stands in a dynamic pose against a plain gray background. She wears a leather jacket, black pants with straps, boots, and a bandana, holding a spray can emitting mist in one hand and a large ornate knife in the other",
+  "source_description": "A young woman with pale skin and spiky black hair stands in a dynamic pose against a plain gray background. She wears a red leather jacket, black pants with straps, red boots, and a red bandana, holding a spray can emitting red mist in one hand and a large ornate knife in the other.",
+  "source_prompt": "A fierce young woman with spiky black hair and red bandana, wearing an open red leather jacket over a black mesh top, black tactical pants, and red combat boots. She has pale skin and yellow eyes, dynamically posed with one leg raised, holding a red spray can emitting mist in her left hand and a large silver knife in her right. Comic book style, strong outlines, dramatic lighting, plain gray background.",
+  "source_title": "Punk Girl with Spray Can",
+  "style": "comic book",
+  "mood": "edgy, defiant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "punk",
+    "cyberpunk",
+    "spray can",
+    "knife"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3435,
+  "source_url": "/generated/3435.jpg",
+  "image_url": "/sketches/4018.png",
+  "inverted_image_url": "/sketches-inverted/4018.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:47Z"
+}

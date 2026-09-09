@@ -1,0 +1,42 @@
+{
+  "number": 2677,
+  "title": "Line sketch: Knight of the Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A solitary armored knight stands on an ornate balcony ledge, back turned to the viewer while holding a sword. Behind him swirls a massive hypnotic spiral of black and white patterns interwoven with tendrils, set against a blood- moon in a dark sky (derived from generated still #1919).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A solitary armored knight stands on an ornate balcony ledge, back turned to the viewer while holding a sword. Behind him swirls a massive hypnotic spiral of black and white patterns interwoven with tendrils, set against a blood- moon in a dark sky",
+  "inverted_title": "Inverted sketch: Knight of the Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A solitary armored knight stands on an ornate balcony ledge, back turned to the viewer while holding a sword. Behind him swirls a massive hypnotic spiral of black and white patterns interwoven with tendrils, set against a blood- moon in a dark sky (from generated still #1919).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A solitary armored knight stands on an ornate balcony ledge, back turned to the viewer while holding a sword. Behind him swirls a massive hypnotic spiral of black and white patterns interwoven with tendrils, set against a blood- moon in a dark sky",
+  "source_description": "A solitary armored knight stands on an ornate balcony ledge, back turned to the viewer while holding a sword. Behind him swirls a massive hypnotic spiral of black and white patterns interwoven with olive green tendrils, set against a blood-red moon in a dark sky.",
+  "source_prompt": "",
+  "source_title": "Knight of the Crimson Eclipse",
+  "style": "surreal fantasy",
+  "mood": "ominous, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "knight",
+    "moon",
+    "spiral pattern",
+    "ornate balcony",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1919,
+  "source_url": "/generated/1919.jpg",
+  "image_url": "/sketches/2677.png",
+  "inverted_image_url": "/sketches-inverted/2677.png",
+  "curve_count": 330,
+  "built_at": "2026-08-17T00:09:44Z"
+}

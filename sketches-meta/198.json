@@ -1,0 +1,42 @@
+{
+  "number": 198,
+  "title": "Line sketch: Sunset Over Silhouetted Pines",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bold sun with intricate patterns sets behind dark pine-covered hills, casting a perfect mirror reflection on the calm water below. The gradient sky transitions from to, with a distant mountain adding depth to the serene landscape (derived from painting #245).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bold sun with intricate patterns sets behind dark pine-covered hills, casting a perfect mirror reflection on the calm water below. The gradient sky transitions from to, with a distant mountain adding depth to the serene landscape",
+  "inverted_title": "Inverted sketch: Sunset Over Silhouetted Pines",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bold sun with intricate patterns sets behind dark pine-covered hills, casting a perfect mirror reflection on the calm water below. The gradient sky transitions from to, with a distant mountain adding depth to the serene landscape (from painting #245).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bold sun with intricate patterns sets behind dark pine-covered hills, casting a perfect mirror reflection on the calm water below. The gradient sky transitions from to, with a distant mountain adding depth to the serene landscape",
+  "source_description": "A bold red sun with intricate patterns sets behind dark pine-covered hills, casting a perfect mirror reflection on the calm water below. The gradient sky transitions from green to warm yellow, with a distant mountain adding depth to the serene landscape.",
+  "source_prompt": "",
+  "source_title": "Crimson Sunset Over Silhouetted Pines",
+  "style": "graphic illustration",
+  "mood": "serene and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sunset",
+    "reflection",
+    "pine trees",
+    "silhouette",
+    "landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 245,
+  "source_url": "/paintings/245.jpg",
+  "image_url": "/sketches/198.png",
+  "inverted_image_url": "/sketches-inverted/198.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:38Z"
+}

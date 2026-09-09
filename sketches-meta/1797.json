@@ -1,0 +1,42 @@
+{
+  "number": 1797,
+  "title": "Line sketch: Eye of the Ancients",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a giant central eye with a starry iris and ornate geometric patterns, flanked by stylized Native American women's profiles with elaborate feathered headdresses on the left and a polluted industrial cityscape with smokestacks on the right. Dark smoke merges with a fiery and sky while and orbs with paint drips float in the foreground alongside scattered black feathers (derived from generated still #1020).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a giant central eye with a starry iris and ornate geometric patterns, flanked by stylized Native American women's profiles with elaborate feathered headdresses on the left and a polluted industrial cityscape with smokestacks on the right. Dark smoke merges with a fiery and sky while and orbs with paint drips float in the foreground alongside scattered black feathers",
+  "inverted_title": "Inverted sketch: Eye of the Ancients",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a giant central eye with a starry iris and ornate geometric patterns, flanked by stylized Native American women's profiles with elaborate feathered headdresses on the left and a polluted industrial cityscape with smokestacks on the right. Dark smoke merges with a fiery and sky while and orbs with paint drips float in the foreground alongside scattered black feathers (from generated still #1020).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a giant central eye with a starry iris and ornate geometric patterns, flanked by stylized Native American women's profiles with elaborate feathered headdresses on the left and a polluted industrial cityscape with smokestacks on the right. Dark smoke merges with a fiery and sky while and orbs with paint drips float in the foreground alongside scattered black feathers",
+  "source_description": "A surreal painting features a giant central green eye with a starry iris and ornate geometric patterns, flanked by stylized Native American women's profiles with elaborate feathered headdresses on the left and a polluted industrial cityscape with smokestacks on the right. Dark smoke merges with a fiery orange and purple sky while blue and yellow orbs with paint drips float in the foreground alongside scattered black feathers.",
+  "source_prompt": "",
+  "source_title": "Eye of the Ancients",
+  "style": "surreal symbolic",
+  "mood": "apocalyptic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "indigenous",
+    "industrial pollution",
+    "all-seeing eye",
+    "feathers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1020,
+  "source_url": "/generated/1020.jpg",
+  "image_url": "/sketches/1797.png",
+  "inverted_image_url": "/sketches-inverted/1797.png",
+  "curve_count": 230,
+  "built_at": "2026-08-17T00:09:42Z"
+}

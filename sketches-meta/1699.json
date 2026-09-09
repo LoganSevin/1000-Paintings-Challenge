@@ -1,0 +1,42 @@
+{
+  "number": 1699,
+  "title": "Line sketch: Emerging Goddesses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of five identical female profiles in a row, their skin and flowing hair rendered in vibrant. They face a large glowing orb on the right containing a radiant sun-like spiral and a faint sixth female face, set against a background with floating circular motifs (derived from generated still #919).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of five identical female profiles in a row, their skin and flowing hair rendered in vibrant. They face a large glowing orb on the right containing a radiant sun-like spiral and a faint sixth female face, set against a background with floating circular motifs",
+  "inverted_title": "Inverted sketch: Emerging Goddesses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of five identical female profiles in a row, their skin and flowing hair rendered in vibrant. They face a large glowing orb on the right containing a radiant sun-like spiral and a faint sixth female face, set against a background with floating circular motifs (from generated still #919).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of five identical female profiles in a row, their skin and flowing hair rendered in vibrant. They face a large glowing orb on the right containing a radiant sun-like spiral and a faint sixth female face, set against a background with floating circular motifs",
+  "source_description": "A surreal painting of five identical female profiles in a row, their skin and flowing hair rendered in vibrant shades of green with intricate patterns and dripping paint effects. They face a large glowing orb on the right containing a radiant sun-like spiral and a faint sixth female face, set against a muted lavender background with floating circular motifs.",
+  "source_prompt": "",
+  "source_title": "Emerging Green Goddesses",
+  "style": "surreal psychedelic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female figures",
+    "hair",
+    "dripping paint",
+    "sun orb",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 919,
+  "source_url": "/generated/919.jpg",
+  "image_url": "/sketches/1699.png",
+  "inverted_image_url": "/sketches-inverted/1699.png",
+  "curve_count": 87,
+  "built_at": "2026-08-17T00:09:41Z"
+}

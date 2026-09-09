@@ -1,0 +1,42 @@
+{
+  "number": 4225,
+  "title": "Line sketch: Alien in Retro City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned alien woman in a vibrant outfit and high heels stands on a cobblestone plaza, eating a slice of pizza. She holds a large decorated hammer in her other hand, with a retro-futuristic city, a gothic cathedral, an vintage car, and a bubble chair visible behind her (derived from generated still #3644).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned alien woman in a vibrant outfit and high heels stands on a cobblestone plaza, eating a slice of pizza. She holds a large decorated hammer in her other hand, with a retro-futuristic city, a gothic cathedral, an vintage car, and a bubble chair visible behind her",
+  "inverted_title": "Inverted sketch: Alien in Retro City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned alien woman in a vibrant outfit and high heels stands on a cobblestone plaza, eating a slice of pizza. She holds a large decorated hammer in her other hand, with a retro-futuristic city, a gothic cathedral, an vintage car, and a bubble chair visible behind her (from generated still #3644).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned alien woman in a vibrant outfit and high heels stands on a cobblestone plaza, eating a slice of pizza. She holds a large decorated hammer in her other hand, with a retro-futuristic city, a gothic cathedral, an vintage car, and a bubble chair visible behind her",
+  "source_description": "A green-skinned alien woman in a vibrant green outfit and high heels stands on a cobblestone plaza, eating a slice of pizza. She holds a large decorated hammer in her other hand, with a retro-futuristic city, a gothic cathedral, an orange vintage car, and a bubble chair visible behind her.",
+  "source_prompt": "A tall green alien woman wearing a tight green ruffled outfit and high heels, standing in a retro-futuristic city plaza with cobblestone ground. She is eating a slice of pizza while holding a large ornate hammer. In the background is a gothic cathedral, an orange vintage car, a bubble chair, and colorful spherical lamps under a warm sky. Scattered colorful balls and pizza boxes on the ground, surreal and vibrant atmosphere.",
+  "source_title": "Alien in Retro City",
+  "style": "surreal retro-futuristic",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "retro-futurism",
+    "pizza",
+    "cathedral",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3644,
+  "source_url": "/generated/3644.jpg",
+  "image_url": "/sketches/4225.png",
+  "inverted_image_url": "/sketches-inverted/4225.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:47Z"
+}

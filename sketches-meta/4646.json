@@ -1,0 +1,42 @@
+{
+  "number": 4646,
+  "title": "Line sketch: Mushroom House Gathering",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large robot and a retriever sit on the wooden porch of a giant mushroom house with hanging wind chimes and a clock. Below, three girls in dresses hold candles while dancing in a glowing spiral pattern on the ground, as a translucent ghost holding a candle stands on a rocky outcrop to the right emitting magical particles (derived from generated still #4068).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large robot and a retriever sit on the wooden porch of a giant mushroom house with hanging wind chimes and a clock. Below, three girls in dresses hold candles while dancing in a glowing spiral pattern on the ground, as a translucent ghost holding a candle stands on a rocky outcrop to the right emitting magical particles",
+  "inverted_title": "Inverted sketch: Mushroom House Gathering",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large robot and a retriever sit on the wooden porch of a giant mushroom house with hanging wind chimes and a clock. Below, three girls in dresses hold candles while dancing in a glowing spiral pattern on the ground, as a translucent ghost holding a candle stands on a rocky outcrop to the right emitting magical particles (from generated still #4068).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large robot and a retriever sit on the wooden porch of a giant mushroom house with hanging wind chimes and a clock. Below, three girls in dresses hold candles while dancing in a glowing spiral pattern on the ground, as a translucent ghost holding a candle stands on a rocky outcrop to the right emitting magical particles",
+  "source_description": "A large yellow robot and a golden retriever sit on the wooden porch of a giant green mushroom house with hanging wind chimes and a clock. Below, three girls in yellow dresses hold candles while dancing in a glowing spiral pattern on the ground, as a translucent green ghost holding a candle stands on a rocky outcrop to the right emitting colorful magical particles.",
+  "source_prompt": "A giant green mushroom with white spots serves as a house with a wooden porch, where a yellow boxy robot with a sad face and a happy golden retriever are sitting together. Blue wind chimes and a clock hang from the mushroom cap. In the foreground, three young girls in bright yellow dresses hold lit candles while dancing in a swirling blue-green glowing spiral on the grass. To the right, a translucent green ghost holding a candle emits colorful sparkles and musical notes float in the air. Fantasy landscape with mountains and trees in the background.",
+  "source_title": "Mushroom House Gathering",
+  "style": "fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom house",
+    "robot",
+    "retriever",
+    "ghost",
+    "children dancing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4068,
+  "source_url": "/generated/4068.jpg",
+  "image_url": "/sketches/4646.png",
+  "inverted_image_url": "/sketches-inverted/4646.png",
+  "curve_count": 117,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4754,
+  "title": "Line sketch: Surreal Vortex Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a long coat stands on a reflective path at the center of a massive swirling vortex of, and white clouds. The vortex is framed by an ornate, decaying circular border filled with intricate mechanical and organic debris (derived from generated still #4185).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a long coat stands on a reflective path at the center of a massive swirling vortex of, and white clouds. The vortex is framed by an ornate, decaying circular border filled with intricate mechanical and organic debris",
+  "inverted_title": "Inverted sketch: Surreal Vortex Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a long coat stands on a reflective path at the center of a massive swirling vortex of, and white clouds. The vortex is framed by an ornate, decaying circular border filled with intricate mechanical and organic debris (from generated still #4185).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a long coat stands on a reflective path at the center of a massive swirling vortex of, and white clouds. The vortex is framed by an ornate, decaying circular border filled with intricate mechanical and organic debris",
+  "source_description": "A lone figure in a long coat stands on a reflective path at the center of a massive swirling vortex of purple, green and white clouds. The vortex is framed by an ornate, decaying circular border filled with intricate mechanical and organic debris.",
+  "source_prompt": "A solitary figure in a long coat stands on a narrow reflective path leading into an immense swirling vortex of purple and green clouds that spirals toward a bright center. The entire circular composition is framed by a thick ornate decaying border containing intricate mechanical parts, chains, bones and organic forms in purple, green and gold tones, surreal dreamscape, atmospheric lighting, reflective water surface below with geometric structures, painted in detailed oil painting style",
+  "source_title": "Surreal Vortex Portal",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "vortex",
+    "portal",
+    "solitary figure",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4185,
+  "source_url": "/generated/4185.jpg",
+  "image_url": "/sketches/4754.png",
+  "inverted_image_url": "/sketches-inverted/4754.png",
+  "curve_count": 63,
+  "built_at": "2026-08-17T00:09:48Z"
+}

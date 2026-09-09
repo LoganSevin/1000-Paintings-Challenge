@@ -1,0 +1,42 @@
+{
+  "number": 2831,
+  "title": "Line sketch: GAB Biohazard Canister",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A rusted, leaking biohazard canister lies on its side in a surreal desert landscape. The canister features a large prohibition symbol over a grotesque screaming face with wide eyes, while the word 'GAB' is painted in dripping white letters on its body (derived from generated still #2116).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A rusted, leaking biohazard canister lies on its side in a surreal desert landscape. The canister features a large prohibition symbol over a grotesque screaming face with wide eyes, while the word 'GAB' is painted in dripping white letters on its body",
+  "inverted_title": "Inverted sketch: GAB Biohazard Canister",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A rusted, leaking biohazard canister lies on its side in a surreal desert landscape. The canister features a large prohibition symbol over a grotesque screaming face with wide eyes, while the word 'GAB' is painted in dripping white letters on its body (from generated still #2116).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A rusted, leaking biohazard canister lies on its side in a surreal desert landscape. The canister features a large prohibition symbol over a grotesque screaming face with wide eyes, while the word 'GAB' is painted in dripping white letters on its body",
+  "source_description": "A rusted, leaking biohazard canister lies on its side in a surreal desert landscape. The canister features a large red prohibition symbol over a grotesque screaming face with wide eyes, while the word 'GAB' is painted in dripping white letters on its body.",
+  "source_prompt": "A heavily rusted and dented metal biohazard canister lying on its side in a barren desert, covered in dripping paint and hazard symbols. A large red prohibition circle with a crossed-out screaming grotesque face with bulging eyes is painted on its surface. The word GAB is prominently painted in white dripping letters. In the background are geometric crystalline mountains under a blood-red sun with dripping liquid, purple and orange sky, scattered mechanical parts, handprints and abstract symbols in the sand, surreal nightmare aesthetic, detailed painting style.",
+  "source_title": "GAB Biohazard Canister",
+  "style": "surreal composition",
+  "mood": "dystopian grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "biohazard",
+    "surreal",
+    "desert",
+    "grotesque",
+    "dystopian"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2116,
+  "source_url": "/generated/2116.jpg",
+  "image_url": "/sketches/2831.png",
+  "inverted_image_url": "/sketches-inverted/2831.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:44Z"
+}

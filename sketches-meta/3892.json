@@ -1,0 +1,42 @@
+{
+  "number": 3892,
+  "title": "Line sketch: Mage Power Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female mage with hair and outfit demonstrating magical abilities against a gray background. From left to right: casting a circular energy shield, raising arms to summon a swirling tornado, projecting a bright explosive energy blast from both hands, and standing in a ready stance with residual magic wisps (derived from generated still #3309).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female mage with hair and outfit demonstrating magical abilities against a gray background. From left to right: casting a circular energy shield, raising arms to summon a swirling tornado, projecting a bright explosive energy blast from both hands, and standing in a ready stance with residual magic wisps",
+  "inverted_title": "Inverted sketch: Mage Power Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female mage with hair and outfit demonstrating magical abilities against a gray background. From left to right: casting a circular energy shield, raising arms to summon a swirling tornado, projecting a bright explosive energy blast from both hands, and standing in a ready stance with residual magic wisps (from generated still #3309).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female mage with hair and outfit demonstrating magical abilities against a gray background. From left to right: casting a circular energy shield, raising arms to summon a swirling tornado, projecting a bright explosive energy blast from both hands, and standing in a ready stance with residual magic wisps",
+  "source_description": "Four sequential poses of a female mage with teal hair and purple outfit demonstrating magical abilities against a gray background. From left to right: casting a circular energy shield, raising arms to summon a swirling turquoise tornado, projecting a bright explosive energy blast from both hands, and standing in a ready stance with residual magic wisps.",
+  "source_prompt": "A female mage with short teal hair and facial markings, wearing a purple cropped top with black cape, teal pants with star patterns and black boots, shown in four sequential action poses. First pose creating a circular teal energy shield, second summoning a swirling turquoise tornado above her raised hands, third unleashing a bright white and cyan explosive energy blast from both palms, fourth in a combat stance with magic wisps. Clean digital illustration style on solid gray background.",
+  "source_title": "Mage Power Sequence",
+  "style": "digital illustration",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mage",
+    "magic",
+    "energy effects",
+    "sequence",
+    "female character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3309,
+  "source_url": "/generated/3309.jpg",
+  "image_url": "/sketches/3892.png",
+  "inverted_image_url": "/sketches-inverted/3892.png",
+  "curve_count": 67,
+  "built_at": "2026-08-17T00:09:46Z"
+}

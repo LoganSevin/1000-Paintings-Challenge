@@ -1,0 +1,42 @@
+{
+  "number": 3601,
+  "title": "Line sketch: Demon Selfie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in black lingerie sits cross-legged on a bed, taking a selfie with a glowing smartphone. She wears a black-and-white bandana while a large demon with horns and a tattered scarf emerges from a stone archway on the right, reaching toward her, as the same demon is reflected in an ornate mirror on the left (derived from generated still #3009).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in black lingerie sits cross-legged on a bed, taking a selfie with a glowing smartphone. She wears a black-and-white bandana while a large demon with horns and a tattered scarf emerges from a stone archway on the right, reaching toward her, as the same demon is reflected in an ornate mirror on the left",
+  "inverted_title": "Inverted sketch: Demon Selfie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in black lingerie sits cross-legged on a bed, taking a selfie with a glowing smartphone. She wears a black-and-white bandana while a large demon with horns and a tattered scarf emerges from a stone archway on the right, reaching toward her, as the same demon is reflected in an ornate mirror on the left (from generated still #3009).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in black lingerie sits cross-legged on a bed, taking a selfie with a glowing smartphone. She wears a black-and-white bandana while a large demon with horns and a tattered scarf emerges from a stone archway on the right, reaching toward her, as the same demon is reflected in an ornate mirror on the left",
+  "source_description": "A young woman in black lingerie sits cross-legged on a red bed, taking a selfie with a glowing pink smartphone. She wears a black-and-white bandana while a large blue demon with horns and a red tattered scarf emerges from a stone archway on the right, reaching toward her, as the same demon is reflected in an ornate mirror on the left.",
+  "source_prompt": "A young woman with long brown hair wearing a black and white patterned bandana and black lingerie sits cross-legged on a red bed inside a gothic stone chamber with mossy walls. She holds a glowing pink smartphone taking a selfie. A large muscular blue demon with horns, glowing eyes and a red tattered scarf emerges from a green-lit stone archway reaching toward her. The same demon appears in an ornate oval mirror beside her. Pink and purple ambient lighting, footprints on the floor, dramatic fantasy atmosphere.",
+  "source_title": "Demon Selfie",
+  "style": "surreal fantasy",
+  "mood": "eerie seductive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "selfie",
+    "mirror",
+    "fantasy",
+    "bedroom"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3009,
+  "source_url": "/generated/3009.jpg",
+  "image_url": "/sketches/3601.png",
+  "inverted_image_url": "/sketches-inverted/3601.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:46Z"
+}

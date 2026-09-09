@@ -1,0 +1,42 @@
+{
+  "number": 2864,
+  "title": "Line sketch: Rage Against the Terminals",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A furious -haired woman with blood on her face and bared teeth points accusingly at a row of digital ordering kiosks. Behind the counter, a worker stands amid floating, dripping, letters spelling variations of 'emotions' and 'options' (derived from generated still #2150).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A furious -haired woman with blood on her face and bared teeth points accusingly at a row of digital ordering kiosks. Behind the counter, a worker stands amid floating, dripping, letters spelling variations of 'emotions' and 'options'",
+  "inverted_title": "Inverted sketch: Rage Against the Terminals",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A furious -haired woman with blood on her face and bared teeth points accusingly at a row of digital ordering kiosks. Behind the counter, a worker stands amid floating, dripping, letters spelling variations of 'emotions' and 'options' (from generated still #2150).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A furious -haired woman with blood on her face and bared teeth points accusingly at a row of digital ordering kiosks. Behind the counter, a worker stands amid floating, dripping, letters spelling variations of 'emotions' and 'options'",
+  "source_description": "A furious red-haired woman with blood on her face and bared teeth points accusingly at a row of digital ordering kiosks. Behind the counter, a worker stands amid floating, dripping, colorful letters spelling variations of 'emotions' and 'options'.",
+  "source_prompt": "A surreal painting of an enraged woman with wild curly red hair and blood splattered on her furious face, pointing directly at a row of self-service ordering kiosks. A fast food worker stands behind the counter. Large colorful 3D letters spelling EOT, EMOTIONS, OPTIONS drip from the top of the image. Chaotic paint drips and splatters throughout, dark satirical atmosphere, painterly style with visible brushwork.",
+  "source_title": "Rage Against the Terminals",
+  "style": "surreal composition",
+  "mood": "angry chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "anger",
+    "technology",
+    "dripping paint",
+    "social commentary"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2150,
+  "source_url": "/generated/2150.jpg",
+  "image_url": "/sketches/2864.png",
+  "inverted_image_url": "/sketches-inverted/2864.png",
+  "curve_count": 154,
+  "built_at": "2026-08-17T00:09:44Z"
+}

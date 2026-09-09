@@ -1,0 +1,42 @@
+{
+  "number": 4759,
+  "title": "Line sketch: Starry Night Homestead",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nocturnal rural landscape featuring a glowing wooden farmhouse with lit windows, set in a vast field under a dramatic night sky. The Milky Way stretches across a and cosmos filled with bright stars and a luminous full moon, framed by an ornate vintage wooden picture frame (derived from generated still #4192).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nocturnal rural landscape featuring a glowing wooden farmhouse with lit windows, set in a vast field under a dramatic night sky. The Milky Way stretches across a and cosmos filled with bright stars and a luminous full moon, framed by an ornate vintage wooden picture frame",
+  "inverted_title": "Inverted sketch: Starry Night Homestead",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nocturnal rural landscape featuring a glowing wooden farmhouse with lit windows, set in a vast field under a dramatic night sky. The Milky Way stretches across a and cosmos filled with bright stars and a luminous full moon, framed by an ornate vintage wooden picture frame (from generated still #4192).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nocturnal rural landscape featuring a glowing wooden farmhouse with lit windows, set in a vast field under a dramatic night sky. The Milky Way stretches across a and cosmos filled with bright stars and a luminous full moon, framed by an ornate vintage wooden picture frame",
+  "source_description": "A nocturnal rural landscape featuring a glowing wooden farmhouse with lit windows, set in a vast golden field under a dramatic night sky. The Milky Way stretches across a deep blue and purple cosmos filled with bright stars and a luminous full moon, framed by an ornate vintage wooden picture frame.",
+  "source_prompt": "A peaceful rural night scene with a warm wooden farmhouse glowing in the middle of a vast golden wheat field, several trees and a wooden fence nearby, under a breathtaking starry sky showing the vibrant Milky Way and a bright full moon, dramatic clouds, rich colors and glowing highlights, highly detailed digital painting",
+  "source_title": "Starry Night Homestead",
+  "style": "realistic",
+  "mood": "serene wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "night landscape",
+    "farmhouse",
+    "milky way",
+    "fields",
+    "starry sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4192,
+  "source_url": "/generated/4192.jpg",
+  "image_url": "/sketches/4759.png",
+  "inverted_image_url": "/sketches-inverted/4759.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:48Z"
+}

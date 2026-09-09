@@ -1,0 +1,42 @@
+{
+  "number": 654,
+  "title": "Line sketch: Celestial Eclipse Over Cityscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grand cathedral-like building stands prominently in a futuristic city under a dramatic - sky. A massive celestial body filled with orbiting moons and spheres dominates the heavens during what appears to be a spectacular eclipse event (derived from painting #831).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grand cathedral-like building stands prominently in a futuristic city under a dramatic - sky. A massive celestial body filled with orbiting moons and spheres dominates the heavens during what appears to be a spectacular eclipse event",
+  "inverted_title": "Inverted sketch: Celestial Eclipse Over Cityscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grand cathedral-like building stands prominently in a futuristic city under a dramatic - sky. A massive celestial body filled with orbiting moons and spheres dominates the heavens during what appears to be a spectacular eclipse event (from painting #831).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grand cathedral-like building stands prominently in a futuristic city under a dramatic - sky. A massive celestial body filled with orbiting moons and spheres dominates the heavens during what appears to be a spectacular eclipse event",
+  "source_description": "A grand cathedral-like building stands prominently in a futuristic city under a dramatic red-orange sky. A massive celestial body filled with orbiting moons and spheres dominates the heavens during what appears to be a spectacular eclipse event.",
+  "source_prompt": "",
+  "source_title": "Celestial Eclipse Over Cityscape",
+  "style": "Fantasy",
+  "mood": "Dramatic and Mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "celestial",
+    "eclipse",
+    "cathedral",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 831,
+  "source_url": "/paintings/831.jpg",
+  "image_url": "/sketches/654.png",
+  "inverted_image_url": "/sketches-inverted/654.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:39Z"
+}

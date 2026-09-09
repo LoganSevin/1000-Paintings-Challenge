@@ -1,0 +1,42 @@
+{
+  "number": 945,
+  "title": "Line sketch: Surreal Child Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a young boy's face with one eye, intricate circuit-like patterns on his skin, and a faint dog profile overlapping his features. The circular composition features dripping paint effects in, and against a vibrant background with poppies and crackling textures (derived from generated still #155).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a young boy's face with one eye, intricate circuit-like patterns on his skin, and a faint dog profile overlapping his features. The circular composition features dripping paint effects in, and against a vibrant background with poppies and crackling textures",
+  "inverted_title": "Inverted sketch: Surreal Child Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a young boy's face with one eye, intricate circuit-like patterns on his skin, and a faint dog profile overlapping his features. The circular composition features dripping paint effects in, and against a vibrant background with poppies and crackling textures (from generated still #155).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a young boy's face with one eye, intricate circuit-like patterns on his skin, and a faint dog profile overlapping his features. The circular composition features dripping paint effects in, and against a vibrant background with poppies and crackling textures",
+  "source_description": "A surreal painting of a young boy's face with one golden eye, intricate circuit-like patterns on his skin, and a faint dog profile overlapping his features. The circular composition features dripping paint effects in blue, orange, and green against a vibrant magenta background with red poppies and crackling textures.",
+  "source_prompt": "",
+  "source_title": "Surreal Child Portrait",
+  "style": "surreal street art",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal portrait",
+    "dripping paint",
+    "circuit patterns",
+    "poppies",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 155,
+  "source_url": "/generated/155.jpg",
+  "image_url": "/sketches/945.png",
+  "inverted_image_url": "/sketches-inverted/945.png",
+  "curve_count": 301,
+  "built_at": "2026-08-17T00:09:40Z"
+}

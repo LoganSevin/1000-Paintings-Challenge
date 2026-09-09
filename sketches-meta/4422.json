@@ -1,0 +1,42 @@
+{
+  "number": 4422,
+  "title": "Line sketch: Stasis & Vellum",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A weathered wooden door set in a crumbling wall under a starry night sky. The door is adorned with hanging keys, a large scroll reading 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', numerous paper tags, and a sign above reading 'STASIS & VELLUM'. A broken bottle with spilled chain lies on the stone step beside a hanging nautilus shell lantern (derived from generated still #3841).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A weathered wooden door set in a crumbling wall under a starry night sky. The door is adorned with hanging keys, a large scroll reading 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', numerous paper tags, and a sign above reading 'STASIS & VELLUM'. A broken bottle with spilled chain lies on the stone step beside a hanging nautilus shell lantern",
+  "inverted_title": "Inverted sketch: Stasis & Vellum",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A weathered wooden door set in a crumbling wall under a starry night sky. The door is adorned with hanging keys, a large scroll reading 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', numerous paper tags, and a sign above reading 'STASIS & VELLUM'. A broken bottle with spilled chain lies on the stone step beside a hanging nautilus shell lantern (from generated still #3841).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A weathered wooden door set in a crumbling wall under a starry night sky. The door is adorned with hanging keys, a large scroll reading 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', numerous paper tags, and a sign above reading 'STASIS & VELLUM'. A broken bottle with spilled chain lies on the stone step beside a hanging nautilus shell lantern",
+  "source_description": "A weathered wooden door set in a crumbling blue wall under a starry night sky. The door is adorned with hanging keys, a large scroll reading 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', numerous paper tags, and a sign above reading 'STASIS & VELLUM'. A broken blue bottle with spilled chain lies on the stone step beside a hanging nautilus shell lantern.",
+  "source_prompt": "A mysterious old wooden door in a decaying deep blue wall at night, hanging sign above reads 'STASIS & VELLUM', a large scroll on the door says 'ELIXIRS & BINDINGS NO BROWSING AFTER MOONRISE', many small paper tags and keys hanging from the door, a broken blue bottle with spilled silver chain on the stone step, a glowing nautilus shell lantern hanging to the left, starry night sky, atmospheric fantasy scene",
+  "source_title": "Stasis & Vellum",
+  "style": "fantasy illustration",
+  "mood": "mysterious nocturnal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "wooden door",
+    "celestial",
+    "mystic signage",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3841,
+  "source_url": "/generated/3841.jpg",
+  "image_url": "/sketches/4422.png",
+  "inverted_image_url": "/sketches-inverted/4422.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:48Z"
+}

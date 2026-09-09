@@ -1,0 +1,42 @@
+{
+  "number": 1422,
+  "title": "Line sketch: Surreal Eye and Dog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a skeletal dog with visible ribcage and barbed wire collar, positioned on the left and facing a massive stylized eye in the center. To the right is a person's face with and dripping paint patterns, set against a dark swirling background with accents and blood-like drips from the central eye (derived from generated still #637).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a skeletal dog with visible ribcage and barbed wire collar, positioned on the left and facing a massive stylized eye in the center. To the right is a person's face with and dripping paint patterns, set against a dark swirling background with accents and blood-like drips from the central eye",
+  "inverted_title": "Inverted sketch: Surreal Eye and Dog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a skeletal dog with visible ribcage and barbed wire collar, positioned on the left and facing a massive stylized eye in the center. To the right is a person's face with and dripping paint patterns, set against a dark swirling background with accents and blood-like drips from the central eye (from generated still #637).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a skeletal dog with visible ribcage and barbed wire collar, positioned on the left and facing a massive stylized eye in the center. To the right is a person's face with and dripping paint patterns, set against a dark swirling background with accents and blood-like drips from the central eye",
+  "source_description": "A surreal painting featuring a bright green skeletal dog with visible ribcage and barbed wire collar, positioned on the left and facing a massive stylized eye in the center. To the right is a person's face with blue and orange dripping paint patterns, set against a dark swirling background with red accents and blood-like drips from the central eye.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye and Green Dog",
+  "style": "surrealism",
+  "mood": "eerie psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "skeletal dog",
+    "dripping paint",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 637,
+  "source_url": "/generated/637.jpg",
+  "image_url": "/sketches/1422.png",
+  "inverted_image_url": "/sketches-inverted/1422.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4427,
+  "title": "Line sketch: The Stasis Lantern",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical wooden shop called The Stasis Lantern stands at night under a swirling, aurora-filled sky. A hooded figure in robes stands in the open doorway reaching toward shelves of glowing potions and lanterns, while an open illuminated book, scrolls, scales, and hanging lanterns rest on a wooden table in the foreground (derived from generated still #3846).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical wooden shop called The Stasis Lantern stands at night under a swirling, aurora-filled sky. A hooded figure in robes stands in the open doorway reaching toward shelves of glowing potions and lanterns, while an open illuminated book, scrolls, scales, and hanging lanterns rest on a wooden table in the foreground",
+  "inverted_title": "Inverted sketch: The Stasis Lantern",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical wooden shop called The Stasis Lantern stands at night under a swirling, aurora-filled sky. A hooded figure in robes stands in the open doorway reaching toward shelves of glowing potions and lanterns, while an open illuminated book, scrolls, scales, and hanging lanterns rest on a wooden table in the foreground (from generated still #3846).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical wooden shop called The Stasis Lantern stands at night under a swirling, aurora-filled sky. A hooded figure in robes stands in the open doorway reaching toward shelves of glowing potions and lanterns, while an open illuminated book, scrolls, scales, and hanging lanterns rest on a wooden table in the foreground",
+  "source_description": "A mystical wooden shop called The Stasis Lantern stands at night under a swirling, aurora-filled sky. A hooded figure in blue robes stands in the open doorway reaching toward shelves of glowing blue potions and lanterns, while an open illuminated book, scrolls, scales, and hanging lanterns rest on a wooden table in the foreground.",
+  "source_prompt": "A mysterious wooden fantasy shop named The Stasis Lantern at night, blue and white striped awning, glowing blue potions and lanterns hanging from the exterior, a hooded wizard in deep blue robes standing in the doorway reaching for a shelf, large open illuminated book with glowing symbols on a wooden table in foreground, scrolls, scales and candlelight, dramatic swirling aurora borealis in the dark sky, barren landscape in distance, atmospheric fantasy illustration",
+  "source_title": "The Stasis Lantern",
+  "style": "fantasy illustration",
+  "mood": "mystical nocturnal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "magic lanterns",
+    "night scene",
+    "hooded figure",
+    "aurora sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3846,
+  "source_url": "/generated/3846.jpg",
+  "image_url": "/sketches/4427.png",
+  "inverted_image_url": "/sketches-inverted/4427.png",
+  "curve_count": 130,
+  "built_at": "2026-08-17T00:09:48Z"
+}

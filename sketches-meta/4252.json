@@ -1,0 +1,42 @@
+{
+  "number": 4252,
+  "title": "Line sketch: Surreal Cosmic Larva",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent bubble floats in space containing a surreal scene with two cartoonish white larvae, one large at the bottom with oversized - eyes and another smaller one hanging from the top. A skeletal structure drips honey-like liquid, lightning crackles throughout, and a black silhouetted figure with raised arms stands against a nebula. A planet and desert landscape are visible in the background (derived from generated still #3671).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent bubble floats in space containing a surreal scene with two cartoonish white larvae, one large at the bottom with oversized - eyes and another smaller one hanging from the top. A skeletal structure drips honey-like liquid, lightning crackles throughout, and a black silhouetted figure with raised arms stands against a nebula. A planet and desert landscape are visible in the background",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Larva",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent bubble floats in space containing a surreal scene with two cartoonish white larvae, one large at the bottom with oversized - eyes and another smaller one hanging from the top. A skeletal structure drips honey-like liquid, lightning crackles throughout, and a black silhouetted figure with raised arms stands against a nebula. A planet and desert landscape are visible in the background (from generated still #3671).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent bubble floats in space containing a surreal scene with two cartoonish white larvae, one large at the bottom with oversized - eyes and another smaller one hanging from the top. A skeletal structure drips honey-like liquid, lightning crackles throughout, and a black silhouetted figure with raised arms stands against a nebula. A planet and desert landscape are visible in the background",
+  "source_description": "A large transparent bubble floats in space containing a surreal scene with two cartoonish white larvae, one large at the bottom with oversized green-purple eyes and another smaller one hanging from the top. A golden skeletal structure drips honey-like liquid, purple lightning crackles throughout, and a black silhouetted figure with raised arms stands against a colorful nebula. A purple planet and desert landscape are visible in the background.",
+  "source_prompt": "Surreal scene inside a large transparent bubble floating in outer space, two cartoon larvae with big glossy eyes, one large white caterpillar-like creature at the bottom with vibrant green and purple eyes, a smaller larva hanging from the top, golden skeletal dripping structure oozing honey, purple electric lightning bolts, black silhouetted figure with arms raised, purple planet and desert dunes in background, colorful nebula clouds, whimsical and bizarre atmosphere, detailed digital painting",
+  "source_title": "Surreal Cosmic Larva",
+  "style": "surreal digital art",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "larva",
+    "lightning",
+    "bubble"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3671,
+  "source_url": "/generated/3671.jpg",
+  "image_url": "/sketches/4252.png",
+  "inverted_image_url": "/sketches-inverted/4252.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4742,
+  "title": "Line sketch: Arcane Dungeon Nexus",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down view of an intricate, multi-level fantasy dungeon complex rendered as a detailed composition. The symmetrical stone architecture features circular ritual chambers, checkered floors, staircases, glowing braziers, and mechanical gear-like structures, with the word 'ARLAY' prominently displayed in the central hall. The right edge of the image shows a torn paper or page effect with a vibrant and abstract background (derived from generated still #4173).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down view of an intricate, multi-level fantasy dungeon complex rendered as a detailed composition. The symmetrical stone architecture features circular ritual chambers, checkered floors, staircases, glowing braziers, and mechanical gear-like structures, with the word 'ARLAY' prominently displayed in the central hall. The right edge of the image shows a torn paper or page effect with a vibrant and abstract background",
+  "inverted_title": "Inverted sketch: Arcane Dungeon Nexus",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down view of an intricate, multi-level fantasy dungeon complex rendered as a detailed composition. The symmetrical stone architecture features circular ritual chambers, checkered floors, staircases, glowing braziers, and mechanical gear-like structures, with the word 'ARLAY' prominently displayed in the central hall. The right edge of the image shows a torn paper or page effect with a vibrant and abstract background (from generated still #4173).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down view of an intricate, multi-level fantasy dungeon complex rendered as a detailed composition. The symmetrical stone architecture features circular ritual chambers, checkered floors, staircases, glowing braziers, and mechanical gear-like structures, with the word 'ARLAY' prominently displayed in the central hall. The right edge of the image shows a torn paper or page effect with a vibrant and abstract background",
+  "source_description": "A top-down view of an intricate, multi-level fantasy dungeon complex rendered as a detailed painting. The symmetrical stone architecture features circular ritual chambers, checkered floors, staircases, glowing orange braziers, and mechanical gear-like structures, with the word 'ARLAY' prominently displayed in the central hall. The right edge of the image shows a torn paper or canvas effect with a vibrant magenta and purple abstract background.",
+  "source_prompt": "Top-down view of a highly detailed fantasy dungeon complex with symmetrical octagonal chambers, spiral ritual circles, checkered floors, multiple staircases, glowing braziers, and intricate mechanical gears embedded in stone walls. Central hall displays the word ARLAY. Dark blue and purple color palette with gold accents, painted in a textured fantasy illustration style with a torn paper edge revealing vibrant magenta underneath.",
+  "source_title": "Arcane Dungeon Nexus",
+  "style": "fantasy map illustration",
+  "mood": "mysterious, intricate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dungeon map",
+    "top-down view",
+    "fantasy architecture",
+    "occult chamber",
+    "mechanical dungeon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4173,
+  "source_url": "/generated/4173.jpg",
+  "image_url": "/sketches/4742.png",
+  "inverted_image_url": "/sketches-inverted/4742.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:48Z"
+}

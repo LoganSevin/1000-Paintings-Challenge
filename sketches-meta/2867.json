@@ -1,0 +1,42 @@
+{
+  "number": 2867,
+  "title": "Line sketch: Witch Demands Manager",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal witch in a pointed hat and flowing dark robes stands at a reception desk, pointing accusingly with a bony finger while speaking in floating text 'I WANT TO KNOW YOUR MANAGER'. A nervous female receptionist sits behind the counter holding a keyboard, with a service bell and scroll on the desk. A broken window in the background shows a glowing moon with mathematical symbols and floating papers in a dark, chaotic atmosphere (derived from generated still #2153).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal witch in a pointed hat and flowing dark robes stands at a reception desk, pointing accusingly with a bony finger while speaking in floating text 'I WANT TO KNOW YOUR MANAGER'. A nervous female receptionist sits behind the counter holding a keyboard, with a service bell and scroll on the desk. A broken window in the background shows a glowing moon with mathematical symbols and floating papers in a dark, chaotic atmosphere",
+  "inverted_title": "Inverted sketch: Witch Demands Manager",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal witch in a pointed hat and flowing dark robes stands at a reception desk, pointing accusingly with a bony finger while speaking in floating text 'I WANT TO KNOW YOUR MANAGER'. A nervous female receptionist sits behind the counter holding a keyboard, with a service bell and scroll on the desk. A broken window in the background shows a glowing moon with mathematical symbols and floating papers in a dark, chaotic atmosphere (from generated still #2153).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal witch in a pointed hat and flowing dark robes stands at a reception desk, pointing accusingly with a bony finger while speaking in floating text 'I WANT TO KNOW YOUR MANAGER'. A nervous female receptionist sits behind the counter holding a keyboard, with a service bell and scroll on the desk. A broken window in the background shows a glowing moon with mathematical symbols and floating papers in a dark, chaotic atmosphere",
+  "source_description": "A skeletal witch in a pointed hat and flowing dark robes stands at a reception desk, pointing accusingly with a bony finger while speaking in floating text 'I WANT TO KNOW YOUR MANAGER'. A nervous female receptionist sits behind the counter holding a keyboard, with a service bell and scroll on the desk. A broken window in the background shows a glowing red moon with mathematical symbols and floating papers in a dark, chaotic atmosphere.",
+  "source_prompt": "A skeletal witch with long dark hair and a pointed hat stands at a hotel reception desk, angrily pointing her finger at a nervous female receptionist while speech text reads 'I WANT TO KNOW YOUR MANAGER'. The witch has mathematical symbols and chains floating around her. Broken window behind shows a glowing red moon with equations. Papers and symbols float in the air, service bell and keyboard on the desk, dark fantasy style with purple and blue tones.",
+  "source_title": "Witch Demands Manager",
+  "style": "dark fantasy illustration",
+  "mood": "surreal chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "receptionist",
+    "skeleton",
+    "fantasy",
+    "moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2153,
+  "source_url": "/generated/2153.jpg",
+  "image_url": "/sketches/2867.png",
+  "inverted_image_url": "/sketches-inverted/2867.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:44Z"
+}

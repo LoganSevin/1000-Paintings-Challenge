@@ -1,0 +1,42 @@
+{
+  "number": 2180,
+  "title": "Line sketch: Phoenix and Celestial Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark-skinned woman in a black gown holds a glowing orb while a massive phoenix with fiery accents flies overhead, clutching another orb in its beak. The surreal night scene features a starry sky with comets, surrounded by vibrant stylized citrus-like fruits and foliage in a fantastical landscape (derived from generated still #1405).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark-skinned woman in a black gown holds a glowing orb while a massive phoenix with fiery accents flies overhead, clutching another orb in its beak. The surreal night scene features a starry sky with comets, surrounded by vibrant stylized citrus-like fruits and foliage in a fantastical landscape",
+  "inverted_title": "Inverted sketch: Phoenix and Celestial Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark-skinned woman in a black gown holds a glowing orb while a massive phoenix with fiery accents flies overhead, clutching another orb in its beak. The surreal night scene features a starry sky with comets, surrounded by vibrant stylized citrus-like fruits and foliage in a fantastical landscape (from generated still #1405).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark-skinned woman in a black gown holds a glowing orb while a massive phoenix with fiery accents flies overhead, clutching another orb in its beak. The surreal night scene features a starry sky with comets, surrounded by vibrant stylized citrus-like fruits and foliage in a fantastical landscape",
+  "source_description": "A dark-skinned woman in a black gown holds a glowing red orb while a massive blue phoenix with fiery accents flies overhead, clutching another orb in its beak. The surreal night scene features a starry sky with yellow comets, surrounded by vibrant stylized citrus-like fruits and foliage in a fantastical landscape.",
+  "source_prompt": "",
+  "source_title": "Phoenix and Celestial Orb",
+  "style": "surreal fantasy",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "phoenix",
+    "celestial",
+    "fantasy woman",
+    "night scene",
+    "glowing orbs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1405,
+  "source_url": "/generated/1405.jpg",
+  "image_url": "/sketches/2180.png",
+  "inverted_image_url": "/sketches-inverted/2180.png",
+  "curve_count": 135,
+  "built_at": "2026-08-17T00:09:42Z"
+}

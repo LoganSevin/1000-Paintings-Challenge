@@ -1,0 +1,42 @@
+{
+  "number": 336,
+  "title": "Line sketch: Ocean View Flower Bouquet",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant bouquet of, and white flowers sits on a wooden railing overlooking the ocean under a bright sky. The lush leaves and petals create a lively contrast with the serene sea in the background (derived from painting #397).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant bouquet of, and white flowers sits on a wooden railing overlooking the ocean under a bright sky. The lush leaves and petals create a lively contrast with the serene sea in the background",
+  "inverted_title": "Inverted sketch: Ocean View Flower Bouquet",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant bouquet of, and white flowers sits on a wooden railing overlooking the ocean under a bright sky. The lush leaves and petals create a lively contrast with the serene sea in the background (from painting #397).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant bouquet of, and white flowers sits on a wooden railing overlooking the ocean under a bright sky. The lush leaves and petals create a lively contrast with the serene sea in the background",
+  "source_description": "A vibrant bouquet of purple, pink, and white flowers sits on a wooden railing overlooking the blue ocean under a bright sky. The lush green leaves and colorful petals create a lively contrast with the serene sea in the background.",
+  "source_prompt": "",
+  "source_title": "Ocean View Flower Bouquet",
+  "style": "Realism",
+  "mood": "Vibrant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "flowers",
+    "ocean view",
+    "still life",
+    "coastal",
+    "bouquet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 397,
+  "source_url": "/paintings/397.jpg",
+  "image_url": "/sketches/336.png",
+  "inverted_image_url": "/sketches-inverted/336.png",
+  "curve_count": 73,
+  "built_at": "2026-08-17T00:09:39Z"
+}

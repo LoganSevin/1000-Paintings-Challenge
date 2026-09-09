@@ -1,0 +1,42 @@
+{
+  "number": 1702,
+  "title": "Line sketch: Queen and Skeleton Retinue",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A regal queen in a gown and crown sits on a throne holding a small skull, gazing upward. She is attended by six identical black skeletons with glowing eyes, their forms dripping with and liquid against a vibrant, psychedelic background of swirling patterns, crowns, and lightning bolts (derived from generated still #924).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A regal queen in a gown and crown sits on a throne holding a small skull, gazing upward. She is attended by six identical black skeletons with glowing eyes, their forms dripping with and liquid against a vibrant, psychedelic background of swirling patterns, crowns, and lightning bolts",
+  "inverted_title": "Inverted sketch: Queen and Skeleton Retinue",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A regal queen in a gown and crown sits on a throne holding a small skull, gazing upward. She is attended by six identical black skeletons with glowing eyes, their forms dripping with and liquid against a vibrant, psychedelic background of swirling patterns, crowns, and lightning bolts (from generated still #924).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A regal queen in a gown and crown sits on a throne holding a small skull, gazing upward. She is attended by six identical black skeletons with glowing eyes, their forms dripping with and liquid against a vibrant, psychedelic background of swirling patterns, crowns, and lightning bolts",
+  "source_description": "A regal queen in a purple gown and golden crown sits on a throne holding a small skull, gazing upward. She is attended by six identical black skeletons with glowing green eyes, their forms dripping with red and green liquid against a vibrant, psychedelic background of swirling patterns, crowns, and lightning bolts.",
+  "source_prompt": "",
+  "source_title": "Queen and Skeleton Retinue",
+  "style": "surreal pop art",
+  "mood": "dark psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "queen",
+    "crown",
+    "psychedelic",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 924,
+  "source_url": "/generated/924.jpg",
+  "image_url": "/sketches/1702.png",
+  "inverted_image_url": "/sketches-inverted/1702.png",
+  "curve_count": 138,
+  "built_at": "2026-08-17T00:09:41Z"
+}

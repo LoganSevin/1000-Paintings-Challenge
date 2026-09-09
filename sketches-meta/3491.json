@@ -1,0 +1,42 @@
+{
+  "number": 3491,
+  "title": "Line sketch: Surreal Mechanical Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A split composition featuring a large mechanical eye with concentric lenses and metallic spikes in the upper half, alongside a -haired woman with bare shoulders and a dripping heart with splatter on the left. The lower half shows a stylized running deer, a cartoon rabbit in a black suit, a coiled rope, and abstract and shapes (derived from generated still #2892).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A split composition featuring a large mechanical eye with concentric lenses and metallic spikes in the upper half, alongside a -haired woman with bare shoulders and a dripping heart with splatter on the left. The lower half shows a stylized running deer, a cartoon rabbit in a black suit, a coiled rope, and abstract and shapes",
+  "inverted_title": "Inverted sketch: Surreal Mechanical Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A split composition featuring a large mechanical eye with concentric lenses and metallic spikes in the upper half, alongside a -haired woman with bare shoulders and a dripping heart with splatter on the left. The lower half shows a stylized running deer, a cartoon rabbit in a black suit, a coiled rope, and abstract and shapes (from generated still #2892).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A split composition featuring a large mechanical eye with concentric lenses and metallic spikes in the upper half, alongside a -haired woman with bare shoulders and a dripping heart with splatter on the left. The lower half shows a stylized running deer, a cartoon rabbit in a black suit, a coiled rope, and abstract and shapes",
+  "source_description": "A split composition featuring a large mechanical eye with green concentric lenses and metallic spikes in the upper half, alongside a pink-haired woman with bare shoulders and a dripping pink heart with orange splatter on the left. The lower half shows a stylized running brown deer, a cartoon rabbit in a black suit, a coiled rope, and abstract blue and beige shapes.",
+  "source_prompt": "Surreal split composition digital artwork, upper section shows a large intricate mechanical eye with green glowing concentric lenses and metallic spikes, a beautiful woman with magenta hair and bare shoulders on the right, and a large dripping pink heart with orange splatter on a red background to the left. Lower section contains a stylized running brown deer, a cartoon rabbit wearing a black suit, a thick coiled rope, and abstract blue and beige shapes, dreamlike and chaotic atmosphere.",
+  "source_title": "Surreal Mechanical Collage",
+  "style": "surreal digital collage",
+  "mood": "dreamlike chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "mechanical eye",
+    "hair woman",
+    "dripping heart",
+    "cartoon rabbit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2892,
+  "source_url": "/generated/2892.jpg",
+  "image_url": "/sketches/3491.png",
+  "inverted_image_url": "/sketches-inverted/3491.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:45Z"
+}

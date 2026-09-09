@@ -1,0 +1,42 @@
+{
+  "number": 3589,
+  "title": "Line sketch: Cyberpunk Trio in Rain",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three fantasy characters stand in a foggy cyberpunk street at night. On the left a dark-haired elf in and futuristic armor, in the center a tall bandaged mummy-like figure with glowing eyes, and on the right a white-haired elf in metallic armor holding a glowing object (derived from generated still #2997).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three fantasy characters stand in a foggy cyberpunk street at night. On the left a dark-haired elf in and futuristic armor, in the center a tall bandaged mummy-like figure with glowing eyes, and on the right a white-haired elf in metallic armor holding a glowing object",
+  "inverted_title": "Inverted sketch: Cyberpunk Trio in Rain",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three fantasy characters stand in a foggy cyberpunk street at night. On the left a dark-haired elf in and futuristic armor, in the center a tall bandaged mummy-like figure with glowing eyes, and on the right a white-haired elf in metallic armor holding a glowing object (from generated still #2997).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three fantasy characters stand in a foggy cyberpunk street at night. On the left a dark-haired elf in and futuristic armor, in the center a tall bandaged mummy-like figure with glowing eyes, and on the right a white-haired elf in metallic armor holding a glowing object",
+  "source_description": "Three fantasy characters stand in a foggy cyberpunk street at night. On the left a dark-haired elf in purple and silver futuristic armor, in the center a tall bandaged mummy-like figure with glowing eyes, and on the right a white-haired elf in metallic armor holding a glowing object.",
+  "source_prompt": "Three characters standing in a rainy cyberpunk city street at night, thick fog and reflections on wet ground. A dark-haired female elf in sleek purple and silver armored suit on the left, a tall wrapped mummy with one visible eye and tattered bandages in the center, and a long white-haired female elf in shiny metallic armor holding a small glowing device on the right. Neon signs with Asian characters and English text, large holographic logo in background, cinematic lighting, moody atmosphere, detailed digital painting.",
+  "source_title": "Cyberpunk Trio in Neon Rain",
+  "style": "line sketch",
+  "mood": "mysterious, atmospheric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "fantasy",
+    "elves",
+    "mummy",
+    "futuristic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2997,
+  "source_url": "/generated/2997.jpg",
+  "image_url": "/sketches/3589.png",
+  "inverted_image_url": "/sketches-inverted/3589.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3201,
+  "title": "Line sketch: Mystic Scroll of Realms",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An ancient rectangular scroll lies diagonally across a cosmic background, covered in intricate line drawings of a long serpentine dragon. Swirling, translucent ribbons of, and energy flow across the scroll, surrounding two glowing orbs - one large sphere with highlights and one smaller orb (derived from generated still #2551).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An ancient rectangular scroll lies diagonally across a cosmic background, covered in intricate line drawings of a long serpentine dragon. Swirling, translucent ribbons of, and energy flow across the scroll, surrounding two glowing orbs - one large sphere with highlights and one smaller orb",
+  "inverted_title": "Inverted sketch: Mystic Scroll of Realms",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An ancient rectangular scroll lies diagonally across a cosmic background, covered in intricate line drawings of a long serpentine dragon. Swirling, translucent ribbons of, and energy flow across the scroll, surrounding two glowing orbs - one large sphere with highlights and one smaller orb (from generated still #2551).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An ancient rectangular scroll lies diagonally across a cosmic background, covered in intricate line drawings of a long serpentine dragon. Swirling, translucent ribbons of, and energy flow across the scroll, surrounding two glowing orbs - one large sphere with highlights and one smaller orb",
+  "source_description": "An ancient rectangular scroll lies diagonally across a cosmic background, covered in intricate line drawings of a long serpentine dragon. Swirling, translucent ribbons of green, orange, and purple energy flow across the scroll, surrounding two glowing orbs - one large iridescent sphere with rainbow highlights and one smaller multicolored orb.",
+  "source_prompt": "Ancient rectangular scroll with detailed line art of a serpentine dragon, floating in a cosmic void. Swirling translucent ribbons of green, orange, and purple magical energy flow across the aged parchment. Two glowing orbs hover above the scroll - a large iridescent sphere showing rainbow colors and a smaller multicolored orb. Dramatic lighting, intricate details, mystical atmosphere, painterly digital art style.",
+  "source_title": "Mystic Scroll of Realms",
+  "style": "fantasy illustration",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon scroll",
+    "cosmic energy",
+    "magical orbs",
+    "fantasy artifact",
+    "ethereal smoke"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2551,
+  "source_url": "/generated/2551.jpg",
+  "image_url": "/sketches/3201.png",
+  "inverted_image_url": "/sketches-inverted/3201.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

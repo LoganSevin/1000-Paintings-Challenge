@@ -1,0 +1,42 @@
+{
+  "number": 43,
+  "title": "Line sketch: Melodic Ribbons in Motion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract composition merges swirling ribbons of color with integrated musical staves, clefs, and notes. Overlapping curved bands in, and earth tones create dynamic flow across an off-white ground. Bold and flat planes emphasize rhythm and movement (derived from painting #60).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract composition merges swirling ribbons of color with integrated musical staves, clefs, and notes. Overlapping curved bands in, and earth tones create dynamic flow across an off-white ground. Bold and flat planes emphasize rhythm and movement",
+  "inverted_title": "Inverted sketch: Melodic Ribbons in Motion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract composition merges swirling ribbons of color with integrated musical staves, clefs, and notes. Overlapping curved bands in, and earth tones create dynamic flow across an off-white ground. Bold and flat planes emphasize rhythm and movement (from painting #60).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract composition merges swirling ribbons of color with integrated musical staves, clefs, and notes. Overlapping curved bands in, and earth tones create dynamic flow across an off-white ground. Bold and flat planes emphasize rhythm and movement",
+  "source_description": "Abstract composition merges swirling ribbons of color with integrated musical staves, clefs, and notes. Overlapping curved bands in green, red, and earth tones create dynamic flow across an off-white ground. Bold brushwork and flat planes emphasize rhythm and movement.",
+  "source_prompt": "",
+  "source_title": "Melodic Ribbons in Motion",
+  "style": "Abstract",
+  "mood": "Rhythmic and dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "music",
+    "musical notes",
+    "ribbons",
+    "modernist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 60,
+  "source_url": "/paintings/60.jpg",
+  "image_url": "/sketches/43.png",
+  "inverted_image_url": "/sketches-inverted/43.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

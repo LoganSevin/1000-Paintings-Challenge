@@ -1,0 +1,42 @@
+{
+  "number": 2788,
+  "title": "Line sketch: Child's Face in Cosmic Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features the large, realistic face of a young child with wide dark eyes and slightly open mouth, emerging from swirling clouds. The dramatic sky blends fiery and clouds on the left with a sun and greenish atmosphere on the right, creating a cosmic and apocalyptic scene (derived from generated still #2071).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features the large, realistic face of a young child with wide dark eyes and slightly open mouth, emerging from swirling clouds. The dramatic sky blends fiery and clouds on the left with a sun and greenish atmosphere on the right, creating a cosmic and apocalyptic scene",
+  "inverted_title": "Inverted sketch: Child's Face in Cosmic Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features the large, realistic face of a young child with wide dark eyes and slightly open mouth, emerging from swirling clouds. The dramatic sky blends fiery and clouds on the left with a sun and greenish atmosphere on the right, creating a cosmic and apocalyptic scene (from generated still #2071).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features the large, realistic face of a young child with wide dark eyes and slightly open mouth, emerging from swirling clouds. The dramatic sky blends fiery and clouds on the left with a sun and greenish atmosphere on the right, creating a cosmic and apocalyptic scene",
+  "source_description": "A surreal painting features the large, realistic face of a young child with wide dark eyes and slightly open mouth, emerging from swirling clouds. The dramatic sky blends fiery red and orange clouds on the left with a bright yellow sun and greenish atmosphere on the right, creating a cosmic and apocalyptic scene.",
+  "source_prompt": "surreal oil painting of a young child's realistic face floating in the center of a dramatic cosmic sky, fiery red and orange turbulent clouds on the left, bright glowing sun with yellow and green atmosphere on the right, dark smoke and swirling clouds surrounding the child's head, apocalyptic yet dreamlike atmosphere, visible brushstrokes, painterly style",
+  "source_title": "Child's Face in Cosmic Storm",
+  "style": "surrealism",
+  "mood": "apocalyptic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "child portrait",
+    "dramatic clouds",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2071,
+  "source_url": "/generated/2071.jpg",
+  "image_url": "/sketches/2788.png",
+  "inverted_image_url": "/sketches-inverted/2788.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:44Z"
+}

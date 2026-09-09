@@ -1,0 +1,42 @@
+{
+  "number": 2942,
+  "title": "Line sketch: Piano of the Damned",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark surreal composition depicts a melting grand piano with black liquid dripping from its keys and body. Ethereal musical notes float above it while a crowd of shadowy, robed figures with pale faces watches from the darkness, two pigs visible in the foreground (derived from generated still #2248).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark surreal composition depicts a melting grand piano with black liquid dripping from its keys and body. Ethereal musical notes float above it while a crowd of shadowy, robed figures with pale faces watches from the darkness, two pigs visible in the foreground",
+  "inverted_title": "Inverted sketch: Piano of the Damned",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark surreal composition depicts a melting grand piano with black liquid dripping from its keys and body. Ethereal musical notes float above it while a crowd of shadowy, robed figures with pale faces watches from the darkness, two pigs visible in the foreground (from generated still #2248).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark surreal composition depicts a melting grand piano with black liquid dripping from its keys and body. Ethereal musical notes float above it while a crowd of shadowy, robed figures with pale faces watches from the darkness, two pigs visible in the foreground",
+  "source_description": "A dark surreal painting depicts a melting grand piano with black liquid dripping from its keys and body. Ethereal musical notes float above it while a crowd of shadowy, robed figures with pale faces watches from the darkness, two pigs visible in the foreground.",
+  "source_prompt": "",
+  "source_title": "Piano of the Damned",
+  "style": "surrealism",
+  "mood": "eerie, haunting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "piano",
+    "musical notes",
+    "shadowy figures",
+    "melting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2248,
+  "source_url": "/generated/2248.jpg",
+  "image_url": "/sketches/2942.png",
+  "inverted_image_url": "/sketches-inverted/2942.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:44Z"
+}

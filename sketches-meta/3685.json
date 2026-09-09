@@ -1,0 +1,42 @@
+{
+  "number": 3685,
+  "title": "Line sketch: The Watching Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene set in a 1950s kitchen where two women sit at a table drinking coffee under a hanging lamp. A large torn notebook page dominates the left and center, displaying a crude ink drawing of a bald, stitched, wide-eyed figure with a jagged mouth, while a massive bloodshot eye with a iris floats above, casting a glow (derived from generated still #3093).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene set in a 1950s kitchen where two women sit at a table drinking coffee under a hanging lamp. A large torn notebook page dominates the left and center, displaying a crude ink drawing of a bald, stitched, wide-eyed figure with a jagged mouth, while a massive bloodshot eye with a iris floats above, casting a glow",
+  "inverted_title": "Inverted sketch: The Watching Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene set in a 1950s kitchen where two women sit at a table drinking coffee under a hanging lamp. A large torn notebook page dominates the left and center, displaying a crude ink drawing of a bald, stitched, wide-eyed figure with a jagged mouth, while a massive bloodshot eye with a iris floats above, casting a glow (from generated still #3093).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene set in a 1950s kitchen where two women sit at a table drinking coffee under a hanging lamp. A large torn notebook page dominates the left and center, displaying a crude ink drawing of a bald, stitched, wide-eyed figure with a jagged mouth, while a massive bloodshot eye with a iris floats above, casting a glow",
+  "source_description": "A surreal scene set in a 1950s kitchen where two women sit at a table drinking coffee under a hanging lamp. A large torn notebook page dominates the left and center, displaying a crude blue ink drawing of a bald, stitched, wide-eyed figure with a jagged mouth, while a massive bloodshot red eye with a purple iris floats above, casting a red glow.",
+  "source_prompt": "Surreal horror scene in a retro 1950s kitchen with two women sitting at a Formica table drinking coffee. A giant torn notebook page floats in the foreground showing a crude childlike blue ink drawing of a bald stitched monster with empty circular eyes and jagged teeth. A massive glowing bloodshot red eye with purple iris hovers above the drawing emitting red light, vintage television sets in background showing static, hanging pendant lamp, unsettling atmosphere, detailed painting style",
+  "source_title": "The Watching Eye",
+  "style": "surrealism",
+  "mood": "eerie unsettling",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "1950s kitchen",
+    "notebook drawing",
+    "bloodshot eye",
+    "horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3093,
+  "source_url": "/generated/3093.jpg",
+  "image_url": "/sketches/3685.png",
+  "inverted_image_url": "/sketches-inverted/3685.png",
+  "curve_count": 116,
+  "built_at": "2026-08-17T00:09:46Z"
+}

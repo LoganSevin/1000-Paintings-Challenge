@@ -1,0 +1,42 @@
+{
+  "number": 3084,
+  "title": "Line sketch: Vault Door Revelation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman in steampunk attire stands inside a massive circular vault door with a wheel mechanism, looking back over her shoulder. The metal door is partially open, revealing an interior filled with framed paintings, gears, and shelves, while the foreground shows a tiled floor with scattered ornate picture frames under a twilight sky (derived from generated still #2416).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman in steampunk attire stands inside a massive circular vault door with a wheel mechanism, looking back over her shoulder. The metal door is partially open, revealing an interior filled with framed paintings, gears, and shelves, while the foreground shows a tiled floor with scattered ornate picture frames under a twilight sky",
+  "inverted_title": "Inverted sketch: Vault Door Revelation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman in steampunk attire stands inside a massive circular vault door with a wheel mechanism, looking back over her shoulder. The metal door is partially open, revealing an interior filled with framed paintings, gears, and shelves, while the foreground shows a tiled floor with scattered ornate picture frames under a twilight sky (from generated still #2416).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman in steampunk attire stands inside a massive circular vault door with a wheel mechanism, looking back over her shoulder. The metal door is partially open, revealing an interior filled with framed paintings, gears, and shelves, while the foreground shows a tiled floor with scattered ornate picture frames under a twilight sky",
+  "source_description": "A young woman in steampunk attire stands inside a massive circular vault door with a wheel mechanism, looking back over her shoulder. The green metal door is partially open, revealing an interior filled with framed paintings, gears, and shelves, while the foreground shows a tiled floor with scattered ornate picture frames under a twilight sky.",
+  "source_prompt": "A young woman with a red bandana and steampunk outfit stands inside a giant circular industrial vault door with heavy rivets and a wheel lock, looking back cautiously while holding the door open. The interior is filled with shelves of antique framed paintings, clocks, and mechanical gears. In the foreground, numerous ornate picture frames lean against walls on a tiled stone floor under a purple dusk sky, surreal and mysterious atmosphere, detailed digital painting.",
+  "source_title": "Vault Door Revelation",
+  "style": "line sketch",
+  "mood": "mysterious, adventurous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "vault door",
+    "art gallery",
+    "surreal",
+    "female character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2416,
+  "source_url": "/generated/2416.jpg",
+  "image_url": "/sketches/3084.png",
+  "inverted_image_url": "/sketches-inverted/3084.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1766,
+  "title": "Line sketch: Mosaic Woman and Horse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal portrait of a young woman whose face and neck are partially covered in a geometric mosaic pattern. An horse with a flowing mane stands beside her in a field of flowers, set against a swirling psychedelic background of hills, circles, and decorative floral motifs (derived from generated still #988).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal portrait of a young woman whose face and neck are partially covered in a geometric mosaic pattern. An horse with a flowing mane stands beside her in a field of flowers, set against a swirling psychedelic background of hills, circles, and decorative floral motifs",
+  "inverted_title": "Inverted sketch: Mosaic Woman and Horse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal portrait of a young woman whose face and neck are partially covered in a geometric mosaic pattern. An horse with a flowing mane stands beside her in a field of flowers, set against a swirling psychedelic background of hills, circles, and decorative floral motifs (from generated still #988).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal portrait of a young woman whose face and neck are partially covered in a geometric mosaic pattern. An horse with a flowing mane stands beside her in a field of flowers, set against a swirling psychedelic background of hills, circles, and decorative floral motifs",
+  "source_description": "A vibrant surreal portrait of a young woman whose face and neck are partially covered in a colorful geometric mosaic pattern. An orange horse with a flowing mane stands beside her in a field of pink flowers, set against a swirling psychedelic background of green hills, yellow circles, and decorative floral motifs.",
+  "source_prompt": "",
+  "source_title": "Mosaic Woman and Orange Horse",
+  "style": "psychedelic surrealism",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "horse",
+    "mosaic",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 988,
+  "source_url": "/generated/988.jpg",
+  "image_url": "/sketches/1766.png",
+  "inverted_image_url": "/sketches-inverted/1766.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:42Z"
+}

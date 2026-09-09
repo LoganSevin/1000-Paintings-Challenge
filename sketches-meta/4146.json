@@ -1,0 +1,42 @@
+{
+  "number": 4146,
+  "title": "Line sketch: Cosmic Visionary",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A bald woman with glowing markings on her head emerges from a swirling cosmic vortex. Her torso dissolves into a nebula filled with fish, flowers, and geometric patterns, set against a dramatic landscape of jagged mountains under a radiant sun with radiating beams (derived from generated still #3564).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A bald woman with glowing markings on her head emerges from a swirling cosmic vortex. Her torso dissolves into a nebula filled with fish, flowers, and geometric patterns, set against a dramatic landscape of jagged mountains under a radiant sun with radiating beams",
+  "inverted_title": "Inverted sketch: Cosmic Visionary",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A bald woman with glowing markings on her head emerges from a swirling cosmic vortex. Her torso dissolves into a nebula filled with fish, flowers, and geometric patterns, set against a dramatic landscape of jagged mountains under a radiant sun with radiating beams (from generated still #3564).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A bald woman with glowing markings on her head emerges from a swirling cosmic vortex. Her torso dissolves into a nebula filled with fish, flowers, and geometric patterns, set against a dramatic landscape of jagged mountains under a radiant sun with radiating beams",
+  "source_description": "A bald woman with glowing markings on her head emerges from a swirling cosmic vortex. Her torso dissolves into a colorful nebula filled with fish, flowers, and geometric patterns, set against a dramatic landscape of jagged mountains under a radiant sun with radiating beams.",
+  "source_prompt": "A surreal cosmic scene featuring a bald woman with luminous markings on her scalp, emerging from a swirling galaxy vortex. Her body transitions into a colorful nebula containing fish, flowers, and intricate sacred geometry patterns including a large circular mandala behind her. Jagged dark mountains with red highlights sit in the foreground, while a bright sun with dramatic radiating beams shines in the upper right. Psychedelic color palette with vibrant purples, teals, and golds, detailed linework, fantasy illustration style.",
+  "source_title": "Cosmic Visionary",
+  "style": "surreal fantasy illustration",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic",
+    "surreal",
+    "woman",
+    "nebula",
+    "sacred geometry"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3564,
+  "source_url": "/generated/3564.jpg",
+  "image_url": "/sketches/4146.png",
+  "inverted_image_url": "/sketches-inverted/4146.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:47Z"
+}

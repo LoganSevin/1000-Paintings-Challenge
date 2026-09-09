@@ -1,0 +1,42 @@
+{
+  "number": 3820,
+  "title": "Line sketch: Mech Punk Boy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a stylized young male character with spiky blonde hair, wearing black and armored streetwear with mechanical details and glowing elements. The character is shown in dynamic fighting stances with clenched fists against a dark gradient background (derived from generated still #3237).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a stylized young male character with spiky blonde hair, wearing black and armored streetwear with mechanical details and glowing elements. The character is shown in dynamic fighting stances with clenched fists against a dark gradient background",
+  "inverted_title": "Inverted sketch: Mech Punk Boy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a stylized young male character with spiky blonde hair, wearing black and armored streetwear with mechanical details and glowing elements. The character is shown in dynamic fighting stances with clenched fists against a dark gradient background (from generated still #3237).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a stylized young male character with spiky blonde hair, wearing black and armored streetwear with mechanical details and glowing elements. The character is shown in dynamic fighting stances with clenched fists against a dark gradient background",
+  "source_description": "Four sequential poses of a stylized young male character with spiky blonde hair, wearing black and yellow armored streetwear with mechanical details and glowing elements. The character is shown in dynamic fighting stances with clenched fists against a dark gradient background.",
+  "source_prompt": "A tough young boy with spiky blonde hair and a determined expression, wearing black tactical pants and a yellow and black mechanical armored jacket with glowing yellow accents and gauntlets. Shown in four different fighting poses including raised fists and punching forward with motion effects, muscular build, street punk aesthetic, rendered in detailed digital painting style on a dark background",
+  "source_title": "Yellow Mech Punk Boy",
+  "style": "digital character concept art",
+  "mood": "aggressive, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "character design",
+    "punk",
+    "mech armor",
+    "blonde hair",
+    "fighting pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3237,
+  "source_url": "/generated/3237.jpg",
+  "image_url": "/sketches/3820.png",
+  "inverted_image_url": "/sketches-inverted/3820.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:46Z"
+}

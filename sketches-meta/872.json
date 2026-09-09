@@ -1,0 +1,42 @@
+{
+  "number": 872,
+  "title": "Line sketch: Man with Bird and Bubbles",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man in a hat and jacket stands in profile, looking right, with a small bird perched on his shoulder. The surreal scene includes translucent bubbles, dripping liquid, abstract structures, a curved band, and a crowd of figures in the background under a sky (derived from generated still #81).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man in a hat and jacket stands in profile, looking right, with a small bird perched on his shoulder. The surreal scene includes translucent bubbles, dripping liquid, abstract structures, a curved band, and a crowd of figures in the background under a sky",
+  "inverted_title": "Inverted sketch: Man with Bird and Bubbles",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man in a hat and jacket stands in profile, looking right, with a small bird perched on his shoulder. The surreal scene includes translucent bubbles, dripping liquid, abstract structures, a curved band, and a crowd of figures in the background under a sky (from generated still #81).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man in a hat and jacket stands in profile, looking right, with a small bird perched on his shoulder. The surreal scene includes translucent bubbles, dripping liquid, abstract structures, a curved band, and a crowd of figures in the background under a sky",
+  "source_description": "An elderly man in a green hat and jacket stands in profile, looking right, with a small brown bird perched on his shoulder. The surreal scene includes colorful translucent bubbles, dripping blue liquid, abstract green structures, a yellow curved band, and a crowd of colorful figures in the background under a pink sky.",
+  "source_prompt": "",
+  "source_title": "Man with Bird and Bubbles",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elderly man",
+    "bird",
+    "bubbles",
+    "surreal",
+    "crowd"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 81,
+  "source_url": "/generated/81.jpg",
+  "image_url": "/sketches/872.png",
+  "inverted_image_url": "/sketches-inverted/872.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:40Z"
+}

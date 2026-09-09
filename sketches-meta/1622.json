@@ -1,0 +1,42 @@
+{
+  "number": 1622,
+  "title": "Line sketch: Mystic Wanderer at Twilight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted figure in a patterned robe walks across sand dunes beneath a large black crescent moon and a vibrant - swirling vortex in the night sky. A leafless tree frames the surreal scene with shooting stars and glowing celestial orbs above a horizon (derived from generated still #837).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted figure in a patterned robe walks across sand dunes beneath a large black crescent moon and a vibrant - swirling vortex in the night sky. A leafless tree frames the surreal scene with shooting stars and glowing celestial orbs above a horizon",
+  "inverted_title": "Inverted sketch: Mystic Wanderer at Twilight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted figure in a patterned robe walks across sand dunes beneath a large black crescent moon and a vibrant - swirling vortex in the night sky. A leafless tree frames the surreal scene with shooting stars and glowing celestial orbs above a horizon (from generated still #837).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted figure in a patterned robe walks across sand dunes beneath a large black crescent moon and a vibrant - swirling vortex in the night sky. A leafless tree frames the surreal scene with shooting stars and glowing celestial orbs above a horizon",
+  "source_description": "A silhouetted figure in a patterned robe walks across orange sand dunes beneath a large black crescent moon and a vibrant pink-purple swirling vortex in the night sky. A leafless tree frames the surreal scene with shooting stars and glowing celestial orbs above a green horizon.",
+  "source_prompt": "",
+  "source_title": "Mystic Wanderer at Twilight",
+  "style": "surreal digital illustration",
+  "mood": "mysterious dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "celestial",
+    "night scene",
+    "dunes",
+    "crescent moon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 837,
+  "source_url": "/generated/837.jpg",
+  "image_url": "/sketches/1622.png",
+  "inverted_image_url": "/sketches-inverted/1622.png",
+  "curve_count": 97,
+  "built_at": "2026-08-17T00:09:41Z"
+}

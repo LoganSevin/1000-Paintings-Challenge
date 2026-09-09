@@ -1,0 +1,42 @@
+{
+  "number": 69,
+  "title": "Line sketch: Highway Beneath the Fiery Sun",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The composition captures a sprawling urban cityscape at sunset, with curving illuminated highways stretching across the foreground and midground. A massive swirling sun dominates the vibrant sky, casting dramatic and light over silhouetted buildings below. Bold, expressive and intense color contrasts emphasize movement and energy in the scene (derived from painting #100).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The composition captures a sprawling urban cityscape at sunset, with curving illuminated highways stretching across the foreground and midground. A massive swirling sun dominates the vibrant sky, casting dramatic and light over silhouetted buildings below. Bold, expressive and intense color contrasts emphasize movement and energy in the scene",
+  "inverted_title": "Inverted sketch: Highway Beneath the Fiery Sun",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The composition captures a sprawling urban cityscape at sunset, with curving illuminated highways stretching across the foreground and midground. A massive swirling sun dominates the vibrant sky, casting dramatic and light over silhouetted buildings below. Bold, expressive and intense color contrasts emphasize movement and energy in the scene (from painting #100).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The composition captures a sprawling urban cityscape at sunset, with curving illuminated highways stretching across the foreground and midground. A massive swirling sun dominates the vibrant sky, casting dramatic and light over silhouetted buildings below. Bold, expressive and intense color contrasts emphasize movement and energy in the scene",
+  "source_description": "The painting captures a sprawling urban cityscape at sunset, with curving illuminated highways stretching across the foreground and midground. A massive swirling sun dominates the vibrant sky, casting dramatic orange and red light over silhouetted buildings below. Bold, expressive brushstrokes and intense color contrasts emphasize movement and energy in the scene.",
+  "source_prompt": "",
+  "source_title": "Highway Beneath the Fiery Sun",
+  "style": "Impressionism",
+  "mood": "Dramatic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "sunset",
+    "highway",
+    "urban",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 100,
+  "source_url": "/paintings/100.jpg",
+  "image_url": "/sketches/69.png",
+  "inverted_image_url": "/sketches-inverted/69.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:38Z"
+}

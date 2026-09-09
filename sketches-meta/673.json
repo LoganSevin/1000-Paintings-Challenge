@@ -1,0 +1,42 @@
+{
+  "number": 673,
+  "title": "Line sketch: Circular Mechanism",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Close-up view of a futuristic device featuring glowing circular elements arranged in a precise pattern. The central orb emits a vibrant glow, surrounded by metallic rings and bolts on a smooth gray surface (derived from painting #853).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Close-up view of a futuristic device featuring glowing circular elements arranged in a precise pattern. The central orb emits a vibrant glow, surrounded by metallic rings and bolts on a smooth gray surface",
+  "inverted_title": "Inverted sketch: Circular Mechanism",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Close-up view of a futuristic device featuring glowing circular elements arranged in a precise pattern. The central orb emits a vibrant glow, surrounded by metallic rings and bolts on a smooth gray surface (from painting #853).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Close-up view of a futuristic device featuring glowing circular elements arranged in a precise pattern. The central orb emits a vibrant glow, surrounded by metallic rings and bolts on a smooth gray surface",
+  "source_description": "Close-up view of a futuristic device featuring glowing green circular elements arranged in a precise pattern. The central orb emits a vibrant lime glow, surrounded by metallic rings and bolts on a smooth gray surface.",
+  "source_prompt": "",
+  "source_title": "Green Circular Mechanism",
+  "style": "Photorealistic",
+  "mood": "Futuristic and clinical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical",
+    "glow",
+    "symmetry",
+    "sci-fi",
+    "close-up"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 853,
+  "source_url": "/paintings/853.jpg",
+  "image_url": "/sketches/673.png",
+  "inverted_image_url": "/sketches-inverted/673.png",
+  "curve_count": 165,
+  "built_at": "2026-08-17T00:09:39Z"
+}

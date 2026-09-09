@@ -1,0 +1,42 @@
+{
+  "number": 3788,
+  "title": "Line sketch: Magic Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four vertical panels display the same dark-skinned female warrior with short white hair in different combat stances. She wears a and white tribal outfit with leaf-like armor, white handprints on her thighs, and wraps on her feet and arms. In all poses she channels glowing magical energy and floating crystalline shards that swirl around her hands and body (derived from generated still #3205).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four vertical panels display the same dark-skinned female warrior with short white hair in different combat stances. She wears a and white tribal outfit with leaf-like armor, white handprints on her thighs, and wraps on her feet and arms. In all poses she channels glowing magical energy and floating crystalline shards that swirl around her hands and body",
+  "inverted_title": "Inverted sketch: Magic Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four vertical panels display the same dark-skinned female warrior with short white hair in different combat stances. She wears a and white tribal outfit with leaf-like armor, white handprints on her thighs, and wraps on her feet and arms. In all poses she channels glowing magical energy and floating crystalline shards that swirl around her hands and body (from generated still #3205).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four vertical panels display the same dark-skinned female warrior with short white hair in different combat stances. She wears a and white tribal outfit with leaf-like armor, white handprints on her thighs, and wraps on her feet and arms. In all poses she channels glowing magical energy and floating crystalline shards that swirl around her hands and body",
+  "source_description": "Four vertical panels display the same dark-skinned female warrior with short white hair in different combat stances. She wears a purple and white tribal outfit with leaf-like armor, white handprints on her thighs, and purple wraps on her feet and arms. In all poses she channels glowing purple magical energy and floating crystalline shards that swirl around her hands and body.",
+  "source_prompt": "dark-skinned female warrior with short silver-white hair in four vertical action poses, wearing purple and white tribal fantasy armor with leaf-shaped plates and white handprint tattoos on her thighs, casting powerful glowing purple magical energy with floating purple crystals swirling around her, dynamic combat stances, one pose with hands raised summoning crystals above, another projecting energy forward, dramatic lighting, character turntable sheet, clean dark background",
+  "source_title": "Purple Magic Poses",
+  "style": "digital character concept art",
+  "mood": "dynamic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D rendered illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "magic",
+    "crystal energy",
+    "tribal armor",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3205,
+  "source_url": "/generated/3205.jpg",
+  "image_url": "/sketches/3788.png",
+  "inverted_image_url": "/sketches-inverted/3788.png",
+  "curve_count": 103,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4967,
+  "title": "Line sketch: Melting Balloon in Haunted Hall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a long, decaying hallway with dusty wooden floors marked by black footprints leading toward three steps. A large, melting and hot air balloon with dripping wax-like texture floats in front of a massive cracked mirror that reflects the eerie interior (derived from generated still #4404).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a long, decaying hallway with dusty wooden floors marked by black footprints leading toward three steps. A large, melting and hot air balloon with dripping wax-like texture floats in front of a massive cracked mirror that reflects the eerie interior",
+  "inverted_title": "Inverted sketch: Melting Balloon in Haunted Hall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a long, decaying hallway with dusty wooden floors marked by black footprints leading toward three steps. A large, melting and hot air balloon with dripping wax-like texture floats in front of a massive cracked mirror that reflects the eerie interior (from generated still #4404).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a long, decaying hallway with dusty wooden floors marked by black footprints leading toward three steps. A large, melting and hot air balloon with dripping wax-like texture floats in front of a massive cracked mirror that reflects the eerie interior",
+  "source_description": "A surreal scene inside a long, decaying hallway with dusty wooden floors marked by black footprints leading toward three steps. A large, melting purple and yellow hot air balloon with dripping wax-like texture floats in front of a massive cracked mirror that reflects the eerie interior.",
+  "source_prompt": "A long decaying hallway with dusty wooden floors covered in black footprints leading up three steps to a massive cracked mirror. A large melting purple and yellow hot air balloon with dripping viscous texture floats in front of the mirror, its reflection visible. Dark eerie atmosphere, old grandfather clock on the left, broken ceiling, dim lighting with green wall lamps, highly detailed surreal scene",
+  "source_title": "Melting Balloon in Haunted Hall",
+  "style": "surreal",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "hallway",
+    "hot air balloon",
+    "melting",
+    "cracked mirror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4404,
+  "source_url": "/generated/4404.jpg",
+  "image_url": "/sketches/4967.png",
+  "inverted_image_url": "/sketches-inverted/4967.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:49Z"
+}

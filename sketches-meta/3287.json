@@ -1,0 +1,42 @@
+{
+  "number": 3287,
+  "title": "Line sketch: Fallout 271 Return",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a long coat stands in a derelict, post-apocalyptic room filled with peeling posters and radiation symbols, holding a film reel as strips of film unspool across the cracked floor toward a massive opening revealing a desolate desert wasteland at sunset with a ferris wheel in the distance. Beams of light shine down from a broken ceiling onto a glowing gumball machine and scattered film strips (derived from generated still #2662).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a long coat stands in a derelict, post-apocalyptic room filled with peeling posters and radiation symbols, holding a film reel as strips of film unspool across the cracked floor toward a massive opening revealing a desolate desert wasteland at sunset with a ferris wheel in the distance. Beams of light shine down from a broken ceiling onto a glowing gumball machine and scattered film strips",
+  "inverted_title": "Inverted sketch: Fallout 271 Return",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a long coat stands in a derelict, post-apocalyptic room filled with peeling posters and radiation symbols, holding a film reel as strips of film unspool across the cracked floor toward a massive opening revealing a desolate desert wasteland at sunset with a ferris wheel in the distance. Beams of light shine down from a broken ceiling onto a glowing gumball machine and scattered film strips (from generated still #2662).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a long coat stands in a derelict, post-apocalyptic room filled with peeling posters and radiation symbols, holding a film reel as strips of film unspool across the cracked floor toward a massive opening revealing a desolate desert wasteland at sunset with a ferris wheel in the distance. Beams of light shine down from a broken ceiling onto a glowing gumball machine and scattered film strips",
+  "source_description": "A woman in a long red coat stands in a derelict, post-apocalyptic room filled with peeling posters and radiation symbols, holding a film reel as strips of film unspool across the cracked floor toward a massive opening revealing a desolate desert wasteland at sunset with a ferris wheel in the distance. Beams of light shine down from a broken ceiling onto a glowing gumball machine and scattered film strips.",
+  "source_prompt": "A solitary woman wearing a long crimson coat stands inside a decaying room with torn movie posters and radiation hazard symbols on the walls, holding a film canister as film strips spill across the broken tile floor leading out into a vast ruined desert landscape at sunset featuring a distant ferris wheel and road signs, dramatic god rays streaming through a collapsed ceiling onto a glowing gumball machine spilling green orbs, cinematic composition, moody atmosphere",
+  "source_title": "Fallout 271 Return",
+  "style": "cinematic",
+  "mood": "melancholy, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "film noir",
+    "surreal",
+    "wasteland",
+    "vintage film"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2662,
+  "source_url": "/generated/2662.jpg",
+  "image_url": "/sketches/3287.png",
+  "inverted_image_url": "/sketches-inverted/3287.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:45Z"
+}

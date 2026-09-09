@@ -1,0 +1,42 @@
+{
+  "number": 2804,
+  "title": "Line sketch: Dog and Fractured Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert scene features a large dog with a human female face on its neck, paint dripping from her eyes and mouth. A black rat sits on the dog's back while a giant cracked eye with lightning floats in the sky above a lone silhouetted figure walking in the dunes (derived from generated still #2088).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert scene features a large dog with a human female face on its neck, paint dripping from her eyes and mouth. A black rat sits on the dog's back while a giant cracked eye with lightning floats in the sky above a lone silhouetted figure walking in the dunes",
+  "inverted_title": "Inverted sketch: Dog and Fractured Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert scene features a large dog with a human female face on its neck, paint dripping from her eyes and mouth. A black rat sits on the dog's back while a giant cracked eye with lightning floats in the sky above a lone silhouetted figure walking in the dunes (from generated still #2088).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert scene features a large dog with a human female face on its neck, paint dripping from her eyes and mouth. A black rat sits on the dog's back while a giant cracked eye with lightning floats in the sky above a lone silhouetted figure walking in the dunes",
+  "source_description": "A surreal desert scene features a large green dog with a human female face on its neck, colorful paint dripping from her eyes and mouth. A black rat sits on the dog's back while a giant cracked red eye with yellow lightning floats in the dark purple sky above a lone silhouetted figure walking in the dunes.",
+  "source_prompt": "Surreal desert night scene with a giant lime-green dog in profile, its neck morphing into a woman's face with blue and orange paint dripping down like tears. A black rat sits on the dog's shoulder. In the sky, a massive cracked blood-red eye with yellow energy bolts and black ants crawling on it, a purple moon in the background. A lone silhouetted traveler walks across the sand dunes below, dark purple sky filled with small flying creatures, dramatic and unsettling atmosphere.",
+  "source_title": "Green Dog and Fractured Eye",
+  "style": "surrealism",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dog-human hybrid",
+    "giant eye",
+    "desert landscape",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2088,
+  "source_url": "/generated/2088.jpg",
+  "image_url": "/sketches/2804.png",
+  "inverted_image_url": "/sketches-inverted/2804.png",
+  "curve_count": 117,
+  "built_at": "2026-08-17T00:09:44Z"
+}

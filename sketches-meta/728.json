@@ -1,0 +1,41 @@
+{
+  "number": 728,
+  "title": "Line sketch: Iris on",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant iris flower blooms dramatically against a textured background. This captures the elegant curves and details of the iris with bold, stylized strokes (derived from painting #922).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant iris flower blooms dramatically against a textured background. This captures the elegant curves and details of the iris with bold, stylized strokes",
+  "inverted_title": "Inverted sketch: Iris on",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant iris flower blooms dramatically against a textured background. This captures the elegant curves and details of the iris with bold, stylized strokes (from painting #922).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant iris flower blooms dramatically against a textured background. This captures the elegant curves and details of the iris with bold, stylized strokes",
+  "source_description": "A vibrant yellow iris flower blooms dramatically against a textured purple background. This digital painting captures the elegant curves and details of the iris with bold, stylized strokes.",
+  "source_prompt": "",
+  "source_title": "Golden Iris on Purple",
+  "style": "line sketch",
+  "mood": "Vibrant and bold",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "iris",
+    "flower",
+    "botanical",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 922,
+  "source_url": "/paintings/922.jpg",
+  "image_url": "/sketches/728.png",
+  "inverted_image_url": "/sketches-inverted/728.png",
+  "curve_count": 282,
+  "built_at": "2026-08-17T00:09:39Z"
+}

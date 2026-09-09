@@ -1,0 +1,42 @@
+{
+  "number": 1177,
+  "title": "Line sketch: Melting Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large melting creature with oversized eyes on the left, a central sun dripping blood-like streams, and a black silhouette of a dancing woman on the right against a starry sky. The scene is reflected in a rippling body of water below, with a dark tree-lined island in the middle and swirling patterns throughout (derived from generated still #389).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large melting creature with oversized eyes on the left, a central sun dripping blood-like streams, and a black silhouette of a dancing woman on the right against a starry sky. The scene is reflected in a rippling body of water below, with a dark tree-lined island in the middle and swirling patterns throughout",
+  "inverted_title": "Inverted sketch: Melting Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large melting creature with oversized eyes on the left, a central sun dripping blood-like streams, and a black silhouette of a dancing woman on the right against a starry sky. The scene is reflected in a rippling body of water below, with a dark tree-lined island in the middle and swirling patterns throughout (from generated still #389).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large melting creature with oversized eyes on the left, a central sun dripping blood-like streams, and a black silhouette of a dancing woman on the right against a starry sky. The scene is reflected in a rippling body of water below, with a dark tree-lined island in the middle and swirling patterns throughout",
+  "source_description": "A surreal painting depicts a large blue melting creature with oversized yellow eyes on the left, a central red sun dripping blood-like streams, and a black silhouette of a dancing woman on the right against a purple starry sky. The scene is reflected in a rippling body of water below, with a dark tree-lined island in the middle and colorful swirling patterns throughout.",
+  "source_prompt": "",
+  "source_title": "Melting Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "psychedelic",
+    "celestial",
+    "silhouette"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 389,
+  "source_url": "/generated/389.jpg",
+  "image_url": "/sketches/1177.png",
+  "inverted_image_url": "/sketches-inverted/1177.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:40Z"
+}

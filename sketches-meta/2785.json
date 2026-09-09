@@ -1,0 +1,42 @@
+{
+  "number": 2785,
+  "title": "Line sketch: Dragon Egg",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large glowing egg with crackling energy patterns floats above a reflective surface. Inside its translucent shell, a black dragon-like creature with eyes and long tail is curled in a dynamic pose. The background shows a surreal alien landscape with dripping organic structures, glowing pathways, and splashes of liquid under a dark twilight sky (derived from generated still #2068).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large glowing egg with crackling energy patterns floats above a reflective surface. Inside its translucent shell, a black dragon-like creature with eyes and long tail is curled in a dynamic pose. The background shows a surreal alien landscape with dripping organic structures, glowing pathways, and splashes of liquid under a dark twilight sky",
+  "inverted_title": "Inverted sketch: Dragon Egg",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large glowing egg with crackling energy patterns floats above a reflective surface. Inside its translucent shell, a black dragon-like creature with eyes and long tail is curled in a dynamic pose. The background shows a surreal alien landscape with dripping organic structures, glowing pathways, and splashes of liquid under a dark twilight sky (from generated still #2068).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large glowing egg with crackling energy patterns floats above a reflective surface. Inside its translucent shell, a black dragon-like creature with eyes and long tail is curled in a dynamic pose. The background shows a surreal alien landscape with dripping organic structures, glowing pathways, and splashes of liquid under a dark twilight sky",
+  "source_description": "A large glowing purple egg with crackling energy patterns floats above a reflective surface. Inside its translucent shell, a black dragon-like creature with purple eyes and long tail is curled in a dynamic pose. The background shows a surreal alien landscape with dripping organic structures, glowing pathways, and splashes of purple liquid under a dark twilight sky.",
+  "source_prompt": "Surreal fantasy scene featuring a large translucent purple egg floating above a reflective liquid surface with glowing concentric circles. Inside the egg is a black dragon-like creature with purple eyes curled in an energetic pose. The background is a dark alien landscape with dripping organic formations, glowing teal pathways, purple liquid splashes, and distant glowing structures under a purple and green twilight sky.",
+  "source_title": "Purple Dragon Egg",
+  "style": "surreal fantasy",
+  "mood": "mysterious, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon egg",
+    "fantasy creature",
+    "surreal landscape",
+    "glowing",
+    "alien world"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2068,
+  "source_url": "/generated/2068.jpg",
+  "image_url": "/sketches/2785.png",
+  "inverted_image_url": "/sketches-inverted/2785.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:44Z"
+}

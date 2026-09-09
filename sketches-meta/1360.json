@@ -1,0 +1,42 @@
+{
+  "number": 1360,
+  "title": "Line sketch: Horses Roman Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two horses stand in a pasture before a wooden fence, adorned with intricate circular patterns. In the swirling sky above, a detailed image of the Roman Colosseum is framed by concentric circles and text reading 'ROUND EARTH' and 'ROME' (derived from generated still #575).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two horses stand in a pasture before a wooden fence, adorned with intricate circular patterns. In the swirling sky above, a detailed image of the Roman Colosseum is framed by concentric circles and text reading 'ROUND EARTH' and 'ROME'",
+  "inverted_title": "Inverted sketch: Horses Roman Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two horses stand in a pasture before a wooden fence, adorned with intricate circular patterns. In the swirling sky above, a detailed image of the Roman Colosseum is framed by concentric circles and text reading 'ROUND EARTH' and 'ROME' (from generated still #575).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two horses stand in a pasture before a wooden fence, adorned with intricate circular patterns. In the swirling sky above, a detailed image of the Roman Colosseum is framed by concentric circles and text reading 'ROUND EARTH' and 'ROME'",
+  "source_description": "Two red horses stand in a green pasture before a wooden fence, adorned with intricate circular patterns. In the swirling red sky above, a detailed image of the Roman Colosseum is framed by concentric circles and text reading 'ROUND EARTH' and 'ROME'.",
+  "source_prompt": "",
+  "source_title": "Red Horses Roman Vision",
+  "style": "surreal folk art",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horses",
+    "colosseum",
+    "surreal",
+    "circular patterns",
+    "sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 575,
+  "source_url": "/generated/575.jpg",
+  "image_url": "/sketches/1360.png",
+  "inverted_image_url": "/sketches-inverted/1360.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:41Z"
+}

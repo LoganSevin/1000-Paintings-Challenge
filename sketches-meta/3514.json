@@ -1,0 +1,42 @@
+{
+  "number": 3514,
+  "title": "Line sketch: Masked Man and Cosmic Wolf",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic composition featuring an older man wearing a black fedora, glasses, and a white face mask in the foreground. To his right stands a black wolf with glowing eyes. Above them floats a large cosmic face surrounded by flowers, lightning bolts, and swirling patterns against a dramatic stormy sky with mountains (derived from generated still #2916).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic composition featuring an older man wearing a black fedora, glasses, and a white face mask in the foreground. To his right stands a black wolf with glowing eyes. Above them floats a large cosmic face surrounded by flowers, lightning bolts, and swirling patterns against a dramatic stormy sky with mountains",
+  "inverted_title": "Inverted sketch: Masked Man and Cosmic Wolf",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic composition featuring an older man wearing a black fedora, glasses, and a white face mask in the foreground. To his right stands a black wolf with glowing eyes. Above them floats a large cosmic face surrounded by flowers, lightning bolts, and swirling patterns against a dramatic stormy sky with mountains (from generated still #2916).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic composition featuring an older man wearing a black fedora, glasses, and a white face mask in the foreground. To his right stands a black wolf with glowing eyes. Above them floats a large cosmic face surrounded by flowers, lightning bolts, and swirling patterns against a dramatic stormy sky with mountains",
+  "source_description": "A surreal psychedelic painting featuring an older man wearing a black fedora, glasses, and a white face mask in the foreground. To his right stands a black wolf with glowing yellow eyes. Above them floats a large blue cosmic face surrounded by pink flowers, lightning bolts, and swirling colorful patterns against a dramatic stormy sky with purple mountains.",
+  "source_prompt": "Surreal psychedelic artwork showing an older man with white hair, black fedora, glasses and white face mask standing beside a sleek black wolf with glowing yellow eyes. Above them a large circular blue cosmic entity with multiple eyes and an open mouth floats among vibrant pink flowers, lightning bolts, colorful swirling patterns and orbs. Dramatic stormy sky with purple mountains in the background, vibrant neon color palette, intricate details.",
+  "source_title": "Masked Man and Cosmic Wolf",
+  "style": "surreal psychedelic",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "cosmic",
+    "wolf",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2916,
+  "source_url": "/generated/2916.jpg",
+  "image_url": "/sketches/3514.png",
+  "inverted_image_url": "/sketches-inverted/3514.png",
+  "curve_count": 109,
+  "built_at": "2026-08-17T00:09:45Z"
+}

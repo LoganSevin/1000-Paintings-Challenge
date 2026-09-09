@@ -1,0 +1,42 @@
+{
+  "number": 4356,
+  "title": "Line sketch: Plasma Orb in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent plasma globe with a glowing core and vibrant, and electrical tendrils dominates the center. It stands on a black pedestal in a surreal desert landscape with ground, sparse cacti, and a 'do not enter' sign to the right, under a swirling cosmic sky filled with nebulae and dark floating orbs (derived from generated still #3775).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent plasma globe with a glowing core and vibrant, and electrical tendrils dominates the center. It stands on a black pedestal in a surreal desert landscape with ground, sparse cacti, and a 'do not enter' sign to the right, under a swirling cosmic sky filled with nebulae and dark floating orbs",
+  "inverted_title": "Inverted sketch: Plasma Orb in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent plasma globe with a glowing core and vibrant, and electrical tendrils dominates the center. It stands on a black pedestal in a surreal desert landscape with ground, sparse cacti, and a 'do not enter' sign to the right, under a swirling cosmic sky filled with nebulae and dark floating orbs (from generated still #3775).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent plasma globe with a glowing core and vibrant, and electrical tendrils dominates the center. It stands on a black pedestal in a surreal desert landscape with ground, sparse cacti, and a 'do not enter' sign to the right, under a swirling cosmic sky filled with nebulae and dark floating orbs",
+  "source_description": "A large transparent plasma globe with a glowing red core and vibrant pink, purple and yellow electrical tendrils dominates the center. It stands on a black pedestal in a surreal desert landscape with red ground, sparse cacti, and a 'do not enter' sign to the right, under a swirling cosmic sky filled with colorful nebulae and dark floating orbs.",
+  "source_prompt": "Surreal desert landscape at night featuring a giant transparent plasma globe with a bright red central orb emitting vibrant pink, purple and yellow electrical tendrils. The globe rests on a black pedestal. Red sandy ground with sparse cacti and a circular red 'do not enter' road sign on the right. Dramatic swirling cosmic sky in yellow, pink and red with large dark floating orbs and stars, painterly style with visible brushstrokes.",
+  "source_title": "Plasma Orb in Desert",
+  "style": "surreal",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "surreal desert",
+    "cosmic energy",
+    "lighting",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3775,
+  "source_url": "/generated/3775.jpg",
+  "image_url": "/sketches/4356.png",
+  "inverted_image_url": "/sketches-inverted/4356.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:48Z"
+}

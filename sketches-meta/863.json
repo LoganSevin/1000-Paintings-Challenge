@@ -1,0 +1,42 @@
+{
+  "number": 863,
+  "title": "Line sketch: Witch by Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted witch in a flowing black robe and pointed hat stands on a flower-covered shore with arms raised toward a massive moon. The night sky swirls with vibrant aurora borealis in, while a small -sailed boat floats on the reflective water below (derived from generated still #72).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted witch in a flowing black robe and pointed hat stands on a flower-covered shore with arms raised toward a massive moon. The night sky swirls with vibrant aurora borealis in, while a small -sailed boat floats on the reflective water below",
+  "inverted_title": "Inverted sketch: Witch by Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted witch in a flowing black robe and pointed hat stands on a flower-covered shore with arms raised toward a massive moon. The night sky swirls with vibrant aurora borealis in, while a small -sailed boat floats on the reflective water below (from generated still #72).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted witch in a flowing black robe and pointed hat stands on a flower-covered shore with arms raised toward a massive moon. The night sky swirls with vibrant aurora borealis in, while a small -sailed boat floats on the reflective water below",
+  "source_description": "A silhouetted witch in a flowing black robe and pointed hat stands on a flower-covered shore with arms raised toward a massive red moon. The night sky swirls with vibrant aurora borealis in green, yellow, and purple, while a small red-sailed boat floats on the reflective water below.",
+  "source_prompt": "",
+  "source_title": "Witch by Crimson Moon",
+  "style": "fantasy illustration",
+  "mood": "mystical, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "aurora borealis",
+    "moon",
+    "night sky",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 72,
+  "source_url": "/generated/72.jpg",
+  "image_url": "/sketches/863.png",
+  "inverted_image_url": "/sketches-inverted/863.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:40Z"
+}

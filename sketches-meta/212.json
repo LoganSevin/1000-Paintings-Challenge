@@ -1,0 +1,42 @@
+{
+  "number": 212,
+  "title": "Line sketch: Vibrant Cosmic Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous swirling portal radiates with intense and light at its core, surrounded by dynamic waves of, and paint in a cosmic dance. Splashes and orbs of color float around the swirling formation against a deep space background (derived from painting #259).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous swirling portal radiates with intense and light at its core, surrounded by dynamic waves of, and paint in a cosmic dance. Splashes and orbs of color float around the swirling formation against a deep space background",
+  "inverted_title": "Inverted sketch: Vibrant Cosmic Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous swirling portal radiates with intense and light at its core, surrounded by dynamic waves of, and paint in a cosmic dance. Splashes and orbs of color float around the swirling formation against a deep space background (from painting #259).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous swirling portal radiates with intense and light at its core, surrounded by dynamic waves of, and paint in a cosmic dance. Splashes and orbs of color float around the swirling formation against a deep space background",
+  "source_description": "A luminous swirling portal radiates with intense yellow and orange light at its core, surrounded by dynamic waves of turquoise, purple, and magenta paint in a cosmic dance. Splashes and orbs of color float around the swirling formation against a deep space background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Cosmic Vortex",
+  "style": "Digital Fantasy Art",
+  "mood": "Energetic and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic vortex",
+    "swirling colors",
+    "nebula art",
+    "vibrant portal",
+    "space composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 259,
+  "source_url": "/paintings/259.jpg",
+  "image_url": "/sketches/212.png",
+  "inverted_image_url": "/sketches-inverted/212.png",
+  "curve_count": 163,
+  "built_at": "2026-08-17T00:09:38Z"
+}

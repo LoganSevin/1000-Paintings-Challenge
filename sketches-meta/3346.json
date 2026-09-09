@@ -1,0 +1,42 @@
+{
+  "number": 3346,
+  "title": "Line sketch: Cosmic Serpent at Midnight",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, ornate snake with intricate patterns and glowing spots coils across a rural night landscape. It holds a lit cigarette in its mouth while exhaling a massive swirling cloud of smoke containing floating clocks and abstract shapes, set against a starry sky with a full moon and illuminated farmhouses (derived from generated still #2742).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, ornate snake with intricate patterns and glowing spots coils across a rural night landscape. It holds a lit cigarette in its mouth while exhaling a massive swirling cloud of smoke containing floating clocks and abstract shapes, set against a starry sky with a full moon and illuminated farmhouses",
+  "inverted_title": "Inverted sketch: Cosmic Serpent at Midnight",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, ornate snake with intricate patterns and glowing spots coils across a rural night landscape. It holds a lit cigarette in its mouth while exhaling a massive swirling cloud of smoke containing floating clocks and abstract shapes, set against a starry sky with a full moon and illuminated farmhouses (from generated still #2742).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, ornate snake with intricate patterns and glowing spots coils across a rural night landscape. It holds a lit cigarette in its mouth while exhaling a massive swirling cloud of smoke containing floating clocks and abstract shapes, set against a starry sky with a full moon and illuminated farmhouses",
+  "source_description": "A large, ornate blue snake with intricate patterns and glowing yellow spots coils across a rural night landscape. It holds a lit cigarette in its mouth while exhaling a massive swirling cloud of purple smoke containing floating clocks and abstract shapes, set against a starry sky with a full moon and illuminated farmhouses.",
+  "source_prompt": "A highly detailed surreal night scene featuring a massive ornate blue serpent with intricate yellow and white dot patterns coiled in a rural landscape. The snake has a cigarette in its mouth and exhales a huge swirling vortex of purple smoke filled with floating clocks and abstract shapes. Background shows a starry sky with full moon, wooden farmhouses with lit windows, and rolling hills. Mystical atmosphere, vibrant colors, intricate details.",
+  "source_title": "Cosmic Serpent at Midnight",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "snake",
+    "surreal",
+    "night landscape",
+    "smoke",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2742,
+  "source_url": "/generated/2742.jpg",
+  "image_url": "/sketches/3346.png",
+  "inverted_image_url": "/sketches-inverted/3346.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:45Z"
+}

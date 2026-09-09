@@ -1,0 +1,42 @@
+{
+  "number": 2801,
+  "title": "Line sketch: Cosmos Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition of several large and cosmos flowers with centers, surrounded by lush and -tinged leaves against a background (derived from generated still #2085).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition of several large and cosmos flowers with centers, surrounded by lush and -tinged leaves against a background",
+  "inverted_title": "Inverted sketch: Cosmos Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition of several large and cosmos flowers with centers, surrounded by lush and -tinged leaves against a background (from generated still #2085).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition of several large and cosmos flowers with centers, surrounded by lush and -tinged leaves against a background",
+  "source_description": "A vibrant painting of several large pink and magenta cosmos flowers with bright yellow centers, surrounded by lush green and yellow-tinged leaves against a deep blue background.",
+  "source_prompt": "A rich oil painting of blooming pink and magenta cosmos flowers with detailed yellow centers and layered petals, accompanied by lush green leaves with yellow highlights, set against a moody deep blue background, vibrant floral composition with visible brushwork and dramatic lighting",
+  "source_title": "Pink Cosmos Bloom",
+  "style": "composition",
+  "mood": "vibrant, lush",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmos flowers",
+    "floral composition",
+    "botanical art",
+    "flowers",
+    "leaves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2085,
+  "source_url": "/generated/2085.jpg",
+  "image_url": "/sketches/2801.png",
+  "inverted_image_url": "/sketches-inverted/2801.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:44Z"
+}

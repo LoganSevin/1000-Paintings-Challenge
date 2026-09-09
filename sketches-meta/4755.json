@@ -1,0 +1,42 @@
+{
+  "number": 4755,
+  "title": "Line sketch: Distant Figure at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with short -tinted hair and a dark collared coat stands in the foreground, gazing toward the viewer. Behind her stretches a barren, desolate landscape under a muted sunset, with a solitary silhouetted figure standing on a ridge and faint ruined structures visible on the horizon (derived from generated still #4187).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with short -tinted hair and a dark collared coat stands in the foreground, gazing toward the viewer. Behind her stretches a barren, desolate landscape under a muted sunset, with a solitary silhouetted figure standing on a ridge and faint ruined structures visible on the horizon",
+  "inverted_title": "Inverted sketch: Distant Figure at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with short -tinted hair and a dark collared coat stands in the foreground, gazing toward the viewer. Behind her stretches a barren, desolate landscape under a muted sunset, with a solitary silhouetted figure standing on a ridge and faint ruined structures visible on the horizon (from generated still #4187).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with short -tinted hair and a dark collared coat stands in the foreground, gazing toward the viewer. Behind her stretches a barren, desolate landscape under a muted sunset, with a solitary silhouetted figure standing on a ridge and faint ruined structures visible on the horizon",
+  "source_description": "A woman with short green-tinted hair and a dark collared coat stands in the foreground, gazing toward the viewer. Behind her stretches a barren, desolate landscape under a muted sunset, with a solitary silhouetted figure standing on a ridge and faint ruined structures visible on the horizon.",
+  "source_prompt": "A somber woman with short dark hair and a dark coat stands in the foreground looking at the viewer, behind her an empty desolate wasteland under a muted greenish dusk sky with a single silhouetted figure standing on a ridge in the distance and faint ruined city structures on the horizon, heavy textured oil painting with visible brushstrokes and a distressed painted frame",
+  "source_title": "Distant Figure at Dusk",
+  "style": "painterly",
+  "mood": "melancholy, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "surreal",
+    "post-apocalyptic",
+    "woman",
+    "solitary figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4187,
+  "source_url": "/generated/4187.jpg",
+  "image_url": "/sketches/4755.png",
+  "inverted_image_url": "/sketches-inverted/4755.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:48Z"
+}

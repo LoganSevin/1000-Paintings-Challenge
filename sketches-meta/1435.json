@@ -1,0 +1,42 @@
+{
+  "number": 1435,
+  "title": "Line sketch: Surreal Eye Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A highly detailed surreal composition of a giant human eye whose iris is a swirling vortex with a and black center. Waterfalls cascade from the upper eyelid and lashes, with icicles hanging from the brow, while the surrounding space blends into lush foliage on the left and vibrant psychedelic patterns on the right (derived from generated still #650).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A highly detailed surreal composition of a giant human eye whose iris is a swirling vortex with a and black center. Waterfalls cascade from the upper eyelid and lashes, with icicles hanging from the brow, while the surrounding space blends into lush foliage on the left and vibrant psychedelic patterns on the right",
+  "inverted_title": "Inverted sketch: Surreal Eye Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A highly detailed surreal composition of a giant human eye whose iris is a swirling vortex with a and black center. Waterfalls cascade from the upper eyelid and lashes, with icicles hanging from the brow, while the surrounding space blends into lush foliage on the left and vibrant psychedelic patterns on the right (from generated still #650).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A highly detailed surreal composition of a giant human eye whose iris is a swirling vortex with a and black center. Waterfalls cascade from the upper eyelid and lashes, with icicles hanging from the brow, while the surrounding space blends into lush foliage on the left and vibrant psychedelic patterns on the right",
+  "source_description": "A highly detailed surreal painting of a giant human eye whose iris is a swirling green vortex with a red and black center. Waterfalls cascade from the upper eyelid and lashes, with icicles hanging from the brow, while the surrounding space blends into lush green foliage on the left and vibrant purple psychedelic patterns on the right.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye Waterfall",
+  "style": "surrealism",
+  "mood": "ethereal, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "waterfall",
+    "psychedelic",
+    "nature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 650,
+  "source_url": "/generated/650.jpg",
+  "image_url": "/sketches/1435.png",
+  "inverted_image_url": "/sketches-inverted/1435.png",
+  "curve_count": 216,
+  "built_at": "2026-08-17T00:09:41Z"
+}

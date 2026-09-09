@@ -1,0 +1,42 @@
+{
+  "number": 173,
+  "title": "Line sketch: Glowing Orb in Tangled Nest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mysterious glowing sphere rests within a complex web of dark, wiry tendrils on a rocky shore. The scene is illuminated by vibrant and ambient light reflecting on the calm water below (derived from painting #212).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mysterious glowing sphere rests within a complex web of dark, wiry tendrils on a rocky shore. The scene is illuminated by vibrant and ambient light reflecting on the calm water below",
+  "inverted_title": "Inverted sketch: Glowing Orb in Tangled Nest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mysterious glowing sphere rests within a complex web of dark, wiry tendrils on a rocky shore. The scene is illuminated by vibrant and ambient light reflecting on the calm water below (from painting #212).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mysterious glowing sphere rests within a complex web of dark, wiry tendrils on a rocky shore. The scene is illuminated by vibrant and ambient light reflecting on the calm water below",
+  "source_description": "A mysterious glowing sphere rests within a complex web of dark, wiry tendrils on a rocky shore. The scene is illuminated by vibrant pink and purple ambient light reflecting on the calm water below.",
+  "source_prompt": "",
+  "source_title": "Glowing Orb in Tangled Nest",
+  "style": "Digital Fantasy Art",
+  "mood": "Mysterious and Ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D CGI Rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "glowing orb",
+    "tangled wires",
+    "surreal landscape",
+    "atmosphere",
+    "reflective water"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 212,
+  "source_url": "/paintings/212.jpg",
+  "image_url": "/sketches/173.png",
+  "inverted_image_url": "/sketches-inverted/173.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:38Z"
+}

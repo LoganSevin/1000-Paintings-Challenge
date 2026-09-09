@@ -1,0 +1,42 @@
+{
+  "number": 3895,
+  "title": "Line sketch: Winged Mage Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three sequential full-body views of the same androgynous character with short hair, wearing a cropped jacket, pants, and star-patterned boots. The figure has large black and bat-like wings, glowing magical circles around the hands, and is shown in dynamic action stances against a plain gray background (derived from generated still #3312).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three sequential full-body views of the same androgynous character with short hair, wearing a cropped jacket, pants, and star-patterned boots. The figure has large black and bat-like wings, glowing magical circles around the hands, and is shown in dynamic action stances against a plain gray background",
+  "inverted_title": "Inverted sketch: Winged Mage Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three sequential full-body views of the same androgynous character with short hair, wearing a cropped jacket, pants, and star-patterned boots. The figure has large black and bat-like wings, glowing magical circles around the hands, and is shown in dynamic action stances against a plain gray background (from generated still #3312).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three sequential full-body views of the same androgynous character with short hair, wearing a cropped jacket, pants, and star-patterned boots. The figure has large black and bat-like wings, glowing magical circles around the hands, and is shown in dynamic action stances against a plain gray background",
+  "source_description": "Three sequential full-body views of the same androgynous character with short teal hair, wearing a dark blue cropped jacket, teal pants, and star-patterned boots. The figure has large black and teal bat-like wings, glowing cyan magical circles around the hands, and is shown in dynamic action stances against a plain gray background.",
+  "source_prompt": "androgynous character with short spiky teal hair and pale skin, wearing a cropped dark blue jacket with star emblem, teal puffy pants, and black boots with white stars, large black and teal bat-like wings, casting glowing cyan magical energy circles around hands, shown in three different dynamic action poses on a plain gray background, digital character turntable, clean cel-shaded style",
+  "source_title": "Winged Blue Mage Poses",
+  "style": "digital character concept art",
+  "mood": "dynamic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mage",
+    "wings",
+    "magic",
+    "androgynous",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3312,
+  "source_url": "/generated/3312.jpg",
+  "image_url": "/sketches/3895.png",
+  "inverted_image_url": "/sketches-inverted/3895.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:46Z"
+}

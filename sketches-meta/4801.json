@@ -1,0 +1,42 @@
+{
+  "number": 4801,
+  "title": "Line sketch: Mysterious Pyramid Chamber",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering stepped pyramid with glowing circular portals on each level stands centrally, framed by an ornate mechanical metallic border with pipes and circuits. Small human figures are visible on the pyramid's terraces and near the glowing openings, set against a dark sky with aurora borealis and mist (derived from generated still #4236).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering stepped pyramid with glowing circular portals on each level stands centrally, framed by an ornate mechanical metallic border with pipes and circuits. Small human figures are visible on the pyramid's terraces and near the glowing openings, set against a dark sky with aurora borealis and mist",
+  "inverted_title": "Inverted sketch: Mysterious Pyramid Chamber",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering stepped pyramid with glowing circular portals on each level stands centrally, framed by an ornate mechanical metallic border with pipes and circuits. Small human figures are visible on the pyramid's terraces and near the glowing openings, set against a dark sky with aurora borealis and mist (from generated still #4236).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering stepped pyramid with glowing circular portals on each level stands centrally, framed by an ornate mechanical metallic border with pipes and circuits. Small human figures are visible on the pyramid's terraces and near the glowing openings, set against a dark sky with aurora borealis and mist",
+  "source_description": "A towering stepped pyramid with glowing circular portals on each level stands centrally, framed by an ornate mechanical metallic border with pipes and circuits. Small human figures are visible on the pyramid's terraces and near the glowing openings, set against a dark sky with green aurora borealis and mist.",
+  "source_prompt": "A massive ancient stepped pyramid made of reddish stone with multiple large circular glowing portals showing different scenes inside, small human figures standing on the terraces and stairs, green aurora borealis in the dark sky above, surrounded by glowing mist and energy, all contained within an intricate mechanical metallic frame with pipes, gears and circuits, atmospheric and mysterious digital painting",
+  "source_title": "Mysterious Pyramid Chamber",
+  "style": "line sketch",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pyramid",
+    "aurora",
+    "portals",
+    "steampunk",
+    "sci-fi"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4236,
+  "source_url": "/generated/4236.jpg",
+  "image_url": "/sketches/4801.png",
+  "inverted_image_url": "/sketches-inverted/4801.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:49Z"
+}

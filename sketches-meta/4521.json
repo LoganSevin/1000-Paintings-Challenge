@@ -1,0 +1,42 @@
+{
+  "number": 4521,
+  "title": "Line sketch: Elephant Caravan at Sunrise",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant stained-glass style scene depicts a line of armored elephants with riders marching through a vast field of and poppies. A radiant sun with rays dominates the sky above, while a giant white lily flower stands prominently in the foreground to the right (derived from generated still #3941).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant stained-glass style scene depicts a line of armored elephants with riders marching through a vast field of and poppies. A radiant sun with rays dominates the sky above, while a giant white lily flower stands prominently in the foreground to the right",
+  "inverted_title": "Inverted sketch: Elephant Caravan at Sunrise",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant stained-glass style scene depicts a line of armored elephants with riders marching through a vast field of and poppies. A radiant sun with rays dominates the sky above, while a giant white lily flower stands prominently in the foreground to the right (from generated still #3941).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant stained-glass style scene depicts a line of armored elephants with riders marching through a vast field of and poppies. A radiant sun with rays dominates the sky above, while a giant white lily flower stands prominently in the foreground to the right",
+  "source_description": "A vibrant stained-glass style scene depicts a line of armored elephants with riders marching through a vast field of purple lavender and red poppies. A radiant sun with golden rays dominates the sky above, while a giant white lily flower stands prominently in the foreground to the right.",
+  "source_prompt": "A highly detailed stained glass window featuring a procession of armored war elephants with riders marching through rolling hills of purple lavender and bright red poppies. A massive glowing sun with golden rays fills the top of the composition. A giant white lily flower stands in the right foreground. Vibrant colors, intricate lead lines, rich luminous glass textures, fantasy surreal scene.",
+  "source_title": "Elephant Caravan at Sunrise",
+  "style": "stained glass",
+  "mood": "epic, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital stained glass mosaic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "elephant caravan",
+    "field",
+    "poppies",
+    "sunrise"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3941,
+  "source_url": "/generated/3941.jpg",
+  "image_url": "/sketches/4521.png",
+  "inverted_image_url": "/sketches-inverted/4521.png",
+  "curve_count": 61,
+  "built_at": "2026-08-17T00:09:48Z"
+}

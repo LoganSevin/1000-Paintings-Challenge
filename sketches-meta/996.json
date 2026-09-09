@@ -1,0 +1,42 @@
+{
+  "number": 996,
+  "title": "Line sketch: Clock Serpent Surreal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large skeletal dragon with flowing hair breathes and smoke while coiled around a giant clock. A small girl in a white dress stands on the clock face reaching towards it against a swirling background with floating embers (derived from generated still #206).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large skeletal dragon with flowing hair breathes and smoke while coiled around a giant clock. A small girl in a white dress stands on the clock face reaching towards it against a swirling background with floating embers",
+  "inverted_title": "Inverted sketch: Clock Serpent Surreal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large skeletal dragon with flowing hair breathes and smoke while coiled around a giant clock. A small girl in a white dress stands on the clock face reaching towards it against a swirling background with floating embers (from generated still #206).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large skeletal dragon with flowing hair breathes and smoke while coiled around a giant clock. A small girl in a white dress stands on the clock face reaching towards it against a swirling background with floating embers",
+  "source_description": "A large turquoise skeletal dragon with flowing golden hair breathes purple and orange smoke while coiled around a giant colorful clock. A small girl in a white dress stands on the clock face reaching towards it against a swirling purple background with floating embers.",
+  "source_prompt": "",
+  "source_title": "Clock Serpent Surreal",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "clock",
+    "surreal",
+    "fantasy",
+    "skeleton"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 206,
+  "source_url": "/generated/206.jpg",
+  "image_url": "/sketches/996.png",
+  "inverted_image_url": "/sketches-inverted/996.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:40Z"
+}

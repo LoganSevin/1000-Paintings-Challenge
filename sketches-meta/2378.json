@@ -1,0 +1,42 @@
+{
+  "number": 2378,
+  "title": "Line sketch: Cybernetic Floral Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of two women merged together, one with flowing blonde hair and floral crown, the other a -skinned cyborg smoking a cigarette. A large mechanical spider robot with glowing eyes looms behind them against a cyberpunk cityscape (derived from generated still #1606).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of two women merged together, one with flowing blonde hair and floral crown, the other a -skinned cyborg smoking a cigarette. A large mechanical spider robot with glowing eyes looms behind them against a cyberpunk cityscape",
+  "inverted_title": "Inverted sketch: Cybernetic Floral Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of two women merged together, one with flowing blonde hair and floral crown, the other a -skinned cyborg smoking a cigarette. A large mechanical spider robot with glowing eyes looms behind them against a cyberpunk cityscape (from generated still #1606).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of two women merged together, one with flowing blonde hair and floral crown, the other a -skinned cyborg smoking a cigarette. A large mechanical spider robot with glowing eyes looms behind them against a cyberpunk cityscape",
+  "source_description": "A surreal portrait of two women merged together, one with flowing blonde hair and floral crown, the other a teal-skinned cyborg smoking a cigarette. A large mechanical spider robot with glowing orange eyes looms behind them against a neon cyberpunk cityscape.",
+  "source_prompt": "",
+  "source_title": "Cybernetic Floral Muse",
+  "style": "cyberpunk surrealism",
+  "mood": "dreamlike dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "surreal",
+    "floral",
+    "cyborg",
+    "mechanical spider"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1606,
+  "source_url": "/generated/1606.jpg",
+  "image_url": "/sketches/2378.png",
+  "inverted_image_url": "/sketches-inverted/2378.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:43Z"
+}

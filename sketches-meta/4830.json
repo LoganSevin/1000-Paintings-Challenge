@@ -1,0 +1,42 @@
+{
+  "number": 4830,
+  "title": "Line sketch: Celestial Colosseum Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy scene featuring the Roman Colosseum in a grassy field under a swirling cosmic sky. Four ethereal women with flowing hair emerge from clouds surrounding a glowing and mandala, while a fiery comet streaks across the sky and dark fantastical creatures appear near the ancient ruins (derived from generated still #4265).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy scene featuring the Roman Colosseum in a grassy field under a swirling cosmic sky. Four ethereal women with flowing hair emerge from clouds surrounding a glowing and mandala, while a fiery comet streaks across the sky and dark fantastical creatures appear near the ancient ruins",
+  "inverted_title": "Inverted sketch: Celestial Colosseum Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy scene featuring the Roman Colosseum in a grassy field under a swirling cosmic sky. Four ethereal women with flowing hair emerge from clouds surrounding a glowing and mandala, while a fiery comet streaks across the sky and dark fantastical creatures appear near the ancient ruins (from generated still #4265).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy scene featuring the Roman Colosseum in a grassy field under a swirling cosmic sky. Four ethereal women with flowing hair emerge from clouds surrounding a glowing and mandala, while a fiery comet streaks across the sky and dark fantastical creatures appear near the ancient ruins",
+  "source_description": "A surreal fantasy scene featuring the Roman Colosseum in a grassy field under a swirling cosmic sky. Four ethereal women with colorful flowing hair emerge from clouds surrounding a glowing green and blue mandala, while a fiery comet streaks across the sky and dark fantastical creatures appear near the ancient ruins.",
+  "source_prompt": "Surreal fantasy painting of the Roman Colosseum standing in a green field under a swirling cosmic night sky with stars and nebulae. Four beautiful women with blue, purple, and dark hair emerge from clouds in the upper portion, symmetrically arranged around a glowing green and blue geometric mandala. A bright yellow comet streaks across the sky, with smaller birds flying nearby. Dark fantastical creatures and serpentine forms appear in the foreground and around the ruins, blending ancient architecture with cosmic and mystical elements.",
+  "source_title": "Celestial Colosseum Vision",
+  "style": "surreal fantasy",
+  "mood": "mystical epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "colosseum",
+    "mandala",
+    "celestial women",
+    "cosmic sky",
+    "comet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4265,
+  "source_url": "/generated/4265.jpg",
+  "image_url": "/sketches/4830.png",
+  "inverted_image_url": "/sketches-inverted/4830.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:49Z"
+}

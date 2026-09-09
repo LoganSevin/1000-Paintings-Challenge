@@ -1,0 +1,42 @@
+{
+  "number": 3108,
+  "title": "Line sketch: Surreal Gallery Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large surreal composition dominates a dimly lit art gallery, featuring a stylized woman's face with and flowing hair, dramatic black lips and a crescent moon on her forehead. A silhouetted man stands observing the artwork while other classical paintings hang on the walls (derived from generated still #2443).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large surreal composition dominates a dimly lit art gallery, featuring a stylized woman's face with and flowing hair, dramatic black lips and a crescent moon on her forehead. A silhouetted man stands observing the artwork while other classical paintings hang on the walls",
+  "inverted_title": "Inverted sketch: Surreal Gallery Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large surreal composition dominates a dimly lit art gallery, featuring a stylized woman's face with and flowing hair, dramatic black lips and a crescent moon on her forehead. A silhouetted man stands observing the artwork while other classical paintings hang on the walls (from generated still #2443).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large surreal composition dominates a dimly lit art gallery, featuring a stylized woman's face with and flowing hair, dramatic black lips and a crescent moon on her forehead. A silhouetted man stands observing the artwork while other classical paintings hang on the walls",
+  "source_description": "A large surreal painting dominates a dimly lit art gallery, featuring a stylized woman's face with orange and blue flowing hair, dramatic black lips and a crescent moon on her forehead. A silhouetted man stands observing the artwork while other classical paintings hang on the dark teal walls.",
+  "source_prompt": "A surreal painting hanging in a dimly lit art gallery, featuring a stylized female face with large expressive eyes, black lips, and a crescent moon on her forehead. Her hair flows dramatically in vibrant orange, teal, and blue waves that blend into abstract patterns with skulls and sea creatures. A silhouetted viewer stands observing the massive artwork while classical paintings in ornate gold frames hang on the dark walls nearby.",
+  "source_title": "Surreal Gallery Muse",
+  "style": "surrealism",
+  "mood": "mysterious, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "gallery",
+    "woman portrait",
+    "art exhibition",
+    "flowing hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2443,
+  "source_url": "/generated/2443.jpg",
+  "image_url": "/sketches/3108.png",
+  "inverted_image_url": "/sketches-inverted/3108.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

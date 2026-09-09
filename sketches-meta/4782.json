@@ -1,0 +1,42 @@
+{
+  "number": 4782,
+  "title": "Line sketch: Abandoned Theater in the Woods",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene viewed through a broken, weathered wooden frame with peeling paint. Rows of empty wooden chairs stand in a grassy field under a glowing full moon, flanked by two ancient twisted trees connected by a tattered rope bridge with hanging fabric, while two glowing owls peer from the branches (derived from generated still #4216).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene viewed through a broken, weathered wooden frame with peeling paint. Rows of empty wooden chairs stand in a grassy field under a glowing full moon, flanked by two ancient twisted trees connected by a tattered rope bridge with hanging fabric, while two glowing owls peer from the branches",
+  "inverted_title": "Inverted sketch: Abandoned Theater in the Woods",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene viewed through a broken, weathered wooden frame with peeling paint. Rows of empty wooden chairs stand in a grassy field under a glowing full moon, flanked by two ancient twisted trees connected by a tattered rope bridge with hanging fabric, while two glowing owls peer from the branches (from generated still #4216).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene viewed through a broken, weathered wooden frame with peeling paint. Rows of empty wooden chairs stand in a grassy field under a glowing full moon, flanked by two ancient twisted trees connected by a tattered rope bridge with hanging fabric, while two glowing owls peer from the branches",
+  "source_description": "A surreal night scene viewed through a broken, weathered wooden frame with peeling gold paint. Rows of empty wooden chairs stand in a grassy field under a glowing full moon, flanked by two ancient twisted trees connected by a tattered rope bridge with hanging fabric, while two glowing owls peer from the branches.",
+  "source_prompt": "Surreal night scene of an abandoned outdoor theater in a grassy meadow, rows of empty wooden chairs facing a distant purple horizon, two massive gnarled trees with hanging moss and fabric connected by a rope bridge, two glowing owls perched on the left tree, full moon in a starry purple sky, viewed through a broken decaying wooden picture frame with peeling gold leaf, mysterious and dreamlike atmosphere",
+  "source_title": "Abandoned Theater in the Woods",
+  "style": "surreal fantasy",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "moonlit",
+    "abandoned",
+    "forest theater",
+    "twisted trees"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4216,
+  "source_url": "/generated/4216.jpg",
+  "image_url": "/sketches/4782.png",
+  "inverted_image_url": "/sketches-inverted/4782.png",
+  "curve_count": 121,
+  "built_at": "2026-08-17T00:09:49Z"
+}

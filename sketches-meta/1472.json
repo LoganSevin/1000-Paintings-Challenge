@@ -1,0 +1,42 @@
+{
+  "number": 1472,
+  "title": "Line sketch: Skeletal Procession",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows four identical women with skin, long hair, and headdresses in profile, standing in a row. Behind them, four black skeletons with dripping liquid emerge from their heads against a vibrant background of overlapping, and spirals (derived from generated still #687).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows four identical women with skin, long hair, and headdresses in profile, standing in a row. Behind them, four black skeletons with dripping liquid emerge from their heads against a vibrant background of overlapping, and spirals",
+  "inverted_title": "Inverted sketch: Skeletal Procession",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows four identical women with skin, long hair, and headdresses in profile, standing in a row. Behind them, four black skeletons with dripping liquid emerge from their heads against a vibrant background of overlapping, and spirals (from generated still #687).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows four identical women with skin, long hair, and headdresses in profile, standing in a row. Behind them, four black skeletons with dripping liquid emerge from their heads against a vibrant background of overlapping, and spirals",
+  "source_description": "A surreal painting shows four identical women with purple skin, long green hair, and golden headdresses in profile, standing in a row. Behind them, four black skeletons with dripping red liquid emerge from their heads against a vibrant background of overlapping yellow, orange, and purple spirals.",
+  "source_prompt": "",
+  "source_title": "Skeletal Procession",
+  "style": "Psychedelic Surrealism",
+  "mood": "eerie hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletons",
+    "women in profile",
+    "psychedelic",
+    "hair",
+    "spiral pattern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 687,
+  "source_url": "/generated/687.jpg",
+  "image_url": "/sketches/1472.png",
+  "inverted_image_url": "/sketches-inverted/1472.png",
+  "curve_count": 106,
+  "built_at": "2026-08-17T00:09:41Z"
+}

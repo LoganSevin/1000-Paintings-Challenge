@@ -1,0 +1,42 @@
+{
+  "number": 1781,
+  "title": "Line sketch: Woman Riding Cosmic Dragon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with flowing black hair in a vibrant patterned dress rides a large, ornate dragon with and scales. The dragon breathes flames while a swirling cosmic vine adorned with glowing orbs arcs overhead against a starry night sky (derived from generated still #1003).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with flowing black hair in a vibrant patterned dress rides a large, ornate dragon with and scales. The dragon breathes flames while a swirling cosmic vine adorned with glowing orbs arcs overhead against a starry night sky",
+  "inverted_title": "Inverted sketch: Woman Riding Cosmic Dragon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with flowing black hair in a vibrant patterned dress rides a large, ornate dragon with and scales. The dragon breathes flames while a swirling cosmic vine adorned with glowing orbs arcs overhead against a starry night sky (from generated still #1003).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with flowing black hair in a vibrant patterned dress rides a large, ornate dragon with and scales. The dragon breathes flames while a swirling cosmic vine adorned with glowing orbs arcs overhead against a starry night sky",
+  "source_description": "A woman with flowing black hair in a vibrant green patterned dress rides a large, ornate dragon with purple and green scales. The dragon breathes orange flames while a swirling green cosmic vine adorned with colorful glowing orbs arcs overhead against a starry purple night sky.",
+  "source_prompt": "",
+  "source_title": "Woman Riding Cosmic Dragon",
+  "style": "fantasy illustration",
+  "mood": "magical, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "celestial",
+    "woman rider",
+    "cosmic",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1003,
+  "source_url": "/generated/1003.jpg",
+  "image_url": "/sketches/1781.png",
+  "inverted_image_url": "/sketches-inverted/1781.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3568,
+  "title": "Line sketch: Candlelit Gothic Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A blonde woman in an elaborate corset dress stands holding a lit candle in a gothic cathedral at night, while another version of her kneels on the stone floor. To the right, a man in a white suit holds a large transparent bubble containing two mirrored images of the woman facing each other, surrounded by numerous lit candles on the floor (derived from generated still #2976).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A blonde woman in an elaborate corset dress stands holding a lit candle in a gothic cathedral at night, while another version of her kneels on the stone floor. To the right, a man in a white suit holds a large transparent bubble containing two mirrored images of the woman facing each other, surrounded by numerous lit candles on the floor",
+  "inverted_title": "Inverted sketch: Candlelit Gothic Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A blonde woman in an elaborate corset dress stands holding a lit candle in a gothic cathedral at night, while another version of her kneels on the stone floor. To the right, a man in a white suit holds a large transparent bubble containing two mirrored images of the woman facing each other, surrounded by numerous lit candles on the floor (from generated still #2976).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A blonde woman in an elaborate corset dress stands holding a lit candle in a gothic cathedral at night, while another version of her kneels on the stone floor. To the right, a man in a white suit holds a large transparent bubble containing two mirrored images of the woman facing each other, surrounded by numerous lit candles on the floor",
+  "source_description": "A blonde woman in an elaborate dark blue corset dress stands holding a lit candle in a gothic cathedral at night, while another version of her kneels on the stone floor. To the right, a man in a white suit holds a large transparent bubble containing two mirrored images of the woman facing each other, surrounded by numerous lit candles on the floor.",
+  "source_prompt": "A dramatic surreal scene set inside a dark gothic cathedral at night, a beautiful blonde woman wearing an ornate dark blue corset dress with black lace stands holding a lit candle while another version of her kneels on the stone floor with her back exposed, a man in a white suit stands on the right holding a large transparent bubble that contains two mirrored versions of the woman facing each other inside, hundreds of lit candles scattered across the floor, blue magical smoke, cinematic lighting, detailed architecture",
+  "source_title": "Candlelit Gothic Reflection",
+  "style": "fantasy surrealism",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gothic",
+    "candles",
+    "bubble",
+    "mirror",
+    "cathedral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2976,
+  "source_url": "/generated/2976.jpg",
+  "image_url": "/sketches/3568.png",
+  "inverted_image_url": "/sketches-inverted/3568.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:46Z"
+}

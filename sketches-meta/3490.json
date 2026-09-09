@@ -1,0 +1,42 @@
+{
+  "number": 3490,
+  "title": "Line sketch: Surreal Turtle Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large sea turtle swims through a surreal composite scene, its shell reflecting vibrant sunset colors. The image merges an indoor room with a desk and lamp in the upper left, a powerful waterfall cascading into a pool on the lower left, and an autumnal landscape with a dirt path and trees on the lower right, all interwoven with floating planets, a woman's face, and a man's eyes in the cosmic background (derived from generated still #2891).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large sea turtle swims through a surreal composite scene, its shell reflecting vibrant sunset colors. The image merges an indoor room with a desk and lamp in the upper left, a powerful waterfall cascading into a pool on the lower left, and an autumnal landscape with a dirt path and trees on the lower right, all interwoven with floating planets, a woman's face, and a man's eyes in the cosmic background",
+  "inverted_title": "Inverted sketch: Surreal Turtle Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large sea turtle swims through a surreal composite scene, its shell reflecting vibrant sunset colors. The image merges an indoor room with a desk and lamp in the upper left, a powerful waterfall cascading into a pool on the lower left, and an autumnal landscape with a dirt path and trees on the lower right, all interwoven with floating planets, a woman's face, and a man's eyes in the cosmic background (from generated still #2891).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large sea turtle swims through a surreal composite scene, its shell reflecting vibrant sunset colors. The image merges an indoor room with a desk and lamp in the upper left, a powerful waterfall cascading into a pool on the lower left, and an autumnal landscape with a dirt path and trees on the lower right, all interwoven with floating planets, a woman's face, and a man's eyes in the cosmic background",
+  "source_description": "A large sea turtle swims through a surreal composite scene, its shell reflecting vibrant sunset colors. The image merges an indoor room with a desk and lamp in the upper left, a powerful waterfall cascading into a turquoise pool on the lower left, and an autumnal landscape with a dirt path and colorful trees on the lower right, all interwoven with floating planets, a woman's face, and a man's eyes in the cosmic background.",
+  "source_prompt": "A majestic sea turtle swimming through a layered surreal dreamscape, its shell glowing with vibrant sunset hues. The composition blends an indoor room with wooden desk and lamp in the upper left, a massive waterfall plunging into a blue pool on the lower left, and an autumn path with red and orange trees under a sunset on the lower right. Ethereal faces and multiple moons float in a starry cosmic background, blending realism and fantasy in a seamless painterly style.",
+  "source_title": "Surreal Turtle Dreamscape",
+  "style": "surrealism",
+  "mood": "dreamlike ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sea turtle",
+    "waterfall",
+    "surreal landscape",
+    "cosmic",
+    "autumn forest"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2891,
+  "source_url": "/generated/2891.jpg",
+  "image_url": "/sketches/3490.png",
+  "inverted_image_url": "/sketches-inverted/3490.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:45Z"
+}

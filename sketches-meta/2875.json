@@ -1,0 +1,42 @@
+{
+  "number": 2875,
+  "title": "Line sketch: Hotel California Nightmare",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal desert night scene featuring the illuminated Hotel California in the background with its iconic sign. A vintage car drives on a winding road covered in lyrics toward the hotel, where a large bonfire burns in the courtyard surrounded by dancing silhouetted figures, while ghostly apparitions and bats fill the sky (derived from generated still #2161).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal desert night scene featuring the illuminated Hotel California in the background with its iconic sign. A vintage car drives on a winding road covered in lyrics toward the hotel, where a large bonfire burns in the courtyard surrounded by dancing silhouetted figures, while ghostly apparitions and bats fill the sky",
+  "inverted_title": "Inverted sketch: Hotel California Nightmare",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal desert night scene featuring the illuminated Hotel California in the background with its iconic sign. A vintage car drives on a winding road covered in lyrics toward the hotel, where a large bonfire burns in the courtyard surrounded by dancing silhouetted figures, while ghostly apparitions and bats fill the sky (from generated still #2161).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal desert night scene featuring the illuminated Hotel California in the background with its iconic sign. A vintage car drives on a winding road covered in lyrics toward the hotel, where a large bonfire burns in the courtyard surrounded by dancing silhouetted figures, while ghostly apparitions and bats fill the sky",
+  "source_description": "A surreal desert night scene featuring the illuminated Hotel California in the background with its iconic sign. A vintage silver car drives on a winding road covered in lyrics toward the hotel, where a large bonfire burns in the courtyard surrounded by dancing silhouetted figures, while ghostly apparitions and bats fill the purple sky.",
+  "source_prompt": "Surreal desert night scene at the famous Hotel California, pink stucco building glowing under a deep purple sky, large fiery bonfire in the courtyard with silhouetted people dancing around it, vintage silver Mercedes driving on a winding road covered in song lyrics, ghostly cloaked figure on the left emitting pink smoke, bats and floating objects in the sky, bell arch with a glowing figure, dark eerie atmosphere inspired by the Eagles song",
+  "source_title": "Hotel California Nightmare",
+  "style": "surreal composition",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Hotel California",
+    "surreal",
+    "desert night",
+    "vintage car",
+    "bonfire"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2161,
+  "source_url": "/generated/2161.jpg",
+  "image_url": "/sketches/2875.png",
+  "inverted_image_url": "/sketches-inverted/2875.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:44Z"
+}

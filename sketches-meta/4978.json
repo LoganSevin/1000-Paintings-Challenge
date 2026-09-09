@@ -1,0 +1,42 @@
+{
+  "number": 4978,
+  "title": "Line sketch: Kneeling Ghoul in Theater",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grotesque, emaciated humanoid ghoul with pale skin, exposed ribs, and bloody mouth kneels on a wooden stage floor. It reaches toward a small wooden stool while blood and scattered papers lie around it in an abandoned theater with curtains, empty folding chairs, and a large surreal maritime composition in the background (derived from generated still #4415).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grotesque, emaciated humanoid ghoul with pale skin, exposed ribs, and bloody mouth kneels on a wooden stage floor. It reaches toward a small wooden stool while blood and scattered papers lie around it in an abandoned theater with curtains, empty folding chairs, and a large surreal maritime composition in the background",
+  "inverted_title": "Inverted sketch: Kneeling Ghoul in Theater",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grotesque, emaciated humanoid ghoul with pale skin, exposed ribs, and bloody mouth kneels on a wooden stage floor. It reaches toward a small wooden stool while blood and scattered papers lie around it in an abandoned theater with curtains, empty folding chairs, and a large surreal maritime composition in the background (from generated still #4415).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grotesque, emaciated humanoid ghoul with pale skin, exposed ribs, and bloody mouth kneels on a wooden stage floor. It reaches toward a small wooden stool while blood and scattered papers lie around it in an abandoned theater with curtains, empty folding chairs, and a large surreal maritime composition in the background",
+  "source_description": "A grotesque, emaciated humanoid ghoul with pale skin, exposed ribs, and bloody mouth kneels on a wooden stage floor. It reaches toward a small wooden stool while blood and scattered papers lie around it in an abandoned theater with red curtains, empty folding chairs, and a large surreal maritime painting in the background.",
+  "source_prompt": "A grotesque pale ghoul with exposed ribs and bloody mouth kneels on a wooden theater stage, reaching one clawed hand toward a small stool. Blood and papers are scattered on the floor. Behind it hangs a large dramatic painting of stormy seas with ships and ghostly figures. Red curtains frame the scene, empty folding chairs are scattered in the foreground, a vintage floor lamp illuminates the horror. Dark surreal horror atmosphere, cinematic lighting.",
+  "source_title": "Kneeling Ghoul in Theater",
+  "style": "dark surrealism",
+  "mood": "macabre eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghoul",
+    "theater",
+    "horror",
+    "surreal",
+    "macabre"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4415,
+  "source_url": "/generated/4415.jpg",
+  "image_url": "/sketches/4978.png",
+  "inverted_image_url": "/sketches-inverted/4978.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:49Z"
+}

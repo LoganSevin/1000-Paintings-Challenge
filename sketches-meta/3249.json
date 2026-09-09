@@ -1,0 +1,42 @@
+{
+  "number": 3249,
+  "title": "Line sketch: The Cinematic Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in ornate and robes sits on a gilded throne, holding a crystal ball that displays a detailed cityscape. An old film projector to her left casts light and emits swirling smoke containing silhouettes of running figures, while candles, scattered film reels, and a mirror reflecting a face occupy the foreground table (derived from generated still #2612).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in ornate and robes sits on a gilded throne, holding a crystal ball that displays a detailed cityscape. An old film projector to her left casts light and emits swirling smoke containing silhouettes of running figures, while candles, scattered film reels, and a mirror reflecting a face occupy the foreground table",
+  "inverted_title": "Inverted sketch: The Cinematic Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in ornate and robes sits on a gilded throne, holding a crystal ball that displays a detailed cityscape. An old film projector to her left casts light and emits swirling smoke containing silhouettes of running figures, while candles, scattered film reels, and a mirror reflecting a face occupy the foreground table (from generated still #2612).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in ornate and robes sits on a gilded throne, holding a crystal ball that displays a detailed cityscape. An old film projector to her left casts light and emits swirling smoke containing silhouettes of running figures, while candles, scattered film reels, and a mirror reflecting a face occupy the foreground table",
+  "source_description": "A woman in ornate blue and gold robes sits on a gilded throne, holding a crystal ball that displays a detailed cityscape. An old film projector to her left casts light and emits swirling purple smoke containing silhouettes of running figures, while candles, scattered film reels, and a mirror reflecting a face occupy the foreground table.",
+  "source_prompt": "A regal woman with pale skin sits on an ornate red and gold throne wearing elaborate blue and gold robes, holding a large crystal ball showing a miniature city inside. To her left an antique film projector beams light and releases thick purple smoke containing ghostly silhouettes of running people. In the foreground a table holds lit candles, scattered film reels, and a small mirror reflecting a face. Dramatic theatrical curtains and classical paintings fill the background, rich cinematic lighting, highly detailed surreal scene.",
+  "source_title": "The Cinematic Oracle",
+  "style": "surreal cinematic composition",
+  "mood": "mysterious, theatrical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oracle",
+    "cinema",
+    "surreal",
+    "crystal ball",
+    "vintage projector"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2612,
+  "source_url": "/generated/2612.jpg",
+  "image_url": "/sketches/3249.png",
+  "inverted_image_url": "/sketches-inverted/3249.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:45Z"
+}

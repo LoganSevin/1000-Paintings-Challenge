@@ -1,0 +1,42 @@
+{
+  "number": 2810,
+  "title": "Line sketch: Boy with Rat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a young boy with cracked porcelain-like skin leaking fluid, a rat perched on his shoulder. The background shows a desert landscape with sand dunes, a lone walking figure, a large moon, and floating cell-like organisms connected by cracks (derived from generated still #2094).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a young boy with cracked porcelain-like skin leaking fluid, a rat perched on his shoulder. The background shows a desert landscape with sand dunes, a lone walking figure, a large moon, and floating cell-like organisms connected by cracks",
+  "inverted_title": "Inverted sketch: Boy with Rat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a young boy with cracked porcelain-like skin leaking fluid, a rat perched on his shoulder. The background shows a desert landscape with sand dunes, a lone walking figure, a large moon, and floating cell-like organisms connected by cracks (from generated still #2094).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a young boy with cracked porcelain-like skin leaking fluid, a rat perched on his shoulder. The background shows a desert landscape with sand dunes, a lone walking figure, a large moon, and floating cell-like organisms connected by cracks",
+  "source_description": "A surreal portrait of a young boy with cracked porcelain-like skin leaking golden fluid, a bright red rat perched on his shoulder. The background shows a desert landscape with sand dunes, a lone walking figure, a large pink moon, and floating colorful cell-like organisms connected by golden cracks.",
+  "source_prompt": "Surreal scene of a young boy with cracked porcelain face and body leaking molten gold, a vivid red rat sitting on his shoulder, set in a desert with sand dunes. A distant silhouette walks toward the horizon under a large cracked pink moon. Floating colorful translucent cell-like organisms in pink, green and blue connected by golden veins fill the sky.",
+  "source_title": "Boy with Red Rat",
+  "style": "surrealism",
+  "mood": "melancholy, dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cracks",
+    "desert",
+    "rat",
+    "porcelain skin"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2094,
+  "source_url": "/generated/2094.jpg",
+  "image_url": "/sketches/2810.png",
+  "inverted_image_url": "/sketches-inverted/2810.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:44Z"
+}

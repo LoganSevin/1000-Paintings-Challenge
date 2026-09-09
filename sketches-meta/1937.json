@@ -1,0 +1,42 @@
+{
+  "number": 1937,
+  "title": "Line sketch: Dripping Cosmic Congregation",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene shows a crowd of women with spiral patterns on their bodies standing before large monoliths under a starry night sky. and viscous liquid drips from the top of the frame over the scene (derived from generated still #1162).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene shows a crowd of women with spiral patterns on their bodies standing before large monoliths under a starry night sky. and viscous liquid drips from the top of the frame over the scene",
+  "inverted_title": "Inverted sketch: Dripping Cosmic Congregation",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene shows a crowd of women with spiral patterns on their bodies standing before large monoliths under a starry night sky. and viscous liquid drips from the top of the frame over the scene (from generated still #1162).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene shows a crowd of women with spiral patterns on their bodies standing before large monoliths under a starry night sky. and viscous liquid drips from the top of the frame over the scene",
+  "source_description": "A surreal scene shows a crowd of women with spiral patterns on their bodies standing before large green monoliths under a starry night sky. Red and pink viscous liquid drips from the top of the frame over the scene.",
+  "source_prompt": "",
+  "source_title": "Dripping Cosmic Congregation",
+  "style": "surreal illustration",
+  "mood": "mysterious ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "women",
+    "monoliths",
+    "dripping liquid",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1162,
+  "source_url": "/generated/1162.jpg",
+  "image_url": "/sketches/1937.png",
+  "inverted_image_url": "/sketches-inverted/1937.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2340,
+  "title": "Line sketch: Cabbage Muse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, vibrant cabbage with intricate layered leaves dominates the composition, its center revealing a core with a diamond shape. Within the right side of the cabbage leaves, a stylized female profile with ornate patterns is integrated into the form, set against a textured background with dripping and elements and circular motifs (derived from generated still #1568).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, vibrant cabbage with intricate layered leaves dominates the composition, its center revealing a core with a diamond shape. Within the right side of the cabbage leaves, a stylized female profile with ornate patterns is integrated into the form, set against a textured background with dripping and elements and circular motifs",
+  "inverted_title": "Inverted sketch: Cabbage Muse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, vibrant cabbage with intricate layered leaves dominates the composition, its center revealing a core with a diamond shape. Within the right side of the cabbage leaves, a stylized female profile with ornate patterns is integrated into the form, set against a textured background with dripping and elements and circular motifs (from generated still #1568).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, vibrant cabbage with intricate layered leaves dominates the composition, its center revealing a core with a diamond shape. Within the right side of the cabbage leaves, a stylized female profile with ornate patterns is integrated into the form, set against a textured background with dripping and elements and circular motifs",
+  "source_description": "A large, vibrant green cabbage with intricate layered leaves dominates the composition, its center revealing a deep purple core with a bright red diamond shape. Within the right side of the cabbage leaves, a stylized female profile with ornate golden patterns is integrated into the form, set against a textured gold background with dripping blue and green watercolor elements and circular motifs.",
+  "source_prompt": "",
+  "source_title": "Cabbage Muse",
+  "style": "surreal",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "mixed media on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage",
+    "female profile",
+    "leaf",
+    "surreal",
+    "botanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1568,
+  "source_url": "/generated/1568.jpg",
+  "image_url": "/sketches/2340.png",
+  "inverted_image_url": "/sketches-inverted/2340.png",
+  "curve_count": 39,
+  "built_at": "2026-08-17T00:09:43Z"
+}

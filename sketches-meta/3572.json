@@ -1,0 +1,42 @@
+{
+  "number": 3572,
+  "title": "Line sketch: Mummy Figure with Glowing Chest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A tall, emaciated humanoid creature wrapped in tattered, dirty bandages stands upright facing the viewer. A bright white light emanates from a circular hole in its chest, illuminating the surrounding wrappings and creating strong backlighting against a dark, foggy background (derived from generated still #2980).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A tall, emaciated humanoid creature wrapped in tattered, dirty bandages stands upright facing the viewer. A bright white light emanates from a circular hole in its chest, illuminating the surrounding wrappings and creating strong backlighting against a dark, foggy background",
+  "inverted_title": "Inverted sketch: Mummy Figure with Glowing Chest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A tall, emaciated humanoid creature wrapped in tattered, dirty bandages stands upright facing the viewer. A bright white light emanates from a circular hole in its chest, illuminating the surrounding wrappings and creating strong backlighting against a dark, foggy background (from generated still #2980).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A tall, emaciated humanoid creature wrapped in tattered, dirty bandages stands upright facing the viewer. A bright white light emanates from a circular hole in its chest, illuminating the surrounding wrappings and creating strong backlighting against a dark, foggy background",
+  "source_description": "A tall, emaciated humanoid creature wrapped in tattered, dirty bandages stands upright facing the viewer. A bright white light emanates from a circular hole in its chest, illuminating the surrounding wrappings and creating strong backlighting against a dark, foggy background.",
+  "source_prompt": "A terrifying tall humanoid mummy creature standing frontally in a foggy void, body entirely wrapped in ragged decaying bandages and cloth strips that hang loosely, long sharp black claws on both hands, completely featureless face with only a wide vertical black void for a mouth, intense bright white glowing orb embedded in the center of its chest emitting strong light rays that pierce through the wrappings, dramatic cinematic lighting, heavy volumetric fog, dark desolate rocky ground, high contrast, eerie atmosphere, photorealistic, cinematic color grading, moody blue-grey tones",
+  "source_title": "Mummy Figure with Glowing Chest",
+  "style": "cinematic horror",
+  "mood": "eerie menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photography",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mummy",
+    "horror",
+    "glowing chest",
+    "bandages",
+    "creature"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2980,
+  "source_url": "/generated/2980.jpg",
+  "image_url": "/sketches/3572.png",
+  "inverted_image_url": "/sketches-inverted/3572.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:46Z"
+}

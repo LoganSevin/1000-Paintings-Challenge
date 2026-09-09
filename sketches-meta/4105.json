@@ -1,0 +1,42 @@
+{
+  "number": 4105,
+  "title": "Line sketch: Female Warrior with Hammer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with dark hair is captured mid-air in a dynamic combat pose, wielding a large warhammer with glowing crackling patterns. She wears a white and cropped outfit with matching armored boots and wrist guards, her expression focused and determined (derived from generated still #3522).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with dark hair is captured mid-air in a dynamic combat pose, wielding a large warhammer with glowing crackling patterns. She wears a white and cropped outfit with matching armored boots and wrist guards, her expression focused and determined",
+  "inverted_title": "Inverted sketch: Female Warrior with Hammer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with dark hair is captured mid-air in a dynamic combat pose, wielding a large warhammer with glowing crackling patterns. She wears a white and cropped outfit with matching armored boots and wrist guards, her expression focused and determined (from generated still #3522).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with dark hair is captured mid-air in a dynamic combat pose, wielding a large warhammer with glowing crackling patterns. She wears a white and cropped outfit with matching armored boots and wrist guards, her expression focused and determined",
+  "source_description": "A young woman with dark hair is captured mid-air in a dynamic combat pose, wielding a large purple warhammer with glowing crackling patterns. She wears a white and purple cropped outfit with matching armored boots and wrist guards, her expression focused and determined.",
+  "source_prompt": "A fierce young woman with dark hair floating mid-air in an action pose, dynamically swinging a large purple warhammer with glowing crackling energy patterns on its head. She wears a cropped white and purple armored top with matching pants, purple wrist guards and detailed purple boots. Athletic build, focused expression, clean studio lighting against a solid dark gray background, vibrant digital painting style",
+  "source_title": "Female Warrior with Hammer",
+  "style": "digital illustration",
+  "mood": "dynamic, fierce",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "action pose",
+    "armor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3522,
+  "source_url": "/generated/3522.jpg",
+  "image_url": "/sketches/4105.png",
+  "inverted_image_url": "/sketches-inverted/4105.png",
+  "curve_count": 46,
+  "built_at": "2026-08-17T00:09:47Z"
+}

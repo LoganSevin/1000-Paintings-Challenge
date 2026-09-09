@@ -1,0 +1,42 @@
+{
+  "number": 2952,
+  "title": "Line sketch: Cyber Cowboy Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized figure wearing a white cowboy hat and fringed cape stands centered against a radiant background. The figure's face is obscured by shadow while glowing digital audio visualizers, floating musical notes, chains, and abstract symbols emanate from its chest and shoulders (derived from generated still #2261).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized figure wearing a white cowboy hat and fringed cape stands centered against a radiant background. The figure's face is obscured by shadow while glowing digital audio visualizers, floating musical notes, chains, and abstract symbols emanate from its chest and shoulders",
+  "inverted_title": "Inverted sketch: Cyber Cowboy Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized figure wearing a white cowboy hat and fringed cape stands centered against a radiant background. The figure's face is obscured by shadow while glowing digital audio visualizers, floating musical notes, chains, and abstract symbols emanate from its chest and shoulders (from generated still #2261).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized figure wearing a white cowboy hat and fringed cape stands centered against a radiant background. The figure's face is obscured by shadow while glowing digital audio visualizers, floating musical notes, chains, and abstract symbols emanate from its chest and shoulders",
+  "source_description": "A stylized figure wearing a white cowboy hat and fringed cape stands centered against a radiant background. The figure's face is obscured by shadow while glowing digital audio visualizers, floating musical notes, chains, and abstract symbols emanate from its chest and shoulders.",
+  "source_prompt": "A mysterious cowboy figure viewed from the chest up, wearing a large white cowboy hat with a small crown and broken halo above it. The face is completely shadowed. A white fringed cape drapes over the shoulders. The torso is filled with glowing blue and cyan digital audio equalizer bars, floating musical notes, chains, and abstract symbols. Purple smoke-like clouds emerge from the sides of the head. Bright golden light rays and circular halos emanate from behind the figure against a soft white and pale turquoise background.",
+  "source_title": "Cyber Cowboy Oracle",
+  "style": "ethereal",
+  "mood": "mystical, radiant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "digital aura",
+    "music visualizer",
+    "ethereal",
+    "surreal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2261,
+  "source_url": "/generated/2261.jpg",
+  "image_url": "/sketches/2952.png",
+  "inverted_image_url": "/sketches-inverted/2952.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:44Z"
+}

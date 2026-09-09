@@ -1,0 +1,42 @@
+{
+  "number": 3172,
+  "title": "Line sketch: Surreal Flooded Staircase",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing pale dress stands on a decaying wooden staircase emerging from dark floodwater, reaching upward with a bottle as papers and objects float around her. The flooded room has walls with curtains, framed paintings, and a large circular clock on the ceiling showing 8.7.6 with a falling figure and spotlights beaming down (derived from generated still #2515).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing pale dress stands on a decaying wooden staircase emerging from dark floodwater, reaching upward with a bottle as papers and objects float around her. The flooded room has walls with curtains, framed paintings, and a large circular clock on the ceiling showing 8.7.6 with a falling figure and spotlights beaming down",
+  "inverted_title": "Inverted sketch: Surreal Flooded Staircase",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing pale dress stands on a decaying wooden staircase emerging from dark floodwater, reaching upward with a bottle as papers and objects float around her. The flooded room has walls with curtains, framed paintings, and a large circular clock on the ceiling showing 8.7.6 with a falling figure and spotlights beaming down (from generated still #2515).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing pale dress stands on a decaying wooden staircase emerging from dark floodwater, reaching upward with a bottle as papers and objects float around her. The flooded room has walls with curtains, framed paintings, and a large circular clock on the ceiling showing 8.7.6 with a falling figure and spotlights beaming down",
+  "source_description": "A woman in a flowing pale dress stands on a decaying wooden staircase emerging from dark floodwater, reaching upward with a bottle as papers and objects float around her. The flooded room has purple walls with yellow curtains, framed paintings, and a large circular clock on the ceiling showing 8.7.6 with a falling figure and spotlights beaming down.",
+  "source_prompt": "Surreal scene of a woman in a flowing pale grey dress standing barefoot on a broken wooden staircase rising from dark floodwater inside a decaying purple room. She reaches up with a bottle while papers and objects float around her. Yellow curtains with patterns hang on the walls beside framed paintings. A large circular clock on the dark blue ceiling displays 8.7.6 with a falling figure and theatrical spotlights casting dramatic beams through the space.",
+  "source_title": "Surreal Flooded Staircase",
+  "style": "surrealism",
+  "mood": "dreamlike chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "flooded interior",
+    "staircase",
+    "celestial clock",
+    "floating objects"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2515,
+  "source_url": "/generated/2515.jpg",
+  "image_url": "/sketches/3172.png",
+  "inverted_image_url": "/sketches-inverted/3172.png",
+  "curve_count": 102,
+  "built_at": "2026-08-17T00:09:45Z"
+}

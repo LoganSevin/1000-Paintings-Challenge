@@ -1,0 +1,42 @@
+{
+  "number": 4951,
+  "title": "Line sketch: The composition Challenge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a dark suit holding a coffee cup stands beside a large retro-futuristic machine on a stand inside a dimly lit room. Behind them hangs a large gruesome composition depicting a silhouetted figure with an axe standing over a bloody crawling victim in a hallway with an illuminated exit sign (derived from generated still #4388).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a dark suit holding a coffee cup stands beside a large retro-futuristic machine on a stand inside a dimly lit room. Behind them hangs a large gruesome composition depicting a silhouetted figure with an axe standing over a bloody crawling victim in a hallway with an illuminated exit sign",
+  "inverted_title": "Inverted sketch: The composition Challenge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a dark suit holding a coffee cup stands beside a large retro-futuristic machine on a stand inside a dimly lit room. Behind them hangs a large gruesome composition depicting a silhouetted figure with an axe standing over a bloody crawling victim in a hallway with an illuminated exit sign (from generated still #4388).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a dark suit holding a coffee cup stands beside a large retro-futuristic machine on a stand inside a dimly lit room. Behind them hangs a large gruesome composition depicting a silhouetted figure with an axe standing over a bloody crawling victim in a hallway with an illuminated exit sign",
+  "source_description": "A man in a dark suit holding a coffee cup stands beside a large retro-futuristic green machine on a stand inside a dimly lit room. Behind them hangs a large gruesome painting depicting a silhouetted figure with an axe standing over a bloody crawling victim in a hallway with an illuminated exit sign.",
+  "source_prompt": "A man in a suit holding coffee stands next to a large weathered olive-green retro sci-fi machine on a metal stand inside a dimly lit industrial gallery with wet floors. A massive painting hangs on the wall showing a silhouetted man with an axe standing over a crawling bloody victim in a decaying hallway with a glowing red exit sign, blood dripping from the bottom of the canvas, dark moody atmosphere, cinematic lighting",
+  "source_title": "The Painting Challenge",
+  "style": "cinematic surrealism",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "retro-futuristic",
+    "cinematic",
+    "bloody"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4388,
+  "source_url": "/generated/4388.jpg",
+  "image_url": "/sketches/4951.png",
+  "inverted_image_url": "/sketches-inverted/4951.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:49Z"
+}

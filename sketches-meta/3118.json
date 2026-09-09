@@ -1,0 +1,42 @@
+{
+  "number": 3118,
+  "title": "Line sketch: Wander",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a trench coat stands on a cracked road in a post-apocalyptic landscape, back turned to the viewer. The person carries a film reel case and reaches toward a chain-link fence lined with film strips and a shopping cart, surrounded by ruins, old movie equipment, and a large decaying sign reading 'WANDER' under an aurora borealis sky (derived from generated still #2454).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a trench coat stands on a cracked road in a post-apocalyptic landscape, back turned to the viewer. The person carries a film reel case and reaches toward a chain-link fence lined with film strips and a shopping cart, surrounded by ruins, old movie equipment, and a large decaying sign reading 'WANDER' under an aurora borealis sky",
+  "inverted_title": "Inverted sketch: Wander",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a trench coat stands on a cracked road in a post-apocalyptic landscape, back turned to the viewer. The person carries a film reel case and reaches toward a chain-link fence lined with film strips and a shopping cart, surrounded by ruins, old movie equipment, and a large decaying sign reading 'WANDER' under an aurora borealis sky (from generated still #2454).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a trench coat stands on a cracked road in a post-apocalyptic landscape, back turned to the viewer. The person carries a film reel case and reaches toward a chain-link fence lined with film strips and a shopping cart, surrounded by ruins, old movie equipment, and a large decaying sign reading 'WANDER' under an aurora borealis sky",
+  "source_description": "A lone figure in a tan trench coat stands on a cracked road in a post-apocalyptic landscape, back turned to the viewer. The person carries a film reel case and reaches toward a chain-link fence lined with film strips and a shopping cart, surrounded by ruins, old movie equipment, and a large decaying sign reading 'WANDER' under an aurora borealis sky.",
+  "source_prompt": "A solitary person wearing a long tan trench coat stands on a broken highway in a ruined cinematic landscape, back to viewer, carrying a film reel case while reaching toward a fence with film strips and a shopping cart filled with reels. Decaying buildings, old movie cameras and film equipment scattered on the ground, large broken sign that reads WANDER in the distance, dramatic purple and teal aurora borealis sky, desolate and melancholic atmosphere.",
+  "source_title": "Wander",
+  "style": "cinematic",
+  "mood": "melancholy, desolate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital artwork",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "cinematic",
+    "ruins",
+    "film reels",
+    "aurora"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2454,
+  "source_url": "/generated/2454.jpg",
+  "image_url": "/sketches/3118.png",
+  "inverted_image_url": "/sketches-inverted/3118.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

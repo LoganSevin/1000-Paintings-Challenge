@@ -1,0 +1,42 @@
+{
+  "number": 2188,
+  "title": "Line sketch: Three Women in Mystic Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three women with skin and head coverings stand in profile facing right, positioned in a field of flowers. Behind them is a surreal landscape with a reflective body of water, a glowing orb in the sky, a spiral galaxy formation, and a jagged mountain under a and swirling sky (derived from generated still #1413).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three women with skin and head coverings stand in profile facing right, positioned in a field of flowers. Behind them is a surreal landscape with a reflective body of water, a glowing orb in the sky, a spiral galaxy formation, and a jagged mountain under a and swirling sky",
+  "inverted_title": "Inverted sketch: Three Women in Mystic Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three women with skin and head coverings stand in profile facing right, positioned in a field of flowers. Behind them is a surreal landscape with a reflective body of water, a glowing orb in the sky, a spiral galaxy formation, and a jagged mountain under a and swirling sky (from generated still #1413).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three women with skin and head coverings stand in profile facing right, positioned in a field of flowers. Behind them is a surreal landscape with a reflective body of water, a glowing orb in the sky, a spiral galaxy formation, and a jagged mountain under a and swirling sky",
+  "source_description": "Three women with green skin and colorful head coverings stand in profile facing right, positioned in a field of purple flowers. Behind them is a surreal landscape with a reflective body of water, a glowing purple orb in the sky, a spiral galaxy formation, and a jagged mountain under a yellow and purple swirling sky.",
+  "source_prompt": "",
+  "source_title": "Three Women in Mystic Landscape",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "women in profile",
+    "fantasy landscape",
+    "flowers",
+    "cosmic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1413,
+  "source_url": "/generated/1413.jpg",
+  "image_url": "/sketches/2188.png",
+  "inverted_image_url": "/sketches-inverted/2188.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:42Z"
+}

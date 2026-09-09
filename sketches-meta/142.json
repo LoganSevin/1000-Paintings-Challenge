@@ -1,0 +1,42 @@
+{
+  "number": 142,
+  "title": "Line sketch: Puppy with Tulips",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A fluffy puppy holds a bouquet of tulips while gazing at the viewer. The vibrant background creates a warm and playful atmosphere (derived from painting #180).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A fluffy puppy holds a bouquet of tulips while gazing at the viewer. The vibrant background creates a warm and playful atmosphere",
+  "inverted_title": "Inverted sketch: Puppy with Tulips",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A fluffy puppy holds a bouquet of tulips while gazing at the viewer. The vibrant background creates a warm and playful atmosphere (from painting #180).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A fluffy puppy holds a bouquet of tulips while gazing at the viewer. The vibrant background creates a warm and playful atmosphere",
+  "source_description": "A fluffy golden puppy holds a bouquet of red tulips while gazing at the viewer. The vibrant red background creates a warm and playful atmosphere.",
+  "source_prompt": "",
+  "source_title": "Puppy with Tulips",
+  "style": "realistic composition",
+  "mood": "cute and playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "puppy",
+    "tulips",
+    "dog portrait",
+    "fluffy",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 180,
+  "source_url": "/paintings/180.jpg",
+  "image_url": "/sketches/142.png",
+  "inverted_image_url": "/sketches-inverted/142.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:38Z"
+}

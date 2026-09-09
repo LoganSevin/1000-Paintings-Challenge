@@ -1,0 +1,42 @@
+{
+  "number": 3412,
+  "title": "Line sketch: Cosmic Stairway Alchemy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a saint-like figure with a halo standing on a dilapidated staircase, stirring a bubbling cauldron emitting smoke while a woman in a hazmat-style jumpsuit ascends with a biohazard briefcase and an open book. A majestic white cat sits in the foreground reading sheet music as musical notes and cosmic galaxies swirl throughout the decaying, icon-covered environment (derived from generated still #2813).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a saint-like figure with a halo standing on a dilapidated staircase, stirring a bubbling cauldron emitting smoke while a woman in a hazmat-style jumpsuit ascends with a biohazard briefcase and an open book. A majestic white cat sits in the foreground reading sheet music as musical notes and cosmic galaxies swirl throughout the decaying, icon-covered environment",
+  "inverted_title": "Inverted sketch: Cosmic Stairway Alchemy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a saint-like figure with a halo standing on a dilapidated staircase, stirring a bubbling cauldron emitting smoke while a woman in a hazmat-style jumpsuit ascends with a biohazard briefcase and an open book. A majestic white cat sits in the foreground reading sheet music as musical notes and cosmic galaxies swirl throughout the decaying, icon-covered environment (from generated still #2813).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a saint-like figure with a halo standing on a dilapidated staircase, stirring a bubbling cauldron emitting smoke while a woman in a hazmat-style jumpsuit ascends with a biohazard briefcase and an open book. A majestic white cat sits in the foreground reading sheet music as musical notes and cosmic galaxies swirl throughout the decaying, icon-covered environment",
+  "source_description": "A surreal painting depicts a saint-like figure with a golden halo standing on a dilapidated staircase, stirring a bubbling cauldron emitting purple smoke while a woman in a hazmat-style jumpsuit ascends with a biohazard briefcase and an open book. A majestic white cat sits in the foreground reading sheet music as musical notes and cosmic galaxies swirl throughout the decaying, icon-covered environment.",
+  "source_prompt": "",
+  "source_title": "Cosmic Stairway Alchemy",
+  "style": "surrealism",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "saint",
+    "cauldron",
+    "music"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2813,
+  "source_url": "/generated/2813.jpg",
+  "image_url": "/sketches/3412.png",
+  "inverted_image_url": "/sketches-inverted/3412.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:45Z"
+}

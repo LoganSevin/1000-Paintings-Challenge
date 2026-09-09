@@ -1,0 +1,42 @@
+{
+  "number": 289,
+  "title": "Line sketch: Infernal Eye in Dark Forest",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive mechanical eyeball with a glowing iris emerges from the scorched earth, its tentacle-like roots spreading among burning embers. The eerie orb stands sentinel in a smoky, apocalyptic woodland filled with glowing coals and twisted trees (derived from painting #346).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive mechanical eyeball with a glowing iris emerges from the scorched earth, its tentacle-like roots spreading among burning embers. The eerie orb stands sentinel in a smoky, apocalyptic woodland filled with glowing coals and twisted trees",
+  "inverted_title": "Inverted sketch: Infernal Eye in Dark Forest",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive mechanical eyeball with a glowing iris emerges from the scorched earth, its tentacle-like roots spreading among burning embers. The eerie orb stands sentinel in a smoky, apocalyptic woodland filled with glowing coals and twisted trees (from painting #346).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive mechanical eyeball with a glowing iris emerges from the scorched earth, its tentacle-like roots spreading among burning embers. The eerie orb stands sentinel in a smoky, apocalyptic woodland filled with glowing coals and twisted trees",
+  "source_description": "A massive mechanical eyeball with a glowing red iris emerges from the scorched earth, its tentacle-like roots spreading among burning embers. The eerie red orb stands sentinel in a smoky, apocalyptic woodland filled with glowing coals and twisted trees.",
+  "source_prompt": "",
+  "source_title": "Infernal Eye in Dark Forest",
+  "style": "Digital Fantasy Art",
+  "mood": "Eerie, menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D CGI rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical eye",
+    "dark fantasy",
+    "apocalyptic",
+    "horror",
+    "glow"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 346,
+  "source_url": "/paintings/346.jpg",
+  "image_url": "/sketches/289.png",
+  "inverted_image_url": "/sketches-inverted/289.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4845,
+  "title": "Line sketch: Surreal AI Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a robotic female figure with exposed mechanical parts and puzzle-piece armor, holding a paper while a small alien-like being clings to her back. In the desert landscape, three humanoid statues stand near a winding path leading to a massive swirling vortex in the sky, from which a waterfall pours down. A cloaked wizard figure floats within a portal above, while a beetle in a glass orb and floating letter tiles populate the scene (derived from generated still #4280).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a robotic female figure with exposed mechanical parts and puzzle-piece armor, holding a paper while a small alien-like being clings to her back. In the desert landscape, three humanoid statues stand near a winding path leading to a massive swirling vortex in the sky, from which a waterfall pours down. A cloaked wizard figure floats within a portal above, while a beetle in a glass orb and floating letter tiles populate the scene",
+  "inverted_title": "Inverted sketch: Surreal AI Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a robotic female figure with exposed mechanical parts and puzzle-piece armor, holding a paper while a small alien-like being clings to her back. In the desert landscape, three humanoid statues stand near a winding path leading to a massive swirling vortex in the sky, from which a waterfall pours down. A cloaked wizard figure floats within a portal above, while a beetle in a glass orb and floating letter tiles populate the scene (from generated still #4280).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a robotic female figure with exposed mechanical parts and puzzle-piece armor, holding a paper while a small alien-like being clings to her back. In the desert landscape, three humanoid statues stand near a winding path leading to a massive swirling vortex in the sky, from which a waterfall pours down. A cloaked wizard figure floats within a portal above, while a beetle in a glass orb and floating letter tiles populate the scene",
+  "source_description": "A surreal scene featuring a golden robotic female figure with exposed mechanical parts and puzzle-piece armor, holding a paper while a small blue alien-like being clings to her back. In the desert landscape, three silver humanoid statues stand near a winding path leading to a massive swirling vortex in the sky, from which a rainbow waterfall pours down. A cloaked wizard figure floats within a purple portal above, while a beetle in a glass orb and floating letter tiles populate the scene.",
+  "source_prompt": "Surreal desert landscape with a golden mechanical female android covered in puzzle pieces and lotus details, holding an ancient paper, a small blue alien attached to her back. Three shiny silver female statues stand on the left. A giant swirling red and orange vortex in the starry sky contains a purple portal with a cloaked wizard figure. A rainbow waterfall flows from the vortex into the desert. A glass orb with a beetle on a tornado base floats to the right, along with scattered letter tiles and puzzle pieces.",
+  "source_title": "Surreal AI Oracle",
+  "style": "surrealism",
+  "mood": "mystical, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cyberpunk",
+    "fantasy",
+    "psychedelic",
+    "robotic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4280,
+  "source_url": "/generated/4280.jpg",
+  "image_url": "/sketches/4845.png",
+  "inverted_image_url": "/sketches-inverted/4845.png",
+  "curve_count": 60,
+  "built_at": "2026-08-17T00:09:49Z"
+}

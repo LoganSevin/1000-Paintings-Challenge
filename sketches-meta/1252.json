@@ -1,0 +1,42 @@
+{
+  "number": 1252,
+  "title": "Line sketch: Gothic Cyberpunk Christmas",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A towering gothic cathedral with accents and stained glass stands amid a futuristic cyberpunk city under a dark, starry sky. A massive cracked orb resembling a bleeding sun or planet drips liquid toward the foreground, where Christmas holly, berries, and ornaments are splattered with fluid (derived from generated still #464).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A towering gothic cathedral with accents and stained glass stands amid a futuristic cyberpunk city under a dark, starry sky. A massive cracked orb resembling a bleeding sun or planet drips liquid toward the foreground, where Christmas holly, berries, and ornaments are splattered with fluid",
+  "inverted_title": "Inverted sketch: Gothic Cyberpunk Christmas",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A towering gothic cathedral with accents and stained glass stands amid a futuristic cyberpunk city under a dark, starry sky. A massive cracked orb resembling a bleeding sun or planet drips liquid toward the foreground, where Christmas holly, berries, and ornaments are splattered with fluid (from generated still #464).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A towering gothic cathedral with accents and stained glass stands amid a futuristic cyberpunk city under a dark, starry sky. A massive cracked orb resembling a bleeding sun or planet drips liquid toward the foreground, where Christmas holly, berries, and ornaments are splattered with fluid",
+  "source_description": "A towering gothic cathedral with purple neon accents and stained glass stands amid a futuristic cyberpunk city under a dark, starry sky. A massive cracked red orb resembling a bleeding sun or planet drips magenta liquid toward the foreground, where Christmas holly, berries, and ornaments are splattered with red fluid.",
+  "source_prompt": "",
+  "source_title": "Gothic Cyberpunk Christmas",
+  "style": "digital fantasy illustration",
+  "mood": "ominous festive",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "gothic cathedral",
+    "bleeding sun",
+    "christmas",
+    "city"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 464,
+  "source_url": "/generated/464.jpg",
+  "image_url": "/sketches/1252.png",
+  "inverted_image_url": "/sketches-inverted/1252.png",
+  "curve_count": 88,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4878,
+  "title": "Line sketch: Surreal Dreamscape Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene features four stylized female profiles with intricate mechanical and floral headdresses in the foreground. A large ornate black phoenix with dripping patterns flies across a starry and sky containing a crescent moon, floating mechanical figures, and brain-like orbs above a distorted cityscape (derived from generated still #4313).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene features four stylized female profiles with intricate mechanical and floral headdresses in the foreground. A large ornate black phoenix with dripping patterns flies across a starry and sky containing a crescent moon, floating mechanical figures, and brain-like orbs above a distorted cityscape",
+  "inverted_title": "Inverted sketch: Surreal Dreamscape Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene features four stylized female profiles with intricate mechanical and floral headdresses in the foreground. A large ornate black phoenix with dripping patterns flies across a starry and sky containing a crescent moon, floating mechanical figures, and brain-like orbs above a distorted cityscape (from generated still #4313).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene features four stylized female profiles with intricate mechanical and floral headdresses in the foreground. A large ornate black phoenix with dripping patterns flies across a starry and sky containing a crescent moon, floating mechanical figures, and brain-like orbs above a distorted cityscape",
+  "source_description": "A surreal psychedelic scene features four stylized female profiles with intricate mechanical and floral headdresses in the foreground. A large ornate black phoenix with dripping patterns flies across a starry teal and purple sky containing a crescent moon, floating mechanical figures, and brain-like orbs above a distorted cityscape.",
+  "source_prompt": "Surreal psychedelic artwork showing four overlapping female profiles facing right with highly detailed ornate headdresses made of gears flowers and mechanical parts. A large ornate black phoenix with intricate golden patterns and dripping effects flies across a starry teal sky with purple clouds and a large crescent moon. Floating bubbles contain miniature cities mechanical figures and brain-like orbs. Distorted city buildings and checkerboard patterns appear in the misty background.",
+  "source_title": "Surreal Dreamscape Vision",
+  "style": "surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "psychedelic",
+    "phoenix",
+    "female profiles",
+    "mechanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4313,
+  "source_url": "/generated/4313.jpg",
+  "image_url": "/sketches/4878.png",
+  "inverted_image_url": "/sketches-inverted/4878.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:49Z"
+}

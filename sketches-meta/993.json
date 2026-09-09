@@ -1,0 +1,42 @@
+{
+  "number": 993,
+  "title": "Line sketch: Spectral Skeletal Steed",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A translucent skeletal horse-like creature with a bird-like skull head and flowing mane gallops across a muted background. Its body glows with ethereal, and energy trails while surrounded by swirling mist and organic shapes at the base (derived from generated still #203).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A translucent skeletal horse-like creature with a bird-like skull head and flowing mane gallops across a muted background. Its body glows with ethereal, and energy trails while surrounded by swirling mist and organic shapes at the base",
+  "inverted_title": "Inverted sketch: Spectral Skeletal Steed",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A translucent skeletal horse-like creature with a bird-like skull head and flowing mane gallops across a muted background. Its body glows with ethereal, and energy trails while surrounded by swirling mist and organic shapes at the base (from generated still #203).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A translucent skeletal horse-like creature with a bird-like skull head and flowing mane gallops across a muted background. Its body glows with ethereal, and energy trails while surrounded by swirling mist and organic shapes at the base",
+  "source_description": "A translucent skeletal horse-like creature with a bird-like skull head and flowing mane gallops across a muted background. Its body glows with ethereal purple, teal, and golden energy trails while surrounded by swirling colorful mist and organic shapes at the base.",
+  "source_prompt": "",
+  "source_title": "Spectral Skeletal Steed",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skeletal creature",
+    "fantasy horse",
+    "ethereal being",
+    "surreal art",
+    "glowing skeleton"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 203,
+  "source_url": "/generated/203.jpg",
+  "image_url": "/sketches/993.png",
+  "inverted_image_url": "/sketches-inverted/993.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:40Z"
+}

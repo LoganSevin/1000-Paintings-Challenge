@@ -1,0 +1,42 @@
+{
+  "number": 1044,
+  "title": "Line sketch: Stylized Pop Art Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up profile view of a woman with -toned skin and black line art, looking towards the right. Her face features geometric color blocks in and, patterned metallic lips, and is set against a vibrant chevron background with dynamic brush strokes (derived from generated still #256).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up profile view of a woman with -toned skin and black line art, looking towards the right. Her face features geometric color blocks in and, patterned metallic lips, and is set against a vibrant chevron background with dynamic brush strokes",
+  "inverted_title": "Inverted sketch: Stylized Pop Art Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up profile view of a woman with -toned skin and black line art, looking towards the right. Her face features geometric color blocks in and, patterned metallic lips, and is set against a vibrant chevron background with dynamic brush strokes (from generated still #256).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up profile view of a woman with -toned skin and black line art, looking towards the right. Her face features geometric color blocks in and, patterned metallic lips, and is set against a vibrant chevron background with dynamic brush strokes",
+  "source_description": "A close-up profile view of a woman with blue-toned skin and black line art, looking towards the right. Her face features geometric color blocks in teal and lime, patterned metallic lips, and is set against a vibrant chevron background with dynamic brush strokes.",
+  "source_prompt": "",
+  "source_title": "Stylized Pop Art Portrait",
+  "style": "Pop Art",
+  "mood": "Vibrant and modern",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "profile",
+    "pop art",
+    "chevron",
+    "line art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 256,
+  "source_url": "/generated/256.jpg",
+  "image_url": "/sketches/1044.png",
+  "inverted_image_url": "/sketches-inverted/1044.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:40Z"
+}

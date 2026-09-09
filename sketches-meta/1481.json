@@ -1,0 +1,42 @@
+{
+  "number": 1481,
+  "title": "Line sketch: Surreal Desert Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition merging a giant stylized human eye in the foreground with a desert landscape. A woman in a and hijab walks across dunes under a large glowing moon while a rat perches on a leafy branch (derived from generated still #696).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition merging a giant stylized human eye in the foreground with a desert landscape. A woman in a and hijab walks across dunes under a large glowing moon while a rat perches on a leafy branch",
+  "inverted_title": "Inverted sketch: Surreal Desert Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition merging a giant stylized human eye in the foreground with a desert landscape. A woman in a and hijab walks across dunes under a large glowing moon while a rat perches on a leafy branch (from generated still #696).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition merging a giant stylized human eye in the foreground with a desert landscape. A woman in a and hijab walks across dunes under a large glowing moon while a rat perches on a leafy branch",
+  "source_description": "A vibrant surreal painting merging a giant stylized human eye in the foreground with a desert landscape. A woman in a blue and gold hijab walks across orange dunes under a large glowing moon while a red rat perches on a leafy branch.",
+  "source_prompt": "",
+  "source_title": "Surreal Desert Eye",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "desert",
+    "eye",
+    "woman",
+    "rat"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 696,
+  "source_url": "/generated/696.jpg",
+  "image_url": "/sketches/1481.png",
+  "inverted_image_url": "/sketches-inverted/1481.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:41Z"
+}

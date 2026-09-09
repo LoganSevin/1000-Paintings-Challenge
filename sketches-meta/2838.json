@@ -1,0 +1,42 @@
+{
+  "number": 2838,
+  "title": "Line sketch: Surreal Meadow Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant stylized woman's face emerges from a rolling hillside, adorned with a crown of and. A mechanical fox with glowing circuits runs across the grass under a large geometric celestial body in a vibrant sunset sky (derived from generated still #2123).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant stylized woman's face emerges from a rolling hillside, adorned with a crown of and. A mechanical fox with glowing circuits runs across the grass under a large geometric celestial body in a vibrant sunset sky",
+  "inverted_title": "Inverted sketch: Surreal Meadow Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant stylized woman's face emerges from a rolling hillside, adorned with a crown of and. A mechanical fox with glowing circuits runs across the grass under a large geometric celestial body in a vibrant sunset sky (from generated still #2123).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant stylized woman's face emerges from a rolling hillside, adorned with a crown of and. A mechanical fox with glowing circuits runs across the grass under a large geometric celestial body in a vibrant sunset sky",
+  "source_description": "A giant stylized woman's face emerges from a rolling green hillside, adorned with a crown of pink and red roses. A mechanical fox with glowing purple circuits runs across the grass under a large geometric celestial body in a vibrant sunset sky.",
+  "source_prompt": "",
+  "source_title": "Surreal Meadow Dreamscape",
+  "style": "surrealism",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman's face",
+    "mechanical fox",
+    "geometric moon",
+    "floral crown"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2123,
+  "source_url": "/generated/2123.jpg",
+  "image_url": "/sketches/2838.png",
+  "inverted_image_url": "/sketches-inverted/2838.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:44Z"
+}

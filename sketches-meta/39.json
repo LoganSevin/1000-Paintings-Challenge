@@ -1,0 +1,42 @@
+{
+  "number": 39,
+  "title": "Line sketch: Vibrant Swirling Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A central radial pinwheel of, and white segments is surrounded by sweeping, fluid ribbons of, and. Bold, splatters, and dynamic curves create energetic movement across a white background (derived from painting #56).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A central radial pinwheel of, and white segments is surrounded by sweeping, fluid ribbons of, and. Bold, splatters, and dynamic curves create energetic movement across a white background",
+  "inverted_title": "Inverted sketch: Vibrant Swirling Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A central radial pinwheel of, and white segments is surrounded by sweeping, fluid ribbons of, and. Bold, splatters, and dynamic curves create energetic movement across a white background (from painting #56).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A central radial pinwheel of, and white segments is surrounded by sweeping, fluid ribbons of, and. Bold, splatters, and dynamic curves create energetic movement across a white background",
+  "source_description": "A central radial pinwheel of green, lime, and white segments is surrounded by sweeping, fluid ribbons of orange, purple, and bright green. Bold brushstrokes, splatters, and dynamic curves create energetic movement across a white background.",
+  "source_prompt": "",
+  "source_title": "Vibrant Swirling Vortex",
+  "style": "Abstract",
+  "mood": "Vibrant Energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "vortex",
+    "swirls",
+    "dynamic",
+    "fluid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 56,
+  "source_url": "/paintings/56.jpg",
+  "image_url": "/sketches/39.png",
+  "inverted_image_url": "/sketches-inverted/39.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:38Z"
+}

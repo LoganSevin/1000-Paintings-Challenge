@@ -1,0 +1,42 @@
+{
+  "number": 1057,
+  "title": "Line sketch: Bust Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an ornate gown stands with her back to the viewer, touching a cracked bust of a laurel-crowned figure. The surreal night scene features a blood- solar eclipse dominating the starry sky above a landscape of barren trees and vibrant flowers (derived from generated still #269).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an ornate gown stands with her back to the viewer, touching a cracked bust of a laurel-crowned figure. The surreal night scene features a blood- solar eclipse dominating the starry sky above a landscape of barren trees and vibrant flowers",
+  "inverted_title": "Inverted sketch: Bust Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an ornate gown stands with her back to the viewer, touching a cracked bust of a laurel-crowned figure. The surreal night scene features a blood- solar eclipse dominating the starry sky above a landscape of barren trees and vibrant flowers (from generated still #269).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an ornate gown stands with her back to the viewer, touching a cracked bust of a laurel-crowned figure. The surreal night scene features a blood- solar eclipse dominating the starry sky above a landscape of barren trees and vibrant flowers",
+  "source_description": "A woman in an ornate dark blue gown stands with her back to the viewer, touching a cracked golden bust of a laurel-crowned figure. The surreal night scene features a blood-red solar eclipse dominating the starry sky above a landscape of barren trees and vibrant flowers.",
+  "source_prompt": "",
+  "source_title": "Golden Bust Eclipse",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eclipse",
+    "bust",
+    "laurel wreath",
+    "surreal landscape",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 269,
+  "source_url": "/generated/269.jpg",
+  "image_url": "/sketches/1057.png",
+  "inverted_image_url": "/sketches-inverted/1057.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:40Z"
+}

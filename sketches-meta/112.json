@@ -1,0 +1,42 @@
+{
+  "number": 112,
+  "title": "Line sketch: Vibrant Swirling Fluid Dance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: This abstract artwork explodes with dynamic swirling patterns, spirals, and organic waves flowing across the entire frame. Bold curves and circular motifs create a sense of continuous movement and energy. Fluid composition techniques produce layered, marbled effects with visible color bleeding and soft edges (derived from painting #147).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: This abstract artwork explodes with dynamic swirling patterns, spirals, and organic waves flowing across the entire frame. Bold curves and circular motifs create a sense of continuous movement and energy. Fluid composition techniques produce layered, marbled effects with visible color bleeding and soft edges",
+  "inverted_title": "Inverted sketch: Vibrant Swirling Fluid Dance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: This abstract artwork explodes with dynamic swirling patterns, spirals, and organic waves flowing across the entire frame. Bold curves and circular motifs create a sense of continuous movement and energy. Fluid composition techniques produce layered, marbled effects with visible color bleeding and soft edges (from painting #147).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: This abstract artwork explodes with dynamic swirling patterns, spirals, and organic waves flowing across the entire frame. Bold curves and circular motifs create a sense of continuous movement and energy. Fluid composition techniques produce layered, marbled effects with visible color bleeding and soft edges",
+  "source_description": "This abstract artwork explodes with dynamic swirling patterns, spirals, and organic waves flowing across the entire frame. Bold curves and circular motifs create a sense of continuous movement and energy. Fluid painting techniques produce layered, marbled effects with visible color bleeding and soft edges.",
+  "source_prompt": "",
+  "source_title": "Vibrant Swirling Fluid Dance",
+  "style": "Psychedelic Abstract",
+  "mood": "Energetic vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "swirls",
+    "fluid",
+    "psychedelic",
+    "spirals"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 147,
+  "source_url": "/paintings/147.jpg",
+  "image_url": "/sketches/112.png",
+  "inverted_image_url": "/sketches-inverted/112.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:38Z"
+}

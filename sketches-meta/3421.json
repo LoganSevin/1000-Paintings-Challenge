@@ -1,0 +1,42 @@
+{
+  "number": 3421,
+  "title": "Line sketch: Surreal Cosmic Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene featuring a giant glowing woman's face enclosed in a transparent bubble above a grassy field. In the foreground, two mice and a small lantern sit near flowers while a large black monster with glowing white eyes and sharp teeth lurks to the right. The sky contains multiple planets, crescent moons, a slime-like creature on a platform, and a dark mountain range under a and nebula (derived from generated still #2822).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene featuring a giant glowing woman's face enclosed in a transparent bubble above a grassy field. In the foreground, two mice and a small lantern sit near flowers while a large black monster with glowing white eyes and sharp teeth lurks to the right. The sky contains multiple planets, crescent moons, a slime-like creature on a platform, and a dark mountain range under a and nebula",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene featuring a giant glowing woman's face enclosed in a transparent bubble above a grassy field. In the foreground, two mice and a small lantern sit near flowers while a large black monster with glowing white eyes and sharp teeth lurks to the right. The sky contains multiple planets, crescent moons, a slime-like creature on a platform, and a dark mountain range under a and nebula (from generated still #2822).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene featuring a giant glowing woman's face enclosed in a transparent bubble above a grassy field. In the foreground, two mice and a small lantern sit near flowers while a large black monster with glowing white eyes and sharp teeth lurks to the right. The sky contains multiple planets, crescent moons, a slime-like creature on a platform, and a dark mountain range under a and nebula",
+  "source_description": "A surreal night scene featuring a giant glowing woman's face enclosed in a transparent bubble above a grassy field. In the foreground, two mice and a small lantern sit near flowers while a large black monster with glowing white eyes and sharp teeth lurks to the right. The sky contains multiple planets, crescent moons, a pink slime-like creature on a green platform, and a dark mountain range under a purple and orange nebula.",
+  "source_prompt": "Surreal fantasy landscape at night with a giant translucent bubble containing a woman's glowing pink face floating above a grassy field. In the foreground, a large brown mouse and a small mouse with a lantern stand near flowers, while a black shadowy monster with glowing eyes and sharp teeth watches from the right. The dramatic sky features multiple planets, crescent moons, a large pink amorphous slime creature on a green platform, and dark mountains under a vibrant purple, pink and orange nebula.",
+  "source_title": "Surreal Cosmic Dreamscape",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy",
+    "cosmic",
+    "mice",
+    "monster"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2822,
+  "source_url": "/generated/2822.jpg",
+  "image_url": "/sketches/3421.png",
+  "inverted_image_url": "/sketches-inverted/3421.png",
+  "curve_count": 106,
+  "built_at": "2026-08-17T00:09:45Z"
+}

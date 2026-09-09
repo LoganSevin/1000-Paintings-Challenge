@@ -1,0 +1,42 @@
+{
+  "number": 3477,
+  "title": "Line sketch: Cosmic Chess Gambit",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene shows a stone chessboard in the foreground with ornate and black pieces, some toppled, and lit candles. A person's arm in a and patterned sleeve reaches from the right, placing a glowing orb on the board. Behind it, vibrant and peonies emerge from cracked stone, with swirling and fiery energy, floating transparent text shards, and a dramatic sky (derived from generated still #2878).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene shows a stone chessboard in the foreground with ornate and black pieces, some toppled, and lit candles. A person's arm in a and patterned sleeve reaches from the right, placing a glowing orb on the board. Behind it, vibrant and peonies emerge from cracked stone, with swirling and fiery energy, floating transparent text shards, and a dramatic sky",
+  "inverted_title": "Inverted sketch: Cosmic Chess Gambit",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene shows a stone chessboard in the foreground with ornate and black pieces, some toppled, and lit candles. A person's arm in a and patterned sleeve reaches from the right, placing a glowing orb on the board. Behind it, vibrant and peonies emerge from cracked stone, with swirling and fiery energy, floating transparent text shards, and a dramatic sky (from generated still #2878).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene shows a stone chessboard in the foreground with ornate and black pieces, some toppled, and lit candles. A person's arm in a and patterned sleeve reaches from the right, placing a glowing orb on the board. Behind it, vibrant and peonies emerge from cracked stone, with swirling and fiery energy, floating transparent text shards, and a dramatic sky",
+  "source_description": "A surreal scene shows a stone chessboard in the foreground with ornate silver and black pieces, some toppled, and lit candles. A person's arm in a blue and gold patterned sleeve reaches from the right, placing a glowing blue orb on the board. Behind it, vibrant pink and yellow peonies emerge from cracked stone, with swirling red and orange fiery energy, floating transparent text shards, and a dark purple dramatic sky.",
+  "source_prompt": "Surreal fantasy scene of a cracked stone chess table with ornate metallic pieces and lit candles, a hand in ornate blue and gold sleeves placing a glowing blue orb onto the board, vibrant pink and yellow peonies growing from the stone, swirling red fiery energy in the background, floating transparent shards with text, dramatic dark purple sky with crescent moons, epic and mysterious atmosphere",
+  "source_title": "Cosmic Chess Gambit",
+  "style": "surreal fantasy",
+  "mood": "mysterious dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "chess",
+    "fantasy",
+    "peonies",
+    "fiery energy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2878,
+  "source_url": "/generated/2878.jpg",
+  "image_url": "/sketches/3477.png",
+  "inverted_image_url": "/sketches-inverted/3477.png",
+  "curve_count": 19,
+  "built_at": "2026-08-17T00:09:45Z"
+}

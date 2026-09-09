@@ -1,0 +1,42 @@
+{
+  "number": 755,
+  "title": "Line sketch: Surreal Ruins at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An empty futuristic walkway lined with fragmented architectural frames and overgrown vegetation under a vibrant sky. The wet reflective ground and scattered lampposts create a haunting cyberpunk atmosphere of abandonment (derived from painting #953).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An empty futuristic walkway lined with fragmented architectural frames and overgrown vegetation under a vibrant sky. The wet reflective ground and scattered lampposts create a haunting cyberpunk atmosphere of abandonment",
+  "inverted_title": "Inverted sketch: Surreal Ruins at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An empty futuristic walkway lined with fragmented architectural frames and overgrown vegetation under a vibrant sky. The wet reflective ground and scattered lampposts create a haunting cyberpunk atmosphere of abandonment (from painting #953).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An empty futuristic walkway lined with fragmented architectural frames and overgrown vegetation under a vibrant sky. The wet reflective ground and scattered lampposts create a haunting cyberpunk atmosphere of abandonment",
+  "source_description": "An empty futuristic walkway lined with fragmented architectural frames and overgrown vegetation under a vibrant orange sky. The wet reflective ground and scattered lampposts create a haunting cyberpunk atmosphere of abandonment.",
+  "source_prompt": "",
+  "source_title": "Surreal Neon Ruins at Dusk",
+  "style": "Cyberpunk",
+  "mood": "Eerie nostalgia",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "futuristic",
+    "ruins",
+    "overgrown",
+    "surreal",
+    "cyberpunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 953,
+  "source_url": "/paintings/953.jpg",
+  "image_url": "/sketches/755.png",
+  "inverted_image_url": "/sketches-inverted/755.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:39Z"
+}

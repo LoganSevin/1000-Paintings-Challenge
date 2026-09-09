@@ -1,0 +1,42 @@
+{
+  "number": 873,
+  "title": "Line sketch: The Bird Whisperer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly man with a hat and jacket stands in the foreground, a small bird perched on his shoulder connected by a ribbon. Behind him, a crowd of figures stands before dripping crystal-like structures as transparent bubbles containing tiny scenes float throughout the surreal composition (derived from generated still #82).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly man with a hat and jacket stands in the foreground, a small bird perched on his shoulder connected by a ribbon. Behind him, a crowd of figures stands before dripping crystal-like structures as transparent bubbles containing tiny scenes float throughout the surreal composition",
+  "inverted_title": "Inverted sketch: The Bird Whisperer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly man with a hat and jacket stands in the foreground, a small bird perched on his shoulder connected by a ribbon. Behind him, a crowd of figures stands before dripping crystal-like structures as transparent bubbles containing tiny scenes float throughout the surreal composition (from generated still #82).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly man with a hat and jacket stands in the foreground, a small bird perched on his shoulder connected by a ribbon. Behind him, a crowd of figures stands before dripping crystal-like structures as transparent bubbles containing tiny scenes float throughout the surreal composition",
+  "source_description": "An elderly man with a green hat and jacket stands in the foreground, a small brown bird perched on his shoulder connected by a blue ribbon. Behind him, a crowd of colorful figures stands before dripping green crystal-like structures as transparent bubbles containing tiny scenes float throughout the surreal composition.",
+  "source_prompt": "",
+  "source_title": "The Bird Whisperer",
+  "style": "surrealism",
+  "mood": "whimsical, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "elderly man",
+    "birds",
+    "bubbles",
+    "crowd"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 82,
+  "source_url": "/generated/82.jpg",
+  "image_url": "/sketches/873.png",
+  "inverted_image_url": "/sketches-inverted/873.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:40Z"
+}

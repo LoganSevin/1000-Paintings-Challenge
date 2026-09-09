@@ -1,0 +1,42 @@
+{
+  "number": 17,
+  "title": "Line sketch: Liquid Splashes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts a vibrant - viscous fluid in dynamic motion, forming loops, splashes, and floating droplets against a backdrop. Glossy highlights and bubbles emphasize the fluid's thickness and reflective surface. The composition is abstract and energetic, focusing on organic shapes and light interaction (derived from painting #28).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts a vibrant - viscous fluid in dynamic motion, forming loops, splashes, and floating droplets against a backdrop. Glossy highlights and bubbles emphasize the fluid's thickness and reflective surface. The composition is abstract and energetic, focusing on organic shapes and light interaction",
+  "inverted_title": "Inverted sketch: Liquid Splashes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts a vibrant - viscous fluid in dynamic motion, forming loops, splashes, and floating droplets against a backdrop. Glossy highlights and bubbles emphasize the fluid's thickness and reflective surface. The composition is abstract and energetic, focusing on organic shapes and light interaction (from painting #28).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts a vibrant - viscous fluid in dynamic motion, forming loops, splashes, and floating droplets against a backdrop. Glossy highlights and bubbles emphasize the fluid's thickness and reflective surface. The composition is abstract and energetic, focusing on organic shapes and light interaction",
+  "source_description": "The artwork depicts a vibrant lime-green viscous fluid in dynamic motion, forming loops, splashes, and floating droplets against a soft turquoise backdrop. Glossy highlights and bubbles emphasize the fluid's thickness and reflective surface. The composition is abstract and energetic, focusing on organic shapes and light interaction.",
+  "source_prompt": "",
+  "source_title": "Vivid Green Liquid Splashes",
+  "style": "hyperrealism",
+  "mood": "vibrant energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "liquid",
+    "splash",
+    "abstract",
+    "fluid",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 28,
+  "source_url": "/paintings/28.jpg",
+  "image_url": "/sketches/17.png",
+  "inverted_image_url": "/sketches-inverted/17.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2576,
+  "title": "Line sketch: Retro Game CRT Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nostalgic still life featuring a vintage CRT monitor displaying an 8-bit pixel art cityscape game with floating items like a lightsaber, pizza slice, and key. The screen shows 'HIGH SCORE 1616' and 'LODI 81043', surrounded by a pixelated map, a lit candle on a joystick, a 'PIXEL PUNK' soda can, and tangled wires in a dimly lit room (derived from generated still #1812).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nostalgic still life featuring a vintage CRT monitor displaying an 8-bit pixel art cityscape game with floating items like a lightsaber, pizza slice, and key. The screen shows 'HIGH SCORE 1616' and 'LODI 81043', surrounded by a pixelated map, a lit candle on a joystick, a 'PIXEL PUNK' soda can, and tangled wires in a dimly lit room",
+  "inverted_title": "Inverted sketch: Retro Game CRT Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nostalgic still life featuring a vintage CRT monitor displaying an 8-bit pixel art cityscape game with floating items like a lightsaber, pizza slice, and key. The screen shows 'HIGH SCORE 1616' and 'LODI 81043', surrounded by a pixelated map, a lit candle on a joystick, a 'PIXEL PUNK' soda can, and tangled wires in a dimly lit room (from generated still #1812).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nostalgic still life featuring a vintage CRT monitor displaying an 8-bit pixel art cityscape game with floating items like a lightsaber, pizza slice, and key. The screen shows 'HIGH SCORE 1616' and 'LODI 81043', surrounded by a pixelated map, a lit candle on a joystick, a 'PIXEL PUNK' soda can, and tangled wires in a dimly lit room",
+  "source_description": "A nostalgic still life featuring a vintage beige CRT monitor displaying an 8-bit pixel art cityscape game with floating items like a lightsaber, pizza slice, and key. The screen shows 'HIGH SCORE 1616' and 'LODI 81043', surrounded by a pixelated map, a lit candle on a joystick, a green 'PIXEL PUNK' soda can, and tangled wires in a dimly lit room.",
+  "source_prompt": "",
+  "source_title": "Retro Game CRT Scene",
+  "style": "line sketch",
+  "mood": "nostalgic, cozy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro gaming",
+    "CRT monitor",
+    "pixel art",
+    "still life",
+    "candlelight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1812,
+  "source_url": "/generated/1812.jpg",
+  "image_url": "/sketches/2576.png",
+  "inverted_image_url": "/sketches-inverted/2576.png",
+  "curve_count": 66,
+  "built_at": "2026-08-17T00:09:43Z"
+}

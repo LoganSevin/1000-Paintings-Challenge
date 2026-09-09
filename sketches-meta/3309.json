@@ -1,0 +1,42 @@
+{
+  "number": 3309,
+  "title": "Line sketch: Cinema Memory",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a jacket sits alone in a vintage -velvet movie theater, smoking a cigarette with eyes closed. Behind her, a large screen projects a silhouette of a motorcycle rider against palm trees, while film strips, framed pictures, and flowers decorate the surrounding walls (derived from generated still #2694).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a jacket sits alone in a vintage -velvet movie theater, smoking a cigarette with eyes closed. Behind her, a large screen projects a silhouette of a motorcycle rider against palm trees, while film strips, framed pictures, and flowers decorate the surrounding walls",
+  "inverted_title": "Inverted sketch: Cinema Memory",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a jacket sits alone in a vintage -velvet movie theater, smoking a cigarette with eyes closed. Behind her, a large screen projects a silhouette of a motorcycle rider against palm trees, while film strips, framed pictures, and flowers decorate the surrounding walls (from generated still #2694).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a jacket sits alone in a vintage -velvet movie theater, smoking a cigarette with eyes closed. Behind her, a large screen projects a silhouette of a motorcycle rider against palm trees, while film strips, framed pictures, and flowers decorate the surrounding walls",
+  "source_description": "A woman in a silver jacket sits alone in a vintage red-velvet movie theater, smoking a cigarette with eyes closed. Behind her, a large screen projects a colorful silhouette of a motorcycle rider against palm trees, while film strips, framed pictures, and flowers decorate the surrounding walls.",
+  "source_prompt": "A lone woman with dark hair wearing a shiny silver jacket sits in an old red velvet cinema seat, holding a lit cigarette to her lips with smoke rising, eyes closed in contemplation. Behind her a large movie screen shows a vibrant pink, orange and teal silhouette of a person riding a motorcycle through palm trees. The theater walls have ornate framed pictures, scattered film reels and strips on the floor, white flowers growing around the frames, dramatic cinematic lighting with the projector beam visible, moody and atmospheric digital painting.",
+  "source_title": "Cinema Memory",
+  "style": "cinematic surrealism",
+  "mood": "melancholy nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinema",
+    "smoking",
+    "motorcycle",
+    "film noir",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2694,
+  "source_url": "/generated/2694.jpg",
+  "image_url": "/sketches/3309.png",
+  "inverted_image_url": "/sketches-inverted/3309.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:45Z"
+}

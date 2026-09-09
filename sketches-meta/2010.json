@@ -1,0 +1,42 @@
+{
+  "number": 2010,
+  "title": "Line sketch: Elder in Ginkgo Dreams",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic portrait of an elderly Asian man wearing glasses and a wide-brimmed hat labeled 'GODS GODS GODS'. A and bird perches on his shoulder amid swirling ginkgo leaves and flowers (derived from generated still #1235).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic portrait of an elderly Asian man wearing glasses and a wide-brimmed hat labeled 'GODS GODS GODS'. A and bird perches on his shoulder amid swirling ginkgo leaves and flowers",
+  "inverted_title": "Inverted sketch: Elder in Ginkgo Dreams",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic portrait of an elderly Asian man wearing glasses and a wide-brimmed hat labeled 'GODS GODS GODS'. A and bird perches on his shoulder amid swirling ginkgo leaves and flowers (from generated still #1235).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic portrait of an elderly Asian man wearing glasses and a wide-brimmed hat labeled 'GODS GODS GODS'. A and bird perches on his shoulder amid swirling ginkgo leaves and flowers",
+  "source_description": "A vibrant psychedelic portrait of an elderly Asian man wearing glasses and a wide-brimmed hat labeled 'GODS GODS GODS'. A colorful blue and orange bird perches on his shoulder amid swirling ginkgo leaves and flowers.",
+  "source_prompt": "",
+  "source_title": "Elder in Ginkgo Dreams",
+  "style": "Psychedelic Pop Surrealism",
+  "mood": "Vibrant, mystical, joyful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elderly man",
+    "ginkgo leaves",
+    "psychedelic",
+    "bird",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1235,
+  "source_url": "/generated/1235.jpg",
+  "image_url": "/sketches/2010.png",
+  "inverted_image_url": "/sketches-inverted/2010.png",
+  "curve_count": 34,
+  "built_at": "2026-08-17T00:09:42Z"
+}

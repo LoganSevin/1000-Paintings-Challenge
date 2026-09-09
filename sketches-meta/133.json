@@ -1,0 +1,42 @@
+{
+  "number": 133,
+  "title": "Line sketch: Abstract Cubist Face Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized geometric portrait composed of overlapping shapes on a solid background. The face features a prominent eye, and forms suggesting hair and profile, rendered in a bold modernist style (derived from painting #170).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized geometric portrait composed of overlapping shapes on a solid background. The face features a prominent eye, and forms suggesting hair and profile, rendered in a bold modernist style",
+  "inverted_title": "Inverted sketch: Abstract Cubist Face Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized geometric portrait composed of overlapping shapes on a solid background. The face features a prominent eye, and forms suggesting hair and profile, rendered in a bold modernist style (from painting #170).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized geometric portrait composed of overlapping shapes on a solid background. The face features a prominent eye, and forms suggesting hair and profile, rendered in a bold modernist style",
+  "source_description": "A stylized geometric portrait composed of overlapping colorful shapes on a solid green background. The face features a prominent teal eye, orange and yellow forms suggesting hair and profile, rendered in a bold modernist style.",
+  "source_prompt": "",
+  "source_title": "Abstract Cubist Face Portrait",
+  "style": "Cubism",
+  "mood": "Playful, enigmatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cubism",
+    "abstract portrait",
+    "geometric",
+    "modernist",
+    "face"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 170,
+  "source_url": "/paintings/170.jpg",
+  "image_url": "/sketches/133.png",
+  "inverted_image_url": "/sketches-inverted/133.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:38Z"
+}

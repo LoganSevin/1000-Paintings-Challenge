@@ -1,0 +1,42 @@
+{
+  "number": 514,
+  "title": "Line sketch: Intense Gaze Close-Up",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed focusing on a single eye with a sharp, defined eyebrow and subtle lighting. The eye appears intense with a reflective highlight, part of a daily composition challenge (derived from painting #636).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed focusing on a single eye with a sharp, defined eyebrow and subtle lighting. The eye appears intense with a reflective highlight, part of a daily composition challenge",
+  "inverted_title": "Inverted sketch: Intense Gaze Close-Up",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed focusing on a single eye with a sharp, defined eyebrow and subtle lighting. The eye appears intense with a reflective highlight, part of a daily composition challenge (from painting #636).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed focusing on a single eye with a sharp, defined eyebrow and subtle lighting. The eye appears intense with a reflective highlight, part of a daily composition challenge",
+  "source_description": "A detailed digital painting focusing on a single eye with a sharp, defined eyebrow and subtle pink lighting. The eye appears intense with a reflective highlight, part of a daily painting challenge.",
+  "source_prompt": "",
+  "source_title": "Intense Gaze Close-Up",
+  "style": "Realistic",
+  "mood": "Intense mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eye",
+    "portrait",
+    "digital art",
+    "close-up",
+    "realistic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 636,
+  "source_url": "/paintings/636.jpg",
+  "image_url": "/sketches/514.png",
+  "inverted_image_url": "/sketches-inverted/514.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

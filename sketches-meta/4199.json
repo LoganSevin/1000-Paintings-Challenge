@@ -1,0 +1,42 @@
+{
+  "number": 4199,
+  "title": "Line sketch: Orbs at Dusk",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three reflective spheres of varying sizes rest on a glossy surface, mirroring the dark gothic city skyline and a large white crescent moon. The background features a dramatic blood- and sky above a silhouetted fantasy castle with numerous spires (derived from generated still #3618).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three reflective spheres of varying sizes rest on a glossy surface, mirroring the dark gothic city skyline and a large white crescent moon. The background features a dramatic blood- and sky above a silhouetted fantasy castle with numerous spires",
+  "inverted_title": "Inverted sketch: Orbs at Dusk",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three reflective spheres of varying sizes rest on a glossy surface, mirroring the dark gothic city skyline and a large white crescent moon. The background features a dramatic blood- and sky above a silhouetted fantasy castle with numerous spires (from generated still #3618).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three reflective spheres of varying sizes rest on a glossy surface, mirroring the dark gothic city skyline and a large white crescent moon. The background features a dramatic blood- and sky above a silhouetted fantasy castle with numerous spires",
+  "source_description": "Three reflective green spheres of varying sizes rest on a glossy green surface, mirroring the dark gothic city skyline and a large white crescent moon. The background features a dramatic blood-red and purple sky above a silhouetted fantasy castle with numerous spires.",
+  "source_prompt": "surreal fantasy painting of three glossy emerald green spheres of different sizes resting on a reflective green ground, perfectly mirroring the scene, dark gothic city with many sharp spires and towers silhouetted against a dramatic red and purple gradient sky, large bright white crescent moon hanging in the sky, high contrast, moody atmosphere",
+  "source_title": "Emerald Orbs at Dusk",
+  "style": "surreal fantasy composition",
+  "mood": "mysterious eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "gothic",
+    "surreal",
+    "spheres",
+    "moon",
+    "fantasy castle"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3618,
+  "source_url": "/generated/3618.jpg",
+  "image_url": "/sketches/4199.png",
+  "inverted_image_url": "/sketches-inverted/4199.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:47Z"
+}

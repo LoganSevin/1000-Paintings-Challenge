@@ -1,0 +1,42 @@
+{
+  "number": 3395,
+  "title": "Line sketch: Overhead Projector Stasis",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two women in 1950s attire stand in a dimly lit kitchen, intently studying an old CRT television displaying text. A large overhead projector hangs from the ceiling projecting cryptic messages onto the scene (derived from generated still #2796).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two women in 1950s attire stand in a dimly lit kitchen, intently studying an old CRT television displaying text. A large overhead projector hangs from the ceiling projecting cryptic messages onto the scene",
+  "inverted_title": "Inverted sketch: Overhead Projector Stasis",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two women in 1950s attire stand in a dimly lit kitchen, intently studying an old CRT television displaying text. A large overhead projector hangs from the ceiling projecting cryptic messages onto the scene (from generated still #2796).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two women in 1950s attire stand in a dimly lit kitchen, intently studying an old CRT television displaying text. A large overhead projector hangs from the ceiling projecting cryptic messages onto the scene",
+  "source_description": "Two women in 1950s attire stand in a dimly lit kitchen, intently studying an old CRT television displaying green text. A large overhead projector hangs from the ceiling projecting cryptic messages onto the scene.",
+  "source_prompt": "",
+  "source_title": "Overhead Projector Stasis",
+  "style": "retro surrealism",
+  "mood": "eerie tension",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "1950s",
+    "kitchen",
+    "vintage television",
+    "overhead projector",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2796,
+  "source_url": "/generated/2796.jpg",
+  "image_url": "/sketches/3395.png",
+  "inverted_image_url": "/sketches-inverted/3395.png",
+  "curve_count": 186,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 51,
+  "title": "Line sketch: Fiery Sky of Chaos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A turbulent celestial scene dominated by swirling fiery clouds in explosive and around a radiant central sun, with a large orb glowing on the left. Dynamic composition features dramatic light rays, dark billowing forms, and contrasting sky areas. Bold painterly technique with intense color gradients and luminous highlights creates a sense of movement and drama (derived from painting #80).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A turbulent celestial scene dominated by swirling fiery clouds in explosive and around a radiant central sun, with a large orb glowing on the left. Dynamic composition features dramatic light rays, dark billowing forms, and contrasting sky areas. Bold painterly technique with intense color gradients and luminous highlights creates a sense of movement and drama",
+  "inverted_title": "Inverted sketch: Fiery Sky of Chaos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A turbulent celestial scene dominated by swirling fiery clouds in explosive and around a radiant central sun, with a large orb glowing on the left. Dynamic composition features dramatic light rays, dark billowing forms, and contrasting sky areas. Bold painterly technique with intense color gradients and luminous highlights creates a sense of movement and drama (from painting #80).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A turbulent celestial scene dominated by swirling fiery clouds in explosive and around a radiant central sun, with a large orb glowing on the left. Dynamic composition features dramatic light rays, dark billowing forms, and contrasting sky areas. Bold painterly technique with intense color gradients and luminous highlights creates a sense of movement and drama",
+  "source_description": "A turbulent celestial scene dominated by swirling fiery clouds in explosive reds and oranges around a radiant central sun, with a large green orb glowing on the left. Dynamic composition features dramatic light rays, dark billowing forms, and contrasting turquoise sky areas. Bold painterly technique with intense color gradients and luminous highlights creates a sense of movement and drama.",
+  "source_prompt": "",
+  "source_title": "Fiery Sky of Chaos",
+  "style": "Surrealism",
+  "mood": "Dramatic apocalyptic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sky",
+    "clouds",
+    "sun",
+    "fire",
+    "explosion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 80,
+  "source_url": "/paintings/80.jpg",
+  "image_url": "/sketches/51.png",
+  "inverted_image_url": "/sketches-inverted/51.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:38Z"
+}

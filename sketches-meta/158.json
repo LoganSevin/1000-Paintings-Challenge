@@ -1,0 +1,42 @@
+{
+  "number": 158,
+  "title": "Line sketch: Cosmic Cat Nebula",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A sleek black cat with glowing eyes floats gracefully within a swirling and energy vortex. The vibrant cosmic scene features a large nebula containing five glowing orbs against a reddish starry background (derived from painting #197).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A sleek black cat with glowing eyes floats gracefully within a swirling and energy vortex. The vibrant cosmic scene features a large nebula containing five glowing orbs against a reddish starry background",
+  "inverted_title": "Inverted sketch: Cosmic Cat Nebula",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A sleek black cat with glowing eyes floats gracefully within a swirling and energy vortex. The vibrant cosmic scene features a large nebula containing five glowing orbs against a reddish starry background (from painting #197).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A sleek black cat with glowing eyes floats gracefully within a swirling and energy vortex. The vibrant cosmic scene features a large nebula containing five glowing orbs against a reddish starry background",
+  "source_description": "A sleek black cat with glowing yellow eyes floats gracefully within a swirling blue and yellow energy vortex. The vibrant cosmic scene features a large purple nebula containing five glowing orange orbs against a reddish starry background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Cat Nebula",
+  "style": "Surreal digital illustration",
+  "mood": "Dreamlike and mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat",
+    "cosmic",
+    "nebula",
+    "surreal",
+    "space"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 197,
+  "source_url": "/paintings/197.jpg",
+  "image_url": "/sketches/158.png",
+  "inverted_image_url": "/sketches-inverted/158.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:38Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3023,
+  "title": "Line sketch: Surreal Swamp Reflection",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A wolf with glowing eyes stands on the bank of a reflective pond, facing a fiery monster with flames. Floating eye-covered orbs hover above the water which mirrors the scene under a dramatic, sky (derived from generated still #2346).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A wolf with glowing eyes stands on the bank of a reflective pond, facing a fiery monster with flames. Floating eye-covered orbs hover above the water which mirrors the scene under a dramatic, sky",
+  "inverted_title": "Inverted sketch: Surreal Swamp Reflection",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A wolf with glowing eyes stands on the bank of a reflective pond, facing a fiery monster with flames. Floating eye-covered orbs hover above the water which mirrors the scene under a dramatic, sky (from generated still #2346).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A wolf with glowing eyes stands on the bank of a reflective pond, facing a fiery monster with flames. Floating eye-covered orbs hover above the water which mirrors the scene under a dramatic, sky",
+  "source_description": "A dark purple wolf with glowing yellow eyes stands on the bank of a reflective pond, facing a green fiery monster with purple flames. Floating eye-covered orbs hover above the water which mirrors the scene under a dramatic, colorful sky.",
+  "source_prompt": "",
+  "source_title": "Surreal Swamp Reflection",
+  "style": "surreal fantasy",
+  "mood": "eerie ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wolf",
+    "monster",
+    "pond",
+    "floating eyes",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2346,
+  "source_url": "/generated/2346.jpg",
+  "image_url": "/sketches/3023.png",
+  "inverted_image_url": "/sketches-inverted/3023.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:44Z"
+}

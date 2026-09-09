@@ -1,0 +1,42 @@
+{
+  "number": 2113,
+  "title": "Line sketch: Cosmic Floral Goddesses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic artwork featuring three stylized female faces in, and emerging from a large central flower with swirling vines and hair. The composition is set against a textured and background adorned with dots and crescent moons (derived from generated still #1338).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic artwork featuring three stylized female faces in, and emerging from a large central flower with swirling vines and hair. The composition is set against a textured and background adorned with dots and crescent moons",
+  "inverted_title": "Inverted sketch: Cosmic Floral Goddesses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic artwork featuring three stylized female faces in, and emerging from a large central flower with swirling vines and hair. The composition is set against a textured and background adorned with dots and crescent moons (from generated still #1338).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic artwork featuring three stylized female faces in, and emerging from a large central flower with swirling vines and hair. The composition is set against a textured and background adorned with dots and crescent moons",
+  "source_description": "A vibrant psychedelic artwork featuring three stylized female faces in green, purple, and yellow emerging from a large central flower with swirling green vines and hair. The composition is set against a textured red and pink background adorned with yellow dots and crescent moons.",
+  "source_prompt": "",
+  "source_title": "Cosmic Floral Goddesses",
+  "style": "psychedelic",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "trippy",
+    "floral",
+    "goddess",
+    "surreal",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1338,
+  "source_url": "/generated/1338.jpg",
+  "image_url": "/sketches/2113.png",
+  "inverted_image_url": "/sketches-inverted/2113.png",
+  "curve_count": 80,
+  "built_at": "2026-08-17T00:09:42Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2919,
+  "title": "Line sketch: Mosaic Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young woman with short dark hair sits on a and sofa in a living room, holding a small object while looking toward the viewer. The wall behind her is covered in an elaborate mosaic of circular patterns, and floral motifs, with floating bubbles and petals throughout the space (derived from generated still #2208).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young woman with short dark hair sits on a and sofa in a living room, holding a small object while looking toward the viewer. The wall behind her is covered in an elaborate mosaic of circular patterns, and floral motifs, with floating bubbles and petals throughout the space",
+  "inverted_title": "Inverted sketch: Mosaic Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young woman with short dark hair sits on a and sofa in a living room, holding a small object while looking toward the viewer. The wall behind her is covered in an elaborate mosaic of circular patterns, and floral motifs, with floating bubbles and petals throughout the space (from generated still #2208).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young woman with short dark hair sits on a and sofa in a living room, holding a small object while looking toward the viewer. The wall behind her is covered in an elaborate mosaic of circular patterns, and floral motifs, with floating bubbles and petals throughout the space",
+  "source_description": "A young woman with short dark hair sits on a teal and yellow sofa in a living room, holding a small object while looking toward the viewer. The wall behind her is covered in an elaborate mosaic of circular patterns, roses, and floral motifs in shades of pink, red, teal and blue, with floating pink bubbles and petals throughout the space.",
+  "source_prompt": "A young woman with short dark hair wearing a pink sweater sits on a modern teal and yellow sofa in a cozy living room. She holds a small object in her lap. Behind her, an entire wall is covered in intricate mosaic artwork featuring large roses, circular patterns, and floral designs in pink, red, teal and blue tiles. Pink bubbles and rose petals float through the air. A wooden coffee table with a glass of water and a lamp on a side table are visible. Warm, soft lighting comes from a large window showing green foliage outside.",
+  "source_title": "Rose Mosaic Dream",
+  "style": "surreal composition",
+  "mood": "dreamlike, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic wall",
+    "living room",
+    "floating petals",
+    "surreal interior",
+    "woman on sofa"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2208,
+  "source_url": "/generated/2208.jpg",
+  "image_url": "/sketches/2919.png",
+  "inverted_image_url": "/sketches-inverted/2919.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:44Z"
+}

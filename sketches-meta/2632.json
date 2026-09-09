@@ -1,0 +1,42 @@
+{
+  "number": 2632,
+  "title": "Line sketch: Desmos #212 Artifact",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An aged, rectangular metallic tablet floats above rippling liquid, displaying an intricate glowing map with winding paths, geometric symbols, and a prominent - orb nestled in a nest of dark wires in the lower right. The tablet's surface shows signs of wear with visible grid lines and handwritten annotations (derived from generated still #1871).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An aged, rectangular metallic tablet floats above rippling liquid, displaying an intricate glowing map with winding paths, geometric symbols, and a prominent - orb nestled in a nest of dark wires in the lower right. The tablet's surface shows signs of wear with visible grid lines and handwritten annotations",
+  "inverted_title": "Inverted sketch: Desmos #212 Artifact",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An aged, rectangular metallic tablet floats above rippling liquid, displaying an intricate glowing map with winding paths, geometric symbols, and a prominent - orb nestled in a nest of dark wires in the lower right. The tablet's surface shows signs of wear with visible grid lines and handwritten annotations (from generated still #1871).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An aged, rectangular metallic tablet floats above rippling liquid, displaying an intricate glowing map with winding paths, geometric symbols, and a prominent - orb nestled in a nest of dark wires in the lower right. The tablet's surface shows signs of wear with visible grid lines and handwritten annotations",
+  "source_description": "An aged, rectangular metallic tablet floats above rippling liquid, displaying an intricate glowing map with winding paths, geometric symbols, and a prominent orange-green orb nestled in a nest of dark wires in the lower right. The tablet's surface shows signs of wear with visible grid lines and handwritten annotations.",
+  "source_prompt": "",
+  "source_title": "Desmos #212 Artifact",
+  "style": "fantasy illustration",
+  "mood": "mysterious, ancient",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artifact",
+    "glowing orb",
+    "map tablet",
+    "wires",
+    "overhead view"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1871,
+  "source_url": "/generated/1871.jpg",
+  "image_url": "/sketches/2632.png",
+  "inverted_image_url": "/sketches-inverted/2632.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:43Z"
+}

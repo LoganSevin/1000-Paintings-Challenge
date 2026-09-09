@@ -1,0 +1,42 @@
+{
+  "number": 4395,
+  "title": "Line sketch: The Alchemist's Sanctum",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an ornate velvet gown stands at a wooden apothecary counter inside a mystical laboratory. The room is filled with glowing potion bottles, framed paintings of butterflies and animals, an eye-shaped skylight, and magical artifacts, viewed through a arched doorway with tassels (derived from generated still #3814).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an ornate velvet gown stands at a wooden apothecary counter inside a mystical laboratory. The room is filled with glowing potion bottles, framed paintings of butterflies and animals, an eye-shaped skylight, and magical artifacts, viewed through a arched doorway with tassels",
+  "inverted_title": "Inverted sketch: The Alchemist's Sanctum",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an ornate velvet gown stands at a wooden apothecary counter inside a mystical laboratory. The room is filled with glowing potion bottles, framed paintings of butterflies and animals, an eye-shaped skylight, and magical artifacts, viewed through a arched doorway with tassels (from generated still #3814).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an ornate velvet gown stands at a wooden apothecary counter inside a mystical laboratory. The room is filled with glowing potion bottles, framed paintings of butterflies and animals, an eye-shaped skylight, and magical artifacts, viewed through a arched doorway with tassels",
+  "source_description": "A woman in an ornate purple velvet gown stands at a wooden apothecary counter inside a mystical laboratory. The room is filled with glowing potion bottles, framed paintings of butterflies and animals, an eye-shaped skylight, and magical artifacts, viewed through a purple arched doorway with red tassels.",
+  "source_prompt": "A woman wearing a long ornate purple velvet dress with white sleeves stands at a wooden counter inside a mystical alchemist laboratory. The room has purple walls covered in framed paintings of glowing blue butterflies, foxes, and plants. Shelves are filled with colorful glowing potion bottles. An eye-shaped stained glass skylight is in the ceiling. Red tassels hang from a large purple and gold archway framing the entire scene. Magical, detailed fantasy interior, rich colors, atmospheric lighting.",
+  "source_title": "The Alchemist's Sanctum",
+  "style": "fantasy illustration",
+  "mood": "mysterious, enchanted",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "apothecary",
+    "alchemy",
+    "magic laboratory",
+    "aesthetic",
+    "fantasy interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3814,
+  "source_url": "/generated/3814.jpg",
+  "image_url": "/sketches/4395.png",
+  "inverted_image_url": "/sketches-inverted/4395.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:48Z"
+}

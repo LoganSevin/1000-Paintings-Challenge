@@ -1,0 +1,42 @@
+{
+  "number": 3313,
+  "title": "Line sketch: Afterglow on the Orient",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a white slip dress and black choker sits in a luxurious velvet train seat, holding a cocktail and looking upward as glowing playing cards float through a beam of warm light from the window. Outside, a man in a suit stands by water at dusk with palm trees and a sky visible (derived from generated still #2698).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a white slip dress and black choker sits in a luxurious velvet train seat, holding a cocktail and looking upward as glowing playing cards float through a beam of warm light from the window. Outside, a man in a suit stands by water at dusk with palm trees and a sky visible",
+  "inverted_title": "Inverted sketch: Afterglow on the Orient",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a white slip dress and black choker sits in a luxurious velvet train seat, holding a cocktail and looking upward as glowing playing cards float through a beam of warm light from the window. Outside, a man in a suit stands by water at dusk with palm trees and a sky visible (from generated still #2698).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a white slip dress and black choker sits in a luxurious velvet train seat, holding a cocktail and looking upward as glowing playing cards float through a beam of warm light from the window. Outside, a man in a suit stands by water at dusk with palm trees and a sky visible",
+  "source_description": "A woman in a white slip dress and black choker sits in a luxurious red velvet train seat, holding a cocktail and looking upward as glowing playing cards float through a beam of warm light from the window. Outside, a man in a suit stands by water at dusk with palm trees and a pink sky visible.",
+  "source_prompt": "A beautiful woman in a white silk slip dress and black ribbon choker sits in a vintage luxury train car with red velvet seats and art deco wallpaper, holding a cocktail. Warm golden sunlight streams through the window, illuminating floating glowing playing cards drifting through the air. Outside the window is a tropical dusk scene with palm trees, water, and a man in a suit standing on the shore. Cinematic lighting, dramatic atmosphere, detailed digital painting.",
+  "source_title": "Afterglow on the Orient",
+  "style": "cinematic",
+  "mood": "melancholy, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "train interior",
+    "floating cards",
+    "art deco",
+    "dusk light",
+    "elegant woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2698,
+  "source_url": "/generated/2698.jpg",
+  "image_url": "/sketches/3313.png",
+  "inverted_image_url": "/sketches-inverted/3313.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:45Z"
+}

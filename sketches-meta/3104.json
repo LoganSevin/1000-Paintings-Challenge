@@ -1,0 +1,42 @@
+{
+  "number": 3104,
+  "title": "Line sketch: Film Reel Phantom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene inside a decaying, -walled room with peeling paint and a checkered floor. A woman in a vintage military-style uniform and cap stands inside an ornate picture frame, holding a film reel, while a large film strip with horse images and a clock winds across the foreground; behind her are a telescope, vintage film projector casting light, and a stormy night sky visible through an arched window and an open wall revealing a silhouetted figure (derived from generated still #2439).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene inside a decaying, -walled room with peeling paint and a checkered floor. A woman in a vintage military-style uniform and cap stands inside an ornate picture frame, holding a film reel, while a large film strip with horse images and a clock winds across the foreground; behind her are a telescope, vintage film projector casting light, and a stormy night sky visible through an arched window and an open wall revealing a silhouetted figure",
+  "inverted_title": "Inverted sketch: Film Reel Phantom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene inside a decaying, -walled room with peeling paint and a checkered floor. A woman in a vintage military-style uniform and cap stands inside an ornate picture frame, holding a film reel, while a large film strip with horse images and a clock winds across the foreground; behind her are a telescope, vintage film projector casting light, and a stormy night sky visible through an arched window and an open wall revealing a silhouetted figure (from generated still #2439).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene inside a decaying, -walled room with peeling paint and a checkered floor. A woman in a vintage military-style uniform and cap stands inside an ornate picture frame, holding a film reel, while a large film strip with horse images and a clock winds across the foreground; behind her are a telescope, vintage film projector casting light, and a stormy night sky visible through an arched window and an open wall revealing a silhouetted figure",
+  "source_description": "A surreal scene inside a decaying, red-walled room with peeling paint and a checkered floor. A woman in a vintage military-style uniform and cap stands inside an ornate golden picture frame, holding a film reel, while a large film strip with horse images and a clock winds across the foreground; behind her are a telescope, vintage film projector casting light, and a stormy night sky visible through an arched window and an open wall revealing a silhouetted figure.",
+  "source_prompt": "Surreal cinematic painting of a decaying room with peeling red walls and checkered floor. A stern woman in dark 1940s military uniform and cap stands inside a large golden picture frame holding a film canister. A film strip with horses and clock motifs winds through the foreground. Vintage film projector beams light across the scene, a brass telescope points at a starry night sky through an arched window, while a stormy exterior reveals a silhouetted figure. Moody, atmospheric, detailed textures.",
+  "source_title": "Film Reel Phantom",
+  "style": "surrealism",
+  "mood": "eerie, cinematic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "vintage cinema",
+    "film noir",
+    "abandoned room",
+    "military woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2439,
+  "source_url": "/generated/2439.jpg",
+  "image_url": "/sketches/3104.png",
+  "inverted_image_url": "/sketches-inverted/3104.png",
+  "curve_count": 26,
+  "built_at": "2026-08-17T00:09:45Z"
+}

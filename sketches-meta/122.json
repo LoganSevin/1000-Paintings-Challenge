@@ -1,0 +1,42 @@
+{
+  "number": 122,
+  "title": "Line sketch: Spheres of Retro Futurism",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A transparent bubble chair with white cushions anchors the mid-century patio scene, flanked by a multi-sphere floor lamp and scattered orbs. Partial view of an vintage car appears on the left against sleek modern architecture. Clean lines, flat color blocks, and soft gradients define the digital illustration technique (derived from painting #158).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A transparent bubble chair with white cushions anchors the mid-century patio scene, flanked by a multi-sphere floor lamp and scattered orbs. Partial view of an vintage car appears on the left against sleek modern architecture. Clean lines, flat color blocks, and soft gradients define the digital illustration technique",
+  "inverted_title": "Inverted sketch: Spheres of Retro Futurism",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A transparent bubble chair with white cushions anchors the mid-century patio scene, flanked by a multi-sphere floor lamp and scattered orbs. Partial view of an vintage car appears on the left against sleek modern architecture. Clean lines, flat color blocks, and soft gradients define the digital illustration technique (from painting #158).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A transparent bubble chair with white cushions anchors the mid-century patio scene, flanked by a multi-sphere floor lamp and scattered orbs. Partial view of an vintage car appears on the left against sleek modern architecture. Clean lines, flat color blocks, and soft gradients define the digital illustration technique",
+  "source_description": "A transparent bubble chair with white cushions anchors the mid-century patio scene, flanked by a multi-sphere floor lamp and scattered colorful orbs. Partial view of an orange vintage car appears on the left against sleek modern architecture. Clean lines, flat color blocks, and soft gradients define the digital illustration technique.",
+  "source_prompt": "",
+  "source_title": "Spheres of Retro Futurism",
+  "style": "retro-futurism",
+  "mood": "nostalgic playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro",
+    "futuristic",
+    "spheres",
+    "mid-century",
+    "patio"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 158,
+  "source_url": "/paintings/158.jpg",
+  "image_url": "/sketches/122.png",
+  "inverted_image_url": "/sketches-inverted/122.png",
+  "curve_count": 387,
+  "built_at": "2026-08-17T00:09:38Z"
+}

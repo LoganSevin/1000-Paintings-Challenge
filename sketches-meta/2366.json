@@ -1,0 +1,42 @@
+{
+  "number": 2366,
+  "title": "Line sketch: Steampunk Bug Over City",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive mechanical insect with glowing eyes and intricate and body hovers over a stylized nighttime city street. The surreal psychedelic scene features swirling smoke patterns, scattered on the ground, and buildings with glowing signs under a hazy sky (derived from generated still #1594).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive mechanical insect with glowing eyes and intricate and body hovers over a stylized nighttime city street. The surreal psychedelic scene features swirling smoke patterns, scattered on the ground, and buildings with glowing signs under a hazy sky",
+  "inverted_title": "Inverted sketch: Steampunk Bug Over City",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive mechanical insect with glowing eyes and intricate and body hovers over a stylized nighttime city street. The surreal psychedelic scene features swirling smoke patterns, scattered on the ground, and buildings with glowing signs under a hazy sky (from generated still #1594).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive mechanical insect with glowing eyes and intricate and body hovers over a stylized nighttime city street. The surreal psychedelic scene features swirling smoke patterns, scattered on the ground, and buildings with glowing signs under a hazy sky",
+  "source_description": "A massive mechanical insect with glowing orange eyes and intricate green and yellow body hovers over a stylized nighttime city street. The surreal psychedelic scene features swirling colorful smoke patterns, scattered oranges on the ground, and buildings with glowing signs under a hazy sky.",
+  "source_prompt": "",
+  "source_title": "Steampunk Bug Over City",
+  "style": "psychedelic surrealism",
+  "mood": "whimsical dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "mechanical insect",
+    "psychedelic",
+    "surreal cityscape",
+    "glowing machinery"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1594,
+  "source_url": "/generated/1594.jpg",
+  "image_url": "/sketches/2366.png",
+  "inverted_image_url": "/sketches-inverted/2366.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:43Z"
+}

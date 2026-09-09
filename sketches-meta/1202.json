@@ -1,0 +1,42 @@
+{
+  "number": 1202,
+  "title": "Line sketch: Melting Entities",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a melting creature with braided hair and large eyes beside a -skinned woman with flowing dark hair and glowing eyes. Both figures are set against a chaotic, stormy sky filled with lightning, dripping clouds, and floating symbols (derived from generated still #414).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a melting creature with braided hair and large eyes beside a -skinned woman with flowing dark hair and glowing eyes. Both figures are set against a chaotic, stormy sky filled with lightning, dripping clouds, and floating symbols",
+  "inverted_title": "Inverted sketch: Melting Entities",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a melting creature with braided hair and large eyes beside a -skinned woman with flowing dark hair and glowing eyes. Both figures are set against a chaotic, stormy sky filled with lightning, dripping clouds, and floating symbols (from generated still #414).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a melting creature with braided hair and large eyes beside a -skinned woman with flowing dark hair and glowing eyes. Both figures are set against a chaotic, stormy sky filled with lightning, dripping clouds, and floating symbols",
+  "source_description": "A surreal painting depicts a melting blue creature with braided hair and large yellow eyes beside a blue-skinned woman with flowing dark hair and glowing orange eyes. Both figures are set against a chaotic, stormy sky filled with lightning, dripping clouds, and floating symbols.",
+  "source_prompt": "",
+  "source_title": "Melting Blue Entities",
+  "style": "surrealism",
+  "mood": "chaotic, melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting figures",
+    "lightning storm",
+    "creatures",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 414,
+  "source_url": "/generated/414.jpg",
+  "image_url": "/sketches/1202.png",
+  "inverted_image_url": "/sketches-inverted/1202.png",
+  "curve_count": 190,
+  "built_at": "2026-08-17T00:09:40Z"
+}

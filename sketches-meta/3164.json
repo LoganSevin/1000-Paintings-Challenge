@@ -1,0 +1,42 @@
+{
+  "number": 3164,
+  "title": "Line sketch: Descent into Fallout",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a jacket and grey jumpsuit descends a damaged concrete staircase carrying a large weapon on her back. The flooded basement below contains floating picture frames, while cracked walls display surreal paintings under dramatic spotlighting (derived from generated still #2506).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a jacket and grey jumpsuit descends a damaged concrete staircase carrying a large weapon on her back. The flooded basement below contains floating picture frames, while cracked walls display surreal paintings under dramatic spotlighting",
+  "inverted_title": "Inverted sketch: Descent into Fallout",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a jacket and grey jumpsuit descends a damaged concrete staircase carrying a large weapon on her back. The flooded basement below contains floating picture frames, while cracked walls display surreal paintings under dramatic spotlighting (from generated still #2506).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a jacket and grey jumpsuit descends a damaged concrete staircase carrying a large weapon on her back. The flooded basement below contains floating picture frames, while cracked walls display surreal paintings under dramatic spotlighting",
+  "source_description": "A woman in a red jacket and grey jumpsuit descends a damaged concrete staircase carrying a large weapon on her back. The flooded basement below contains floating picture frames, while cracked walls display surreal paintings under dramatic spotlighting.",
+  "source_prompt": "A lone woman in a red leather jacket and grey vault suit walks down a broken concrete staircase into a flooded basement, carrying a large futuristic weapon on her back. Cracked walls hold surreal floating paintings, some frames drift in the dark reflective water below. Dramatic spotlight from above illuminates dust and debris, eerie post-apocalyptic atmosphere with glowing green and purple accents, highly detailed cinematic digital painting.",
+  "source_title": "Descent into Fallout",
+  "style": "cinematic",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "post-apocalyptic",
+    "surreal",
+    "staircase",
+    "flooded basement",
+    "woman explorer"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2506,
+  "source_url": "/generated/2506.jpg",
+  "image_url": "/sketches/3164.png",
+  "inverted_image_url": "/sketches-inverted/3164.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

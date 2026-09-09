@@ -1,0 +1,42 @@
+{
+  "number": 3289,
+  "title": "Line sketch: Beat 272 - Return",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with curly dark hair wearing a long grey coat stands in an ornate, vine-covered room, holding a film reel in one hand while reaching toward glowing framed pictures on the wall with the other. Behind her, a large movie theater screen shows a silhouetted figure walking into bright light, with empty seats visible below (derived from generated still #2664).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with curly dark hair wearing a long grey coat stands in an ornate, vine-covered room, holding a film reel in one hand while reaching toward glowing framed pictures on the wall with the other. Behind her, a large movie theater screen shows a silhouetted figure walking into bright light, with empty seats visible below",
+  "inverted_title": "Inverted sketch: Beat 272 - Return",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with curly dark hair wearing a long grey coat stands in an ornate, vine-covered room, holding a film reel in one hand while reaching toward glowing framed pictures on the wall with the other. Behind her, a large movie theater screen shows a silhouetted figure walking into bright light, with empty seats visible below (from generated still #2664).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with curly dark hair wearing a long grey coat stands in an ornate, vine-covered room, holding a film reel in one hand while reaching toward glowing framed pictures on the wall with the other. Behind her, a large movie theater screen shows a silhouetted figure walking into bright light, with empty seats visible below",
+  "source_description": "A woman with curly dark hair wearing a long grey coat stands in an ornate, vine-covered room, holding a film reel in one hand while reaching toward glowing framed pictures on the wall with the other. Behind her, a large movie theater screen shows a silhouetted figure walking into bright light, with empty red seats visible below.",
+  "source_prompt": "A woman in a long grey coat stands inside a magical film archive room overgrown with flowering vines, holding a large film reel while reaching toward glowing framed movie stills on the wall. Behind her is a large cinema screen projecting a lone silhouette walking into bright light with empty red theater seats below, ornate ceiling details, warm cinematic lighting mixed with cool blue tones, detailed digital painting",
+  "source_title": "Beat 272 - Return",
+  "style": "cinematic surrealism",
+  "mood": "nostalgic, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinematic",
+    "film reel",
+    "movie theater",
+    "surreal",
+    "vines"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2664,
+  "source_url": "/generated/2664.jpg",
+  "image_url": "/sketches/3289.png",
+  "inverted_image_url": "/sketches-inverted/3289.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:45Z"
+}

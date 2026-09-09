@@ -1,0 +1,42 @@
+{
+  "number": 2645,
+  "title": "Line sketch: Oval Portrait with Bird",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition rests within an ornate oval frame set into a decaying stone arch. Two women with long flowing hair—one dark with highlights, one —gaze in opposite directions while a vibrant bird perches on their joined hands (derived from generated still #1885).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition rests within an ornate oval frame set into a decaying stone arch. Two women with long flowing hair—one dark with highlights, one —gaze in opposite directions while a vibrant bird perches on their joined hands",
+  "inverted_title": "Inverted sketch: Oval Portrait with Bird",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition rests within an ornate oval frame set into a decaying stone arch. Two women with long flowing hair—one dark with highlights, one —gaze in opposite directions while a vibrant bird perches on their joined hands (from generated still #1885).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition rests within an ornate oval frame set into a decaying stone arch. Two women with long flowing hair—one dark with highlights, one —gaze in opposite directions while a vibrant bird perches on their joined hands",
+  "source_description": "A surreal painting rests within an ornate oval frame set into a decaying purple stone arch. Two women with long flowing hair—one dark with green highlights, one red—gaze in opposite directions while a vibrant red bird perches on their joined hands.",
+  "source_prompt": "",
+  "source_title": "Oval Portrait with Red Bird",
+  "style": "surreal fantasy",
+  "mood": "ethereal melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "oval portrait",
+    "two women",
+    "bird",
+    "stone arch",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1885,
+  "source_url": "/generated/1885.jpg",
+  "image_url": "/sketches/2645.png",
+  "inverted_image_url": "/sketches-inverted/2645.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:43Z"
+}

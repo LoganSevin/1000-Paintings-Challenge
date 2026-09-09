@@ -1,0 +1,42 @@
+{
+  "number": 62,
+  "title": "Line sketch: Highway Under Fiery Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A multi-lane highway with glowing car lights leads the eye toward a distant city skyline silhouetted against a blazing sunset. Layered buildings, towers, and hazy clouds create depth beneath dramatic and skies. Broad, loose and atmospheric blending emphasize light and mood over detail (derived from painting #92).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A multi-lane highway with glowing car lights leads the eye toward a distant city skyline silhouetted against a blazing sunset. Layered buildings, towers, and hazy clouds create depth beneath dramatic and skies. Broad, loose and atmospheric blending emphasize light and mood over detail",
+  "inverted_title": "Inverted sketch: Highway Under Fiery Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A multi-lane highway with glowing car lights leads the eye toward a distant city skyline silhouetted against a blazing sunset. Layered buildings, towers, and hazy clouds create depth beneath dramatic and skies. Broad, loose and atmospheric blending emphasize light and mood over detail (from painting #92).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A multi-lane highway with glowing car lights leads the eye toward a distant city skyline silhouetted against a blazing sunset. Layered buildings, towers, and hazy clouds create depth beneath dramatic and skies. Broad, loose and atmospheric blending emphasize light and mood over detail",
+  "source_description": "A multi-lane highway with glowing car lights leads the eye toward a distant city skyline silhouetted against a blazing sunset. Layered buildings, towers, and hazy clouds create depth beneath dramatic orange and magenta skies. Broad, loose brushwork and atmospheric blending emphasize light and mood over detail.",
+  "source_prompt": "",
+  "source_title": "Highway Under Fiery Sunset",
+  "style": "Impressionist",
+  "mood": "Vibrant serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cityscape",
+    "sunset",
+    "highway",
+    "urban",
+    "traffic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 92,
+  "source_url": "/paintings/92.jpg",
+  "image_url": "/sketches/62.png",
+  "inverted_image_url": "/sketches-inverted/62.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:38Z"
+}

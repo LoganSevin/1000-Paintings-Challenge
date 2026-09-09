@@ -1,0 +1,42 @@
+{
+  "number": 1436,
+  "title": "Line sketch: Eye of the Waterfall",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive surreal eye dominates the composition with a swirling vortex pupil and a waterfall cascading from its lower lid into a pool below. Lush psychedelic vegetation, mist, and abstract organic patterns in vibrant, and frame the eye against a sky (derived from generated still #651).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive surreal eye dominates the composition with a swirling vortex pupil and a waterfall cascading from its lower lid into a pool below. Lush psychedelic vegetation, mist, and abstract organic patterns in vibrant, and frame the eye against a sky",
+  "inverted_title": "Inverted sketch: Eye of the Waterfall",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive surreal eye dominates the composition with a swirling vortex pupil and a waterfall cascading from its lower lid into a pool below. Lush psychedelic vegetation, mist, and abstract organic patterns in vibrant, and frame the eye against a sky (from generated still #651).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive surreal eye dominates the composition with a swirling vortex pupil and a waterfall cascading from its lower lid into a pool below. Lush psychedelic vegetation, mist, and abstract organic patterns in vibrant, and frame the eye against a sky",
+  "source_description": "A massive surreal green eye dominates the composition with a swirling vortex pupil and a multicolored waterfall cascading from its lower lid into a turquoise pool below. Lush psychedelic vegetation, mist, and abstract organic patterns in vibrant greens, purples, and blues frame the eye against a colorful sky.",
+  "source_prompt": "",
+  "source_title": "Eye of the Waterfall",
+  "style": "surreal psychedelic",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "waterfall",
+    "psychedelic",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 651,
+  "source_url": "/generated/651.jpg",
+  "image_url": "/sketches/1436.png",
+  "inverted_image_url": "/sketches-inverted/1436.png",
+  "curve_count": 110,
+  "built_at": "2026-08-17T00:09:41Z"
+}

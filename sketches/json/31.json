@@ -1,0 +1,21 @@
+{
+  "num": 31,
+  "title": "Painting #44",
+  "created": 1786915893.0635815,
+  "source_url": "/paintings/44.jpg",
+  "width": 360,
+  "height": 270,
+  "curve_count": 1,
+  "curves": [
+    "((1 - t)^3*59.00 + 3*t*(1 - t)^2*62.00 + 3*t^2*(1 - t)*65.00 + t^3*68.00,(1 - t)^3*96.00 + 3*t*(1 - t)^2*96.00 + 3*t^2*(1 - t)*96.00 + t^3*96.00)"
+  ],
+  "meta": {
+    "detail": 6,
+    "max_curves": 400,
+    "contour_count": 1,
+    "source": "batch_sketches_all",
+    "collection": "paintings",
+    "source_num": 44
+  },
+  "preview_url": "/sketches/31.png"
+}

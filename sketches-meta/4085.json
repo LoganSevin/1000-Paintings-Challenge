@@ -1,0 +1,42 @@
+{
+  "number": 4085,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A female warrior with hair stands in a dynamic combat pose, swinging a massive warhammer with both hands. A powerful burst of white and energy explodes from the hammer's head toward the right side of the frame (derived from generated still #3502).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A female warrior with hair stands in a dynamic combat pose, swinging a massive warhammer with both hands. A powerful burst of white and energy explodes from the hammer's head toward the right side of the frame",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A female warrior with hair stands in a dynamic combat pose, swinging a massive warhammer with both hands. A powerful burst of white and energy explodes from the hammer's head toward the right side of the frame (from generated still #3502).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A female warrior with hair stands in a dynamic combat pose, swinging a massive warhammer with both hands. A powerful burst of white and energy explodes from the hammer's head toward the right side of the frame",
+  "source_description": "A female warrior with purple hair stands in a dynamic combat pose, swinging a massive purple warhammer with both hands. A powerful burst of white and purple energy explodes from the hammer's head toward the right side of the frame.",
+  "source_prompt": "A fierce female warrior with short purple hair wearing white and purple fantasy armor stands in a powerful stance, swinging a giant purple warhammer with both hands. A massive white and purple magical energy explosion bursts from the hammer head. Comic book style, clean lines, vibrant colors, dramatic action pose, solid dark gray background.",
+  "source_title": "Purple Hammer Warrior",
+  "style": "comic book",
+  "mood": "dynamic, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "energy blast",
+    "hair",
+    "fantasy character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3502,
+  "source_url": "/generated/3502.jpg",
+  "image_url": "/sketches/4085.png",
+  "inverted_image_url": "/sketches-inverted/4085.png",
+  "curve_count": 77,
+  "built_at": "2026-08-17T00:09:47Z"
+}

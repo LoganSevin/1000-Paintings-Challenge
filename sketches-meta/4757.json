@@ -1,0 +1,42 @@
+{
+  "number": 4757,
+  "title": "Line sketch: Starry Night Farmstead",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nocturnal rural landscape featuring a farmhouse and barn nestled in a vast field of glowing and wildflowers. The dramatic night sky is filled with a vibrant Milky Way, nebulae, and countless bright stars, framed by an ornate dark wooden frame with gem accents (derived from generated still #4190).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nocturnal rural landscape featuring a farmhouse and barn nestled in a vast field of glowing and wildflowers. The dramatic night sky is filled with a vibrant Milky Way, nebulae, and countless bright stars, framed by an ornate dark wooden frame with gem accents",
+  "inverted_title": "Inverted sketch: Starry Night Farmstead",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nocturnal rural landscape featuring a farmhouse and barn nestled in a vast field of glowing and wildflowers. The dramatic night sky is filled with a vibrant Milky Way, nebulae, and countless bright stars, framed by an ornate dark wooden frame with gem accents (from generated still #4190).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nocturnal rural landscape featuring a farmhouse and barn nestled in a vast field of glowing and wildflowers. The dramatic night sky is filled with a vibrant Milky Way, nebulae, and countless bright stars, framed by an ornate dark wooden frame with gem accents",
+  "source_description": "A nocturnal rural landscape featuring a red farmhouse and barn nestled in a vast field of glowing blue and golden wildflowers. The dramatic night sky is filled with a vibrant Milky Way, colorful nebulae, and countless bright stars, framed by an ornate dark wooden frame with purple gem accents.",
+  "source_prompt": "A serene rural night scene with a red farmhouse and barn in a misty field of luminous blue and golden wildflowers under a breathtaking starry sky. The vibrant Milky Way and colorful nebulae swirl across the deep purple heavens, with scattered trees and wooden fences in the midground. Painted in a rich, luminous fantasy style with visible brushwork, presented inside an ornate dark wooden frame with purple jewel details.",
+  "source_title": "Starry Night Farmstead",
+  "style": "impressionist fantasy",
+  "mood": "ethereal wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "night landscape",
+    "milky way",
+    "farmhouse",
+    "wildflower field",
+    "starry sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4190,
+  "source_url": "/generated/4190.jpg",
+  "image_url": "/sketches/4757.png",
+  "inverted_image_url": "/sketches-inverted/4757.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:48Z"
+}

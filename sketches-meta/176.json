@@ -1,0 +1,42 @@
+{
+  "number": 176,
+  "title": "Line sketch: Fiery Plaid Abstraction",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic composition of overlapping squares and rectangles in warm autumn tones. Thin white lines crisscross the pattern creating depth and movement (derived from painting #215).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic composition of overlapping squares and rectangles in warm autumn tones. Thin white lines crisscross the pattern creating depth and movement",
+  "inverted_title": "Inverted sketch: Fiery Plaid Abstraction",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic composition of overlapping squares and rectangles in warm autumn tones. Thin white lines crisscross the pattern creating depth and movement (from painting #215).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic composition of overlapping squares and rectangles in warm autumn tones. Thin white lines crisscross the pattern creating depth and movement",
+  "source_description": "Dynamic composition of overlapping squares and rectangles in warm autumn tones. Thin white lines crisscross the pattern creating depth and movement.",
+  "source_prompt": "",
+  "source_title": "Fiery Plaid Abstraction",
+  "style": "Abstract",
+  "mood": "Energetic, warm",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "geometric",
+    "plaid",
+    "warm tones",
+    "pattern"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 215,
+  "source_url": "/paintings/215.jpg",
+  "image_url": "/sketches/176.png",
+  "inverted_image_url": "/sketches-inverted/176.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

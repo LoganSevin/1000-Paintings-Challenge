@@ -1,0 +1,42 @@
+{
+  "number": 4814,
+  "title": "Line sketch: Cat Wizard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cat with glowing eyes leaps through the air holding an open spellbook in its mouth. The cat wears a collar with a glowing crystal and is surrounded by magical energy, floating books, potion bottles, and bats inside a glowing triangular portal with radiating light beams (derived from generated still #4249).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cat with glowing eyes leaps through the air holding an open spellbook in its mouth. The cat wears a collar with a glowing crystal and is surrounded by magical energy, floating books, potion bottles, and bats inside a glowing triangular portal with radiating light beams",
+  "inverted_title": "Inverted sketch: Cat Wizard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cat with glowing eyes leaps through the air holding an open spellbook in its mouth. The cat wears a collar with a glowing crystal and is surrounded by magical energy, floating books, potion bottles, and bats inside a glowing triangular portal with radiating light beams (from generated still #4249).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cat with glowing eyes leaps through the air holding an open spellbook in its mouth. The cat wears a collar with a glowing crystal and is surrounded by magical energy, floating books, potion bottles, and bats inside a glowing triangular portal with radiating light beams",
+  "source_description": "A vibrant green cat with glowing yellow eyes leaps through the air holding an open spellbook in its mouth. The cat wears a red collar with a glowing blue crystal and is surrounded by magical green energy, floating books, potion bottles, and bats inside a glowing triangular portal with radiating light beams.",
+  "source_prompt": "A dynamic fantasy scene of a bright green cat with luminous yellow eyes leaping forward through the air, clutching an open ancient spellbook in its jaws. The cat wears a red collar with a glowing blue crystal pendant. It is surrounded by floating magical books, potion vials, and bats. The cat emerges from a large glowing blue triangular portal with radiating golden light beams and swirling green magical energy against a dramatic purple and pink sky.",
+  "source_title": "Green Cat Wizard",
+  "style": "fantasy illustration",
+  "mood": "magical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "magic cat",
+    "flying feline",
+    "spellbook",
+    "fantasy portal",
+    "wizard familiar"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4249,
+  "source_url": "/generated/4249.jpg",
+  "image_url": "/sketches/4814.png",
+  "inverted_image_url": "/sketches-inverted/4814.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:49Z"
+}

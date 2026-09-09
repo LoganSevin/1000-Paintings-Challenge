@@ -1,0 +1,42 @@
+{
+  "number": 1205,
+  "title": "Line sketch: Cosmic Egg Awakening",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait shows a -skinned woman's face with glowing eyes, wearing a thorny crown. Her hair transforms into a dramatic stormy sky filled with lightning, floating leaves, and small flying creatures, while a large cracked egg rests beside her emitting light (derived from generated still #417).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait shows a -skinned woman's face with glowing eyes, wearing a thorny crown. Her hair transforms into a dramatic stormy sky filled with lightning, floating leaves, and small flying creatures, while a large cracked egg rests beside her emitting light",
+  "inverted_title": "Inverted sketch: Cosmic Egg Awakening",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait shows a -skinned woman's face with glowing eyes, wearing a thorny crown. Her hair transforms into a dramatic stormy sky filled with lightning, floating leaves, and small flying creatures, while a large cracked egg rests beside her emitting light (from generated still #417).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait shows a -skinned woman's face with glowing eyes, wearing a thorny crown. Her hair transforms into a dramatic stormy sky filled with lightning, floating leaves, and small flying creatures, while a large cracked egg rests beside her emitting light",
+  "source_description": "A surreal portrait shows a blue-skinned woman's face with glowing yellow eyes, wearing a thorny crown. Her hair transforms into a dramatic stormy sky filled with lightning, floating leaves, and small flying creatures, while a large cracked golden egg rests beside her emitting light.",
+  "source_prompt": "",
+  "source_title": "Cosmic Egg Awakening",
+  "style": "surrealism",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "woman",
+    "egg",
+    "storm clouds",
+    "lightning"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 417,
+  "source_url": "/generated/417.jpg",
+  "image_url": "/sketches/1205.png",
+  "inverted_image_url": "/sketches-inverted/1205.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4282,
+  "title": "Line sketch: Mystic Crystal Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball sits on an ornate dark metal stand decorated with Celtic knotwork., and energy streams with branching lightning and spiral patterns emanate from its center while a tattooed finger points toward it from the right (derived from generated still #3701).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball sits on an ornate dark metal stand decorated with Celtic knotwork., and energy streams with branching lightning and spiral patterns emanate from its center while a tattooed finger points toward it from the right",
+  "inverted_title": "Inverted sketch: Mystic Crystal Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball sits on an ornate dark metal stand decorated with Celtic knotwork., and energy streams with branching lightning and spiral patterns emanate from its center while a tattooed finger points toward it from the right (from generated still #3701).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball sits on an ornate dark metal stand decorated with Celtic knotwork., and energy streams with branching lightning and spiral patterns emanate from its center while a tattooed finger points toward it from the right",
+  "source_description": "A glowing crystal ball sits on an ornate dark metal stand decorated with Celtic knotwork. Bright blue, purple and pink energy streams with branching lightning and spiral patterns emanate from its center while a green tattooed finger points toward it from the right.",
+  "source_prompt": "A glowing magical crystal ball on a dark metal pedestal with intricate Celtic knot patterns, emitting bright blue and purple electrical energy tendrils and spirals that branch outward, a green tattooed hand with Celtic designs pointing at the orb from the right side, dark background with stylized waves at the base, vibrant neon fantasy style",
+  "source_title": "Mystic Crystal Orb",
+  "style": "digital fantasy illustration",
+  "mood": "mystical, electric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "celtic knotwork",
+    "lightning magic",
+    "hand",
+    "energy orb"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3701,
+  "source_url": "/generated/3701.jpg",
+  "image_url": "/sketches/4282.png",
+  "inverted_image_url": "/sketches-inverted/4282.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:47Z"
+}

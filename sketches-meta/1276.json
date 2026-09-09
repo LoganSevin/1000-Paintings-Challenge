@@ -1,0 +1,42 @@
+{
+  "number": 1276,
+  "title": "Line sketch: Frog and Cat by the Pool",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant courtyard scene featuring a frog resting on a lily pad in a shallow pool, facing a sleek black cat sitting on the tiled edge. The background shows a building with arches and a wall covered in black paw prints, surrounded by potted palm plants (derived from generated still #490).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant courtyard scene featuring a frog resting on a lily pad in a shallow pool, facing a sleek black cat sitting on the tiled edge. The background shows a building with arches and a wall covered in black paw prints, surrounded by potted palm plants",
+  "inverted_title": "Inverted sketch: Frog and Cat by the Pool",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant courtyard scene featuring a frog resting on a lily pad in a shallow pool, facing a sleek black cat sitting on the tiled edge. The background shows a building with arches and a wall covered in black paw prints, surrounded by potted palm plants (from generated still #490).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant courtyard scene featuring a frog resting on a lily pad in a shallow pool, facing a sleek black cat sitting on the tiled edge. The background shows a building with arches and a wall covered in black paw prints, surrounded by potted palm plants",
+  "source_description": "A vibrant courtyard scene featuring a colorful frog resting on a lily pad in a shallow pool, facing a sleek black cat sitting on the tiled edge. The background shows a bright yellow building with arches and a pink wall covered in black paw prints, surrounded by potted palm plants.",
+  "source_prompt": "",
+  "source_title": "Frog and Cat by the Pool",
+  "style": "surreal",
+  "mood": "whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "frog",
+    "black cat",
+    "courtyard",
+    "lily pads",
+    "paw prints"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 490,
+  "source_url": "/generated/490.jpg",
+  "image_url": "/sketches/1276.png",
+  "inverted_image_url": "/sketches-inverted/1276.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:40Z"
+}

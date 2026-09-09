@@ -1,0 +1,42 @@
+{
+  "number": 4711,
+  "title": "Line sketch: Abandoned Amusement Park",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A top-down view of a neglected amusement park featuring a central yin-yang patterned plaza with a fountain, a large pipe organ on the left, a small steam train on tracks, a Ferris wheel on the right, and scattered flags and petals. Roller coaster tracks curve around the decaying scene (derived from generated still #4141).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A top-down view of a neglected amusement park featuring a central yin-yang patterned plaza with a fountain, a large pipe organ on the left, a small steam train on tracks, a Ferris wheel on the right, and scattered flags and petals. Roller coaster tracks curve around the decaying scene",
+  "inverted_title": "Inverted sketch: Abandoned Amusement Park",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A top-down view of a neglected amusement park featuring a central yin-yang patterned plaza with a fountain, a large pipe organ on the left, a small steam train on tracks, a Ferris wheel on the right, and scattered flags and petals. Roller coaster tracks curve around the decaying scene (from generated still #4141).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A top-down view of a neglected amusement park featuring a central yin-yang patterned plaza with a fountain, a large pipe organ on the left, a small steam train on tracks, a Ferris wheel on the right, and scattered flags and petals. Roller coaster tracks curve around the decaying scene",
+  "source_description": "A top-down view of a neglected amusement park featuring a central yin-yang patterned plaza with a fountain, a large pipe organ on the left, a small purple steam train on tracks, a Ferris wheel on the right, and scattered colorful flags and petals. Roller coaster tracks curve around the decaying scene.",
+  "source_prompt": "Top-down view of a decaying amusement park with a large ornate pipe organ on the left, a central fountain surrounded by yin-yang patterned ground, a small purple steam train emitting smoke on tracks in the foreground, a Ferris wheel on the right, scattered colorful flags and pink petals, roller coaster tracks looping in the background, cracked pavement, whimsical yet melancholic atmosphere, stylized digital illustration",
+  "source_title": "Abandoned Amusement Park",
+  "style": "illustration",
+  "mood": "eerie nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "amusement park",
+    "top-down view",
+    "abandoned",
+    "yin yang",
+    "steam train"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4141,
+  "source_url": "/generated/4141.jpg",
+  "image_url": "/sketches/4711.png",
+  "inverted_image_url": "/sketches-inverted/4711.png",
+  "curve_count": 55,
+  "built_at": "2026-08-17T00:09:48Z"
+}

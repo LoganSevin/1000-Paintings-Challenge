@@ -1,0 +1,42 @@
+{
+  "number": 3890,
+  "title": "Line sketch: Mage Spellcasting Sequence",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a young male mage with hair casting a glowing spell. The character wears a and outfit with a star-emblem cape and boots, shown in dynamic combat stances against a plain gray background (derived from generated still #3307).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a young male mage with hair casting a glowing spell. The character wears a and outfit with a star-emblem cape and boots, shown in dynamic combat stances against a plain gray background",
+  "inverted_title": "Inverted sketch: Mage Spellcasting Sequence",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a young male mage with hair casting a glowing spell. The character wears a and outfit with a star-emblem cape and boots, shown in dynamic combat stances against a plain gray background (from generated still #3307).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a young male mage with hair casting a glowing spell. The character wears a and outfit with a star-emblem cape and boots, shown in dynamic combat stances against a plain gray background",
+  "source_description": "Four sequential poses of a young male mage with teal hair casting a glowing cyan spell. The character wears a dark blue and teal outfit with a star-emblem cape and boots, shown in dynamic combat stances against a plain gray background.",
+  "source_prompt": "A young male mage with messy teal hair wearing a dark blue tunic, teal pants, star-patterned cape and boots, shown in four different dynamic combat poses casting a bright cyan magical spell with glowing energy effects around his hands, sequential action poses from left to right, clean studio lighting on a solid gray background, vibrant anime-influenced digital illustration style",
+  "source_title": "Blue Mage Spellcasting Sequence",
+  "style": "2D digital illustration",
+  "mood": "dynamic magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mage",
+    "spellcasting",
+    "character sequence",
+    "fantasy character",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3307,
+  "source_url": "/generated/3307.jpg",
+  "image_url": "/sketches/3890.png",
+  "inverted_image_url": "/sketches-inverted/3890.png",
+  "curve_count": 36,
+  "built_at": "2026-08-17T00:09:46Z"
+}

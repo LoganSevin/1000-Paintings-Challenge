@@ -1,0 +1,42 @@
+{
+  "number": 4206,
+  "title": "Line sketch: Melting Pumpkin Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition shows a large melting pumpkin with a sad face and eyes, positioned next to a glowing black crescent moon. Smaller melting pumpkins and hanging lanterns with geometric patterns float around them against a and gradient sky, with vibrant paint splatters and dripping textures throughout (derived from generated still #3625).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition shows a large melting pumpkin with a sad face and eyes, positioned next to a glowing black crescent moon. Smaller melting pumpkins and hanging lanterns with geometric patterns float around them against a and gradient sky, with vibrant paint splatters and dripping textures throughout",
+  "inverted_title": "Inverted sketch: Melting Pumpkin Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition shows a large melting pumpkin with a sad face and eyes, positioned next to a glowing black crescent moon. Smaller melting pumpkins and hanging lanterns with geometric patterns float around them against a and gradient sky, with vibrant paint splatters and dripping textures throughout (from generated still #3625).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition shows a large melting pumpkin with a sad face and eyes, positioned next to a glowing black crescent moon. Smaller melting pumpkins and hanging lanterns with geometric patterns float around them against a and gradient sky, with vibrant paint splatters and dripping textures throughout",
+  "source_description": "A surreal painting shows a large melting orange pumpkin with a sad face and yellow eyes, positioned next to a glowing black crescent moon. Smaller melting pumpkins and colorful hanging lanterns with geometric patterns float around them against a purple and orange gradient sky, with vibrant paint splatters and dripping textures throughout.",
+  "source_prompt": "Surreal scene of a large sad melting orange pumpkin with droopy yellow eyes next to a glowing black and white crescent moon. Smaller melting pumpkins float nearby. Colorful geometric hanging lanterns with intricate patterns dangle from above. Vibrant red, blue and teal paint splatters and drips cover the composition. Gradient purple to orange sky background, whimsical and slightly eerie atmosphere, painterly style with visible brushstrokes and liquid textures.",
+  "source_title": "Melting Pumpkin Moon",
+  "style": "surreal composition",
+  "mood": "whimsical melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting with watercolor splatter effects",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pumpkin",
+    "crescent moon",
+    "melting",
+    "lanterns",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3625,
+  "source_url": "/generated/3625.jpg",
+  "image_url": "/sketches/4206.png",
+  "inverted_image_url": "/sketches-inverted/4206.png",
+  "curve_count": 290,
+  "built_at": "2026-08-17T00:09:47Z"
+}

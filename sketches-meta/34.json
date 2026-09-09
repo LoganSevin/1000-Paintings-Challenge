@@ -1,0 +1,42 @@
+{
+  "number": 34,
+  "title": "Line sketch: Dancing Color Ribbons",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: abstract composition depicts intertwined flowing ribbons and organic swirls across a white page. The dynamic composition layers bold curves in, and with circular accents, creating rhythmic movement. Flat color fields and sweeping emphasize a fluid, decorative technique (derived from painting #51).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: abstract composition depicts intertwined flowing ribbons and organic swirls across a white page. The dynamic composition layers bold curves in, and with circular accents, creating rhythmic movement. Flat color fields and sweeping emphasize a fluid, decorative technique",
+  "inverted_title": "Inverted sketch: Dancing Color Ribbons",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: abstract composition depicts intertwined flowing ribbons and organic swirls across a white page. The dynamic composition layers bold curves in, and with circular accents, creating rhythmic movement. Flat color fields and sweeping emphasize a fluid, decorative technique (from painting #51).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: abstract composition depicts intertwined flowing ribbons and organic swirls across a white page. The dynamic composition layers bold curves in, and with circular accents, creating rhythmic movement. Flat color fields and sweeping emphasize a fluid, decorative technique",
+  "source_description": "This abstract painting depicts intertwined flowing ribbons and organic swirls across a white canvas. The dynamic composition layers bold curves in red, orange, and green with circular accents, creating rhythmic movement. Flat color fields and sweeping brushstrokes emphasize a fluid, decorative technique.",
+  "source_prompt": "",
+  "source_title": "Dancing Color Ribbons",
+  "style": "Abstract",
+  "mood": "Vibrant Energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "ribbons",
+    "swirls",
+    "organic",
+    "flowing"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 51,
+  "source_url": "/paintings/51.jpg",
+  "image_url": "/sketches/34.png",
+  "inverted_image_url": "/sketches-inverted/34.png",
+  "curve_count": 95,
+  "built_at": "2026-08-17T00:09:38Z"
+}

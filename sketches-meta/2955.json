@@ -1,0 +1,42 @@
+{
+  "number": 2955,
+  "title": "Line sketch: The Bell Ringer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark spectral cowboy figure wearing a dripping black hat with a crown stands in the center, ringing a large bell that emits swirling energy. At his feet on a glowing grid lies a white bovine skull surrounded by broken bells, barbed wire, and shattered fragments against a cracked, stormy background (derived from generated still #2268).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark spectral cowboy figure wearing a dripping black hat with a crown stands in the center, ringing a large bell that emits swirling energy. At his feet on a glowing grid lies a white bovine skull surrounded by broken bells, barbed wire, and shattered fragments against a cracked, stormy background",
+  "inverted_title": "Inverted sketch: The Bell Ringer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark spectral cowboy figure wearing a dripping black hat with a crown stands in the center, ringing a large bell that emits swirling energy. At his feet on a glowing grid lies a white bovine skull surrounded by broken bells, barbed wire, and shattered fragments against a cracked, stormy background (from generated still #2268).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark spectral cowboy figure wearing a dripping black hat with a crown stands in the center, ringing a large bell that emits swirling energy. At his feet on a glowing grid lies a white bovine skull surrounded by broken bells, barbed wire, and shattered fragments against a cracked, stormy background",
+  "source_description": "A dark spectral cowboy figure wearing a dripping black hat with a golden crown stands in the center, ringing a large bell that emits swirling energy. At his feet on a glowing cyan grid lies a white bovine skull surrounded by broken bells, barbed wire, and shattered fragments against a cracked, stormy background.",
+  "source_prompt": "A towering spectral cowboy in a dripping black hat topped with a golden crown, face obscured in shadow, rings an old metal bell that creates swirling vortex energy. He stands on a glowing cyan grid floor scattered with broken bells, barbed wire, and a large white bovine skull in the foreground. Cracked stormy dark background with golden fracture lines, dramatic lighting, surreal and ominous atmosphere.",
+  "source_title": "The Bell Ringer",
+  "style": "dark surrealism",
+  "mood": "ominous, eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cowboy",
+    "bell",
+    "skull",
+    "barbed wire",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2268,
+  "source_url": "/generated/2268.jpg",
+  "image_url": "/sketches/2955.png",
+  "inverted_image_url": "/sketches-inverted/2955.png",
+  "curve_count": 139,
+  "built_at": "2026-08-17T00:09:44Z"
+}

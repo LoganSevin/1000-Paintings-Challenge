@@ -1,0 +1,42 @@
+{
+  "number": 1006,
+  "title": "Line sketch: Teapot Oracle Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant smiling teapot with steampunk details and a jeweled crown sits on a marble amphitheater stage overlooking a lake. The twilight sky features a dramatic solar eclipse with swirling nebulae, spaceships, and an audience seated in curved rows (derived from generated still #216).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant smiling teapot with steampunk details and a jeweled crown sits on a marble amphitheater stage overlooking a lake. The twilight sky features a dramatic solar eclipse with swirling nebulae, spaceships, and an audience seated in curved rows",
+  "inverted_title": "Inverted sketch: Teapot Oracle Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant smiling teapot with steampunk details and a jeweled crown sits on a marble amphitheater stage overlooking a lake. The twilight sky features a dramatic solar eclipse with swirling nebulae, spaceships, and an audience seated in curved rows (from generated still #216).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant smiling teapot with steampunk details and a jeweled crown sits on a marble amphitheater stage overlooking a lake. The twilight sky features a dramatic solar eclipse with swirling nebulae, spaceships, and an audience seated in curved rows",
+  "source_description": "A giant smiling turquoise teapot with steampunk details and a jeweled crown sits on a marble amphitheater stage overlooking a lake. The twilight sky features a dramatic solar eclipse with swirling colorful nebulae, spaceships, and an audience seated in curved rows.",
+  "source_prompt": "",
+  "source_title": "Teapot Oracle Eclipse",
+  "style": "surreal fantasy",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "teapot",
+    "solar eclipse",
+    "amphitheater",
+    "surreal",
+    "spaceships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 216,
+  "source_url": "/generated/216.jpg",
+  "image_url": "/sketches/1006.png",
+  "inverted_image_url": "/sketches-inverted/1006.png",
+  "curve_count": 170,
+  "built_at": "2026-08-17T00:09:40Z"
+}

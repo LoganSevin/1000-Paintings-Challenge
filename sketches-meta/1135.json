@@ -1,0 +1,42 @@
+{
+  "number": 1135,
+  "title": "Line sketch: Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal painted portrait of a dog's head in profile, its face melting and dripping with slime. The dog's visible eye is with a human-like tear duct, while tears stream down from a superimposed human eye and nose on its face (derived from generated still #347).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal painted portrait of a dog's head in profile, its face melting and dripping with slime. The dog's visible eye is with a human-like tear duct, while tears stream down from a superimposed human eye and nose on its face",
+  "inverted_title": "Inverted sketch: Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal painted portrait of a dog's head in profile, its face melting and dripping with slime. The dog's visible eye is with a human-like tear duct, while tears stream down from a superimposed human eye and nose on its face (from generated still #347).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal painted portrait of a dog's head in profile, its face melting and dripping with slime. The dog's visible eye is with a human-like tear duct, while tears stream down from a superimposed human eye and nose on its face",
+  "source_description": "A surreal painted portrait of a green dog's head in profile, its face melting and dripping with green slime. The dog's visible eye is orange with a human-like tear duct, while multicolored tears stream down from a superimposed human eye and nose on its face.",
+  "source_prompt": "",
+  "source_title": "Green Dog Portrait",
+  "style": "surrealism",
+  "mood": "eerie melancholic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting",
+    "dog",
+    "portrait",
+    "dripping"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 347,
+  "source_url": "/generated/347.jpg",
+  "image_url": "/sketches/1135.png",
+  "inverted_image_url": "/sketches-inverted/1135.png",
+  "curve_count": 251,
+  "built_at": "2026-08-17T00:09:40Z"
+}

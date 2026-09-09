@@ -1,0 +1,42 @@
+{
+  "number": 3304,
+  "title": "Line sketch: Enchanted Bloom Sphere",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A luminous transparent sphere filled with blooming and camellia flowers and leaves floats in the foreground. The background depicts a dark, mystical night landscape with jagged mountains under a twilight sky (derived from generated still #2686).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A luminous transparent sphere filled with blooming and camellia flowers and leaves floats in the foreground. The background depicts a dark, mystical night landscape with jagged mountains under a twilight sky",
+  "inverted_title": "Inverted sketch: Enchanted Bloom Sphere",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A luminous transparent sphere filled with blooming and camellia flowers and leaves floats in the foreground. The background depicts a dark, mystical night landscape with jagged mountains under a twilight sky (from generated still #2686).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A luminous transparent sphere filled with blooming and camellia flowers and leaves floats in the foreground. The background depicts a dark, mystical night landscape with jagged mountains under a twilight sky",
+  "source_description": "A luminous transparent sphere filled with blooming pink and magenta camellia flowers and green leaves floats in the foreground. The background depicts a dark, mystical night landscape with jagged mountains under a purple twilight sky.",
+  "source_prompt": "A large transparent glowing sphere containing a lush bouquet of pink, magenta and white camellia flowers with green and yellow leaves, floating in the foreground. Dark mystical mountains and purple twilight sky in the background, soft bioluminescent particles, dramatic lighting, painterly fantasy style.",
+  "source_title": "Enchanted Bloom Sphere",
+  "style": "fantasy composition",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "flowers",
+    "sphere",
+    "fantasy",
+    "night landscape",
+    "camellias"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2686,
+  "source_url": "/generated/2686.jpg",
+  "image_url": "/sketches/3304.png",
+  "inverted_image_url": "/sketches-inverted/3304.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:45Z"
+}

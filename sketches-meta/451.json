@@ -1,0 +1,42 @@
+{
+  "number": 451,
+  "title": "Line sketch: Creepy Zombie Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-detailed close-up of a grotesque -skinned zombie with bulging bloodshot eyes and decaying teeth. The expressive composition captures horror and decay with masterful and textured skin (derived from painting #541).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-detailed close-up of a grotesque -skinned zombie with bulging bloodshot eyes and decaying teeth. The expressive composition captures horror and decay with masterful and textured skin",
+  "inverted_title": "Inverted sketch: Creepy Zombie Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-detailed close-up of a grotesque -skinned zombie with bulging bloodshot eyes and decaying teeth. The expressive composition captures horror and decay with masterful and textured skin (from painting #541).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-detailed close-up of a grotesque -skinned zombie with bulging bloodshot eyes and decaying teeth. The expressive composition captures horror and decay with masterful and textured skin",
+  "source_description": "A hyper-detailed close-up of a grotesque green-skinned zombie with bulging bloodshot eyes and decaying teeth. The expressive painting captures horror and decay with masterful brushwork and textured skin.",
+  "source_prompt": "",
+  "source_title": "Creepy Green Zombie Portrait",
+  "style": "Realistic",
+  "mood": "Horrifying grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "horror",
+    "portrait",
+    "grotesque",
+    "macabre"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 541,
+  "source_url": "/paintings/541.jpg",
+  "image_url": "/sketches/451.png",
+  "inverted_image_url": "/sketches-inverted/451.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

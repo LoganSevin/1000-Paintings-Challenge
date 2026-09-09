@@ -1,0 +1,42 @@
+{
+  "number": 237,
+  "title": "Line sketch: Alien Desert Landscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized illustration of a barren desert with towering rock formations under a pale sky. A large ringed planet hangs in the distance while cacti and desert shrubs dot the sandy foreground (derived from painting #286).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized illustration of a barren desert with towering rock formations under a pale sky. A large ringed planet hangs in the distance while cacti and desert shrubs dot the sandy foreground",
+  "inverted_title": "Inverted sketch: Alien Desert Landscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized illustration of a barren desert with towering rock formations under a pale sky. A large ringed planet hangs in the distance while cacti and desert shrubs dot the sandy foreground (from painting #286).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized illustration of a barren desert with towering rock formations under a pale sky. A large ringed planet hangs in the distance while cacti and desert shrubs dot the sandy foreground",
+  "source_description": "A stylized illustration of a barren desert with towering orange rock formations under a pale sky. A large ringed planet hangs in the distance while cacti and desert shrubs dot the sandy foreground.",
+  "source_prompt": "",
+  "source_title": "Alien Desert Landscape",
+  "style": "Digital illustration",
+  "mood": "Serene and otherworldly",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "desert",
+    "sci-fi",
+    "landscape",
+    "cactus",
+    "planet"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 286,
+  "source_url": "/paintings/286.jpg",
+  "image_url": "/sketches/237.png",
+  "inverted_image_url": "/sketches-inverted/237.png",
+  "curve_count": 216,
+  "built_at": "2026-08-17T00:09:38Z"
+}

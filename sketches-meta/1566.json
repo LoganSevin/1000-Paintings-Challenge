@@ -1,0 +1,42 @@
+{
+  "number": 1566,
+  "title": "Line sketch: Psychedelic Mushroom Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene featuring a large and mushroom with a long dragon-like serpent coiled around its stem and a stylized woman's face. In the background, a robed wizard stands atop the mushroom holding a glowing orb under a starry sky with aurora lights (derived from generated still #781).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene featuring a large and mushroom with a long dragon-like serpent coiled around its stem and a stylized woman's face. In the background, a robed wizard stands atop the mushroom holding a glowing orb under a starry sky with aurora lights",
+  "inverted_title": "Inverted sketch: Psychedelic Mushroom Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene featuring a large and mushroom with a long dragon-like serpent coiled around its stem and a stylized woman's face. In the background, a robed wizard stands atop the mushroom holding a glowing orb under a starry sky with aurora lights (from generated still #781).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene featuring a large and mushroom with a long dragon-like serpent coiled around its stem and a stylized woman's face. In the background, a robed wizard stands atop the mushroom holding a glowing orb under a starry sky with aurora lights",
+  "source_description": "A vibrant surreal scene featuring a large green and purple mushroom with a long orange dragon-like serpent coiled around its stem and a stylized woman's face. In the background, a robed wizard stands atop the mushroom holding a glowing orb under a starry purple sky with aurora lights.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Mushroom Sorceress",
+  "style": "psychedelic fantasy",
+  "mood": "whimsical enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mushroom",
+    "dragon",
+    "wizard",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 781,
+  "source_url": "/generated/781.jpg",
+  "image_url": "/sketches/1566.png",
+  "inverted_image_url": "/sketches-inverted/1566.png",
+  "curve_count": 235,
+  "built_at": "2026-08-17T00:09:41Z"
+}

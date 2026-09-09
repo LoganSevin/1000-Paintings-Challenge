@@ -1,0 +1,42 @@
+{
+  "number": 704,
+  "title": "Line sketch: Giant Steampunk Mech Invasion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive multi-legged mechanical behemoth with glowing eyes looms over a foggy retro-futuristic city street. Pedestrians and vintage cars scatter below in awe and fear as the towering war machine advances through the smoky industrial haze (derived from painting #889).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive multi-legged mechanical behemoth with glowing eyes looms over a foggy retro-futuristic city street. Pedestrians and vintage cars scatter below in awe and fear as the towering war machine advances through the smoky industrial haze",
+  "inverted_title": "Inverted sketch: Giant Steampunk Mech Invasion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive multi-legged mechanical behemoth with glowing eyes looms over a foggy retro-futuristic city street. Pedestrians and vintage cars scatter below in awe and fear as the towering war machine advances through the smoky industrial haze (from painting #889).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive multi-legged mechanical behemoth with glowing eyes looms over a foggy retro-futuristic city street. Pedestrians and vintage cars scatter below in awe and fear as the towering war machine advances through the smoky industrial haze",
+  "source_description": "A massive multi-legged mechanical behemoth with glowing orange eyes looms over a foggy retro-futuristic city street. Pedestrians and vintage cars scatter below in awe and fear as the towering war machine advances through the smoky industrial haze.",
+  "source_prompt": "",
+  "source_title": "Giant Steampunk Mech Invasion",
+  "style": "Cinematic Concept Art",
+  "mood": "Dramatic and Ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "steampunk",
+    "mech",
+    "apocalyptic",
+    "cityscape",
+    "sci-fi"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 889,
+  "source_url": "/paintings/889.jpg",
+  "image_url": "/sketches/704.png",
+  "inverted_image_url": "/sketches-inverted/704.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:39Z"
+}

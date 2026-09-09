@@ -1,0 +1,42 @@
+{
+  "number": 1003,
+  "title": "Line sketch: Cosmic Chick Arena",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large cracked chick with eyes, boxing gloves, and an angry expression stands on a glowing circular stage in a futuristic arena filled with an audience of aliens and humans. In the dramatic space sky above, a black hole swirls with and nebulae while various spaceships fly around it (derived from generated still #213).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large cracked chick with eyes, boxing gloves, and an angry expression stands on a glowing circular stage in a futuristic arena filled with an audience of aliens and humans. In the dramatic space sky above, a black hole swirls with and nebulae while various spaceships fly around it",
+  "inverted_title": "Inverted sketch: Cosmic Chick Arena",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large cracked chick with eyes, boxing gloves, and an angry expression stands on a glowing circular stage in a futuristic arena filled with an audience of aliens and humans. In the dramatic space sky above, a black hole swirls with and nebulae while various spaceships fly around it (from generated still #213).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large cracked chick with eyes, boxing gloves, and an angry expression stands on a glowing circular stage in a futuristic arena filled with an audience of aliens and humans. In the dramatic space sky above, a black hole swirls with and nebulae while various spaceships fly around it",
+  "source_description": "A large yellow cracked chick with blue eyes, red boxing gloves, and an angry expression stands on a glowing circular stage in a futuristic arena filled with an audience of aliens and humans. In the dramatic space sky above, a black hole swirls with orange and purple nebulae while various spaceships fly around it.",
+  "source_prompt": "",
+  "source_title": "Cosmic Chick Arena",
+  "style": "digital illustration",
+  "mood": "epic, whimsical, intense",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chick",
+    "arena",
+    "black hole",
+    "spaceships",
+    "sci-fi"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 213,
+  "source_url": "/generated/213.jpg",
+  "image_url": "/sketches/1003.png",
+  "inverted_image_url": "/sketches-inverted/1003.png",
+  "curve_count": 122,
+  "built_at": "2026-08-17T00:09:40Z"
+}

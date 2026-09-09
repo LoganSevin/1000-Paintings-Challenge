@@ -1,0 +1,42 @@
+{
+  "number": 4940,
+  "title": "Line sketch: Grim composition in Rainy Room",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A uniformed female officer stands in a dimly lit, rain-soaked room holding a cup, staring at a large ominous composition. The composition depicts a skeletal winged demon with an axe and a ghostly pale woman in a Victorian dress, both covered in blood with liquid dripping from the frame onto the floor (derived from generated still #4377).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A uniformed female officer stands in a dimly lit, rain-soaked room holding a cup, staring at a large ominous composition. The composition depicts a skeletal winged demon with an axe and a ghostly pale woman in a Victorian dress, both covered in blood with liquid dripping from the frame onto the floor",
+  "inverted_title": "Inverted sketch: Grim composition in Rainy Room",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A uniformed female officer stands in a dimly lit, rain-soaked room holding a cup, staring at a large ominous composition. The composition depicts a skeletal winged demon with an axe and a ghostly pale woman in a Victorian dress, both covered in blood with liquid dripping from the frame onto the floor (from generated still #4377).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A uniformed female officer stands in a dimly lit, rain-soaked room holding a cup, staring at a large ominous composition. The composition depicts a skeletal winged demon with an axe and a ghostly pale woman in a Victorian dress, both covered in blood with liquid dripping from the frame onto the floor",
+  "source_description": "A uniformed female officer stands in a dimly lit, rain-soaked room holding a cup, staring at a large ominous painting. The painting depicts a skeletal winged demon with an axe and a ghostly pale woman in a Victorian dress, both covered in blood with red liquid dripping from the frame onto the floor.",
+  "source_prompt": "A tense female police officer in a dark blue uniform stands in a dilapidated room with rain pouring through a broken skylight, holding a coffee cup and looking at a massive gothic painting on the wall. The painting shows a bloody skeletal winged demon raising a bloody axe next to a ghostly Victorian woman with outstretched hands. Blood drips from the painting frame onto the wet floor, dramatic cinematic lighting, highly detailed digital painting.",
+  "source_title": "Grim Painting in Rainy Room",
+  "style": "dark surreal horror",
+  "mood": "eerie menacing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "supernatural",
+    "blood",
+    "police",
+    "dark art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4377,
+  "source_url": "/generated/4377.jpg",
+  "image_url": "/sketches/4940.png",
+  "inverted_image_url": "/sketches-inverted/4940.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:49Z"
+}

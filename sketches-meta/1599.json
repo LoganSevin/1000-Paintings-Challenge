@@ -1,0 +1,42 @@
+{
+  "number": 1599,
+  "title": "Line sketch: Psychedelic Visionary Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large central eye with intricate peacock-like patterns in the iris, a fiery and black flame-like pupil, and a sclera. Surrounding the eye are multiple floating orbs containing silhouetted figures and tree motifs against swirling, vibrant psychedelic patterns in warm and cool tones (derived from generated still #814).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large central eye with intricate peacock-like patterns in the iris, a fiery and black flame-like pupil, and a sclera. Surrounding the eye are multiple floating orbs containing silhouetted figures and tree motifs against swirling, vibrant psychedelic patterns in warm and cool tones",
+  "inverted_title": "Inverted sketch: Psychedelic Visionary Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large central eye with intricate peacock-like patterns in the iris, a fiery and black flame-like pupil, and a sclera. Surrounding the eye are multiple floating orbs containing silhouetted figures and tree motifs against swirling, vibrant psychedelic patterns in warm and cool tones (from generated still #814).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large central eye with intricate peacock-like patterns in the iris, a fiery and black flame-like pupil, and a sclera. Surrounding the eye are multiple floating orbs containing silhouetted figures and tree motifs against swirling, vibrant psychedelic patterns in warm and cool tones",
+  "source_description": "A large central green eye with intricate peacock-like patterns in the iris, a fiery orange and black flame-like pupil, and a blue sclera. Surrounding the eye are multiple floating orbs containing silhouetted figures and tree motifs against swirling, vibrant psychedelic patterns in warm and cool tones.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Visionary Eye",
+  "style": "visionary art",
+  "mood": "hypnotic, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "eye",
+    "surreal",
+    "flame pupil",
+    "ornate iris"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 814,
+  "source_url": "/generated/814.jpg",
+  "image_url": "/sketches/1599.png",
+  "inverted_image_url": "/sketches-inverted/1599.png",
+  "curve_count": 37,
+  "built_at": "2026-08-17T00:09:41Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 1991,
+  "title": "Line sketch: Celestial Fountain Reverie",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant composition depicts a circular fountain with rippling water and splashing droplets at the center. Three stylized female profile faces float above in circular frames, surrounded by intricate patterns of and circles against a abstract background with drips (derived from generated still #1216).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant composition depicts a circular fountain with rippling water and splashing droplets at the center. Three stylized female profile faces float above in circular frames, surrounded by intricate patterns of and circles against a abstract background with drips",
+  "inverted_title": "Inverted sketch: Celestial Fountain Reverie",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant composition depicts a circular fountain with rippling water and splashing droplets at the center. Three stylized female profile faces float above in circular frames, surrounded by intricate patterns of and circles against a abstract background with drips (from generated still #1216).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant composition depicts a circular fountain with rippling water and splashing droplets at the center. Three stylized female profile faces float above in circular frames, surrounded by intricate patterns of and circles against a abstract background with drips",
+  "source_description": "A vibrant watercolor painting depicts a turquoise circular fountain with rippling water and splashing droplets at the center. Three stylized female profile faces float above in circular frames, surrounded by intricate patterns of blue and purple circles against a colorful abstract background with gold drips.",
+  "source_prompt": "",
+  "source_title": "Celestial Fountain Reverie",
+  "style": "surreal",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor and ink on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fountain",
+    "female profiles",
+    "celestial",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1216,
+  "source_url": "/generated/1216.jpg",
+  "image_url": "/sketches/1991.png",
+  "inverted_image_url": "/sketches-inverted/1991.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:42Z"
+}

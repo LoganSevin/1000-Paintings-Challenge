@@ -1,0 +1,42 @@
+{
+  "number": 26,
+  "title": "Line sketch: Floating Bubble Cluster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: The artwork depicts a dense arrangement of overlapping spheres resembling bubbles or orbs in various sizes against a swirling background. Composition fills the frame with dynamic layering and depth created by smaller accent circles scattered throughout. Smooth gradients, glossy highlights, and soft edges suggest fluid composition techniques with a focus on light reflection (derived from painting #37).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: The artwork depicts a dense arrangement of overlapping spheres resembling bubbles or orbs in various sizes against a swirling background. Composition fills the frame with dynamic layering and depth created by smaller accent circles scattered throughout. Smooth gradients, glossy highlights, and soft edges suggest fluid composition techniques with a focus on light reflection",
+  "inverted_title": "Inverted sketch: Floating Bubble Cluster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: The artwork depicts a dense arrangement of overlapping spheres resembling bubbles or orbs in various sizes against a swirling background. Composition fills the frame with dynamic layering and depth created by smaller accent circles scattered throughout. Smooth gradients, glossy highlights, and soft edges suggest fluid composition techniques with a focus on light reflection (from painting #37).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: The artwork depicts a dense arrangement of overlapping spheres resembling bubbles or orbs in various sizes against a swirling background. Composition fills the frame with dynamic layering and depth created by smaller accent circles scattered throughout. Smooth gradients, glossy highlights, and soft edges suggest fluid composition techniques with a focus on light reflection",
+  "source_description": "The artwork depicts a dense arrangement of overlapping blue spheres resembling bubbles or orbs in various sizes against a swirling multicolored background. Composition fills the frame with dynamic layering and depth created by smaller accent circles scattered throughout. Smooth gradients, glossy highlights, and soft edges suggest fluid painting techniques with a focus on light reflection.",
+  "source_prompt": "",
+  "source_title": "Floating Blue Bubble Cluster",
+  "style": "Abstract",
+  "mood": "Vibrant playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "bubbles",
+    "spheres",
+    "abstract",
+    "circles",
+    "fluid"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 37,
+  "source_url": "/paintings/37.jpg",
+  "image_url": "/sketches/26.png",
+  "inverted_image_url": "/sketches-inverted/26.png",
+  "curve_count": 128,
+  "built_at": "2026-08-17T00:09:38Z"
+}

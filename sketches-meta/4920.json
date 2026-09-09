@@ -1,0 +1,42 @@
+{
+  "number": 4920,
+  "title": "Line sketch: Rainy Office with composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dimly lit security office interior with a desk, lit lamp, white cup, open book, and a jacket draped over a chair. Heavy rain falls from a glass ceiling. A large surreal composition dominates the right wall, depicting a long decaying hallway with exit signs, bloody handprints, and flickering fluorescent lights (derived from generated still #4356).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dimly lit security office interior with a desk, lit lamp, white cup, open book, and a jacket draped over a chair. Heavy rain falls from a glass ceiling. A large surreal composition dominates the right wall, depicting a long decaying hallway with exit signs, bloody handprints, and flickering fluorescent lights",
+  "inverted_title": "Inverted sketch: Rainy Office with composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dimly lit security office interior with a desk, lit lamp, white cup, open book, and a jacket draped over a chair. Heavy rain falls from a glass ceiling. A large surreal composition dominates the right wall, depicting a long decaying hallway with exit signs, bloody handprints, and flickering fluorescent lights (from generated still #4356).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dimly lit security office interior with a desk, lit lamp, white cup, open book, and a jacket draped over a chair. Heavy rain falls from a glass ceiling. A large surreal composition dominates the right wall, depicting a long decaying hallway with exit signs, bloody handprints, and flickering fluorescent lights",
+  "source_description": "A dimly lit security office interior with a desk, lit lamp, white cup, open book, and a blue jacket draped over a chair. Heavy rain falls from a glass ceiling. A large surreal painting dominates the right wall, depicting a long decaying green hallway with red exit signs, bloody handprints, and flickering fluorescent lights.",
+  "source_prompt": "A moody cinematic scene of a rainy security office at night with water pouring through a glass ceiling. On the left, a desk holds a lit blue lamp, white coffee cup, open book, and a blue jacket hangs on the chair. A large painting on the purple wall shows a long decaying institutional hallway with green peeling walls, red glowing exit signs, bloody handprints, and fluorescent lights. Dark, unsettling atmosphere, heavy rain, realistic details.",
+  "source_title": "Rainy Office with Painting",
+  "style": "cinematic surrealism",
+  "mood": "eerie melancholy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "liminal space",
+    "horror aesthetic",
+    "rainy interior",
+    "surreal composition",
+    "abandoned hallway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4356,
+  "source_url": "/generated/4356.jpg",
+  "image_url": "/sketches/4920.png",
+  "inverted_image_url": "/sketches-inverted/4920.png",
+  "curve_count": 116,
+  "built_at": "2026-08-17T00:09:49Z"
+}

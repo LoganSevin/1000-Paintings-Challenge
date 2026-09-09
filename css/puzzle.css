@@ -1,0 +1,306 @@
+/* Puzzle — jigsaw any gallery still */
+
+#panel-puzzle.panel.active {
+  display: block;
+  min-height: calc(100vh - 100px);
+}
+
+body.pz-tab-active #panel-puzzle {
+  background: #12100e;
+}
+
+.pz-shell {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.7rem 1rem 1.75rem;
+  color: #efe8dc;
+  box-sizing: border-box;
+}
+
+.pz-top h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.28rem;
+  color: #f3d9a4;
+}
+
+.pz-hint {
+  margin: 0 0 0.85rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(230, 214, 186, 0.88);
+  max-width: 46rem;
+}
+
+.pz-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(210, 170, 90, 0.28);
+  background: rgba(22, 18, 14, 0.94);
+}
+
+.pz-setup-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+}
+
+.pz-lab {
+  flex: 0 0 5.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(243, 217, 164, 0.75);
+}
+
+.pz-coll-row,
+.pz-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+  flex: 1 1 16rem;
+}
+
+.pz-coll,
+.pz-count {
+  appearance: none;
+  font: inherit;
+  font-size: 0.76rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(210, 170, 90, 0.32);
+  background: rgba(32, 26, 18, 0.95);
+  color: #efe8dc;
+  cursor: pointer;
+}
+
+.pz-coll:hover,
+.pz-count:hover {
+  border-color: rgba(240, 200, 110, 0.55);
+}
+
+.pz-coll.active,
+.pz-count.active {
+  border-color: rgba(240, 196, 96, 0.85);
+  background: linear-gradient(180deg, #6a4a1c, #3d2a10);
+  color: #fff6e0;
+  font-weight: 700;
+}
+
+.pz-count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 4.4rem;
+  line-height: 1.15;
+  padding: 0.38rem 0.55rem 0.42rem;
+}
+
+.pz-count strong {
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pz-count span {
+  font-size: 0.62rem;
+  opacity: 0.78;
+  font-weight: 500;
+}
+
+.pz-art-row {
+  align-items: flex-start;
+}
+
+.pz-art-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  flex: 1 1 14rem;
+}
+
+.pz-art-pick button,
+.pz-hud-actions button,
+.pz-play {
+  appearance: none;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(210, 170, 90, 0.4);
+  background: rgba(36, 28, 18, 0.95);
+  color: #efe8dc;
+  cursor: pointer;
+}
+
+.pz-art-pick button:hover,
+.pz-hud-actions button:hover {
+  border-color: rgba(240, 200, 110, 0.6);
+}
+
+.pz-num-lab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+}
+
+#pz-num {
+  width: 4.4rem;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.32rem 0.4rem;
+  border-radius: 7px;
+  border: 1px solid rgba(210, 170, 90, 0.4);
+  background: #1a1612;
+  color: #fff6e0;
+}
+
+.pz-range {
+  font-size: 0.75rem;
+  color: rgba(220, 200, 160, 0.75);
+}
+
+.pz-preview-wrap {
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 170, 90, 0.35);
+  background: #0c0a08;
+  flex: 0 0 auto;
+}
+
+#pz-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pz-setup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  padding-left: 5.4rem;
+}
+
+.pz-play {
+  background: linear-gradient(180deg, #c4922e, #7a5414);
+  border-color: rgba(255, 220, 130, 0.55);
+  color: #1a1208;
+  font-weight: 800;
+  font-size: 0.92rem;
+  padding: 0.5rem 1.15rem;
+}
+
+.pz-play:hover {
+  filter: brightness(1.08);
+}
+
+.pz-play:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.pz-count-live {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #f3d9a4;
+}
+
+.pz-hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.9rem;
+  align-items: center;
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+}
+
+.pz-hud strong {
+  color: #f3d9a4;
+  font-variant-numeric: tabular-nums;
+}
+
+.pz-title {
+  color: rgba(230, 214, 186, 0.9);
+  min-width: 8rem;
+}
+
+.pz-hud-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.pz-board-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(200, 160, 80, 0.35);
+  background:
+    radial-gradient(1200px 500px at 50% 0%, rgba(80, 50, 16, 0.35), transparent 55%),
+    #1a140e;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.45);
+}
+
+#pz-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  cursor: grab;
+}
+
+#pz-canvas.is-drag {
+  cursor: grabbing;
+}
+
+.pz-status {
+  min-height: 1.2rem;
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(230, 214, 186, 0.85);
+}
+
+.pz-status.ok {
+  color: #b8e8a8;
+}
+
+.pz-status.err {
+  color: #ffb0a0;
+}
+
+.pz-status.win {
+  color: #ffe08a;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .pz-shell {
+    padding: 0.5rem 0.65rem 1.4rem;
+  }
+  .pz-lab {
+    flex-basis: 100%;
+  }
+  .pz-setup-actions {
+    padding-left: 0;
+  }
+  .pz-preview-wrap {
+    width: 5.4rem;
+    height: 5.4rem;
+  }
+  .pz-count {
+    min-width: 3.8rem;
+  }
+}

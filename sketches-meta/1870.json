@@ -1,0 +1,42 @@
+{
+  "number": 1870,
+  "title": "Line sketch: Cosmic Silhouette Trio",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three stylized female profiles in, and stand against a vibrant cosmic background with swirling patterns and starry constellations. Cracks resembling lightning or fractured glass overlay the entire composition, intersecting wavy bands and celestial elements (derived from generated still #1095).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three stylized female profiles in, and stand against a vibrant cosmic background with swirling patterns and starry constellations. Cracks resembling lightning or fractured glass overlay the entire composition, intersecting wavy bands and celestial elements",
+  "inverted_title": "Inverted sketch: Cosmic Silhouette Trio",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three stylized female profiles in, and stand against a vibrant cosmic background with swirling patterns and starry constellations. Cracks resembling lightning or fractured glass overlay the entire composition, intersecting wavy bands and celestial elements (from generated still #1095).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three stylized female profiles in, and stand against a vibrant cosmic background with swirling patterns and starry constellations. Cracks resembling lightning or fractured glass overlay the entire composition, intersecting wavy bands and celestial elements",
+  "source_description": "Three stylized female profiles in purple, lime green, and dark green stand against a vibrant cosmic background with swirling orange patterns and starry constellations. Cracks resembling lightning or fractured glass overlay the entire composition, intersecting colorful wavy bands and celestial elements.",
+  "source_prompt": "",
+  "source_title": "Cosmic Silhouette Trio",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "silhouettes",
+    "cosmic",
+    "swirls",
+    "constellations",
+    "cracks"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1095,
+  "source_url": "/generated/1095.jpg",
+  "image_url": "/sketches/1870.png",
+  "inverted_image_url": "/sketches-inverted/1870.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:42Z"
+}

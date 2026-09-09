@@ -1,0 +1,42 @@
+{
+  "number": 3645,
+  "title": "Line sketch: Stained Glass Parisian View",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant arched stained glass window frames a Parisian street scene at sunset. The cobblestone street lined with shops and cafes leads toward the Sacré-Cœur Basilica under a glowing sun with radiating rays, surrounded by iris and magnolia floral motifs (derived from generated still #3053).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant arched stained glass window frames a Parisian street scene at sunset. The cobblestone street lined with shops and cafes leads toward the Sacré-Cœur Basilica under a glowing sun with radiating rays, surrounded by iris and magnolia floral motifs",
+  "inverted_title": "Inverted sketch: Stained Glass Parisian View",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant arched stained glass window frames a Parisian street scene at sunset. The cobblestone street lined with shops and cafes leads toward the Sacré-Cœur Basilica under a glowing sun with radiating rays, surrounded by iris and magnolia floral motifs (from generated still #3053).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant arched stained glass window frames a Parisian street scene at sunset. The cobblestone street lined with shops and cafes leads toward the Sacré-Cœur Basilica under a glowing sun with radiating rays, surrounded by iris and magnolia floral motifs",
+  "source_description": "A vibrant arched stained glass window frames a colorful Parisian street scene at sunset. The cobblestone street lined with shops and cafes leads toward the Sacré-Cœur Basilica under a glowing sun with radiating red rays, surrounded by iris and magnolia floral motifs.",
+  "source_prompt": "Arched stained glass window overlooking a lively Parisian cobblestone street at sunset, colorful shops with bright awnings, people walking and sitting at cafes, the Sacré-Cœur Basilica visible in the distance, a large radiant sun with red rays in the sky, decorated with iris and magnolia flowers in the stained glass panels, vibrant colors, detailed lead lines",
+  "source_title": "Stained Glass Parisian View",
+  "style": "Stained Glass",
+  "mood": "Vibrant, Dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "stained glass",
+    "Paris",
+    "Sacré-Cœur",
+    "sunset",
+    "cobblestone street"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3053,
+  "source_url": "/generated/3053.jpg",
+  "image_url": "/sketches/3645.png",
+  "inverted_image_url": "/sketches-inverted/3645.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:46Z"
+}

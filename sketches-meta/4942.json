@@ -1,0 +1,42 @@
+{
+  "number": 4942,
+  "title": "Line sketch: Man and the composition",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A middle-aged man in a dark shirt stands in a dilapidated, rain-soaked room holding a white cup, staring at a large ornate -framed composition. The composition depicts a bloody, mutilated zombie wielding an axe while another monstrous figure attacks in a gore-filled hallway (derived from generated still #4379).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A middle-aged man in a dark shirt stands in a dilapidated, rain-soaked room holding a white cup, staring at a large ornate -framed composition. The composition depicts a bloody, mutilated zombie wielding an axe while another monstrous figure attacks in a gore-filled hallway",
+  "inverted_title": "Inverted sketch: Man and the composition",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A middle-aged man in a dark shirt stands in a dilapidated, rain-soaked room holding a white cup, staring at a large ornate -framed composition. The composition depicts a bloody, mutilated zombie wielding an axe while another monstrous figure attacks in a gore-filled hallway (from generated still #4379).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A middle-aged man in a dark shirt stands in a dilapidated, rain-soaked room holding a white cup, staring at a large ornate -framed composition. The composition depicts a bloody, mutilated zombie wielding an axe while another monstrous figure attacks in a gore-filled hallway",
+  "source_description": "A middle-aged man in a dark shirt stands in a dilapidated, rain-soaked room holding a white cup, staring at a large ornate gold-framed painting. The painting depicts a bloody, mutilated zombie wielding an axe while another monstrous figure attacks in a gore-filled hallway.",
+  "source_prompt": "A weary middle-aged man in a dark uniform holding a paper coffee cup stands inside a decaying abandoned building with rain pouring through a broken skylight. He stares at a massive ornate golden frame painting on the wall that shows a horribly mutilated zombie with exposed guts and blood dripping, wielding a bloody axe, with another zombie figure behind it in a gore-splattered hallway. Cinematic lighting, ultra realistic details, horror atmosphere.",
+  "source_title": "Man and the Painting",
+  "style": "cinematic horror",
+  "mood": "eerie dread",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "horror",
+    "zombie",
+    "surreal",
+    "blood",
+    "composition within composition"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4379,
+  "source_url": "/generated/4379.jpg",
+  "image_url": "/sketches/4942.png",
+  "inverted_image_url": "/sketches-inverted/4942.png",
+  "curve_count": 14,
+  "built_at": "2026-08-17T00:09:49Z"
+}

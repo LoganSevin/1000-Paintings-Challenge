@@ -1,0 +1,42 @@
+{
+  "number": 2841,
+  "title": "Line sketch: Girl and Giant Pig",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal night scene shows a young girl in a floral dress sitting on the back of an enormous, pig. The pig lies in a grassy field surrounded by several smaller pigs drinking from teacups, with a large crescent moon, cloudy sky, and a distant barn visible (derived from generated still #2126).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal night scene shows a young girl in a floral dress sitting on the back of an enormous, pig. The pig lies in a grassy field surrounded by several smaller pigs drinking from teacups, with a large crescent moon, cloudy sky, and a distant barn visible",
+  "inverted_title": "Inverted sketch: Girl and Giant Pig",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal night scene shows a young girl in a floral dress sitting on the back of an enormous, pig. The pig lies in a grassy field surrounded by several smaller pigs drinking from teacups, with a large crescent moon, cloudy sky, and a distant barn visible (from generated still #2126).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal night scene shows a young girl in a floral dress sitting on the back of an enormous, pig. The pig lies in a grassy field surrounded by several smaller pigs drinking from teacups, with a large crescent moon, cloudy sky, and a distant barn visible",
+  "source_description": "A surreal night scene shows a young girl in a floral dress sitting on the back of an enormous, multicolored pig. The pig lies in a grassy field surrounded by several smaller pink pigs drinking from teacups, with a large yellow crescent moon, purple cloudy sky, and a distant barn visible.",
+  "source_prompt": "Surreal fantasy night scene with a giant multicolored pig lying in a grassy field, a young girl in a pink floral dress sitting on its back, several small pink pigs around them drinking tea from delicate teacups and saucers, large glowing yellow crescent moon in a purple cloudy sky with stars, old barn in the background, whimsical and dreamy atmosphere, detailed painting style",
+  "source_title": "Girl and Giant Pig",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamy",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "pig",
+    "girl",
+    "teacups",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2126,
+  "source_url": "/generated/2126.jpg",
+  "image_url": "/sketches/2841.png",
+  "inverted_image_url": "/sketches-inverted/2841.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:44Z"
+}

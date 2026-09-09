@@ -1,0 +1,42 @@
+{
+  "number": 4456,
+  "title": "Line sketch: Mandrake's Potion Shop",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An elderly wizard with a scarf and black beret stands behind a wooden desk in a dimly lit arcane study, gesturing with one hand while an open book, glowing potions, and seals lie before him. The -hued room features arched windows showing a full moon, hanging lanterns, shelves of magical potions, constellation charts, and a large composition of a haunted house on the wall (derived from generated still #3875).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An elderly wizard with a scarf and black beret stands behind a wooden desk in a dimly lit arcane study, gesturing with one hand while an open book, glowing potions, and seals lie before him. The -hued room features arched windows showing a full moon, hanging lanterns, shelves of magical potions, constellation charts, and a large composition of a haunted house on the wall",
+  "inverted_title": "Inverted sketch: Mandrake's Potion Shop",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An elderly wizard with a scarf and black beret stands behind a wooden desk in a dimly lit arcane study, gesturing with one hand while an open book, glowing potions, and seals lie before him. The -hued room features arched windows showing a full moon, hanging lanterns, shelves of magical potions, constellation charts, and a large composition of a haunted house on the wall (from generated still #3875).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An elderly wizard with a scarf and black beret stands behind a wooden desk in a dimly lit arcane study, gesturing with one hand while an open book, glowing potions, and seals lie before him. The -hued room features arched windows showing a full moon, hanging lanterns, shelves of magical potions, constellation charts, and a large composition of a haunted house on the wall",
+  "source_description": "An elderly wizard with a green scarf and black beret stands behind a wooden desk in a dimly lit arcane study, gesturing with one hand while an open book, glowing potions, and red seals lie before him. The purple-hued room features arched windows showing a full moon, hanging lanterns, shelves of colorful magical potions, constellation charts, and a large painting of a haunted house on the wall.",
+  "source_prompt": "An elderly wizard wearing a black beret and green scarf stands behind a cluttered desk in a mystical purple study at night, gesturing with an open hand toward the viewer. The room contains glowing potions in bottles on shelves, hanging lanterns, an open spellbook, red wax seals, a large framed painting of a haunted house under a full moon, and star constellation charts on the walls. Moonlight streams through an arched window. Warm and cool magical lighting, detailed fantasy illustration style.",
+  "source_title": "Mandrake's Potion Shop",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "potion shop",
+    "arcane study",
+    "fantasy",
+    "moonlight"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3875,
+  "source_url": "/generated/3875.jpg",
+  "image_url": "/sketches/4456.png",
+  "inverted_image_url": "/sketches-inverted/4456.png",
+  "curve_count": 119,
+  "built_at": "2026-08-17T00:09:48Z"
+}

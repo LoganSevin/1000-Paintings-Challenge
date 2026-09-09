@@ -1,0 +1,42 @@
+{
+  "number": 436,
+  "title": "Line sketch: Elegant Lady in White Hat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized portrait of a glamorous woman with a white feathered hat and striking makeup. She rests her hand near her face while gazing directly at the viewer with a confident expression (derived from painting #522).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized portrait of a glamorous woman with a white feathered hat and striking makeup. She rests her hand near her face while gazing directly at the viewer with a confident expression",
+  "inverted_title": "Inverted sketch: Elegant Lady in White Hat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized portrait of a glamorous woman with a white feathered hat and striking makeup. She rests her hand near her face while gazing directly at the viewer with a confident expression (from painting #522).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized portrait of a glamorous woman with a white feathered hat and striking makeup. She rests her hand near her face while gazing directly at the viewer with a confident expression",
+  "source_description": "A stylized portrait of a glamorous woman with a white feathered hat and striking makeup. She rests her hand near her face while gazing directly at the viewer with a confident expression.",
+  "source_prompt": "",
+  "source_title": "Elegant Lady in White Hat",
+  "style": "Impressionistic",
+  "mood": "Glamorous and confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "woman",
+    "hat",
+    "vintage",
+    "glamour"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 522,
+  "source_url": "/paintings/522.jpg",
+  "image_url": "/sketches/436.png",
+  "inverted_image_url": "/sketches-inverted/436.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2941,
+  "title": "Line sketch: Glowing Grate Apparitions",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark wooden grate with glowing orbs arranged in a grid pattern, emitting light and faint particle trails. Above the grate, several blurry, ethereal - spectral figures with glowing cores hover in the darkness (derived from generated still #2247).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark wooden grate with glowing orbs arranged in a grid pattern, emitting light and faint particle trails. Above the grate, several blurry, ethereal - spectral figures with glowing cores hover in the darkness",
+  "inverted_title": "Inverted sketch: Glowing Grate Apparitions",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark wooden grate with glowing orbs arranged in a grid pattern, emitting light and faint particle trails. Above the grate, several blurry, ethereal - spectral figures with glowing cores hover in the darkness (from generated still #2247).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark wooden grate with glowing orbs arranged in a grid pattern, emitting light and faint particle trails. Above the grate, several blurry, ethereal - spectral figures with glowing cores hover in the darkness",
+  "source_description": "A dark wooden grate with glowing yellow orbs arranged in a grid pattern, emitting light and faint particle trails. Above the grate, several blurry, ethereal blue-violet spectral figures with glowing yellow cores hover in the darkness.",
+  "source_prompt": "Dark atmospheric scene showing a heavy wooden grate viewed from above with multiple bright yellow glowing orbs arranged in a grid, each orb emitting soft light rings and yellow particle trails. Above the grate float several blurry, translucent spectral figures in shades of deep blue and violet with bright yellow glowing centers, rendered in loose expressive brushstrokes against a pitch black background.",
+  "source_title": "Glowing Grate Apparitions",
+  "style": "painterly digital art",
+  "mood": "eerie mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ethereal figures",
+    "glowing grate",
+    "supernatural",
+    "dark fantasy",
+    "light particles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2247,
+  "source_url": "/generated/2247.jpg",
+  "image_url": "/sketches/2941.png",
+  "inverted_image_url": "/sketches-inverted/2941.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:44Z"
+}

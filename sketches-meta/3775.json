@@ -1,0 +1,42 @@
+{
+  "number": 3775,
+  "title": "Line sketch: Four Poses of Armored Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four identical views of a female character with short white hair, displayed sequentially from left to right. She wears a and black armored corset with shoulder pads, pants with knee guards, and boots, performing a progressive combat stance with arms extended forward in a defensive or striking pose (derived from generated still #3191).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four identical views of a female character with short white hair, displayed sequentially from left to right. She wears a and black armored corset with shoulder pads, pants with knee guards, and boots, performing a progressive combat stance with arms extended forward in a defensive or striking pose",
+  "inverted_title": "Inverted sketch: Four Poses of Armored Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four identical views of a female character with short white hair, displayed sequentially from left to right. She wears a and black armored corset with shoulder pads, pants with knee guards, and boots, performing a progressive combat stance with arms extended forward in a defensive or striking pose (from generated still #3191).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four identical views of a female character with short white hair, displayed sequentially from left to right. She wears a and black armored corset with shoulder pads, pants with knee guards, and boots, performing a progressive combat stance with arms extended forward in a defensive or striking pose",
+  "source_description": "Four identical views of a female character with short white hair, displayed sequentially from left to right. She wears a brown and black armored corset with shoulder pads, blue pants with knee guards, and brown boots, performing a progressive combat stance with arms extended forward in a defensive or striking pose.",
+  "source_prompt": "A female warrior with short cropped white hair and intense expression, wearing a brown leather and metal armored corset, black sleeves, blue pants with reinforced knee pads, and brown boots. She stands in a wide combat stance with one arm raised and the other extended forward in a blocking or striking gesture, shown as four sequential identical figures side by side against a dark textured background.",
+  "source_title": "Four Poses of Armored Warrior",
+  "style": "realistic",
+  "mood": "intense, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "armored character",
+    "multiple poses",
+    "combat stance",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3191,
+  "source_url": "/generated/3191.jpg",
+  "image_url": "/sketches/3775.png",
+  "inverted_image_url": "/sketches-inverted/3775.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:46Z"
+}

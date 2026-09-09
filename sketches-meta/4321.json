@@ -1,0 +1,42 @@
+{
+  "number": 4321,
+  "title": "Line sketch: Mystic Seed Crystal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing crystal ball rests on an ornate and pedestal inscribed with 'SLOT-12 - SEED 91233'. Inside the transparent sphere, vibrant, and flowers and stems radiate from a core. Ethereal smoke and floating petals swirl around the orb while a luminous moon casts a beam of light from the upper right (derived from generated still #3740).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing crystal ball rests on an ornate and pedestal inscribed with 'SLOT-12 - SEED 91233'. Inside the transparent sphere, vibrant, and flowers and stems radiate from a core. Ethereal smoke and floating petals swirl around the orb while a luminous moon casts a beam of light from the upper right",
+  "inverted_title": "Inverted sketch: Mystic Seed Crystal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing crystal ball rests on an ornate and pedestal inscribed with 'SLOT-12 - SEED 91233'. Inside the transparent sphere, vibrant, and flowers and stems radiate from a core. Ethereal smoke and floating petals swirl around the orb while a luminous moon casts a beam of light from the upper right (from generated still #3740).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing crystal ball rests on an ornate and pedestal inscribed with 'SLOT-12 - SEED 91233'. Inside the transparent sphere, vibrant, and flowers and stems radiate from a core. Ethereal smoke and floating petals swirl around the orb while a luminous moon casts a beam of light from the upper right",
+  "source_description": "A glowing crystal ball rests on an ornate dark blue and gold pedestal inscribed with 'SLOT-12 - SEED 91233'. Inside the transparent sphere, vibrant pink, yellow, and green flowers and stems radiate from a bright pink core. Ethereal green smoke and floating petals swirl around the orb while a luminous moon casts a green beam of light from the upper right.",
+  "source_prompt": "A glowing magical crystal ball on an ornate dark blue pedestal with gold accents, inscribed SLOT-12 SEED 91233. Inside the sphere, colorful flowers in pink, yellow, and green radiate from a bright pink glowing core like a dandelion burst. Green mystical smoke and floating petals surround the orb. A luminous moon in a dark sky casts a green beam of light onto the crystal, surreal fantasy digital painting, atmospheric and ethereal.",
+  "source_title": "Mystic Seed Crystal",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "crystal ball",
+    "fantasy art",
+    "bioluminescent",
+    "floral surrealism",
+    "magic orb"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3740,
+  "source_url": "/generated/3740.jpg",
+  "image_url": "/sketches/4321.png",
+  "inverted_image_url": "/sketches-inverted/4321.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:47Z"
+}

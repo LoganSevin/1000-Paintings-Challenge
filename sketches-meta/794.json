@@ -1,0 +1,42 @@
+{
+  "number": 794,
+  "title": "Line sketch: Cosmic Frog and Moon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a gray anthropomorphic moon with a feminine face at center, exploding with vibrant, and cosmic energy. A frog rests on a large cabbage leaf to the right, framed by bare white branches against a swirling and nebula background with floating orbs (derived from generated still #3).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a gray anthropomorphic moon with a feminine face at center, exploding with vibrant, and cosmic energy. A frog rests on a large cabbage leaf to the right, framed by bare white branches against a swirling and nebula background with floating orbs",
+  "inverted_title": "Inverted sketch: Cosmic Frog and Moon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a gray anthropomorphic moon with a feminine face at center, exploding with vibrant, and cosmic energy. A frog rests on a large cabbage leaf to the right, framed by bare white branches against a swirling and nebula background with floating orbs (from generated still #3).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a gray anthropomorphic moon with a feminine face at center, exploding with vibrant, and cosmic energy. A frog rests on a large cabbage leaf to the right, framed by bare white branches against a swirling and nebula background with floating orbs",
+  "source_description": "A surreal painting features a gray anthropomorphic moon with a feminine face at center, exploding with vibrant purple, pink, and green cosmic energy. A green frog rests on a large cabbage leaf to the right, framed by bare white branches against a swirling green and pink nebula background with floating orbs.",
+  "source_prompt": "",
+  "source_title": "Cosmic Frog and Moon",
+  "style": "surreal fantasy",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "moon face",
+    "cosmic explosion",
+    "frog",
+    "cabbage leaf",
+    "bare branches"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3,
+  "source_url": "/generated/3.jpg",
+  "image_url": "/sketches/794.png",
+  "inverted_image_url": "/sketches-inverted/794.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:39Z"
+}

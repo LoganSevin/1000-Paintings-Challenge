@@ -1,0 +1,42 @@
+{
+  "number": 3139,
+  "title": "Line sketch: Witch on Bridge",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A lone figure in a flowing cloak and pointed hat stands atop a vibrant bridge that stretches across a surreal landscape. To the left is an ancient stone tower covered in greenery, while the background features a massive glowing celestial body, swirling cosmic patterns, and a starry sky above rolling and hills (derived from generated still #2479).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A lone figure in a flowing cloak and pointed hat stands atop a vibrant bridge that stretches across a surreal landscape. To the left is an ancient stone tower covered in greenery, while the background features a massive glowing celestial body, swirling cosmic patterns, and a starry sky above rolling and hills",
+  "inverted_title": "Inverted sketch: Witch on Bridge",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A lone figure in a flowing cloak and pointed hat stands atop a vibrant bridge that stretches across a surreal landscape. To the left is an ancient stone tower covered in greenery, while the background features a massive glowing celestial body, swirling cosmic patterns, and a starry sky above rolling and hills (from generated still #2479).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A lone figure in a flowing cloak and pointed hat stands atop a vibrant bridge that stretches across a surreal landscape. To the left is an ancient stone tower covered in greenery, while the background features a massive glowing celestial body, swirling cosmic patterns, and a starry sky above rolling and hills",
+  "source_description": "A lone figure in a flowing green cloak and pointed hat stands atop a vibrant red bridge that stretches across a surreal landscape. To the left is an ancient stone tower covered in greenery, while the background features a massive glowing red celestial body, swirling cosmic patterns, and a starry sky above rolling green and yellow hills.",
+  "source_prompt": "A solitary witch in a flowing emerald cloak and pointed hat stands on a dramatic red bridge that flows like lava across the scene. To the left, an ancient overgrown stone tower rises from lush greenery. A massive glowing red sun or planet dominates the sky behind her, surrounded by intricate cosmic circles, star maps, and swirling purple and magenta nebulae. The bridge has ornate blue and teal patterns. Surreal fantasy landscape with rolling green and yellow hills in the distance, mystical and otherworldly atmosphere, rich textures and bold colors.",
+  "source_title": "Witch on Crimson Bridge",
+  "style": "surreal fantasy",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "cosmic bridge",
+    "ancient tower",
+    "surreal landscape",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2479,
+  "source_url": "/generated/2479.jpg",
+  "image_url": "/sketches/3139.png",
+  "inverted_image_url": "/sketches-inverted/3139.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:45Z"
+}

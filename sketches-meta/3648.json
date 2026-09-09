@@ -1,0 +1,42 @@
+{
+  "number": 3648,
+  "title": "Line sketch: Demon at the Stained Glass Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A demonic figure with large curved horns, glowing eyes, and a tattered coat emerges from a dark stone archway on the left. To the right, a large ornate stained glass window reveals a vibrant European city street at sunset with market awnings, historic buildings, and a domed cathedral under a fiery sky (derived from generated still #3056).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A demonic figure with large curved horns, glowing eyes, and a tattered coat emerges from a dark stone archway on the left. To the right, a large ornate stained glass window reveals a vibrant European city street at sunset with market awnings, historic buildings, and a domed cathedral under a fiery sky",
+  "inverted_title": "Inverted sketch: Demon at the Stained Glass Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A demonic figure with large curved horns, glowing eyes, and a tattered coat emerges from a dark stone archway on the left. To the right, a large ornate stained glass window reveals a vibrant European city street at sunset with market awnings, historic buildings, and a domed cathedral under a fiery sky (from generated still #3056).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A demonic figure with large curved horns, glowing eyes, and a tattered coat emerges from a dark stone archway on the left. To the right, a large ornate stained glass window reveals a vibrant European city street at sunset with market awnings, historic buildings, and a domed cathedral under a fiery sky",
+  "source_description": "A blue demonic figure with large curved horns, glowing red eyes, and a tattered red coat emerges from a dark stone archway on the left. To the right, a large ornate stained glass window reveals a vibrant European city street at sunset with colorful market awnings, historic buildings, and a domed cathedral under a fiery orange sky.",
+  "source_prompt": "A menacing blue demon with large orange horns, glowing red eyes, and a tattered red coat stands at the threshold of an ancient stone archway covered in ivy. Beside him is a massive arched stained glass window depicting a beautiful European city street at sunset with colorful market stalls, historic buildings, and a prominent domed cathedral in the distance, dramatic lighting, highly detailed fantasy illustration",
+  "source_title": "Demon at the Stained Glass Portal",
+  "style": "fantasy illustration",
+  "mood": "menacing surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "demon",
+    "stained glass",
+    "portal",
+    "cityscape",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3056,
+  "source_url": "/generated/3056.jpg",
+  "image_url": "/sketches/3648.png",
+  "inverted_image_url": "/sketches-inverted/3648.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:46Z"
+}

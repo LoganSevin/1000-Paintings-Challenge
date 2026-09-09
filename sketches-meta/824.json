@@ -1,0 +1,42 @@
+{
+  "number": 824,
+  "title": "Line sketch: Weeping Cosmic Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal portrait of a woman with cracked porcelain-like skin, wearing an ornate floral headdress. Her face is dominated by a single enormous and eye from which smaller bubbles containing miniature sad eyes emerge and float away (derived from generated still #33).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal portrait of a woman with cracked porcelain-like skin, wearing an ornate floral headdress. Her face is dominated by a single enormous and eye from which smaller bubbles containing miniature sad eyes emerge and float away",
+  "inverted_title": "Inverted sketch: Weeping Cosmic Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal portrait of a woman with cracked porcelain-like skin, wearing an ornate floral headdress. Her face is dominated by a single enormous and eye from which smaller bubbles containing miniature sad eyes emerge and float away (from generated still #33).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal portrait of a woman with cracked porcelain-like skin, wearing an ornate floral headdress. Her face is dominated by a single enormous and eye from which smaller bubbles containing miniature sad eyes emerge and float away",
+  "source_description": "A surreal portrait of a woman with cracked porcelain-like skin, wearing an ornate floral headdress. Her face is dominated by a single enormous green and blue eye from which smaller green bubbles containing miniature sad eyes emerge and float away.",
+  "source_prompt": "",
+  "source_title": "Weeping Cosmic Eye",
+  "style": "surrealism",
+  "mood": "melancholy, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "eye",
+    "portrait",
+    "cosmic",
+    "bubbles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 33,
+  "source_url": "/generated/33.jpg",
+  "image_url": "/sketches/824.png",
+  "inverted_image_url": "/sketches-inverted/824.png",
+  "curve_count": 38,
+  "built_at": "2026-08-17T00:09:39Z"
+}

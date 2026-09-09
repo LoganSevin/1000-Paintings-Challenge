@@ -1,0 +1,42 @@
+{
+  "number": 2660,
+  "title": "Line sketch: Mandala Eye Mosaic",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An overhead view of a large, elongated oval mosaic artwork featuring concentric circular patterns in, and tones. The piece rests on a dark tiled surface with visible paint drips along its lower edge and a smaller similar fragment in the upper left (derived from generated still #1902).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An overhead view of a large, elongated oval mosaic artwork featuring concentric circular patterns in, and tones. The piece rests on a dark tiled surface with visible paint drips along its lower edge and a smaller similar fragment in the upper left",
+  "inverted_title": "Inverted sketch: Mandala Eye Mosaic",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An overhead view of a large, elongated oval mosaic artwork featuring concentric circular patterns in, and tones. The piece rests on a dark tiled surface with visible paint drips along its lower edge and a smaller similar fragment in the upper left (from generated still #1902).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An overhead view of a large, elongated oval mosaic artwork featuring concentric circular patterns in, and tones. The piece rests on a dark tiled surface with visible paint drips along its lower edge and a smaller similar fragment in the upper left",
+  "source_description": "An overhead view of a large, elongated oval mosaic artwork featuring concentric circular patterns in teal, rust, and pink tones. The piece rests on a dark tiled surface with visible red paint drips along its lower edge and a smaller similar fragment in the upper left.",
+  "source_prompt": "",
+  "source_title": "Mandala Eye Mosaic",
+  "style": "mosaic",
+  "mood": "ethereal, ritualistic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "painted tile or glass",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "mandala",
+    "eye",
+    "abstract",
+    "overhead"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1902,
+  "source_url": "/generated/1902.jpg",
+  "image_url": "/sketches/2660.png",
+  "inverted_image_url": "/sketches-inverted/2660.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:44Z"
+}

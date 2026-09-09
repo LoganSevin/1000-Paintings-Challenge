@@ -1,0 +1,42 @@
+{
+  "number": 4675,
+  "title": "Line sketch: Moonlit Kitchen Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A person with curly hair stands with their back to the viewer in a dimly lit kitchen, gazing at a large ethereal female face in the night sky that emerges from swirling and clouds. The kitchen counter holds a glowing bong, potted plants, a black raven perched on a bare white tree, and various household items under a starry cosmic ceiling (derived from generated still #4101).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A person with curly hair stands with their back to the viewer in a dimly lit kitchen, gazing at a large ethereal female face in the night sky that emerges from swirling and clouds. The kitchen counter holds a glowing bong, potted plants, a black raven perched on a bare white tree, and various household items under a starry cosmic ceiling",
+  "inverted_title": "Inverted sketch: Moonlit Kitchen Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A person with curly hair stands with their back to the viewer in a dimly lit kitchen, gazing at a large ethereal female face in the night sky that emerges from swirling and clouds. The kitchen counter holds a glowing bong, potted plants, a black raven perched on a bare white tree, and various household items under a starry cosmic ceiling (from generated still #4101).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A person with curly hair stands with their back to the viewer in a dimly lit kitchen, gazing at a large ethereal female face in the night sky that emerges from swirling and clouds. The kitchen counter holds a glowing bong, potted plants, a black raven perched on a bare white tree, and various household items under a starry cosmic ceiling",
+  "source_description": "A person with curly hair stands with their back to the viewer in a dimly lit kitchen, gazing at a large ethereal female face in the night sky that emerges from swirling pink and purple clouds. The kitchen counter holds a glowing blue bong, potted plants, a black raven perched on a bare white tree, and various household items under a starry cosmic ceiling.",
+  "source_prompt": "A person with curly hair viewed from behind stands in a mystical kitchen at night, looking toward a giant ethereal woman's face floating in a starry sky surrounded by swirling pink and purple clouds. On the wooden counter is a glowing blue glass bong emitting smoke patterns, several potted plants with red leaves, a black raven perched on a leafless white tree, and another white bird. The scene is illuminated by dramatic red and blue lighting with a cosmic starry ceiling.",
+  "source_title": "Moonlit Kitchen Vision",
+  "style": "surreal fantasy",
+  "mood": "mystical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "kitchen",
+    "moon face",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4101,
+  "source_url": "/generated/4101.jpg",
+  "image_url": "/sketches/4675.png",
+  "inverted_image_url": "/sketches-inverted/4675.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:48Z"
+}

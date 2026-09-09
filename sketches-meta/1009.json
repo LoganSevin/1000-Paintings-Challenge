@@ -1,0 +1,42 @@
+{
+  "number": 1009,
+  "title": "Line sketch: Surreal Lakeside Enchantment",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an ornate gown stands beside a twisted tree on a snowy bank, reaching toward a large mechanical fish floating above a reflective lake. Two explorers with binoculars observe the scene while a moon hangs in a dramatic sunset sky over a distant castle (derived from generated still #219).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an ornate gown stands beside a twisted tree on a snowy bank, reaching toward a large mechanical fish floating above a reflective lake. Two explorers with binoculars observe the scene while a moon hangs in a dramatic sunset sky over a distant castle",
+  "inverted_title": "Inverted sketch: Surreal Lakeside Enchantment",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an ornate gown stands beside a twisted tree on a snowy bank, reaching toward a large mechanical fish floating above a reflective lake. Two explorers with binoculars observe the scene while a moon hangs in a dramatic sunset sky over a distant castle (from generated still #219).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an ornate gown stands beside a twisted tree on a snowy bank, reaching toward a large mechanical fish floating above a reflective lake. Two explorers with binoculars observe the scene while a moon hangs in a dramatic sunset sky over a distant castle",
+  "source_description": "A woman in an ornate blue gown stands beside a twisted tree on a snowy bank, reaching toward a large mechanical fish floating above a reflective lake. Two explorers with binoculars observe the scene while a red moon hangs in a dramatic sunset sky over a distant castle.",
+  "source_prompt": "",
+  "source_title": "Surreal Lakeside Enchantment",
+  "style": "fantasy surrealism",
+  "mood": "mysterious whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "surreal",
+    "steampunk",
+    "moon",
+    "mechanical fish"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 219,
+  "source_url": "/generated/219.jpg",
+  "image_url": "/sketches/1009.png",
+  "inverted_image_url": "/sketches-inverted/1009.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:40Z"
+}

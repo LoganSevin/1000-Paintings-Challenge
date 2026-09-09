@@ -1,0 +1,42 @@
+{
+  "number": 967,
+  "title": "Line sketch: Juggling Day of the Dead Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized character with a split face design juggles three dark spheres in an outdoor courtyard. The figure stands on a patterned tile floor surrounded by potted plants with vibrant flowers against a wall under a sky with a bright sun (derived from generated still #177).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized character with a split face design juggles three dark spheres in an outdoor courtyard. The figure stands on a patterned tile floor surrounded by potted plants with vibrant flowers against a wall under a sky with a bright sun",
+  "inverted_title": "Inverted sketch: Juggling Day of the Dead Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized character with a split face design juggles three dark spheres in an outdoor courtyard. The figure stands on a patterned tile floor surrounded by potted plants with vibrant flowers against a wall under a sky with a bright sun (from generated still #177).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized character with a split face design juggles three dark spheres in an outdoor courtyard. The figure stands on a patterned tile floor surrounded by potted plants with vibrant flowers against a wall under a sky with a bright sun",
+  "source_description": "A colorful stylized character with a split face design juggles three dark spheres in an outdoor courtyard. The figure stands on a patterned tile floor surrounded by potted plants with vibrant pink flowers against a warm yellow wall under a pink sky with a bright sun.",
+  "source_prompt": "",
+  "source_title": "Juggling Day of the Dead Figure",
+  "style": "Cartoonish digital illustration",
+  "mood": "Playful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "juggling",
+    "skeleton",
+    "Day of the Dead",
+    "plants",
+    "sun"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 177,
+  "source_url": "/generated/177.jpg",
+  "image_url": "/sketches/967.png",
+  "inverted_image_url": "/sketches-inverted/967.png",
+  "curve_count": 99,
+  "built_at": "2026-08-17T00:09:40Z"
+}

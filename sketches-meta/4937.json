@@ -1,0 +1,42 @@
+{
+  "number": 4937,
+  "title": "Line sketch: Zombie in Graffiti Hallway",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A zombie in a tattered jacket stumbles through a derelict hallway covered in peeling paint and graffiti. The walls feature cartoonish monster faces with bulging eyes and long tongues, while a human skeleton lies on the floor beside an overturned bucket and scattered debris under fluorescent lighting (derived from generated still #4374).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A zombie in a tattered jacket stumbles through a derelict hallway covered in peeling paint and graffiti. The walls feature cartoonish monster faces with bulging eyes and long tongues, while a human skeleton lies on the floor beside an overturned bucket and scattered debris under fluorescent lighting",
+  "inverted_title": "Inverted sketch: Zombie in Graffiti Hallway",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A zombie in a tattered jacket stumbles through a derelict hallway covered in peeling paint and graffiti. The walls feature cartoonish monster faces with bulging eyes and long tongues, while a human skeleton lies on the floor beside an overturned bucket and scattered debris under fluorescent lighting (from generated still #4374).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A zombie in a tattered jacket stumbles through a derelict hallway covered in peeling paint and graffiti. The walls feature cartoonish monster faces with bulging eyes and long tongues, while a human skeleton lies on the floor beside an overturned bucket and scattered debris under fluorescent lighting",
+  "source_description": "A zombie in a tattered yellow jacket stumbles through a derelict hallway covered in peeling green paint and colorful graffiti. The walls feature cartoonish monster faces with bulging eyes and long tongues, while a human skeleton lies on the floor beside an overturned bucket and scattered debris under fluorescent lighting.",
+  "source_prompt": "A decaying zombie with pale skin and dark hair wearing a torn yellow suit jacket stumbles through a long derelict hallway with peeling green walls covered in vibrant graffiti art of cartoon monsters with big eyes and tongues sticking out, fluorescent ceiling lights casting a sickly glow, overturned bucket with skull and bones spilled on the floor, scattered papers and debris, eerie horror atmosphere, cinematic composition",
+  "source_title": "Zombie in Graffiti Hallway",
+  "style": "line sketch",
+  "mood": "eerie chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie",
+    "graffiti",
+    "abandoned",
+    "horror",
+    "hallway"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4374,
+  "source_url": "/generated/4374.jpg",
+  "image_url": "/sketches/4937.png",
+  "inverted_image_url": "/sketches-inverted/4937.png",
+  "curve_count": 31,
+  "built_at": "2026-08-17T00:09:49Z"
+}

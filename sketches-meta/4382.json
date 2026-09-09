@@ -1,0 +1,42 @@
+{
+  "number": 4382,
+  "title": "Line sketch: Stasis & Veil",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A mystical arcane laboratory with and decor. A -haired alchemist in a vest stands at a glowing cauldron, holding a glowing orb, surrounded by a large display cabinet filled with magical artifacts, floating scrolls, hanging crystals, and mystical wall mirrors (derived from generated still #3801).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A mystical arcane laboratory with and decor. A -haired alchemist in a vest stands at a glowing cauldron, holding a glowing orb, surrounded by a large display cabinet filled with magical artifacts, floating scrolls, hanging crystals, and mystical wall mirrors",
+  "inverted_title": "Inverted sketch: Stasis & Veil",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A mystical arcane laboratory with and decor. A -haired alchemist in a vest stands at a glowing cauldron, holding a glowing orb, surrounded by a large display cabinet filled with magical artifacts, floating scrolls, hanging crystals, and mystical wall mirrors (from generated still #3801).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A mystical arcane laboratory with and decor. A -haired alchemist in a vest stands at a glowing cauldron, holding a glowing orb, surrounded by a large display cabinet filled with magical artifacts, floating scrolls, hanging crystals, and mystical wall mirrors",
+  "source_description": "A mystical arcane laboratory with purple and teal decor. A purple-haired alchemist in a green vest stands at a glowing cauldron, holding a glowing orb, surrounded by a large purple display cabinet filled with magical artifacts, floating scrolls, hanging crystals, and mystical wall mirrors.",
+  "source_prompt": "A detailed fantasy illustration of a mystical arcane laboratory named Stasis & Veil. A purple-haired alchemist wearing a green vest stands at a white and teal cauldron table, examining a glowing blue orb. To the left is a large ornate purple cabinet displaying magical artifacts including golden lungs, a red heart, and glowing orbs. Scrolls lie unrolled on the green tiled floor, mystical mirrors and hanging crystals adorn the walls under a purple skylight.",
+  "source_title": "Stasis & Veil",
+  "style": "fantasy illustration",
+  "mood": "mystical arcane",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard laboratory",
+    "arcane shop",
+    "alchemist",
+    "magic cabinet",
+    "fantasy interior"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3801,
+  "source_url": "/generated/3801.jpg",
+  "image_url": "/sketches/4382.png",
+  "inverted_image_url": "/sketches-inverted/4382.png",
+  "curve_count": 209,
+  "built_at": "2026-08-17T00:09:48Z"
+}

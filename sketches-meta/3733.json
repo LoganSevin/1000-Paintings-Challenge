@@ -1,0 +1,42 @@
+{
+  "number": 3733,
+  "title": "Line sketch: Samurai Warrior Stance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young male warrior with East Asian features stands in a dynamic fighting pose against a solid background. He wears a tattered sleeveless gi with a white handprint emblem on the chest, black armored gauntlets and greaves, and holds a wooden staff behind his back while raising a clenched, blood-stained fist (derived from generated still #3143).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young male warrior with East Asian features stands in a dynamic fighting pose against a solid background. He wears a tattered sleeveless gi with a white handprint emblem on the chest, black armored gauntlets and greaves, and holds a wooden staff behind his back while raising a clenched, blood-stained fist",
+  "inverted_title": "Inverted sketch: Samurai Warrior Stance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young male warrior with East Asian features stands in a dynamic fighting pose against a solid background. He wears a tattered sleeveless gi with a white handprint emblem on the chest, black armored gauntlets and greaves, and holds a wooden staff behind his back while raising a clenched, blood-stained fist (from generated still #3143).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young male warrior with East Asian features stands in a dynamic fighting pose against a solid background. He wears a tattered sleeveless gi with a white handprint emblem on the chest, black armored gauntlets and greaves, and holds a wooden staff behind his back while raising a clenched, blood-stained fist",
+  "source_description": "A young male warrior with East Asian features stands in a dynamic fighting pose against a solid dark blue background. He wears a tattered purple sleeveless gi with a white handprint emblem on the chest, black armored gauntlets and greaves, and holds a wooden staff behind his back while raising a clenched, blood-stained fist.",
+  "source_prompt": "A young East Asian male warrior with topknot hair tied with red ribbon stands in a powerful combat stance, one fist raised with blood on his knuckles and wrappings, the other hand gripping a long wooden staff behind his back. He wears a torn dark purple sleeveless gi with a white handprint symbol on the chest, black metal bracers and shin guards, black pants, and traditional sandals. Dramatic lighting, realistic digital painting style, solid dark blue background.",
+  "source_title": "Samurai Warrior Stance",
+  "style": "line sketch",
+  "mood": "intense, focused",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "samurai",
+    "warrior",
+    "male character",
+    "martial arts",
+    "staff weapon"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3143,
+  "source_url": "/generated/3143.jpg",
+  "image_url": "/sketches/3733.png",
+  "inverted_image_url": "/sketches-inverted/3733.png",
+  "curve_count": 21,
+  "built_at": "2026-08-17T00:09:46Z"
+}

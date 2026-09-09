@@ -1,0 +1,42 @@
+{
+  "number": 4452,
+  "title": "Line sketch: Mystic Herbalist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded figure with skin and ornate and robes sits at a marble table, hands hovering over an open spellbook filled with glowing butterfly-like illustrations and arcane script. The table holds a glowing potion bottle with a insect, a dish with crystals and a luminous gem, scattered scrolls, and hanging mistletoe and lanterns above (derived from generated still #3871).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded figure with skin and ornate and robes sits at a marble table, hands hovering over an open spellbook filled with glowing butterfly-like illustrations and arcane script. The table holds a glowing potion bottle with a insect, a dish with crystals and a luminous gem, scattered scrolls, and hanging mistletoe and lanterns above",
+  "inverted_title": "Inverted sketch: Mystic Herbalist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded figure with skin and ornate and robes sits at a marble table, hands hovering over an open spellbook filled with glowing butterfly-like illustrations and arcane script. The table holds a glowing potion bottle with a insect, a dish with crystals and a luminous gem, scattered scrolls, and hanging mistletoe and lanterns above (from generated still #3871).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded figure with skin and ornate and robes sits at a marble table, hands hovering over an open spellbook filled with glowing butterfly-like illustrations and arcane script. The table holds a glowing potion bottle with a insect, a dish with crystals and a luminous gem, scattered scrolls, and hanging mistletoe and lanterns above",
+  "source_description": "A hooded figure with purple skin and ornate red and green robes sits at a marble table, hands hovering over an open spellbook filled with glowing butterfly-like illustrations and arcane script. The table holds a glowing red potion bottle with a golden insect, a purple dish with crystals and a luminous blue gem, scattered scrolls, and hanging mistletoe and lanterns above.",
+  "source_prompt": "A mystical hooded figure with purple skin wearing ornate red and green robes sits at a cracked marble table in a dimly lit chamber, hands gesturing over a large open spellbook displaying glowing teal and purple butterfly illustrations and magical runes. On the table are a glowing red potion bottle with a golden insect inside, a purple dish containing crystals and a bright blue gem, scattered scrolls, hanging mistletoe and a red lantern overhead casting warm light, mystical atmosphere, detailed digital fantasy art",
+  "source_title": "Mystic Herbalist",
+  "style": "fantasy illustration",
+  "mood": "mysterious, magical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "wizard",
+    "spellbook",
+    "potion",
+    "arcane",
+    "butterfly"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3871,
+  "source_url": "/generated/3871.jpg",
+  "image_url": "/sketches/4452.png",
+  "inverted_image_url": "/sketches-inverted/4452.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 965,
+  "title": "Line sketch: Jubjub the Mad Inventor",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A grinning grey alien creature with large eyes sits inside a rusty spherical mechanical walker with four spindly legs. The device hovers above a tiled patio surrounded by potted plants with and flowers, while dark orbs float above the character's head and smoke drifts through the sunlit scene (derived from generated still #175).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A grinning grey alien creature with large eyes sits inside a rusty spherical mechanical walker with four spindly legs. The device hovers above a tiled patio surrounded by potted plants with and flowers, while dark orbs float above the character's head and smoke drifts through the sunlit scene",
+  "inverted_title": "Inverted sketch: Jubjub the Mad Inventor",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A grinning grey alien creature with large eyes sits inside a rusty spherical mechanical walker with four spindly legs. The device hovers above a tiled patio surrounded by potted plants with and flowers, while dark orbs float above the character's head and smoke drifts through the sunlit scene (from generated still #175).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A grinning grey alien creature with large eyes sits inside a rusty spherical mechanical walker with four spindly legs. The device hovers above a tiled patio surrounded by potted plants with and flowers, while dark orbs float above the character's head and smoke drifts through the sunlit scene",
+  "source_description": "A grinning grey alien creature with large yellow eyes sits inside a rusty spherical mechanical walker with four spindly legs. The device hovers above a tiled patio surrounded by potted plants with purple and red flowers, while dark orbs float above the character's head and purple smoke drifts through the sunlit scene.",
+  "source_prompt": "",
+  "source_title": "Jubjub the Mad Inventor",
+  "style": "digital illustration",
+  "mood": "whimsical sinister",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "mech",
+    "walker",
+    "patio",
+    "plants"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 175,
+  "source_url": "/generated/175.jpg",
+  "image_url": "/sketches/965.png",
+  "inverted_image_url": "/sketches-inverted/965.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:40Z"
+}

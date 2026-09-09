@@ -1,0 +1,42 @@
+{
+  "number": 217,
+  "title": "Line sketch: Flowing Abstract Curves",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Dynamic layered forms twist and fold with graceful motion against a neutral background. Smooth gradients blend cool tones creating depth and visual rhythm in this digital abstract composition (derived from painting #264).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Dynamic layered forms twist and fold with graceful motion against a neutral background. Smooth gradients blend cool tones creating depth and visual rhythm in this digital abstract composition",
+  "inverted_title": "Inverted sketch: Flowing Abstract Curves",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Dynamic layered forms twist and fold with graceful motion against a neutral background. Smooth gradients blend cool tones creating depth and visual rhythm in this digital abstract composition (from painting #264).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Dynamic layered forms twist and fold with graceful motion against a neutral background. Smooth gradients blend cool tones creating depth and visual rhythm in this digital abstract composition",
+  "source_description": "Dynamic layered forms twist and fold with graceful motion against a neutral background. Smooth gradients blend cool tones creating depth and visual rhythm in this digital abstract composition.",
+  "source_prompt": "",
+  "source_title": "Flowing Abstract Curves",
+  "style": "Abstract",
+  "mood": "Serene and Dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital 3D Rendering",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "fluid forms",
+    "gradient",
+    "curves",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 264,
+  "source_url": "/paintings/264.jpg",
+  "image_url": "/sketches/217.png",
+  "inverted_image_url": "/sketches-inverted/217.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:38Z"
+}

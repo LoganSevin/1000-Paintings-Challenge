@@ -1,0 +1,42 @@
+{
+  "number": 4720,
+  "title": "Line sketch: Enchanted Fantasy Map",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant cartoon-style fantasy map depicts a central magical tree with a clock face on an island surrounded by a circular moat. The landscape features a stone archway with glowing mushrooms, a waterfall, wooden bridges, mountain peaks with rope bridges, ancient ruins, a mine entrance with railway tracks, and various winding paths under a twilight sky (derived from generated still #4150).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant cartoon-style fantasy map depicts a central magical tree with a clock face on an island surrounded by a circular moat. The landscape features a stone archway with glowing mushrooms, a waterfall, wooden bridges, mountain peaks with rope bridges, ancient ruins, a mine entrance with railway tracks, and various winding paths under a twilight sky",
+  "inverted_title": "Inverted sketch: Enchanted Fantasy Map",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant cartoon-style fantasy map depicts a central magical tree with a clock face on an island surrounded by a circular moat. The landscape features a stone archway with glowing mushrooms, a waterfall, wooden bridges, mountain peaks with rope bridges, ancient ruins, a mine entrance with railway tracks, and various winding paths under a twilight sky (from generated still #4150).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant cartoon-style fantasy map depicts a central magical tree with a clock face on an island surrounded by a circular moat. The landscape features a stone archway with glowing mushrooms, a waterfall, wooden bridges, mountain peaks with rope bridges, ancient ruins, a mine entrance with railway tracks, and various winding paths under a twilight sky",
+  "source_description": "A vibrant cartoon-style fantasy map depicts a central magical tree with a clock face on an island surrounded by a circular moat. The landscape features a stone archway with glowing mushrooms, a waterfall, wooden bridges, mountain peaks with rope bridges, ancient ruins, a mine entrance with railway tracks, and various winding paths under a twilight sky.",
+  "source_prompt": "Whimsical cartoon fantasy map illustration featuring a large glowing magical tree with a clock face at the center of a circular moat. The scene includes a stone arch with giant purple mushrooms, a waterfall, wooden bridges, snow-capped mountains with rope bridges, ancient vine-covered ruins, a mine entrance with railway, lily pads in the water, and a soft purple and orange twilight sky with floating magical particles.",
+  "source_title": "Enchanted Fantasy Map",
+  "style": "whimsical cartoon illustration",
+  "mood": "magical whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy map",
+    "enchanted forest",
+    "magical tree",
+    "cartoon landscape",
+    "adventure map"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4150,
+  "source_url": "/generated/4150.jpg",
+  "image_url": "/sketches/4720.png",
+  "inverted_image_url": "/sketches-inverted/4720.png",
+  "curve_count": 50,
+  "built_at": "2026-08-17T00:09:48Z"
+}

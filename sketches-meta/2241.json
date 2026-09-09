@@ -1,0 +1,42 @@
+{
+  "number": 2241,
+  "title": "Line sketch: Eye of the Storm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic portrait of a -skinned elf-like woman with pointed ears and glowing facial markings, holding a bright lightning bolt that connects to a massive stylized cat-like eye containing a silhouetted figure. The composition is filled with swirling patterns, floating eye motifs, and electric energy against a vibrant cosmic background (derived from generated still #1466).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic portrait of a -skinned elf-like woman with pointed ears and glowing facial markings, holding a bright lightning bolt that connects to a massive stylized cat-like eye containing a silhouetted figure. The composition is filled with swirling patterns, floating eye motifs, and electric energy against a vibrant cosmic background",
+  "inverted_title": "Inverted sketch: Eye of the Storm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic portrait of a -skinned elf-like woman with pointed ears and glowing facial markings, holding a bright lightning bolt that connects to a massive stylized cat-like eye containing a silhouetted figure. The composition is filled with swirling patterns, floating eye motifs, and electric energy against a vibrant cosmic background (from generated still #1466).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic portrait of a -skinned elf-like woman with pointed ears and glowing facial markings, holding a bright lightning bolt that connects to a massive stylized cat-like eye containing a silhouetted figure. The composition is filled with swirling patterns, floating eye motifs, and electric energy against a vibrant cosmic background",
+  "source_description": "A surreal psychedelic portrait of a blue-skinned elf-like woman with pointed ears and glowing yellow facial markings, holding a bright lightning bolt that connects to a massive stylized green cat-like eye containing a silhouetted figure. The composition is filled with swirling patterns, floating eye motifs, and electric blue energy against a vibrant cosmic background.",
+  "source_prompt": "",
+  "source_title": "Eye of the Storm",
+  "style": "psychedelic surrealism",
+  "mood": "mystical electric",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "elf",
+    "lightning",
+    "cat eye",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1466,
+  "source_url": "/generated/1466.jpg",
+  "image_url": "/sketches/2241.png",
+  "inverted_image_url": "/sketches-inverted/2241.png",
+  "curve_count": 193,
+  "built_at": "2026-08-17T00:09:43Z"
+}

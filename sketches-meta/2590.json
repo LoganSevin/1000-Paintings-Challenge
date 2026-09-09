@@ -1,0 +1,42 @@
+{
+  "number": 2590,
+  "title": "Line sketch: Winged Angel in Prayer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large female angel with expansive feathered wings stands in the foreground with hands clasped in prayer, gazing upward. Her wings and robe are adorned with glowing script and symbols against a dramatic twilight sky, with a smaller identical angel visible in the background over a dark, inscribed landscape (derived from generated still #1826).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large female angel with expansive feathered wings stands in the foreground with hands clasped in prayer, gazing upward. Her wings and robe are adorned with glowing script and symbols against a dramatic twilight sky, with a smaller identical angel visible in the background over a dark, inscribed landscape",
+  "inverted_title": "Inverted sketch: Winged Angel in Prayer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large female angel with expansive feathered wings stands in the foreground with hands clasped in prayer, gazing upward. Her wings and robe are adorned with glowing script and symbols against a dramatic twilight sky, with a smaller identical angel visible in the background over a dark, inscribed landscape (from generated still #1826).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large female angel with expansive feathered wings stands in the foreground with hands clasped in prayer, gazing upward. Her wings and robe are adorned with glowing script and symbols against a dramatic twilight sky, with a smaller identical angel visible in the background over a dark, inscribed landscape",
+  "source_description": "A large female angel with expansive feathered wings stands in the foreground with hands clasped in prayer, gazing upward. Her wings and robe are adorned with glowing golden script and symbols against a dramatic twilight sky, with a smaller identical angel visible in the background over a dark, inscribed landscape.",
+  "source_prompt": "",
+  "source_title": "Winged Angel in Prayer",
+  "style": "symbolic religious",
+  "mood": "ethereal reverent",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "wings",
+    "prayer",
+    "celestial",
+    "script"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1826,
+  "source_url": "/generated/1826.jpg",
+  "image_url": "/sketches/2590.png",
+  "inverted_image_url": "/sketches-inverted/2590.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:43Z"
+}

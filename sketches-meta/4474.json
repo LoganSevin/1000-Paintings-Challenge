@@ -1,0 +1,42 @@
+{
+  "number": 4474,
+  "title": "Line sketch: Lotus Alchemist",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -haired woman in a robe stands behind an ornate counter filled with potion bottles, open wooden boxes of glowing orbs, scrolls, and scattered petals. She holds a small glowing lotus flower while a massive luminous lotus with a glowing core floats behind her, beneath a framed portrait of herself hanging on an arched wall with lanterns (derived from generated still #3893).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -haired woman in a robe stands behind an ornate counter filled with potion bottles, open wooden boxes of glowing orbs, scrolls, and scattered petals. She holds a small glowing lotus flower while a massive luminous lotus with a glowing core floats behind her, beneath a framed portrait of herself hanging on an arched wall with lanterns",
+  "inverted_title": "Inverted sketch: Lotus Alchemist",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -haired woman in a robe stands behind an ornate counter filled with potion bottles, open wooden boxes of glowing orbs, scrolls, and scattered petals. She holds a small glowing lotus flower while a massive luminous lotus with a glowing core floats behind her, beneath a framed portrait of herself hanging on an arched wall with lanterns (from generated still #3893).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -haired woman in a robe stands behind an ornate counter filled with potion bottles, open wooden boxes of glowing orbs, scrolls, and scattered petals. She holds a small glowing lotus flower while a massive luminous lotus with a glowing core floats behind her, beneath a framed portrait of herself hanging on an arched wall with lanterns",
+  "source_description": "A red-haired woman in a purple robe stands behind an ornate counter filled with potion bottles, open wooden boxes of glowing green orbs, scrolls, and scattered red petals. She holds a small glowing lotus flower while a massive luminous purple lotus with a green glowing core floats behind her, beneath a framed portrait of herself hanging on an arched wall with colorful lanterns.",
+  "source_prompt": "A beautiful red-haired woman wearing a purple and blue traditional robe stands at an alchemy counter filled with glowing potion vials, open treasure boxes containing green luminous orbs, scrolls and red petals. She holds a small glowing lotus. Behind her floats a giant translucent purple lotus flower with a bright green glowing core. A framed portrait of the same woman hangs above. Colorful red and green paper lanterns illuminate the mystical shop. Magical atmosphere, detailed digital fantasy art.",
+  "source_title": "Lotus Alchemist",
+  "style": "fantasy illustration",
+  "mood": "mystical, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "alchemist",
+    "lotus flower",
+    "magic shop",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3893,
+  "source_url": "/generated/3893.jpg",
+  "image_url": "/sketches/4474.png",
+  "inverted_image_url": "/sketches-inverted/4474.png",
+  "curve_count": 52,
+  "built_at": "2026-08-17T00:09:48Z"
+}

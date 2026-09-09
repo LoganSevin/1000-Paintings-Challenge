@@ -1,0 +1,42 @@
+{
+  "number": 1000,
+  "title": "Line sketch: Jacques Cousteau and Mermaid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant, stylized portrait of an older man resembling Jacques Cousteau wearing a beret and jacket, standing beside a woman whose hair is formed from. They are surrounded by a dense underwater scene filled with fish and vibrant formations (derived from generated still #210).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant, stylized portrait of an older man resembling Jacques Cousteau wearing a beret and jacket, standing beside a woman whose hair is formed from. They are surrounded by a dense underwater scene filled with fish and vibrant formations",
+  "inverted_title": "Inverted sketch: Jacques Cousteau and Mermaid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant, stylized portrait of an older man resembling Jacques Cousteau wearing a beret and jacket, standing beside a woman whose hair is formed from. They are surrounded by a dense underwater scene filled with fish and vibrant formations (from generated still #210).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant, stylized portrait of an older man resembling Jacques Cousteau wearing a beret and jacket, standing beside a woman whose hair is formed from. They are surrounded by a dense underwater scene filled with fish and vibrant formations",
+  "source_description": "A vibrant, stylized portrait of an older man resembling Jacques Cousteau wearing a navy beret and green jacket, standing beside a woman whose hair is formed from colorful coral. They are surrounded by a dense underwater scene filled with multicolored fish and vibrant coral formations.",
+  "source_prompt": "",
+  "source_title": "Jacques Cousteau and Mermaid",
+  "style": "Pop Art",
+  "mood": "Whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Jacques Cousteau",
+    "mermaid",
+    "reef",
+    "underwater",
+    "surreal portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 210,
+  "source_url": "/generated/210.jpg",
+  "image_url": "/sketches/1000.png",
+  "inverted_image_url": "/sketches-inverted/1000.png",
+  "curve_count": 247,
+  "built_at": "2026-08-17T00:09:40Z"
+}

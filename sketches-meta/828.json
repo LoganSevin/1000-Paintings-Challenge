@@ -1,0 +1,42 @@
+{
+  "number": 828,
+  "title": "Line sketch: Eldritch Eye Vortex",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large ornate eye with a vertical slit pupil at the center of a swirling cosmic vortex. Mechanical tentacles tipped with smaller eyes extend from the central eye, dripping liquid, while the background spirals with vibrant colors and floating symbols (derived from generated still #37).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large ornate eye with a vertical slit pupil at the center of a swirling cosmic vortex. Mechanical tentacles tipped with smaller eyes extend from the central eye, dripping liquid, while the background spirals with vibrant colors and floating symbols",
+  "inverted_title": "Inverted sketch: Eldritch Eye Vortex",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large ornate eye with a vertical slit pupil at the center of a swirling cosmic vortex. Mechanical tentacles tipped with smaller eyes extend from the central eye, dripping liquid, while the background spirals with vibrant colors and floating symbols (from generated still #37).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large ornate eye with a vertical slit pupil at the center of a swirling cosmic vortex. Mechanical tentacles tipped with smaller eyes extend from the central eye, dripping liquid, while the background spirals with vibrant colors and floating symbols",
+  "source_description": "A surreal painting of a large ornate golden eye with a vertical slit pupil at the center of a swirling cosmic vortex. Mechanical tentacles tipped with smaller red eyes extend from the central eye, dripping blue liquid, while the background spirals with vibrant rainbow colors and floating symbols.",
+  "source_prompt": "",
+  "source_title": "Eldritch Eye Vortex",
+  "style": "surrealism",
+  "mood": "psychedelic cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "eldritch",
+    "cosmic horror",
+    "tentacles",
+    "all-seeing eye",
+    "vortex"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 37,
+  "source_url": "/generated/37.jpg",
+  "image_url": "/sketches/828.png",
+  "inverted_image_url": "/sketches-inverted/828.png",
+  "curve_count": 78,
+  "built_at": "2026-08-17T00:09:39Z"
+}

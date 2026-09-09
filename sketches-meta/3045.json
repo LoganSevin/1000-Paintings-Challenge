@@ -1,0 +1,42 @@
+{
+  "number": 3045,
+  "title": "Line sketch: Alien Angel Scholar",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene featuring a grey alien with dragon wings and a headpiece holding a bowl of eggs, embraced from behind by a -winged angel figure with a halo. They stand at an ornate and pedestal with an open glowing book, surrounded by scattered papers, lit candles, Easter eggs, and lilies under a dramatic sky with light beams (derived from generated still #2371).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene featuring a grey alien with dragon wings and a headpiece holding a bowl of eggs, embraced from behind by a -winged angel figure with a halo. They stand at an ornate and pedestal with an open glowing book, surrounded by scattered papers, lit candles, Easter eggs, and lilies under a dramatic sky with light beams",
+  "inverted_title": "Inverted sketch: Alien Angel Scholar",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene featuring a grey alien with dragon wings and a headpiece holding a bowl of eggs, embraced from behind by a -winged angel figure with a halo. They stand at an ornate and pedestal with an open glowing book, surrounded by scattered papers, lit candles, Easter eggs, and lilies under a dramatic sky with light beams (from generated still #2371).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene featuring a grey alien with dragon wings and a headpiece holding a bowl of eggs, embraced from behind by a -winged angel figure with a halo. They stand at an ornate and pedestal with an open glowing book, surrounded by scattered papers, lit candles, Easter eggs, and lilies under a dramatic sky with light beams",
+  "source_description": "A surreal scene featuring a grey alien with red dragon wings and a blue headpiece holding a bowl of colorful eggs, embraced from behind by a golden-winged angel figure with a halo. They stand at an ornate blue and gold pedestal with an open glowing book, surrounded by scattered papers, lit red candles, Easter eggs, and lilies under a dramatic sky with teal light beams.",
+  "source_prompt": "",
+  "source_title": "Alien Angel Scholar",
+  "style": "surreal fantasy",
+  "mood": "mystical whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "angel",
+    "surreal",
+    "fantasy",
+    "Easter eggs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2371,
+  "source_url": "/generated/2371.jpg",
+  "image_url": "/sketches/3045.png",
+  "inverted_image_url": "/sketches-inverted/3045.png",
+  "curve_count": 20,
+  "built_at": "2026-08-17T00:09:44Z"
+}

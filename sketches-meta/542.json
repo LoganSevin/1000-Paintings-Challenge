@@ -1,0 +1,42 @@
+{
+  "number": 542,
+  "title": "Line sketch: Psychedelic Drip Abstract",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Vibrant abstract composition featuring organic, amoeba-like shapes with concentric circles and dripping paint effects. Bold color transitions from and at the top to fiery and at the bottom create a dynamic, fluid visual experience (derived from painting #678).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Vibrant abstract composition featuring organic, amoeba-like shapes with concentric circles and dripping paint effects. Bold color transitions from and at the top to fiery and at the bottom create a dynamic, fluid visual experience",
+  "inverted_title": "Inverted sketch: Psychedelic Drip Abstract",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Vibrant abstract composition featuring organic, amoeba-like shapes with concentric circles and dripping paint effects. Bold color transitions from and at the top to fiery and at the bottom create a dynamic, fluid visual experience (from painting #678).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Vibrant abstract composition featuring organic, amoeba-like shapes with concentric circles and dripping paint effects. Bold color transitions from and at the top to fiery and at the bottom create a dynamic, fluid visual experience",
+  "source_description": "Vibrant abstract composition featuring organic, amoeba-like shapes with concentric circles and dripping paint effects. Bold color transitions from magenta and purple at the top to fiery orange and yellow at the bottom create a dynamic, fluid visual experience.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Drip Abstract",
+  "style": "Abstract",
+  "mood": "Vibrant, Playful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "psychedelic",
+    "dripping paint",
+    "concentric circles",
+    "organic forms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 678,
+  "source_url": "/paintings/678.jpg",
+  "image_url": "/sketches/542.png",
+  "inverted_image_url": "/sketches-inverted/542.png",
+  "curve_count": 90,
+  "built_at": "2026-08-17T00:09:39Z"
+}

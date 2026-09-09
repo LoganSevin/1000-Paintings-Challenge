@@ -1,0 +1,42 @@
+{
+  "number": 4831,
+  "title": "Line sketch: Cosmic Arch of Eternity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal visionary scene featuring a massive stone archway and the Colosseum at sunset, with a glowing cosmic portal floating above. Four ethereal women with dark skin and elaborate hairstyles emerge from nebulae in the sky, while a large crowd of people watches a procession of figures and horses moving toward the arch (derived from generated still #4266).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal visionary scene featuring a massive stone archway and the Colosseum at sunset, with a glowing cosmic portal floating above. Four ethereal women with dark skin and elaborate hairstyles emerge from nebulae in the sky, while a large crowd of people watches a procession of figures and horses moving toward the arch",
+  "inverted_title": "Inverted sketch: Cosmic Arch of Eternity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal visionary scene featuring a massive stone archway and the Colosseum at sunset, with a glowing cosmic portal floating above. Four ethereal women with dark skin and elaborate hairstyles emerge from nebulae in the sky, while a large crowd of people watches a procession of figures and horses moving toward the arch (from generated still #4266).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal visionary scene featuring a massive stone archway and the Colosseum at sunset, with a glowing cosmic portal floating above. Four ethereal women with dark skin and elaborate hairstyles emerge from nebulae in the sky, while a large crowd of people watches a procession of figures and horses moving toward the arch",
+  "source_description": "A surreal visionary scene featuring a massive stone archway and the Colosseum at sunset, with a glowing blue cosmic portal floating above. Four ethereal women with dark skin and elaborate hairstyles emerge from colorful nebulae in the sky, while a large crowd of people watches a procession of figures and horses moving toward the arch.",
+  "source_prompt": "Surreal visionary painting showing a monumental stone arch and the Roman Colosseum at sunset with a bright sun on the horizon. Above the arch floats a glowing blue geometric cosmic portal surrounded by swirling colorful nebulae and stars. Four majestic African women with elaborate updos emerge from the clouds in the upper corners. A massive crowd of people fills the foreground while a procession of riders and figures moves through the arch. Shooting stars and dramatic sky with vibrant cosmic colors.",
+  "source_title": "Cosmic Arch of Eternity",
+  "style": "visionary surrealism",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "colosseum",
+    "portal",
+    "ethereal women"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4266,
+  "source_url": "/generated/4266.jpg",
+  "image_url": "/sketches/4831.png",
+  "inverted_image_url": "/sketches-inverted/4831.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:49Z"
+}

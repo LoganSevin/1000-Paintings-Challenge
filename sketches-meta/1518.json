@@ -1,0 +1,42 @@
+{
+  "number": 1518,
+  "title": "Line sketch: Psychedelic Desert Trinity",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three -skinned women with intricate spiral facial patterns and flowing hair merge into a winding road that leads toward a large sun setting over mountains. The surreal landscape features fiery swirls on the left and a decorative swirling border with leaves at the top (derived from generated still #733).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three -skinned women with intricate spiral facial patterns and flowing hair merge into a winding road that leads toward a large sun setting over mountains. The surreal landscape features fiery swirls on the left and a decorative swirling border with leaves at the top",
+  "inverted_title": "Inverted sketch: Psychedelic Desert Trinity",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three -skinned women with intricate spiral facial patterns and flowing hair merge into a winding road that leads toward a large sun setting over mountains. The surreal landscape features fiery swirls on the left and a decorative swirling border with leaves at the top (from generated still #733).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three -skinned women with intricate spiral facial patterns and flowing hair merge into a winding road that leads toward a large sun setting over mountains. The surreal landscape features fiery swirls on the left and a decorative swirling border with leaves at the top",
+  "source_description": "Three green-skinned women with intricate spiral facial patterns and flowing multicolored hair merge into a winding road that leads toward a large red sun setting over purple mountains. The surreal landscape features fiery orange swirls on the left and a decorative swirling border with green leaves at the top.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Desert Trinity",
+  "style": "psychedelic surrealism",
+  "mood": "ethereal visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "trippy",
+    "desert landscape",
+    "feminine figures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 733,
+  "source_url": "/generated/733.jpg",
+  "image_url": "/sketches/1518.png",
+  "inverted_image_url": "/sketches-inverted/1518.png",
+  "curve_count": 48,
+  "built_at": "2026-08-17T00:09:41Z"
+}

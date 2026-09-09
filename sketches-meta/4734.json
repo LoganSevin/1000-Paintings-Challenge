@@ -1,0 +1,42 @@
+{
+  "number": 4734,
+  "title": "Line sketch: Parallax Veil Arena",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal fantasy arena constructed from torn fragments of antique maps, featuring broken classical columns, floating map banners, and three braziers with magical flames. In the background a giant ornate circular astrolabe-like structure floats above a mountainous landscape under a dramatic dusk sky (derived from generated still #4164).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal fantasy arena constructed from torn fragments of antique maps, featuring broken classical columns, floating map banners, and three braziers with magical flames. In the background a giant ornate circular astrolabe-like structure floats above a mountainous landscape under a dramatic dusk sky",
+  "inverted_title": "Inverted sketch: Parallax Veil Arena",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal fantasy arena constructed from torn fragments of antique maps, featuring broken classical columns, floating map banners, and three braziers with magical flames. In the background a giant ornate circular astrolabe-like structure floats above a mountainous landscape under a dramatic dusk sky (from generated still #4164).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal fantasy arena constructed from torn fragments of antique maps, featuring broken classical columns, floating map banners, and three braziers with magical flames. In the background a giant ornate circular astrolabe-like structure floats above a mountainous landscape under a dramatic dusk sky",
+  "source_description": "A surreal fantasy arena constructed from torn fragments of antique maps, featuring broken classical columns, floating map banners, and three braziers with green magical flames. In the background a giant ornate circular astrolabe-like structure floats above a mountainous landscape under a dramatic dusk sky.",
+  "source_prompt": "Surreal fantasy arena made from torn pieces of old illustrated maps and parchment, broken ancient Greek columns with map banners hanging from them, three braziers emitting green magical fire, a massive intricate golden astrolabe floating in the sky, mountainous backdrop, dramatic twilight lighting, epic and mystical atmosphere, painted in a detailed fantasy illustration style",
+  "source_title": "Parallax Veil Arena",
+  "style": "surreal fantasy composition",
+  "mood": "epic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "fantasy arena",
+    "map fragments",
+    "astrolabe",
+    "classical ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4164,
+  "source_url": "/generated/4164.jpg",
+  "image_url": "/sketches/4734.png",
+  "inverted_image_url": "/sketches-inverted/4734.png",
+  "curve_count": 15,
+  "built_at": "2026-08-17T00:09:48Z"
+}

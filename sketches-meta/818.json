@@ -1,0 +1,42 @@
+{
+  "number": 818,
+  "title": "Line sketch: Cosmic Serpent and Wizard",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A majestic bird-headed serpent with glowing eyes and antlers coils through a fantastical dreamscape, its body covered in scales. A -robed wizard stands on its back holding a glowing orb, surrounded by floating castles, hot air balloons, and a starry sky with multiple moons (derived from generated still #27).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A majestic bird-headed serpent with glowing eyes and antlers coils through a fantastical dreamscape, its body covered in scales. A -robed wizard stands on its back holding a glowing orb, surrounded by floating castles, hot air balloons, and a starry sky with multiple moons",
+  "inverted_title": "Inverted sketch: Cosmic Serpent and Wizard",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A majestic bird-headed serpent with glowing eyes and antlers coils through a fantastical dreamscape, its body covered in scales. A -robed wizard stands on its back holding a glowing orb, surrounded by floating castles, hot air balloons, and a starry sky with multiple moons (from generated still #27).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A majestic bird-headed serpent with glowing eyes and antlers coils through a fantastical dreamscape, its body covered in scales. A -robed wizard stands on its back holding a glowing orb, surrounded by floating castles, hot air balloons, and a starry sky with multiple moons",
+  "source_description": "A majestic bird-headed serpent with glowing eyes and antlers coils through a fantastical dreamscape, its body covered in iridescent scales. A red-robed wizard stands on its back holding a glowing orb, surrounded by floating castles, colorful hot air balloons, and a starry sky with multiple moons.",
+  "source_prompt": "",
+  "source_title": "Cosmic Serpent and Wizard",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy creature",
+    "cosmic serpent",
+    "wizard",
+    "floating castle",
+    "surreal landscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 27,
+  "source_url": "/generated/27.jpg",
+  "image_url": "/sketches/818.png",
+  "inverted_image_url": "/sketches-inverted/818.png",
+  "curve_count": 30,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3199,
+  "title": "Line sketch: Ascent Through Ruined Atelier",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A male artist with a paint palette in hand urgently ascends a grand spiral staircase inside a decaying circular art studio. The domed ceiling is broken open to a dramatic sky with a glowing sun, while floating paintings, musical notes, broken chandeliers with glowing particles, and scattered art supplies fill the chaotic scene (derived from generated still #2549).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A male artist with a paint palette in hand urgently ascends a grand spiral staircase inside a decaying circular art studio. The domed ceiling is broken open to a dramatic sky with a glowing sun, while floating paintings, musical notes, broken chandeliers with glowing particles, and scattered art supplies fill the chaotic scene",
+  "inverted_title": "Inverted sketch: Ascent Through Ruined Atelier",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A male artist with a paint palette in hand urgently ascends a grand spiral staircase inside a decaying circular art studio. The domed ceiling is broken open to a dramatic sky with a glowing sun, while floating paintings, musical notes, broken chandeliers with glowing particles, and scattered art supplies fill the chaotic scene (from generated still #2549).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A male artist with a paint palette in hand urgently ascends a grand spiral staircase inside a decaying circular art studio. The domed ceiling is broken open to a dramatic sky with a glowing sun, while floating paintings, musical notes, broken chandeliers with glowing particles, and scattered art supplies fill the chaotic scene",
+  "source_description": "A male artist with a paint palette in hand urgently ascends a grand spiral staircase inside a decaying circular art studio. The domed ceiling is broken open to a dramatic purple sky with a glowing sun, while floating paintings, musical notes, broken chandeliers with glowing blue particles, and scattered art supplies fill the chaotic scene.",
+  "source_prompt": "A determined male artist carrying a paint palette climbs a grand decaying spiral staircase inside a vast circular art studio with crumbling walls covered in pinned paintings and posters. The ornate domed ceiling is shattered open revealing a dramatic purple cloudy sky and bright sun. Broken crystal chandeliers with glowing blue magical particles, floating canvases, musical notes, and scattered art supplies drift through the air. Cinematic lighting, highly detailed digital painting in a surreal style.",
+  "source_title": "Ascent Through Ruined Atelier",
+  "style": "cinematic",
+  "mood": "dramatic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "artist",
+    "spiral staircase",
+    "ruined atelier",
+    "floating objects",
+    "dramatic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2549,
+  "source_url": "/generated/2549.jpg",
+  "image_url": "/sketches/3199.png",
+  "inverted_image_url": "/sketches-inverted/3199.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:45Z"
+}

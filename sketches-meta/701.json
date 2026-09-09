@@ -1,0 +1,42 @@
+{
+  "number": 701,
+  "title": "Line sketch: Rainy Paris Street Encounter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A man in a long coat and hat stands on a wet cobblestone street at dusk, facing a woman holding a umbrella. The atmospheric Parisian scene features glowing streetlamps reflecting on the rain-slicked pavement with figures in the background (derived from painting #886).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A man in a long coat and hat stands on a wet cobblestone street at dusk, facing a woman holding a umbrella. The atmospheric Parisian scene features glowing streetlamps reflecting on the rain-slicked pavement with figures in the background",
+  "inverted_title": "Inverted sketch: Rainy Paris Street Encounter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A man in a long coat and hat stands on a wet cobblestone street at dusk, facing a woman holding a umbrella. The atmospheric Parisian scene features glowing streetlamps reflecting on the rain-slicked pavement with figures in the background (from painting #886).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A man in a long coat and hat stands on a wet cobblestone street at dusk, facing a woman holding a umbrella. The atmospheric Parisian scene features glowing streetlamps reflecting on the rain-slicked pavement with figures in the background",
+  "source_description": "A man in a long coat and red hat stands on a wet cobblestone street at dusk, facing a woman holding a blue umbrella. The atmospheric Parisian scene features glowing streetlamps reflecting on the rain-slicked pavement with figures in the background.",
+  "source_prompt": "",
+  "source_title": "Rainy Paris Street Encounter",
+  "style": "Impressionism",
+  "mood": "Romantic and moody",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Paris",
+    "rainy street",
+    "streetlamps",
+    "umbrella",
+    "evening"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 886,
+  "source_url": "/paintings/886.jpg",
+  "image_url": "/sketches/701.png",
+  "inverted_image_url": "/sketches-inverted/701.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:39Z"
+}

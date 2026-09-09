@@ -1,0 +1,42 @@
+{
+  "number": 730,
+  "title": "Line sketch: Fleur-de-Lis Emblem",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dramatic composition of a gilded fleur-de-lis symbol centered on a deep background. Ornate scrollwork accents the corners of the composition (derived from painting #924).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dramatic composition of a gilded fleur-de-lis symbol centered on a deep background. Ornate scrollwork accents the corners of the composition",
+  "inverted_title": "Inverted sketch: Fleur-de-Lis Emblem",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dramatic composition of a gilded fleur-de-lis symbol centered on a deep background. Ornate scrollwork accents the corners of the composition (from painting #924).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dramatic composition of a gilded fleur-de-lis symbol centered on a deep background. Ornate scrollwork accents the corners of the composition",
+  "source_description": "A dramatic painting of a gilded fleur-de-lis symbol centered on a deep burgundy background. Ornate golden scrollwork accents the corners of the composition.",
+  "source_prompt": "",
+  "source_title": "Golden Fleur-de-Lis Emblem",
+  "style": "Realistic",
+  "mood": "Regal and dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fleur-de-lis",
+    "emblem",
+    "heraldic symbol",
+    "ornate",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 924,
+  "source_url": "/paintings/924.jpg",
+  "image_url": "/sketches/730.png",
+  "inverted_image_url": "/sketches-inverted/730.png",
+  "curve_count": 211,
+  "built_at": "2026-08-17T00:09:39Z"
+}

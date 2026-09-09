@@ -1,0 +1,42 @@
+{
+  "number": 4344,
+  "title": "Line sketch: Plasma Orb Artifact",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing plasma orb device sits on a wooden table, featuring a transparent spherical glass chamber with, and white energy tendrils radiating from a molten - core. The dark metallic base displays the text \"881566eb\" and \"35/35\", with small glowing particles and sprigs scattered around it against a dark, surreal landscape background (derived from generated still #3763).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing plasma orb device sits on a wooden table, featuring a transparent spherical glass chamber with, and white energy tendrils radiating from a molten - core. The dark metallic base displays the text \"881566eb\" and \"35/35\", with small glowing particles and sprigs scattered around it against a dark, surreal landscape background",
+  "inverted_title": "Inverted sketch: Plasma Orb Artifact",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing plasma orb device sits on a wooden table, featuring a transparent spherical glass chamber with, and white energy tendrils radiating from a molten - core. The dark metallic base displays the text \"881566eb\" and \"35/35\", with small glowing particles and sprigs scattered around it against a dark, surreal landscape background (from generated still #3763).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing plasma orb device sits on a wooden table, featuring a transparent spherical glass chamber with, and white energy tendrils radiating from a molten - core. The dark metallic base displays the text \"881566eb\" and \"35/35\", with small glowing particles and sprigs scattered around it against a dark, surreal landscape background",
+  "source_description": "A glowing plasma orb device sits on a wooden table, featuring a transparent spherical glass chamber with bright yellow, purple, and white energy tendrils radiating from a molten red-orange core. The dark metallic base displays the text \"881566eb\" and \"35/35\", with small glowing particles and lavender sprigs scattered around it against a dark, surreal landscape background.",
+  "source_prompt": "A mystical plasma orb device centered on a wooden table, transparent glass sphere containing bright yellow and white electrical tendrils flowing from a glowing red molten core with dripping effects, dark metallic base with engraved text 881566eb and 35/35, small glowing purple orbs and lavender sprigs scattered around, set against a dark surreal landscape with flowing colorful energy waves in the background, dramatic lighting, cinematic digital painting",
+  "source_title": "Plasma Orb Artifact",
+  "style": "line sketch",
+  "mood": "mystical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma orb",
+    "energy sphere",
+    "sci-fi artifact",
+    "surreal landscape",
+    "glowing device"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3763,
+  "source_url": "/generated/3763.jpg",
+  "image_url": "/sketches/4344.png",
+  "inverted_image_url": "/sketches-inverted/4344.png",
+  "curve_count": 194,
+  "built_at": "2026-08-17T00:09:48Z"
+}

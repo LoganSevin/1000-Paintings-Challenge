@@ -1,0 +1,42 @@
+{
+  "number": 2146,
+  "title": "Line sketch: Egg in Bloom",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal illustration shows a large cracked egg resting on an outstretched, tattooed hand. A chrysanthemum with a woman's face blooms to the left while multiple female faces emerge from a radiant burst in the upper right (derived from generated still #1371).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal illustration shows a large cracked egg resting on an outstretched, tattooed hand. A chrysanthemum with a woman's face blooms to the left while multiple female faces emerge from a radiant burst in the upper right",
+  "inverted_title": "Inverted sketch: Egg in Bloom",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal illustration shows a large cracked egg resting on an outstretched, tattooed hand. A chrysanthemum with a woman's face blooms to the left while multiple female faces emerge from a radiant burst in the upper right (from generated still #1371).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal illustration shows a large cracked egg resting on an outstretched, tattooed hand. A chrysanthemum with a woman's face blooms to the left while multiple female faces emerge from a radiant burst in the upper right",
+  "source_description": "A vibrant surreal illustration shows a large cracked golden egg resting on an outstretched, tattooed hand. A red chrysanthemum with a woman's face blooms to the left while multiple colorful female faces emerge from a radiant burst in the upper right.",
+  "source_prompt": "",
+  "source_title": "Golden Egg in Bloom",
+  "style": "surreal pop art",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "egg",
+    "tattooed hand",
+    "female faces",
+    "chrysanthemum"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1371,
+  "source_url": "/generated/1371.jpg",
+  "image_url": "/sketches/2146.png",
+  "inverted_image_url": "/sketches-inverted/2146.png",
+  "curve_count": 246,
+  "built_at": "2026-08-17T00:09:42Z"
+}

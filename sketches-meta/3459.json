@@ -1,0 +1,42 @@
+{
+  "number": 3459,
+  "title": "Line sketch: Surreal Automotive Carousel",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene featuring a large metallic swirling structure at center with various vehicles displayed on floating circular platforms along a winding road. Visible brands include Cadillac, Ford, McDonald's, Hooters, and Chevrolet, set against a psychedelic night sky with glowing arches and floating McDonald's fries (derived from generated still #2860).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene featuring a large metallic swirling structure at center with various vehicles displayed on floating circular platforms along a winding road. Visible brands include Cadillac, Ford, McDonald's, Hooters, and Chevrolet, set against a psychedelic night sky with glowing arches and floating McDonald's fries",
+  "inverted_title": "Inverted sketch: Surreal Automotive Carousel",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene featuring a large metallic swirling structure at center with various vehicles displayed on floating circular platforms along a winding road. Visible brands include Cadillac, Ford, McDonald's, Hooters, and Chevrolet, set against a psychedelic night sky with glowing arches and floating McDonald's fries (from generated still #2860).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene featuring a large metallic swirling structure at center with various vehicles displayed on floating circular platforms along a winding road. Visible brands include Cadillac, Ford, McDonald's, Hooters, and Chevrolet, set against a psychedelic night sky with glowing arches and floating McDonald's fries",
+  "source_description": "A vibrant surreal scene featuring a large metallic swirling structure at center with various vehicles displayed on floating circular platforms along a winding road. Visible brands include Cadillac, Ford, McDonald's, Hooters, and Chevrolet, set against a psychedelic night sky with glowing golden arches and floating McDonald's fries.",
+  "source_prompt": "Surreal night scene with a massive shiny metallic swirling sculpture at the center. A winding road loops around it carrying a black Cadillac Escalade, blue Ford Mustang, black pickup truck, orange Hooters delivery truck, and silver Chevrolet SUV on floating platforms. In the background are glowing yellow McDonald's arches, a giant McDonald's cup, a pink Cadillac building covered in black silhouettes, floating fries and logos, all rendered in a vibrant psychedelic style with rich purples, pinks and glowing accents.",
+  "source_title": "Surreal Automotive Carousel",
+  "style": "surreal digital art",
+  "mood": "vibrant chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "automotive",
+    "commercial",
+    "psychedelic",
+    "product placement"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2860,
+  "source_url": "/generated/2860.jpg",
+  "image_url": "/sketches/3459.png",
+  "inverted_image_url": "/sketches-inverted/3459.png",
+  "curve_count": 195,
+  "built_at": "2026-08-17T00:09:45Z"
+}

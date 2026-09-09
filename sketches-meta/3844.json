@@ -1,0 +1,42 @@
+{
+  "number": 3844,
+  "title": "Line sketch: Catgirl Pose Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of the same female character with short hair and a tail, wearing a armored outfit with shoulder pads, knee pads, and boots. She is shown in dynamic action stances against a background, arranged horizontally (derived from generated still #3261).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of the same female character with short hair and a tail, wearing a armored outfit with shoulder pads, knee pads, and boots. She is shown in dynamic action stances against a background, arranged horizontally",
+  "inverted_title": "Inverted sketch: Catgirl Pose Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of the same female character with short hair and a tail, wearing a armored outfit with shoulder pads, knee pads, and boots. She is shown in dynamic action stances against a background, arranged horizontally (from generated still #3261).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of the same female character with short hair and a tail, wearing a armored outfit with shoulder pads, knee pads, and boots. She is shown in dynamic action stances against a background, arranged horizontally",
+  "source_description": "Four sequential poses of the same female character with short silver hair and a blue tail, wearing a blue armored outfit with shoulder pads, knee pads, and boots. She is shown in dynamic action stances against a bright pink background, arranged horizontally.",
+  "source_prompt": "A blue armored catgirl with short spiky silver hair and a long blue tail, wearing a cropped blue top with large shoulder guards, blue pants with knee pads, and heavy boots. She is depicted in four different dynamic action poses side by side, including standing, crouching, and kicking positions, against a solid vibrant pink background, digital character turntable style, clean illustration",
+  "source_title": "Blue Catgirl Pose Study",
+  "style": "digital character study",
+  "mood": "energetic, confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "catgirl",
+    "multiple poses",
+    "armor",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3261,
+  "source_url": "/generated/3261.jpg",
+  "image_url": "/sketches/3844.png",
+  "inverted_image_url": "/sketches-inverted/3844.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:46Z"
+}

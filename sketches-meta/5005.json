@@ -1,0 +1,42 @@
+{
+  "number": 5005,
+  "title": "Line sketch: Phoenix and the Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark-skinned woman in a black and patterned robe stands in a surreal landscape, holding a glowing - orb with circular patterns. A massive phoenix with fiery accents flies above her, carrying another orb in its beak while a smaller bird rides a comet across a vibrant twilight sky (derived from generated still #4442).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark-skinned woman in a black and patterned robe stands in a surreal landscape, holding a glowing - orb with circular patterns. A massive phoenix with fiery accents flies above her, carrying another orb in its beak while a smaller bird rides a comet across a vibrant twilight sky",
+  "inverted_title": "Inverted sketch: Phoenix and the Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark-skinned woman in a black and patterned robe stands in a surreal landscape, holding a glowing - orb with circular patterns. A massive phoenix with fiery accents flies above her, carrying another orb in its beak while a smaller bird rides a comet across a vibrant twilight sky (from generated still #4442).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark-skinned woman in a black and patterned robe stands in a surreal landscape, holding a glowing - orb with circular patterns. A massive phoenix with fiery accents flies above her, carrying another orb in its beak while a smaller bird rides a comet across a vibrant twilight sky",
+  "source_description": "A dark-skinned woman in a black and patterned robe stands in a surreal landscape, holding a glowing red-orange orb with circular patterns. A massive dark blue phoenix with fiery accents flies above her, carrying another orange orb in its beak while a smaller bird rides a comet across a vibrant twilight sky.",
+  "source_prompt": "A majestic dark blue phoenix with glowing yellow eyes and fiery orange accents flies across a vibrant twilight sky filled with comets and ancient ruins. In the foreground, a dark-skinned woman wearing a black robe with colorful patterns stands holding a glowing red orb patterned with circles. The landscape is filled with surreal orange slice-like flowers and foliage under a dramatic colorful sky, highly detailed surreal fantasy scene.",
+  "source_title": "Phoenix and the Orange Orb",
+  "style": "surreal fantasy",
+  "mood": "magical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "phoenix",
+    "orb",
+    "fantasy woman",
+    "surreal landscape",
+    "celestial"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4442,
+  "source_url": "/generated/4442.jpg",
+  "image_url": "/sketches/5005.png",
+  "inverted_image_url": "/sketches-inverted/5005.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:49Z"
+}

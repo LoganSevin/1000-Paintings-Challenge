@@ -1,0 +1,42 @@
+{
+  "number": 636,
+  "title": "Line sketch: Humpty Dumpty Boss",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cartoonish anthropomorphic egg character stands confidently with a smug expression. He wears a business suit with a tie and has large expressive eyes and rosy cheeks (derived from painting #812).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cartoonish anthropomorphic egg character stands confidently with a smug expression. He wears a business suit with a tie and has large expressive eyes and rosy cheeks",
+  "inverted_title": "Inverted sketch: Humpty Dumpty Boss",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cartoonish anthropomorphic egg character stands confidently with a smug expression. He wears a business suit with a tie and has large expressive eyes and rosy cheeks (from painting #812).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cartoonish anthropomorphic egg character stands confidently with a smug expression. He wears a business suit with a tie and has large expressive eyes and rosy cheeks",
+  "source_description": "A cartoonish anthropomorphic egg character stands confidently with a smug expression. He wears a business suit with a tie and has large expressive eyes and rosy cheeks.",
+  "source_prompt": "",
+  "source_title": "Humpty Dumpty Boss",
+  "style": "Cartoon",
+  "mood": "Cheeky",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "Humpty Dumpty",
+    "cartoon egg",
+    "anthropomorphic",
+    "businessman",
+    "character design"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 812,
+  "source_url": "/paintings/812.jpg",
+  "image_url": "/sketches/636.png",
+  "inverted_image_url": "/sketches-inverted/636.png",
+  "curve_count": 62,
+  "built_at": "2026-08-17T00:09:39Z"
+}

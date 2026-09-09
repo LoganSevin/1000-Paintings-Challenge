@@ -1,0 +1,42 @@
+{
+  "number": 1298,
+  "title": "Line sketch: Cabbage Creature in Sun",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts an anthropomorphic leafy cabbage creature with a wide toothy grin and one hand raised in a wave. It stands on a winding path leading toward jagged mountains under a large glowing sun, surrounded by swirling skies filled with skulls and vines (derived from generated still #512).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts an anthropomorphic leafy cabbage creature with a wide toothy grin and one hand raised in a wave. It stands on a winding path leading toward jagged mountains under a large glowing sun, surrounded by swirling skies filled with skulls and vines",
+  "inverted_title": "Inverted sketch: Cabbage Creature in Sun",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts an anthropomorphic leafy cabbage creature with a wide toothy grin and one hand raised in a wave. It stands on a winding path leading toward jagged mountains under a large glowing sun, surrounded by swirling skies filled with skulls and vines (from generated still #512).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts an anthropomorphic leafy cabbage creature with a wide toothy grin and one hand raised in a wave. It stands on a winding path leading toward jagged mountains under a large glowing sun, surrounded by swirling skies filled with skulls and vines",
+  "source_description": "A surreal painting depicts an anthropomorphic leafy green cabbage creature with a wide toothy grin and one hand raised in a wave. It stands on a winding path leading toward jagged mountains under a large glowing red sun, surrounded by swirling green skies filled with skulls and vines.",
+  "source_prompt": "",
+  "source_title": "Cabbage Creature in Red Sun",
+  "style": "surreal fantasy",
+  "mood": "whimsical eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage creature",
+    "surreal landscape",
+    "sun",
+    "swirling sky",
+    "anthropomorphic vegetable"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 512,
+  "source_url": "/generated/512.jpg",
+  "image_url": "/sketches/1298.png",
+  "inverted_image_url": "/sketches-inverted/1298.png",
+  "curve_count": 94,
+  "built_at": "2026-08-17T00:09:41Z"
+}

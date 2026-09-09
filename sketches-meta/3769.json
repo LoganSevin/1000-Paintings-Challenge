@@ -1,0 +1,42 @@
+{
+  "number": 3769,
+  "title": "Line sketch: Warrior's Demise Triptych",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A three-panel image shows the same armored male warrior in sequential stages: standing ready with sword and shield on the left, mid-air in a dramatic falling pose with fiery wing-like effects in the center, and lying dead on the ground with coins spilling from his body on the right (derived from generated still #3185).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A three-panel image shows the same armored male warrior in sequential stages: standing ready with sword and shield on the left, mid-air in a dramatic falling pose with fiery wing-like effects in the center, and lying dead on the ground with coins spilling from his body on the right",
+  "inverted_title": "Inverted sketch: Warrior's Demise Triptych",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A three-panel image shows the same armored male warrior in sequential stages: standing ready with sword and shield on the left, mid-air in a dramatic falling pose with fiery wing-like effects in the center, and lying dead on the ground with coins spilling from his body on the right (from generated still #3185).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A three-panel image shows the same armored male warrior in sequential stages: standing ready with sword and shield on the left, mid-air in a dramatic falling pose with fiery wing-like effects in the center, and lying dead on the ground with coins spilling from his body on the right",
+  "source_description": "A three-panel image shows the same armored male warrior in sequential stages: standing ready with sword and shield on the left, mid-air in a dramatic falling pose with fiery wing-like effects in the center, and lying dead on the ground with coins spilling from his body on the right.",
+  "source_prompt": "A three-panel vertical triptych against a solid black background showing the same muscular male fantasy warrior. Left panel: he stands in a combat pose wearing ornate bronze and gold armor with tattered blue skirt, holding a dagger and shield. Center panel: he is falling backwards through the air in a dynamic pose with fiery ethereal wing effects bursting from his back. Right panel: he lies dead on the ground with coins spilling from his body, armor damaged, eyes closed. Cinematic lighting, highly detailed, realistic textures.",
+  "source_title": "Warrior's Demise Triptych",
+  "style": "cinematic 3D render",
+  "mood": "dramatic, tragic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "triptych",
+    "death",
+    "armor",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3185,
+  "source_url": "/generated/3185.jpg",
+  "image_url": "/sketches/3769.png",
+  "inverted_image_url": "/sketches-inverted/3769.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:46Z"
+}

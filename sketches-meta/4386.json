@@ -1,0 +1,42 @@
+{
+  "number": 4386,
+  "title": "Line sketch: Witch in Arcane Study",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -haired witch in a long polka-dot dress stands on a velvet stool inside a magical cluttered room. She reaches toward a cluster of glowing orbs while surrounded by shelves of potion bottles, framed paintings, an open spellbook, a lit candle, scattered scrolls, and a black cat resting on a picture frame (derived from generated still #3805).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -haired witch in a long polka-dot dress stands on a velvet stool inside a magical cluttered room. She reaches toward a cluster of glowing orbs while surrounded by shelves of potion bottles, framed paintings, an open spellbook, a lit candle, scattered scrolls, and a black cat resting on a picture frame",
+  "inverted_title": "Inverted sketch: Witch in Arcane Study",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -haired witch in a long polka-dot dress stands on a velvet stool inside a magical cluttered room. She reaches toward a cluster of glowing orbs while surrounded by shelves of potion bottles, framed paintings, an open spellbook, a lit candle, scattered scrolls, and a black cat resting on a picture frame (from generated still #3805).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -haired witch in a long polka-dot dress stands on a velvet stool inside a magical cluttered room. She reaches toward a cluster of glowing orbs while surrounded by shelves of potion bottles, framed paintings, an open spellbook, a lit candle, scattered scrolls, and a black cat resting on a picture frame",
+  "source_description": "A purple-haired witch in a long purple polka-dot dress stands on a green velvet stool inside a magical cluttered room. She reaches toward a cluster of glowing turquoise orbs while surrounded by shelves of potion bottles, framed paintings, an open spellbook, a lit red candle, scattered scrolls, and a black cat resting on a picture frame.",
+  "source_prompt": "A purple-haired witch wearing a long purple polka-dot dress and black boots stands on a green velvet platform inside a whimsical magical study. She reaches up toward a cluster of glowing turquoise orbs floating in the air. The room has purple walls, a stained glass skylight, shelves filled with glowing potion jars, many gold-framed paintings, an open spellbook on a desk, a lit red candle, scattered scrolls hanging from the ceiling, and a black cat resting on a picture frame. Butterflies and petals float in the air, rich fantasy illustration style, detailed, atmospheric lighting",
+  "source_title": "Witch in Arcane Study",
+  "style": "fantasy illustration",
+  "mood": "magical, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "alchemy",
+    "magical studio",
+    "aesthetic",
+    "floating orbs"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3805,
+  "source_url": "/generated/3805.jpg",
+  "image_url": "/sketches/4386.png",
+  "inverted_image_url": "/sketches-inverted/4386.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:48Z"
+}

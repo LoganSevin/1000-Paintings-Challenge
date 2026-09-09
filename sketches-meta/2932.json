@@ -1,0 +1,42 @@
+{
+  "number": 2932,
+  "title": "Line sketch: Spectral Choir",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Multiple ghostly, semi-transparent figures with glowing eyes and open mouths appear to sing or emit swirling streams of white and smoke. The dark figures are arranged against a background of horizontal black stripes interspersed with and paint strokes and flecks (derived from generated still #2229).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Multiple ghostly, semi-transparent figures with glowing eyes and open mouths appear to sing or emit swirling streams of white and smoke. The dark figures are arranged against a background of horizontal black stripes interspersed with and paint strokes and flecks",
+  "inverted_title": "Inverted sketch: Spectral Choir",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Multiple ghostly, semi-transparent figures with glowing eyes and open mouths appear to sing or emit swirling streams of white and smoke. The dark figures are arranged against a background of horizontal black stripes interspersed with and paint strokes and flecks (from generated still #2229).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Multiple ghostly, semi-transparent figures with glowing eyes and open mouths appear to sing or emit swirling streams of white and smoke. The dark figures are arranged against a background of horizontal black stripes interspersed with and paint strokes and flecks",
+  "source_description": "Multiple ghostly, semi-transparent figures with glowing eyes and open mouths appear to sing or emit swirling streams of white and gold smoke. The dark figures are arranged against a background of horizontal black stripes interspersed with deep red and blue paint strokes and gold flecks.",
+  "source_prompt": "A surreal dark painting featuring multiple translucent ghostly figures with glowing eyes and open mouths emitting streams of white and golden swirling smoke. The figures are layered over a background of thick horizontal black stripes with splatters of deep red and blue, accented with gold flecks. Moody, atmospheric, painterly brushwork, dark fantasy aesthetic.",
+  "source_title": "Spectral Choir",
+  "style": "surreal dark fantasy",
+  "mood": "eerie haunting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "ghosts",
+    "smoke",
+    "spectral",
+    "orchestra",
+    "dark fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2229,
+  "source_url": "/generated/2229.jpg",
+  "image_url": "/sketches/2932.png",
+  "inverted_image_url": "/sketches-inverted/2932.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:44Z"
+}

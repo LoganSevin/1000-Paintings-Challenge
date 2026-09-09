@@ -1,0 +1,42 @@
+{
+  "number": 4014,
+  "title": "Line sketch: Hammer-Wielding Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dynamic full-body illustration of a female warrior with long dark hair in a topknot, mid-leap while holding a massive warhammer with intricate patterns. She wears an cropped top, dark pants with geometric patterns, arm wraps, and has markings on her arms (derived from generated still #3431).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dynamic full-body illustration of a female warrior with long dark hair in a topknot, mid-leap while holding a massive warhammer with intricate patterns. She wears an cropped top, dark pants with geometric patterns, arm wraps, and has markings on her arms",
+  "inverted_title": "Inverted sketch: Hammer-Wielding Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dynamic full-body illustration of a female warrior with long dark hair in a topknot, mid-leap while holding a massive warhammer with intricate patterns. She wears an cropped top, dark pants with geometric patterns, arm wraps, and has markings on her arms (from generated still #3431).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dynamic full-body illustration of a female warrior with long dark hair in a topknot, mid-leap while holding a massive warhammer with intricate patterns. She wears an cropped top, dark pants with geometric patterns, arm wraps, and has markings on her arms",
+  "source_description": "A dynamic full-body illustration of a female warrior with long dark hair in a topknot, mid-leap while holding a massive purple warhammer with intricate gold patterns. She wears an orange cropped top, dark pants with orange geometric patterns, purple arm wraps, and has red markings on her arms.",
+  "source_prompt": "A fierce female warrior with long dark hair tied in a topknot, wearing an orange cropped top and dark patterned pants with purple boots and arm wraps, leaping dynamically while wielding a large ornate purple warhammer with golden floral designs, red markings on her arms, intense expression, dynamic action pose, clean studio lighting, digital painting style",
+  "source_title": "Hammer-Wielding Warrior",
+  "style": "digital illustration",
+  "mood": "fierce, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "action pose",
+    "hammer"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3431,
+  "source_url": "/generated/3431.jpg",
+  "image_url": "/sketches/4014.png",
+  "inverted_image_url": "/sketches-inverted/4014.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:47Z"
+}

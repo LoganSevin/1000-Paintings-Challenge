@@ -1,0 +1,42 @@
+{
+  "number": 3075,
+  "title": "Line sketch: Honey Skull Surreal Scene",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a large cracked skull floating above a smaller skull with wide cartoon eyes and a toothy grin, both dripping with honey from a skeletal arm and spoon. The scene is set against a cosmic starry background with swirling nebulae, palm fronds, and a foreground of bubbling honey filled with ants and bubbles (derived from generated still #2403).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a large cracked skull floating above a smaller skull with wide cartoon eyes and a toothy grin, both dripping with honey from a skeletal arm and spoon. The scene is set against a cosmic starry background with swirling nebulae, palm fronds, and a foreground of bubbling honey filled with ants and bubbles",
+  "inverted_title": "Inverted sketch: Honey Skull Surreal Scene",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a large cracked skull floating above a smaller skull with wide cartoon eyes and a toothy grin, both dripping with honey from a skeletal arm and spoon. The scene is set against a cosmic starry background with swirling nebulae, palm fronds, and a foreground of bubbling honey filled with ants and bubbles (from generated still #2403).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a large cracked skull floating above a smaller skull with wide cartoon eyes and a toothy grin, both dripping with honey from a skeletal arm and spoon. The scene is set against a cosmic starry background with swirling nebulae, palm fronds, and a foreground of bubbling honey filled with ants and bubbles",
+  "source_description": "A surreal painting depicts a large cracked skull floating above a smaller skull with wide cartoon eyes and a toothy grin, both dripping with golden honey from a skeletal arm and spoon. The scene is set against a cosmic starry background with swirling nebulae, palm fronds, and a foreground of bubbling honey filled with ants and bubbles.",
+  "source_prompt": "",
+  "source_title": "Honey Skull Surreal Scene",
+  "style": "surrealism",
+  "mood": "whimsical grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "skulls",
+    "honey",
+    "surreal",
+    "cosmic",
+    "ants"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2403,
+  "source_url": "/generated/2403.jpg",
+  "image_url": "/sketches/3075.png",
+  "inverted_image_url": "/sketches-inverted/3075.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2996,
+  "title": "Line sketch: Shadow Creature Dance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large black furry creature with glowing white eyes and sharp teeth emerges from swirling, and energy tendrils. A young man in dark clothing is captured mid-dance pose within the creature's swirling aura under a night sky featuring a moon and a distant pagoda (derived from generated still #2318).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large black furry creature with glowing white eyes and sharp teeth emerges from swirling, and energy tendrils. A young man in dark clothing is captured mid-dance pose within the creature's swirling aura under a night sky featuring a moon and a distant pagoda",
+  "inverted_title": "Inverted sketch: Shadow Creature Dance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large black furry creature with glowing white eyes and sharp teeth emerges from swirling, and energy tendrils. A young man in dark clothing is captured mid-dance pose within the creature's swirling aura under a night sky featuring a moon and a distant pagoda (from generated still #2318).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large black furry creature with glowing white eyes and sharp teeth emerges from swirling, and energy tendrils. A young man in dark clothing is captured mid-dance pose within the creature's swirling aura under a night sky featuring a moon and a distant pagoda",
+  "source_description": "A large black furry creature with glowing white eyes and sharp teeth emerges from swirling blue, purple and yellow energy tendrils. A young man in dark clothing is captured mid-dance pose within the creature's swirling aura under a night sky featuring a red moon and a distant pagoda.",
+  "source_prompt": "A large black furry monster with huge glowing white eyes and sharp teeth emerges from swirling blue purple and golden energy trails in a dark night field. A young East Asian man in dark traditional clothing is dancing dynamically inside the swirling aura. Background shows a blood red moon, a Japanese pagoda on a hill, white moon in the sky, and detailed wild plants in the foreground, dramatic fantasy scene, detailed digital painting",
+  "source_title": "Shadow Creature Dance",
+  "style": "fantasy illustration",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy creature",
+    "night scene",
+    "swirling energy",
+    "moon",
+    "pagoda"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2318,
+  "source_url": "/generated/2318.jpg",
+  "image_url": "/sketches/2996.png",
+  "inverted_image_url": "/sketches-inverted/2996.png",
+  "curve_count": 40,
+  "built_at": "2026-08-17T00:09:44Z"
+}

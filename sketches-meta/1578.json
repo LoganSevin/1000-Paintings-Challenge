@@ -1,0 +1,42 @@
+{
+  "number": 1578,
+  "title": "Line sketch: Surreal Eye of Judgment",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition features a -skinned woman's face with eyes and spiral patterns, with dripping paint effects. To the right, a large blood- eye with concentric circles drips liquid above four hooded skeletal figures with glowing eyes standing in a row (derived from generated still #793).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition features a -skinned woman's face with eyes and spiral patterns, with dripping paint effects. To the right, a large blood- eye with concentric circles drips liquid above four hooded skeletal figures with glowing eyes standing in a row",
+  "inverted_title": "Inverted sketch: Surreal Eye of Judgment",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition features a -skinned woman's face with eyes and spiral patterns, with dripping paint effects. To the right, a large blood- eye with concentric circles drips liquid above four hooded skeletal figures with glowing eyes standing in a row (from generated still #793).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition features a -skinned woman's face with eyes and spiral patterns, with dripping paint effects. To the right, a large blood- eye with concentric circles drips liquid above four hooded skeletal figures with glowing eyes standing in a row",
+  "source_description": "A surreal painting features a blue-skinned woman's face with orange eyes and colorful spiral patterns, with dripping paint effects. To the right, a large blood-red eye with concentric circles drips red liquid above four hooded skeletal figures with glowing red eyes standing in a row.",
+  "source_prompt": "",
+  "source_title": "Surreal Eye of Judgment",
+  "style": "surrealism",
+  "mood": "eerie ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "dripping paint",
+    "skeletal figures",
+    "giant eye",
+    "woman"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 793,
+  "source_url": "/generated/793.jpg",
+  "image_url": "/sketches/1578.png",
+  "inverted_image_url": "/sketches-inverted/1578.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:41Z"
+}

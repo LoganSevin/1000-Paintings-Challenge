@@ -1,0 +1,42 @@
+{
+  "number": 2149,
+  "title": "Line sketch: Stasis Bear Dead",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic poster featuring a grotesque zombie skull with bulging bloodshot eyes at the center of a massive glowing bear paw print. The background contains swirling hypnotic patterns, dotted circles, and rows of repeated stylized human silhouettes along the bottom (derived from generated still #1374).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic poster featuring a grotesque zombie skull with bulging bloodshot eyes at the center of a massive glowing bear paw print. The background contains swirling hypnotic patterns, dotted circles, and rows of repeated stylized human silhouettes along the bottom",
+  "inverted_title": "Inverted sketch: Stasis Bear Dead",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic poster featuring a grotesque zombie skull with bulging bloodshot eyes at the center of a massive glowing bear paw print. The background contains swirling hypnotic patterns, dotted circles, and rows of repeated stylized human silhouettes along the bottom (from generated still #1374).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic poster featuring a grotesque zombie skull with bulging bloodshot eyes at the center of a massive glowing bear paw print. The background contains swirling hypnotic patterns, dotted circles, and rows of repeated stylized human silhouettes along the bottom",
+  "source_description": "A vibrant psychedelic poster featuring a grotesque green zombie skull with bulging bloodshot eyes at the center of a massive glowing yellow bear paw print. The background contains swirling hypnotic patterns, colorful dotted circles, and rows of repeated stylized human silhouettes along the bottom.",
+  "source_prompt": "",
+  "source_title": "Stasis Bear Dead",
+  "style": "psychedelic",
+  "mood": "trippy, grotesque",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "zombie skull",
+    "bear paw",
+    "psychedelic",
+    "horror art",
+    "vibrant"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1374,
+  "source_url": "/generated/1374.jpg",
+  "image_url": "/sketches/2149.png",
+  "inverted_image_url": "/sketches-inverted/2149.png",
+  "curve_count": 178,
+  "built_at": "2026-08-17T00:09:42Z"
+}

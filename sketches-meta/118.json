@@ -1,0 +1,42 @@
+{
+  "number": 118,
+  "title": "Line sketch: Bubble Lounge in Space Age",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant retro-futuristic interior features oversized transparent spheres suspended from the ceiling, spherical and seating, and a curved table set with a coffee service. The composition centers on the low table with surrounding modular furniture against walls, creating a playful, enclosed environment. Bold flat colors, clean outlines, and graphic shading suggest a digital or illustration technique with strong mid-century influences (derived from painting #154).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant retro-futuristic interior features oversized transparent spheres suspended from the ceiling, spherical and seating, and a curved table set with a coffee service. The composition centers on the low table with surrounding modular furniture against walls, creating a playful, enclosed environment. Bold flat colors, clean outlines, and graphic shading suggest a digital or illustration technique with strong mid-century influences",
+  "inverted_title": "Inverted sketch: Bubble Lounge in Space Age",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant retro-futuristic interior features oversized transparent spheres suspended from the ceiling, spherical and seating, and a curved table set with a coffee service. The composition centers on the low table with surrounding modular furniture against walls, creating a playful, enclosed environment. Bold flat colors, clean outlines, and graphic shading suggest a digital or illustration technique with strong mid-century influences (from painting #154).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant retro-futuristic interior features oversized transparent spheres suspended from the ceiling, spherical and seating, and a curved table set with a coffee service. The composition centers on the low table with surrounding modular furniture against walls, creating a playful, enclosed environment. Bold flat colors, clean outlines, and graphic shading suggest a digital or illustration technique with strong mid-century influences",
+  "source_description": "A vibrant retro-futuristic interior features oversized transparent blue spheres suspended from the ceiling, spherical orange and blue seating, and a curved purple table set with a coffee service. The composition centers on the low table with surrounding modular furniture against deep purple walls, creating a playful, enclosed environment. Bold flat colors, clean outlines, and graphic shading suggest a digital or acrylic illustration technique with strong mid-century influences.",
+  "source_prompt": "",
+  "source_title": "Bubble Lounge in Space Age",
+  "style": "retro-futurism",
+  "mood": "playful vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "retro",
+    "futuristic",
+    "interior",
+    "bubbles",
+    "space age"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 154,
+  "source_url": "/paintings/154.jpg",
+  "image_url": "/sketches/118.png",
+  "inverted_image_url": "/sketches-inverted/118.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

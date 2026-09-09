@@ -1,0 +1,42 @@
+{
+  "number": 1263,
+  "title": "Line sketch: Veiled Alien Serpent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serpentine alien creature with large eyes and a long neck emerges from a translucent veil draped over its body. The creature is surrounded by floating crystals, stones, and fossil-like objects against a muted, textured background (derived from generated still #475).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serpentine alien creature with large eyes and a long neck emerges from a translucent veil draped over its body. The creature is surrounded by floating crystals, stones, and fossil-like objects against a muted, textured background",
+  "inverted_title": "Inverted sketch: Veiled Alien Serpent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serpentine alien creature with large eyes and a long neck emerges from a translucent veil draped over its body. The creature is surrounded by floating crystals, stones, and fossil-like objects against a muted, textured background (from generated still #475).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serpentine alien creature with large eyes and a long neck emerges from a translucent veil draped over its body. The creature is surrounded by floating crystals, stones, and fossil-like objects against a muted, textured background",
+  "source_description": "A green serpentine alien creature with large red eyes and a long neck emerges from a translucent veil draped over its body. The creature is surrounded by floating crystals, stones, and fossil-like objects against a muted, textured background.",
+  "source_prompt": "",
+  "source_title": "Veiled Alien Serpent",
+  "style": "fantasy illustration",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien creature",
+    "serpent",
+    "veil",
+    "crystals",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 475,
+  "source_url": "/generated/475.jpg",
+  "image_url": "/sketches/1263.png",
+  "inverted_image_url": "/sketches-inverted/1263.png",
+  "curve_count": 4,
+  "built_at": "2026-08-17T00:09:40Z"
+}

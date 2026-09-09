@@ -1,0 +1,42 @@
+{
+  "number": 1822,
+  "title": "Line sketch: Celestial Dream Weaver",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted female figure with flowing long hair sits within the branches of a stylized tree, extending her hand toward a giant moon. The tree's branches form a net holding numerous glowing orbs containing smaller silhouetted figures, set against a vibrant cosmic sky with stars, comets, and swirling patterns (derived from generated still #1045).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted female figure with flowing long hair sits within the branches of a stylized tree, extending her hand toward a giant moon. The tree's branches form a net holding numerous glowing orbs containing smaller silhouetted figures, set against a vibrant cosmic sky with stars, comets, and swirling patterns",
+  "inverted_title": "Inverted sketch: Celestial Dream Weaver",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted female figure with flowing long hair sits within the branches of a stylized tree, extending her hand toward a giant moon. The tree's branches form a net holding numerous glowing orbs containing smaller silhouetted figures, set against a vibrant cosmic sky with stars, comets, and swirling patterns (from generated still #1045).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted female figure with flowing long hair sits within the branches of a stylized tree, extending her hand toward a giant moon. The tree's branches form a net holding numerous glowing orbs containing smaller silhouetted figures, set against a vibrant cosmic sky with stars, comets, and swirling patterns",
+  "source_description": "A silhouetted female figure with flowing long hair sits within the branches of a stylized tree, extending her hand toward a giant red moon. The tree's branches form a net holding numerous glowing blue orbs containing smaller silhouetted figures, set against a vibrant cosmic sky with stars, comets, and swirling patterns.",
+  "source_prompt": "",
+  "source_title": "Celestial Dream Weaver",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic tree",
+    "moon",
+    "silhouetted woman",
+    "glowing orbs",
+    "starry sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1045,
+  "source_url": "/generated/1045.jpg",
+  "image_url": "/sketches/1822.png",
+  "inverted_image_url": "/sketches-inverted/1822.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:42Z"
+}

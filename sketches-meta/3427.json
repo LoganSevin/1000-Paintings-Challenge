@@ -1,0 +1,42 @@
+{
+  "number": 3427,
+  "title": "Line sketch: Surreal Dream Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A composite surreal artwork divided into distinct panels. The top section shows a man in a dark coat and hat standing in a rainy Victorian street, a woman holding a glowing umbrella standing on a large black sphere, an dragon-like creature, and a vibrant abstract space with floating orbs and a butterfly. The bottom section contains hot air balloons, a dragon coiled over stylized grey waves, and a detailed branch of flowers against a dark background (derived from generated still #2828).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A composite surreal artwork divided into distinct panels. The top section shows a man in a dark coat and hat standing in a rainy Victorian street, a woman holding a glowing umbrella standing on a large black sphere, an dragon-like creature, and a vibrant abstract space with floating orbs and a butterfly. The bottom section contains hot air balloons, a dragon coiled over stylized grey waves, and a detailed branch of flowers against a dark background",
+  "inverted_title": "Inverted sketch: Surreal Dream Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A composite surreal artwork divided into distinct panels. The top section shows a man in a dark coat and hat standing in a rainy Victorian street, a woman holding a glowing umbrella standing on a large black sphere, an dragon-like creature, and a vibrant abstract space with floating orbs and a butterfly. The bottom section contains hot air balloons, a dragon coiled over stylized grey waves, and a detailed branch of flowers against a dark background (from generated still #2828).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A composite surreal artwork divided into distinct panels. The top section shows a man in a dark coat and hat standing in a rainy Victorian street, a woman holding a glowing umbrella standing on a large black sphere, an dragon-like creature, and a vibrant abstract space with floating orbs and a butterfly. The bottom section contains hot air balloons, a dragon coiled over stylized grey waves, and a detailed branch of flowers against a dark background",
+  "source_description": "A composite surreal artwork divided into distinct panels. The top section shows a man in a dark coat and red hat standing in a rainy Victorian street, a woman holding a glowing blue umbrella standing on a large black sphere, an orange dragon-like creature, and a vibrant purple abstract space with floating orbs and a butterfly. The bottom section contains red hot air balloons, a green dragon coiled over stylized grey waves, and a detailed branch of yellow flowers against a dark background.",
+  "source_prompt": "Surreal fantasy collage divided into multiple scenes, on the left a man in a long coat and red hat stands in a rainy gaslamp street at night, a woman in a dark dress holds a glowing blue umbrella while standing on a large black sphere, an orange serpentine dragon curves across the center, a figure in a red robe stands near a glowing orb, vibrant purple abstract space with floating translucent orbs and a large butterfly, bottom left features red hot air balloons, center shows a large green dragon coiled over stylized flowing grey waves, right side displays detailed branches with yellow flowers and green leaves against a deep blue background, highly detailed digital painting",
+  "source_title": "Surreal Dream Collage",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "collage",
+    "dragon",
+    "fantasy",
+    "dreamscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2828,
+  "source_url": "/generated/2828.jpg",
+  "image_url": "/sketches/3427.png",
+  "inverted_image_url": "/sketches-inverted/3427.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 4854,
+  "title": "Line sketch: Surreal Geometric Guardian",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large abstract geometric figure with a split face, one eye, and black lips stands with arms raised in the center. A vibrant dog wearing an ornate harness stands on geometric blocks in front, with a wooden mountain house, cascading waterfall, classical ruins, and a dramatic - sky with a setting sun visible behind (derived from generated still #4289).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large abstract geometric figure with a split face, one eye, and black lips stands with arms raised in the center. A vibrant dog wearing an ornate harness stands on geometric blocks in front, with a wooden mountain house, cascading waterfall, classical ruins, and a dramatic - sky with a setting sun visible behind",
+  "inverted_title": "Inverted sketch: Surreal Geometric Guardian",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large abstract geometric figure with a split face, one eye, and black lips stands with arms raised in the center. A vibrant dog wearing an ornate harness stands on geometric blocks in front, with a wooden mountain house, cascading waterfall, classical ruins, and a dramatic - sky with a setting sun visible behind (from generated still #4289).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large abstract geometric figure with a split face, one eye, and black lips stands with arms raised in the center. A vibrant dog wearing an ornate harness stands on geometric blocks in front, with a wooden mountain house, cascading waterfall, classical ruins, and a dramatic - sky with a setting sun visible behind",
+  "source_description": "A large abstract geometric figure with a split multicolored face, one yellow eye, and black lips stands with arms raised in the center. A vibrant green dog wearing an ornate harness stands on geometric blocks in front, with a wooden mountain house, cascading rainbow waterfall, classical ruins, and a dramatic pink-blue sky with a setting sun visible behind.",
+  "source_prompt": "A large abstract geometric humanoid figure with a split face composed of purple, orange, green and white shapes, one large yellow eye, black lips, and raised hands stands in the foreground. A bright green dog with a detailed patterned harness stands alert on colorful geometric stone blocks. Behind them is a wooden house perched on a rocky mountain peak with a rainbow waterfall cascading down, flanked by classical Greek ruins under a dramatic sky with pink clouds and a glowing sunset.",
+  "source_title": "Surreal Geometric Guardian",
+  "style": "surrealism",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "geometric",
+    "fantasy landscape",
+    "waterfall",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4289,
+  "source_url": "/generated/4289.jpg",
+  "image_url": "/sketches/4854.png",
+  "inverted_image_url": "/sketches-inverted/4854.png",
+  "curve_count": 25,
+  "built_at": "2026-08-17T00:09:49Z"
+}

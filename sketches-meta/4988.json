@@ -1,0 +1,42 @@
+{
+  "number": 4988,
+  "title": "Line sketch: Surreal Throne Over River",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a giant demonic figure with black horns, glowing eyes, and a crown floating on a dark cloud above a river. Below, a bearded man in a black shirt and a -skinned figure appear in the foreground, while a soldier in uniform sits at a wooden table on a dock beside two horses and a factory with smokestacks in the background (derived from generated still #4425).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a giant demonic figure with black horns, glowing eyes, and a crown floating on a dark cloud above a river. Below, a bearded man in a black shirt and a -skinned figure appear in the foreground, while a soldier in uniform sits at a wooden table on a dock beside two horses and a factory with smokestacks in the background",
+  "inverted_title": "Inverted sketch: Surreal Throne Over River",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a giant demonic figure with black horns, glowing eyes, and a crown floating on a dark cloud above a river. Below, a bearded man in a black shirt and a -skinned figure appear in the foreground, while a soldier in uniform sits at a wooden table on a dock beside two horses and a factory with smokestacks in the background (from generated still #4425).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a giant demonic figure with black horns, glowing eyes, and a crown floating on a dark cloud above a river. Below, a bearded man in a black shirt and a -skinned figure appear in the foreground, while a soldier in uniform sits at a wooden table on a dock beside two horses and a factory with smokestacks in the background",
+  "source_description": "A surreal painting depicts a giant demonic figure with black horns, glowing pink eyes, and a golden crown floating on a dark cloud above a river. Below, a bearded man in a black shirt and a green-skinned figure appear in the foreground, while a soldier in green uniform sits at a wooden table on a dock beside two horses and a factory with smokestacks in the background.",
+  "source_prompt": "Surreal fantasy scene featuring a massive shadowy demon with large black horns and glowing pink eyes wearing an ornate golden crown, floating on a dark blue cloud pillow with lit candles and floating papers. Below is a serene river landscape with a wooden dock where a soldier in green uniform sits at a table with a vase of flowers. In the foreground, a bearded long-haired man and a green-skinned character are visible. Two horses stand near a fence with a factory and smokestacks in the distance under a dramatic sky.",
+  "source_title": "Surreal Throne Over River",
+  "style": "surrealism",
+  "mood": "bizarre, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "demonic figure",
+    "floating throne",
+    "industrial landscape",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4425,
+  "source_url": "/generated/4425.jpg",
+  "image_url": "/sketches/4988.png",
+  "inverted_image_url": "/sketches-inverted/4988.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:49Z"
+}

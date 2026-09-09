@@ -1,0 +1,42 @@
+{
+  "number": 3813,
+  "title": "Line sketch: Explosive Boy",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four comic-style illustrations of a muscular blond boy in a and black armored suit with glowing energy effects. He is shown in dynamic action poses: generating energy bursts from his fists, running with motion trails, punching forward with an intense explosive blast of light and shards, and standing in a ready stance (derived from generated still #3230).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four comic-style illustrations of a muscular blond boy in a and black armored suit with glowing energy effects. He is shown in dynamic action poses: generating energy bursts from his fists, running with motion trails, punching forward with an intense explosive blast of light and shards, and standing in a ready stance",
+  "inverted_title": "Inverted sketch: Explosive Boy",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four comic-style illustrations of a muscular blond boy in a and black armored suit with glowing energy effects. He is shown in dynamic action poses: generating energy bursts from his fists, running with motion trails, punching forward with an intense explosive blast of light and shards, and standing in a ready stance (from generated still #3230).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four comic-style illustrations of a muscular blond boy in a and black armored suit with glowing energy effects. He is shown in dynamic action poses: generating energy bursts from his fists, running with motion trails, punching forward with an intense explosive blast of light and shards, and standing in a ready stance",
+  "source_description": "Four comic-style illustrations of a muscular blond boy in a yellow and black armored suit with glowing yellow energy effects. He is shown in dynamic action poses: generating yellow energy bursts from his fists, running with motion trails, punching forward with an intense explosive blast of light and shards, and standing in a ready stance.",
+  "source_prompt": "A comic book character sheet of a tough blond boy with spiky hair wearing a black and yellow armored suit with glowing yellow accents. He has a determined angry expression with furrowed brows. Multiple dynamic action poses showing him generating bright yellow explosive energy from his fists, running with motion effects, delivering a powerful forward punch that creates a massive yellow energy blast with flying shards, and standing in a combat stance, dramatic lighting, detailed digital painting",
+  "source_title": "Yellow Explosive Boy",
+  "style": "comic book",
+  "mood": "dynamic energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "superhero",
+    "explosion",
+    "energy powers",
+    "blond boy",
+    "comic art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3230,
+  "source_url": "/generated/3230.jpg",
+  "image_url": "/sketches/3813.png",
+  "inverted_image_url": "/sketches-inverted/3813.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:46Z"
+}

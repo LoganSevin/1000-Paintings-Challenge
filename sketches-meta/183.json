@@ -1,0 +1,42 @@
+{
+  "number": 183,
+  "title": "Line sketch: Playful Dog Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Minimalist black line drawing of a cute dog face on a dusty background. The simple illustration features circular patterns and abstract shapes framing the central animal figure (derived from painting #226).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Minimalist black line drawing of a cute dog face on a dusty background. The simple illustration features circular patterns and abstract shapes framing the central animal figure",
+  "inverted_title": "Inverted sketch: Playful Dog Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Minimalist black line drawing of a cute dog face on a dusty background. The simple illustration features circular patterns and abstract shapes framing the central animal figure (from painting #226).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Minimalist black line drawing of a cute dog face on a dusty background. The simple illustration features circular patterns and abstract shapes framing the central animal figure",
+  "source_description": "Minimalist black line drawing of a cute dog face on a dusty rose background. The simple illustration features circular patterns and abstract shapes framing the central animal figure.",
+  "source_prompt": "",
+  "source_title": "Playful Dog Portrait",
+  "style": "Minimalist illustration",
+  "mood": "Playful and cute",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dog portrait",
+    "minimalist art",
+    "line drawing",
+    "animal illustration",
+    "background"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 226,
+  "source_url": "/paintings/226.jpg",
+  "image_url": "/sketches/183.png",
+  "inverted_image_url": "/sketches-inverted/183.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:38Z"
+}

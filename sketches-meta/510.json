@@ -1,0 +1,42 @@
+{
+  "number": 510,
+  "title": "Line sketch: Chibi Alien Soldier",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A cute -skinned alien girl with pigtails stands holding a grenade. She has large eyes and wears a military jacket with boots against a solid background (derived from painting #629).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A cute -skinned alien girl with pigtails stands holding a grenade. She has large eyes and wears a military jacket with boots against a solid background",
+  "inverted_title": "Inverted sketch: Chibi Alien Soldier",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A cute -skinned alien girl with pigtails stands holding a grenade. She has large eyes and wears a military jacket with boots against a solid background (from painting #629).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A cute -skinned alien girl with pigtails stands holding a grenade. She has large eyes and wears a military jacket with boots against a solid background",
+  "source_description": "A cute green-skinned alien girl with pigtails stands holding a grenade. She has large red eyes and wears a military jacket with boots against a solid background.",
+  "source_prompt": "",
+  "source_title": "Chibi Green Alien Soldier",
+  "style": "Cartoon",
+  "mood": "Cute yet serious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "chibi",
+    "alien",
+    "soldier",
+    "grenade",
+    "pigtails"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 629,
+  "source_url": "/paintings/629.jpg",
+  "image_url": "/sketches/510.png",
+  "inverted_image_url": "/sketches-inverted/510.png",
+  "curve_count": 128,
+  "built_at": "2026-08-17T00:09:39Z"
+}

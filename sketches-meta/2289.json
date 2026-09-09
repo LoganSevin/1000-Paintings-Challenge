@@ -1,0 +1,42 @@
+{
+  "number": 2289,
+  "title": "Line sketch: Psychedelic Egg Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic scene features a large egg on a black platform containing the profile of a woman with spiral hair. In the background, a -skinned woman with flowing hair rides two translucent horses across swirling patterns and floating petals (derived from generated still #1516).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic scene features a large egg on a black platform containing the profile of a woman with spiral hair. In the background, a -skinned woman with flowing hair rides two translucent horses across swirling patterns and floating petals",
+  "inverted_title": "Inverted sketch: Psychedelic Egg Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic scene features a large egg on a black platform containing the profile of a woman with spiral hair. In the background, a -skinned woman with flowing hair rides two translucent horses across swirling patterns and floating petals (from generated still #1516).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic scene features a large egg on a black platform containing the profile of a woman with spiral hair. In the background, a -skinned woman with flowing hair rides two translucent horses across swirling patterns and floating petals",
+  "source_description": "A surreal psychedelic scene features a large iridescent egg on a black platform containing the profile of a woman with green spiral hair. In the background, a green-skinned woman with flowing hair rides two translucent green horses across swirling colorful patterns and floating petals.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Egg Vision",
+  "style": "psychedelic surrealism",
+  "mood": "dreamlike vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "egg",
+    "horses",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1516,
+  "source_url": "/generated/1516.jpg",
+  "image_url": "/sketches/2289.png",
+  "inverted_image_url": "/sketches-inverted/2289.png",
+  "curve_count": 57,
+  "built_at": "2026-08-17T00:09:43Z"
+}

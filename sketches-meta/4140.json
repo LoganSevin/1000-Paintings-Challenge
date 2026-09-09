@@ -1,0 +1,42 @@
+{
+  "number": 4140,
+  "title": "Line sketch: Winged Angel in Mirror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A muscular woman with large white feathered wings and hair sits on a bed, viewed through an ornate mirror frame. She wears a white bikini, has glowing circular markings on her forehead and chest, holds a slice of pizza in one hand, and has her mouth open as if exclaiming, while a cape flows dramatically beside her against a stormy, lightning-filled sky (derived from generated still #3557).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A muscular woman with large white feathered wings and hair sits on a bed, viewed through an ornate mirror frame. She wears a white bikini, has glowing circular markings on her forehead and chest, holds a slice of pizza in one hand, and has her mouth open as if exclaiming, while a cape flows dramatically beside her against a stormy, lightning-filled sky",
+  "inverted_title": "Inverted sketch: Winged Angel in Mirror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A muscular woman with large white feathered wings and hair sits on a bed, viewed through an ornate mirror frame. She wears a white bikini, has glowing circular markings on her forehead and chest, holds a slice of pizza in one hand, and has her mouth open as if exclaiming, while a cape flows dramatically beside her against a stormy, lightning-filled sky (from generated still #3557).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A muscular woman with large white feathered wings and hair sits on a bed, viewed through an ornate mirror frame. She wears a white bikini, has glowing circular markings on her forehead and chest, holds a slice of pizza in one hand, and has her mouth open as if exclaiming, while a cape flows dramatically beside her against a stormy, lightning-filled sky",
+  "source_description": "A muscular woman with large white feathered wings and purple hair sits on a bed, viewed through an ornate golden mirror frame. She wears a white bikini, has glowing circular markings on her forehead and chest, holds a slice of pizza in one hand, and has her mouth open as if exclaiming, while a red cape flows dramatically beside her against a stormy, lightning-filled sky.",
+  "source_prompt": "A muscular female angel with large white feathered wings and long purple hair sits on a bed inside an ornate golden mirror frame. She wears a white bikini, has glowing circular tattoos on her forehead and chest, holds a slice of pepperoni pizza, mouth open in excitement. Dramatic red cape flows to the side. Dark stormy sky with lightning visible in the background, cinematic lighting, highly detailed digital painting.",
+  "source_title": "Winged Angel in Mirror",
+  "style": "digital fantasy illustration",
+  "mood": "dramatic, surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angel",
+    "wings",
+    "mirror",
+    "pizza",
+    "storm"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3557,
+  "source_url": "/generated/3557.jpg",
+  "image_url": "/sketches/4140.png",
+  "inverted_image_url": "/sketches-inverted/4140.png",
+  "curve_count": 69,
+  "built_at": "2026-08-17T00:09:47Z"
+}

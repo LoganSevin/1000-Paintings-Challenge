@@ -1,0 +1,42 @@
+{
+  "number": 1013,
+  "title": "Line sketch: Egg CEO in Desert",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A smug anthropomorphic egg character dressed in a dark suit and tie stands confidently with hands on hips, holding a briefcase. It is surrounded by flowers and paint splashes in a surreal desert landscape with dunes, a winding road, a large sun, and a prohibition fan sign (derived from generated still #223).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A smug anthropomorphic egg character dressed in a dark suit and tie stands confidently with hands on hips, holding a briefcase. It is surrounded by flowers and paint splashes in a surreal desert landscape with dunes, a winding road, a large sun, and a prohibition fan sign",
+  "inverted_title": "Inverted sketch: Egg CEO in Desert",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A smug anthropomorphic egg character dressed in a dark suit and tie stands confidently with hands on hips, holding a briefcase. It is surrounded by flowers and paint splashes in a surreal desert landscape with dunes, a winding road, a large sun, and a prohibition fan sign (from generated still #223).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A smug anthropomorphic egg character dressed in a dark suit and tie stands confidently with hands on hips, holding a briefcase. It is surrounded by flowers and paint splashes in a surreal desert landscape with dunes, a winding road, a large sun, and a prohibition fan sign",
+  "source_description": "A smug anthropomorphic egg character dressed in a dark suit and tie stands confidently with hands on hips, holding a briefcase. It is surrounded by colorful flowers and paint splashes in a surreal desert landscape with orange dunes, a winding road, a large red sun, and a blue prohibition fan sign.",
+  "source_prompt": "",
+  "source_title": "Egg CEO in Desert",
+  "style": "surreal cartoon",
+  "mood": "whimsical confident",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "anthropomorphic egg",
+    "surreal desert",
+    "business character",
+    "prohibition sign",
+    "flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 223,
+  "source_url": "/generated/223.jpg",
+  "image_url": "/sketches/1013.png",
+  "inverted_image_url": "/sketches-inverted/1013.png",
+  "curve_count": 22,
+  "built_at": "2026-08-17T00:09:40Z"
+}

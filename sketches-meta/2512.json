@@ -1,0 +1,42 @@
+{
+  "number": 2512,
+  "title": "Line sketch: Taco Reel Column",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four upright tacos filled with meat, cabbage, and herbs stand vertically in a metal taco holder on a table, with sauce dripping down. The vibrant scene includes wedges, a hot sauce bottle, crumpled wrappers, hanging lanterns, string lights, and a patterned wall with a 'TACOS REEL COLUMN 4 $4' sign (derived from generated still #1748).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four upright tacos filled with meat, cabbage, and herbs stand vertically in a metal taco holder on a table, with sauce dripping down. The vibrant scene includes wedges, a hot sauce bottle, crumpled wrappers, hanging lanterns, string lights, and a patterned wall with a 'TACOS REEL COLUMN 4 $4' sign",
+  "inverted_title": "Inverted sketch: Taco Reel Column",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four upright tacos filled with meat, cabbage, and herbs stand vertically in a metal taco holder on a table, with sauce dripping down. The vibrant scene includes wedges, a hot sauce bottle, crumpled wrappers, hanging lanterns, string lights, and a patterned wall with a 'TACOS REEL COLUMN 4 $4' sign (from generated still #1748).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four upright tacos filled with meat, cabbage, and herbs stand vertically in a metal taco holder on a table, with sauce dripping down. The vibrant scene includes wedges, a hot sauce bottle, crumpled wrappers, hanging lanterns, string lights, and a patterned wall with a 'TACOS REEL COLUMN 4 $4' sign",
+  "source_description": "Four upright tacos filled with meat, purple cabbage, and herbs stand vertically in a metal taco holder on a turquoise table, with sauce dripping down. The vibrant scene includes lime wedges, a hot sauce bottle, crumpled wrappers, hanging red lanterns, string lights, and a blue patterned wall with a 'TACOS REEL COLUMN 4 $4' sign.",
+  "source_prompt": "",
+  "source_title": "Taco Reel Column",
+  "style": "realistic composition",
+  "mood": "festive, appetizing",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tacos",
+    "street food",
+    "Mexican cuisine",
+    "still life",
+    "lanterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1748,
+  "source_url": "/generated/1748.jpg",
+  "image_url": "/sketches/2512.png",
+  "inverted_image_url": "/sketches-inverted/2512.png",
+  "curve_count": 104,
+  "built_at": "2026-08-17T00:09:43Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2985,
+  "title": "Line sketch: Cosmic Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A tall, slender alien-like figure with a white mask-like face, glowing eyes, and dripping texture stands in the center, pointing at a large swirling cosmic portal. The portal contains a vibrant spiral galaxy with floating music notes, symbols, and celestial objects. The figure has multiple tentacle-like lower limbs adorned with chains and medallions (derived from generated still #2307).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A tall, slender alien-like figure with a white mask-like face, glowing eyes, and dripping texture stands in the center, pointing at a large swirling cosmic portal. The portal contains a vibrant spiral galaxy with floating music notes, symbols, and celestial objects. The figure has multiple tentacle-like lower limbs adorned with chains and medallions",
+  "inverted_title": "Inverted sketch: Cosmic Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A tall, slender alien-like figure with a white mask-like face, glowing eyes, and dripping texture stands in the center, pointing at a large swirling cosmic portal. The portal contains a vibrant spiral galaxy with floating music notes, symbols, and celestial objects. The figure has multiple tentacle-like lower limbs adorned with chains and medallions (from generated still #2307).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A tall, slender alien-like figure with a white mask-like face, glowing eyes, and dripping texture stands in the center, pointing at a large swirling cosmic portal. The portal contains a vibrant spiral galaxy with floating music notes, symbols, and celestial objects. The figure has multiple tentacle-like lower limbs adorned with chains and medallions",
+  "source_description": "A tall, slender purple alien-like figure with a white mask-like face, glowing yellow eyes, and dripping texture stands in the center, pointing at a large swirling cosmic portal. The portal contains a vibrant spiral galaxy with floating music notes, symbols, and celestial objects. The figure has multiple tentacle-like lower limbs adorned with gold chains and medallions.",
+  "source_prompt": "A tall slender purple alien creature with a dripping white mask face, glowing yellow eyes, and golden chains stands in a swirling psychedelic nebula, pointing with one long finger at a large circular cosmic portal showing a vibrant spiral galaxy filled with floating colorful music notes, symbols and stars, surreal cosmic horror style with melting dripping textures and vibrant rainbow smoke",
+  "source_title": "Cosmic Oracle",
+  "style": "surreal",
+  "mood": "psychedelic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien figure",
+    "cosmic portal",
+    "music notes",
+    "psychedelic",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2307,
+  "source_url": "/generated/2307.jpg",
+  "image_url": "/sketches/2985.png",
+  "inverted_image_url": "/sketches-inverted/2985.png",
+  "curve_count": 28,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 272,
+  "title": "Line sketch: Floral Tiara",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: An ornate crown adorned with gemstones and delicate floral filigree. The tiara features a central stone surrounded by and accents against a solid background (derived from painting #329).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: An ornate crown adorned with gemstones and delicate floral filigree. The tiara features a central stone surrounded by and accents against a solid background",
+  "inverted_title": "Inverted sketch: Floral Tiara",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: An ornate crown adorned with gemstones and delicate floral filigree. The tiara features a central stone surrounded by and accents against a solid background (from painting #329).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: An ornate crown adorned with gemstones and delicate floral filigree. The tiara features a central stone surrounded by and accents against a solid background",
+  "source_description": "An ornate golden crown adorned with pastel gemstones and delicate floral filigree. The tiara features a central turquoise stone surrounded by pink and blue accents against a solid purple background.",
+  "source_prompt": "",
+  "source_title": "Golden Floral Tiara",
+  "style": "Fantasy Illustration",
+  "mood": "Elegant Whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital Painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "tiara",
+    "crown",
+    "jewelry",
+    "gemstones",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 329,
+  "source_url": "/paintings/329.jpg",
+  "image_url": "/sketches/272.png",
+  "inverted_image_url": "/sketches-inverted/272.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:38Z"
+}

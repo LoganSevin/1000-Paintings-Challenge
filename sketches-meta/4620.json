@@ -1,0 +1,42 @@
+{
+  "number": 4620,
+  "title": "Line sketch: Stasis on the Bayou",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal bayou scene at dusk features a large gnarled tree with a vibrant spiral and Domino's pizza logo floating above. In the foreground, a skeleton in a cap stands on the porch of a wooden shack labeled 'STASIS', while an angel with wings hovers in the fiery sky and various figures wade in the waters below (derived from generated still #4042).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal bayou scene at dusk features a large gnarled tree with a vibrant spiral and Domino's pizza logo floating above. In the foreground, a skeleton in a cap stands on the porch of a wooden shack labeled 'STASIS', while an angel with wings hovers in the fiery sky and various figures wade in the waters below",
+  "inverted_title": "Inverted sketch: Stasis on the Bayou",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal bayou scene at dusk features a large gnarled tree with a vibrant spiral and Domino's pizza logo floating above. In the foreground, a skeleton in a cap stands on the porch of a wooden shack labeled 'STASIS', while an angel with wings hovers in the fiery sky and various figures wade in the waters below (from generated still #4042).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal bayou scene at dusk features a large gnarled tree with a vibrant spiral and Domino's pizza logo floating above. In the foreground, a skeleton in a cap stands on the porch of a wooden shack labeled 'STASIS', while an angel with wings hovers in the fiery sky and various figures wade in the waters below",
+  "source_description": "A surreal bayou scene at dusk features a large gnarled tree with a vibrant rainbow spiral and Domino's pizza logo floating above. In the foreground, a skeleton in a red cap stands on the porch of a green wooden shack labeled 'STASIS', while an angel with rainbow wings hovers in the fiery sky and various figures wade in the purple waters below.",
+  "source_prompt": "Surreal bayou scene at sunset with a massive ancient tree covered in moss. A glowing rainbow spiral swirls around the tree with a Domino's pizza logo floating above it. A blue angel with large rainbow wings stands on the roof of a weathered green wooden shack. A skeleton wearing a red baseball cap gestures from the shack's porch which has the word STASIS written on it. Strange figures wade in the purple swamp water near a red bridge, with a white bird and blue snake visible near the tree roots under a dramatic orange and purple sky.",
+  "source_title": "Stasis on the Bayou",
+  "style": "surrealism",
+  "mood": "chaotic mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "bayou",
+    "skeleton",
+    "angel",
+    "spiral"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4042,
+  "source_url": "/generated/4042.jpg",
+  "image_url": "/sketches/4620.png",
+  "inverted_image_url": "/sketches-inverted/4620.png",
+  "curve_count": 122,
+  "built_at": "2026-08-17T00:09:48Z"
+}

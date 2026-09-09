@@ -1,0 +1,42 @@
+{
+  "number": 409,
+  "title": "Line sketch: Abstract Spiral Ornament",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Bold abstract composition featuring interlocking spirals and curved forms in against a white background. Intricate black and white patterned textures fill select areas, creating a dynamic interplay of organic shapes and decorative details (derived from painting #487).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Bold abstract composition featuring interlocking spirals and curved forms in against a white background. Intricate black and white patterned textures fill select areas, creating a dynamic interplay of organic shapes and decorative details",
+  "inverted_title": "Inverted sketch: Abstract Spiral Ornament",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Bold abstract composition featuring interlocking spirals and curved forms in against a white background. Intricate black and white patterned textures fill select areas, creating a dynamic interplay of organic shapes and decorative details (from painting #487).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Bold abstract composition featuring interlocking spirals and curved forms in against a white background. Intricate black and white patterned textures fill select areas, creating a dynamic interplay of organic shapes and decorative details",
+  "source_description": "Bold abstract composition featuring interlocking spirals and curved forms in deep blue against a white background. Intricate black and white patterned textures fill select areas, creating a dynamic interplay of organic shapes and decorative details.",
+  "source_prompt": "",
+  "source_title": "Abstract Blue Spiral Ornament",
+  "style": "Abstract",
+  "mood": "Dynamic, ornate",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "spiral",
+    "and white",
+    "ornamental",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 487,
+  "source_url": "/paintings/487.jpg",
+  "image_url": "/sketches/409.png",
+  "inverted_image_url": "/sketches-inverted/409.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

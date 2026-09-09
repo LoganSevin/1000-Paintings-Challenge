@@ -1,0 +1,42 @@
+{
+  "number": 909,
+  "title": "Line sketch: Mysterious Teardrop Figure",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal illustration features a glossy teardrop-shaped creature with large eyes, lips, and facial markings. It is surrounded by swirling patterns, three ornate masquerade masks, glowing flowers, stars, and a stylized cityscape under a starry night sky (derived from generated still #118).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal illustration features a glossy teardrop-shaped creature with large eyes, lips, and facial markings. It is surrounded by swirling patterns, three ornate masquerade masks, glowing flowers, stars, and a stylized cityscape under a starry night sky",
+  "inverted_title": "Inverted sketch: Mysterious Teardrop Figure",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal illustration features a glossy teardrop-shaped creature with large eyes, lips, and facial markings. It is surrounded by swirling patterns, three ornate masquerade masks, glowing flowers, stars, and a stylized cityscape under a starry night sky (from generated still #118).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal illustration features a glossy teardrop-shaped creature with large eyes, lips, and facial markings. It is surrounded by swirling patterns, three ornate masquerade masks, glowing flowers, stars, and a stylized cityscape under a starry night sky",
+  "source_description": "A vibrant surreal illustration features a glossy green teardrop-shaped creature with large yellow eyes, pink lips, and golden facial markings. It is surrounded by colorful swirling patterns, three ornate masquerade masks, glowing flowers, stars, and a stylized cityscape under a starry night sky.",
+  "source_prompt": "",
+  "source_title": "Mysterious Green Teardrop Figure",
+  "style": "digital fantasy illustration",
+  "mood": "whimsical surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "teardrop creature",
+    "masquerade masks",
+    "psychedelic swirls",
+    "fantasy art",
+    "night cityscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 118,
+  "source_url": "/generated/118.jpg",
+  "image_url": "/sketches/909.png",
+  "inverted_image_url": "/sketches-inverted/909.png",
+  "curve_count": 49,
+  "built_at": "2026-08-17T00:09:40Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 484,
+  "title": "Line sketch: Vibrant Color Explosion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Abstract paint splatter in dynamic hues radiates from the center against a neutral background. This energetic composition blends warm and cool tones in a spontaneous burst of artistic expression (derived from painting #580).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Abstract paint splatter in dynamic hues radiates from the center against a neutral background. This energetic composition blends warm and cool tones in a spontaneous burst of artistic expression",
+  "inverted_title": "Inverted sketch: Vibrant Color Explosion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Abstract paint splatter in dynamic hues radiates from the center against a neutral background. This energetic composition blends warm and cool tones in a spontaneous burst of artistic expression (from painting #580).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Abstract paint splatter in dynamic hues radiates from the center against a neutral background. This energetic composition blends warm and cool tones in a spontaneous burst of artistic expression",
+  "source_description": "Abstract paint splatter in dynamic hues radiates from the center against a neutral background. This energetic composition blends warm and cool tones in a spontaneous burst of artistic expression.",
+  "source_prompt": "",
+  "source_title": "Vibrant Color Explosion",
+  "style": "Abstract",
+  "mood": "Energetic and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "abstract",
+    "color splash",
+    "paint splatter",
+    "vibrant",
+    "dynamic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 580,
+  "source_url": "/paintings/580.jpg",
+  "image_url": "/sketches/484.png",
+  "inverted_image_url": "/sketches-inverted/484.png",
+  "curve_count": 83,
+  "built_at": "2026-08-17T00:09:39Z"
+}

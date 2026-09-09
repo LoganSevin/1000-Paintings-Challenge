@@ -1,0 +1,42 @@
+{
+  "number": 4476,
+  "title": "Line sketch: Mysterious Arcane Shop Window",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A nighttime view through a large arched shop window reveals a anthropomorphic lizard wizard standing behind a counter. The interior is filled with glowing magical lanterns, an open spellbook, framed arcane paintings, and shelves of potions, while rain falls on the dark cobblestone street outside (derived from generated still #3895).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A nighttime view through a large arched shop window reveals a anthropomorphic lizard wizard standing behind a counter. The interior is filled with glowing magical lanterns, an open spellbook, framed arcane paintings, and shelves of potions, while rain falls on the dark cobblestone street outside",
+  "inverted_title": "Inverted sketch: Mysterious Arcane Shop Window",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A nighttime view through a large arched shop window reveals a anthropomorphic lizard wizard standing behind a counter. The interior is filled with glowing magical lanterns, an open spellbook, framed arcane paintings, and shelves of potions, while rain falls on the dark cobblestone street outside (from generated still #3895).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A nighttime view through a large arched shop window reveals a anthropomorphic lizard wizard standing behind a counter. The interior is filled with glowing magical lanterns, an open spellbook, framed arcane paintings, and shelves of potions, while rain falls on the dark cobblestone street outside",
+  "source_description": "A nighttime view through a large arched shop window reveals a purple anthropomorphic lizard wizard standing behind a counter. The interior is filled with glowing magical lanterns, an open spellbook, framed arcane paintings, and shelves of potions, while rain falls on the dark cobblestone street outside.",
+  "source_prompt": "A nighttime fantasy scene viewed through a large arched shop window on a rainy cobblestone street. Inside, a purple anthropomorphic lizard wizard wearing ornate robes and a high collar stands behind a counter, holding a glowing green orb. The shop is filled with hanging colorful magical lanterns, an open ancient spellbook, framed paintings of galaxies and glowing trees, potion bottles, and mystical artifacts. Warm light spills out into the wet street. Detailed digital painting with rich atmosphere.",
+  "source_title": "Mysterious Arcane Shop Window",
+  "style": "fantasy illustration",
+  "mood": "mysterious, enchanting",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy shop",
+    "wizard",
+    "anthropomorphic lizard",
+    "magic lantern",
+    "arcane window"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3895,
+  "source_url": "/generated/3895.jpg",
+  "image_url": "/sketches/4476.png",
+  "inverted_image_url": "/sketches-inverted/4476.png",
+  "curve_count": 16,
+  "built_at": "2026-08-17T00:09:48Z"
+}

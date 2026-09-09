@@ -173,7 +173,8 @@
   margin-bottom: 0.5rem;
 }
 
-.sm-lightbox-panel img {
+.sm-lightbox-panel img,
+.sm-lightbox-panel video {
   display: block;
   width: 100%;
   max-height: min(78vh, 900px);

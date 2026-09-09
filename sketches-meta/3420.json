@@ -1,0 +1,42 @@
+{
+  "number": 3420,
+  "title": "Line sketch: McDonald's vs Pizza Mascot",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A split composition showing the classic McDonald's logo on a textured off-white wall on the left. On the right, a cartoonish white mascot character with a pizza slice for a face holds a staff topped with a pepperoni pizza and a laurel wreath, wearing an tunic with the text \"PIZZA\" visible (derived from generated still #2821).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A split composition showing the classic McDonald's logo on a textured off-white wall on the left. On the right, a cartoonish white mascot character with a pizza slice for a face holds a staff topped with a pepperoni pizza and a laurel wreath, wearing an tunic with the text \"PIZZA\" visible",
+  "inverted_title": "Inverted sketch: McDonald's vs Pizza Mascot",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A split composition showing the classic McDonald's logo on a textured off-white wall on the left. On the right, a cartoonish white mascot character with a pizza slice for a face holds a staff topped with a pepperoni pizza and a laurel wreath, wearing an tunic with the text \"PIZZA\" visible (from generated still #2821).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A split composition showing the classic McDonald's logo on a textured off-white wall on the left. On the right, a cartoonish white mascot character with a pizza slice for a face holds a staff topped with a pepperoni pizza and a laurel wreath, wearing an tunic with the text \"PIZZA\" visible",
+  "source_description": "A split composition showing the classic yellow McDonald's logo on a textured off-white wall on the left. On the right, a cartoonish white mascot character with a pizza slice for a face holds a staff topped with a pepperoni pizza and a laurel wreath, wearing an orange tunic with the text \"PIZZA\" visible.",
+  "source_prompt": "Split canvas painting with the golden yellow McDonald's logo mounted on a textured off-white wall on the left side. On the right, against a vibrant orange impasto background, stands a cartoon white mascot with a smiling pizza slice for a head, holding a tall black staff topped with a large pepperoni pizza, wearing an orange tunic with \"PIZZA\" written on it, bold expressive brushstrokes, textured oil painting style.",
+  "source_title": "McDonald's vs Pizza Mascot",
+  "style": "composition",
+  "mood": "playful contrast",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "oil on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mascot",
+    "mcdonalds",
+    "pizza",
+    "split composition",
+    "corporate parody"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2821,
+  "source_url": "/generated/2821.jpg",
+  "image_url": "/sketches/3420.png",
+  "inverted_image_url": "/sketches-inverted/3420.png",
+  "curve_count": 44,
+  "built_at": "2026-08-17T00:09:45Z"
+}

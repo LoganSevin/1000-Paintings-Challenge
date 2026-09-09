@@ -1,0 +1,42 @@
+{
+  "number": 3195,
+  "title": "Line sketch: Spiral Staircase Escape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in an jumpsuit ascends a dilapidated spiral staircase inside a ruined building. The ceiling has collapsed, revealing a swirling vortex in the sky above while film reels, broken frames, and glowing plants litter the decaying steps (derived from generated still #2544).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in an jumpsuit ascends a dilapidated spiral staircase inside a ruined building. The ceiling has collapsed, revealing a swirling vortex in the sky above while film reels, broken frames, and glowing plants litter the decaying steps",
+  "inverted_title": "Inverted sketch: Spiral Staircase Escape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in an jumpsuit ascends a dilapidated spiral staircase inside a ruined building. The ceiling has collapsed, revealing a swirling vortex in the sky above while film reels, broken frames, and glowing plants litter the decaying steps (from generated still #2544).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in an jumpsuit ascends a dilapidated spiral staircase inside a ruined building. The ceiling has collapsed, revealing a swirling vortex in the sky above while film reels, broken frames, and glowing plants litter the decaying steps",
+  "source_description": "A woman in an orange jumpsuit ascends a dilapidated spiral staircase inside a ruined building. The ceiling has collapsed, revealing a swirling colorful vortex in the sky above while film reels, broken frames, and glowing plants litter the decaying steps.",
+  "source_prompt": "A woman wearing an orange prison jumpsuit climbs a decaying spiral metal staircase inside a crumbling concrete building covered in vines and glowing moss. She holds the railing and looks upward toward a massive swirling colorful vortex visible through the collapsed ceiling. Old film reels, movie posters and broken picture frames are scattered on the stairs. Cinematic lighting with dramatic god rays, surreal atmosphere, detailed textures, in the style of a cinematic digital painting.",
+  "source_title": "Spiral Staircase Escape",
+  "style": "cinematic",
+  "mood": "mysterious surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spiral staircase",
+    "ruined building",
+    "film reel",
+    "vortex sky",
+    "jumpsuit"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2544,
+  "source_url": "/generated/2544.jpg",
+  "image_url": "/sketches/3195.png",
+  "inverted_image_url": "/sketches-inverted/3195.png",
+  "curve_count": 54,
+  "built_at": "2026-08-17T00:09:45Z"
+}

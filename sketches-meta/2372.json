@@ -1,0 +1,42 @@
+{
+  "number": 2372,
+  "title": "Line sketch: Verdant Eye Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition features a large stylized female profile whose hair and body transform into flowing leaves and vines. Her eye is a detailed spiral vortex containing a miniature forest landscape with pine trees under a glowing sun, surrounded by floating pickles and three smaller female faces above (derived from generated still #1600).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition features a large stylized female profile whose hair and body transform into flowing leaves and vines. Her eye is a detailed spiral vortex containing a miniature forest landscape with pine trees under a glowing sun, surrounded by floating pickles and three smaller female faces above",
+  "inverted_title": "Inverted sketch: Verdant Eye Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition features a large stylized female profile whose hair and body transform into flowing leaves and vines. Her eye is a detailed spiral vortex containing a miniature forest landscape with pine trees under a glowing sun, surrounded by floating pickles and three smaller female faces above (from generated still #1600).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition features a large stylized female profile whose hair and body transform into flowing leaves and vines. Her eye is a detailed spiral vortex containing a miniature forest landscape with pine trees under a glowing sun, surrounded by floating pickles and three smaller female faces above",
+  "source_description": "A vibrant surreal painting features a large stylized green female profile whose hair and body transform into flowing leaves and vines. Her eye is a detailed spiral vortex containing a miniature forest landscape with pine trees under a glowing orange sun, surrounded by floating pickles and three smaller colorful female faces above.",
+  "source_prompt": "",
+  "source_title": "Verdant Eye Vision",
+  "style": "psychedelic surrealism",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "nature",
+    "eye",
+    "female profile",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1600,
+  "source_url": "/generated/1600.jpg",
+  "image_url": "/sketches/2372.png",
+  "inverted_image_url": "/sketches-inverted/2372.png",
+  "curve_count": 76,
+  "built_at": "2026-08-17T00:09:43Z"
+}

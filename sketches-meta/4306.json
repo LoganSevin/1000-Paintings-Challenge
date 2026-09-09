@@ -1,0 +1,42 @@
+{
+  "number": 4306,
+  "title": "Line sketch: Bubble Lamp Dream",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A glowing magical lamp sits on a wooden table, its glass bulb containing a surreal dreamlike scene. Inside the transparent sphere, a large stylized female face with glowing curly hair smiles above a surprised creature with multiple swirling tentacles, while tiny figures and film-strip patterns float throughout (derived from generated still #3725).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A glowing magical lamp sits on a wooden table, its glass bulb containing a surreal dreamlike scene. Inside the transparent sphere, a large stylized female face with glowing curly hair smiles above a surprised creature with multiple swirling tentacles, while tiny figures and film-strip patterns float throughout",
+  "inverted_title": "Inverted sketch: Bubble Lamp Dream",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A glowing magical lamp sits on a wooden table, its glass bulb containing a surreal dreamlike scene. Inside the transparent sphere, a large stylized female face with glowing curly hair smiles above a surprised creature with multiple swirling tentacles, while tiny figures and film-strip patterns float throughout (from generated still #3725).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A glowing magical lamp sits on a wooden table, its glass bulb containing a surreal dreamlike scene. Inside the transparent sphere, a large stylized female face with glowing curly hair smiles above a surprised creature with multiple swirling tentacles, while tiny figures and film-strip patterns float throughout",
+  "source_description": "A glowing magical lamp sits on a wooden table, its glass bulb containing a surreal dreamlike scene. Inside the transparent sphere, a large stylized female face with glowing yellow curly hair smiles above a surprised green creature with multiple swirling tentacles, while tiny figures and colorful film-strip patterns float throughout.",
+  "source_prompt": "Surreal fantasy scene of a glowing magical lamp on a wooden table against a dark background. The large transparent bulb contains a dreamy world with a giant smiling stylized female face with bright yellow curly hair and blue eyes at the top, and a surprised green tentacled creature with large eyes at the bottom. Tiny figures, colorful film strip patterns, and glowing swirls fill the space between them, with sparks emitting from the lamp's filament.",
+  "source_title": "Bubble Lamp Dream",
+  "style": "surreal fantasy",
+  "mood": "whimsical dreamlike",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "magical lamp",
+    "bubble world",
+    "fantasy creature",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3725,
+  "source_url": "/generated/3725.jpg",
+  "image_url": "/sketches/4306.png",
+  "inverted_image_url": "/sketches-inverted/4306.png",
+  "curve_count": 229,
+  "built_at": "2026-08-17T00:09:47Z"
+}

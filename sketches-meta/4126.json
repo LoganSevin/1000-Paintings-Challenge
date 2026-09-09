@@ -1,0 +1,42 @@
+{
+  "number": 4126,
+  "title": "Line sketch: Digital Entity Awakening",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A futuristic armored humanoid figure with glowing white eyes stands in the center of a dark, reflective chamber. The figure is composed of geometric crystalline panels and emits streams of glowing mathematical symbols, letters, and particles from its hands while the ceiling appears shattered with floating broken fragments above (derived from generated still #3543).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A futuristic armored humanoid figure with glowing white eyes stands in the center of a dark, reflective chamber. The figure is composed of geometric crystalline panels and emits streams of glowing mathematical symbols, letters, and particles from its hands while the ceiling appears shattered with floating broken fragments above",
+  "inverted_title": "Inverted sketch: Digital Entity Awakening",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A futuristic armored humanoid figure with glowing white eyes stands in the center of a dark, reflective chamber. The figure is composed of geometric crystalline panels and emits streams of glowing mathematical symbols, letters, and particles from its hands while the ceiling appears shattered with floating broken fragments above (from generated still #3543).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A futuristic armored humanoid figure with glowing white eyes stands in the center of a dark, reflective chamber. The figure is composed of geometric crystalline panels and emits streams of glowing mathematical symbols, letters, and particles from its hands while the ceiling appears shattered with floating broken fragments above",
+  "source_description": "A futuristic armored humanoid figure with glowing white eyes stands in the center of a dark, reflective chamber. The figure is composed of geometric crystalline panels and emits streams of glowing mathematical symbols, letters, and golden particles from its hands while the ceiling appears shattered with floating broken fragments above.",
+  "source_prompt": "A tall humanoid figure made of dark geometric crystalline armor with glowing white eyes stands dramatically in a dark futuristic chamber with a highly reflective floor. The figure is releasing streams of glowing mathematical symbols, letters, and golden particles from its outstretched hands. The ceiling is shattered with floating broken fragments above. Mystical birds fly in the distant background. Cinematic lighting with spotlights, ethereal atmosphere, intricate details.",
+  "source_title": "Digital Entity Awakening",
+  "style": "digital fantasy",
+  "mood": "mystical futuristic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cybernetic figure",
+    "mathematical particles",
+    "shattered ceiling",
+    "glowing runes",
+    "dark chamber"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3543,
+  "source_url": "/generated/3543.jpg",
+  "image_url": "/sketches/4126.png",
+  "inverted_image_url": "/sketches-inverted/4126.png",
+  "curve_count": 56,
+  "built_at": "2026-08-17T00:09:47Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 703,
+  "title": "Line sketch: Futuristic Megastructure in Stormy Skies",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A colossal cyberpunk tower merges with a massive spherical structure hovering above, illuminated by glowing lights against dark, ominous clouds. The dystopian cityscape below features smaller buildings and industrial elements under a -hued atmosphere (derived from painting #888).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A colossal cyberpunk tower merges with a massive spherical structure hovering above, illuminated by glowing lights against dark, ominous clouds. The dystopian cityscape below features smaller buildings and industrial elements under a -hued atmosphere",
+  "inverted_title": "Inverted sketch: Futuristic Megastructure in Stormy Skies",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A colossal cyberpunk tower merges with a massive spherical structure hovering above, illuminated by glowing lights against dark, ominous clouds. The dystopian cityscape below features smaller buildings and industrial elements under a -hued atmosphere (from painting #888).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A colossal cyberpunk tower merges with a massive spherical structure hovering above, illuminated by glowing lights against dark, ominous clouds. The dystopian cityscape below features smaller buildings and industrial elements under a -hued atmosphere",
+  "source_description": "A colossal cyberpunk tower merges with a massive spherical structure hovering above, illuminated by glowing orange lights against dark, ominous clouds. The dystopian cityscape below features smaller buildings and industrial elements under a teal-hued atmosphere.",
+  "source_prompt": "",
+  "source_title": "Futuristic Megastructure in Stormy Skies",
+  "style": "cyberpunk",
+  "mood": "ominous dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "futuristic",
+    "megastructure",
+    "dystopian",
+    "cityscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 888,
+  "source_url": "/paintings/888.jpg",
+  "image_url": "/sketches/703.png",
+  "inverted_image_url": "/sketches-inverted/703.png",
+  "curve_count": 117,
+  "built_at": "2026-08-17T00:09:39Z"
+}

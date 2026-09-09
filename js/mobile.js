@@ -158,12 +158,30 @@
         var bar = document.createElement("p");
         bar.id = "phone-url-banner";
         bar.className = "phone-url-banner";
+        var dream = String(url).replace(/\/+$/, "") + "/#dream";
+        var tail = "";
+        for (var i = 0; i < urls.length; i++) {
+          try {
+            if (/^100\./.test(new URL(urls[i]).hostname)) {
+              tail = String(urls[i]).replace(/\/+$/, "") + "/#dream";
+              break;
+            }
+          } catch (e) {}
+        }
         bar.innerHTML =
-          'On your phone (same Wi-Fi): <a href="' +
-          url +
+          'Phone (same Wi‑Fi): <a href="' +
+          dream +
           '"><strong>' +
-          url +
-          "</strong></a> — not localhost.";
+          dream +
+          "</strong></a>" +
+          (tail
+            ? ' · Away from home (Tailscale): <a href="' +
+              tail +
+              '"><strong>' +
+              tail +
+              "</strong></a>"
+            : "") +
+          " — not localhost.";
         var header = document.querySelector(".site-header .header-inner");
         if (header) header.appendChild(bar);
       })

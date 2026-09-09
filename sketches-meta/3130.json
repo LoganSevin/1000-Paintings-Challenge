@@ -1,0 +1,42 @@
+{
+  "number": 3130,
+  "title": "Line sketch: Mosaic Woman with Otter",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up portrait of a young woman with long dark hair, her face and neck covered in a vibrant mosaic of geometric tiles. A otter swims beside her shoulder amid flowers and dark swirling background elements (derived from generated still #2470).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up portrait of a young woman with long dark hair, her face and neck covered in a vibrant mosaic of geometric tiles. A otter swims beside her shoulder amid flowers and dark swirling background elements",
+  "inverted_title": "Inverted sketch: Mosaic Woman with Otter",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up portrait of a young woman with long dark hair, her face and neck covered in a vibrant mosaic of geometric tiles. A otter swims beside her shoulder amid flowers and dark swirling background elements (from generated still #2470).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up portrait of a young woman with long dark hair, her face and neck covered in a vibrant mosaic of geometric tiles. A otter swims beside her shoulder amid flowers and dark swirling background elements",
+  "source_description": "A close-up portrait of a young woman with long dark hair, her face and neck covered in a vibrant mosaic of colorful geometric tiles. A brown otter swims beside her shoulder amid pink flowers and dark swirling background elements.",
+  "source_prompt": "Close-up portrait of a beautiful young woman with long flowing dark brown hair, her face and neck composed of intricate colorful mosaic tiles in yellow, blue, orange and purple. A rich brown otter swims beside her shoulder. Pink flowers and blossoms float around her against a dark teal and orange swirling background, painterly style with visible brushstrokes.",
+  "source_title": "Mosaic Woman with Otter",
+  "style": "surreal fantasy",
+  "mood": "ethereal, mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mosaic",
+    "woman",
+    "otter",
+    "floral",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2470,
+  "source_url": "/generated/2470.jpg",
+  "image_url": "/sketches/3130.png",
+  "inverted_image_url": "/sketches-inverted/3130.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:45Z"
+}

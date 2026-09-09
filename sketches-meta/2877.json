@@ -1,0 +1,42 @@
+{
+  "number": 2877,
+  "title": "Line sketch: Frozen Digital Waterfall Eyes",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal close-up portrait of a woman's face with vibrant eyes reflecting a cascading waterfall. Her face and hair are composed of floating letters and symbols, with a large icy waterfall flowing from her forehead over the letters H T W into a frozen basin below (derived from generated still #2164).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal close-up portrait of a woman's face with vibrant eyes reflecting a cascading waterfall. Her face and hair are composed of floating letters and symbols, with a large icy waterfall flowing from her forehead over the letters H T W into a frozen basin below",
+  "inverted_title": "Inverted sketch: Frozen Digital Waterfall Eyes",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal close-up portrait of a woman's face with vibrant eyes reflecting a cascading waterfall. Her face and hair are composed of floating letters and symbols, with a large icy waterfall flowing from her forehead over the letters H T W into a frozen basin below (from generated still #2164).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal close-up portrait of a woman's face with vibrant eyes reflecting a cascading waterfall. Her face and hair are composed of floating letters and symbols, with a large icy waterfall flowing from her forehead over the letters H T W into a frozen basin below",
+  "source_description": "A surreal close-up portrait of a woman's face with vibrant green eyes reflecting a cascading waterfall. Her face and hair are composed of floating letters and symbols, with a large icy waterfall flowing from her forehead over the letters H T W into a frozen basin below.",
+  "source_prompt": "surreal portrait of a woman's face with glowing emerald green eyes reflecting a waterfall inside the iris, her skin and hair made of floating scattered letters and symbols, a large icy waterfall cascading from her forehead and brow down over large icy letters H T W into a frozen basin, icicles hanging from the ice formations, dark moody background with floating alphanumeric characters, mystical and ethereal atmosphere",
+  "source_title": "Frozen Digital Waterfall Eyes",
+  "style": "surreal",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "waterfall",
+    "ice",
+    "letters",
+    "eyes"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2164,
+  "source_url": "/generated/2164.jpg",
+  "image_url": "/sketches/2877.png",
+  "inverted_image_url": "/sketches-inverted/2877.png",
+  "curve_count": 188,
+  "built_at": "2026-08-17T00:09:44Z"
+}

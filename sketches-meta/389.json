@@ -1,0 +1,42 @@
+{
+  "number": 389,
+  "title": "Line sketch: Kintsugi Boy Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young boy's face with cracks mending his porcelain-like skin, evoking themes of repair and resilience. The delicate washes and visible paper texture create an ethereal, contemplative atmosphere (derived from painting #457).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young boy's face with cracks mending his porcelain-like skin, evoking themes of repair and resilience. The delicate washes and visible paper texture create an ethereal, contemplative atmosphere",
+  "inverted_title": "Inverted sketch: Kintsugi Boy Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young boy's face with cracks mending his porcelain-like skin, evoking themes of repair and resilience. The delicate washes and visible paper texture create an ethereal, contemplative atmosphere (from painting #457).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young boy's face with cracks mending his porcelain-like skin, evoking themes of repair and resilience. The delicate washes and visible paper texture create an ethereal, contemplative atmosphere",
+  "source_description": "A young boy's face with golden cracks mending his porcelain-like skin, evoking themes of repair and resilience. The delicate watercolor washes and visible paper texture create an ethereal, contemplative atmosphere.",
+  "source_prompt": "",
+  "source_title": "Kintsugi Boy Portrait",
+  "style": "Contemporary figurative",
+  "mood": "Melancholic serenity",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor and gold leaf on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "kintsugi",
+    "portrait",
+    "repair",
+    "youth",
+    "vulnerability"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 457,
+  "source_url": "/paintings/457.jpg",
+  "image_url": "/sketches/389.png",
+  "inverted_image_url": "/sketches-inverted/389.png",
+  "curve_count": 27,
+  "built_at": "2026-08-17T00:09:39Z"
+}

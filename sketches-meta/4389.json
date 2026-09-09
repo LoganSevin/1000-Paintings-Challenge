@@ -1,0 +1,42 @@
+{
+  "number": 4389,
+  "title": "Line sketch: Mystic Apothecary Scholar",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with hair and ornate white robes stands behind a wooden apothecary counter, studying an open book with illustrations. The scene is viewed through a decaying archway into a cluttered magical shop filled with glowing lanterns, specimen jars, potion shelves, and surreal paintings including a melting clock (derived from generated still #3808).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with hair and ornate white robes stands behind a wooden apothecary counter, studying an open book with illustrations. The scene is viewed through a decaying archway into a cluttered magical shop filled with glowing lanterns, specimen jars, potion shelves, and surreal paintings including a melting clock",
+  "inverted_title": "Inverted sketch: Mystic Apothecary Scholar",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with hair and ornate white robes stands behind a wooden apothecary counter, studying an open book with illustrations. The scene is viewed through a decaying archway into a cluttered magical shop filled with glowing lanterns, specimen jars, potion shelves, and surreal paintings including a melting clock (from generated still #3808).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with hair and ornate white robes stands behind a wooden apothecary counter, studying an open book with illustrations. The scene is viewed through a decaying archway into a cluttered magical shop filled with glowing lanterns, specimen jars, potion shelves, and surreal paintings including a melting clock",
+  "source_description": "A woman with purple hair and ornate white robes stands behind a wooden apothecary counter, studying an open book with pink illustrations. The scene is viewed through a decaying purple archway into a cluttered magical shop filled with glowing lanterns, specimen jars, potion shelves, and surreal paintings including a melting clock.",
+  "source_prompt": "A detailed fantasy scene of a female scholar with purple braided hair wearing ornate white robes, standing at a wooden counter covered in red velvet inside a magical apothecary shop. She is reading a large open book with pink diagrams. The shop is filled with shelves of potions, a large glass jar containing blue liquid and purple creatures, hanging colorful lanterns, framed surreal paintings including a melting clock, and brass scales. The entire scene is viewed through a worn purple archway with peeling paint. Whimsical and mysterious atmosphere, intricate details, vibrant yet moody lighting.",
+  "source_title": "Mystic Apothecary Scholar",
+  "style": "fantasy illustration",
+  "mood": "mysterious, whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "apothecary",
+    "wizard",
+    "surreal",
+    "arch",
+    "fantasy shop"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3808,
+  "source_url": "/generated/3808.jpg",
+  "image_url": "/sketches/4389.png",
+  "inverted_image_url": "/sketches-inverted/4389.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:48Z"
+}

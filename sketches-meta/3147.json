@@ -1,0 +1,42 @@
+{
+  "number": 3147,
+  "title": "Line sketch: Vault Collision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a and jumpsuit with glowing energy around her collides with a man in a dark suit inside a destroyed vault. Papers, paintings, and debris fly through the air as a massive circular vault door cracks behind them under dramatic spotlight illumination (derived from generated still #2487).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a and jumpsuit with glowing energy around her collides with a man in a dark suit inside a destroyed vault. Papers, paintings, and debris fly through the air as a massive circular vault door cracks behind them under dramatic spotlight illumination",
+  "inverted_title": "Inverted sketch: Vault Collision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a and jumpsuit with glowing energy around her collides with a man in a dark suit inside a destroyed vault. Papers, paintings, and debris fly through the air as a massive circular vault door cracks behind them under dramatic spotlight illumination (from generated still #2487).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a and jumpsuit with glowing energy around her collides with a man in a dark suit inside a destroyed vault. Papers, paintings, and debris fly through the air as a massive circular vault door cracks behind them under dramatic spotlight illumination",
+  "source_description": "A woman in a blue and yellow jumpsuit with glowing green energy around her collides with a man in a dark suit inside a destroyed vault. Papers, paintings, and debris fly through the air as a massive circular vault door cracks behind them under dramatic spotlight illumination.",
+  "source_prompt": "A dynamic action scene inside a destroyed vault where a woman wearing a blue and yellow jumpsuit surrounded by glowing green energy is forcefully colliding with a man in a dark suit. The massive circular steel vault door is cracking behind them. Papers, framed paintings, and debris are flying through the air. Dramatic spotlight from above illuminates the chaos while red emergency lights glow in the background. Cinematic composition with rich details and dramatic lighting.",
+  "source_title": "Vault Collision",
+  "style": "cinematic",
+  "mood": "chaotic dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "vault",
+    "action",
+    "collision",
+    "fallout",
+    "explosion"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2487,
+  "source_url": "/generated/2487.jpg",
+  "image_url": "/sketches/3147.png",
+  "inverted_image_url": "/sketches-inverted/3147.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:45Z"
+}

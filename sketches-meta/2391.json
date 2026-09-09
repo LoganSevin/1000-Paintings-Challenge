@@ -1,0 +1,42 @@
+{
+  "number": 2391,
+  "title": "Line sketch: Witch and Solar Eclipse",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted witch in a pointed hat and polka-dot cloak sits thoughtfully on a hill, gazing at a large stylized sun or solar eclipse with fiery corona. The surreal night landscape features glowing plants, swirling patterns, and small figures in the distance under a starry sky (derived from generated still #1619).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted witch in a pointed hat and polka-dot cloak sits thoughtfully on a hill, gazing at a large stylized sun or solar eclipse with fiery corona. The surreal night landscape features glowing plants, swirling patterns, and small figures in the distance under a starry sky",
+  "inverted_title": "Inverted sketch: Witch and Solar Eclipse",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted witch in a pointed hat and polka-dot cloak sits thoughtfully on a hill, gazing at a large stylized sun or solar eclipse with fiery corona. The surreal night landscape features glowing plants, swirling patterns, and small figures in the distance under a starry sky (from generated still #1619).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted witch in a pointed hat and polka-dot cloak sits thoughtfully on a hill, gazing at a large stylized sun or solar eclipse with fiery corona. The surreal night landscape features glowing plants, swirling patterns, and small figures in the distance under a starry sky",
+  "source_description": "A silhouetted witch in a pointed hat and polka-dot cloak sits thoughtfully on a hill, gazing at a large stylized red sun or solar eclipse with fiery orange corona. The surreal night landscape features glowing plants, swirling patterns, and small green figures in the distance under a starry sky.",
+  "source_prompt": "",
+  "source_title": "Witch and Solar Eclipse",
+  "style": "surreal illustration",
+  "mood": "mystical wonder",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "witch",
+    "solar eclipse",
+    "silhouette",
+    "fantasy landscape",
+    "night scene"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1619,
+  "source_url": "/generated/1619.jpg",
+  "image_url": "/sketches/2391.png",
+  "inverted_image_url": "/sketches-inverted/2391.png",
+  "curve_count": 47,
+  "built_at": "2026-08-17T00:09:43Z"
+}

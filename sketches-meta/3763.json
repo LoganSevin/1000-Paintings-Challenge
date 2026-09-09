@@ -1,0 +1,42 @@
+{
+  "number": 3763,
+  "title": "Line sketch: Armored Warrior Stance",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A male warrior with spiky hair stands in a dynamic combat pose, wearing ornate metallic armor with and accents, a tattered grey kilt, and gauntlets. He holds a large ornate sword in his right hand while raising his left fist, set against a dark background with layered text elements reading 'STAINED', 'METASTASIS', and 'UNLOCKED' (derived from generated still #3179).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A male warrior with spiky hair stands in a dynamic combat pose, wearing ornate metallic armor with and accents, a tattered grey kilt, and gauntlets. He holds a large ornate sword in his right hand while raising his left fist, set against a dark background with layered text elements reading 'STAINED', 'METASTASIS', and 'UNLOCKED'",
+  "inverted_title": "Inverted sketch: Armored Warrior Stance",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A male warrior with spiky hair stands in a dynamic combat pose, wearing ornate metallic armor with and accents, a tattered grey kilt, and gauntlets. He holds a large ornate sword in his right hand while raising his left fist, set against a dark background with layered text elements reading 'STAINED', 'METASTASIS', and 'UNLOCKED' (from generated still #3179).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A male warrior with spiky hair stands in a dynamic combat pose, wearing ornate metallic armor with and accents, a tattered grey kilt, and gauntlets. He holds a large ornate sword in his right hand while raising his left fist, set against a dark background with layered text elements reading 'STAINED', 'METASTASIS', and 'UNLOCKED'",
+  "source_description": "A male warrior with spiky brown hair stands in a dynamic combat pose, wearing ornate metallic armor with red and gold accents, a tattered grey kilt, and gauntlets. He holds a large ornate sword in his right hand while raising his left fist, set against a dark background with layered text elements reading 'STAINED', 'METASTASIS', and 'UNLOCKED'.",
+  "source_prompt": "A fierce male warrior with spiky brown hair in a dynamic combat stance, wearing detailed red and gold metallic armor with leather straps, a torn grey kilt with gold ornaments, and heavy gauntlets. He grips a large ornate sword in his right hand and raises his left fist near his face, standing in a three-quarter view against a moody dark background with layered semi-transparent text elements reading STAINED, METASTASIS, and UNLOCKED.",
+  "source_title": "Armored Warrior Stance",
+  "style": "line sketch",
+  "mood": "intense, dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "warrior",
+    "fantasy armor",
+    "sword",
+    "combat pose",
+    "text overlay"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3179,
+  "source_url": "/generated/3179.jpg",
+  "image_url": "/sketches/3763.png",
+  "inverted_image_url": "/sketches-inverted/3763.png",
+  "curve_count": 1,
+  "built_at": "2026-08-17T00:09:46Z"
+}

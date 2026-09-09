@@ -1,0 +1,42 @@
+{
+  "number": 482,
+  "title": "Line sketch: Spheres on Lily Pond",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two reflective spheres float on a serene pond amid lily pads, one large and one small. The larger sphere displays a vibrant city skyline at dusk with a dandelion plant emerging from its base (derived from painting #578).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two reflective spheres float on a serene pond amid lily pads, one large and one small. The larger sphere displays a vibrant city skyline at dusk with a dandelion plant emerging from its base",
+  "inverted_title": "Inverted sketch: Spheres on Lily Pond",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two reflective spheres float on a serene pond amid lily pads, one large and one small. The larger sphere displays a vibrant city skyline at dusk with a dandelion plant emerging from its base (from painting #578).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two reflective spheres float on a serene pond amid lily pads, one large and one small. The larger sphere displays a vibrant city skyline at dusk with a dandelion plant emerging from its base",
+  "source_description": "Two reflective spheres float on a serene pond amid lily pads, one large and one small. The larger sphere displays a vibrant red city skyline at dusk with a dandelion plant emerging from its base.",
+  "source_prompt": "",
+  "source_title": "Spheres on Lily Pond",
+  "style": "Surrealism",
+  "mood": "Dreamlike tranquility",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Oil painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "reflective",
+    "lily pads",
+    "spheres",
+    "cityscape"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 578,
+  "source_url": "/paintings/578.jpg",
+  "image_url": "/sketches/482.png",
+  "inverted_image_url": "/sketches-inverted/482.png",
+  "curve_count": 152,
+  "built_at": "2026-08-17T00:09:39Z"
+}

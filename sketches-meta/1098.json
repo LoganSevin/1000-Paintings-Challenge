@@ -1,0 +1,42 @@
+{
+  "number": 1098,
+  "title": "Line sketch: Cosmic Pickle Monster",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large anthropomorphic pickle with a wide toothy grin, eyes, and multiple tentacles sits on a surface. It is surrounded by floating foods including a slice of cake, a hot dog, and plums while dripping liquids onto flowers below (derived from generated still #310).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large anthropomorphic pickle with a wide toothy grin, eyes, and multiple tentacles sits on a surface. It is surrounded by floating foods including a slice of cake, a hot dog, and plums while dripping liquids onto flowers below",
+  "inverted_title": "Inverted sketch: Cosmic Pickle Monster",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large anthropomorphic pickle with a wide toothy grin, eyes, and multiple tentacles sits on a surface. It is surrounded by floating foods including a slice of cake, a hot dog, and plums while dripping liquids onto flowers below (from generated still #310).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large anthropomorphic pickle with a wide toothy grin, eyes, and multiple tentacles sits on a surface. It is surrounded by floating foods including a slice of cake, a hot dog, and plums while dripping liquids onto flowers below",
+  "source_description": "A large green anthropomorphic pickle with a wide toothy grin, yellow eyes, and multiple tentacles sits on a purple surface. It is surrounded by floating foods including a slice of cake, a hot dog, and plums while dripping colorful liquids onto pink flowers below.",
+  "source_prompt": "",
+  "source_title": "Cosmic Pickle Monster",
+  "style": "surreal cartoon",
+  "mood": "whimsical chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "pickle",
+    "octopus",
+    "surreal",
+    "food",
+    "tentacles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 310,
+  "source_url": "/generated/310.jpg",
+  "image_url": "/sketches/1098.png",
+  "inverted_image_url": "/sketches-inverted/1098.png",
+  "curve_count": 117,
+  "built_at": "2026-08-17T00:09:40Z"
+}

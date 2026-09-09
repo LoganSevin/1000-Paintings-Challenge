@@ -1,0 +1,42 @@
+{
+  "number": 746,
+  "title": "Line sketch: Feline Gaze",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hyper-detailed close-up of a cat's mesmerizing eye with intricate iris patterns. Dewy droplets glisten on white and fur surrounding the intense, reflective pupil (derived from painting #940).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hyper-detailed close-up of a cat's mesmerizing eye with intricate iris patterns. Dewy droplets glisten on white and fur surrounding the intense, reflective pupil",
+  "inverted_title": "Inverted sketch: Feline Gaze",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hyper-detailed close-up of a cat's mesmerizing eye with intricate iris patterns. Dewy droplets glisten on white and fur surrounding the intense, reflective pupil (from painting #940).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hyper-detailed close-up of a cat's mesmerizing eye with intricate iris patterns. Dewy droplets glisten on white and fur surrounding the intense, reflective pupil",
+  "source_description": "A hyper-detailed close-up of a cat's mesmerizing green eye with intricate iris patterns. Dewy droplets glisten on white and green fur surrounding the intense, reflective pupil.",
+  "source_prompt": "",
+  "source_title": "Emerald Feline Gaze",
+  "style": "fantasy realism",
+  "mood": "mesmerizing, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cat eye",
+    "iris",
+    "detailed fur",
+    "water droplets",
+    "fantasy art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 940,
+  "source_url": "/paintings/940.jpg",
+  "image_url": "/sketches/746.png",
+  "inverted_image_url": "/sketches-inverted/746.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 86,
+  "title": "Line sketch: Swirling Hair in Motion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized female portrait features a woman with voluminous, spiraling hair in bold and against a solid background. Her large eyes, lips, and ribbed top are centered in the composition, with flowing lines creating dynamic movement throughout the hair and shoulders. The artwork uses flat color fields, thick black outlines, and repetitive swirling patterns for a graphic effect (derived from painting #117).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized female portrait features a woman with voluminous, spiraling hair in bold and against a solid background. Her large eyes, lips, and ribbed top are centered in the composition, with flowing lines creating dynamic movement throughout the hair and shoulders. The artwork uses flat color fields, thick black outlines, and repetitive swirling patterns for a graphic effect",
+  "inverted_title": "Inverted sketch: Swirling Hair in Motion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized female portrait features a woman with voluminous, spiraling hair in bold and against a solid background. Her large eyes, lips, and ribbed top are centered in the composition, with flowing lines creating dynamic movement throughout the hair and shoulders. The artwork uses flat color fields, thick black outlines, and repetitive swirling patterns for a graphic effect (from painting #117).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized female portrait features a woman with voluminous, spiraling hair in bold and against a solid background. Her large eyes, lips, and ribbed top are centered in the composition, with flowing lines creating dynamic movement throughout the hair and shoulders. The artwork uses flat color fields, thick black outlines, and repetitive swirling patterns for a graphic effect",
+  "source_description": "A stylized female portrait features a woman with voluminous, spiraling hair in bold orange and blue against a solid yellow background. Her large eyes, red lips, and green ribbed top are centered in the composition, with flowing lines creating dynamic movement throughout the hair and shoulders. The artwork uses flat color fields, thick black outlines, and repetitive swirling patterns for a graphic effect.",
+  "source_prompt": "",
+  "source_title": "Swirling Hair in Motion",
+  "style": "Pop Surrealism",
+  "mood": "Whimsical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "portrait",
+    "woman",
+    "swirling hair",
+    "stylized",
+    "graphic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 117,
+  "source_url": "/paintings/117.jpg",
+  "image_url": "/sketches/86.png",
+  "inverted_image_url": "/sketches-inverted/86.png",
+  "curve_count": 400,
+  "built_at": "2026-08-17T00:09:38Z"
+}

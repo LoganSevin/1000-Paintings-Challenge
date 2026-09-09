@@ -1,0 +1,42 @@
+{
+  "number": 3382,
+  "title": "Line sketch: Alien Pizza Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal cosmic scene featuring a giant glowing alien head hovering above a swirling vortex of floating pizza slices, set against an aurora-filled night sky with planets and stars. In the foreground, a white cat with stripes walks toward a robot sitting at a small table eating pizza on a mountainside (derived from generated still #2783).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal cosmic scene featuring a giant glowing alien head hovering above a swirling vortex of floating pizza slices, set against an aurora-filled night sky with planets and stars. In the foreground, a white cat with stripes walks toward a robot sitting at a small table eating pizza on a mountainside",
+  "inverted_title": "Inverted sketch: Alien Pizza Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal cosmic scene featuring a giant glowing alien head hovering above a swirling vortex of floating pizza slices, set against an aurora-filled night sky with planets and stars. In the foreground, a white cat with stripes walks toward a robot sitting at a small table eating pizza on a mountainside (from generated still #2783).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal cosmic scene featuring a giant glowing alien head hovering above a swirling vortex of floating pizza slices, set against an aurora-filled night sky with planets and stars. In the foreground, a white cat with stripes walks toward a robot sitting at a small table eating pizza on a mountainside",
+  "source_description": "A surreal cosmic scene featuring a giant glowing green alien head hovering above a swirling vortex of floating pizza slices, set against an aurora-filled night sky with planets and stars. In the foreground, a white cat with orange stripes walks toward a yellow robot sitting at a small table eating pizza on a purple mountainside.",
+  "source_prompt": "",
+  "source_title": "Alien Pizza Cat",
+  "style": "surreal psychedelic",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "cat",
+    "pizza",
+    "aurora",
+    "robot"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2783,
+  "source_url": "/generated/2783.jpg",
+  "image_url": "/sketches/3382.png",
+  "inverted_image_url": "/sketches-inverted/3382.png",
+  "curve_count": 75,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3693,
+  "title": "Line sketch: Celestial Winged Sorceress",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with long flowing dark hair floats in an ethereal pose, holding a wand with glowing orbs. She possesses one large fiery wing and one wing, surrounded by lotus flowers, bubbles, and swirling cosmic clouds beneath a glowing stained-glass dome ceiling (derived from generated still #3101).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with long flowing dark hair floats in an ethereal pose, holding a wand with glowing orbs. She possesses one large fiery wing and one wing, surrounded by lotus flowers, bubbles, and swirling cosmic clouds beneath a glowing stained-glass dome ceiling",
+  "inverted_title": "Inverted sketch: Celestial Winged Sorceress",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with long flowing dark hair floats in an ethereal pose, holding a wand with glowing orbs. She possesses one large fiery wing and one wing, surrounded by lotus flowers, bubbles, and swirling cosmic clouds beneath a glowing stained-glass dome ceiling (from generated still #3101).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with long flowing dark hair floats in an ethereal pose, holding a wand with glowing orbs. She possesses one large fiery wing and one wing, surrounded by lotus flowers, bubbles, and swirling cosmic clouds beneath a glowing stained-glass dome ceiling",
+  "source_description": "A woman with long flowing dark hair floats in an ethereal pose, holding a wand with glowing orbs. She possesses one large fiery orange wing and one iridescent blue wing, surrounded by lotus flowers, bubbles, and swirling cosmic clouds beneath a glowing stained-glass dome ceiling.",
+  "source_prompt": "",
+  "source_title": "Celestial Winged Sorceress",
+  "style": "fantasy",
+  "mood": "ethereal, mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angelic figure",
+    "fantasy art",
+    "stained glass",
+    "cosmic clouds",
+    "lotus flowers"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3101,
+  "source_url": "/generated/3101.jpg",
+  "image_url": "/sketches/3693.png",
+  "inverted_image_url": "/sketches-inverted/3693.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:46Z"
+}

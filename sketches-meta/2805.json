@@ -1,0 +1,42 @@
+{
+  "number": 2805,
+  "title": "Line sketch: Surreal Melting Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A close-up of a woman's face with eyes and paint melting down her skin. She stands in a surreal desert landscape with cracked walls, a glowing portal containing a silhouetted figure, a full moon in a sky, and a black devil-like figure with glowing eyes holding a rat on its hand (derived from generated still #2089).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A close-up of a woman's face with eyes and paint melting down her skin. She stands in a surreal desert landscape with cracked walls, a glowing portal containing a silhouetted figure, a full moon in a sky, and a black devil-like figure with glowing eyes holding a rat on its hand",
+  "inverted_title": "Inverted sketch: Surreal Melting Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A close-up of a woman's face with eyes and paint melting down her skin. She stands in a surreal desert landscape with cracked walls, a glowing portal containing a silhouetted figure, a full moon in a sky, and a black devil-like figure with glowing eyes holding a rat on its hand (from generated still #2089).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A close-up of a woman's face with eyes and paint melting down her skin. She stands in a surreal desert landscape with cracked walls, a glowing portal containing a silhouetted figure, a full moon in a sky, and a black devil-like figure with glowing eyes holding a rat on its hand",
+  "source_description": "A close-up of a woman's face with golden eyes and blue and orange paint melting down her skin. She stands in a surreal desert landscape with cracked orange walls, a glowing purple portal containing a silhouetted figure, a full moon in a purple sky, and a black devil-like figure with glowing pink eyes holding a red rat on its hand.",
+  "source_prompt": "Surreal scene featuring a large central portrait of a woman with golden glowing eyes as blue and orange liquid paint drips down her face. She is positioned in an impossible desert room with cracked orange walls and a reflective pink floor. A glowing purple circular portal shows a lone silhouetted figure. In the purple night sky floats a bright full moon. To the right, a black devil with glowing pink eyes holds a red rat on its outstretched hand. Symbolic eye on the wall, dramatic cinematic lighting.",
+  "source_title": "Surreal Melting Portrait",
+  "style": "surrealism",
+  "mood": "dreamlike eerie",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "melting face",
+    "desert dreamscape",
+    "portal",
+    "devil figure"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2089,
+  "source_url": "/generated/2089.jpg",
+  "image_url": "/sketches/2805.png",
+  "inverted_image_url": "/sketches-inverted/2805.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:44Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3423,
+  "title": "Line sketch: Surreal Cosmic Collage",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A two-panel digital artwork. The top panel features an elderly man with a mustache and beret on the left, a large steampunk alien with glowing goggles in the center, and a woman with vibrant flowing hair on the right. The bottom panel depicts a dark planet with a glowing ring above a futuristic city skyline at sunset, next to a large translucent mechanical structure with glowing circular elements (derived from generated still #2824).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A two-panel digital artwork. The top panel features an elderly man with a mustache and beret on the left, a large steampunk alien with glowing goggles in the center, and a woman with vibrant flowing hair on the right. The bottom panel depicts a dark planet with a glowing ring above a futuristic city skyline at sunset, next to a large translucent mechanical structure with glowing circular elements",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Collage",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A two-panel digital artwork. The top panel features an elderly man with a mustache and beret on the left, a large steampunk alien with glowing goggles in the center, and a woman with vibrant flowing hair on the right. The bottom panel depicts a dark planet with a glowing ring above a futuristic city skyline at sunset, next to a large translucent mechanical structure with glowing circular elements (from generated still #2824).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A two-panel digital artwork. The top panel features an elderly man with a mustache and beret on the left, a large steampunk alien with glowing goggles in the center, and a woman with vibrant flowing hair on the right. The bottom panel depicts a dark planet with a glowing ring above a futuristic city skyline at sunset, next to a large translucent mechanical structure with glowing circular elements",
+  "source_description": "A two-panel digital artwork. The top panel features an elderly man with a mustache and beret on the left, a large steampunk alien with glowing goggles in the center, and a woman with vibrant flowing orange hair on the right. The bottom panel depicts a dark planet with a glowing red ring above a futuristic city skyline at sunset, next to a large translucent mechanical structure with glowing blue circular elements.",
+  "source_prompt": "Two-panel surreal collage, top section shows an elderly man wearing a beret and glasses on the left, a large metallic alien creature with huge round goggles in the center, and a beautiful woman with flowing fiery orange hair on the right, dramatic lighting, bottom section shows a dark planet with glowing red corona above a futuristic city at sunset with tall spires, next to a massive mechanical circular structure with glowing blue energy cores and translucent panels, cinematic sci-fi atmosphere, detailed digital painting",
+  "source_title": "Surreal Cosmic Collage",
+  "style": "line sketch",
+  "mood": "surreal cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "sci-fi",
+    "futuristic",
+    "cosmic",
+    "cyberpunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2824,
+  "source_url": "/generated/2824.jpg",
+  "image_url": "/sketches/3423.png",
+  "inverted_image_url": "/sketches-inverted/3423.png",
+  "curve_count": 43,
+  "built_at": "2026-08-17T00:09:45Z"
+}

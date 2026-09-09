@@ -1,0 +1,42 @@
+{
+  "number": 1455,
+  "title": "Line sketch: Eye of the Cosmos",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large, ornate cosmic eye dominates the upper portion of the composition, its iris detailed with intricate patterns and surrounded by swirling psychedelic motifs, skulls, and symbols. Below it, silhouetted figures with glowing hands raised upward face the eye while a detailed sea turtle swims through swirling currents on the right (derived from generated still #670).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large, ornate cosmic eye dominates the upper portion of the composition, its iris detailed with intricate patterns and surrounded by swirling psychedelic motifs, skulls, and symbols. Below it, silhouetted figures with glowing hands raised upward face the eye while a detailed sea turtle swims through swirling currents on the right",
+  "inverted_title": "Inverted sketch: Eye of the Cosmos",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large, ornate cosmic eye dominates the upper portion of the composition, its iris detailed with intricate patterns and surrounded by swirling psychedelic motifs, skulls, and symbols. Below it, silhouetted figures with glowing hands raised upward face the eye while a detailed sea turtle swims through swirling currents on the right (from generated still #670).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large, ornate cosmic eye dominates the upper portion of the composition, its iris detailed with intricate patterns and surrounded by swirling psychedelic motifs, skulls, and symbols. Below it, silhouetted figures with glowing hands raised upward face the eye while a detailed sea turtle swims through swirling currents on the right",
+  "source_description": "A large, ornate cosmic eye dominates the upper portion of the composition, its green iris detailed with intricate patterns and surrounded by swirling psychedelic motifs, skulls, and symbols. Below it, silhouetted figures with glowing yellow hands raised upward face the eye while a detailed sea turtle swims through colorful swirling currents on the right.",
+  "source_prompt": "",
+  "source_title": "Eye of the Cosmos",
+  "style": "surreal psychedelic",
+  "mood": "mystical visionary",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cosmic eye",
+    "sea turtle",
+    "psychedelic",
+    "surreal",
+    "silhouetted figures"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 670,
+  "source_url": "/generated/670.jpg",
+  "image_url": "/sketches/1455.png",
+  "inverted_image_url": "/sketches-inverted/1455.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:41Z"
+}

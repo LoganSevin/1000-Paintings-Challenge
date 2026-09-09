@@ -1,0 +1,42 @@
+{
+  "number": 5004,
+  "title": "Line sketch: Cosmic Storyteller",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A jolly, heavyset man with a long beard sits on ancient stone steps wearing a vibrant patchwork robe. He gestures welcomingly toward a large ethereal dragon swirling around a glowing portal in a cosmic and sky, while a procession of riders on horseback approaches through a ruined city adorned with blooming and flowers (derived from generated still #4441).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A jolly, heavyset man with a long beard sits on ancient stone steps wearing a vibrant patchwork robe. He gestures welcomingly toward a large ethereal dragon swirling around a glowing portal in a cosmic and sky, while a procession of riders on horseback approaches through a ruined city adorned with blooming and flowers",
+  "inverted_title": "Inverted sketch: Cosmic Storyteller",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A jolly, heavyset man with a long beard sits on ancient stone steps wearing a vibrant patchwork robe. He gestures welcomingly toward a large ethereal dragon swirling around a glowing portal in a cosmic and sky, while a procession of riders on horseback approaches through a ruined city adorned with blooming and flowers (from generated still #4441).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A jolly, heavyset man with a long beard sits on ancient stone steps wearing a vibrant patchwork robe. He gestures welcomingly toward a large ethereal dragon swirling around a glowing portal in a cosmic and sky, while a procession of riders on horseback approaches through a ruined city adorned with blooming and flowers",
+  "source_description": "A jolly, heavyset man with a long beard sits on ancient stone steps wearing a vibrant multicolored patchwork robe. He gestures welcomingly toward a large ethereal blue dragon swirling around a glowing green portal in a cosmic pink and purple sky, while a procession of riders on horseback approaches through a ruined city adorned with blooming pink and purple flowers.",
+  "source_prompt": "A cheerful obese man with a long curly beard and colorful patchwork robe sits on stone steps in an ancient ruined city street filled with pink and purple flowers. He gestures with one hand toward a giant ethereal blue dragon swirling around a glowing green and blue cosmic portal in a vibrant pink and purple starry sky. A procession of riders on horses approaches from behind, dramatic cinematic lighting, sparkling particles, highly detailed fantasy scene.",
+  "source_title": "Cosmic Storyteller",
+  "style": "fantasy illustration",
+  "mood": "magical whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "dragon",
+    "storyteller",
+    "portal",
+    "ancient ruins"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4441,
+  "source_url": "/generated/4441.jpg",
+  "image_url": "/sketches/5004.png",
+  "inverted_image_url": "/sketches-inverted/5004.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:49Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3434,
+  "title": "Line sketch: Grim Reaper in Surreal Void",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal grim reaper wearing a dark fedora and tattered coat holds a smoking revolver in one hand and a large glowing Nike swoosh in the other. To the right, a giant beetle bears a glowing Gucci logo while a fiery black hole with orbiting text and debris dominates the dark cosmic background (derived from generated still #2835).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal grim reaper wearing a dark fedora and tattered coat holds a smoking revolver in one hand and a large glowing Nike swoosh in the other. To the right, a giant beetle bears a glowing Gucci logo while a fiery black hole with orbiting text and debris dominates the dark cosmic background",
+  "inverted_title": "Inverted sketch: Grim Reaper in Surreal Void",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal grim reaper wearing a dark fedora and tattered coat holds a smoking revolver in one hand and a large glowing Nike swoosh in the other. To the right, a giant beetle bears a glowing Gucci logo while a fiery black hole with orbiting text and debris dominates the dark cosmic background (from generated still #2835).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal grim reaper wearing a dark fedora and tattered coat holds a smoking revolver in one hand and a large glowing Nike swoosh in the other. To the right, a giant beetle bears a glowing Gucci logo while a fiery black hole with orbiting text and debris dominates the dark cosmic background",
+  "source_description": "A skeletal grim reaper wearing a dark fedora and tattered coat holds a smoking revolver in one hand and a large glowing Nike swoosh in the other. To the right, a giant iridescent beetle bears a glowing golden Gucci logo while a fiery black hole with orbiting text and debris dominates the dark cosmic background.",
+  "source_prompt": "A skeletal grim reaper in a dripping fedora and trench coat stands in a dark swirling tunnel, holding a smoking revolver in one hand and a bright white glowing Nike swoosh in the other, a giant metallic green beetle with glowing golden Gucci logo on its back beside him, massive fiery black hole with purple rings and floating text fragments in the sky, dark cinematic lighting, surreal nightmare aesthetic",
+  "source_title": "Grim Reaper in Surreal Void",
+  "style": "surreal digital art",
+  "mood": "dark surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "surreal",
+    "black hole",
+    "brand parody",
+    "cosmic horror"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2835,
+  "source_url": "/generated/2835.jpg",
+  "image_url": "/sketches/3434.png",
+  "inverted_image_url": "/sketches-inverted/3434.png",
+  "curve_count": 111,
+  "built_at": "2026-08-17T00:09:45Z"
+}

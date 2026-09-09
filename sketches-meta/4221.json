@@ -1,0 +1,42 @@
+{
+  "number": 4221,
+  "title": "Line sketch: Alien and Woman in Cabin",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman with short black hair and outfit kneels on the floor of a wood-paneled living room, holding a large white and black device. A tall grey alien stands beside her wearing a large M&Ms helmet filled with candy. Through the large windows, a second identical alien stands near a waterfall (derived from generated still #3640).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman with short black hair and outfit kneels on the floor of a wood-paneled living room, holding a large white and black device. A tall grey alien stands beside her wearing a large M&Ms helmet filled with candy. Through the large windows, a second identical alien stands near a waterfall",
+  "inverted_title": "Inverted sketch: Alien and Woman in Cabin",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman with short black hair and outfit kneels on the floor of a wood-paneled living room, holding a large white and black device. A tall grey alien stands beside her wearing a large M&Ms helmet filled with candy. Through the large windows, a second identical alien stands near a waterfall (from generated still #3640).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman with short black hair and outfit kneels on the floor of a wood-paneled living room, holding a large white and black device. A tall grey alien stands beside her wearing a large M&Ms helmet filled with candy. Through the large windows, a second identical alien stands near a waterfall",
+  "source_description": "A woman with short black hair and purple outfit kneels on the floor of a wood-paneled living room, holding a large white and black device. A tall grey alien stands beside her wearing a large yellow M&Ms helmet filled with colorful candy. Through the large windows, a second identical alien stands near a waterfall.",
+  "source_prompt": "A woman with short black hair wearing a blue crop top and denim shorts kneels in a retro wood-paneled living room holding a white boombox-like device, standing next to her is a tall classic grey alien with a giant yellow M&Ms helmet filled with colorful candy on its head, another identical alien stands outside near a waterfall visible through large windows, 70s interior with grey couch and wooden furniture, surreal and whimsical scene",
+  "source_title": "Alien and Woman in Cabin",
+  "style": "digital illustration",
+  "mood": "surreal whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "3D rendered digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "alien",
+    "M&Ms",
+    "surreal",
+    "wooden cabin",
+    "waterfall"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3640,
+  "source_url": "/generated/3640.jpg",
+  "image_url": "/sketches/4221.png",
+  "inverted_image_url": "/sketches-inverted/4221.png",
+  "curve_count": 138,
+  "built_at": "2026-08-17T00:09:47Z"
+}

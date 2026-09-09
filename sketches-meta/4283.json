@@ -1,0 +1,42 @@
+{
+  "number": 4283,
+  "title": "Line sketch: Tesla Coil Plasma Globe",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition of a large plasma globe with glowing and electrical arcs. Inside the sphere, a man wearing a black beret and scarf stands on the left while a metallic Oscar statue stands on the right, both observing the central glowing orb and miniature boats floating below (derived from generated still #3702).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition of a large plasma globe with glowing and electrical arcs. Inside the sphere, a man wearing a black beret and scarf stands on the left while a metallic Oscar statue stands on the right, both observing the central glowing orb and miniature boats floating below",
+  "inverted_title": "Inverted sketch: Tesla Coil Plasma Globe",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition of a large plasma globe with glowing and electrical arcs. Inside the sphere, a man wearing a black beret and scarf stands on the left while a metallic Oscar statue stands on the right, both observing the central glowing orb and miniature boats floating below (from generated still #3702).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition of a large plasma globe with glowing and electrical arcs. Inside the sphere, a man wearing a black beret and scarf stands on the left while a metallic Oscar statue stands on the right, both observing the central glowing orb and miniature boats floating below",
+  "source_description": "A surreal painting of a large plasma globe with glowing purple and cyan electrical arcs. Inside the sphere, a man wearing a black beret and green scarf stands on the left while a metallic green Oscar statue stands on the right, both observing the central glowing orb and miniature boats floating below.",
+  "source_prompt": "Surreal painting of a large plasma globe device with vibrant purple and cyan electrical arcs radiating from a central glowing orb. Inside the transparent sphere, a man with a black beret, round glasses, and flowing green scarf stands on the left, facing a shiny metallic green Oscar statue posed on the right. Miniature glowing boats float at the bottom of the globe. Dramatic lighting, painterly brushwork, set against a dark purple background.",
+  "source_title": "Tesla Coil Plasma Globe",
+  "style": "painterly illustration",
+  "mood": "surreal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "tesla coil",
+    "oscar statue",
+    "surreal",
+    "beret artist"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3702,
+  "source_url": "/generated/3702.jpg",
+  "image_url": "/sketches/4283.png",
+  "inverted_image_url": "/sketches-inverted/4283.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:47Z"
+}

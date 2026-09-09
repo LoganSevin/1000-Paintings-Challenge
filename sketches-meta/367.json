@@ -1,0 +1,42 @@
+{
+  "number": 367,
+  "title": "Line sketch: Fox Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A stylized fox rendered in shimmering against a muted background. The flowing create a dynamic, flame-like effect around the creature's form (derived from painting #430).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A stylized fox rendered in shimmering against a muted background. The flowing create a dynamic, flame-like effect around the creature's form",
+  "inverted_title": "Inverted sketch: Fox Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A stylized fox rendered in shimmering against a muted background. The flowing create a dynamic, flame-like effect around the creature's form (from painting #430).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A stylized fox rendered in shimmering against a muted background. The flowing create a dynamic, flame-like effect around the creature's form",
+  "source_description": "A stylized fox rendered in shimmering gold against a muted olive background. The flowing brushstrokes create a dynamic, flame-like effect around the creature's form.",
+  "source_prompt": "",
+  "source_title": "Golden Fox Portrait",
+  "style": "Expressive realism",
+  "mood": "Mystical and elegant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Acrylic on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fox",
+    "animal portrait",
+    "wildlife art",
+    "expressive",
+    "shimmering"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 430,
+  "source_url": "/paintings/430.jpg",
+  "image_url": "/sketches/367.png",
+  "inverted_image_url": "/sketches-inverted/367.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:39Z"
+}

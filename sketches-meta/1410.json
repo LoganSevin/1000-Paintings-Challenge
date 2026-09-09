@@ -1,0 +1,42 @@
+{
+  "number": 1410,
+  "title": "Line sketch: Surreal Dog and Orb",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A giant dog covered in skull patterns and dripping liquid stands facing a transparent sphere containing a woman's face split between and tears. A small backpacking figure stands between them on a grassy hill under a dark swirling sky with drips from above (derived from generated still #625).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A giant dog covered in skull patterns and dripping liquid stands facing a transparent sphere containing a woman's face split between and tears. A small backpacking figure stands between them on a grassy hill under a dark swirling sky with drips from above",
+  "inverted_title": "Inverted sketch: Surreal Dog and Orb",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A giant dog covered in skull patterns and dripping liquid stands facing a transparent sphere containing a woman's face split between and tears. A small backpacking figure stands between them on a grassy hill under a dark swirling sky with drips from above (from generated still #625).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A giant dog covered in skull patterns and dripping liquid stands facing a transparent sphere containing a woman's face split between and tears. A small backpacking figure stands between them on a grassy hill under a dark swirling sky with drips from above",
+  "source_description": "A giant green dog covered in skull patterns and dripping red liquid stands facing a transparent sphere containing a woman's face split between orange and blue tears. A small backpacking figure stands between them on a grassy hill under a dark swirling sky with red drips from above.",
+  "source_prompt": "",
+  "source_title": "Surreal Green Dog and Orb",
+  "style": "surrealism",
+  "mood": "eerie dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "giant dog",
+    "floating orb",
+    "dripping paint",
+    "skull patterns"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 625,
+  "source_url": "/generated/625.jpg",
+  "image_url": "/sketches/1410.png",
+  "inverted_image_url": "/sketches-inverted/1410.png",
+  "curve_count": 135,
+  "built_at": "2026-08-17T00:09:41Z"
+}

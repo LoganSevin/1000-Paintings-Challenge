@@ -1,0 +1,42 @@
+{
+  "number": 2160,
+  "title": "Line sketch: Fractured Dreamer and Frog",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young person with closed eyes and swirling patterns on their head emerges from a shattered geometric structure on the left. A large, vibrant frog with clockwork eyes floats in a starry night sky, connected by flowing, tentacle-like forms containing embedded faces (derived from generated still #1385).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young person with closed eyes and swirling patterns on their head emerges from a shattered geometric structure on the left. A large, vibrant frog with clockwork eyes floats in a starry night sky, connected by flowing, tentacle-like forms containing embedded faces",
+  "inverted_title": "Inverted sketch: Fractured Dreamer and Frog",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young person with closed eyes and swirling patterns on their head emerges from a shattered geometric structure on the left. A large, vibrant frog with clockwork eyes floats in a starry night sky, connected by flowing, tentacle-like forms containing embedded faces (from generated still #1385).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young person with closed eyes and swirling patterns on their head emerges from a shattered geometric structure on the left. A large, vibrant frog with clockwork eyes floats in a starry night sky, connected by flowing, tentacle-like forms containing embedded faces",
+  "source_description": "A young person with closed eyes and green swirling patterns on their head emerges from a shattered geometric structure on the left. A large, vibrant green frog with clockwork eyes floats in a starry blue night sky, connected by flowing, tentacle-like green forms containing embedded faces.",
+  "source_prompt": "",
+  "source_title": "Fractured Dreamer and Frog",
+  "style": "surrealism",
+  "mood": "dreamlike, ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "watercolor",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "frog",
+    "fractured",
+    "clockwork",
+    "swirls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1385,
+  "source_url": "/generated/1385.jpg",
+  "image_url": "/sketches/2160.png",
+  "inverted_image_url": "/sketches-inverted/2160.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:42Z"
+}

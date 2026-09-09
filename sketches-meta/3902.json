@@ -1,0 +1,42 @@
+{
+  "number": 3902,
+  "title": "Line sketch: Punk Girl Action Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential views of a female character with long dark hair in a high ponytail, wearing a and black punk outfit with a corset, tattered skirt, fingerless gloves, and heavy boots. She is shown in dynamic fighting stances with clenched fists and motion lines indicating movement against a plain gray background (derived from generated still #3319).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential views of a female character with long dark hair in a high ponytail, wearing a and black punk outfit with a corset, tattered skirt, fingerless gloves, and heavy boots. She is shown in dynamic fighting stances with clenched fists and motion lines indicating movement against a plain gray background",
+  "inverted_title": "Inverted sketch: Punk Girl Action Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential views of a female character with long dark hair in a high ponytail, wearing a and black punk outfit with a corset, tattered skirt, fingerless gloves, and heavy boots. She is shown in dynamic fighting stances with clenched fists and motion lines indicating movement against a plain gray background (from generated still #3319).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential views of a female character with long dark hair in a high ponytail, wearing a and black punk outfit with a corset, tattered skirt, fingerless gloves, and heavy boots. She is shown in dynamic fighting stances with clenched fists and motion lines indicating movement against a plain gray background",
+  "source_description": "Four sequential views of a female character with long dark hair in a high ponytail, wearing a red and black punk outfit with a corset, tattered skirt, fingerless gloves, and heavy boots. She is shown in dynamic fighting stances with clenched fists and motion lines indicating movement against a plain gray background.",
+  "source_prompt": "A female punk rocker with long dark hair in a high ponytail and red streaks, wearing a revealing red and black corset top with a tattered skirt, fingerless gloves, and heavy black boots. She is shown in four sequential dynamic fighting poses with clenched fists and motion blur on her arms, looking determined. Comic book style digital art with cel shading on a solid gray background.",
+  "source_title": "Punk Girl Action Poses",
+  "style": "comic book",
+  "mood": "fierce, energetic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "punk girl",
+    "action poses",
+    "and black",
+    "ponytail"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3319,
+  "source_url": "/generated/3319.jpg",
+  "image_url": "/sketches/3902.png",
+  "inverted_image_url": "/sketches-inverted/3902.png",
+  "curve_count": 18,
+  "built_at": "2026-08-17T00:09:46Z"
+}

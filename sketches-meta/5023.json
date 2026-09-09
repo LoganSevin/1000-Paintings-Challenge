@@ -1,0 +1,42 @@
+{
+  "number": 5023,
+  "title": "Line sketch: Surreal Cosmic Oracle",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A large transparent crystal sphere rests on a stand above a calm sea. Inside the orb, a glowing eye with cosmic patterns floats above a vibrant lotus, with a white-robed figure standing on desert dunes below and a translucent female figure on the right connected by flowing energy lines (derived from generated still #4462).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A large transparent crystal sphere rests on a stand above a calm sea. Inside the orb, a glowing eye with cosmic patterns floats above a vibrant lotus, with a white-robed figure standing on desert dunes below and a translucent female figure on the right connected by flowing energy lines",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Oracle",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A large transparent crystal sphere rests on a stand above a calm sea. Inside the orb, a glowing eye with cosmic patterns floats above a vibrant lotus, with a white-robed figure standing on desert dunes below and a translucent female figure on the right connected by flowing energy lines (from generated still #4462).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A large transparent crystal sphere rests on a stand above a calm sea. Inside the orb, a glowing eye with cosmic patterns floats above a vibrant lotus, with a white-robed figure standing on desert dunes below and a translucent female figure on the right connected by flowing energy lines",
+  "source_description": "A large transparent crystal sphere rests on a golden stand above a calm sea. Inside the orb, a glowing red eye with blue cosmic patterns floats above a vibrant pink lotus, with a white-robed figure standing on desert dunes below and a translucent female figure on the right connected by flowing energy lines.",
+  "source_prompt": "A large transparent crystal sphere on a golden stand floating above a calm sea under a dramatic sky with dark clouds and sun rays. Inside the orb is a surreal scene featuring a large glowing red eye with blue cosmic patterns at the top, a vibrant pink lotus flower in the center, a white-robed figure standing on orange desert dunes at the bottom, and a translucent glowing female figure on the right with flowing energy tendrils connecting to the lotus. Shattered glass fragments float around the sphere.",
+  "source_title": "Surreal Cosmic Oracle",
+  "style": "surrealism",
+  "mood": "mystical ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "crystal ball",
+    "cosmic eye",
+    "lotus",
+    "desert"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4462,
+  "source_url": "/generated/4462.jpg",
+  "image_url": "/sketches/5023.png",
+  "inverted_image_url": "/sketches-inverted/5023.png",
+  "curve_count": 103,
+  "built_at": "2026-08-17T00:09:49Z"
+}

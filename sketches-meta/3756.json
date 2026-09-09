@@ -1,0 +1,42 @@
+{
+  "number": 3756,
+  "title": "Line sketch: Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Two side-by-side studio portraits of a young Black child in an elaborate costume with black stripes, layered belts, tassels, and numerous small ornaments. The child strikes two different dynamic fighting stances with hands raised near the head against a dark textured backdrop (derived from generated still #3171).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Two side-by-side studio portraits of a young Black child in an elaborate costume with black stripes, layered belts, tassels, and numerous small ornaments. The child strikes two different dynamic fighting stances with hands raised near the head against a dark textured backdrop",
+  "inverted_title": "Inverted sketch: Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Two side-by-side studio portraits of a young Black child in an elaborate costume with black stripes, layered belts, tassels, and numerous small ornaments. The child strikes two different dynamic fighting stances with hands raised near the head against a dark textured backdrop (from generated still #3171).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Two side-by-side studio portraits of a young Black child in an elaborate costume with black stripes, layered belts, tassels, and numerous small ornaments. The child strikes two different dynamic fighting stances with hands raised near the head against a dark textured backdrop",
+  "source_description": "Two side-by-side studio portraits of a young Black child in an elaborate orange costume with black stripes, layered belts, tassels, and numerous small ornaments. The child strikes two different dynamic fighting stances with hands raised near the head against a dark textured backdrop.",
+  "source_prompt": "Young Black child with short dreadlocks wearing a detailed handmade orange warrior costume with black stripes on arms and legs, multiple layered belts with tassels and metal ornaments, standing in two different dynamic fighting poses with hands raised near head, intense expression, dramatic studio lighting against a dark textured painterly backdrop, cinematic character study, highly detailed digital painting",
+  "source_title": "Orange Warrior Poses",
+  "style": "cinematic character study",
+  "mood": "intense, theatrical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "child warrior",
+    "costume",
+    "afrofuturist",
+    "studio portrait",
+    "dual pose"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3171,
+  "source_url": "/generated/3171.jpg",
+  "image_url": "/sketches/3756.png",
+  "inverted_image_url": "/sketches-inverted/3756.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:46Z"
+}

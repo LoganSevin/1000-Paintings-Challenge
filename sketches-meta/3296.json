@@ -1,0 +1,42 @@
+{
+  "number": 3296,
+  "title": "Line sketch: Beat 282 - Return",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a dark coat and scarf stands on flooded ornate steps, holding a suitcase marked G#696 and a ticket. She looks back over her shoulder in a grand decaying hall where a train waits at a submerged platform, surrounded by floating film strips, photographs and water lilies (derived from generated still #2674).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a dark coat and scarf stands on flooded ornate steps, holding a suitcase marked G#696 and a ticket. She looks back over her shoulder in a grand decaying hall where a train waits at a submerged platform, surrounded by floating film strips, photographs and water lilies",
+  "inverted_title": "Inverted sketch: Beat 282 - Return",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a dark coat and scarf stands on flooded ornate steps, holding a suitcase marked G#696 and a ticket. She looks back over her shoulder in a grand decaying hall where a train waits at a submerged platform, surrounded by floating film strips, photographs and water lilies (from generated still #2674).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a dark coat and scarf stands on flooded ornate steps, holding a suitcase marked G#696 and a ticket. She looks back over her shoulder in a grand decaying hall where a train waits at a submerged platform, surrounded by floating film strips, photographs and water lilies",
+  "source_description": "A woman in a dark coat and red scarf stands on flooded ornate steps, holding a suitcase marked G#696 and a ticket. She looks back over her shoulder in a grand decaying hall where a yellow train waits at a submerged platform, surrounded by floating film strips, photographs and water lilies.",
+  "source_prompt": "A solitary woman in a long dark coat and bright red scarf stands on water-covered marble steps inside a decaying ornate hall, holding a worn suitcase labeled G#696 and a small white ticket. She glances back toward the viewer. Behind her, a yellow passenger train waits at a flooded platform visible through large arched windows with red and yellow curtains. Water lilies float on the floor, old film strips and photographs drift in the water. Warm wall sconce lighting, cool twilight exterior, cinematic surreal atmosphere, highly detailed digital painting.",
+  "source_title": "Beat 282 - Return",
+  "style": "cinematic surrealism",
+  "mood": "melancholy mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "train station",
+    "flooded interior",
+    "vintage film",
+    "woman with suitcase"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2674,
+  "source_url": "/generated/2674.jpg",
+  "image_url": "/sketches/3296.png",
+  "inverted_image_url": "/sketches-inverted/3296.png",
+  "curve_count": 29,
+  "built_at": "2026-08-17T00:09:45Z"
+}

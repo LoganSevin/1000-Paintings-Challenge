@@ -1,0 +1,42 @@
+{
+  "number": 699,
+  "title": "Line sketch: Ethereal Sorcerer on Ghost Ship",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A hooded skeletal figure with glowing eyes stands on an ancient floating ship, arms outstretched in a mystical gesture. Swirling and nebulae, glowing orbs, and cosmic clouds fill the dark starry background (derived from painting #883).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A hooded skeletal figure with glowing eyes stands on an ancient floating ship, arms outstretched in a mystical gesture. Swirling and nebulae, glowing orbs, and cosmic clouds fill the dark starry background",
+  "inverted_title": "Inverted sketch: Ethereal Sorcerer on Ghost Ship",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A hooded skeletal figure with glowing eyes stands on an ancient floating ship, arms outstretched in a mystical gesture. Swirling and nebulae, glowing orbs, and cosmic clouds fill the dark starry background (from painting #883).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A hooded skeletal figure with glowing eyes stands on an ancient floating ship, arms outstretched in a mystical gesture. Swirling and nebulae, glowing orbs, and cosmic clouds fill the dark starry background",
+  "source_description": "A hooded skeletal figure with glowing eyes stands on an ancient floating ship, arms outstretched in a mystical gesture. Swirling green and purple nebulae, glowing orbs, and cosmic clouds fill the dark starry background.",
+  "source_prompt": "",
+  "source_title": "Ethereal Sorcerer on Ghost Ship",
+  "style": "Fantasy",
+  "mood": "Mysterious, epic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "sorcerer",
+    "ghost ship",
+    "cosmic",
+    "fantasy art",
+    "nebula"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 883,
+  "source_url": "/paintings/883.jpg",
+  "image_url": "/sketches/699.png",
+  "inverted_image_url": "/sketches-inverted/699.png",
+  "curve_count": 17,
+  "built_at": "2026-08-17T00:09:39Z"
+}

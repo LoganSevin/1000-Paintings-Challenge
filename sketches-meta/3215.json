@@ -1,0 +1,42 @@
+{
+  "number": 3215,
+  "title": "Line sketch: Cosmic Shattered Veil",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal landscape features a large cracked circular portal dominating the center. Inside the orb are swirling galaxies forming eye-like shapes, a skull with eyes floating above, and a small human silhouette standing in a reflective body of water below. The background shows mountains under a starry night sky with nebulae (derived from generated still #2565).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal landscape features a large cracked circular portal dominating the center. Inside the orb are swirling galaxies forming eye-like shapes, a skull with eyes floating above, and a small human silhouette standing in a reflective body of water below. The background shows mountains under a starry night sky with nebulae",
+  "inverted_title": "Inverted sketch: Cosmic Shattered Veil",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal landscape features a large cracked circular portal dominating the center. Inside the orb are swirling galaxies forming eye-like shapes, a skull with eyes floating above, and a small human silhouette standing in a reflective body of water below. The background shows mountains under a starry night sky with nebulae (from generated still #2565).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal landscape features a large cracked circular portal dominating the center. Inside the orb are swirling galaxies forming eye-like shapes, a skull with eyes floating above, and a small human silhouette standing in a reflective body of water below. The background shows mountains under a starry night sky with nebulae",
+  "source_description": "A surreal landscape features a large cracked circular portal dominating the center. Inside the orb are swirling purple galaxies forming eye-like shapes, a golden skull with green eyes floating above, and a small human silhouette standing in a reflective body of water below. The background shows green mountains under a starry night sky with nebulae.",
+  "source_prompt": "Surreal cosmic landscape at night, a massive cracked circular portal overlays a mountain lake scene. Inside the orb, two swirling purple spiral galaxies form hypnotic eyes, a golden dripping skull with glowing green eyes floats above wearing bat-like wings, a lone human silhouette stands in colorful reflective water at the bottom. Green forested mountains and starry nebulae fill the background, intricate line details, mystical atmosphere.",
+  "source_title": "Cosmic Shattered Veil",
+  "style": "surrealism",
+  "mood": "mystical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "cosmic",
+    "skull",
+    "galaxy",
+    "portal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2565,
+  "source_url": "/generated/2565.jpg",
+  "image_url": "/sketches/3215.png",
+  "inverted_image_url": "/sketches-inverted/3215.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2529,
+  "title": "Line sketch: Decaying Film Reel Monument",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, rusted film reel sits atop a concrete pedestal in a desolate wasteland, with film strips unspooling across the ground covered in graffiti. The surreal scene includes scattered film canisters, old newspapers, gloves, and a distant utility pole under a dramatic sky with aurora-like lights (derived from generated still #1765).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, rusted film reel sits atop a concrete pedestal in a desolate wasteland, with film strips unspooling across the ground covered in graffiti. The surreal scene includes scattered film canisters, old newspapers, gloves, and a distant utility pole under a dramatic sky with aurora-like lights",
+  "inverted_title": "Inverted sketch: Decaying Film Reel Monument",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, rusted film reel sits atop a concrete pedestal in a desolate wasteland, with film strips unspooling across the ground covered in graffiti. The surreal scene includes scattered film canisters, old newspapers, gloves, and a distant utility pole under a dramatic sky with aurora-like lights (from generated still #1765).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, rusted film reel sits atop a concrete pedestal in a desolate wasteland, with film strips unspooling across the ground covered in graffiti. The surreal scene includes scattered film canisters, old newspapers, gloves, and a distant utility pole under a dramatic sky with aurora-like lights",
+  "source_description": "A massive, rusted film reel sits atop a concrete pedestal in a desolate wasteland, with film strips unspooling across the ground covered in yellow graffiti. The surreal scene includes scattered film canisters, old newspapers, gloves, and a distant utility pole under a dramatic sky with green aurora-like lights.",
+  "source_prompt": "",
+  "source_title": "Decaying Film Reel Monument",
+  "style": "surreal composition",
+  "mood": "desolate dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "film reel",
+    "ruins",
+    "wasteland",
+    "graffiti",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1765,
+  "source_url": "/generated/1765.jpg",
+  "image_url": "/sketches/2529.png",
+  "inverted_image_url": "/sketches-inverted/2529.png",
+  "curve_count": 41,
+  "built_at": "2026-08-17T00:09:43Z"
+}

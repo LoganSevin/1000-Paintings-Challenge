@@ -1,0 +1,42 @@
+{
+  "number": 805,
+  "title": "Line sketch: Psychedelic Hot Air Balloon",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a large hot air balloon covered in dripping graffiti and geometric patterns, floating against a and background with floating crystal shapes and numerous shiny spheres connected by abstract forms (derived from generated still #14).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a large hot air balloon covered in dripping graffiti and geometric patterns, floating against a and background with floating crystal shapes and numerous shiny spheres connected by abstract forms",
+  "inverted_title": "Inverted sketch: Psychedelic Hot Air Balloon",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a large hot air balloon covered in dripping graffiti and geometric patterns, floating against a and background with floating crystal shapes and numerous shiny spheres connected by abstract forms (from generated still #14).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a large hot air balloon covered in dripping graffiti and geometric patterns, floating against a and background with floating crystal shapes and numerous shiny spheres connected by abstract forms",
+  "source_description": "A vibrant surreal painting depicts a large purple hot air balloon covered in dripping graffiti and colorful geometric patterns, floating against a purple and pink background with floating crystal shapes and numerous shiny spheres connected by abstract turquoise forms.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Hot Air Balloon",
+  "style": "surreal graffiti",
+  "mood": "vibrant whimsical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hot air balloon",
+    "graffiti",
+    "psychedelic",
+    "surreal",
+    "dripping paint"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 14,
+  "source_url": "/generated/14.jpg",
+  "image_url": "/sketches/805.png",
+  "inverted_image_url": "/sketches-inverted/805.png",
+  "curve_count": 73,
+  "built_at": "2026-08-17T00:09:39Z"
+}

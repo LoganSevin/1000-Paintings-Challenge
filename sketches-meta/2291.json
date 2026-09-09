@@ -1,0 +1,42 @@
+{
+  "number": 2291,
+  "title": "Line sketch: Cosmic Horses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant psychedelic composition depicts two horses with manes galloping across a surreal landscape. Three riders with skin sit atop the rear horse while glowing orbs and energy beams connect elements of the cosmic scene featuring a starry lake, sun, and stylized mountains (derived from generated still #1518).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant psychedelic composition depicts two horses with manes galloping across a surreal landscape. Three riders with skin sit atop the rear horse while glowing orbs and energy beams connect elements of the cosmic scene featuring a starry lake, sun, and stylized mountains",
+  "inverted_title": "Inverted sketch: Cosmic Horses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant psychedelic composition depicts two horses with manes galloping across a surreal landscape. Three riders with skin sit atop the rear horse while glowing orbs and energy beams connect elements of the cosmic scene featuring a starry lake, sun, and stylized mountains (from generated still #1518).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant psychedelic composition depicts two horses with manes galloping across a surreal landscape. Three riders with skin sit atop the rear horse while glowing orbs and energy beams connect elements of the cosmic scene featuring a starry lake, sun, and stylized mountains",
+  "source_description": "A vibrant psychedelic painting depicts two green horses with yellow manes galloping across a surreal landscape. Three riders with green skin sit atop the rear horse while glowing orbs and blue energy beams connect elements of the cosmic scene featuring a starry lake, rainbow sun, and stylized mountains.",
+  "source_prompt": "",
+  "source_title": "Cosmic Green Horses",
+  "style": "psychedelic",
+  "mood": "vibrant mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "cosmic",
+    "horses",
+    "surreal",
+    "fantasy"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1518,
+  "source_url": "/generated/1518.jpg",
+  "image_url": "/sketches/2291.png",
+  "inverted_image_url": "/sketches-inverted/2291.png",
+  "curve_count": 142,
+  "built_at": "2026-08-17T00:09:43Z"
+}

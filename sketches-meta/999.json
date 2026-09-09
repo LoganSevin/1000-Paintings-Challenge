@@ -1,0 +1,42 @@
+{
+  "number": 999,
+  "title": "Line sketch: Mermaid and Serpent",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal underwater scene featuring a mermaid with flowing hair and a large fish beside her face. She is entwined by a massive serpent with glowing eyes and open mouth, set against a backdrop of reefs and small fish (derived from generated still #209).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal underwater scene featuring a mermaid with flowing hair and a large fish beside her face. She is entwined by a massive serpent with glowing eyes and open mouth, set against a backdrop of reefs and small fish",
+  "inverted_title": "Inverted sketch: Mermaid and Serpent",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal underwater scene featuring a mermaid with flowing hair and a large fish beside her face. She is entwined by a massive serpent with glowing eyes and open mouth, set against a backdrop of reefs and small fish (from generated still #209).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal underwater scene featuring a mermaid with flowing hair and a large fish beside her face. She is entwined by a massive serpent with glowing eyes and open mouth, set against a backdrop of reefs and small fish",
+  "source_description": "A vibrant surreal underwater scene featuring a colorful mermaid with flowing multicolored hair and a large iridescent fish beside her face. She is entwined by a massive dark blue serpent with glowing orange eyes and open mouth, set against a backdrop of coral reefs and small fish.",
+  "source_prompt": "",
+  "source_title": "Mermaid and Serpent",
+  "style": "fantasy illustration",
+  "mood": "ethereal, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mermaid",
+    "sea serpent",
+    "underwater",
+    "fantasy",
+    "surreal"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 209,
+  "source_url": "/generated/209.jpg",
+  "image_url": "/sketches/999.png",
+  "inverted_image_url": "/sketches-inverted/999.png",
+  "curve_count": 68,
+  "built_at": "2026-08-17T00:09:40Z"
+}

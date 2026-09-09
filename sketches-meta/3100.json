@@ -1,0 +1,42 @@
+{
+  "number": 3100,
+  "title": "Line sketch: Lotus in Ceramic Bowl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant lotus flower with layered petals and a center sits in a weathered ceramic bowl filled with smooth -grey stones. The bowl features faded floral motifs and rests on a dark surface against a moody, dimly lit background with subtle geometric overlays (derived from generated still #2435).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant lotus flower with layered petals and a center sits in a weathered ceramic bowl filled with smooth -grey stones. The bowl features faded floral motifs and rests on a dark surface against a moody, dimly lit background with subtle geometric overlays",
+  "inverted_title": "Inverted sketch: Lotus in Ceramic Bowl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant lotus flower with layered petals and a center sits in a weathered ceramic bowl filled with smooth -grey stones. The bowl features faded floral motifs and rests on a dark surface against a moody, dimly lit background with subtle geometric overlays (from generated still #2435).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant lotus flower with layered petals and a center sits in a weathered ceramic bowl filled with smooth -grey stones. The bowl features faded floral motifs and rests on a dark surface against a moody, dimly lit background with subtle geometric overlays",
+  "source_description": "A vibrant red lotus flower with layered petals and a bright yellow center sits in a weathered green ceramic bowl filled with smooth blue-grey stones. The bowl features faded floral motifs and rests on a dark surface against a moody, dimly lit background with subtle geometric overlays.",
+  "source_prompt": "A striking red lotus flower with many layered petals and a dense yellow stamen center, emerging from a weathered turquoise-green ceramic bowl decorated with faded blue floral patterns. The bowl is filled with smooth blue-grey pebbles. Dramatic side lighting creates deep shadows and rich color saturation. Dark, moody background with subtle translucent geometric overlays. Highly detailed digital painting style.",
+  "source_title": "Crimson Lotus in Ceramic Bowl",
+  "style": "line sketch",
+  "mood": "dramatic, serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "lotus flower",
+    "ceramic bowl",
+    "still life",
+    "petals",
+    "moody lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2435,
+  "source_url": "/generated/2435.jpg",
+  "image_url": "/sketches/3100.png",
+  "inverted_image_url": "/sketches-inverted/3100.png",
+  "curve_count": 7,
+  "built_at": "2026-08-17T00:09:45Z"
+}

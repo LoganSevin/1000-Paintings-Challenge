@@ -1,0 +1,42 @@
+{
+  "number": 3500,
+  "title": "Line sketch: Surreal Cosmic Buddha",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal scene featuring a glowing Buddha statue standing on a large luminous lotus flower in the foreground. To the upper left is an abstract and face motif, while a giant cartoonish monster with large eyes and spots looms from the top center. A bright light burst radiates from the center, with a horse standing in a -dotted field in the upper right and a small boat on turbulent dark waves in the lower right (derived from generated still #2902).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal scene featuring a glowing Buddha statue standing on a large luminous lotus flower in the foreground. To the upper left is an abstract and face motif, while a giant cartoonish monster with large eyes and spots looms from the top center. A bright light burst radiates from the center, with a horse standing in a -dotted field in the upper right and a small boat on turbulent dark waves in the lower right",
+  "inverted_title": "Inverted sketch: Surreal Cosmic Buddha",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal scene featuring a glowing Buddha statue standing on a large luminous lotus flower in the foreground. To the upper left is an abstract and face motif, while a giant cartoonish monster with large eyes and spots looms from the top center. A bright light burst radiates from the center, with a horse standing in a -dotted field in the upper right and a small boat on turbulent dark waves in the lower right (from generated still #2902).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal scene featuring a glowing Buddha statue standing on a large luminous lotus flower in the foreground. To the upper left is an abstract and face motif, while a giant cartoonish monster with large eyes and spots looms from the top center. A bright light burst radiates from the center, with a horse standing in a -dotted field in the upper right and a small boat on turbulent dark waves in the lower right",
+  "source_description": "A vibrant surreal scene featuring a glowing Buddha statue standing on a large luminous lotus flower in the foreground. To the upper left is an abstract orange and teal face motif, while a giant green cartoonish monster with large eyes and red spots looms from the top center. A bright multicolored light burst radiates from the center, with a brown horse standing in a pink-dotted field in the upper right and a small boat on turbulent dark waves in the lower right.",
+  "source_prompt": "A highly detailed surreal psychedelic composition with a golden Buddha statue standing serenely on a glowing lotus flower in the lower center. A giant green cartoon monster with big eyes and teeth looms from the top. An abstract orange and teal stylized face appears on the left. A brown horse stands in a field of pink flowers in the upper right. A small boat sails on turbulent dark blue waves in the lower right. Bright rainbow light explosion in the center with colorful orbs and paint drips, cosmic green planets in the background, vibrant and chaotic atmosphere.",
+  "source_title": "Surreal Cosmic Buddha",
+  "style": "surreal digital art",
+  "mood": "psychedelic chaotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "buddha",
+    "lotus",
+    "psychedelic",
+    "monster"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2902,
+  "source_url": "/generated/2902.jpg",
+  "image_url": "/sketches/3500.png",
+  "inverted_image_url": "/sketches-inverted/3500.png",
+  "curve_count": 45,
+  "built_at": "2026-08-17T00:09:45Z"
+}

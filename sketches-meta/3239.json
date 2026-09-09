@@ -1,0 +1,42 @@
+{
+  "number": 3239,
+  "title": "Line sketch: Cinematic Mirror Portal",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A woman in a flowing starry cape stands in an ornate old theater, reaching through a large cracked mirror. Her black-and-white reflection smiles back as glowing film reels and movie tickets float around them in a swirl of magical light. The theater floor is covered with scattered film strips under a starry painted ceiling (derived from generated still #2598).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A woman in a flowing starry cape stands in an ornate old theater, reaching through a large cracked mirror. Her black-and-white reflection smiles back as glowing film reels and movie tickets float around them in a swirl of magical light. The theater floor is covered with scattered film strips under a starry painted ceiling",
+  "inverted_title": "Inverted sketch: Cinematic Mirror Portal",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A woman in a flowing starry cape stands in an ornate old theater, reaching through a large cracked mirror. Her black-and-white reflection smiles back as glowing film reels and movie tickets float around them in a swirl of magical light. The theater floor is covered with scattered film strips under a starry painted ceiling (from generated still #2598).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A woman in a flowing starry cape stands in an ornate old theater, reaching through a large cracked mirror. Her black-and-white reflection smiles back as glowing film reels and movie tickets float around them in a swirl of magical light. The theater floor is covered with scattered film strips under a starry painted ceiling",
+  "source_description": "A woman in a flowing blue starry cape stands in an ornate old theater, reaching through a large cracked golden mirror. Her black-and-white reflection smiles back as glowing film reels and movie tickets float around them in a swirl of magical light. The theater floor is covered with scattered film strips under a starry painted ceiling.",
+  "source_prompt": "A woman wearing an elegant blue starry cape stands inside a grand vintage theater with red velvet seats and painted dome ceiling, reaching her hand through a large cracked golden mirror frame. Her monochrome reflection inside the mirror is smiling and touching her hand. Swirling magical energy, glowing film reels, and vintage movie tickets float around them. Cinematic lighting with dramatic spotlight from above, scattered film strips on the floor, mystical and nostalgic atmosphere.",
+  "source_title": "Cinematic Mirror Portal",
+  "style": "cinematic",
+  "mood": "magical, nostalgic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cinematic",
+    "mirror portal",
+    "film reels",
+    "theater",
+    "magic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2598,
+  "source_url": "/generated/2598.jpg",
+  "image_url": "/sketches/3239.png",
+  "inverted_image_url": "/sketches-inverted/3239.png",
+  "curve_count": 59,
+  "built_at": "2026-08-17T00:09:45Z"
+}

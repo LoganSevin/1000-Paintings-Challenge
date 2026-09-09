@@ -1,0 +1,42 @@
+{
+  "number": 772,
+  "title": "Line sketch: Curious Rat Portrait",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A detailed of a reddish- rat with white chest looking upward alertly. The rodent is set against a vibrant background with stylized foliage and flowers (derived from painting #973).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A detailed of a reddish- rat with white chest looking upward alertly. The rodent is set against a vibrant background with stylized foliage and flowers",
+  "inverted_title": "Inverted sketch: Curious Rat Portrait",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A detailed of a reddish- rat with white chest looking upward alertly. The rodent is set against a vibrant background with stylized foliage and flowers (from painting #973).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A detailed of a reddish- rat with white chest looking upward alertly. The rodent is set against a vibrant background with stylized foliage and flowers",
+  "source_description": "A detailed digital painting of a reddish-brown rat with white chest looking upward alertly. The rodent is set against a vibrant green background with stylized foliage and flowers.",
+  "source_prompt": "",
+  "source_title": "Curious Red Rat Portrait",
+  "style": "Pop Art",
+  "mood": "Curious and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rat",
+    "rodent",
+    "wildlife",
+    "nature",
+    "portrait"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 973,
+  "source_url": "/paintings/973.jpg",
+  "image_url": "/sketches/772.png",
+  "inverted_image_url": "/sketches-inverted/772.png",
+  "curve_count": 58,
+  "built_at": "2026-08-17T00:09:39Z"
+}

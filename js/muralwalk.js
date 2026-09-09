@@ -212,6 +212,9 @@
   if (window.MuralwalkSpellMath) return;
   var SLOT_LABELS = ["Spell I", "Spell II", "Spell III"];
   var TOTAL_PAINTINGS = 1000;
+  var GEN_BASE = 100000;
+  var SKETCH_BASE = 200000;
+  var INV_SKETCH_BASE = 300000;
 
   function spellHash(seed, n) {
     var h = seed * 374761393 + n * 668265263;
@@ -226,6 +229,24 @@
   }
 
   function paintingUrlFor(num) {
+    num = parseInt(num, 10);
+    if (!num) return "";
+    try {
+      if (typeof window.getSpellforgeSpellUrl === "function") {
+        var raw = String(window.getSpellforgeSpellUrl(num) || "");
+        var bogus = /(?:^|\/)paintings\/(\d+)\./i.exec(raw);
+        if (raw && !(num > 1000 && bogus && parseInt(bogus[1], 10) === num)) return raw;
+      }
+    } catch (e) {}
+    if (num >= 1 && num <= 1000) {
+      if (window.getPaintingUrl) return window.getPaintingUrl(num);
+      return "paintings/" + num + ".jpg";
+    }
+    if (num >= GEN_BASE && num < SKETCH_BASE) return "generated/" + (num - GEN_BASE) + ".jpg";
+    if (num >= SKETCH_BASE && num < INV_SKETCH_BASE) return "sketches/" + (num - SKETCH_BASE) + ".png";
+    if (num >= INV_SKETCH_BASE && num < 400000) {
+      return "sketches-inverted/" + (num - INV_SKETCH_BASE) + ".png";
+    }
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
     return "paintings/" + num + ".jpg";
   }
@@ -252,20 +273,27 @@
     return pool[spellHash(seed, pool.length) % pool.length];
   }
 
-  function buildSpellPool(total, exclude, hasAnalysis) {
+  function buildSpellPool(totalOrList, exclude, hasAnalysis) {
     var excludeMap = {};
     (exclude || []).forEach(function (n) {
       excludeMap[n] = true;
     });
+    var ids = [];
+    if (Array.isArray(totalOrList)) {
+      ids = totalOrList;
+    } else {
+      var max = totalOrList || TOTAL_PAINTINGS;
+      for (var i = 1; i <= max; i++) ids.push(i);
+    }
     var pool = [];
-    var max = total || TOTAL_PAINTINGS;
-    for (var i = 1; i <= max; i++) {
-      if (excludeMap[i]) continue;
-      if (!hasAnalysis || hasAnalysis(i)) pool.push(i);
+    for (var k = 0; k < ids.length; k++) {
+      var n = ids[k];
+      if (!n || excludeMap[n]) continue;
+      if (!hasAnalysis || hasAnalysis(n)) pool.push(n);
     }
     if (!pool.length) {
-      for (var j = 1; j <= max; j++) {
-        if (!excludeMap[j]) pool.push(j);
+      for (var j = 0; j < ids.length; j++) {
+        if (ids[j] && !excludeMap[ids[j]]) pool.push(ids[j]);
       }
     }
     return pool;
@@ -319,6 +347,9 @@
   window.MuralwalkSpellMath = {
     SLOT_LABELS: SLOT_LABELS,
     TOTAL_PAINTINGS: TOTAL_PAINTINGS,
+    GEN_BASE: GEN_BASE,
+    SKETCH_BASE: SKETCH_BASE,
+    INV_SKETCH_BASE: INV_SKETCH_BASE,
     spellHash: spellHash,
     equippedNums: equippedNums,
     paintingUrlFor: paintingUrlFor,
@@ -419,6 +450,9 @@
   var PLAYER_BODY_R = 10;
   var PLAYER_COLLISION_PASSES = 10;
   var TOTAL = SM.TOTAL_PAINTINGS;
+  var GEN_BASE = SM.GEN_BASE || 100000;
+  var SKETCH_BASE = SM.SKETCH_BASE || 200000;
+  var INV_SKETCH_BASE = SM.INV_SKETCH_BASE || 300000;
   var ORB_VALUES = [1, 5, 10, 20, 100];
   var ORB_COLORS = {
     1: "#d8d8e0",
@@ -435,6 +469,45 @@
     buzz_inject: { color: "#8eff8e", label: "bz", cost: 0 },
     extra_buzz: { color: "#ffd68a", label: "ex", cost: 0 },
     save_work: { color: "#e8f8ff", label: "Sv", cost: 0 },
+    color_tint: { color: "#ff6b9a", label: "hue", cost: 0 },
+    aspect: { color: "#7ee0ff", label: "ar", cost: 0 },
+  };
+  var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
+  var SLOT_COLOR_COUNT = 6;
+  var COLOR_ORB_HEXES = [
+    "#EF4444",
+    "#FF2400",
+    "#F59E0B",
+    "#FFE08A",
+    "#22C55E",
+    "#14B8A6",
+    "#3B82F6",
+    "#8B5CF6",
+    "#EC4899",
+    "#D4A84A",
+    "#F4E8C8",
+    "#E34234",
+  ];
+  var COLOR_NAME_HEX = {
+    red: "#EF4444",
+    pink: "#EC4899",
+    purple: "#8B5CF6",
+    violet: "#7C3AED",
+    blue: "#3B82F6",
+    teal: "#14B8A6",
+    green: "#22C55E",
+    gold: "#D4A84A",
+    yellow: "#F4E08A",
+    orange: "#F59E0B",
+    magenta: "#D946EF",
+    crimson: "#DC143C",
+    scarlet: "#FF2400",
+    white: "#F4E8C8",
+    black: "#2A241C",
+    gray: "#9CA3AF",
+    grey: "#9CA3AF",
+    brown: "#92400E",
+    cyan: "#22D3EE",
   };
   var MAZE_CELL = 88;
   var ORB_CLEARANCE = 50;
@@ -485,6 +558,11 @@
     spellCache: {},
     _galleryBacklogPromise: null,
     slots: [null, null, null],
+    slotPalette: [[], [], []],
+    _slotPaletteFor: [null, null, null],
+    _colorSlot: 0,
+    _colorDot: 0,
+    aspectRatio: "16:9",
     score: 0,
     usdBalance: 0,
     _blendPromise: null,
@@ -641,8 +719,15 @@
 
   function paintingUrlFromThumb(url) {
     if (!url) return null;
-    var m = String(url).match(/paintings\/(\d+)\.jpg/i);
-    return m ? parseInt(m[1], 10) : null;
+    var u = String(url);
+    var g = u.match(/generated\/(\d+)\./i);
+    if (g) return GEN_BASE + parseInt(g[1], 10);
+    var inv = u.match(/sketches-inverted\/(\d+)\./i);
+    if (inv) return INV_SKETCH_BASE + parseInt(inv[1], 10);
+    var sk = u.match(/sketches\/(\d+)\./i);
+    if (sk) return SKETCH_BASE + parseInt(sk[1], 10);
+    var p = u.match(/paintings\/(\d+)\./i);
+    return p ? parseInt(p[1], 10) : null;
   }
 
   function setHudThumb(el, url) {
@@ -687,14 +772,41 @@
   function getAnalysis(num) {
     var key = String(num);
     if (g.spellCache[key]) return g.spellCache[key];
-    if (typeof window.getGalleryAnalysis === "function") {
-      var live = window.getGalleryAnalysis(num);
-      if (live) {
-        g.spellCache[key] = live;
-        return live;
+    var live = null;
+    try {
+      if (typeof window.getSpellforgeSpellAnalysis === "function") {
+        live = window.getSpellforgeSpellAnalysis(num);
       }
+    } catch (e0) {}
+    if (!live && typeof window.getGalleryAnalysis === "function") {
+      live = window.getGalleryAnalysis(num);
     }
-    return null;
+    var n = parseInt(num, 10);
+    if (!live && n >= GEN_BASE && n < SKETCH_BASE && typeof window.getLod1Analysis === "function") {
+      live = window.getLod1Analysis(n - GEN_BASE);
+    }
+    if (!live && n >= SKETCH_BASE && n < INV_SKETCH_BASE && typeof window.getSketchAnalysis === "function") {
+      live = window.getSketchAnalysis(n - SKETCH_BASE);
+    }
+    if (!live && n >= INV_SKETCH_BASE && n < 400000 && typeof window.getSketchAnalysis === "function") {
+      live = window.getSketchAnalysis(n - INV_SKETCH_BASE);
+    }
+    if (live) {
+      g.spellCache[key] = live;
+      return live;
+    }
+    var fb = {
+      title: spellKindLabel(n || num),
+      description:
+        "Influence still " +
+        spellKindLabel(n || num) +
+        " — borrow palette, texture, and motif. Invent a new scene; do not copy the source.",
+      tags: ["influence"],
+      colors: n >= SKETCH_BASE ? ["gray", "white"] : ["gold", "purple"],
+      _fallback: true,
+    };
+    g.spellCache[key] = fb;
+    return fb;
   }
 
   function syncEquippedSpells() {
@@ -702,7 +814,7 @@
     preloadPaintingThumbs(nums);
     for (var i = 0; i < nums.length; i++) {
       var n = nums[i];
-      if (g.spellCache[String(n)]) continue;
+      if (g.spellCache[String(n)] && !g.spellCache[String(n)]._fallback) continue;
       if (typeof window.getGalleryAnalysis === "function") {
         cacheSpellAnalysis(n, window.getGalleryAnalysis(n));
       }
@@ -836,16 +948,16 @@
     var a = getAnalysis(num);
     if (!a) {
       var pending = analysesReady()
-        ? "Painting #" + num + " — no analysis on file."
-        : "Loading painting analysis…";
+        ? spellKindLabel(num) + " — no analysis on file."
+        : "Loading spell analysis…";
       return (
-        '<span class="mw-spell-box-title">#' + num + "</span>" +
+        '<span class="mw-spell-box-title">' + spellKindLabel(num) + "</span>" +
         '<p class="mw-spell-box-text">' + escapeHtml(pending) + "</p>"
       );
     }
     var tags = (a.tags || []).slice(0, 8);
     var styles = uniqueList([a.style, a.medium].filter(Boolean));
-    var desc = a.description || a.style || a.title || "Painting #" + num;
+    var desc = a.description || a.style || a.title || spellKindLabel(num);
     var tagHtml = tags
       .map(function (t) {
         return '<span class="mw-chip">' + escapeHtml(t) + "</span>";
@@ -857,8 +969,8 @@
       })
       .join("");
     return (
-      '<span class="mw-spell-box-title">#' +
-      num +
+      '<span class="mw-spell-box-title">' +
+      spellKindLabel(num) +
       " · " +
       escapeHtml(a.title || "Untitled") +
       "</span>" +
@@ -901,10 +1013,168 @@
     return g.score >= REDEFINE_COST;
   }
 
+  function currentAspect() {
+    var v = String(g.aspectRatio || "16:9");
+    return ASPECT_OPTIONS.indexOf(v) >= 0 ? v : "16:9";
+  }
+
+  function setAspectRatio(aspect) {
+    if (ASPECT_OPTIONS.indexOf(aspect) < 0) return;
+    g.aspectRatio = aspect;
+    setFloorStatus("Frame " + aspect + " — next stasis paints that ratio.", { duration: 1400 });
+    updateHudLabel();
+    if (g.playing && equippedNums().length >= 2 && !visionRegenInflight()) {
+      regenerateStasisVision({
+        statusMsg: "Painting stasis at " + aspect + "…",
+        unlockFloor: g.floorUnlocked,
+      });
+    }
+  }
+
+  function spellKindLabel(num) {
+    num = parseInt(num, 10);
+    if (!num) return "empty";
+    if (num >= 1 && num <= 1000) return "#" + num;
+    if (num >= GEN_BASE && num < SKETCH_BASE) return "G#" + (num - GEN_BASE);
+    if (num >= SKETCH_BASE && num < INV_SKETCH_BASE) return "S#" + (num - SKETCH_BASE);
+    if (num >= INV_SKETCH_BASE && num < 400000) return "SI#" + (num - INV_SKETCH_BASE);
+    return "#" + num;
+  }
+
+  function arsenalIds() {
+    var list = [];
+    try {
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.getDisplayOrder === "function") {
+        var fromApi = window.SpellforgeAPI.getDisplayOrder();
+        if (Array.isArray(fromApi) && fromApi.length) list = fromApi;
+      }
+    } catch (e0) {}
+    if (!list.length) {
+      try {
+        var saved = JSON.parse(localStorage.getItem("spellforge_display_order_v11") || "null");
+        if (Array.isArray(saved) && saved.length) list = saved;
+      } catch (e1) {}
+    }
+    list = list
+      .map(function (n) {
+        return parseInt(n, 10);
+      })
+      .filter(function (n) {
+        return n >= 1;
+      });
+    if (list.length) return list;
+    var fallback = [];
+    for (var i = 1; i <= TOTAL; i++) fallback.push(i);
+    return fallback;
+  }
+
+  function parseColorToHex(raw) {
+    var s = String(raw || "").trim();
+    if (!s) return "";
+    if (/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(s)) {
+      if (s.length === 4) return ("#" + s[1] + s[1] + s[2] + s[2] + s[3] + s[3]).toUpperCase();
+      return s.toUpperCase();
+    }
+    var key = s.toLowerCase().replace(/[^a-z]/g, "");
+    return COLOR_NAME_HEX[key] || "";
+  }
+
+  function collectPaletteHexes() {
+    var out = [];
+    var seen = {};
+    for (var i = 0; i < 3; i++) {
+      var pal = (g.slotPalette && g.slotPalette[i]) || [];
+      for (var j = 0; j < pal.length; j++) {
+        var h = pal[j];
+        if (!h || seen[h]) continue;
+        seen[h] = true;
+        out.push(h);
+      }
+    }
+    return out.slice(0, 12);
+  }
+
+  function seedSlotPalette(slotIdx, num) {
+    var hexes = [];
+    var a = getAnalysis(num);
+    if (a && a.colors) {
+      for (var i = 0; i < a.colors.length; i++) {
+        var h = parseColorToHex(a.colors[i]);
+        if (h && hexes.indexOf(h) < 0) hexes.push(h);
+      }
+    }
+    var n = parseInt(num, 10) || 0;
+    var isLine = n >= SKETCH_BASE;
+    var fill = isLine
+      ? ["#D8D8E0", "#9CA3AF", "#F4E8C8", "#6B7280", "#E5E7EB", "#A8A29E"]
+      : COLOR_ORB_HEXES;
+    var k = 0;
+    while (hexes.length < SLOT_COLOR_COUNT) {
+      hexes.push(fill[(n + k * 17) % fill.length]);
+      k++;
+    }
+    if (!g.slotPalette) g.slotPalette = [[], [], []];
+    g.slotPalette[slotIdx] = hexes.slice(0, SLOT_COLOR_COUNT);
+    if (!g._slotPaletteFor) g._slotPaletteFor = [null, null, null];
+    g._slotPaletteFor[slotIdx] = num;
+  }
+
+  function renderSlotSwatches(slotIdx) {
+    var el = $("mw-slot-hud-swatches-" + slotIdx);
+    if (!el) return;
+    var pal = (g.slotPalette && g.slotPalette[slotIdx]) || [];
+    el.innerHTML = "";
+    var count = pal.length;
+    if (!count) return;
+    for (var i = 0; i < count; i++) {
+      var dot = document.createElement("i");
+      dot.className = "mw-slot-hud-swatch";
+      var ang = (i / count) * Math.PI * 2 - Math.PI / 2;
+      var cx = 50 + Math.cos(ang) * 46;
+      var cy = 50 + Math.sin(ang) * 46;
+      dot.style.left = "calc(" + cx + "% - 0.2rem)";
+      dot.style.top = "calc(" + cy + "% - 0.2rem)";
+      dot.style.background = pal[i];
+      el.appendChild(dot);
+    }
+  }
+
+  function applyColorFromOrb(hex, source) {
+    hex = parseColorToHex(hex) || hex;
+    if (!hex || hex.charAt(0) !== "#") return;
+    if (!g.slotPalette) g.slotPalette = [[], [], []];
+    var filled = [];
+    for (var i = 0; i < 3; i++) if (g.slots[i]) filled.push(i);
+    if (!filled.length) return;
+    g._colorSlot = ((g._colorSlot || 0) + 1) % filled.length;
+    var slot = filled[g._colorSlot];
+    if (!g.slotPalette[slot] || !g.slotPalette[slot].length) seedSlotPalette(slot, g.slots[slot]);
+    g._colorDot = ((g._colorDot || 0) + 1) % SLOT_COLOR_COUNT;
+    g.slotPalette[slot][g._colorDot] = hex;
+    renderSlotSwatches(slot);
+    var pal = collectPaletteHexes();
+    if (g.stasisText && pal.length) {
+      g.stasisText = String(g.stasisText).replace(/\s*Mandatory pigments:[^.]*\.?/i, "");
+      g.stasisText = g.stasisText.replace(/\s+$/, "") + " Mandatory pigments: " + pal.join(", ") + ".";
+    }
+    setFloorStatus(
+      "Tinted " + SLOT_LABELS[slot] + " with " + hex + (source ? " (" + source + ")" : ""),
+      { duration: 900 }
+    );
+  }
+
   function normalizeSpellNum(raw) {
-    if (window.normalizePaintingNumber) return window.normalizePaintingNumber(raw);
-    var n = parseInt(raw, 10);
-    return !isNaN(n) && n >= 1 && n <= TOTAL ? n : null;
+    var s = String(raw || "").trim();
+    var gm = s.match(/^g#?\s*(\d+)/i);
+    if (gm) return GEN_BASE + parseInt(gm[1], 10);
+    var sim = s.match(/^si#?\s*(\d+)/i);
+    if (sim) return INV_SKETCH_BASE + parseInt(sim[1], 10);
+    var sm = s.match(/^s#?\s*(\d+)/i);
+    if (sm) return SKETCH_BASE + parseInt(sm[1], 10);
+    var n = parseInt(s.replace("#", ""), 10);
+    if (!n || n < 1) return null;
+    if (n <= TOTAL || (n >= GEN_BASE && n < 400000)) return n;
+    return null;
   }
 
   function getSpellforgeState() {
@@ -1241,7 +1511,7 @@
     wrap.innerHTML = "";
     if (nums.length < 2) {
       wrap.innerHTML = '<p class="mw-menu-spell">Loading spell analyses…</p>';
-      if (stasisEl) stasisEl.textContent = "Waiting for paintings to analyze.";
+      if (stasisEl) stasisEl.textContent = "Waiting for spell analyses…";
       return;
     }
     var affordShuffle = canAffordShuffle();
@@ -1257,8 +1527,8 @@
       line.innerHTML =
         "<strong>" +
         SLOT_LABELS[i] +
-        "</strong> · #" +
-        num +
+        "</strong> · " +
+        spellKindLabel(num) +
         " — " +
         escapeHtml(a ? a.title || "Untitled" : "Loading…");
       row.appendChild(line);
@@ -1281,7 +1551,7 @@
       selectBtn.disabled = !affordSelect;
       selectBtn.textContent = "Select (" + SELECT_SPELL_COST + ")";
       selectBtn.title = affordSelect
-        ? "Pick #1–" + TOTAL + " — " + SELECT_SPELL_COST + " orbs"
+        ? "Pick any gallery spell — " + SELECT_SPELL_COST + " orbs"
         : "Need " + SELECT_SPELL_COST + " orbs";
       actions.appendChild(selectBtn);
       row.appendChild(actions);
@@ -1362,8 +1632,8 @@
     }
     if (input) {
       input.value = "";
-      input.min = "1";
-      input.max = String(TOTAL);
+      input.removeAttribute("max");
+      input.setAttribute("placeholder", "42 · G#12 · S#3 · SI#4");
     }
     if (!dlg) return;
     if (typeof dlg.showModal === "function") dlg.showModal();
@@ -1401,7 +1671,7 @@
         if (!num) {
           if (err) {
             err.hidden = false;
-            err.textContent = "Enter a painting number from 1 to " + TOTAL + ".";
+            err.textContent = "Enter a spell: 1–1000, G#12, S#3, or SI#4.";
           }
           return;
         }
@@ -1820,33 +2090,9 @@
   function pickRandomSpell(exclude, salt) {
     exclude = exclude || [];
     salt = salt == null ? g.fx.seed : salt;
-    var analyzed =
-      typeof window.getAnalyzedPaintingNumbers === "function"
-        ? window.getAnalyzedPaintingNumbers()
-        : null;
-    if (analyzed && analyzed.length) {
-      var fast = [];
-      for (var i = 0; i < analyzed.length; i++) {
-        if (exclude.indexOf(analyzed[i]) < 0) fast.push(analyzed[i]);
-      }
-      if (fast.length) return SM.pickFromPool(fast, salt);
-    }
-    for (var t = 0; t < 48; t++) {
-      var probe = 1 + (SM.spellHash(salt + t, TOTAL) % TOTAL);
-      if (exclude.indexOf(probe) >= 0) continue;
-      if (getAnalysis(probe)) return probe;
-    }
-    var pool = SM.buildSpellPool(TOTAL, exclude, function (i) {
-      return !!getAnalysis(i);
-    });
-    var picked = SM.pickFromPool(pool, salt);
-    if (picked) return picked;
-    var seed = salt + exclude.length * 17;
-    for (var f = 0; f < TOTAL; f++) {
-      var cand = 1 + (SM.spellHash(seed + f, TOTAL) % TOTAL);
-      if (exclude.indexOf(cand) < 0) return cand;
-    }
-    return 1;
+    var ids = arsenalIds();
+    var pool = SM.buildSpellPool(ids, exclude, null);
+    return SM.pickFromPool(pool, salt) || pool[0] || 1;
   }
 
   function initSlots() {
@@ -1954,10 +2200,11 @@
     }
     return window
       .composeStasisVisionLocal({
-        spells: nums,
-        stasis: g.stasisText,
-        buzz_words: collectBuzzForEquipped(),
-      })
+          spells: nums,
+          stasis: g.stasisText,
+          buzz_words: collectBuzzForEquipped(),
+          aspect_ratio: currentAspect(),
+        })
       .then(function (url) {
         if (url) loadFusionImage(url, g.floorUnlocked, "local").catch(function () {});
         return url;
@@ -3714,6 +3961,7 @@
           spells: nums,
           stasis: g.stasisText,
           buzz_words: buzz,
+          aspect_ratio: currentAspect(),
         })
         .then(function (url) {
           g.buzzWords = buzz;
@@ -3762,6 +4010,7 @@
       buzz_words: getMwActiveBuzz(),
       onStatus: setFloorStatus,
       skipBlend: g.stasisFromApi,
+      aspect_ratio: currentAspect(),
     });
 
     return work
@@ -3840,7 +4089,8 @@
           g.stasisText,
           buzz,
           health,
-          statusFn
+          statusFn,
+          currentAspect()
         );
       })
       .then(function (url) {
@@ -3972,10 +4222,17 @@
       if (!a) continue;
       if (a.description) frags.push(a.description.split(/[.!?]/)[0].trim());
       else if (a.title) frags.push(a.title);
+      else frags.push(spellKindLabel(nums[rot]) + " influence");
       if (a.mood) moods.push(a.mood);
       if (a.tags) tags = tags.concat(a.tags.slice(0, 3));
     }
-    if (frags.length < 2) return frags[0] || "Equip more spells.";
+    if (frags.length < 2 && nums.length >= 2) {
+      frags = nums.map(function (n) {
+        var aa = getAnalysis(n);
+        return (aa && (aa.title || (aa.description || "").split(/[.!?]/)[0])) || spellKindLabel(n);
+      });
+    }
+    if (frags.length < 2) return frags[0] || "Fused stasis from equipped spells.";
     var leads = [
       "One fused stasis:",
       "Singular braided vision:",
@@ -3991,7 +4248,11 @@
       ". Shared " +
       (tagSample || "form and hue") +
       " holds in one mural" +
-      (moods.length ? " (" + moods.join(" + ") + ")." : ".")
+      (moods.length ? " (" + moods.join(" + ") + ")." : ".") +
+      (function () {
+        var pal = collectPaletteHexes();
+        return pal.length ? " Mandatory pigments: " + pal.join(", ") + "." : "";
+      })()
     );
   }
 
@@ -4497,6 +4758,7 @@
           spells: nums,
           stasis: g.stasisText,
           buzz_words: buzz,
+          aspect_ratio: currentAspect(),
         })
         .then(function (url) {
           return {
@@ -4520,6 +4782,7 @@
             buzz_words: getMwActiveBuzz(),
             onStatus: setFloorStatus,
             skipBlend: g.stasisFromApi,
+            aspect_ratio: currentAspect(),
           })
         : finishLocalFallback();
 
@@ -8020,6 +8283,7 @@
   function orbFootprint(type) {
     if (type === "spell_shuffle" || type === "spell_select") return ORB_SPELL_RADIUS + 10;
     if (type === "buzz_inject" || type === "extra_buzz") return 26;
+    if (type === "aspect") return 22;
     if (type === "reimagine") return 24;
     if (type === "redefine") return 22;
     return 18;
@@ -8383,6 +8647,41 @@
     placeOrbInCluster(orb, "buzz", slot, sectorSx, sectorSy);
   }
 
+  function spawnColorTintOrb(slot, salt, sectorSx, sectorSy) {
+    var hex = COLOR_ORB_HEXES[(salt + slot * 19) % COLOR_ORB_HEXES.length];
+    placeOrbInCluster(
+      { type: "color_tint", hex: hex, value: 0, taken: false },
+      "buzz",
+      slot,
+      sectorSx,
+      sectorSy
+    );
+  }
+
+  function spawnAspectOrb(aspect, salt, sectorSx, sectorSy, scatterIdx) {
+    var pos = spellOrbScatterPos(sectorSx, sectorSy, scatterIdx, salt);
+    var footprint = orbFootprint("aspect");
+    var finalPos = resolveOrbGridPosition(
+      pos.x,
+      pos.y,
+      footprint,
+      "buzz",
+      scatterIdx + salt
+    );
+    g.orbs.push({
+      type: "aspect",
+      aspect: aspect,
+      value: 0,
+      taken: false,
+      x: finalPos.x,
+      y: finalPos.y,
+      cluster: "buzz",
+      scatterIdx: scatterIdx,
+      sectorSx: sectorSx,
+      sectorSy: sectorSy,
+    });
+  }
+
   function spawnExtraBuzzInCluster(slot, sectorSx, sectorSy) {
     placeOrbInCluster(buildExtraBuzzOrb(), "buzz", slot, sectorSx, sectorSy);
   }
@@ -8485,6 +8784,16 @@
     if (countActiveOrbsOfType("buzz_inject") < 1) {
       spawnBuzzInCluster(countActiveOrbsOfType("buzz_inject"), salt + 9, ps.sx, ps.sy);
     }
+    if (countActiveOrbsOfType("color_tint") < 2) {
+      spawnColorTintOrb(countActiveOrbsOfType("color_tint"), salt + 13, ps.sx, ps.sy);
+    }
+    for (var ai = 0; ai < ASPECT_OPTIONS.length; ai++) {
+      var ar = ASPECT_OPTIONS[ai];
+      var haveAr = countActiveOrbs(function (o) {
+        return o.type === "aspect" && o.aspect === ar;
+      });
+      if (!haveAr) spawnAspectOrb(ar, salt + 40 + ai, ps.sx, ps.sy, 10 + ai);
+    }
     if (shouldSpawnSaveOrb("player") && countActiveSaveOrbs("player") < 1) {
       spawnSaveWorkOrb("player", ps.sx, ps.sy, 0);
     }
@@ -8566,6 +8875,12 @@
     if (!o || o.type === "score") return true;
     if (stasisSpellHuntBlocked()) return false;
     if (o.type === "save_work") return canCollectSaveOrb(o);
+    if (o.type === "color_tint") {
+      return equippedNums().length >= 2;
+    }
+    if (o.type === "aspect") {
+      return equippedNums().length >= 2;
+    }
     if (o.type === "buzz_inject") {
       return equippedNums().length >= 2 && !!(o.buzzWord && String(o.buzzWord).trim());
     }
@@ -8646,6 +8961,14 @@
         saveWallet("spend", { action: "select", cost: SELECT_SPELL_COST });
       }
       applySpellSlotChange(o.slotIdx, o.spellNum, false, swapMsg, swapMsg);
+      return;
+    }
+    if (o.type === "color_tint") {
+      applyColorFromOrb(o.hex || COLOR_ORB_HEXES[0], "hue orb");
+      return;
+    }
+    if (o.type === "aspect") {
+      setAspectRatio(o.aspect);
       return;
     }
     if (o.type === "buzz_inject") {
@@ -9304,7 +9627,7 @@
       if (selectBtn) {
         selectBtn.disabled = !canSelect;
         selectBtn.title = canSelect
-          ? "Pick painting #1–" + TOTAL + " (" + SELECT_SPELL_COST + " orbs)"
+          ? "Pick any gallery spell (" + SELECT_SPELL_COST + " orbs)"
           : "Need " + SELECT_SPELL_COST + " orbs to select a spell";
       }
       if (!text) continue;
@@ -9316,21 +9639,28 @@
         }
         text.textContent = "empty";
         text.className = "mw-slot-hud-text empty";
+        if (g.slotPalette) g.slotPalette[i] = [];
+        if (g._slotPaletteFor) g._slotPaletteFor[i] = null;
+        renderSlotSwatches(i);
         continue;
       }
       var a = getAnalysis(num);
-      var title = a && a.title ? a.title : "Painting";
+      var title = a && a.title ? a.title : "Spell";
       if (title.length > 24) title = title.slice(0, 22) + "…";
-      var tip = a && a.title ? "#" + num + " — " + a.title : "Painting #" + num;
-      text.textContent = "#" + num + " · " + title;
+      var kind = spellKindLabel(num);
+      var tip = a && a.title ? kind + " — " + a.title : kind;
+      text.textContent = kind + " · " + title;
       text.className = "mw-slot-hud-text";
       text.title = tip;
       if (thumb) {
         setHudThumb(thumb, paintingUrlFor(num));
         thumb.hidden = false;
-        thumb.alt = "Spell slot " + (i + 1) + ", painting " + num;
+        thumb.alt = "Spell slot " + (i + 1) + ", " + kind;
         thumb.title = tip;
       }
+      if (!g._slotPaletteFor) g._slotPaletteFor = [null, null, null];
+      if (g._slotPaletteFor[i] !== num) seedSlotPalette(i, num);
+      renderSlotSwatches(i);
     }
     updateFalloutHud();
   }
@@ -9474,8 +9804,8 @@
   function formatSpellRef(num) {
     if (!num) return "empty";
     var a = getAnalysis(num);
-    var title = a && a.title ? a.title : "Painting";
-    return "#" + num + " · " + title;
+    var title = a && a.title ? a.title : "Spell";
+    return spellKindLabel(num) + " · " + title;
   }
 
   function spellSwapMessage(slotIdx, oldNum, newNum) {
@@ -10075,7 +10405,7 @@
     if (!idEl) return;
     var nums = equippedNums();
     if (g.playing && nums.length >= 2) {
-      idEl.textContent = "FUSE " + nums.join("·");
+      idEl.textContent = currentAspect() + " · FUSE";
     } else {
       idEl.textContent = g.score + " orbs";
     }
@@ -10339,11 +10669,12 @@
     var orderIdx = FALLOUT_HUD_ORDER.indexOf(compass.key);
     if (orderIdx < 0) orderIdx = 0;
     var salt = SM.spellHash(slots[0] * 17 + orderIdx, slots[1] * 31 + g.fx.seed);
-    var pick = (salt % TOTAL) + 1;
+    var ids = arsenalIds();
+    var pick = ids.length ? ids[salt % ids.length] : slots[0];
     var slotIdx = orderIdx % Math.max(1, slots.length);
     slots[slotIdx] = pick;
     if (slots.length > 1) {
-      var alt = ((salt >> 4) % TOTAL) + 1;
+      var alt = ids.length ? ids[(salt >> 4) % ids.length] : slots[1];
       slots[(slotIdx + 1) % slots.length] = alt;
     }
     var buzz = (baseLoadout.buzz || collectBuzzForEquipped()).slice();
@@ -10950,7 +11281,8 @@
               duration: 1400,
               sticky: false,
             });
-          }
+          },
+          currentAspect()
         );
       })
       .then(function (url) {
@@ -12049,6 +12381,51 @@
         drawExtraBuzzOrb(ctx, sx, sy, o, actionable, pulse);
         continue;
       }
+      if (kind === "color_tint") {
+        var hue = o.hex || COLOR_ORB_HEXES[0];
+        ctx.save();
+        ctx.globalAlpha = pulse * (actionable ? 1 : 0.45);
+        ctx.shadowColor = hue;
+        ctx.shadowBlur = 16;
+        ctx.fillStyle = hue;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 15, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = "#fff8e8";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = "#120c10";
+        ctx.font = "bold 8px Courier New, monospace";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("hue", sx, sy);
+        ctx.restore();
+        continue;
+      }
+      if (kind === "aspect") {
+        var ar = o.aspect || "16:9";
+        var on = ar === currentAspect();
+        ctx.save();
+        ctx.globalAlpha = pulse * (actionable ? 1 : 0.45);
+        ctx.shadowColor = on ? "#ffe08a" : "#7ee0ff";
+        ctx.shadowBlur = on ? 20 : 12;
+        ctx.fillStyle = on ? "rgba(60,48,16,0.95)" : "rgba(16,28,40,0.92)";
+        ctx.beginPath();
+        ctx.arc(sx, sy, 17, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = on ? "#ffe08a" : "#7ee0ff";
+        ctx.lineWidth = on ? 2.5 : 2;
+        ctx.stroke();
+        ctx.fillStyle = on ? "#ffe08a" : "#d8f4ff";
+        ctx.font = "bold 8px Courier New, monospace";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(ar, sx, sy);
+        ctx.restore();
+        continue;
+      }
       if (kind === "save_work") {
         var saveStyle = ORB_ACTION_STYLES.save_work;
         var saveR = 21;
@@ -12299,6 +12676,7 @@
       if (kind === "score") {
         o.taken = true;
         addScore(o.value);
+        applyColorFromOrb(ORB_COLORS[o.value] || "#c9a227", "orb");
         continue;
       }
       if (kind === "save_work") {

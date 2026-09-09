@@ -1,0 +1,42 @@
+{
+  "number": 181,
+  "title": "Line sketch: Wavy Plaid by the Shore",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant plaid blanket with flowing and patterns ripples gently across the foreground. In the background, a serene waterside scene with wet rocks and soft light creates a peaceful outdoor atmosphere (derived from painting #220).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant plaid blanket with flowing and patterns ripples gently across the foreground. In the background, a serene waterside scene with wet rocks and soft light creates a peaceful outdoor atmosphere",
+  "inverted_title": "Inverted sketch: Wavy Plaid by the Shore",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant plaid blanket with flowing and patterns ripples gently across the foreground. In the background, a serene waterside scene with wet rocks and soft light creates a peaceful outdoor atmosphere (from painting #220).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant plaid blanket with flowing and patterns ripples gently across the foreground. In the background, a serene waterside scene with wet rocks and soft light creates a peaceful outdoor atmosphere",
+  "source_description": "A vibrant plaid blanket with flowing orange and blue patterns ripples gently across the foreground. In the background, a serene waterside scene with wet rocks and soft light creates a peaceful outdoor atmosphere.",
+  "source_prompt": "",
+  "source_title": "Wavy Plaid by the Shore",
+  "style": "realistic photography",
+  "mood": "serene and warm",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital photograph",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plaid blanket",
+    "textile texture",
+    "outdoor setting",
+    "rippling fabric",
+    "waterside"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 220,
+  "source_url": "/paintings/220.jpg",
+  "image_url": "/sketches/181.png",
+  "inverted_image_url": "/sketches-inverted/181.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:38Z"
+}

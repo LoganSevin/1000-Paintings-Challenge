@@ -1,0 +1,42 @@
+{
+  "number": 3846,
+  "title": "Line sketch: Armored Cat Girl",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential action poses of a female character with short hair, wearing a form-fitting armored suit with spiked shoulder pads, a long tail, and matching boots. She is depicted leaping and fighting against a solid background in a comic book style (derived from generated still #3263).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential action poses of a female character with short hair, wearing a form-fitting armored suit with spiked shoulder pads, a long tail, and matching boots. She is depicted leaping and fighting against a solid background in a comic book style",
+  "inverted_title": "Inverted sketch: Armored Cat Girl",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential action poses of a female character with short hair, wearing a form-fitting armored suit with spiked shoulder pads, a long tail, and matching boots. She is depicted leaping and fighting against a solid background in a comic book style (from generated still #3263).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential action poses of a female character with short hair, wearing a form-fitting armored suit with spiked shoulder pads, a long tail, and matching boots. She is depicted leaping and fighting against a solid background in a comic book style",
+  "source_description": "Four sequential action poses of a female character with short silver hair, wearing a form-fitting blue armored suit with spiked shoulder pads, a long blue tail, and matching boots. She is depicted leaping and fighting against a solid bright pink background in a comic book style.",
+  "source_prompt": "A silver-haired female warrior with a long blue tail wearing a tight blue armored bodysuit with spiked pauldrons and matching boots, shown in four distinct dynamic action poses leaping and fighting. She has glowing purple energy effects around her hands in one pose. Solid vibrant pink background, strong comic book illustration style with sharp lines and cel-shaded rendering.",
+  "source_title": "Blue Armored Cat Girl",
+  "style": "comic book",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "cat girl",
+    "action poses",
+    "armor",
+    "hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3263,
+  "source_url": "/generated/3263.jpg",
+  "image_url": "/sketches/3846.png",
+  "inverted_image_url": "/sketches-inverted/3846.png",
+  "curve_count": 5,
+  "built_at": "2026-08-17T00:09:46Z"
+}

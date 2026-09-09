@@ -1,0 +1,42 @@
+{
+  "number": 2300,
+  "title": "Line sketch: Cosmic Dragon Realm",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition depicts a large and Chinese dragon encircling a glowing orb containing a misty mountain landscape with a pagoda and boats on water. Four stylized human figures with skin and intricate patterns appear in the foreground against a starry cosmic background with swirling and nebulae (derived from generated still #1527).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition depicts a large and Chinese dragon encircling a glowing orb containing a misty mountain landscape with a pagoda and boats on water. Four stylized human figures with skin and intricate patterns appear in the foreground against a starry cosmic background with swirling and nebulae",
+  "inverted_title": "Inverted sketch: Cosmic Dragon Realm",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition depicts a large and Chinese dragon encircling a glowing orb containing a misty mountain landscape with a pagoda and boats on water. Four stylized human figures with skin and intricate patterns appear in the foreground against a starry cosmic background with swirling and nebulae (from generated still #1527).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition depicts a large and Chinese dragon encircling a glowing orb containing a misty mountain landscape with a pagoda and boats on water. Four stylized human figures with skin and intricate patterns appear in the foreground against a starry cosmic background with swirling and nebulae",
+  "source_description": "A vibrant surreal painting depicts a large blue and orange Chinese dragon encircling a glowing orange orb containing a misty mountain landscape with a red pagoda and boats on water. Four stylized human figures with colorful skin and intricate patterns appear in the foreground against a starry cosmic background with swirling purple and blue nebulae.",
+  "source_prompt": "",
+  "source_title": "Cosmic Dragon Realm",
+  "style": "Surreal psychedelic folk art",
+  "mood": "mystical vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "dragon",
+    "pagoda",
+    "mountains",
+    "cosmic",
+    "psychedelic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1527,
+  "source_url": "/generated/1527.jpg",
+  "image_url": "/sketches/2300.png",
+  "inverted_image_url": "/sketches-inverted/2300.png",
+  "curve_count": 23,
+  "built_at": "2026-08-17T00:09:43Z"
+}

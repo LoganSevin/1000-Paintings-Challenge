@@ -1,0 +1,42 @@
+{
+  "number": 530,
+  "title": "Line sketch: Chinese Landscape with Sun",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A serene ink wash composition depicts a misty mountain landscape with a traditional pagoda by the water and small boats floating on the calm lake. The bold sun hangs in the foggy sky, creating a striking contrast against the monochromatic tones (derived from painting #660).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A serene ink wash composition depicts a misty mountain landscape with a traditional pagoda by the water and small boats floating on the calm lake. The bold sun hangs in the foggy sky, creating a striking contrast against the monochromatic tones",
+  "inverted_title": "Inverted sketch: Chinese Landscape with Sun",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A serene ink wash composition depicts a misty mountain landscape with a traditional pagoda by the water and small boats floating on the calm lake. The bold sun hangs in the foggy sky, creating a striking contrast against the monochromatic tones (from painting #660).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A serene ink wash composition depicts a misty mountain landscape with a traditional pagoda by the water and small boats floating on the calm lake. The bold sun hangs in the foggy sky, creating a striking contrast against the monochromatic tones",
+  "source_description": "A serene ink wash painting depicts a misty mountain landscape with a traditional pagoda by the water and small boats floating on the calm lake. The bold red sun hangs in the foggy sky, creating a striking contrast against the monochromatic tones.",
+  "source_prompt": "",
+  "source_title": "Chinese Landscape with Red Sun",
+  "style": "Traditional Chinese Ink Wash",
+  "mood": "Tranquil and mysterious",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Ink and watercolor on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "pagoda",
+    "mountains",
+    "ink wash",
+    "misty"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 660,
+  "source_url": "/paintings/660.jpg",
+  "image_url": "/sketches/530.png",
+  "inverted_image_url": "/sketches-inverted/530.png",
+  "curve_count": 147,
+  "built_at": "2026-08-17T00:09:39Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 3961,
+  "title": "Line sketch: Mage Dancer",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young female character with white hair in buns and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional-inspired outfit with a corset-style top, flowing sleeves, and wide pants, casting glowing magical energy from both hands while a crackling halo floats above her head (derived from generated still #3378).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young female character with white hair in buns and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional-inspired outfit with a corset-style top, flowing sleeves, and wide pants, casting glowing magical energy from both hands while a crackling halo floats above her head",
+  "inverted_title": "Inverted sketch: Mage Dancer",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young female character with white hair in buns and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional-inspired outfit with a corset-style top, flowing sleeves, and wide pants, casting glowing magical energy from both hands while a crackling halo floats above her head (from generated still #3378).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young female character with white hair in buns and eyes stands in a dynamic pose against a solid dark gray background. She wears a white and traditional-inspired outfit with a corset-style top, flowing sleeves, and wide pants, casting glowing magical energy from both hands while a crackling halo floats above her head",
+  "source_description": "A young female character with white hair in buns and purple eyes stands in a dynamic pose against a solid dark gray background. She wears a white and purple traditional-inspired outfit with a corset-style top, flowing sleeves, and wide pants, casting glowing purple magical energy from both hands while a crackling purple halo floats above her head.",
+  "source_prompt": "A young East Asian female mage with pale white hair tied in two buns with purple ribbons, purple eyes, and glowing purple magic swirling around her hands and a crackling energy halo above her head. She is in a dynamic martial arts pose, one leg raised, wearing a detailed white and purple fantasy outfit with corset, flowing sleeves, wide pants, and ornate patterns. Solid dark gray background, clean digital illustration style.",
+  "source_title": "Purple Mage Dancer",
+  "style": "digital illustration",
+  "mood": "mystical, dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female character",
+    "mage",
+    "magic",
+    "fantasy",
+    "white hair"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3378,
+  "source_url": "/generated/3378.jpg",
+  "image_url": "/sketches/3961.png",
+  "inverted_image_url": "/sketches-inverted/3961.png",
+  "curve_count": 226,
+  "built_at": "2026-08-17T00:09:47Z"
+}

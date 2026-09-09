@@ -1,0 +1,42 @@
+{
+  "number": 1519,
+  "title": "Line sketch: Psychedelic Desert Goddesses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal psychedelic composition featuring three metallic female figures in profile with flowing, hair and body patterns. They stand beside a winding cracked road leading through an desert landscape under a large sun with swirling patterns filling the sky (derived from generated still #734).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal psychedelic composition featuring three metallic female figures in profile with flowing, hair and body patterns. They stand beside a winding cracked road leading through an desert landscape under a large sun with swirling patterns filling the sky",
+  "inverted_title": "Inverted sketch: Psychedelic Desert Goddesses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal psychedelic composition featuring three metallic female figures in profile with flowing, hair and body patterns. They stand beside a winding cracked road leading through an desert landscape under a large sun with swirling patterns filling the sky (from generated still #734).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal psychedelic composition featuring three metallic female figures in profile with flowing, hair and body patterns. They stand beside a winding cracked road leading through an desert landscape under a large sun with swirling patterns filling the sky",
+  "source_description": "A surreal psychedelic painting featuring three metallic female figures in profile with flowing, colorful hair and body patterns. They stand beside a winding cracked road leading through an orange desert landscape under a large red sun with swirling colorful patterns filling the sky.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Desert Goddesses",
+  "style": "surreal psychedelic",
+  "mood": "vibrant ethereal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "psychedelic",
+    "surreal",
+    "female figures",
+    "desert landscape",
+    "cosmic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 734,
+  "source_url": "/generated/734.jpg",
+  "image_url": "/sketches/1519.png",
+  "inverted_image_url": "/sketches-inverted/1519.png",
+  "curve_count": 24,
+  "built_at": "2026-08-17T00:09:41Z"
+}

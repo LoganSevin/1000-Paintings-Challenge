@@ -1,0 +1,42 @@
+{
+  "number": 1259,
+  "title": "Line sketch: Cosmic Hare",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant hare with eyes sits centrally, draped in flowing translucent scarves patterned with bananas and symbols. Surrounding the hare are orbiting crescent moons, a spotted moon, a spiral seashell, and small bowls against a background (derived from generated still #471).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant hare with eyes sits centrally, draped in flowing translucent scarves patterned with bananas and symbols. Surrounding the hare are orbiting crescent moons, a spotted moon, a spiral seashell, and small bowls against a background",
+  "inverted_title": "Inverted sketch: Cosmic Hare",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant hare with eyes sits centrally, draped in flowing translucent scarves patterned with bananas and symbols. Surrounding the hare are orbiting crescent moons, a spotted moon, a spiral seashell, and small bowls against a background (from generated still #471).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant hare with eyes sits centrally, draped in flowing translucent scarves patterned with bananas and symbols. Surrounding the hare are orbiting crescent moons, a spotted moon, a spiral seashell, and small bowls against a background",
+  "source_description": "A vibrant green hare with red eyes sits centrally, draped in flowing translucent scarves patterned with bananas and symbols. Surrounding the hare are orbiting teal crescent moons, a spotted moon, a spiral seashell, and small golden bowls against a pale blue background.",
+  "source_prompt": "",
+  "source_title": "Cosmic Green Hare",
+  "style": "surreal fantasy illustration",
+  "mood": "whimsical mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "hare",
+    "cosmic",
+    "surreal",
+    "moons",
+    "scarves"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 471,
+  "source_url": "/generated/471.jpg",
+  "image_url": "/sketches/1259.png",
+  "inverted_image_url": "/sketches-inverted/1259.png",
+  "curve_count": 9,
+  "built_at": "2026-08-17T00:09:40Z"
+}

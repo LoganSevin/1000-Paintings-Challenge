@@ -1,0 +1,42 @@
+{
+  "number": 3124,
+  "title": "Line sketch: Bubbles of Psyche",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition featuring a large central female face with vibrant flowing hair and patterned skin, enclosed within a translucent bubble. Smaller bubbles containing similar stylized faces float around her against a cosmic background filled with abstract organic shapes and glowing particles (derived from generated still #2461).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition featuring a large central female face with vibrant flowing hair and patterned skin, enclosed within a translucent bubble. Smaller bubbles containing similar stylized faces float around her against a cosmic background filled with abstract organic shapes and glowing particles",
+  "inverted_title": "Inverted sketch: Bubbles of Psyche",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition featuring a large central female face with vibrant flowing hair and patterned skin, enclosed within a translucent bubble. Smaller bubbles containing similar stylized faces float around her against a cosmic background filled with abstract organic shapes and glowing particles (from generated still #2461).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition featuring a large central female face with vibrant flowing hair and patterned skin, enclosed within a translucent bubble. Smaller bubbles containing similar stylized faces float around her against a cosmic background filled with abstract organic shapes and glowing particles",
+  "source_description": "A surreal painting featuring a large central female face with vibrant red flowing hair and green patterned skin, enclosed within a translucent pink bubble. Smaller bubbles containing similar stylized faces float around her against a dark green cosmic background filled with abstract organic shapes and glowing particles.",
+  "source_prompt": "Surreal psychedelic painting of a woman with elaborate flowing red hair and green patterned skin, her face emerging from a giant translucent pink bubble containing a colorful flower-like pattern. Multiple smaller bubbles with miniature versions of her face float around her in a dark emerald green cosmic space filled with abstract organic forms and glowing particles, vibrant colors, intricate linework.",
+  "source_title": "Bubbles of Psyche",
+  "style": "surrealism",
+  "mood": "ethereal, psychedelic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "feminine",
+    "bubbles",
+    "psychedelic",
+    "floating faces"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2461,
+  "source_url": "/generated/2461.jpg",
+  "image_url": "/sketches/3124.png",
+  "inverted_image_url": "/sketches-inverted/3124.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:45Z"
+}

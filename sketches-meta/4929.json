@@ -1,0 +1,42 @@
+{
+  "number": 4929,
+  "title": "Line sketch: Running Through the page",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal composition depicts a person in a black dress shoe and pants stepping out from a large framed abstract composition, leaving vibrant and paint drips and splashes across the gallery floor. The art gallery has walls, an arched doorway with dramatic light beams, and multiple other framed paintings visible in the background (derived from generated still #4366).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal composition depicts a person in a black dress shoe and pants stepping out from a large framed abstract composition, leaving vibrant and paint drips and splashes across the gallery floor. The art gallery has walls, an arched doorway with dramatic light beams, and multiple other framed paintings visible in the background",
+  "inverted_title": "Inverted sketch: Running Through the page",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal composition depicts a person in a black dress shoe and pants stepping out from a large framed abstract composition, leaving vibrant and paint drips and splashes across the gallery floor. The art gallery has walls, an arched doorway with dramatic light beams, and multiple other framed paintings visible in the background (from generated still #4366).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal composition depicts a person in a black dress shoe and pants stepping out from a large framed abstract composition, leaving vibrant and paint drips and splashes across the gallery floor. The art gallery has walls, an arched doorway with dramatic light beams, and multiple other framed paintings visible in the background",
+  "source_description": "A surreal painting depicts a person in a black dress shoe and purple pants stepping out from a large framed abstract painting, leaving vibrant purple and orange paint drips and splashes across the gallery floor. The art gallery has pink walls, an arched doorway with dramatic light beams, and multiple other framed paintings visible in the background.",
+  "source_prompt": "Surreal scene inside an art gallery with pink walls and dramatic god rays coming through an archway. A large ornate gold frame holds a vibrant abstract painting in red, green and blue. A person wearing purple pants and shiny black dress shoes is stepping out from the canvas, their lower body emerging into the room as purple and orange paint drips heavily onto the tiled floor. Multiple other framed paintings line the walls in the background. Cinematic lighting, painterly style.",
+  "source_title": "Running Through the Canvas",
+  "style": "surrealism",
+  "mood": "surreal dynamic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "art gallery",
+    "paint splash",
+    "breaking fourth wall",
+    "dramatic lighting"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4366,
+  "source_url": "/generated/4366.jpg",
+  "image_url": "/sketches/4929.png",
+  "inverted_image_url": "/sketches-inverted/4929.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:49Z"
+}

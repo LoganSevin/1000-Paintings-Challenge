@@ -1,0 +1,41 @@
+{
+  "number": 523,
+  "title": "Line sketch: Vines and Leaves in Motion",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Delicate black ink vines arc gracefully across a white background with detailed leaf clusters at their ends. The minimalist composition captures organic movement through simple yet precise botanical line work (derived from painting #653).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Delicate black ink vines arc gracefully across a white background with detailed leaf clusters at their ends. The minimalist composition captures organic movement through simple yet precise botanical line work",
+  "inverted_title": "Inverted sketch: Vines and Leaves in Motion",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Delicate black ink vines arc gracefully across a white background with detailed leaf clusters at their ends. The minimalist composition captures organic movement through simple yet precise botanical line work (from painting #653).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Delicate black ink vines arc gracefully across a white background with detailed leaf clusters at their ends. The minimalist composition captures organic movement through simple yet precise botanical line work",
+  "source_description": "Delicate black ink vines arc gracefully across a white background with detailed leaf clusters at their ends. The minimalist composition captures organic movement through simple yet precise botanical line work.",
+  "source_prompt": "",
+  "source_title": "Vines and Leaves in Motion",
+  "style": "Minimalist illustration",
+  "mood": "Serene and graceful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Ink on paper",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "botanical",
+    "vines",
+    "minimalist",
+    "organic forms"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 653,
+  "source_url": "/paintings/653.jpg",
+  "image_url": "/sketches/523.png",
+  "inverted_image_url": "/sketches-inverted/523.png",
+  "curve_count": 6,
+  "built_at": "2026-08-17T00:09:39Z"
+}

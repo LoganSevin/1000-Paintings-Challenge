@@ -1,0 +1,42 @@
+{
+  "number": 4800,
+  "title": "Line sketch: Mechanical All-Seeing Eye",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive, intricately detailed mechanical eye dominates the frame, its iris replaced by a glowing pyramid with a staircase leading into light. The eye is framed by heavy metallic plates, bolts, and pipes, with white smoke drifting around it. The background shows a dramatic night sky with aurora borealis, stars, and a crescent moon above a ground scattered with skulls and crystals (derived from generated still #4235).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive, intricately detailed mechanical eye dominates the frame, its iris replaced by a glowing pyramid with a staircase leading into light. The eye is framed by heavy metallic plates, bolts, and pipes, with white smoke drifting around it. The background shows a dramatic night sky with aurora borealis, stars, and a crescent moon above a ground scattered with skulls and crystals",
+  "inverted_title": "Inverted sketch: Mechanical All-Seeing Eye",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive, intricately detailed mechanical eye dominates the frame, its iris replaced by a glowing pyramid with a staircase leading into light. The eye is framed by heavy metallic plates, bolts, and pipes, with white smoke drifting around it. The background shows a dramatic night sky with aurora borealis, stars, and a crescent moon above a ground scattered with skulls and crystals (from generated still #4235).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive, intricately detailed mechanical eye dominates the frame, its iris replaced by a glowing pyramid with a staircase leading into light. The eye is framed by heavy metallic plates, bolts, and pipes, with white smoke drifting around it. The background shows a dramatic night sky with aurora borealis, stars, and a crescent moon above a ground scattered with skulls and crystals",
+  "source_description": "A massive, intricately detailed mechanical eye dominates the frame, its iris replaced by a glowing pyramid with a staircase leading into purple light. The eye is framed by heavy metallic plates, bolts, and pipes, with white smoke drifting around it. The background shows a dramatic night sky with aurora borealis, stars, and a crescent moon above a ground scattered with skulls and crystals.",
+  "source_prompt": "A highly detailed surreal painting of a gigantic mechanical eye with intricate metal casing, bolts, and pipes. The iris contains a glowing purple pyramid with a staircase ascending into it. White ethereal smoke swirls around the eye. The background features a dramatic night sky with vibrant green and purple aurora borealis, stars, and a crescent moon. Skulls and crystals are scattered on the dark ground below, dark fantasy atmosphere, cinematic lighting.",
+  "source_title": "Mechanical All-Seeing Eye",
+  "style": "surreal",
+  "mood": "mystical ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "mechanical eye",
+    "illuminati pyramid",
+    "cyberpunk occult",
+    "aurora borealis",
+    "steampunk"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4235,
+  "source_url": "/generated/4235.jpg",
+  "image_url": "/sketches/4800.png",
+  "inverted_image_url": "/sketches-inverted/4800.png",
+  "curve_count": 8,
+  "built_at": "2026-08-17T00:09:49Z"
+}

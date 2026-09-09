@@ -1,0 +1,42 @@
+{
+  "number": 830,
+  "title": "Line sketch: Eldritch Eye Horror",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal mechanical spider-like creature with a large central eye and jagged teeth floats at the center of a swirling cosmic vortex. The creature has multiple glowing mechanical tentacles dripping with liquid against a dramatic, and background (derived from generated still #39).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal mechanical spider-like creature with a large central eye and jagged teeth floats at the center of a swirling cosmic vortex. The creature has multiple glowing mechanical tentacles dripping with liquid against a dramatic, and background",
+  "inverted_title": "Inverted sketch: Eldritch Eye Horror",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal mechanical spider-like creature with a large central eye and jagged teeth floats at the center of a swirling cosmic vortex. The creature has multiple glowing mechanical tentacles dripping with liquid against a dramatic, and background (from generated still #39).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal mechanical spider-like creature with a large central eye and jagged teeth floats at the center of a swirling cosmic vortex. The creature has multiple glowing mechanical tentacles dripping with liquid against a dramatic, and background",
+  "source_description": "A surreal mechanical spider-like creature with a large central yellow eye and jagged teeth floats at the center of a swirling cosmic vortex. The creature has multiple glowing mechanical tentacles dripping with colorful liquid against a dramatic red, purple and blue background.",
+  "source_prompt": "",
+  "source_title": "Eldritch Eye Horror",
+  "style": "surrealism",
+  "mood": "chaotic cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "horror",
+    "mechanical",
+    "cosmic",
+    "tentacles"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 39,
+  "source_url": "/generated/39.jpg",
+  "image_url": "/sketches/830.png",
+  "inverted_image_url": "/sketches-inverted/830.png",
+  "curve_count": 74,
+  "built_at": "2026-08-17T00:09:40Z"
+}

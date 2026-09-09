@@ -1,0 +1,42 @@
+{
+  "number": 4098,
+  "title": "Line sketch: Hammer Warrior",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A muscular female warrior with long dark hair stands in a powerful stance, holding a massive crystalline hammer above her head with both hands. She wears a revealing and white outfit with armored gauntlets, leg wraps, and sandals against a solid dark gray background (derived from generated still #3515).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A muscular female warrior with long dark hair stands in a powerful stance, holding a massive crystalline hammer above her head with both hands. She wears a revealing and white outfit with armored gauntlets, leg wraps, and sandals against a solid dark gray background",
+  "inverted_title": "Inverted sketch: Hammer Warrior",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A muscular female warrior with long dark hair stands in a powerful stance, holding a massive crystalline hammer above her head with both hands. She wears a revealing and white outfit with armored gauntlets, leg wraps, and sandals against a solid dark gray background (from generated still #3515).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A muscular female warrior with long dark hair stands in a powerful stance, holding a massive crystalline hammer above her head with both hands. She wears a revealing and white outfit with armored gauntlets, leg wraps, and sandals against a solid dark gray background",
+  "source_description": "A muscular female warrior with long dark hair stands in a powerful stance, holding a massive purple crystalline hammer above her head with both hands. She wears a revealing purple and white outfit with armored gauntlets, leg wraps, and sandals against a solid dark gray background.",
+  "source_prompt": "A powerful muscular female warrior with long black hair in a high ponytail, wearing a purple and white cropped top with intricate patterns, white baggy pants with purple accents, and purple armored gauntlets and leg wraps. She stands in a wide powerful stance holding a gigantic purple crystalline warhammer high above her head with both hands, intense expression, solid dark gray background, clean digital illustration style",
+  "source_title": "Purple Hammer Warrior",
+  "style": "Digital illustration",
+  "mood": "Fierce, powerful",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "warhammer",
+    "fantasy character",
+    "muscular woman",
+    "armor"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3515,
+  "source_url": "/generated/3515.jpg",
+  "image_url": "/sketches/4098.png",
+  "inverted_image_url": "/sketches-inverted/4098.png",
+  "curve_count": 12,
+  "built_at": "2026-08-17T00:09:47Z"
+}

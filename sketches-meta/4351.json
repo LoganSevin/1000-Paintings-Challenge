@@ -1,0 +1,42 @@
+{
+  "number": 4351,
+  "title": "Line sketch: Plasma",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A dark silhouetted figure stands inside a large glass plasma globe emitting vibrant, and electrical tendrils. A monstrous hand with black claws extends from the upper right, touching the globe and creating a bright discharge (derived from generated still #3770).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A dark silhouetted figure stands inside a large glass plasma globe emitting vibrant, and electrical tendrils. A monstrous hand with black claws extends from the upper right, touching the globe and creating a bright discharge",
+  "inverted_title": "Inverted sketch: Plasma",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A dark silhouetted figure stands inside a large glass plasma globe emitting vibrant, and electrical tendrils. A monstrous hand with black claws extends from the upper right, touching the globe and creating a bright discharge (from generated still #3770).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A dark silhouetted figure stands inside a large glass plasma globe emitting vibrant, and electrical tendrils. A monstrous hand with black claws extends from the upper right, touching the globe and creating a bright discharge",
+  "source_description": "A dark silhouetted figure stands inside a large glass plasma globe emitting vibrant pink, purple and yellow electrical tendrils. A green monstrous hand with black claws extends from the upper right, touching the globe and creating a bright discharge.",
+  "source_prompt": "A surreal painting of a dark silhouetted human figure standing inside a large glowing plasma globe with pink, purple and yellow electrical arcs radiating outward. A monstrous green hand with long black claws reaches from the top right corner, touching the globe and sparking electricity. The background is a muted greenish haze with faint yellow smoky patterns and skull-like shapes. Dramatic lighting, painterly style.",
+  "source_title": "Plasma",
+  "style": "surreal composition",
+  "mood": "eerie surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "plasma globe",
+    "mad science",
+    "surreal",
+    "monster hand",
+    "electricity"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3770,
+  "source_url": "/generated/3770.jpg",
+  "image_url": "/sketches/4351.png",
+  "inverted_image_url": "/sketches-inverted/4351.png",
+  "curve_count": 35,
+  "built_at": "2026-08-17T00:09:48Z"
+}

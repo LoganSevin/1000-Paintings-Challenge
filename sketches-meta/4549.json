@@ -1,0 +1,42 @@
+{
+  "number": 4549,
+  "title": "Line sketch: Surreal Time Reaper",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A skeletal Grim Reaper in a hooded cloak holds a large alarm clock while riding a dragon-like creature. Below, a zombie-like gangster in a suit and fedora holds a revolver, surrounded by a hot air balloon, floating clocks, playing cards, flowers, fruits, and beetles against a dramatic and sky (derived from generated still #3969).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A skeletal Grim Reaper in a hooded cloak holds a large alarm clock while riding a dragon-like creature. Below, a zombie-like gangster in a suit and fedora holds a revolver, surrounded by a hot air balloon, floating clocks, playing cards, flowers, fruits, and beetles against a dramatic and sky",
+  "inverted_title": "Inverted sketch: Surreal Time Reaper",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A skeletal Grim Reaper in a hooded cloak holds a large alarm clock while riding a dragon-like creature. Below, a zombie-like gangster in a suit and fedora holds a revolver, surrounded by a hot air balloon, floating clocks, playing cards, flowers, fruits, and beetles against a dramatic and sky (from generated still #3969).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A skeletal Grim Reaper in a hooded cloak holds a large alarm clock while riding a dragon-like creature. Below, a zombie-like gangster in a suit and fedora holds a revolver, surrounded by a hot air balloon, floating clocks, playing cards, flowers, fruits, and beetles against a dramatic and sky",
+  "source_description": "A skeletal Grim Reaper in a purple hooded cloak holds a large green alarm clock while riding a blue dragon-like creature. Below, a zombie-like gangster in a suit and fedora holds a revolver, surrounded by a hot air balloon, floating clocks, playing cards, flowers, fruits, and beetles against a dramatic red and purple sky.",
+  "source_prompt": "A highly detailed surreal scene featuring a skeletal Grim Reaper in flowing purple robes holding a large green alarm clock, riding a vibrant blue dragon with sharp teeth. In the foreground a green-skinned gangster zombie in a pinstripe suit and fedora aims a revolver. A purple hot air balloon with dripping paint floats nearby with playing cards and mechanical beetles flying through a dramatic blood-red and purple sky filled with melting clocks and glowing clouds.",
+  "source_title": "Surreal Time Reaper",
+  "style": "surreal fantasy",
+  "mood": "chaotic surreal",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "grim reaper",
+    "surrealism",
+    "dragon",
+    "time",
+    "zombie gangster"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3969,
+  "source_url": "/generated/3969.jpg",
+  "image_url": "/sketches/4549.png",
+  "inverted_image_url": "/sketches-inverted/4549.png",
+  "curve_count": 82,
+  "built_at": "2026-08-17T00:09:48Z"
+}

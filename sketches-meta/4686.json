@@ -1,0 +1,42 @@
+{
+  "number": 4686,
+  "title": "Line sketch: Kitchen Floor Still Life",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A rectangular rug with a border and floral patterns lies centered on a glossy, marbled tile floor. In the background stands a wooden cabinet with glass doors displaying stacked white ceramic bowls (derived from generated still #4115).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A rectangular rug with a border and floral patterns lies centered on a glossy, marbled tile floor. In the background stands a wooden cabinet with glass doors displaying stacked white ceramic bowls",
+  "inverted_title": "Inverted sketch: Kitchen Floor Still Life",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A rectangular rug with a border and floral patterns lies centered on a glossy, marbled tile floor. In the background stands a wooden cabinet with glass doors displaying stacked white ceramic bowls (from generated still #4115).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A rectangular rug with a border and floral patterns lies centered on a glossy, marbled tile floor. In the background stands a wooden cabinet with glass doors displaying stacked white ceramic bowls",
+  "source_description": "A dark blue rectangular rug with a cream border and floral patterns lies centered on a glossy, marbled tile floor in shades of grey and muted green. In the background stands a light green wooden cabinet with glass doors displaying stacked white ceramic bowls.",
+  "source_prompt": "A realistic interior scene showing a dark blue rectangular rug with cream border and subtle floral motifs placed on a glossy marbled grey-green tile floor. In the background is a pale green wooden cabinet with glass doors revealing neatly stacked white ceramic bowls on shelves. Soft natural light reflects on the polished tiles, calm domestic atmosphere, detailed textures, natural lighting.",
+  "source_title": "Kitchen Floor Still Life",
+  "style": "realistic digital art",
+  "mood": "quiet domestic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "rug",
+    "tile floor",
+    "kitchen cabinet",
+    "still life",
+    "ceramic bowls"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4115,
+  "source_url": "/generated/4115.jpg",
+  "image_url": "/sketches/4686.png",
+  "inverted_image_url": "/sketches-inverted/4686.png",
+  "curve_count": 120,
+  "built_at": "2026-08-17T00:09:48Z"
+}

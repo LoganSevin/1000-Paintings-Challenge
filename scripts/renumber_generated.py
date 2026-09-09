@@ -14,6 +14,7 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".avif"}
 SCRIPT_DIR = Path(__file__).resolve().parent
 GALLERY = SCRIPT_DIR.parent
 GENERATED_DIR = GALLERY / "generated"
+GENERATED_META_DIR = GALLERY / "generated-meta"
 ANALYSES_PATH = GALLERY / "data" / "lod1-analyses.json"
 MANIFEST_PATH = GALLERY / "data" / "lod1-manifest.json"
 MAP_PATH = GALLERY / "data" / "lod1-renumber-map.json"
@@ -186,6 +187,63 @@ def remap_json_value(value, mapping: dict[int, int]):
     return value
 
 
+def renumber_sidecars(mapping: dict[int, int], dry_run: bool) -> int:
+    """Rename generated-meta/N.json (and any legacy generated/N.json) with the image map."""
+    GENERATED_META_DIR.mkdir(parents=True, exist_ok=True)
+    moved = 0
+    # Collect sources from both folders
+    sources: list[tuple[int, Path]] = []
+    for folder in (GENERATED_META_DIR, GENERATED_DIR):
+        if not folder.is_dir():
+            continue
+        for p in folder.glob("*.json"):
+            if not p.stem.isdigit():
+                continue
+            sources.append((int(p.stem), p))
+    # Stage via temp names to avoid collisions
+    staged: list[tuple[Path, Path, int]] = []
+    for old, src in sources:
+        new = mapping.get(old)
+        if new is None:
+            continue
+        dest = GENERATED_META_DIR / f"{new}.json"
+        if src.resolve() == dest.resolve():
+            # Already at final name in meta folder
+            continue
+        staged.append((src, dest, new))
+    if dry_run:
+        for src, dest, new in staged[:8]:
+            print(f"  sidecar {src.name} -> generated-meta/{new}.json")
+        if len(staged) > 8:
+            print(f"  … and {len(staged) - 8} more sidecars")
+        return len(staged)
+
+    temps: list[tuple[Path, Path]] = []
+    for i, (src, dest, new) in enumerate(staged):
+        tmp = GENERATED_META_DIR / f"{TEMP_PREFIX}{new:06d}.json"
+        if src.resolve() != tmp.resolve():
+            shutil.move(str(src), str(tmp))
+        temps.append((tmp, dest))
+    for tmp, dest in temps:
+        if dest.exists() and dest.resolve() != tmp.resolve():
+            dest.unlink()
+        tmp.rename(dest)
+        moved += 1
+        # Update number field inside JSON when possible
+        try:
+            data = json.loads(dest.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and "number" in data:
+                data["number"] = int(dest.stem)
+                dest.write_text(
+                    json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+        except (OSError, json.JSONDecodeError, TypeError, ValueError):
+            pass
+    print(f"Sidecars renumbered into generated-meta/: {moved}")
+    return moved
+
+
 def update_studio_json_refs(mapping: dict[int, int], dry_run: bool) -> int:
     updated_files = 0
     for folder_name in ("characters", "objects", "rooms"):
@@ -273,6 +331,7 @@ def compact_generated(dry_run: bool = False) -> int:
         return 1
 
     remap_analyses(mapping, dry_run)
+    renumber_sidecars(mapping, dry_run)
     write_manifest(count, dry_run)
     refs = update_studio_json_refs(mapping, dry_run)
     print(f"Studio JSON files updated: {refs}")

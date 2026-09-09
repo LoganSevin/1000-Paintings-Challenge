@@ -1,0 +1,42 @@
+{
+  "number": 402,
+  "title": "Line sketch: Sunset Over Field",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant digital landscape captures the sun setting over a distant lake with rolling hills in the background. Tall trees frame the right side while wildflowers fill the foreground meadow under a sky (derived from painting #478).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant digital landscape captures the sun setting over a distant lake with rolling hills in the background. Tall trees frame the right side while wildflowers fill the foreground meadow under a sky",
+  "inverted_title": "Inverted sketch: Sunset Over Field",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant digital landscape captures the sun setting over a distant lake with rolling hills in the background. Tall trees frame the right side while wildflowers fill the foreground meadow under a sky (from painting #478).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant digital landscape captures the sun setting over a distant lake with rolling hills in the background. Tall trees frame the right side while wildflowers fill the foreground meadow under a sky",
+  "source_description": "A vibrant digital landscape captures the sun setting over a distant lake with rolling hills in the background. Tall trees frame the right side while purple wildflowers fill the foreground meadow under a colorful sky.",
+  "source_prompt": "",
+  "source_title": "Sunset Over Lavender Field",
+  "style": "line sketch",
+  "mood": "serene and vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "landscape",
+    "sunset",
+    "field",
+    "trees",
+    "digital art"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 478,
+  "source_url": "/paintings/478.jpg",
+  "image_url": "/sketches/402.png",
+  "inverted_image_url": "/sketches-inverted/402.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:39Z"
+}

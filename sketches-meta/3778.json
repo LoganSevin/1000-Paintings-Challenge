@@ -1,0 +1,42 @@
+{
+  "number": 3778,
+  "title": "Line sketch: Cyberpunk Warrior Poses",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Four sequential poses of a female character with a shaved head, wearing a metallic and black armored bodysuit with knee pads and boots. The sequence shows her running, then striking a combat stance as bright white and energy bursts explode from her fists and back (derived from generated still #3194).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Four sequential poses of a female character with a shaved head, wearing a metallic and black armored bodysuit with knee pads and boots. The sequence shows her running, then striking a combat stance as bright white and energy bursts explode from her fists and back",
+  "inverted_title": "Inverted sketch: Cyberpunk Warrior Poses",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Four sequential poses of a female character with a shaved head, wearing a metallic and black armored bodysuit with knee pads and boots. The sequence shows her running, then striking a combat stance as bright white and energy bursts explode from her fists and back (from generated still #3194).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Four sequential poses of a female character with a shaved head, wearing a metallic and black armored bodysuit with knee pads and boots. The sequence shows her running, then striking a combat stance as bright white and energy bursts explode from her fists and back",
+  "source_description": "Four sequential poses of a female character with a shaved head, wearing a metallic bronze and black armored bodysuit with knee pads and boots. The sequence shows her running, then striking a combat stance as bright white and orange energy bursts explode from her fists and back.",
+  "source_prompt": "A four-panel sequence of a fierce young woman with a shaved head and dark skin, wearing a form-fitting bronze and black tactical bodysuit with armored plates and brown boots. She is shown running forward then striking powerful combat poses, with explosive white and orange energy bursts erupting from her fists and back. Dramatic lighting, cinematic action style, character turnaround study against a dark background.",
+  "source_title": "Cyberpunk Warrior Poses",
+  "style": "cinematic",
+  "mood": "dynamic action",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "female warrior",
+    "cyberpunk",
+    "energy blast",
+    "action poses",
+    "shaved head"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3194,
+  "source_url": "/generated/3194.jpg",
+  "image_url": "/sketches/3778.png",
+  "inverted_image_url": "/sketches-inverted/3778.png",
+  "curve_count": 79,
+  "built_at": "2026-08-17T00:09:46Z"
+}

@@ -1,0 +1,42 @@
+{
+  "number": 2693,
+  "title": "Line sketch: Superhero Turnaround",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A young male character with dark curly hair is shown in eight sequential poses against a solid -gray background, wearing a form-fitting superhero suit with glowing chest emblem and web-like pattern on the back (derived from generated still #1935).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A young male character with dark curly hair is shown in eight sequential poses against a solid -gray background, wearing a form-fitting superhero suit with glowing chest emblem and web-like pattern on the back",
+  "inverted_title": "Inverted sketch: Superhero Turnaround",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A young male character with dark curly hair is shown in eight sequential poses against a solid -gray background, wearing a form-fitting superhero suit with glowing chest emblem and web-like pattern on the back (from generated still #1935).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A young male character with dark curly hair is shown in eight sequential poses against a solid -gray background, wearing a form-fitting superhero suit with glowing chest emblem and web-like pattern on the back",
+  "source_description": "A young male character with dark curly hair is shown in eight sequential poses against a solid blue-gray background, wearing a form-fitting blue superhero suit with glowing purple chest emblem and web-like pattern on the back.",
+  "source_prompt": "",
+  "source_title": "Blue Superhero Turnaround",
+  "style": "2D character illustration",
+  "mood": "neutral reference",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital art",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "superhero",
+    "character design",
+    "turnaround",
+    "suit",
+    "male character"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1935,
+  "source_url": "/generated/1935.jpg",
+  "image_url": "/sketches/2693.png",
+  "inverted_image_url": "/sketches-inverted/2693.png",
+  "curve_count": 3,
+  "built_at": "2026-08-17T00:09:44Z"
+}

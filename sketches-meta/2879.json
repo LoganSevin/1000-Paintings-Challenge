@@ -1,0 +1,42 @@
+{
+  "number": 2879,
+  "title": "Line sketch: Stasis Plug-In Spell",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A surreal scene depicts a classical stone statue with its head replaced by an old CRT monitor displaying text, connected to a floating keyboard labeled \"ONE\" and a computer mouse. In the background, sailing ships navigate a stylized sea scattered with floating computer keys and interface elements under a stormy sky with lightning (derived from generated still #2166).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A surreal scene depicts a classical stone statue with its head replaced by an old CRT monitor displaying text, connected to a floating keyboard labeled \"ONE\" and a computer mouse. In the background, sailing ships navigate a stylized sea scattered with floating computer keys and interface elements under a stormy sky with lightning",
+  "inverted_title": "Inverted sketch: Stasis Plug-In Spell",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A surreal scene depicts a classical stone statue with its head replaced by an old CRT monitor displaying text, connected to a floating keyboard labeled \"ONE\" and a computer mouse. In the background, sailing ships navigate a stylized sea scattered with floating computer keys and interface elements under a stormy sky with lightning (from generated still #2166).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A surreal scene depicts a classical stone statue with its head replaced by an old CRT monitor displaying text, connected to a floating keyboard labeled \"ONE\" and a computer mouse. In the background, sailing ships navigate a stylized sea scattered with floating computer keys and interface elements under a stormy sky with lightning",
+  "source_description": "A surreal scene depicts a classical stone statue with its head replaced by an old CRT monitor displaying text, connected to a floating keyboard labeled \"ONE\" and a computer mouse. In the background, sailing ships navigate a stylized sea scattered with floating computer keys and interface elements under a stormy sky with lightning.",
+  "source_prompt": "Surreal painting of a weathered classical stone statue standing in a stylized ocean, its head replaced by a bulky old CRT computer monitor with text on screen, wires connecting to a floating keyboard and a computer mouse hanging in the air. The sea is covered with floating computer keys and UI elements. Several old sailing ships are on the water. Dramatic stormy sky with lightning and dark purple clouds at sunset. Mystical and anachronistic atmosphere.",
+  "source_title": "Stasis Plug-In Spell",
+  "style": "surrealist composition",
+  "mood": "surreal, ominous",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surrealism",
+    "technology",
+    "statue",
+    "computer",
+    "sailing ships"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2166,
+  "source_url": "/generated/2166.jpg",
+  "image_url": "/sketches/2879.png",
+  "inverted_image_url": "/sketches-inverted/2879.png",
+  "curve_count": 11,
+  "built_at": "2026-08-17T00:09:44Z"
+}

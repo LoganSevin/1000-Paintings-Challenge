@@ -1,0 +1,42 @@
+{
+  "number": 4113,
+  "title": "Line sketch: Cyberpunk Cheshire Cat",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A massive biomechanical cat with and striped fur strides across a swirling vortex of energy. Its large mechanical eyes contain an entire detailed cyberpunk cityscape with tiny figures and vehicles, while its body features exposed brass gears, pipes, and glowing circuitry. Below, a dark industrial city with smoking factories and vintage cars is visible under a stormy sky (derived from generated still #3530).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A massive biomechanical cat with and striped fur strides across a swirling vortex of energy. Its large mechanical eyes contain an entire detailed cyberpunk cityscape with tiny figures and vehicles, while its body features exposed brass gears, pipes, and glowing circuitry. Below, a dark industrial city with smoking factories and vintage cars is visible under a stormy sky",
+  "inverted_title": "Inverted sketch: Cyberpunk Cheshire Cat",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A massive biomechanical cat with and striped fur strides across a swirling vortex of energy. Its large mechanical eyes contain an entire detailed cyberpunk cityscape with tiny figures and vehicles, while its body features exposed brass gears, pipes, and glowing circuitry. Below, a dark industrial city with smoking factories and vintage cars is visible under a stormy sky (from generated still #3530).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A massive biomechanical cat with and striped fur strides across a swirling vortex of energy. Its large mechanical eyes contain an entire detailed cyberpunk cityscape with tiny figures and vehicles, while its body features exposed brass gears, pipes, and glowing circuitry. Below, a dark industrial city with smoking factories and vintage cars is visible under a stormy sky",
+  "source_description": "A massive biomechanical cat with purple and gold striped fur strides across a swirling vortex of colorful energy. Its large green mechanical eyes contain an entire detailed cyberpunk cityscape with tiny figures and vehicles, while its body features exposed brass gears, pipes, and glowing green circuitry. Below, a dark industrial city with smoking factories and vintage cars is visible under a stormy sky.",
+  "source_prompt": "A giant biomechanical Cheshire cat made of purple and gold striped metal with exposed brass gears and glowing green circuitry, striding powerfully across a swirling colorful vortex portal. Its large glowing green eyes contain a detailed cyberpunk city with tiny people and vehicles inside. Below the cat is a dark industrial cityscape with smoking factories, vintage cars, and Victorian buildings under a stormy sky, surreal steampunk aesthetic, highly detailed digital painting",
+  "source_title": "Cyberpunk Cheshire Cat",
+  "style": "surreal steampunk",
+  "mood": "chaotic dystopian",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cyberpunk",
+    "steampunk",
+    "cat",
+    "surreal",
+    "biomechanical"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 3530,
+  "source_url": "/generated/3530.jpg",
+  "image_url": "/sketches/4113.png",
+  "inverted_image_url": "/sketches-inverted/4113.png",
+  "curve_count": 33,
+  "built_at": "2026-08-17T00:09:47Z"
+}

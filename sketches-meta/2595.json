@@ -1,0 +1,42 @@
+{
+  "number": 2595,
+  "title": "Line sketch: Threefold Angelic Embrace",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Three winged angelic figures with halos stand closely intertwined in the center, their heads touching and hands clasped while holding white flowers. They wear ornate robes decorated with large spheres against a dramatic dark sky pierced by a beam of light, with dark dragon-like creatures visible in the background (derived from generated still #1833).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Three winged angelic figures with halos stand closely intertwined in the center, their heads touching and hands clasped while holding white flowers. They wear ornate robes decorated with large spheres against a dramatic dark sky pierced by a beam of light, with dark dragon-like creatures visible in the background",
+  "inverted_title": "Inverted sketch: Threefold Angelic Embrace",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Three winged angelic figures with halos stand closely intertwined in the center, their heads touching and hands clasped while holding white flowers. They wear ornate robes decorated with large spheres against a dramatic dark sky pierced by a beam of light, with dark dragon-like creatures visible in the background (from generated still #1833).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Three winged angelic figures with halos stand closely intertwined in the center, their heads touching and hands clasped while holding white flowers. They wear ornate robes decorated with large spheres against a dramatic dark sky pierced by a beam of light, with dark dragon-like creatures visible in the background",
+  "source_description": "Three winged angelic figures with golden halos stand closely intertwined in the center, their heads touching and hands clasped while holding white flowers. They wear ornate blue robes decorated with large orange spheres against a dramatic dark sky pierced by a bright orange beam of light, with dark dragon-like creatures visible in the background.",
+  "source_prompt": "",
+  "source_title": "Threefold Angelic Embrace",
+  "style": "fantasy baroque",
+  "mood": "ethereal dramatic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "angels",
+    "winged figures",
+    "fantasy art",
+    "celestial",
+    "dramatic sky"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1833,
+  "source_url": "/generated/1833.jpg",
+  "image_url": "/sketches/2595.png",
+  "inverted_image_url": "/sketches-inverted/2595.png",
+  "curve_count": 2,
+  "built_at": "2026-08-17T00:09:43Z"
+}

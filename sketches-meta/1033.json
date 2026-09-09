@@ -1,0 +1,42 @@
+{
+  "number": 1033,
+  "title": "Line sketch: Goddess at Sunset",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A -skinned woman with long flowing black hair stands serenely in traditional East Asian robes, gazing upward. She is framed by a glowing and halo against a dramatic sky featuring a large sun, misty mountains, a traditional pagoda, chrysanthemums, and small boats on the water (derived from generated still #245).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A -skinned woman with long flowing black hair stands serenely in traditional East Asian robes, gazing upward. She is framed by a glowing and halo against a dramatic sky featuring a large sun, misty mountains, a traditional pagoda, chrysanthemums, and small boats on the water",
+  "inverted_title": "Inverted sketch: Goddess at Sunset",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A -skinned woman with long flowing black hair stands serenely in traditional East Asian robes, gazing upward. She is framed by a glowing and halo against a dramatic sky featuring a large sun, misty mountains, a traditional pagoda, chrysanthemums, and small boats on the water (from generated still #245).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A -skinned woman with long flowing black hair stands serenely in traditional East Asian robes, gazing upward. She is framed by a glowing and halo against a dramatic sky featuring a large sun, misty mountains, a traditional pagoda, chrysanthemums, and small boats on the water",
+  "source_description": "A green-skinned woman with long flowing black hair stands serenely in traditional East Asian robes, gazing upward. She is framed by a glowing pink and purple halo against a dramatic sky featuring a large red sun, misty mountains, a traditional pagoda, red chrysanthemums, and small boats on the water.",
+  "source_prompt": "",
+  "source_title": "Green Goddess at Sunset",
+  "style": "fantasy digital art",
+  "mood": "ethereal mystical",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "woman",
+    "chrysanthemums",
+    "pagoda",
+    "sun",
+    "misty mountains"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 245,
+  "source_url": "/generated/245.jpg",
+  "image_url": "/sketches/1033.png",
+  "inverted_image_url": "/sketches-inverted/1033.png",
+  "curve_count": 13,
+  "built_at": "2026-08-17T00:09:40Z"
+}

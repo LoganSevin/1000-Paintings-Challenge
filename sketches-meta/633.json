@@ -1,0 +1,42 @@
+{
+  "number": 633,
+  "title": "Line sketch: Drips Abstract Layers",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: Horizontal bands of shimmering leaf drip over fluid layers in, and. The bottom section features a cracked marble pattern with accents creating a luxurious abstract composition (derived from painting #808).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: Horizontal bands of shimmering leaf drip over fluid layers in, and. The bottom section features a cracked marble pattern with accents creating a luxurious abstract composition",
+  "inverted_title": "Inverted sketch: Drips Abstract Layers",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: Horizontal bands of shimmering leaf drip over fluid layers in, and. The bottom section features a cracked marble pattern with accents creating a luxurious abstract composition (from painting #808).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: Horizontal bands of shimmering leaf drip over fluid layers in, and. The bottom section features a cracked marble pattern with accents creating a luxurious abstract composition",
+  "source_description": "Horizontal bands of shimmering gold leaf drip over fluid watercolor layers in turquoise, teal, and deep blue. The bottom section features a cracked marble pattern with gold accents creating a luxurious abstract composition.",
+  "source_prompt": "",
+  "source_title": "Golden Drips Abstract Layers",
+  "style": "Abstract",
+  "mood": "Elegant and serene",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Watercolor and gold leaf on canvas",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "leaf",
+    "abstract",
+    "dripping paint",
+    "layered",
+    "metallic"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "paintings",
+  "source_num": 808,
+  "source_url": "/paintings/808.jpg",
+  "image_url": "/sketches/633.png",
+  "inverted_image_url": "/sketches-inverted/633.png",
+  "curve_count": 184,
+  "built_at": "2026-08-17T00:09:39Z"
+}

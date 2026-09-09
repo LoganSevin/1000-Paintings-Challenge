@@ -1,0 +1,42 @@
+{
+  "number": 5000,
+  "title": "Line sketch: Fantasy Mosaic Grid",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A 2x3 grid of stained-glass style panels featuring fantasy creatures and scenes. Visible subjects include a squirrel, a witch flying before a glowing sun, a elephant, a dragon, a field of flowers, and a wolf surrounded by floating eyes (derived from generated still #4437).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A 2x3 grid of stained-glass style panels featuring fantasy creatures and scenes. Visible subjects include a squirrel, a witch flying before a glowing sun, a elephant, a dragon, a field of flowers, and a wolf surrounded by floating eyes",
+  "inverted_title": "Inverted sketch: Fantasy Mosaic Grid",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A 2x3 grid of stained-glass style panels featuring fantasy creatures and scenes. Visible subjects include a squirrel, a witch flying before a glowing sun, a elephant, a dragon, a field of flowers, and a wolf surrounded by floating eyes (from generated still #4437).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A 2x3 grid of stained-glass style panels featuring fantasy creatures and scenes. Visible subjects include a squirrel, a witch flying before a glowing sun, a elephant, a dragon, a field of flowers, and a wolf surrounded by floating eyes",
+  "source_description": "A 2x3 grid of stained-glass style panels featuring fantasy creatures and scenes. Visible subjects include a red squirrel, a witch flying before a glowing yellow sun, a green elephant, a green dragon, a field of orange flowers, and a purple wolf surrounded by floating eyes.",
+  "source_prompt": "A 2x3 grid of vibrant stained-glass mosaic panels with black leading lines, each containing a different fantasy scene: top row shows a red squirrel, a witch flying on a broom in front of a bright yellow sun over red mountains, and a green elephant; bottom row shows a green dragon, a field of orange star-shaped flowers, and a purple wolf surrounded by many floating eyes, all rendered in a colorful fragmented glass art style with visible texture and speckles.",
+  "source_title": "Fantasy Mosaic Grid",
+  "style": "stained glass mosaic",
+  "mood": "whimsical, vibrant",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "fantasy",
+    "mosaic",
+    "grid",
+    "creatures",
+    "stained glass"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 4437,
+  "source_url": "/generated/4437.jpg",
+  "image_url": "/sketches/5000.png",
+  "inverted_image_url": "/sketches-inverted/5000.png",
+  "curve_count": 10,
+  "built_at": "2026-08-17T00:09:49Z"
+}

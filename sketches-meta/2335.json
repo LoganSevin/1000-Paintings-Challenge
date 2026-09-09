@@ -1,0 +1,42 @@
+{
+  "number": 2335,
+  "title": "Line sketch: Cabbage Bear Vision",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition centers on a large bear's head constructed entirely from layered cabbage leaves, featuring eyes with one glowing. Floating around it are transparent orbs containing more cabbage heads, stylized female faces, geometric diagrams, and celestial motifs against a swirling psychedelic background (derived from generated still #1563).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition centers on a large bear's head constructed entirely from layered cabbage leaves, featuring eyes with one glowing. Floating around it are transparent orbs containing more cabbage heads, stylized female faces, geometric diagrams, and celestial motifs against a swirling psychedelic background",
+  "inverted_title": "Inverted sketch: Cabbage Bear Vision",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition centers on a large bear's head constructed entirely from layered cabbage leaves, featuring eyes with one glowing. Floating around it are transparent orbs containing more cabbage heads, stylized female faces, geometric diagrams, and celestial motifs against a swirling psychedelic background (from generated still #1563).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition centers on a large bear's head constructed entirely from layered cabbage leaves, featuring eyes with one glowing. Floating around it are transparent orbs containing more cabbage heads, stylized female faces, geometric diagrams, and celestial motifs against a swirling psychedelic background",
+  "source_description": "A vibrant surreal painting centers on a large bear's head constructed entirely from layered green cabbage leaves, featuring bright blue eyes with one glowing red. Floating around it are transparent purple orbs containing more cabbage heads, stylized female faces, geometric diagrams, and celestial motifs against a swirling psychedelic background.",
+  "source_prompt": "",
+  "source_title": "Cabbage Bear Vision",
+  "style": "Psychedelic Surrealism",
+  "mood": "Mystical, vibrant, hypnotic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "Digital painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "cabbage",
+    "bear",
+    "surreal",
+    "psychedelic",
+    "geometric"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1563,
+  "source_url": "/generated/1563.jpg",
+  "image_url": "/sketches/2335.png",
+  "inverted_image_url": "/sketches-inverted/2335.png",
+  "curve_count": 288,
+  "built_at": "2026-08-17T00:09:43Z"
+}

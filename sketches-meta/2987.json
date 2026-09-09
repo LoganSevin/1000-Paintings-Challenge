@@ -1,0 +1,42 @@
+{
+  "number": 2987,
+  "title": "Line sketch: Eclipse Detective",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A silhouetted figure in a fedora and ornate coat stands centered, holding a key in one hand and a large magnifying glass revealing a detailed eye in the other. The background features a glowing and black solar eclipse with dripping blood-like effects, floating eyeballs in bubbles, and the word 'TRUTH' formed from twisted branches above (derived from generated still #2309).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A silhouetted figure in a fedora and ornate coat stands centered, holding a key in one hand and a large magnifying glass revealing a detailed eye in the other. The background features a glowing and black solar eclipse with dripping blood-like effects, floating eyeballs in bubbles, and the word 'TRUTH' formed from twisted branches above",
+  "inverted_title": "Inverted sketch: Eclipse Detective",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A silhouetted figure in a fedora and ornate coat stands centered, holding a key in one hand and a large magnifying glass revealing a detailed eye in the other. The background features a glowing and black solar eclipse with dripping blood-like effects, floating eyeballs in bubbles, and the word 'TRUTH' formed from twisted branches above (from generated still #2309).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A silhouetted figure in a fedora and ornate coat stands centered, holding a key in one hand and a large magnifying glass revealing a detailed eye in the other. The background features a glowing and black solar eclipse with dripping blood-like effects, floating eyeballs in bubbles, and the word 'TRUTH' formed from twisted branches above",
+  "source_description": "A silhouetted figure in a blue fedora and ornate coat stands centered, holding a golden key in one hand and a large magnifying glass revealing a detailed eye in the other. The background features a glowing red and black solar eclipse with dripping blood-like effects, floating eyeballs in bubbles, and the word 'TRUTH' formed from twisted branches above.",
+  "source_prompt": "A mysterious silhouetted detective figure wearing a blue fedora with a glowing red eye emblem and an ornate multicolored coat stands in the center. He holds a golden ornate key in his right hand and a large magnifying glass showing a realistic eye in his left. Floating transparent bubbles containing eyeballs surround him. Above is a dark solar eclipse with red corona and dripping red liquid, with the word TRUTH spelled in twisted black branches. Psychedelic swirling ground and roots. Dark surreal symbolic style with vibrant accents.",
+  "source_title": "Eclipse Detective",
+  "style": "surreal",
+  "mood": "mysterious, occult",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "digital illustration",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "surreal",
+    "detective",
+    "eclipse",
+    "eyes",
+    "occult"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 2309,
+  "source_url": "/generated/2309.jpg",
+  "image_url": "/sketches/2987.png",
+  "inverted_image_url": "/sketches-inverted/2987.png",
+  "curve_count": 185,
+  "built_at": "2026-08-17T00:09:44Z"
+}

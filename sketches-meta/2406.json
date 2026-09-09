@@ -1,0 +1,42 @@
+{
+  "number": 2406,
+  "title": "Line sketch: Psychedelic Spiral Dreamscape",
+  "description": "Black-and-white ink line sketch on white paper — pure contour and edge drawing with no color fills. Edge-traced line art of: A vibrant surreal composition featuring a smiling orb with wings floating beside a large swirling spiral of, and. looping ribbons and a glowing teardrop shape adorn the background dotted with white specks (derived from generated still #1635).",
+  "prompt": "Black and white ink line sketch, pure line art on blank white paper, no color, no grayscale fills, no shading blocks, expressive black contour lines only, sketch of: A vibrant surreal composition featuring a smiling orb with wings floating beside a large swirling spiral of, and. looping ribbons and a glowing teardrop shape adorn the background dotted with white specks",
+  "inverted_title": "Inverted sketch: Psychedelic Spiral Dreamscape",
+  "inverted_description": "Inverted chalk line sketch — white contour lines on solid black ground, no color. Monochrome reverse of the line art: A vibrant surreal composition featuring a smiling orb with wings floating beside a large swirling spiral of, and. looping ribbons and a glowing teardrop shape adorn the background dotted with white specks (from generated still #1635).",
+  "inverted_prompt": "White chalk line drawing on pure black background, inverted monochrome sketch, white contours only, no color, no gray fills, high-contrast negative line art of: A vibrant surreal composition featuring a smiling orb with wings floating beside a large swirling spiral of, and. looping ribbons and a glowing teardrop shape adorn the background dotted with white specks",
+  "source_description": "A vibrant surreal painting featuring a smiling purple orb with blue wings floating beside a large swirling spiral of pink, blue, and green. Colorful looping ribbons and a glowing teardrop shape adorn the dark purple background dotted with white specks.",
+  "source_prompt": "",
+  "source_title": "Psychedelic Spiral Dreamscape",
+  "style": "Psychedelic Surrealism",
+  "mood": "whimsical cosmic",
+  "medium": "ink line sketch",
+  "inverted_medium": "white chalk on black",
+  "source_medium": "acrylic painting",
+  "tags": [
+    "line sketch",
+    "black and white",
+    "ink drawing",
+    "monochrome",
+    "contour",
+    "spiral",
+    "wings",
+    "psychedelic",
+    "surreal",
+    "dreamlike"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "sketch",
+  "kind": "sketch",
+  "source_collection": "generated",
+  "source_num": 1635,
+  "source_url": "/generated/1635.jpg",
+  "image_url": "/sketches/2406.png",
+  "inverted_image_url": "/sketches-inverted/2406.png",
+  "curve_count": 32,
+  "built_at": "2026-08-17T00:09:43Z"
+}
