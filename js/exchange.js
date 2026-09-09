@@ -375,8 +375,28 @@
     return s;
   }
 
+  function scrubLegacyStorage() {
+    try {
+      var drop = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (!k) continue;
+        if (k === STORAGE) continue;
+        if (k.indexOf("gallery.grand-exchange") === 0 || k.indexOf("gallery.ge") === 0) {
+          drop.push(k);
+        }
+      }
+      drop.forEach(function (k) {
+        try {
+          localStorage.removeItem(k);
+        } catch (e2) {}
+      });
+    } catch (e) {}
+  }
+
   function loadState() {
     try {
+      scrubLegacyStorage();
       var raw = localStorage.getItem(STORAGE);
       var fromLegacy = false;
       if (!raw) {
@@ -390,18 +410,23 @@
       }
       if (!raw) return defaultState();
       var migrated = migrate(JSON.parse(raw));
-      // Always rewrite to the stable key so refresh finds pack/bank/level.
+      // Rewrite a slim player-only save so NPC packs never stay on disk.
       try {
-        localStorage.setItem(STORAGE, JSON.stringify(migrated));
-        if (fromLegacy) {
-          for (var j = 0; j < STORAGE_LEGACY_KEYS.length; j++) {
-            try {
-              localStorage.removeItem(STORAGE_LEGACY_KEYS[j]);
-            } catch (eRm) {}
-          }
-        }
-      } catch (eSave) {}
-      return migrated;
+        state = migrated;
+        npcRuntime = { inventory: {}, bank: {} };
+        var slim = slimForPersist();
+        localStorage.setItem(STORAGE, JSON.stringify(slim));
+        if (fromLegacy) scrubLegacyStorage();
+        state = null;
+        return slim;
+      } catch (eSave) {
+        state = null;
+        try {
+          localStorage.removeItem(STORAGE);
+        } catch (eRm) {}
+        // Fall back to in-memory migrated (still stripped of NPC bags)
+        return migrated;
+      }
     } catch (e) {
       return defaultState();
     }
