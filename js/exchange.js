@@ -1558,7 +1558,133 @@
     } catch (e) {}
   }
 
+  var forgeBusy = false;
+
+  function geApiUrl(path) {
+    try {
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.apiUrl === "function") {
+        return window.SpellforgeAPI.apiUrl(path);
+      }
+    } catch (e) {}
+    return path;
+  }
+
+  function buildForgePrompt(parents) {
+    var lines = [
+      "Create a brand-new original painting that fuses these three influences into one fresh composition.",
+      "This is NOT a remake, collage, or near-copy of any source.",
+    ];
+    parents.forEach(function (id, idx) {
+      lines.push(
+        "Influence " +
+          (idx + 1) +
+          " (" +
+          kindLabel(id) +
+          " — " +
+          titleFor(id) +
+          "): " +
+          String(fullDescFor(id) || descFor(id) || "").trim()
+      );
+    });
+    lines.push("Invented scene · original painting · cohesive style.");
+    var prompt = lines.filter(Boolean).join("\n\n");
+    if (prompt.length > 7000) prompt = prompt.slice(0, 7000);
+    return prompt;
+  }
+
+  function pollForgeJob(jobId, attemptsLeft) {
+    attemptsLeft = attemptsLeft == null ? 120 : attemptsLeft;
+    if (attemptsLeft <= 0) return Promise.reject(new Error("Timed out waiting for generated image."));
+    return fetch(geApiUrl("/api/jobs/" + encodeURIComponent(jobId)), { cache: "no-store" })
+      .then(function (r) {
+        return r.json().then(function (d) {
+          return { ok: r.ok, d: d };
+        });
+      })
+      .then(function (res) {
+        var d = res.d || {};
+        var st = String(d.status || "").toLowerCase();
+        if (st === "done" || st === "completed" || st === "success") {
+          var img = d.image || (d.images && d.images[0]);
+          var url = (img && img.url) || d.url || d.image_url || "";
+          if (url) return url;
+          throw new Error("Job finished but no image URL.");
+        }
+        if (st === "failed" || st === "error") {
+          throw new Error((d.error && d.error.message) || d.error || "Generate job failed.");
+        }
+        setForgeStatus("Generating image… (" + (121 - attemptsLeft) + "s)");
+        return new Promise(function (resolve) {
+          setTimeout(resolve, 1000);
+        }).then(function () {
+          return pollForgeJob(jobId, attemptsLeft - 1);
+        });
+      });
+  }
+
+  function generateForgeImage(parents, prompt) {
+    var spellIds = parents.filter(function (id) {
+      return id >= 1 && id <= 1000;
+    });
+    var spellDetails = parents.map(function (n, s) {
+      return {
+        number: n,
+        title: titleFor(n),
+        description: String(fullDescFor(n) || "").slice(0, 1800),
+        prompt: String(descFor(n) || "").slice(0, 800),
+        source: "influence-text",
+        slot: s,
+      };
+    });
+    var jobId =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : "ge-forge-" + Date.now();
+    return fetch(geApiUrl("/api/generate-stasis-vision"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        job_id: jobId,
+        stasis: prompt,
+        prompt: prompt,
+        fused_prompt: prompt,
+        buzz_words: ["original painting", "brand new composition", "invented scene"],
+        spells: spellIds,
+        spell_details: spellDetails,
+        aspect_ratio: "1:1",
+        mag_fresh: true,
+        fresh_variation: true,
+        spell_cast: false,
+        attach_references: false,
+        reference_image: "",
+        spell_reference_image: "",
+        source: "grand-exchange-forge",
+        product_mode: "original_fusion",
+      }),
+      cache: "no-store",
+    }).then(function (r) {
+      return r.json().then(function (d) {
+        if (r.status === 202 || (d && (d.status === "queued" || d.status === "pending") && d.job_id)) {
+          return pollForgeJob(d.job_id || jobId);
+        }
+        if (!r.ok) {
+          var errMsg =
+            (d && d.error && d.error.message) || (d && d.error) || "Generate failed (HTTP " + r.status + ")";
+          throw new Error(typeof errMsg === "string" ? errMsg : JSON.stringify(errMsg));
+        }
+        var img = d && (d.image || (d.images && d.images[0]));
+        if (img && img.url) return img.url;
+        if (d && d.job_id) return pollForgeJob(d.job_id);
+        throw new Error("No image returned from generate.");
+      });
+    });
+  }
+
   function combineForge() {
+    if (forgeBusy) {
+      setForgeStatus("Already combining — wait for the image…", true);
+      return;
+    }
     var a = forgeSlots[0];
     var b = forgeSlots[1];
     var c = forgeSlots[2];
@@ -1574,6 +1700,9 @@
       }
     }
 
+    // Stay on the open Grand Exchange UI — never hand off to Spellforge tab mid-combine.
+    if (!exchangeOpen) openExchangeUi();
+
     var titles = parents.map(titleFor);
     var descs = parents.map(fullDescFor);
     var title = titles.join(" / ");
@@ -1587,6 +1716,7 @@
       " Forged amalgam of " +
       parents.map(kindLabel).join(", ") +
       ".";
+    var prompt = buildForgePrompt(parents);
 
     var id = Number(state.nextForgeId) || 10001;
     state.nextForgeId = id + 1;
@@ -1605,7 +1735,10 @@
     if (!state.forged) state.forged = {};
     state.forged[String(id)] = entry;
 
-    function finish(visionUrl) {
+    function finish(visionUrl, genErr) {
+      forgeBusy = false;
+      var combineBtn = $("ge-forge-combine");
+      if (combineBtn) combineBtn.disabled = false;
       if (visionUrl) entry.thumb = visionUrl;
       for (var j = 0; j < 3; j++) {
         if (!consumeOwned(parents[j], 1)) {
@@ -1615,38 +1748,40 @@
       }
       addInv(PLAYER_ID, id, 1);
       forgeSlots = [null, null, null];
-      syncForgeToSpellforge();
       lastForgeResult = id;
       grantXp(FORGE_XP);
       saveState();
+      if (!exchangeOpen) openExchangeUi();
       showForgeResult(id);
-      setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") — added to inventory. +" + FORGE_XP + " XP");
+      if (visionUrl) {
+        setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") with new image — in inventory. +" + FORGE_XP + " XP");
+      } else {
+        setForgeStatus(
+          "Forged #" +
+            id +
+            " into inventory, but image gen failed" +
+            (genErr ? ": " + genErr : ".") +
+            " Using parent thumb. Keep start_server.bat running for new images. +" +
+            FORGE_XP +
+            " XP",
+          true
+        );
+      }
       render();
     }
 
-    setForgeStatus("Combining…");
-    var api = window.SpellforgeAPI;
-    if (api && typeof api.generateFromSlots === "function") {
-      Promise.resolve()
-        .then(function () {
-          return api.generateFromSlots(parents.slice(), { forceCloud: true });
-        })
-        .then(function (url) {
-          var vision = url;
-          try {
-            if (!vision && api.getFusion) {
-              var f = api.getFusion() || {};
-              vision = f.visionUrl || "";
-            }
-          } catch (e) {}
-          finish(vision || null);
-        })
-        .catch(function () {
-          finish(null);
-        });
-    } else {
-      finish(null);
-    }
+    forgeBusy = true;
+    var btn = $("ge-forge-combine");
+    if (btn) btn.disabled = true;
+    setForgeStatus("Combining — generating a new image (stay on Grand Exchange)…");
+    generateForgeImage(parents, prompt)
+      .then(function (url) {
+        finish(url || null, null);
+      })
+      .catch(function (err) {
+        var msg = (err && err.message) || String(err || "generate failed");
+        finish(null, msg);
+      });
   }
 
   function openSetup(side, slot) {
