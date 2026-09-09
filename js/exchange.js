@@ -187,16 +187,39 @@
     if (noteOf(n)) return NOTE_THUMB;
     if (thumbOverrides[String(n)]) return thumbOverrides[String(n)];
     var f = forgedOf(n);
-    if (f && f.thumb) return assetUrl(f.thumb);
+    if (f && f.imageUrl) return assetUrl(f.imageUrl);
+    if (f && f.thumb && !isParentPaintingUrl(f.thumb, f.parents)) return assetUrl(f.thumb);
     var ex = extraOf(n);
     if (ex && ex.url) return assetUrl(ex.url);
-    if (f && f.parents && f.parents[0]) return thumb(f.parents[0]);
     if (n >= GEN_BASE && n < SKETCH_BASE) {
       var g = n - GEN_BASE;
       return assetUrl("/generated/" + g + ".jpg");
     }
+    // Last resort for forged: parent stand-in (display only — Force load will regenerate)
+    if (f && f.parents && f.parents[0]) return thumb(f.parents[0]);
+    if (f && f.thumb) return assetUrl(f.thumb);
     if (n >= 1 && n <= PAINTING_TOTAL) return "paintings/" + n + ".jpg";
     return "paintings/1.jpg";
+  }
+
+  function paintingPathFor(id) {
+    id = Number(id);
+    if (id >= 1 && id <= PAINTING_TOTAL) return "paintings/" + id + ".jpg";
+    return "";
+  }
+
+  /** True if url is clearly one of this forged item's parent paintings (wrong for Force load). */
+  function isParentPaintingUrl(url, parents) {
+    if (!url || !parents || !parents.length) return false;
+    var s = String(url).split("?")[0].replace(/^.*\//, "");
+    // paintings/123.jpg or .../paintings/123.jpg
+    var m = String(url).match(/paintings\/(\d+)\.(?:jpg|jpeg|png|webp)/i);
+    if (!m) return false;
+    var pid = Number(m[1]);
+    for (var i = 0; i < parents.length; i++) {
+      if (Number(parents[i]) === pid) return true;
+    }
+    return false;
   }
 
   function rawThumbCandidates(itemId) {
@@ -209,47 +232,49 @@
       out.push(u);
     }
     var f = forgedOf(itemId);
-    if (f && f.thumb) {
-      add(f.thumb);
-      add(assetUrl(f.thumb));
+
+    // Own image only — never parent fillers (those caused Force load to show the wrong art).
+    if (f) {
+      if (f.imageUrl) {
+        add(f.imageUrl);
+        add(assetUrl(f.imageUrl));
+      }
+      if (f.thumb && !isParentPaintingUrl(f.thumb, f.parents)) {
+        add(f.thumb);
+        add(assetUrl(f.thumb));
+      }
+      if (thumbOverrides[String(itemId)]) add(thumbOverrides[String(itemId)]);
+    } else {
+      var ex = extraOf(itemId);
+      if (ex && ex.url) {
+        add(ex.url);
+        add(assetUrl(ex.url));
+      }
+      if (itemId >= 1 && itemId <= PAINTING_TOTAL) {
+        add(paintingPathFor(itemId));
+        add(assetUrl(paintingPathFor(itemId)));
+      }
+      if (itemId >= GEN_BASE && itemId < SKETCH_BASE) {
+        var g = itemId - GEN_BASE;
+        add("/generated/" + g + ".jpg");
+        add("generated/" + g + ".jpg");
+        add(assetUrl("/generated/" + g + ".jpg"));
+      }
+      if (itemId >= SKETCH_BASE && itemId < INV_SKETCH_BASE) {
+        var s = itemId - SKETCH_BASE;
+        add("/sketches/" + s + ".jpg");
+        add(assetUrl("/sketches/" + s + ".jpg"));
+      }
+      if (itemId >= INV_SKETCH_BASE && itemId < NOTE_BASE) {
+        var invs = itemId - INV_SKETCH_BASE;
+        add("/inverted/" + invs + ".jpg");
+        add(assetUrl("/inverted/" + invs + ".jpg"));
+      }
+      if (thumbOverrides[String(itemId)]) add(thumbOverrides[String(itemId)]);
     }
-    var ex = extraOf(itemId);
-    if (ex && ex.url) {
-      add(ex.url);
-      add(assetUrl(ex.url));
-    }
-    if (itemId >= 1 && itemId <= PAINTING_TOTAL) {
-      add("paintings/" + itemId + ".jpg");
-      add(assetUrl("paintings/" + itemId + ".jpg"));
-    }
-    if (itemId >= GEN_BASE && itemId < SKETCH_BASE) {
-      var g = itemId - GEN_BASE;
-      add("/generated/" + g + ".jpg");
-      add("generated/" + g + ".jpg");
-      add(assetUrl("/generated/" + g + ".jpg"));
-    }
-    if (itemId >= SKETCH_BASE && itemId < INV_SKETCH_BASE) {
-      var s = itemId - SKETCH_BASE;
-      add("/sketches/" + s + ".jpg");
-      add(assetUrl("/sketches/" + s + ".jpg"));
-    }
-    if (itemId >= INV_SKETCH_BASE && itemId < NOTE_BASE) {
-      var invs = itemId - INV_SKETCH_BASE;
-      add("/inverted/" + invs + ".jpg");
-      add(assetUrl("/inverted/" + invs + ".jpg"));
-    }
-    if (f && Array.isArray(f.parents)) {
-      f.parents.forEach(function (pid) {
-        pid = Number(pid);
-        if (pid >= 1 && pid <= PAINTING_TOTAL) {
-          add("paintings/" + pid + ".jpg");
-          add(assetUrl("paintings/" + pid + ".jpg"));
-        }
-      });
-    }
-    // Cache-bust first few candidates
+
     var busted = [];
-    out.slice(0, 4).forEach(function (u) {
+    out.slice(0, 6).forEach(function (u) {
       if (u.indexOf("data:") === 0) return;
       var sep = u.indexOf("?") >= 0 ? "&" : "?";
       busted.push(u + sep + "geforce=" + Date.now());
@@ -301,27 +326,88 @@
     }
   }
 
+  function acceptForcedImage(itemId, dataUrl, src) {
+    itemId = Number(itemId);
+    thumbOverrides[String(itemId)] = dataUrl;
+    var f = forgedOf(itemId);
+    if (f) {
+      // Keep the real forge URL — never write a parent painting path as imageUrl
+      if (src && !isParentPaintingUrl(src, f.parents) && String(src).indexOf("data:") !== 0) {
+        var persist = persistableThumbUrl(src, null);
+        if (persist) {
+          f.imageUrl = persist;
+          f.thumb = persist;
+        } else if (/^https:\/\//i.test(src)) {
+          f.imageUrl = src;
+          f.thumb = src;
+        }
+      }
+      // data URL: keep in thumbOverrides for display; leave imageUrl if already set
+    }
+    applyThumbToDom(itemId, dataUrl);
+    try {
+      saveState();
+    } catch (eSave) {}
+    renderBags();
+    renderForgeSlots();
+    if (lastForgeResult === itemId) showForgeResult(itemId);
+    return { ok: true, from: src };
+  }
+
+  function regenerateForgedImage(itemId) {
+    var f = forgedOf(itemId);
+    if (!f || !f.parents || f.parents.length < 3) {
+      return Promise.resolve({
+        ok: false,
+        error: "No forge parents saved — cannot regenerate. Re-Combine from Spellforge slots.",
+      });
+    }
+    setStatus("Regenerating forged image for #" + itemId + " (not a parent stand-in)…");
+    setForgeStatus("Regenerating #" + itemId + "…");
+    var prompt = buildForgePrompt(f.parents.map(Number));
+    return generateForgeImage(f.parents.map(Number), prompt).then(function (url) {
+      if (!url) throw new Error("Generate returned no URL.");
+      f.imageUrl = url;
+      f.thumb = url;
+      return geInlineImage(url).then(function (dataUrl) {
+        if (dataUrl && String(dataUrl).indexOf("data:image") === 0) {
+          return acceptForcedImage(itemId, dataUrl, url);
+        }
+        // Still apply remote URL even if inline failed
+        thumbOverrides[String(itemId)] = assetUrl(url);
+        applyThumbToDom(itemId, assetUrl(url));
+        saveState();
+        renderBags();
+        renderForgeSlots();
+        return { ok: true, from: url, regenerated: true };
+      });
+    });
+  }
+
   function forceLoadItemImage(itemId) {
     itemId = Number(itemId);
     if (!itemId) return Promise.resolve({ ok: false, error: "No item." });
     if (noteOf(itemId)) {
       return Promise.resolve({ ok: false, error: "Notes are text — nothing to load." });
     }
-    setStatus("Force loading image for " + kindLabel(itemId) + "…");
+    setStatus("Force loading correct image for " + kindLabel(itemId) + "…");
     setForgeStatus("Force loading #" + itemId + "…");
+    var f = forgedOf(itemId);
     var candidates = rawThumbCandidates(itemId);
-    if (!candidates.length) {
-      return Promise.resolve({ ok: false, error: "No image sources for that item." });
-    }
 
     function tryAt(i) {
       if (i >= candidates.length) {
+        // Forged piece with no own URL left — regenerate the real image (do not use parent art)
+        if (f) return regenerateForgedImage(itemId);
         return Promise.resolve({
           ok: false,
-          error: "Could not load image — try View fullscreen or re-Combine.",
+          error: "Could not load this item's own image.",
         });
       }
       var src = candidates[i];
+      if (f && isParentPaintingUrl(src, f.parents)) {
+        return tryAt(i + 1);
+      }
       return geInlineImage(src)
         .then(function (dataUrl) {
           if (!dataUrl || String(dataUrl).indexOf("data:image") !== 0) {
@@ -334,19 +420,7 @@
                 tryAt(i + 1).then(resolve);
                 return;
               }
-              thumbOverrides[String(itemId)] = dataUrl;
-              var f = forgedOf(itemId);
-              if (f) {
-                var persist = persistableThumbUrl(src, f.parents && f.parents[0]);
-                if (persist) f.thumb = persist;
-              }
-              applyThumbToDom(itemId, dataUrl);
-              try {
-                saveState();
-              } catch (eSave) {}
-              renderBags();
-              renderForgeSlots();
-              resolve({ ok: true, from: src });
+              resolve(acceptForcedImage(itemId, dataUrl, src));
             };
             probe.onerror = function () {
               tryAt(i + 1).then(resolve);
@@ -359,16 +433,32 @@
         });
     }
 
-    return tryAt(0).then(function (res) {
-      if (res && res.ok) {
-        setStatus("Force loaded " + kindLabel(itemId) + ".");
-        setForgeStatus("Force loaded #" + itemId + ".");
-      } else {
-        setStatus((res && res.error) || "Force load failed.", true);
-        setForgeStatus((res && res.error) || "Force load failed.", true);
-      }
-      return res;
-    });
+    // If forged thumb is only a parent stand-in, skip straight to regenerate when no imageUrl
+    var start =
+      f && !f.imageUrl && (!f.thumb || isParentPaintingUrl(f.thumb, f.parents)) && !thumbOverrides[String(itemId)]
+        ? regenerateForgedImage(itemId)
+        : tryAt(0);
+
+    return start
+      .then(function (res) {
+        if (res && res.ok) {
+          var msg = res.regenerated
+            ? "Regenerated correct image for #" + itemId + "."
+            : "Force loaded correct image for " + kindLabel(itemId) + ".";
+          setStatus(msg);
+          setForgeStatus(msg);
+        } else {
+          setStatus((res && res.error) || "Force load failed.", true);
+          setForgeStatus((res && res.error) || "Force load failed.", true);
+        }
+        return res;
+      })
+      .catch(function (err) {
+        var msg = (err && err.message) || String(err || "Force load failed");
+        setStatus(msg, true);
+        setForgeStatus(msg, true);
+        return { ok: false, error: msg };
+      });
   }
 
   function titleFor(n) {
@@ -649,13 +739,19 @@
     Object.keys(state.forged || {}).forEach(function (k) {
       var f = state.forged[k];
       if (!f || typeof f !== "object") return;
-      var thumb = persistableThumbUrl(f.thumb || "", f.parents && f.parents[0]);
+      var imageUrl = persistableThumbUrl(f.imageUrl || "", null);
+      // Prefer real imageUrl; never persist a parent painting path as the forged image
+      var thumbRaw = f.thumb || "";
+      var thumb = persistableThumbUrl(thumbRaw, null);
+      if (thumb && isParentPaintingUrl(thumb, f.parents)) thumb = imageUrl || "";
+      if (!thumb && imageUrl) thumb = imageUrl;
       forged[k] = {
         id: f.id,
         parents: Array.isArray(f.parents) ? f.parents.slice(0, 3) : [],
         title: String(f.title || "").slice(0, 160),
         description: String(f.description || "").slice(0, 1200),
-        thumb: thumb,
+        imageUrl: imageUrl || "",
+        thumb: thumb || "",
         guide: f.guide,
         createdAt: f.createdAt,
       };
@@ -2789,7 +2885,11 @@
       forgeBusy = false;
       var combineBtn = $("ge-forge-combine");
       if (combineBtn) combineBtn.disabled = false;
-      if (visionUrl) entry.thumb = visionUrl;
+      if (visionUrl) {
+        entry.imageUrl = visionUrl;
+        entry.thumb = visionUrl;
+        thumbOverrides[String(id)] = assetUrl(visionUrl);
+      }
       for (var j = 0; j < 3; j++) {
         if (noteOf(parents[j])) continue;
         if (!consumeOwned(parents[j], 1)) {
