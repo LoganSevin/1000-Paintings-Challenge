@@ -3,7 +3,7 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player + NPCs = sculpted 3D contour humanoids (no photo cubes / prisms / billboards)
+ * - Player + NPCs = continuous sculpted humanoids (tapered limbs, 5-finger hands; no Lego joint balls / photo cubes)
  * - Outfit colors eyedropper-sampled from fashion refs onto solid materials (calm palette)
  * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
  */
@@ -606,9 +606,9 @@ function buildFacingArrow() {
 }
 
 /**
- * Sculpted gallery patrons — carved body contours (capsules / tapered volumes),
- * NOT photo-on-cube / prism / billboard. Colors are calm eyedropper-style solids
- * sampled from fashion refs (hair, skin, wool, silk) — never pasted photo textures.
+ * Sculpted gallery patrons — continuous body silhouette (no Lego joint balls),
+ * 5-finger hands, tapered limb structures, calm solid outfit materials.
+ * NOT photo-on-cube / prism / billboard.
  */
 var MAX_NPCS = 8;
 
@@ -650,9 +650,123 @@ function addMesh(parent, geo, mat, px, py, pz, sx, sy, sz) {
   return m;
 }
 
+/** Lathe profile: hips → waist → chest → shoulder flare → neck blend (one skin line). */
+function makeTorsoShellGeo() {
+  var pts = [
+    new THREE.Vector2(0.01, 0.00),
+    new THREE.Vector2(0.19, 0.02),
+    new THREE.Vector2(0.21, 0.12),
+    new THREE.Vector2(0.18, 0.28),
+    new THREE.Vector2(0.17, 0.40),
+    new THREE.Vector2(0.20, 0.52),
+    new THREE.Vector2(0.24, 0.64),
+    new THREE.Vector2(0.29, 0.74), // shoulder flare
+    new THREE.Vector2(0.22, 0.80),
+    new THREE.Vector2(0.11, 0.86), // neck root
+    new THREE.Vector2(0.075, 0.94),
+    new THREE.Vector2(0.068, 1.04),
+    new THREE.Vector2(0.01, 1.06),
+  ];
+  return new THREE.LatheGeometry(pts, 20);
+}
+
+/** Palm + thumb + 4 fingers (tapered segments). side: -1 left, +1 right. */
+function buildHand(skinMat, side) {
+  var g = new THREE.Group();
+  // palm plate — flat continuous from wrist, not a ball
+  addMesh(g, new THREE.BoxGeometry(0.072, 0.095, 0.032), skinMat, 0, -0.048, 0.008);
+  addMesh(g, new THREE.CapsuleGeometry(0.028, 0.05, 4, 8), skinMat, 0, -0.042, 0.002, 1.25, 1, 0.65);
+
+  var specs = [
+    { x: -0.028, z: 0.008, len: 0.052, r: 0.0085 }, // pinky
+    { x: -0.010, z: 0.014, len: 0.062, r: 0.0095 }, // ring
+    { x: 0.010, z: 0.015, len: 0.066, r: 0.010 },  // middle
+    { x: 0.028, z: 0.010, len: 0.058, r: 0.009 },  // index
+  ];
+  for (var i = 0; i < specs.length; i++) {
+    var s = specs[i];
+    var fg = new THREE.Group();
+    fg.position.set(s.x * side, -0.092, s.z);
+    // proximal + distal taper (reads as one finger, not a ball tip kit)
+    addMesh(fg, new THREE.CylinderGeometry(s.r * 0.72, s.r, s.len * 0.55, 6), skinMat, 0, -s.len * 0.28, 0);
+    addMesh(fg, new THREE.CylinderGeometry(s.r * 0.55, s.r * 0.72, s.len * 0.45, 6), skinMat, 0, -s.len * 0.72, 0);
+    addMesh(fg, new THREE.SphereGeometry(s.r * 0.55, 6, 5), skinMat, 0, -s.len, 0);
+    g.add(fg);
+  }
+  // thumb — angled out from palm edge
+  var thumb = new THREE.Group();
+  thumb.position.set(0.036 * side, -0.035, 0.018);
+  thumb.rotation.z = side * 0.85;
+  thumb.rotation.x = -0.55;
+  thumb.rotation.y = side * 0.25;
+  addMesh(thumb, new THREE.CylinderGeometry(0.0075, 0.011, 0.028, 6), skinMat, 0, -0.012, 0);
+  addMesh(thumb, new THREE.CylinderGeometry(0.006, 0.0075, 0.024, 6), skinMat, 0, -0.036, 0);
+  addMesh(thumb, new THREE.SphereGeometry(0.007, 6, 5), skinMat, 0, -0.05, 0);
+  g.add(thumb);
+  return g;
+}
+
 /**
- * Carve a human silhouette from capsule / sphere / tapered volumes.
- * Outfit silhouette varies (suit, long coat, dress, streetwear) while sharing a walk rig.
+ * Continuous limb arm: shoulder sleeve blends into one tapered tube through the
+ * elbow (heavy overlap, no joint sphere), forearm continues to wrist, 5-finger hand.
+ * Hierarchy kept only so walk can bend the elbow without breaking silhouette.
+ */
+function buildArm(sleeveMat, skinMat, side) {
+  var arm = new THREE.Group();
+  arm.position.set(side * 0.30, 0.70, 0);
+  // shoulder mass blends into torso flare (elongated, not a Lego ball)
+  addMesh(arm, new THREE.CapsuleGeometry(0.085, 0.08, 6, 12), sleeveMat, side * -0.02, 0.02, 0, 1.35, 0.75, 1.05);
+  // upper arm — single tapered structure toward elbow
+  addMesh(arm, new THREE.CylinderGeometry(0.052, 0.078, 0.38, 12), sleeveMat, 0, -0.18, 0);
+  // elbow flesh: same sleeve material, buried in overlap (no ball silhouette)
+  addMesh(arm, new THREE.CapsuleGeometry(0.055, 0.05, 4, 10), sleeveMat, 0, -0.36, 0, 1.05, 0.7, 1.05);
+
+  var fore = new THREE.Group();
+  fore.position.set(0, -0.38, 0);
+  // forearm starts inside upper arm for continuity
+  addMesh(fore, new THREE.CylinderGeometry(0.040, 0.054, 0.36, 12), sleeveMat, 0, -0.12, 0);
+  addMesh(fore, new THREE.CylinderGeometry(0.036, 0.042, 0.08, 10), sleeveMat, 0, -0.30, 0);
+  // wrist skin peek into hand
+  addMesh(fore, new THREE.CylinderGeometry(0.032, 0.036, 0.04, 10), skinMat, 0, -0.34, 0);
+
+  var hand = buildHand(skinMat, side);
+  hand.position.set(0, -0.38, 0);
+  fore.add(hand);
+  arm.add(fore);
+  return { arm: arm, fore: fore };
+}
+
+/**
+ * Continuous leg: hip→thigh→shin→shoe as overlapping tapers (no ball joints).
+ */
+function buildLeg(pantsMat, shoeMat, side, hideMeshes) {
+  var leg = new THREE.Group();
+  leg.position.set(side * 0.11, 0.92, 0);
+  // hip blend into pelvis
+  addMesh(leg, new THREE.CapsuleGeometry(0.095, 0.06, 5, 10), pantsMat, side * -0.01, -0.02, 0, 1.15, 0.7, 1.05);
+  // thigh taper
+  addMesh(leg, new THREE.CylinderGeometry(0.072, 0.095, 0.40, 12), pantsMat, 0, -0.24, 0);
+  // knee overlap (pants material — not a joint ball)
+  addMesh(leg, new THREE.CapsuleGeometry(0.07, 0.045, 4, 10), pantsMat, 0, -0.44, 0, 1.05, 0.65, 1.05);
+
+  var shin = new THREE.Group();
+  shin.position.set(0, -0.46, 0);
+  addMesh(shin, new THREE.CylinderGeometry(0.055, 0.072, 0.38, 12), pantsMat, 0, -0.16, 0);
+  addMesh(shin, new THREE.CylinderGeometry(0.048, 0.055, 0.08, 10), pantsMat, 0, -0.34, 0);
+  // shoe volume
+  addMesh(shin, new THREE.BoxGeometry(0.12, 0.065, 0.26), shoeMat, 0, -0.40, 0.05);
+  addMesh(shin, new THREE.BoxGeometry(0.11, 0.05, 0.08), shoeMat, 0, -0.36, -0.08);
+  leg.add(shin);
+
+  if (hideMeshes) {
+    leg.traverse(function (o) { if (o.isMesh) o.visible = false; });
+  }
+  return { leg: leg, shin: shin };
+}
+
+/**
+ * Carve a continuous human silhouette. Outfit volumes (suit/coat/dress/street)
+ * sit on the connected body; limbs are structures with 5-finger hands.
  */
 function buildHumanoid(opts) {
   opts = opts || {};
@@ -683,166 +797,115 @@ function buildHumanoid(opts) {
   var beretMat = matStd(beretHex, 0.7, 0.05);
   var tieMat = matStd(tieHex, 0.65, 0.05);
 
-  // —— Legs (sculpted capsules; shortened under dress hem) ——
-  var lLeg = new THREE.Group();
-  lLeg.position.set(-0.12, 0.95, 0);
-  addMesh(lLeg, new THREE.CapsuleGeometry(0.085, 0.34, 6, 12), pantsMat, 0, -0.22, 0);
-  var lShinG = new THREE.Group();
-  lShinG.position.set(0, -0.44, 0);
-  addMesh(lShinG, new THREE.CapsuleGeometry(0.07, 0.3, 6, 12), pantsMat, 0, -0.2, 0);
-  addMesh(lShinG, new THREE.BoxGeometry(0.13, 0.07, 0.26), shoeMat, 0, -0.4, 0.04);
-  lLeg.add(lShinG);
-  if (!isDress) rig.add(lLeg);
-  else {
-    // still add for walk anim but hide thigh mesh under dress — keep shin tip faintly
-    lLeg.visible = true;
-    lLeg.traverse(function (o) { if (o.isMesh) o.visible = false; });
-    // small shoe peek
-    var lShoe = addMesh(rig, new THREE.BoxGeometry(0.12, 0.06, 0.22), shoeMat, -0.12, 0.05, 0.04);
+  // —— Legs (continuous hip→foot) ——
+  var Lleg = buildLeg(pantsMat, shoeMat, -1, isDress);
+  var Rleg = buildLeg(pantsMat, shoeMat, 1, isDress);
+  rig.add(Lleg.leg);
+  rig.add(Rleg.leg);
+  if (isDress) {
+    var lShoe = addMesh(rig, new THREE.BoxGeometry(0.11, 0.055, 0.22), shoeMat, -0.11, 0.04, 0.04);
     lShoe.userData.dressShoe = "L";
-  }
-
-  var rLeg = new THREE.Group();
-  rLeg.position.set(0.12, 0.95, 0);
-  addMesh(rLeg, new THREE.CapsuleGeometry(0.085, 0.34, 6, 12), pantsMat, 0, -0.22, 0);
-  var rShinG = new THREE.Group();
-  rShinG.position.set(0, -0.44, 0);
-  addMesh(rShinG, new THREE.CapsuleGeometry(0.07, 0.3, 6, 12), pantsMat, 0, -0.2, 0);
-  addMesh(rShinG, new THREE.BoxGeometry(0.13, 0.07, 0.26), shoeMat, 0, -0.4, 0.04);
-  rLeg.add(rShinG);
-  if (!isDress) rig.add(rLeg);
-  else {
-    rLeg.visible = true;
-    rLeg.traverse(function (o) { if (o.isMesh) o.visible = false; });
-    var rShoe = addMesh(rig, new THREE.BoxGeometry(0.12, 0.06, 0.22), shoeMat, 0.12, 0.05, 0.04);
+    var rShoe = addMesh(rig, new THREE.BoxGeometry(0.11, 0.055, 0.22), shoeMat, 0.11, 0.04, 0.04);
     rShoe.userData.dressShoe = "R";
   }
-  // Always keep leg groups in rig for animation even if meshes hidden
-  if (isDress) { rig.add(lLeg); rig.add(rLeg); }
 
-  // —— Torso / clothing volumes (carved, not a single photo box) ——
+  // —— Torso: connected hips–chest–shoulders–neck shell ——
   var torso = new THREE.Group();
-  torso.position.y = 0.95;
+  torso.position.y = 0.90;
 
-  // Hips / pelvis bowl
-  addMesh(torso, new THREE.SphereGeometry(0.2, 16, 12), isDress ? coatMat : pantsMat, 0, 0.06, 0, 1.15, 0.7, 0.95);
+  // Underlying continuous body (skin line under clothing)
+  addMesh(torso, makeTorsoShellGeo(), isDress ? coatMat : skinMat, 0, 0, 0);
 
   if (isDress) {
-    // A-line dress: tapered capsule + flared skirt cone
-    addMesh(torso, new THREE.CapsuleGeometry(0.2, 0.42, 8, 14), coatMat, 0, 0.42, 0, 1.05, 1, 0.9);
-    var skirt = addMesh(torso, new THREE.CylinderGeometry(0.34, 0.2, 0.55, 16), coatMat, 0, 0.12, 0);
-    skirt.position.y = -0.05;
-    // bodice scoop
-    addMesh(torso, new THREE.SphereGeometry(0.16, 14, 10), shirtMat, 0, 0.62, 0.08, 1.1, 0.55, 0.7);
+    addMesh(torso, new THREE.CapsuleGeometry(0.21, 0.40, 8, 14), coatMat, 0, 0.40, 0, 1.08, 1, 0.92);
+    var skirt = addMesh(torso, new THREE.CylinderGeometry(0.36, 0.20, 0.58, 18), coatMat, 0, 0.02, 0);
+    skirt.position.y = -0.02;
+    addMesh(torso, new THREE.SphereGeometry(0.15, 14, 10), shirtMat, 0, 0.62, 0.08, 1.15, 0.5, 0.7);
   } else if (isLongCoat) {
-    addMesh(torso, new THREE.CapsuleGeometry(0.22, 0.5, 8, 14), coatMat, 0, 0.4, 0, 1.05, 1.05, 0.92);
-    // coat skirts hanging lower
-    addMesh(torso, new THREE.CylinderGeometry(0.26, 0.22, 0.5, 14), coatMat, 0, 0.02, 0.02);
-    addMesh(torso, new THREE.BoxGeometry(0.16, 0.28, 0.05), shirtMat, 0, 0.62, 0.16);
-    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.55, 0.19);
-    // lapels as thin wedges
-    var lapL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, -0.12, 0.52, 0.17);
+    addMesh(torso, new THREE.CapsuleGeometry(0.23, 0.48, 8, 14), coatMat, 0, 0.40, 0, 1.08, 1.02, 0.95);
+    addMesh(torso, new THREE.CylinderGeometry(0.28, 0.22, 0.55, 14), coatMat, 0, 0.00, 0.02);
+    addMesh(torso, new THREE.BoxGeometry(0.16, 0.28, 0.05), shirtMat, 0, 0.60, 0.17);
+    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.52, 0.20);
+    var lapL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, -0.12, 0.50, 0.18);
     lapL.rotation.z = 0.15;
-    var lapR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, 0.12, 0.52, 0.17);
+    var lapR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.4, 0.045), coatMat, 0.12, 0.50, 0.18);
     lapR.rotation.z = -0.15;
   } else if (isHoodie) {
-    addMesh(torso, new THREE.CapsuleGeometry(0.23, 0.48, 8, 14), coatMat, 0, 0.42, 0, 1.08, 1, 0.95);
-    // hoodie pouch
-    addMesh(torso, new THREE.BoxGeometry(0.28, 0.14, 0.08), coatMat, 0, 0.28, 0.18);
-    // hood ring behind neck
-    addMesh(torso, new THREE.TorusGeometry(0.12, 0.035, 8, 14), coatMat, 0, 0.88, -0.08);
-    addMesh(torso, new THREE.BoxGeometry(0.2, 0.18, 0.04), shirtMat, 0, 0.58, 0.2);
+    addMesh(torso, new THREE.CapsuleGeometry(0.24, 0.46, 8, 14), coatMat, 0, 0.40, 0, 1.1, 1, 0.98);
+    addMesh(torso, new THREE.BoxGeometry(0.28, 0.14, 0.08), coatMat, 0, 0.26, 0.19);
+    addMesh(torso, new THREE.TorusGeometry(0.12, 0.035, 8, 14), coatMat, 0, 0.86, -0.08);
+    addMesh(torso, new THREE.BoxGeometry(0.2, 0.18, 0.04), shirtMat, 0, 0.56, 0.21);
   } else {
-    // classic suit / blazer — soft capsule torso, not a brick
-    addMesh(torso, new THREE.CapsuleGeometry(0.21, 0.46, 8, 14), coatMat, 0, 0.42, 0, 1.08, 1.02, 0.9);
-    addMesh(torso, new THREE.BoxGeometry(0.16, 0.3, 0.05), shirtMat, 0, 0.58, 0.16);
-    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.52, 0.19);
-    var lpl = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, -0.12, 0.5, 0.17);
+    // suit / blazer over continuous torso
+    addMesh(torso, new THREE.CapsuleGeometry(0.22, 0.44, 8, 14), coatMat, 0, 0.40, 0, 1.1, 1.0, 0.92);
+    addMesh(torso, new THREE.BoxGeometry(0.16, 0.3, 0.05), shirtMat, 0, 0.56, 0.17);
+    addMesh(torso, new THREE.BoxGeometry(0.05, 0.26, 0.03), tieMat, 0, 0.50, 0.20);
+    var lpl = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, -0.12, 0.48, 0.18);
     lpl.rotation.z = 0.12;
-    var lpr = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, 0.12, 0.5, 0.17);
+    var lpr = addMesh(torso, new THREE.BoxGeometry(0.09, 0.38, 0.04), coatMat, 0.12, 0.48, 0.18);
     lpr.rotation.z = -0.12;
-    // collar tips
-    var cL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, -0.07, 0.78, 0.14);
+    var cL = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, -0.07, 0.76, 0.15);
     cL.rotation.z = 0.45;
-    var cR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, 0.07, 0.78, 0.14);
+    var cR = addMesh(torso, new THREE.BoxGeometry(0.09, 0.05, 0.06), shirtMat, 0.07, 0.76, 0.15);
     cR.rotation.z = -0.45;
   }
 
-  // Shoulders — rounded deltoids
-  addMesh(torso, new THREE.SphereGeometry(0.11, 12, 10), coatMat, -0.26, 0.72, 0);
-  addMesh(torso, new THREE.SphereGeometry(0.11, 12, 10), coatMat, 0.26, 0.72, 0);
+  // Soft shoulder pads — elongated into sleeve line (NOT discrete spheres)
+  addMesh(torso, new THREE.CapsuleGeometry(0.09, 0.1, 6, 12), coatMat, -0.26, 0.70, 0, 1.4, 0.7, 1.05);
+  addMesh(torso, new THREE.CapsuleGeometry(0.09, 0.1, 6, 12), coatMat, 0.26, 0.70, 0, 1.4, 0.7, 1.05);
 
   if (isPlayer) {
-    addMesh(torso, new THREE.SphereGeometry(0.04, 10, 8), matStd(0xffe066, 0.3, 0.55), 0.14, 0.5, 0.2);
-    // emissive-ish gold: rebuild with emissive
-    torso.children[torso.children.length - 1].material = trackMat(new THREE.MeshStandardMaterial({
+    var pin = addMesh(torso, new THREE.SphereGeometry(0.035, 10, 8), matStd(0xffe066, 0.3, 0.55), 0.14, 0.48, 0.21);
+    pin.material = trackMat(new THREE.MeshStandardMaterial({
       color: 0xffe066, emissive: 0xaa8800, emissiveIntensity: 0.65, metalness: 0.55, roughness: 0.3,
     }));
   }
 
-  // —— Arms ——
-  var sleeveMat = coatMat;
-  var lArm = new THREE.Group();
-  lArm.position.set(-0.28, 0.72, 0);
-  addMesh(lArm, new THREE.CapsuleGeometry(0.065, 0.28, 6, 10), sleeveMat, 0, -0.18, 0);
-  var lFore = new THREE.Group();
-  lFore.position.set(0, -0.38, 0);
-  addMesh(lFore, new THREE.CapsuleGeometry(0.055, 0.24, 6, 10), sleeveMat, 0, -0.14, 0);
-  addMesh(lFore, new THREE.SphereGeometry(0.065, 10, 8), skinMat, 0, -0.32, 0);
-  lArm.add(lFore);
-  torso.add(lArm);
+  // —— Arms with 5-finger hands ——
+  var Larm = buildArm(coatMat, skinMat, -1);
+  var Rarm = buildArm(coatMat, skinMat, 1);
+  torso.add(Larm.arm);
+  torso.add(Rarm.arm);
 
-  var rArm = new THREE.Group();
-  rArm.position.set(0.28, 0.72, 0);
-  addMesh(rArm, new THREE.CapsuleGeometry(0.065, 0.28, 6, 10), sleeveMat, 0, -0.18, 0);
-  var rFore = new THREE.Group();
-  rFore.position.set(0, -0.38, 0);
-  addMesh(rFore, new THREE.CapsuleGeometry(0.055, 0.24, 6, 10), sleeveMat, 0, -0.14, 0);
-  addMesh(rFore, new THREE.SphereGeometry(0.065, 10, 8), skinMat, 0, -0.32, 0);
-  rArm.add(rFore);
-  torso.add(rArm);
-
-  // —— Neck + continuous head ——
-  addMesh(torso, new THREE.CylinderGeometry(0.065, 0.085, 0.12, 12), skinMat, 0, 0.88, 0);
-
+  // —— Head continuous with neck stump (already in lathe); chin overlaps neck ——
   var headG = new THREE.Group();
-  headG.position.set(0, 1.06, 0);
-  // elongated skull — one continuous mesh
-  addMesh(headG, new THREE.SphereGeometry(0.16, 24, 20), skinMat, 0, 0.02, 0.01, 1, 1.15, 0.95);
-  addMesh(headG, new THREE.SphereGeometry(0.11, 16, 12), skinMat, 0, -0.05, 0.03, 1.2, 0.85, 0.95);
+  headG.position.set(0, 1.05, 0);
+  // neck→jaw blend volume (same skin as head — kills floating cylinder look)
+  addMesh(headG, new THREE.CylinderGeometry(0.07, 0.09, 0.14, 14), skinMat, 0, -0.12, 0.01);
+  addMesh(headG, new THREE.SphereGeometry(0.095, 16, 12), skinMat, 0, -0.06, 0.02, 1.15, 0.7, 1.0);
+  // skull
+  addMesh(headG, new THREE.SphereGeometry(0.155, 24, 20), skinMat, 0, 0.02, 0.01, 1, 1.12, 0.95);
+  addMesh(headG, new THREE.SphereGeometry(0.11, 16, 12), skinMat, 0, -0.04, 0.03, 1.15, 0.8, 0.95);
   // hair cap
-  addMesh(headG, new THREE.SphereGeometry(0.165, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), hairMat, 0, 0.05, -0.01, 1.02, 1.05, 1.0);
-  // ears
-  addMesh(headG, new THREE.SphereGeometry(0.032, 10, 8), skinMat, -0.155, 0.0, 0, 0.7, 1.1, 0.55);
-  addMesh(headG, new THREE.SphereGeometry(0.032, 10, 8), skinMat, 0.155, 0.0, 0, 0.7, 1.1, 0.55);
+  addMesh(headG, new THREE.SphereGeometry(0.16, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), hairMat, 0, 0.05, -0.01, 1.02, 1.05, 1.0);
+  addMesh(headG, new THREE.SphereGeometry(0.03, 10, 8), skinMat, -0.15, 0.0, 0, 0.7, 1.1, 0.55);
+  addMesh(headG, new THREE.SphereGeometry(0.03, 10, 8), skinMat, 0.15, 0.0, 0, 0.7, 1.1, 0.55);
 
   var eyeWhite = matStd(0xf5f2ea, 0.35, 0);
   var irisMat = matStd(0x3a4a5a, 0.35, 0);
   var pupilMat = matStd(0x101018, 0.25, 0);
   function eye(ox) {
     var eg = new THREE.Group();
-    eg.position.set(ox, 0.03, 0.135);
-    addMesh(eg, new THREE.SphereGeometry(0.026, 12, 10), eyeWhite, 0, 0, 0);
-    addMesh(eg, new THREE.SphereGeometry(0.015, 10, 8), irisMat, 0, 0, 0.015);
-    addMesh(eg, new THREE.SphereGeometry(0.007, 8, 6), pupilMat, 0, 0, 0.024);
-    addMesh(eg, new THREE.BoxGeometry(0.06, 0.01, 0.015), hairMat, 0, 0.032, 0.008);
+    eg.position.set(ox, 0.03, 0.13);
+    addMesh(eg, new THREE.SphereGeometry(0.024, 12, 10), eyeWhite, 0, 0, 0);
+    addMesh(eg, new THREE.SphereGeometry(0.014, 10, 8), irisMat, 0, 0, 0.014);
+    addMesh(eg, new THREE.SphereGeometry(0.006, 8, 6), pupilMat, 0, 0, 0.022);
+    addMesh(eg, new THREE.BoxGeometry(0.055, 0.01, 0.014), hairMat, 0, 0.03, 0.008);
     headG.add(eg);
   }
-  eye(-0.05);
-  eye(0.05);
+  eye(-0.048);
+  eye(0.048);
 
-  // nose tip + bridge (small)
-  addMesh(headG, new THREE.BoxGeometry(0.028, 0.045, 0.04), skinMat, 0, -0.015, 0.15);
-  addMesh(headG, new THREE.SphereGeometry(0.016, 10, 8), skinMat, 0, -0.035, 0.17);
-  // tiny lips only
+  addMesh(headG, new THREE.BoxGeometry(0.026, 0.042, 0.038), skinMat, 0, -0.012, 0.145);
+  addMesh(headG, new THREE.SphereGeometry(0.015, 10, 8), skinMat, 0, -0.032, 0.165);
   var lipMat = matStd(0xb07070, 0.55, 0.04);
-  addMesh(headG, new THREE.BoxGeometry(0.05, 0.01, 0.016), lipMat, 0, -0.08, 0.145);
+  addMesh(headG, new THREE.BoxGeometry(0.048, 0.01, 0.015), lipMat, 0, -0.075, 0.14);
 
   if (withBeret) {
-    var beret = addMesh(headG, new THREE.SphereGeometry(0.19, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), beretMat, -0.02, 0.15, -0.02, 1.15, 0.42, 1.15);
+    var beret = addMesh(headG, new THREE.SphereGeometry(0.185, 20, 14, 0, Math.PI * 2, 0, Math.PI * 0.55), beretMat, -0.02, 0.14, -0.02, 1.15, 0.42, 1.15);
     beret.rotation.z = -0.18;
     beret.rotation.x = -0.12;
-    addMesh(headG, new THREE.SphereGeometry(0.055, 12, 10), beretMat, -0.05, 0.2, -0.02, 1, 0.45, 1);
+    addMesh(headG, new THREE.SphereGeometry(0.05, 12, 10), beretMat, -0.05, 0.19, -0.02, 1, 0.45, 1);
   }
 
   torso.add(headG);
@@ -855,15 +918,22 @@ function buildHumanoid(opts) {
   }
 
   root.scale.setScalar(scale);
+
+  // Ground soles to y=0 so NPCs / player never half-clip the marble
+  root.updateMatrixWorld(true);
+  var bb = new THREE.Box3().setFromObject(root);
+  if (isFinite(bb.min.y)) root.position.y -= bb.min.y;
+
   root.userData.limbs = {
-    lLeg: lLeg, rLeg: rLeg, lShin: lShinG, rShin: rShinG,
-    lArm: lArm, rArm: rArm, lFore: lFore, rFore: rFore,
+    lLeg: Lleg.leg, rLeg: Rleg.leg, lShin: Lleg.shin, rShin: Rleg.shin,
+    lArm: Larm.arm, rArm: Rarm.arm, lFore: Larm.fore, rFore: Rarm.fore,
     torso: torso, head: headG, phase: Math.random() * Math.PI * 2,
     dress: isDress,
+    groundY: root.position.y,
   };
   root.userData.isPlayer = isPlayer;
   root.userData.walkAmp = 0;
-  root.userData.charKind = "sculpt";
+  root.userData.charKind = "sculpt-continuous";
   return root;
 }
 
@@ -876,17 +946,16 @@ function animateHumanoid(root, moving, dt) {
   L.phase += dt * (6.5 + amp * 4);
   var sw = Math.sin(L.phase) * amp;
   var sw2 = Math.sin(L.phase + Math.PI) * amp;
-  L.lLeg.rotation.x = sw * (L.dress ? 0.25 : 0.7);
-  L.rLeg.rotation.x = sw2 * (L.dress ? 0.25 : 0.7);
-  L.lShin.rotation.x = Math.max(0, -sw) * (L.dress ? 0.2 : 0.55);
-  L.rShin.rotation.x = Math.max(0, -sw2) * (L.dress ? 0.2 : 0.55);
-  L.lArm.rotation.x = sw2 * 0.55;
-  L.rArm.rotation.x = sw * 0.55;
-  L.lFore.rotation.x = -0.15 - Math.max(0, sw2) * 0.25;
-  L.rFore.rotation.x = -0.15 - Math.max(0, sw) * 0.25;
-  L.torso.position.y = 0.95 + Math.abs(sw) * 0.035;
+  L.lLeg.rotation.x = sw * (L.dress ? 0.25 : 0.65);
+  L.rLeg.rotation.x = sw2 * (L.dress ? 0.25 : 0.65);
+  L.lShin.rotation.x = Math.max(0, -sw) * (L.dress ? 0.2 : 0.5);
+  L.rShin.rotation.x = Math.max(0, -sw2) * (L.dress ? 0.2 : 0.5);
+  L.lArm.rotation.x = sw2 * 0.5;
+  L.rArm.rotation.x = sw * 0.5;
+  L.lFore.rotation.x = -0.12 - Math.max(0, sw2) * 0.22;
+  L.rFore.rotation.x = -0.12 - Math.max(0, sw) * 0.22;
+  L.torso.position.y = 0.90 + Math.abs(sw) * 0.03;
   L.head.rotation.y = sw * 0.04;
-  // bob dress shoes if present
   if (L.dress) {
     root.traverse(function (o) {
       if (o.userData && o.userData.dressShoe === "L") o.position.z = 0.04 + sw * 0.06;
@@ -926,7 +995,8 @@ function buildNpc(x, z, palette) {
     hoodie: !!p.hoodie,
     scale: 0.96 + Math.random() * 0.08,
   });
-  g.position.set(x, 0, z);
+  var gy = (g.userData.limbs && g.userData.limbs.groundY) || g.position.y || 0;
+  g.position.set(x, gy, z);
   return {
     group: g,
     x: x, z: z,
@@ -1077,7 +1147,8 @@ function buildHall() {
   fill.position.set(-8, 6, 8); scene.add(fill);
 
   api._player = buildPlayer();
-  api._player.position.set(0, 0, 10);
+  var pgy = (api._player.userData.limbs && api._player.userData.limbs.groundY) || api._player.position.y || 0;
+  api._player.position.set(0, pgy, 10);
   api._playerYaw = Math.PI;
   api._player.rotation.y = api._playerYaw;
   scene.add(api._player);
@@ -1147,7 +1218,8 @@ function stepNpc(n, dt) {
     n.x = a[0] + dx * n.pathT;
     n.z = a[1] + dz * n.pathT;
     n.yaw = Math.atan2(-dx, -dz);
-    n.group.position.set(n.x, 0, n.z);
+    var gy = (n.group.userData.limbs && n.group.userData.limbs.groundY) || 0;
+    n.group.position.set(n.x, gy, n.z);
     n.group.rotation.y = n.yaw;
     animateHumanoid(n.group, true, dt);
     return;
@@ -1175,7 +1247,8 @@ function stepNpc(n, dt) {
   } else {
     n.x = nxx; n.z = nzz;
   }
-  n.group.position.set(n.x, 0, n.z);
+  var gy2 = (n.group.userData.limbs && n.group.userData.limbs.groundY) || 0;
+  n.group.position.set(n.x, gy2, n.z);
   n.group.rotation.y = n.yaw;
   animateHumanoid(n.group, moving, dt);
 }
