@@ -492,16 +492,8 @@
       "</div>";
     document.body.appendChild(pop);
 
-    // Keep clicks inside the popover from dismissing it
-    ["pointerdown", "mousedown", "click"].forEach(function (evt) {
-      pop.addEventListener(
-        evt,
-        function (e) {
-          e.stopPropagation();
-        },
-        true
-      );
-    });
+    // Do NOT capture-stop on the whole popover — that blocked Apply/Cancel.
+    // Outside-dismiss is handled by the document click (ignores pop.contains).
 
     var rect = anchorBtn.getBoundingClientRect();
     var left = Math.min(rect.left, window.innerWidth - (pop.offsetWidth || 280) - 12);
@@ -561,16 +553,22 @@
         doApply();
       }
     });
-    pop.querySelector(".ge-color-popover-cancel").addEventListener("click", function (e) {
+    function onCancel(e) {
       e.preventDefault();
       e.stopPropagation();
       closeGeColorPopover();
-    });
-    pop.querySelector(".ge-color-popover-apply").addEventListener("click", function (e) {
+    }
+    function onApply(e) {
       e.preventDefault();
       e.stopPropagation();
       doApply();
-    });
+    }
+    var cancelEl = pop.querySelector(".ge-color-popover-cancel");
+    var applyEl = pop.querySelector(".ge-color-popover-apply");
+    cancelEl.addEventListener("pointerdown", onCancel);
+    cancelEl.addEventListener("click", onCancel);
+    applyEl.addEventListener("pointerdown", onApply);
+    applyEl.addEventListener("click", onApply);
   }
 
   var geDescEditItemId = null;
@@ -4572,6 +4570,11 @@
         var pop = document.getElementById("ge-color-popover");
         if (!pop) return;
         if (pop.contains(e.target)) return;
+        // Also ignore if the event path includes the popover (shadow/native quirks)
+        var path = typeof e.composedPath === "function" ? e.composedPath() : [];
+        for (var pi = 0; pi < path.length; pi++) {
+          if (path[pi] === pop) return;
+        }
         var until = Number(pop.dataset.suppressOutsideUntil || 0);
         if (Date.now() < until) return;
         closeGeColorPopover();
