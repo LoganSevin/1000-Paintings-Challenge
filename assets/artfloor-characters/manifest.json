@@ -1,0 +1,578 @@
+[
+  {
+    "file": "cutouts/char_00.png",
+    "src": "09dd1a97a1a571bfec7703f06a89595a6d384d35bbb02d2ef029601453a69c7f.jpeg",
+    "w": 326,
+    "h": 1024,
+    "head": [
+      40,
+      31,
+      32
+    ],
+    "torso": [
+      54,
+      50,
+      53
+    ],
+    "legs": [
+      37,
+      35,
+      39
+    ],
+    "shoes": [
+      29,
+      27,
+      30
+    ],
+    "aspect": 0.318,
+    "view": "side",
+    "sym": 0.503,
+    "skin": false,
+    "face_col": [
+      67,
+      51,
+      47
+    ],
+    "med_w": 136.5
+  },
+  {
+    "file": "cutouts/char_01.png",
+    "src": "352eca14d947f257c0189b4dc6b8e7b5674814d8d53c6a87e179bc852d7639fb.jpeg",
+    "w": 326,
+    "h": 1024,
+    "head": [
+      97,
+      85,
+      79
+    ],
+    "torso": [
+      45,
+      43,
+      46
+    ],
+    "legs": [
+      29,
+      26,
+      29
+    ],
+    "shoes": [
+      39,
+      33,
+      33
+    ],
+    "aspect": 0.318,
+    "view": "back",
+    "sym": 0.928,
+    "skin": false,
+    "face_col": [
+      70,
+      65,
+      64
+    ],
+    "med_w": 188.0
+  },
+  {
+    "file": "cutouts/char_02.png",
+    "src": "3a8ffe828cca6a97701efb61ec0428152d8e3b25ed2af7be1eb0acbbfd2064e7.jpeg",
+    "w": 319,
+    "h": 1024,
+    "head": [
+      34,
+      26,
+      26
+    ],
+    "torso": [
+      34,
+      32,
+      37
+    ],
+    "legs": [
+      29,
+      26,
+      31
+    ],
+    "shoes": [
+      29,
+      27,
+      31
+    ],
+    "aspect": 0.312,
+    "view": "back",
+    "sym": 0.964,
+    "skin": false,
+    "face_col": [
+      41,
+      34,
+      36
+    ],
+    "med_w": 212.0
+  },
+  {
+    "file": "cutouts/char_03.png",
+    "src": "482c425559425efa28113def68b3f2baef346e20f645b13d96580034f51e1eab.jpeg",
+    "w": 302,
+    "h": 1024,
+    "head": [
+      109,
+      78,
+      64
+    ],
+    "torso": [
+      39,
+      36,
+      40
+    ],
+    "legs": [
+      39,
+      33,
+      36
+    ],
+    "shoes": [
+      30,
+      28,
+      32
+    ],
+    "aspect": 0.295,
+    "view": "side",
+    "sym": 0.975,
+    "skin": true,
+    "face_col": [
+      116,
+      84,
+      70
+    ],
+    "med_w": 194.0
+  },
+  {
+    "file": "cutouts/char_04.png",
+    "src": "4f3fe2d10b01eaf2e65b02cb007f23f347430405b58629af4c52bbe8fb4d96e4.jpeg",
+    "w": 256,
+    "h": 1024,
+    "head": [
+      81,
+      59,
+      51
+    ],
+    "torso": [
+      37,
+      35,
+      40
+    ],
+    "legs": [
+      34,
+      30,
+      34
+    ],
+    "shoes": [
+      26,
+      24,
+      28
+    ],
+    "aspect": 0.25,
+    "view": "side",
+    "sym": 0.827,
+    "skin": false,
+    "face_col": [
+      68,
+      54,
+      50
+    ],
+    "med_w": 135.0
+  },
+  {
+    "file": "cutouts/char_05.png",
+    "src": "63e151cd791e687af58f18c5cfa21aa7d526e1bec538445a96149b3d304aac92.jpeg",
+    "w": 355,
+    "h": 1024,
+    "head": [
+      94,
+      71,
+      62
+    ],
+    "torso": [
+      48,
+      45,
+      47
+    ],
+    "legs": [
+      32,
+      30,
+      36
+    ],
+    "shoes": [
+      22,
+      21,
+      26
+    ],
+    "aspect": 0.347,
+    "view": "side",
+    "sym": 0.857,
+    "skin": true,
+    "face_col": [
+      91,
+      68,
+      62
+    ],
+    "med_w": 166.0
+  },
+  {
+    "file": "cutouts/char_06.png",
+    "src": "8ff62c8ac99624d4f4b8feb9fa56e432b840293fe6a06923b1b2fac830c110ac.jpeg",
+    "w": 420,
+    "h": 1024,
+    "head": [
+      105,
+      80,
+      71
+    ],
+    "torso": [
+      52,
+      48,
+      50
+    ],
+    "legs": [
+      34,
+      31,
+      37
+    ],
+    "shoes": [
+      24,
+      23,
+      29
+    ],
+    "aspect": 0.41,
+    "view": "side",
+    "sym": 0.819,
+    "skin": true,
+    "face_col": [
+      110,
+      81,
+      72
+    ],
+    "med_w": 219.5
+  },
+  {
+    "file": "cutouts/char_07.png",
+    "src": "b075d4d00c73ce058009c372b72337aca5e1eaa142fa41b034833bfc2f20d470.jpeg",
+    "w": 314,
+    "h": 1024,
+    "head": [
+      80,
+      63,
+      58
+    ],
+    "torso": [
+      58,
+      54,
+      57
+    ],
+    "legs": [
+      28,
+      24,
+      28
+    ],
+    "shoes": [
+      35,
+      33,
+      36
+    ],
+    "aspect": 0.307,
+    "view": "side",
+    "sym": 0.954,
+    "skin": true,
+    "face_col": [
+      126,
+      98,
+      85
+    ],
+    "med_w": 170.0
+  },
+  {
+    "file": "cutouts/char_08.png",
+    "src": "b1a4a74ab66cd914c78429a2ecbb937cd9bc55259bd19633ad0dbece7725d441.jpeg",
+    "w": 251,
+    "h": 1024,
+    "head": [
+      90,
+      75,
+      78
+    ],
+    "torso": [
+      56,
+      54,
+      64
+    ],
+    "legs": [
+      39,
+      36,
+      41
+    ],
+    "shoes": [
+      26,
+      24,
+      29
+    ],
+    "aspect": 0.245,
+    "view": "side",
+    "sym": 0.794,
+    "skin": true,
+    "face_col": [
+      108,
+      91,
+      93
+    ],
+    "med_w": 139.0
+  },
+  {
+    "file": "cutouts/char_09.png",
+    "src": "b4c11b9f5ab35c8cad3dbd22e4e8027165cc0424b14134ec39824fccae101cba.jpeg",
+    "w": 312,
+    "h": 1024,
+    "head": [
+      122,
+      95,
+      87
+    ],
+    "torso": [
+      44,
+      42,
+      44
+    ],
+    "legs": [
+      34,
+      28,
+      31
+    ],
+    "shoes": [
+      35,
+      31,
+      32
+    ],
+    "aspect": 0.305,
+    "view": "front",
+    "sym": 0.961,
+    "skin": true,
+    "face_col": [
+      118,
+      92,
+      86
+    ],
+    "med_w": 176.0
+  },
+  {
+    "file": "cutouts/char_10.png",
+    "src": "c7ef98f2e278e5801150fff568b6808bb7102cfc2c74d3824f3aa3117ab964d8.jpeg",
+    "w": 337,
+    "h": 1024,
+    "head": [
+      21,
+      19,
+      24
+    ],
+    "torso": [
+      39,
+      37,
+      41
+    ],
+    "legs": [
+      31,
+      29,
+      34
+    ],
+    "shoes": [
+      36,
+      34,
+      37
+    ],
+    "aspect": 0.329,
+    "view": "side",
+    "sym": 0.66,
+    "skin": false,
+    "face_col": [
+      20,
+      18,
+      24
+    ],
+    "med_w": 166.5
+  },
+  {
+    "file": "cutouts/char_11.png",
+    "src": "cbf9f559110840b0262414f23379f66287a61be5f938ba71828985903946fa24.jpeg",
+    "w": 427,
+    "h": 1024,
+    "head": [
+      95,
+      71,
+      63
+    ],
+    "torso": [
+      53,
+      49,
+      51
+    ],
+    "legs": [
+      34,
+      32,
+      37
+    ],
+    "shoes": [
+      25,
+      23,
+      28
+    ],
+    "aspect": 0.417,
+    "view": "side",
+    "sym": 0.886,
+    "skin": true,
+    "face_col": [
+      92,
+      69,
+      63
+    ],
+    "med_w": 157.5
+  },
+  {
+    "file": "cutouts/char_12.png",
+    "src": "ddfef2172f194e96ac2f57c5b54407ac76d6d0a699f216b29c05e1b98c7f36ad.jpeg",
+    "w": 277,
+    "h": 1024,
+    "head": [
+      138,
+      108,
+      97
+    ],
+    "torso": [
+      47,
+      45,
+      47
+    ],
+    "legs": [
+      36,
+      30,
+      32
+    ],
+    "shoes": [
+      35,
+      30,
+      31
+    ],
+    "aspect": 0.271,
+    "view": "side",
+    "sym": 0.755,
+    "skin": true,
+    "face_col": [
+      94,
+      76,
+      72
+    ],
+    "med_w": 141.0
+  },
+  {
+    "file": "cutouts/char_13.png",
+    "src": "e712f980c04cb629ce505b51a9dc378031036d05652039a3e7809feaa698b7d6.jpeg",
+    "w": 425,
+    "h": 1024,
+    "head": [
+      62,
+      48,
+      43
+    ],
+    "torso": [
+      46,
+      44,
+      46
+    ],
+    "legs": [
+      29,
+      29,
+      35
+    ],
+    "shoes": [
+      27,
+      27,
+      34
+    ],
+    "aspect": 0.415,
+    "view": "back",
+    "sym": 0.942,
+    "skin": false,
+    "face_col": [
+      60,
+      49,
+      48
+    ],
+    "med_w": 214.5
+  },
+  {
+    "file": "cutouts/char_14.png",
+    "src": "ef9f79ca784ebfb872a5b800107f0d21ac9bf1e102926ae60f772593ea3b8679.jpeg",
+    "w": 274,
+    "h": 1024,
+    "head": [
+      128,
+      100,
+      90
+    ],
+    "torso": [
+      37,
+      35,
+      38
+    ],
+    "legs": [
+      35,
+      30,
+      32
+    ],
+    "shoes": [
+      31,
+      26,
+      27
+    ],
+    "aspect": 0.268,
+    "view": "side",
+    "sym": 0.819,
+    "skin": true,
+    "face_col": [
+      93,
+      71,
+      66
+    ],
+    "med_w": 150.0
+  },
+  {
+    "file": "cutouts/char_15.png",
+    "src": "fd77079d95fd1f6d33a3564874654d6fa4b1e965677045244b6613ee34e1939a.jpeg",
+    "w": 316,
+    "h": 1024,
+    "head": [
+      60,
+      47,
+      44
+    ],
+    "torso": [
+      51,
+      47,
+      50
+    ],
+    "legs": [
+      32,
+      29,
+      33
+    ],
+    "shoes": [
+      27,
+      25,
+      28
+    ],
+    "aspect": 0.309,
+    "view": "side",
+    "sym": 0.665,
+    "skin": false,
+    "face_col": [
+      38,
+      31,
+      33
+    ],
+    "med_w": 129.0
+  }
+]
