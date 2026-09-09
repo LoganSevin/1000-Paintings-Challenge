@@ -4,12 +4,16 @@
 (function () {
   "use strict";
 
-  var STORAGE = "gallery.grand-exchange.v6";
-  var STORAGE_LEGACY = "gallery.grand-exchange.v5";
-  var STORAGE_LEGACY2 = "gallery.grand-exchange.v4";
-  var STORAGE_LEGACY3 = "gallery.grand-exchange.v3";
-  var STORAGE_LEGACY4 = "gallery.grand-exchange.v2";
-  var STORAGE_LEGACY5 = "gallery.grand-exchange.v1";
+  // Stable key — do not bump (legacy keys are still read once and rewritten here).
+  var STORAGE = "gallery.grand-exchange";
+  var STORAGE_LEGACY_KEYS = [
+    "gallery.grand-exchange.v6",
+    "gallery.grand-exchange.v5",
+    "gallery.grand-exchange.v4",
+    "gallery.grand-exchange.v3",
+    "gallery.grand-exchange.v2",
+    "gallery.grand-exchange.v1",
+  ];
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
   var NPC_TICK_MS = 1200;
@@ -290,6 +294,7 @@
       npcSeededOffers: false,
       _npcSeeded: false,
       packReady: true, // do not auto-fill inventory with gallery art
+      clearedAutoSeed: true, // never wipe a real pack again
       _starterCash: false,
       level: 1,
       xp: 0,
@@ -298,10 +303,21 @@
     };
   }
 
+  function looksLikeAutoSeedPack(inv) {
+    if (!inv || typeof inv !== "object") return false;
+    var keys = Object.keys(inv);
+    if (keys.length < 20 || keys.length > 28) return false;
+    for (var i = 0; i < keys.length; i++) {
+      var n = Number(keys[i]);
+      var q = Number(inv[keys[i]]) || 0;
+      if (!(n >= 1 && n <= 28) || q !== 1) return false;
+    }
+    return true;
+  }
+
   function migrate(s) {
     if (!s || typeof s !== "object") return defaultState();
-    var wasOld = (Number(s.version) || 0) < 3;
-    s.version = 6;
+    s.version = Math.max(6, Number(s.version) || 6);
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
@@ -317,6 +333,7 @@
     s.level = Math.max(1, Number(s.level) || 1);
     s.xp = Math.max(0, Number(s.xp) || 0);
     s.walkXpThisLevel = Math.max(0, Number(s.walkXpThisLevel) || 0);
+    s.packReady = true;
     if (!Object.keys(s.itemStats).length && s.history.length) {
       s.itemStats = {};
       s.history.forEach(function (h) {
@@ -330,36 +347,61 @@
         s.itemStats[k] = st;
       });
     }
-    if (wasOld || !s.packReady) {
-      // Old builds auto-stuffed #1–28 into inventory. Wipe that false start once.
-      // Bank is left alone (you may have deposited for real).
-      s.inventory = s.inventory || {};
-      s.inventory[String(100)] = {};
-      s.packReady = true;
+    // One-time only: strip the ancient auto-seed pack (#1–28). Never touch bank or XP.
+    // Never wipe a real pack just because packReady was missing.
+    if (!s.clearedAutoSeed) {
+      var pid = String(100);
+      if (looksLikeAutoSeedPack(s.inventory[pid])) {
+        s.inventory[pid] = {};
+      }
+      s.clearedAutoSeed = true;
     }
     return s;
   }
 
   function loadState() {
     try {
-      var raw =
-        localStorage.getItem(STORAGE) ||
-        localStorage.getItem(STORAGE_LEGACY) ||
-        localStorage.getItem(STORAGE_LEGACY2) ||
-        localStorage.getItem(STORAGE_LEGACY3) ||
-        localStorage.getItem(STORAGE_LEGACY4) ||
-        localStorage.getItem(STORAGE_LEGACY5);
+      var raw = localStorage.getItem(STORAGE);
+      var fromLegacy = false;
+      if (!raw) {
+        for (var i = 0; i < STORAGE_LEGACY_KEYS.length; i++) {
+          raw = localStorage.getItem(STORAGE_LEGACY_KEYS[i]);
+          if (raw) {
+            fromLegacy = true;
+            break;
+          }
+        }
+      }
       if (!raw) return defaultState();
-      return migrate(JSON.parse(raw));
+      var migrated = migrate(JSON.parse(raw));
+      // Always rewrite to the stable key so refresh finds pack/bank/level.
+      try {
+        localStorage.setItem(STORAGE, JSON.stringify(migrated));
+        if (fromLegacy) {
+          for (var j = 0; j < STORAGE_LEGACY_KEYS.length; j++) {
+            try {
+              localStorage.removeItem(STORAGE_LEGACY_KEYS[j]);
+            } catch (eRm) {}
+          }
+        }
+      } catch (eSave) {}
+      return migrated;
     } catch (e) {
       return defaultState();
     }
   }
 
   function saveState() {
+    if (!state) return false;
     try {
       localStorage.setItem(STORAGE, JSON.stringify(state));
-    } catch (e) {}
+      return true;
+    } catch (e) {
+      try {
+        setStatus("Could not save GE progress (storage full?). Inventory/level may not persist.", true);
+      } catch (e2) {}
+      return false;
+    }
   }
 
   function person(id) {
@@ -2749,7 +2791,7 @@
     if ($("ge-reset") && !$("ge-reset").dataset.bound) {
       $("ge-reset").dataset.bound = "1";
       $("ge-reset").addEventListener("click", function () {
-        if (!confirm("Reset Grand Exchange progress?")) return;
+        if (!confirm("Reset Grand Exchange? This clears inventory, bank, offers, and level XP.")) return;
         state = defaultState();
         ensurePlayerStock();
         ensureNpcSeedStock();
@@ -3143,10 +3185,20 @@
     stopTicks();
     stopWorldLoop();
     unbindWorldKeys();
+    saveState();
   }
 
   function init() {
     state = loadState();
+    window.addEventListener("pagehide", function () {
+      saveState();
+    });
+    window.addEventListener("beforeunload", function () {
+      saveState();
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") saveState();
+    });
     window.addEventListener("exchange-hide", onHide);
     document.addEventListener("DOMContentLoaded", function () {
       if (location.hash.replace("#", "") === "exchange") onShow();
