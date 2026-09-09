@@ -142,6 +142,27 @@
     return !!noteOf(n) || (n > NOTE_BASE && n < NOTE_BASE + 100000);
   }
 
+  function normalizeGeHex(raw) {
+    var s = String(raw || "").trim();
+    if (!s) return "";
+    if (s.charAt(0) !== "#") s = "#" + s;
+    if (/^#[0-9a-fA-F]{3}$/.test(s)) {
+      s = "#" + s.charAt(1) + s.charAt(1) + s.charAt(2) + s.charAt(2) + s.charAt(3) + s.charAt(3);
+    }
+    if (!/^#[0-9a-fA-F]{6}$/.test(s)) return "";
+    return s.toUpperCase();
+  }
+
+  function geHexToRgb(hex) {
+    var h = normalizeGeHex(hex);
+    if (!h) return null;
+    return {
+      r: parseInt(h.slice(1, 3), 16),
+      g: parseInt(h.slice(3, 5), 16),
+      b: parseInt(h.slice(5, 7), 16),
+    };
+  }
+
   var GE_COLOR_NAME_HEX = {
     red: "#EF4444", scarlet: "#FF2400", crimson: "#DC143C", vermilion: "#E34234",
     cadmiumred: "#E30022", alizarin: "#E32636", tomato: "#FF6347", brick: "#B22222",
