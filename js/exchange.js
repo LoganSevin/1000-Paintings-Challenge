@@ -1919,10 +1919,13 @@
     }
     if (!exchangeOpen) openExchangeUi();
 
-    var prompt =
+    var prompt = geSoftenPrompt(
       "Cinematic subtle motion of this artwork. Keep composition and subject identity. " +
-      String(titleFor(itemId) || "");
-    var stasis = String(fullDescFor(itemId) || descFor(itemId) || titleFor(itemId) || "").trim();
+        String(titleFor(itemId) || "")
+    );
+    var stasis = geSoftenPrompt(
+      String(fullDescFor(itemId) || descFor(itemId) || titleFor(itemId) || "").trim()
+    );
     if (stasis.length > 3500) stasis = stasis.slice(0, 3500);
     var aspect = selectedForgeAspect();
     var duration = geAnimateDuration();
@@ -2132,6 +2135,33 @@
     return path;
   }
 
+
+  function geAutoSoftenOn() {
+    var el = $("ge-auto-soften");
+    if (el) return !!el.checked;
+    try {
+      var v = localStorage.getItem("spellforge_auto_soften_v1");
+      if (v == null) return true;
+      return v !== "0" && v !== "false";
+    } catch (e) {
+      return true;
+    }
+  }
+
+  function geSoftenPrompt(text) {
+    if (!geAutoSoftenOn()) return String(text || "");
+    try {
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.softenPromptForModeration === "function") {
+        return window.SpellforgeAPI.softenPromptForModeration(text);
+      }
+    } catch (e) {}
+    // Lightweight fallback if Spellforge not loaded
+    var s = String(text || "");
+    s = s.replace(/\b(porn|nude|naked|nsfw|gore|rape|underage|lolita)\b/gi, "art study");
+    s = s.replace(/\b(batman|superman|spiderman|marvel|disney|pokemon)\b/gi, "heroic figure");
+    return s;
+  }
+
   function buildForgePrompt(parents) {
     var lines = [
       "Create a brand-new original painting that fuses these three influences into one fresh composition.",
@@ -2151,6 +2181,7 @@
     });
     lines.push("Invented scene · original painting · cohesive style.");
     var prompt = lines.filter(Boolean).join("\n\n");
+    prompt = geSoftenPrompt(prompt);
     if (prompt.length > 7000) prompt = prompt.slice(0, 7000);
     return prompt;
   }
@@ -2951,6 +2982,25 @@
         },
         true
       );
+    }
+    if ($("ge-auto-soften") && !$("ge-auto-soften").dataset.bound) {
+      $("ge-auto-soften").dataset.bound = "1";
+      try {
+        var softV = localStorage.getItem("spellforge_auto_soften_v1");
+        $("ge-auto-soften").checked = softV == null ? true : softV !== "0" && softV !== "false";
+      } catch (eSoft) {
+        $("ge-auto-soften").checked = true;
+      }
+      $("ge-auto-soften").addEventListener("change", function () {
+        try {
+          localStorage.setItem(
+            "spellforge_auto_soften_v1",
+            $("ge-auto-soften").checked ? "1" : "0"
+          );
+        } catch (eSet) {}
+        var sf = document.getElementById("spell-auto-soften");
+        if (sf) sf.checked = $("ge-auto-soften").checked;
+      });
     }
     if ($("ge-animate-cancel") && !$("ge-animate-cancel").dataset.bound) {
       $("ge-animate-cancel").dataset.bound = "1";

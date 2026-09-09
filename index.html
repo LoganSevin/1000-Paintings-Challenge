@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=17" />
+  <link rel="stylesheet" href="css/exchange.css?v=18" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -363,6 +363,10 @@
               </div>
               <div class="spell-mod-flags-head">
                 <span class="spell-fusion-label">Moderation flags</span>
+                <label class="spell-auto-soften-label" style="margin-left:auto;font-size:0.75rem;display:inline-flex;align-items:center;gap:0.35rem;cursor:pointer">
+                  <input type="checkbox" id="spell-auto-soften" checked />
+                  Auto-soften before generate
+                </label>
                 <span id="spell-mod-summary" class="spell-mod-summary"></span>
               </div>
               <p class="spell-mod-legend" id="spell-mod-legend">
@@ -3079,6 +3083,10 @@
               <button type="button" id="ge-note-slot-1" data-ge-note-slot="1">Put in slot 2</button>
               <button type="button" id="ge-note-slot-2" data-ge-note-slot="2">Put in slot 3</button>
             </div>
+            <label class="ge-forge-soften-label" style="display:flex;align-items:center;gap:0.35rem;font-size:0.72rem;color:#c8b890;margin:0.35rem 0">
+              <input type="checkbox" id="ge-auto-soften" checked />
+              Auto-soften prompts (fewer API blocks)
+            </label>
             <label class="ge-forge-aspect-label" for="ge-forge-aspect">Aspect
               <select id="ge-forge-aspect" class="ge-forge-aspect" aria-label="Forge aspect ratio">
                 <option value="1:1" selected>1:1 square</option>
@@ -6537,7 +6545,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=17"></script>
+  <script defer src="js/exchange.js?v=18"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
