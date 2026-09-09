@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel:wght@600;700&display=swap");
 
 .ge-shell {
+  max-width: 1180px;
   --ge-bg: #1a2330;
   --ge-panel: #243044;
   --ge-slot: #1c2838;
@@ -13,7 +14,6 @@
   --ge-buy: #d4a017;
   --ge-sell: #3d9e5f;
   --ge-danger: #c44;
-  max-width: 920px;
   margin: 0.5rem auto 2rem;
   padding: 0;
   color: var(--ge-text);
@@ -430,4 +430,138 @@
   margin: 0.5rem 0.75rem 0;
   color: var(--ge-muted);
   font-size: 0.78rem;
+}
+
+
+.ge-layout-rs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 0.65rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .ge-layout-rs { grid-template-columns: 1fr; }
+}
+
+.ge-side {
+  background: linear-gradient(180deg, #2a3548 0%, #1a2330 100%);
+  border: 4px solid #7a8fa5;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px #3a4a5c, 0 10px 28px rgba(0,0,0,.4);
+  overflow: hidden;
+}
+.ge-side-title {
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  background: linear-gradient(180deg, #3a2a12, #24180a);
+  border-bottom: 2px solid #8a7030;
+  color: var(--ge-gold);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+.ge-side-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  background: #1a2432;
+}
+.ge-side-tab {
+  flex: 1;
+  border: 2px solid #5a6f84;
+  background: #243246;
+  color: var(--ge-muted);
+  padding: 0.3rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+.ge-side-tab.active {
+  background: #3a516c;
+  color: var(--ge-yellow);
+}
+.ge-side-body { padding: 0.4rem; }
+.ge-inv-grid, .ge-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.28rem;
+}
+.ge-inv-slot, .ge-bank-slot {
+  aspect-ratio: 1;
+  border: 2px solid #5a6f84;
+  background: #121a24;
+  border-radius: 3px;
+  position: relative;
+  padding: 0.15rem;
+  cursor: pointer;
+  min-height: 0;
+}
+.ge-inv-slot:hover, .ge-bank-slot:hover { border-color: var(--ge-yellow); }
+.ge-inv-slot.selected, .ge-bank-slot.selected {
+  border-color: var(--ge-gold);
+  box-shadow: 0 0 0 1px var(--ge-gold);
+}
+.ge-inv-slot img, .ge-bank-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  background: #0d141c;
+}
+.ge-inv-slot .qty, .ge-bank-slot .qty {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 2px #000, 0 1px 0 #000;
+}
+.ge-inv-slot.empty, .ge-bank-slot.empty {
+  background: repeating-linear-gradient(45deg, #121a24, #121a24 4px, #152030 4px, #152030 8px);
+  cursor: default;
+}
+.ge-side-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+}
+.ge-side-actions button {
+  flex: 1;
+  min-width: 40%;
+  border: 1px solid #6a8096;
+  background: #2a3a4e;
+  color: var(--ge-text);
+  padding: 0.35rem 0.4rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.ge-side-meta {
+  margin-top: 0.35rem;
+  color: var(--ge-muted);
+  font-size: 0.72rem;
+  text-align: center;
+}
+.ge-bank-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+  color: var(--ge-yellow);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.ge-bank-pager button {
+  border: 1px solid #6a8096;
+  background: #2a3a4e;
+  color: #fff;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 3px;
+  cursor: pointer;
 }

@@ -20,6 +20,12 @@
   var view = "home"; // home | setup | pick | history
   var setupSide = "buy"; // buy | sell
   var setupSlot = 0;
+  var bagView = "inv"; // inv | bank
+  var bankPage = 0;
+  var INV_SLOTS = 28;
+  var BANK_PAGE = 28;
+  var selectedInvItem = null;
+  var selectedBankItem = null;
 
   function $(id) {
     return document.getElementById(id);
@@ -105,6 +111,7 @@
       version: 2,
       cashDelta: {},
       inventory: {},
+      bank: {},
       offers: [],
       history: [],
       guideOverrides: {},
@@ -121,6 +128,7 @@
     s.version = 2;
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
+    s.bank = s.bank || {};
     s.offers = Array.isArray(s.offers) ? s.offers : [];
     s.history = Array.isArray(s.history) ? s.history : [];
     s.guideOverrides = s.guideOverrides || {};
@@ -212,6 +220,100 @@
     state.cashDelta[id] = (Number(state.cashDelta[id]) || 0) + delta;
   }
 
+  function bankOf(id) {
+    id = String(id);
+    if (!state.bank) state.bank = {};
+    if (!state.bank[id]) state.bank[id] = {};
+    return state.bank[id];
+  }
+
+  function bankQty(id, itemId) {
+    return Number(bankOf(id)[String(itemId)]) || 0;
+  }
+
+  function addBank(id, itemId, delta) {
+    var b = bankOf(id);
+    var k = String(itemId);
+    var next = (Number(b[k]) || 0) + delta;
+    if (next <= 0) delete b[k];
+    else b[k] = next;
+  }
+
+  function invList(id) {
+    return Object.keys(invOf(id))
+      .map(function (k) {
+        return { id: Number(k), qty: Number(invOf(id)[k]) || 0 };
+      })
+      .filter(function (x) {
+        return x.qty > 0;
+      })
+      .sort(function (a, b) {
+        return a.id - b.id;
+      });
+  }
+
+  function bankList(id) {
+    return Object.keys(bankOf(id))
+      .map(function (k) {
+        return { id: Number(k), qty: Number(bankOf(id)[k]) || 0 };
+      })
+      .filter(function (x) {
+        return x.qty > 0;
+      })
+      .sort(function (a, b) {
+        return a.id - b.id;
+      });
+  }
+
+  function inventoryCount(id) {
+    return invList(id).length;
+  }
+
+  function depositItem(itemId, qty) {
+    itemId = Number(itemId);
+    qty = Math.max(1, Math.floor(Number(qty) || 1));
+    var have = qtyOf(PLAYER_ID, itemId);
+    if (have < 1) return { ok: false, error: "Nothing to deposit." };
+    qty = Math.min(qty, have);
+    addInv(PLAYER_ID, itemId, -qty);
+    addBank(PLAYER_ID, itemId, qty);
+    saveState();
+    return { ok: true, qty: qty };
+  }
+
+  function withdrawItem(itemId, qty) {
+    itemId = Number(itemId);
+    qty = Math.max(1, Math.floor(Number(qty) || 1));
+    var have = bankQty(PLAYER_ID, itemId);
+    if (have < 1) return { ok: false, error: "Bank is empty for that item." };
+    var free = INV_SLOTS - inventoryCount(PLAYER_ID);
+    var already = qtyOf(PLAYER_ID, itemId) > 0;
+    if (!already && free < 1) return { ok: false, error: "Inventory full (28 kinds)." };
+    qty = Math.min(qty, have);
+    addBank(PLAYER_ID, itemId, -qty);
+    addInv(PLAYER_ID, itemId, qty);
+    saveState();
+    return { ok: true, qty: qty };
+  }
+
+  function depositAll() {
+    var list = invList(PLAYER_ID);
+    list.forEach(function (it) {
+      depositItem(it.id, it.qty);
+    });
+    selectedInvItem = null;
+  }
+
+  function withdrawAllPage() {
+    var list = bankList(PLAYER_ID);
+    var start = bankPage * BANK_PAGE;
+    list.slice(start, start + BANK_PAGE).forEach(function (it) {
+      withdrawItem(it.id, it.qty);
+    });
+    selectedBankItem = null;
+  }
+
+
   function activeOffers() {
     return state.offers.filter(function (o) {
       if (!o || o.cancelled) return false;
@@ -229,8 +331,11 @@
   function ensurePlayerStock() {
     var inv = invOf(PLAYER_ID);
     if (Object.keys(inv).length) return;
-    for (var n = 1; n <= 40; n++) inv[String(n)] = 1;
-    for (var m = 50; m <= 1000; m += 25) inv[String(m)] = 1;
+    // Fill 28 inventory slots; overflow starter art goes to bank.
+    var n;
+    for (n = 1; n <= 28; n++) inv[String(n)] = 1;
+    for (n = 29; n <= 40; n++) addBank(PLAYER_ID, n, 1);
+    for (var m = 50; m <= 1000; m += 25) addBank(PLAYER_ID, m, 1);
   }
 
   function ensureNpcSeedStock() {
@@ -515,6 +620,88 @@
     var qty = Math.max(1, Number($("ge-qty") && $("ge-qty").value) || 1);
     var px = Math.max(1, Number($("ge-price") && $("ge-price").value) || 1);
     if ($("ge-total")) $("ge-total").textContent = "Total: " + money(qty * px);
+  }
+
+
+  function renderInvGrid() {
+    var wrap = $("ge-inv-grid");
+    if (!wrap) return;
+    var list = invList(PLAYER_ID);
+    var html = [];
+    for (var i = 0; i < INV_SLOTS; i++) {
+      var it = list[i];
+      if (!it) {
+        html.push('<div class="ge-inv-slot empty"></div>');
+        continue;
+      }
+      var sel = selectedInvItem === it.id ? " selected" : "";
+      html.push(
+        '<button type="button" class="ge-inv-slot' +
+          sel +
+          '" data-ge-inv="' +
+          it.id +
+          '" title="' +
+          esc(titleFor(it.id)) +
+          '"><img src="' +
+          esc(thumb(it.id)) +
+          '" alt="" /><span class="qty">' +
+          it.qty +
+          "</span></button>"
+      );
+    }
+    wrap.innerHTML = html.join("");
+    if ($("ge-inv-meta")) {
+      $("ge-inv-meta").textContent = list.length + " / " + INV_SLOTS + " used · click Deposit";
+    }
+  }
+
+  function renderBankGrid() {
+    var wrap = $("ge-bank-grid");
+    if (!wrap) return;
+    var list = bankList(PLAYER_ID);
+    var pages = Math.max(1, Math.ceil(list.length / BANK_PAGE) || 1);
+    if (bankPage > pages - 1) bankPage = pages - 1;
+    if (bankPage < 0) bankPage = 0;
+    var start = bankPage * BANK_PAGE;
+    var slice = list.slice(start, start + BANK_PAGE);
+    var html = [];
+    for (var i = 0; i < BANK_PAGE; i++) {
+      var it = slice[i];
+      if (!it) {
+        html.push('<div class="ge-bank-slot empty"></div>');
+        continue;
+      }
+      var sel = selectedBankItem === it.id ? " selected" : "";
+      html.push(
+        '<button type="button" class="ge-bank-slot' +
+          sel +
+          '" data-ge-bank="' +
+          it.id +
+          '" title="' +
+          esc(titleFor(it.id)) +
+          '"><img src="' +
+          esc(thumb(it.id)) +
+          '" alt="" /><span class="qty">' +
+          it.qty +
+          "</span></button>"
+      );
+    }
+    wrap.innerHTML = html.join("");
+    if ($("ge-bank-page")) $("ge-bank-page").textContent = pages ? bankPage + 1 + " / " + pages : "1 / 1";
+    if ($("ge-bank-meta")) {
+      $("ge-bank-meta").textContent = list.length + " stacked types in bank · page " + (bankPage + 1);
+    }
+  }
+
+  function renderBags() {
+    var invP = $("ge-inv-panel");
+    var bankP = $("ge-bank-panel");
+    if (invP) invP.hidden = bagView !== "inv";
+    if (bankP) bankP.hidden = bagView !== "bank";
+    if ($("ge-bag-inv")) $("ge-bag-inv").classList.toggle("active", bagView === "inv");
+    if ($("ge-bag-bank")) $("ge-bag-bank").classList.toggle("active", bagView === "bank");
+    if (bagView === "inv") renderInvGrid();
+    else renderBankGrid();
   }
 
   function renderSlots() {
@@ -902,6 +1089,114 @@
         setStatus("Exchange reset.");
         showView("home");
         render();
+      });
+    }
+
+    if ($("ge-bag-inv") && !$("ge-bag-inv").dataset.bound) {
+      $("ge-bag-inv").dataset.bound = "1";
+      $("ge-bag-inv").addEventListener("click", function () {
+        bagView = "inv";
+        renderBags();
+      });
+    }
+    if ($("ge-bag-bank") && !$("ge-bag-bank").dataset.bound) {
+      $("ge-bag-bank").dataset.bound = "1";
+      $("ge-bag-bank").addEventListener("click", function () {
+        bagView = "bank";
+        renderBags();
+      });
+    }
+    var invGrid = $("ge-inv-grid");
+    if (invGrid && !invGrid.dataset.bound) {
+      invGrid.dataset.bound = "1";
+      invGrid.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-ge-inv]");
+        if (!btn) return;
+        selectedInvItem = Number(btn.getAttribute("data-ge-inv")) || null;
+        selected = selectedInvItem || selected;
+        renderBags();
+      });
+      invGrid.addEventListener("dblclick", function (e) {
+        var btn = e.target.closest("[data-ge-inv]");
+        if (!btn) return;
+        var id = Number(btn.getAttribute("data-ge-inv"));
+        var res = depositItem(id, 1);
+        setStatus(res.ok ? "Deposited #" + id : res.error, !res.ok);
+        render();
+      });
+    }
+    var bankGrid = $("ge-bank-grid");
+    if (bankGrid && !bankGrid.dataset.bound) {
+      bankGrid.dataset.bound = "1";
+      bankGrid.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-ge-bank]");
+        if (!btn) return;
+        selectedBankItem = Number(btn.getAttribute("data-ge-bank")) || null;
+        selected = selectedBankItem || selected;
+        renderBags();
+      });
+      bankGrid.addEventListener("dblclick", function (e) {
+        var btn = e.target.closest("[data-ge-bank]");
+        if (!btn) return;
+        var id = Number(btn.getAttribute("data-ge-bank"));
+        var res = withdrawItem(id, 1);
+        setStatus(res.ok ? "Withdrew #" + id : res.error, !res.ok);
+        render();
+      });
+    }
+    if ($("ge-dep-one") && !$("ge-dep-one").dataset.bound) {
+      $("ge-dep-one").dataset.bound = "1";
+      $("ge-dep-one").addEventListener("click", function () {
+        if (!selectedInvItem) {
+          setStatus("Select an inventory item first.", true);
+          return;
+        }
+        var res = depositItem(selectedInvItem, qtyOf(PLAYER_ID, selectedInvItem));
+        setStatus(res.ok ? "Deposited #" + selectedInvItem : res.error, !res.ok);
+        selectedInvItem = null;
+        render();
+      });
+    }
+    if ($("ge-dep-all") && !$("ge-dep-all").dataset.bound) {
+      $("ge-dep-all").dataset.bound = "1";
+      $("ge-dep-all").addEventListener("click", function () {
+        depositAll();
+        setStatus("Inventory deposited to bank.");
+        render();
+      });
+    }
+    if ($("ge-wd-one") && !$("ge-wd-one").dataset.bound) {
+      $("ge-wd-one").dataset.bound = "1";
+      $("ge-wd-one").addEventListener("click", function () {
+        if (!selectedBankItem) {
+          setStatus("Select a bank item first.", true);
+          return;
+        }
+        var res = withdrawItem(selectedBankItem, 1);
+        setStatus(res.ok ? "Withdrew #" + selectedBankItem : res.error, !res.ok);
+        render();
+      });
+    }
+    if ($("ge-wd-all") && !$("ge-wd-all").dataset.bound) {
+      $("ge-wd-all").dataset.bound = "1";
+      $("ge-wd-all").addEventListener("click", function () {
+        withdrawAllPage();
+        setStatus("Withdrew this bank page into inventory (space allowing).");
+        render();
+      });
+    }
+    if ($("ge-bank-prev") && !$("ge-bank-prev").dataset.bound) {
+      $("ge-bank-prev").dataset.bound = "1";
+      $("ge-bank-prev").addEventListener("click", function () {
+        bankPage = Math.max(0, bankPage - 1);
+        renderBankGrid();
+      });
+    }
+    if ($("ge-bank-next") && !$("ge-bank-next").dataset.bound) {
+      $("ge-bank-next").dataset.bound = "1";
+      $("ge-bank-next").addEventListener("click", function () {
+        bankPage += 1;
+        renderBankGrid();
       });
     }
   }

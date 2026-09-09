@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=3" />
+  <link rel="stylesheet" href="css/exchange.css?v=4" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2864,6 +2864,7 @@
 
   <section id="panel-exchange" class="panel" hidden>
     <div class="ge-shell">
+      <div class="ge-layout-rs">
       <div class="ge-window">
         <div class="ge-titlebar">
           <h2>GRAND EXCHANGE</h2>
@@ -2955,6 +2956,39 @@
           <p class="ge-status" id="ge-status"></p>
         </div>
       </div>
+
+      <aside class="ge-side" aria-label="Inventory and bank">
+        <h3 class="ge-side-title">PACK &amp; BANK</h3>
+        <div class="ge-side-tabs">
+          <button type="button" class="ge-side-tab active" id="ge-bag-inv">Inventory</button>
+          <button type="button" class="ge-side-tab" id="ge-bag-bank">Bank</button>
+        </div>
+        <div class="ge-side-body">
+          <div id="ge-inv-panel">
+            <div class="ge-inv-grid" id="ge-inv-grid"></div>
+            <div class="ge-side-actions">
+              <button type="button" id="ge-dep-one">Deposit</button>
+              <button type="button" id="ge-dep-all">Deposit all</button>
+            </div>
+            <div class="ge-side-meta" id="ge-inv-meta">28 slots · click to select</div>
+          </div>
+          <div id="ge-bank-panel" hidden>
+            <div class="ge-bank-pager">
+              <button type="button" id="ge-bank-prev">‹</button>
+              <span id="ge-bank-page">1 / 1</span>
+              <button type="button" id="ge-bank-next">›</button>
+            </div>
+            <div class="ge-bank-grid" id="ge-bank-grid"></div>
+            <div class="ge-side-actions">
+              <button type="button" id="ge-wd-one">Withdraw</button>
+              <button type="button" id="ge-wd-all">Withdraw all</button>
+            </div>
+            <div class="ge-side-meta" id="ge-bank-meta">Bank · 28 slots per page</div>
+          </div>
+        </div>
+      </aside>
+      </div>
+
       <p class="ge-note">
         RuneScape-style offer slots · Banker 100 NPCs merchant in the background ·
         SIM cash only (not Cash App / Venmo / PayPal). <span id="ge-tick"></span>
@@ -6356,7 +6390,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=3"></script>
+  <script defer src="js/exchange.js?v=4"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
