@@ -46,8 +46,8 @@
   <script type="importmap">
   {
     "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/addons/"
     }
   }
   </script>
@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=34" />
+  <link rel="stylesheet" href="css/exchange.css?v=36" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2891,12 +2891,21 @@
           <button type="button" class="ge-open-exchange" id="ge-open-exchange">Open Grand Exchange</button>
         </div>
         <div class="ge-world-stage ge-world-stage--artfloor3d" id="ge-world-stage" tabindex="0" aria-label="Grand Exchange Art Floor 3D">
+          <div class="ge-world-splash" id="ge-world-splash" aria-hidden="true">
+            <img src="assets/grand-exchange-art-floor.jpg" alt="" decoding="async" fetchpriority="high" />
+          </div>
           <canvas id="ge-world-canvas" class="ge-world-canvas" aria-hidden="true"></canvas>
+          <div class="ge-world-loader" id="ge-world-loader" role="status" aria-live="polite" aria-busy="true">
+            <div class="ge-world-loader-card">
+              <span class="ge-world-loader-label">Loading Art Floor…</span>
+              <span class="ge-world-loader-dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+          </div>
           <div class="ge-world-interact-hint" id="ge-world-interact-hint" hidden>Press E — Open Grand Exchange</div>
           <!-- Hidden legacy booth hook for exchange.js open handlers -->
           <button type="button" id="ge-booth" class="ge-booth-sr" title="Grand Exchange booth">Open GE desk</button>
         </div>
-        <p class="ge-world-hint">Click canvas to mouse-look · WASD / arrows walk · E near the GE desk (or Open Grand Exchange) to trade · Esc releases mouse</p>
+        <p class="ge-world-hint">Click canvas to mouse-look · scroll wheel zoom · WASD walk (camera behind you) · E near GE desk to trade · Esc releases mouse</p>
       </div>
 
       <div id="ge-exchange-ui" class="ge-exchange-ui" hidden>
@@ -6569,8 +6578,8 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script type="module" src="js/ge-artfloor-3d.js?v=1"></script>
-  <script defer src="js/exchange.js?v=35"></script>
+  <script type="module" src="js/ge-artfloor-3d.js?v=3"></script>
+  <script defer src="js/exchange.js?v=37"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

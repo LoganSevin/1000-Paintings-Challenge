@@ -4634,7 +4634,7 @@
 
   function startWorldLoopWhenReady(attempts) {
     if (exchangeOpen) return;
-    attempts = attempts == null ? 40 : attempts;
+    attempts = attempts == null ? 80 : attempts;
     if (ensureArtFloor3D()) {
       try {
         window.GeArtFloor3D.start();
@@ -4652,7 +4652,7 @@
     artFloor3dWaitTimer = setTimeout(function () {
       artFloor3dWaitTimer = 0;
       startWorldLoopWhenReady(attempts - 1);
-    }, 100);
+    }, 75);
   }
 
   function nearBooth() {
@@ -4690,7 +4690,7 @@
 
   function startWorldLoop() {
     if (exchangeOpen) return;
-    startWorldLoopWhenReady(40);
+    startWorldLoopWhenReady(80);
   }
 
   function stopWorldLoop() {
