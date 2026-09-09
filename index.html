@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=30" />
+  <link rel="stylesheet" href="css/exchange.css?v=31" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2920,6 +2920,7 @@
         <div class="ge-tabs" role="tablist">
           <button type="button" class="ge-tab active" data-ge-view="home" id="ge-tab-exchange">Exchange</button>
           <button type="button" class="ge-tab" data-ge-view="history" id="ge-tab-history">Sale History</button>
+          <button type="button" class="ge-tab" data-ge-view="tracker" id="ge-tab-tracker">Market Tracker</button>
         </div>
         <div class="ge-toolbar">
           <button type="button" class="ge-icon-btn" id="ge-collect-all" title="Collect completed">⬇</button>
@@ -2947,6 +2948,7 @@
                 <div class="ge-setup-pick-row" style="margin-top:0.4rem;display:flex;flex-wrap:wrap;gap:0.4rem">
                   <button type="button" class="ge-back" id="ge-choose-item">Choose item…</button>
                   <button type="button" class="ge-back" id="ge-random-item" title="Random from arsenal (respects tag filter on pick screen)">Random</button>
+                  <button type="button" class="ge-back" id="ge-track-item" title="Watch this item on the Market Tracker">Track</button>
                 </div>
               </div>
             </div>
@@ -3012,6 +3014,12 @@
             </table>
           </div>
 
+          <div class="ge-tracker" id="ge-tracker">
+            <p class="ge-summary">Market Tracker — watch guide &amp; book prices over time. Right-click inventory/bank → Track. Cap 16.</p>
+            <div class="ge-tracker-empty" id="ge-tracker-empty">No items tracked yet. Right-click an item and choose Track, or use Track on offer setup.</div>
+            <div class="ge-tracker-list" id="ge-tracker-list" hidden></div>
+          </div>
+
           <p class="ge-status" id="ge-status"></p>
         </div>
       </div>
@@ -3056,6 +3064,7 @@
           <button type="button" role="menuitem" data-ge-action="force-load">Force load (correct image)</button>
           <button type="button" role="menuitem" data-ge-action="animate">Animate here</button>
           <button type="button" role="menuitem" data-ge-action="sell">Sell on GE</button>
+          <button type="button" role="menuitem" data-ge-action="track" id="ge-menu-track">Track</button>
           <button type="button" role="menuitem" data-ge-action="deposit" id="ge-menu-deposit">Deposit</button>
           <button type="button" role="menuitem" data-ge-action="withdraw" id="ge-menu-withdraw">Withdraw 1</button>
         </div>
@@ -3085,7 +3094,7 @@
         </div>
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
-          <p class="ge-forge-hint">Right-click → Slot / Description (color chips) / View / Animate / Sell · Notes · Combine</p>
+          <p class="ge-forge-hint">Right-click → Slot / Description / View / Animate / Sell / Track · Notes · Combine</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-1" data-forge-slot="1" title="Clear slot"><span class="ge-forge-num">2</span></button>
@@ -6563,7 +6572,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=31"></script>
+  <script defer src="js/exchange.js?v=32"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

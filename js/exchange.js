@@ -16,6 +16,8 @@
   ];
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
+  var MAX_TRACKED = 16;
+  var TRACK_HISTORY_MAX = 36;
   var NPC_TICK_MS = 1200;
   var GUIDE_BASE = 89;
   var PAINTING_TOTAL = 1000;
@@ -46,7 +48,7 @@
   var selected = 1;
   var tickTimer = null;
   var tickN = 0;
-  var view = "home"; // home | setup | pick | history
+  var view = "home"; // home | setup | pick | history | tracker
   var setupSide = "buy"; // buy | sell
   var setupSlot = 0;
   var bagView = "inv"; // inv | bank
@@ -1547,6 +1549,175 @@
     return autoGuide(n);
   }
 
+
+  function slimPriceHistory() {
+    var out = {};
+    var tracked = Array.isArray(state.trackedItems) ? state.trackedItems : [];
+    var src = state.priceHistory || {};
+    for (var i = 0; i < tracked.length; i++) {
+      var k = String(tracked[i]);
+      var arr = Array.isArray(src[k]) ? src[k] : [];
+      out[k] = arr.slice(-TRACK_HISTORY_MAX).map(function (p) {
+        return {
+          t: Number(p && p.t) || 0,
+          g: Math.max(1, Math.round(Number(p && p.g) || 1)),
+          m: Math.max(1, Math.round(Number(p && p.m) || Number(p && p.g) || 1)),
+          b: Math.max(0, Math.round(Number(p && p.b) || 0)),
+          s: Math.max(0, Math.round(Number(p && p.s) || 0)),
+        };
+      });
+    }
+    return out;
+  }
+
+  function bestBookBuy(itemId) {
+    itemId = Number(itemId);
+    var best = 0;
+    activeOffers().forEach(function (o) {
+      if (!o || o.side !== "buy" || o.complete) return;
+      if (Number(o.itemId) !== itemId) return;
+      if ((Number(o.qtyLeft) || 0) <= 0) return;
+      var px = Number(o.price) || 0;
+      if (px > best) best = px;
+    });
+    return best;
+  }
+
+  function bestBookSell(itemId) {
+    itemId = Number(itemId);
+    var best = 0;
+    activeOffers().forEach(function (o) {
+      if (!o || o.side !== "sell" || o.complete) return;
+      if (Number(o.itemId) !== itemId) return;
+      if ((Number(o.qtyLeft) || 0) <= 0) return;
+      var px = Number(o.price) || 0;
+      if (!best || px < best) best = px;
+    });
+    return best;
+  }
+
+  function midMarketPrice(itemId) {
+    var buy = bestBookBuy(itemId);
+    var sell = bestBookSell(itemId);
+    if (buy && sell) return Math.max(1, Math.round((buy + sell) / 2));
+    if (buy) return buy;
+    if (sell) return sell;
+    return guidePrice(itemId);
+  }
+
+  function isTracked(itemId) {
+    itemId = Number(itemId);
+    if (!state || !Array.isArray(state.trackedItems)) return false;
+    return state.trackedItems.indexOf(itemId) >= 0;
+  }
+
+  function trackItem(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    if (!state.trackedItems) state.trackedItems = [];
+    if (isTracked(itemId)) return { ok: true, already: true };
+    if (state.trackedItems.length >= MAX_TRACKED) {
+      return { ok: false, error: "Market Tracker is full (" + MAX_TRACKED + ")." };
+    }
+    state.trackedItems.push(itemId);
+    snapshotOneTracked(itemId);
+    saveState();
+    return { ok: true };
+  }
+
+  function untrackItem(itemId) {
+    itemId = Number(itemId);
+    if (!state.trackedItems) state.trackedItems = [];
+    state.trackedItems = state.trackedItems.filter(function (n) {
+      return Number(n) !== itemId;
+    });
+    if (state.priceHistory && state.priceHistory[String(itemId)]) {
+      delete state.priceHistory[String(itemId)];
+    }
+    saveState();
+    return { ok: true };
+  }
+
+  function toggleTrackItem(itemId) {
+    if (isTracked(itemId)) return untrackItem(itemId);
+    return trackItem(itemId);
+  }
+
+  function snapshotOneTracked(itemId) {
+    itemId = Number(itemId);
+    if (!itemId || !state) return;
+    if (!state.priceHistory) state.priceHistory = {};
+    var k = String(itemId);
+    var arr = Array.isArray(state.priceHistory[k]) ? state.priceHistory[k] : [];
+    var g = guidePrice(itemId);
+    var b = bestBookBuy(itemId);
+    var s = bestBookSell(itemId);
+    var m = midMarketPrice(itemId);
+    var last = arr.length ? arr[arr.length - 1] : null;
+    // Skip duplicate ticks with identical book/guide
+    if (
+      last &&
+      Number(last.g) === g &&
+      Number(last.m) === m &&
+      Number(last.b) === b &&
+      Number(last.s) === s &&
+      Date.now() - (Number(last.t) || 0) < 2500
+    ) {
+      return;
+    }
+    arr.push({ t: Date.now(), g: g, m: m, b: b, s: s });
+    if (arr.length > TRACK_HISTORY_MAX) arr = arr.slice(-TRACK_HISTORY_MAX);
+    state.priceHistory[k] = arr;
+  }
+
+  function snapshotTrackedPrices() {
+    if (!state || !Array.isArray(state.trackedItems) || !state.trackedItems.length) return;
+    state.trackedItems.forEach(function (id) {
+      snapshotOneTracked(id);
+    });
+  }
+
+  function sparklineSvg(points) {
+    var vals = (points || [])
+      .map(function (p) {
+        return Number(p && (p.m != null ? p.m : p.g)) || 0;
+      })
+      .filter(function (n) {
+        return n > 0;
+      });
+    if (vals.length < 2) {
+      return (
+        '<svg class="ge-tracker-spark" viewBox="0 0 72 28" aria-hidden="true">' +
+        '<line x1="4" y1="14" x2="68" y2="14" stroke="#5a6f84" stroke-width="1"/>' +
+        "</svg>"
+      );
+    }
+    var min = Math.min.apply(null, vals);
+    var max = Math.max.apply(null, vals);
+    var span = Math.max(1, max - min);
+    var w = 72;
+    var h = 28;
+    var pad = 3;
+    var coords = vals
+      .map(function (v, i) {
+        var x = pad + (i / (vals.length - 1)) * (w - pad * 2);
+        var y = h - pad - ((v - min) / span) * (h - pad * 2);
+        return x.toFixed(1) + "," + y.toFixed(1);
+      })
+      .join(" ");
+    var up = vals[vals.length - 1] >= vals[0];
+    var stroke = up ? "#6ecf8e" : "#e07070";
+    return (
+      '<svg class="ge-tracker-spark" viewBox="0 0 72 28" aria-hidden="true">' +
+      '<polyline fill="none" stroke="' +
+      stroke +
+      '" stroke-width="1.6" points="' +
+      coords +
+      '"/>' +
+      "</svg>"
+    );
+  }
+
   function itemStats(n) {
     n = String(n);
     if (!state.itemStats) state.itemStats = {};
@@ -1593,6 +1764,8 @@
       level: 1,
       xp: 0,
       walkXpThisLevel: 0,
+      trackedItems: [],
+      priceHistory: {},
       createdAt: Date.now(),
     };
   }
@@ -1646,6 +1819,17 @@
     s.level = Math.max(1, Number(s.level) || 1);
     s.xp = Math.max(0, Number(s.xp) || 0);
     s.walkXpThisLevel = Math.max(0, Number(s.walkXpThisLevel) || 0);
+    s.trackedItems = Array.isArray(s.trackedItems)
+      ? s.trackedItems
+          .map(function (n) {
+            return Number(n);
+          })
+          .filter(function (n) {
+            return n > 0;
+          })
+          .slice(0, MAX_TRACKED)
+      : [];
+    s.priceHistory = s.priceHistory && typeof s.priceHistory === "object" ? s.priceHistory : {};
     s.packReady = true;
     if (!Object.keys(s.itemStats).length && s.history.length) {
       s.itemStats = {};
@@ -1851,6 +2035,17 @@
       level: Math.max(1, Number(state.level) || 1),
       xp: Math.max(0, Number(state.xp) || 0),
       walkXpThisLevel: Math.max(0, Number(state.walkXpThisLevel) || 0),
+      trackedItems: Array.isArray(state.trackedItems)
+        ? state.trackedItems
+            .map(function (n) {
+              return Number(n);
+            })
+            .filter(function (n) {
+              return n > 0;
+            })
+            .slice(0, MAX_TRACKED)
+        : [],
+      priceHistory: slimPriceHistory(),
       createdAt: state.createdAt || Date.now(),
     };
   }
@@ -1867,6 +2062,8 @@
       state.history = slim.history;
       state.level = slim.level;
       state.xp = slim.xp;
+      state.trackedItems = slim.trackedItems || [];
+      state.priceHistory = slim.priceHistory || {};
       localStorage.setItem(STORAGE, JSON.stringify(slim));
       return true;
     } catch (e) {
@@ -1878,8 +2075,10 @@
           return o && o.isPlayer;
         });
         emergency.itemStats = {};
+        emergency.priceHistory = {};
         localStorage.setItem(STORAGE, JSON.stringify(emergency));
         state.history = [];
+        state.priceHistory = {};
         setStatus("Saved pack/bank/level (cleared market history to free storage).", false);
         return true;
       } catch (e2) {
@@ -2607,6 +2806,7 @@
         silent: true,
       });
     }
+    snapshotTrackedPrices();
     saveState();
   }
 
@@ -2679,8 +2879,9 @@
       });
     }
     matchOffers();
+    snapshotTrackedPrices();
     saveState();
-    if (view === "home" || view === "history") render();
+    if (view === "home" || view === "history" || view === "tracker") render();
   }
 
   function setStatus(msg, isErr) {
@@ -2692,22 +2893,25 @@
 
   function showView(name) {
     view = name;
-    ["ge-home", "ge-setup", "ge-pick", "ge-history"].forEach(function (id) {
+    ["ge-home", "ge-setup", "ge-pick", "ge-history", "ge-tracker"].forEach(function (id) {
       var el = $(id);
       if (!el) return;
       if (id === "ge-home") el.classList.toggle("hide", name !== "home");
       else el.classList.toggle("show", name === id.replace("ge-", ""));
     });
-    // map setup/pick/history
+    // map setup/pick/history/tracker
     if ($("ge-setup")) $("ge-setup").classList.toggle("show", name === "setup");
     if ($("ge-pick")) $("ge-pick").classList.toggle("show", name === "pick");
     if ($("ge-history")) $("ge-history").classList.toggle("show", name === "history");
+    if ($("ge-tracker")) $("ge-tracker").classList.toggle("show", name === "tracker");
     if ($("ge-home")) $("ge-home").classList.toggle("hide", name !== "home");
 
     var ex = $("ge-tab-exchange");
     var hi = $("ge-tab-history");
+    var tr = $("ge-tab-tracker");
     if (ex) ex.classList.toggle("active", name === "home" || name === "setup" || name === "pick");
     if (hi) hi.classList.toggle("active", name === "history");
+    if (tr) tr.classList.toggle("active", name === "tracker");
   }
 
   function maxOfferQtyFromInventory() {
@@ -3012,6 +3216,14 @@
     if ($("ge-price") && document.activeElement !== $("ge-price")) {
       $("ge-price").value = String(guidePrice(selected));
     }
+    var trackBtn = $("ge-track-item");
+    if (trackBtn) {
+      var tracked = isTracked(selected);
+      trackBtn.textContent = tracked ? "Untrack" : "Track";
+      trackBtn.title = tracked
+        ? "Remove from Market Tracker"
+        : "Watch this item on the Market Tracker";
+    }
     updateTotal();
   }
 
@@ -3129,6 +3341,79 @@
       : '<tr><td colspan="4">No piece stats yet.</td></tr>';
   }
 
+  function renderTracker() {
+    var empty = $("ge-tracker-empty");
+    var list = $("ge-tracker-list");
+    if (!list) return;
+    var ids = (state && Array.isArray(state.trackedItems) ? state.trackedItems : []).slice();
+    if (!ids.length) {
+      if (empty) empty.hidden = false;
+      list.hidden = true;
+      list.innerHTML = "";
+      return;
+    }
+    if (empty) empty.hidden = true;
+    list.hidden = false;
+    var hist = (state && state.priceHistory) || {};
+    list.innerHTML = ids
+      .map(function (id) {
+        id = Number(id);
+        var g = guidePrice(id);
+        var buy = bestBookBuy(id);
+        var sell = bestBookSell(id);
+        var mid = midMarketPrice(id);
+        var pts = Array.isArray(hist[String(id)]) ? hist[String(id)] : [];
+        var prev = pts.length >= 2 ? pts[pts.length - 2] : null;
+        // delta vs previous snapshot mid/guide
+        var prevVal = prev ? Number(prev.m != null ? prev.m : prev.g) || g : null;
+        var delta = prevVal != null ? mid - prevVal : 0;
+        var deltaCls = delta > 0 ? "delta-up" : delta < 0 ? "delta-down" : "delta-flat";
+        var deltaTxt =
+          prevVal == null ? "—" : (delta > 0 ? "+" : "") + money(delta);
+        var buyTxt = buy ? money(buy) : "—";
+        var sellTxt = sell ? money(sell) : "—";
+        return (
+          '<div class="ge-tracker-row" data-ge-tracked="' +
+          id +
+          '">' +
+          '<img src="' +
+          esc(thumb(id)) +
+          '" alt="" />' +
+          '<div class="ge-tracker-meta">' +
+          '<div class="name">' +
+          esc(titleFor(id)) +
+          "</div>" +
+          '<div class="sub">' +
+          esc(kindLabel(id)) +
+          " · mid " +
+          money(mid) +
+          "</div>" +
+          "</div>" +
+          '<div class="ge-tracker-prices">' +
+          '<div class="guide">Guide ' +
+          money(g) +
+          ' <span class="' +
+          deltaCls +
+          '">(' +
+          deltaTxt +
+          ")</span></div>" +
+          '<div class="buy">Best buy ' +
+          buyTxt +
+          "</div>" +
+          '<div class="sell">Best sell ' +
+          sellTxt +
+          "</div>" +
+          "</div>" +
+          sparklineSvg(pts) +
+          '<button type="button" class="ge-tracker-untrack" data-ge-untrack="' +
+          id +
+          '" title="Untrack">×</button>' +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
   function render() {
     if ($("ge-you-cash")) $("ge-you-cash").textContent = money(cashOf(PLAYER_ID));
     if ($("ge-you-slots")) $("ge-you-slots").textContent = playerSlotOffers().length + " / " + MAX_SLOTS;
@@ -3139,6 +3424,7 @@
     if (view === "setup") renderSetup();
     if (view === "pick") renderCatalog();
     if (view === "history") renderHistory();
+    if (view === "tracker") renderTracker();
     renderBags();
     renderForgeSlots();
     renderNoteColorHits();
@@ -3270,6 +3556,7 @@
     var descBtn = menu.querySelector('[data-ge-action="description"]');
     var forceLoad = menu.querySelector('[data-ge-action="force-load"]');
     var animateBtn = menu.querySelector('[data-ge-action="animate"]');
+    var trackBtn = menu.querySelector('[data-ge-action="track"]');
     var isChip = !!colorChipOf(itemId);
     var isNote = !!noteOf(itemId);
     if (dep) dep.hidden = source !== "inv";
@@ -3277,6 +3564,10 @@
     if (descBtn) descBtn.hidden = isNote; // notes already text
     if (forceLoad) forceLoad.hidden = isChip || isNote;
     if (animateBtn) animateBtn.hidden = isChip || isNote;
+    if (trackBtn) {
+      trackBtn.hidden = false;
+      trackBtn.textContent = isTracked(itemId) ? "Untrack" : "Track";
+    }
     menu.hidden = false;
     // Position inside viewport
     var pad = 8;
@@ -4413,6 +4704,46 @@
         render();
       });
     }
+    if ($("ge-tab-tracker") && !$("ge-tab-tracker").dataset.bound) {
+      $("ge-tab-tracker").dataset.bound = "1";
+      $("ge-tab-tracker").addEventListener("click", function () {
+        showView("tracker");
+        render();
+      });
+    }
+    if ($("ge-track-item") && !$("ge-track-item").dataset.bound) {
+      $("ge-track-item").dataset.bound = "1";
+      $("ge-track-item").addEventListener("click", function () {
+        var id = Number(selected) || 0;
+        if (!id) {
+          setStatus("Choose an item first.", true);
+          return;
+        }
+        var was = isTracked(id);
+        var res = toggleTrackItem(id);
+        if (!res.ok) setStatus(res.error, true);
+        else
+          setStatus(
+            was
+              ? "Untracked " + kindLabel(id) + "."
+              : "Tracking " + kindLabel(id) + " (" + state.trackedItems.length + "/" + MAX_TRACKED + ")."
+          );
+        renderSetup();
+        if (view === "tracker") renderTracker();
+      });
+    }
+    var trackerList = $("ge-tracker-list");
+    if (trackerList && !trackerList.dataset.bound) {
+      trackerList.dataset.bound = "1";
+      trackerList.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-ge-untrack]");
+        if (!btn) return;
+        var id = Number(btn.getAttribute("data-ge-untrack"));
+        untrackItem(id);
+        setStatus("Untracked " + kindLabel(id) + ".");
+        renderTracker();
+      });
+    }
     var slots = $("ge-slots");
     if (slots && !slots.dataset.bound) {
       slots.dataset.bound = "1";
@@ -4752,6 +5083,19 @@
             var sellRes = openSellForItem(id);
             if (!sellRes.ok) setStatus(sellRes.error, true);
             else setStatus("Sell offer setup for " + kindLabel(id) + ".");
+            render();
+            return;
+          }
+          if (action === "track") {
+            var wasTracked = isTracked(id);
+            var trRes = toggleTrackItem(id);
+            if (!trRes.ok) setStatus(trRes.error, true);
+            else
+              setStatus(
+                wasTracked
+                  ? "Untracked " + kindLabel(id) + " from Market Tracker."
+                  : "Tracking " + kindLabel(id) + " on Market Tracker."
+              );
             render();
             return;
           }
