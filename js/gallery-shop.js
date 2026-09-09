@@ -739,6 +739,10 @@
     if (v) addPay("Venmo", v, "venmo");
     var p = paypalPayUrl(total);
     if (p) addPay("PayPal", p, "paypal");
+    var payBtn = $("gallery-cart-pay");
+    if (payBtn)
+      payBtn.hidden =
+    wrap.children.length > 0;
   }
 
   function startCheckout(method, url) {
