@@ -35,6 +35,8 @@
     );
 
   var state = null;
+  // NPC packs stay in memory only — never persist (was blowing localStorage).
+  var npcRuntime = { inventory: {}, bank: {} };
   var roster = [];
   var analyses = {};
   /** Spellforge extras: gen / phone / sketch / inverted — id -> {url,title,source,genNum,analysis} */
@@ -321,6 +323,20 @@
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
+    // Drop NPC packs from older saves (they filled localStorage).
+    (function stripNpcBags() {
+      var pid = String(100);
+      var invKeep = {};
+      if (s.inventory[pid]) invKeep[pid] = s.inventory[pid];
+      s.inventory = invKeep;
+      var bankKeep = {};
+      if (s.bank[pid]) bankKeep[pid] = s.bank[pid];
+      s.bank = bankKeep;
+      var cashKeep = {};
+      if (s.cashDelta[pid] != null) cashKeep[pid] = s.cashDelta[pid];
+      s.cashDelta = cashKeep;
+      s._npcSeeded = false;
+    })();
     s.offers = Array.isArray(s.offers) ? s.offers : [];
     s.history = Array.isArray(s.history) ? s.history : [];
     s.guideOverrides = s.guideOverrides || {};
@@ -391,16 +407,145 @@
     }
   }
 
+  function enforcePlayerInvCap() {
+    var pid = String(PLAYER_ID);
+    var inv = (state.inventory && state.inventory[pid]) || {};
+    var keys = Object.keys(inv).filter(function (k) {
+      return (Number(inv[k]) || 0) > 0;
+    });
+    if (keys.length <= INV_SLOTS) return 0;
+    // Move overflow kinds to bank (keep lowest ids in pack)
+    keys.sort(function (a, b) {
+      return Number(a) - Number(b);
+    });
+    var moved = 0;
+    for (var i = INV_SLOTS; i < keys.length; i++) {
+      var k = keys[i];
+      var q = Number(inv[k]) || 0;
+      if (q > 0) {
+        addBank(PLAYER_ID, Number(k), q);
+        delete inv[k];
+        moved++;
+      }
+    }
+    return moved;
+  }
+
+  function slimForPersist() {
+    var pid = String(PLAYER_ID);
+    enforcePlayerInvCap();
+    var inv = {};
+    inv[pid] = Object.assign({}, (state.inventory && state.inventory[pid]) || {});
+    var bank = {};
+    bank[pid] = Object.assign({}, (state.bank && state.bank[pid]) || {});
+    var cash = {};
+    if (state.cashDelta && state.cashDelta[pid] != null) cash[pid] = state.cashDelta[pid];
+
+    var forged = {};
+    Object.keys(state.forged || {}).forEach(function (k) {
+      var f = state.forged[k];
+      if (!f || typeof f !== "object") return;
+      var thumb = f.thumb || "";
+      if (String(thumb).indexOf("data:") === 0) {
+        var parent = f.parents && f.parents[0];
+        thumb = parent ? "paintings/" + parent + ".jpg" : "";
+      }
+      // Drop huge remote data; keep short paths/urls only
+      if (String(thumb).length > 500) {
+        var parent2 = f.parents && f.parents[0];
+        thumb = parent2 ? "paintings/" + parent2 + ".jpg" : "";
+      }
+      forged[k] = {
+        id: f.id,
+        parents: Array.isArray(f.parents) ? f.parents.slice(0, 3) : [],
+        title: String(f.title || "").slice(0, 160),
+        description: String(f.description || "").slice(0, 1200),
+        thumb: thumb,
+        guide: f.guide,
+        createdAt: f.createdAt,
+      };
+    });
+
+    var notes = {};
+    Object.keys(state.notes || {}).forEach(function (k) {
+      var n = state.notes[k];
+      if (!n) return;
+      notes[k] = {
+        id: n.id,
+        title: String(n.title || "").slice(0, 80),
+        text: String(n.text || "").slice(0, 4000),
+        createdAt: n.createdAt,
+      };
+    });
+
+    // Keep player offers + a small NPC book sample so the market isn't empty on reload
+    var offers = (state.offers || [])
+      .filter(function (o) {
+        return o && !o.cancelled;
+      })
+      .slice(0, 60);
+
+    return {
+      version: Math.max(6, Number(state.version) || 6),
+      cashDelta: cash,
+      inventory: inv,
+      bank: bank,
+      offers: offers,
+      history: Array.isArray(state.history) ? state.history.slice(0, 50) : [],
+      guideOverrides: state.guideOverrides || {},
+      guideMult: Number(state.guideMult) || 1,
+      itemStats: state.itemStats || {},
+      forged: forged,
+      notes: notes,
+      nextForgeId: state.nextForgeId,
+      nextNoteId: state.nextNoteId,
+      npcSeededOffers: !!state.npcSeededOffers,
+      // Force NPC packs to reseed in memory each session (not persisted)
+      _npcSeeded: false,
+      packReady: true,
+      clearedAutoSeed: true,
+      _starterCash: !!state._starterCash,
+      level: Math.max(1, Number(state.level) || 1),
+      xp: Math.max(0, Number(state.xp) || 0),
+      walkXpThisLevel: Math.max(0, Number(state.walkXpThisLevel) || 0),
+      createdAt: state.createdAt || Date.now(),
+    };
+  }
+
   function saveState() {
     if (!state) return false;
     try {
-      localStorage.setItem(STORAGE, JSON.stringify(state));
+      var slim = slimForPersist();
+      // Keep live state aligned with what we persist for the player pack
+      state.inventory = slim.inventory;
+      state.bank = slim.bank;
+      state.cashDelta = Object.assign({}, state.cashDelta || {}, slim.cashDelta);
+      state.history = slim.history;
+      state.forged = slim.forged;
+      state.notes = slim.notes;
+      state.level = slim.level;
+      state.xp = slim.xp;
+      localStorage.setItem(STORAGE, JSON.stringify(slim));
       return true;
     } catch (e) {
+      // Last resort: drop history/offers/stats and retry
       try {
-        setStatus("Could not save GE progress (storage full?). Inventory/level may not persist.", true);
-      } catch (e2) {}
-      return false;
+        var emergency = slimForPersist();
+        emergency.history = [];
+        emergency.offers = (emergency.offers || []).filter(function (o) {
+          return o && o.isPlayer;
+        });
+        emergency.itemStats = {};
+        localStorage.setItem(STORAGE, JSON.stringify(emergency));
+        state.history = [];
+        setStatus("Saved pack/bank/level (cleared market history to free storage).", false);
+        return true;
+      } catch (e2) {
+        try {
+          setStatus("Could not save GE progress — storage still full after cleanup.", true);
+        } catch (e3) {}
+        return false;
+      }
     }
   }
 
@@ -433,8 +578,13 @@
 
   function invOf(id) {
     id = String(id);
-    if (!state.inventory[id]) state.inventory[id] = {};
-    return state.inventory[id];
+    if (Number(id) === PLAYER_ID) {
+      if (!state.inventory) state.inventory = {};
+      if (!state.inventory[id]) state.inventory[id] = {};
+      return state.inventory[id];
+    }
+    if (!npcRuntime.inventory[id]) npcRuntime.inventory[id] = {};
+    return npcRuntime.inventory[id];
   }
 
   function qtyOf(id, itemId) {
@@ -456,9 +606,13 @@
 
   function bankOf(id) {
     id = String(id);
-    if (!state.bank) state.bank = {};
-    if (!state.bank[id]) state.bank[id] = {};
-    return state.bank[id];
+    if (Number(id) === PLAYER_ID) {
+      if (!state.bank) state.bank = {};
+      if (!state.bank[id]) state.bank[id] = {};
+      return state.bank[id];
+    }
+    if (!npcRuntime.bank[id]) npcRuntime.bank[id] = {};
+    return npcRuntime.bank[id];
   }
 
   function bankQty(id, itemId) {
@@ -1037,7 +1191,16 @@
     var readyItems = Number(o.readyItems) || 0;
     var readyCash = Number(o.readyCash) || 0;
     if (readyItems < 1 && readyCash < 1 && !o.complete) return;
-    if (readyItems > 0) addInv(PLAYER_ID, o.itemId, readyItems);
+    if (readyItems > 0) {
+      var already = qtyOf(PLAYER_ID, o.itemId) > 0;
+      var free = INV_SLOTS - inventoryCount(PLAYER_ID);
+      if (!already && free < 1) {
+        addBank(PLAYER_ID, o.itemId, readyItems);
+        setStatus("Pack full — collected #" + o.itemId + " went to bank.");
+      } else {
+        addInv(PLAYER_ID, o.itemId, readyItems);
+      }
+    }
     if (readyCash > 0) addCash(PLAYER_ID, readyCash);
     o.readyItems = 0;
     o.readyCash = 0;
@@ -3240,6 +3403,13 @@
 
   function init() {
     state = loadState();
+    npcRuntime = { inventory: {}, bank: {} };
+    try {
+      var moved = enforcePlayerInvCap();
+      if (moved > 0) {
+        saveState();
+      }
+    } catch (eCap) {}
     window.addEventListener("pagehide", function () {
       saveState();
     });
