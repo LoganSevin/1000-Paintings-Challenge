@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=14" />
+  <link rel="stylesheet" href="css/exchange.css?v=15" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3046,13 +3046,26 @@
           <button type="button" role="menuitem" data-forge-pick="1">Slot 2</button>
           <button type="button" role="menuitem" data-forge-pick="2">Slot 3</button>
           <div class="ge-forge-menu-divider" role="separator"></div>
+          <button type="button" role="menuitem" data-ge-action="view">View fullscreen</button>
+          <button type="button" role="menuitem" data-ge-action="animate">Animate</button>
           <button type="button" role="menuitem" data-ge-action="sell">Sell on GE</button>
           <button type="button" role="menuitem" data-ge-action="deposit" id="ge-menu-deposit">Deposit</button>
           <button type="button" role="menuitem" data-ge-action="withdraw" id="ge-menu-withdraw">Withdraw 1</button>
         </div>
+        <div id="ge-lightbox" class="ge-lightbox" hidden role="dialog" aria-modal="true" aria-label="Grand Exchange item view">
+          <button type="button" class="ge-lightbox-close" id="ge-lightbox-close" aria-label="Close">×</button>
+          <div class="ge-lightbox-stage">
+            <img id="ge-lightbox-img" alt="" />
+            <div class="ge-lightbox-note" id="ge-lightbox-note" hidden></div>
+          </div>
+          <div class="ge-lightbox-meta">
+            <strong id="ge-lightbox-title"></strong>
+            <p id="ge-lightbox-desc"></p>
+          </div>
+        </div>
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
-          <p class="ge-forge-hint">Right-click inventory/bank → Slot / Sell · Notes fill slots as text · Combine to generate</p>
+          <p class="ge-forge-hint">Right-click → Slot / View / Animate / Sell · Notes fill slots · Combine to generate</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-1" data-forge-slot="1" title="Clear slot"><span class="ge-forge-num">2</span></button>
@@ -6501,7 +6514,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=14"></script>
+  <script defer src="js/exchange.js?v=15"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

@@ -1714,6 +1714,80 @@
     return ok[v] ? v : "1:1";
   }
 
+
+  function hideGeLightbox() {
+    var lb = $("ge-lightbox");
+    if (lb) lb.hidden = true;
+  }
+
+  function openItemFullscreen(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    // Paintings 1–1000: reuse gallery lightbox when available
+    if (itemId >= 1 && itemId <= 1000 && typeof window.openLightbox === "function") {
+      try {
+        window.openLightbox(itemId);
+        return { ok: true };
+      } catch (e) {}
+    }
+    var lb = $("ge-lightbox");
+    if (!lb) return { ok: false, error: "Viewer missing." };
+    var img = $("ge-lightbox-img");
+    var noteEl = $("ge-lightbox-note");
+    var isNote = !!noteOf(itemId);
+    if (isNote) {
+      if (img) {
+        img.hidden = true;
+        img.removeAttribute("src");
+      }
+      if (noteEl) {
+        noteEl.hidden = false;
+        noteEl.textContent = fullDescFor(itemId) || titleFor(itemId);
+      }
+    } else {
+      if (noteEl) {
+        noteEl.hidden = true;
+        noteEl.textContent = "";
+      }
+      if (img) {
+        img.hidden = false;
+        img.src = thumb(itemId);
+        img.alt = titleFor(itemId);
+      }
+    }
+    if ($("ge-lightbox-title")) $("ge-lightbox-title").textContent = kindLabel(itemId) + " · " + titleFor(itemId);
+    if ($("ge-lightbox-desc")) $("ge-lightbox-desc").textContent = isNote ? "" : descFor(itemId);
+    lb.hidden = false;
+    return { ok: true };
+  }
+
+  function sendItemToAnimate(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    var prompt = String(fullDescFor(itemId) || titleFor(itemId) || "").trim();
+    var url = noteOf(itemId) ? "" : thumb(itemId);
+    var aspect = selectedForgeAspect();
+    openAnimateTab();
+    setTimeout(function () {
+      try {
+        if (window.Animate && typeof window.Animate.seedFromSpellforge === "function") {
+          window.Animate.seedFromSpellforge({
+            prompt: prompt,
+            stasis: prompt,
+            imageUrl: url,
+            aspect: aspect,
+          });
+          setStatus("Sent " + kindLabel(itemId) + " to Animate.");
+        } else {
+          setStatus("Animate is not ready yet — open the Animate tab.", true);
+        }
+      } catch (e) {
+        setStatus("Could not seed Animate.", true);
+      }
+    }, 60);
+    return { ok: true };
+  }
+
   function openSellForItem(itemId) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
@@ -2597,6 +2671,16 @@
         hideForgeContextMenu();
         if (actionBtn) {
           var action = actionBtn.getAttribute("data-ge-action");
+          if (action === "view") {
+            var viewRes = openItemFullscreen(id);
+            if (!viewRes.ok) setStatus(viewRes.error, true);
+            return;
+          }
+          if (action === "animate") {
+            var anRes = sendItemToAnimate(id);
+            if (!anRes.ok) setStatus(anRes.error, true);
+            return;
+          }
           if (action === "sell") {
             var sellRes = openSellForItem(id);
             if (!sellRes.ok) setStatus(sellRes.error, true);
@@ -2640,10 +2724,23 @@
       document.addEventListener(
         "keydown",
         function (e) {
-          if (e.key === "Escape") hideForgeContextMenu();
+          if (e.key === "Escape") {
+            hideForgeContextMenu();
+            hideGeLightbox();
+          }
         },
         true
       );
+    }
+    if ($("ge-lightbox-close") && !$("ge-lightbox-close").dataset.bound) {
+      $("ge-lightbox-close").dataset.bound = "1";
+      $("ge-lightbox-close").addEventListener("click", hideGeLightbox);
+    }
+    if ($("ge-lightbox") && !$("ge-lightbox").dataset.boundBg) {
+      $("ge-lightbox").dataset.boundBg = "1";
+      $("ge-lightbox").addEventListener("click", function (e) {
+        if (e.target === $("ge-lightbox")) hideGeLightbox();
+      });
     }
     if ($("ge-dep-one") && !$("ge-dep-one").dataset.bound) {
       $("ge-dep-one").dataset.bound = "1";
