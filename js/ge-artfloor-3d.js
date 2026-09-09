@@ -3,8 +3,10 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player + NPCs prefer offline Mixamo-style human GLBs (MetaHuman-like adult proportions + walk mixer)
+ * - Player: custom female Mixamo Michelle + Golden Stasis painting look (metallic gold / Mixamo contour)
+ * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
  * - Procedural fallback = continuous MetaHuman proportions (head ~1/7.5 body), 5-finger hands, calm gallery attire
+ * - Hook: CUSTOM_CHARACTER_URL / ?customChar= + Michelle GLB under assets/artfloor-characters/
  * - NO green waffle "player uniform", NO white collar plates, NO chest badge/pencil graphics
  * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
  */
@@ -619,6 +621,37 @@ var MAX_NPCS = 8;
 var CHAR_ASSET_BASE = "assets/artfloor-characters/";
 var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
+/**
+ * Custom contoured character hook (reusable for future paintings):
+ * - CUSTOM_CHARACTER_URL: front look / albedo (default golden-stasis painting)
+ * - CUSTOM_CHARACTER_GLB: female Mixamo-style skinned GLB (Michelle)
+ * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or
+ * ?customChar= / ?customGlb= query params.
+ */
+var CUSTOM_CHARACTER_GLB = "glb/Michelle.glb";
+var CUSTOM_CHARACTER_URL = "custom/golden-stasis.jpg";
+
+function resolveCustomCharacterPaths() {
+  try {
+    if (typeof window !== "undefined") {
+      if (window.GE_CUSTOM_CHARACTER_URL) CUSTOM_CHARACTER_URL = String(window.GE_CUSTOM_CHARACTER_URL);
+      if (window.GE_CUSTOM_CHARACTER_GLB) CUSTOM_CHARACTER_GLB = String(window.GE_CUSTOM_CHARACTER_GLB);
+      if (window.location && window.location.search) {
+        var q = new URLSearchParams(window.location.search);
+        if (q.get("customChar")) CUSTOM_CHARACTER_URL = q.get("customChar");
+        if (q.get("customGlb")) CUSTOM_CHARACTER_GLB = q.get("customGlb");
+      }
+    }
+  } catch (e) {}
+  // Allow absolute or assets-relative paths
+  function abs(p) {
+    if (!p) return p;
+    if (/^(https?:|data:|blob:|\/)/i.test(p) || p.indexOf("assets/") === 0) return p;
+    return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
+  }
+  return { glb: abs(CUSTOM_CHARACTER_GLB), look: abs(CUSTOM_CHARACTER_URL) };
+}
+
 /** Calm solid gallery attire palettes (no costume graphics). */
 var NPC_PALETTES = [
   { id: "navy_suit", silhouette: "suit", coat: 0x1e2a44, pants: 0x141820, shirt: 0xeee6da, skin: 0xc8a888, hair: 0x6a5850, tie: 0x8a3030 },
@@ -673,17 +706,52 @@ function loadGltfAsync(url) {
   });
 }
 
+function loadTextureAsync(url) {
+  return new Promise(function (resolve) {
+    if (!url) { resolve(null); return; }
+    var loader = new THREE.TextureLoader();
+    loader.load(
+      url,
+      function (tex) {
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.flipY = false; // GLB / glTF UV convention
+        tex.anisotropy = 8;
+        resolve(trackTex(tex));
+      },
+      undefined,
+      function () { resolve(null); }
+    );
+  });
+}
+
 async function loadCharacterLibrary() {
   if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
     return api._charLibrary;
   }
   showLoader(true, "Loading gallery patrons…");
-  var lib = { glbs: [] };
+  var lib = { glbs: [], custom: null, customLook: null, donor: null };
+  var paths = resolveCustomCharacterPaths();
+
+  // Gallery crowd (calm Mixamo walkers)
   var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
   for (var gi = 0; gi < glbFiles.length; gi++) {
     var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi]);
-    if (g && g.scene) lib.glbs.push({ id: glbFiles[gi], gltf: g });
+    if (g && g.scene) {
+      var entry = { id: glbFiles[gi], gltf: g };
+      lib.glbs.push(entry);
+      if (!lib.donor && g.animations && g.animations.some(function (c) { return /walk/i.test(c.name); })) {
+        lib.donor = entry;
+      }
+    }
   }
+
+  // Featured custom: female Mixamo Michelle (adult proportions) + painting look
+  var customGlb = await loadGltfAsync(paths.glb);
+  if (customGlb && customGlb.scene) {
+    lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
+  }
+  lib.customLook = await loadTextureAsync(paths.look);
+
   api._charLibrary = lib;
   return lib;
 }
@@ -736,16 +804,157 @@ function applyGalleryAttireTint(root, attireHex, skinBias) {
   });
 }
 
+/**
+ * Eyedropper palette from Logan's Golden Stasis painting (metallic gold jumpsuit / Bond-girl).
+ * Best-effort: painting as albedo on Mixamo UVs + strong gold metalness; dark hair/scarf accents.
+ */
+var GOLDEN_STASIS_PALETTE = {
+  gold: 0xb59155,
+  goldHi: 0xd4af37,
+  skin: 0xcaa76b,
+  hair: 0x1c1921,
+  scarf: 0x141018,
+  heel: 0x1a1410,
+};
+
+function findBone(root, re) {
+  var found = null;
+  root.traverse(function (o) {
+    if (found || !o.isBone) return;
+    if (re.test(o.name || "")) found = o;
+  });
+  return found;
+}
+
+function applyGoldenStasisLook(root, lookTex) {
+  var gold = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
+  var hair = new THREE.Color(GOLDEN_STASIS_PALETTE.hair);
+  root.traverse(function (o) {
+    if (!o.isMesh || !o.material) return;
+    var mats = Array.isArray(o.material) ? o.material : [o.material];
+    for (var i = 0; i < mats.length; i++) {
+      var m = mats[i];
+      if (!m || !m.color) continue;
+      m = m.clone();
+      trackMat(m);
+      mats[i] = m;
+      var name = ((m.name || "") + " " + (o.name || "")).toLowerCase();
+      // Michelle is often one Ch03_Body atlas — treat as gold jumpsuit unless clearly hair/eye/shoe
+      var isHair = /hair|scalp|brow/i.test(name);
+      var isEye = /eye|visor|lash|pupil|cornea/i.test(name);
+      var isShoe = /shoe|boot|heel|sole|footwear/i.test(name);
+      if (isEye) {
+        m.color.setHex(0x1a1210);
+        m.metalness = 0.15;
+        m.roughness = 0.35;
+        if (m.map) m.map = null;
+      } else if (isHair) {
+        m.color.copy(hair);
+        m.metalness = 0.05;
+        m.roughness = 0.88;
+        if (m.map) { m.color.lerp(new THREE.Color(0xffffff), 0.08); }
+      } else if (isShoe) {
+        m.color.setHex(GOLDEN_STASIS_PALETTE.heel);
+        m.metalness = 0.35;
+        m.roughness = 0.45;
+      } else {
+        // Jumpsuit / clothing / default body atlas → metallic gold + painting albedo
+        // Face/hands stay in the atlas; gold tint + painting map is the Bond-girl read at walk distance
+        m.color.copy(gold);
+        m.metalness = 0.82;
+        m.roughness = 0.28;
+        if (m.envMapIntensity != null) m.envMapIntensity = 1.2;
+        if (lookTex) {
+          m.map = lookTex;
+          m.color.setHex(GOLDEN_STASIS_PALETTE.goldHi);
+          m.color.lerp(new THREE.Color(0xffffff), 0.35);
+        }
+        if (m.emissive) {
+          m.emissive.setHex(0x3a2a08);
+          m.emissiveIntensity = 0.12;
+        }
+        // Keep normal/AO maps for Mixamo contouring when present
+      }
+      m.needsUpdate = true;
+    }
+    o.material = Array.isArray(o.material) ? mats : mats[0];
+    o.castShadow = true;
+    o.receiveShadow = true;
+  });
+
+  // Dark curly updo volume on head bone (painting has big bouffant)
+  var head = findBone(root, /Head$/i);
+  if (head) {
+    var hairMat = trackMat(new THREE.MeshStandardMaterial({
+      color: GOLDEN_STASIS_PALETTE.hair, roughness: 0.92, metalness: 0.02,
+    }));
+    var bun = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.11, 14, 12)), hairMat);
+    bun.position.set(0, 0.12, -0.02);
+    bun.scale.set(1.15, 1.35, 1.1);
+    bun.castShadow = true;
+    head.add(bun);
+    var puff = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.085, 12, 10)), hairMat);
+    puff.position.set(0, 0.06, 0.06);
+    puff.scale.set(1.4, 0.9, 1.1);
+    puff.castShadow = true;
+    head.add(puff);
+  }
+
+  // Black neckerchief near neck
+  var neck = findBone(root, /Neck$/i) || head;
+  if (neck) {
+    var scarfMat = trackMat(new THREE.MeshStandardMaterial({
+      color: GOLDEN_STASIS_PALETTE.scarf, roughness: 0.7, metalness: 0.05,
+    }));
+    var knot = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.035, 10, 8)), scarfMat);
+    knot.position.set(0.02, 0.02, 0.06);
+    neck.add(knot);
+    var tail = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.04, 0.01, 0.22)), scarfMat);
+    tail.position.set(0.08, 0.0, 0.12);
+    tail.rotation.y = -0.5;
+    tail.rotation.z = 0.25;
+    neck.add(tail);
+    var tail2 = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.035, 0.008, 0.16)), scarfMat);
+    tail2.position.set(0.12, -0.02, 0.08);
+    tail2.rotation.y = -0.85;
+    neck.add(tail2);
+  }
+}
+
+/**
+ * Michelle ships with SambaDance only — borrow Walk/Idle from Soldier/Xbot.
+ * Same Mixamo mixamorig:* bone names, so clips bind directly on her mixer.
+ */
+function collectLocomotionClips(entry, donor) {
+  var clips = { walk: null, idle: null };
+  function dig(gltf) {
+    if (!gltf || !gltf.animations) return;
+    for (var i = 0; i < gltf.animations.length; i++) {
+      var c = gltf.animations[i];
+      if (!clips.walk && /walk/i.test(c.name)) clips.walk = c;
+      if (!clips.idle && /idle/i.test(c.name)) clips.idle = c;
+    }
+  }
+  dig(entry && entry.gltf);
+  dig(donor && donor.gltf);
+  return clips;
+}
+
 function buildGltfCharacter(entry, opts) {
+
   opts = opts || {};
   var root = new THREE.Group();
   // Skinned Mixamo meshes need SkeletonUtils.clone (plain clone breaks bindings)
   var model = SkeletonUtils.clone(entry.gltf.scene);
-  applyGalleryAttireTint(
-    model,
-    opts.attire != null ? opts.attire : GLB_ATTIRE_TINTS[0],
-    opts.skin != null ? opts.skin : 0xd4b896
-  );
+  if (opts.customLook) {
+    applyGoldenStasisLook(model, opts.lookTexture || (api._charLibrary && api._charLibrary.customLook));
+  } else {
+    applyGalleryAttireTint(
+      model,
+      opts.attire != null ? opts.attire : GLB_ATTIRE_TINTS[0],
+      opts.skin != null ? opts.skin : 0xd4b896
+    );
+  }
 
   // Normalize adult height (~1.78m) — MetaHuman-like standing scale
   model.updateMatrixWorld(true);
@@ -761,14 +970,17 @@ function buildGltfCharacter(entry, opts) {
 
   var mixer = null;
   var actions = {};
-  if (entry.gltf.animations && entry.gltf.animations.length) {
+  var donor = (api._charLibrary && api._charLibrary.donor) || null;
+  var loco = collectLocomotionClips(entry, opts.borrowLocomotion !== false ? donor : null);
+  var nativeAnims = (entry.gltf.animations && entry.gltf.animations.length) ? entry.gltf.animations : [];
+  if (loco.walk || loco.idle || nativeAnims.length) {
     mixer = new THREE.AnimationMixer(model);
-    var walkClip = entry.gltf.animations.find(function (c) { return /walk/i.test(c.name); });
-    var idleClip = entry.gltf.animations.find(function (c) { return /idle/i.test(c.name); });
-    var clip = walkClip || idleClip || entry.gltf.animations[0];
+    var walkClip = loco.walk;
+    var idleClip = loco.idle;
+    var clip = walkClip || idleClip || nativeAnims[0];
     if (walkClip) actions.walk = mixer.clipAction(walkClip);
     if (idleClip) actions.idle = mixer.clipAction(idleClip);
-    if (!actions.walk) actions.walk = mixer.clipAction(clip);
+    if (!actions.walk && clip) actions.walk = mixer.clipAction(clip);
     if (actions.idle) {
       actions.idle.play();
       actions.idle.setEffectiveWeight(1);
@@ -1102,6 +1314,17 @@ function pickGlbEntry(index) {
 }
 
 function buildPlayer() {
+  var lib = api._charLibrary;
+  // Featured: contoured female Mixamo (Michelle) with Golden Stasis painting look
+  if (lib && lib.custom) {
+    return buildGltfCharacter(lib.custom, {
+      isPlayer: true,
+      scale: 1.0,
+      customLook: true,
+      lookTexture: lib.customLook,
+      borrowLocomotion: true,
+    });
+  }
   var entry = pickGlbEntry(0);
   if (entry) {
     return buildGltfCharacter(entry, {
@@ -1112,14 +1335,15 @@ function buildPlayer() {
     });
   }
   return buildHumanoid({
-    coat: 0x2a2a30,
-    pants: 0x1a1a1e,
-    shirt: 0xf4efe6,
-    skin: 0xd4b896,
-    hair: 0x3a2918,
-    tie: 0x5a4050,
+    coat: GOLDEN_STASIS_PALETTE.gold,
+    pants: GOLDEN_STASIS_PALETTE.gold,
+    shirt: GOLDEN_STASIS_PALETTE.gold,
+    skin: GOLDEN_STASIS_PALETTE.skin,
+    hair: GOLDEN_STASIS_PALETTE.hair,
+    tie: GOLDEN_STASIS_PALETTE.scarf,
     isPlayer: true,
     scale: 1.0,
+    dress: true,
   });
 }
 
