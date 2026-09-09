@@ -4569,75 +4569,7 @@
     return { x: 42, y: 18, w: 16, h: 18 };
   }
 
-  /** Soft obstacles matching Art Floor set dressing (percent coords). */
-  function worldObstacles() {
-    return [
-      boothRect(),
-      { x: 10, y: 20, w: 5, h: 40 }, // columns
-      { x: 32, y: 20, w: 5, h: 40 },
-      { x: 64, y: 20, w: 5, h: 40 },
-      { x: 86, y: 20, w: 5, h: 40 },
-      { x: 16, y: 48, w: 18, h: 12 }, // green tables
-      { x: 58, y: 42, w: 20, h: 12 },
-      { x: 38, y: 62, w: 14, h: 12 },
-      { x: 26, y: 36, w: 4, h: 8 }, // busts
-      { x: 77, y: 58, w: 4, h: 8 },
-    ];
-  }
-
-  function nearBooth() {
-    var b = boothRect();
-    var cx = b.x + b.w / 2;
-    var cy = b.y + b.h / 2;
-    var dx = playerPos.x - cx;
-    var dy = playerPos.y - cy;
-    return Math.sqrt(dx * dx + dy * dy) < 14;
-  }
-
-  function applyPlayerDom() {
-    var el = $("ge-player");
-    if (!el) return;
-    el.style.left = playerPos.x + "%";
-    el.style.top = playerPos.y + "%";
-  }
-
-  function initNpcs() {
-    var nodes = document.querySelectorAll("#ge-world-stage .ge-world-npc");
-    npcStates = [];
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      var x = parseFloat(el.style.left) || 20 + i * 15;
-      var y = parseFloat(el.style.top) || 40 + (i % 3) * 10;
-      npcStates.push({
-        el: el,
-        x: x,
-        y: y,
-        vx: (Math.random() - 0.5) * 6,
-        vy: (Math.random() - 0.5) * 6,
-        idle: Math.random() * 2,
-      });
-    }
-  }
-
-  function collidesBooth(x, y) {
-    return collidesWorld(x, y);
-  }
-
-  function collidesWorld(x, y) {
-    var obs = worldObstacles();
-    for (var i = 0; i < obs.length; i++) {
-      var b = obs[i];
-      if (x > b.x + 1 && x < b.x + b.w - 1 && y > b.y + 2 && y < b.y + b.h - 1) return true;
-    }
-    return false;
-  }
-
-  /** Hang gallery thumbs on easels / lean canvases for Art Floor atmosphere. */
-  function dressArtFloor() {
-    var stage = $("ge-world-stage");
-    if (!stage) return;
-    var imgs = stage.querySelectorAll("[data-easel] img");
-    if (!imgs.length) return;
+  function collectArtFloorUrls() {
     var picks = [];
     var seen = {};
     function pushId(n) {
@@ -4656,100 +4588,109 @@
     for (var ei = 0; ei < extras.length && picks.length < 12; ei++) pushId(extras[ei]);
     var seed = [1, 7, 12, 24, 36, 48, 64, 81, 100, 128, 256, 512];
     for (var si = 0; si < seed.length && picks.length < 12; si++) pushId(seed[si]);
-    while (picks.length < imgs.length) {
+    while (picks.length < 12) {
       pushId(1 + Math.floor(Math.random() * Math.max(1, PAINTING_TOTAL)));
       if (picks.length > 40) break;
     }
-    for (var i = 0; i < imgs.length; i++) {
-      var id = picks[i % picks.length];
-      var src = thumb(id);
-      if (!src) continue;
-      imgs[i].src = src;
-      imgs[i].alt = "Painting #" + id;
-      imgs[i].loading = "lazy";
-      imgs[i].onerror = (function (img, fallback) {
-        return function () {
-          if (img.dataset.fb) return;
-          img.dataset.fb = "1";
-          img.src = fallback;
-        };
-      })(imgs[i], "paintings/" + id + ".jpg");
+    return picks.map(function (id) {
+      return thumb(id) || "paintings/" + id + ".jpg";
+    });
+  }
+
+  /** Hang gallery thumbs on 3D easels (replaces old 2D Art Floor dressing). */
+  function dressArtFloor() {
+    var urls = collectArtFloorUrls();
+    if (window.GeArtFloor3D && typeof window.GeArtFloor3D.setPaintingUrls === "function") {
+      try {
+        window.GeArtFloor3D.setPaintingUrls(urls);
+      } catch (e3) {}
     }
+  }
+
+  var artFloor3dWaitTimer = 0;
+
+  function ensureArtFloor3D() {
+    var stage = $("ge-world-stage");
+    if (!stage) return false;
+    if (!window.GeArtFloor3D || typeof window.GeArtFloor3D.mount !== "function") {
+      return false;
+    }
+    try {
+      window.GeArtFloor3D.mount(stage, {
+        getPaintingUrls: collectArtFloorUrls,
+        onOpenExchange: function () {
+          if (!exchangeOpen) openExchangeUi();
+        },
+        onWalkXp: function (n) {
+          grantXp(n || 1, { walk: true });
+        },
+      });
+      return true;
+    } catch (eMount) {
+      console.warn("[GE] Art Floor 3D mount failed", eMount);
+      return false;
+    }
+  }
+
+  function startWorldLoopWhenReady(attempts) {
+    if (exchangeOpen) return;
+    attempts = attempts == null ? 40 : attempts;
+    if (ensureArtFloor3D()) {
+      try {
+        window.GeArtFloor3D.start();
+        dressArtFloor();
+      } catch (eStart) {
+        console.warn("[GE] Art Floor 3D start failed", eStart);
+      }
+      return;
+    }
+    if (attempts <= 0) {
+      console.warn("[GE] Art Floor 3D unavailable (Three.js module did not load)");
+      return;
+    }
+    if (artFloor3dWaitTimer) clearTimeout(artFloor3dWaitTimer);
+    artFloor3dWaitTimer = setTimeout(function () {
+      artFloor3dWaitTimer = 0;
+      startWorldLoopWhenReady(attempts - 1);
+    }, 100);
+  }
+
+  function nearBooth() {
+    if (window.GeArtFloor3D && typeof window.GeArtFloor3D.isNearBooth === "function") {
+      try {
+        return !!window.GeArtFloor3D.isNearBooth();
+      } catch (e) {}
+    }
+    return false;
+  }
+
+  function applyPlayerDom() {
+    /* 3D avatar — no 2D player DOM */
+  }
+
+  function initNpcs() {
+    /* 3D NPCs owned by GeArtFloor3D */
+  }
+
+  function collidesBooth(x, y) {
+    return false;
+  }
+
+  function collidesWorld(x, y) {
+    return false;
   }
 
   function worldStep(dt) {
-    if (exchangeOpen) return;
-    var mx = 0;
-    var my = 0;
-    if (worldKeys.ArrowLeft || worldKeys.a || worldKeys.A) mx -= 1;
-    if (worldKeys.ArrowRight || worldKeys.d || worldKeys.D) mx += 1;
-    if (worldKeys.ArrowUp || worldKeys.w || worldKeys.W) my -= 1;
-    if (worldKeys.ArrowDown || worldKeys.s || worldKeys.S) my += 1;
-    if (mx || my) {
-      var len = Math.sqrt(mx * mx + my * my) || 1;
-      var sp = PLAYER_SPEED * dt;
-      var nx = playerPos.x + (mx / len) * sp;
-      var ny = playerPos.y + (my / len) * sp;
-      nx = clamp(nx, 4, WORLD_W - 4);
-      ny = clamp(ny, 8, WORLD_H - 4);
-      if (!collidesBooth(nx, playerPos.y)) playerPos.x = nx;
-      if (!collidesBooth(playerPos.x, ny)) playerPos.y = ny;
-      walkAcc += sp;
-      while (walkAcc >= WALK_DIST_PER_XP) {
-        walkAcc -= WALK_DIST_PER_XP;
-        grantXp(WALK_XP_STEP, { walk: true });
-      }
-      applyPlayerDom();
-    }
-    // Idle / wandering bankers
-    for (var i = 0; i < npcStates.length; i++) {
-      var n = npcStates[i];
-      n.idle -= dt;
-      if (n.idle <= 0) {
-        if (Math.random() < 0.45) {
-          n.vx = 0;
-          n.vy = 0;
-          n.idle = 0.8 + Math.random() * 2.2;
-        } else {
-          var ang = Math.random() * Math.PI * 2;
-          var spd = 3 + Math.random() * 5;
-          n.vx = Math.cos(ang) * spd;
-          n.vy = Math.sin(ang) * spd;
-          n.idle = 1.2 + Math.random() * 2.5;
-        }
-      }
-      var nxx = clamp(n.x + n.vx * dt, 6, 94);
-      var nyy = clamp(n.y + n.vy * dt, 12, 92);
-      if (collidesBooth(nxx, nyy)) {
-        n.vx *= -1;
-        n.vy *= -1;
-      } else {
-        n.x = nxx;
-        n.y = nyy;
-      }
-      if (n.el) {
-        n.el.style.left = n.x + "%";
-        n.el.style.top = n.y + "%";
-      }
-    }
+    /* movement handled inside GeArtFloor3D */
   }
 
   function worldLoop(ts) {
-    if (exchangeOpen) {
-      worldRaf = 0;
-      return;
-    }
-    if (!worldLastTs) worldLastTs = ts;
-    var dt = Math.min(0.05, (ts - worldLastTs) / 1000);
-    worldLastTs = ts;
-    worldStep(dt);
-    worldRaf = requestAnimationFrame(worldLoop);
+    worldRaf = 0;
   }
 
   function startWorldLoop() {
-    if (worldRaf) return;
-    worldLastTs = 0;
-    worldRaf = requestAnimationFrame(worldLoop);
+    if (exchangeOpen) return;
+    startWorldLoopWhenReady(40);
   }
 
   function stopWorldLoop() {
@@ -4757,58 +4698,26 @@
     worldRaf = 0;
     worldLastTs = 0;
     worldKeys = Object.create(null);
-  }
-
-  function bindWorldKeys() {
-    if (bindWorldKeys._on) return;
-    bindWorldKeys._on = true;
-    window.addEventListener("keydown", onWorldKeyDown, true);
-    window.addEventListener("keyup", onWorldKeyUp, true);
-  }
-
-  function unbindWorldKeys() {
-    if (!bindWorldKeys._on) return;
-    bindWorldKeys._on = false;
-    window.removeEventListener("keydown", onWorldKeyDown, true);
-    window.removeEventListener("keyup", onWorldKeyUp, true);
-    worldKeys = Object.create(null);
-  }
-
-  function onWorldKeyDown(e) {
-    if (exchangeOpen) return;
-    var panel = $("panel-exchange");
-    if (panel && panel.hidden) return;
-    var tag = (e.target && e.target.tagName) || "";
-    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
-    var k = e.key;
-    if (
-      k === "ArrowUp" ||
-      k === "ArrowDown" ||
-      k === "ArrowLeft" ||
-      k === "ArrowRight" ||
-      k === "w" ||
-      k === "a" ||
-      k === "s" ||
-      k === "d" ||
-      k === "W" ||
-      k === "A" ||
-      k === "S" ||
-      k === "D"
-    ) {
-      worldKeys[k] = true;
-      e.preventDefault();
-    } else if (k === "e" || k === "E") {
-      if (nearBooth()) {
-        e.preventDefault();
-        openExchangeUi();
-      }
+    if (window.GeArtFloor3D && typeof window.GeArtFloor3D.pause === "function") {
+      try {
+        window.GeArtFloor3D.pause();
+      } catch (ePause) {}
     }
   }
 
-  function onWorldKeyUp(e) {
-    var k = e.key;
-    if (k in worldKeys) delete worldKeys[k];
+  function bindWorldKeys() {
+    /* Keyboard owned by GeArtFloor3D while the 3D world runs */
+    if (bindWorldKeys._on) return;
+    bindWorldKeys._on = true;
   }
+
+  function unbindWorldKeys() {
+    bindWorldKeys._on = false;
+    worldKeys = Object.create(null);
+  }
+
+  function onWorldKeyDown(e) {}
+  function onWorldKeyUp(e) {}
 
   function openExchangeUi() {
     exchangeOpen = true;
@@ -4831,15 +4740,19 @@
     var ui = $("ge-exchange-ui");
     if (ui) ui.hidden = true;
     if (world) world.hidden = false;
-    applyPlayerDom();
     updateLevelHud();
     bindWorldKeys();
-    startWorldLoop();
-    if ($("ge-world-stage")) {
-      try {
-        $("ge-world-stage").focus();
-      } catch (err) {}
-    }
+    // Defer start so layout has size after unhiding
+    setTimeout(function () {
+      if (exchangeOpen) return;
+      dressArtFloor();
+      startWorldLoop();
+      if ($("ge-world-stage")) {
+        try {
+          $("ge-world-stage").focus();
+        } catch (err) {}
+      }
+    }, 30);
   }
 
   function bind() {
@@ -5634,7 +5547,7 @@
           arsenalList().length +
           " (paintings + gen/phone/sketches" +
           (extras ? " · " + extras + " extras" : "") +
-          "). Walk the marble hall or Open Grand Exchange."
+          "). Explore the 3D Art Floor or Open Grand Exchange."
       );
     });
   }
@@ -5643,6 +5556,11 @@
     stopTicks();
     stopWorldLoop();
     unbindWorldKeys();
+    if (window.GeArtFloor3D && typeof window.GeArtFloor3D.dispose === "function") {
+      try {
+        window.GeArtFloor3D.dispose();
+      } catch (eDisp) {}
+    }
     saveState();
   }
 

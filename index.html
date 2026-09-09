@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=33" />
+  <link rel="stylesheet" href="css/exchange.css?v=34" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2890,53 +2890,13 @@
           </div>
           <button type="button" class="ge-open-exchange" id="ge-open-exchange">Open Grand Exchange</button>
         </div>
-        <div class="ge-world-stage ge-world-stage--artfloor" id="ge-world-stage" tabindex="0" aria-label="Grand Exchange Art Floor">
-          <div class="ge-world-mural" aria-hidden="true"></div>
-          <div class="ge-world-vault" aria-hidden="true"></div>
-          <div class="ge-world-windows" aria-hidden="true"></div>
-          <div class="ge-world-glow" aria-hidden="true"></div>
-          <div class="ge-world-ground"></div>
-          <div class="ge-world-scenery" id="ge-world-scenery" aria-hidden="true">
-            <div class="ge-col ge-col--1"></div>
-            <div class="ge-col ge-col--2"></div>
-            <div class="ge-col ge-col--3"></div>
-            <div class="ge-col ge-col--4"></div>
-            <div class="ge-chandelier ge-chandelier--1" title="Chandelier">✦</div>
-            <div class="ge-chandelier ge-chandelier--2" title="Chandelier">✦</div>
-            <div class="ge-chandelier ge-chandelier--3" title="Chandelier">✦</div>
-            <div class="ge-banner ge-banner--1"><span>GRAND EXCHANGE — ART FLOOR</span></div>
-            <div class="ge-banner ge-banner--2"><span>GRAND EXCHANGE — ART FLOOR</span></div>
-            <div class="ge-table ge-table--1" data-collide="1">
-              <div class="ge-easel" data-easel="0"><img alt="" /></div>
-              <div class="ge-easel" data-easel="1"><img alt="" /></div>
-            </div>
-            <div class="ge-table ge-table--2" data-collide="1">
-              <div class="ge-easel" data-easel="2"><img alt="" /></div>
-              <div class="ge-easel" data-easel="3"><img alt="" /></div>
-            </div>
-            <div class="ge-table ge-table--3" data-collide="1">
-              <div class="ge-easel" data-easel="4"><img alt="" /></div>
-            </div>
-            <div class="ge-bust ge-bust--1" data-collide="1" title="Bust">🗿</div>
-            <div class="ge-bust ge-bust--2" data-collide="1" title="Bust">🗿</div>
-            <div class="ge-lean-canvas ge-lean--1" data-easel="5"><img alt="" /></div>
-            <div class="ge-lean-canvas ge-lean--2" data-easel="6"><img alt="" /></div>
-          </div>
-          <div class="ge-world-booth" id="ge-booth" title="Grand Exchange booth — press E or click">
-            <span class="ge-booth-sign">GE</span>
-            <span class="ge-booth-label">Art Floor Desk</span>
-          </div>
-          <div class="ge-world-npc ge-npc--suit" data-npc="0" style="left:18%;top:62%" title="Dealer">🤵</div>
-          <div class="ge-world-npc ge-npc--beret" data-npc="1" style="left:72%;top:28%" title="Collector">👩</div>
-          <div class="ge-world-npc ge-npc--coat" data-npc="2" style="left:55%;top:70%" title="Buyer">🧑</div>
-          <div class="ge-world-npc ge-npc--suit" data-npc="3" style="left:30%;top:35%" title="Appraiser">🕵</div>
-          <div class="ge-world-npc ge-npc--beret" data-npc="4" style="left:82%;top:55%" title="Artist">👨‍🎨</div>
-          <div class="ge-world-npc ge-npc--coat" data-npc="5" style="left:12%;top:40%" title="Patron">👩‍💼</div>
-          <div class="ge-world-npc ge-npc--suit" data-npc="6" style="left:64%;top:48%" title="Broker">🧔</div>
-          <div class="ge-world-npc ge-npc--beret" data-npc="7" style="left:40%;top:58%" title="Critic">🧐</div>
-          <div class="ge-world-player" id="ge-player" style="left:48%;top:78%" title="You">🧑</div>
+        <div class="ge-world-stage ge-world-stage--artfloor3d" id="ge-world-stage" tabindex="0" aria-label="Grand Exchange Art Floor 3D">
+          <canvas id="ge-world-canvas" class="ge-world-canvas" aria-hidden="true"></canvas>
+          <div class="ge-world-interact-hint" id="ge-world-interact-hint" hidden>Press E — Open Grand Exchange</div>
+          <!-- Hidden legacy booth hook for exchange.js open handlers -->
+          <button type="button" id="ge-booth" class="ge-booth-sr" title="Grand Exchange booth">Open GE desk</button>
         </div>
-        <p class="ge-world-hint">WASD / arrows walk the Art Floor · E or click the GE desk to trade · Close GE returns here</p>
+        <p class="ge-world-hint">Click canvas to mouse-look · WASD / arrows walk · E near the GE desk (or Open Grand Exchange) to trade · Esc releases mouse</p>
       </div>
 
       <div id="ge-exchange-ui" class="ge-exchange-ui" hidden>
@@ -6609,7 +6569,8 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=34"></script>
+  <script type="module" src="js/ge-artfloor-3d.js?v=1"></script>
+  <script defer src="js/exchange.js?v=35"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
