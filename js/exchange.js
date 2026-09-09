@@ -23,7 +23,7 @@
   var bagView = "inv"; // inv | bank
   var bankPage = 0;
   var INV_SLOTS = 28;
-  var BANK_PAGE = 28;
+  var BANK_PAGE = 96; // 8×12 visible; bank itself is unlimited
   var selectedInvItem = null;
   var selectedBankItem = null;
 
@@ -689,7 +689,7 @@
     wrap.innerHTML = html.join("");
     if ($("ge-bank-page")) $("ge-bank-page").textContent = pages ? bankPage + 1 + " / " + pages : "1 / 1";
     if ($("ge-bank-meta")) {
-      $("ge-bank-meta").textContent = list.length + " stacked types in bank · page " + (bankPage + 1);
+      $("ge-bank-meta").textContent = list.length + " types in bank (unlimited) · page " + (bankPage + 1) + " · " + BANK_PAGE + " shown";
     }
   }
 

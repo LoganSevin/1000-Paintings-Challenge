@@ -482,10 +482,17 @@
   color: var(--ge-yellow);
 }
 .ge-side-body { padding: 0.4rem; }
-.ge-inv-grid, .ge-bank-grid {
+.ge-inv-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.28rem;
+}
+.ge-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.22rem;
+  max-height: 28rem;
+  overflow: auto;
 }
 .ge-inv-slot, .ge-bank-slot {
   aspect-ratio: 1;
