@@ -56,6 +56,8 @@
   var selectedBankItem = null;
   var forgeSlots = [null, null, null];
   var lastForgeResult = null;
+  /** Live working thumbs (often data URLs) after Force load — memory only. */
+  var thumbOverrides = {};
   var exchangeOpen = false;
   var worldKeys = Object.create(null);
   var worldRaf = 0;
@@ -183,13 +185,190 @@
   function thumb(n) {
     n = Number(n);
     if (noteOf(n)) return NOTE_THUMB;
+    if (thumbOverrides[String(n)]) return thumbOverrides[String(n)];
     var f = forgedOf(n);
     if (f && f.thumb) return assetUrl(f.thumb);
     var ex = extraOf(n);
     if (ex && ex.url) return assetUrl(ex.url);
     if (f && f.parents && f.parents[0]) return thumb(f.parents[0]);
+    if (n >= GEN_BASE && n < SKETCH_BASE) {
+      var g = n - GEN_BASE;
+      return assetUrl("/generated/" + g + ".jpg");
+    }
     if (n >= 1 && n <= PAINTING_TOTAL) return "paintings/" + n + ".jpg";
     return "paintings/1.jpg";
+  }
+
+  function rawThumbCandidates(itemId) {
+    itemId = Number(itemId);
+    var out = [];
+    function add(u) {
+      if (!u) return;
+      u = String(u);
+      if (out.indexOf(u) >= 0) return;
+      out.push(u);
+    }
+    var f = forgedOf(itemId);
+    if (f && f.thumb) {
+      add(f.thumb);
+      add(assetUrl(f.thumb));
+    }
+    var ex = extraOf(itemId);
+    if (ex && ex.url) {
+      add(ex.url);
+      add(assetUrl(ex.url));
+    }
+    if (itemId >= 1 && itemId <= PAINTING_TOTAL) {
+      add("paintings/" + itemId + ".jpg");
+      add(assetUrl("paintings/" + itemId + ".jpg"));
+    }
+    if (itemId >= GEN_BASE && itemId < SKETCH_BASE) {
+      var g = itemId - GEN_BASE;
+      add("/generated/" + g + ".jpg");
+      add("generated/" + g + ".jpg");
+      add(assetUrl("/generated/" + g + ".jpg"));
+    }
+    if (itemId >= SKETCH_BASE && itemId < INV_SKETCH_BASE) {
+      var s = itemId - SKETCH_BASE;
+      add("/sketches/" + s + ".jpg");
+      add(assetUrl("/sketches/" + s + ".jpg"));
+    }
+    if (itemId >= INV_SKETCH_BASE && itemId < NOTE_BASE) {
+      var invs = itemId - INV_SKETCH_BASE;
+      add("/inverted/" + invs + ".jpg");
+      add(assetUrl("/inverted/" + invs + ".jpg"));
+    }
+    if (f && Array.isArray(f.parents)) {
+      f.parents.forEach(function (pid) {
+        pid = Number(pid);
+        if (pid >= 1 && pid <= PAINTING_TOTAL) {
+          add("paintings/" + pid + ".jpg");
+          add(assetUrl("paintings/" + pid + ".jpg"));
+        }
+      });
+    }
+    // Cache-bust first few candidates
+    var busted = [];
+    out.slice(0, 4).forEach(function (u) {
+      if (u.indexOf("data:") === 0) return;
+      var sep = u.indexOf("?") >= 0 ? "&" : "?";
+      busted.push(u + sep + "geforce=" + Date.now());
+    });
+    return busted.concat(out);
+  }
+
+  function bindBagThumbErrors(wrap) {
+    if (!wrap) return;
+    var imgs = wrap.querySelectorAll("img");
+    for (var i = 0; i < imgs.length; i++) {
+      (function (img) {
+        img.addEventListener("error", function () {
+          img.classList.add("broken");
+          img.title = "Broken thumb — right-click → Force load image";
+        });
+      })(imgs[i]);
+    }
+  }
+
+  function applyThumbToDom(itemId, url) {
+    itemId = Number(itemId);
+    url = String(url || "");
+    if (!url) return;
+    var sel =
+      '[data-ge-inv="' +
+      itemId +
+      '"] img, [data-ge-bank="' +
+      itemId +
+      '"] img, [data-forge-item="' +
+      itemId +
+      '"] img';
+    try {
+      document.querySelectorAll(sel).forEach(function (img) {
+        img.classList.remove("broken");
+        img.src = url;
+      });
+    } catch (e) {}
+    if (lastForgeResult === itemId && $("ge-forge-result-img")) {
+      $("ge-forge-result-img").src = url;
+      $("ge-forge-result-img").classList.remove("broken");
+    }
+    var lb = $("ge-lightbox");
+    if (lb && !lb.hidden && $("ge-lightbox-img") && !$("ge-lightbox-img").hidden) {
+      $("ge-lightbox-img").src = url;
+    }
+    if ($("ge-setup-img") && Number(selected) === itemId) {
+      $("ge-setup-img").src = url;
+    }
+  }
+
+  function forceLoadItemImage(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return Promise.resolve({ ok: false, error: "No item." });
+    if (noteOf(itemId)) {
+      return Promise.resolve({ ok: false, error: "Notes are text — nothing to load." });
+    }
+    setStatus("Force loading image for " + kindLabel(itemId) + "…");
+    setForgeStatus("Force loading #" + itemId + "…");
+    var candidates = rawThumbCandidates(itemId);
+    if (!candidates.length) {
+      return Promise.resolve({ ok: false, error: "No image sources for that item." });
+    }
+
+    function tryAt(i) {
+      if (i >= candidates.length) {
+        return Promise.resolve({
+          ok: false,
+          error: "Could not load image — try View fullscreen or re-Combine.",
+        });
+      }
+      var src = candidates[i];
+      return geInlineImage(src)
+        .then(function (dataUrl) {
+          if (!dataUrl || String(dataUrl).indexOf("data:image") !== 0) {
+            return tryAt(i + 1);
+          }
+          return new Promise(function (resolve) {
+            var probe = new Image();
+            probe.onload = function () {
+              if (!probe.naturalWidth || probe.naturalWidth < 2 || probe.naturalHeight < 2) {
+                tryAt(i + 1).then(resolve);
+                return;
+              }
+              thumbOverrides[String(itemId)] = dataUrl;
+              var f = forgedOf(itemId);
+              if (f) {
+                var persist = persistableThumbUrl(src, f.parents && f.parents[0]);
+                if (persist) f.thumb = persist;
+              }
+              applyThumbToDom(itemId, dataUrl);
+              try {
+                saveState();
+              } catch (eSave) {}
+              renderBags();
+              renderForgeSlots();
+              resolve({ ok: true, from: src });
+            };
+            probe.onerror = function () {
+              tryAt(i + 1).then(resolve);
+            };
+            probe.src = dataUrl;
+          });
+        })
+        .catch(function () {
+          return tryAt(i + 1);
+        });
+    }
+
+    return tryAt(0).then(function (res) {
+      if (res && res.ok) {
+        setStatus("Force loaded " + kindLabel(itemId) + ".");
+        setForgeStatus("Force loaded #" + itemId + ".");
+      } else {
+        setStatus((res && res.error) || "Force load failed.", true);
+        setForgeStatus((res && res.error) || "Force load failed.", true);
+      }
+      return res;
+    });
   }
 
   function titleFor(n) {
@@ -1411,15 +1590,19 @@
           esc(titleFor(it.id)) +
           '"><img src="' +
           esc(thumb(it.id)) +
-          '" alt="" /><span class="qty">' +
+          '" alt="" loading="eager" decoding="async" /><span class="qty">' +
           it.qty +
           "</span></button>"
       );
     }
     wrap.innerHTML = html.join("");
+    bindBagThumbErrors(wrap);
     if ($("ge-inv-meta")) {
       $("ge-inv-meta").textContent =
-        list.length + " / " + INV_SLOTS + " used · click Deposit · right-click → Spellforge";
+        list.length +
+        " / " +
+        INV_SLOTS +
+        " used · right-click → Force load if thumb is blank";
     }
   }
 
@@ -1449,12 +1632,13 @@
           esc(titleFor(it.id)) +
           '"><img src="' +
           esc(thumb(it.id)) +
-          '" alt="" /><span class="qty">' +
+          '" alt="" loading="eager" decoding="async" /><span class="qty">' +
           it.qty +
           "</span></button>"
       );
     }
     wrap.innerHTML = html.join("");
+    bindBagThumbErrors(wrap);
     if ($("ge-bank-page")) $("ge-bank-page").textContent = pages ? bankPage + 1 + " / " + pages : "1 / 1";
     if ($("ge-bank-meta")) {
       $("ge-bank-meta").textContent = list.length + " types in bank (unlimited) · page " + (bankPage + 1) + " · " + BANK_PAGE + " shown";
@@ -3196,6 +3380,10 @@
           if (action === "view") {
             var viewRes = openItemFullscreen(id);
             if (!viewRes.ok) setStatus(viewRes.error, true);
+            return;
+          }
+          if (action === "force-load") {
+            forceLoadItemImage(id);
             return;
           }
           if (action === "animate") {

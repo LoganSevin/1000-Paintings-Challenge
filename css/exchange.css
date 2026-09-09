@@ -1217,3 +1217,11 @@
   max-height: 220px;
   display: block;
 }
+
+
+.ge-inv-slot img.broken,
+.ge-bank-slot img.broken,
+.ge-forge-slot img.broken {
+  outline: 1px solid #c45c26;
+  opacity: 0.85;
+}
