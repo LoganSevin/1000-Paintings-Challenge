@@ -4,10 +4,11 @@
 (function () {
   "use strict";
 
-  var STORAGE = "gallery.grand-exchange.v4";
-  var STORAGE_LEGACY = "gallery.grand-exchange.v3";
-  var STORAGE_LEGACY2 = "gallery.grand-exchange.v2";
-  var STORAGE_LEGACY3 = "gallery.grand-exchange.v1";
+  var STORAGE = "gallery.grand-exchange.v5";
+  var STORAGE_LEGACY = "gallery.grand-exchange.v4";
+  var STORAGE_LEGACY2 = "gallery.grand-exchange.v3";
+  var STORAGE_LEGACY3 = "gallery.grand-exchange.v2";
+  var STORAGE_LEGACY4 = "gallery.grand-exchange.v1";
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
   var NPC_TICK_MS = 1200;
@@ -38,6 +39,21 @@
   var selectedBankItem = null;
   var forgeSlots = [null, null, null];
   var lastForgeResult = null;
+  var exchangeOpen = false;
+  var worldKeys = Object.create(null);
+  var worldRaf = 0;
+  var worldLastTs = 0;
+  var walkAcc = 0;
+  var playerPos = { x: 48, y: 78 };
+  var npcStates = [];
+  var WORLD_W = 100;
+  var WORLD_H = 100;
+  var PLAYER_SPEED = 18; // % per second
+  var WALK_XP_PER_LEVEL_CAP = 80;
+  var COLLECT_XP = 25;
+  var FORGE_XP = 80;
+  var WALK_XP_STEP = 1;
+  var WALK_DIST_PER_XP = 28; // percent-units walked per walk XP
 
   function $(id) {
     return document.getElementById(id);
@@ -207,7 +223,7 @@
 
   function defaultState() {
     return {
-      version: 4,
+      version: 5,
       cashDelta: {},
       inventory: {},
       bank: {},
@@ -222,6 +238,9 @@
       _npcSeeded: false,
       packReady: true, // do not auto-fill inventory with gallery art
       _starterCash: false,
+      level: 1,
+      xp: 0,
+      walkXpThisLevel: 0,
       createdAt: Date.now(),
     };
   }
@@ -229,7 +248,7 @@
   function migrate(s) {
     if (!s || typeof s !== "object") return defaultState();
     var wasOld = (Number(s.version) || 0) < 3;
-    s.version = 4;
+    s.version = 5;
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
@@ -240,6 +259,9 @@
     s.itemStats = s.itemStats || {};
     s.forged = s.forged || {};
     s.nextForgeId = Math.max(10001, Number(s.nextForgeId) || 10001);
+    s.level = Math.max(1, Number(s.level) || 1);
+    s.xp = Math.max(0, Number(s.xp) || 0);
+    s.walkXpThisLevel = Math.max(0, Number(s.walkXpThisLevel) || 0);
     if (!Object.keys(s.itemStats).length && s.history.length) {
       s.itemStats = {};
       s.history.forEach(function (h) {
@@ -269,7 +291,8 @@
         localStorage.getItem(STORAGE) ||
         localStorage.getItem(STORAGE_LEGACY) ||
         localStorage.getItem(STORAGE_LEGACY2) ||
-        localStorage.getItem(STORAGE_LEGACY3);
+        localStorage.getItem(STORAGE_LEGACY3) ||
+        localStorage.getItem(STORAGE_LEGACY4);
       if (!raw) return defaultState();
       return migrate(JSON.parse(raw));
     } catch (e) {
@@ -554,6 +577,123 @@
     return list;
   }
 
+  /** XP needed to go from `level` → level+1 (simple quadratic curve). */
+  function xpForLevel(level) {
+    level = Math.max(1, Number(level) || 1);
+    return Math.floor(40 + level * 35 + level * level * 8);
+  }
+
+  function grantXp(amount, opts) {
+    opts = opts || {};
+    amount = Math.max(0, Math.floor(Number(amount) || 0));
+    if (!amount || !state) return;
+    if (opts.walk) {
+      var cap = WALK_XP_PER_LEVEL_CAP;
+      var already = Number(state.walkXpThisLevel) || 0;
+      if (already >= cap) return;
+      amount = Math.min(amount, cap - already);
+      state.walkXpThisLevel = already + amount;
+    }
+    state.xp = (Number(state.xp) || 0) + amount;
+    state.level = Math.max(1, Number(state.level) || 1);
+    var guard = 0;
+    while (state.xp >= xpForLevel(state.level) && guard < 50) {
+      state.xp -= xpForLevel(state.level);
+      state.level += 1;
+      state.walkXpThisLevel = 0;
+      guard++;
+    }
+    saveState();
+    updateLevelHud();
+  }
+
+  function updateLevelHud() {
+    if (!state) return;
+    var lv = Math.max(1, Number(state.level) || 1);
+    var xp = Math.max(0, Number(state.xp) || 0);
+    var need = xpForLevel(lv);
+    var pct = need > 0 ? Math.min(100, Math.round((xp / need) * 100)) : 0;
+    ["ge-world-lv", "ge-ui-lv"].forEach(function (id) {
+      if ($(id)) $(id).textContent = String(lv);
+    });
+    ["ge-world-xp-fill", "ge-ui-xp-fill"].forEach(function (id) {
+      if ($(id)) $(id).style.width = pct + "%";
+    });
+    if ($("ge-world-cash")) $("ge-world-cash").textContent = money(cashOf(PLAYER_ID));
+  }
+
+  function tagsFor(n) {
+    n = Number(n);
+    var out = [];
+    var seen = Object.create(null);
+    function add(t) {
+      t = String(t || "").trim();
+      if (!t) return;
+      var key = t.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = 1;
+      out.push(t);
+    }
+    var a = analyses[String(n)] || analyses[n];
+    if (a && Array.isArray(a.tags)) a.tags.forEach(add);
+    var ex = extraOf(n);
+    if (ex) {
+      if (ex.analysis && Array.isArray(ex.analysis.tags)) ex.analysis.tags.forEach(add);
+      if (ex.source === "phone-upload") add("phone");
+      else if (ex.source === "sketch") add("sketch");
+      else if (ex.source === "sketch-inverted") {
+        add("sketch");
+        add("inverted");
+      } else if (ex.source === "generated") add("generated");
+    }
+    if (forgedOf(n)) add("forged");
+    if (n >= 1 && n <= PAINTING_TOTAL) add("painting");
+    return out;
+  }
+
+  function collectAllTags() {
+    var map = Object.create(null);
+    function add(t) {
+      t = String(t || "").trim();
+      if (!t) return;
+      var k = t.toLowerCase();
+      if (!map[k]) map[k] = t;
+    }
+    Object.keys(analyses || {}).forEach(function (k) {
+      var a = analyses[k];
+      if (a && Array.isArray(a.tags)) a.tags.forEach(add);
+    });
+    Object.keys(extraItems || {}).forEach(function (k) {
+      if (String(Number(k)) !== String(k) && Number(k) !== Number(k)) return;
+      tagsFor(Number(k)).forEach(add);
+    });
+    forgedIds().forEach(function (id) {
+      tagsFor(id).forEach(add);
+    });
+    ["painting", "generated", "phone", "sketch", "inverted", "forged"].forEach(add);
+    return Object.keys(map)
+      .sort()
+      .map(function (k) {
+        return map[k];
+      });
+  }
+
+  function populateTagFilter() {
+    var sel = $("ge-tag-filter");
+    if (!sel) return;
+    var prev = sel.value || "";
+    var tags = collectAllTags();
+    var html = ['<option value="">All tags</option>'];
+    tags.forEach(function (t) {
+      html.push('<option value="' + esc(t) + '">' + esc(t) + "</option>");
+    });
+    sel.innerHTML = html.join("");
+    if (prev) {
+      sel.value = prev;
+      if (sel.value !== prev) sel.value = "";
+    }
+  }
+
   function randomArsenalItem(seedHint) {
     var list = arsenalList();
     if (!list.length) return 1 + Math.floor(Math.random() * PAINTING_TOTAL);
@@ -773,6 +913,7 @@
     state.offers = state.offers.filter(function (x) {
       return x && !x.cancelled && ((x.isPlayer && x.complete) || (Number(x.qtyLeft) || 0) > 0);
     });
+    grantXp(COLLECT_XP);
     saveState();
   }
 
@@ -1104,6 +1245,7 @@
   function renderCatalog() {
     var wrap = $("ge-catalog");
     var q = (($("ge-search") && $("ge-search").value) || "").trim().toLowerCase();
+    var tagSel = (($("ge-tag-filter") && $("ge-tag-filter").value) || "").trim().toLowerCase();
     if (!wrap) return;
     var html = [];
     var shown = 0;
@@ -1113,6 +1255,12 @@
       var title = titleFor(n);
       var label = kindLabel(n);
       var hay = (title + " " + label + " #" + n).toLowerCase();
+      if (tagSel) {
+        var itemTags = tagsFor(n).map(function (t) {
+          return String(t).toLowerCase();
+        });
+        if (itemTags.indexOf(tagSel) === -1) continue;
+      }
       if (q) {
         var qLow = q;
         if (
@@ -1213,6 +1361,7 @@
     if ($("ge-you-slots")) $("ge-you-slots").textContent = playerSlotOffers().length + " / " + MAX_SLOTS;
     if ($("ge-open")) $("ge-open").textContent = String(activeOffers().length);
     if ($("ge-tick")) $("ge-tick").textContent = "tick " + tickN;
+    updateLevelHud();
     if (view === "home") renderSlots();
     if (view === "setup") renderSetup();
     if (view === "pick") renderCatalog();
@@ -1382,9 +1531,10 @@
       forgeSlots = [null, null, null];
       syncForgeToSpellforge();
       lastForgeResult = id;
+      grantXp(FORGE_XP);
       saveState();
       showForgeResult(id);
-      setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") — added to inventory.");
+      setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") — added to inventory. +" + FORGE_XP + " XP");
       render();
     }
 
@@ -1423,6 +1573,201 @@
     renderSetup();
   }
 
+  function clamp(v, lo, hi) {
+    return Math.max(lo, Math.min(hi, v));
+  }
+
+  function boothRect() {
+    return { x: 42, y: 18, w: 16, h: 18 };
+  }
+
+  function nearBooth() {
+    var b = boothRect();
+    var cx = b.x + b.w / 2;
+    var cy = b.y + b.h / 2;
+    var dx = playerPos.x - cx;
+    var dy = playerPos.y - cy;
+    return Math.sqrt(dx * dx + dy * dy) < 14;
+  }
+
+  function applyPlayerDom() {
+    var el = $("ge-player");
+    if (!el) return;
+    el.style.left = playerPos.x + "%";
+    el.style.top = playerPos.y + "%";
+  }
+
+  function initNpcs() {
+    var nodes = document.querySelectorAll("#ge-world-stage .ge-world-npc");
+    npcStates = [];
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var x = parseFloat(el.style.left) || 20 + i * 15;
+      var y = parseFloat(el.style.top) || 40 + (i % 3) * 10;
+      npcStates.push({
+        el: el,
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 6,
+        vy: (Math.random() - 0.5) * 6,
+        idle: Math.random() * 2,
+      });
+    }
+  }
+
+  function collidesBooth(x, y) {
+    var b = boothRect();
+    return x > b.x + 1 && x < b.x + b.w - 1 && y > b.y + 2 && y < b.y + b.h - 1;
+  }
+
+  function worldStep(dt) {
+    if (exchangeOpen) return;
+    var mx = 0;
+    var my = 0;
+    if (worldKeys.ArrowLeft || worldKeys.a || worldKeys.A) mx -= 1;
+    if (worldKeys.ArrowRight || worldKeys.d || worldKeys.D) mx += 1;
+    if (worldKeys.ArrowUp || worldKeys.w || worldKeys.W) my -= 1;
+    if (worldKeys.ArrowDown || worldKeys.s || worldKeys.S) my += 1;
+    if (mx || my) {
+      var len = Math.sqrt(mx * mx + my * my) || 1;
+      var sp = PLAYER_SPEED * dt;
+      var nx = playerPos.x + (mx / len) * sp;
+      var ny = playerPos.y + (my / len) * sp;
+      nx = clamp(nx, 4, WORLD_W - 4);
+      ny = clamp(ny, 8, WORLD_H - 4);
+      if (!collidesBooth(nx, playerPos.y)) playerPos.x = nx;
+      if (!collidesBooth(playerPos.x, ny)) playerPos.y = ny;
+      walkAcc += sp;
+      while (walkAcc >= WALK_DIST_PER_XP) {
+        walkAcc -= WALK_DIST_PER_XP;
+        grantXp(WALK_XP_STEP, { walk: true });
+      }
+      applyPlayerDom();
+    }
+    // Idle / wandering bankers
+    for (var i = 0; i < npcStates.length; i++) {
+      var n = npcStates[i];
+      n.idle -= dt;
+      if (n.idle <= 0) {
+        if (Math.random() < 0.45) {
+          n.vx = 0;
+          n.vy = 0;
+          n.idle = 0.8 + Math.random() * 2.2;
+        } else {
+          var ang = Math.random() * Math.PI * 2;
+          var spd = 3 + Math.random() * 5;
+          n.vx = Math.cos(ang) * spd;
+          n.vy = Math.sin(ang) * spd;
+          n.idle = 1.2 + Math.random() * 2.5;
+        }
+      }
+      var nxx = clamp(n.x + n.vx * dt, 6, 94);
+      var nyy = clamp(n.y + n.vy * dt, 12, 92);
+      if (collidesBooth(nxx, nyy)) {
+        n.vx *= -1;
+        n.vy *= -1;
+      } else {
+        n.x = nxx;
+        n.y = nyy;
+      }
+      if (n.el) {
+        n.el.style.left = n.x + "%";
+        n.el.style.top = n.y + "%";
+      }
+    }
+  }
+
+  function worldLoop(ts) {
+    if (exchangeOpen) {
+      worldRaf = 0;
+      return;
+    }
+    if (!worldLastTs) worldLastTs = ts;
+    var dt = Math.min(0.05, (ts - worldLastTs) / 1000);
+    worldLastTs = ts;
+    worldStep(dt);
+    worldRaf = requestAnimationFrame(worldLoop);
+  }
+
+  function startWorldLoop() {
+    if (worldRaf) return;
+    worldLastTs = 0;
+    worldRaf = requestAnimationFrame(worldLoop);
+  }
+
+  function stopWorldLoop() {
+    if (worldRaf) cancelAnimationFrame(worldRaf);
+    worldRaf = 0;
+    worldLastTs = 0;
+    worldKeys = Object.create(null);
+  }
+
+  function onWorldKeyDown(e) {
+    if (exchangeOpen) return;
+    var panel = $("panel-exchange");
+    if (panel && panel.hidden) return;
+    var tag = (e.target && e.target.tagName) || "";
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+    var k = e.key;
+    if (
+      k === "ArrowUp" ||
+      k === "ArrowDown" ||
+      k === "ArrowLeft" ||
+      k === "ArrowRight" ||
+      k === "w" ||
+      k === "a" ||
+      k === "s" ||
+      k === "d" ||
+      k === "W" ||
+      k === "A" ||
+      k === "S" ||
+      k === "D"
+    ) {
+      worldKeys[k] = true;
+      e.preventDefault();
+    } else if (k === "e" || k === "E") {
+      if (nearBooth()) {
+        e.preventDefault();
+        openExchangeUi();
+      }
+    }
+  }
+
+  function onWorldKeyUp(e) {
+    var k = e.key;
+    if (k in worldKeys) delete worldKeys[k];
+  }
+
+  function openExchangeUi() {
+    exchangeOpen = true;
+    stopWorldLoop();
+    var world = $("ge-world");
+    var ui = $("ge-exchange-ui");
+    if (world) world.hidden = true;
+    if (ui) ui.hidden = false;
+    showView("home");
+    render();
+    startTicks();
+    setStatus("Grand Exchange open — ✕ or Close returns to the courtyard.");
+  }
+
+  function closeExchangeUi() {
+    exchangeOpen = false;
+    stopTicks();
+    var world = $("ge-world");
+    var ui = $("ge-exchange-ui");
+    if (ui) ui.hidden = true;
+    if (world) world.hidden = false;
+    applyPlayerDom();
+    updateLevelHud();
+    startWorldLoop();
+    if ($("ge-world-stage")) {
+      try {
+        $("ge-world-stage").focus();
+      } catch (err) {}
+    }
+  }
+
   function bind() {
     if ($("ge-tab-exchange") && !$("ge-tab-exchange").dataset.bound) {
       $("ge-tab-exchange").dataset.bound = "1";
@@ -1450,7 +1795,7 @@
         else if (sell) openSetup("sell", Number(sell.getAttribute("data-ge-empty-sell")) || 0);
         else if (col) {
           collectOffer(col.getAttribute("data-ge-collect"));
-          setStatus("Collected.");
+          setStatus("Collected. +" + COLLECT_XP + " XP");
           render();
         } else if (ab) {
           cancelOffer(ab.getAttribute("data-ge-abort"));
@@ -1495,6 +1840,29 @@
     if ($("ge-search") && !$("ge-search").dataset.bound) {
       $("ge-search").dataset.bound = "1";
       $("ge-search").addEventListener("input", renderCatalog);
+    }
+    if ($("ge-tag-filter") && !$("ge-tag-filter").dataset.bound) {
+      $("ge-tag-filter").dataset.bound = "1";
+      $("ge-tag-filter").addEventListener("change", renderCatalog);
+    }
+    if ($("ge-open-exchange") && !$("ge-open-exchange").dataset.bound) {
+      $("ge-open-exchange").dataset.bound = "1";
+      $("ge-open-exchange").addEventListener("click", openExchangeUi);
+    }
+    if ($("ge-close-exchange") && !$("ge-close-exchange").dataset.bound) {
+      $("ge-close-exchange").dataset.bound = "1";
+      $("ge-close-exchange").addEventListener("click", closeExchangeUi);
+    }
+    if ($("ge-booth") && !$("ge-booth").dataset.bound) {
+      $("ge-booth").dataset.bound = "1";
+      $("ge-booth").addEventListener("click", function () {
+        if (!exchangeOpen) openExchangeUi();
+      });
+    }
+    if (!window.__geWorldKeysBound) {
+      window.__geWorldKeysBound = true;
+      window.addEventListener("keydown", onWorldKeyDown, true);
+      window.addEventListener("keyup", onWorldKeyUp, true);
     }
     document.querySelectorAll("[data-ge-qty]").forEach(function (btn) {
       if (btn.dataset.bound) return;
@@ -1580,7 +1948,7 @@
       $("ge-collect-all").dataset.bound = "1";
       $("ge-collect-all").addEventListener("click", function () {
         collectAll();
-        setStatus("Collected completed offers.");
+        setStatus("Collected completed offers. +" + COLLECT_XP + " XP each");
         showView("home");
         render();
       });
@@ -1853,27 +2221,40 @@
 
   function onShow() {
     bind();
+    initNpcs();
+    applyPlayerDom();
     Promise.all([loadAnalyses(), loadRoster(), loadArsenal()]).then(function () {
       ensurePlayerStock();
       ensureNpcSeedStock();
       seedNpcOffers();
       saveState();
-      showView("home");
-      render();
-      startTicks();
+      populateTagFilter();
+      updateLevelHud();
+      if (exchangeOpen) {
+        var world = $("ge-world");
+        var ui = $("ge-exchange-ui");
+        if (world) world.hidden = true;
+        if (ui) ui.hidden = false;
+        showView("home");
+        render();
+        startTicks();
+      } else {
+        closeExchangeUi();
+      }
       var extras = arsenalExtraNums.length;
       setStatus(
-        "Welcome to the Grand Exchange · arsenal " +
+        "Welcome · arsenal " +
           arsenalList().length +
           " (paintings + gen/phone/sketches" +
           (extras ? " · " + extras + " extras" : "") +
-          ")."
+          "). Walk the courtyard or Open Grand Exchange."
       );
     });
   }
 
   function onHide() {
     stopTicks();
+    stopWorldLoop();
   }
 
   function init() {

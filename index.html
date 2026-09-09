@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=7" />
+  <link rel="stylesheet" href="css/exchange.css?v=8" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2864,11 +2864,41 @@
 
   <section id="panel-exchange" class="panel" hidden>
     <div class="ge-shell">
+      <div id="ge-world" class="ge-world">
+        <div class="ge-world-hud">
+          <div class="ge-world-hud-left">
+            <span class="ge-level-chip">Lv <strong id="ge-world-lv">1</strong></span>
+            <div class="ge-xp-bar" title="Experience"><div class="ge-xp-fill" id="ge-world-xp-fill"></div></div>
+            <span class="ge-world-cash">SIM: <strong id="ge-world-cash">$0</strong></span>
+          </div>
+          <button type="button" class="ge-open-exchange" id="ge-open-exchange">Open Grand Exchange</button>
+        </div>
+        <div class="ge-world-stage" id="ge-world-stage" tabindex="0" aria-label="Grand Exchange courtyard">
+          <div class="ge-world-ground"></div>
+          <div class="ge-world-booth" id="ge-booth" title="Grand Exchange booth — press E or click">
+            <span class="ge-booth-sign">GE</span>
+            <span class="ge-booth-label">Grand Exchange</span>
+          </div>
+          <div class="ge-world-npc" data-npc="0" style="left:18%;top:62%" title="Banker">🏦</div>
+          <div class="ge-world-npc" data-npc="1" style="left:72%;top:28%" title="Banker">🏦</div>
+          <div class="ge-world-npc" data-npc="2" style="left:55%;top:70%" title="Banker">🏦</div>
+          <div class="ge-world-npc" data-npc="3" style="left:30%;top:35%" title="Banker">🏦</div>
+          <div class="ge-world-player" id="ge-player" style="left:48%;top:78%" title="You">🧑</div>
+        </div>
+        <p class="ge-world-hint">WASD / arrows walk · E or click the GE booth to trade · Close GE returns here</p>
+      </div>
+
+      <div id="ge-exchange-ui" class="ge-exchange-ui" hidden>
       <div class="ge-layout-rs">
       <div class="ge-window">
         <div class="ge-titlebar">
           <h2>GRAND EXCHANGE</h2>
-          <div class="ge-cash">SIM purse: <strong id="ge-you-cash">$0</strong></div>
+          <div class="ge-titlebar-right">
+            <span class="ge-level-chip">Lv <strong id="ge-ui-lv">1</strong></span>
+            <div class="ge-xp-bar ge-xp-bar--sm" title="Experience"><div class="ge-xp-fill" id="ge-ui-xp-fill"></div></div>
+            <div class="ge-cash">SIM purse: <strong id="ge-you-cash">$0</strong></div>
+            <button type="button" class="ge-icon-btn" id="ge-close-exchange" title="Close — return to world">✕</button>
+          </div>
         </div>
         <div class="ge-tabs" role="tablist">
           <button type="button" class="ge-tab active" data-ge-view="home" id="ge-tab-exchange">Exchange</button>
@@ -2935,7 +2965,12 @@
 
           <div class="ge-pick" id="ge-pick">
             <p class="ge-summary">Select a painting to trade.</p>
-            <input type="search" id="ge-search" class="ge-pick-search" placeholder="Search title or #…" />
+            <div class="ge-pick-filters">
+              <input type="search" id="ge-search" class="ge-pick-search" placeholder="Search title or #…" />
+              <select id="ge-tag-filter" class="ge-tag-filter" aria-label="Filter by tag">
+                <option value="">All tags</option>
+              </select>
+            </div>
             <div class="ge-pick-grid" id="ge-catalog"></div>
             <button type="button" class="ge-back" id="ge-pick-back">← Back</button>
           </div>
@@ -3021,6 +3056,7 @@
         · Slots <strong id="ge-you-slots">0 / 8</strong>
         · Open market offers <strong id="ge-open">0</strong>
       </p>
+      </div>
     </div>
   </section>
 
@@ -6416,7 +6452,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=7"></script>
+  <script defer src="js/exchange.js?v=8"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
