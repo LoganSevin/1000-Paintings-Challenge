@@ -1461,22 +1461,58 @@
     }
   }
 
-  function placeInForge(itemId) {
+  function placeInForge(itemId, slotIndex) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
     if (ownedQty(itemId) < 1) return { ok: false, error: "You do not own that item." };
-    var slot = -1;
-    for (var i = 0; i < 3; i++) {
-      if (forgeSlots[i] == null) {
-        slot = i;
-        break;
+    var slot = slotIndex == null || slotIndex === "" ? -1 : Number(slotIndex);
+    if (slot < 0 || slot > 2 || isNaN(slot)) {
+      slot = -1;
+      for (var i = 0; i < 3; i++) {
+        if (forgeSlots[i] == null) {
+          slot = i;
+          break;
+        }
       }
+      if (slot < 0) return { ok: false, error: "Spellforge slots are full — clear one first." };
     }
-    if (slot < 0) return { ok: false, error: "Spellforge slots are full — clear one first." };
     forgeSlots[slot] = itemId;
     // Do NOT call SpellforgeAPI here — live equip re-renders Spellforge and can blank its UI
     // while you're still on Grand Exchange. Sync happens on Open Spellforge / Combine.
     return { ok: true, slot: slot, itemId: itemId };
+  }
+
+  function hideForgeContextMenu() {
+    var menu = $("ge-forge-menu");
+    if (menu) menu.hidden = true;
+  }
+
+  function showForgeContextMenu(clientX, clientY, itemId) {
+    var menu = $("ge-forge-menu");
+    if (!menu) return;
+    menu.dataset.itemId = String(itemId);
+    for (var i = 0; i < 3; i++) {
+      var btn = menu.querySelector('[data-forge-pick="' + i + '"]');
+      if (!btn) continue;
+      var cur = forgeSlots[i];
+      btn.textContent =
+        "Slot " +
+        (i + 1) +
+        (cur != null ? " · " + kindLabel(cur) : " · empty");
+      btn.classList.toggle("occupied", cur != null);
+    }
+    menu.hidden = false;
+    // Position inside viewport
+    var pad = 8;
+    var w = menu.offsetWidth || 180;
+    var h = menu.offsetHeight || 120;
+    var x = Math.min(clientX, window.innerWidth - w - pad);
+    var y = Math.min(clientY, window.innerHeight - h - pad);
+    x = Math.max(pad, x);
+    y = Math.max(pad, y);
+    menu.style.left = x + "px";
+    menu.style.top = y + "px";
+    menu.dataset.openedAt = String(Date.now());
   }
 
   function clearForgeSlot(slotIndex) {
@@ -2089,11 +2125,11 @@
         var btn = e.target.closest("[data-ge-inv]");
         if (!btn) return;
         e.preventDefault();
+        e.stopPropagation();
         var id = Number(btn.getAttribute("data-ge-inv"));
-        var res = placeInForge(id);
-        renderForgeSlots();
-        if (!res.ok) setForgeStatus(res.error, true);
-        else setForgeStatus("Placed " + kindLabel(id) + " in Spellforge slot " + (res.slot + 1) + ".");
+        selectedInvItem = id;
+        selected = id;
+        showForgeContextMenu(e.clientX, e.clientY, id);
       });
     }
     var bankGrid = $("ge-bank-grid");
@@ -2118,12 +2154,49 @@
         var btn = e.target.closest("[data-ge-bank]");
         if (!btn) return;
         e.preventDefault();
+        e.stopPropagation();
         var id = Number(btn.getAttribute("data-ge-bank"));
-        var res = placeInForge(id);
+        selectedBankItem = id;
+        selected = id;
+        showForgeContextMenu(e.clientX, e.clientY, id);
+      });
+    }
+    var forgeMenu = $("ge-forge-menu");
+    if (forgeMenu && !forgeMenu.dataset.bound) {
+      forgeMenu.dataset.bound = "1";
+      forgeMenu.addEventListener("click", function (e) {
+        var pick = e.target.closest("[data-forge-pick]");
+        if (!pick) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var id = Number(forgeMenu.dataset.itemId);
+        var slot = Number(pick.getAttribute("data-forge-pick"));
+        hideForgeContextMenu();
+        var res = placeInForge(id, slot);
         renderForgeSlots();
         if (!res.ok) setForgeStatus(res.error, true);
         else setForgeStatus("Placed " + kindLabel(id) + " in Spellforge slot " + (res.slot + 1) + ".");
+        renderBags();
       });
+      document.addEventListener(
+        "pointerdown",
+        function (e) {
+          var menu = $("ge-forge-menu");
+          if (!menu || menu.hidden) return;
+          if (menu.contains(e.target)) return;
+          var opened = Number(menu.dataset.openedAt) || 0;
+          if (Date.now() - opened < 300) return;
+          hideForgeContextMenu();
+        },
+        true
+      );
+      document.addEventListener(
+        "keydown",
+        function (e) {
+          if (e.key === "Escape") hideForgeContextMenu();
+        },
+        true
+      );
     }
     if ($("ge-dep-one") && !$("ge-dep-one").dataset.bound) {
       $("ge-dep-one").dataset.bound = "1";

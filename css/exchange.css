@@ -919,3 +919,40 @@
   background: #1a2432;
   border-top: 1px solid #3a4a5c;
 }
+
+
+/* Right-click Spellforge slot picker */
+.ge-forge-menu {
+  position: fixed;
+  z-index: 12000;
+  min-width: 168px;
+  padding: 0.3rem;
+  margin: 0;
+  border: 2px solid var(--ge-yellow, #c9a227);
+  border-radius: 6px;
+  background: linear-gradient(180deg, #2a2418 0%, #1a1610 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+.ge-forge-menu[hidden] {
+  display: none !important;
+}
+.ge-forge-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #f0e6c8;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.55rem;
+  cursor: pointer;
+}
+.ge-forge-menu button:hover {
+  border-color: var(--ge-yellow, #c9a227);
+  background: rgba(201, 162, 39, 0.15);
+}
+.ge-forge-menu button.occupied {
+  color: #ffe066;
+}
