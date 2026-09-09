@@ -1447,7 +1447,7 @@
 }
 .ge-color-popover {
   position: fixed;
-  z-index: 13000;
+  z-index: 20000;
   width: min(280px, calc(100vw - 24px));
   background: #1a1510;
   border: 2px solid #c9a227;
@@ -1507,4 +1507,46 @@
   border-color: #5a9a3e;
   color: #e8ffe0;
   font-weight: 600;
+}
+
+
+.ge-desc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+.ge-desc-toolbar button {
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #5a4a2e;
+  background: #2a2218;
+  color: #e8dcc8;
+}
+.ge-desc-toolbar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.ge-desc-edit {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 120px;
+  margin-top: 8px;
+  background: #0f0c09;
+  border: 1px solid #5a4a2e;
+  border-radius: 4px;
+  color: #f0e6d2;
+  padding: 8px 10px;
+  font: inherit;
+  line-height: 1.4;
+  resize: vertical;
+}
+.ge-desc-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
 }

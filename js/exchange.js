@@ -302,6 +302,7 @@
   function buildGeColorHitHtml(text, opts) {
     opts = opts || {};
     var source = opts.source || "note";
+    var itemId = opts.itemId != null ? String(opts.itemId) : "";
     var spans = scanGeColorSpans(text);
     if (!spans.length) return esc(text);
     var html = "";
@@ -313,6 +314,8 @@
       html +=
         '<button type="button" class="ge-color-hit" data-ge-color-source="' +
         esc(source) +
+        '" data-item-id="' +
+        esc(itemId) +
         '" data-start="' +
         sp.start +
         '" data-end="' +
@@ -398,35 +401,56 @@
     if (old) old.remove();
   }
 
-  function applyGeColorRewrite(source, start, end, hex, name) {
+  function applyGeColorRewrite(source, start, end, hex, name, itemId) {
     hex = normalizeGeHex(hex);
     if (!hex) return { ok: false, error: "Invalid hex." };
     var label = colorChipLabel(name || geHexToNearestName(hex), hex);
+
+    function rewriteInString(text, s, e) {
+      s = Number(s);
+      e = Number(e);
+      text = String(text || "");
+      if (s >= 0 && e > s && e <= text.length) {
+        return text.slice(0, s) + label + text.slice(e);
+      }
+      return null;
+    }
+
     if (source === "note") {
       var ta = $("ge-note-text");
       if (!ta) return { ok: false, error: "Note missing." };
-      var text = ta.value || "";
-      start = Number(start);
-      end = Number(end);
-      if (!(start >= 0 && end > start && end <= text.length)) {
-        return { ok: false, error: "Color span moved — type again." };
+      var next = rewriteInString(ta.value || "", start, end);
+      if (next == null) {
+        // Fallback: replace first matching old value token
+        return { ok: false, error: "Color span moved — click the chip again." };
       }
-      ta.value = text.slice(0, start) + label + text.slice(end);
+      ta.value = next;
       ta.focus();
       try {
-        ta.setSelectionRange(start + label.length, start + label.length);
-      } catch (e) {}
+        var caret = Number(start) + label.length;
+        ta.setSelectionRange(caret, caret);
+      } catch (e2) {}
       renderNoteColorHits();
       return { ok: true, label: label };
     }
+
     if (source === "desc") {
-      // Description view is read-only display of item text — rewrite copies lock into note filler
-      var ta2 = $("ge-note-text");
-      if (!ta2) return { ok: false, error: "Note missing." };
-      var pad = ta2.value && !/\s$/.test(ta2.value) ? " " : "";
-      ta2.value = (ta2.value || "") + pad + label;
-      renderNoteColorHits();
-      setForgeStatus("Copied color lock " + label + " into note filler.");
+      itemId = Number(itemId);
+      if (!itemId) return { ok: false, error: "No item." };
+      if (!state.descOverrides) state.descOverrides = {};
+      var body = fullDescFor(itemId);
+      var nextDesc = rewriteInString(body, start, end);
+      if (nextDesc == null) {
+        return { ok: false, error: "Color span moved — reopen Description." };
+      }
+      state.descOverrides[String(itemId)] = nextDesc;
+      var f = forgedOf(itemId);
+      if (f) {
+        if (f._originalDescription == null) f._originalDescription = String(f.description || body || "");
+        f.description = nextDesc;
+      }
+      saveState();
+      openItemDescription(itemId);
       return { ok: true, label: label };
     }
     return { ok: false, error: "Unknown source." };
@@ -440,6 +464,7 @@
     var source = anchorBtn.getAttribute("data-ge-color-source") || "note";
     var start = anchorBtn.getAttribute("data-start");
     var end = anchorBtn.getAttribute("data-end");
+    var itemId = anchorBtn.getAttribute("data-item-id") || "";
     var pop = document.createElement("div");
     pop.id = "ge-color-popover";
     pop.className = "ge-color-popover";
@@ -447,18 +472,18 @@
       '<div class="ge-color-popover-title">Color chip</div>' +
       '<div class="ge-color-popover-row">' +
       '<input type="color" class="ge-color-pop-swatch" value="' +
-      esc(startHex) +
+      startHex +
       '" />' +
       '<input type="text" class="ge-color-pop-hex" value="' +
-      esc(startHex) +
-      '" maxlength="7" />' +
+      startHex +
+      '" maxlength="7" spellcheck="false" />' +
       "</div>" +
       '<div class="ge-color-popover-preview">Writes: <strong class="ge-color-pop-label">' +
       esc(colorChipLabel(startName, startHex)) +
       "</strong></div>" +
       '<p class="ge-color-chips-hint" style="margin:0 0 8px">' +
       (source === "desc"
-        ? "Apply copies the lock into the note filler."
+        ? "Apply rewrites this color in the item description."
         : "Apply rewrites this color in the note as Name (#HEX).") +
       "</p>" +
       '<div class="ge-color-popover-actions">' +
@@ -466,36 +491,103 @@
       '<button type="button" class="ge-color-popover-apply">Apply</button>' +
       "</div>";
     document.body.appendChild(pop);
+
+    // Keep clicks inside the popover from dismissing it
+    ["pointerdown", "mousedown", "click"].forEach(function (evt) {
+      pop.addEventListener(
+        evt,
+        function (e) {
+          e.stopPropagation();
+        },
+        true
+      );
+    });
+
     var rect = anchorBtn.getBoundingClientRect();
-    var left = Math.min(rect.left, window.innerWidth - pop.offsetWidth - 12);
-    var top = Math.min(rect.bottom + 6, window.innerHeight - pop.offsetHeight - 12);
+    var left = Math.min(rect.left, window.innerWidth - (pop.offsetWidth || 280) - 12);
+    var top = Math.min(rect.bottom + 6, window.innerHeight - (pop.offsetHeight || 180) - 12);
     pop.style.left = Math.max(8, left) + "px";
     pop.style.top = Math.max(8, top) + "px";
 
     var sw = pop.querySelector(".ge-color-pop-swatch");
     var hx = pop.querySelector(".ge-color-pop-hex");
     var lab = pop.querySelector(".ge-color-pop-label");
+    var suppressOutsideUntil = 0;
+
     function syncPreview() {
       var h = normalizeGeHex(hx.value) || normalizeGeHex(sw.value) || startHex;
-      sw.value = h;
+      if (!h) return;
+      try {
+        sw.value = h;
+      } catch (eSw) {}
       hx.value = h;
       var n = geHexToNearestName(h);
       if (lab) lab.textContent = colorChipLabel(n, h);
     }
+
+    function doApply() {
+      var h = normalizeGeHex(hx.value) || normalizeGeHex(sw.value);
+      if (!h) {
+        setForgeStatus("Pick a valid hex color.", true);
+        return;
+      }
+      var n = geHexToNearestName(h);
+      var res = applyGeColorRewrite(source, start, end, h, n, itemId);
+      closeGeColorPopover();
+      if (!res.ok) setForgeStatus(res.error, true);
+      else setForgeStatus("Locked " + res.label + (source === "desc" ? " in description." : " in note."));
+    }
+
     sw.addEventListener("input", function () {
       hx.value = sw.value;
       syncPreview();
     });
-    hx.addEventListener("input", syncPreview);
-    pop.querySelector(".ge-color-popover-cancel").addEventListener("click", closeGeColorPopover);
-    pop.querySelector(".ge-color-popover-apply").addEventListener("click", function () {
-      var h = normalizeGeHex(hx.value) || normalizeGeHex(sw.value);
-      var n = geHexToNearestName(h);
-      var res = applyGeColorRewrite(source, start, end, h, n);
-      closeGeColorPopover();
-      if (!res.ok) setForgeStatus(res.error, true);
-      else if (source === "note") setForgeStatus("Locked " + res.label + " in note.");
+    sw.addEventListener("change", function () {
+      // Native picker closes with a document click — ignore that dismiss briefly
+      suppressOutsideUntil = Date.now() + 500;
+      hx.value = sw.value;
+      syncPreview();
+      pop.dataset.suppressOutsideUntil = String(suppressOutsideUntil);
     });
+    sw.addEventListener("click", function (e) {
+      e.stopPropagation();
+      suppressOutsideUntil = Date.now() + 800;
+      pop.dataset.suppressOutsideUntil = String(suppressOutsideUntil);
+    });
+    hx.addEventListener("input", syncPreview);
+    hx.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        doApply();
+      }
+    });
+    pop.querySelector(".ge-color-popover-cancel").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeGeColorPopover();
+    });
+    pop.querySelector(".ge-color-popover-apply").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      doApply();
+    });
+  }
+
+  var geDescEditItemId = null;
+
+  function renderDescToolbar(itemId, dirty) {
+    return (
+      '<div class="ge-desc-toolbar">' +
+      '<button type="button" class="ge-desc-edit-btn" data-item-id="' +
+      itemId +
+      '">Edit text</button>' +
+      '<button type="button" class="ge-desc-default-btn" data-item-id="' +
+      itemId +
+      '"' +
+      (dirty ? "" : " disabled") +
+      ">Default text</button>" +
+      "</div>"
+    );
   }
 
   function openItemDescription(itemId) {
@@ -504,6 +596,8 @@
     if (noteOf(itemId)) {
       return openItemFullscreen(itemId);
     }
+    closeGeColorPopover();
+    geDescEditItemId = itemId;
     var lb = $("ge-lightbox");
     if (!lb) return { ok: false, error: "Viewer missing." };
     var img = $("ge-lightbox-img");
@@ -519,7 +613,8 @@
       img.src = thumb(itemId);
       img.alt = titleFor(itemId);
     }
-    var body = String(fullDescFor(itemId) || descFor(itemId) || "").trim();
+    var body = String(fullDescFor(itemId) || "").trim();
+    var dirty = !!(state.descOverrides && state.descOverrides[String(itemId)] != null);
     if ($("ge-lightbox-title")) {
       $("ge-lightbox-title").textContent = kindLabel(itemId) + " · " + titleFor(itemId);
     }
@@ -530,16 +625,78 @@
     if (rich) {
       rich.hidden = false;
       rich.innerHTML =
+        renderDescToolbar(itemId, dirty) +
+        '<div class="ge-desc-rich-body" data-item-id="' +
+        itemId +
+        '">' +
         (body
-          ? buildGeColorHitHtml(body, { source: "desc" })
+          ? buildGeColorHitHtml(body, { source: "desc", itemId: itemId })
           : "<em>No description text.</em>") +
-        '<p class="ge-color-chips-hint" style="margin-top:10px">Color names above become chips — click to lock into the note filler.</p>';
+        "</div>" +
+        '<p class="ge-color-chips-hint" style="margin-top:10px">Click a color chip to change its pigment. Edit text / Default text work like Spellforge.</p>';
     }
     lb.hidden = false;
     return { ok: true };
   }
 
-  /** One-time: remove old preset color-chip items from pack/bank. */
+  function startGeDescTextEdit(itemId) {
+    itemId = Number(itemId);
+    var rich = $("ge-lightbox-desc-rich");
+    if (!rich || !itemId) return;
+    var body = String(fullDescFor(itemId) || "");
+    var dirty = !!(state.descOverrides && state.descOverrides[String(itemId)] != null);
+    rich.innerHTML =
+      renderDescToolbar(itemId, dirty) +
+      '<textarea class="ge-desc-edit" id="ge-desc-edit-ta"></textarea>' +
+      '<div class="ge-desc-edit-actions">' +
+      '<button type="button" class="ge-desc-edit-cancel" data-item-id="' +
+      itemId +
+      '">Cancel</button>' +
+      '<button type="button" class="ge-desc-edit-save" data-item-id="' +
+      itemId +
+      '">Save text</button>' +
+      "</div>";
+    var ta = $("ge-desc-edit-ta");
+    if (ta) {
+      ta.value = body;
+      ta.focus();
+    }
+  }
+
+  function saveGeDescTextEdit(itemId) {
+    itemId = Number(itemId);
+    var ta = $("ge-desc-edit-ta");
+    if (!ta || !itemId) return;
+    if (!state.descOverrides) state.descOverrides = {};
+    var text = String(ta.value || "");
+    var orig = originalDescFor(itemId);
+    if (text === orig) {
+      delete state.descOverrides[String(itemId)];
+    } else {
+      state.descOverrides[String(itemId)] = text;
+      var f = forgedOf(itemId);
+      if (f) {
+        if (f._originalDescription == null) f._originalDescription = String(f.description || orig || "");
+        f.description = text;
+      }
+    }
+    saveState();
+    openItemDescription(itemId);
+    setStatus("Description saved for " + kindLabel(itemId) + ".");
+  }
+
+  function revertGeDescText(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return;
+    if (state.descOverrides) delete state.descOverrides[String(itemId)];
+    var f = forgedOf(itemId);
+    if (f && f._originalDescription) f.description = f._originalDescription;
+    saveState();
+    openItemDescription(itemId);
+    setStatus("Reverted to default description.");
+  }
+
+    /** One-time: remove old preset color-chip items from pack/bank. */
   function purgePresetColorChips() {
     if (state._purgedPresetColorChips) return;
     var pid = String(PLAYER_ID);
@@ -902,6 +1059,23 @@
     return "Painting #" + n;
   }
 
+  function originalDescFor(n) {
+    n = Number(n);
+    var note = noteOf(n);
+    if (note) return String(note.text || "");
+    var f = forgedOf(n);
+    if (f) {
+      if (f._originalDescription != null) return String(f._originalDescription);
+      if (f.description) return String(f.description);
+    }
+    var ex = extraOf(n);
+    if (ex && ex.analysis && ex.analysis.description) return String(ex.analysis.description);
+    var a = analyses[String(n)];
+    if (a && a.description) return String(a.description);
+    if (ex) return "A " + kindLabel(n) + " from the Spellforge arsenal.";
+    return "A painting from the 1000 Paintings Challenge.";
+  }
+
   function fullDescFor(n) {
     n = Number(n);
     var chip = colorChipOf(n);
@@ -911,6 +1085,9 @@
         colorChipLabel(chip.name, chip.hex) +
         " exactly. Repaint conflicting source colors into this lock."
       );
+    }
+    if (state && state.descOverrides && state.descOverrides[String(n)] != null) {
+      return String(state.descOverrides[String(n)] || "");
     }
     var note = noteOf(n);
     if (note) return String(note.text || "");
@@ -993,6 +1170,7 @@
       itemStats: {},
       forged: {},
       notes: {},
+      descOverrides: {},
       colorChips: {},
       nextForgeId: 10001,
       nextNoteId: NOTE_BASE + 1,
@@ -1050,6 +1228,7 @@
     s.itemStats = s.itemStats || {};
     s.forged = s.forged || {};
     s.notes = s.notes || {};
+    s.descOverrides = s.descOverrides || {};
     s.colorChips = s.colorChips || {};
     s.nextColorId = Math.max(COLOR_BASE + 1, Number(s.nextColorId) || COLOR_BASE + 1);
     s._colorChipCatalogReady = !!s._colorChipCatalogReady;
@@ -1210,6 +1389,13 @@
       };
     });
 
+    var descOverridesSlim = {};
+    Object.keys(state.descOverrides || {}).forEach(function (k) {
+      var v = state.descOverrides[k];
+      if (v == null) return;
+      descOverridesSlim[k] = String(v).slice(0, 8000);
+    });
+
     var colorChips = {};
     Object.keys(state.colorChips || {}).forEach(function (k) {
       var c = state.colorChips[k];
@@ -1241,6 +1427,7 @@
       itemStats: state.itemStats || {},
       forged: forged,
       notes: notes,
+      descOverrides: descOverridesSlim,
       colorChips: colorChips,
       nextForgeId: state.nextForgeId,
       nextNoteId: state.nextNoteId,
@@ -4345,25 +4532,50 @@
       });
       renderNoteColorHits();
     }
-    if (!$("body").dataset.geColorHitBound) {
-      // use document
-    }
     if (!document.documentElement.dataset.geColorHitBound) {
       document.documentElement.dataset.geColorHitBound = "1";
-      document.addEventListener(
-        "click",
-        function (e) {
-          var hit = e.target.closest(".ge-color-hit");
-          if (hit) {
-            e.preventDefault();
-            e.stopPropagation();
-            openGeColorPopover(hit);
-            return;
-          }
-          if (!e.target.closest("#ge-color-popover")) closeGeColorPopover();
-        },
-        true
-      );
+      document.addEventListener("click", function (e) {
+        // Toolbar / edit actions in description
+        var editBtn = e.target.closest(".ge-desc-edit-btn");
+        if (editBtn) {
+          e.preventDefault();
+          startGeDescTextEdit(Number(editBtn.getAttribute("data-item-id")));
+          return;
+        }
+        var defBtn = e.target.closest(".ge-desc-default-btn");
+        if (defBtn) {
+          e.preventDefault();
+          revertGeDescText(Number(defBtn.getAttribute("data-item-id")));
+          return;
+        }
+        var saveBtn = e.target.closest(".ge-desc-edit-save");
+        if (saveBtn) {
+          e.preventDefault();
+          saveGeDescTextEdit(Number(saveBtn.getAttribute("data-item-id")));
+          return;
+        }
+        var cancelBtn = e.target.closest(".ge-desc-edit-cancel");
+        if (cancelBtn) {
+          e.preventDefault();
+          openItemDescription(Number(cancelBtn.getAttribute("data-item-id")));
+          return;
+        }
+
+        var hit = e.target.closest(".ge-color-hit");
+        if (hit) {
+          e.preventDefault();
+          e.stopPropagation();
+          openGeColorPopover(hit);
+          return;
+        }
+
+        var pop = document.getElementById("ge-color-popover");
+        if (!pop) return;
+        if (pop.contains(e.target)) return;
+        var until = Number(pop.dataset.suppressOutsideUntil || 0);
+        if (Date.now() < until) return;
+        closeGeColorPopover();
+      });
     }
   }
 
