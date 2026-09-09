@@ -2448,10 +2448,46 @@
     if (hi) hi.classList.toggle("active", name === "history");
   }
 
+  function maxOfferQtyFromInventory() {
+    var itemId = Number(selected) || 0;
+    if (!itemId) return 1;
+    if (setupSide === "sell") {
+      // Sell: all of this item currently in the pack
+      return Math.max(1, qtyOf(PLAYER_ID, itemId) || 1);
+    }
+    // Buy: as many as cash can cover at the current offer price (at least 1)
+    var px = Math.max(1, Number($("ge-price") && $("ge-price").value) || guidePrice(itemId) || 1);
+    var cash = Math.max(0, cashOf(PLAYER_ID));
+    var afford = Math.floor(cash / px);
+    return Math.max(1, afford || 1);
+  }
+
+  function setOfferQtyToMax() {
+    var el = $("ge-qty");
+    if (!el) return;
+    var maxQ = maxOfferQtyFromInventory();
+    el.value = String(maxQ);
+    updateTotal();
+    if (setupSide === "sell") {
+      setStatus("Qty set to Max — " + maxQ + " from inventory.");
+    } else {
+      setStatus("Qty set to Max — " + maxQ + " (what your cash covers).");
+    }
+  }
+
   function updateTotal() {
     var qty = Math.max(1, Number($("ge-qty") && $("ge-qty").value) || 1);
     var px = Math.max(1, Number($("ge-price") && $("ge-price").value) || 1);
     if ($("ge-total")) $("ge-total").textContent = "Total: " + money(qty * px);
+    var maxBtn = $("ge-qty-max");
+    if (maxBtn) {
+      var maxQ = maxOfferQtyFromInventory();
+      maxBtn.title =
+        setupSide === "sell"
+          ? "Max from inventory (" + maxQ + ")"
+          : "Max you can afford (" + maxQ + ")";
+      maxBtn.textContent = "Max";
+    }
   }
 
 
@@ -2700,9 +2736,17 @@
     if ($("ge-setup-name")) $("ge-setup-name").textContent = titleFor(selected);
     if ($("ge-setup-desc")) $("ge-setup-desc").textContent = descFor(selected);
     if ($("ge-setup-guide")) {
+      var held = qtyOf(PLAYER_ID, selected);
+      var banked = bankQty(PLAYER_ID, selected);
       $("ge-setup-guide").textContent =
-        "Guide price " + money(guidePrice(selected)) + " · you hold " + qtyOf(PLAYER_ID, selected);
+        "Guide price " +
+        money(guidePrice(selected)) +
+        " · inventory " +
+        held +
+        (banked ? " · bank " + banked : "") +
+        (setupSide === "sell" ? " · Max = inventory" : "");
     }
+    updateTotal();
     if ($("ge-price") && document.activeElement !== $("ge-price")) {
       $("ge-price").value = String(guidePrice(selected));
     }
@@ -4223,6 +4267,12 @@
         updateTotal();
       });
     });
+    if ($("ge-qty-max") && !$("ge-qty-max").dataset.bound) {
+      $("ge-qty-max").dataset.bound = "1";
+      $("ge-qty-max").addEventListener("click", function () {
+        setOfferQtyToMax();
+      });
+    }
     document.querySelectorAll("[data-ge-px]").forEach(function (btn) {
       if (btn.dataset.bound) return;
       btn.dataset.bound = "1";

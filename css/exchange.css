@@ -1550,3 +1550,14 @@
   gap: 8px;
   margin-top: 8px;
 }
+
+
+.ge-qty-max {
+  font-weight: 700;
+  color: #1a1510;
+  background: #c9a227;
+  border-color: #e8c547;
+}
+.ge-qty-max:hover {
+  filter: brightness(1.08);
+}
