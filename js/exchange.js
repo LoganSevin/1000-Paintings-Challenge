@@ -470,16 +470,7 @@
     Object.keys(state.forged || {}).forEach(function (k) {
       var f = state.forged[k];
       if (!f || typeof f !== "object") return;
-      var thumb = f.thumb || "";
-      if (String(thumb).indexOf("data:") === 0) {
-        var parent = f.parents && f.parents[0];
-        thumb = parent ? "paintings/" + parent + ".jpg" : "";
-      }
-      // Drop huge remote data; keep short paths/urls only
-      if (String(thumb).length > 500) {
-        var parent2 = f.parents && f.parents[0];
-        thumb = parent2 ? "paintings/" + parent2 + ".jpg" : "";
-      }
+      var thumb = persistableThumbUrl(f.thumb || "", f.parents && f.parents[0]);
       forged[k] = {
         id: f.id,
         parents: Array.isArray(f.parents) ? f.parents.slice(0, 3) : [],
@@ -541,13 +532,12 @@
     if (!state) return false;
     try {
       var slim = slimForPersist();
-      // Keep live state aligned with what we persist for the player pack
+      // Keep live bags/level aligned — but do NOT replace forged thumbs in memory
+      // (slim drops data: and oversize URLs; wiping them here made forge images vanish).
       state.inventory = slim.inventory;
       state.bank = slim.bank;
       state.cashDelta = Object.assign({}, state.cashDelta || {}, slim.cashDelta);
       state.history = slim.history;
-      state.forged = slim.forged;
-      state.notes = slim.notes;
       state.level = slim.level;
       state.xp = slim.xp;
       localStorage.setItem(STORAGE, JSON.stringify(slim));
@@ -2026,6 +2016,88 @@
     return 15;
   }
 
+  function persistableThumbUrl(url, parentFallback) {
+    var thumb = String(url || "");
+    var fallback = parentFallback ? "paintings/" + parentFallback + ".jpg" : "";
+    if (!thumb) return fallback;
+    // data URLs blow localStorage — never persist them
+    if (thumb.indexOf("data:") === 0) return fallback;
+    try {
+      var u = new URL(thumb, location.href);
+      // Same origin (incl. localhost/LAN): store path so reload still works
+      if (typeof location !== "undefined" && u.origin === location.origin) {
+        return u.pathname + u.search;
+      }
+    } catch (e) {}
+    // Public https CDN urls are fine (up to a sane length)
+    if (/^https:\/\//i.test(thumb) && thumb.length <= 1800) return thumb;
+    if (thumb.length <= 400 && thumb.indexOf("http://") !== 0) return thumb;
+    return fallback;
+  }
+
+  function geCompressDataUrl(dataUrl, maxSide, quality) {
+    return new Promise(function (resolve) {
+      if (!dataUrl || dataUrl.indexOf("data:image") !== 0) return resolve(dataUrl || "");
+      var img = new Image();
+      img.onload = function () {
+        var w = img.width;
+        var h = img.height;
+        var scale = Math.min(1, maxSide / Math.max(w, h, 1));
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(w * scale));
+        canvas.height = Math.max(1, Math.round(h * scale));
+        var ctx = canvas.getContext("2d");
+        if (!ctx) return resolve(dataUrl);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      };
+      img.onerror = function () {
+        resolve(dataUrl);
+      };
+      img.src = dataUrl;
+    });
+  }
+
+  /** Inline a gallery/LAN image as a data URL so the cloud API does not need to fetch http://localhost. */
+  function geInlineImage(path) {
+    return new Promise(function (resolve, reject) {
+      var url = String(path || "");
+      if (!url) return reject(new Error("No image to inline."));
+      if (url.indexOf("data:image") === 0) {
+        return geCompressDataUrl(url, 1280, 0.85).then(resolve);
+      }
+      var fetchUrl = url;
+      try {
+        var u = new URL(url, location.href);
+        if (u.origin === location.origin) fetchUrl = u.pathname + u.search;
+      } catch (e) {}
+      fetch(fetchUrl, { cache: "force-cache", credentials: "same-origin" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("Could not load image (" + r.status + ").");
+          return r.blob();
+        })
+        .then(function (blob) {
+          return new Promise(function (res, rej) {
+            var reader = new FileReader();
+            reader.onload = function () {
+              res(reader.result);
+            };
+            reader.onerror = function () {
+              rej(new Error("Could not read image bytes."));
+            };
+            reader.readAsDataURL(blob);
+          });
+        })
+        .then(function (dataUrl) {
+          return geCompressDataUrl(dataUrl, 1280, 0.85);
+        })
+        .then(resolve)
+        .catch(function (err) {
+          reject(err || new Error("Could not inline reference image."));
+        });
+    });
+  }
+
   function absoluteAssetUrl(path) {
     if (!path) return "";
     if (/^https?:\/\//i.test(path) || path.indexOf("data:") === 0) return path;
@@ -2136,29 +2208,40 @@
     geAnimate.cancel = false;
     var cancelBtn = $("ge-animate-cancel");
     if (cancelBtn) cancelBtn.hidden = false;
-    setGeAnimateProgress(6);
-    setGeAnimateStatus("Starting animation of " + kindLabel(itemId) + " (" + duration + "s)…");
+    setGeAnimateProgress(4);
+    setGeAnimateStatus("Inlining reference image…");
     setStatus("Animating in Grand Exchange — stay here while it processes.");
 
-    var body = {
-      stasis: stasis || prompt,
-      prompt: prompt,
-      duration: duration,
-      spells: spells,
-      resolution: "720p",
-      morph_chain: false,
-      video_url: "",
-      aspect_ratio: aspect === "1:1" ? "16:9" : aspect,
-      source: "grand-exchange",
-      reference_image: absoluteAssetUrl(stillUrl),
-    };
-
-    fetch(geApiUrl("/api/animate-cast"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-      cache: "no-store",
-    })
+    geInlineImage(stillUrl)
+      .then(function (dataUrl) {
+        if (geAnimate.cancel) throw new Error("Cancelled.");
+        if (!dataUrl || String(dataUrl).indexOf("data:image") !== 0) {
+          throw new Error(
+            "Reference image could not be inlined — reload the page and try again (keep start_server.bat running)."
+          );
+        }
+        setGeAnimateProgress(8);
+        setGeAnimateStatus("Starting animation of " + kindLabel(itemId) + " (" + duration + "s)…");
+        var body = {
+          stasis: stasis || prompt,
+          prompt: prompt,
+          duration: duration,
+          spells: spells,
+          resolution: "720p",
+          morph_chain: false,
+          video_url: "",
+          aspect_ratio: aspect === "1:1" ? "16:9" : aspect,
+          source: "grand-exchange",
+          // data URL — cloud API must not try to fetch localhost/LAN http URLs
+          reference_image: dataUrl,
+        };
+        return fetch(geApiUrl("/api/animate-cast"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+          cache: "no-store",
+        });
+      })
       .then(function (r) {
         return r.json().then(function (d) {
           return { ok: r.ok, status: r.status, d: d };
@@ -2534,9 +2617,11 @@
       forgeSlots = [null, null, null];
       lastForgeResult = id;
       grantXp(FORGE_XP);
-      saveState();
       if (!exchangeOpen) openExchangeUi();
+      // Show the new image immediately (before save — save must not wipe live thumb)
       showForgeResult(id);
+      render();
+      saveState();
       if (visionUrl) {
         setForgeStatus("Forged " + titleFor(id) + " (#" + id + ") with new image — in inventory. +" + FORGE_XP + " XP");
       } else {
@@ -2551,7 +2636,6 @@
           true
         );
       }
-      render();
     }
 
     forgeBusy = true;
