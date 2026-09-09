@@ -4,11 +4,12 @@
 (function () {
   "use strict";
 
-  var STORAGE = "gallery.grand-exchange.v5";
-  var STORAGE_LEGACY = "gallery.grand-exchange.v4";
-  var STORAGE_LEGACY2 = "gallery.grand-exchange.v3";
-  var STORAGE_LEGACY3 = "gallery.grand-exchange.v2";
-  var STORAGE_LEGACY4 = "gallery.grand-exchange.v1";
+  var STORAGE = "gallery.grand-exchange.v6";
+  var STORAGE_LEGACY = "gallery.grand-exchange.v5";
+  var STORAGE_LEGACY2 = "gallery.grand-exchange.v4";
+  var STORAGE_LEGACY3 = "gallery.grand-exchange.v3";
+  var STORAGE_LEGACY4 = "gallery.grand-exchange.v2";
+  var STORAGE_LEGACY5 = "gallery.grand-exchange.v1";
   var PLAYER_ID = 100;
   var MAX_SLOTS = 8;
   var NPC_TICK_MS = 1200;
@@ -18,6 +19,16 @@
   var GEN_BASE = 100000;
   var SKETCH_BASE = 200000;
   var INV_SKETCH_BASE = 300000;
+  var NOTE_BASE = 400000;
+  var NOTE_THUMB =
+    "data:image/svg+xml," +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
+        '<rect width="64" height="64" rx="8" fill="#1e293b"/>' +
+        '<rect x="14" y="12" width="36" height="40" rx="3" fill="#334155" stroke="#94a3b8" stroke-width="2"/>' +
+        '<path d="M20 22h24M20 30h24M20 38h16" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round"/>' +
+      "</svg>"
+    );
 
   var state = null;
   var roster = [];
@@ -111,6 +122,39 @@
     return state.forged[String(n)] || state.forged[n] || null;
   }
 
+  function noteOf(n) {
+    n = Number(n);
+    if (!state || !state.notes) return null;
+    return state.notes[String(n)] || state.notes[n] || null;
+  }
+
+  function isNoteId(n) {
+    n = Number(n);
+    return !!noteOf(n) || (n > NOTE_BASE && n < NOTE_BASE + 100000);
+  }
+
+  function syncNoteToSpellforgeStore(note) {
+    if (!note || note.id == null) return;
+    try {
+      var raw = localStorage.getItem("spellforge_notes_v1");
+      var store = raw ? JSON.parse(raw) : { notes: {}, nextNoteId: NOTE_BASE + 1 };
+      if (!store.notes) store.notes = {};
+      store.notes[String(note.id)] = {
+        id: note.id,
+        title: note.title || "Note",
+        text: note.text || "",
+        createdAt: note.createdAt || Date.now(),
+      };
+      var next = Math.max(
+        Number(store.nextNoteId) || NOTE_BASE + 1,
+        Number(note.id) + 1,
+        Number(state && state.nextNoteId) || NOTE_BASE + 1
+      );
+      store.nextNoteId = next;
+      localStorage.setItem("spellforge_notes_v1", JSON.stringify(store));
+    } catch (e) {}
+  }
+
   function extraOf(n) {
     n = Number(n);
     return extraItems[n] || extraItems[String(n)] || null;
@@ -118,6 +162,7 @@
 
   function kindLabel(n) {
     n = Number(n);
+    if (noteOf(n)) return "Note #" + n;
     var f = forgedOf(n);
     if (f) return "Forged #" + n;
     var ex = extraOf(n);
@@ -131,6 +176,7 @@
 
   function thumb(n) {
     n = Number(n);
+    if (noteOf(n)) return NOTE_THUMB;
     var f = forgedOf(n);
     if (f && f.thumb) return assetUrl(f.thumb);
     var ex = extraOf(n);
@@ -142,6 +188,8 @@
 
   function titleFor(n) {
     n = Number(n);
+    var note = noteOf(n);
+    if (note) return note.title || "Note";
     var f = forgedOf(n);
     if (f && f.title) return f.title;
     var ex = extraOf(n);
@@ -157,6 +205,8 @@
 
   function fullDescFor(n) {
     n = Number(n);
+    var note = noteOf(n);
+    if (note) return String(note.text || "");
     var f = forgedOf(n);
     if (f && f.description) return String(f.description);
     var ex = extraOf(n);
@@ -176,7 +226,8 @@
     var x = (n * 9301 + 49297) % 233280;
     var jitter = (x / 233280) * 0.5 - 0.15;
     var g = GUIDE_BASE * (1 + jitter);
-    if (forgedOf(n)) g *= 1.45;
+    if (noteOf(n)) g *= 0.55;
+    else if (forgedOf(n)) g *= 1.45;
     else {
       var ex = extraOf(n);
       if (ex) {
@@ -223,7 +274,7 @@
 
   function defaultState() {
     return {
-      version: 5,
+      version: 6,
       cashDelta: {},
       inventory: {},
       bank: {},
@@ -233,7 +284,9 @@
       guideMult: 1,
       itemStats: {},
       forged: {},
+      notes: {},
       nextForgeId: 10001,
+      nextNoteId: NOTE_BASE + 1,
       npcSeededOffers: false,
       _npcSeeded: false,
       packReady: true, // do not auto-fill inventory with gallery art
@@ -248,7 +301,7 @@
   function migrate(s) {
     if (!s || typeof s !== "object") return defaultState();
     var wasOld = (Number(s.version) || 0) < 3;
-    s.version = 5;
+    s.version = 6;
     s.cashDelta = s.cashDelta || {};
     s.inventory = s.inventory || {};
     s.bank = s.bank || {};
@@ -258,7 +311,9 @@
     s.guideMult = Number(s.guideMult) || 1;
     s.itemStats = s.itemStats || {};
     s.forged = s.forged || {};
+    s.notes = s.notes || {};
     s.nextForgeId = Math.max(10001, Number(s.nextForgeId) || 10001);
+    s.nextNoteId = Math.max(NOTE_BASE + 1, Number(s.nextNoteId) || NOTE_BASE + 1);
     s.level = Math.max(1, Number(s.level) || 1);
     s.xp = Math.max(0, Number(s.xp) || 0);
     s.walkXpThisLevel = Math.max(0, Number(s.walkXpThisLevel) || 0);
@@ -292,7 +347,8 @@
         localStorage.getItem(STORAGE_LEGACY) ||
         localStorage.getItem(STORAGE_LEGACY2) ||
         localStorage.getItem(STORAGE_LEGACY3) ||
-        localStorage.getItem(STORAGE_LEGACY4);
+        localStorage.getItem(STORAGE_LEGACY4) ||
+        localStorage.getItem(STORAGE_LEGACY5);
       if (!raw) return defaultState();
       return migrate(JSON.parse(raw));
     } catch (e) {
@@ -654,6 +710,7 @@
         add("inverted");
       } else if (ex.source === "generated") add("generated");
     }
+    if (noteOf(n)) add("note");
     if (forgedOf(n)) add("forged");
     if (n >= 1 && n <= PAINTING_TOTAL) add("painting");
     return out;
@@ -1517,10 +1574,27 @@
       if (!btn) continue;
       var id = forgeSlots[i];
       btn.classList.toggle("filled", !!id);
+      btn.classList.toggle("note-slot", !!(id && noteOf(id)));
       btn.title = id ? "Clear slot · " + kindLabel(id) : "Clear slot";
       var num = btn.querySelector(".ge-forge-num");
-      var img = btn.querySelector("img");
-      if (id) {
+      var img = btn.querySelector("img:not(.ge-note-icon)");
+      var badge = btn.querySelector(".ge-note-badge");
+      if (id && noteOf(id)) {
+        if (img) img.remove();
+        if (!badge) {
+          badge = document.createElement("span");
+          badge.className = "ge-note-badge";
+          btn.appendChild(badge);
+        }
+        badge.innerHTML =
+          '<img class="ge-note-icon" src="' +
+          NOTE_THUMB +
+          '" alt="" /><span>' +
+          esc(String(titleFor(id)).slice(0, 28)) +
+          "</span>";
+        if (num) num.style.display = "none";
+      } else if (id) {
+        if (badge) badge.remove();
         if (!img) {
           img = document.createElement("img");
           img.alt = "";
@@ -1530,6 +1604,7 @@
         if (num) num.style.display = "none";
       } else {
         if (img) img.remove();
+        if (badge) badge.remove();
         if (num) {
           num.style.display = "";
           num.textContent = String(i + 1);
@@ -1541,7 +1616,9 @@
   function placeInForge(itemId, slotIndex) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
-    if (ownedQty(itemId) < 1) return { ok: false, error: "You do not own that item." };
+    if (!noteOf(itemId) && ownedQty(itemId) < 1) {
+      return { ok: false, error: "You do not own that item." };
+    }
     var slot = slotIndex == null || slotIndex === "" ? -1 : Number(slotIndex);
     if (slot < 0 || slot > 2 || isNaN(slot)) {
       slot = -1;
@@ -1564,10 +1641,12 @@
     if (menu) menu.hidden = true;
   }
 
-  function showForgeContextMenu(clientX, clientY, itemId) {
+  function showForgeContextMenu(clientX, clientY, itemId, source) {
     var menu = $("ge-forge-menu");
     if (!menu) return;
+    source = source === "bank" ? "bank" : "inv";
     menu.dataset.itemId = String(itemId);
+    menu.dataset.source = source;
     for (var i = 0; i < 3; i++) {
       var btn = menu.querySelector('[data-forge-pick="' + i + '"]');
       if (!btn) continue;
@@ -1578,11 +1657,15 @@
         (cur != null ? " · " + kindLabel(cur) : " · empty");
       btn.classList.toggle("occupied", cur != null);
     }
+    var dep = menu.querySelector('[data-ge-action="deposit"]');
+    var wd = menu.querySelector('[data-ge-action="withdraw"]');
+    if (dep) dep.hidden = source !== "inv";
+    if (wd) wd.hidden = source !== "bank";
     menu.hidden = false;
     // Position inside viewport
     var pad = 8;
     var w = menu.offsetWidth || 180;
-    var h = menu.offsetHeight || 120;
+    var h = menu.offsetHeight || 180;
     var x = Math.min(clientX, window.innerWidth - w - pad);
     var y = Math.min(clientY, window.innerHeight - h - pad);
     x = Math.max(pad, x);
@@ -1590,6 +1673,111 @@
     menu.style.left = x + "px";
     menu.style.top = y + "px";
     menu.dataset.openedAt = String(Date.now());
+  }
+
+  function placeNoteInForge(slot, text) {
+    text = String(text || "").trim();
+    if (!text) return { ok: false, error: "Write a note first." };
+    slot = Number(slot);
+    if (slot < 0 || slot > 2 || isNaN(slot)) {
+      return { ok: false, error: "Pick slot 1–3." };
+    }
+    if (!state.notes) state.notes = {};
+    var id = Number(state.nextNoteId) || NOTE_BASE + 1;
+    try {
+      var rawShared = localStorage.getItem("spellforge_notes_v1");
+      if (rawShared) {
+        var shared = JSON.parse(rawShared);
+        id = Math.max(id, Number(shared && shared.nextNoteId) || NOTE_BASE + 1);
+      }
+    } catch (eShared) {}
+    state.nextNoteId = id + 1;
+    var title = text.replace(/\s+/g, " ").slice(0, 40);
+    if (text.length > 40) title += "…";
+    var entry = {
+      id: id,
+      title: title || "Note",
+      text: text,
+      createdAt: Date.now(),
+    };
+    state.notes[String(id)] = entry;
+    forgeSlots[slot] = id;
+    syncNoteToSpellforgeStore(entry);
+    saveState();
+    return { ok: true, slot: slot, itemId: id };
+  }
+
+  function selectedForgeAspect() {
+    var sel = $("ge-forge-aspect");
+    var v = sel && sel.value ? String(sel.value) : "1:1";
+    var ok = { "1:1": 1, "4:3": 1, "3:4": 1, "16:9": 1, "9:16": 1, "3:2": 1, "2:3": 1 };
+    return ok[v] ? v : "1:1";
+  }
+
+  function openSellForItem(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return { ok: false, error: "No item." };
+    if (noteOf(itemId)) return { ok: false, error: "Notes are forge fillers — not sellable on GE." };
+    var invHave = qtyOf(PLAYER_ID, itemId);
+    var bankHave = bankQty(PLAYER_ID, itemId);
+    if (invHave < 1 && bankHave < 1) {
+      return { ok: false, error: "You do not own that item." };
+    }
+    if (invHave < 1 && bankHave > 0) {
+      var wd = withdrawItem(itemId, 1);
+      if (!wd.ok) {
+        // Inventory full — still open sell UI with selection; user can free a slot.
+        selected = itemId;
+        openSetup("sell", 0);
+        return {
+          ok: false,
+          error: wd.error + " Selected for sell — free inventory space or sell after withdrawing.",
+        };
+      }
+    }
+    selected = itemId;
+    openSetup("sell", 0);
+    return { ok: true };
+  }
+
+  function openAnimateTab() {
+    var tab = document.querySelector('.tab[data-tab="animate"]');
+    if (tab) {
+      tab.click();
+      return true;
+    }
+    try {
+      window.dispatchEvent(new Event("animate-show"));
+    } catch (e) {}
+    return false;
+  }
+
+  function sendForgeResultToAnimate() {
+    if (!lastForgeResult) {
+      setForgeStatus("No forged result to send.", true);
+      return;
+    }
+    var url = thumb(lastForgeResult);
+    var prompt = String(fullDescFor(lastForgeResult) || titleFor(lastForgeResult) || "").trim();
+    var aspect = selectedForgeAspect();
+    openAnimateTab();
+    setTimeout(function () {
+      try {
+        if (window.Animate && typeof window.Animate.seedFromSpellforge === "function") {
+          window.Animate.seedFromSpellforge({
+            prompt: prompt,
+            stasis: prompt,
+            imageUrl: url,
+            aspect: aspect,
+          });
+          setForgeStatus("Sent forged #" + lastForgeResult + " to Animate.");
+        } else {
+          setForgeStatus("Animate is not ready yet — open Animate and paste the prompt.", true);
+        }
+      } catch (e) {
+        setForgeStatus("Could not seed Animate.", true);
+      }
+    }, 60);
   }
 
   function clearForgeSlot(slotIndex) {
@@ -1615,6 +1803,11 @@
   }
 
   function openSpellforgeTab() {
+    try {
+      var geAspect = selectedForgeAspect();
+      var spellAspect = document.getElementById("spell-aspect");
+      if (spellAspect && geAspect) spellAspect.value = geAspect;
+    } catch (eAsp) {}
     var tab = document.querySelector('.tab[data-tab="spellforge"]');
     if (tab) {
       tab.click();
@@ -1728,7 +1921,7 @@
         buzz_words: ["original painting", "brand new composition", "invented scene"],
         spells: spellIds,
         spell_details: spellDetails,
-        aspect_ratio: "1:1",
+        aspect_ratio: selectedForgeAspect(),
         mag_fresh: true,
         fresh_variation: true,
         spell_cast: false,
@@ -1771,6 +1964,7 @@
     }
     var parents = [Number(a), Number(b), Number(c)];
     for (var i = 0; i < 3; i++) {
+      if (noteOf(parents[i])) continue;
       if (ownedQty(parents[i]) < 1) {
         setForgeStatus("Missing stock for " + kindLabel(parents[i]) + " (need 1 in inv or bank).", true);
         return;
@@ -1818,6 +2012,7 @@
       if (combineBtn) combineBtn.disabled = false;
       if (visionUrl) entry.thumb = visionUrl;
       for (var j = 0; j < 3; j++) {
+        if (noteOf(parents[j])) continue;
         if (!consumeOwned(parents[j], 1)) {
           setForgeStatus("Could not consume materials after forge.", true);
           return;
@@ -2356,7 +2551,7 @@
         var id = Number(btn.getAttribute("data-ge-inv"));
         selectedInvItem = id;
         selected = id;
-        showForgeContextMenu(e.clientX, e.clientY, id);
+        showForgeContextMenu(e.clientX, e.clientY, id, "inv");
       });
     }
     var bankGrid = $("ge-bank-grid");
@@ -2385,20 +2580,45 @@
         var id = Number(btn.getAttribute("data-ge-bank"));
         selectedBankItem = id;
         selected = id;
-        showForgeContextMenu(e.clientX, e.clientY, id);
+        showForgeContextMenu(e.clientX, e.clientY, id, "bank");
       });
     }
     var forgeMenu = $("ge-forge-menu");
     if (forgeMenu && !forgeMenu.dataset.bound) {
       forgeMenu.dataset.bound = "1";
       forgeMenu.addEventListener("click", function (e) {
+        var actionBtn = e.target.closest("[data-ge-action]");
         var pick = e.target.closest("[data-forge-pick]");
-        if (!pick) return;
+        if (!actionBtn && !pick) return;
         e.preventDefault();
         e.stopPropagation();
         var id = Number(forgeMenu.dataset.itemId);
-        var slot = Number(pick.getAttribute("data-forge-pick"));
+        var source = forgeMenu.dataset.source || "inv";
         hideForgeContextMenu();
+        if (actionBtn) {
+          var action = actionBtn.getAttribute("data-ge-action");
+          if (action === "sell") {
+            var sellRes = openSellForItem(id);
+            if (!sellRes.ok) setStatus(sellRes.error, true);
+            else setStatus("Sell offer setup for " + kindLabel(id) + ".");
+            render();
+            return;
+          }
+          if (action === "deposit") {
+            var depRes = depositItem(id, 1);
+            setStatus(depRes.ok ? "Deposited " + kindLabel(id) : depRes.error, !depRes.ok);
+            render();
+            return;
+          }
+          if (action === "withdraw") {
+            var wdRes = withdrawItem(id, 1);
+            setStatus(wdRes.ok ? "Withdrew " + kindLabel(id) : wdRes.error, !wdRes.ok);
+            render();
+            return;
+          }
+          return;
+        }
+        var slot = Number(pick.getAttribute("data-forge-pick"));
         var res = placeInForge(id, slot);
         renderForgeSlots();
         if (!res.ok) setForgeStatus(res.error, true);
@@ -2526,6 +2746,28 @@
         selected = lastForgeResult;
         openSetup("sell", 0);
       });
+    }
+    if ($("ge-forge-to-animate") && !$("ge-forge-to-animate").dataset.bound) {
+      $("ge-forge-to-animate").dataset.bound = "1";
+      $("ge-forge-to-animate").addEventListener("click", sendForgeResultToAnimate);
+    }
+    for (var ni = 0; ni < 3; ni++) {
+      (function (slot) {
+        var noteBtn = $("ge-note-slot-" + slot);
+        if (noteBtn && !noteBtn.dataset.bound) {
+          noteBtn.dataset.bound = "1";
+          noteBtn.addEventListener("click", function () {
+            var ta = $("ge-note-text");
+            var res = placeNoteInForge(slot, ta && ta.value);
+            renderForgeSlots();
+            if (!res.ok) setForgeStatus(res.error, true);
+            else {
+              setForgeStatus("Note placed in Spellforge slot " + (slot + 1) + ".");
+              if (ta) ta.value = "";
+            }
+          });
+        }
+      })(ni);
     }
   }
 

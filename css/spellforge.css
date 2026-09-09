@@ -1976,3 +1976,35 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   opacity: 0.35;
   cursor: not-allowed;
 }
+.spell-notes-filler {
+  margin: 0.65rem 0 0.85rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.35);
+}
+.spell-note-text {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 3.2rem;
+  resize: vertical;
+  margin: 0.3rem 0 0.45rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 6px;
+  background: #0b1220;
+  color: #e2e8f0;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.55rem;
+}
+.spell-notes-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.spell-animate-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0.55rem;
+}

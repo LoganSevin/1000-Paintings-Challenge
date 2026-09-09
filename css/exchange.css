@@ -956,3 +956,97 @@
 .ge-forge-menu button.occupied {
   color: #ffe066;
 }
+
+.ge-forge-menu-divider {
+  height: 1px;
+  margin: 0.35rem 0.25rem;
+  background: rgba(201, 162, 39, 0.35);
+}
+.ge-forge-menu button[hidden] {
+  display: none !important;
+}
+.ge-forge-notes {
+  margin: 0.55rem 0 0.35rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.22);
+}
+.ge-forge-notes-label,
+.ge-forge-aspect-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c9b896;
+  margin-bottom: 0.3rem;
+}
+.ge-note-text {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 3.4rem;
+  resize: vertical;
+  border: 1px solid #4a3f2a;
+  border-radius: 4px;
+  background: #12100c;
+  color: #f0e6c8;
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.45rem;
+}
+.ge-forge-notes-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.4rem 0;
+}
+.ge-forge-notes-actions button,
+.ge-forge-to-animate {
+  border: 1px solid #5a4a28;
+  border-radius: 4px;
+  background: #2a2418;
+  color: #f0e6c8;
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.45rem;
+  cursor: pointer;
+}
+.ge-forge-notes-actions button:hover,
+.ge-forge-to-animate:hover {
+  border-color: var(--ge-yellow, #c9a227);
+  background: rgba(201, 162, 39, 0.18);
+}
+.ge-forge-aspect {
+  margin-left: 0.35rem;
+  border: 1px solid #5a4a28;
+  border-radius: 4px;
+  background: #1a1610;
+  color: #f0e6c8;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.35rem;
+}
+.ge-forge-slot.note-slot {
+  background: linear-gradient(160deg, #2b3344 0%, #1a2030 100%);
+}
+.ge-forge-slot .ge-note-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  color: #d7e6ff;
+  font-size: 0.65rem;
+  line-height: 1.15;
+  text-align: center;
+  pointer-events: none;
+}
+.ge-forge-slot .ge-note-badge img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}

@@ -52,7 +52,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=42" />
+  <link rel="stylesheet" href="css/spellforge.css?v=43" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=89" />
@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=13" />
+  <link rel="stylesheet" href="css/exchange.css?v=14" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -320,6 +320,15 @@
           <div class="spell-slot" data-slot="1"><span class="slot-label">Spell II</span></div>
           <div class="spell-slot" data-slot="2"><span class="slot-label">Spell III</span></div>
         </div>
+        <div class="spell-notes-filler" id="spell-notes-filler">
+          <label class="spell-fusion-label" for="spell-note-text">Notes filler (text-only spell)</label>
+          <textarea id="spell-note-text" class="spell-note-text" rows="3" placeholder="Equip precise influence text into Spell I / II / III…" spellcheck="true"></textarea>
+          <div class="spell-notes-actions">
+            <button type="button" id="spell-note-equip-0" class="btn-secondary" data-spell-note-slot="0">Spell I</button>
+            <button type="button" id="spell-note-equip-1" class="btn-secondary" data-spell-note-slot="1">Spell II</button>
+            <button type="button" id="spell-note-equip-2" class="btn-secondary" data-spell-note-slot="2">Spell III</button>
+          </div>
+        </div>
         <section class="spell-fusion-panel" id="spell-fusion-panel">
           <h3 class="spell-fusion-title">Fused spell</h3>
           <p id="spell-fusion-hint" class="spell-fusion-hint">Equip 2–3 spells to merge styles, tags, and a mixed description.</p>
@@ -383,6 +392,10 @@
                 </select>
               </label>
               <button type="button" id="spell-generate-stasis" class="btn-cast" disabled>Generate image from stasis</button>
+            </div>
+            <div class="spell-animate-row">
+              <button type="button" id="spell-send-animate" class="btn-secondary">Send to Animate</button>
+              <button type="button" id="spell-gen-video-animate" class="btn-secondary">Generate video in Animate</button>
             </div>
             <button type="button" id="spell-send-muralwalk" class="btn-secondary" disabled>Walk fused floor in Muralwalk</button>
             <p id="spell-generate-status" class="spell-generate-status" hidden></p>
@@ -3028,18 +3041,42 @@
           </div>
         </div>
 
-        <div id="ge-forge-menu" class="ge-forge-menu" hidden role="menu" aria-label="Spellforge slots">
+        <div id="ge-forge-menu" class="ge-forge-menu" hidden role="menu" aria-label="Inventory actions">
           <button type="button" role="menuitem" data-forge-pick="0">Slot 1</button>
           <button type="button" role="menuitem" data-forge-pick="1">Slot 2</button>
           <button type="button" role="menuitem" data-forge-pick="2">Slot 3</button>
+          <div class="ge-forge-menu-divider" role="separator"></div>
+          <button type="button" role="menuitem" data-ge-action="sell">Sell on GE</button>
+          <button type="button" role="menuitem" data-ge-action="deposit" id="ge-menu-deposit">Deposit</button>
+          <button type="button" role="menuitem" data-ge-action="withdraw" id="ge-menu-withdraw">Withdraw 1</button>
         </div>
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
-          <p class="ge-forge-hint">Right-click inventory/bank → choose Slot 1 / 2 / 3 · Combine to generate</p>
+          <p class="ge-forge-hint">Right-click inventory/bank → Slot / Sell · Notes fill slots as text · Combine to generate</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-1" data-forge-slot="1" title="Clear slot"><span class="ge-forge-num">2</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-2" data-forge-slot="2" title="Clear slot"><span class="ge-forge-num">3</span></button>
+          </div>
+          <div class="ge-forge-notes" id="ge-forge-notes">
+            <label class="ge-forge-notes-label" for="ge-note-text">Note filler (text-only influence)</label>
+            <textarea id="ge-note-text" class="ge-note-text" rows="3" placeholder="Write precise prompt control text…" spellcheck="true"></textarea>
+            <div class="ge-forge-notes-actions">
+              <button type="button" id="ge-note-slot-0" data-ge-note-slot="0">Put in slot 1</button>
+              <button type="button" id="ge-note-slot-1" data-ge-note-slot="1">Put in slot 2</button>
+              <button type="button" id="ge-note-slot-2" data-ge-note-slot="2">Put in slot 3</button>
+            </div>
+            <label class="ge-forge-aspect-label" for="ge-forge-aspect">Aspect
+              <select id="ge-forge-aspect" class="ge-forge-aspect" aria-label="Forge aspect ratio">
+                <option value="1:1" selected>1:1 square</option>
+                <option value="4:3">4:3</option>
+                <option value="3:4">3:4 portrait</option>
+                <option value="16:9">16:9 wide</option>
+                <option value="9:16">9:16 tall</option>
+                <option value="3:2">3:2</option>
+                <option value="2:3">2:3</option>
+              </select>
+            </label>
           </div>
           <div class="ge-forge-actions">
             <button type="button" id="ge-forge-combine" class="ge-forge-combine">Combine</button>
@@ -3053,6 +3090,7 @@
               <div class="ge-forge-result-actions">
                 <button type="button" id="ge-forge-bank">Bank</button>
                 <button type="button" id="ge-forge-sell">Sell on GE</button>
+                <button type="button" id="ge-forge-to-animate" class="ge-forge-to-animate">Send to Animate</button>
               </div>
             </div>
           </div>
@@ -6463,7 +6501,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=13"></script>
+  <script defer src="js/exchange.js?v=14"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
@@ -6512,7 +6550,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=88"></script>
+  <script defer src="js/spellforge.js?v=89"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>
@@ -6530,7 +6568,7 @@
   <script defer src="js/characters.js?v=18"></script>
   <script defer src="js/objects.js?v=8"></script>
   <script defer src="js/rooms.js?v=4"></script>
-  <script defer src="js/animate.js?v=30"></script>
+  <script defer src="js/animate.js?v=31"></script>
   <script defer src="js/mobile.js?v=3"></script>
 </body>
 </html>

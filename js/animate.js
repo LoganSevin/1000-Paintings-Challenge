@@ -2114,7 +2114,7 @@
       resolution: currentResolution(),
       morph_chain: !!opts.morph_chain,
       video_url: opts.video_url || "",
-      aspect_ratio: "16:9",
+      aspect_ratio: state.seedAspect || "16:9",
     };
     var cast = getCastPayload();
     var beats = getBeatsPayload();
@@ -3408,10 +3408,48 @@
       .catch(function () {});
   }
 
+  function seedFromSpellforge(opts) {
+    opts = opts || {};
+    var prompt = String(opts.prompt || opts.stasis || "").trim();
+    var stasis = String(opts.stasis || opts.prompt || "").trim();
+    var imageUrl = String(opts.imageUrl || "").trim();
+    var aspect = String(opts.aspect || "").trim() || "16:9";
+    var promptEl = $("an-prompt");
+    if (promptEl && prompt) promptEl.value = prompt;
+    if (imageUrl) showGenPreview(imageUrl);
+    state.seedAspect = aspect;
+    state.seedStasis = stasis;
+    state.seedImageUrl = imageUrl;
+    setStatus(
+      prompt
+        ? "Seeded from Spellforge — review the prompt, then cast."
+        : "Opened from Spellforge.",
+      "ok"
+    );
+    var result = {
+      prompt: prompt,
+      stasis: stasis,
+      imageUrl: imageUrl,
+      aspect: aspect,
+    };
+    if (opts.autoCast) {
+      if (!prompt && !imageUrl) {
+        setStatus("Seeded Animate — add a prompt or cast when ready.", "ok");
+        return Promise.resolve(result);
+      }
+      // Prefer casting with seeded motion prompt; castSpell validates itself.
+      return Promise.resolve(castSpell(null)).then(function () {
+        return result;
+      });
+    }
+    return Promise.resolve(result);
+  }
+
   window.Animate = {
     onShow: onShow,
     castSpell: castSpell,
     playTimeline: playTimeline,
+    seedFromSpellforge: seedFromSpellforge,
     getSegments: function () {
       return state.segments.slice();
     },

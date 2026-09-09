@@ -16,7 +16,18 @@
   var SKETCH_BASE = 200000;
   /** Inverted chalk sketches use INV_SKETCH_BASE + number. */
   var INV_SKETCH_BASE = 300000;
+  var NOTE_BASE = 400000;
+  var NOTES_KEY = "spellforge_notes_v1";
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
+  var NOTE_THUMB =
+    "data:image/svg+xml," +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
+        '<rect width="64" height="64" rx="8" fill="#1e293b"/>' +
+        '<rect x="14" y="12" width="36" height="40" rx="3" fill="#334155" stroke="#94a3b8" stroke-width="2"/>' +
+        '<path d="M20 22h24M20 30h24M20 38h16" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round"/>' +
+      "</svg>"
+    );
 
   var canonicalList = [];
   var displayOrder = [];
@@ -40,6 +51,7 @@
     pages: PAGE_COUNT,
   };
   var spells = [null, null, null];
+  var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
   var activePage = 0;
   var pickerQuery = "";
   var pendingPickNumber = null;
@@ -850,14 +862,52 @@
     saveDisplayOrder();
   }
 
+  function loadSpellNotes() {
+    try {
+      var raw = localStorage.getItem(NOTES_KEY);
+      if (!raw) {
+        spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
+        return;
+      }
+      var parsed = JSON.parse(raw);
+      spellNotes = {
+        notes: (parsed && parsed.notes) || {},
+        nextNoteId: Math.max(
+          NOTE_BASE + 1,
+          Number(parsed && parsed.nextNoteId) || NOTE_BASE + 1
+        ),
+      };
+    } catch (e) {
+      spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
+    }
+  }
+
+  function saveSpellNotes() {
+    try {
+      localStorage.setItem(NOTES_KEY, JSON.stringify(spellNotes));
+    } catch (e) {}
+  }
+
+  function noteOf(num) {
+    num = parseInt(num, 10);
+    if (!num || !spellNotes || !spellNotes.notes) return null;
+    return spellNotes.notes[String(num)] || spellNotes.notes[num] || null;
+  }
+
+  function isNoteId(n) {
+    return !!noteOf(n);
+  }
+
   function isValidSpellNum(n) {
     n = parseInt(n, 10);
     if (!n || n < 1) return false;
     if (n <= TOTAL) return true;
+    if (noteOf(n)) return true;
     return !!extraSpells[n] || !!extraSpells[String(n)];
   }
 
   function spellKindLabel(num) {
+    if (noteOf(num)) return "Note";
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!extra) return "#" + num;
     var g = extra.genNum != null ? extra.genNum : num;
@@ -877,6 +927,7 @@
   }
 
   function paintingUrl(num) {
+    if (noteOf(num)) return NOTE_THUMB;
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
@@ -885,6 +936,16 @@
 
   function getAnalysis(num) {
     num = parseInt(num, 10);
+    var note = noteOf(num);
+    if (note) {
+      return {
+        title: note.title || "Note",
+        description: String(note.text || ""),
+        prompt: String(note.text || ""),
+        tags: ["note"],
+        style: "text note",
+      };
+    }
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.analysis) return extra.analysis;
     var a = analyses[String(num)] || analyses[num] || null;
@@ -905,6 +966,8 @@
   }
 
   function analysisSpellText(num) {
+    var note = noteOf(num);
+    if (note) return String(note.text || "");
     var a = getAnalysis(num);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!a) {
@@ -1734,6 +1797,8 @@
   function getSpellSlotBody(slotIndex) {
     if (!spells[slotIndex]) return "";
     if (spellSlotBodyOverride[slotIndex] != null) return spellSlotBodyOverride[slotIndex];
+    var note = noteOf(spells[slotIndex]);
+    if (note) return String(note.text || "");
     return analysisSpellText(spells[slotIndex]);
   }
 
@@ -4181,6 +4246,74 @@
     else location.hash = "muralwalk";
   }
 
+  function openAnimateTabFromSpellforge() {
+    var tab = document.querySelector('.tab[data-tab="animate"]');
+    if (tab) {
+      tab.click();
+      return true;
+    }
+    try {
+      window.dispatchEvent(new Event("animate-show"));
+    } catch (e) {}
+    return false;
+  }
+
+  function spellforgeAnimatePayload() {
+    var physical = document.getElementById("spell-physical-prompt");
+    var stasisEl = document.getElementById("spell-stasis");
+    var prompt =
+      (physical && physical.value && physical.value.trim()) ||
+      (stasisEl && stasisEl.value && stasisEl.value.trim()) ||
+      String(spellStasis || lastFusedPrompt || "").trim();
+    return {
+      prompt: prompt,
+      stasis: String(spellStasis || "").trim() || prompt,
+      imageUrl: stasisVisionUrl || "",
+      aspect: getAspectRatio(),
+    };
+  }
+
+  function setSpellGenerateStatus(msg, isErr) {
+    var statusEl = document.getElementById("spell-generate-status");
+    if (!statusEl) return;
+    statusEl.hidden = !msg;
+    statusEl.textContent = msg || "";
+    statusEl.className = "spell-generate-status" + (isErr ? " error" : "");
+  }
+
+  function sendSpellforgeToAnimate(opts) {
+    opts = opts || {};
+    var payload = spellforgeAnimatePayload();
+    openAnimateTabFromSpellforge();
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        try {
+          if (!window.Animate || typeof window.Animate.seedFromSpellforge !== "function") {
+            setSpellGenerateStatus("Animate not ready — open Animate and paste the prompt.", true);
+            resolve(null);
+            return;
+          }
+          var seeded = window.Animate.seedFromSpellforge({
+            prompt: payload.prompt,
+            stasis: payload.stasis,
+            imageUrl: payload.imageUrl,
+            aspect: payload.aspect,
+            autoCast: !!opts.autoCast,
+          });
+          if (opts.autoCast) {
+            setSpellGenerateStatus("Seeded Animate — cast if it did not start automatically.");
+          } else {
+            setSpellGenerateStatus("Sent fused prompt to Animate.");
+          }
+          resolve(seeded);
+        } catch (e) {
+          setSpellGenerateStatus("Could not hand off to Animate.", true);
+          resolve(null);
+        }
+      }, 60);
+    });
+  }
+
   function bindStasisAndPrompt() {
     var stasisEl = document.getElementById("spell-stasis");
     if (stasisEl && !stasisEl.dataset.modBound) {
@@ -4233,6 +4366,40 @@
       mwBtn.onclick = openMuralwalkFloor;
     }
 
+    var sendAn = document.getElementById("spell-send-animate");
+    if (sendAn && !sendAn.dataset.bound) {
+      sendAn.dataset.bound = "1";
+      sendAn.addEventListener("click", function () {
+        sendSpellforgeToAnimate({ autoCast: false });
+      });
+    }
+    var genAn = document.getElementById("spell-gen-video-animate");
+    if (genAn && !genAn.dataset.bound) {
+      genAn.dataset.bound = "1";
+      genAn.addEventListener("click", function () {
+        sendSpellforgeToAnimate({ autoCast: true });
+      });
+    }
+
+    for (var nsi = 0; nsi < 3; nsi++) {
+      (function (slot) {
+        var btn = document.getElementById("spell-note-equip-" + slot);
+        if (btn && !btn.dataset.bound) {
+          btn.dataset.bound = "1";
+          btn.addEventListener("click", function () {
+            var ta = document.getElementById("spell-note-text");
+            var res = equipNote(slot, ta && ta.value);
+            if (!res.ok) {
+              setSpellGenerateStatus(res.error, true);
+              return;
+            }
+            if (ta) ta.value = "";
+            setSpellGenerateStatus("Equipped note into Spell " + ["I", "II", "III"][slot] + ".");
+          });
+        }
+      })(nsi);
+    }
+
     updateStasisModeration();
   }
 
@@ -4251,7 +4418,14 @@
       }
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
-      var title = a && a.title ? a.title : extra ? spellKindLabel(num) : "Painting #" + num;
+      var title =
+        a && a.title
+          ? a.title
+          : noteOf(num)
+            ? "Note"
+            : extra
+              ? spellKindLabel(num)
+              : "Painting #" + num;
       var body = getSpellSlotBody(s);
       var head = spellKindLabel(num) + " · " + title;
       el.classList.add("filled");
@@ -4283,6 +4457,37 @@
     }
     updateFusion();
     saveEquippedSpells();
+  }
+
+  function equipNote(slotIndex, text) {
+    slotIndex = parseInt(slotIndex, 10);
+    text = String(text || "").trim();
+    if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) {
+      return { ok: false, error: "Pick Spell I–III." };
+    }
+    if (!text) return { ok: false, error: "Write a note first." };
+    loadSpellNotes();
+    if (!spellNotes.notes) spellNotes.notes = {};
+    var id = Number(spellNotes.nextNoteId) || NOTE_BASE + 1;
+    spellNotes.nextNoteId = id + 1;
+    var title = text.replace(/\s+/g, " ").slice(0, 40);
+    if (text.length > 40) title += "…";
+    spellNotes.notes[String(id)] = {
+      id: id,
+      title: title || "Note",
+      text: text,
+      createdAt: Date.now(),
+    };
+    saveSpellNotes();
+    spells[slotIndex] = id;
+    clearSpellSlotBody(slotIndex);
+    if (spellforgeReady) {
+      renderSlots();
+      renderGrid();
+    } else {
+      saveEquippedSpells();
+    }
+    return { ok: true, slot: slotIndex, id: id };
   }
 
   function equipToSlot(num, slotIndex) {
@@ -4572,6 +4777,7 @@
 
     function ready() {
       spellforgeReady = true;
+      loadSpellNotes();
       buildManifestMap();
       // Paintings + phone uploads + generated stills (mixed shuffle)
       loadSpellAssets().then(function () {
@@ -4690,6 +4896,7 @@
   function boot() {
     if (!document.getElementById("panel-spellforge")) return;
     try {
+      loadSpellNotes();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();
         openSlotDialog(num);
@@ -4726,6 +4933,9 @@
         },
         equipSlots: function (slots, opts) {
           setEquippedSlots(slots, opts);
+        },
+        equipNote: function (slotIndex, text) {
+          return equipNote(slotIndex, text);
         },
         whenReady: function () {
           return whenSpellforgeReady();
