@@ -43,6 +43,7 @@
     market: document.getElementById("panel-market"),
     supermarket: document.getElementById("panel-supermarket"),
     banker: document.getElementById("panel-banker"),
+    exchange: document.getElementById("panel-exchange"),
     carousel: document.getElementById("panel-carousel"),
     ideal: document.getElementById("panel-ideal"),
     match: document.getElementById("panel-match"),
@@ -105,6 +106,7 @@
     market: "Practice only — sim sales & paper trades",
     supermarket: "Art supermarket — aisles, shoppers, receipts → generate",
     banker: "Banker — SIM debit/credit for the supermarket 100 · Luhn · encrypted vault",
+    exchange: "Grand Exchange — GE-style buy/sell paintings with the Banker 100 (SIM)",
     carousel: "The City — Logan’s Run shelter · 30-year Carousel tiers · time controller",
     ideal: "Ideal — prompt-only image/video. Saves to Generated / Videos",
     match: "Match-3 — stripes, bombs, color poppers",
@@ -203,6 +205,9 @@
     }
     if (name !== "banker") {
       window.dispatchEvent(new Event("banker-hide"));
+    }
+    if (name !== "exchange") {
+      window.dispatchEvent(new Event("exchange-hide"));
     }
     if (name !== "carousel") {
       window.dispatchEvent(new Event("carousel-hide"));
@@ -324,6 +329,7 @@
     document.body.classList.toggle("mk-tab-active", name === "market");
     document.body.classList.toggle("sm-tab-active", name === "supermarket");
     document.body.classList.toggle("bk-tab-active", name === "banker");
+    document.body.classList.toggle("ge-tab-active", name === "exchange");
     document.body.classList.toggle("lr-tab-active", name === "carousel");
     document.body.classList.toggle("id-tab-active", name === "ideal");
     document.body.classList.toggle("mt-tab-active", name === "match");
@@ -673,6 +679,7 @@
       tabName === "market" ||
       tabName === "supermarket" ||
       tabName === "banker" ||
+      tabName === "exchange" ||
       tabName === "carousel" ||
       tabName === "ideal" ||
       tabName === "match" ||

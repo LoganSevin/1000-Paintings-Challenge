@@ -1,0 +1,269 @@
+/* Grand Exchange — RuneScape-style offer board for gallery paintings + Banker 100 */
+.ge-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem 2rem;
+  color: #e8e4d8;
+}
+.ge-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+}
+.ge-top h2 {
+  margin: 0 0 0.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.ge-hint {
+  margin: 0;
+  max-width: 46rem;
+  color: #a89f8c;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.ge-hint code { color: #d4c4a0; }
+.ge-warn {
+  margin: 0 0 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #5a4a28;
+  background: #1a160e;
+  color: #c9b27a;
+  font-size: 0.82rem;
+  border-radius: 8px;
+}
+.ge-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.ge-stats > div {
+  background: #14110c;
+  border: 1px solid #3a3428;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+}
+.ge-stats span {
+  display: block;
+  font-size: 0.7rem;
+  color: #8a8070;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ge-stats strong {
+  font-size: 1.05rem;
+  color: #e6c96a;
+}
+.ge-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) minmax(240px, 300px);
+  gap: 0.75rem;
+}
+@media (max-width: 980px) {
+  .ge-layout { grid-template-columns: 1fr; }
+}
+.ge-card {
+  background: #12100c;
+  border: 1px solid #3a3428;
+  border-radius: 10px;
+  padding: 0.7rem;
+  min-height: 12rem;
+}
+.ge-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f0e6d0;
+}
+.ge-search {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid #4a4030;
+  background: #0c0a08;
+  color: #eee;
+}
+.ge-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 0.4rem;
+  max-height: 58vh;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+.ge-item {
+  border: 1px solid #3a3428;
+  background: #0c0a08;
+  border-radius: 8px;
+  padding: 0.25rem;
+  cursor: pointer;
+  text-align: center;
+  color: inherit;
+}
+.ge-item:hover, .ge-item.active {
+  border-color: #c9a227;
+  box-shadow: 0 0 0 1px #c9a22755;
+}
+.ge-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #1a1610;
+  display: block;
+}
+.ge-item .ge-item-n {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  color: #b0a890;
+}
+.ge-item .ge-item-p {
+  display: block;
+  font-size: 0.68rem;
+  color: #e6c96a;
+}
+.ge-detail-head {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+.ge-detail-head img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #4a4030;
+  background: #1a1610;
+}
+.ge-detail-meta { flex: 1; min-width: 0; }
+.ge-detail-meta h3 { margin: 0 0 0.25rem; font-size: 1.1rem; }
+.ge-muted { color: #8a8070; font-size: 0.82rem; }
+.ge-guide {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: #e6c96a;
+}
+.ge-books {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+.ge-book {
+  border: 1px solid #3a3428;
+  border-radius: 8px;
+  padding: 0.55rem;
+  background: #0c0a08;
+}
+.ge-book h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  color: #c9b27a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ge-book ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 9rem;
+  overflow: auto;
+  font-size: 0.78rem;
+}
+.ge-book li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #2a241c;
+}
+.ge-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+  align-items: end;
+}
+@media (max-width: 700px) {
+  .ge-books, .ge-form { grid-template-columns: 1fr 1fr; }
+}
+.ge-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: #8a8070;
+}
+.ge-form input, .ge-form select {
+  padding: 0.4rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid #4a4030;
+  background: #0c0a08;
+  color: #eee;
+}
+.ge-form .ge-span2 { grid-column: span 2; }
+.ge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+}
+.ge-offers, .ge-inv, .ge-feed {
+  max-height: 18vh;
+  overflow: auto;
+  font-size: 0.78rem;
+}
+.ge-offers table, .ge-inv table, .ge-feed table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ge-offers th, .ge-inv th, .ge-feed th,
+.ge-offers td, .ge-inv td, .ge-feed td {
+  text-align: left;
+  padding: 0.28rem 0.2rem;
+  border-bottom: 1px solid #2a241c;
+  vertical-align: top;
+}
+.ge-side-buy { color: #7dcea0; }
+.ge-side-sell { color: #e07a7a; }
+.ge-empty {
+  color: #6a6254;
+  font-size: 0.82rem;
+  padding: 0.5rem 0;
+}
+.ge-tick {
+  font-size: 0.75rem;
+  color: #8a8070;
+  margin-left: 0.35rem;
+}
+
+.ge-guide-edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: end;
+  margin-top: 0.45rem;
+}
+.ge-guide-edit label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.72rem;
+  color: #8a8070;
+}
+.ge-guide-edit input {
+  width: 6.5rem;
+  padding: 0.35rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #4a4030;
+  background: #0c0a08;
+  color: #eee;
+}

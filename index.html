@@ -81,6 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
+  <link rel="stylesheet" href="css/exchange.css?v=2" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -151,6 +152,7 @@
         <button type="button" class="tab" data-tab="market">Market (sim)</button>
         <button type="button" class="tab" data-tab="supermarket">Supermarket</button>
         <button type="button" class="tab" data-tab="banker">Banker</button>
+        <button type="button" class="tab" data-tab="exchange">Grand Exchange</button>
         <button type="button" class="tab" data-tab="carousel">Carousel</button>
         <button type="button" class="tab" data-tab="ideal">Ideal</button>
         <button type="button" class="tab" data-tab="match">Match</button>
@@ -2855,6 +2857,118 @@
             <tr><td colspan="8" class="bk-muted">Loading ledger…</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="panel-exchange" class="panel" hidden>
+    <div class="ge-shell">
+      <header class="ge-top">
+        <div>
+          <h2>Grand Exchange</h2>
+          <p class="ge-hint">
+            RuneScape-style buy/sell board for your gallery paintings. The
+            <strong>Banker 100</strong> merchant with SIM cash. You are
+            <code>#100 Logan Sevin</code> with 8 offer slots. Guide prices track
+            painting list prices. <strong>Simulation only — not real money.</strong>
+          </p>
+        </div>
+        <div class="ge-actions">
+          <button type="button" id="ge-refresh" class="btn-secondary">Refresh Banker</button>
+          <button type="button" id="ge-reset" class="btn-secondary">Reset GE</button>
+        </div>
+      </header>
+      <p class="ge-warn">
+        Practice merchanting: undercut, snipe margin, flip stock. Cash here is SIM debit from Banker — never Cash App / Venmo / PayPal.
+        <span class="ge-tick" id="ge-tick"></span>
+      </p>
+      <div class="ge-stats">
+        <div><span>Your SIM cash</span><strong id="ge-you-cash">$0</strong></div>
+        <div><span>Your slots</span><strong id="ge-you-slots">0 / 8</strong></div>
+        <div><span>Open offers</span><strong id="ge-open">0</strong></div>
+        <div><span>24h volume</span><strong id="ge-vol">$0</strong></div>
+        <div><span>24h trades</span><strong id="ge-trades-24h">0</strong></div>
+        <div><span>Traders</span><strong id="ge-people">100</strong></div>
+      </div>
+      <p id="ge-status" class="ge-muted" style="margin:0 0 0.65rem"></p>
+      <div class="ge-layout">
+        <aside class="ge-card">
+          <h3>Catalogue</h3>
+          <input type="search" id="ge-search" class="ge-search" placeholder="Search title or #…" aria-label="Search paintings" />
+          <div id="ge-catalog" class="ge-catalog"></div>
+        </aside>
+        <section class="ge-card">
+          <div class="ge-detail-head">
+            <img id="ge-detail-img" src="paintings/1.jpg" alt="" />
+            <div class="ge-detail-meta">
+              <h3 id="ge-detail-title">Painting #1</h3>
+              <div class="ge-muted" id="ge-detail-sub">Item ID 1</div>
+              <div class="ge-guide" id="ge-detail-guide">Guide price $89</div>
+              <div class="ge-muted" id="ge-detail-stock">You hold 0</div>
+              <div class="ge-muted" id="ge-detail-trades">0 trades</div>
+              <div class="ge-guide-edit">
+                <label>Set guide $<input id="ge-guide-input" type="number" min="1" step="1" value="89" /></label>
+                <button type="button" id="ge-save-guide" class="btn-secondary">Save guide</button>
+                <button type="button" id="ge-reset-guide" class="btn-secondary">Auto</button>
+              </div>
+              <div class="ge-guide-edit">
+                <label>Global ×<input id="ge-mult" type="number" min="0.1" max="10" step="0.1" value="1" /></label>
+                <button type="button" id="ge-apply-mult" class="btn-secondary">Apply ×</button>
+                <button type="button" id="ge-seed-npcs" class="btn-secondary">Refill NPC books</button>
+              </div>
+            </div>
+          </div>
+          <div class="ge-books">
+            <div class="ge-book">
+              <h4>Buy offers</h4>
+              <ul id="ge-book-buys"></ul>
+            </div>
+            <div class="ge-book">
+              <h4>Sell offers</h4>
+              <ul id="ge-book-sells"></ul>
+            </div>
+          </div>
+          <div class="ge-form">
+            <label>Qty<input id="ge-qty" type="number" min="1" step="1" value="1" /></label>
+            <label class="ge-span2">Price each (SIM $)<input id="ge-price" type="number" min="1" step="1" value="89" /></label>
+            <div></div>
+          </div>
+          <div class="ge-actions">
+            <button type="button" id="ge-buy" class="btn-primary">Buy offer</button>
+            <button type="button" id="ge-sell" class="btn-secondary">Sell offer</button>
+          </div>
+        </section>
+        <aside class="ge-card">
+          <h3>Your offers</h3>
+          <div class="ge-offers">
+            <table>
+              <thead><tr><th>Side</th><th>Item</th><th>Qty</th><th>Price</th><th></th></tr></thead>
+              <tbody id="ge-offer-body"></tbody>
+            </table>
+          </div>
+          <h3 style="margin-top:0.85rem">Your stock</h3>
+          <div class="ge-inv">
+            <table>
+              <thead><tr><th>#</th><th>Title</th><th>Qty</th></tr></thead>
+              <tbody id="ge-inv-body"></tbody>
+            </table>
+          </div>
+          <h3 style="margin-top:0.85rem">Recent trades</h3>
+          <div class="ge-feed">
+            <table>
+              <thead><tr><th>Item</th><th>Px</th><th>Buyer</th><th>Seller</th></tr></thead>
+              <tbody id="ge-feed-body"></tbody>
+            </table>
+          </div>
+          <h3 style="margin-top:0.85rem">Most traded pieces</h3>
+          <div class="ge-feed">
+            <table>
+              <thead><tr><th>#</th><th>Trades</th><th>Vol</th><th>Last</th></tr></thead>
+              <tbody id="ge-top-body"></tbody>
+            </table>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -6145,7 +6259,7 @@
         <strong id="gallery-cart-total">$0</strong>
       </div>
       <p id="gallery-cart-status" class="gallery-cart-status" hidden></p>
-      <p class="hint gallery-cart-pay-hint">Choose Cash App, Venmo, or PayPal below ($Logan7in). Order list is copied - paste it in the payment note. Then mark payment sent so revenue is recorded. (<span data-cash-app-tag>$Logan7in</span>). Order list is copied — paste it in the payment note. Then mark payment sent so revenue is recorded.</p>
+      <p class="hint gallery-cart-pay-hint">Choose Cash App, Venmo, or PayPal below (<span data-cash-app-tag>$Logan7in</span>). Order list is copied — paste it in the payment note. Then mark payment sent so revenue is recorded.</p>
       <div id="gallery-cart-pay-methods" class="gallery-cart-pay-methods" aria-label="Payment methods"></div>
       <div class="gallery-cart-actions">
         <button type="button" id="gallery-cart-pay" class="btn-primary" disabled>Pay with Cash App</button>
@@ -6251,6 +6365,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
+  <script defer src="js/exchange.js?v=2"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>

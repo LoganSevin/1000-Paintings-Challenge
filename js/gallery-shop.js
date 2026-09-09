@@ -717,10 +717,14 @@
 
   function renderPayMethodButtons() {
     var wrap = $("gallery-cart-pay-methods");
+    var payBtn = $("gallery-cart-pay");
     if (!wrap) return;
     wrap.innerHTML = "";
     var total = cartTotal();
-    if (!cart.length) return;
+    if (!cart.length) {
+      if (payBtn) payBtn.hidden = false;
+      return;
+    }
 
     function addPay(label, url, method) {
       if (!url) return;
@@ -739,10 +743,9 @@
     if (v) addPay("Venmo", v, "venmo");
     var p = paypalPayUrl(total);
     if (p) addPay("PayPal", p, "paypal");
-    var payBtn = $("gallery-cart-pay");
-    if (payBtn)
-      payBtn.hidden =
-    wrap.children.length > 0;
+    // Avoid duplicate Cash App: hide the legacy full-width button when
+    // method buttons (Cash App / Venmo / PayPal) are shown.
+    if (payBtn) payBtn.hidden = wrap.children.length > 0;
   }
 
   function startCheckout(method, url) {
