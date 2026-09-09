@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=2" />
+  <link rel="stylesheet" href="css/exchange.css?v=3" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2864,116 +2864,107 @@
 
   <section id="panel-exchange" class="panel" hidden>
     <div class="ge-shell">
-      <header class="ge-top">
-        <div>
-          <h2>Grand Exchange</h2>
-          <p class="ge-hint">
-            RuneScape-style buy/sell board for your gallery paintings. The
-            <strong>Banker 100</strong> merchant with SIM cash. You are
-            <code>#100 Logan Sevin</code> with 8 offer slots. Guide prices track
-            painting list prices. <strong>Simulation only — not real money.</strong>
-          </p>
+      <div class="ge-window">
+        <div class="ge-titlebar">
+          <h2>GRAND EXCHANGE</h2>
+          <div class="ge-cash">SIM purse: <strong id="ge-you-cash">$0</strong></div>
         </div>
-        <div class="ge-actions">
-          <button type="button" id="ge-refresh" class="btn-secondary">Refresh Banker</button>
-          <button type="button" id="ge-reset" class="btn-secondary">Reset GE</button>
+        <div class="ge-tabs" role="tablist">
+          <button type="button" class="ge-tab active" data-ge-view="home" id="ge-tab-exchange">Exchange</button>
+          <button type="button" class="ge-tab" data-ge-view="history" id="ge-tab-history">Sale History</button>
         </div>
-      </header>
-      <p class="ge-warn">
-        Practice merchanting: undercut, snipe margin, flip stock. Cash here is SIM debit from Banker — never Cash App / Venmo / PayPal.
-        <span class="ge-tick" id="ge-tick"></span>
-      </p>
-      <div class="ge-stats">
-        <div><span>Your SIM cash</span><strong id="ge-you-cash">$0</strong></div>
-        <div><span>Your slots</span><strong id="ge-you-slots">0 / 8</strong></div>
-        <div><span>Open offers</span><strong id="ge-open">0</strong></div>
-        <div><span>24h volume</span><strong id="ge-vol">$0</strong></div>
-        <div><span>24h trades</span><strong id="ge-trades-24h">0</strong></div>
-        <div><span>Traders</span><strong id="ge-people">100</strong></div>
-      </div>
-      <p id="ge-status" class="ge-muted" style="margin:0 0 0.65rem"></p>
-      <div class="ge-layout">
-        <aside class="ge-card">
-          <h3>Catalogue</h3>
-          <input type="search" id="ge-search" class="ge-search" placeholder="Search title or #…" aria-label="Search paintings" />
-          <div id="ge-catalog" class="ge-catalog"></div>
-        </aside>
-        <section class="ge-card">
-          <div class="ge-detail-head">
-            <img id="ge-detail-img" src="paintings/1.jpg" alt="" />
-            <div class="ge-detail-meta">
-              <h3 id="ge-detail-title">Painting #1</h3>
-              <div class="ge-muted" id="ge-detail-sub">Item ID 1</div>
-              <div class="ge-guide" id="ge-detail-guide">Guide price $89</div>
-              <div class="ge-muted" id="ge-detail-stock">You hold 0</div>
-              <div class="ge-muted" id="ge-detail-trades">0 trades</div>
-              <div class="ge-guide-edit">
-                <label>Set guide $<input id="ge-guide-input" type="number" min="1" step="1" value="89" /></label>
-                <button type="button" id="ge-save-guide" class="btn-secondary">Save guide</button>
-                <button type="button" id="ge-reset-guide" class="btn-secondary">Auto</button>
-              </div>
-              <div class="ge-guide-edit">
-                <label>Global ×<input id="ge-mult" type="number" min="0.1" max="10" step="0.1" value="1" /></label>
-                <button type="button" id="ge-apply-mult" class="btn-secondary">Apply ×</button>
-                <button type="button" id="ge-seed-npcs" class="btn-secondary">Refill NPC books</button>
+        <div class="ge-toolbar">
+          <button type="button" class="ge-icon-btn" id="ge-collect-all" title="Collect completed">⬇</button>
+          <button type="button" class="ge-icon-btn" id="ge-seed-npcs" title="Refill NPC books">✦</button>
+          <button type="button" class="ge-icon-btn" id="ge-refresh" title="Refresh Banker">↻</button>
+          <button type="button" class="ge-icon-btn" id="ge-reset" title="Reset GE">⟲</button>
+        </div>
+        <div class="ge-body">
+          <div class="ge-home" id="ge-home">
+            <p class="ge-summary">Shown below is a summary of all your current offers.</p>
+            <div class="ge-slots" id="ge-slots"></div>
+          </div>
+
+          <div class="ge-setup" id="ge-setup">
+            <div class="ge-setup-head">
+              <h3 id="ge-setup-side">Buy offer</h3>
+              <span class="ge-muted" id="ge-setup-slot-label">Slot 1</span>
+            </div>
+            <div class="ge-setup-item">
+              <img id="ge-setup-img" src="paintings/1.jpg" alt="" />
+              <div>
+                <div class="name" id="ge-setup-name">Choose an item…</div>
+                <div class="desc" id="ge-setup-desc">Pick a gallery painting to trade.</div>
+                <div class="guide" id="ge-setup-guide">Guide price $0</div>
+                <button type="button" class="ge-back" id="ge-choose-item" style="margin-top:0.4rem">Choose item…</button>
               </div>
             </div>
-          </div>
-          <div class="ge-books">
-            <div class="ge-book">
-              <h4>Buy offers</h4>
-              <ul id="ge-book-buys"></ul>
+            <div class="ge-setup-grid">
+              <div class="ge-field">
+                <h4>Quantity</h4>
+                <div class="ge-stepper">
+                  <button type="button" data-ge-qty="-1">−</button>
+                  <input id="ge-qty" type="number" min="1" step="1" value="1" />
+                  <button type="button" data-ge-qty="1">+</button>
+                </div>
+                <div class="ge-presets">
+                  <button type="button" data-ge-qty-set="1">+1</button>
+                  <button type="button" data-ge-qty-set="10">+10</button>
+                  <button type="button" data-ge-qty-set="100">+100</button>
+                </div>
+              </div>
+              <div class="ge-field">
+                <h4>Price per item</h4>
+                <div class="ge-stepper">
+                  <button type="button" data-ge-px="-1">−</button>
+                  <input id="ge-price" type="number" min="1" step="1" value="89" />
+                  <button type="button" data-ge-px="1">+</button>
+                </div>
+                <div class="ge-presets">
+                  <button type="button" id="ge-px-down" title="5% under guide">↘</button>
+                  <button type="button" id="ge-px-guide" title="Guide price">◎</button>
+                  <button type="button" id="ge-px-up" title="5% over guide">↗</button>
+                </div>
+              </div>
             </div>
-            <div class="ge-book">
-              <h4>Sell offers</h4>
-              <ul id="ge-book-sells"></ul>
-            </div>
+            <div class="ge-total" id="ge-total">Total: $0</div>
+            <button type="button" class="ge-confirm" id="ge-confirm">Confirm</button>
+            <button type="button" class="ge-back" id="ge-setup-back">← Back</button>
           </div>
-          <div class="ge-form">
-            <label>Qty<input id="ge-qty" type="number" min="1" step="1" value="1" /></label>
-            <label class="ge-span2">Price each (SIM $)<input id="ge-price" type="number" min="1" step="1" value="89" /></label>
-            <div></div>
+
+          <div class="ge-pick" id="ge-pick">
+            <p class="ge-summary">Select a painting to trade.</p>
+            <input type="search" id="ge-search" class="ge-pick-search" placeholder="Search title or #…" />
+            <div class="ge-pick-grid" id="ge-catalog"></div>
+            <button type="button" class="ge-back" id="ge-pick-back">← Back</button>
           </div>
-          <div class="ge-actions">
-            <button type="button" id="ge-buy" class="btn-primary">Buy offer</button>
-            <button type="button" id="ge-sell" class="btn-secondary">Sell offer</button>
-          </div>
-        </section>
-        <aside class="ge-card">
-          <h3>Your offers</h3>
-          <div class="ge-offers">
+
+          <div class="ge-history" id="ge-history">
+            <p class="ge-summary">Your recent Grand Exchange activity.</p>
             <table>
-              <thead><tr><th>Side</th><th>Item</th><th>Qty</th><th>Price</th><th></th></tr></thead>
-              <tbody id="ge-offer-body"></tbody>
-            </table>
-          </div>
-          <h3 style="margin-top:0.85rem">Your stock</h3>
-          <div class="ge-inv">
-            <table>
-              <thead><tr><th>#</th><th>Title</th><th>Qty</th></tr></thead>
-              <tbody id="ge-inv-body"></tbody>
-            </table>
-          </div>
-          <h3 style="margin-top:0.85rem">Recent trades</h3>
-          <div class="ge-feed">
-            <table>
-              <thead><tr><th>Item</th><th>Px</th><th>Buyer</th><th>Seller</th></tr></thead>
+              <thead><tr><th>Item</th><th>Side</th><th>Qty</th><th>Price</th><th>With</th></tr></thead>
               <tbody id="ge-feed-body"></tbody>
             </table>
-          </div>
-          <h3 style="margin-top:0.85rem">Most traded pieces</h3>
-          <div class="ge-feed">
+            <h3 style="color:#ffe066;font-size:0.95rem;margin:1rem 0 0.4rem">Most traded pieces</h3>
             <table>
               <thead><tr><th>#</th><th>Trades</th><th>Vol</th><th>Last</th></tr></thead>
               <tbody id="ge-top-body"></tbody>
             </table>
           </div>
-        </aside>
+
+          <p class="ge-status" id="ge-status"></p>
+        </div>
       </div>
+      <p class="ge-note">
+        RuneScape-style offer slots · Banker 100 NPCs merchant in the background ·
+        SIM cash only (not Cash App / Venmo / PayPal). <span id="ge-tick"></span>
+        · Slots <strong id="ge-you-slots">0 / 8</strong>
+        · Open market offers <strong id="ge-open">0</strong>
+      </p>
     </div>
   </section>
 
-  <section id="panel-carousel" class="panel" hidden>
+<section id="panel-carousel" class="panel" hidden>
     <div class="lr-shell">
       <header class="lr-top">
         <div>
@@ -6365,7 +6356,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script defer src="js/exchange.js?v=2"></script>
+  <script defer src="js/exchange.js?v=3"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
