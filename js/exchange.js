@@ -2450,7 +2450,7 @@
     if (cancel) cancel.hidden = true;
   }
 
-  function startGeAnimateForItem(itemId) {
+  function startGeAnimateForItem(itemId, directionOpt) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
     if (geAnimate.busy) return { ok: false, error: "Already animating — wait or Cancel." };
@@ -2459,12 +2459,17 @@
     }
     if (!exchangeOpen) openExchangeUi();
 
+    var direction = String(directionOpt || "").trim();
     var prompt = geSoftenPrompt(
       "Cinematic subtle motion of this artwork. Keep composition and subject identity. " +
-        String(titleFor(itemId) || "")
+        String(titleFor(itemId) || "") +
+        (direction ? " Animation direction: " + direction : "")
     );
     var stasis = geSoftenPrompt(
-      String(fullDescFor(itemId) || descFor(itemId) || titleFor(itemId) || "").trim()
+      (
+        String(fullDescFor(itemId) || descFor(itemId) || titleFor(itemId) || "").trim() +
+        (direction ? "\n\nAnimation direction (optional user notes): " + direction : "")
+      ).trim()
     );
     if (stasis.length > 3500) stasis = stasis.slice(0, 3500);
     var aspect = selectedForgeAspect();
@@ -2575,8 +2580,81 @@
     setGeAnimateStatus("Cancelled.", "err");
   }
 
+  var geAnimatePromptPending = null;
+
+  function hideGeAnimatePrompt() {
+    var modal = $("ge-animate-prompt");
+    if (modal) modal.hidden = true;
+    geAnimatePromptPending = null;
+  }
+
+  function openGeAnimatePrompt(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return Promise.resolve({ ok: false, cancelled: true, error: "No item." });
+    if (geAnimate.busy) {
+      return Promise.resolve({ ok: false, error: "Already animating — wait or Cancel." });
+    }
+    if (noteOf(itemId)) {
+      return Promise.resolve({
+        ok: false,
+        error: "Notes are text fillers — pick an image item to animate.",
+      });
+    }
+    var modal = $("ge-animate-prompt");
+    var ta = $("ge-animate-direction");
+    var lead = $("ge-animate-prompt-lead");
+    if (!modal || !ta) {
+      // Fallback if HTML missing — start with no direction
+      return Promise.resolve({ ok: true, direction: "", itemId: itemId });
+    }
+    if (lead) {
+      lead.textContent =
+        "Optional direction for " +
+        kindLabel(itemId) +
+        " — leave blank for default motion.";
+    }
+    // Keep last typed direction as convenience; still optional
+    modal.hidden = false;
+    ta.focus();
+    try {
+      ta.setSelectionRange(ta.value.length, ta.value.length);
+    } catch (e) {}
+
+    return new Promise(function (resolve) {
+      geAnimatePromptPending = {
+        itemId: itemId,
+        resolve: resolve,
+      };
+    });
+  }
+
+  function confirmGeAnimatePrompt() {
+    if (!geAnimatePromptPending) return;
+    var pending = geAnimatePromptPending;
+    var ta = $("ge-animate-direction");
+    var direction = ta ? String(ta.value || "").trim() : "";
+    hideGeAnimatePrompt();
+    pending.resolve({ ok: true, direction: direction, itemId: pending.itemId });
+  }
+
+  function cancelGeAnimatePrompt() {
+    if (!geAnimatePromptPending) {
+      hideGeAnimatePrompt();
+      return;
+    }
+    var pending = geAnimatePromptPending;
+    hideGeAnimatePrompt();
+    pending.resolve({ ok: false, cancelled: true, error: "Cancelled." });
+  }
+
   function sendItemToAnimate(itemId) {
-    return startGeAnimateForItem(itemId);
+    return openGeAnimatePrompt(itemId).then(function (res) {
+      if (!res || !res.ok) {
+        if (res && res.cancelled) return { ok: false, error: "Cancelled." };
+        return { ok: false, error: (res && res.error) || "Cancelled." };
+      }
+      return startGeAnimateForItem(res.itemId, res.direction);
+    });
   }
 
   function openSellForItem(itemId) {
@@ -2622,9 +2700,14 @@
       setForgeStatus("No forged result to animate.", true);
       return;
     }
-    var res = startGeAnimateForItem(lastForgeResult);
-    if (!res.ok) setForgeStatus(res.error, true);
-    else setForgeStatus("Animating forged #" + lastForgeResult + " in Grand Exchange…");
+    sendItemToAnimate(lastForgeResult).then(function (res) {
+      if (!res) return;
+      if (!res.ok) {
+        if (res.error && res.error !== "Cancelled.") setForgeStatus(res.error, true);
+        return;
+      }
+      setForgeStatus("Animating forged #" + lastForgeResult + " in Grand Exchange…");
+    });
   }
 
   function clearForgeSlot(slotIndex) {
@@ -3487,9 +3570,14 @@
             return;
           }
           if (action === "animate") {
-            var anRes = sendItemToAnimate(id);
-            if (!anRes.ok) setStatus(anRes.error, true);
-            else setStatus("Animating in Grand Exchange…");
+            sendItemToAnimate(id).then(function (anRes) {
+              if (!anRes) return;
+              if (!anRes.ok) {
+                if (anRes.error && anRes.error !== "Cancelled.") setStatus(anRes.error, true);
+                return;
+              }
+              setStatus("Animating in Grand Exchange…");
+            });
             return;
           }
           if (action === "sell") {
@@ -3538,6 +3626,9 @@
           if (e.key === "Escape") {
             hideForgeContextMenu();
             hideGeLightbox();
+            if ($("ge-animate-prompt") && !$("ge-animate-prompt").hidden) {
+              cancelGeAnimatePrompt();
+            }
           }
         },
         true
@@ -3565,6 +3656,29 @@
     if ($("ge-animate-cancel") && !$("ge-animate-cancel").dataset.bound) {
       $("ge-animate-cancel").dataset.bound = "1";
       $("ge-animate-cancel").addEventListener("click", cancelGeAnimate);
+    }
+    if ($("ge-animate-prompt-go") && !$("ge-animate-prompt-go").dataset.bound) {
+      $("ge-animate-prompt-go").dataset.bound = "1";
+      $("ge-animate-prompt-go").addEventListener("click", confirmGeAnimatePrompt);
+    }
+    if ($("ge-animate-prompt-cancel") && !$("ge-animate-prompt-cancel").dataset.bound) {
+      $("ge-animate-prompt-cancel").dataset.bound = "1";
+      $("ge-animate-prompt-cancel").addEventListener("click", cancelGeAnimatePrompt);
+    }
+    if ($("ge-animate-prompt") && !$("ge-animate-prompt").dataset.boundBackdrop) {
+      $("ge-animate-prompt").dataset.boundBackdrop = "1";
+      $("ge-animate-prompt").addEventListener("click", function (e) {
+        if (e.target === $("ge-animate-prompt")) cancelGeAnimatePrompt();
+      });
+    }
+    if ($("ge-animate-direction") && !$("ge-animate-direction").dataset.boundKeys) {
+      $("ge-animate-direction").dataset.boundKeys = "1";
+      $("ge-animate-direction").addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault();
+          confirmGeAnimatePrompt();
+        }
+      });
     }
     if ($("ge-lightbox-close") && !$("ge-lightbox-close").dataset.bound) {
       $("ge-lightbox-close").dataset.bound = "1";
