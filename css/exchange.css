@@ -763,19 +763,19 @@
 .ge-forge-status.err { color: #f88; }
 
 
-/* —— World courtyard (shown when GE UI closed) —— */
+/* —— World Art Floor (shown when GE UI closed) —— */
 .ge-exchange-ui[hidden],
 .ge-world[hidden] {
   display: none !important;
 }
 .ge-world {
   margin: 0.35rem 0 0.75rem;
-  border: 4px solid #7a8fa5;
+  border: 4px solid #a89878;
   border-radius: 6px;
   overflow: hidden;
-  background: linear-gradient(180deg, #2a3548 0%, #1a2330 50%, #121820 100%);
+  background: linear-gradient(180deg, #3a3428 0%, #2a241c 50%, #1a1610 100%);
   box-shadow:
-    inset 0 0 0 2px #3a4a5c,
+    inset 0 0 0 2px #5a4a30,
     0 10px 28px rgba(0, 0, 0, 0.45);
 }
 .ge-world-hud {
@@ -817,35 +817,299 @@
 }
 .ge-world-stage {
   position: relative;
-  height: min(52vh, 420px);
-  min-height: 280px;
+  height: min(56vh, 460px);
+  min-height: 300px;
   outline: none;
   overflow: hidden;
   cursor: crosshair;
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(255, 224, 102, 0.08), transparent 50%),
+  /* Marble tile floor — cream / grey like the Art Floor painting */
+  background-color: #d8d0c4;
+  background-image:
+    linear-gradient(180deg, rgba(255, 248, 230, 0.35) 0%, transparent 42%),
     repeating-linear-gradient(
       0deg,
-      #1c2838 0px,
-      #1c2838 16px,
-      #182232 16px,
-      #182232 32px
+      rgba(120, 110, 95, 0.14) 0px,
+      rgba(120, 110, 95, 0.14) 1px,
+      transparent 1px,
+      transparent 36px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent 0px,
-      transparent 16px,
-      rgba(0, 0, 0, 0.12) 16px,
-      rgba(0, 0, 0, 0.12) 32px
+      rgba(120, 110, 95, 0.14) 0px,
+      rgba(120, 110, 95, 0.14) 1px,
+      transparent 1px,
+      transparent 36px
+    ),
+    linear-gradient(135deg, #e8e2d6 0%, #cfc6b8 48%, #e4ddd0 100%);
+  background-size: auto, 36px 36px, 36px 36px, auto;
+}
+.ge-world-stage--artfloor {
+  box-shadow: inset 0 -40px 60px rgba(40, 30, 15, 0.18);
+}
+.ge-world-mural {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 42%;
+  background:
+    linear-gradient(180deg, rgba(232, 226, 214, 0.15) 0%, rgba(216, 208, 196, 0.85) 100%),
+    url("../assets/grand-exchange-art-floor.jpg") center top / cover no-repeat;
+  opacity: 0.55;
+  filter: saturate(0.85) brightness(1.05);
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+.ge-world-vault {
+  position: absolute;
+  inset: 0 0 55% 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 236, 180, 0.45), transparent 70%),
+    linear-gradient(180deg, rgba(90, 80, 60, 0.25) 0%, transparent 100%);
+}
+.ge-world-windows {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 2%;
+  height: 22%;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 10%,
+      rgba(255, 250, 235, 0.22) 10%,
+      rgba(255, 250, 235, 0.22) 18%,
+      transparent 18%,
+      transparent 22%
     );
+  opacity: 0.7;
+  mask-image: linear-gradient(180deg, #000, transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+}
+.ge-world-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 210, 100, 0.22), transparent 18%),
+    radial-gradient(circle at 50% 12%, rgba(255, 220, 120, 0.28), transparent 22%),
+    radial-gradient(circle at 78% 18%, rgba(255, 210, 100, 0.22), transparent 18%);
+  mix-blend-mode: soft-light;
 }
 .ge-world-ground {
   position: absolute;
   inset: auto 0 0 0;
-  height: 28%;
-  background: linear-gradient(180deg, transparent, rgba(40, 70, 40, 0.35));
+  height: 22%;
+  background: linear-gradient(180deg, transparent, rgba(60, 50, 35, 0.18));
+  pointer-events: none;
+  z-index: 1;
+}
+.ge-world-scenery {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   pointer-events: none;
 }
+.ge-col {
+  position: absolute;
+  top: 6%;
+  width: 4.2%;
+  min-width: 22px;
+  height: 62%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.18) 0%, transparent 18%, transparent 82%, rgba(0,0,0,0.12) 100%),
+    linear-gradient(180deg, #f2eee6 0%, #ddd5c8 40%, #c8bfb0 100%);
+  border-radius: 3px 3px 2px 2px;
+  box-shadow:
+    2px 0 0 rgba(255,255,255,0.35) inset,
+    -2px 0 0 rgba(0,0,0,0.12) inset,
+    0 10px 18px rgba(0,0,0,0.25);
+}
+.ge-col::before {
+  content: "";
+  position: absolute;
+  left: -18%;
+  right: -18%;
+  top: -4%;
+  height: 8%;
+  background: linear-gradient(180deg, #ebe4d8, #cfc6b8);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.ge-col::after {
+  content: "";
+  position: absolute;
+  left: -22%;
+  right: -22%;
+  bottom: -2%;
+  height: 7%;
+  background: linear-gradient(180deg, #d2c8b8, #b8ae9e);
+  border-radius: 2px;
+}
+.ge-col--1 { left: 10%; }
+.ge-col--2 { left: 32%; }
+.ge-col--3 { left: 64%; }
+.ge-col--4 { left: 86%; }
+.ge-chandelier {
+  position: absolute;
+  top: 4%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffe9a0;
+  font-size: 1.35rem;
+  text-shadow:
+    0 0 12px rgba(255, 200, 80, 0.95),
+    0 0 28px rgba(255, 180, 40, 0.65);
+  filter: drop-shadow(0 6px 10px rgba(255, 190, 60, 0.35));
+  z-index: 3;
+  animation: ge-chand-pulse 3.6s ease-in-out infinite;
+}
+.ge-chandelier--1 { left: 22%; animation-delay: 0s; }
+.ge-chandelier--2 { left: 49%; animation-delay: 0.8s; }
+.ge-chandelier--3 { left: 76%; animation-delay: 1.5s; }
+@keyframes ge-chand-pulse {
+  0%, 100% { opacity: 0.85; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(1px); }
+}
+.ge-banner {
+  position: absolute;
+  top: 10%;
+  width: 22%;
+  min-width: 120px;
+  padding: 0.35rem 0.55rem;
+  background: linear-gradient(180deg, #f7f4ee 0%, #e8e2d6 100%);
+  border: 2px solid #3a3228;
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.28),
+    0 0 0 1px #c9a227 inset;
+  color: #1a1610;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(0.48rem, 1.1vw, 0.68rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.25;
+  z-index: 3;
+}
+.ge-banner::before,
+.ge-banner::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 3px;
+  height: 12px;
+  background: #5a4030;
+}
+.ge-banner::before { left: 12%; }
+.ge-banner::after { right: 12%; }
+.ge-banner--1 { left: 14%; }
+.ge-banner--2 { right: 14%; left: auto; }
+.ge-table {
+  position: absolute;
+  height: 11%;
+  min-height: 36px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), transparent 40%),
+    linear-gradient(180deg, #1a4a32 0%, #0e2e1e 55%, #0a2418 100%);
+  border: 2px solid #0a1e14;
+  border-radius: 3px;
+  box-shadow:
+    0 8px 14px rgba(0,0,0,0.35),
+    0 2px 0 #2a6a48 inset;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  gap: 0.25rem;
+  padding: 0 0.35rem 0.2rem;
+}
+.ge-table--1 { left: 16%; top: 48%; width: 18%; }
+.ge-table--2 { left: 58%; top: 42%; width: 20%; }
+.ge-table--3 { left: 38%; top: 62%; width: 14%; }
+.ge-easel {
+  position: relative;
+  width: 28%;
+  max-width: 42px;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 18%;
+  background: #3a2818;
+  border: 2px solid #c9a227;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+.ge-easel::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -55%;
+  width: 2px;
+  height: 70%;
+  background: #5a4030;
+  transform: translateX(-50%);
+}
+.ge-easel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #2a2418;
+}
+.ge-lean-canvas {
+  position: absolute;
+  width: 5.5%;
+  min-width: 28px;
+  aspect-ratio: 3 / 4;
+  background: #2a2018;
+  border: 2px solid #8a7030;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+  transform: rotate(-6deg);
+  overflow: hidden;
+  z-index: 3;
+}
+.ge-lean--1 { left: 8%; top: 58%; transform: rotate(-8deg); }
+.ge-lean--2 { left: 90%; top: 50%; transform: rotate(7deg); }
+.ge-lean-canvas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ge-bust {
+  position: absolute;
+  width: 2.4rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 1.45rem;
+  z-index: 3;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4));
+}
+.ge-bust::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  height: 28%;
+  background: linear-gradient(180deg, #4a3020, #2a1a10);
+  border-radius: 2px;
+  border: 1px solid #c9a227;
+  z-index: -1;
+}
+.ge-bust--1 { left: 27%; top: 36%; }
+.ge-bust--2 { left: 78%; top: 58%; }
 .ge-world-booth {
   position: absolute;
   left: 42%;
@@ -860,22 +1124,26 @@
   align-items: center;
   justify-content: center;
   gap: 0.15rem;
-  background: linear-gradient(180deg, #4a3020 0%, #2a1a10 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 220, 120, 0.12), transparent 40%),
+    linear-gradient(180deg, #5a4030 0%, #2a1a10 100%);
   border: 3px solid #c9a227;
   border-radius: 4px;
   box-shadow:
     0 0 0 2px #3a2410,
-    0 8px 16px rgba(0, 0, 0, 0.4);
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 0 18px rgba(255, 200, 80, 0.2);
   cursor: pointer;
-  z-index: 2;
+  z-index: 5;
   color: var(--ge-gold);
   font-family: "Cinzel", Georgia, serif;
   text-align: center;
   padding: 0.25rem;
+  pointer-events: auto;
 }
 .ge-world-booth:hover {
   border-color: #ffe066;
-  box-shadow: 0 0 12px rgba(255, 224, 102, 0.35);
+  box-shadow: 0 0 12px rgba(255, 224, 102, 0.45);
 }
 .ge-booth-sign {
   font-size: 1.1rem;
@@ -899,27 +1167,38 @@
   justify-content: center;
   font-size: 1.35rem;
   line-height: 1;
-  z-index: 3;
+  z-index: 6;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55));
   user-select: none;
   pointer-events: none;
 }
 .ge-world-player {
-  z-index: 4;
+  z-index: 7;
   font-size: 1.55rem;
 }
 .ge-world-npc {
-  opacity: 0.92;
+  opacity: 0.95;
+}
+.ge-npc--beret::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 0.55rem;
+  height: 0.28rem;
+  margin-left: -0.28rem;
+  background: #e8c030;
+  border-radius: 50% 50% 40% 40%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
 }
 .ge-world-hint {
   margin: 0;
   padding: 0.4rem 0.75rem 0.55rem;
-  color: var(--ge-muted);
+  color: #d8cdb8;
   font-size: 0.78rem;
-  background: #1a2432;
-  border-top: 1px solid #3a4a5c;
+  background: #2a2418;
+  border-top: 1px solid #5a4a30;
 }
-
 
 /* Right-click Spellforge slot picker */
 .ge-forge-menu {

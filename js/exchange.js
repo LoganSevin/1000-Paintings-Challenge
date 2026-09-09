@@ -4569,6 +4569,22 @@
     return { x: 42, y: 18, w: 16, h: 18 };
   }
 
+  /** Soft obstacles matching Art Floor set dressing (percent coords). */
+  function worldObstacles() {
+    return [
+      boothRect(),
+      { x: 10, y: 20, w: 5, h: 40 }, // columns
+      { x: 32, y: 20, w: 5, h: 40 },
+      { x: 64, y: 20, w: 5, h: 40 },
+      { x: 86, y: 20, w: 5, h: 40 },
+      { x: 16, y: 48, w: 18, h: 12 }, // green tables
+      { x: 58, y: 42, w: 20, h: 12 },
+      { x: 38, y: 62, w: 14, h: 12 },
+      { x: 26, y: 36, w: 4, h: 8 }, // busts
+      { x: 77, y: 58, w: 4, h: 8 },
+    ];
+  }
+
   function nearBooth() {
     var b = boothRect();
     var cx = b.x + b.w / 2;
@@ -4604,8 +4620,61 @@
   }
 
   function collidesBooth(x, y) {
-    var b = boothRect();
-    return x > b.x + 1 && x < b.x + b.w - 1 && y > b.y + 2 && y < b.y + b.h - 1;
+    return collidesWorld(x, y);
+  }
+
+  function collidesWorld(x, y) {
+    var obs = worldObstacles();
+    for (var i = 0; i < obs.length; i++) {
+      var b = obs[i];
+      if (x > b.x + 1 && x < b.x + b.w - 1 && y > b.y + 2 && y < b.y + b.h - 1) return true;
+    }
+    return false;
+  }
+
+  /** Hang gallery thumbs on easels / lean canvases for Art Floor atmosphere. */
+  function dressArtFloor() {
+    var stage = $("ge-world-stage");
+    if (!stage) return;
+    var imgs = stage.querySelectorAll("[data-easel] img");
+    if (!imgs.length) return;
+    var picks = [];
+    var seen = {};
+    function pushId(n) {
+      n = Number(n);
+      if (!n || seen[n]) return;
+      seen[n] = 1;
+      picks.push(n);
+    }
+    try {
+      var inv = (state && state.inventory) || {};
+      Object.keys(inv).forEach(function (k) {
+        if (inv[k] > 0) pushId(k);
+      });
+    } catch (eInv) {}
+    var extras = typeof arsenalExtraNums !== "undefined" ? arsenalExtraNums : [];
+    for (var ei = 0; ei < extras.length && picks.length < 12; ei++) pushId(extras[ei]);
+    var seed = [1, 7, 12, 24, 36, 48, 64, 81, 100, 128, 256, 512];
+    for (var si = 0; si < seed.length && picks.length < 12; si++) pushId(seed[si]);
+    while (picks.length < imgs.length) {
+      pushId(1 + Math.floor(Math.random() * Math.max(1, PAINTING_TOTAL)));
+      if (picks.length > 40) break;
+    }
+    for (var i = 0; i < imgs.length; i++) {
+      var id = picks[i % picks.length];
+      var src = thumb(id);
+      if (!src) continue;
+      imgs[i].src = src;
+      imgs[i].alt = "Painting #" + id;
+      imgs[i].loading = "lazy";
+      imgs[i].onerror = (function (img, fallback) {
+        return function () {
+          if (img.dataset.fb) return;
+          img.dataset.fb = "1";
+          img.src = fallback;
+        };
+      })(imgs[i], "paintings/" + id + ".jpg");
+    }
   }
 
   function worldStep(dt) {
@@ -4752,7 +4821,7 @@
     showView("home");
     render();
     startTicks();
-    setStatus("Grand Exchange open — ✕ or Close returns to the courtyard.");
+    setStatus("Grand Exchange open — ✕ or Close returns to the Art Floor.");
   }
 
   function closeExchangeUi() {
@@ -5539,6 +5608,7 @@
     bind();
     initNpcs();
     applyPlayerDom();
+    dressArtFloor();
     Promise.all([loadAnalyses(), loadRoster(), loadArsenal()]).then(function () {
       ensurePlayerStock();
       ensureNpcSeedStock();
@@ -5546,6 +5616,7 @@
       saveState();
       populateTagFilter();
       updateLevelHud();
+      dressArtFloor();
       if (exchangeOpen) {
         var world = $("ge-world");
         var ui = $("ge-exchange-ui");
@@ -5559,11 +5630,11 @@
       }
       var extras = arsenalExtraNums.length;
       setStatus(
-        "Welcome · arsenal " +
+        "Welcome to the Art Floor · arsenal " +
           arsenalList().length +
           " (paintings + gen/phone/sketches" +
           (extras ? " · " + extras + " extras" : "") +
-          "). Walk the courtyard or Open Grand Exchange."
+          "). Walk the marble hall or Open Grand Exchange."
       );
     });
   }
