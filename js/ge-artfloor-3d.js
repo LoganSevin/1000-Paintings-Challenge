@@ -4,7 +4,7 @@
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
  * - Player: open-source image→3D custom-character.glb (TripoSR) gold jumpsuit — full body front+back
- * - Look: TripoSR --bake-texture albedo map (+ vertexColors fallback); normals; no metalnessMap black-hole
+ * - Look: TripoSR PBR (albedo + metalness + roughness + normal); Y-up upright; moderated metal (no black-hole)
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
  * - Unskinned custom mesh: TPS bob/sway/lean walk (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
@@ -934,7 +934,7 @@ function applyTexturedCustomLook(root) {
     o.castShadow = true;
     o.receiveShadow = true;
     o.frustumCulled = false;
-    // TripoSR vertex-color GLBs often ship without normals → MeshStandard looks like a flat silhouette
+    // TripoSR meshes may ship without normals
     if (o.geometry) {
       if (!o.geometry.attributes.normal) {
         try { o.geometry.computeVertexNormals(); } catch (eNorm) {}
@@ -942,7 +942,6 @@ function applyTexturedCustomLook(root) {
       if (o.geometry.attributes.color && !o.geometry.attributes.color.normalized
           && o.geometry.attributes.color.array && o.geometry.attributes.color.array.constructor
           && /Uint8|Int8|Uint16/.test(o.geometry.attributes.color.array.constructor.name)) {
-        // GLTFLoader usually marks COLOR_0 normalized; belt-and-suspenders
         o.geometry.attributes.color.normalized = true;
       }
     }
@@ -950,16 +949,21 @@ function applyTexturedCustomLook(root) {
     for (var i = 0; i < mats.length; i++) {
       var m = mats[i];
       if (!m) continue;
-      // Rebuild as MeshStandardMaterial to avoid Physical/transmission black-outs
       var map = m.map || null;
+      var metalMap = m.metalnessMap || null;
+      var roughMap = m.roughnessMap || null;
+      var normMap = m.normalMap || null;
       if (map) {
         map.colorSpace = THREE.SRGBColorSpace;
         map.flipY = false;
         map.needsUpdate = true;
       }
+      // metal/rough/normal stay linear
+      if (metalMap) { metalMap.colorSpace = THREE.NoColorSpace; metalMap.flipY = false; metalMap.needsUpdate = true; }
+      if (roughMap) { roughMap.colorSpace = THREE.NoColorSpace; roughMap.flipY = false; roughMap.needsUpdate = true; }
+      if (normMap) { normMap.colorSpace = THREE.NoColorSpace; normMap.flipY = false; normMap.needsUpdate = true; }
       var hasGeoColor = !!(o.geometry && o.geometry.attributes && o.geometry.attributes.color);
       var vertexColors = !!(m.vertexColors || hasGeoColor);
-      // With albedo map, keep base color white so the atlas isn't tinted/washed out
       var color;
       if (map) {
         color = new THREE.Color(0xffffff);
@@ -970,29 +974,38 @@ function applyTexturedCustomLook(root) {
       } else {
         color = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
       }
-      if (map || vertexColors || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
+      if (map || metalMap || roughMap || normMap || vertexColors
+          || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
+      // Moderated metalness: map still varies suit vs skin; factor prevents black-out without strong env
+      var metalness = m.metalness != null ? m.metalness : 0.45;
+      if (metalness > 0.55) metalness = 0.55;
+      if (metalness < 0.08 && !metalMap) metalness = 0.35;
+      var roughness = m.roughness != null ? m.roughness : 0.7;
+      if (roughness < 0.28) roughness = 0.28;
       var nm = trackMat(new THREE.MeshStandardMaterial({
         color: color,
         map: map,
+        metalnessMap: metalMap,
+        roughnessMap: roughMap,
+        normalMap: normMap,
+        normalScale: new THREE.Vector2(0.7, 0.7),
         vertexColors: vertexColors,
-        roughness: Math.max(0.55, m.roughness != null ? m.roughness : 0.65),
-        metalness: Math.min(0.18, m.metalness != null ? m.metalness : 0.12),
+        roughness: roughness,
+        metalness: metalness,
+        envMapIntensity: 0.65,
         transparent: false,
         opacity: 1,
         depthWrite: true,
         side: THREE.DoubleSide,
         flatShading: false,
       }));
-      // Explicitly kill dangerous maps (metalnessMap black-hole without env)
-      nm.metalnessMap = null;
-      nm.roughnessMap = null;
-      nm.envMap = null;
+      // Keep ao/alpha cleared; do NOT strip metal/rough/normal — custom GLB ships full PBR
       nm.aoMap = null;
       nm.alphaMap = null;
       nm.emissiveMap = null;
-      // Soft gold lift so baked / vertex colors read under gallery lighting
+      // Soft gold lift under gallery lights
       if (nm.emissive) nm.emissive.setHex(0x2a1c08);
-      nm.emissiveIntensity = 0.12;
+      nm.emissiveIntensity = 0.1;
       nm.needsUpdate = true;
       mats[i] = nm;
     }
@@ -1104,6 +1117,24 @@ function collectLocomotionClips(entry, donor) {
   return clips;
 }
 
+
+/** If a TripoSR mesh still ships X/Z-long (sideways), rotate so height is +Y. */
+function uprightCustomIfNeeded(model) {
+  model.updateMatrixWorld(true);
+  var box = new THREE.Box3().setFromObject(model);
+  var size = new THREE.Vector3();
+  box.getSize(size);
+  if (!(size.x > 0 && size.y > 0 && size.z > 0)) return;
+  if (size.x >= size.y && size.x >= size.z) {
+    // Long axis was X (feet/head along X) → +90° about Z → head +Y
+    model.rotateZ(Math.PI / 2);
+  } else if (size.z >= size.y && size.z >= size.x) {
+    // Long axis was Z (Z-up source) → -90° about X → head +Y
+    model.rotateX(-Math.PI / 2);
+  }
+  model.updateMatrixWorld(true);
+}
+
 function buildGltfCharacter(entry, opts) {
   opts = opts || {};
   var root = new THREE.Group();
@@ -1115,7 +1146,12 @@ function buildGltfCharacter(entry, opts) {
   model.scale.set(1, 1, 1);
   model.position.set(0, 0, 0);
 
-  if (opts.keepTexture || /custom-character/i.test(entry.id || "")) {
+  var isCustom = !!(opts.keepTexture || /custom-character/i.test(entry.id || ""));
+  if (isCustom) {
+    uprightCustomIfNeeded(model);
+  }
+
+  if (isCustom) {
     applyTexturedCustomLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
     root.userData.unskinnedTps = !(root.userData.skinnedMeshCount > 0);
@@ -2226,9 +2262,26 @@ function mount(container, options) {
   renderer.setClearColor(0x3a3024, 1);
   api._renderer = renderer;
 
+  // Soft warm gallery env so MeshStandard metalnessMap reads as gold (not black) without RoomEnvironment
+  try {
+    var pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    var envSc = new THREE.Scene();
+    envSc.background = new THREE.Color(0xc9a86a);
+    envSc.add(new THREE.HemisphereLight(0xfff2dc, 0x4a3020, 1.35));
+    var el1 = new THREE.DirectionalLight(0xffe8c8, 0.9); el1.position.set(2, 4, 3); envSc.add(el1);
+    var el2 = new THREE.DirectionalLight(0xffd0a0, 0.45); el2.position.set(-3, 2, -2); envSc.add(el2);
+    var envTex = pmrem.fromScene(envSc, 0.04).texture;
+    api._sceneEnv = envTex;
+    pmrem.dispose();
+  } catch (eEnv) { api._sceneEnv = null; }
+
   api._scene = new THREE.Scene();
   api._scene.background = new THREE.Color(0xd4c8b4);
   api._scene.fog = new THREE.Fog(0xd8cfc0, 28, 55);
+  if (api._sceneEnv) {
+    api._scene.environment = api._sceneEnv;
+  }
   api._camera = new THREE.PerspectiveCamera(55, w / Math.max(1, h), 0.1, 100);
   api._mixers = [];
   api._charLibrary = null;
