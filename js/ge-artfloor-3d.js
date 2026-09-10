@@ -3,13 +3,13 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: Mixamo Michelle (skinned) + Soldier Walk ONLY — painting albedo, NO dance clips
- * - Look: michelle-gold-diffuse only (NO metalnessMap blackout); hair/scarf/gun props
- * - Fallback: Soldier opaque gold → TripoSR custom-character → procedural (never invisible)
+ * - Player: TripoSR custom-character.glb (painting-matched gold jumpsuit) — upright Y-up + bob walk
+ * - Look: painting-projected albedo already on TripoSR mesh (GoldenStasisPainted); no COLOR_0 blotches
+ * - Fallback: Soldier opaque gold → Mixamo Michelle (explicit only) → procedural (never invisible)
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - NEVER SambaDance / Idle-dance; Soldier Idle NOT on Michelle; bind/T-pose rest when idle
- * - Feet grounded: strip Hips.position from borrowed Walk + per-frame bbox foot snap
- * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL palette ref
+ * - NEVER SambaDance / dance; NEVER Michelle hybrid as default (wrong silhouette vs painting)
+ * - Feet grounded: minY≈0 after scale; unskinned TPS bob stays above floor (no sink)
+ * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
  * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; E at desk
  */
 import * as THREE from "three";
@@ -654,11 +654,11 @@ var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
 /**
  * Custom player hook (reusable for future paintings):
- * - CUSTOM_CHARACTER_GLB: Mixamo Michelle.glb (default) — skinned Walk (borrowed) + painting UV bake
- * - CUSTOM_CHARACTER_URL: golden-stasis painting (palette + bake source)
+ * - CUSTOM_CHARACTER_GLB: TripoSR custom-character.glb (default) — upright painting mesh + bob
+ * - CUSTOM_CHARACTER_URL: golden-stasis painting (palette reference)
  * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or ?customChar= / ?customGlb=
  */
-var CUSTOM_CHARACTER_GLB = "glb/Michelle.glb";
+var CUSTOM_CHARACTER_GLB = "glb/custom-character.glb";
 var CUSTOM_CHARACTER_URL = "custom/golden-stasis.jpg";
 
 function resolveCustomCharacterPaths() {
@@ -680,7 +680,7 @@ function resolveCustomCharacterPaths() {
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
   // Bust CDN/browser cache when custom GLB/PBR maps change
-  var bust = "v=40";
+  var bust = "v=50";
   function withBust(u) {
     if (!u) return u;
     return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
@@ -782,12 +782,12 @@ async function loadCharacterLibrary() {
   if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
     return api._charLibrary;
   }
-  showLoader(true, "Loading Mixamo Michelle…", 5);
+  showLoader(true, "Loading TripoSR character…", 5);
   var lib = { glbs: [], custom: null, tripo: null, customLook: null, donor: null,
     goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
 
-  // Featured player: Mixamo Michelle (skinned) — painting albedo + Soldier Walk (not Idle)
+  // Featured player: TripoSR custom-character (painting-matched) — upright + textured
   showLoader(true, "Loading character…", 8);
   try {
     var customGlb = await loadGltfAsync(paths.glb, function (t) {
@@ -811,7 +811,7 @@ async function loadCharacterLibrary() {
   if (!/custom-character/i.test(CUSTOM_CHARACTER_GLB || "")) {
     showLoader(true, "Loading TripoSR fallback…", 45);
     try {
-      var tripoGlb = await loadGltfAsync(CHAR_ASSET_BASE + "glb/custom-character.glb?v=40");
+      var tripoGlb = await loadGltfAsync(CHAR_ASSET_BASE + "glb/custom-character.glb?v=50");
       if (tripoGlb && tripoGlb.scene) {
         lib.tripo = { id: "glb/custom-character.glb", gltf: tripoGlb };
         try { console.info("[artfloor-player] TripoSR fallback ready"); } catch (eT) {}
@@ -823,12 +823,12 @@ async function loadCharacterLibrary() {
     lib.tripo = lib.custom;
   }
 
-  // Gallery crowd + Walk donor (Soldier Walk binds onto Michelle mixamorig — Idle does NOT)
+  // Gallery crowd + Walk donor for Mixamo NPCs / optional Michelle override
   var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
   for (var gi = 0; gi < glbFiles.length; gi++) {
     var basePct = 55 + gi * 12;
     showLoader(true, "Loading gallery patrons…", basePct);
-    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=40", function (t) {
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=50", function (t) {
       if (t == null) return;
       showLoader(true, "Loading gallery patrons…", basePct + t * 12);
     });
@@ -845,12 +845,15 @@ async function loadCharacterLibrary() {
 
   showLoader(true, "Loading Golden Stasis materials…", 85);
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
-  // Albedo only for Michelle — metal/rough maps caused near-black body without reliable env
-  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=40", { flipY: false });
-  lib.goldMetal = null; // intentionally unused (blackout risk)
+  // Michelle diffuse only if explicitly using Michelle (not needed for TripoSR painting albedo)
+  lib.goldDiffuse = null;
+  lib.goldMetal = null;
   lib.goldRough = null;
-  if (!lib.goldDiffuse) {
-    try { console.warn("[artfloor-player] michelle-gold-diffuse missing — will use opaque gold"); } catch (eD) {}
+  if (/michelle/i.test(CUSTOM_CHARACTER_GLB || "")) {
+    lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=50", { flipY: false });
+    if (!lib.goldDiffuse) {
+      try { console.warn("[artfloor-player] michelle-gold-diffuse missing — will use opaque gold"); } catch (eD) {}
+    }
   }
   showLoader(true, "Almost ready…", 97);
 
@@ -1422,21 +1425,74 @@ function snapSkinnedFeetToFloor(root) {
   model.position.y = root.userData.bindModelY + dy;
 }
 
-/** If a TripoSR mesh still ships X/Z-long (sideways), rotate so height is +Y. */
+/**
+ * Sample radial extent near bbox floor vs crown. Inverted meshes put the narrow head tip
+ * on the floor and wider feet/legs at +Y — flip 180° about X in that case only.
+ * Never flip a correctly upright TripoSR (feet at minY, crown at maxY).
+ */
+function flipHeadUpIfNeeded(model) {
+  model.updateMatrixWorld(true);
+  var box = new THREE.Box3().setFromObject(model);
+  if (!isFinite(box.min.y) || !isFinite(box.max.y)) return;
+  var y0 = box.min.y;
+  var y1 = box.max.y;
+  var h = y1 - y0;
+  if (!(h > 1e-4)) return;
+  var botR = 0, botN = 0, topR = 0, topN = 0;
+  var v = new THREE.Vector3();
+  model.traverse(function (o) {
+    if (!o.isMesh || !o.geometry || !o.geometry.attributes || !o.geometry.attributes.position) return;
+    var pos = o.geometry.attributes.position;
+    var step = Math.max(1, (pos.count / 2500) | 0);
+    for (var i = 0; i < pos.count; i += step) {
+      v.fromBufferAttribute(pos, i);
+      v.applyMatrix4(o.matrixWorld);
+      var t = (v.y - y0) / h;
+      var r = Math.sqrt(v.x * v.x + v.z * v.z);
+      if (t < 0.12) { botR += r; botN++; }
+      else if (t > 0.88) { topR += r; topN++; }
+    }
+  });
+  if (botN < 8 || topN < 8) return;
+  var botMean = botR / botN;
+  var topMean = topR / topN;
+  // Inverted: narrow head tip at floor, wider mass at crown
+  if (botMean < topMean * 0.55 && topMean > 0.04) {
+    model.rotateX(Math.PI);
+    try { console.info("[artfloor-player] upright: flipped 180° — head was at floor"); } catch (eF) {}
+  }
+}
+
+/**
+ * Make standing height +Y with head above feet.
+ * CRITICAL: if Y is already longest, do NOTHING — a spurious rotateX(π) is what
+ * puts the painting character upside-down after foot grounding.
+ * Walk-bob must NOT overwrite these euler bases (see modelBaseEuler*).
+ */
 function uprightCustomIfNeeded(model) {
   model.updateMatrixWorld(true);
   var box = new THREE.Box3().setFromObject(model);
   var size = new THREE.Vector3();
   box.getSize(size);
   if (!(size.x > 0 && size.y > 0 && size.z > 0)) return;
-  if (size.x >= size.y && size.x >= size.z) {
-    // Long axis was X (feet/head along X) → +90° about Z → head +Y
-    model.rotateZ(Math.PI / 2);
-  } else if (size.z >= size.y && size.z >= size.x) {
-    // Long axis was Z (Z-up source) → -90° about X → head +Y
-    model.rotateX(-Math.PI / 2);
+  var yAlreadyLong = size.y >= size.x && size.y >= size.z;
+  if (!yAlreadyLong) {
+    if (size.x >= size.y && size.x >= size.z) {
+      // Long axis was X (feet/head along X) → +90° about Z → head +Y
+      model.rotateZ(Math.PI / 2);
+    } else if (size.z >= size.y && size.z >= size.x) {
+      // Long axis was Z (Z-up source) → -90° about X → head +Y
+      model.rotateX(-Math.PI / 2);
+    }
+    model.updateMatrixWorld(true);
   }
+  flipHeadUpIfNeeded(model);
   model.updateMatrixWorld(true);
+  box.setFromObject(model);
+  box.getSize(size);
+  if (!(size.y + 1e-6 >= size.x && size.y + 1e-6 >= size.z)) {
+    try { console.warn("[artfloor-player] upright: Y not longest after fix", size.x.toFixed(3), size.y.toFixed(3), size.z.toFixed(3)); } catch (eU) {}
+  }
 }
 
 function buildGltfCharacter(entry, opts) {
@@ -1455,8 +1511,12 @@ function buildGltfCharacter(entry, opts) {
   var isCustom = !!(opts.keepTexture || isMichelle || /custom-character/i.test(entry.id || ""));
   if (isTripo) {
     uprightCustomIfNeeded(model);
-    // TripoSR front is +Z; game forward is -Z — yaw π so TPS-behind shows her back, orbit shows sides
-    model.rotation.y = Math.PI;
+    // TripoSR front is +Z; game forward is -Z — rotateY(π) (do NOT assign rotation.y —
+    // assignment after rotateX/Z can fight Euler sync; bob must preserve these bases)
+    model.rotateY(Math.PI);
+    root.userData.modelBaseEulerX = model.rotation.x;
+    root.userData.modelBaseYaw = model.rotation.y;
+    root.userData.modelBaseEulerZ = model.rotation.z;
   }
 
   if (isTripo) {
@@ -1663,11 +1723,30 @@ function buildGltfCharacter(entry, opts) {
   // World-space foot contact after bind grounding (marble floor ≈ this Y)
   root.userData.floorContactY = isFinite(bb.min.y) ? bb.min.y : 0;
   root.userData.groundSnap = !!(root.userData.mixer && root.userData.skinnedMeshCount !== 0);
+  // Upright verify for TripoSR: height on Y, feet near 0, head above feet
+  if (isTripo) {
+    root.userData.modelBaseEulerX = model.rotation.x;
+    root.userData.modelBaseYaw = model.rotation.y;
+    root.userData.modelBaseEulerZ = model.rotation.z;
+    var uprightOk = finalSize.y >= finalSize.x && finalSize.y >= finalSize.z
+      && isFinite(bb.min.y) && Math.abs(bb.min.y) < 0.08
+      && isFinite(bb.max.y) && bb.max.y > bb.min.y + 1.0;
+    root.userData.uprightVerified = !!uprightOk;
+    if (!uprightOk) {
+      try { console.warn("[artfloor-player] upright bbox FAIL", entry.id,
+        "size", finalSize.x.toFixed(3), finalSize.y.toFixed(3), finalSize.z.toFixed(3),
+        "minY", bb.min.y, "maxY", bb.max.y); } catch (eUV) {}
+    } else {
+      try { console.info("[artfloor-player] upright bbox OK", entry.id,
+        "h=" + finalSize.y.toFixed(2), "minY=" + bb.min.y.toFixed(3)); } catch (eUO) {}
+    }
+  }
   try {
     console.info("[artfloor-player]", entry.id, "skinned=" + (root.userData.skinnedMeshCount || model.userData.skinnedMeshCount || "?"),
       "rawH=" + rawH.toFixed(3), "scale=" + s.toFixed(3),
       "bboxY=" + finalSize.y.toFixed(3), "walk=" + !!(actions && actions.walk), "idle=" + !!(actions && actions.idle),
-      "dance=stripped", "groundSnap=" + !!root.userData.groundSnap);
+      "dance=stripped", "groundSnap=" + !!root.userData.groundSnap,
+      "upright=" + (root.userData.uprightVerified != null ? root.userData.uprightVerified : "n/a"));
   } catch (e) {}
 
   root.userData.charKind = "gltf";
@@ -1995,15 +2074,13 @@ function animateHumanoid(root, moving, dt) {
     // Facing yaw is set by step() — never lookAt(camera). Layer sway on model child only.
     var model = root.children && root.children[0];
     if (model && model.isObject3D) {
-      // Preserve custom mesh yaw offset (π); only layer walk roll/pitch
-      var baseYaw = root.userData.modelBaseYaw != null ? root.userData.modelBaseYaw : (model.rotation.y || 0);
-      if (root.userData.modelBaseYaw == null && Math.abs(model.rotation.y) > 0.01) {
-        root.userData.modelBaseYaw = model.rotation.y;
-        baseYaw = model.rotation.y;
-      }
+      // Preserve upright euler bases — never overwrite rotateX/Z from uprightCustomIfNeeded
+      var baseX = root.userData.modelBaseEulerX != null ? root.userData.modelBaseEulerX : 0;
+      var baseYaw = root.userData.modelBaseYaw != null ? root.userData.modelBaseYaw : 0;
+      var baseZ = root.userData.modelBaseEulerZ != null ? root.userData.modelBaseEulerZ : 0;
+      model.rotation.x = baseX + lean + stride2 * ampU * 0.045 + (1 - ampU) * idle * 0.02;
       model.rotation.y = baseYaw + (1 - ampU) * idle2 * 0.025;
-      model.rotation.z = sway * 0.7;
-      model.rotation.x = lean + stride2 * ampU * 0.045 + (1 - ampU) * idle * 0.02;
+      model.rotation.z = baseZ + sway * 0.7;
       model.position.x = sway * 0.035;
       model.position.z = ampU * stride * 0.012;
     } else {
@@ -2090,25 +2167,35 @@ function buildPlayer() {
     return true;
   }
 
-  // 1) Prefer Mixamo Michelle + painting albedo + Soldier Walk (no dance, no Idle).
+  // 1) Prefer TripoSR custom-character — painting silhouette + albedo (Logan look bar).
+  // Michelle hybrid is NOT default: wrong body, borrowed Walk can read upside-down.
+  if (lib && lib.custom && /custom-character/i.test(lib.custom.id || "")) {
+    showLoader(true, "Building TripoSR character…", 98);
+    var tripoReq = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
+    tripoReq.userData.playerType = lib.custom.id;
+    if (accept(tripoReq, "TripoSR-painting")) return tripoReq;
+    try { console.warn("[artfloor-player] TripoSR rejected — trying fallbacks"); } catch (eT0) {}
+  }
+  if (lib && lib.tripo && !(lib.custom && /custom-character/i.test(lib.custom.id || ""))) {
+    showLoader(true, "Building TripoSR character…", 98);
+    var tripoAlt = asGoldPlayer(lib.tripo, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
+    tripoAlt.userData.playerType = lib.tripo.id;
+    if (accept(tripoAlt, "TripoSR-lib")) return tripoAlt;
+  }
+  // Explicit Michelle only when ?customGlb=glb/Michelle.glb
   if (lib && lib.custom && /michelle/i.test(lib.custom.id || "")) {
     showLoader(true, "Building Michelle…", 98);
     var michelle = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true, michellePaint: true });
     michelle.userData.playerType = lib.custom.id;
     if (accept(michelle, "Michelle+paint")) return michelle;
     try { console.warn("[artfloor-player] Michelle rejected — falling back to Soldier gold"); } catch (eM) {}
-  } else if (lib && lib.custom && /custom-character/i.test(lib.custom.id || "")) {
-    // Explicit ?customGlb= TripoSR
-    var tripoReq = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
-    tripoReq.userData.playerType = lib.custom.id;
-    if (accept(tripoReq, "TripoSR-requested")) return tripoReq;
-  } else if (lib && lib.custom) {
+  } else if (lib && lib.custom && !/custom-character/i.test(lib.custom.id || "")) {
     var other = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true });
     other.userData.playerType = lib.custom.id;
     if (accept(other, "custom-glb")) return other;
   }
 
-  // 2) Soldier / Xbot opaque gold (last known reliably visible skinned body with native Walk)
+  // 2) Soldier / Xbot opaque gold (reliably visible skinned body with native Walk)
   var soldier = null;
   var xbot = null;
   if (lib && lib.glbs) {
@@ -2134,7 +2221,7 @@ function buildPlayer() {
     if (accept(p2, "Xbot-gold")) return p2;
   }
 
-  // 3) TripoSR custom-character (was visible upright before hybrid commit)
+  // 3) TripoSR again if primary path somehow skipped (safety)
   if (lib && lib.tripo) {
     showLoader(true, "Building TripoSR fallback…", 98);
     var tripo = asGoldPlayer(lib.tripo, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
