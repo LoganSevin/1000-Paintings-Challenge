@@ -3,12 +3,12 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: Mixamo Michelle (skinned) + Soldier Walk/Idle — painting-projected albedo on her UVs
- * - Look: golden-stasis bake (michelle-gold-*) soft PBR; hair/scarf/gun props; not TripoSR statue
+ * - Player: Mixamo Michelle (skinned) + Soldier Walk (arm swing) — painting albedo, visibility-safe PBR
+ * - Look: michelle-gold-diffuse only (NO metalnessMap blackout); hair/scarf/gun props
+ * - Fallback: Soldier opaque gold → TripoSR custom-character → procedural (never invisible)
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Arms swing via AnimationMixer; LMB/F aims gun/right arm FORWARD (not ceiling hero pose)
+ * - Soldier Idle NOT borrowed onto Michelle (collapses to shoes-only); Walk only for locomotion
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL palette ref
- * - TripoSR custom-character.glb kept as optional ?customGlb= override only
  * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; E at desk
  */
 import * as THREE from "three";
@@ -679,7 +679,7 @@ function resolveCustomCharacterPaths() {
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
   // Bust CDN/browser cache when custom GLB/PBR maps change
-  var bust = "v=20";
+  var bust = "v=21";
   function withBust(u) {
     if (!u) return u;
     return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
@@ -745,7 +745,10 @@ function loadGltfAsync(url, onProgress) {
           }
         } catch (e) {}
       },
-      function () { resolve(null); }
+      function (err) {
+        try { console.error("[artfloor-player] GLB load failed:", url, err && (err.message || err)); } catch (e) {}
+        resolve(null);
+      }
     );
   });
 }
@@ -766,7 +769,10 @@ function loadTextureAsync(url, opts) {
         resolve(trackTex(tex));
       },
       undefined,
-      function () { resolve(null); }
+      function (err) {
+        try { console.error("[artfloor-player] texture load failed:", url, err && (err.message || err)); } catch (e) {}
+        resolve(null);
+      }
     );
   });
 }
@@ -776,35 +782,54 @@ async function loadCharacterLibrary() {
     return api._charLibrary;
   }
   showLoader(true, "Loading Mixamo Michelle…", 5);
-  var lib = { glbs: [], custom: null, customLook: null, donor: null,
+  var lib = { glbs: [], custom: null, tripo: null, customLook: null, donor: null,
     goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
 
-  // Featured player: Mixamo Michelle (skinned) — painting UV bake + Soldier Walk/Idle
+  // Featured player: Mixamo Michelle (skinned) — painting albedo + Soldier Walk (not Idle)
   showLoader(true, "Loading character…", 8);
   try {
     var customGlb = await loadGltfAsync(paths.glb, function (t) {
       if (t == null) showLoader(true, "Loading character GLB…", null);
-      else showLoader(true, "Loading character GLB…", 8 + t * 40);
+      else showLoader(true, "Loading character GLB…", 8 + t * 35);
     });
     if (customGlb && customGlb.scene) {
       lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
-      showLoader(true, "Character ready — loading gallery…", 50);
+      showLoader(true, "Character ready — loading gallery…", 42);
+      try { console.info("[artfloor-player] featured GLB loaded:", CUSTOM_CHARACTER_GLB); } catch (eI) {}
     } else {
-      showLoader(true, "Character missing — loading fallback…", 40);
+      showLoader(true, "Character missing — loading fallback…", 35);
+      try { console.warn("[artfloor-player] featured GLB missing/failed:", paths.glb); } catch (eW) {}
     }
   } catch (e) {
-    showLoader(true, "Character load error — fallback…", 40);
+    showLoader(true, "Character load error — fallback…", 35);
+    try { console.error("[artfloor-player] featured GLB exception:", e); } catch (eE) {}
   }
 
-  // Gallery crowd + locomotion donor (Soldier Walk/Idle bind onto Michelle mixamorig bones)
+  // Always keep TripoSR custom-character as hard visible-body fallback (was upright before hybrid)
+  if (!/custom-character/i.test(CUSTOM_CHARACTER_GLB || "")) {
+    showLoader(true, "Loading TripoSR fallback…", 45);
+    try {
+      var tripoGlb = await loadGltfAsync(CHAR_ASSET_BASE + "glb/custom-character.glb?v=21");
+      if (tripoGlb && tripoGlb.scene) {
+        lib.tripo = { id: "glb/custom-character.glb", gltf: tripoGlb };
+        try { console.info("[artfloor-player] TripoSR fallback ready"); } catch (eT) {}
+      }
+    } catch (eTripo) {
+      try { console.warn("[artfloor-player] TripoSR fallback failed", eTripo); } catch (eTW) {}
+    }
+  } else if (lib.custom) {
+    lib.tripo = lib.custom;
+  }
+
+  // Gallery crowd + Walk donor (Soldier Walk binds onto Michelle mixamorig — Idle does NOT)
   var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
   for (var gi = 0; gi < glbFiles.length; gi++) {
-    var basePct = 50 + gi * 15;
+    var basePct = 55 + gi * 12;
     showLoader(true, "Loading gallery patrons…", basePct);
-    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=20", function (t) {
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=21", function (t) {
       if (t == null) return;
-      showLoader(true, "Loading gallery patrons…", basePct + t * 15);
+      showLoader(true, "Loading gallery patrons…", basePct + t * 12);
     });
     if (g && g.scene) {
       var entry = { id: glbFiles[gi], gltf: g };
@@ -812,15 +837,20 @@ async function loadCharacterLibrary() {
       if (!lib.donor && g.animations && g.animations.some(function (c) { return /walk/i.test(c.name); })) {
         lib.donor = entry;
       }
+    } else {
+      try { console.warn("[artfloor-player] gallery GLB failed:", glbFiles[gi]); } catch (eG) {}
     }
   }
 
   showLoader(true, "Loading Golden Stasis materials…", 85);
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
-  // Painting projected onto Michelle UVs (albedo histogram validated — not mottled black)
-  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=20", { flipY: false });
-  lib.goldMetal = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-metal.png?v=20", { flipY: false });
-  lib.goldRough = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-rough.png?v=20", { flipY: false });
+  // Albedo only for Michelle — metal/rough maps caused near-black body without reliable env
+  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=21", { flipY: false });
+  lib.goldMetal = null; // intentionally unused (blackout risk)
+  lib.goldRough = null;
+  if (!lib.goldDiffuse) {
+    try { console.warn("[artfloor-player] michelle-gold-diffuse missing — will use opaque gold"); } catch (eD) {}
+  }
   showLoader(true, "Almost ready…", 97);
 
   api._charLibrary = lib;
@@ -1118,23 +1148,27 @@ function applyOpaqueGoldPlayerLook(root) {
 
 
 /**
- * Hybrid Michelle look: painting-projected albedo on Mixamo UVs + soft metal/rough.
- * Adds hair / scarf / gold gun props so silhouette reads as Golden Stasis while
- * AnimationMixer drives arms/legs (Soldier Walk + Idle).
+ * Hybrid Michelle look: painting-projected ALBEDO on Mixamo UVs (visibility-first).
+ * NEVER attaches metalnessMap / roughnessMap — those blacked out the body (metalness=1,
+ * no reliable env) after 3d4602c1. Soft metalness ≤0.35 + warm emissive keeps gold readable.
+ * Hair / scarf / gun props; AnimationMixer uses Soldier Walk only (Idle collapses Michelle).
  */
 function applyMichellePaintingLook(root) {
   var lib = api._charLibrary || {};
   var map = lib.goldDiffuse || null;
-  var metalMap = lib.goldMetal || null;
-  var roughMap = lib.goldRough || null;
+  if (!map) {
+    try { console.warn("[artfloor-player] no goldDiffuse — opaque gold solids"); } catch (e) {}
+    var n = applyOpaqueGoldPlayerLook(root);
+    attachPlayerGun(root);
+    root.userData.michellePainted = false;
+    return n;
+  }
   if (map) {
     map.colorSpace = THREE.SRGBColorSpace;
     map.flipY = false;
     map.anisotropy = 8;
     map.needsUpdate = true;
   }
-  if (metalMap) { metalMap.colorSpace = THREE.NoColorSpace; metalMap.flipY = false; metalMap.needsUpdate = true; }
-  if (roughMap) { roughMap.colorSpace = THREE.NoColorSpace; roughMap.flipY = false; roughMap.needsUpdate = true; }
 
   var skinned = 0;
   root.traverse(function (o) {
@@ -1148,24 +1182,25 @@ function applyMichellePaintingLook(root) {
       if (o.skeleton) o.skeleton.update();
     }
     var mat = trackMat(new THREE.MeshStandardMaterial({
-      color: map ? 0xffffff : GOLDEN_STASIS_PALETTE.gold,
+      color: 0xffffff,
       map: map,
-      metalnessMap: metalMap,
-      roughnessMap: roughMap,
-      metalness: metalMap ? 1.0 : 0.55,
-      roughness: roughMap ? 1.0 : 0.42,
-      envMapIntensity: 1.05,
+      // CRITICAL: no metalnessMap / roughnessMap (post-3d4602c1 invisible body)
+      metalnessMap: null,
+      roughnessMap: null,
+      metalness: 0.32,
+      roughness: 0.55,
+      envMapIntensity: 0.85,
       transparent: false,
       opacity: 1,
       depthWrite: true,
       side: THREE.DoubleSide,
       flatShading: false,
     }));
-    // Soft PBR — no Mixamo gloss metalnessMap black-out; tiny warm emissive lift
     mat.aoMap = null;
     mat.alphaMap = null;
-    if (mat.emissive) mat.emissive.setHex(0x1a1208);
-    mat.emissiveIntensity = 0.05;
+    mat.normalMap = null;
+    if (mat.emissive) mat.emissive.setHex(0x2a1a08);
+    mat.emissiveIntensity = 0.12;
     mat.needsUpdate = true;
     o.material = mat;
   });
@@ -1302,7 +1337,7 @@ function applyPlayerGunAim(root, aiming, dt) {
   }
 }
 
-// Back-compat alias — prefer painting UV bake on Michelle when maps loaded
+// Back-compat alias — painting bake only when diffuse exists (else solid gold)
 function applyGoldenStasisLook(root, lookTex) {
   void lookTex;
   var lib = api._charLibrary || {};
@@ -1371,7 +1406,8 @@ function buildGltfCharacter(entry, opts) {
     applyTexturedCustomLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
     root.userData.unskinnedTps = !(root.userData.skinnedMeshCount > 0);
-  } else if (isMichelle || opts.michellePaint || (opts.customLook && (api._charLibrary && api._charLibrary.goldDiffuse))) {
+  } else if (isMichelle || opts.michellePaint) {
+    // Michelle UV bake only — never apply Michelle atlas onto Soldier/Xbot UVs
     applyMichellePaintingLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
     root.userData.unskinnedTps = false;
@@ -1380,7 +1416,7 @@ function buildGltfCharacter(entry, opts) {
     root.userData.rightArm = model.userData.rightArm;
     root.userData.rightFore = model.userData.rightFore;
     root.userData.rightShoulder = model.userData.rightShoulder;
-    root.userData.michellePainted = true;
+    root.userData.michellePainted = !!model.userData.michellePainted;
   } else if (opts.customLook || opts.opaqueGold) {
     applyOpaqueGoldPlayerLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
@@ -1456,38 +1492,46 @@ function buildGltfCharacter(entry, opts) {
   model.position.y = isFinite(box.min.y) ? -box.min.y : 0;
   root.add(model);
 
-  // Locomotion: prefer NATIVE clips on this GLB. Only borrow Walk/Idle when the
-  // entry has none (Michelle). Borrowing Soldier Idle onto Michelle previously
-  // collapsed her into a floor pancake (shoes + facing-arrow only).
+  // Locomotion: prefer NATIVE clips. Michelle has SambaDance only — borrow Soldier
+  // Walk for arm swing, but NEVER Soldier Idle (collapses Michelle to shoes-only).
   var mixer = null;
   var actions = {};
   var donor = (api._charLibrary && api._charLibrary.donor) || null;
+  var isMich = /michelle/i.test(entry.id || "");
   var nativeHasWalk = !!(entry.gltf.animations || []).some(function (c) { return /walk/i.test(c.name); });
   var allowBorrow = opts.borrowLocomotion !== false && !nativeHasWalk;
-  // Michelle has SambaDance only — player forces Soldier Walk/Idle borrow (same mixamorig bones)
-  if (/michelle/i.test(entry.id || "") && opts.forceBorrow !== true && !opts.isPlayer) allowBorrow = false;
-  if (/michelle/i.test(entry.id || "") && (opts.forceBorrow === true || opts.isPlayer)) allowBorrow = true;
+  if (isMich && opts.forceBorrow !== true && !opts.isPlayer) allowBorrow = false;
+  if (isMich && (opts.forceBorrow === true || opts.isPlayer)) allowBorrow = true;
   var loco = collectLocomotionClips(entry, allowBorrow ? donor : null);
+  // Hard rule: strip borrowed Idle from Michelle — absolute bone pose mismatch = pancake
+  if (isMich && allowBorrow) loco.idle = null;
   var nativeAnims = (entry.gltf.animations && entry.gltf.animations.length) ? entry.gltf.animations : [];
   if (loco.walk || loco.idle || nativeAnims.length) {
     mixer = new THREE.AnimationMixer(model);
     var walkClip = loco.walk;
     var idleClip = loco.idle;
-    // Samba only if Soldier Walk unavailable (prefer real Walk for arm swing)
-    if (!walkClip && /michelle/i.test(entry.id || "")) {
+    // Samba as gentle idle substitute only (never Soldier Idle on Michelle)
+    if (isMich && !idleClip) {
       for (var ai = 0; ai < nativeAnims.length; ai++) {
-        if (/samba|dance/i.test(nativeAnims[ai].name)) { walkClip = nativeAnims[ai]; break; }
+        if (/samba|dance/i.test(nativeAnims[ai].name)) { idleClip = nativeAnims[ai]; break; }
+      }
+    }
+    if (!walkClip && isMich) {
+      for (var aj = 0; aj < nativeAnims.length; aj++) {
+        if (/samba|dance/i.test(nativeAnims[aj].name)) { walkClip = nativeAnims[aj]; break; }
       }
     }
     var clip = walkClip || idleClip || nativeAnims[0];
     if (walkClip) actions.walk = mixer.clipAction(walkClip);
-    if (idleClip) actions.idle = mixer.clipAction(idleClip);
+    if (idleClip && idleClip !== walkClip) actions.idle = mixer.clipAction(idleClip);
     if (!actions.walk && clip) actions.walk = mixer.clipAction(clip);
     if (actions.idle) {
       actions.idle.play();
-      actions.idle.setEffectiveWeight(1);
+      // Samba idle: keep weight low so she stays standing (full Samba warps silhouette)
+      actions.idle.setEffectiveWeight(isMich ? 0.15 : 1);
+      if (isMich) actions.idle.timeScale = 0.35;
     } else if (actions.walk) {
-      // No idle — hold walk at low weight so bind isn't overwritten by a foreign Idle
+      // Hold bind / near-bind — Walk paused at tiny weight (no foreign Idle)
       actions.walk.play();
       actions.walk.setEffectiveWeight(0.01);
       actions.walk.paused = true;
@@ -1500,6 +1544,38 @@ function buildGltfCharacter(entry, opts) {
     root.userData.mixer = mixer;
     root.userData.actions = actions;
     api._mixers.push(mixer);
+
+    // Probe: one mixer tick — if height collapses, strip mixer (restore bind pose)
+    try {
+      mixer.update(0.03);
+      model.updateMatrixWorld(true);
+      model.traverse(function (o) {
+        if (o.isSkinnedMesh && o.skeleton) o.skeleton.update();
+      });
+      model.updateMatrixWorld(true);
+      var probeBox = new THREE.Box3().setFromObject(model);
+      var probeSize = new THREE.Vector3();
+      probeBox.getSize(probeSize);
+      if (!(probeSize.y > 0.9)) {
+        try { console.warn("[artfloor-player] mixer collapsed height", entry.id, probeSize.y.toFixed(3), "— stripping clips"); } catch (eP) {}
+        mixer.stopAllAction();
+        // Remove from mixers list
+        var mi = api._mixers.indexOf(mixer);
+        if (mi >= 0) api._mixers.splice(mi, 1);
+        root.userData.mixer = null;
+        root.userData.actions = {};
+        root.userData.mixerCollapsed = true;
+        // Reset skeleton to bind pose so body stands again
+        model.traverse(function (o) {
+          if (o.isSkinnedMesh && o.skeleton) {
+            try { o.skeleton.pose(); o.skeleton.update(); } catch (eBind) {}
+          }
+        });
+        model.updateMatrixWorld(true);
+      }
+    } catch (eProbe) {
+      try { console.warn("[artfloor-player] mixer probe failed", eProbe); } catch (ePW) {}
+    }
   }
 
   if (opts.isPlayer) {
@@ -1889,9 +1965,9 @@ function buildPlayer() {
     return buildGltfCharacter(entry, {
       isPlayer: true,
       scale: 1.0,
-      customLook: !isTripo,
+      customLook: !isTripo && !isMichelle ? true : !!extra.customLook,
       opaqueGold: !isTripo && !isMichelle,
-      michellePaint: isMichelle || !!extra.michellePaint,
+      michellePaint: isMichelle && extra.michellePaint !== false,
       keepTexture: isTripo || !!extra.keepTexture,
       borrowLocomotion: extra.borrowLocomotion !== false,
       forceBorrow: isMichelle || !!extra.forceBorrow,
@@ -1900,6 +1976,9 @@ function buildPlayer() {
 
   function isStandingFullBody(root) {
     if (!root) return false;
+    if (root.userData && root.userData.mixerCollapsed) {
+      // Mixer was stripped — still OK if bind pose height is standing
+    }
     var h = root.userData.bboxHeight || 0;
     if (h < 1.2) return false;
     var meshCount = 0;
@@ -1908,26 +1987,37 @@ function buildPlayer() {
       if (o.isMesh && o.visible) meshCount++;
       if (o.isSkinnedMesh && o.visible) skinned++;
     });
-    // Prefer skinned full body; allow unskinned TripoSR only as last resort
     return meshCount > 0 && (skinned > 0 || root.userData.unskinnedTps || h >= 1.2);
   }
 
-  // Prefer Mixamo Michelle + painting UV bake + Soldier Walk/Idle (arms swing, aimable gun).
-  if (lib && lib.custom) {
-    var customPlayer = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true, michellePaint: true });
-    if (isStandingFullBody(customPlayer) && (customPlayer.userData.skinnedMeshCount > 0 || /michelle/i.test(lib.custom.id || ""))) {
-      customPlayer.userData.playerType = lib.custom.id;
-      return customPlayer;
+  function accept(player, label) {
+    if (!isStandingFullBody(player)) {
+      try { console.warn("[artfloor-player] reject", label, "h=" + (player && player.userData && player.userData.bboxHeight)); } catch (e) {}
+      return false;
     }
-    // If TripoSR unskinned was requested via ?customGlb=, accept standing mesh
-    if (isStandingFullBody(customPlayer) && customPlayer.userData.unskinnedTps) {
-      customPlayer.userData.playerType = lib.custom.id;
-      return customPlayer;
-    }
-    try { console.warn("[artfloor-player] custom GLB failed height check", lib.custom.id, customPlayer.userData.bboxHeight); } catch (e) {}
+    try { console.info("[artfloor-player] using", label, "type=" + (player.userData.playerType || label), "h=" + player.userData.bboxHeight.toFixed(2), "walk=" + !!(player.userData.actions && player.userData.actions.walk)); } catch (e2) {}
+    return true;
   }
 
-  // Fallback: Mixamo Soldier/Xbot (native Walk + Idle) with gold look + gun.
+  // 1) Prefer Mixamo Michelle + painting albedo + Soldier Walk (arm swing), no Idle.
+  if (lib && lib.custom && /michelle/i.test(lib.custom.id || "")) {
+    showLoader(true, "Building Michelle…", 98);
+    var michelle = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true, michellePaint: true });
+    michelle.userData.playerType = lib.custom.id;
+    if (accept(michelle, "Michelle+paint")) return michelle;
+    try { console.warn("[artfloor-player] Michelle rejected — falling back to Soldier gold"); } catch (eM) {}
+  } else if (lib && lib.custom && /custom-character/i.test(lib.custom.id || "")) {
+    // Explicit ?customGlb= TripoSR
+    var tripoReq = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
+    tripoReq.userData.playerType = lib.custom.id;
+    if (accept(tripoReq, "TripoSR-requested")) return tripoReq;
+  } else if (lib && lib.custom) {
+    var other = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true });
+    other.userData.playerType = lib.custom.id;
+    if (accept(other, "custom-glb")) return other;
+  }
+
+  // 2) Soldier / Xbot opaque gold (last known reliably visible skinned body with native Walk)
   var soldier = null;
   var xbot = null;
   if (lib && lib.glbs) {
@@ -1937,29 +2027,33 @@ function buildPlayer() {
       if (!xbot && id.indexOf("xbot") >= 0) xbot = lib.glbs[i];
     }
   }
-
   var primary = soldier || xbot || pickGlbEntry(0);
   if (primary) {
-    var player = asGoldPlayer(primary, { borrowLocomotion: false, michellePaint: !!(lib && lib.goldDiffuse) });
-    if (isStandingFullBody(player)) {
-      // Still attach gun + soft gold if painting maps missing
-      if (!player.userData.gun) attachPlayerGun(player);
-      player.userData.playerType = primary.id;
-      return player;
-    }
-    try { console.warn("[artfloor-player] primary failed height check", primary.id, player.userData.bboxHeight); } catch (e) {}
+    showLoader(true, "Building Soldier gold fallback…", 98);
+    var player = asGoldPlayer(primary, { borrowLocomotion: false, michellePaint: false });
+    if (!player.userData.gun) attachPlayerGun(player);
+    player.userData.playerType = primary.id;
+    if (accept(player, "Soldier-gold")) return player;
   }
-
   var secondary = (primary === soldier) ? xbot : soldier;
   if (secondary) {
-    var p2 = asGoldPlayer(secondary, { borrowLocomotion: false });
-    if (isStandingFullBody(p2)) {
-      if (!p2.userData.gun) attachPlayerGun(p2);
-      p2.userData.playerType = secondary.id;
-      return p2;
-    }
+    var p2 = asGoldPlayer(secondary, { borrowLocomotion: false, michellePaint: false });
+    if (!p2.userData.gun) attachPlayerGun(p2);
+    p2.userData.playerType = secondary.id;
+    if (accept(p2, "Xbot-gold")) return p2;
   }
 
+  // 3) TripoSR custom-character (was visible upright before hybrid commit)
+  if (lib && lib.tripo) {
+    showLoader(true, "Building TripoSR fallback…", 98);
+    var tripo = asGoldPlayer(lib.tripo, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
+    tripo.userData.playerType = lib.tripo.id;
+    if (accept(tripo, "TripoSR-fallback")) return tripo;
+  }
+
+  // 4) Procedural gold humanoid — always visible
+  try { console.warn("[artfloor-player] all GLBs failed — procedural gold"); } catch (eH) {}
+  showLoader(true, "Building procedural player…", 99);
   var hum = buildHumanoid({
     coat: GOLDEN_STASIS_PALETTE.gold,
     pants: GOLDEN_STASIS_PALETTE.gold,

@@ -1,24 +1,33 @@
 # Art Floor characters
 
-Primary player: **`glb/Michelle.glb`** (Mixamo skinned) with **Soldier Walk/Idle** borrowed
-onto the same `mixamorig:*` bones. Painting look comes from UV bake of Golden Stasis:
+Primary player: **`glb/Michelle.glb`** (Mixamo skinned) with **Soldier Walk only** borrowed
+onto the same `mixamorig:*` bones (Soldier Idle is NOT used — it collapsed Michelle to shoes-only).
 
-- `custom/michelle-gold-diffuse.png` — painting-projected albedo (bright lurex gold, face/hair/shoes)
-- `custom/michelle-gold-metal.png` / `michelle-gold-rough.png` — soft PBR (no black blotch maps)
+Painting look: **albedo only** from UV bake of Golden Stasis:
+
+- `custom/michelle-gold-diffuse.png` — painting-projected albedo (bright lurex gold)
+- Metal/rough maps are intentionally **not** applied (metalnessMap + metalness=1 blacked out the body)
 
 Props: hair bouffant, black scarf, gold gun on `RightHand`. LMB/F aims the right arm **forward**.
 
-Optional override: `?customGlb=glb/custom-character.glb` (TripoSR unskinned — bob only, no arm swing).
+## Guaranteed visible body (fallback chain)
 
-Fallback Mixamo GLBs (gallery NPCs + player if Michelle missing):
+1. Michelle + diffuse bake + Walk arm swing
+2. Soldier / Xbot opaque gold (native Walk/Idle)
+3. TripoSR `glb/custom-character.glb` (upright, textured)
+4. Procedural gold humanoid
+
+Optional override: `?customGlb=glb/custom-character.glb` (TripoSR unskinned — bob only).
+
+Gallery NPCs:
 
 - `glb/Soldier.glb` — native Idle/Walk/Run
 - `glb/Xbot.glb` — native idle/walk/run
 
 ## Gold look (visibility-first)
 
-- Michelle: painting UV bake + soft metal/rough (metalnessMap never Mixamo gloss-black)
-- Solid opaque gold fallback if bake textures missing
+- Michelle: diffuse map + soft metalness ≤0.35, **no metalnessMap**
+- Solid opaque gold for Soldier fallback
 - Front painting is **not** wrapped as a billboard card onto the back
 
 Reusable hook:
@@ -26,10 +35,8 @@ Reusable hook:
 - `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=...`
 - `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/Michelle.glb`
 
-NPCs keep calm gallery attire solids. Procedural MetaHuman-ish fallback if all GLBs fail.
-
 ## Source assets
 
 - `custom/golden-stasis.jpg` — painting
 - `custom/golden-stasis-cutout.png` — rembg cutout (bake source)
-- `glb/custom-character.glb` — TripoSR mesh (optional override only)
+- `glb/custom-character.glb` — TripoSR mesh (hard fallback + optional override)
