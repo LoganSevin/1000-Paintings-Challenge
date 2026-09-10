@@ -4,9 +4,9 @@
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
  * - Player: open-source image→3D custom-character.glb (TripoSR) gold jumpsuit — full body front+back
- * - Look: keep vertex colors / albedo; strip metalnessMap only (no black-hole). Fallback solid gold if needed.
+ * - Look: TripoSR --bake-texture albedo map (+ vertexColors fallback); normals; no metalnessMap black-hole
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Unskinned custom mesh: TPS root bob walk (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
+ * - Unskinned custom mesh: TPS bob/sway/lean walk (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
  * - NO yellow inflated cutout / ExtrudeGeometry silhouette; NO painting UV-wrap on back
  * - TPS camera over shoulders; mouse look; WASD relative to facing; wheel zoom; E at GE desk
@@ -763,7 +763,7 @@ async function loadCharacterLibrary() {
   if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
     return api._charLibrary;
   }
-  showLoader(true, "Loading character…", 5);
+  showLoader(true, "Loading custom character GLB…", 5);
   var lib = { glbs: [], custom: null, customLook: null, donor: null,
     goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
@@ -772,8 +772,8 @@ async function loadCharacterLibrary() {
   showLoader(true, "Loading character…", 8);
   try {
     var customGlb = await loadGltfAsync(paths.glb, function (t) {
-      if (t == null) showLoader(true, "Loading character…", null);
-      else showLoader(true, "Loading character…", 8 + t * 55);
+      if (t == null) showLoader(true, "Loading custom character GLB…", null);
+      else showLoader(true, "Loading custom character GLB…", 8 + t * 55);
     });
     if (customGlb && customGlb.scene) {
       lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
@@ -934,34 +934,65 @@ function applyTexturedCustomLook(root) {
     o.castShadow = true;
     o.receiveShadow = true;
     o.frustumCulled = false;
+    // TripoSR vertex-color GLBs often ship without normals → MeshStandard looks like a flat silhouette
+    if (o.geometry) {
+      if (!o.geometry.attributes.normal) {
+        try { o.geometry.computeVertexNormals(); } catch (eNorm) {}
+      }
+      if (o.geometry.attributes.color && !o.geometry.attributes.color.normalized
+          && o.geometry.attributes.color.array && o.geometry.attributes.color.array.constructor
+          && /Uint8|Int8|Uint16/.test(o.geometry.attributes.color.array.constructor.name)) {
+        // GLTFLoader usually marks COLOR_0 normalized; belt-and-suspenders
+        o.geometry.attributes.color.normalized = true;
+      }
+    }
     var mats = Array.isArray(o.material) ? o.material.slice() : [o.material];
     for (var i = 0; i < mats.length; i++) {
       var m = mats[i];
       if (!m) continue;
       // Rebuild as MeshStandardMaterial to avoid Physical/transmission black-outs
-      var color = (m.color && m.color.clone) ? m.color.clone() : new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
       var map = m.map || null;
-      var vertexColors = !!(m.vertexColors || (o.geometry && o.geometry.attributes && o.geometry.attributes.color));
+      if (map) {
+        map.colorSpace = THREE.SRGBColorSpace;
+        map.flipY = false;
+        map.needsUpdate = true;
+      }
+      var hasGeoColor = !!(o.geometry && o.geometry.attributes && o.geometry.attributes.color);
+      var vertexColors = !!(m.vertexColors || hasGeoColor);
+      // With albedo map, keep base color white so the atlas isn't tinted/washed out
+      var color;
+      if (map) {
+        color = new THREE.Color(0xffffff);
+      } else if (vertexColors) {
+        color = new THREE.Color(0xffffff);
+      } else if (m.color && m.color.clone) {
+        color = m.color.clone();
+      } else {
+        color = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
+      }
       if (map || vertexColors || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
       var nm = trackMat(new THREE.MeshStandardMaterial({
         color: color,
         map: map,
         vertexColors: vertexColors,
-        roughness: Math.max(0.45, m.roughness != null ? m.roughness : 0.55),
-        metalness: Math.min(0.35, m.metalness != null ? m.metalness : 0.22),
+        roughness: Math.max(0.55, m.roughness != null ? m.roughness : 0.65),
+        metalness: Math.min(0.18, m.metalness != null ? m.metalness : 0.12),
         transparent: false,
         opacity: 1,
         depthWrite: true,
         side: THREE.DoubleSide,
+        flatShading: false,
       }));
-      // Explicitly kill dangerous maps
+      // Explicitly kill dangerous maps (metalnessMap black-hole without env)
       nm.metalnessMap = null;
       nm.roughnessMap = null;
       nm.envMap = null;
       nm.aoMap = null;
       nm.alphaMap = null;
       nm.emissiveMap = null;
-      if (nm.emissive) nm.emissive.setHex(0x000000);
+      // Soft gold lift so baked / vertex colors read under gallery lighting
+      if (nm.emissive) nm.emissive.setHex(0x2a1c08);
+      nm.emissiveIntensity = 0.12;
       nm.needsUpdate = true;
       mats[i] = nm;
     }
@@ -1502,19 +1533,30 @@ function animateHumanoid(root, moving, dt) {
     return;
   }
 
-  // Unskinned custom GLB (TripoSR etc.): TPS-style root bob + slight sway while walking
+  // Unskinned custom GLB (TripoSR etc.): clearer TPS locomotion — bob, sway, stride lean (no limb skin)
   if (root.userData.unskinnedTps || (root.userData.charKind === "gltf" && !root.userData.mixer)) {
     var targetU = moving ? 1 : 0;
-    root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetU - (root.userData.walkAmp || 0)) * Math.min(1, dt * 8);
+    root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetU - (root.userData.walkAmp || 0)) * Math.min(1, dt * 9);
     var ampU = root.userData.walkAmp || 0;
     var Lbob = root.userData.limbs || (root.userData.limbs = { phase: 0 });
-    Lbob.phase = (Lbob.phase || 0) + dt * (7.5 + ampU * 4);
-    var bob = Math.abs(Math.sin(Lbob.phase)) * ampU * 0.045;
-    var sway = Math.sin(Lbob.phase * 0.5) * ampU * 0.03;
+    Lbob.phase = (Lbob.phase || 0) + dt * (8.2 + ampU * 5.5);
+    var stride = Math.sin(Lbob.phase);
+    var stride2 = Math.sin(Lbob.phase * 2);
+    var bob = Math.abs(stride) * ampU * 0.07;
+    var sway = stride * ampU * 0.055;
+    var lean = ampU * 0.06;
     var baseY = root.userData.bobBaseY != null ? root.userData.bobBaseY : (Lbob.groundY || 0);
     root.position.y = baseY + bob;
-    root.rotation.z = sway * 0.15;
-    root.rotation.x = Math.sin(Lbob.phase) * ampU * 0.02;
+    // Keep facing yaw from controller; layer walk roll/pitch on model child if present
+    var model = root.children && root.children[0];
+    if (model && model.isObject3D && !model.isMesh) {
+      model.rotation.z = sway * 0.55;
+      model.rotation.x = lean + stride2 * ampU * 0.03;
+      model.position.x = sway * 0.025;
+    } else {
+      root.rotation.z = sway * 0.22;
+      root.rotation.x = lean * 0.5 + stride * ampU * 0.025;
+    }
     return;
   }
 
@@ -1796,9 +1838,9 @@ function buildHall() {
 
   scene.add(buildBooth(0, -9.5));
 
-  scene.add(new THREE.AmbientLight(0xfff0e0, 0.28));
-  scene.add(new THREE.HemisphereLight(0xfff2dc, 0x4a3830, 0.45));
-  var sun = new THREE.DirectionalLight(0xffe8c8, 0.85);
+  scene.add(new THREE.AmbientLight(0xfff0e0, 0.42));
+  scene.add(new THREE.HemisphereLight(0xfff2dc, 0x4a3830, 0.62));
+  var sun = new THREE.DirectionalLight(0xffe8c8, 1.05);
   sun.position.set(5, 14, -4);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
@@ -1812,15 +1854,23 @@ function buildHall() {
   scene.add(sun);
   var winLight = new THREE.DirectionalLight(0xfff6e8, 0.55);
   winLight.position.set(0, 4, -18); scene.add(winLight);
-  var fill = new THREE.DirectionalLight(0xffd8b0, 0.25);
+  var fill = new THREE.DirectionalLight(0xffd8b0, 0.4);
   fill.position.set(-8, 6, 8); scene.add(fill);
+  var rim = new THREE.DirectionalLight(0xffe6b0, 0.35);
+  rim.position.set(4, 5, 10); scene.add(rim);
 
   api._player = buildPlayer();
   var pgy = (api._player.userData.limbs && api._player.userData.limbs.groundY) || api._player.position.y || 0;
   api._player.position.set(0, pgy, 10);
+  if (api._player.userData) api._player.userData.bobBaseY = pgy;
   api._playerYaw = Math.PI;
   api._player.rotation.y = api._playerYaw;
   scene.add(api._player);
+  // Follow fill so custom textured mesh stays readable (no env map / metalness black-hole)
+  var playerKey = new THREE.PointLight(0xffe2a8, 1.15, 7.5, 2);
+  playerKey.position.set(0, 1.55, 0.35);
+  api._player.add(playerKey);
+  api._playerKeyLight = playerKey;
 
   api._npcs = [];
   var paths = makeNpcPaths();
