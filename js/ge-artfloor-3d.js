@@ -677,7 +677,7 @@ function resolveCustomCharacterPaths() {
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
   // Bust CDN/browser cache when custom GLB/PBR maps change
-  var bust = "v=18";
+  var bust = "v=19";
   function withBust(u) {
     if (!u) return u;
     return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
@@ -932,8 +932,8 @@ function forceOpaqueVisibleMat(mat) {
  * Front painting is never wrapped onto the mesh. No "Golden Stasis" nameplate.
  */
 /**
- * Prefer colored TripoSR / InstantMesh meshes: keep vertex colors + albedo map,
- * strip only metalnessMap / envMap that black-out without an environment.
+ * Painting-projected albedo on TripoSR mesh (Golden Stasis). Soft metal/rough maps
+ * for lurex sheen — never multiply COLOR_0 or high-contrast masks into albedo.
  * Falls back to opaque gold solids when the mesh has no color data.
  */
 function applyTexturedCustomLook(root) {
@@ -949,10 +949,10 @@ function applyTexturedCustomLook(root) {
       if (!o.geometry.attributes.normal) {
         try { o.geometry.computeVertexNormals(); } catch (eNorm) {}
       }
-      if (o.geometry.attributes.color && !o.geometry.attributes.color.normalized
-          && o.geometry.attributes.color.array && o.geometry.attributes.color.array.constructor
-          && /Uint8|Int8|Uint16/.test(o.geometry.attributes.color.array.constructor.name)) {
-        o.geometry.attributes.color.normalized = true;
+      // Painting-projected albedo must NOT multiply with COLOR_0 (old blotchy verts).
+      // Drop color attr when a base map is present so MeshStandard never darkens gold.
+      if (o.geometry.attributes.color && (o.material && (Array.isArray(o.material) ? o.material[0] : o.material) && (Array.isArray(o.material) ? o.material[0].map : o.material.map))) {
+        try { o.geometry.deleteAttribute("color"); } catch (eDel) {}
       }
     }
     var mats = Array.isArray(o.material) ? o.material.slice() : [o.material];
@@ -967,14 +967,21 @@ function applyTexturedCustomLook(root) {
         map.colorSpace = THREE.SRGBColorSpace;
         map.flipY = false;
         map.anisotropy = 8;
+        map.generateMipmaps = true;
+        map.minFilter = THREE.LinearMipmapLinearFilter;
+        map.magFilter = THREE.LinearFilter;
         map.needsUpdate = true;
+        // Safe: remove COLOR_0 so mip filtering cannot multiply blotches
+        if (o.geometry && o.geometry.attributes && o.geometry.attributes.color) {
+          try { o.geometry.deleteAttribute("color"); } catch (eDel2) {}
+        }
       }
-      // metal/rough/normal stay linear
+      // Soft authored metal/rough (not high-contrast masks) — linear color space
       if (metalMap) { metalMap.colorSpace = THREE.NoColorSpace; metalMap.flipY = false; metalMap.needsUpdate = true; }
       if (roughMap) { roughMap.colorSpace = THREE.NoColorSpace; roughMap.flipY = false; roughMap.needsUpdate = true; }
       if (normMap) { normMap.colorSpace = THREE.NoColorSpace; normMap.flipY = false; normMap.needsUpdate = true; }
       var hasGeoColor = !!(o.geometry && o.geometry.attributes && o.geometry.attributes.color);
-      // Prefer baked albedo map; vertexColors only as fallback (multiply would darken atlas)
+      // Prefer painting-projected albedo; never multiply vertexColors onto it
       var vertexColors = !map && !!(m.vertexColors || hasGeoColor);
       var color;
       if (map) {
@@ -988,23 +995,24 @@ function applyTexturedCustomLook(root) {
       }
       if (map || metalMap || roughMap || normMap || vertexColors || hasGeoColor
           || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
-      // Segmented metal/rough maps drive suit vs skin; allow brighter gold with scene.environment
-      var metalness = m.metalness != null ? m.metalness : (metalMap ? 1.0 : 0.55);
-      if (!metalMap && metalness > 0.85) metalness = 0.85;
-      if (metalness < 0.05 && !metalMap) metalness = 0.4;
-      var roughness = m.roughness != null ? m.roughness : (roughMap ? 1.0 : 0.45);
-      if (!roughMap && roughness < 0.18) roughness = 0.18;
+      // Soft PBR: maps already encode lurex sheen; keep factors at 1 so maps read true.
+      // Without maps, use calm gold scalars (never near-0 roughness chrome black-out).
+      var metalness = m.metalness != null ? m.metalness : (metalMap ? 1.0 : 0.62);
+      if (!metalMap && metalness > 0.8) metalness = 0.8;
+      if (metalness < 0.05 && !metalMap) metalness = 0.45;
+      var roughness = m.roughness != null ? m.roughness : (roughMap ? 1.0 : 0.42);
+      if (!roughMap && roughness < 0.22) roughness = 0.22;
       var nm = trackMat(new THREE.MeshStandardMaterial({
         color: color,
         map: map,
         metalnessMap: metalMap,
         roughnessMap: roughMap,
         normalMap: normMap,
-        normalScale: new THREE.Vector2(0.85, 0.85),
+        normalScale: new THREE.Vector2(0.48, 0.48),
         vertexColors: vertexColors,
         roughness: roughness,
         metalness: metalness,
-        envMapIntensity: 1.05,
+        envMapIntensity: 1.18,
         transparent: false,
         opacity: 1,
         depthWrite: true,
@@ -1014,9 +1022,9 @@ function applyTexturedCustomLook(root) {
       nm.aoMap = null;
       nm.alphaMap = null;
       nm.emissiveMap = null;
-      // Subtle warm lift so gold reads metallic without washing skin
-      if (nm.emissive) nm.emissive.setHex(0x1a1206);
-      nm.emissiveIntensity = 0.06;
+      // Tiny warm lift — painting gold stays readable without washing skin/makeup
+      if (nm.emissive) nm.emissive.setHex(0x181008);
+      nm.emissiveIntensity = 0.045;
       nm.needsUpdate = true;
       mats[i] = nm;
     }
