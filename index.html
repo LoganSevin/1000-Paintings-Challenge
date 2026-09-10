@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
+  <link rel="stylesheet" href="css/rig.css?v=1" />
   <script type="importmap">
   {
     "imports": {
@@ -178,6 +179,7 @@
         <button type="button" class="tab" data-tab="particles">Particles</button>
         <button type="button" class="tab" data-tab="live">Live</button>
         <button type="button" class="tab" data-tab="zoo">Zoo</button>
+        <button type="button" class="tab" data-tab="rig">Rig</button>
       </nav>
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
@@ -5834,6 +5836,86 @@
     </div>
   </section>
 
+
+  <section id="panel-rig" class="panel" hidden>
+    <div class="rig-shell">
+      <header class="rig-top">
+        <h2>Rig</h2>
+        <p class="rig-hint">
+          Manual <strong>2D bone placement</strong> on your images — drag the human starter skeleton onto a figure,
+          tweak joints, add/remove bones, then save or export JSON. Takes over where Art Floor auto-character fell short.
+        </p>
+      </header>
+      <div class="rig-body">
+        <aside class="rig-sidebar">
+          <h3>Image</h3>
+          <div class="rig-row">
+            <input type="file" id="rig-upload" class="rig-file" accept="image/*" aria-label="Upload image" />
+          </div>
+          <div class="rig-row">
+            <label>Painting #</label>
+            <input type="number" id="rig-painting-num" class="rig-input-num" min="1" max="1000" value="1" />
+            <button type="button" id="rig-load-painting" class="rig-btn accent">Load</button>
+            <button type="button" id="rig-prev-painting" class="rig-btn" title="Previous">◀</button>
+            <button type="button" id="rig-next-painting" class="rig-btn" title="Next">▶</button>
+            <button type="button" id="rig-rand-painting" class="rig-btn">Random</button>
+          </div>
+
+          <h3>View</h3>
+          <div class="rig-row" style="width:100%;flex-direction:column;align-items:stretch;gap:0.25rem">
+            <label>Image opacity <span id="rig-opacity-label">85%</span></label>
+            <input type="range" id="rig-opacity" class="rig-slider" min="15" max="100" value="85" />
+            <label class="rig-check"><input type="checkbox" id="rig-show-names" checked /> Show bone names</label>
+          </div>
+
+          <h3>Joints</h3>
+          <div id="rig-joint-list" class="rig-joint-list" aria-label="Skeleton joints"></div>
+          <div class="rig-add-row">
+            <input type="text" id="rig-new-joint" placeholder="New joint name" maxlength="40" autocomplete="off" />
+            <button type="button" id="rig-add-joint" class="rig-btn">Add</button>
+          </div>
+
+          <h3>Bones</h3>
+          <div class="rig-row">
+            <select id="rig-bone-from" class="rig-select" aria-label="Bone from"></select>
+            <span style="font-size:0.7rem;color:#8a7a68">→</span>
+            <select id="rig-bone-to" class="rig-select" aria-label="Bone to"></select>
+          </div>
+          <div class="rig-row">
+            <button type="button" id="rig-add-bone" class="rig-btn">Add bone</button>
+            <button type="button" id="rig-remove-bones" class="rig-btn" title="Remove bones connected to selected joint">Cut bones @ sel</button>
+          </div>
+
+          <h3>Save / Export</h3>
+          <div class="rig-row">
+            <button type="button" id="rig-save-local" class="rig-btn accent">Save local</button>
+            <button type="button" id="rig-load-local" class="rig-btn">Load local</button>
+            <button type="button" id="rig-download" class="rig-btn">Download JSON</button>
+            <label class="rig-btn" style="display:inline-flex;align-items:center;gap:0.25rem;cursor:pointer">
+              Import JSON
+              <input type="file" id="rig-import-json" accept="application/json,.json" hidden />
+            </label>
+          </div>
+          <div class="rig-row">
+            <button type="button" id="rig-reset" class="rig-btn">Reset template</button>
+            <button type="button" id="rig-undo" class="rig-btn">Undo</button>
+          </div>
+          <p id="rig-status" class="rig-status">Load an image, then drag joints onto the character.</p>
+        </aside>
+        <div class="rig-main">
+          <div class="rig-toolbar">
+            <span style="font-size:0.74rem;color:#a89880">Drag joints · click list to select · Add joint attaches to selection</span>
+          </div>
+          <div class="rig-stage-wrap" id="rig-stage">
+            <canvas id="rig-canvas" width="800" height="600" aria-label="2D rig canvas"></canvas>
+            <p id="rig-empty" class="rig-empty">Upload an image or load a gallery painting to begin rigging.</p>
+          </div>
+          <p class="rig-keys">Normalized joint coords (0–1) · export includes pixel positions · localStorage key logan-rig-v1</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -6615,10 +6697,11 @@
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=24"></script>
   <script defer src="js/zoo.js?v=12"></script>
+  <script defer src="js/rig.js?v=1"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=2"></script>
-  <script defer src="js/tabs.js?v=76"></script>
+  <script defer src="js/tabs.js?v=77"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>

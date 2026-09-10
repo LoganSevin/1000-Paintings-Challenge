@@ -69,6 +69,7 @@
     particles: document.getElementById("panel-particles"),
     live: document.getElementById("panel-live"),
     zoo: document.getElementById("panel-zoo"),
+    rig: document.getElementById("panel-rig"),
   };
   const subtitle = document.getElementById("header-subtitle");
   const stats = document.getElementById("stats");
@@ -132,6 +133,7 @@
     particles: "Particles — pour and stir paint-dust from a gallery still",
     live: "Live — puppet host on a real TikTok LIVE · comments, gifts, follows",
     zoo: "Zoo — Linnaean taxonomy, stock portraits, circular cast with three spell arcs",
+    rig: "Rig — place 2D bones on images yourself; manual skeleton mapping",
   };
 
   function hideOtherTabs(name) {
@@ -284,6 +286,9 @@
     if (name !== "zoo") {
       window.dispatchEvent(new Event("zoo-hide"));
     }
+    if (name !== "rig") {
+      window.dispatchEvent(new Event("rig-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -301,6 +306,7 @@
     document.body.classList.toggle("ps-tab-active", name === "particles");
     document.body.classList.toggle("lv-tab-active", name === "live");
     document.body.classList.toggle("zoo-tab-active", name === "zoo");
+    document.body.classList.toggle("rig-tab-active", name === "rig");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -597,6 +603,12 @@
         window.Zoo.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "rig") {
+      window.dispatchEvent(new Event("rig-show"));
+      if (window.Rig && window.Rig.onShow) {
+        window.Rig.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -705,6 +717,7 @@
       tabName === "particles" ||
       tabName === "live" ||
       tabName === "zoo" ||
+      tabName === "rig" ||
       tabName === "maps"
     ) {
       showTab(tabName === "rooms" ? "places" : tabName);

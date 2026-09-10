@@ -1,0 +1,324 @@
+/* Rig — manual 2D bone placement on gallery / uploaded images */
+
+#panel-rig.panel[hidden] {
+  display: none !important;
+}
+
+#panel-rig.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.rig-tab-active #panel-rig.panel.active {
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+
+body.rig-tab-active .site-footer,
+body.rig-tab-active .site-header .subtitle {
+  display: none;
+}
+
+body.rig-tab-active .site-header {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.rig-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 90% 60% at 20% 0%, #2a2218 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95% 85%, #1a1828 0%, transparent 50%),
+    linear-gradient(180deg, #141210 0%, #0c0a09 55%, #080706 100%);
+  color: #efe6d8;
+}
+
+.rig-top {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.85rem 0.4rem;
+  border-bottom: 1px solid rgba(200, 160, 80, 0.22);
+}
+
+.rig-top h2 {
+  margin: 0 0 0.1rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  background: linear-gradient(90deg, #e8c86a, #f0d8a0, #f8f0e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rig-hint {
+  margin: 0;
+  font-size: 0.76rem;
+  color: #a89880;
+  line-height: 1.4;
+  max-width: 58rem;
+}
+
+.rig-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(15rem, 18.5rem) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .rig-body {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+}
+
+.rig-sidebar {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  border-right: 1px solid rgba(180, 140, 70, 0.16);
+  background: rgba(10, 8, 6, 0.5);
+  overflow: auto;
+}
+
+.rig-sidebar h3 {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #c4a060;
+  font-weight: 600;
+}
+
+.rig-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.rig-row label {
+  font-size: 0.72rem;
+  color: #b0a090;
+}
+
+.rig-btn {
+  appearance: none;
+  font: inherit;
+  font-size: 0.74rem;
+  padding: 0.32rem 0.55rem;
+  border-radius: 7px;
+  border: 1px solid rgba(200, 150, 70, 0.38);
+  background: rgba(28, 22, 14, 0.95);
+  color: #efe4d4;
+  cursor: pointer;
+}
+
+.rig-btn:hover {
+  border-color: rgba(230, 180, 90, 0.55);
+  background: rgba(40, 32, 20, 0.98);
+}
+
+.rig-btn.accent {
+  background: linear-gradient(180deg, #c4922e, #6a4a14);
+  color: #1a1208;
+  font-weight: 700;
+  border-color: rgba(255, 220, 130, 0.5);
+}
+
+.rig-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rig-file {
+  font-size: 0.72rem;
+  color: #c8b898;
+  max-width: 100%;
+}
+
+.rig-select,
+.rig-input-num {
+  font: inherit;
+  font-size: 0.74rem;
+  padding: 0.28rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(180, 140, 70, 0.35);
+  background: #1a1612;
+  color: #efe6d8;
+}
+
+.rig-input-num {
+  width: 4.2rem;
+}
+
+.rig-slider {
+  width: 100%;
+  accent-color: #c4922e;
+}
+
+.rig-check {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  color: #c8b898;
+  cursor: pointer;
+}
+
+.rig-joint-list {
+  flex: 0 1 auto;
+  max-height: 14rem;
+  overflow: auto;
+  border: 1px solid rgba(160, 130, 70, 0.2);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.25rem;
+}
+
+.rig-joint-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.22rem 0.35rem;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  color: #d8c8b0;
+  cursor: pointer;
+}
+
+.rig-joint-item:hover,
+.rig-joint-item.selected {
+  background: rgba(196, 146, 46, 0.22);
+}
+
+.rig-joint-item .rig-j-name {
+  font-weight: 600;
+}
+
+.rig-joint-item .rig-j-del {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #c07060;
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0 0.2rem;
+}
+
+.rig-add-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.3rem;
+}
+
+.rig-add-row input {
+  font: inherit;
+  font-size: 0.74rem;
+  padding: 0.28rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(180, 140, 70, 0.35);
+  background: #1a1612;
+  color: #efe6d8;
+}
+
+.rig-status {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #9a8a70;
+  line-height: 1.35;
+  min-height: 2.2em;
+}
+
+.rig-status.ok {
+  color: #8cbc6a;
+}
+
+.rig-status.warn {
+  color: #d4a050;
+}
+
+.rig-status.err {
+  color: #d07060;
+}
+
+.rig-main {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.45rem 0.55rem 0.6rem;
+  overflow: hidden;
+}
+
+.rig-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.rig-stage-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 150, 70, 0.28);
+  background:
+    linear-gradient(45deg, #161310 25%, transparent 25%),
+    linear-gradient(-45deg, #161310 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #161310 75%),
+    linear-gradient(-45deg, transparent 75%, #161310 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  background-color: #0e0c0a;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+}
+
+.rig-stage-wrap canvas {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  cursor: crosshair;
+}
+
+.rig-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: #8a7a68;
+  font-size: 0.88rem;
+  pointer-events: none;
+}
+
+.rig-empty[hidden] {
+  display: none;
+}
+
+.rig-keys {
+  flex: 0 0 auto;
+  margin: 0.35rem 0 0;
+  font-size: 0.68rem;
+  color: #7a6a58;
+}
