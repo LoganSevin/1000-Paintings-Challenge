@@ -1,5 +1,14 @@
 # Art Floor characters
 
+- `custom/golden-stasis.jpg` — source painting (Logan attachment)
+- `custom/golden-stasis-cutout.png` — rembg alpha cutout (figure only; posters/floor props removed)
+- Player uses the cutout as a structurally inflated dual-face + extruded silhouette (not Mixamo Michelle UV atlas)
+- `glb/Soldier.glb`, `glb/Xbot.glb` — gallery NPCs
+- `glb/Michelle.glb` — legacy only (`?customGlb=`)
+
+
+# Art Floor characters
+
 Primary: offline **Mixamo-style human GLBs** under `glb/` loaded with Three.js
 `GLTFLoader` + `AnimationMixer` (Walk / Idle).
 

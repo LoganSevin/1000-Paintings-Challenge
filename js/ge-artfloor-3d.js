@@ -3,10 +3,10 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: custom female Mixamo Michelle + Golden Stasis painting look (metallic gold / Mixamo contour)
+ * - Player: alpha-cutout gold-jumpsuit painting, structurally inflated + walk bob (not Mixamo UV atlas)
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
  * - Procedural fallback = continuous MetaHuman proportions (head ~1/7.5 body), 5-finger hands, calm gallery attire
- * - Hook: CUSTOM_CHARACTER_URL / ?customChar= + Michelle GLB under assets/artfloor-characters/
+ * - Hook: CUSTOM_CHARACTER_URL / ?customChar= (default custom/golden-stasis-cutout.png)
  * - NO green waffle "player uniform", NO white collar plates, NO chest badge/pencil graphics
  * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
  */
@@ -622,14 +622,13 @@ var CHAR_ASSET_BASE = "assets/artfloor-characters/";
 var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
 /**
- * Custom contoured character hook (reusable for future paintings):
- * - CUSTOM_CHARACTER_URL: front look / albedo (default golden-stasis painting)
- * - CUSTOM_CHARACTER_GLB: female Mixamo-style skinned GLB (Michelle)
- * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or
- * ?customChar= / ?customGlb= query params.
+ * Custom player look hook (reusable for future paintings):
+ * - CUSTOM_CHARACTER_URL: alpha cutout PNG of the figure (default golden-stasis-cutout.png)
+ * Override via window.GE_CUSTOM_CHARACTER_URL or ?customChar=
+ * Michelle GLB path kept only as unused legacy override (?customGlb=) — player is inflated cutout.
  */
 var CUSTOM_CHARACTER_GLB = "glb/Michelle.glb";
-var CUSTOM_CHARACTER_URL = "custom/golden-stasis.jpg";
+var CUSTOM_CHARACTER_URL = "custom/golden-stasis-cutout.png";
 
 function resolveCustomCharacterPaths() {
   try {
@@ -706,7 +705,8 @@ function loadGltfAsync(url) {
   });
 }
 
-function loadTextureAsync(url) {
+function loadTextureAsync(url, opts) {
+  opts = opts || {};
   return new Promise(function (resolve) {
     if (!url) { resolve(null); return; }
     var loader = new THREE.TextureLoader();
@@ -714,8 +714,10 @@ function loadTextureAsync(url) {
       url,
       function (tex) {
         tex.colorSpace = THREE.SRGBColorSpace;
-        tex.flipY = false; // GLB / glTF UV convention
+        // Cutout planes want flipY true; GLB-style atlases want false
+        tex.flipY = opts.flipY != null ? !!opts.flipY : false;
         tex.anisotropy = 8;
+        if (opts.premultiplyAlpha != null) tex.premultiplyAlpha = !!opts.premultiplyAlpha;
         resolve(trackTex(tex));
       },
       undefined,
@@ -729,7 +731,7 @@ async function loadCharacterLibrary() {
     return api._charLibrary;
   }
   showLoader(true, "Loading gallery patrons…");
-  var lib = { glbs: [], custom: null, customLook: null, donor: null };
+  var lib = { glbs: [], custom: null, customLook: null, customCutout: null, donor: null };
   var paths = resolveCustomCharacterPaths();
 
   // Gallery crowd (calm Mixamo walkers)
@@ -745,12 +747,18 @@ async function loadCharacterLibrary() {
     }
   }
 
-  // Featured custom: female Mixamo Michelle (adult proportions) + painting look
-  var customGlb = await loadGltfAsync(paths.glb);
-  if (customGlb && customGlb.scene) {
-    lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
-  }
-  lib.customLook = await loadTextureAsync(paths.look);
+  // Player: alpha cutout of the gold-jumpsuit figure (transparent PNG). flipY for plane UVs.
+  lib.customCutout = await loadTextureAsync(paths.look, { flipY: true });
+  lib.customLook = lib.customCutout;
+  // Legacy Michelle GLB only if explicitly requested via ?customGlb= (not used for default player)
+  try {
+    if (typeof window !== "undefined" && window.location && /(?:\?|&)customGlb=/i.test(window.location.search || "")) {
+      var customGlb = await loadGltfAsync(paths.glb);
+      if (customGlb && customGlb.scene) {
+        lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
+      }
+    }
+  } catch (e) {}
 
   api._charLibrary = lib;
   return lib;
@@ -805,8 +813,10 @@ function applyGalleryAttireTint(root, attireHex, skinBias) {
 }
 
 /**
- * Eyedropper palette from Logan's Golden Stasis painting (metallic gold jumpsuit / Bond-girl).
- * Best-effort: painting as albedo on Mixamo UVs + strong gold metalness; dark hair/scarf accents.
+ * Eyedropper palette from the custom gold-jumpsuit painting (look reference only — not a character name).
+ * Visibility-first: Mixamo Michelle ships MeshPhysicalMaterial + gloss metalnessMap (B≈1) which, at
+ * high metalness with no scene.environment, shades the whole body near-black/invisible. We rebuild
+ * opaque MeshStandardMaterials so the contoured mesh stays fully visible while walking.
  */
 var GOLDEN_STASIS_PALETTE = {
   gold: 0xb59155,
@@ -826,77 +836,129 @@ function findBone(root, re) {
   return found;
 }
 
+/** Strip maps/flags that can wipe a skinned body when no env map is present. */
+function forceOpaqueVisibleMat(mat) {
+  if (!mat) return mat;
+  mat.transparent = false;
+  mat.opacity = 1;
+  mat.alphaTest = 0;
+  mat.depthWrite = true;
+  mat.depthTest = true;
+  mat.side = THREE.FrontSide;
+  mat.blending = THREE.NormalBlending;
+  if (mat.metalnessMap) mat.metalnessMap = null;
+  if (mat.roughnessMap) mat.roughnessMap = null;
+  if (mat.alphaMap) mat.alphaMap = null;
+  if (mat.emissiveMap) mat.emissiveMap = null;
+  if (mat.specularColorMap) mat.specularColorMap = null;
+  if (mat.specularIntensityMap) mat.specularIntensityMap = null;
+  if (mat.transmission != null) mat.transmission = 0;
+  if (mat.emissive) mat.emissive.setHex(0x000000);
+  if (mat.emissiveIntensity != null) mat.emissiveIntensity = 0;
+  mat.needsUpdate = true;
+  return mat;
+}
+
+/**
+ * Gold-jumpsuit look on Michelle (or any custom Mixamo GLB).
+ * Always installs opaque metallic-gold materials first (visible mesh). Optionally layers the
+ * custom painting as albedo only with safe metalness — never keep Mixamo gloss metalnessMap.
+ */
 function applyGoldenStasisLook(root, lookTex) {
   var gold = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
-  var hair = new THREE.Color(GOLDEN_STASIS_PALETTE.hair);
+  var hairCol = new THREE.Color(GOLDEN_STASIS_PALETTE.hair);
   root.traverse(function (o) {
     if (!o.isMesh || !o.material) return;
-    var mats = Array.isArray(o.material) ? o.material : [o.material];
-    for (var i = 0; i < mats.length; i++) {
-      var m = mats[i];
-      if (!m || !m.color) continue;
-      m = m.clone();
-      trackMat(m);
-      mats[i] = m;
-      var name = ((m.name || "") + " " + (o.name || "")).toLowerCase();
-      // Michelle is often one Ch03_Body atlas — treat as gold jumpsuit unless clearly hair/eye/shoe
+    o.visible = true;
+    // Skinned bind-pose bounds can mis-cull after locomotion retarget
+    if (o.isSkinnedMesh) o.frustumCulled = false;
+
+    var prev = Array.isArray(o.material) ? o.material : [o.material];
+    var next = [];
+    for (var i = 0; i < prev.length; i++) {
+      var src = prev[i];
+      var name = (((src && src.name) || "") + " " + (o.name || "")).toLowerCase();
       var isHair = /hair|scalp|brow/i.test(name);
       var isEye = /eye|visor|lash|pupil|cornea/i.test(name);
       var isShoe = /shoe|boot|heel|sole|footwear/i.test(name);
+
+      // Fresh standard material — drop MeshPhysical + KHR specular / gloss metalnessMap
+      var m = trackMat(new THREE.MeshStandardMaterial({
+        color: GOLDEN_STASIS_PALETTE.gold,
+        roughness: 0.42,
+        metalness: 0.48,
+        transparent: false,
+        opacity: 1,
+        depthWrite: true,
+        side: THREE.FrontSide,
+      }));
+      if (src && src.name) m.name = src.name;
+      // Keep Mixamo normal for body contour when present
+      if (src && src.normalMap) {
+        m.normalMap = src.normalMap;
+        if (src.normalScale) m.normalScale = src.normalScale.clone();
+      }
+
       if (isEye) {
         m.color.setHex(0x1a1210);
-        m.metalness = 0.15;
+        m.metalness = 0.12;
         m.roughness = 0.35;
-        if (m.map) m.map = null;
+        m.map = null;
+        m.normalMap = null;
       } else if (isHair) {
-        m.color.copy(hair);
-        m.metalness = 0.05;
-        m.roughness = 0.88;
-        if (m.map) { m.color.lerp(new THREE.Color(0xffffff), 0.08); }
+        m.color.copy(hairCol);
+        m.metalness = 0.04;
+        m.roughness = 0.9;
+        m.map = null;
       } else if (isShoe) {
         m.color.setHex(GOLDEN_STASIS_PALETTE.heel);
-        m.metalness = 0.35;
-        m.roughness = 0.45;
+        m.metalness = 0.25;
+        m.roughness = 0.5;
+        m.map = null;
       } else {
-        // Jumpsuit / clothing / default body atlas → metallic gold + painting albedo
-        // Face/hands stay in the atlas; gold tint + painting map is the Bond-girl read at walk distance
+        // Default single-atlas body (Ch03_Body): opaque gold jumpsuit — visible without env map
         m.color.copy(gold);
-        m.metalness = 0.82;
-        m.roughness = 0.28;
-        if (m.envMapIntensity != null) m.envMapIntensity = 1.2;
+        m.metalness = 0.48;
+        m.roughness = 0.4;
+        // Painting-as-albedo only with safe opaque settings (no metalnessMap). If UVs scramble
+        // the photo, gold tint still reads; mesh stays visible either way.
         if (lookTex) {
           m.map = lookTex;
           m.color.setHex(GOLDEN_STASIS_PALETTE.goldHi);
-          m.color.lerp(new THREE.Color(0xffffff), 0.35);
+          m.color.lerp(new THREE.Color(0xffffff), 0.25);
+          // Keep metalness moderate so albedo diffuse is not zeroed out
+          m.metalness = 0.38;
+          m.roughness = 0.45;
         }
-        if (m.emissive) {
-          m.emissive.setHex(0x3a2a08);
-          m.emissiveIntensity = 0.12;
-        }
-        // Keep normal/AO maps for Mixamo contouring when present
+        m.emissive.setHex(0x2a1c06);
+        m.emissiveIntensity = 0.08;
       }
-      m.needsUpdate = true;
+      forceOpaqueVisibleMat(m);
+      next.push(m);
     }
-    o.material = Array.isArray(o.material) ? mats : mats[0];
+    o.material = next.length === 1 ? next[0] : next;
     o.castShadow = true;
     o.receiveShadow = true;
   });
 
-  // Dark curly updo volume on head bone (painting has big bouffant)
+  // Dark curly updo volume on head bone (painting subject has a bouffant)
   var head = findBone(root, /Head$/i);
   if (head) {
     var hairMat = trackMat(new THREE.MeshStandardMaterial({
       color: GOLDEN_STASIS_PALETTE.hair, roughness: 0.92, metalness: 0.02,
+      transparent: false, opacity: 1, depthWrite: true,
     }));
     var bun = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.11, 14, 12)), hairMat);
     bun.position.set(0, 0.12, -0.02);
     bun.scale.set(1.15, 1.35, 1.1);
     bun.castShadow = true;
+    bun.visible = true;
     head.add(bun);
     var puff = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.085, 12, 10)), hairMat);
     puff.position.set(0, 0.06, 0.06);
     puff.scale.set(1.4, 0.9, 1.1);
     puff.castShadow = true;
+    puff.visible = true;
     head.add(puff);
   }
 
@@ -905,18 +967,22 @@ function applyGoldenStasisLook(root, lookTex) {
   if (neck) {
     var scarfMat = trackMat(new THREE.MeshStandardMaterial({
       color: GOLDEN_STASIS_PALETTE.scarf, roughness: 0.7, metalness: 0.05,
+      transparent: false, opacity: 1, depthWrite: true,
     }));
     var knot = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.035, 10, 8)), scarfMat);
     knot.position.set(0.02, 0.02, 0.06);
+    knot.visible = true;
     neck.add(knot);
     var tail = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.04, 0.01, 0.22)), scarfMat);
     tail.position.set(0.08, 0.0, 0.12);
     tail.rotation.y = -0.5;
     tail.rotation.z = 0.25;
+    tail.visible = true;
     neck.add(tail);
     var tail2 = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.035, 0.008, 0.16)), scarfMat);
     tail2.position.set(0.12, -0.02, 0.08);
     tail2.rotation.y = -0.85;
+    tail2.visible = true;
     neck.add(tail2);
   }
 }
@@ -1263,6 +1329,25 @@ function buildHumanoid(opts) {
 function animateHumanoid(root, moving, dt) {
   if (!root || !root.userData) return;
 
+  if (root.userData.charKind === "inflated-cutout") {
+    var Lc = root.userData.limbs || {};
+    var targetC = moving ? 1 : 0;
+    root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetC - (root.userData.walkAmp || 0)) * Math.min(1, dt * 8);
+    var ampC = root.userData.walkAmp || 0;
+    Lc.phase = (Lc.phase || 0) + dt * (7.2 + ampC * 5.5);
+    var bob = Math.abs(Math.sin(Lc.phase)) * ampC * 0.05;
+    var sway = Math.sin(Lc.phase) * ampC;
+    var h = Lc.height || TARGET_HUMAN_HEIGHT;
+    if (Lc.rig) {
+      Lc.rig.position.y = h * 0.5 + bob;
+      Lc.rig.rotation.z = sway * 0.08;
+      Lc.rig.rotation.x = -ampC * 0.05;
+      var squash = 1 + Math.sin(Lc.phase * 2) * ampC * 0.02;
+      Lc.rig.scale.set(1 - ampC * 0.01, squash, 1 - ampC * 0.01);
+    }
+    return;
+  }
+
   if (root.userData.charKind === "gltf" && root.userData.mixer) {
     var actions = root.userData.actions || {};
     var w = root.userData.walkAmp || 0;
@@ -1307,6 +1392,178 @@ function animateHumanoid(root, moving, dt) {
   }
 }
 
+/**
+ * Build a silhouette Shape from cutout alpha (row min/max spans).
+ * Normalized: x in ~[-0.5,0.5], y in [0,1] (feet→head). Used for extrusion volume.
+ */
+function sampleSilhouetteShape(image, maxW) {
+  var iw = (image && (image.naturalWidth || image.width)) || 0;
+  var ih = (image && (image.naturalHeight || image.height)) || 0;
+  if (!iw || !ih) return null;
+  var tw = Math.min(maxW || 56, iw);
+  var th = Math.max(12, Math.round((tw * ih) / iw));
+  var canvas = document.createElement("canvas");
+  canvas.width = tw;
+  canvas.height = th;
+  var ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return null;
+  ctx.clearRect(0, 0, tw, th);
+  ctx.drawImage(image, 0, 0, tw, th);
+  var data = ctx.getImageData(0, 0, tw, th).data;
+  var thresh = 40;
+  var left = [];
+  var right = [];
+  for (var y = 0; y < th; y++) {
+    var minX = -1;
+    var maxX = -1;
+    var row = y * tw * 4;
+    for (var x = 0; x < tw; x++) {
+      if (data[row + x * 4 + 3] > thresh) {
+        if (minX < 0) minX = x;
+        maxX = x;
+      }
+    }
+    if (minX >= 0) {
+      left.push([minX, y]);
+      right.push([maxX, y]);
+    }
+  }
+  if (left.length < 4) return null;
+  var step = Math.max(1, Math.floor(left.length / 40));
+  function toPt(x, y) {
+    var px = x / Math.max(1, tw - 1) - 0.5;
+    var py = 1 - y / Math.max(1, th - 1);
+    return new THREE.Vector2(px, py);
+  }
+  var pts = [];
+  for (var i = 0; i < left.length; i += step) pts.push(toPt(left[i][0], left[i][1]));
+  if ((left.length - 1) % step !== 0) {
+    pts.push(toPt(left[left.length - 1][0], left[left.length - 1][1]));
+  }
+  for (var j = right.length - 1; j >= 0; j -= step) pts.push(toPt(right[j][0], right[j][1]));
+  if (pts.length < 6) return null;
+  return new THREE.Shape(pts);
+}
+
+/**
+ * Player from alpha-cutout painting: dual textured faces + extruded silhouette hull
+ * so she reads as a 3D inflated figure when orbiting (not a flat card / not Michelle atlas).
+ */
+function buildInflatedCutoutCharacter(cutoutTex, opts) {
+  opts = opts || {};
+  var root = new THREE.Group();
+  var rig = new THREE.Group();
+  root.add(rig);
+
+  if (cutoutTex) {
+    cutoutTex.colorSpace = THREE.SRGBColorSpace;
+    cutoutTex.flipY = true;
+    cutoutTex.anisotropy = Math.max(cutoutTex.anisotropy || 1, 8);
+    cutoutTex.needsUpdate = true;
+  }
+
+  var img = cutoutTex && cutoutTex.image;
+  var aspect = 0.55;
+  if (img && (img.width || img.naturalWidth) && (img.height || img.naturalHeight)) {
+    aspect = (img.naturalWidth || img.width) / (img.naturalHeight || img.height);
+  }
+  var height = TARGET_HUMAN_HEIGHT * (opts.scale || 1);
+  var width = height * aspect;
+  var depth = Math.max(0.14, Math.min(0.24, width * 0.32));
+
+  var hullMat = trackMat(new THREE.MeshStandardMaterial({
+    color: 0xc9a227,
+    metalness: 0.42,
+    roughness: 0.42,
+    transparent: false,
+    opacity: 1,
+    depthWrite: true,
+    side: THREE.FrontSide,
+  }));
+  var shape = img ? sampleSilhouetteShape(img, 64) : null;
+  var hull;
+  if (shape) {
+    var hullGeo = new THREE.ExtrudeGeometry(shape, {
+      depth: 1,
+      bevelEnabled: true,
+      bevelThickness: 0.045,
+      bevelSize: 0.03,
+      bevelOffset: 0,
+      bevelSegments: 2,
+      curveSegments: 1,
+    });
+    hullGeo.translate(0, 0, -0.5);
+    hull = new THREE.Mesh(trackGeo(hullGeo), hullMat);
+    hull.scale.set(width * 0.98, height * 0.98, depth);
+  } else {
+    hull = new THREE.Mesh(
+      trackGeo(new THREE.BoxGeometry(width * 0.55, height * 0.92, depth)),
+      hullMat
+    );
+  }
+  hull.castShadow = true;
+  hull.receiveShadow = true;
+  hull.visible = true;
+  hull.frustumCulled = false;
+  rig.add(hull);
+
+  if (cutoutTex) {
+    var planeMat = trackMat(new THREE.MeshStandardMaterial({
+      map: cutoutTex,
+      color: 0xffffff,
+      metalness: 0.22,
+      roughness: 0.5,
+      transparent: false,
+      alphaTest: 0.4,
+      depthWrite: true,
+      side: THREE.FrontSide,
+    }));
+    var planeGeo = trackGeo(new THREE.PlaneGeometry(width, height));
+    var front = new THREE.Mesh(planeGeo, planeMat);
+    front.position.z = depth * 0.52;
+    front.castShadow = true;
+    front.visible = true;
+    front.frustumCulled = false;
+    rig.add(front);
+
+    var backMat = trackMat(planeMat.clone());
+    backMat.map = cutoutTex;
+    backMat.alphaTest = 0.4;
+    backMat.transparent = false;
+    backMat.depthWrite = true;
+    var back = new THREE.Mesh(planeGeo, backMat);
+    back.position.z = -depth * 0.52;
+    back.rotation.y = Math.PI;
+    back.castShadow = true;
+    back.visible = true;
+    back.frustumCulled = false;
+    rig.add(back);
+  }
+
+  rig.position.y = height * 0.5;
+
+  if (opts.isPlayer) {
+    var arrow = buildFacingArrow();
+    arrow.position.set(0, 0.02, Math.max(0.12, depth * 0.35));
+    root.add(arrow);
+    api._facingArrow = arrow;
+  }
+
+  root.userData.charKind = "inflated-cutout";
+  root.userData.walkAmp = 0;
+  root.userData.limbs = {
+    phase: Math.random() * Math.PI * 2,
+    groundY: 0,
+    rig: rig,
+    height: height,
+    width: width,
+    depth: depth,
+  };
+  root.userData.isPlayer = !!opts.isPlayer;
+  root.userData.modelId = "inflated-cutout";
+  return root;
+}
+
 function pickGlbEntry(index) {
   var lib = api._charLibrary;
   if (!lib || !lib.glbs || !lib.glbs.length) return null;
@@ -1315,7 +1572,13 @@ function pickGlbEntry(index) {
 
 function buildPlayer() {
   var lib = api._charLibrary;
-  // Featured: contoured female Mixamo (Michelle) with Golden Stasis painting look
+  // Featured: alpha-cutout gold-jumpsuit figure, structurally inflated + walk bob
+  if (lib && lib.customCutout) {
+    return buildInflatedCutoutCharacter(lib.customCutout, {
+      isPlayer: true,
+      scale: 1.0,
+    });
+  }
   if (lib && lib.custom) {
     return buildGltfCharacter(lib.custom, {
       isPlayer: true,
@@ -1330,7 +1593,7 @@ function buildPlayer() {
     return buildGltfCharacter(entry, {
       isPlayer: true,
       scale: 1.0,
-      attire: 0x2a2a30, // charcoal gallery suit — NOT green waffle uniform
+      attire: 0x2a2a30,
       skin: 0xd4b896,
     });
   }
