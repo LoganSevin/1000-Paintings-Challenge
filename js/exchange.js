@@ -59,6 +59,12 @@
   var selectedBankItem = null;
   var forgeSlots = [null, null, null];
   var lastForgeResult = null;
+  var autoForgeTimer = null;
+  var autoForgeBusy = false;
+  var autoForgeCycle = 0;
+  var pendingGenerateId = null;
+  var AUTO_FORGE_TOPIC_MEMORY = 8;
+  var recentForgeTopics = [];
   /** Live working thumbs (often data URLs) after Force load — memory only. */
   var thumbOverrides = {};
   var exchangeOpen = false;
@@ -1426,8 +1432,16 @@
     }
     setStatus("Regenerating forged image for #" + itemId + " (not a parent stand-in)…");
     setForgeStatus("Regenerating #" + itemId + "…");
-    var prompt = buildForgePrompt(f.parents.map(Number));
+    var prompt =
+      typeof buildForgePromptForItem === "function"
+        ? buildForgePromptForItem(itemId)
+        : buildForgePrompt(f.parents.map(Number));
     return generateForgeImage(f.parents.map(Number), prompt).then(function (url) {
+      f.pendingGenerate = false;
+      if (pendingGenerateId === itemId) pendingGenerateId = null;
+      if (state.descOverrides && state.descOverrides[String(itemId)] != null) {
+        f.description = String(state.descOverrides[String(itemId)]);
+      }
       if (!url) throw new Error("Generate returned no URL.");
       f.imageUrl = url;
       f.thumb = url;
@@ -1842,6 +1856,8 @@
       walkXpThisLevel: 0,
       trackedItems: [],
       priceHistory: {},
+      autoForge: false,
+      recentForgeTopics: [],
       createdAt: Date.now(),
     };
   }
@@ -1906,6 +1922,18 @@
           .slice(0, MAX_TRACKED)
       : [];
     s.priceHistory = s.priceHistory && typeof s.priceHistory === "object" ? s.priceHistory : {};
+    s.autoForge = !!s.autoForge;
+    s.recentForgeTopics = Array.isArray(s.recentForgeTopics)
+      ? s.recentForgeTopics
+          .map(function (t) {
+            return String(t || "")
+              .toLowerCase()
+              .trim()
+              .slice(0, 48);
+          })
+          .filter(Boolean)
+          .slice(-16)
+      : [];
     s.packReady = true;
     if (!Object.keys(s.itemStats).length && s.history.length) {
       s.itemStats = {};
@@ -2042,6 +2070,7 @@
         thumb: thumb || "",
         guide: f.guide,
         createdAt: f.createdAt,
+        pendingGenerate: !!f.pendingGenerate && !imageUrl,
       };
     });
 
@@ -2122,6 +2151,18 @@
             .slice(0, MAX_TRACKED)
         : [],
       priceHistory: slimPriceHistory(),
+      autoForge: !!state.autoForge,
+      recentForgeTopics: Array.isArray(state.recentForgeTopics)
+        ? state.recentForgeTopics
+            .map(function (t) {
+              return String(t || "")
+                .toLowerCase()
+                .trim()
+                .slice(0, 48);
+            })
+            .filter(Boolean)
+            .slice(-16)
+        : [],
       createdAt: state.createdAt || Date.now(),
     };
   }
@@ -3504,6 +3545,7 @@
     renderBags();
     renderForgeSlots();
     renderNoteColorHits();
+    if (typeof syncAutoForgeToggleUi === "function") syncAutoForgeToggleUi();
   }
 
 
@@ -4244,14 +4286,74 @@
     var panel = $("ge-forge-result");
     if (!panel) return;
     panel.hidden = false;
-    if ($("ge-forge-result-img")) $("ge-forge-result-img").src = thumb(id);
-    if ($("ge-forge-result-title")) $("ge-forge-result-title").textContent = titleFor(id);
-    if ($("ge-forge-result-desc")) $("ge-forge-result-desc").textContent = descFor(id);
+    id = Number(id);
+    var f = forgedOf(id);
+    var pending = !!(f && f.pendingGenerate) || pendingGenerateId === id;
+    panel.classList.toggle("ge-forge-ready", pending);
+    if ($("ge-forge-result-img")) {
+      $("ge-forge-result-img").src = thumb(id);
+      $("ge-forge-result-img").alt = titleFor(id);
+    }
+    if ($("ge-forge-result-title")) {
+      $("ge-forge-result-title").textContent =
+        titleFor(id) + (pending ? " · ready to generate" : "");
+    }
+    var body = String(fullDescFor(id) || "").trim();
+    if ($("ge-forge-result-desc")) {
+      $("ge-forge-result-desc").textContent = body ? body.slice(0, 160) : descFor(id);
+    }
+    var ta = $("ge-forge-result-desc-edit");
+    if (ta && document.activeElement !== ta) {
+      ta.value = body;
+    }
+    var genBtn = $("ge-forge-result-generate");
+    if (genBtn) genBtn.hidden = !pending;
+    var hint = $("ge-forge-ready-hint");
+    if (hint) hint.hidden = !pending;
+    var animBtn = $("ge-forge-to-animate");
+    if (animBtn) animBtn.disabled = !!pending && !(f && f.imageUrl);
   }
 
   function hideForgeResult() {
     var panel = $("ge-forge-result");
-    if (panel) panel.hidden = true;
+    if (panel) {
+      panel.hidden = true;
+      panel.classList.remove("ge-forge-ready");
+    }
+    var hint = $("ge-forge-ready-hint");
+    if (hint) hint.hidden = true;
+    var genBtn = $("ge-forge-result-generate");
+    if (genBtn) genBtn.hidden = true;
+  }
+
+  function saveForgeResultDescription() {
+    if (!lastForgeResult) {
+      setForgeStatus("No forged result to edit.", true);
+      return false;
+    }
+    var ta = $("ge-forge-result-desc-edit");
+    if (!ta) return false;
+    var itemId = Number(lastForgeResult);
+    if (!state.descOverrides) state.descOverrides = {};
+    var text = String(ta.value || "");
+    var orig = originalDescFor(itemId);
+    if (text === orig) {
+      delete state.descOverrides[String(itemId)];
+    } else {
+      state.descOverrides[String(itemId)] = text;
+    }
+    var f = forgedOf(itemId);
+    if (f) {
+      if (f._originalDescription == null) {
+        f._originalDescription = String(f.description || orig || "");
+      }
+      // Always keep forged.description as the live callback wording.
+      f.description = text;
+    }
+    saveState();
+    showForgeResult(itemId);
+    setForgeStatus("Description saved for #" + itemId + " — callbacks will use your wording.");
+    return true;
   }
 
   function openSpellforgeTab() {
@@ -4439,11 +4541,244 @@
     });
   }
 
+  function imaginativeForgeTitle(parents) {
+    var bits = parents.map(function (id) {
+      return String(titleFor(id) || kindLabel(id) || "#" + id)
+        .replace(/\s+/g, " ")
+        .trim()
+        .split(" ")[0];
+    });
+    var recipes = [
+      bits[0] + " dreams of " + bits[1] + " under " + bits[2],
+      "Echo of " + bits.join(" · "),
+      bits[1] + " wearing " + bits[0] + "'s " + bits[2],
+      "Midnight pact: " + bits[0] + " × " + bits[2],
+      "Unlikely chorus of " + bits.join(", "),
+      bits[2] + " remembers " + bits[0] + " & " + bits[1],
+      "Forge hymn — " + bits.join("/"),
+      "What if " + bits[0] + " met " + bits[1] + " inside " + bits[2] + "?",
+    ];
+    return recipes[Math.floor(Math.random() * recipes.length)].slice(0, 160);
+  }
+
+  function imaginativeForgeDescription(parents, title) {
+    var lines = parents.map(function (id, idx) {
+      var d = String(fullDescFor(id) || descFor(id) || "").trim().slice(0, 220);
+      return (
+        "Voice " +
+        (idx + 1) +
+        " (" +
+        kindLabel(id) +
+        " — " +
+        titleFor(id) +
+        "): " +
+        (d || "silent influence")
+      );
+    });
+    var flourishes = [
+      "Let the scene argue with itself until a single painting wins.",
+      "Keep the light strange; keep the story kind.",
+      "Invent architecture that could only exist after these three collided.",
+      "No collage — one continuous world, newly born.",
+      "The callback should feel like a whispered rumor between the parents.",
+    ];
+    return (
+      (title || "Forged piece") +
+      ". " +
+      flourishes[Math.floor(Math.random() * flourishes.length)] +
+      "\n\n" +
+      lines.join("\n")
+    ).slice(0, 4000);
+  }
+
+  function buildForgePromptForItem(itemId) {
+    itemId = Number(itemId);
+    var f = forgedOf(itemId);
+    var parents = f && Array.isArray(f.parents) ? f.parents.map(Number) : [];
+    var base = parents.length ? buildForgePrompt(parents) : "";
+    var edited =
+      state && state.descOverrides && state.descOverrides[String(itemId)] != null
+        ? String(state.descOverrides[String(itemId)] || "").trim()
+        : "";
+    var live = f ? String(f.description || "").trim() : "";
+    var direction = edited || (f && f.pendingGenerate ? live : "");
+    if (direction) {
+      var prompt =
+        "Primary artistic direction (artist-authored callback — honor this wording):\n" +
+        direction +
+        (base ? "\n\nSupporting influences:\n" + base : "");
+      prompt = geSoftenPrompt(prompt);
+      if (prompt.length > 7000) prompt = prompt.slice(0, 7000);
+      return prompt;
+    }
+    return base || geSoftenPrompt(live || "Original forged painting.");
+  }
+
+  function consumeForgeParents(parents) {
+    for (var j = 0; j < parents.length; j++) {
+      if (noteOf(parents[j]) || colorChipOf(parents[j])) continue;
+      if (!consumeOwned(parents[j], 1)) return false;
+    }
+    return true;
+  }
+
+  /** Pair/combine without calling image generation. Leaves pendingGenerate for Logan. */
+  function prepareForgeCombine(opts) {
+    opts = opts || {};
+    if (forgeBusy) return { ok: false, error: "Already combining — wait…" };
+    var a = forgeSlots[0];
+    var b = forgeSlots[1];
+    var c = forgeSlots[2];
+    if (a == null || b == null || c == null) {
+      return { ok: false, error: "Fill all 3 Spellforge slots before combining." };
+    }
+    var parents = [Number(a), Number(b), Number(c)];
+    for (var i = 0; i < 3; i++) {
+      if (noteOf(parents[i]) || colorChipOf(parents[i])) continue;
+      if (ownedQty(parents[i]) < 1) {
+        return {
+          ok: false,
+          error: "Missing stock for " + kindLabel(parents[i]) + " (need 1 in inv or bank).",
+        };
+      }
+    }
+    if (!exchangeOpen) openExchangeUi();
+
+    var title =
+      opts.title ||
+      (opts.imaginative ? imaginativeForgeTitle(parents) : parents.map(titleFor).join(" / "));
+    var description;
+    if (opts.description != null) {
+      description = String(opts.description);
+    } else if (opts.imaginative) {
+      description = imaginativeForgeDescription(parents, title);
+    } else {
+      description =
+        parents
+          .map(fullDescFor)
+          .map(function (d) {
+            return String(d || "").trim();
+          })
+          .filter(Boolean)
+          .join(" ") +
+        " Forged amalgam of " +
+        parents.map(kindLabel).join(", ") +
+        ".";
+    }
+
+    var id = Number(state.nextForgeId) || 10001;
+    state.nextForgeId = id + 1;
+    var entry = {
+      id: id,
+      parents: parents.slice(),
+      title: title,
+      description: description,
+      thumb: thumb(parents[0]),
+      guide: Math.max(
+        1,
+        Math.round((guidePrice(parents[0]) + guidePrice(parents[1]) + guidePrice(parents[2])) / 2)
+      ),
+      createdAt: Date.now(),
+      pendingGenerate: true,
+    };
+    if (!state.forged) state.forged = {};
+    state.forged[String(id)] = entry;
+    if (!consumeForgeParents(parents)) {
+      delete state.forged[String(id)];
+      return { ok: false, error: "Could not consume materials after forge." };
+    }
+    addInv(PLAYER_ID, id, 1);
+    forgeSlots = [null, null, null];
+    lastForgeResult = id;
+    pendingGenerateId = id;
+    grantXp(Math.max(10, Math.round(FORGE_XP / 2)));
+    showForgeResult(id);
+    render();
+    saveState();
+    if (opts.imaginative || opts.trackTopics !== false) {
+      rememberForgeTopics(parents, title, description);
+    }
+    setForgeStatus(
+      "Paired #" +
+        id +
+        " — ready to generate. Edit the description, then hit Generate when you want. Auto-forge will not fire the image API."
+    );
+    setAutoForgeStatus("waiting for you to generate");
+    return { ok: true, id: id, entry: entry };
+  }
+
+  function generateForgedNow(itemId) {
+    itemId = Number(itemId || lastForgeResult || pendingGenerateId);
+    var f = forgedOf(itemId);
+    if (!f) {
+      setForgeStatus("No forged piece to generate.", true);
+      return Promise.resolve({ ok: false, error: "No forged piece." });
+    }
+    if (forgeBusy) {
+      setForgeStatus("Already generating…", true);
+      return Promise.resolve({ ok: false, error: "Busy." });
+    }
+    // Persist any in-panel wording before gen so callbacks stick.
+    if (lastForgeResult === itemId) saveForgeResultDescription();
+    var parents = (f.parents || []).map(Number);
+    if (parents.length < 1) {
+      setForgeStatus("No forge parents saved — cannot generate.", true);
+      return Promise.resolve({ ok: false, error: "No parents." });
+    }
+    var prompt = buildForgePromptForItem(itemId);
+    forgeBusy = true;
+    var combineBtn = $("ge-forge-combine");
+    var genBtn = $("ge-forge-result-generate");
+    if (combineBtn) combineBtn.disabled = true;
+    if (genBtn) genBtn.disabled = true;
+    setForgeStatus("Generating image for #" + itemId + " (your wording drives the callback)…");
+    setAutoForgeStatus("waiting for you to generate");
+    return generateForgeImage(parents, prompt)
+      .then(function (url) {
+        forgeBusy = false;
+        if (combineBtn) combineBtn.disabled = false;
+        if (genBtn) genBtn.disabled = false;
+        if (url) {
+          f.imageUrl = url;
+          f.thumb = url;
+          thumbOverrides[String(itemId)] = assetUrl(url);
+        }
+        f.pendingGenerate = false;
+        if (pendingGenerateId === itemId) pendingGenerateId = null;
+        // Never overwrite artist-authored description on success.
+        if (state.descOverrides && state.descOverrides[String(itemId)] != null) {
+          f.description = String(state.descOverrides[String(itemId)]);
+        }
+        grantXp(Math.max(10, Math.round(FORGE_XP / 2)));
+        lastForgeResult = itemId;
+        showForgeResult(itemId);
+        render();
+        saveState();
+        setForgeStatus(
+          url
+            ? "Generated #" + itemId + " — description kept as you worded it."
+            : "Generate returned no URL for #" + itemId + ".",
+          !url
+        );
+        if (state.autoForge) scheduleAutoForge(900);
+        return { ok: !!url, id: itemId, url: url || "" };
+      })
+      .catch(function (err) {
+        forgeBusy = false;
+        if (combineBtn) combineBtn.disabled = false;
+        if (genBtn) genBtn.disabled = false;
+        var msg = (err && err.message) || String(err || "generate failed");
+        setForgeStatus("Generate failed for #" + itemId + ": " + msg, true);
+        return { ok: false, error: msg };
+      });
+  }
+
   function combineForge() {
     if (forgeBusy) {
       setForgeStatus("Already combining — wait for the image…", true);
       return;
     }
+    // Manual Combine still generates. Auto-forge uses prepareForgeCombine instead.
     var a = forgeSlots[0];
     var b = forgeSlots[1];
     var c = forgeSlots[2];
@@ -4460,7 +4795,6 @@
       }
     }
 
-    // Stay on the open Grand Exchange UI — never hand off to Spellforge tab mid-combine.
     if (!exchangeOpen) openExchangeUi();
 
     var titles = parents.map(titleFor);
@@ -4491,6 +4825,7 @@
         Math.round((guidePrice(parents[0]) + guidePrice(parents[1]) + guidePrice(parents[2])) / 2)
       ),
       createdAt: Date.now(),
+      pendingGenerate: false,
     };
     if (!state.forged) state.forged = {};
     state.forged[String(id)] = entry;
@@ -4504,8 +4839,11 @@
         entry.thumb = visionUrl;
         thumbOverrides[String(id)] = assetUrl(visionUrl);
       }
+      // If Logan edited description mid-flight, keep his wording.
+      if (state.descOverrides && state.descOverrides[String(id)] != null) {
+        entry.description = String(state.descOverrides[String(id)]);
+      }
       for (var j = 0; j < 3; j++) {
-        // Notes + color chips are reusable influences — do not consume from pack
         if (noteOf(parents[j]) || colorChipOf(parents[j])) continue;
         if (!consumeOwned(parents[j], 1)) {
           setForgeStatus("Could not consume materials after forge.", true);
@@ -4515,9 +4853,10 @@
       addInv(PLAYER_ID, id, 1);
       forgeSlots = [null, null, null];
       lastForgeResult = id;
+      entry.pendingGenerate = false;
+      if (pendingGenerateId === id) pendingGenerateId = null;
       grantXp(FORGE_XP);
       if (!exchangeOpen) openExchangeUi();
-      // Show the new image immediately (before save — save must not wipe live thumb)
       showForgeResult(id);
       render();
       saveState();
@@ -4551,7 +4890,602 @@
       });
   }
 
+  function setAutoForgeStatus(msg) {
+    var el = $("ge-autoforge-status");
+    if (!el) return;
+    el.textContent = msg ? String(msg) : "";
+  }
+
+  function syncAutoForgeToggleUi() {
+    var on = !!(state && state.autoForge);
+    var cb = $("ge-autoforge-on");
+    if (cb && cb.checked !== on) cb.checked = on;
+    var bar = $("ge-autoforge-bar");
+    if (bar) bar.classList.toggle("on", on);
+    if (!on) {
+      setAutoForgeStatus("");
+    } else if (pendingGenerateId || (lastForgeResult && forgedOf(lastForgeResult) && forgedOf(lastForgeResult).pendingGenerate)) {
+      setAutoForgeStatus("waiting for you to generate");
+    }
+  }
+
+  function stopAutoForgeTimer() {
+    if (autoForgeTimer) {
+      clearTimeout(autoForgeTimer);
+      autoForgeTimer = null;
+    }
+  }
+
+  function scheduleAutoForge(ms) {
+    stopAutoForgeTimer();
+    if (!state || !state.autoForge) return;
+    autoForgeTimer = setTimeout(function () {
+      autoForgeTimer = null;
+      runAutoForgeCycle();
+    }, Math.max(200, Number(ms) || 800));
+  }
+
+  function setAutoForgeEnabled(on) {
+    if (!state) return;
+    state.autoForge = !!on;
+    saveState();
+    syncAutoForgeToggleUi();
+    if (state.autoForge) {
+      setAutoForgeStatus("buying…");
+      setForgeStatus("Auto-forge ON — buying ~$1 art, pairing only (you generate).");
+      scheduleAutoForge(200);
+    } else {
+      stopAutoForgeTimer();
+      autoForgeBusy = false;
+      setAutoForgeStatus("");
+      setForgeStatus("Auto-forge OFF.");
+    }
+  }
+
+  function autoForgeFreeInvSlots() {
+    return Math.max(0, INV_SLOTS - inventoryCount(PLAYER_ID));
+  }
+
+  function autoForgeClaimOfferSlot() {
+    var used = Object.create(null);
+    playerSlotOffers().forEach(function (o) {
+      if (o && o.slot != null && o.slot >= 0) used[Number(o.slot)] = 1;
+    });
+    for (var i = 0; i < MAX_SLOTS; i++) {
+      if (!used[i]) {
+        setupSlot = i;
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  function autoForgePickCheapCatalogIds(limit) {
+    limit = Math.max(1, Number(limit) || 8);
+    var pool = arsenalList().slice();
+    var recent = autoForgeRecentTopics();
+    var owned = invOf(PLAYER_ID);
+    var scored = [];
+    for (var i = 0; i < pool.length; i++) {
+      var id = pool[i];
+      if (noteOf(id) || colorChipOf(id)) continue;
+      if (Number(owned[String(id)]) > 0) continue;
+      var g = guidePrice(id);
+      var overlap = autoForgeOverlapScore(autoForgeItemTopics(id), recent);
+      scored.push({ id: id, score: overlap * 5 + Math.min(g, 40) * 0.05 + Math.random() });
+    }
+    scored.sort(function (a, b) {
+      return a.score - b.score;
+    });
+    return scored.slice(0, limit).map(function (x) {
+      return x.id;
+    });
+  }
+
+  function autoForgeNpcSellerId() {
+    for (var i = 0; i < roster.length; i++) {
+      var p = roster[i];
+      if (!p || p.is_player || Number(p.id) === PLAYER_ID) continue;
+      return Number(p.id);
+    }
+    return 1;
+  }
+
+  /** Buy as much ~$1 art as cash + inventory allow (from cheap sells or catalog at 1 SIM). */
+  function autoForgeBuyCheap() {
+    var bought = 0;
+    var cash = cashOf(PLAYER_ID);
+    var free = autoForgeFreeInvSlots();
+    if (cash < 1 || free < 1) return 0;
+
+    // 1) Match existing NPC sell offers priced around $1
+    var cheapSells = activeOffers().filter(function (o) {
+      return (
+        o &&
+        o.side === "sell" &&
+        !o.isPlayer &&
+        !o.complete &&
+        (Number(o.qtyLeft) || 0) > 0 &&
+        Number(o.price) >= 1 &&
+        Number(o.price) <= 3
+      );
+    });
+    cheapSells.sort(function (a, b) {
+      return a.price - b.price || a.createdAt - b.createdAt;
+    });
+
+    for (var i = 0; i < cheapSells.length && cash >= 1 && free > 0; i++) {
+      if (playerSlotOffers().length >= MAX_SLOTS) break;
+      if (autoForgeClaimOfferSlot() < 0) break;
+      var sell = cheapSells[i];
+      var px = Math.max(1, Math.round(Number(sell.price) || 1));
+      if (cash < px) continue;
+      var res = placeOffer({
+        side: "buy",
+        itemId: sell.itemId,
+        qty: 1,
+        price: px,
+        traderId: PLAYER_ID,
+        silent: true,
+      });
+      if (!res.ok) continue;
+      collectAll();
+      bought++;
+      cash = cashOf(PLAYER_ID);
+      free = autoForgeFreeInvSlots();
+    }
+
+    // 2) Stock cheap catalog sells at $1 and buy into them
+    var need = Math.min(free, Math.floor(cash / 1), 6);
+    if (need < 1) {
+      saveState();
+      return bought;
+    }
+    var picks = autoForgePickCheapCatalogIds(need);
+    var npcId = autoForgeNpcSellerId();
+    for (var p = 0; p < picks.length && cash >= 1 && free > 0; p++) {
+      if (playerSlotOffers().length >= MAX_SLOTS) {
+        collectAll();
+        if (playerSlotOffers().length >= MAX_SLOTS) break;
+      }
+      if (autoForgeClaimOfferSlot() < 0) {
+        collectAll();
+        if (autoForgeClaimOfferSlot() < 0) break;
+      }
+      var itemId = picks[p];
+      if (qtyOf(npcId, itemId) < 1) addInv(npcId, itemId, 1);
+      placeOffer({
+        side: "sell",
+        itemId: itemId,
+        qty: 1,
+        price: 1,
+        traderId: npcId,
+        silent: true,
+      });
+      var buyRes = placeOffer({
+        side: "buy",
+        itemId: itemId,
+        qty: 1,
+        price: 1,
+        traderId: PLAYER_ID,
+        silent: true,
+      });
+      if (!buyRes.ok) continue;
+      collectAll();
+      bought++;
+      cash = cashOf(PLAYER_ID);
+      free = autoForgeFreeInvSlots();
+    }
+    saveState();
+    return bought;
+  }
+
+  function autoForgeMaterialCandidates() {
+    var list = invList(PLAYER_ID).concat(bankList(PLAYER_ID));
+    var out = [];
+    var seen = Object.create(null);
+    for (var i = 0; i < list.length; i++) {
+      var id = Number(list[i].id);
+      if (!id || seen[id]) continue;
+      if (noteOf(id) || colorChipOf(id)) continue;
+      var f = forgedOf(id);
+      if (f && f.pendingGenerate) continue;
+      seen[id] = 1;
+      out.push(id);
+    }
+    return out;
+  }
+
+  function autoForgeShuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+    }
+    return a;
+  }
+
+  var AUTO_FORGE_STOPWORDS = {
+    a: 1,
+    an: 1,
+    the: 1,
+    of: 1,
+    and: 1,
+    or: 1,
+    to: 1,
+    in: 1,
+    on: 1,
+    for: 1,
+    with: 1,
+    from: 1,
+    into: 1,
+    over: 1,
+    under: 1,
+    a: 1,
+    painting: 1,
+    forged: 1,
+    note: 1,
+    sketch: 1,
+    generated: 1,
+    phone: 1,
+    inverted: 1,
+    amalgam: 1,
+    piece: 1,
+    art: 1,
+  };
+
+  var AUTO_FORGE_MOODS = [
+    "dream",
+    "night",
+    "storm",
+    "quiet",
+    "fierce",
+    "tender",
+    "cosmic",
+    "urban",
+    "wild",
+    "sacred",
+    "playful",
+    "melancholy",
+    "mechanical",
+    "organic",
+    "mythic",
+    "domestic",
+    "oceanic",
+    "desert",
+    "forest",
+    "portrait",
+    "animal",
+    "creature",
+    "city",
+    "ritual",
+    "machine",
+    "garden",
+    "sky",
+    "water",
+    "fire",
+    "shadow",
+  ];
+
+  function autoForgeRecentTopics() {
+    var fromState =
+      state && Array.isArray(state.recentForgeTopics) ? state.recentForgeTopics.slice() : [];
+    var merged = recentForgeTopics.concat(fromState);
+    var out = [];
+    var seen = Object.create(null);
+    for (var i = merged.length - 1; i >= 0; i--) {
+      var t = String(merged[i] || "")
+        .toLowerCase()
+        .trim()
+        .slice(0, 48);
+      if (!t || seen[t]) continue;
+      seen[t] = 1;
+      out.unshift(t);
+      if (out.length >= AUTO_FORGE_TOPIC_MEMORY) break;
+    }
+    return out;
+  }
+
+  function autoForgeTokenizeText(text) {
+    return String(text || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s\-]/g, " ")
+      .split(/\s+/)
+      .map(function (w) {
+        return w.replace(/^-+|-+$/g, "");
+      })
+      .filter(function (w) {
+        return w.length >= 3 && !AUTO_FORGE_STOPWORDS[w];
+      });
+  }
+
+  /** Topic / mood / keyword fingerprint for an item (discovery variation). */
+  function autoForgeItemTopics(itemId) {
+    itemId = Number(itemId);
+    var bag = Object.create(null);
+    function add(t) {
+      t = String(t || "")
+        .toLowerCase()
+        .trim()
+        .slice(0, 48);
+      if (!t || AUTO_FORGE_STOPWORDS[t]) return;
+      bag[t] = (bag[t] || 0) + 1;
+    }
+    tagsFor(itemId).forEach(add);
+    autoForgeTokenizeText(titleFor(itemId)).forEach(add);
+    autoForgeTokenizeText(String(fullDescFor(itemId) || "").slice(0, 400)).forEach(add);
+    AUTO_FORGE_MOODS.forEach(function (m) {
+      var blob = (
+        String(titleFor(itemId) || "") +
+        " " +
+        String(fullDescFor(itemId) || "") +
+        " " +
+        tagsFor(itemId).join(" ")
+      ).toLowerCase();
+      if (blob.indexOf(m) >= 0) add(m);
+    });
+    // Kind buckets for coarse streak avoidance
+    if (itemId >= 1 && itemId <= PAINTING_TOTAL) add("kind-painting");
+    else if (forgedOf(itemId)) add("kind-forged");
+    else if (extraOf(itemId)) add("kind-" + String((extraOf(itemId).source || "extra").split("-")[0]));
+    return Object.keys(bag);
+  }
+
+  function autoForgeComboTopics(parents) {
+    var bag = Object.create(null);
+    (parents || []).forEach(function (id) {
+      autoForgeItemTopics(id).forEach(function (t) {
+        bag[t] = 1;
+      });
+    });
+    return Object.keys(bag);
+  }
+
+  function autoForgeOverlapScore(topics, recent) {
+    if (!topics || !topics.length || !recent || !recent.length) return 0;
+    var recentSet = Object.create(null);
+    var streakWeights = Object.create(null);
+    for (var i = 0; i < recent.length; i++) {
+      var t = recent[i];
+      recentSet[t] = 1;
+      // Heavier penalty for the most recent topics (back-to-back streak)
+      streakWeights[t] = (streakWeights[t] || 0) + (recent.length - i);
+    }
+    var score = 0;
+    for (var j = 0; j < topics.length; j++) {
+      var key = topics[j];
+      if (!recentSet[key]) continue;
+      score += 2 + (streakWeights[key] || 1);
+    }
+    return score;
+  }
+
+  function rememberForgeTopics(parents, title, description) {
+    var topics = autoForgeComboTopics(parents || []);
+    autoForgeTokenizeText(title).forEach(function (t) {
+      if (topics.indexOf(t) < 0) topics.push(t);
+    });
+    autoForgeTokenizeText(String(description || "").slice(0, 280)).forEach(function (t) {
+      if (topics.indexOf(t) < 0) topics.push(t);
+    });
+    // Keep a short signature of dominant topics (not the whole bag)
+    topics.sort(function (a, b) {
+      return b.length - a.length || (a < b ? -1 : 1);
+    });
+    var sig = topics.filter(function (t) {
+      return t.indexOf("kind-") !== 0;
+    }).slice(0, 6);
+    if (!sig.length) sig = topics.slice(0, 4);
+    recentForgeTopics = recentForgeTopics.concat(sig).slice(-AUTO_FORGE_TOPIC_MEMORY * 2);
+    if (!state.recentForgeTopics) state.recentForgeTopics = [];
+    state.recentForgeTopics = state.recentForgeTopics.concat(sig).slice(-AUTO_FORGE_TOPIC_MEMORY * 2);
+  }
+
+  function autoForgeImaginativeNotePrompt(parentsHint, avoidTopics) {
+    var sparks = [
+      { text: "a hallway of mirrors that only reflect unfinished paintings", tags: ["mirror", "museum", "dream"] },
+      { text: "stormlight braided through museum velvet", tags: ["storm", "museum", "velvet"] },
+      { text: "two clocks arguing about which century owns the color blue", tags: ["clock", "time", "blue"] },
+      { text: "a quiet market stall selling bottled horizons", tags: ["market", "horizon", "quiet"] },
+      { text: "calligraphy that rearranges itself when nobody looks", tags: ["calligraphy", "text", "secret"] },
+      { text: "an orchard growing frames instead of fruit", tags: ["orchard", "frame", "garden"] },
+      { text: "soft geometry learning how to dream in oil paint", tags: ["geometry", "dream", "paint"] },
+      { text: "a brass submarine cartographing forgotten lullabies", tags: ["machine", "ocean", "lullaby"] },
+      { text: "desert kites carrying library index cards", tags: ["desert", "kite", "library"] },
+      { text: "neon moss colonizing abandoned concert halls", tags: ["neon", "moss", "music"] },
+    ];
+    var recent = avoidTopics || autoForgeRecentTopics();
+    sparks.sort(function (a, b) {
+      return autoForgeOverlapScore(a.tags, recent) - autoForgeOverlapScore(b.tags, recent);
+    });
+    var spark = sparks[0].text;
+    if (parentsHint && parentsHint.length) {
+      return (
+        "Note filler influence: weave " +
+        spark +
+        " through " +
+        parentsHint
+          .map(function (id) {
+            return titleFor(id);
+          })
+          .join(" + ") +
+        "."
+      );
+    }
+    return "Note filler influence: " + spark + ".";
+  }
+
+  /** Score a candidate trio — lower overlap with recent topics = better (discovery/play). */
+  function autoForgeScoreTrio(ids, recent) {
+    var topics = autoForgeComboTopics(ids);
+    var overlap = autoForgeOverlapScore(topics, recent);
+    // Intra-trio diversity bonus (different materials/subjects together = tasty)
+    var unique = {};
+    ids.forEach(function (id) {
+      autoForgeItemTopics(id).forEach(function (t) {
+        if (t.indexOf("kind-") === 0) unique[t] = 1;
+        else if (AUTO_FORGE_MOODS.indexOf(t) >= 0) unique["mood-" + t] = 1;
+      });
+    });
+    var diversity = Object.keys(unique).length;
+    // Prefer some internal contrast but not chaos
+    return overlap * 10 - diversity * 3 + Math.random() * 1.5;
+  }
+
+  function autoForgePickDivergentTrio(mats, needCount, recent) {
+    needCount = needCount || 3;
+    if (mats.length < needCount) return null;
+    var best = null;
+    var bestScore = Infinity;
+    var attempts = Math.min(48, mats.length * 4);
+    for (var n = 0; n < attempts; n++) {
+      var pool = autoForgeShuffle(mats);
+      var trio = pool.slice(0, needCount);
+      // Greedy: if first pick is too similar to recent streak, re-roll first item
+      var score = autoForgeScoreTrio(trio, recent);
+      if (score < bestScore) {
+        bestScore = score;
+        best = trio;
+      }
+      if (bestScore <= 2) break; // good enough divergence
+    }
+    return best;
+  }
+
+  /** Load forge slots creatively with topic variation; occasionally include a note filler. */
+  function autoForgeLoadSlots() {
+    forgeSlots = [null, null, null];
+    var mats = autoForgeMaterialCandidates();
+    if (mats.length < 2) return { ok: false, error: "Need more art in inv/bank to pair." };
+
+    var recent = autoForgeRecentTopics();
+    var useNote = Math.random() < 0.15; // ~10–20%
+    var need = useNote ? 2 : 3;
+    var picks = autoForgePickDivergentTrio(mats, need, recent);
+    if (!picks || picks.length < need) {
+      picks = autoForgeShuffle(mats).slice(0, need);
+    }
+    if (picks.length < need) {
+      return { ok: false, error: "Not enough distinct pieces to forge." };
+    }
+
+    // Imaginative slot order
+    var order = autoForgeShuffle([0, 1, 2]);
+    var slotMats = picks.slice();
+    for (var i = 0; i < slotMats.length; i++) {
+      placeInForge(slotMats[i], order[i]);
+    }
+    if (useNote) {
+      var empty = -1;
+      for (var s = 0; s < 3; s++) {
+        if (forgeSlots[s] == null) {
+          empty = s;
+          break;
+        }
+      }
+      if (empty >= 0) {
+        var noteRes = placeNoteInForge(
+          empty,
+          "Auto note " + (autoForgeCycle + 1),
+          autoForgeImaginativeNotePrompt(slotMats, recent)
+        );
+        if (!noteRes.ok) {
+          var leftover = mats.filter(function (id) {
+            return slotMats.indexOf(id) < 0;
+          });
+          var alt = autoForgePickDivergentTrio(leftover.concat(slotMats), 1, recent);
+          if (leftover.length) placeInForge(leftover[0], empty);
+          else if (alt && alt[0]) placeInForge(alt[0], empty);
+        }
+      }
+    }
+    for (var z = 0; z < 3; z++) {
+      if (forgeSlots[z] != null) continue;
+      var ranked = mats
+        .filter(function (id) {
+          return forgeSlots.indexOf(id) < 0;
+        })
+        .map(function (id) {
+          return { id: id, score: autoForgeOverlapScore(autoForgeItemTopics(id), recent) };
+        })
+        .sort(function (a, b) {
+          return a.score - b.score;
+        });
+      if (ranked.length) placeInForge(ranked[0].id, z);
+    }
+    if (forgeSlots[0] == null || forgeSlots[1] == null || forgeSlots[2] == null) {
+      return { ok: false, error: "Could not fill all forge slots." };
+    }
+    renderForgeSlots();
+    return {
+      ok: true,
+      usedNote: useNote,
+      topics: autoForgeComboTopics(
+        forgeSlots.filter(function (id) {
+          return id != null && !noteOf(id);
+        })
+      ),
+    };
+  }
+
+  function runAutoForgeCycle() {
+    if (!state || !state.autoForge) return;
+    if (autoForgeBusy || forgeBusy) {
+      scheduleAutoForge(1000);
+      return;
+    }
+    // Pause while a piece is waiting for Logan to generate.
+    var waitId = pendingGenerateId;
+    if (!waitId && lastForgeResult) {
+      var lf = forgedOf(lastForgeResult);
+      if (lf && lf.pendingGenerate) waitId = lastForgeResult;
+    }
+    if (waitId) {
+      pendingGenerateId = waitId;
+      setAutoForgeStatus("waiting for you to generate");
+      showForgeResult(waitId);
+      // Soft poll — easy to turn off; resumes after Generate clears pending.
+      scheduleAutoForge(2500);
+      return;
+    }
+
+    autoForgeBusy = true;
+    autoForgeCycle += 1;
+    try {
+      setAutoForgeStatus("buying…");
+      var nBuy = autoForgeBuyCheap();
+      collectAll();
+      render();
+
+      setAutoForgeStatus("pairing…");
+      var loaded = autoForgeLoadSlots();
+      if (!loaded.ok) {
+        setForgeStatus("Auto-forge: " + loaded.error + (nBuy ? " (bought " + nBuy + ")" : ""), true);
+        setAutoForgeStatus(nBuy ? "buying…" : "pairing…");
+        autoForgeBusy = false;
+        scheduleAutoForge(2200);
+        return;
+      }
+      var prep = prepareForgeCombine({ imaginative: true });
+      autoForgeBusy = false;
+      if (!prep.ok) {
+        setForgeStatus("Auto-forge pair failed: " + prep.error, true);
+        scheduleAutoForge(1800);
+        return;
+      }
+      // prepareForgeCombine already set waiting status; do not call generate.
+      scheduleAutoForge(2500);
+    } catch (err) {
+      autoForgeBusy = false;
+      setForgeStatus("Auto-forge error: " + ((err && err.message) || err), true);
+      scheduleAutoForge(3000);
+    }
+  }
+
   function openSetup(side, slot) {
+
     setupSide = side;
     setupSlot = slot;
     selected = selected || 1;
@@ -5344,6 +6278,35 @@
       $("ge-forge-combine").dataset.bound = "1";
       $("ge-forge-combine").addEventListener("click", combineForge);
     }
+    if ($("ge-autoforge-on") && !$("ge-autoforge-on").dataset.bound) {
+      $("ge-autoforge-on").dataset.bound = "1";
+      $("ge-autoforge-on").addEventListener("change", function () {
+        setAutoForgeEnabled(!!$("ge-autoforge-on").checked);
+      });
+    }
+    if ($("ge-forge-result-generate") && !$("ge-forge-result-generate").dataset.bound) {
+      $("ge-forge-result-generate").dataset.bound = "1";
+      $("ge-forge-result-generate").addEventListener("click", function () {
+        generateForgedNow(lastForgeResult || pendingGenerateId);
+      });
+    }
+    if ($("ge-forge-result-save-desc") && !$("ge-forge-result-save-desc").dataset.bound) {
+      $("ge-forge-result-save-desc").dataset.bound = "1";
+      $("ge-forge-result-save-desc").addEventListener("click", function () {
+        saveForgeResultDescription();
+      });
+    }
+    if ($("ge-forge-result-open-desc") && !$("ge-forge-result-open-desc").dataset.bound) {
+      $("ge-forge-result-open-desc").dataset.bound = "1";
+      $("ge-forge-result-open-desc").addEventListener("click", function () {
+        if (!lastForgeResult) {
+          setForgeStatus("No forged result to describe.", true);
+          return;
+        }
+        saveForgeResultDescription();
+        openItemDescription(lastForgeResult);
+      });
+    }
     if ($("ge-forge-open") && !$("ge-forge-open").dataset.bound) {
       $("ge-forge-open").dataset.bound = "1";
       $("ge-forge-open").addEventListener("click", openSpellforgeTab);
@@ -5549,10 +6512,18 @@
           (extras ? " · " + extras + " extras" : "") +
           "). Explore the 3D Art Floor or Open Grand Exchange."
       );
+      syncAutoForgeToggleUi();
+      if (state.autoForge) {
+        setAutoForgeStatus(
+          pendingGenerateId ? "waiting for you to generate" : "buying…"
+        );
+        scheduleAutoForge(600);
+      }
     });
   }
 
   function onHide() {
+    stopAutoForgeTimer();
     stopTicks();
     stopWorldLoop();
     unbindWorldKeys();
@@ -5567,6 +6538,17 @@
   function init() {
     state = loadState();
     npcRuntime = { inventory: {}, bank: {} };
+    recentForgeTopics = Array.isArray(state.recentForgeTopics) ? state.recentForgeTopics.slice() : [];
+    // Restore pending generate highlight from saved forged entries
+    try {
+      Object.keys(state.forged || {}).forEach(function (k) {
+        var f = state.forged[k];
+        if (f && f.pendingGenerate && !f.imageUrl) {
+          pendingGenerateId = Number(f.id || k);
+          lastForgeResult = pendingGenerateId;
+        }
+      });
+    } catch (ePend) {}
     try {
       purgePresetColorChips();
     } catch (eChip) {}
@@ -5609,5 +6591,8 @@
     state: function () {
       return state;
     },
+    setAutoForge: setAutoForgeEnabled,
+    generateForged: generateForgedNow,
+    prepareForge: prepareForgeCombine,
   };
 })();

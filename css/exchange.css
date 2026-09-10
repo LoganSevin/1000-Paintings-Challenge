@@ -1762,3 +1762,107 @@
   .ge-tracker-spark { grid-area: spark; width: 100%; }
   .ge-tracker-untrack { grid-area: untrack; justify-self: end; }
 }
+
+
+/* —— Auto-forge toggle + ready-to-generate result —— */
+.ge-autoforge-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.85rem;
+  margin: 0.35rem 0 0.55rem;
+  padding: 0.4rem 0.55rem;
+  background: linear-gradient(180deg, #2a2418 0%, #1a1610 100%);
+  border: 1px solid #6a5730;
+  border-radius: 6px;
+}
+.ge-autoforge-bar.on {
+  border-color: #c9a227;
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.25);
+}
+.ge-autoforge-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f0d78c;
+  cursor: pointer;
+  user-select: none;
+}
+.ge-autoforge-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #c9a227;
+  cursor: pointer;
+}
+.ge-autoforge-status {
+  font-size: 0.78rem;
+  color: #b8c4d4;
+  min-height: 1.1em;
+}
+.ge-autoforge-bar.on .ge-autoforge-status {
+  color: #e8dcc8;
+}
+.ge-forge-result.ge-forge-ready {
+  border-color: #c9a227;
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35), inset 0 0 18px rgba(201, 162, 39, 0.08);
+}
+.ge-forge-result-meta {
+  min-width: 0;
+  flex: 1;
+}
+.ge-forge-result-desc-label {
+  display: block;
+  margin: 0.35rem 0 0.2rem;
+  font-size: 0.72rem;
+  color: #c8b890;
+}
+.ge-forge-result-desc-edit {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 88px;
+  background: #0f0c09;
+  border: 1px solid #5a4a2e;
+  border-radius: 4px;
+  color: #f0e6d2;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+.ge-forge-result-desc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.45rem;
+}
+.ge-forge-result-desc-actions button,
+.ge-forge-result-generate {
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: 1px solid #5a4a2e;
+  background: #2a2218;
+  color: #e8dcc8;
+}
+.ge-forge-result-generate {
+  background: #3d6b2e;
+  border-color: #5a9a3e;
+  color: #e8ffe0;
+  font-weight: 700;
+}
+.ge-forge-result-generate:hover {
+  filter: brightness(1.08);
+}
+.ge-forge-ready-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  color: #d4c090;
+  line-height: 1.35;
+}

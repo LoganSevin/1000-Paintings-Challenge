@@ -82,7 +82,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=40" />
+  <link rel="stylesheet" href="css/exchange.css?v=41" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3107,6 +3107,13 @@
         </div>
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
+          <div class="ge-autoforge-bar" id="ge-autoforge-bar">
+            <label class="ge-autoforge-toggle" for="ge-autoforge-on" title="Buy ~$1 art, pair creatively, leave image gen for you">
+              <input type="checkbox" id="ge-autoforge-on" />
+              <span>Auto-forge</span>
+            </label>
+            <span class="ge-autoforge-status" id="ge-autoforge-status" aria-live="polite"></span>
+          </div>
           <p class="ge-forge-hint">Right-click → Slot / Description / View / Animate / Sell / Track · Notes · Combine</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
@@ -3148,14 +3155,22 @@
           </div>
           <div class="ge-forge-result" id="ge-forge-result" hidden>
             <img id="ge-forge-result-img" alt="" />
-            <div>
+            <div class="ge-forge-result-meta">
               <strong id="ge-forge-result-title"></strong>
-              <p id="ge-forge-result-desc"></p>
+              <p id="ge-forge-result-desc" class="ge-forge-result-desc-plain"></p>
+              <label class="ge-forge-result-desc-label" for="ge-forge-result-desc-edit">Description / callback wording</label>
+              <textarea id="ge-forge-result-desc-edit" class="ge-forge-result-desc-edit" rows="4" maxlength="4000" placeholder="Edit how this forged piece is worded before you generate…" spellcheck="true"></textarea>
+              <div class="ge-forge-result-desc-actions">
+                <button type="button" id="ge-forge-result-save-desc">Save description</button>
+                <button type="button" id="ge-forge-result-open-desc">Edit like images…</button>
+              </div>
               <div class="ge-forge-result-actions">
+                <button type="button" id="ge-forge-result-generate" class="ge-forge-result-generate" hidden>Generate image</button>
                 <button type="button" id="ge-forge-bank">Bank</button>
                 <button type="button" id="ge-forge-sell">Sell on GE</button>
                 <button type="button" id="ge-forge-to-animate" class="ge-forge-to-animate">Animate here</button>
               </div>
+              <p class="ge-forge-ready-hint" id="ge-forge-ready-hint" hidden>Ready to generate — Auto-forge will not fire the image API. Edit the wording above, then Generate when you want.</p>
             </div>
           </div>
           <p class="ge-forge-status" id="ge-forge-status"></p>
@@ -6701,7 +6716,7 @@
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
   <script type="module" src="js/ge-artfloor-3d.js?v=50"></script>
-  <script defer src="js/exchange.js?v=37"></script>
+  <script defer src="js/exchange.js?v=38"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
