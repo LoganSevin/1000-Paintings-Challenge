@@ -81,7 +81,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=39" />
+  <link rel="stylesheet" href="css/exchange.css?v=40" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -2898,8 +2898,15 @@
           <canvas id="ge-world-canvas" class="ge-world-canvas" aria-hidden="true"></canvas>
           <div class="ge-world-loader" id="ge-world-loader" role="status" aria-live="polite" aria-busy="true">
             <div class="ge-world-loader-card">
-              <span class="ge-world-loader-label">Loading Art Floor…</span>
-              <span class="ge-world-loader-dots" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span>
+              <div class="ge-world-loader-row">
+                <span class="ge-world-loader-spinner" aria-hidden="true"></span>
+                <span class="ge-world-loader-label">Loading character…</span>
+                <span class="ge-world-loader-pct" id="ge-world-loader-pct">0%</span>
+              </div>
+              <div class="ge-world-loader-bar" aria-hidden="true">
+                <div class="ge-world-loader-bar-fill" id="ge-world-loader-bar-fill"></div>
+              </div>
+              <span class="ge-world-loader-sub" id="ge-world-loader-sub">Preparing Art Floor</span>
             </div>
           </div>
           <div class="ge-world-interact-hint" id="ge-world-interact-hint" hidden>Press E — Open Grand Exchange</div>
@@ -6579,7 +6586,7 @@
   <script defer src="js/market-desk.js?v=3"></script>
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
-  <script type="module" src="js/ge-artfloor-3d.js?v=13"></script>
+  <script type="module" src="js/ge-artfloor-3d.js?v=15"></script>
   <script defer src="js/exchange.js?v=37"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>

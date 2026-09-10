@@ -1,25 +1,30 @@
 # Art Floor characters
 
-Primary: offline **Mixamo-style human GLBs** under `glb/` loaded with Three.js
-`GLTFLoader` + `AnimationMixer` (Walk / Idle).
+Primary player: **`glb/custom-character.glb`** — open-source image→3D (TripoSR CPU)
+from the Golden Stasis gold-jumpsuit painting (rembg cutout). Full front **and** back
+geometry with vertex colors. Unskinned mesh uses TPS root-bob walk.
 
-- `glb/Soldier.glb` — **default player** (opaque gold MeshStandardMaterial) + gallery NPC. Native Idle/Walk/Run so arms and legs swing.
-- `glb/Xbot.glb` — fallback player / gallery NPC (native idle/walk/run)
-- `glb/Michelle.glb` — optional female; only used if she measures full standing height **without** borrowing Soldier clips (foreign Idle previously collapsed her to shoes-only)
+Fallback Mixamo GLBs (gallery NPCs + player if custom missing):
+
+- `glb/Soldier.glb` — native Idle/Walk/Run
+- `glb/Xbot.glb` — native idle/walk/run
+- `glb/Michelle.glb` — optional
 
 ## Gold look (visibility-first)
 
-Solid opaque gold `MeshStandardMaterial` from painting eyedropper colors:
-- metalness ≤ 0.4, roughness ≥ 0.5
-- **NO** painting atlas / metalnessMap / gold-flake maps (those made the body invisible)
+- Custom TripoSR mesh: keep vertex colors / albedo; **strip metalnessMap** (no env → black hole)
+- Mixamo fallbacks: solid opaque gold `MeshStandardMaterial` (metalness ≤ 0.4)
 - Front painting is **never** UV-wrapped onto the back
-- No "Golden Stasis" nameplate
-
-Cutout / ExtrudeGeometry inflated silhouette player code has been removed.
+- Yellow inflated cutout / ExtrudeGeometry silhouette path removed
 
 Reusable hook:
 
 - `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=...` (palette ref only)
-- `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/Soldier.glb`
+- `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/custom-character.glb`
 
 NPCs keep calm gallery attire solids. Procedural MetaHuman-ish fallback if all GLBs fail.
+
+## Source assets
+
+- `custom/golden-stasis.jpg` — painting
+- `custom/golden-stasis-cutout.png` — rembg cutout used for TripoSR

@@ -3,22 +3,22 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: Mixamo Soldier/Xbot GLB (native Walk) with opaque gold MeshStandardMaterial — full standing body
- * - Look: solid gold (metalness≤0.4) NO painting/metalness maps; Michelle optional only if full-height
+ * - Player: open-source image→3D custom-character.glb (TripoSR) gold jumpsuit — full body front+back
+ * - Look: keep vertex colors / albedo; strip metalnessMap only (no black-hole). Fallback solid gold if needed.
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Procedural fallback = continuous MetaHuman proportions (head ~1/7.5 body), 5-finger hands, calm gallery attire
- * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL for palette ref
- * - NO green waffle "player uniform", NO white collar plates, NO chest badge/pencil graphics, NO nameplate
- * - Camera behind player; mouse look; WASD; wheel zoom; E at GE desk
+ * - Unskinned custom mesh: TPS root bob walk (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
+ * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
+ * - NO yellow inflated cutout / ExtrudeGeometry silhouette; NO painting UV-wrap on back
+ * - TPS camera over shoulders; mouse look; WASD relative to facing; wheel zoom; E at GE desk
  */
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js";
 
 var LOADER_ID = "ge-world-loader";
-var ZOOM_MIN = 2.0;
+var ZOOM_MIN = 1.6;
 var ZOOM_MAX = 16.0;
-var ZOOM_DEFAULT = 4.6;
+var ZOOM_DEFAULT = 3.8;
 
 var api = {
   _ready: false,
@@ -71,19 +71,42 @@ function trackGeo(g) { api._geos.push(g); return g; }
 function trackMat(m) { api._mats.push(m); return m; }
 function trackTex(t) { if (t) api._textures.push(t); return t; }
 
-function showLoader(visible, msg) {
+function showLoader(visible, msg, pct) {
   var el = api._loaderEl || document.getElementById(LOADER_ID);
   if (!el) return;
   api._loaderEl = el;
   if (msg) {
     var label = el.querySelector(".ge-world-loader-label");
     if (label) label.textContent = msg;
+    var sub = el.querySelector("#ge-world-loader-sub") || el.querySelector(".ge-world-loader-sub");
+    if (sub && msg) {
+      // Keep subline as detail when msg is the main title; otherwise mirror
+      if (/character|glb|patron|art floor/i.test(msg)) sub.textContent = msg;
+    }
+  }
+  var fill = el.querySelector("#ge-world-loader-bar-fill") || el.querySelector(".ge-world-loader-bar-fill");
+  var pctEl = el.querySelector("#ge-world-loader-pct") || el.querySelector(".ge-world-loader-pct");
+  if (fill) {
+    if (pct == null || !isFinite(pct)) {
+      fill.classList.add("is-indeterminate");
+      if (pctEl) pctEl.textContent = "…";
+    } else {
+      fill.classList.remove("is-indeterminate");
+      var p = Math.max(0, Math.min(100, Math.round(pct)));
+      fill.style.width = p + "%";
+      if (pctEl) pctEl.textContent = p + "%";
+    }
   }
   if (visible) {
     el.hidden = false;
     el.setAttribute("aria-busy", "true");
     el.classList.remove("is-hidden");
   } else {
+    if (fill) {
+      fill.classList.remove("is-indeterminate");
+      fill.style.width = "100%";
+    }
+    if (pctEl) pctEl.textContent = "100%";
     el.classList.add("is-hidden");
     el.setAttribute("aria-busy", "false");
     setTimeout(function () {
@@ -624,11 +647,11 @@ var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
 /**
  * Custom player hook (reusable for future paintings):
- * - CUSTOM_CHARACTER_GLB: Mixamo female (default Michelle.glb) — real Walk via AnimationMixer
+ * - CUSTOM_CHARACTER_GLB: TripoSR custom-character.glb (default) — unskinned TPS bob; Mixamo fallback
  * - CUSTOM_CHARACTER_URL: painting used as color reference only (NOT UV-wrapped on the mesh back)
  * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or ?customChar= / ?customGlb=
  */
-var CUSTOM_CHARACTER_GLB = "glb/Michelle.glb";
+var CUSTOM_CHARACTER_GLB = "glb/custom-character.glb";
 var CUSTOM_CHARACTER_URL = "custom/golden-stasis.jpg";
 
 function resolveCustomCharacterPaths() {
@@ -694,13 +717,22 @@ function addMesh(parent, geo, mat, px, py, pz, sx, sy, sz) {
   return m;
 }
 
-function loadGltfAsync(url) {
+function loadGltfAsync(url, onProgress) {
   return new Promise(function (resolve) {
     var loader = new GLTFLoader();
     loader.load(
       url,
       function (gltf) { resolve(gltf); },
-      undefined,
+      function (ev) {
+        if (!onProgress) return;
+        try {
+          if (ev && ev.lengthComputable && ev.total > 0) {
+            onProgress(ev.loaded / ev.total);
+          } else if (ev && ev.loaded) {
+            onProgress(null); // indeterminate but active
+          }
+        } catch (e) {}
+      },
       function () { resolve(null); }
     );
   });
@@ -731,15 +763,37 @@ async function loadCharacterLibrary() {
   if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
     return api._charLibrary;
   }
-  showLoader(true, "Loading gallery patrons…");
+  showLoader(true, "Loading character…", 5);
   var lib = { glbs: [], custom: null, customLook: null, donor: null,
     goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
 
+  // Featured player first: open-source image→3D custom-character.glb
+  showLoader(true, "Loading character…", 8);
+  try {
+    var customGlb = await loadGltfAsync(paths.glb, function (t) {
+      if (t == null) showLoader(true, "Loading character…", null);
+      else showLoader(true, "Loading character…", 8 + t * 55);
+    });
+    if (customGlb && customGlb.scene) {
+      lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
+      showLoader(true, "Character ready — loading gallery…", 65);
+    } else {
+      showLoader(true, "Character missing — loading fallback…", 40);
+    }
+  } catch (e) {
+    showLoader(true, "Character load error — fallback…", 40);
+  }
+
   // Gallery crowd (calm Mixamo walkers)
   var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
   for (var gi = 0; gi < glbFiles.length; gi++) {
-    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi]);
+    var basePct = 65 + gi * 12;
+    showLoader(true, "Loading gallery patrons…", basePct);
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi], function (t) {
+      if (t == null) return;
+      showLoader(true, "Loading gallery patrons…", basePct + t * 12);
+    });
     if (g && g.scene) {
       var entry = { id: glbFiles[gi], gltf: g };
       lib.glbs.push(entry);
@@ -750,15 +804,9 @@ async function loadCharacterLibrary() {
   }
 
   // Front painting = palette reference only (never applied as mesh atlas / never wrapped onto back).
+  showLoader(true, "Finishing Art Floor…", 92);
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
-  // Intentionally NOT loading painting/cutout/gold-flake maps onto the player (invisible-body bug).
-  // Featured player: Mixamo Michelle (or override) with Walk borrowed from Soldier/Xbot
-  try {
-    var customGlb = await loadGltfAsync(paths.glb);
-    if (customGlb && customGlb.scene) {
-      lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
-    }
-  } catch (e) {}
+  showLoader(true, "Almost ready…", 97);
 
   api._charLibrary = lib;
   return lib;
@@ -873,6 +921,62 @@ function forceOpaqueVisibleMat(mat) {
  * (painting atlas / Mixamo metalnessMap / gold-flake maps all caused invisible or shoes-only bodies).
  * Front painting is never wrapped onto the mesh. No "Golden Stasis" nameplate.
  */
+/**
+ * Prefer colored TripoSR / InstantMesh meshes: keep vertex colors + albedo map,
+ * strip only metalnessMap / envMap that black-out without an environment.
+ * Falls back to opaque gold solids when the mesh has no color data.
+ */
+function applyTexturedCustomLook(root) {
+  var hasColor = false;
+  root.traverse(function (o) {
+    if (!o.isMesh) return;
+    o.visible = true;
+    o.castShadow = true;
+    o.receiveShadow = true;
+    o.frustumCulled = false;
+    var mats = Array.isArray(o.material) ? o.material.slice() : [o.material];
+    for (var i = 0; i < mats.length; i++) {
+      var m = mats[i];
+      if (!m) continue;
+      // Rebuild as MeshStandardMaterial to avoid Physical/transmission black-outs
+      var color = (m.color && m.color.clone) ? m.color.clone() : new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
+      var map = m.map || null;
+      var vertexColors = !!(m.vertexColors || (o.geometry && o.geometry.attributes && o.geometry.attributes.color));
+      if (map || vertexColors || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
+      var nm = trackMat(new THREE.MeshStandardMaterial({
+        color: color,
+        map: map,
+        vertexColors: vertexColors,
+        roughness: Math.max(0.45, m.roughness != null ? m.roughness : 0.55),
+        metalness: Math.min(0.35, m.metalness != null ? m.metalness : 0.22),
+        transparent: false,
+        opacity: 1,
+        depthWrite: true,
+        side: THREE.DoubleSide,
+      }));
+      // Explicitly kill dangerous maps
+      nm.metalnessMap = null;
+      nm.roughnessMap = null;
+      nm.envMap = null;
+      nm.aoMap = null;
+      nm.alphaMap = null;
+      nm.emissiveMap = null;
+      if (nm.emissive) nm.emissive.setHex(0x000000);
+      nm.needsUpdate = true;
+      mats[i] = nm;
+    }
+    o.material = mats.length === 1 ? mats[0] : mats;
+  });
+  if (!hasColor) {
+    applyOpaqueGoldPlayerLook(root);
+  }
+  var skinned = 0;
+  root.traverse(function (o) { if (o.isSkinnedMesh) skinned++; });
+  root.userData.skinnedMeshCount = skinned;
+  root.userData.texturedCustom = true;
+  return skinned;
+}
+
 function applyOpaqueGoldPlayerLook(root) {
   var goldMat = trackMat(new THREE.MeshStandardMaterial({
     color: GOLDEN_STASIS_PALETTE.gold,
@@ -980,7 +1084,11 @@ function buildGltfCharacter(entry, opts) {
   model.scale.set(1, 1, 1);
   model.position.set(0, 0, 0);
 
-  if (opts.customLook || opts.opaqueGold) {
+  if (opts.keepTexture || /custom-character/i.test(entry.id || "")) {
+    applyTexturedCustomLook(model);
+    root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
+    root.userData.unskinnedTps = !(root.userData.skinnedMeshCount > 0);
+  } else if (opts.customLook || opts.opaqueGold) {
     applyOpaqueGoldPlayerLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
   } else {
@@ -1118,6 +1226,11 @@ function buildGltfCharacter(entry, opts) {
   root.userData.limbs = { phase: 0, groundY: root.position.y };
   root.userData.isPlayer = !!opts.isPlayer;
   root.userData.modelId = entry.id;
+  // Unskinned image→3D meshes get procedural TPS root bob (no Mixamo skeleton).
+  if (!root.userData.mixer && (root.userData.unskinnedTps || !(root.userData.skinnedMeshCount > 0))) {
+    root.userData.unskinnedTps = true;
+    root.userData.bobBaseY = root.position.y;
+  }
   return root;
 }
 
@@ -1389,6 +1502,22 @@ function animateHumanoid(root, moving, dt) {
     return;
   }
 
+  // Unskinned custom GLB (TripoSR etc.): TPS-style root bob + slight sway while walking
+  if (root.userData.unskinnedTps || (root.userData.charKind === "gltf" && !root.userData.mixer)) {
+    var targetU = moving ? 1 : 0;
+    root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetU - (root.userData.walkAmp || 0)) * Math.min(1, dt * 8);
+    var ampU = root.userData.walkAmp || 0;
+    var Lbob = root.userData.limbs || (root.userData.limbs = { phase: 0 });
+    Lbob.phase = (Lbob.phase || 0) + dt * (7.5 + ampU * 4);
+    var bob = Math.abs(Math.sin(Lbob.phase)) * ampU * 0.045;
+    var sway = Math.sin(Lbob.phase * 0.5) * ampU * 0.03;
+    var baseY = root.userData.bobBaseY != null ? root.userData.bobBaseY : (Lbob.groundY || 0);
+    root.position.y = baseY + bob;
+    root.rotation.z = sway * 0.15;
+    root.rotation.x = Math.sin(Lbob.phase) * ampU * 0.02;
+    return;
+  }
+
   var L = root.userData.limbs;
   if (!L || !L.lLeg) return;
   var targetP = moving ? 1 : 0;
@@ -1426,11 +1555,13 @@ function buildPlayer() {
 
   function asGoldPlayer(entry, extra) {
     extra = extra || {};
+    var isCustomMesh = /custom-character/i.test(entry.id || "");
     return buildGltfCharacter(entry, {
       isPlayer: true,
       scale: 1.0,
-      customLook: true,
-      opaqueGold: true,
+      customLook: !isCustomMesh,
+      opaqueGold: !isCustomMesh,
+      keepTexture: isCustomMesh || !!extra.keepTexture,
       borrowLocomotion: extra.borrowLocomotion,
       forceBorrow: !!extra.forceBorrow,
     });
@@ -1439,15 +1570,28 @@ function buildPlayer() {
   function isStandingFullBody(root) {
     if (!root) return false;
     var h = root.userData.bboxHeight || 0;
+    if (h < 1.2) return false;
+    var meshCount = 0;
     var skinned = 0;
     root.traverse(function (o) {
+      if (o.isMesh && o.visible) meshCount++;
       if (o.isSkinnedMesh && o.visible) skinned++;
     });
-    return skinned > 0 && h >= 1.2;
+    // Accept unskinned image→3D meshes (TripoSR) as long as full height + visible geometry
+    return meshCount > 0 && (skinned > 0 || root.userData.unskinnedTps || h >= 1.2);
   }
 
-  // VISIBILITY FIRST: prefer Soldier/Xbot (native Walk + Idle, arms/legs swing).
-  // Michelle + borrowed Soldier clips previously collapsed to shoes-only on the floor.
+  // Prefer open-source image→3D custom character (gold jumpsuit with real front+back).
+  if (lib && lib.custom) {
+    var customPlayer = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
+    if (isStandingFullBody(customPlayer)) {
+      customPlayer.userData.playerType = lib.custom.id;
+      return customPlayer;
+    }
+    try { console.warn("[artfloor-player] custom GLB failed height check", lib.custom.id, customPlayer.userData.bboxHeight); } catch (e) {}
+  }
+
+  // Fallback: Mixamo Soldier/Xbot (native Walk + Idle).
   var soldier = null;
   var xbot = null;
   if (lib && lib.glbs) {
@@ -1458,7 +1602,7 @@ function buildPlayer() {
     }
   }
 
-  var primary = soldier || xbot || (lib && lib.custom) || pickGlbEntry(0);
+  var primary = soldier || xbot || pickGlbEntry(0);
   if (primary) {
     var player = asGoldPlayer(primary, { borrowLocomotion: false });
     if (isStandingFullBody(player)) {
@@ -1476,16 +1620,6 @@ function buildPlayer() {
       p2.userData.playerType = secondary.id;
       return p2;
     }
-  }
-
-  // Optional Michelle only if she stands full-height WITHOUT foreign Idle/Walk borrow
-  if (lib && lib.custom) {
-    var michelle = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false });
-    if (isStandingFullBody(michelle)) {
-      michelle.userData.playerType = lib.custom.id;
-      return michelle;
-    }
-    try { console.warn("[artfloor-player] Michelle not full-height", michelle.userData.bboxHeight); } catch (e) {}
   }
 
   // Last resort: procedural gold humanoid (always has height)
@@ -1719,14 +1853,18 @@ function updateCamera(dt) {
   var behindZ = Math.cos(yaw);
   var cp = Math.cos(pitch);
   var sp = Math.sin(pitch);
-  var cx = p.x + behindX * dist * cp;
-  var cy = p.y + 1.55 + dist * sp * 0.85 + 0.35;
-  var cz = p.z + behindZ * dist * cp;
+  // TPS over-shoulder: slight right offset so body stays visible ahead of crosshair line
+  var shoulder = 0.28;
+  var rightX = Math.cos(yaw);
+  var rightZ = -Math.sin(yaw);
+  var cx = p.x + behindX * dist * cp + rightX * shoulder;
+  var cy = p.y + 1.48 + dist * sp * 0.75 + 0.28;
+  var cz = p.z + behindZ * dist * cp + rightZ * shoulder;
   cx = Math.max(-11.5, Math.min(11.5, cx));
   cz = Math.max(-13.8, Math.min(13.8, cz));
   cy = Math.max(0.8, Math.min(6.5, cy));
   api._camera.position.set(cx, cy, cz);
-  api._camera.lookAt(p.x, p.y + 1.35, p.z);
+  api._camera.lookAt(p.x + rightX * 0.12, p.y + 1.42, p.z + rightZ * 0.12);
 }
 
 function updateHint() {
@@ -2012,7 +2150,7 @@ function mount(container, options) {
   api._camDist = ZOOM_DEFAULT;
   api._camDistTarget = ZOOM_DEFAULT;
 
-  showLoader(true, "Loading Art Floor…");
+  showLoader(true, "Loading character…", 2);
 
   var canvas = document.getElementById("ge-world-canvas");
   if (!canvas) {
@@ -2073,7 +2211,7 @@ function mount(container, options) {
     try { api._renderer.render(api._scene, api._camera); } catch (eR) {}
     preloadCritical(urls, function () {});
     api._ready = true;
-    if (!api._firstFrameDone) showLoader(true, "Loading Art Floor…");
+    if (!api._firstFrameDone) showLoader(true, "Loading character…", 2);
   }
 
   loadCharacterLibrary().then(function () {
@@ -2103,7 +2241,7 @@ function start() {
   api._lastTs = 0;
   bindInput();
   resize();
-  if (!api._firstFrameDone) showLoader(true, "Loading Art Floor…");
+  if (!api._firstFrameDone) showLoader(true, "Loading character…", 2);
   if (!api._raf) api._raf = requestAnimationFrame(loop);
   try { api._container && api._container.focus && api._container.focus(); } catch (e) {}
 }
