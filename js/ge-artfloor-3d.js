@@ -3,8 +3,8 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: Mixamo Michelle GLB + Walk/Idle (borrowed from Soldier/Xbot) via AnimationMixer
- * - Look: opaque metallic-gold jumpsuit solids (painting colors) — front painting is NOT wrapped onto back
+ * - Player: Mixamo Soldier/Xbot GLB (native Walk) with opaque gold MeshStandardMaterial — full standing body
+ * - Look: solid gold (metalness≤0.4) NO painting/metalness maps; Michelle optional only if full-height
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
  * - Procedural fallback = continuous MetaHuman proportions (head ~1/7.5 body), 5-finger hands, calm gallery attire
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL for palette ref
@@ -732,7 +732,8 @@ async function loadCharacterLibrary() {
     return api._charLibrary;
   }
   showLoader(true, "Loading gallery patrons…");
-  var lib = { glbs: [], custom: null, customLook: null, customCutout: null, donor: null };
+  var lib = { glbs: [], custom: null, customLook: null, donor: null,
+    goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
 
   // Gallery crowd (calm Mixamo walkers)
@@ -748,11 +749,9 @@ async function loadCharacterLibrary() {
     }
   }
 
-  // Player look: front painting is color reference only (never UV-wrapped onto mesh back).
+  // Front painting = palette reference only (never applied as mesh atlas / never wrapped onto back).
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
-  lib.customCutout = null;
-  // Invented gold-flake albedo (safe from all angles — not the front photo)
-  lib.goldBodyTex = await loadTextureAsync(CHAR_ASSET_BASE + "custom/golden-stasis-back.png", { flipY: false });
+  // Intentionally NOT loading painting/cutout/gold-flake maps onto the player (invisible-body bug).
   // Featured player: Mixamo Michelle (or override) with Walk borrowed from Soldier/Xbot
   try {
     var customGlb = await loadGltfAsync(paths.glb);
@@ -820,13 +819,13 @@ function applyGalleryAttireTint(root, attireHex, skinBias) {
  * opaque MeshStandardMaterials so the contoured mesh stays fully visible while walking.
  */
 var GOLDEN_STASIS_PALETTE = {
-  gold: 0xa37f52,    // eyedropper avg from front painting
-  goldHi: 0xe1bb7d,  // highlight gold
-  goldLo: 0x835f3d,  // shadow bronze (back-safe mid tone)
-  skin: 0xcaa76b,
-  hair: 0x26221d,
-  scarf: 0x141018,
-  heel: 0x1a1410,
+  gold: 0xd4af37,    // eyedropper mid gold from jumpsuit painting
+  goldHi: 0xf7e69c,  // highlight gold
+  goldLo: 0x7a5c2d,  // shadow bronze
+  skin: 0xf5d1b0,    // face/hands
+  hair: 0x1a120b,    // dark hair
+  scarf: 0x0d0d0d,   // black scarf accent
+  heel: 0x5a3e2b,
 };
 
 function findBone(root, re) {
@@ -846,12 +845,19 @@ function forceOpaqueVisibleMat(mat) {
   mat.alphaTest = 0;
   mat.depthWrite = true;
   mat.depthTest = true;
-  mat.side = THREE.FrontSide;
+  mat.side = THREE.DoubleSide;
   mat.blending = THREE.NormalBlending;
-  if (mat.metalnessMap) mat.metalnessMap = null;
-  if (mat.roughnessMap) mat.roughnessMap = null;
-  if (mat.alphaMap) mat.alphaMap = null;
-  if (mat.emissiveMap) mat.emissiveMap = null;
+  // CRITICAL: maps (esp. Mixamo gloss metalnessMap) black-out the body with no env map
+  mat.map = null;
+  mat.metalnessMap = null;
+  mat.roughnessMap = null;
+  mat.normalMap = null;
+  mat.aoMap = null;
+  mat.alphaMap = null;
+  mat.emissiveMap = null;
+  mat.bumpMap = null;
+  mat.displacementMap = null;
+  mat.envMap = null;
   if (mat.specularColorMap) mat.specularColorMap = null;
   if (mat.specularIntensityMap) mat.specularIntensityMap = null;
   if (mat.transmission != null) mat.transmission = 0;
@@ -862,157 +868,86 @@ function forceOpaqueVisibleMat(mat) {
 }
 
 /**
- * Gold-jumpsuit look on Michelle (or any custom Mixamo GLB).
- *
- * Front vs back: source painting is front-only. We do NOT UV-wrap that photo onto the mesh
- * (that put her face/front on the back). Instead:
- *   - Body / suit: opaque metallic gold MeshStandardMaterial from eyedropper palette (reads
- *     correctly when orbiting behind)
- *   - Hair / scarf / heels: solid invented back-safe materials
- * Never install Mixamo gloss metalnessMap (made body invisible without an env map).
- * lookTex is accepted for API compatibility but intentionally not applied as body albedo.
+ * Visibility-first gold jumpsuit on ANY Mixamo GLB (Michelle / Soldier / Xbot).
+ * Solid MeshStandardMaterial only — metalness ≤ 0.4, roughness ≥ 0.5, NO texture maps
+ * (painting atlas / Mixamo metalnessMap / gold-flake maps all caused invisible or shoes-only bodies).
+ * Front painting is never wrapped onto the mesh. No "Golden Stasis" nameplate.
  */
-function applyGoldenStasisLook(root, lookTex) {
-  // lookTex = front painting reference only — never applied as body map (would wrap onto back)
-  void lookTex;
-  var gold = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
-  var goldHi = new THREE.Color(GOLDEN_STASIS_PALETTE.goldHi);
-  var hairCol = new THREE.Color(GOLDEN_STASIS_PALETTE.hair);
-  // Invented gold flake (not front photo) — intentional from any orbit angle
-  var goldBodyTex = (api._charLibrary && api._charLibrary.goldBodyTex) || null;
+function applyOpaqueGoldPlayerLook(root) {
+  var goldMat = trackMat(new THREE.MeshStandardMaterial({
+    color: GOLDEN_STASIS_PALETTE.gold,
+    roughness: 0.58,
+    metalness: 0.32,
+    transparent: false,
+    opacity: 1,
+    depthWrite: true,
+    side: THREE.DoubleSide,
+  }));
+  forceOpaqueVisibleMat(goldMat);
+
+  var skinMat = trackMat(new THREE.MeshStandardMaterial({
+    color: GOLDEN_STASIS_PALETTE.skin,
+    roughness: 0.72,
+    metalness: 0.05,
+    transparent: false,
+    opacity: 1,
+    depthWrite: true,
+    side: THREE.DoubleSide,
+  }));
+  forceOpaqueVisibleMat(skinMat);
+
+  var hairMat = trackMat(new THREE.MeshStandardMaterial({
+    color: GOLDEN_STASIS_PALETTE.hair,
+    roughness: 0.9,
+    metalness: 0.02,
+    transparent: false,
+    opacity: 1,
+    depthWrite: true,
+    side: THREE.DoubleSide,
+  }));
+  forceOpaqueVisibleMat(hairMat);
+
+  var shoeMat = trackMat(new THREE.MeshStandardMaterial({
+    color: GOLDEN_STASIS_PALETTE.heel,
+    roughness: 0.65,
+    metalness: 0.15,
+    transparent: false,
+    opacity: 1,
+    depthWrite: true,
+    side: THREE.DoubleSide,
+  }));
+  forceOpaqueVisibleMat(shoeMat);
+
+  var skinned = 0;
   root.traverse(function (o) {
-    if (!o.isMesh || !o.material) return;
+    if (!o.isMesh) return;
     o.visible = true;
-    // Skinned bind-pose bounds can mis-cull after locomotion retarget
-    if (o.isSkinnedMesh) o.frustumCulled = false;
-
-    var prev = Array.isArray(o.material) ? o.material : [o.material];
-    var next = [];
-    for (var i = 0; i < prev.length; i++) {
-      var src = prev[i];
-      var name = (((src && src.name) || "") + " " + (o.name || "")).toLowerCase();
-      var isHair = /hair|scalp|brow/i.test(name);
-      var isEye = /eye|visor|lash|pupil|cornea/i.test(name);
-      var isShoe = /shoe|boot|heel|sole|footwear/i.test(name);
-
-      // Fresh standard material — drop MeshPhysical + KHR specular / gloss metalnessMap
-      var m = trackMat(new THREE.MeshStandardMaterial({
-        color: GOLDEN_STASIS_PALETTE.gold,
-        roughness: 0.38,
-        metalness: 0.72,
-        transparent: false,
-        opacity: 1,
-        depthWrite: true,
-        side: THREE.FrontSide,
-      }));
-      if (src && src.name) m.name = src.name;
-      // Keep Mixamo normal for body contour when present (no albedo photo)
-      if (src && src.normalMap) {
-        m.normalMap = src.normalMap;
-        if (src.normalScale) m.normalScale = src.normalScale.clone();
-      }
-      // Explicitly clear any baked maps that would show front photo / wipe shading
-      m.map = null;
-      m.metalnessMap = null;
-      m.roughnessMap = null;
-      m.aoMap = null;
-      m.emissiveMap = null;
-
-      if (isEye) {
-        m.color.setHex(0x1a1210);
-        m.metalness = 0.12;
-        m.roughness = 0.35;
-        m.normalMap = null;
-      } else if (isHair) {
-        m.color.copy(hairCol);
-        m.metalness = 0.04;
-        m.roughness = 0.92;
-        m.normalMap = null;
-      } else if (isShoe) {
-        m.color.setHex(GOLDEN_STASIS_PALETTE.heel);
-        m.metalness = 0.28;
-        m.roughness = 0.48;
-        m.normalMap = null;
-      } else {
-        // Opaque metallic gold jumpsuit — invented flake map OR solid; never front photo
-        m.color.copy(gold).lerp(goldHi, 0.35);
-        m.metalness = 0.72;
-        m.roughness = 0.36;
-        if (goldBodyTex) {
-          m.map = goldBodyTex;
-          m.color.setHex(0xffffff);
-          m.color.lerp(goldHi, 0.2);
-          // Keep metalness high but NO metalnessMap — diffuse gold stays visible
-          m.metalness = 0.68;
-          m.roughness = 0.4;
-        }
-        m.emissive.setHex(0x2a1c06);
-        m.emissiveIntensity = 0.06;
-      }
-      forceOpaqueVisibleMat(m);
-      next.push(m);
-    }
-    o.material = next.length === 1 ? next[0] : next;
     o.castShadow = true;
     o.receiveShadow = true;
+    if (o.isSkinnedMesh) {
+      skinned++;
+      o.frustumCulled = false;
+      // Force valid bind/skeleton state so the body stands on +Y
+      if (o.skeleton) o.skeleton.update();
+      o.computeBoundingSphere();
+    }
+    var name = (((o.material && o.material.name) || "") + " " + (o.name || "")).toLowerCase();
+    var mat = goldMat;
+    if (/hair|scalp|brow/i.test(name)) mat = hairMat;
+    else if (/visor|eye|glass/i.test(name)) mat = hairMat;
+    else if (/shoe|boot|heel|sole|footwear/i.test(name)) mat = shoeMat;
+    // Michelle is a single Ch03_Body mesh — whole figure stays opaque gold (visible).
+    // Soldier/Xbot mesh names rarely include "skin"; keep gold so the full body reads.
+    o.material = mat;
   });
+  root.userData.skinnedMeshCount = skinned;
+  return skinned;
+}
 
-  // Dark curly updo volume on head bone (painting subject has a bouffant) — solid back hair mass
-  var head = findBone(root, /Head$/i);
-  if (head) {
-    var hairMat = trackMat(new THREE.MeshStandardMaterial({
-      color: GOLDEN_STASIS_PALETTE.hair, roughness: 0.92, metalness: 0.02,
-      transparent: false, opacity: 1, depthWrite: true,
-    }));
-    var bun = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.11, 14, 12)), hairMat);
-    bun.position.set(0, 0.12, -0.02);
-    bun.scale.set(1.15, 1.35, 1.1);
-    bun.castShadow = true;
-    bun.visible = true;
-    head.add(bun);
-    var puff = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.085, 12, 10)), hairMat);
-    puff.position.set(0, 0.06, 0.06);
-    puff.scale.set(1.4, 0.9, 1.1);
-    puff.castShadow = true;
-    puff.visible = true;
-    head.add(puff);
-    // Invented back-of-head hair mass (orbiting behind looks intentional, not a flat card)
-    var backHair = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.1, 12, 10)), hairMat);
-    backHair.position.set(0, 0.08, -0.08);
-    backHair.scale.set(1.2, 1.15, 0.95);
-    backHair.castShadow = true;
-    backHair.visible = true;
-    head.add(backHair);
-  }
-
-  // Black neckerchief near neck (wraps nape — solid fabric, not photo)
-  var neck = findBone(root, /Neck$/i) || head;
-  if (neck) {
-    var scarfMat = trackMat(new THREE.MeshStandardMaterial({
-      color: GOLDEN_STASIS_PALETTE.scarf, roughness: 0.7, metalness: 0.05,
-      transparent: false, opacity: 1, depthWrite: true,
-    }));
-    var knot = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.035, 10, 8)), scarfMat);
-    knot.position.set(0.02, 0.02, 0.06);
-    knot.visible = true;
-    neck.add(knot);
-    var nape = new THREE.Mesh(trackGeo(new THREE.TorusGeometry(0.05, 0.018, 8, 14)), scarfMat);
-    nape.position.set(0, 0.01, -0.02);
-    nape.rotation.x = Math.PI / 2;
-    nape.visible = true;
-    neck.add(nape);
-    var tail = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.04, 0.01, 0.22)), scarfMat);
-    tail.position.set(0.08, 0.0, 0.12);
-    tail.rotation.y = -0.5;
-    tail.rotation.z = 0.25;
-    tail.visible = true;
-    neck.add(tail);
-    var tail2 = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.035, 0.008, 0.16)), scarfMat);
-    tail2.position.set(0.12, -0.02, 0.08);
-    tail2.rotation.y = -0.85;
-    tail2.visible = true;
-    neck.add(tail2);
-  }
+// Back-compat alias
+function applyGoldenStasisLook(root, lookTex) {
+  void lookTex;
+  return applyOpaqueGoldPlayerLook(root);
 }
 
 /**
@@ -1035,42 +970,105 @@ function collectLocomotionClips(entry, donor) {
 }
 
 function buildGltfCharacter(entry, opts) {
-
   opts = opts || {};
   var root = new THREE.Group();
   // Skinned Mixamo meshes need SkeletonUtils.clone (plain clone breaks bindings)
   var model = SkeletonUtils.clone(entry.gltf.scene);
-  if (opts.customLook) {
-    applyGoldenStasisLook(model, opts.lookTexture || (api._charLibrary && api._charLibrary.customLook));
+  // Ensure model itself is visible / Y-up
+  model.visible = true;
+  model.rotation.set(0, 0, 0);
+  model.scale.set(1, 1, 1);
+  model.position.set(0, 0, 0);
+
+  if (opts.customLook || opts.opaqueGold) {
+    applyOpaqueGoldPlayerLook(model);
+    root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
   } else {
     applyGalleryAttireTint(
       model,
       opts.attire != null ? opts.attire : GLB_ATTIRE_TINTS[0],
       opts.skin != null ? opts.skin : 0xd4b896
     );
+    model.traverse(function (o) {
+      if (!o.isMesh) return;
+      o.visible = true;
+      if (o.isSkinnedMesh) o.frustumCulled = false;
+      // Strip dangerous maps on NPCs too when present
+      var mats = Array.isArray(o.material) ? o.material : [o.material];
+      for (var mi = 0; mi < mats.length; mi++) {
+        if (mats[mi] && mats[mi].metalnessMap) {
+          mats[mi].metalnessMap = null;
+          mats[mi].metalness = Math.min(mats[mi].metalness || 0, 0.2);
+          mats[mi].needsUpdate = true;
+        }
+      }
+    });
   }
 
-  // Normalize adult height (~1.78m) — MetaHuman-like standing scale
+  // Pose once so skinned bbox reflects standing bind, not a collapsed envelope
   model.updateMatrixWorld(true);
+  model.traverse(function (o) {
+    if (o.isSkinnedMesh && o.skeleton) o.skeleton.update();
+  });
+  model.updateMatrixWorld(true);
+
   var box = new THREE.Box3().setFromObject(model);
   var size = new THREE.Vector3();
   box.getSize(size);
-  var s = (TARGET_HUMAN_HEIGHT * (opts.scale || 1)) / Math.max(0.001, size.y);
-  model.scale.setScalar(s);
+  // Guard against degenerate / flat skinned bounds (shoes-only bug)
+  var rawH = size.y;
+  if (!isFinite(rawH) || rawH < 0.35) {
+    // Fallback: estimate from hip→head bones (Mixamo Y-up)
+    var hips = findBone(model, /Hips$/i);
+    var head = findBone(model, /Head$/i);
+    if (hips && head) {
+      var hp = new THREE.Vector3();
+      var hd = new THREE.Vector3();
+      hips.getWorldPosition(hp);
+      head.getWorldPosition(hd);
+      rawH = Math.max(0.35, Math.abs(hd.y - hp.y) * 1.65);
+    } else {
+      rawH = 1.7;
+    }
+  }
+  var targetH = TARGET_HUMAN_HEIGHT * (opts.scale || 1);
+  var s = targetH / Math.max(0.35, rawH);
+  // Never allow non-uniform / negative scale
+  s = Math.abs(s) || 1;
+  if (s > 8) s = targetH / 1.7; // insane bbox → assume ~1.7m source
+  if (s < 0.05) s = targetH / 1.7;
+  model.scale.set(s, s, s);
+  model.updateMatrixWorld(true);
+  model.traverse(function (o) {
+    if (o.isSkinnedMesh && o.skeleton) o.skeleton.update();
+  });
   model.updateMatrixWorld(true);
   box.setFromObject(model);
-  model.position.y = -box.min.y;
+  model.position.y = isFinite(box.min.y) ? -box.min.y : 0;
   root.add(model);
 
+  // Locomotion: prefer NATIVE clips on this GLB. Only borrow Walk/Idle when the
+  // entry has none (Michelle). Borrowing Soldier Idle onto Michelle previously
+  // collapsed her into a floor pancake (shoes + facing-arrow only).
   var mixer = null;
   var actions = {};
   var donor = (api._charLibrary && api._charLibrary.donor) || null;
-  var loco = collectLocomotionClips(entry, opts.borrowLocomotion !== false ? donor : null);
+  var nativeHasWalk = !!(entry.gltf.animations || []).some(function (c) { return /walk/i.test(c.name); });
+  var allowBorrow = opts.borrowLocomotion !== false && !nativeHasWalk;
+  // Hard-disable borrow for known-fragile Michelle unless explicitly forced
+  if (/michelle/i.test(entry.id || "") && opts.forceBorrow !== true) allowBorrow = false;
+  var loco = collectLocomotionClips(entry, allowBorrow ? donor : null);
   var nativeAnims = (entry.gltf.animations && entry.gltf.animations.length) ? entry.gltf.animations : [];
   if (loco.walk || loco.idle || nativeAnims.length) {
     mixer = new THREE.AnimationMixer(model);
     var walkClip = loco.walk;
     var idleClip = loco.idle;
+    // If no Walk (Michelle), use a gentle SambaDance weight as "walk" substitute only when moving
+    if (!walkClip && /michelle/i.test(entry.id || "")) {
+      for (var ai = 0; ai < nativeAnims.length; ai++) {
+        if (/samba|dance/i.test(nativeAnims[ai].name)) { walkClip = nativeAnims[ai]; break; }
+      }
+    }
     var clip = walkClip || idleClip || nativeAnims[0];
     if (walkClip) actions.walk = mixer.clipAction(walkClip);
     if (idleClip) actions.idle = mixer.clipAction(idleClip);
@@ -1078,10 +1076,15 @@ function buildGltfCharacter(entry, opts) {
     if (actions.idle) {
       actions.idle.play();
       actions.idle.setEffectiveWeight(1);
+    } else if (actions.walk) {
+      // No idle — hold walk at low weight so bind isn't overwritten by a foreign Idle
+      actions.walk.play();
+      actions.walk.setEffectiveWeight(0.01);
+      actions.walk.paused = true;
     }
     if (actions.walk) {
-      actions.walk.play();
-      actions.walk.setEffectiveWeight(actions.idle ? 0 : 0.35);
+      if (!actions.walk.isRunning || !actions.walk.isRunning()) actions.walk.play();
+      if (actions.idle) actions.walk.setEffectiveWeight(0);
       actions.walk.setLoop(THREE.LoopRepeat, Infinity);
     }
     root.userData.mixer = mixer;
@@ -1091,7 +1094,6 @@ function buildGltfCharacter(entry, opts) {
 
   if (opts.isPlayer) {
     var arrow = buildFacingArrow();
-    // Place arrow at feet in front — not a chest badge
     arrow.position.set(0, 0.02, 0);
     root.add(arrow);
     api._facingArrow = arrow;
@@ -1101,6 +1103,15 @@ function buildGltfCharacter(entry, opts) {
   var bb = new THREE.Box3().setFromObject(root);
   var groundY = isFinite(bb.min.y) ? -bb.min.y : 0;
   if (groundY) root.position.y += groundY;
+  bb.setFromObject(root);
+  var finalSize = new THREE.Vector3();
+  bb.getSize(finalSize);
+  root.userData.bboxHeight = finalSize.y;
+  try {
+    console.info("[artfloor-player]", entry.id, "skinned=" + (root.userData.skinnedMeshCount || model.userData.skinnedMeshCount || "?"),
+      "rawH=" + rawH.toFixed(3), "scale=" + s.toFixed(3),
+      "bboxY=" + finalSize.y.toFixed(3), "walk=" + !!(actions && actions.walk), "idle=" + !!(actions && actions.idle));
+  } catch (e) {}
 
   root.userData.charKind = "gltf";
   root.userData.walkAmp = 0;
@@ -1364,10 +1375,13 @@ function animateHumanoid(root, moving, dt) {
     root.userData.walkAmp = w + (target - w) * Math.min(1, dt * 6);
     w = root.userData.walkAmp;
     if (actions.walk && actions.idle) {
+      if (actions.walk.paused) actions.walk.paused = false;
       actions.walk.setEffectiveWeight(w);
       actions.idle.setEffectiveWeight(1 - w);
       actions.walk.timeScale = 0.85 + w * 0.35;
     } else if (actions.walk) {
+      actions.walk.paused = w < 0.05;
+      if (!actions.walk.paused && (!actions.walk.isRunning || !actions.walk.isRunning())) actions.walk.play();
       actions.walk.setEffectiveWeight(0.3 + w * 0.7);
       actions.walk.timeScale = 0.7 + w * 0.6;
     }
@@ -1409,26 +1423,73 @@ function pickGlbEntry(index) {
 
 function buildPlayer() {
   var lib = api._charLibrary;
-  // Featured: Mixamo Michelle + Walk/Idle from Soldier/Xbot (legs move, arms swing)
-  if (lib && lib.custom) {
-    return buildGltfCharacter(lib.custom, {
-      isPlayer: true,
-      scale: 1.0,
-      customLook: true,
-      lookTexture: lib.customLook,
-      borrowLocomotion: true,
-    });
-  }
-  var entry = pickGlbEntry(0);
-  if (entry) {
+
+  function asGoldPlayer(entry, extra) {
+    extra = extra || {};
     return buildGltfCharacter(entry, {
       isPlayer: true,
       scale: 1.0,
-      attire: GOLDEN_STASIS_PALETTE.gold,
-      skin: GOLDEN_STASIS_PALETTE.skin,
+      customLook: true,
+      opaqueGold: true,
+      borrowLocomotion: extra.borrowLocomotion,
+      forceBorrow: !!extra.forceBorrow,
     });
   }
-  return buildHumanoid({
+
+  function isStandingFullBody(root) {
+    if (!root) return false;
+    var h = root.userData.bboxHeight || 0;
+    var skinned = 0;
+    root.traverse(function (o) {
+      if (o.isSkinnedMesh && o.visible) skinned++;
+    });
+    return skinned > 0 && h >= 1.2;
+  }
+
+  // VISIBILITY FIRST: prefer Soldier/Xbot (native Walk + Idle, arms/legs swing).
+  // Michelle + borrowed Soldier clips previously collapsed to shoes-only on the floor.
+  var soldier = null;
+  var xbot = null;
+  if (lib && lib.glbs) {
+    for (var i = 0; i < lib.glbs.length; i++) {
+      var id = (lib.glbs[i].id || "").toLowerCase();
+      if (!soldier && id.indexOf("soldier") >= 0) soldier = lib.glbs[i];
+      if (!xbot && id.indexOf("xbot") >= 0) xbot = lib.glbs[i];
+    }
+  }
+
+  var primary = soldier || xbot || (lib && lib.custom) || pickGlbEntry(0);
+  if (primary) {
+    var player = asGoldPlayer(primary, { borrowLocomotion: false });
+    if (isStandingFullBody(player)) {
+      player.userData.playerType = primary.id;
+      return player;
+    }
+    try { console.warn("[artfloor-player] primary failed height check", primary.id, player.userData.bboxHeight); } catch (e) {}
+  }
+
+  // Secondary: other GLB
+  var secondary = (primary === soldier) ? xbot : soldier;
+  if (secondary) {
+    var p2 = asGoldPlayer(secondary, { borrowLocomotion: false });
+    if (isStandingFullBody(p2)) {
+      p2.userData.playerType = secondary.id;
+      return p2;
+    }
+  }
+
+  // Optional Michelle only if she stands full-height WITHOUT foreign Idle/Walk borrow
+  if (lib && lib.custom) {
+    var michelle = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false });
+    if (isStandingFullBody(michelle)) {
+      michelle.userData.playerType = lib.custom.id;
+      return michelle;
+    }
+    try { console.warn("[artfloor-player] Michelle not full-height", michelle.userData.bboxHeight); } catch (e) {}
+  }
+
+  // Last resort: procedural gold humanoid (always has height)
+  var hum = buildHumanoid({
     coat: GOLDEN_STASIS_PALETTE.gold,
     pants: GOLDEN_STASIS_PALETTE.gold,
     shirt: GOLDEN_STASIS_PALETTE.gold,
@@ -1439,6 +1500,8 @@ function buildPlayer() {
     scale: 1.0,
     dress: true,
   });
+  hum.userData.playerType = "procedural-gold";
+  return hum;
 }
 
 function buildNpc(x, z, palette, index) {

@@ -3,24 +3,23 @@
 Primary: offline **Mixamo-style human GLBs** under `glb/` loaded with Three.js
 `GLTFLoader` + `AnimationMixer` (Walk / Idle).
 
-- `glb/Michelle.glb` — Mixamo Michelle (female). **Player** with opaque metallic-gold jumpsuit materials (eyedropper palette from the painting). SambaDance ships in-file; Walk/Idle are borrowed at runtime from Soldier/Xbot (same `mixamorig:*` bones).
-- `glb/Soldier.glb` — Mixamo Soldier (Idle/Walk/Run) — gallery NPC crowd + locomotion donor
-- `glb/Xbot.glb` — Mixamo X Bot (idle/walk/run) — gallery NPC crowd
+- `glb/Soldier.glb` — **default player** (opaque gold MeshStandardMaterial) + gallery NPC. Native Idle/Walk/Run so arms and legs swing.
+- `glb/Xbot.glb` — fallback player / gallery NPC (native idle/walk/run)
+- `glb/Michelle.glb` — optional female; only used if she measures full standing height **without** borrowing Soldier clips (foreign Idle previously collapsed her to shoes-only)
 
-## Custom painting → gold look (front vs back)
+## Gold look (visibility-first)
 
-- `custom/golden-stasis.jpg` — source painting (front-only reference)
-- `custom/golden-stasis-cutout.png` — optional rembg cutout (not used as player mesh)
+Solid opaque gold `MeshStandardMaterial` from painting eyedropper colors:
+- metalness ≤ 0.4, roughness ≥ 0.5
+- **NO** painting atlas / metalnessMap / gold-flake maps (those made the body invisible)
+- Front painting is **never** UV-wrapped onto the back
+- No "Golden Stasis" nameplate
 
-Because the source is **front-only**, the painting is **not** UV-wrapped onto Michelle (that put the front photo on her back). The body uses solid opaque metallic-gold `MeshStandardMaterial` from painting colors; hair/scarf/heels are solid invented materials that read correctly when orbiting behind. Mixamo gloss `metalnessMap` is stripped (it made the body invisible without an env map).
+Cutout / ExtrudeGeometry inflated silhouette player code has been removed.
 
 Reusable hook:
 
-- `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=assets/artfloor-characters/custom/your.jpg` (palette / look ref)
-- `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/Michelle.glb`
+- `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=...` (palette ref only)
+- `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/Soldier.glb`
 
-NPCs keep calm gallery attire solids (navy, camel, charcoal, burgundy, slate, …).
-
-Procedural fallback (if GLBs fail): MetaHuman-like proportions (head ≈ 1/7.5 body height), continuous lathe torso, tapered limbs, 5-finger hands.
-
-Intentionally **not** used: inflated dual-face / extruded silhouette-box player, front-photo-on-back, “Golden Stasis” nameplate, green waffle “player uniform”, white collar plates, chest badge / pencil graphics, photo-cube / Lego ball-joint people.
+NPCs keep calm gallery attire solids. Procedural MetaHuman-ish fallback if all GLBs fail.
