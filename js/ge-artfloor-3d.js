@@ -3,13 +3,13 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: open-source image→3D custom-character.glb (TripoSR) gold jumpsuit — full body front+back
- * - Look: segmented PBR (skin/hair/gold/scarf/gun/shoes) + vertex-color reinforce; Y-up upright
+ * - Player: Mixamo Michelle (skinned) + Soldier Walk/Idle — painting-projected albedo on her UVs
+ * - Look: golden-stasis bake (michelle-gold-*) soft PBR; hair/scarf/gun props; not TripoSR statue
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Unskinned custom mesh: TPS bob/sway/idle breathe (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
- * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
- * - NO yellow inflated cutout / ExtrudeGeometry silhouette; NO painting UV-wrap on back
- * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; LMB/F shoot; E at desk
+ * - Arms swing via AnimationMixer; LMB/F aims gun/right arm FORWARD (not ceiling hero pose)
+ * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL palette ref
+ * - TripoSR custom-character.glb kept as optional ?customGlb= override only
+ * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; E at desk
  */
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -41,6 +41,8 @@ var api = {
   _projectiles: null,
   _muzzleLight: null,
   _shootCooldown: 0,
+  _aimHold: 0,
+  _mouseLeft: false,
   _colliders: [],
   _booth: null,
   _npcs: [],
@@ -651,11 +653,11 @@ var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
 /**
  * Custom player hook (reusable for future paintings):
- * - CUSTOM_CHARACTER_GLB: TripoSR custom-character.glb (default) — unskinned TPS bob; Mixamo fallback
- * - CUSTOM_CHARACTER_URL: painting used as color reference only (NOT UV-wrapped on the mesh back)
+ * - CUSTOM_CHARACTER_GLB: Mixamo Michelle.glb (default) — skinned Walk/Idle + painting UV bake
+ * - CUSTOM_CHARACTER_URL: golden-stasis painting (palette + bake source)
  * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or ?customChar= / ?customGlb=
  */
-var CUSTOM_CHARACTER_GLB = "glb/custom-character.glb";
+var CUSTOM_CHARACTER_GLB = "glb/Michelle.glb";
 var CUSTOM_CHARACTER_URL = "custom/golden-stasis.jpg";
 
 function resolveCustomCharacterPaths() {
@@ -677,7 +679,7 @@ function resolveCustomCharacterPaths() {
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
   // Bust CDN/browser cache when custom GLB/PBR maps change
-  var bust = "v=19";
+  var bust = "v=20";
   function withBust(u) {
     if (!u) return u;
     return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
@@ -773,21 +775,21 @@ async function loadCharacterLibrary() {
   if (api._charLibrary && api._charLibrary.glbs && api._charLibrary.glbs.length) {
     return api._charLibrary;
   }
-  showLoader(true, "Loading custom character GLB…", 5);
+  showLoader(true, "Loading Mixamo Michelle…", 5);
   var lib = { glbs: [], custom: null, customLook: null, donor: null,
     goldDiffuse: null, goldMetal: null, goldRough: null };
   var paths = resolveCustomCharacterPaths();
 
-  // Featured player first: open-source image→3D custom-character.glb
+  // Featured player: Mixamo Michelle (skinned) — painting UV bake + Soldier Walk/Idle
   showLoader(true, "Loading character…", 8);
   try {
     var customGlb = await loadGltfAsync(paths.glb, function (t) {
-      if (t == null) showLoader(true, "Loading custom character GLB…", null);
-      else showLoader(true, "Loading custom character GLB…", 8 + t * 55);
+      if (t == null) showLoader(true, "Loading character GLB…", null);
+      else showLoader(true, "Loading character GLB…", 8 + t * 40);
     });
     if (customGlb && customGlb.scene) {
       lib.custom = { id: CUSTOM_CHARACTER_GLB, gltf: customGlb, lookUrl: paths.look };
-      showLoader(true, "Character ready — loading gallery…", 65);
+      showLoader(true, "Character ready — loading gallery…", 50);
     } else {
       showLoader(true, "Character missing — loading fallback…", 40);
     }
@@ -795,14 +797,14 @@ async function loadCharacterLibrary() {
     showLoader(true, "Character load error — fallback…", 40);
   }
 
-  // Gallery crowd (calm Mixamo walkers)
+  // Gallery crowd + locomotion donor (Soldier Walk/Idle bind onto Michelle mixamorig bones)
   var glbFiles = ["glb/Soldier.glb", "glb/Xbot.glb"];
   for (var gi = 0; gi < glbFiles.length; gi++) {
-    var basePct = 65 + gi * 12;
+    var basePct = 50 + gi * 15;
     showLoader(true, "Loading gallery patrons…", basePct);
-    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi], function (t) {
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=20", function (t) {
       if (t == null) return;
-      showLoader(true, "Loading gallery patrons…", basePct + t * 12);
+      showLoader(true, "Loading gallery patrons…", basePct + t * 15);
     });
     if (g && g.scene) {
       var entry = { id: glbFiles[gi], gltf: g };
@@ -813,9 +815,12 @@ async function loadCharacterLibrary() {
     }
   }
 
-  // Front painting = palette reference only (never applied as mesh atlas / never wrapped onto back).
-  showLoader(true, "Finishing Art Floor…", 92);
+  showLoader(true, "Loading Golden Stasis materials…", 85);
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
+  // Painting projected onto Michelle UVs (albedo histogram validated — not mottled black)
+  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=20", { flipY: false });
+  lib.goldMetal = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-metal.png?v=20", { flipY: false });
+  lib.goldRough = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-rough.png?v=20", { flipY: false });
   showLoader(true, "Almost ready…", 97);
 
   api._charLibrary = lib;
@@ -1111,9 +1116,197 @@ function applyOpaqueGoldPlayerLook(root) {
   return skinned;
 }
 
-// Back-compat alias
+
+/**
+ * Hybrid Michelle look: painting-projected albedo on Mixamo UVs + soft metal/rough.
+ * Adds hair / scarf / gold gun props so silhouette reads as Golden Stasis while
+ * AnimationMixer drives arms/legs (Soldier Walk + Idle).
+ */
+function applyMichellePaintingLook(root) {
+  var lib = api._charLibrary || {};
+  var map = lib.goldDiffuse || null;
+  var metalMap = lib.goldMetal || null;
+  var roughMap = lib.goldRough || null;
+  if (map) {
+    map.colorSpace = THREE.SRGBColorSpace;
+    map.flipY = false;
+    map.anisotropy = 8;
+    map.needsUpdate = true;
+  }
+  if (metalMap) { metalMap.colorSpace = THREE.NoColorSpace; metalMap.flipY = false; metalMap.needsUpdate = true; }
+  if (roughMap) { roughMap.colorSpace = THREE.NoColorSpace; roughMap.flipY = false; roughMap.needsUpdate = true; }
+
+  var skinned = 0;
+  root.traverse(function (o) {
+    if (!o.isMesh) return;
+    o.visible = true;
+    o.castShadow = true;
+    o.receiveShadow = true;
+    if (o.isSkinnedMesh) {
+      skinned++;
+      o.frustumCulled = false;
+      if (o.skeleton) o.skeleton.update();
+    }
+    var mat = trackMat(new THREE.MeshStandardMaterial({
+      color: map ? 0xffffff : GOLDEN_STASIS_PALETTE.gold,
+      map: map,
+      metalnessMap: metalMap,
+      roughnessMap: roughMap,
+      metalness: metalMap ? 1.0 : 0.55,
+      roughness: roughMap ? 1.0 : 0.42,
+      envMapIntensity: 1.05,
+      transparent: false,
+      opacity: 1,
+      depthWrite: true,
+      side: THREE.DoubleSide,
+      flatShading: false,
+    }));
+    // Soft PBR — no Mixamo gloss metalnessMap black-out; tiny warm emissive lift
+    mat.aoMap = null;
+    mat.alphaMap = null;
+    if (mat.emissive) mat.emissive.setHex(0x1a1208);
+    mat.emissiveIntensity = 0.05;
+    mat.needsUpdate = true;
+    o.material = mat;
+  });
+  root.userData.skinnedMeshCount = skinned;
+  root.userData.michellePainted = true;
+
+  // Hair bouffant on head bone
+  var head = findBone(root, /Head$/i);
+  if (head && !head.userData.gsHair) {
+    head.userData.gsHair = true;
+    var hairMat = trackMat(new THREE.MeshStandardMaterial({
+      color: GOLDEN_STASIS_PALETTE.hair, roughness: 0.92, metalness: 0.02,
+      transparent: false, opacity: 1, depthWrite: true,
+    }));
+    var bun = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.11, 14, 12)), hairMat);
+    bun.position.set(0, 0.12, -0.02);
+    bun.scale.set(1.15, 1.35, 1.1);
+    bun.castShadow = true;
+    head.add(bun);
+    var puff = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.085, 12, 10)), hairMat);
+    puff.position.set(0, 0.06, 0.06);
+    puff.scale.set(1.4, 0.9, 1.1);
+    puff.castShadow = true;
+    head.add(puff);
+    var backHair = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.1, 12, 10)), hairMat);
+    backHair.position.set(0, 0.08, -0.08);
+    backHair.scale.set(1.2, 1.15, 0.95);
+    backHair.castShadow = true;
+    head.add(backHair);
+  }
+
+  // Black scarf at neck
+  var neck = findBone(root, /Neck$/i) || head;
+  if (neck && !neck.userData.gsScarf) {
+    neck.userData.gsScarf = true;
+    var scarfMat = trackMat(new THREE.MeshStandardMaterial({
+      color: GOLDEN_STASIS_PALETTE.scarf, roughness: 0.7, metalness: 0.05,
+      transparent: false, opacity: 1, depthWrite: true,
+    }));
+    var knot = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.035, 10, 8)), scarfMat);
+    knot.position.set(0.02, 0.02, 0.06);
+    neck.add(knot);
+    var nape = new THREE.Mesh(trackGeo(new THREE.TorusGeometry(0.05, 0.018, 8, 14)), scarfMat);
+    nape.position.set(0, 0.01, -0.02);
+    nape.rotation.x = Math.PI / 2;
+    neck.add(nape);
+    var tail = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.04, 0.01, 0.22)), scarfMat);
+    tail.position.set(0.08, 0.0, 0.12);
+    tail.rotation.y = -0.5;
+    tail.rotation.z = 0.25;
+    neck.add(tail);
+  }
+
+  attachPlayerGun(root);
+  return skinned;
+}
+
+/** Gold pistol parented to RightHand — aims forward when shooting. */
+function attachPlayerGun(root) {
+  var hand = findBone(root, /RightHand$/i);
+  if (!hand || hand.userData.gsGun) return null;
+  hand.userData.gsGun = true;
+  var gun = new THREE.Group();
+  gun.name = "GS_GoldGun";
+  var gold = trackMat(new THREE.MeshStandardMaterial({
+    color: 0xe8c84a, metalness: 0.85, roughness: 0.28,
+    emissive: 0x3a2808, emissiveIntensity: 0.08,
+  }));
+  var grip = trackMat(new THREE.MeshStandardMaterial({
+    color: 0x1a1210, metalness: 0.15, roughness: 0.75,
+  }));
+  // Local gun: barrel along +Z (Mixamo hand points roughly -Y in bind; we orient in aim)
+  var slide = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.045, 0.085, 0.22)), gold);
+  slide.position.set(0, 0.02, 0.06);
+  gun.add(slide);
+  var barrel = new THREE.Mesh(trackGeo(new THREE.CylinderGeometry(0.012, 0.014, 0.12, 8)), gold);
+  barrel.rotation.x = Math.PI / 2;
+  barrel.position.set(0, 0.035, 0.18);
+  gun.add(barrel);
+  var handle = new THREE.Mesh(trackGeo(new THREE.BoxGeometry(0.038, 0.09, 0.05)), grip);
+  handle.position.set(0, -0.04, 0.02);
+  gun.add(handle);
+  // Rest pose in hand: barrel roughly along look when arm aims forward
+  gun.position.set(0, -0.02, 0.04);
+  gun.rotation.set(-Math.PI / 2, 0, 0);
+  gun.scale.setScalar(1.15);
+  hand.add(gun);
+  root.userData.gun = gun;
+  root.userData.gunHand = hand;
+  root.userData.rightArm = findBone(root, /RightArm$/i);
+  root.userData.rightFore = findBone(root, /RightForeArm$/i);
+  root.userData.rightShoulder = findBone(root, /RightShoulder$/i);
+  return gun;
+}
+
+/**
+ * After mixer update: when aiming, override right arm so gun points FORWARD
+ * (along character -Z / walk look), not ceiling. Idle uses Soldier Idle (relaxed).
+ */
+function applyPlayerGunAim(root, aiming, dt) {
+  if (!root || !root.userData) return;
+  var arm = root.userData.rightArm;
+  var fore = root.userData.rightFore;
+  var gun = root.userData.gun;
+  if (!arm) return;
+  var t = root.userData.aimBlend || 0;
+  var target = aiming ? 1 : 0;
+  t += (target - t) * Math.min(1, (dt || 0.016) * 10);
+  root.userData.aimBlend = t;
+  // Snapshot relaxed pose from Idle (before aim overrides)
+  if (!root.userData.aimBase || (!aiming && t < 0.05)) {
+    root.userData.aimBase = {
+      arm: { x: arm.rotation.x, y: arm.rotation.y, z: arm.rotation.z },
+      fore: fore ? { x: fore.rotation.x, y: fore.rotation.y, z: fore.rotation.z } : null,
+    };
+  }
+  if (t < 0.01 && !aiming) return;
+  var b = root.userData.aimBase;
+  // Aim pose: arm forward along body -Z (gun barrel out)
+  var ax = b.arm.x + (-1.15 - b.arm.x) * t;
+  var ay = b.arm.y + (0.15 - b.arm.y) * t;
+  var az = b.arm.z + (-0.35 - b.arm.z) * t;
+  arm.rotation.set(ax, ay, az);
+  if (fore && b.fore) {
+    fore.rotation.set(
+      b.fore.x + (-0.25 - b.fore.x) * t,
+      b.fore.y + (0.05 - b.fore.y) * t,
+      b.fore.z + (0.1 - b.fore.z) * t
+    );
+  }
+  if (gun) {
+    // Keep barrel roughly world-forward while aiming
+    gun.rotation.set(-Math.PI / 2 + 0.2 * t, 0, 0.15 * t);
+  }
+}
+
+// Back-compat alias — prefer painting UV bake on Michelle when maps loaded
 function applyGoldenStasisLook(root, lookTex) {
   void lookTex;
+  var lib = api._charLibrary || {};
+  if (lib.goldDiffuse) return applyMichellePaintingLook(root);
   return applyOpaqueGoldPlayerLook(root);
 }
 
@@ -1165,20 +1358,40 @@ function buildGltfCharacter(entry, opts) {
   model.scale.set(1, 1, 1);
   model.position.set(0, 0, 0);
 
-  var isCustom = !!(opts.keepTexture || /custom-character/i.test(entry.id || ""));
-  if (isCustom) {
+  var isTripo = !!(opts.keepTexture && /custom-character/i.test(entry.id || ""));
+  var isMichelle = /michelle/i.test(entry.id || "");
+  var isCustom = !!(opts.keepTexture || isMichelle || /custom-character/i.test(entry.id || ""));
+  if (isTripo) {
     uprightCustomIfNeeded(model);
     // TripoSR front is +Z; game forward is -Z — yaw π so TPS-behind shows her back, orbit shows sides
     model.rotation.y = Math.PI;
   }
 
-  if (isCustom) {
+  if (isTripo) {
     applyTexturedCustomLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
     root.userData.unskinnedTps = !(root.userData.skinnedMeshCount > 0);
+  } else if (isMichelle || opts.michellePaint || (opts.customLook && (api._charLibrary && api._charLibrary.goldDiffuse))) {
+    applyMichellePaintingLook(model);
+    root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
+    root.userData.unskinnedTps = false;
+    root.userData.gun = model.userData.gun;
+    root.userData.gunHand = model.userData.gunHand;
+    root.userData.rightArm = model.userData.rightArm;
+    root.userData.rightFore = model.userData.rightFore;
+    root.userData.rightShoulder = model.userData.rightShoulder;
+    root.userData.michellePainted = true;
   } else if (opts.customLook || opts.opaqueGold) {
     applyOpaqueGoldPlayerLook(model);
     root.userData.skinnedMeshCount = model.userData.skinnedMeshCount || 0;
+    if (opts.isPlayer) {
+      attachPlayerGun(model);
+      root.userData.gun = model.userData.gun;
+      root.userData.gunHand = model.userData.gunHand;
+      root.userData.rightArm = model.userData.rightArm;
+      root.userData.rightFore = model.userData.rightFore;
+      root.userData.rightShoulder = model.userData.rightShoulder;
+    }
   } else {
     applyGalleryAttireTint(
       model,
@@ -1251,15 +1464,16 @@ function buildGltfCharacter(entry, opts) {
   var donor = (api._charLibrary && api._charLibrary.donor) || null;
   var nativeHasWalk = !!(entry.gltf.animations || []).some(function (c) { return /walk/i.test(c.name); });
   var allowBorrow = opts.borrowLocomotion !== false && !nativeHasWalk;
-  // Hard-disable borrow for known-fragile Michelle unless explicitly forced
-  if (/michelle/i.test(entry.id || "") && opts.forceBorrow !== true) allowBorrow = false;
+  // Michelle has SambaDance only — player forces Soldier Walk/Idle borrow (same mixamorig bones)
+  if (/michelle/i.test(entry.id || "") && opts.forceBorrow !== true && !opts.isPlayer) allowBorrow = false;
+  if (/michelle/i.test(entry.id || "") && (opts.forceBorrow === true || opts.isPlayer)) allowBorrow = true;
   var loco = collectLocomotionClips(entry, allowBorrow ? donor : null);
   var nativeAnims = (entry.gltf.animations && entry.gltf.animations.length) ? entry.gltf.animations : [];
   if (loco.walk || loco.idle || nativeAnims.length) {
     mixer = new THREE.AnimationMixer(model);
     var walkClip = loco.walk;
     var idleClip = loco.idle;
-    // If no Walk (Michelle), use a gentle SambaDance weight as "walk" substitute only when moving
+    // Samba only if Soldier Walk unavailable (prefer real Walk for arm swing)
     if (!walkClip && /michelle/i.test(entry.id || "")) {
       for (var ai = 0; ai < nativeAnims.length; ai++) {
         if (/samba|dance/i.test(nativeAnims[ai].name)) { walkClip = nativeAnims[ai]; break; }
@@ -1587,6 +1801,10 @@ function animateHumanoid(root, moving, dt) {
       actions.walk.timeScale = 0.7 + w * 0.6;
     }
     root.userData.mixer.update(dt);
+    if (root.userData.isPlayer) {
+      var aiming = !!(api._aimHold > 0 || api._mouseLeft || api._keys.KeyF);
+      applyPlayerGunAim(root, aiming, dt);
+    }
     return;
   }
 
@@ -1665,15 +1883,18 @@ function buildPlayer() {
 
   function asGoldPlayer(entry, extra) {
     extra = extra || {};
-    var isCustomMesh = /custom-character/i.test(entry.id || "");
+    var id = entry.id || "";
+    var isTripo = /custom-character/i.test(id);
+    var isMichelle = /michelle/i.test(id);
     return buildGltfCharacter(entry, {
       isPlayer: true,
       scale: 1.0,
-      customLook: !isCustomMesh,
-      opaqueGold: !isCustomMesh,
-      keepTexture: isCustomMesh || !!extra.keepTexture,
-      borrowLocomotion: extra.borrowLocomotion,
-      forceBorrow: !!extra.forceBorrow,
+      customLook: !isTripo,
+      opaqueGold: !isTripo && !isMichelle,
+      michellePaint: isMichelle || !!extra.michellePaint,
+      keepTexture: isTripo || !!extra.keepTexture,
+      borrowLocomotion: extra.borrowLocomotion !== false,
+      forceBorrow: isMichelle || !!extra.forceBorrow,
     });
   }
 
@@ -1687,21 +1908,26 @@ function buildPlayer() {
       if (o.isMesh && o.visible) meshCount++;
       if (o.isSkinnedMesh && o.visible) skinned++;
     });
-    // Accept unskinned image→3D meshes (TripoSR) as long as full height + visible geometry
+    // Prefer skinned full body; allow unskinned TripoSR only as last resort
     return meshCount > 0 && (skinned > 0 || root.userData.unskinnedTps || h >= 1.2);
   }
 
-  // Prefer open-source image→3D custom character (gold jumpsuit with real front+back).
+  // Prefer Mixamo Michelle + painting UV bake + Soldier Walk/Idle (arms swing, aimable gun).
   if (lib && lib.custom) {
-    var customPlayer = asGoldPlayer(lib.custom, { borrowLocomotion: false, forceBorrow: false, keepTexture: true });
-    if (isStandingFullBody(customPlayer)) {
+    var customPlayer = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true, michellePaint: true });
+    if (isStandingFullBody(customPlayer) && (customPlayer.userData.skinnedMeshCount > 0 || /michelle/i.test(lib.custom.id || ""))) {
+      customPlayer.userData.playerType = lib.custom.id;
+      return customPlayer;
+    }
+    // If TripoSR unskinned was requested via ?customGlb=, accept standing mesh
+    if (isStandingFullBody(customPlayer) && customPlayer.userData.unskinnedTps) {
       customPlayer.userData.playerType = lib.custom.id;
       return customPlayer;
     }
     try { console.warn("[artfloor-player] custom GLB failed height check", lib.custom.id, customPlayer.userData.bboxHeight); } catch (e) {}
   }
 
-  // Fallback: Mixamo Soldier/Xbot (native Walk + Idle).
+  // Fallback: Mixamo Soldier/Xbot (native Walk + Idle) with gold look + gun.
   var soldier = null;
   var xbot = null;
   if (lib && lib.glbs) {
@@ -1714,25 +1940,26 @@ function buildPlayer() {
 
   var primary = soldier || xbot || pickGlbEntry(0);
   if (primary) {
-    var player = asGoldPlayer(primary, { borrowLocomotion: false });
+    var player = asGoldPlayer(primary, { borrowLocomotion: false, michellePaint: !!(lib && lib.goldDiffuse) });
     if (isStandingFullBody(player)) {
+      // Still attach gun + soft gold if painting maps missing
+      if (!player.userData.gun) attachPlayerGun(player);
       player.userData.playerType = primary.id;
       return player;
     }
     try { console.warn("[artfloor-player] primary failed height check", primary.id, player.userData.bboxHeight); } catch (e) {}
   }
 
-  // Secondary: other GLB
   var secondary = (primary === soldier) ? xbot : soldier;
   if (secondary) {
     var p2 = asGoldPlayer(secondary, { borrowLocomotion: false });
     if (isStandingFullBody(p2)) {
+      if (!p2.userData.gun) attachPlayerGun(p2);
       p2.userData.playerType = secondary.id;
       return p2;
     }
   }
 
-  // Last resort: procedural gold humanoid (always has height)
   var hum = buildHumanoid({
     coat: GOLDEN_STASIS_PALETTE.gold,
     pants: GOLDEN_STASIS_PALETTE.gold,
@@ -2056,17 +2283,22 @@ function getAimForward() {
 }
 
 function getMuzzleWorld() {
+  var gun = api._player && api._player.userData && api._player.userData.gun;
+  if (gun) {
+    var wp = new THREE.Vector3(0, 0.035, 0.22);
+    gun.localToWorld(wp);
+    return { x: wp.x, y: wp.y, z: wp.z };
+  }
   var p = api._player.position;
   var yaw = api._playerYaw;
-  // Gun hand is raised on mesh +X before π flip → world left of facing after flip ≈ character's right
   var fx = -Math.sin(yaw);
   var fz = -Math.cos(yaw);
   var rx = Math.cos(yaw);
   var rz = -Math.sin(yaw);
   return {
-    x: p.x + fx * 0.18 + rx * 0.22,
-    y: p.y + 1.42,
-    z: p.z + fz * 0.18 + rz * 0.22,
+    x: p.x + fx * 0.35 + rx * 0.18,
+    y: p.y + 1.25,
+    z: p.z + fz * 0.35 + rz * 0.18,
   };
 }
 
@@ -2118,15 +2350,18 @@ function playerShoot() {
     flashLife: 0.08,
   });
 
-  // Soften pose kick: brief model pitch nudge
+  // Aim gun forward while shooting (not ceiling hero pose)
+  api._aimHold = Math.max(api._aimHold || 0, 0.55);
   var model = api._player.children && api._player.children[0];
   if (model && model.isObject3D) {
     api._player.userData.shootKick = 0.12;
   }
+  applyPlayerGunAim(api._player, true, 0.016);
 }
 
 function updateProjectiles(dt) {
   if (api._shootCooldown > 0) api._shootCooldown = Math.max(0, api._shootCooldown - dt);
+  if (api._aimHold > 0) api._aimHold = Math.max(0, api._aimHold - dt);
   if (api._player && api._player.userData && api._player.userData.shootKick) {
     api._player.userData.shootKick = Math.max(0, api._player.userData.shootKick - dt);
   }
@@ -2273,6 +2508,8 @@ function bindInput() {
       if (api._nearBooth) { e.preventDefault(); openExchangeFromWorld(); }
     } else if (code === "KeyF") {
       e.preventDefault();
+      api._keys.KeyF = true;
+      api._aimHold = Math.max(api._aimHold || 0, 0.35);
       playerShoot();
     } else if (code === "Escape") {
       if (document.pointerLockElement) document.exitPointerLock();
@@ -2280,6 +2517,7 @@ function bindInput() {
   };
   api._onKeyUp = function (e) {
     if (e.code in api._keys) delete api._keys[e.code];
+    if (e.code === "KeyF") delete api._keys.KeyF;
   };
   api._onMouseMove = function (e) {
     if (!api._running || !api._pointerLocked) return;
@@ -2316,8 +2554,12 @@ function bindInput() {
       return;
     }
     if (api._pointerLocked) {
-      // Left click fires when already looking around
-      if (e.button === 0) playerShoot();
+      // Left click fires when already looking around — hold aims forward
+      if (e.button === 0) {
+        api._mouseLeft = true;
+        api._aimHold = Math.max(api._aimHold || 0, 0.35);
+        playerShoot();
+      }
       return;
     }
     if (api._canvas.requestPointerLock) {
@@ -2329,9 +2571,21 @@ function bindInput() {
   window.addEventListener("keyup", api._onKeyUp, true);
   document.addEventListener("mousemove", api._onMouseMove, false);
   document.addEventListener("pointerlockchange", api._onPointerLockChange, false);
+  api._onMouseDown = function (e) {
+    if (!api._running || !api._pointerLocked) return;
+    if (e.button === 0) {
+      api._mouseLeft = true;
+      api._aimHold = Math.max(api._aimHold || 0, 0.4);
+    }
+  };
+  api._onMouseUp = function (e) {
+    if (e.button === 0) api._mouseLeft = false;
+  };
   if (api._canvas) {
     api._canvas.addEventListener("click", api._onClick, false);
     api._canvas.addEventListener("wheel", api._onWheel, { passive: false });
+    api._canvas.addEventListener("mousedown", api._onMouseDown, false);
+    window.addEventListener("mouseup", api._onMouseUp, false);
   }
   if (api._container) {
     api._container.addEventListener("wheel", api._onWheel, { passive: false });
@@ -2345,8 +2599,12 @@ function unbindInput() {
   if (api._onPointerLockChange) document.removeEventListener("pointerlockchange", api._onPointerLockChange, false);
   if (api._canvas && api._onClick) api._canvas.removeEventListener("click", api._onClick, false);
   if (api._canvas && api._onWheel) api._canvas.removeEventListener("wheel", api._onWheel);
+  if (api._canvas && api._onMouseDown) api._canvas.removeEventListener("mousedown", api._onMouseDown, false);
+  if (api._onMouseUp) window.removeEventListener("mouseup", api._onMouseUp, false);
   if (api._container && api._onWheel) api._container.removeEventListener("wheel", api._onWheel);
   api._keys = Object.create(null);
+  api._mouseLeft = false;
+  api._aimHold = 0;
   if (document.pointerLockElement) {
     try { document.exitPointerLock(); } catch (e) {}
   }
@@ -2557,7 +2815,7 @@ function dispose() {
   api._colliders = []; api._easelMeshes = []; api._npcs = [];
   api._textures = []; api._mats = []; api._geos = [];
   api._mixers = []; api._charLibrary = null; api._facingArrow = null;
-  api._projectiles = null; api._muzzleLight = null; api._shootCooldown = 0;
+  api._projectiles = null; api._muzzleLight = null; api._shootCooldown = 0; api._aimHold = 0; api._mouseLeft = false;
 }
 
 window.GeArtFloor3D = {
