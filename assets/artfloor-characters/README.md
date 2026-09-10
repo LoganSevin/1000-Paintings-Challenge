@@ -1,7 +1,15 @@
 # Art Floor characters
 
 Primary player: **`glb/Michelle.glb`** (Mixamo skinned) with **Soldier Walk only** borrowed
-onto the same `mixamorig:*` bones (Soldier Idle is NOT used — it collapsed Michelle to shoes-only).
+onto the same `mixamorig:*` bones.
+
+**Hard rules (2026-09-10):**
+- **NO SambaDance / dance clips** — Michelle ships SambaDance; it is stripped and never played.
+- **NO Soldier Idle on Michelle** — absolute pose mismatch collapsed her to shoes-only.
+- Idle = bind / T-pose rest (no idle clip). Walk plays only while moving.
+- **Feet grounded:** borrowed Walk has `Hips.position` tracks removed (Soldier hip height
+  was burying Michelle), plus per-frame world bbox foot snap to `floorContactY`.
+- If Walk probe collapses height, mixer is stripped and a grounded procedural bob is used.
 
 Painting look: **albedo only** from UV bake of Golden Stasis:
 
@@ -12,9 +20,9 @@ Props: hair bouffant, black scarf, gold gun on `RightHand`. LMB/F aims the right
 
 ## Guaranteed visible body (fallback chain)
 
-1. Michelle + diffuse bake + Walk arm swing
+1. Michelle + diffuse bake + Soldier Walk (grounded) — no dance
 2. Soldier / Xbot opaque gold (native Walk/Idle)
-3. TripoSR `glb/custom-character.glb` (upright, textured)
+3. TripoSR `glb/custom-character.glb` (upright, textured, bob walk)
 4. Procedural gold humanoid
 
 Optional override: `?customGlb=glb/custom-character.glb` (TripoSR unskinned — bob only).

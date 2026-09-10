@@ -3,11 +3,12 @@
  * Style reference: assets/grand-exchange-art-floor.jpg (colors/layout only — NOT a wall mural).
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
- * - Player: Mixamo Michelle (skinned) + Soldier Walk (arm swing) — painting albedo, visibility-safe PBR
+ * - Player: Mixamo Michelle (skinned) + Soldier Walk ONLY — painting albedo, NO dance clips
  * - Look: michelle-gold-diffuse only (NO metalnessMap blackout); hair/scarf/gun props
  * - Fallback: Soldier opaque gold → TripoSR custom-character → procedural (never invisible)
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Soldier Idle NOT borrowed onto Michelle (collapses to shoes-only); Walk only for locomotion
+ * - NEVER SambaDance / Idle-dance; Soldier Idle NOT on Michelle; bind/T-pose rest when idle
+ * - Feet grounded: strip Hips.position from borrowed Walk + per-frame bbox foot snap
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/Michelle.glb); CUSTOM_CHARACTER_URL palette ref
  * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; E at desk
  */
@@ -653,7 +654,7 @@ var TARGET_HUMAN_HEIGHT = 1.78; // adult meters — MetaHuman-ish
 
 /**
  * Custom player hook (reusable for future paintings):
- * - CUSTOM_CHARACTER_GLB: Mixamo Michelle.glb (default) — skinned Walk/Idle + painting UV bake
+ * - CUSTOM_CHARACTER_GLB: Mixamo Michelle.glb (default) — skinned Walk (borrowed) + painting UV bake
  * - CUSTOM_CHARACTER_URL: golden-stasis painting (palette + bake source)
  * Override via window.GE_CUSTOM_CHARACTER_URL / GE_CUSTOM_CHARACTER_GLB or ?customChar= / ?customGlb=
  */
@@ -679,7 +680,7 @@ function resolveCustomCharacterPaths() {
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
   // Bust CDN/browser cache when custom GLB/PBR maps change
-  var bust = "v=21";
+  var bust = "v=40";
   function withBust(u) {
     if (!u) return u;
     return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
@@ -810,7 +811,7 @@ async function loadCharacterLibrary() {
   if (!/custom-character/i.test(CUSTOM_CHARACTER_GLB || "")) {
     showLoader(true, "Loading TripoSR fallback…", 45);
     try {
-      var tripoGlb = await loadGltfAsync(CHAR_ASSET_BASE + "glb/custom-character.glb?v=21");
+      var tripoGlb = await loadGltfAsync(CHAR_ASSET_BASE + "glb/custom-character.glb?v=40");
       if (tripoGlb && tripoGlb.scene) {
         lib.tripo = { id: "glb/custom-character.glb", gltf: tripoGlb };
         try { console.info("[artfloor-player] TripoSR fallback ready"); } catch (eT) {}
@@ -827,7 +828,7 @@ async function loadCharacterLibrary() {
   for (var gi = 0; gi < glbFiles.length; gi++) {
     var basePct = 55 + gi * 12;
     showLoader(true, "Loading gallery patrons…", basePct);
-    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=21", function (t) {
+    var g = await loadGltfAsync(CHAR_ASSET_BASE + glbFiles[gi] + "?v=40", function (t) {
       if (t == null) return;
       showLoader(true, "Loading gallery patrons…", basePct + t * 12);
     });
@@ -845,7 +846,7 @@ async function loadCharacterLibrary() {
   showLoader(true, "Loading Golden Stasis materials…", 85);
   lib.customLook = await loadTextureAsync(paths.look, { flipY: false });
   // Albedo only for Michelle — metal/rough maps caused near-black body without reliable env
-  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=21", { flipY: false });
+  lib.goldDiffuse = await loadTextureAsync(CHAR_ASSET_BASE + "custom/michelle-gold-diffuse.png?v=40", { flipY: false });
   lib.goldMetal = null; // intentionally unused (blackout risk)
   lib.goldRough = null;
   if (!lib.goldDiffuse) {
@@ -1298,7 +1299,7 @@ function attachPlayerGun(root) {
 
 /**
  * After mixer update: when aiming, override right arm so gun points FORWARD
- * (along character -Z / walk look), not ceiling. Idle uses Soldier Idle (relaxed).
+ * (along character -Z / walk look), not ceiling. Rest pose = bind (no Soldier Idle on Michelle).
  */
 function applyPlayerGunAim(root, aiming, dt) {
   if (!root || !root.userData) return;
@@ -1346,24 +1347,80 @@ function applyGoldenStasisLook(root, lookTex) {
 }
 
 /**
- * Michelle ships with SambaDance only — borrow Walk/Idle from Soldier/Xbot.
- * Same Mixamo mixamorig:* bone names, so clips bind directly on her mixer.
+ * Collect Walk/Idle only. NEVER SambaDance / dance / TPose-as-walk.
+ * Michelle has no native Walk — borrow Soldier/Xbot Walk (same mixamorig:* bones).
  */
+function isDanceClip(c) {
+  return !!(c && /samba|dance|groove|salsa|hip.?hop|cha.?cha/i.test(c.name || ""));
+}
+
 function collectLocomotionClips(entry, donor) {
   var clips = { walk: null, idle: null };
-  function dig(gltf) {
+  function dig(gltf, allowIdle) {
     if (!gltf || !gltf.animations) return;
     for (var i = 0; i < gltf.animations.length; i++) {
       var c = gltf.animations[i];
-      if (!clips.walk && /walk/i.test(c.name)) clips.walk = c;
-      if (!clips.idle && /idle/i.test(c.name)) clips.idle = c;
+      if (isDanceClip(c)) continue;
+      if (/t-?pose|tpose|bind/i.test(c.name || "")) continue;
+      if (!clips.walk && /walk/i.test(c.name || "")) clips.walk = c;
+      if (allowIdle && !clips.idle && /idle/i.test(c.name || "")) clips.idle = c;
     }
   }
-  dig(entry && entry.gltf);
-  dig(donor && donor.gltf);
+  dig(entry && entry.gltf, true);
+  dig(donor && donor.gltf, true);
   return clips;
 }
 
+/**
+ * Soldier Walk ships Hips.position with Soldier hip height. Playing it on Michelle
+ * buries her feet in the marble. Keep rotations (arm/leg swing); drop Hips translation.
+ */
+function retargetWalkClipNoRootY(clip) {
+  if (!clip) return null;
+  var c = clip.clone();
+  c.name = (clip.name || "Walk") + "_grounded";
+  var kept = [];
+  for (var i = 0; i < c.tracks.length; i++) {
+    var t = c.tracks[i];
+    var n = t.name || "";
+    if (/\.position$/i.test(n) && /hips/i.test(n)) continue;
+    kept.push(t);
+  }
+  c.tracks = kept;
+  return c;
+}
+
+/**
+ * Per-frame: reset model Y to bind, measure world bbox, lift so feet sit on floorContactY.
+ * Prevents Walk hip drift from sinking or floating the skinned mesh.
+ */
+function snapSkinnedFeetToFloor(root) {
+  if (!root || !root.userData || !root.userData.groundSnap) return;
+  var model = root.userData.modelNode;
+  if (!model) {
+    model = root.children && root.children[0];
+    if (!model || !model.isObject3D) return;
+    root.userData.modelNode = model;
+  }
+  if (root.userData.bindModelY == null) root.userData.bindModelY = model.position.y;
+  var contact = root.userData.floorContactY;
+  if (contact == null || !isFinite(contact)) contact = 0;
+  model.position.y = root.userData.bindModelY;
+  root.updateMatrixWorld(true);
+  model.traverse(function (o) {
+    if (o.isSkinnedMesh && o.skeleton) {
+      try { o.skeleton.update(); } catch (e) {}
+    }
+  });
+  root.updateMatrixWorld(true);
+  var box = new THREE.Box3().setFromObject(root);
+  if (!isFinite(box.min.y)) return;
+  var dy = contact - box.min.y;
+  if (Math.abs(dy) < 0.0005) return;
+  // Clamp insane corrections (collapsed mesh) — caller should strip mixer
+  if (dy > 1.2 || dy < -1.2) return;
+  model.position.y = root.userData.bindModelY + dy;
+}
 
 /** If a TripoSR mesh still ships X/Z-long (sideways), rotate so height is +Y. */
 function uprightCustomIfNeeded(model) {
@@ -1492,62 +1549,56 @@ function buildGltfCharacter(entry, opts) {
   model.position.y = isFinite(box.min.y) ? -box.min.y : 0;
   root.add(model);
 
-  // Locomotion: prefer NATIVE clips. Michelle has SambaDance only — borrow Soldier
-  // Walk for arm swing, but NEVER Soldier Idle (collapses Michelle to shoes-only).
+  // Locomotion: Walk only (borrow Soldier Walk onto Michelle). NEVER SambaDance / dance.
+  // NEVER Soldier Idle on Michelle (absolute pose mismatch → shoes-only pancake).
+  // Idle = bind / T-pose rest (no idle clip). Strip Hips.position so Walk cannot bury feet.
   var mixer = null;
   var actions = {};
   var donor = (api._charLibrary && api._charLibrary.donor) || null;
   var isMich = /michelle/i.test(entry.id || "");
-  var nativeHasWalk = !!(entry.gltf.animations || []).some(function (c) { return /walk/i.test(c.name); });
+  var nativeHasWalk = !!(entry.gltf.animations || []).some(function (c) {
+    return c && /walk/i.test(c.name || "") && !isDanceClip(c);
+  });
   var allowBorrow = opts.borrowLocomotion !== false && !nativeHasWalk;
   if (isMich && opts.forceBorrow !== true && !opts.isPlayer) allowBorrow = false;
   if (isMich && (opts.forceBorrow === true || opts.isPlayer)) allowBorrow = true;
   var loco = collectLocomotionClips(entry, allowBorrow ? donor : null);
-  // Hard rule: strip borrowed Idle from Michelle — absolute bone pose mismatch = pancake
-  if (isMich && allowBorrow) loco.idle = null;
+  // Hard rule: no borrowed Idle on Michelle; no dance clips ever
+  if (isMich) loco.idle = null;
+  if (loco.walk && isDanceClip(loco.walk)) loco.walk = null;
+  if (loco.idle && isDanceClip(loco.idle)) loco.idle = null;
   var nativeAnims = (entry.gltf.animations && entry.gltf.animations.length) ? entry.gltf.animations : [];
-  if (loco.walk || loco.idle || nativeAnims.length) {
+  // Explicit: never fall back to SambaDance / nativeAnims[0] dance
+  var walkClip = loco.walk ? (isMich || allowBorrow ? retargetWalkClipNoRootY(loco.walk) : loco.walk) : null;
+  var idleClip = (!isMich && loco.idle && loco.idle !== loco.walk) ? loco.idle : null;
+  if (walkClip || idleClip) {
     mixer = new THREE.AnimationMixer(model);
-    var walkClip = loco.walk;
-    var idleClip = loco.idle;
-    // Samba as gentle idle substitute only (never Soldier Idle on Michelle)
-    if (isMich && !idleClip) {
-      for (var ai = 0; ai < nativeAnims.length; ai++) {
-        if (/samba|dance/i.test(nativeAnims[ai].name)) { idleClip = nativeAnims[ai]; break; }
-      }
-    }
-    if (!walkClip && isMich) {
-      for (var aj = 0; aj < nativeAnims.length; aj++) {
-        if (/samba|dance/i.test(nativeAnims[aj].name)) { walkClip = nativeAnims[aj]; break; }
-      }
-    }
-    var clip = walkClip || idleClip || nativeAnims[0];
-    if (walkClip) actions.walk = mixer.clipAction(walkClip);
-    if (idleClip && idleClip !== walkClip) actions.idle = mixer.clipAction(idleClip);
-    if (!actions.walk && clip) actions.walk = mixer.clipAction(clip);
-    if (actions.idle) {
-      actions.idle.play();
-      // Samba idle: keep weight low so she stays standing (full Samba warps silhouette)
-      actions.idle.setEffectiveWeight(isMich ? 0.15 : 1);
-      if (isMich) actions.idle.timeScale = 0.35;
-    } else if (actions.walk) {
-      // Hold bind / near-bind — Walk paused at tiny weight (no foreign Idle)
+    if (walkClip) {
+      actions.walk = mixer.clipAction(walkClip);
+      actions.walk.setLoop(THREE.LoopRepeat, Infinity);
       actions.walk.play();
       actions.walk.setEffectiveWeight(0.01);
       actions.walk.paused = true;
     }
-    if (actions.walk) {
-      if (!actions.walk.isRunning || !actions.walk.isRunning()) actions.walk.play();
-      if (actions.idle) actions.walk.setEffectiveWeight(0);
-      actions.walk.setLoop(THREE.LoopRepeat, Infinity);
+    if (idleClip) {
+      actions.idle = mixer.clipAction(idleClip);
+      actions.idle.play();
+      actions.idle.setEffectiveWeight(1);
     }
     root.userData.mixer = mixer;
     root.userData.actions = actions;
     api._mixers.push(mixer);
 
-    // Probe: one mixer tick — if height collapses, strip mixer (restore bind pose)
+    // Probe Walk at weight 1 — if height collapses or feet bury, strip mixer → procedural bob
     try {
-      mixer.update(0.03);
+      if (actions.walk) {
+        actions.walk.paused = false;
+        actions.walk.setEffectiveWeight(1);
+        actions.walk.time = 0.25;
+        mixer.update(0.05);
+      } else {
+        mixer.update(0.03);
+      }
       model.updateMatrixWorld(true);
       model.traverse(function (o) {
         if (o.isSkinnedMesh && o.skeleton) o.skeleton.update();
@@ -1556,19 +1607,31 @@ function buildGltfCharacter(entry, opts) {
       var probeBox = new THREE.Box3().setFromObject(model);
       var probeSize = new THREE.Vector3();
       probeBox.getSize(probeSize);
-      if (!(probeSize.y > 0.9)) {
-        try { console.warn("[artfloor-player] mixer collapsed height", entry.id, probeSize.y.toFixed(3), "— stripping clips"); } catch (eP) {}
+      var probeBad = !(probeSize.y > 0.9) || (isFinite(probeBox.min.y) && probeBox.min.y < -0.35);
+      if (probeBad) {
+        try { console.warn("[artfloor-player] Walk probe failed", entry.id, "h=" + probeSize.y.toFixed(3), "minY=" + probeBox.min.y.toFixed(3), "— stripping mixer, using grounded bob"); } catch (eP) {}
         mixer.stopAllAction();
-        // Remove from mixers list
         var mi = api._mixers.indexOf(mixer);
         if (mi >= 0) api._mixers.splice(mi, 1);
         root.userData.mixer = null;
         root.userData.actions = {};
         root.userData.mixerCollapsed = true;
-        // Reset skeleton to bind pose so body stands again
         model.traverse(function (o) {
           if (o.isSkinnedMesh && o.skeleton) {
             try { o.skeleton.pose(); o.skeleton.update(); } catch (eBind) {}
+          }
+        });
+        model.updateMatrixWorld(true);
+      } else if (actions.walk) {
+        // Restore idle hold: bind rest (walk paused tiny weight) — NO dance idle
+        actions.walk.time = 0;
+        actions.walk.setEffectiveWeight(idleClip ? 0 : 0.01);
+        actions.walk.paused = true;
+        if (actions.idle) actions.idle.setEffectiveWeight(1);
+        mixer.update(0);
+        model.traverse(function (o) {
+          if (o.isSkinnedMesh && o.skeleton) {
+            try { o.skeleton.pose(); o.skeleton.update(); } catch (eBind2) {}
           }
         });
         model.updateMatrixWorld(true);
@@ -1576,6 +1639,8 @@ function buildGltfCharacter(entry, opts) {
     } catch (eProbe) {
       try { console.warn("[artfloor-player] mixer probe failed", eProbe); } catch (ePW) {}
     }
+  } else if (isMich) {
+    try { console.info("[artfloor-player] Michelle: no Walk donor — bind rest + procedural bob if needed"); } catch (eNW) {}
   }
 
   if (opts.isPlayer) {
@@ -1593,10 +1658,16 @@ function buildGltfCharacter(entry, opts) {
   var finalSize = new THREE.Vector3();
   bb.getSize(finalSize);
   root.userData.bboxHeight = finalSize.y;
+  root.userData.modelNode = model;
+  root.userData.bindModelY = model.position.y;
+  // World-space foot contact after bind grounding (marble floor ≈ this Y)
+  root.userData.floorContactY = isFinite(bb.min.y) ? bb.min.y : 0;
+  root.userData.groundSnap = !!(root.userData.mixer && root.userData.skinnedMeshCount !== 0);
   try {
     console.info("[artfloor-player]", entry.id, "skinned=" + (root.userData.skinnedMeshCount || model.userData.skinnedMeshCount || "?"),
       "rawH=" + rawH.toFixed(3), "scale=" + s.toFixed(3),
-      "bboxY=" + finalSize.y.toFixed(3), "walk=" + !!(actions && actions.walk), "idle=" + !!(actions && actions.idle));
+      "bboxY=" + finalSize.y.toFixed(3), "walk=" + !!(actions && actions.walk), "idle=" + !!(actions && actions.idle),
+      "dance=stripped", "groundSnap=" + !!root.userData.groundSnap);
   } catch (e) {}
 
   root.userData.charKind = "gltf";
@@ -1604,10 +1675,11 @@ function buildGltfCharacter(entry, opts) {
   root.userData.limbs = { phase: 0, groundY: root.position.y };
   root.userData.isPlayer = !!opts.isPlayer;
   root.userData.modelId = entry.id;
-  // Unskinned image→3D meshes get procedural TPS root bob (no Mixamo skeleton).
-  if (!root.userData.mixer && (root.userData.unskinnedTps || !(root.userData.skinnedMeshCount > 0))) {
+  // Unskinned / mixer-stripped: procedural bob that stays above floorContactY
+  if (!root.userData.mixer && (root.userData.unskinnedTps || root.userData.mixerCollapsed || !(root.userData.skinnedMeshCount > 0))) {
     root.userData.unskinnedTps = true;
     root.userData.bobBaseY = root.position.y;
+    root.userData.groundSnap = false;
   }
   return root;
 }
@@ -1871,12 +1943,30 @@ function animateHumanoid(root, moving, dt) {
       actions.idle.setEffectiveWeight(1 - w);
       actions.walk.timeScale = 0.85 + w * 0.35;
     } else if (actions.walk) {
-      actions.walk.paused = w < 0.05;
-      if (!actions.walk.paused && (!actions.walk.isRunning || !actions.walk.isRunning())) actions.walk.play();
-      actions.walk.setEffectiveWeight(0.3 + w * 0.7);
-      actions.walk.timeScale = 0.7 + w * 0.6;
+      // Michelle path: bind rest when still; Walk only when moving — no dance idle
+      if (w < 0.05) {
+        actions.walk.paused = true;
+        actions.walk.setEffectiveWeight(0);
+      } else {
+        actions.walk.paused = false;
+        if (!actions.walk.isRunning || !actions.walk.isRunning()) actions.walk.play();
+        actions.walk.setEffectiveWeight(0.35 + w * 0.65);
+        actions.walk.timeScale = 0.75 + w * 0.55;
+      }
     }
-    root.userData.mixer.update(dt);
+    if (actions.walk && w < 0.05 && !actions.idle) {
+      // True bind rest — do not let a residual Walk sample tilt hips
+      root.userData.mixer.update(0);
+      root.traverse(function (o) {
+        if (o.isSkinnedMesh && o.skeleton) {
+          try { o.skeleton.pose(); o.skeleton.update(); } catch (ePose) {}
+        }
+      });
+    } else {
+      root.userData.mixer.update(dt);
+    }
+    // Keep feet on marble after Walk hip/leg keys
+    snapSkinnedFeetToFloor(root);
     if (root.userData.isPlayer) {
       var aiming = !!(api._aimHold > 0 || api._mouseLeft || api._keys.KeyF);
       applyPlayerGunAim(root, aiming, dt);
@@ -1884,7 +1974,7 @@ function animateHumanoid(root, moving, dt) {
     return;
   }
 
-  // Unskinned custom GLB (TripoSR etc.): walk bob/sway + idle breathe (never frozen statue)
+  // Unskinned / mixer-stripped: grounded bob/sway (never dance, never sink below floor)
   if (root.userData.unskinnedTps || (root.userData.charKind === "gltf" && !root.userData.mixer)) {
     var targetU = moving ? 1 : 0;
     root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetU - (root.userData.walkAmp || 0)) * Math.min(1, dt * 9);
@@ -1896,7 +1986,8 @@ function animateHumanoid(root, moving, dt) {
     var stride2 = Math.sin(Lbob.phase * 2);
     var idle = Math.sin(Lbob.idlePhase);
     var idle2 = Math.sin(Lbob.idlePhase * 2.1);
-    var bob = Math.abs(stride) * ampU * 0.11 + (1 - ampU) * (idle * 0.012 + 0.006);
+    // Bob is always >= 0 so feet never go under floorContact / bobBaseY
+    var bob = Math.abs(stride) * ampU * 0.08 + (1 - ampU) * (Math.max(0, idle) * 0.01);
     var sway = stride * ampU * 0.09 + (1 - ampU) * idle * 0.018;
     var lean = ampU * 0.09;
     var baseY = root.userData.bobBaseY != null ? root.userData.bobBaseY : (Lbob.groundY || 0);
@@ -1999,7 +2090,7 @@ function buildPlayer() {
     return true;
   }
 
-  // 1) Prefer Mixamo Michelle + painting albedo + Soldier Walk (arm swing), no Idle.
+  // 1) Prefer Mixamo Michelle + painting albedo + Soldier Walk (no dance, no Idle).
   if (lib && lib.custom && /michelle/i.test(lib.custom.id || "")) {
     showLoader(true, "Building Michelle…", 98);
     var michelle = asGoldPlayer(lib.custom, { borrowLocomotion: true, forceBorrow: true, michellePaint: true });
@@ -2251,7 +2342,14 @@ function buildHall() {
   api._player = buildPlayer();
   var pgy = (api._player.userData.limbs && api._player.userData.limbs.groundY) || api._player.position.y || 0;
   api._player.position.set(0, pgy, 10);
-  if (api._player.userData) api._player.userData.bobBaseY = pgy;
+  if (api._player.userData) {
+    api._player.userData.bobBaseY = pgy;
+    // Re-measure foot contact in world space after spawn so snap targets marble Y
+    api._player.updateMatrixWorld(true);
+    var spawnBox = new THREE.Box3().setFromObject(api._player);
+    if (isFinite(spawnBox.min.y)) api._player.userData.floorContactY = spawnBox.min.y;
+    if (api._player.userData.limbs) api._player.userData.limbs.groundY = pgy;
+  }
   api._playerYaw = Math.PI;
   api._camYaw = Math.PI;
   api._player.rotation.y = api._playerYaw;
