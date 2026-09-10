@@ -397,3 +397,18 @@ body.rig-tab-active .site-header {
   color: rgba(160, 210, 240, 0.7);
   pointer-events: none;
 }
+
+
+.rig-cutout-badge.err {
+  color: #e08a6a;
+}
+
+.rig-status.err {
+  color: #e08a6a;
+  border-color: rgba(200, 90, 60, 0.45);
+}
+
+.rig-shell.rig-mode-pose:not(.rig-has-cutout) .rig-stage-wrap::after {
+  content: "cutout required";
+  color: rgba(224, 138, 106, 0.9);
+}

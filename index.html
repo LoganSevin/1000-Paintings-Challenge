@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
-  <link rel="stylesheet" href="css/rig.css?v=3" />
+  <link rel="stylesheet" href="css/rig.css?v=4" />
   <script type="importmap">
   {
     "imports": {
@@ -5880,7 +5880,7 @@
           <p id="rig-cutout-badge" class="rig-cutout-badge" hidden></p>
           <div class="rig-row" style="width:100%;flex-direction:column;align-items:stretch;gap:0.2rem">
             <label class="rig-check"><input type="checkbox" id="rig-show-cutout" /> Show cutout in Edit</label>
-            <span class="rig-cutout-note">Auto-cuts when entering Pose if needed. Prefers in-browser AI (@imgly), else edge flood-fill.</span>
+            <span class="rig-cutout-note">Pose is blocked until cutout succeeds. AI (@imgly) preferred, then flood-fill. Mesh uses opaque pixels only — posters/floor stay gone.</span>
           </div>
 
           <h3>View</h3>
@@ -6719,7 +6719,7 @@
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=24"></script>
   <script defer src="js/zoo.js?v=12"></script>
-  <script defer src="js/rig.js?v=3"></script>
+  <script defer src="js/rig.js?v=4"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=2"></script>

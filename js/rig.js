@@ -9,10 +9,13 @@
   var LS_LAST = "logan-rig-last-v1";
   var HIT_R = 12;
   var JOINT_R = 7;
-  var MESH_COLS = 16;
-  var MESH_ROWS = 16;
-  var SKIN_INFLUENCES = 3;
-  var SKIN_EPS = 1e-5;
+  var MESH_COLS = 28;
+  var MESH_ROWS = 28;
+  var SKIN_INFLUENCES = 2;
+  var SKIN_EPS = 1e-6;
+  var SKIN_POWER = 4; // sharper bone locality (1/d^power)
+  var SKIN_MAX_DIST = 0.22; // normalized cutoff — far bones get zero weight
+  var CUTOUT_ALPHA_MIN = 24; // mesh vert opaque threshold (0-255)
 
   /** Normalized (0–1) starter human template relative to image bounds. */
   var TEMPLATE_JOINTS = [
@@ -116,12 +119,13 @@
     el.className = "rig-status" + (kind ? " " + kind : "");
   }
 
-  /** Image used for display / mesh texturing. Pose always prefers cutout. */
+  /** Image used for display / mesh texturing. Pose uses cutout ONLY (never full BG). */
   function getRenderImage() {
-    if (state.mode === "pose" && state.cutoutImage) return state.cutoutImage;
-    if (state.mode === "edit" && state.showCutoutInEdit && state.cutoutImage) {
-      return state.cutoutImage;
+    if (state.mode === "pose") {
+      // Hard rule: pose mesh must not texture the uncut background image.
+      return state.cutoutImage || null;
     }
+    if (state.showCutoutInEdit && state.cutoutImage) return state.cutoutImage;
     return state.image;
   }
 
@@ -150,13 +154,20 @@
     }
     var badge = $("rig-cutout-badge");
     if (badge) {
+      badge.classList.remove("err");
       if (state.cutoutImage) {
         badge.hidden = false;
         badge.textContent =
-          "Cutout: " + (state.cutoutMethod || "ready");
+          "Cutout: " +
+          (state.cutoutMethod || "ready") +
+          " — opaque mesh only";
+      } else if (state.cutting) {
+        badge.hidden = false;
+        badge.textContent = "Cutting subject…";
       } else {
-        badge.hidden = true;
-        badge.textContent = "";
+        badge.hidden = false;
+        badge.classList.add("err");
+        badge.textContent = "No cutout — Pose blocked (background must not warp)";
       }
     }
     var showCb = $("rig-show-cutout");
@@ -201,7 +212,78 @@
     });
   }
 
+  /**
+   * Zero RGB where alpha is low so accidental samples stay empty (checkerboard).
+   * Also returns {opaque, cleared, borderClearFrac} stats.
+   */
+  function scrubAndMeasureCutout(img) {
+    var w0 = img.naturalWidth || img.width;
+    var h0 = img.naturalHeight || img.height;
+    if (!w0 || !h0) throw new Error("empty cutout");
+    var c = document.createElement("canvas");
+    c.width = w0;
+    c.height = h0;
+    var ctx = c.getContext("2d", { willReadFrequently: true });
+    ctx.clearRect(0, 0, w0, h0);
+    ctx.drawImage(img, 0, 0, w0, h0);
+    var id = ctx.getImageData(0, 0, w0, h0);
+    var d = id.data;
+    var opaque = 0;
+    var cleared = 0;
+    var borderClear = 0;
+    var borderTotal = 0;
+    var x, y, i, a;
+    for (y = 0; y < h0; y++) {
+      for (x = 0; x < w0; x++) {
+        i = (y * w0 + x) * 4;
+        a = d[i + 3];
+        if (a < CUTOUT_ALPHA_MIN) {
+          d[i] = 0;
+          d[i + 1] = 0;
+          d[i + 2] = 0;
+          d[i + 3] = 0;
+          cleared++;
+        } else {
+          opaque++;
+        }
+        if (x === 0 || y === 0 || x === w0 - 1 || y === h0 - 1) {
+          borderTotal++;
+          if (a < CUTOUT_ALPHA_MIN) borderClear++;
+        }
+      }
+    }
+    ctx.putImageData(id, 0, 0);
+    return {
+      canvas: c,
+      opaque: opaque,
+      cleared: cleared,
+      fracClear: cleared / (w0 * h0),
+      borderClearFrac: borderTotal ? borderClear / borderTotal : 0,
+      w: w0,
+      h: h0,
+    };
+  }
+
+  /** Reject cutouts that still contain most of the background plate. */
+  function validateCutoutStats(stats, method) {
+    if (!stats || stats.opaque < 64) {
+      return "cutout has no visible subject";
+    }
+    if (stats.fracClear < 0.08) {
+      return "cutout left almost no transparent pixels (background still present)";
+    }
+    if (stats.fracClear > 0.97) {
+      return "cutout removed nearly everything";
+    }
+    // Border should be largely empty — otherwise posters/floor remain attached
+    if (stats.borderClearFrac < 0.45) {
+      return "cutout border still opaque (background not removed)";
+    }
+    return null;
+  }
+
   function imageHasUsefulAlpha(img) {
+
     try {
       var w0 = img.naturalWidth || img.width;
       var h0 = img.naturalHeight || img.height;
@@ -475,27 +557,38 @@
         });
       })
       .then(function (cutImg) {
-        state.cutoutImage = cutImg;
-        state.cutting = false;
-        state.cuttingPromise = null;
-        updateCutoutUI();
-        draw();
-        setStatus(
-          "Cutout ready (" +
-            (state.cutoutMethod || "ok") +
-            "). Pose deforms only the figure — background stays put.",
-          "ok"
-        );
-        return true;
+        var stats = scrubAndMeasureCutout(cutImg);
+        var bad = validateCutoutStats(stats, state.cutoutMethod);
+        if (bad) {
+          throw new Error(bad);
+        }
+        return canvasToImage(stats.canvas).then(function (cleanImg) {
+          state.cutoutImage = cleanImg;
+          state.cutting = false;
+          state.cuttingPromise = null;
+          updateCutoutUI();
+          draw();
+          setStatus(
+            "Cutout ready (" +
+              (state.cutoutMethod || "ok") +
+              "). Pose deforms only the figure — background stays put.",
+            "ok"
+          );
+          return true;
+        });
       })
       .catch(function (err) {
         console.warn("[rig] cutout failed", err);
+        state.cutoutImage = null;
+        state.cutoutMethod = "";
         state.cutting = false;
         state.cuttingPromise = null;
         updateCutoutUI();
         setStatus(
-          "Cutout failed — posing with full image (background may warp). Try a simpler BG or Re-cut.",
-          "warn"
+          "Cutout failed — Pose blocked until background is removed. " +
+            ((err && err.message) || "Try Re-cut / simpler BG.") +
+            " Background must NOT warp.",
+          "err"
         );
         return false;
       });
@@ -558,14 +651,14 @@
       hint.textContent =
         state.mode === "pose"
           ? "Pose: drag joints — children follow (FK). Only the cut-out figure deforms; background stays still. Reset Pose returns to bind."
-          : "Edit bones: drag joints to set the bind pose. Cut from background (or auto on Pose) so the scene does not warp when you move.";
+          : "Edit bones: drag joints to set the bind pose. Cut from background first — Pose is blocked until the figure is cut out.";
     }
     var toolbar = $("rig-toolbar-hint");
     if (toolbar) {
       toolbar.textContent =
         state.mode === "pose"
           ? "Pose · cutout mesh · drag a joint to move the limb"
-          : "Edit bones · drag joints onto the figure · Cut from background, then Pose";
+          : "Edit bones · Cut from background (required) · then Pose — only the figure warps";
     }
     var resetPose = $("rig-reset-pose");
     if (resetPose) resetPose.disabled = state.mode !== "pose";
@@ -578,8 +671,25 @@
   }
 
   function finishEnterPose() {
+    if (!state.cutoutImage) {
+      setStatus(
+        "Pose blocked: cutout required. Click Cut from background, then Pose.",
+        "err"
+      );
+      updateModeUI();
+      return false;
+    }
     state.bindJoints = cloneJoints(state.joints);
     buildSkinMesh();
+    if (!state.mesh || !state.mesh.tris.length) {
+      setStatus(
+        "Pose blocked: cutout mesh has no opaque triangles. Re-cut, then try again.",
+        "err"
+      );
+      state.mesh = null;
+      updateModeUI();
+      return false;
+    }
     state.mode = "pose";
     state.selectedId = state.joints[0] ? state.selectedId || state.joints[0].id : null;
     if (!jointById(state.selectedId)) {
@@ -590,11 +700,12 @@
     fillBoneSelects();
     draw();
     setStatus(
-      state.cutoutImage
-        ? "Pose mode: cutout mesh — only the figure deforms. Reset Pose restores bind."
-        : "Pose mode (no cutout): full image will warp. Use Cut from background.",
-      state.cutoutImage ? "ok" : "warn"
+      "Pose mode: cutout-only mesh (" +
+        state.mesh.tris.length +
+        " tris) — only the figure deforms. Background stays gone.",
+      "ok"
     );
+    return true;
   }
 
   function setMode(mode) {
@@ -612,10 +723,18 @@
         setStatus("Need joints before posing.", "warn");
         return;
       }
-      // Auto-cut before posing so the scene behind the figure does not warp
+      // Hard gate: never enter Pose on the full background image
       if (!state.cutoutImage) {
         setStatus("Cutting subject from background before Pose…", "");
-        ensureCutout(false).then(function () {
+        ensureCutout(false).then(function (ok) {
+          if (!ok || !state.cutoutImage) {
+            setStatus(
+              "Pose blocked — cutout failed. Fix / Re-cut, then click Pose again.",
+              "err"
+            );
+            updateModeUI();
+            return;
+          }
           finishEnterPose();
         });
         return;
@@ -685,8 +804,19 @@
         fitCanvas();
         $("rig-empty").hidden = true;
         if (state.mode === "pose") {
-          // Re-cut for the new image, then rebuild mesh
-          ensureCutout(false).then(function () {
+          // Re-cut for the new image; leave Pose if cutout fails (never warp full BG)
+          ensureCutout(false).then(function (ok) {
+            if (!ok || !state.cutoutImage) {
+              state.mode = "edit";
+              state.mesh = null;
+              updateModeUI();
+              setStatus(
+                "Cutout failed on new image — back in Edit. Re-cut before Pose.",
+                "err"
+              );
+              draw();
+              return;
+            }
             state.bindJoints = cloneJoints(state.joints);
             buildSkinMesh();
             draw();
@@ -796,59 +926,158 @@
     return Math.hypot(px - qx, py - qy);
   }
 
+  /**
+   * Sample cutout alpha into a grid matching mesh resolution.
+   * Returns Float32Array length (cols+1)*(rows+1) with 0..1 opacity, or null.
+   */
+  function sampleCutoutAlphaGrid(cols, rows) {
+    var img = state.cutoutImage;
+    if (!img) return null;
+    var iw = img.naturalWidth || img.width;
+    var ih = img.naturalHeight || img.height;
+    if (!iw || !ih) return null;
+    var c = document.createElement("canvas");
+    c.width = cols + 1;
+    c.height = rows + 1;
+    var ctx = c.getContext("2d", { willReadFrequently: true });
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.drawImage(img, 0, 0, c.width, c.height);
+    var data = ctx.getImageData(0, 0, c.width, c.height).data;
+    var out = new Float32Array((cols + 1) * (rows + 1));
+    for (var i = 0, p = 0; i < data.length; i += 4, p++) {
+      out[p] = data[i + 3] / 255;
+    }
+    return out;
+  }
+
+  function boneWeightsAt(x, y, bind, bones) {
+    var influences = [];
+    for (var bi = 0; bi < bones.length; bi++) {
+      var ba = jointInList(bind, bones[bi][0]);
+      var bb = jointInList(bind, bones[bi][1]);
+      if (!ba || !bb) continue;
+      var d = distToSegment(x, y, ba.x, ba.y, bb.x, bb.y);
+      if (d > SKIN_MAX_DIST) continue;
+      var w = 1 / (Math.pow(d, SKIN_POWER) + SKIN_EPS);
+      influences.push({ bone: bi, w: w, d: d });
+    }
+    influences.sort(function (a, b) {
+      return a.d - b.d;
+    });
+    influences = influences.slice(0, SKIN_INFLUENCES);
+    var sum = 0;
+    for (var k = 0; k < influences.length; k++) sum += influences[k].w;
+    var weights = [];
+    if (sum > 0) {
+      for (k = 0; k < influences.length; k++) {
+        weights.push({ bone: influences[k].bone, w: influences[k].w / sum });
+      }
+    }
+    return weights;
+  }
+
+  /**
+   * Build SSD mesh from cutout alpha only — verts/tris over opaque character pixels.
+   * Transparent background (posters/floor) is never meshed, so it cannot stretch.
+   */
   function buildSkinMesh() {
     if (!state.bindJoints.length || !state.bones.length) {
       state.mesh = null;
       return;
     }
+    if (!state.cutoutImage) {
+      // Pose must never skin the full uncut plate
+      state.mesh = null;
+      return;
+    }
     var cols = MESH_COLS;
     var rows = MESH_ROWS;
-    var verts = [];
+    var alpha = sampleCutoutAlphaGrid(cols, rows);
+    if (!alpha) {
+      state.mesh = null;
+      return;
+    }
     var bind = state.bindJoints;
     var bones = state.bones;
+    var stride = cols + 1;
+    var thresh = CUTOUT_ALPHA_MIN / 255;
+    var keep = new Uint8Array(stride * (rows + 1));
+    var r, c, idx, a;
 
-    for (var r = 0; r <= rows; r++) {
-      for (var c = 0; c <= cols; c++) {
+    // Keep verts that are opaque, or neighbors of opaque (preserve silhouette)
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        if (alpha[idx] >= thresh) keep[idx] = 1;
+      }
+    }
+    var keep2 = new Uint8Array(keep);
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        if (keep[idx]) continue;
+        var n =
+          (r > 0 && keep[idx - stride]) ||
+          (r < rows && keep[idx + stride]) ||
+          (c > 0 && keep[idx - 1]) ||
+          (c < cols && keep[idx + 1]);
+        if (n) keep2[idx] = 1;
+      }
+    }
+    keep = keep2;
+
+    var oldToNew = new Int32Array(stride * (rows + 1));
+    for (var i = 0; i < oldToNew.length; i++) oldToNew[i] = -1;
+    var verts = [];
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        if (!keep[idx]) continue;
         var x = c / cols;
         var y = r / rows;
-        var influences = [];
-        for (var bi = 0; bi < bones.length; bi++) {
-          var ba = jointInList(bind, bones[bi][0]);
-          var bb = jointInList(bind, bones[bi][1]);
-          if (!ba || !bb) continue;
-          var d = distToSegment(x, y, ba.x, ba.y, bb.x, bb.y);
-          var w = 1 / (d * d + SKIN_EPS);
-          influences.push({ bone: bi, w: w, d: d });
-        }
-        influences.sort(function (a, b) {
-          return a.d - b.d;
+        oldToNew[idx] = verts.length;
+        verts.push({
+          x: x,
+          y: y,
+          u: x,
+          v: y,
+          a: alpha[idx],
+          weights: boneWeightsAt(x, y, bind, bones),
         });
-        influences = influences.slice(0, SKIN_INFLUENCES);
-        var sum = 0;
-        for (var k = 0; k < influences.length; k++) sum += influences[k].w;
-        var weights = [];
-        if (sum > 0) {
-          for (k = 0; k < influences.length; k++) {
-            weights.push({ bone: influences[k].bone, w: influences[k].w / sum });
-          }
-        }
-        verts.push({ x: x, y: y, u: x, v: y, weights: weights });
       }
     }
 
     var tris = [];
-    var stride = cols + 1;
+    function pushTri(ia, ib, ic) {
+      var na = oldToNew[ia];
+      var nb = oldToNew[ib];
+      var nc = oldToNew[ic];
+      if (na < 0 || nb < 0 || nc < 0) return;
+      // Require meaningful opacity so empty BG cells never draw
+      var aa = verts[na].a + verts[nb].a + verts[nc].a;
+      if (aa < thresh * 1.2) return;
+      tris.push([na, nb, nc]);
+    }
     for (r = 0; r < rows; r++) {
       for (c = 0; c < cols; c++) {
         var i0 = r * stride + c;
         var i1 = i0 + 1;
         var i2 = i0 + stride;
         var i3 = i2 + 1;
-        tris.push([i0, i1, i2]);
-        tris.push([i1, i3, i2]);
+        // Cell must touch opaque content
+        var cellA =
+          (alpha[i0] + alpha[i1] + alpha[i2] + alpha[i3]) * 0.25;
+        if (cellA < thresh * 0.5) continue;
+        pushTri(i0, i1, i2);
+        pushTri(i1, i3, i2);
       }
     }
-    state.mesh = { verts: verts, tris: tris };
+
+    if (!verts.length || !tris.length) {
+      state.mesh = null;
+      return;
+    }
+    state.mesh = { verts: verts, tris: tris, cutoutOnly: true };
   }
 
   /** Apply bone rigid transform: p' = a1 + R(dang)*s*(p - a0) */
@@ -947,14 +1176,9 @@
   }
 
   function drawDeformedImage(ctx) {
-    var src = getRenderImage();
-    if (!src || !state.mesh) {
-      if (src) {
-        ctx.save();
-        ctx.globalAlpha = state.opacity;
-        ctx.drawImage(src, 0, 0, state.canvasW, state.canvasH);
-        ctx.restore();
-      }
+    // Pose textures the cutout only — never the full uncut painting
+    var src = state.cutoutImage;
+    if (!src || !state.mesh || !state.mesh.tris || !state.mesh.tris.length) {
       return;
     }
     var verts = state.mesh.verts;
@@ -966,17 +1190,22 @@
         y: sp.y * state.canvasH,
         u: verts[i].u,
         v: verts[i].v,
+        a: verts[i].a || 0,
       };
     }
 
     ctx.save();
     ctx.globalAlpha = state.opacity;
+    // Premultiplied-friendly: transparent cutout samples stay empty over checkerboard
+    ctx.globalCompositeOperation = "source-over";
     var tris = state.mesh.tris;
+    var amin = CUTOUT_ALPHA_MIN / 255;
     for (var t = 0; t < tris.length; t++) {
       var tri = tris[t];
       var a = skinned[tri[0]];
       var b = skinned[tri[1]];
       var c = skinned[tri[2]];
+      if ((a.a + b.a + c.a) / 3 < amin * 0.35) continue;
       drawTexturedTriangle(ctx, src, a, b, c, a.u, a.v, b.u, b.v, c.u, c.v);
     }
     ctx.restore();
@@ -991,8 +1220,17 @@
 
     if (!state.image) return;
 
-    if (state.mode === "pose" && state.mesh) {
-      drawDeformedImage(ctx);
+    if (state.mode === "pose") {
+      if (state.cutoutImage && state.mesh) {
+        drawDeformedImage(ctx);
+      } else if (state.cutoutImage) {
+        // Cutout present but mesh missing — still show cutout (no BG warp)
+        ctx.save();
+        ctx.globalAlpha = state.opacity;
+        ctx.drawImage(state.cutoutImage, 0, 0, canvas.width, canvas.height);
+        ctx.restore();
+      }
+      // else: leave canvas clear so checkerboard shows — never draw full plate in Pose
     } else {
       var src = getRenderImage() || state.image;
       ctx.save();
