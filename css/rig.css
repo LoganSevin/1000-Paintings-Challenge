@@ -322,3 +322,34 @@ body.rig-tab-active .site-header {
   font-size: 0.68rem;
   color: #7a6a58;
 }
+
+/* Mode toggle — Edit bones vs Pose */
+.rig-mode-toggle {
+  gap: 0.35rem;
+}
+
+.rig-mode-btn.active {
+  background: linear-gradient(180deg, #c4922e, #6a4a14);
+  color: #1a1208;
+  font-weight: 700;
+  border-color: rgba(255, 220, 130, 0.55);
+}
+
+.rig-shell.rig-mode-pose .rig-mode-btn#rig-mode-pose.active {
+  background: linear-gradient(180deg, #5a9ec8, #2a5070);
+  color: #e8f6ff;
+  border-color: rgba(160, 220, 255, 0.55);
+}
+
+.rig-mode-hint {
+  margin-top: 0.35rem;
+  color: #b8a888;
+}
+
+.rig-shell.rig-mode-pose .rig-stage-wrap canvas {
+  cursor: grab;
+}
+
+.rig-shell.rig-mode-pose .rig-joint-list {
+  border-color: rgba(100, 170, 210, 0.35);
+}

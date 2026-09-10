@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
-  <link rel="stylesheet" href="css/rig.css?v=1" />
+  <link rel="stylesheet" href="css/rig.css?v=2" />
   <script type="importmap">
   {
     "imports": {
@@ -5842,8 +5842,11 @@
       <header class="rig-top">
         <h2>Rig</h2>
         <p class="rig-hint">
-          Manual <strong>2D bone placement</strong> on your images — drag the human starter skeleton onto a figure,
-          tweak joints, add/remove bones, then save or export JSON. Takes over where Art Floor auto-character fell short.
+          Place bones in <strong>Edit bones</strong>, then switch to <strong>Pose</strong> to drag joints —
+          child bones follow (FK) and the <strong>image deforms</strong> with the skeleton. Save/export keeps bind + pose.
+        </p>
+        <p id="rig-mode-hint" class="rig-hint rig-mode-hint">
+          Edit bones: drag joints to set the bind pose, then switch to Pose to move and deform the image.
         </p>
       </header>
       <div class="rig-body">
@@ -5859,6 +5862,15 @@
             <button type="button" id="rig-prev-painting" class="rig-btn" title="Previous">◀</button>
             <button type="button" id="rig-next-painting" class="rig-btn" title="Next">▶</button>
             <button type="button" id="rig-rand-painting" class="rig-btn">Random</button>
+          </div>
+
+          <h3>Mode</h3>
+          <div class="rig-row rig-mode-toggle" role="group" aria-label="Rig mode">
+            <button type="button" id="rig-mode-edit" class="rig-btn rig-mode-btn active">Edit bones</button>
+            <button type="button" id="rig-mode-pose" class="rig-btn rig-mode-btn">Pose / Move</button>
+          </div>
+          <div class="rig-row">
+            <button type="button" id="rig-reset-pose" class="rig-btn" disabled title="Restore joints to bind pose">Reset pose</button>
           </div>
 
           <h3>View</h3>
@@ -5904,7 +5916,7 @@
         </aside>
         <div class="rig-main">
           <div class="rig-toolbar">
-            <span style="font-size:0.74rem;color:#a89880">Drag joints · click list to select · Add joint attaches to selection</span>
+            <span id="rig-toolbar-hint" style="font-size:0.74rem;color:#a89880">Edit bones · drag joints onto the figure · then click Pose to move</span>
           </div>
           <div class="rig-stage-wrap" id="rig-stage">
             <canvas id="rig-canvas" width="800" height="600" aria-label="2D rig canvas"></canvas>
@@ -6697,7 +6709,7 @@
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=24"></script>
   <script defer src="js/zoo.js?v=12"></script>
-  <script defer src="js/rig.js?v=1"></script>
+  <script defer src="js/rig.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=2"></script>
