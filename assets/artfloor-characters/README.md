@@ -1,32 +1,26 @@
 # Art Floor characters
 
-- `custom/golden-stasis.jpg` — source painting (Logan attachment)
-- `custom/golden-stasis-cutout.png` — rembg alpha cutout (figure only; posters/floor props removed)
-- Player uses the cutout as a structurally inflated dual-face + extruded silhouette (not Mixamo Michelle UV atlas)
-- `glb/Soldier.glb`, `glb/Xbot.glb` — gallery NPCs
-- `glb/Michelle.glb` — legacy only (`?customGlb=`)
-
-
-# Art Floor characters
-
 Primary: offline **Mixamo-style human GLBs** under `glb/` loaded with Three.js
 `GLTFLoader` + `AnimationMixer` (Walk / Idle).
 
-- `glb/Michelle.glb` — Mixamo Michelle (female, adult MetaHuman-like proportions). Used as the **player** with a custom painting look. SambaDance ships in-file; Walk/Idle are borrowed at runtime from Soldier/Xbot (same `mixamorig:*` bones).
+- `glb/Michelle.glb` — Mixamo Michelle (female). **Player** with opaque metallic-gold jumpsuit materials (eyedropper palette from the painting). SambaDance ships in-file; Walk/Idle are borrowed at runtime from Soldier/Xbot (same `mixamorig:*` bones).
 - `glb/Soldier.glb` — Mixamo Soldier (Idle/Walk/Run) — gallery NPC crowd + locomotion donor
 - `glb/Xbot.glb` — Mixamo X Bot (idle/walk/run) — gallery NPC crowd
 
-## Custom painting → contoured body
+## Custom painting → gold look (front vs back)
 
-Drop a character image under `custom/` (default: `custom/golden-stasis.jpg`) and it is mapped as albedo onto Michelle with a metallic-gold jumpsuit shader, dark hair volumes, and a black neckerchief accent.
+- `custom/golden-stasis.jpg` — source painting (front-only reference)
+- `custom/golden-stasis-cutout.png` — optional rembg cutout (not used as player mesh)
 
-Reusable hook (no rebuild required for a new image):
+Because the source is **front-only**, the painting is **not** UV-wrapped onto Michelle (that put the front photo on her back). The body uses solid opaque metallic-gold `MeshStandardMaterial` from painting colors; hair/scarf/heels are solid invented materials that read correctly when orbiting behind. Mixamo gloss `metalnessMap` is stripped (it made the body invisible without an env map).
 
-- `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=assets/artfloor-characters/custom/your.jpg`
+Reusable hook:
+
+- `window.GE_CUSTOM_CHARACTER_URL` or `?customChar=assets/artfloor-characters/custom/your.jpg` (palette / look ref)
 - `window.GE_CUSTOM_CHARACTER_GLB` or `?customGlb=glb/Michelle.glb`
 
 NPCs keep calm gallery attire solids (navy, camel, charcoal, burgundy, slate, …).
 
 Procedural fallback (if GLBs fail): MetaHuman-like proportions (head ≈ 1/7.5 body height), continuous lathe torso, tapered limbs, 5-finger hands.
 
-Intentionally **not** used: green waffle “player uniform”, white collar plates, chest badge / pencil graphics, photo-cube / Lego ball-joint people, Epic MetaHumans (not embeddable in a browser without the MetaHuman runtime).
+Intentionally **not** used: inflated dual-face / extruded silhouette-box player, front-photo-on-back, “Golden Stasis” nameplate, green waffle “player uniform”, white collar plates, chest badge / pencil graphics, photo-cube / Lego ball-joint people.
