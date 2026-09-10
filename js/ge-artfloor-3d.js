@@ -4,12 +4,12 @@
  * - Local Three.js (importmap → vendor/three)
  * - Procedural 3D marble hall: columns, arched windows, chandeliers, green tables, easels
  * - Player: open-source image→3D custom-character.glb (TripoSR) gold jumpsuit — full body front+back
- * - Look: TripoSR PBR (albedo + metalness + roughness + normal); Y-up upright; moderated metal (no black-hole)
+ * - Look: segmented PBR (skin/hair/gold/scarf/gun/shoes) + vertex-color reinforce; Y-up upright
  * - NPCs: offline Mixamo Soldier/Xbot gallery crowd (calm attire tints + walk mixer)
- * - Unskinned custom mesh: TPS bob/sway/lean walk (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
+ * - Unskinned custom mesh: TPS bob/sway/idle breathe (no Mixamo skin). Skinned Mixamo fallback if GLB missing.
  * - Hook: CUSTOM_CHARACTER_GLB / ?customGlb= (default glb/custom-character.glb); CUSTOM_CHARACTER_URL palette ref
  * - NO yellow inflated cutout / ExtrudeGeometry silhouette; NO painting UV-wrap on back
- * - TPS camera over shoulders; mouse look; WASD relative to facing; wheel zoom; E at GE desk
+ * - Camera yaw ≠ body yaw (no billboard snap); orbit shows side/back; WASD vs camera; LMB/F shoot; E at desk
  */
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -32,11 +32,15 @@ var api = {
   _camera: null,
   _player: null,
   _playerYaw: 0,
+  _camYaw: Math.PI,
   _lookPitch: 0.22,
   _camDist: ZOOM_DEFAULT,
   _camDistTarget: ZOOM_DEFAULT,
   _keys: Object.create(null),
   _pointerLocked: false,
+  _projectiles: null,
+  _muzzleLight: null,
+  _shootCooldown: 0,
   _colliders: [],
   _booth: null,
   _npcs: [],
@@ -672,7 +676,13 @@ function resolveCustomCharacterPaths() {
     if (/^(https?:|data:|blob:|\/)/i.test(p) || p.indexOf("assets/") === 0) return p;
     return CHAR_ASSET_BASE + p.replace(/^\/+/, "");
   }
-  return { glb: abs(CUSTOM_CHARACTER_GLB), look: abs(CUSTOM_CHARACTER_URL) };
+  // Bust CDN/browser cache when custom GLB/PBR maps change
+  var bust = "v=18";
+  function withBust(u) {
+    if (!u) return u;
+    return u + (u.indexOf("?") >= 0 ? "&" : "?") + bust;
+  }
+  return { glb: withBust(abs(CUSTOM_CHARACTER_GLB)), look: withBust(abs(CUSTOM_CHARACTER_URL)) };
 }
 
 /** Calm solid gallery attire palettes (no costume graphics). */
@@ -956,6 +966,7 @@ function applyTexturedCustomLook(root) {
       if (map) {
         map.colorSpace = THREE.SRGBColorSpace;
         map.flipY = false;
+        map.anisotropy = 8;
         map.needsUpdate = true;
       }
       // metal/rough/normal stay linear
@@ -963,7 +974,8 @@ function applyTexturedCustomLook(root) {
       if (roughMap) { roughMap.colorSpace = THREE.NoColorSpace; roughMap.flipY = false; roughMap.needsUpdate = true; }
       if (normMap) { normMap.colorSpace = THREE.NoColorSpace; normMap.flipY = false; normMap.needsUpdate = true; }
       var hasGeoColor = !!(o.geometry && o.geometry.attributes && o.geometry.attributes.color);
-      var vertexColors = !!(m.vertexColors || hasGeoColor);
+      // Prefer baked albedo map; vertexColors only as fallback (multiply would darken atlas)
+      var vertexColors = !map && !!(m.vertexColors || hasGeoColor);
       var color;
       if (map) {
         color = new THREE.Color(0xffffff);
@@ -974,38 +986,37 @@ function applyTexturedCustomLook(root) {
       } else {
         color = new THREE.Color(GOLDEN_STASIS_PALETTE.gold);
       }
-      if (map || metalMap || roughMap || normMap || vertexColors
+      if (map || metalMap || roughMap || normMap || vertexColors || hasGeoColor
           || (m.color && m.color.getHex && m.color.getHex() !== 0xffffff)) hasColor = true;
-      // Moderated metalness: map still varies suit vs skin; factor prevents black-out without strong env
-      var metalness = m.metalness != null ? m.metalness : 0.45;
-      if (metalness > 0.55) metalness = 0.55;
-      if (metalness < 0.08 && !metalMap) metalness = 0.35;
-      var roughness = m.roughness != null ? m.roughness : 0.7;
-      if (roughness < 0.28) roughness = 0.28;
+      // Segmented metal/rough maps drive suit vs skin; allow brighter gold with scene.environment
+      var metalness = m.metalness != null ? m.metalness : (metalMap ? 1.0 : 0.55);
+      if (!metalMap && metalness > 0.85) metalness = 0.85;
+      if (metalness < 0.05 && !metalMap) metalness = 0.4;
+      var roughness = m.roughness != null ? m.roughness : (roughMap ? 1.0 : 0.45);
+      if (!roughMap && roughness < 0.18) roughness = 0.18;
       var nm = trackMat(new THREE.MeshStandardMaterial({
         color: color,
         map: map,
         metalnessMap: metalMap,
         roughnessMap: roughMap,
         normalMap: normMap,
-        normalScale: new THREE.Vector2(0.7, 0.7),
+        normalScale: new THREE.Vector2(0.85, 0.85),
         vertexColors: vertexColors,
         roughness: roughness,
         metalness: metalness,
-        envMapIntensity: 0.65,
+        envMapIntensity: 1.05,
         transparent: false,
         opacity: 1,
         depthWrite: true,
         side: THREE.DoubleSide,
         flatShading: false,
       }));
-      // Keep ao/alpha cleared; do NOT strip metal/rough/normal — custom GLB ships full PBR
       nm.aoMap = null;
       nm.alphaMap = null;
       nm.emissiveMap = null;
-      // Soft gold lift under gallery lights
-      if (nm.emissive) nm.emissive.setHex(0x2a1c08);
-      nm.emissiveIntensity = 0.1;
+      // Subtle warm lift so gold reads metallic without washing skin
+      if (nm.emissive) nm.emissive.setHex(0x1a1206);
+      nm.emissiveIntensity = 0.06;
       nm.needsUpdate = true;
       mats[i] = nm;
     }
@@ -1149,6 +1160,8 @@ function buildGltfCharacter(entry, opts) {
   var isCustom = !!(opts.keepTexture || /custom-character/i.test(entry.id || ""));
   if (isCustom) {
     uprightCustomIfNeeded(model);
+    // TripoSR front is +Z; game forward is -Z — yaw π so TPS-behind shows her back, orbit shows sides
+    model.rotation.y = Math.PI;
   }
 
   if (isCustom) {
@@ -1569,29 +1582,40 @@ function animateHumanoid(root, moving, dt) {
     return;
   }
 
-  // Unskinned custom GLB (TripoSR etc.): clearer TPS locomotion — bob, sway, stride lean (no limb skin)
+  // Unskinned custom GLB (TripoSR etc.): walk bob/sway + idle breathe (never frozen statue)
   if (root.userData.unskinnedTps || (root.userData.charKind === "gltf" && !root.userData.mixer)) {
     var targetU = moving ? 1 : 0;
     root.userData.walkAmp = (root.userData.walkAmp || 0) + (targetU - (root.userData.walkAmp || 0)) * Math.min(1, dt * 9);
     var ampU = root.userData.walkAmp || 0;
-    var Lbob = root.userData.limbs || (root.userData.limbs = { phase: 0 });
-    Lbob.phase = (Lbob.phase || 0) + dt * (8.2 + ampU * 5.5);
+    var Lbob = root.userData.limbs || (root.userData.limbs = { phase: 0, idlePhase: 0 });
+    Lbob.phase = (Lbob.phase || 0) + dt * (8.6 + ampU * 6.2);
+    Lbob.idlePhase = (Lbob.idlePhase || 0) + dt * 1.7;
     var stride = Math.sin(Lbob.phase);
     var stride2 = Math.sin(Lbob.phase * 2);
-    var bob = Math.abs(stride) * ampU * 0.07;
-    var sway = stride * ampU * 0.055;
-    var lean = ampU * 0.06;
+    var idle = Math.sin(Lbob.idlePhase);
+    var idle2 = Math.sin(Lbob.idlePhase * 2.1);
+    var bob = Math.abs(stride) * ampU * 0.11 + (1 - ampU) * (idle * 0.012 + 0.006);
+    var sway = stride * ampU * 0.09 + (1 - ampU) * idle * 0.018;
+    var lean = ampU * 0.09;
     var baseY = root.userData.bobBaseY != null ? root.userData.bobBaseY : (Lbob.groundY || 0);
     root.position.y = baseY + bob;
-    // Keep facing yaw from controller; layer walk roll/pitch on model child if present
+    // Facing yaw is set by step() — never lookAt(camera). Layer sway on model child only.
     var model = root.children && root.children[0];
-    if (model && model.isObject3D && !model.isMesh) {
-      model.rotation.z = sway * 0.55;
-      model.rotation.x = lean + stride2 * ampU * 0.03;
-      model.position.x = sway * 0.025;
+    if (model && model.isObject3D) {
+      // Preserve custom mesh yaw offset (π); only layer walk roll/pitch
+      var baseYaw = root.userData.modelBaseYaw != null ? root.userData.modelBaseYaw : (model.rotation.y || 0);
+      if (root.userData.modelBaseYaw == null && Math.abs(model.rotation.y) > 0.01) {
+        root.userData.modelBaseYaw = model.rotation.y;
+        baseYaw = model.rotation.y;
+      }
+      model.rotation.y = baseYaw + (1 - ampU) * idle2 * 0.025;
+      model.rotation.z = sway * 0.7;
+      model.rotation.x = lean + stride2 * ampU * 0.045 + (1 - ampU) * idle * 0.02;
+      model.position.x = sway * 0.035;
+      model.position.z = ampU * stride * 0.012;
     } else {
-      root.rotation.z = sway * 0.22;
-      root.rotation.x = lean * 0.5 + stride * ampU * 0.025;
+      root.rotation.z = sway * 0.28;
+      root.rotation.x = lean * 0.55 + stride * ampU * 0.03;
     }
     return;
   }
@@ -1900,7 +1924,10 @@ function buildHall() {
   api._player.position.set(0, pgy, 10);
   if (api._player.userData) api._player.userData.bobBaseY = pgy;
   api._playerYaw = Math.PI;
+  api._camYaw = Math.PI;
   api._player.rotation.y = api._playerYaw;
+  api._projectiles = [];
+  api._shootCooldown = 0;
   scene.add(api._player);
   // Follow fill so custom textured mesh stays readable (no env map / metalness black-hole)
   var playerKey = new THREE.PointLight(0xffe2a8, 1.15, 7.5, 2);
@@ -1932,7 +1959,8 @@ function updateCamera(dt) {
   api._camDist += (api._camDistTarget - api._camDist) * lerp;
 
   var p = api._player.position;
-  var yaw = api._playerYaw;
+  // Camera yaw is independent of body yaw — orbiting must reveal side/back (no billboard)
+  var yaw = api._camYaw != null ? api._camYaw : api._playerYaw;
   var pitch = api._lookPitch;
   var dist = api._camDist;
   var behindX = Math.sin(yaw);
@@ -2012,6 +2040,125 @@ function stepNpc(n, dt) {
   animateHumanoid(n.group, moving, dt);
 }
 
+
+function getAimForward() {
+  var yaw = api._camYaw != null ? api._camYaw : api._playerYaw;
+  // Camera looks opposite behind-vector ≈ walk forward
+  return { x: -Math.sin(yaw), z: -Math.cos(yaw) };
+}
+
+function getMuzzleWorld() {
+  var p = api._player.position;
+  var yaw = api._playerYaw;
+  // Gun hand is raised on mesh +X before π flip → world left of facing after flip ≈ character's right
+  var fx = -Math.sin(yaw);
+  var fz = -Math.cos(yaw);
+  var rx = Math.cos(yaw);
+  var rz = -Math.sin(yaw);
+  return {
+    x: p.x + fx * 0.18 + rx * 0.22,
+    y: p.y + 1.42,
+    z: p.z + fz * 0.18 + rz * 0.22,
+  };
+}
+
+function playerShoot() {
+  if (!api._running || !api._player || !api._scene) return;
+  if (api._shootCooldown > 0) return;
+  api._shootCooldown = 0.28;
+  if (!api._projectiles) api._projectiles = [];
+
+  var aim = getAimForward();
+  var muzzle = getMuzzleWorld();
+
+  // Muzzle flash sprite (simple emissive sphere)
+  var flashMat = trackMat(new THREE.MeshBasicMaterial({
+    color: 0xffe08a,
+    transparent: true,
+    opacity: 0.95,
+    depthWrite: false,
+  }));
+  var flash = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.07, 8, 8)), flashMat);
+  flash.position.set(muzzle.x, muzzle.y, muzzle.z);
+  api._scene.add(flash);
+
+  if (!api._muzzleLight) {
+    api._muzzleLight = new THREE.PointLight(0xffcc66, 0, 4.5, 2);
+    api._scene.add(api._muzzleLight);
+  }
+  api._muzzleLight.position.copy(flash.position);
+  api._muzzleLight.intensity = 2.8;
+
+  // Small gold projectile
+  var boltMat = trackMat(new THREE.MeshStandardMaterial({
+    color: 0xf0d060,
+    emissive: 0xffaa33,
+    emissiveIntensity: 1.2,
+    metalness: 0.6,
+    roughness: 0.35,
+  }));
+  var bolt = new THREE.Mesh(trackGeo(new THREE.SphereGeometry(0.045, 8, 8)), boltMat);
+  bolt.position.set(muzzle.x, muzzle.y, muzzle.z);
+  api._scene.add(bolt);
+
+  api._projectiles.push({
+    mesh: bolt,
+    flash: flash,
+    vx: aim.x * 22,
+    vz: aim.z * 22,
+    life: 0.7,
+    flashLife: 0.08,
+  });
+
+  // Soften pose kick: brief model pitch nudge
+  var model = api._player.children && api._player.children[0];
+  if (model && model.isObject3D) {
+    api._player.userData.shootKick = 0.12;
+  }
+}
+
+function updateProjectiles(dt) {
+  if (api._shootCooldown > 0) api._shootCooldown = Math.max(0, api._shootCooldown - dt);
+  if (api._player && api._player.userData && api._player.userData.shootKick) {
+    api._player.userData.shootKick = Math.max(0, api._player.userData.shootKick - dt);
+  }
+  if (!api._projectiles || !api._projectiles.length) {
+    if (api._muzzleLight) api._muzzleLight.intensity = Math.max(0, (api._muzzleLight.intensity || 0) - dt * 18);
+    return;
+  }
+  var kept = [];
+  for (var i = 0; i < api._projectiles.length; i++) {
+    var pr = api._projectiles[i];
+    pr.life -= dt;
+    if (pr.flashLife != null) {
+      pr.flashLife -= dt;
+      if (pr.flash) {
+        pr.flash.material.opacity = Math.max(0, pr.flashLife / 0.08);
+        pr.flash.scale.setScalar(1 + (0.08 - Math.max(0, pr.flashLife)) * 8);
+      }
+      if (pr.flashLife <= 0 && pr.flash) {
+        api._scene.remove(pr.flash);
+        pr.flash = null;
+      }
+    }
+    if (pr.mesh) {
+      pr.mesh.position.x += pr.vx * dt;
+      pr.mesh.position.z += pr.vz * dt;
+      pr.mesh.position.y += Math.sin((0.7 - pr.life) * 10) * 0.002;
+    }
+    if (pr.life <= 0 || Math.abs(pr.mesh.position.x) > 14 || Math.abs(pr.mesh.position.z) > 16) {
+      if (pr.mesh) api._scene.remove(pr.mesh);
+      if (pr.flash) api._scene.remove(pr.flash);
+    } else {
+      kept.push(pr);
+    }
+  }
+  api._projectiles = kept;
+  if (api._muzzleLight) {
+    api._muzzleLight.intensity = kept.some(function (p) { return p.flash; }) ? 2.2 : Math.max(0, api._muzzleLight.intensity - dt * 18);
+  }
+}
+
 function step(dt) {
   if (!api._running || !api._player) return;
   var mx = 0, mz = 0;
@@ -2022,15 +2169,16 @@ function step(dt) {
   if (k.KeyD || k.ArrowRight) mx += 1;
 
   var moved = 0;
-  var yaw = api._playerYaw;
+  var camYaw = api._camYaw != null ? api._camYaw : api._playerYaw;
+  // WASD relative to camera facing (not body) so orbit + strafe feel correct
   if (mx || mz) {
     var len = Math.sqrt(mx * mx + mz * mz) || 1;
     mx /= len; mz /= len;
     var speed = 5.0;
-    var fx = -Math.sin(yaw);
-    var fz = -Math.cos(yaw);
-    var rx = Math.cos(yaw);
-    var rz = -Math.sin(yaw);
+    var fx = -Math.sin(camYaw);
+    var fz = -Math.cos(camYaw);
+    var rx = Math.cos(camYaw);
+    var rz = -Math.sin(camYaw);
     var dx = (fx * -mz + rx * mx) * speed * dt;
     var dz = (fz * -mz + rz * mx) * speed * dt;
     var nx = api._player.position.x + dx;
@@ -2041,6 +2189,15 @@ function step(dt) {
     if (!collidesAt(api._player.position.x, nz)) {
       api._player.position.z = nz; moved += Math.abs(dz);
     }
+    // Body yaw follows move direction — does NOT snap to camera each frame
+    if (moved > 1e-6) {
+      var wantYaw = Math.atan2(-dx, -dz);
+      var cur = api._playerYaw;
+      var diff = wantYaw - cur;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      api._playerYaw = cur + diff * Math.min(1, dt * 10);
+    }
     api._walkAcc += moved;
     while (api._walkAcc >= 2.5) {
       api._walkAcc -= 2.5;
@@ -2050,7 +2207,7 @@ function step(dt) {
     }
   }
 
-  api._player.rotation.y = yaw;
+  api._player.rotation.y = api._playerYaw;
   animateHumanoid(api._player, !!(mx || mz), dt);
   if (api._facingArrow) {
     api._facingArrow.visible = true;
@@ -2068,6 +2225,7 @@ function step(dt) {
   var dzb = api._player.position.z - bz;
   api._nearBooth = Math.sqrt(dxb * dxb + dzb * dzb) < (api._booth ? api._booth.r : 3.2);
   updateHint();
+  updateProjectiles(dt);
   updateCamera(dt);
 }
 
@@ -2105,6 +2263,9 @@ function bindInput() {
       e.preventDefault();
     } else if (code === "KeyE") {
       if (api._nearBooth) { e.preventDefault(); openExchangeFromWorld(); }
+    } else if (code === "KeyF") {
+      e.preventDefault();
+      playerShoot();
     } else if (code === "Escape") {
       if (document.pointerLockElement) document.exitPointerLock();
     }
@@ -2115,7 +2276,9 @@ function bindInput() {
   api._onMouseMove = function (e) {
     if (!api._running || !api._pointerLocked) return;
     var sens = 0.0024;
-    api._playerYaw -= e.movementX * sens;
+    // Orbit camera only — do NOT rotate body to face camera (kills billboard snap)
+    if (api._camYaw == null) api._camYaw = api._playerYaw;
+    api._camYaw -= e.movementX * sens;
     api._lookPitch += e.movementY * sens;
     api._lookPitch = Math.max(-0.15, Math.min(0.55, api._lookPitch));
   };
@@ -2142,6 +2305,11 @@ function bindInput() {
     if (!api._running || !api._canvas) return;
     if (api._nearBooth && e.target === api._canvas) {
       openExchangeFromWorld();
+      return;
+    }
+    if (api._pointerLocked) {
+      // Left click fires when already looking around
+      if (e.button === 0) playerShoot();
       return;
     }
     if (api._canvas.requestPointerLock) {
@@ -2381,6 +2549,7 @@ function dispose() {
   api._colliders = []; api._easelMeshes = []; api._npcs = [];
   api._textures = []; api._mats = []; api._geos = [];
   api._mixers = []; api._charLibrary = null; api._facingArrow = null;
+  api._projectiles = null; api._muzzleLight = null; api._shootCooldown = 0;
 }
 
 window.GeArtFloor3D = {
