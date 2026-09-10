@@ -37,6 +37,17 @@
       "</svg>"
     );
 
+  var LEDGER_THUMB =
+    "data:image/svg+xml," +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
+        '<rect width="64" height="64" rx="8" fill="#1a2332"/>' +
+        '<rect x="12" y="10" width="40" height="44" rx="4" fill="#243447" stroke="#c9a227" stroke-width="2"/>' +
+        '<path d="M20 22h24M20 30h24M20 38h18" stroke="#e8d5a3" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<circle cx="48" cy="48" r="8" fill="#c9a227"/><text x="48" y="51" text-anchor="middle" font-size="10" fill="#1a2332" font-family="sans-serif">✦</text>' +
+      "</svg>"
+    );
+
   var state = null;
   // NPC packs stay in memory only — never persist (was blowing localStorage).
   var npcRuntime = { inventory: {}, bank: {} };
@@ -150,6 +161,17 @@
     return !!noteOf(n) || (n > NOTE_BASE && n < NOTE_BASE + 100000);
   }
 
+  function isLedgerNote(n) {
+    var note = typeof n === "object" && n ? n : noteOf(n);
+    if (!note) return false;
+    return note.kind === "ledger" || !!note.isLedger || !!note.pendingGenerate;
+  }
+
+  function ledgerOf(n) {
+    var note = noteOf(n);
+    return note && isLedgerNote(note) ? note : null;
+  }
+
   /** Short inventory/slot label from prompt text (legacy single-string notes). */
   function deriveNoteTitle(prompt) {
     var t = String(prompt || "")
@@ -205,12 +227,25 @@
       prompt = String(raw.title || "");
       title = deriveNoteTitle(prompt);
     }
-    return {
+    var out = {
       id: id || Number(raw.id) || undefined,
       title: title || "Note",
       text: String(prompt || ""),
       createdAt: raw.createdAt || Date.now(),
     };
+    if (raw.kind === "ledger" || raw.isLedger || raw.pendingGenerate) {
+      out.kind = "ledger";
+      out.isLedger = true;
+      out.pendingGenerate = raw.pendingGenerate !== false;
+      out.description = String(raw.description != null ? raw.description : prompt || "").slice(0, 4000);
+      if (Array.isArray(raw.parents)) {
+        out.parents = raw.parents.map(Number).filter(function (n) { return n > 0; }).slice(0, 3);
+      } else {
+        out.parents = [];
+      }
+      if (raw.guide != null) out.guide = Math.max(1, Math.round(Number(raw.guide) || 1));
+    }
+    return out;
   }
 
   function normalizeAllNotes(notesMap) {
@@ -1084,7 +1119,7 @@
   function openItemDescription(itemId) {
     itemId = Number(itemId);
     if (!itemId) return { ok: false, error: "No item." };
-    if (noteOf(itemId)) {
+    if (noteOf(itemId) && !ledgerOf(itemId)) {
       return openItemFullscreen(itemId);
     }
     closeGeColorPopover();
@@ -1099,10 +1134,27 @@
       noteEl.hidden = true;
       noteEl.textContent = "";
     }
-    if (img) {
-      img.hidden = false;
-      img.src = thumb(itemId);
-      img.alt = titleFor(itemId);
+    var isLed = !!ledgerOf(itemId);
+    var noteEl2 = $("ge-lightbox-note");
+    if (isLed) {
+      if (img) {
+        img.hidden = true;
+        img.removeAttribute("src");
+      }
+      if (noteEl2) {
+        noteEl2.hidden = false;
+        noteEl2.textContent = notePromptOf(ledgerOf(itemId)) || titleFor(itemId);
+      }
+    } else {
+      if (noteEl2) {
+        noteEl2.hidden = true;
+        noteEl2.textContent = "";
+      }
+      if (img) {
+        img.hidden = false;
+        img.src = thumb(itemId);
+        img.alt = titleFor(itemId);
+      }
     }
     var body = String(fullDescFor(itemId) || "").trim();
     var dirty = !!(state.descOverrides && state.descOverrides[String(itemId)] != null);
@@ -1124,7 +1176,9 @@
           ? buildGeColorHitHtml(body, { source: "desc", itemId: itemId })
           : "<em>No description text.</em>") +
         "</div>" +
-        '<p class="ge-color-chips-hint" style="margin-top:10px">Click a color chip to change its pigment. Edit text / Default text work like Spellforge.</p>';
+        (isLed
+          ? '<p class="ge-color-chips-hint" style="margin-top:10px">Ledger composition prompt is above. Edit this description, then right-click → Generate when ready.</p>'
+          : '<p class="ge-color-chips-hint" style="margin-top:10px">Click a color chip to change its pigment. Edit text / Default text work like Spellforge.</p>');
     }
     lb.hidden = false;
     return { ok: true };
@@ -1170,6 +1224,15 @@
         if (f._originalDescription == null) f._originalDescription = String(f.description || orig || "");
         f.description = text;
       }
+      var led = ledgerOf(itemId);
+      if (led) {
+        if (led._originalDescription == null) {
+          led._originalDescription = String(led.description != null ? led.description : notePromptOf(led) || "");
+        }
+        led.description = text;
+        state.notes[String(itemId)] = led;
+        syncNoteToSpellforgeStore(led);
+      }
     }
     saveState();
     openItemDescription(itemId);
@@ -1182,12 +1245,18 @@
     if (state.descOverrides) delete state.descOverrides[String(itemId)];
     var f = forgedOf(itemId);
     if (f && f._originalDescription) f.description = f._originalDescription;
+    var led = ledgerOf(itemId);
+    if (led && led._originalDescription != null) {
+      led.description = led._originalDescription;
+      state.notes[String(itemId)] = led;
+      syncNoteToSpellforgeStore(led);
+    }
     saveState();
     openItemDescription(itemId);
     setStatus("Reverted to default description.");
   }
 
-    /** One-time: remove old preset color-chip items from pack/bank. */
+  /** One-time: remove old preset color-chip items from pack/bank. */
   function purgePresetColorChips() {
     if (state._purgedPresetColorChips) return;
     var pid = String(PLAYER_ID);
@@ -1213,12 +1282,21 @@
       var store = raw ? JSON.parse(raw) : { notes: {}, nextNoteId: NOTE_BASE + 1 };
       if (!store.notes) store.notes = {};
       var norm = normalizeNoteEntry(note, note.id);
-      store.notes[String(note.id)] = {
+      var packed = {
         id: note.id,
         title: (norm && norm.title) || "Note",
         text: (norm && norm.text) || "",
         createdAt: (norm && norm.createdAt) || Date.now(),
       };
+      if (norm && isLedgerNote(norm)) {
+        packed.kind = "ledger";
+        packed.isLedger = true;
+        packed.pendingGenerate = norm.pendingGenerate !== false;
+        packed.description = String(norm.description != null ? norm.description : packed.text).slice(0, 4000);
+        packed.parents = Array.isArray(norm.parents) ? norm.parents.map(Number).slice(0, 3) : [];
+        if (norm.guide != null) packed.guide = Math.max(1, Math.round(Number(norm.guide) || 1));
+      }
+      store.notes[String(note.id)] = packed;
       var next = Math.max(
         Number(store.nextNoteId) || NOTE_BASE + 1,
         Number(note.id) + 1,
@@ -1237,6 +1315,7 @@
   function kindLabel(n) {
     n = Number(n);
     if (colorChipOf(n)) return "Color " + colorChipLabel(colorChipOf(n).name, colorChipOf(n).hex);
+    if (ledgerOf(n)) return "Ledger #" + n;
     if (noteOf(n)) return "Note #" + n;
     var f = forgedOf(n);
     if (f) return "Forged #" + n;
@@ -1252,6 +1331,7 @@
   function thumb(n) {
     n = Number(n);
     if (colorChipOf(n)) return colorChipThumb(colorChipOf(n).hex);
+    if (ledgerOf(n)) return LEDGER_THUMB;
     if (noteOf(n)) return NOTE_THUMB;
     if (thumbOverrides[String(n)]) return thumbOverrides[String(n)];
     var f = forgedOf(n);
@@ -1562,7 +1642,13 @@
   function originalDescFor(n) {
     n = Number(n);
     var note = noteOf(n);
-    if (note) return notePromptOf(note);
+    if (note) {
+      if (isLedgerNote(note)) {
+        if (note._originalDescription != null) return String(note._originalDescription);
+        if (note.description != null) return String(note.description);
+      }
+      return notePromptOf(note);
+    }
     var f = forgedOf(n);
     if (f) {
       if (f._originalDescription != null) return String(f._originalDescription);
@@ -1590,7 +1676,10 @@
       return String(state.descOverrides[String(n)] || "");
     }
     var note = noteOf(n);
-    if (note) return notePromptOf(note);
+    if (note) {
+      if (isLedgerNote(note) && note.description != null) return String(note.description);
+      return notePromptOf(note);
+    }
     var f = forgedOf(n);
     if (f && f.description) return String(f.description);
     var ex = extraOf(n);
@@ -2078,12 +2167,21 @@
     Object.keys(state.notes || {}).forEach(function (k) {
       var n = normalizeNoteEntry(state.notes[k], Number(k));
       if (!n) return;
-      notes[String(n.id != null ? n.id : k)] = {
+      var packed = {
         id: n.id != null ? n.id : Number(k),
         title: String(n.title || "Note").slice(0, 80),
         text: String(n.text || "").slice(0, 4000),
         createdAt: n.createdAt,
       };
+      if (isLedgerNote(n)) {
+        packed.kind = "ledger";
+        packed.isLedger = true;
+        packed.pendingGenerate = n.pendingGenerate !== false;
+        packed.description = String(n.description != null ? n.description : n.text || "").slice(0, 4000);
+        packed.parents = Array.isArray(n.parents) ? n.parents.map(Number).slice(0, 3) : [];
+        if (n.guide != null) packed.guide = Math.max(1, Math.round(Number(n.guide) || 1));
+      }
+      notes[String(n.id != null ? n.id : k)] = packed;
     });
 
     var descOverridesSlim = {};
@@ -2564,7 +2662,8 @@
         add("inverted");
       } else if (ex.source === "generated") add("generated");
     }
-    if (noteOf(n)) add("note");
+    if (ledgerOf(n)) add("ledger");
+    else if (noteOf(n)) add("note");
     if (forgedOf(n)) add("forged");
     if (n >= 1 && n <= PAINTING_TOTAL) add("painting");
     return out;
@@ -2589,7 +2688,7 @@
     forgedIds().forEach(function (id) {
       tagsFor(id).forEach(add);
     });
-    ["painting", "generated", "phone", "sketch", "inverted", "forged"].forEach(add);
+    ["painting", "generated", "phone", "sketch", "inverted", "forged", "ledger", "note"].forEach(add);
     return Object.keys(map)
       .sort()
       .map(function (k) {
@@ -3086,13 +3185,15 @@
         continue;
       }
       var sel = selectedInvItem === it.id ? " selected" : "";
+      var ledCls = ledgerOf(it.id) ? " ledger" : noteOf(it.id) ? " note" : "";
       html.push(
         '<button type="button" class="ge-inv-slot' +
           sel +
+          ledCls +
           '" data-ge-inv="' +
           it.id +
           '" title="' +
-          esc(titleFor(it.id)) +
+          esc((ledgerOf(it.id) ? "Ledger · " : "") + titleFor(it.id)) +
           '"><img src="' +
           esc(thumb(it.id)) +
           '" alt="" loading="eager" decoding="async" /><span class="qty">' +
@@ -3128,13 +3229,15 @@
         continue;
       }
       var sel = selectedBankItem === it.id ? " selected" : "";
+      var ledCls = ledgerOf(it.id) ? " ledger" : noteOf(it.id) ? " note" : "";
       html.push(
         '<button type="button" class="ge-bank-slot' +
           sel +
+          ledCls +
           '" data-ge-bank="' +
           it.id +
           '" title="' +
-          esc(titleFor(it.id)) +
+          esc((ledgerOf(it.id) ? "Ledger · " : "") + titleFor(it.id)) +
           '"><img src="' +
           esc(thumb(it.id)) +
           '" alt="" loading="eager" decoding="async" /><span class="qty">' +
@@ -3659,6 +3762,9 @@
     source = source === "bank" ? "bank" : "inv";
     menu.dataset.itemId = String(itemId);
     menu.dataset.source = source;
+    var isChip = !!colorChipOf(itemId);
+    var isLed = !!ledgerOf(itemId);
+    var isNote = !!noteOf(itemId) && !isLed;
     for (var i = 0; i < 3; i++) {
       var btn = menu.querySelector('[data-forge-pick="' + i + '"]');
       if (!btn) continue;
@@ -3668,20 +3774,36 @@
         (i + 1) +
         (cur != null ? " · " + kindLabel(cur) : " · empty");
       btn.classList.toggle("occupied", cur != null);
+      // Ledgers are complete compositions — not forge fillers.
+      btn.hidden = !!isLed;
     }
+    var divider = menu.querySelector(".ge-forge-menu-divider");
+    if (divider) divider.hidden = !!isLed;
     var dep = menu.querySelector('[data-ge-action="deposit"]');
     var wd = menu.querySelector('[data-ge-action="withdraw"]');
     var descBtn = menu.querySelector('[data-ge-action="description"]');
     var forceLoad = menu.querySelector('[data-ge-action="force-load"]');
     var animateBtn = menu.querySelector('[data-ge-action="animate"]');
     var trackBtn = menu.querySelector('[data-ge-action="track"]');
-    var isChip = !!colorChipOf(itemId);
-    var isNote = !!noteOf(itemId);
+    var sellBtn = menu.querySelector('[data-ge-action="sell"]');
+    var genBtn = menu.querySelector('[data-ge-action="generate"]');
+    var genAllBtn = menu.querySelector('[data-ge-action="generate-all"]');
     if (dep) dep.hidden = source !== "inv";
     if (wd) wd.hidden = source !== "bank";
-    if (descBtn) descBtn.hidden = isNote; // notes already text
-    if (forceLoad) forceLoad.hidden = isChip || isNote;
-    if (animateBtn) animateBtn.hidden = isChip || isNote;
+    if (descBtn) descBtn.hidden = isNote; // plain notes already text; ledgers editable
+    if (forceLoad) forceLoad.hidden = isChip || isNote || isLed;
+    if (animateBtn) animateBtn.hidden = isChip || isNote || isLed;
+    if (sellBtn) sellBtn.hidden = isNote || isLed || isChip;
+    if (genBtn) {
+      genBtn.hidden = !isLed;
+      genBtn.textContent = "Generate";
+    }
+    if (genAllBtn) {
+      var pendingN = countPendingLedgers();
+      genAllBtn.hidden = !(isLed && pendingN >= 1);
+      genAllBtn.textContent =
+        pendingN > 1 ? "Generate all (" + pendingN + ")" : "Generate all";
+    }
     if (trackBtn) {
       trackBtn.hidden = false;
       trackBtn.textContent = isTracked(itemId) ? "Untrack" : "Track";
@@ -4622,6 +4744,302 @@
     return true;
   }
 
+  function listPendingLedgers() {
+    var out = [];
+    if (!state || !state.notes) return out;
+    Object.keys(state.notes).forEach(function (k) {
+      var n = state.notes[k];
+      if (!n || !isLedgerNote(n)) return;
+      if (n.pendingGenerate === false) return;
+      var id = Number(n.id != null ? n.id : k);
+      if (!id) return;
+      if (ownedQty(id) < 1) return;
+      out.push(id);
+    });
+    out.sort(function (a, b) { return a - b; });
+    return out;
+  }
+
+  function countPendingLedgers() {
+    return listPendingLedgers().length;
+  }
+
+  function refreshAutoForgeLedgerStatus(extra) {
+    var n = countPendingLedgers();
+    var msg =
+      n <= 0
+        ? "ledger ready · 0 pending"
+        : n === 1
+          ? "1 ledger ready"
+          : n + " ledgers ready";
+    if (extra) msg = extra + " · " + msg;
+    setAutoForgeStatus(msg);
+    return n;
+  }
+
+  function allocateNoteId() {
+    if (!state.notes) state.notes = {};
+    var id = Number(state.nextNoteId) || NOTE_BASE + 1;
+    try {
+      var rawShared = localStorage.getItem("spellforge_notes_v1");
+      if (rawShared) {
+        var shared = JSON.parse(rawShared);
+        id = Math.max(id, Number(shared && shared.nextNoteId) || NOTE_BASE + 1);
+      }
+    } catch (eShared) {}
+    state.nextNoteId = id + 1;
+    return id;
+  }
+
+  function removeLedgerItem(itemId) {
+    itemId = Number(itemId);
+    if (!itemId) return;
+    try {
+      consumeOwned(itemId, ownedQty(itemId) || 1);
+    } catch (eCons) {}
+    if (state.notes) delete state.notes[String(itemId)];
+    if (state.descOverrides) delete state.descOverrides[String(itemId)];
+    try {
+      var raw = localStorage.getItem("spellforge_notes_v1");
+      if (raw) {
+        var store = JSON.parse(raw);
+        if (store && store.notes) {
+          delete store.notes[String(itemId)];
+          localStorage.setItem("spellforge_notes_v1", JSON.stringify(store));
+        }
+      }
+    } catch (eSync) {}
+  }
+
+  function buildLedgerPrompt(itemId) {
+    itemId = Number(itemId);
+    var led = ledgerOf(itemId);
+    if (!led) return "";
+    var composition = String(notePromptOf(led) || "").trim();
+    var edited =
+      state && state.descOverrides && state.descOverrides[String(itemId)] != null
+        ? String(state.descOverrides[String(itemId)] || "").trim()
+        : "";
+    var direction = edited || String(led.description || "").trim();
+    var prompt;
+    if (direction && composition && direction !== composition) {
+      prompt =
+        "Primary artistic direction (artist-authored ledger — honor this wording):\n" +
+        direction +
+        "\n\nCombined composition prompt:\n" +
+        composition;
+    } else {
+      prompt = direction || composition || "Original forged painting from prompt ledger.";
+    }
+    prompt = geSoftenPrompt(prompt);
+    if (prompt.length > 7000) prompt = prompt.slice(0, 7000);
+    return prompt;
+  }
+
+  /** Auto-forge output: mint a prompt ledger (note) with combined composition — no forge wait, no image API. */
+  function mintForgeLedger(opts) {
+    opts = opts || {};
+    if (forgeBusy) return { ok: false, error: "Already combining — wait…" };
+    var a = forgeSlots[0];
+    var b = forgeSlots[1];
+    var c = forgeSlots[2];
+    if (a == null || b == null || c == null) {
+      return { ok: false, error: "Fill all 3 Spellforge slots before pairing." };
+    }
+    var parents = [Number(a), Number(b), Number(c)];
+    for (var i = 0; i < 3; i++) {
+      if (noteOf(parents[i]) || colorChipOf(parents[i])) continue;
+      if (ownedQty(parents[i]) < 1) {
+        return {
+          ok: false,
+          error: "Missing stock for " + kindLabel(parents[i]) + " (need 1 in inv or bank).",
+        };
+      }
+    }
+    if (!exchangeOpen) openExchangeUi();
+
+    var title =
+      opts.title ||
+      (opts.imaginative ? imaginativeForgeTitle(parents) : parents.map(titleFor).join(" / "));
+    var description;
+    if (opts.description != null) {
+      description = String(opts.description);
+    } else if (opts.imaginative) {
+      description = imaginativeForgeDescription(parents, title);
+    } else {
+      description =
+        parents
+          .map(fullDescFor)
+          .map(function (d) {
+            return String(d || "").trim();
+          })
+          .filter(Boolean)
+          .join(" ") +
+        " Forged amalgam of " +
+        parents.map(kindLabel).join(", ") +
+        ".";
+    }
+    var composition =
+      opts.composition != null ? String(opts.composition) : buildForgePrompt(parents);
+
+    if (!consumeForgeParents(parents)) {
+      return { ok: false, error: "Could not consume materials after pairing." };
+    }
+
+    var id = allocateNoteId();
+    var entry = {
+      id: id,
+      title: String(title || "Prompt ledger").slice(0, 80),
+      text: String(composition || "").slice(0, 4000),
+      description: String(description || "").slice(0, 4000),
+      kind: "ledger",
+      isLedger: true,
+      pendingGenerate: true,
+      parents: parents.slice(),
+      guide: Math.max(
+        1,
+        Math.round((guidePrice(parents[0]) + guidePrice(parents[1]) + guidePrice(parents[2])) / 2)
+      ),
+      createdAt: Date.now(),
+    };
+    if (!state.notes) state.notes = {};
+    state.notes[String(id)] = entry;
+    syncNoteToSpellforgeStore(entry);
+    if (inventoryCount(PLAYER_ID) >= INV_SLOTS) {
+      // Prefer bank when pack is full so Auto-forge can keep minting ledgers.
+      addBank(PLAYER_ID, id, 1);
+    } else {
+      addInv(PLAYER_ID, id, 1);
+    }
+    forgeSlots = [null, null, null];
+    renderForgeSlots();
+    hideForgeResult();
+    pendingGenerateId = null;
+    grantXp(Math.max(8, Math.round(FORGE_XP / 3)));
+    if (opts.imaginative || opts.trackTopics !== false) {
+      rememberForgeTopics(parents, title, description);
+    }
+    render();
+    saveState();
+    var ready = refreshAutoForgeLedgerStatus("paired");
+    setForgeStatus(
+      "Ledger #" +
+        id +
+        " ready — combined prompt saved. Edit description anytime; right-click Generate or Generate all. (" +
+        ready +
+        " pending)"
+    );
+    return { ok: true, id: id, entry: entry };
+  }
+
+  function generateLedgerNow(itemId) {
+    itemId = Number(itemId);
+    var led = ledgerOf(itemId);
+    if (!led) {
+      setForgeStatus("No prompt ledger to generate.", true);
+      return Promise.resolve({ ok: false, error: "No ledger." });
+    }
+    if (forgeBusy) {
+      setForgeStatus("Already generating…", true);
+      return Promise.resolve({ ok: false, error: "Busy." });
+    }
+    var parents = Array.isArray(led.parents) ? led.parents.map(Number) : [];
+    var prompt = buildLedgerPrompt(itemId);
+    if (!prompt) {
+      setForgeStatus("Ledger #" + itemId + " has an empty prompt.", true);
+      return Promise.resolve({ ok: false, error: "Empty prompt." });
+    }
+    forgeBusy = true;
+    setForgeStatus("Generating from ledger #" + itemId + "…");
+    setAutoForgeStatus("generating ledger #" + itemId + "…");
+    var genParents = parents.length ? parents : [itemId];
+    return generateForgeImage(genParents, prompt)
+      .then(function (url) {
+        forgeBusy = false;
+        var forgeId = Number(state.nextForgeId) || 10001;
+        state.nextForgeId = forgeId + 1;
+        var entry = {
+          id: forgeId,
+          parents: parents.slice(),
+          title: noteTitleOf(led),
+          description: String(
+            (state.descOverrides && state.descOverrides[String(itemId)] != null
+              ? state.descOverrides[String(itemId)]
+              : led.description) ||
+              notePromptOf(led) ||
+              ""
+          ).slice(0, 4000),
+          thumb: url || (parents[0] ? thumb(parents[0]) : LEDGER_THUMB),
+          guide: led.guide != null ? led.guide : autoGuide(forgeId),
+          createdAt: Date.now(),
+          pendingGenerate: false,
+          fromLedger: itemId,
+        };
+        if (url) {
+          entry.imageUrl = url;
+          entry.thumb = url;
+          thumbOverrides[String(forgeId)] = assetUrl(url);
+        }
+        if (!state.forged) state.forged = {};
+        state.forged[String(forgeId)] = entry;
+        removeLedgerItem(itemId);
+        addInv(PLAYER_ID, forgeId, 1);
+        lastForgeResult = forgeId;
+        grantXp(Math.max(10, Math.round(FORGE_XP / 2)));
+        showForgeResult(forgeId);
+        render();
+        saveState();
+        refreshAutoForgeLedgerStatus();
+        setForgeStatus(
+          url
+            ? "Generated #" + forgeId + " from ledger #" + itemId + "."
+            : "Generate returned no URL for ledger #" + itemId + ".",
+          !url
+        );
+        if (state.autoForge) scheduleAutoForge(900);
+        return { ok: !!url, id: forgeId, ledgerId: itemId, url: url || "" };
+      })
+      .catch(function (err) {
+        forgeBusy = false;
+        var msg = (err && err.message) || String(err || "generate failed");
+        setForgeStatus("Generate failed for ledger #" + itemId + ": " + msg, true);
+        refreshAutoForgeLedgerStatus();
+        return { ok: false, error: msg };
+      });
+  }
+
+  /** Queue Generate on every pending ledger (inv/bank). One at a time — no silent auto-fire. */
+  function generateAllLedgers() {
+    var ids = listPendingLedgers();
+    if (!ids.length) {
+      setForgeStatus("No pending ledgers to generate.", true);
+      refreshAutoForgeLedgerStatus();
+      return Promise.resolve({ ok: false, error: "None.", done: 0 });
+    }
+    if (forgeBusy) {
+      setForgeStatus("Already generating…", true);
+      return Promise.resolve({ ok: false, error: "Busy.", done: 0 });
+    }
+    setForgeStatus("Generate all — " + ids.length + " ledger(s) queued…");
+    var chain = Promise.resolve({ ok: true, done: 0, results: [] });
+    ids.forEach(function (id) {
+      chain = chain.then(function (acc) {
+        return generateLedgerNow(id).then(function (res) {
+          acc.results.push(res);
+          if (res && res.ok) acc.done += 1;
+          return acc;
+        });
+      });
+    });
+    return chain.then(function (acc) {
+      refreshAutoForgeLedgerStatus();
+      setForgeStatus(
+        "Generate all finished — " + acc.done + " / " + ids.length + " succeeded."
+      );
+      return acc;
+    });
+  }
+
   /** Pair/combine without calling image generation. Leaves pendingGenerate for Logan. */
   function prepareForgeCombine(opts) {
     opts = opts || {};
@@ -4701,9 +5119,9 @@
     setForgeStatus(
       "Paired #" +
         id +
-        " — ready to generate. Edit the description, then hit Generate when you want. Auto-forge will not fire the image API."
+        " — ready to generate. Prefer Auto-forge ledgers + right-click Generate; this panel Generate still works."
     );
-    setAutoForgeStatus("waiting for you to generate");
+    refreshAutoForgeLedgerStatus();
     return { ok: true, id: id, entry: entry };
   }
 
@@ -4732,7 +5150,7 @@
     if (combineBtn) combineBtn.disabled = true;
     if (genBtn) genBtn.disabled = true;
     setForgeStatus("Generating image for #" + itemId + " (your wording drives the callback)…");
-    setAutoForgeStatus("waiting for you to generate");
+    refreshAutoForgeLedgerStatus("generating…");
     return generateForgeImage(parents, prompt)
       .then(function (url) {
         forgeBusy = false;
@@ -4904,8 +5322,8 @@
     if (bar) bar.classList.toggle("on", on);
     if (!on) {
       setAutoForgeStatus("");
-    } else if (pendingGenerateId || (lastForgeResult && forgedOf(lastForgeResult) && forgedOf(lastForgeResult).pendingGenerate)) {
-      setAutoForgeStatus("waiting for you to generate");
+    } else {
+      refreshAutoForgeLedgerStatus();
     }
   }
 
@@ -4932,7 +5350,9 @@
     syncAutoForgeToggleUi();
     if (state.autoForge) {
       setAutoForgeStatus("buying…");
-      setForgeStatus("Auto-forge ON — buying ~$1 art, pairing only (you generate).");
+      setForgeStatus(
+        "Auto-forge ON — buying ~$1 art, minting prompt ledgers (right-click Generate / Generate all)."
+      );
       scheduleAutoForge(200);
     } else {
       stopAutoForgeTimer();
@@ -5436,20 +5856,6 @@
       scheduleAutoForge(1000);
       return;
     }
-    // Pause while a piece is waiting for Logan to generate.
-    var waitId = pendingGenerateId;
-    if (!waitId && lastForgeResult) {
-      var lf = forgedOf(lastForgeResult);
-      if (lf && lf.pendingGenerate) waitId = lastForgeResult;
-    }
-    if (waitId) {
-      pendingGenerateId = waitId;
-      setAutoForgeStatus("waiting for you to generate");
-      showForgeResult(waitId);
-      // Soft poll — easy to turn off; resumes after Generate clears pending.
-      scheduleAutoForge(2500);
-      return;
-    }
 
     autoForgeBusy = true;
     autoForgeCycle += 1;
@@ -5463,23 +5869,27 @@
       var loaded = autoForgeLoadSlots();
       if (!loaded.ok) {
         setForgeStatus("Auto-forge: " + loaded.error + (nBuy ? " (bought " + nBuy + ")" : ""), true);
-        setAutoForgeStatus(nBuy ? "buying…" : "pairing…");
+        refreshAutoForgeLedgerStatus(nBuy ? "bought " + nBuy : "pairing…");
         autoForgeBusy = false;
         scheduleAutoForge(2200);
         return;
       }
-      var prep = prepareForgeCombine({ imaginative: true });
+      // Mint prompt ledger — do NOT hold forge UI / wait for Generate.
+      var prep = mintForgeLedger({ imaginative: true });
       autoForgeBusy = false;
       if (!prep.ok) {
-        setForgeStatus("Auto-forge pair failed: " + prep.error, true);
+        setForgeStatus("Auto-forge ledger failed: " + prep.error, true);
+        refreshAutoForgeLedgerStatus();
         scheduleAutoForge(1800);
         return;
       }
-      // prepareForgeCombine already set waiting status; do not call generate.
-      scheduleAutoForge(2500);
+      refreshAutoForgeLedgerStatus("minted #" + prep.id);
+      // Keep cycling — ledgers sit ready in inv/bank until Logan Generate / Generate all.
+      scheduleAutoForge(1600);
     } catch (err) {
       autoForgeBusy = false;
       setForgeStatus("Auto-forge error: " + ((err && err.message) || err), true);
+      refreshAutoForgeLedgerStatus();
       scheduleAutoForge(3000);
     }
   }
@@ -6111,6 +6521,26 @@
             render();
             return;
           }
+          if (action === "generate") {
+            if (!ledgerOf(id)) {
+              setStatus("Generate works on prompt ledgers.", true);
+              return;
+            }
+            generateLedgerNow(id).then(function (gRes) {
+              if (!gRes) return;
+              if (!gRes.ok) setStatus(gRes.error || "Generate failed.", true);
+              else setStatus("Generated forged #" + gRes.id + " from ledger.");
+            });
+            return;
+          }
+          if (action === "generate-all") {
+            generateAllLedgers().then(function (gRes) {
+              if (!gRes) return;
+              if (!gRes.ok && !gRes.done) setStatus(gRes.error || "Generate all failed.", true);
+              else setStatus("Generate all: " + (gRes.done || 0) + " ledger(s) done.");
+            });
+            return;
+          }
           return;
         }
         var slot = Number(pick.getAttribute("data-forge-pick"));
@@ -6514,9 +6944,7 @@
       );
       syncAutoForgeToggleUi();
       if (state.autoForge) {
-        setAutoForgeStatus(
-          pendingGenerateId ? "waiting for you to generate" : "buying…"
-        );
+        refreshAutoForgeLedgerStatus("buying…");
         scheduleAutoForge(600);
       }
     });
@@ -6594,5 +7022,9 @@
     setAutoForge: setAutoForgeEnabled,
     generateForged: generateForgedNow,
     prepareForge: prepareForgeCombine,
+    mintLedger: mintForgeLedger,
+    generateLedger: generateLedgerNow,
+    generateAllLedgers: generateAllLedgers,
+    pendingLedgers: listPendingLedgers,
   };
 })();

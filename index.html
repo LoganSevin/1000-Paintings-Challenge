@@ -82,7 +82,7 @@
   <link rel="stylesheet" href="css/monetize-x.css?v=1" />
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
-  <link rel="stylesheet" href="css/exchange.css?v=41" />
+  <link rel="stylesheet" href="css/exchange.css?v=42" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -3072,6 +3072,8 @@
           <button type="button" role="menuitem" data-forge-pick="1">Slot 2</button>
           <button type="button" role="menuitem" data-forge-pick="2">Slot 3</button>
           <div class="ge-forge-menu-divider" role="separator"></div>
+          <button type="button" role="menuitem" data-ge-action="generate" id="ge-menu-generate" hidden>Generate</button>
+          <button type="button" role="menuitem" data-ge-action="generate-all" id="ge-menu-generate-all" hidden>Generate all</button>
           <button type="button" role="menuitem" data-ge-action="description">Description</button>
           <button type="button" role="menuitem" data-ge-action="view">View fullscreen</button>
           <button type="button" role="menuitem" data-ge-action="force-load">Force load (correct image)</button>
@@ -3108,13 +3110,13 @@
         <div class="ge-forge" id="ge-forge">
           <h4 class="ge-forge-title">SPELLFORGE</h4>
           <div class="ge-autoforge-bar" id="ge-autoforge-bar">
-            <label class="ge-autoforge-toggle" for="ge-autoforge-on" title="Buy ~$1 art, pair creatively, leave image gen for you">
+            <label class="ge-autoforge-toggle" for="ge-autoforge-on" title="Buy ~$1 art, mint prompt ledgers; right-click Generate / Generate all later">
               <input type="checkbox" id="ge-autoforge-on" />
               <span>Auto-forge</span>
             </label>
             <span class="ge-autoforge-status" id="ge-autoforge-status" aria-live="polite"></span>
           </div>
-          <p class="ge-forge-hint">Right-click → Slot / Description / View / Animate / Sell / Track · Notes · Combine</p>
+          <p class="ge-forge-hint">Right-click → Slot / Generate / Generate all / Description · Auto-forge mints ledgers (you generate)</p>
           <div class="ge-forge-slots">
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-0" data-forge-slot="0" title="Clear slot"><span class="ge-forge-num">1</span></button>
             <button type="button" class="ge-forge-slot" id="ge-forge-slot-1" data-forge-slot="1" title="Clear slot"><span class="ge-forge-num">2</span></button>
@@ -3170,7 +3172,7 @@
                 <button type="button" id="ge-forge-sell">Sell on GE</button>
                 <button type="button" id="ge-forge-to-animate" class="ge-forge-to-animate">Animate here</button>
               </div>
-              <p class="ge-forge-ready-hint" id="ge-forge-ready-hint" hidden>Ready to generate — Auto-forge will not fire the image API. Edit the wording above, then Generate when you want.</p>
+              <p class="ge-forge-ready-hint" id="ge-forge-ready-hint" hidden>Prompt ledgers sit in inv/bank — right-click Generate (one) or Generate all. Auto-forge never fires the image API.</p>
             </div>
           </div>
           <p class="ge-forge-status" id="ge-forge-status"></p>
@@ -6716,7 +6718,7 @@
   <script defer src="js/supermarket.js?v=31"></script>
   <script defer src="js/banker.js?v=1"></script>
   <script type="module" src="js/ge-artfloor-3d.js?v=50"></script>
-  <script defer src="js/exchange.js?v=38"></script>
+  <script defer src="js/exchange.js?v=39"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
