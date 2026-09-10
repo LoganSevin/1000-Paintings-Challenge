@@ -353,3 +353,47 @@ body.rig-tab-active .site-header {
 .rig-shell.rig-mode-pose .rig-joint-list {
   border-color: rgba(100, 170, 210, 0.35);
 }
+
+
+/* Cutout — pose shows figure on checkerboard; edit can preview cutout */
+.rig-cutout-badge {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #8cbc6a;
+  letter-spacing: 0.02em;
+}
+
+.rig-cutout-note {
+  font-size: 0.68rem;
+  color: #7a6a58;
+  line-height: 1.35;
+}
+
+.rig-shell.rig-cutting #rig-cutout {
+  opacity: 0.7;
+}
+
+.rig-shell.rig-mode-pose .rig-stage-wrap {
+  /* Stronger checkerboard so transparent cutout reads clearly */
+  background:
+    linear-gradient(45deg, #1c1814 25%, transparent 25%),
+    linear-gradient(-45deg, #1c1814 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1c1814 75%),
+    linear-gradient(-45deg, transparent 75%, #1c1814 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+  background-color: #12100e;
+  border-color: rgba(100, 170, 210, 0.4);
+}
+
+.rig-shell.rig-has-cutout.rig-mode-pose .rig-stage-wrap::after {
+  content: "cutout";
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(160, 210, 240, 0.7);
+  pointer-events: none;
+}

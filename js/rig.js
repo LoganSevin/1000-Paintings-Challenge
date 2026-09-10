@@ -68,6 +68,7 @@
     dragId: null,
     opacity: 0.85,
     showNames: true,
+    showCutoutInEdit: false,
     undoStack: [],
     ready: false,
     canvasW: 800,
@@ -76,6 +77,10 @@
     offsetY: 0,
     scale: 1,
     mesh: null, // { verts: [{x,y,u,v,weights}], tris: [[i,j,k],...] }
+    cutoutImage: null, // HTMLImageElement / canvas with alpha subject
+    cutoutMethod: "", // imgly | flood | alpha | ""
+    cutting: false,
+    cuttingPromise: null,
   };
 
   function $(id) {
@@ -109,6 +114,394 @@
     if (!el) return;
     el.textContent = msg || "";
     el.className = "rig-status" + (kind ? " " + kind : "");
+  }
+
+  /** Image used for display / mesh texturing. Pose always prefers cutout. */
+  function getRenderImage() {
+    if (state.mode === "pose" && state.cutoutImage) return state.cutoutImage;
+    if (state.mode === "edit" && state.showCutoutInEdit && state.cutoutImage) {
+      return state.cutoutImage;
+    }
+    return state.image;
+  }
+
+  function clearCutout() {
+    state.cutoutImage = null;
+    state.cutoutMethod = "";
+    state.cutting = false;
+    state.cuttingPromise = null;
+    updateCutoutUI();
+  }
+
+  function updateCutoutUI() {
+    var shell = document.querySelector(".rig-shell");
+    if (shell) {
+      shell.classList.toggle("rig-has-cutout", !!state.cutoutImage);
+      shell.classList.toggle("rig-cutting", !!state.cutting);
+    }
+    var btn = $("rig-cutout");
+    if (btn) {
+      btn.disabled = !state.image || state.cutting;
+      btn.textContent = state.cutting
+        ? "Cutting…"
+        : state.cutoutImage
+          ? "Re-cut from background"
+          : "Cut from background";
+    }
+    var badge = $("rig-cutout-badge");
+    if (badge) {
+      if (state.cutoutImage) {
+        badge.hidden = false;
+        badge.textContent =
+          "Cutout: " + (state.cutoutMethod || "ready");
+      } else {
+        badge.hidden = true;
+        badge.textContent = "";
+      }
+    }
+    var showCb = $("rig-show-cutout");
+    if (showCb) showCb.checked = !!state.showCutoutInEdit;
+  }
+
+  function blobToImage(blob) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(blob);
+      var img = new Image();
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        resolve(img);
+      };
+      img.onerror = function () {
+        URL.revokeObjectURL(url);
+        reject(new Error("cutout image load failed"));
+      };
+      img.src = url;
+    });
+  }
+
+  function canvasToImage(canvas) {
+    return new Promise(function (resolve, reject) {
+      try {
+        canvas.toBlob(function (blob) {
+          if (!blob) {
+            // Fallback via data URL
+            var img = new Image();
+            img.onload = function () {
+              resolve(img);
+            };
+            img.onerror = reject;
+            img.src = canvas.toDataURL("image/png");
+            return;
+          }
+          blobToImage(blob).then(resolve, reject);
+        }, "image/png");
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+
+  function imageHasUsefulAlpha(img) {
+    try {
+      var w0 = img.naturalWidth || img.width;
+      var h0 = img.naturalHeight || img.height;
+      if (!w0 || !h0) return false;
+      var max = 256;
+      var s = Math.min(1, max / Math.max(w0, h0));
+      var w = Math.max(1, Math.round(w0 * s));
+      var h = Math.max(1, Math.round(h0 * s));
+      var c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      var ctx = c.getContext("2d", { willReadFrequently: true });
+      ctx.drawImage(img, 0, 0, w, h);
+      var d = ctx.getImageData(0, 0, w, h).data;
+      var t = 0;
+      for (var i = 3; i < d.length; i += 4) {
+        if (d[i] < 240) t++;
+      }
+      return t > w * h * 0.02;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function colorDist(r0, g0, b0, r1, g1, b1) {
+    var dr = r0 - r1;
+    var dg = g0 - g1;
+    var db = b0 - b1;
+    return Math.sqrt(dr * dr + dg * dg + db * db);
+  }
+
+  /**
+   * Client-side fallback: edge flood-fill of near-uniform / plate-like background.
+   * Works well for studio plates & simple BGs; complex photos may leave more BG.
+   */
+  function canvasFloodCutout(img) {
+    var w = img.naturalWidth || img.width;
+    var h = img.naturalHeight || img.height;
+    if (!w || !h) return Promise.reject(new Error("empty image"));
+    var c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    var ctx = c.getContext("2d", { willReadFrequently: true });
+    ctx.drawImage(img, 0, 0, w, h);
+    var id = ctx.getImageData(0, 0, w, h);
+    var d = id.data;
+
+    // Sample border mean
+    var mr = 0,
+      mg = 0,
+      mb = 0,
+      n = 0;
+    var step = Math.max(1, (Math.min(w, h) / 24) | 0);
+    var x, y, i;
+    function sample(sx, sy) {
+      if (sx < 0 || sy < 0 || sx >= w || sy >= h) return;
+      var ii = (sy * w + sx) * 4;
+      if (d[ii + 3] < 8) return;
+      mr += d[ii];
+      mg += d[ii + 1];
+      mb += d[ii + 2];
+      n++;
+    }
+    for (x = 0; x < w; x += step) {
+      sample(x, 0);
+      sample(x, 1);
+      sample(x, h - 1);
+      sample(x, h - 2);
+    }
+    for (y = 0; y < h; y += step) {
+      sample(0, y);
+      sample(1, y);
+      sample(w - 1, y);
+      sample(w - 2, y);
+    }
+    if (n < 4) return Promise.reject(new Error("could not sample background"));
+    mr = (mr / n) | 0;
+    mg = (mg / n) | 0;
+    mb = (mb / n) | 0;
+
+    // Border chroma variance — if very mixed, still try with tighter thresh
+    var varSum = 0;
+    var vn = 0;
+    function varSample(sx, sy) {
+      if (sx < 0 || sy < 0 || sx >= w || sy >= h) return;
+      var ii = (sy * w + sx) * 4;
+      if (d[ii + 3] < 8) return;
+      varSum += colorDist(d[ii], d[ii + 1], d[ii + 2], mr, mg, mb);
+      vn++;
+    }
+    for (x = 0; x < w; x += step * 2) {
+      varSample(x, 0);
+      varSample(x, h - 1);
+    }
+    for (y = 0; y < h; y += step * 2) {
+      varSample(0, y);
+      varSample(w - 1, y);
+    }
+    var meanVar = vn ? varSum / vn : 40;
+    var thresh = meanVar < 18 ? 42 : meanVar < 35 ? 34 : 28;
+
+    function isBg(ii) {
+      var r = d[ii],
+        g = d[ii + 1],
+        b = d[ii + 2];
+      var chroma = Math.max(r, g, b) - Math.min(r, g, b);
+      var dist = colorDist(r, g, b, mr, mg, mb);
+      if (dist < thresh) return true;
+      if (chroma <= 20 && dist < thresh + 14) return true;
+      // Near-white / near-black plates
+      var lum = (r + g + b) / 3;
+      if (chroma <= 16 && lum >= 200 && dist < 70) return true;
+      if (chroma <= 14 && lum <= 28 && dist < 50) return true;
+      return false;
+    }
+
+    var seen = new Uint8Array(w * h);
+    var stack = [];
+    function seed(sx, sy) {
+      if (sx < 0 || sy < 0 || sx >= w || sy >= h) return;
+      var p = sy * w + sx;
+      if (seen[p]) return;
+      var ii = p * 4;
+      if (d[ii + 3] < 4) {
+        seen[p] = 1;
+        d[ii] = 0;
+        d[ii + 1] = 0;
+        d[ii + 2] = 0;
+        d[ii + 3] = 0;
+        stack.push(sx, sy);
+        return;
+      }
+      if (!isBg(ii)) return;
+      seen[p] = 1;
+      d[ii] = 0;
+      d[ii + 1] = 0;
+      d[ii + 2] = 0;
+      d[ii + 3] = 0;
+      stack.push(sx, sy);
+    }
+    for (x = 0; x < w; x++) {
+      seed(x, 0);
+      seed(x, h - 1);
+    }
+    for (y = 0; y < h; y++) {
+      seed(0, y);
+      seed(w - 1, y);
+    }
+    while (stack.length) {
+      y = stack.pop();
+      x = stack.pop();
+      seed(x + 1, y);
+      seed(x - 1, y);
+      seed(x, y + 1);
+      seed(x, y - 1);
+    }
+
+    // Soften fringe: any opaque pixel neighboring cleared BG → slight alpha drop
+    var soft = new Uint8ClampedArray(d);
+    for (y = 1; y < h - 1; y++) {
+      for (x = 1; x < w - 1; x++) {
+        var p = y * w + x;
+        var ii = p * 4;
+        if (d[ii + 3] === 0) continue;
+        var cleared = 0;
+        if (d[((y - 1) * w + x) * 4 + 3] === 0) cleared++;
+        if (d[((y + 1) * w + x) * 4 + 3] === 0) cleared++;
+        if (d[(y * w + (x - 1)) * 4 + 3] === 0) cleared++;
+        if (d[(y * w + (x + 1)) * 4 + 3] === 0) cleared++;
+        if (cleared >= 1) soft[ii + 3] = Math.min(soft[ii + 3], cleared >= 2 ? 120 : 200);
+      }
+    }
+    for (i = 0; i < d.length; i++) d[i] = soft[i];
+
+    // Quality gate: need meaningful cut without deleting the subject
+    var cleared = 0;
+    var opaque = 0;
+    for (i = 3; i < d.length; i += 4) {
+      if (d[i] < 8) cleared++;
+      else opaque++;
+    }
+    var frac = cleared / (w * h);
+    if (frac < 0.04 || frac > 0.92 || opaque < w * h * 0.04) {
+      return Promise.reject(new Error("flood cutout quality check failed"));
+    }
+
+    ctx.putImageData(id, 0, 0);
+    state.cutoutMethod = "flood";
+    return canvasToImage(c);
+  }
+
+  var _imglyMod = null;
+  var IMGLY_URLS = [
+    "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/dist/browser.mjs",
+    "https://esm.sh/@imgly/background-removal@1.7.0/dist/browser.mjs",
+  ];
+
+  function loadImglyModule() {
+    if (_imglyMod) return Promise.resolve(_imglyMod);
+    var i = 0;
+    function next() {
+      if (i >= IMGLY_URLS.length) {
+        return Promise.reject(new Error("imgly module unavailable"));
+      }
+      var url = IMGLY_URLS[i++];
+      return import(url)
+        .then(function (mod) {
+          _imglyMod = mod;
+          return mod;
+        })
+        .catch(function () {
+          return next();
+        });
+    }
+    return next();
+  }
+
+  function tryImglyCutout(img) {
+    return loadImglyModule().then(function (mod) {
+      var removeBackground = mod.default || mod.removeBackground;
+      if (typeof removeBackground !== "function") {
+        throw new Error("imgly removeBackground missing");
+      }
+      setStatus("AI cutout loading model (first time may take a bit)…", "");
+      return removeBackground(img, {
+        model: "small",
+        output: { format: "image/png", quality: 0.9 },
+        progress: function (key, current, total) {
+          if (!total) return;
+          var pct = Math.max(0, Math.min(100, Math.round((100 * current) / total)));
+          setStatus("Cutting background… " + key + " " + pct + "%", "");
+        },
+      }).then(function (blob) {
+        state.cutoutMethod = "imgly";
+        return blobToImage(blob);
+      });
+    });
+  }
+
+  /**
+   * Produce alpha cutout of the subject. Prefers @imgly/background-removal (free,
+   * in-browser), then canvas edge flood-fill. Reuses existing alpha if present.
+   */
+  function ensureCutout(force) {
+    if (!state.image) return Promise.resolve(false);
+    if (!force && state.cutoutImage) return Promise.resolve(true);
+    if (state.cutting && state.cuttingPromise) return state.cuttingPromise;
+
+    state.cutting = true;
+    updateCutoutUI();
+    setStatus("Cutting subject from background…", "");
+
+    var src = state.image;
+    var work = Promise.resolve()
+      .then(function () {
+        if (!force && imageHasUsefulAlpha(src)) {
+          state.cutoutMethod = "alpha";
+          // Clone via canvas so we own a stable bitmap
+          var w = src.naturalWidth || src.width;
+          var h = src.naturalHeight || src.height;
+          var c = document.createElement("canvas");
+          c.width = w;
+          c.height = h;
+          c.getContext("2d").drawImage(src, 0, 0);
+          return canvasToImage(c);
+        }
+        return tryImglyCutout(src).catch(function (err) {
+          console.warn("[rig] imgly cutout failed, trying flood-fill", err);
+          setStatus("AI cutout unavailable — trying edge flood-fill…", "warn");
+          return canvasFloodCutout(src);
+        });
+      })
+      .then(function (cutImg) {
+        state.cutoutImage = cutImg;
+        state.cutting = false;
+        state.cuttingPromise = null;
+        updateCutoutUI();
+        draw();
+        setStatus(
+          "Cutout ready (" +
+            (state.cutoutMethod || "ok") +
+            "). Pose deforms only the figure — background stays put.",
+          "ok"
+        );
+        return true;
+      })
+      .catch(function (err) {
+        console.warn("[rig] cutout failed", err);
+        state.cutting = false;
+        state.cuttingPromise = null;
+        updateCutoutUI();
+        setStatus(
+          "Cutout failed — posing with full image (background may warp). Try a simpler BG or Re-cut.",
+          "warn"
+        );
+        return false;
+      });
+
+    state.cuttingPromise = work;
+    return work;
   }
 
   function jointById(id) {
@@ -164,15 +557,15 @@
     if (hint) {
       hint.textContent =
         state.mode === "pose"
-          ? "Pose: drag joints — children follow (FK). The image mesh deforms with the skeleton. Reset Pose returns to bind."
-          : "Edit bones: drag joints to set the bind pose, then switch to Pose to move and deform the image.";
+          ? "Pose: drag joints — children follow (FK). Only the cut-out figure deforms; background stays still. Reset Pose returns to bind."
+          : "Edit bones: drag joints to set the bind pose. Cut from background (or auto on Pose) so the scene does not warp when you move.";
     }
     var toolbar = $("rig-toolbar-hint");
     if (toolbar) {
       toolbar.textContent =
         state.mode === "pose"
-          ? "Pose mode · drag a joint to move the limb · image deforms via skinning"
-          : "Edit bones · drag joints onto the figure · then click Pose to move";
+          ? "Pose · cutout mesh · drag a joint to move the limb"
+          : "Edit bones · drag joints onto the figure · Cut from background, then Pose";
     }
     var resetPose = $("rig-reset-pose");
     if (resetPose) resetPose.disabled = state.mode !== "pose";
@@ -181,6 +574,27 @@
       var el = $(id);
       if (el) el.disabled = state.mode === "pose";
     });
+    updateCutoutUI();
+  }
+
+  function finishEnterPose() {
+    state.bindJoints = cloneJoints(state.joints);
+    buildSkinMesh();
+    state.mode = "pose";
+    state.selectedId = state.joints[0] ? state.selectedId || state.joints[0].id : null;
+    if (!jointById(state.selectedId)) {
+      state.selectedId = state.joints[0] ? state.joints[0].id : null;
+    }
+    updateModeUI();
+    renderJointList();
+    fillBoneSelects();
+    draw();
+    setStatus(
+      state.cutoutImage
+        ? "Pose mode: cutout mesh — only the figure deforms. Reset Pose restores bind."
+        : "Pose mode (no cutout): full image will warp. Use Cut from background.",
+      state.cutoutImage ? "ok" : "warn"
+    );
   }
 
   function setMode(mode) {
@@ -198,11 +612,15 @@
         setStatus("Need joints before posing.", "warn");
         return;
       }
-      // Lock current placement as bind pose
-      state.bindJoints = cloneJoints(state.joints);
-      buildSkinMesh();
-      state.mode = "pose";
-      setStatus("Pose mode: drag joints — image deforms with bones. Reset Pose restores bind.", "ok");
+      // Auto-cut before posing so the scene behind the figure does not warp
+      if (!state.cutoutImage) {
+        setStatus("Cutting subject from background before Pose…", "");
+        ensureCutout(false).then(function () {
+          finishEnterPose();
+        });
+        return;
+      }
+      finishEnterPose();
     } else {
       // Return to editing the bind pose
       if (state.bindJoints.length) {
@@ -211,15 +629,15 @@
       state.mode = "edit";
       state.mesh = null;
       setStatus("Edit bones: adjust bind pose, then switch to Pose to move.", "");
+      state.selectedId = state.joints[0] ? state.selectedId || state.joints[0].id : null;
+      if (!jointById(state.selectedId)) {
+        state.selectedId = state.joints[0] ? state.joints[0].id : null;
+      }
+      updateModeUI();
+      renderJointList();
+      fillBoneSelects();
+      draw();
     }
-    state.selectedId = state.joints[0] ? state.selectedId || state.joints[0].id : null;
-    if (!jointById(state.selectedId)) {
-      state.selectedId = state.joints[0] ? state.joints[0].id : null;
-    }
-    updateModeUI();
-    renderJointList();
-    fillBoneSelects();
-    draw();
   }
 
   function resetPose() {
@@ -263,11 +681,16 @@
         state.imageName = (meta && meta.name) || url.split("/").pop() || "image";
         state.imageKind = (meta && meta.kind) || "url";
         if (meta && meta.paintingNum != null) state.paintingNum = meta.paintingNum;
+        clearCutout();
         fitCanvas();
         $("rig-empty").hidden = true;
         if (state.mode === "pose") {
-          state.bindJoints = cloneJoints(state.joints);
-          buildSkinMesh();
+          // Re-cut for the new image, then rebuild mesh
+          ensureCutout(false).then(function () {
+            state.bindJoints = cloneJoints(state.joints);
+            buildSkinMesh();
+            draw();
+          });
         } else {
           state.mesh = null;
         }
@@ -276,8 +699,8 @@
           "Loaded " +
             state.imageName +
             (state.mode === "pose"
-              ? " — drag joints to pose."
-              : " — drag joints onto the figure, then switch to Pose."),
+              ? " — cutting subject, then pose."
+              : " — place bones, Cut from background (or auto on Pose)."),
           "ok"
         );
         resolve(true);
@@ -524,11 +947,14 @@
   }
 
   function drawDeformedImage(ctx) {
-    if (!state.image || !state.mesh) {
-      ctx.save();
-      ctx.globalAlpha = state.opacity;
-      ctx.drawImage(state.image, 0, 0, state.canvasW, state.canvasH);
-      ctx.restore();
+    var src = getRenderImage();
+    if (!src || !state.mesh) {
+      if (src) {
+        ctx.save();
+        ctx.globalAlpha = state.opacity;
+        ctx.drawImage(src, 0, 0, state.canvasW, state.canvasH);
+        ctx.restore();
+      }
       return;
     }
     var verts = state.mesh.verts;
@@ -551,7 +977,7 @@
       var a = skinned[tri[0]];
       var b = skinned[tri[1]];
       var c = skinned[tri[2]];
-      drawTexturedTriangle(ctx, state.image, a, b, c, a.u, a.v, b.u, b.v, c.u, c.v);
+      drawTexturedTriangle(ctx, src, a, b, c, a.u, a.v, b.u, b.v, c.u, c.v);
     }
     ctx.restore();
   }
@@ -568,9 +994,10 @@
     if (state.mode === "pose" && state.mesh) {
       drawDeformedImage(ctx);
     } else {
+      var src = getRenderImage() || state.image;
       ctx.save();
       ctx.globalAlpha = state.opacity;
-      ctx.drawImage(state.image, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
       ctx.restore();
     }
 
@@ -824,10 +1251,14 @@
       };
     }
     return {
-      version: 2,
+      version: 3,
       type: "logan-2d-rig",
       createdAt: new Date().toISOString(),
       mode: state.mode,
+      cutout: {
+        ready: !!state.cutoutImage,
+        method: state.cutoutMethod || null,
+      },
       image: {
         name: state.imageName,
         kind: state.imageKind,
@@ -1186,6 +1617,18 @@
     wire("rig-mode-pose", function () {
       setMode("pose");
     });
+    wire("rig-cutout", function () {
+      if (!state.image) {
+        setStatus("Load an image first.", "warn");
+        return;
+      }
+      ensureCutout(true).then(function (ok) {
+        if (ok && state.mode === "pose") {
+          buildSkinMesh();
+          draw();
+        }
+      });
+    });
 
     var op = $("rig-opacity");
     if (op) {
@@ -1205,6 +1648,16 @@
       });
     }
 
+    var showCut = $("rig-show-cutout");
+    if (showCut) {
+      showCut.addEventListener("change", function () {
+        state.showCutoutInEdit = !!showCut.checked;
+        draw();
+      });
+    }
+
+    updateCutoutUI();
+
     window.addEventListener("resize", function () {
       if (document.body.getAttribute("data-active-tab") !== "rig") return;
       fitCanvas();
@@ -1214,7 +1667,7 @@
     window.addEventListener("rig-show", onShow);
     window.addEventListener("rig-hide", function () {});
 
-    setStatus("Load an image, place bones in Edit, then switch to Pose to move and deform.", "");
+    setStatus("Load an image, place bones, Cut from background (auto on Pose) so only the figure deforms.", "");
   }
 
   window.Rig = {
@@ -1222,6 +1675,7 @@
     reset: resetToTemplate,
     resetPose: resetPose,
     setMode: setMode,
+    ensureCutout: ensureCutout,
     exportPayload: buildExportPayload,
   };
 

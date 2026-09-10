@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
-  <link rel="stylesheet" href="css/rig.css?v=2" />
+  <link rel="stylesheet" href="css/rig.css?v=3" />
   <script type="importmap">
   {
     "imports": {
@@ -5842,11 +5842,11 @@
       <header class="rig-top">
         <h2>Rig</h2>
         <p class="rig-hint">
-          Place bones in <strong>Edit bones</strong>, then switch to <strong>Pose</strong> to drag joints —
-          child bones follow (FK) and the <strong>image deforms</strong> with the skeleton. Save/export keeps bind + pose.
+          Place bones in <strong>Edit bones</strong>, <strong>Cut from background</strong>, then <strong>Pose</strong> —
+          only the cut-out figure deforms (FK + mesh skinning); posters/floor stay still. Save/export keeps bind + pose.
         </p>
         <p id="rig-mode-hint" class="rig-hint rig-mode-hint">
-          Edit bones: drag joints to set the bind pose, then switch to Pose to move and deform the image.
+          Edit bones: drag joints to set the bind pose. Cut from background (or auto on Pose) so the scene does not warp.
         </p>
       </header>
       <div class="rig-body">
@@ -5871,6 +5871,16 @@
           </div>
           <div class="rig-row">
             <button type="button" id="rig-reset-pose" class="rig-btn" disabled title="Restore joints to bind pose">Reset pose</button>
+          </div>
+
+          <h3>Cutout</h3>
+          <div class="rig-row">
+            <button type="button" id="rig-cutout" class="rig-btn accent" title="Remove background so Pose only warps the figure">Cut from background</button>
+          </div>
+          <p id="rig-cutout-badge" class="rig-cutout-badge" hidden></p>
+          <div class="rig-row" style="width:100%;flex-direction:column;align-items:stretch;gap:0.2rem">
+            <label class="rig-check"><input type="checkbox" id="rig-show-cutout" /> Show cutout in Edit</label>
+            <span class="rig-cutout-note">Auto-cuts when entering Pose if needed. Prefers in-browser AI (@imgly), else edge flood-fill.</span>
           </div>
 
           <h3>View</h3>
@@ -6709,7 +6719,7 @@
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=24"></script>
   <script defer src="js/zoo.js?v=12"></script>
-  <script defer src="js/rig.js?v=2"></script>
+  <script defer src="js/rig.js?v=3"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=2"></script>
