@@ -412,3 +412,42 @@ body.rig-tab-active .site-header {
   content: "cutout required";
   color: rgba(224, 138, 106, 0.9);
 }
+
+
+.rig-cutout-badge.warn {
+  color: #d4a85a;
+}
+
+.rig-btn.rig-tool-active {
+  background: rgba(200, 120, 70, 0.35);
+  border-color: rgba(220, 150, 90, 0.7);
+  color: #f0d8b8;
+}
+
+.rig-shell.rig-erasing .rig-stage-wrap canvas,
+.rig-shell.rig-restoring .rig-stage-wrap canvas {
+  cursor: crosshair;
+}
+
+.rig-shell.rig-cutout-draft .rig-stage-wrap {
+  background:
+    linear-gradient(45deg, #1c1814 25%, transparent 25%),
+    linear-gradient(-45deg, #1c1814 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1c1814 75%),
+    linear-gradient(-45deg, transparent 75%, #1c1814 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+  background-color: #12100e;
+}
+
+.rig-shell.rig-cutout-draft .rig-stage-wrap::after {
+  content: "erase BG";
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(212, 168, 90, 0.85);
+  pointer-events: none;
+}

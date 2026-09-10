@@ -81,9 +81,16 @@
     scale: 1,
     mesh: null, // { verts: [{x,y,u,v,weights}], tris: [[i,j,k],...] }
     cutoutImage: null, // HTMLImageElement / canvas with alpha subject
-    cutoutMethod: "", // imgly | flood | alpha | ""
+    cutoutMethod: "", // imgly | flood | alpha | manual | ""
+    cutoutReady: false, // quality gate passed — Pose unlocked
+    cutoutFailReason: "",
     cutting: false,
     cuttingPromise: null,
+    workCanvas: null, // live bitmap for manual erase / restore
+    eraseTool: null, // null | "erase" | "restore"
+    brushSize: 32, // canvas pixels
+    eraseDragging: false,
+    eraseLast: null, // {x,y} image-space
   };
 
   function $(id) {
@@ -102,13 +109,24 @@
     });
   }
 
-  function pushUndo() {
-    state.undoStack.push({
+  function pushUndo(opts) {
+    var entry = {
       joints: cloneJoints(state.joints),
       bones: cloneBones(state.bones),
       bindJoints: cloneJoints(state.bindJoints),
       mode: state.mode,
-    });
+    };
+    if (opts && opts.cutout && state.workCanvas) {
+      try {
+        entry.cutoutDataUrl = state.workCanvas.toDataURL("image/png");
+        entry.cutoutMethod = state.cutoutMethod;
+        entry.cutoutReady = !!state.cutoutReady;
+        entry.cutoutFailReason = state.cutoutFailReason || "";
+      } catch (e) {
+        /* ignore snapshot failure */
+      }
+    }
+    state.undoStack.push(entry);
     if (state.undoStack.length > 40) state.undoStack.shift();
   }
 
@@ -123,15 +141,24 @@
   function getRenderImage() {
     if (state.mode === "pose") {
       // Hard rule: pose mesh must not texture the uncut background image.
-      return state.cutoutImage || null;
+      return state.cutoutReady ? state.cutoutImage || null : null;
     }
-    if (state.showCutoutInEdit && state.cutoutImage) return state.cutoutImage;
+    if (state.eraseTool || state.showCutoutInEdit) {
+      if (state.workCanvas) return state.workCanvas;
+      if (state.cutoutImage) return state.cutoutImage;
+    }
     return state.image;
   }
 
   function clearCutout() {
     state.cutoutImage = null;
     state.cutoutMethod = "";
+    state.cutoutReady = false;
+    state.cutoutFailReason = "";
+    state.workCanvas = null;
+    state.eraseTool = null;
+    state.eraseDragging = false;
+    state.eraseLast = null;
     state.cutting = false;
     state.cuttingPromise = null;
     updateCutoutUI();
@@ -140,27 +167,37 @@
   function updateCutoutUI() {
     var shell = document.querySelector(".rig-shell");
     if (shell) {
-      shell.classList.toggle("rig-has-cutout", !!state.cutoutImage);
+      shell.classList.toggle("rig-has-cutout", !!state.cutoutReady);
+      shell.classList.toggle("rig-cutout-draft", !!(state.cutoutImage || state.workCanvas) && !state.cutoutReady);
       shell.classList.toggle("rig-cutting", !!state.cutting);
+      shell.classList.toggle("rig-erasing", state.eraseTool === "erase");
+      shell.classList.toggle("rig-restoring", state.eraseTool === "restore");
     }
     var btn = $("rig-cutout");
     if (btn) {
       btn.disabled = !state.image || state.cutting;
       btn.textContent = state.cutting
         ? "Cutting…"
-        : state.cutoutImage
+        : state.cutoutImage || state.workCanvas
           ? "Re-cut from background"
           : "Cut from background";
     }
     var badge = $("rig-cutout-badge");
     if (badge) {
-      badge.classList.remove("err");
-      if (state.cutoutImage) {
+      badge.classList.remove("err", "warn");
+      if (state.cutoutReady && state.cutoutImage) {
         badge.hidden = false;
         badge.textContent =
           "Cutout: " +
           (state.cutoutMethod || "ready") +
-          " — opaque mesh only";
+          " — Pose unlocked";
+      } else if ((state.cutoutImage || state.workCanvas) && !state.cutoutReady) {
+        badge.hidden = false;
+        badge.classList.add("warn");
+        badge.textContent =
+          "Cutout incomplete — Erase leftover BG" +
+          (state.cutoutFailReason ? " (" + state.cutoutFailReason + ")" : "") +
+          ". Pose blocked.";
       } else if (state.cutting) {
         badge.hidden = false;
         badge.textContent = "Cutting subject…";
@@ -172,6 +209,24 @@
     }
     var showCb = $("rig-show-cutout");
     if (showCb) showCb.checked = !!state.showCutoutInEdit;
+    var eraseBtn = $("rig-erase");
+    var restoreBtn = $("rig-restore");
+    var brush = $("rig-brush-size");
+    var canPaint = !!state.image && state.mode !== "pose" && !state.cutting;
+    if (eraseBtn) {
+      eraseBtn.disabled = !canPaint;
+      eraseBtn.classList.toggle("rig-tool-active", state.eraseTool === "erase");
+    }
+    if (restoreBtn) {
+      restoreBtn.disabled = !canPaint || !(state.workCanvas || state.cutoutImage);
+      restoreBtn.classList.toggle("rig-tool-active", state.eraseTool === "restore");
+    }
+    if (brush) {
+      brush.disabled = !canPaint;
+      brush.value = String(state.brushSize);
+    }
+    var brushLab = $("rig-brush-label");
+    if (brushLab) brushLab.textContent = String(state.brushSize);
   }
 
   function blobToImage(blob) {
@@ -523,13 +578,220 @@
     });
   }
 
+  function cloneCanvas(src) {
+    var c = document.createElement("canvas");
+    c.width = src.width;
+    c.height = src.height;
+    c.getContext("2d").drawImage(src, 0, 0);
+    return c;
+  }
+
+  function adoptWorkCanvas(canvas) {
+    if (!canvas) {
+      state.workCanvas = null;
+      return;
+    }
+    state.workCanvas = cloneCanvas(canvas);
+  }
+
+  function measureFromWorkOrImage(imgOrCanvas) {
+    return scrubAndMeasureCutout(imgOrCanvas);
+  }
+
+  function applyCutoutStats(stats, method, bad) {
+    adoptWorkCanvas(stats.canvas);
+    state.cutoutMethod = method || state.cutoutMethod || "";
+    state.cutoutFailReason = bad || "";
+    state.cutoutReady = !bad;
+    return canvasToImage(stats.canvas).then(function (cleanImg) {
+      state.cutoutImage = cleanImg;
+      updateCutoutUI();
+      return !bad;
+    });
+  }
+
+  /** Seed a full-plate working cutout so Erase can clear BG by hand. */
+  function seedManualWorkingCutout() {
+    if (!state.image) return Promise.resolve(false);
+    var src = state.image;
+    var w = src.naturalWidth || src.width;
+    var h = src.naturalHeight || src.height;
+    var c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    c.getContext("2d").drawImage(src, 0, 0);
+    var stats = scrubAndMeasureCutout(c);
+    // Full plate will fail quality — keep as draft for erase
+    var bad = validateCutoutStats(stats, "manual") || "manual erase needed";
+    state.cutoutMethod = "manual";
+    state.showCutoutInEdit = true;
+    return applyCutoutStats(stats, "manual", bad).then(function () {
+      return false;
+    });
+  }
+
+  function ensureWorkCanvas() {
+    if (state.workCanvas) return Promise.resolve(true);
+    if (state.cutoutImage) {
+      var img = state.cutoutImage;
+      var w = img.naturalWidth || img.width;
+      var h = img.naturalHeight || img.height;
+      var c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      c.getContext("2d").drawImage(img, 0, 0);
+      state.workCanvas = c;
+      return Promise.resolve(true);
+    }
+    return seedManualWorkingCutout().then(function () {
+      return !!state.workCanvas;
+    });
+  }
+
+  /** Commit workCanvas → cutoutImage and re-run quality gate. */
+  function syncCutoutFromWork() {
+    if (!state.workCanvas) {
+      return Promise.resolve(false);
+    }
+    var stats = scrubAndMeasureCutout(state.workCanvas);
+    // put scrubbed pixels back into work canvas
+    adoptWorkCanvas(stats.canvas);
+    var method = state.cutoutMethod || "manual";
+    if (method === "imgly" || method === "flood" || method === "alpha") {
+      method = method + "+erase";
+    } else if (!method || method === "") {
+      method = "manual";
+    }
+    var bad = validateCutoutStats(stats, method);
+    return applyCutoutStats(stats, method, bad).then(function (ok) {
+      draw();
+      if (ok) {
+        setStatus(
+          "Cutout quality OK (" +
+            (state.cutoutMethod || "ok") +
+            "). Pose unlocked — only the figure will deform.",
+          "ok"
+        );
+      } else {
+        setStatus(
+          "Still blocked: " +
+            (bad || "need more transparent BG") +
+            ". Keep erasing posters/floor, then try Pose.",
+          "warn"
+        );
+      }
+      return ok;
+    });
+  }
+
+  function canvasPtToImage(cx, cy) {
+    var wc = state.workCanvas;
+    if (!wc || !state.canvasW || !state.canvasH) return { x: 0, y: 0 };
+    return {
+      x: (cx / state.canvasW) * wc.width,
+      y: (cy / state.canvasH) * wc.height,
+    };
+  }
+
+  function brushRadiusImage() {
+    var wc = state.workCanvas;
+    if (!wc || !state.canvasW) return state.brushSize;
+    return Math.max(1, (state.brushSize * wc.width) / state.canvasW);
+  }
+
+  function paintEraseDab(ix, iy, from) {
+    var wc = state.workCanvas;
+    if (!wc) return;
+    var ctx = wc.getContext("2d");
+    var r = brushRadiusImage();
+    function restoreAt(x, y) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.globalCompositeOperation = "source-over";
+      ctx.drawImage(state.image, 0, 0, wc.width, wc.height);
+      ctx.restore();
+    }
+    if (state.eraseTool === "restore" && state.image) {
+      if (from) {
+        var dx = ix - from.x;
+        var dy = iy - from.y;
+        var dist = Math.hypot(dx, dy);
+        var step = Math.max(1, r * 0.45);
+        var n = Math.max(1, Math.ceil(dist / step));
+        for (var s = 1; s <= n; s++) {
+          restoreAt(from.x + (dx * s) / n, from.y + (dy * s) / n);
+        }
+      } else {
+        restoreAt(ix, iy);
+      }
+      return;
+    }
+    // Erase → transparent
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.strokeStyle = "rgba(0,0,0,1)";
+    ctx.fillStyle = "rgba(0,0,0,1)";
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = r * 2;
+    if (from) {
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(ix, iy);
+      ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.arc(ix, iy, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function setEraseTool(tool) {
+    if (state.mode === "pose") {
+      setStatus("Switch to Edit bones to erase background.", "warn");
+      return;
+    }
+    if (!state.image) {
+      setStatus("Load an image first.", "warn");
+      return;
+    }
+    if (state.eraseTool === tool) {
+      state.eraseTool = null;
+      updateCutoutUI();
+      draw();
+      setStatus("Erase tool off — drag joints again.", "");
+      return;
+    }
+    ensureWorkCanvas().then(function (ok) {
+      if (!ok) {
+        setStatus("Could not start working cutout for erase.", "err");
+        return;
+      }
+      state.eraseTool = tool;
+      state.showCutoutInEdit = true;
+      var showCb = $("rig-show-cutout");
+      if (showCb) showCb.checked = true;
+      updateCutoutUI();
+      draw();
+      setStatus(
+        tool === "restore"
+          ? "Restore: paint to bring original pixels back. Brush size adjusts dab."
+          : "Erase: paint to clear background (transparent). Clear posters/floor until Pose unlocks.",
+        "ok"
+      );
+    });
+  }
+
   /**
    * Produce alpha cutout of the subject. Prefers @imgly/background-removal (free,
    * in-browser), then canvas edge flood-fill. Reuses existing alpha if present.
    */
   function ensureCutout(force) {
     if (!state.image) return Promise.resolve(false);
-    if (!force && state.cutoutImage) return Promise.resolve(true);
+    if (!force && state.cutoutReady && state.cutoutImage) return Promise.resolve(true);
     if (state.cutting && state.cuttingPromise) return state.cuttingPromise;
 
     state.cutting = true;
@@ -558,39 +820,49 @@
       })
       .then(function (cutImg) {
         var stats = scrubAndMeasureCutout(cutImg);
-        var bad = validateCutoutStats(stats, state.cutoutMethod);
-        if (bad) {
-          throw new Error(bad);
-        }
-        return canvasToImage(stats.canvas).then(function (cleanImg) {
-          state.cutoutImage = cleanImg;
-          state.cutting = false;
-          state.cuttingPromise = null;
-          updateCutoutUI();
+        var method = state.cutoutMethod || "ok";
+        var bad = validateCutoutStats(stats, method);
+        state.cutting = false;
+        state.cuttingPromise = null;
+        state.showCutoutInEdit = true;
+        var showCb = $("rig-show-cutout");
+        if (showCb) showCb.checked = true;
+        return applyCutoutStats(stats, method, bad).then(function (ok) {
           draw();
+          if (ok) {
+            setStatus(
+              "Cutout ready (" +
+                (state.cutoutMethod || "ok") +
+                "). Pose deforms only the figure — background stays put.",
+              "ok"
+            );
+            return true;
+          }
           setStatus(
-            "Cutout ready (" +
-              (state.cutoutMethod || "ok") +
-              "). Pose deforms only the figure — background stays put.",
-            "ok"
+            "Auto cut incomplete: " +
+              bad +
+              ". Use Erase to clear leftover BG, then Pose.",
+            "warn"
           );
-          return true;
+          return false;
         });
       })
       .catch(function (err) {
         console.warn("[rig] cutout failed", err);
-        state.cutoutImage = null;
-        state.cutoutMethod = "";
         state.cutting = false;
         state.cuttingPromise = null;
-        updateCutoutUI();
-        setStatus(
-          "Cutout failed — Pose blocked until background is removed. " +
-            ((err && err.message) || "Try Re-cut / simpler BG.") +
-            " Background must NOT warp.",
-          "err"
-        );
-        return false;
+        var msg = (err && err.message) || "Try Re-cut / simpler BG.";
+        return seedManualWorkingCutout().then(function () {
+          updateCutoutUI();
+          draw();
+          setStatus(
+            "Cutout failed (" +
+              msg +
+              "). Use Erase to clear background manually, then Pose. Background must NOT warp.",
+            "err"
+          );
+          return false;
+        });
       });
 
     state.cuttingPromise = work;
@@ -651,14 +923,18 @@
       hint.textContent =
         state.mode === "pose"
           ? "Pose: drag joints — children follow (FK). Only the cut-out figure deforms; background stays still. Reset Pose returns to bind."
-          : "Edit bones: drag joints to set the bind pose. Cut from background first — Pose is blocked until the figure is cut out.";
+          : "Edit bones: drag joints to set the bind pose. Cut from background (or Erase leftover BG by hand) — Pose unlocks when cutout quality passes.";
     }
     var toolbar = $("rig-toolbar-hint");
     if (toolbar) {
       toolbar.textContent =
         state.mode === "pose"
           ? "Pose · cutout mesh · drag a joint to move the limb"
-          : "Edit bones · Cut from background (required) · then Pose — only the figure warps";
+          : state.eraseTool === "erase"
+            ? "Erase background · paint transparent · Brush size · Undo strokes · Pose when quality OK"
+            : state.eraseTool === "restore"
+              ? "Restore · paint original pixels back · Brush size · Undo"
+              : "Edit bones · Cut / Erase BG · then Pose — only the figure warps";
     }
     var resetPose = $("rig-reset-pose");
     if (resetPose) resetPose.disabled = state.mode !== "pose";
@@ -671,14 +947,15 @@
   }
 
   function finishEnterPose() {
-    if (!state.cutoutImage) {
+    if (!state.cutoutReady || !state.cutoutImage) {
       setStatus(
-        "Pose blocked: cutout required. Click Cut from background, then Pose.",
+        "Pose blocked: cutout required. Cut from background, or Erase leftover BG until quality passes.",
         "err"
       );
       updateModeUI();
       return false;
     }
+    state.eraseTool = null;
     state.bindJoints = cloneJoints(state.joints);
     buildSkinMesh();
     if (!state.mesh || !state.mesh.tris.length) {
@@ -723,19 +1000,36 @@
         setStatus("Need joints before posing.", "warn");
         return;
       }
-      // Hard gate: never enter Pose on the full background image
-      if (!state.cutoutImage) {
-        setStatus("Cutting subject from background before Pose…", "");
-        ensureCutout(false).then(function (ok) {
-          if (!ok || !state.cutoutImage) {
+      // Hard gate: never enter Pose until cutout quality passes
+      if (!state.cutoutReady) {
+        if (!state.cutoutImage && !state.workCanvas) {
+          setStatus("Cutting subject from background before Pose…", "");
+          ensureCutout(false).then(function (ok) {
+            if (ok && state.cutoutReady) {
+              finishEnterPose();
+              return;
+            }
             setStatus(
-              "Pose blocked — cutout failed. Fix / Re-cut, then click Pose again.",
+              "Pose blocked — cutout incomplete. Use Erase to clear leftover BG, then Pose.",
               "err"
             );
             updateModeUI();
+          });
+          return;
+        }
+        setStatus("Checking cutout quality…", "");
+        syncCutoutFromWork().then(function (ok) {
+          if (ok && state.cutoutReady) {
+            finishEnterPose();
             return;
           }
-          finishEnterPose();
+          setStatus(
+            "Pose blocked — " +
+              (state.cutoutFailReason || "need more transparent BG") +
+              ". Keep erasing, then Pose.",
+            "err"
+          );
+          updateModeUI();
         });
         return;
       }
@@ -806,12 +1100,12 @@
         if (state.mode === "pose") {
           // Re-cut for the new image; leave Pose if cutout fails (never warp full BG)
           ensureCutout(false).then(function (ok) {
-            if (!ok || !state.cutoutImage) {
+            if (!ok || !state.cutoutReady) {
               state.mode = "edit";
               state.mesh = null;
               updateModeUI();
               setStatus(
-                "Cutout failed on new image — back in Edit. Re-cut before Pose.",
+                "Cutout incomplete on new image — back in Edit. Erase leftover BG or Re-cut before Pose.",
                 "err"
               );
               draw();
@@ -1494,8 +1788,9 @@
       createdAt: new Date().toISOString(),
       mode: state.mode,
       cutout: {
-        ready: !!state.cutoutImage,
+        ready: !!state.cutoutReady,
         method: state.cutoutMethod || null,
+        failReason: state.cutoutFailReason || null,
       },
       image: {
         name: state.imageName,
@@ -1630,19 +1925,53 @@
     state.bones = snap.bones;
     state.bindJoints = snap.bindJoints || [];
     state.mode = snap.mode || "edit";
-    if (state.mode === "pose" && state.bindJoints.length) {
-      buildSkinMesh();
-    } else {
-      state.mesh = null;
+    function finishUndo() {
+      if (state.mode === "pose" && state.bindJoints.length && state.cutoutReady) {
+        buildSkinMesh();
+      } else {
+        state.mesh = null;
+        if (state.mode === "pose" && !state.cutoutReady) {
+          state.mode = "edit";
+        }
+      }
+      if (!jointById(state.selectedId)) {
+        state.selectedId = state.joints[0] ? state.joints[0].id : null;
+      }
+      updateModeUI();
+      renderJointList();
+      fillBoneSelects();
+      draw();
+      setStatus("Undid last change.", "ok");
     }
-    if (!jointById(state.selectedId)) {
-      state.selectedId = state.joints[0] ? state.joints[0].id : null;
+    if (snap.cutoutDataUrl) {
+      var img = new Image();
+      img.onload = function () {
+        var c = document.createElement("canvas");
+        c.width = img.naturalWidth || img.width;
+        c.height = img.naturalHeight || img.height;
+        c.getContext("2d").drawImage(img, 0, 0);
+        state.workCanvas = c;
+        state.cutoutImage = img;
+        state.cutoutMethod = snap.cutoutMethod || state.cutoutMethod;
+        state.cutoutReady = !!snap.cutoutReady;
+        state.cutoutFailReason = snap.cutoutFailReason || "";
+        // Re-measure so badge stays honest
+        try {
+          var stats = scrubAndMeasureCutout(c);
+          var bad = validateCutoutStats(stats, state.cutoutMethod);
+          state.cutoutReady = !bad;
+          state.cutoutFailReason = bad || "";
+          adoptWorkCanvas(stats.canvas);
+        } catch (e) {}
+        finishUndo();
+      };
+      img.onerror = function () {
+        finishUndo();
+      };
+      img.src = snap.cutoutDataUrl;
+      return;
     }
-    updateModeUI();
-    renderJointList();
-    fillBoneSelects();
-    draw();
-    setStatus("Undid last change.", "ok");
+    finishUndo();
   }
 
   /** FK: rotate joint + descendants around parent; translate subtree for roots. */
@@ -1705,6 +2034,20 @@
     if (!state.image) return;
     e.preventDefault();
     var pt = eventToCanvas(e);
+
+    if (state.eraseTool && state.mode !== "pose") {
+      ensureWorkCanvas().then(function (ok) {
+        if (!ok) return;
+        pushUndo({ cutout: true });
+        state.eraseDragging = true;
+        var ip = canvasPtToImage(pt.x, pt.y);
+        state.eraseLast = ip;
+        paintEraseDab(ip.x, ip.y, null);
+        draw();
+      });
+      return;
+    }
+
     var hit = hitJoint(pt.x, pt.y);
     if (hit) {
       pushUndo();
@@ -1716,7 +2059,19 @@
   }
 
   function onPointerMove(e) {
-    if (!state.dragId || !state.image) return;
+    if (!state.image) return;
+
+    if (state.eraseDragging && state.eraseTool && state.workCanvas) {
+      e.preventDefault();
+      var ptE = eventToCanvas(e);
+      var ip = canvasPtToImage(ptE.x, ptE.y);
+      paintEraseDab(ip.x, ip.y, state.eraseLast);
+      state.eraseLast = ip;
+      draw();
+      return;
+    }
+
+    if (!state.dragId) return;
     e.preventDefault();
     var pt = eventToCanvas(e);
     var n = canvasToNorm(pt.x, pt.y);
@@ -1732,6 +2087,12 @@
   }
 
   function onPointerUp() {
+    if (state.eraseDragging) {
+      state.eraseDragging = false;
+      state.eraseLast = null;
+      syncCutoutFromWork();
+      return;
+    }
     if (state.dragId) {
       state.dragId = null;
       fillBoneSelects();
@@ -1860,6 +2221,7 @@
         setStatus("Load an image first.", "warn");
         return;
       }
+      state.eraseTool = null;
       ensureCutout(true).then(function (ok) {
         if (ok && state.mode === "pose") {
           buildSkinMesh();
@@ -1867,6 +2229,20 @@
         }
       });
     });
+    wire("rig-erase", function () {
+      setEraseTool("erase");
+    });
+    wire("rig-restore", function () {
+      setEraseTool("restore");
+    });
+    var brushEl = $("rig-brush-size");
+    if (brushEl) {
+      brushEl.addEventListener("input", function () {
+        state.brushSize = Math.max(4, Math.min(160, parseInt(brushEl.value, 10) || 32));
+        var lab = $("rig-brush-label");
+        if (lab) lab.textContent = String(state.brushSize);
+      });
+    }
 
     var op = $("rig-opacity");
     if (op) {
@@ -1905,7 +2281,7 @@
     window.addEventListener("rig-show", onShow);
     window.addEventListener("rig-hide", function () {});
 
-    setStatus("Load an image, place bones, Cut from background (auto on Pose) so only the figure deforms.", "");
+    setStatus("Load an image, place bones, Cut from background (or Erase BG by hand). Pose unlocks when cutout quality passes.", "");
   }
 
   window.Rig = {
@@ -1914,6 +2290,8 @@
     resetPose: resetPose,
     setMode: setMode,
     ensureCutout: ensureCutout,
+    syncCutoutFromWork: syncCutoutFromWork,
+    setEraseTool: setEraseTool,
     exportPayload: buildExportPayload,
   };
 
