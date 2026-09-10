@@ -75,6 +75,23 @@
   var autoForgeCycle = 0;
   var pendingGenerateId = null;
   var AUTO_FORGE_TOPIC_MEMORY = 8;
+  /** Persist caps — Auto-forge mints many ledgers; localStorage ~5MB shared. */
+  var PERSIST_NOTE_TEXT_MAX = 1500;
+  var PERSIST_NOTE_DESC_MAX = 800;
+  var PERSIST_FORGED_DESC_MAX = 600;
+  var PERSIST_DESC_OVERRIDE_MAX = 2000;
+  var PERSIST_MAX_NOTES = 160;
+  var PERSIST_MAX_FORGED = 80;
+  var PERSIST_MAX_DESC_OVERRIDES = 40;
+  var PERSIST_MAX_GUIDE_OVERRIDES = 200;
+  var PERSIST_MAX_ITEM_STATS = 120;
+  var PERSIST_MAX_BANK_KINDS = 360;
+  var PERSIST_MAX_COLOR_CHIPS = 80;
+  var PERSIST_LS_SOFT_BYTES = 1800000;
+  var PERSIST_LS_HARD_BYTES = 3200000;
+  var GE_IDB_NAME = "gallery-ge-persist";
+  var GE_IDB_STORE = "saves";
+  var GE_IDB_KEY = "main";
   var recentForgeTopics = [];
   /** Live working thumbs (often data URLs) after Force load — memory only. */
   var thumbOverrides = {};
@@ -237,7 +254,8 @@
       out.kind = "ledger";
       out.isLedger = true;
       out.pendingGenerate = raw.pendingGenerate !== false;
-      out.description = String(raw.description != null ? raw.description : prompt || "").slice(0, 4000);
+      out.description = String(raw.description != null ? raw.description : prompt || "").slice(0, PERSIST_NOTE_DESC_MAX);
+      out.text = String(out.text || "").slice(0, PERSIST_NOTE_TEXT_MAX);
       if (Array.isArray(raw.parents)) {
         out.parents = raw.parents.map(Number).filter(function (n) { return n > 0; }).slice(0, 3);
       } else {
@@ -1284,19 +1302,32 @@
       var norm = normalizeNoteEntry(note, note.id);
       var packed = {
         id: note.id,
-        title: (norm && norm.title) || "Note",
-        text: (norm && norm.text) || "",
+        title: String((norm && norm.title) || "Note").slice(0, 80),
+        text: String((norm && norm.text) || "").slice(0, PERSIST_NOTE_TEXT_MAX),
         createdAt: (norm && norm.createdAt) || Date.now(),
       };
       if (norm && isLedgerNote(norm)) {
         packed.kind = "ledger";
         packed.isLedger = true;
         packed.pendingGenerate = norm.pendingGenerate !== false;
-        packed.description = String(norm.description != null ? norm.description : packed.text).slice(0, 4000);
+        var desc = String(norm.description != null ? norm.description : packed.text).slice(
+          0,
+          PERSIST_NOTE_DESC_MAX
+        );
+        // Avoid duplicating the same long prompt in both fields.
+        if (desc && desc !== packed.text) packed.description = desc;
         packed.parents = Array.isArray(norm.parents) ? norm.parents.map(Number).slice(0, 3) : [];
         if (norm.guide != null) packed.guide = Math.max(1, Math.round(Number(norm.guide) || 1));
       }
       store.notes[String(note.id)] = packed;
+      // Cap shared Spellforge note bag so it cannot eat the GE quota.
+      var ids = Object.keys(store.notes).sort(function (a, b) {
+        return Number(a) - Number(b);
+      });
+      while (ids.length > PERSIST_MAX_NOTES) {
+        var drop = ids.shift();
+        delete store.notes[drop];
+      }
       var next = Math.max(
         Number(store.nextNoteId) || NOTE_BASE + 1,
         Number(note.id) + 1,
@@ -2021,7 +2052,7 @@
               .slice(0, 48);
           })
           .filter(Boolean)
-          .slice(-16)
+          .slice(-AUTO_FORGE_TOPIC_MEMORY)
       : [];
     s.packReady = true;
     if (!Object.keys(s.itemStats).length && s.history.length) {
@@ -2083,27 +2114,81 @@
         }
       }
       if (!raw) return defaultState();
-      var migrated = migrate(JSON.parse(raw));
+      var parsed = JSON.parse(raw);
+      var migrated = migrate(parsed);
+      // Stub written when only IndexedDB held the full save.
+      if (parsed && parsed._idbOnly) {
+        migrated._needsIdbHydrate = true;
+        return migrated;
+      }
       // Rewrite a slim player-only save so NPC packs never stay on disk.
       try {
         state = migrated;
         npcRuntime = { inventory: {}, bank: {} };
         var slim = slimForPersist();
-        localStorage.setItem(STORAGE, JSON.stringify(slim));
+        var payload = Object.assign({}, slim);
+        delete payload._persistMeta;
+        localStorage.setItem(STORAGE, JSON.stringify(payload));
+        idbPutGeSave(payload).catch(function () {});
         if (fromLegacy) scrubLegacyStorage();
         state = null;
-        return slim;
+        return migrate(payload);
       } catch (eSave) {
         state = null;
-        try {
-          localStorage.removeItem(STORAGE);
-        } catch (eRm) {}
+        migrated._needsIdbHydrate = true;
         // Fall back to in-memory migrated (still stripped of NPC bags)
         return migrated;
       }
     } catch (e) {
       return defaultState();
     }
+  }
+
+  function geSaveRicherScore(s) {
+    if (!s || typeof s !== "object") return 0;
+    var notes = s.notes ? Object.keys(s.notes).length : 0;
+    var forged = s.forged ? Object.keys(s.forged).length : 0;
+    var bank = 0;
+    try {
+      bank = Object.keys((s.bank && s.bank[String(PLAYER_ID)]) || {}).length;
+    } catch (e) {}
+    return (
+      notes * 1000 +
+      forged * 100 +
+      bank * 10 +
+      (Number(s.nextNoteId) || 0) +
+      (Number(s.nextForgeId) || 0) +
+      (Number(s.xp) || 0)
+    );
+  }
+
+  /** Async: pull fuller save from IndexedDB when LS was stubby/failed. */
+  function hydrateGeFromIdb() {
+    return idbGetGeSave().then(function (row) {
+      if (!row || !row.payload || typeof row.payload !== "object") return false;
+      var incoming = migrate(row.payload);
+      var curScore = geSaveRicherScore(state);
+      var inScore = geSaveRicherScore(incoming);
+      if (!(state && state._needsIdbHydrate) && inScore <= curScore) return false;
+      state = incoming;
+      delete state._needsIdbHydrate;
+      npcRuntime = { inventory: {}, bank: {} };
+      recentForgeTopics = Array.isArray(state.recentForgeTopics)
+        ? state.recentForgeTopics.slice()
+        : [];
+      try {
+        var slim = slimForPersist();
+        var payload = Object.assign({}, slim);
+        delete payload._persistMeta;
+        applySlimLiveBags(slim);
+        try {
+          localStorage.setItem(STORAGE, JSON.stringify(payload));
+        } catch (eLs) {
+          // Keep IDB as source of truth when LS still full.
+        }
+      } catch (eSlim) {}
+      return true;
+    });
   }
 
   function enforcePlayerInvCap() {
@@ -2130,31 +2215,203 @@
     return moved;
   }
 
-  function slimForPersist() {
+  function openGeIdb() {
+    return new Promise(function (resolve, reject) {
+      if (typeof indexedDB === "undefined" || !indexedDB) {
+        reject(new Error("IndexedDB unavailable"));
+        return;
+      }
+      var req = indexedDB.open(GE_IDB_NAME, 1);
+      req.onupgradeneeded = function () {
+        var db = req.result;
+        if (!db.objectStoreNames.contains(GE_IDB_STORE)) {
+          db.createObjectStore(GE_IDB_STORE);
+        }
+      };
+      req.onsuccess = function () {
+        resolve(req.result);
+      };
+      req.onerror = function () {
+        reject(req.error || new Error("Could not open GE IDB"));
+      };
+    });
+  }
+
+  function idbPutGeSave(payload) {
+    return openGeIdb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(GE_IDB_STORE, "readwrite");
+        tx.oncomplete = function () {
+          resolve(true);
+        };
+        tx.onerror = function () {
+          reject(tx.error || new Error("IDB write failed"));
+        };
+        tx.objectStore(GE_IDB_STORE).put(
+          { savedAt: Date.now(), payload: payload },
+          GE_IDB_KEY
+        );
+      });
+    });
+  }
+
+  function idbGetGeSave() {
+    return openGeIdb()
+      .then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(GE_IDB_STORE, "readonly");
+          var req = tx.objectStore(GE_IDB_STORE).get(GE_IDB_KEY);
+          req.onsuccess = function () {
+            resolve(req.result || null);
+          };
+          req.onerror = function () {
+            reject(req.error);
+          };
+        });
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function persistByteLength(obj) {
+    try {
+      return JSON.stringify(obj).length;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function formatPersistKb(n) {
+    return (Math.round((Number(n) || 0) / 102.4) / 10).toFixed(1) + "KB";
+  }
+
+  function ownedItemIdSet() {
+    var set = Object.create(null);
+    var pid = String(PLAYER_ID);
+    var inv = (state.inventory && state.inventory[pid]) || {};
+    var bank = (state.bank && state.bank[pid]) || {};
+    Object.keys(inv).forEach(function (k) {
+      if ((Number(inv[k]) || 0) > 0) set[k] = true;
+    });
+    Object.keys(bank).forEach(function (k) {
+      if ((Number(bank[k]) || 0) > 0) set[k] = true;
+    });
+    (state.offers || []).forEach(function (o) {
+      if (o && o.isPlayer && o.itemId != null) set[String(o.itemId)] = true;
+    });
+    (state.trackedItems || []).forEach(function (n) {
+      if (n) set[String(n)] = true;
+    });
+    return set;
+  }
+
+  function pruneBankForPersist(bankMap, maxKinds) {
+    var keys = Object.keys(bankMap || {}).filter(function (k) {
+      return (Number(bankMap[k]) || 0) > 0;
+    });
+    if (keys.length <= maxKinds) return { bank: Object.assign({}, bankMap || {}), dropped: [] };
+    // Keep paintings/extras first; drop oldest ledger/forged stacks when over cap.
+    var keepers = [];
+    var dropCandidates = [];
+    keys.forEach(function (k) {
+      var n = Number(k);
+      var isLed = n >= NOTE_BASE && n < COLOR_BASE;
+      var isForged = n >= 10001 && n < GEN_BASE;
+      if (isLed || isForged) dropCandidates.push(k);
+      else keepers.push(k);
+    });
+    dropCandidates.sort(function (a, b) {
+      return Number(a) - Number(b); // oldest ids first
+    });
+    var room = Math.max(0, maxKinds - keepers.length);
+    var keepDrop = dropCandidates.slice(-room);
+    var dropped = dropCandidates.slice(0, Math.max(0, dropCandidates.length - room));
+    var out = {};
+    keepers.concat(keepDrop).forEach(function (k) {
+      out[k] = bankMap[k];
+    });
+    return { bank: out, dropped: dropped };
+  }
+
+  function pickNewestKeys(keys, max, metaFn) {
+    var arr = keys.slice();
+    arr.sort(function (a, b) {
+      var ma = metaFn(a) || 0;
+      var mb = metaFn(b) || 0;
+      if (ma !== mb) return mb - ma;
+      return Number(b) - Number(a);
+    });
+    return arr.slice(0, max);
+  }
+
+  function slimForPersist(opts) {
+    opts = opts || {};
+    var aggressive = !!opts.aggressive;
+    var noteTextMax = aggressive ? 700 : PERSIST_NOTE_TEXT_MAX;
+    var noteDescMax = aggressive ? 400 : PERSIST_NOTE_DESC_MAX;
+    var forgedDescMax = aggressive ? 280 : PERSIST_FORGED_DESC_MAX;
+    var maxNotes = aggressive ? 60 : PERSIST_MAX_NOTES;
+    var maxForged = aggressive ? 40 : PERSIST_MAX_FORGED;
+    var maxDesc = aggressive ? 20 : PERSIST_MAX_DESC_OVERRIDES;
+    var maxBank = aggressive ? 200 : PERSIST_MAX_BANK_KINDS;
+    var stripForgedThumbs = !!opts.stripForgedThumbs || aggressive;
+
     var pid = String(PLAYER_ID);
     enforcePlayerInvCap();
     var inv = {};
     inv[pid] = Object.assign({}, (state.inventory && state.inventory[pid]) || {});
+    var bankSrc = Object.assign({}, (state.bank && state.bank[pid]) || {});
+    var bankPrune = pruneBankForPersist(bankSrc, maxBank);
     var bank = {};
-    bank[pid] = Object.assign({}, (state.bank && state.bank[pid]) || {});
+    bank[pid] = bankPrune.bank;
     var cash = {};
     if (state.cashDelta && state.cashDelta[pid] != null) cash[pid] = state.cashDelta[pid];
 
+    var owned = ownedItemIdSet();
+    // Bank prune may drop ids — reflect that in owned for meta keep.
+    Object.keys(bank[pid]).forEach(function (k) {
+      owned[k] = true;
+    });
+    Object.keys(inv[pid]).forEach(function (k) {
+      owned[k] = true;
+    });
+
     var forged = {};
-    Object.keys(state.forged || {}).forEach(function (k) {
+    var forgedKeys = Object.keys(state.forged || {});
+    var forgedKeep = pickNewestKeys(
+      forgedKeys.filter(function (k) {
+        return owned[k] || true;
+      }),
+      maxForged,
+      function (k) {
+        var f = state.forged[k];
+        return (f && (f.createdAt || f.id)) || Number(k) || 0;
+      }
+    );
+    // Prefer owned forged when over cap
+    forgedKeep = pickNewestKeys(
+      forgedKeys,
+      maxForged,
+      function (k) {
+        var f = state.forged[k];
+        var base = (f && (f.createdAt || f.id)) || Number(k) || 0;
+        return base + (owned[k] ? 1e15 : 0);
+      }
+    );
+    forgedKeep.forEach(function (k) {
       var f = state.forged[k];
       if (!f || typeof f !== "object") return;
-      var imageUrl = persistableThumbUrl(f.imageUrl || "", null);
-      // Prefer real imageUrl; never persist a parent painting path as the forged image
+      var imageUrl = stripForgedThumbs ? "" : persistableThumbUrl(f.imageUrl || "", null);
       var thumbRaw = f.thumb || "";
-      var thumb = persistableThumbUrl(thumbRaw, null);
+      var thumb = stripForgedThumbs ? "" : persistableThumbUrl(thumbRaw, null);
       if (thumb && isParentPaintingUrl(thumb, f.parents)) thumb = imageUrl || "";
       if (!thumb && imageUrl) thumb = imageUrl;
       forged[k] = {
         id: f.id,
         parents: Array.isArray(f.parents) ? f.parents.slice(0, 3) : [],
-        title: String(f.title || "").slice(0, 160),
-        description: String(f.description || "").slice(0, 1200),
+        title: String(f.title || "").slice(0, 120),
+        description: String(f.description || "").slice(0, forgedDescMax),
         imageUrl: imageUrl || "",
         thumb: thumb || "",
         guide: f.guide,
@@ -2164,35 +2421,63 @@
     });
 
     var notes = {};
-    Object.keys(state.notes || {}).forEach(function (k) {
+    var noteKeys = Object.keys(state.notes || {});
+    var noteKeep = pickNewestKeys(noteKeys, maxNotes, function (k) {
+      var n = state.notes[k];
+      var base = (n && (n.createdAt || n.id)) || Number(k) || 0;
+      return base + (owned[k] ? 1e15 : 0);
+    });
+    noteKeep.forEach(function (k) {
       var n = normalizeNoteEntry(state.notes[k], Number(k));
       if (!n) return;
+      var text = String(n.text || "").slice(0, noteTextMax);
       var packed = {
         id: n.id != null ? n.id : Number(k),
         title: String(n.title || "Note").slice(0, 80),
-        text: String(n.text || "").slice(0, 4000),
+        text: text,
         createdAt: n.createdAt,
       };
       if (isLedgerNote(n)) {
         packed.kind = "ledger";
         packed.isLedger = true;
         packed.pendingGenerate = n.pendingGenerate !== false;
-        packed.description = String(n.description != null ? n.description : n.text || "").slice(0, 4000);
+        var desc = String(n.description != null ? n.description : n.text || "").slice(0, noteDescMax);
+        if (desc && desc !== text) packed.description = desc;
         packed.parents = Array.isArray(n.parents) ? n.parents.map(Number).slice(0, 3) : [];
         if (n.guide != null) packed.guide = Math.max(1, Math.round(Number(n.guide) || 1));
       }
       notes[String(n.id != null ? n.id : k)] = packed;
     });
 
+    // Drop bank ledger/forged stacks we are not persisting meta for (no empty shells on reload).
+    Object.keys(bank[pid]).forEach(function (k) {
+      if (inv[pid][k]) return; // never drop something still in the pack
+      var n = Number(k);
+      if (n >= NOTE_BASE && n < COLOR_BASE && !notes[k]) {
+        delete bank[pid][k];
+        bankPrune.dropped.push(k);
+      } else if (n >= 10001 && n < GEN_BASE && !forged[k]) {
+        delete bank[pid][k];
+        bankPrune.dropped.push(k);
+      }
+    });
+
     var descOverridesSlim = {};
-    Object.keys(state.descOverrides || {}).forEach(function (k) {
+    var descKeys = Object.keys(state.descOverrides || {});
+    pickNewestKeys(descKeys, maxDesc, function (k) {
+      return (owned[k] ? 1e15 : 0) + Number(k);
+    }).forEach(function (k) {
       var v = state.descOverrides[k];
       if (v == null) return;
-      descOverridesSlim[k] = String(v).slice(0, 8000);
+      descOverridesSlim[k] = String(v).slice(0, aggressive ? 900 : PERSIST_DESC_OVERRIDE_MAX);
     });
 
     var colorChips = {};
-    Object.keys(state.colorChips || {}).forEach(function (k) {
+    var chipKeys = Object.keys(state.colorChips || {});
+    pickNewestKeys(chipKeys, PERSIST_MAX_COLOR_CHIPS, function (k) {
+      var c = state.colorChips[k];
+      return (owned[k] ? 1e15 : 0) + ((c && c.createdAt) || Number(k) || 0);
+    }).forEach(function (k) {
       var c = state.colorChips[k];
       if (!c) return;
       colorChips[k] = {
@@ -2203,12 +2488,31 @@
       };
     });
 
+    var guideOverridesSlim = {};
+    var gKeys = Object.keys(state.guideOverrides || {});
+    pickNewestKeys(gKeys, PERSIST_MAX_GUIDE_OVERRIDES, function (k) {
+      return (owned[k] ? 1e15 : 0) + Number(k);
+    }).forEach(function (k) {
+      var v = Number(state.guideOverrides[k]);
+      if (!(v > 0)) return;
+      guideOverridesSlim[k] = Math.max(1, Math.round(v));
+    });
+
+    var itemStatsSlim = {};
+    var statKeys = Object.keys(state.itemStats || {});
+    pickNewestKeys(statKeys, PERSIST_MAX_ITEM_STATS, function (k) {
+      var st = state.itemStats[k] || {};
+      return (Number(st.lastAt) || 0) + (Number(st.volume) || 0);
+    }).forEach(function (k) {
+      itemStatsSlim[k] = state.itemStats[k];
+    });
+
     // Keep player offers + a small NPC book sample so the market isn't empty on reload
     var offers = (state.offers || [])
       .filter(function (o) {
         return o && !o.cancelled;
       })
-      .slice(0, 60);
+      .slice(0, aggressive ? 24 : 60);
 
     return {
       version: Math.max(6, Number(state.version) || 6),
@@ -2216,10 +2520,10 @@
       inventory: inv,
       bank: bank,
       offers: offers,
-      history: Array.isArray(state.history) ? state.history.slice(0, 50) : [],
-      guideOverrides: state.guideOverrides || {},
+      history: Array.isArray(state.history) ? state.history.slice(0, aggressive ? 10 : 50) : [],
+      guideOverrides: guideOverridesSlim,
       guideMult: Number(state.guideMult) || 1,
-      itemStats: state.itemStats || {},
+      itemStats: itemStatsSlim,
       forged: forged,
       notes: notes,
       descOverrides: descOverridesSlim,
@@ -2259,48 +2563,207 @@
                 .slice(0, 48);
             })
             .filter(Boolean)
-            .slice(-16)
+            .slice(-AUTO_FORGE_TOPIC_MEMORY)
         : [],
       createdAt: state.createdAt || Date.now(),
+      _persistMeta: {
+        bankDropped: bankPrune.dropped.length,
+        noteCount: Object.keys(notes).length,
+        forgedCount: Object.keys(forged).length,
+        aggressive: aggressive,
+      },
     };
+  }
+
+  function applySlimLiveBags(slim) {
+    // Keep live bags/level aligned — but do NOT replace forged thumbs in memory
+    // (slim drops data: and oversize URLs; wiping them here made forge images vanish).
+    state.inventory = slim.inventory;
+    state.bank = slim.bank;
+    state.cashDelta = Object.assign({}, state.cashDelta || {}, slim.cashDelta);
+    state.history = slim.history;
+    state.level = slim.level;
+    state.xp = slim.xp;
+    state.trackedItems = slim.trackedItems || [];
+    state.priceHistory = slim.priceHistory || {};
+    state.recentForgeTopics = slim.recentForgeTopics || [];
+    recentForgeTopics = state.recentForgeTopics.slice();
+  }
+
+  function tryLocalStorageSet(key, valueStr) {
+    localStorage.setItem(key, valueStr);
+  }
+
+  function scrubSpellforgeNotesQuota() {
+    try {
+      var raw = localStorage.getItem("spellforge_notes_v1");
+      if (!raw || raw.length < PERSIST_LS_SOFT_BYTES / 2) return;
+      var store = JSON.parse(raw);
+      if (!store || !store.notes) return;
+      var ids = Object.keys(store.notes).sort(function (a, b) {
+        return Number(a) - Number(b);
+      });
+      var keep = Math.min(PERSIST_MAX_NOTES, 40);
+      while (ids.length > keep) {
+        delete store.notes[ids.shift()];
+      }
+      localStorage.setItem("spellforge_notes_v1", JSON.stringify(store));
+    } catch (e) {
+      try {
+        localStorage.removeItem("spellforge_notes_v1");
+      } catch (e2) {}
+    }
   }
 
   function saveState() {
     if (!state) return false;
-    try {
-      var slim = slimForPersist();
-      // Keep live bags/level aligned — but do NOT replace forged thumbs in memory
-      // (slim drops data: and oversize URLs; wiping them here made forge images vanish).
-      state.inventory = slim.inventory;
-      state.bank = slim.bank;
-      state.cashDelta = Object.assign({}, state.cashDelta || {}, slim.cashDelta);
-      state.history = slim.history;
-      state.level = slim.level;
-      state.xp = slim.xp;
-      state.trackedItems = slim.trackedItems || [];
-      state.priceHistory = slim.priceHistory || {};
-      localStorage.setItem(STORAGE, JSON.stringify(slim));
+    var lastBytes = 0;
+    var lastMeta = null;
+    function attempt(opts, afterCleanupMsg) {
+      var slim = slimForPersist(opts);
+      lastMeta = slim._persistMeta || null;
+      var payload = Object.assign({}, slim);
+      delete payload._persistMeta;
+      var raw = JSON.stringify(payload);
+      lastBytes = raw.length;
+      tryLocalStorageSet(STORAGE, raw);
+      applySlimLiveBags(slim);
+      // Best-effort mirror to IndexedDB (large-blob safe).
+      idbPutGeSave(payload).catch(function () {});
+      if (afterCleanupMsg) setStatus(afterCleanupMsg, false);
+      else if (lastBytes >= PERSIST_LS_SOFT_BYTES) {
+        if (!saveState._lastQuotaWarnAt || Date.now() - saveState._lastQuotaWarnAt > 45000) {
+          saveState._lastQuotaWarnAt = Date.now();
+          setStatus(
+            "GE save OK but storage is getting full (" +
+              formatPersistKb(lastBytes) +
+              " · " +
+              ((lastMeta && lastMeta.noteCount) || "?") +
+              " notes). Oldest bank ledgers may prune on cleanup.",
+            false
+          );
+        }
+      }
       return true;
+    }
+
+    try {
+      return attempt({});
     } catch (e) {
-      // Last resort: drop history/offers/stats and retry
+      // Tier 1: drop market fluff
       try {
-        var emergency = slimForPersist();
+        scrubLegacyStorage();
+        scrubSpellforgeNotesQuota();
+        var emergency = slimForPersist({});
         emergency.history = [];
         emergency.offers = (emergency.offers || []).filter(function (o) {
           return o && o.isPlayer;
         });
         emergency.itemStats = {};
         emergency.priceHistory = {};
-        localStorage.setItem(STORAGE, JSON.stringify(emergency));
-        state.history = [];
-        state.priceHistory = {};
+        var rawE = JSON.stringify(emergency);
+        lastBytes = rawE.length;
+        tryLocalStorageSet(STORAGE, rawE);
+        applySlimLiveBags(emergency);
+        state.itemStats = {};
+        idbPutGeSave(emergency).catch(function () {});
         setStatus("Saved pack/bank/level (cleared market history to free storage).", false);
         return true;
       } catch (e2) {
+        // Tier 2: aggressive note/forged/bank prune + strip thumbs
         try {
-          setStatus("Could not save GE progress — storage still full after cleanup.", true);
-        } catch (e3) {}
-        return false;
+          scrubSpellforgeNotesQuota();
+          var hard = slimForPersist({ aggressive: true, stripForgedThumbs: true });
+          hard.history = [];
+          hard.offers = (hard.offers || []).filter(function (o) {
+            return o && o.isPlayer;
+          });
+          hard.itemStats = {};
+          hard.priceHistory = {};
+          hard.descOverrides = {};
+          var dropped = (hard._persistMeta && hard._persistMeta.bankDropped) || 0;
+          var payloadH = Object.assign({}, hard);
+          delete payloadH._persistMeta;
+          var rawH = JSON.stringify(payloadH);
+          lastBytes = rawH.length;
+          tryLocalStorageSet(STORAGE, rawH);
+          applySlimLiveBags(hard);
+          // Also prune live note bag for dropped bank ledgers we no longer persist
+          idbPutGeSave(payloadH).catch(function () {});
+          setStatus(
+            "Saved after storage cleanup" +
+              (dropped ? " (pruned " + dropped + " oldest bank ledger/forged stacks)" : "") +
+              " · " +
+              formatPersistKb(lastBytes) +
+              ".",
+            false
+          );
+          return true;
+        } catch (e3) {
+          // Tier 3: IndexedDB only
+          try {
+            var idbSlim = slimForPersist({ aggressive: true, stripForgedThumbs: true });
+            idbSlim.history = [];
+            idbSlim.offers = (idbSlim.offers || []).filter(function (o) {
+              return o && o.isPlayer;
+            });
+            idbSlim.itemStats = {};
+            idbSlim.priceHistory = {};
+            idbSlim.descOverrides = {};
+            var payloadI = Object.assign({}, idbSlim);
+            delete payloadI._persistMeta;
+            lastBytes = persistByteLength(payloadI);
+            applySlimLiveBags(idbSlim);
+            // Fire IDB write; report optimistic success with clear messaging.
+            idbPutGeSave(payloadI)
+              .then(function () {
+                setStatus(
+                  "Saved to extended browser storage (IndexedDB) · localStorage still full (" +
+                    formatPersistKb(lastBytes) +
+                    " attempted). Progress should reload on this device.",
+                  false
+                );
+              })
+              .catch(function () {
+                setStatus(
+                  "Could not save GE progress — storage still full after cleanup (" +
+                    formatPersistKb(lastBytes) +
+                    " · notes/forged/bank). Export or prune bank ledgers, then retry.",
+                  true
+                );
+              });
+            // Tiny LS stub so load knows to hydrate from IDB
+            try {
+              tryLocalStorageSet(
+                STORAGE,
+                JSON.stringify({
+                  version: Math.max(6, Number(state.version) || 6),
+                  _idbOnly: true,
+                  cashDelta: payloadI.cashDelta,
+                  inventory: payloadI.inventory,
+                  bank: payloadI.bank,
+                  level: payloadI.level,
+                  xp: payloadI.xp,
+                  nextForgeId: payloadI.nextForgeId,
+                  nextNoteId: payloadI.nextNoteId,
+                  autoForge: !!payloadI.autoForge,
+                  createdAt: payloadI.createdAt,
+                })
+              );
+            } catch (eStub) {}
+            return true;
+          } catch (e4) {
+            try {
+              setStatus(
+                "Could not save GE progress — storage still full after cleanup (" +
+                  formatPersistKb(lastBytes) +
+                  ").",
+                true
+              );
+            } catch (e5) {}
+            return false;
+          }
+        }
       }
     }
   }
@@ -4890,8 +5353,8 @@
     var entry = {
       id: id,
       title: String(title || "Prompt ledger").slice(0, 80),
-      text: String(composition || "").slice(0, 4000),
-      description: String(description || "").slice(0, 4000),
+      text: String(composition || "").slice(0, PERSIST_NOTE_TEXT_MAX),
+      description: String(description || "").slice(0, PERSIST_NOTE_DESC_MAX),
       kind: "ledger",
       isLedger: true,
       pendingGenerate: true,
@@ -6967,6 +7430,14 @@
     state = loadState();
     npcRuntime = { inventory: {}, bank: {} };
     recentForgeTopics = Array.isArray(state.recentForgeTopics) ? state.recentForgeTopics.slice() : [];
+    hydrateGeFromIdb().then(function (hydrated) {
+      if (!hydrated || !state) return;
+      try {
+        updateLevelHud();
+        if (exchangeOpen) render();
+        syncAutoForgeToggleUi();
+      } catch (eHydra) {}
+    });
     // Restore pending generate highlight from saved forged entries
     try {
       Object.keys(state.forged || {}).forEach(function (k) {
