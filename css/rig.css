@@ -451,3 +451,11 @@ body.rig-tab-active .site-header {
   color: rgba(212, 168, 90, 0.85);
   pointer-events: none;
 }
+
+/* Per-bone segment rebuild / front-side controls */
+#rig-rebuild-segments:not(:disabled) {
+  border-color: rgba(120, 180, 220, 0.45);
+}
+#rig-front-side {
+  min-width: 6.5rem;
+}

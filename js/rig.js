@@ -1,6 +1,7 @@
 /**
  * Rig — manual 2D bone placement + pose / image deformation.
- * Edit bones (bind pose) or Pose (FK joints + SSD mesh deform).
+ * Edit bones (bind pose) or Pose (FK joints + per-bone segment meshes).
+ * Each bone owns a capsule cutout mesh; limbs slide over torso (2.5D) without rubber-warping the body.
  */
 (function () {
   "use strict";
@@ -9,13 +10,19 @@
   var LS_LAST = "logan-rig-last-v1";
   var HIT_R = 12;
   var JOINT_R = 7;
-  var MESH_COLS = 28;
-  var MESH_ROWS = 28;
-  var SKIN_INFLUENCES = 2;
+  var MESH_COLS = 36;
+  var MESH_ROWS = 36;
   var SKIN_EPS = 1e-6;
-  var SKIN_POWER = 4; // sharper bone locality (1/d^power)
-  var SKIN_MAX_DIST = 0.22; // normalized cutoff — far bones get zero weight
   var CUTOUT_ALPHA_MIN = 24; // mesh vert opaque threshold (0-255)
+  // Per-bone capsule radii (normalized image space)
+  var SEG_HAND_R = 0.048;
+  var SEG_LIMB_R = 0.072;
+  var SEG_TORSO_R = 0.13;
+  var SEG_HEAD_R = 0.085;
+  var SEG_FOOT_R = 0.055;
+  var SEG_SOFT = 1.25; // soft edge beyond hard radius still assignable if nearest
+  var PROP_SEARCH_R = 0.11; // look for disconnected props near hands
+  var PROP_MIN_CELLS = 3;
 
   /** Normalized (0–1) starter human template relative to image bounds. */
   var TEMPLATE_JOINTS = [
@@ -79,7 +86,8 @@
     offsetX: 0,
     offsetY: 0,
     scale: 1,
-    mesh: null, // { verts: [{x,y,u,v,weights}], tris: [[i,j,k],...] }
+    mesh: null, // { segments:[{id,kind,side,bone,verts,tris,drawOrder}], cutoutOnly }
+    frontSide: "right", // which arm/leg draws on top when overlapping body
     cutoutImage: null, // HTMLImageElement / canvas with alpha subject
     cutoutMethod: "", // imgly | flood | alpha | manual | ""
     cutoutReady: false, // quality gate passed — Pose unlocked
@@ -922,14 +930,14 @@
     if (hint) {
       hint.textContent =
         state.mode === "pose"
-          ? "Pose: drag joints — children follow (FK). Only the cut-out figure deforms; background stays still. Reset Pose returns to bind."
+          ? "Pose: drag joints — children follow (FK). Per-bone meshes deform independently (2.5D layers). Reset Pose returns to bind."
           : "Edit bones: drag joints to set the bind pose. Cut from background (or Erase leftover BG by hand) — Pose unlocks when cutout quality passes.";
     }
     var toolbar = $("rig-toolbar-hint");
     if (toolbar) {
       toolbar.textContent =
         state.mode === "pose"
-          ? "Pose · cutout mesh · drag a joint to move the limb"
+          ? "Pose · per-bone segments · front limb slides over body · Rebuild after bone tweaks"
           : state.eraseTool === "erase"
             ? "Erase background · paint transparent · Brush size · Undo strokes · Pose when quality OK"
             : state.eraseTool === "restore"
@@ -938,6 +946,14 @@
     }
     var resetPose = $("rig-reset-pose");
     if (resetPose) resetPose.disabled = state.mode !== "pose";
+    var rebuildBtn = $("rig-rebuild-segments");
+    if (rebuildBtn) {
+      rebuildBtn.disabled = !state.cutoutReady || !state.cutoutImage || !state.bones.length;
+    }
+    var frontBtn = $("rig-front-side");
+    if (frontBtn) {
+      frontBtn.textContent = "Front: " + (state.frontSide === "left" ? "Left" : "Right");
+    }
     // Dim edit-only controls in pose
     ["rig-add-joint", "rig-add-bone", "rig-remove-bones", "rig-reset", "rig-new-joint"].forEach(function (id) {
       var el = $(id);
@@ -958,9 +974,9 @@
     state.eraseTool = null;
     state.bindJoints = cloneJoints(state.joints);
     buildSkinMesh();
-    if (!state.mesh || !state.mesh.tris.length) {
+    if (!meshHasGeometry(state.mesh)) {
       setStatus(
-        "Pose blocked: cutout mesh has no opaque triangles. Re-cut, then try again.",
+        "Pose blocked: no opaque segment triangles. Re-cut / rebuild segments, then try again.",
         "err"
       );
       state.mesh = null;
@@ -976,10 +992,23 @@
     renderJointList();
     fillBoneSelects();
     draw();
+    var nSeg = state.mesh.segments ? state.mesh.segments.length : 0;
+    var nProp = 0;
+    if (state.mesh.segments) {
+      for (var si = 0; si < state.mesh.segments.length; si++) {
+        if (state.mesh.segments[si].isProp) nProp++;
+      }
+    }
     setStatus(
-      "Pose mode: cutout-only mesh (" +
-        state.mesh.tris.length +
-        " tris) — only the figure deforms. Background stays gone.",
+      "Pose mode: " +
+        nSeg +
+        " bone segments (" +
+        meshTriCount(state.mesh) +
+        " tris" +
+        (nProp ? ", " + nProp + " prop(s)" : "") +
+        ") — limbs slide over body, no torso rubber-warp. Front: " +
+        state.frontSide +
+        ".",
       "ok"
     );
     return true;
@@ -1220,6 +1249,100 @@
     return Math.hypot(px - qx, py - qy);
   }
 
+  function boneKind(fromId, toId) {
+    var id = String(toId || "");
+    var from = String(fromId || "");
+    if (/hand/i.test(id)) return "hand";
+    if (/forearm|lower.?arm/i.test(id)) return "forearm";
+    if (/upper.?arm|shoulder/i.test(id)) return "upper_arm";
+    if (/foot|ankle/i.test(id)) return "foot";
+    if (/shin|lower.?leg|calf/i.test(id)) return "shin";
+    if (/thigh|upper.?leg|hip/i.test(id) && id !== "hips") return "thigh";
+    if (id === "head" || /head/i.test(id)) return "head";
+    if (id === "neck" || /neck/i.test(id)) return "neck";
+    if (
+      id === "chest" ||
+      id === "spine" ||
+      id === "hips" ||
+      from === "hips" ||
+      /spine|torso|pelvis|chest/i.test(id) ||
+      /spine|torso|pelvis|chest/i.test(from)
+    ) {
+      return "torso";
+    }
+    return "limb";
+  }
+
+  function boneSideFromIds(fromId, toId) {
+    var s = String(toId || "") + " " + String(fromId || "");
+    if (/\bl_/.test(s) || /\bleft\b/i.test(s)) return "l";
+    if (/\br_/.test(s) || /\bright\b/i.test(s)) return "r";
+    return "c";
+  }
+
+  function radiusForKind(kind) {
+    if (kind === "hand") return SEG_HAND_R;
+    if (kind === "foot") return SEG_FOOT_R;
+    if (kind === "head" || kind === "neck") return SEG_HEAD_R;
+    if (kind === "torso") return SEG_TORSO_R;
+    if (kind === "forearm" || kind === "upper_arm" || kind === "shin" || kind === "thigh" || kind === "limb") {
+      return SEG_LIMB_R;
+    }
+    return SEG_LIMB_R;
+  }
+
+  /** Draw-order key: back limbs → torso → head → front limbs → props. */
+  function segmentDrawOrder(kind, side, isProp) {
+    var front = state.frontSide === "left" ? "l" : "r";
+    var back = front === "l" ? "r" : "l";
+    var base;
+    if (isProp) {
+      base = 900;
+    } else if (kind === "torso") {
+      base = 400;
+    } else if (kind === "neck") {
+      base = 500;
+    } else if (kind === "head") {
+      base = 510;
+    } else if (side === back) {
+      if (kind === "upper_arm") base = 100;
+      else if (kind === "forearm") base = 110;
+      else if (kind === "hand") base = 120;
+      else if (kind === "thigh") base = 200;
+      else if (kind === "shin") base = 210;
+      else if (kind === "foot") base = 220;
+      else base = 150;
+    } else if (side === front) {
+      if (kind === "thigh") base = 700;
+      else if (kind === "shin") base = 710;
+      else if (kind === "foot") base = 720;
+      else if (kind === "upper_arm") base = 800;
+      else if (kind === "forearm") base = 810;
+      else if (kind === "hand") base = 820;
+      else base = 750;
+    } else {
+      // center / unknown limbs sit with torso band
+      base = 450;
+    }
+    return base;
+  }
+
+  function meshTriCount(mesh) {
+    if (!mesh) return 0;
+    if (mesh.segments && mesh.segments.length) {
+      var n = 0;
+      for (var i = 0; i < mesh.segments.length; i++) {
+        n += (mesh.segments[i].tris && mesh.segments[i].tris.length) || 0;
+      }
+      return n;
+    }
+    return (mesh.tris && mesh.tris.length) || 0;
+  }
+
+  function meshHasGeometry(mesh) {
+    return meshTriCount(mesh) > 0;
+  }
+
   /**
    * Sample cutout alpha into a grid matching mesh resolution.
    * Returns Float32Array length (cols+1)*(rows+1) with 0..1 opacity, or null.
@@ -1244,78 +1367,75 @@
     return out;
   }
 
-  function boneWeightsAt(x, y, bind, bones) {
-    var influences = [];
-    for (var bi = 0; bi < bones.length; bi++) {
-      var ba = jointInList(bind, bones[bi][0]);
-      var bb = jointInList(bind, bones[bi][1]);
-      if (!ba || !bb) continue;
-      var d = distToSegment(x, y, ba.x, ba.y, bb.x, bb.y);
-      if (d > SKIN_MAX_DIST) continue;
-      var w = 1 / (Math.pow(d, SKIN_POWER) + SKIN_EPS);
-      influences.push({ bone: bi, w: w, d: d });
-    }
-    influences.sort(function (a, b) {
-      return a.d - b.d;
-    });
-    influences = influences.slice(0, SKIN_INFLUENCES);
-    var sum = 0;
-    for (var k = 0; k < influences.length; k++) sum += influences[k].w;
-    var weights = [];
-    if (sum > 0) {
-      for (k = 0; k < influences.length; k++) {
-        weights.push({ bone: influences[k].bone, w: influences[k].w / sum });
-      }
-    }
-    return weights;
+  /** Rigid single-bone weight (segment only follows its own bone). */
+  function rigidBoneWeights(boneIndex) {
+    return [{ bone: boneIndex, w: 1 }];
   }
 
   /**
-   * Build SSD mesh from cutout alpha only — verts/tris over opaque character pixels.
-   * Transparent background (posters/floor) is never meshed, so it cannot stretch.
+   * Soft 1–2 bone bind along a segment axis: mostly this bone, slight parent blend near proximal end.
+   * Still never bleeds to unrelated bones (no global nearest-of-all).
    */
-  function buildSkinMesh() {
-    if (!state.bindJoints.length || !state.bones.length) {
-      state.mesh = null;
-      return;
+  function chainBoneWeights(x, y, boneIndex, parentBoneIndex, bind, bones) {
+    if (parentBoneIndex < 0) return rigidBoneWeights(boneIndex);
+    var bone = bones[boneIndex];
+    if (!bone) return rigidBoneWeights(boneIndex);
+    var a = jointInList(bind, bone[0]);
+    var b = jointInList(bind, bone[1]);
+    if (!a || !b) return rigidBoneWeights(boneIndex);
+    var dx = b.x - a.x;
+    var dy = b.y - a.y;
+    var len2 = dx * dx + dy * dy;
+    var t = 0.5;
+    if (len2 > 1e-12) {
+      t = Math.max(0, Math.min(1, ((x - a.x) * dx + (y - a.y) * dy) / len2));
     }
-    if (!state.cutoutImage) {
-      // Pose must never skin the full uncut plate
-      state.mesh = null;
-      return;
+    // Near parent joint (t~0) blend a little with parent bone; distal end fully this bone
+    var wParent = (1 - t) * 0.35;
+    var wSelf = 1 - wParent;
+    if (wParent < 0.05) return rigidBoneWeights(boneIndex);
+    return [
+      { bone: boneIndex, w: wSelf },
+      { bone: parentBoneIndex, w: wParent },
+    ];
+  }
+
+  function findParentBoneIndex(bones, boneIndex) {
+    var bone = bones[boneIndex];
+    if (!bone) return -1;
+    var parentJoint = bone[0];
+    for (var i = 0; i < bones.length; i++) {
+      if (i === boneIndex) continue;
+      if (bones[i][1] === parentJoint) return i;
     }
-    var cols = MESH_COLS;
-    var rows = MESH_ROWS;
-    var alpha = sampleCutoutAlphaGrid(cols, rows);
-    if (!alpha) {
-      state.mesh = null;
-      return;
-    }
-    var bind = state.bindJoints;
-    var bones = state.bones;
+    return -1;
+  }
+
+  function buildTrisFromOwnerMask(owner, boneIndex, cols, rows, alpha, bind, bones, parentBoneIndex, kind) {
     var stride = cols + 1;
     var thresh = CUTOUT_ALPHA_MIN / 255;
     var keep = new Uint8Array(stride * (rows + 1));
-    var r, c, idx, a;
+    var r, c, idx;
 
-    // Keep verts that are opaque, or neighbors of opaque (preserve silhouette)
     for (r = 0; r <= rows; r++) {
       for (c = 0; c <= cols; c++) {
         idx = r * stride + c;
-        if (alpha[idx] >= thresh) keep[idx] = 1;
+        if (owner[idx] === boneIndex + 1 && alpha[idx] >= thresh * 0.35) keep[idx] = 1;
       }
     }
+    // Dilate one pixel so silhouette edges stay connected
     var keep2 = new Uint8Array(keep);
     for (r = 0; r <= rows; r++) {
       for (c = 0; c <= cols; c++) {
         idx = r * stride + c;
         if (keep[idx]) continue;
+        if (owner[idx] !== boneIndex + 1 && owner[idx] !== 0) continue;
         var n =
           (r > 0 && keep[idx - stride]) ||
           (r < rows && keep[idx + stride]) ||
           (c > 0 && keep[idx - 1]) ||
           (c < cols && keep[idx + 1]);
-        if (n) keep2[idx] = 1;
+        if (n && alpha[idx] >= thresh * 0.15) keep2[idx] = 1;
       }
     }
     keep = keep2;
@@ -1330,13 +1450,17 @@
         var x = c / cols;
         var y = r / rows;
         oldToNew[idx] = verts.length;
+        var weights =
+          kind === "hand" || kind === "prop" || kind === "torso" || kind === "head"
+            ? rigidBoneWeights(boneIndex)
+            : chainBoneWeights(x, y, boneIndex, parentBoneIndex, bind, bones);
         verts.push({
           x: x,
           y: y,
           u: x,
           v: y,
           a: alpha[idx],
-          weights: boneWeightsAt(x, y, bind, bones),
+          weights: weights,
         });
       }
     }
@@ -1347,9 +1471,8 @@
       var nb = oldToNew[ib];
       var nc = oldToNew[ic];
       if (na < 0 || nb < 0 || nc < 0) return;
-      // Require meaningful opacity so empty BG cells never draw
       var aa = verts[na].a + verts[nb].a + verts[nc].a;
-      if (aa < thresh * 1.2) return;
+      if (aa < thresh * 1.0) return;
       tris.push([na, nb, nc]);
     }
     for (r = 0; r < rows; r++) {
@@ -1358,20 +1481,374 @@
         var i1 = i0 + 1;
         var i2 = i0 + stride;
         var i3 = i2 + 1;
-        // Cell must touch opaque content
-        var cellA =
-          (alpha[i0] + alpha[i1] + alpha[i2] + alpha[i3]) * 0.25;
-        if (cellA < thresh * 0.5) continue;
+        var owned =
+          owner[i0] === boneIndex + 1 ||
+          owner[i1] === boneIndex + 1 ||
+          owner[i2] === boneIndex + 1 ||
+          owner[i3] === boneIndex + 1;
+        if (!owned) continue;
+        var cellA = (alpha[i0] + alpha[i1] + alpha[i2] + alpha[i3]) * 0.25;
+        if (cellA < thresh * 0.4) continue;
         pushTri(i0, i1, i2);
         pushTri(i1, i3, i2);
       }
     }
+    return { verts: verts, tris: tris };
+  }
 
-    if (!verts.length || !tris.length) {
+  /**
+   * Build per-bone (and optional prop) cutout meshes.
+   * Each opaque pixel is claimed by at most one bone capsule — limbs do not skin the torso.
+   */
+  function buildSkinMesh() {
+    if (!state.bindJoints.length || !state.bones.length) {
       state.mesh = null;
       return;
     }
-    state.mesh = { verts: verts, tris: tris, cutoutOnly: true };
+    if (!state.cutoutImage) {
+      state.mesh = null;
+      return;
+    }
+    var cols = MESH_COLS;
+    var rows = MESH_ROWS;
+    var alpha = sampleCutoutAlphaGrid(cols, rows);
+    if (!alpha) {
+      state.mesh = null;
+      return;
+    }
+    var bind = state.bindJoints;
+    var bones = state.bones;
+    var stride = cols + 1;
+    var thresh = CUTOUT_ALPHA_MIN / 255;
+    var meta = [];
+    var bi, kind, side, rad, fromId, toId, m, built, handBi, ci;
+
+    for (bi = 0; bi < bones.length; bi++) {
+      fromId = bones[bi][0];
+      toId = bones[bi][1];
+      kind = boneKind(fromId, toId);
+      side = boneSideFromIds(fromId, toId);
+      rad = radiusForKind(kind);
+      // Hands: tighter focus on the hand joint (disk-ish capsule)
+      if (kind === "hand") rad = SEG_HAND_R;
+      meta.push({
+        bone: bi,
+        fromId: fromId,
+        toId: toId,
+        kind: kind,
+        side: side,
+        radius: rad,
+        parentBone: findParentBoneIndex(bones, bi),
+      });
+    }
+
+    // owner[idx] = boneIndex+1, or 0 unassigned / transparent
+    var owner = new Int16Array(stride * (rows + 1));
+    var bestDist = new Float32Array(stride * (rows + 1));
+    for (var i = 0; i < bestDist.length; i++) bestDist[i] = 1e9;
+
+    var r, c, idx, x, y, a;
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        a = alpha[idx];
+        if (a < thresh) continue;
+        x = c / cols;
+        y = r / rows;
+        var bestBi = -1;
+        var bestD = 1e9;
+        var bestScore = 1e9;
+        for (bi = 0; bi < meta.length; bi++) {
+          var m = meta[bi];
+          var ba = jointInList(bind, bones[m.bone][0]);
+          var bb = jointInList(bind, bones[m.bone][1]);
+          if (!ba || !bb) continue;
+          var d = distToSegment(x, y, ba.x, ba.y, bb.x, bb.y);
+          // Hands also claim a disk around the distal joint
+          if (m.kind === "hand") {
+            var dh = Math.hypot(x - bb.x, y - bb.y);
+            if (dh < d) d = dh;
+          }
+          if (d > m.radius * SEG_SOFT) continue;
+          // Prefer limbs over torso when both cover the pixel (stops arm bleed into chest)
+          var score = d;
+          if (m.kind === "torso") score += 0.012;
+          if (m.kind === "hand") score -= 0.008;
+          if (m.kind === "forearm" || m.kind === "upper_arm") score -= 0.004;
+          if (m.kind === "thigh" || m.kind === "shin" || m.kind === "foot") score -= 0.004;
+          if (score < bestScore) {
+            bestScore = score;
+            bestD = d;
+            bestBi = m.bone;
+          }
+        }
+        if (bestBi >= 0) {
+          owner[idx] = bestBi + 1;
+          bestDist[idx] = bestD;
+        }
+      }
+    }
+
+    // --- Prop detection: disconnected opaque blobs near hands ---
+    var visited = new Uint8Array(stride * (rows + 1));
+    var components = []; // {cells:[{idx,x,y}], cx, cy, count}
+
+    function floodComponent(startIdx) {
+      var stack = [startIdx];
+      visited[startIdx] = 1;
+      var cells = [];
+      var sx = 0;
+      var sy = 0;
+      while (stack.length) {
+        var cur = stack.pop();
+        var cy = (cur / stride) | 0;
+        var cx = cur - cy * stride;
+        cells.push({ idx: cur, x: cx / cols, y: cy / rows });
+        sx += cx / cols;
+        sy += cy / rows;
+        var neigh = [cur - 1, cur + 1, cur - stride, cur + stride];
+        for (var ni = 0; ni < 4; ni++) {
+          var nidx = neigh[ni];
+          if (nidx < 0 || nidx >= visited.length) continue;
+          if (visited[nidx]) continue;
+          var ny = (nidx / stride) | 0;
+          var nx = nidx - ny * stride;
+          if (Math.abs(nx - cx) + Math.abs(ny - cy) !== 1) continue;
+          if (alpha[nidx] < thresh) continue;
+          visited[nidx] = 1;
+          stack.push(nidx);
+        }
+      }
+      return {
+        cells: cells,
+        cx: sx / cells.length,
+        cy: sy / cells.length,
+        count: cells.length,
+      };
+    }
+
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        if (visited[idx] || alpha[idx] < thresh) continue;
+        components.push(floodComponent(idx));
+      }
+    }
+
+    // Largest component = main body
+    var mainCount = 0;
+    for (i = 0; i < components.length; i++) {
+      if (components[i].count > mainCount) mainCount = components[i].count;
+    }
+
+    var propOwnerBase = bones.length + 1; // synthetic ids for prop masks
+    var props = []; // {handBone, ownerId, cells}
+
+    function nearestHandBone(px, py) {
+      var best = -1;
+      var bestD = PROP_SEARCH_R;
+      for (bi = 0; bi < meta.length; bi++) {
+        if (meta[bi].kind !== "hand") continue;
+        var hj = jointInList(bind, bones[meta[bi].bone][1]);
+        if (!hj) continue;
+        var d = Math.hypot(px - hj.x, py - hj.y);
+        if (d < bestD) {
+          bestD = d;
+          best = meta[bi].bone;
+        }
+      }
+      return best;
+    }
+
+    for (i = 0; i < components.length; i++) {
+      var comp = components[i];
+      if (comp.count >= mainCount) continue; // skip main body
+      if (comp.count < PROP_MIN_CELLS) continue;
+      var handBi = nearestHandBone(comp.cx, comp.cy);
+      if (handBi < 0) continue;
+      // Also require most cells near that hand
+      var near = 0;
+      var hj2 = jointInList(bind, bones[handBi][1]);
+      for (var ci = 0; ci < comp.cells.length; ci++) {
+        if (Math.hypot(comp.cells[ci].x - hj2.x, comp.cells[ci].y - hj2.y) <= PROP_SEARCH_R) near++;
+      }
+      if (near < comp.count * 0.45) continue;
+      var propId = propOwnerBase + props.length;
+      for (ci = 0; ci < comp.cells.length; ci++) {
+        owner[comp.cells[ci].idx] = propId;
+      }
+      props.push({
+        handBone: handBi,
+        ownerId: propId,
+        kind: "prop",
+        side: boneSideFromIds(bones[handBi][0], bones[handBi][1]),
+        cells: comp.cells,
+      });
+    }
+
+    // Unassigned opaque near hand → fold into hand or prop
+    for (r = 0; r <= rows; r++) {
+      for (c = 0; c <= cols; c++) {
+        idx = r * stride + c;
+        if (alpha[idx] < thresh || owner[idx]) continue;
+        x = c / cols;
+        y = r / rows;
+        handBi = nearestHandBone(x, y);
+        if (handBi < 0) continue;
+        owner[idx] = handBi + 1;
+      }
+    }
+
+    var segments = [];
+    for (bi = 0; bi < meta.length; bi++) {
+      m = meta[bi];
+      var built = buildTrisFromOwnerMask(
+        owner,
+        m.bone,
+        cols,
+        rows,
+        alpha,
+        bind,
+        bones,
+        m.parentBone,
+        m.kind
+      );
+      if (!built.verts.length || !built.tris.length) continue;
+      segments.push({
+        id: m.fromId + "→" + m.toId,
+        kind: m.kind,
+        side: m.side,
+        bone: m.bone,
+        parentBone: m.parentBone,
+        verts: built.verts,
+        tris: built.tris,
+        drawOrder: segmentDrawOrder(m.kind, m.side, false),
+        isProp: false,
+      });
+    }
+
+    // Prop meshes: separate mesh parented to hand bone (rigid follow)
+    for (i = 0; i < props.length; i++) {
+      var pr = props[i];
+      var propMaskOwner = new Int16Array(owner.length);
+      for (ci = 0; ci < pr.cells.length; ci++) {
+        propMaskOwner[pr.cells[ci].idx] = pr.handBone + 1;
+      }
+      built = buildTrisFromOwnerMask(
+        propMaskOwner,
+        pr.handBone,
+        cols,
+        rows,
+        alpha,
+        bind,
+        bones,
+        -1,
+        "prop"
+      );
+      if (!built.verts.length || !built.tris.length) continue;
+      for (var vi = 0; vi < built.verts.length; vi++) {
+        built.verts[vi].weights = rigidBoneWeights(pr.handBone);
+      }
+      segments.push({
+        id: "prop:" + bones[pr.handBone][1] + ":" + i,
+        kind: "prop",
+        side: pr.side,
+        bone: pr.handBone,
+        parentBone: -1,
+        verts: built.verts,
+        tris: built.tris,
+        drawOrder: segmentDrawOrder("prop", pr.side, true) + i,
+        isProp: true,
+      });
+    }
+
+    segments.sort(function (a, b) {
+      return a.drawOrder - b.drawOrder;
+    });
+
+    if (!segments.length) {
+      state.mesh = null;
+      return;
+    }
+
+    // Flat tris/verts for legacy length checks / status
+    var allTris = [];
+    for (i = 0; i < segments.length; i++) {
+      allTris = allTris.concat(segments[i].tris);
+    }
+
+    state.mesh = {
+      segments: segments,
+      tris: allTris,
+      cutoutOnly: true,
+      segmented: true,
+      frontSide: state.frontSide,
+    };
+  }
+
+  function rebuildSegments() {
+    if (!state.cutoutReady || !state.cutoutImage) {
+      setStatus("Cutout required before rebuilding segments.", "warn");
+      return;
+    }
+    if (!state.bindJoints.length) {
+      state.bindJoints = cloneJoints(state.joints);
+    }
+    if (!state.bones.length) {
+      setStatus("Need bones before rebuilding segments.", "warn");
+      return;
+    }
+    // Rebuild against current bind if in edit; in pose keep locked bind
+    if (state.mode !== "pose") {
+      state.bindJoints = cloneJoints(state.joints);
+    }
+    buildSkinMesh();
+    var nSeg = state.mesh && state.mesh.segments ? state.mesh.segments.length : 0;
+    var nTri = meshTriCount(state.mesh);
+    if (!nTri) {
+      setStatus("Rebuild failed — no opaque segment triangles. Adjust bones or cutout.", "err");
+      draw();
+      return;
+    }
+    var props = 0;
+    if (state.mesh && state.mesh.segments) {
+      for (var i = 0; i < state.mesh.segments.length; i++) {
+        if (state.mesh.segments[i].isProp) props++;
+      }
+    }
+    setStatus(
+      "Rebuilt " +
+        nSeg +
+        " segments (" +
+        nTri +
+        " tris" +
+        (props ? ", " + props + " prop(s)" : "") +
+        "). Front side: " +
+        state.frontSide +
+        ".",
+      "ok"
+    );
+    draw();
+  }
+
+  function toggleFrontSide() {
+    state.frontSide = state.frontSide === "left" ? "right" : "left";
+    var btn = $("rig-front-side");
+    if (btn) {
+      btn.textContent = "Front: " + (state.frontSide === "left" ? "Left" : "Right");
+    }
+    if (state.mesh && state.mesh.segments) {
+      for (var i = 0; i < state.mesh.segments.length; i++) {
+        var seg = state.mesh.segments[i];
+        seg.drawOrder = segmentDrawOrder(seg.kind, seg.side, !!seg.isProp);
+      }
+      state.mesh.segments.sort(function (a, b) {
+        return a.drawOrder - b.drawOrder;
+      });
+      state.mesh.frontSide = state.frontSide;
+    }
+    setStatus("Front limbs: " + state.frontSide + " (drawn on top when overlapping).", "ok");
+    draw();
   }
 
   /** Apply bone rigid transform: p' = a1 + R(dang)*s*(p - a0) */
@@ -1446,9 +1923,6 @@
     ctx.clip();
 
     // Solve affine: dest = M * src
-    // | a c e |   | s0x |   | p0.x |
-    // | b d f | * | s0y | = | p0.y |
-    // | 0 0 1 |   |  1  |   |  1   |
     var m11 = (p0.x * (s1y - s2y) + p1.x * (s2y - s0y) + p2.x * (s0y - s1y)) / denom;
     var m21 = (p0.y * (s1y - s2y) + p1.y * (s2y - s0y) + p2.y * (s0y - s1y)) / denom;
     var m12 = (p0.x * (s2x - s1x) + p1.x * (s0x - s2x) + p2.x * (s1x - s0x)) / denom;
@@ -1469,13 +1943,9 @@
     ctx.restore();
   }
 
-  function drawDeformedImage(ctx) {
-    // Pose textures the cutout only — never the full uncut painting
-    var src = state.cutoutImage;
-    if (!src || !state.mesh || !state.mesh.tris || !state.mesh.tris.length) {
-      return;
-    }
-    var verts = state.mesh.verts;
+  function drawSegmentMesh(ctx, src, seg) {
+    if (!seg || !seg.tris || !seg.tris.length) return;
+    var verts = seg.verts;
     var skinned = new Array(verts.length);
     for (var i = 0; i < verts.length; i++) {
       var sp = skinVertex(verts[i]);
@@ -1487,13 +1957,8 @@
         a: verts[i].a || 0,
       };
     }
-
-    ctx.save();
-    ctx.globalAlpha = state.opacity;
-    // Premultiplied-friendly: transparent cutout samples stay empty over checkerboard
-    ctx.globalCompositeOperation = "source-over";
-    var tris = state.mesh.tris;
     var amin = CUTOUT_ALPHA_MIN / 255;
+    var tris = seg.tris;
     for (var t = 0; t < tris.length; t++) {
       var tri = tris[t];
       var a = skinned[tri[0]];
@@ -1502,6 +1967,48 @@
       if ((a.a + b.a + c.a) / 3 < amin * 0.35) continue;
       drawTexturedTriangle(ctx, src, a, b, c, a.u, a.v, b.u, b.v, c.u, c.v);
     }
+  }
+
+  function drawDeformedImage(ctx) {
+    // Pose textures the cutout only — never the full uncut painting
+    var src = state.cutoutImage;
+    if (!src || !state.mesh) return;
+
+    ctx.save();
+    ctx.globalAlpha = state.opacity;
+    ctx.globalCompositeOperation = "source-over";
+
+    if (state.mesh.segments && state.mesh.segments.length) {
+      // 2.5D: draw back limbs, then torso, then front limbs / props
+      for (var s = 0; s < state.mesh.segments.length; s++) {
+        drawSegmentMesh(ctx, src, state.mesh.segments[s]);
+      }
+    } else if (state.mesh.tris && state.mesh.tris.length && state.mesh.verts) {
+      // Legacy single-mesh fallback
+      var verts = state.mesh.verts;
+      var skinned = new Array(verts.length);
+      for (var i = 0; i < verts.length; i++) {
+        var sp = skinVertex(verts[i]);
+        skinned[i] = {
+          x: sp.x * state.canvasW,
+          y: sp.y * state.canvasH,
+          u: verts[i].u,
+          v: verts[i].v,
+          a: verts[i].a || 0,
+        };
+      }
+      var tris = state.mesh.tris;
+      var amin = CUTOUT_ALPHA_MIN / 255;
+      for (var t = 0; t < tris.length; t++) {
+        var tri = tris[t];
+        var a = skinned[tri[0]];
+        var b = skinned[tri[1]];
+        var c = skinned[tri[2]];
+        if ((a.a + b.a + c.a) / 3 < amin * 0.35) continue;
+        drawTexturedTriangle(ctx, src, a, b, c, a.u, a.v, b.u, b.v, c.u, c.v);
+      }
+    }
+
     ctx.restore();
   }
 
@@ -1783,10 +2290,11 @@
       };
     }
     return {
-      version: 3,
+      version: 4,
       type: "logan-2d-rig",
       createdAt: new Date().toISOString(),
       mode: state.mode,
+      frontSide: state.frontSide === "left" ? "left" : "right",
       cutout: {
         ready: !!state.cutoutReady,
         method: state.cutoutMethod || null,
@@ -1832,6 +2340,9 @@
       if (Array.isArray(b)) return [b[0], b[1]];
       return [b.from, b.to];
     });
+    if (data.frontSide === "left" || data.frontSide === "right") {
+      state.frontSide = data.frontSide;
+    }
     var wantPose = data.mode === "pose";
     state.joints = wantPose ? poseSrc.map(mapIn) : cloneJoints(state.bindJoints);
     state.mode = wantPose ? "pose" : "edit";
@@ -2201,6 +2712,8 @@
     });
     wire("rig-reset", resetToTemplate);
     wire("rig-reset-pose", resetPose);
+    wire("rig-rebuild-segments", rebuildSegments);
+    wire("rig-front-side", toggleFrontSide);
     wire("rig-undo", undo);
     wire("rig-save-local", saveLocal);
     wire("rig-load-local", loadLocal);
@@ -2292,6 +2805,8 @@
     ensureCutout: ensureCutout,
     syncCutoutFromWork: syncCutoutFromWork,
     setEraseTool: setEraseTool,
+    rebuildSegments: rebuildSegments,
+    toggleFrontSide: toggleFrontSide,
     exportPayload: buildExportPayload,
   };
 
