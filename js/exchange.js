@@ -85,7 +85,8 @@
   var PERSIST_MAX_DESC_OVERRIDES = 40;
   var PERSIST_MAX_GUIDE_OVERRIDES = 200;
   var PERSIST_MAX_ITEM_STATS = 120;
-  var PERSIST_MAX_BANK_KINDS = 360;
+  /** Soft advisory only — never delete bank stacks to hit a kind cap. */
+  var PERSIST_MAX_BANK_KINDS = 100000;
   var PERSIST_MAX_COLOR_CHIPS = 80;
   var PERSIST_LS_SOFT_BYTES = 1800000;
   var PERSIST_LS_HARD_BYTES = 3200000;
@@ -2306,32 +2307,14 @@
     return set;
   }
 
+  /** Never delete player bank stacks for quota. Cap is advisory; meta/thumbs/history prune first. */
   function pruneBankForPersist(bankMap, maxKinds) {
-    var keys = Object.keys(bankMap || {}).filter(function (k) {
-      return (Number(bankMap[k]) || 0) > 0;
-    });
-    if (keys.length <= maxKinds) return { bank: Object.assign({}, bankMap || {}), dropped: [] };
-    // Keep paintings/extras first; drop oldest ledger/forged stacks when over cap.
-    var keepers = [];
-    var dropCandidates = [];
-    keys.forEach(function (k) {
-      var n = Number(k);
-      var isLed = n >= NOTE_BASE && n < COLOR_BASE;
-      var isForged = n >= 10001 && n < GEN_BASE;
-      if (isLed || isForged) dropCandidates.push(k);
-      else keepers.push(k);
-    });
-    dropCandidates.sort(function (a, b) {
-      return Number(a) - Number(b); // oldest ids first
-    });
-    var room = Math.max(0, maxKinds - keepers.length);
-    var keepDrop = dropCandidates.slice(-room);
-    var dropped = dropCandidates.slice(0, Math.max(0, dropCandidates.length - room));
     var out = {};
-    keepers.concat(keepDrop).forEach(function (k) {
-      out[k] = bankMap[k];
+    Object.keys(bankMap || {}).forEach(function (k) {
+      var q = Number(bankMap[k]) || 0;
+      if (q > 0) out[k] = q;
     });
-    return { bank: out, dropped: dropped };
+    return { bank: out, dropped: [] };
   }
 
   function pickNewestKeys(keys, max, metaFn) {
@@ -2354,7 +2337,8 @@
     var maxNotes = aggressive ? 60 : PERSIST_MAX_NOTES;
     var maxForged = aggressive ? 40 : PERSIST_MAX_FORGED;
     var maxDesc = aggressive ? 20 : PERSIST_MAX_DESC_OVERRIDES;
-    var maxBank = aggressive ? 200 : PERSIST_MAX_BANK_KINDS;
+    // Bank kinds are never capped/deleted — prune notes/thumbs/history instead.
+    var maxBank = PERSIST_MAX_BANK_KINDS;
     var stripForgedThumbs = !!opts.stripForgedThumbs || aggressive;
 
     var pid = String(PLAYER_ID);
@@ -2369,7 +2353,7 @@
     if (state.cashDelta && state.cashDelta[pid] != null) cash[pid] = state.cashDelta[pid];
 
     var owned = ownedItemIdSet();
-    // Bank prune may drop ids — reflect that in owned for meta keep.
+    // Always treat every bank + pack stack as owned so meta prefers them.
     Object.keys(bank[pid]).forEach(function (k) {
       owned[k] = true;
     });
@@ -2449,18 +2433,8 @@
       notes[String(n.id != null ? n.id : k)] = packed;
     });
 
-    // Drop bank ledger/forged stacks we are not persisting meta for (no empty shells on reload).
-    Object.keys(bank[pid]).forEach(function (k) {
-      if (inv[pid][k]) return; // never drop something still in the pack
-      var n = Number(k);
-      if (n >= NOTE_BASE && n < COLOR_BASE && !notes[k]) {
-        delete bank[pid][k];
-        bankPrune.dropped.push(k);
-      } else if (n >= 10001 && n < GEN_BASE && !forged[k]) {
-        delete bank[pid][k];
-        bankPrune.dropped.push(k);
-      }
-    });
+    // Keep bank stacks even if ledger/forged meta was pruned for quota (shells OK; never wipe bank).
+    // Do not delete bank[pid] keys here — player items must survive cleanup.
 
     var descOverridesSlim = {};
     var descKeys = Object.keys(state.descOverrides || {});
@@ -2575,11 +2549,30 @@
     };
   }
 
+  function mergePlayerBankPreserve(liveBank, slimBank) {
+    var pid = String(PLAYER_ID);
+    var live = (liveBank && liveBank[pid]) || {};
+    var slim = (slimBank && slimBank[pid]) || {};
+    var merged = {};
+    Object.keys(live).forEach(function (k) {
+      var q = Number(live[k]) || 0;
+      if (q > 0) merged[k] = q;
+    });
+    Object.keys(slim).forEach(function (k) {
+      var q = Number(slim[k]) || 0;
+      if (q > (Number(merged[k]) || 0)) merged[k] = q;
+    });
+    var out = {};
+    out[pid] = merged;
+    return out;
+  }
+
   function applySlimLiveBags(slim) {
     // Keep live bags/level aligned — but do NOT replace forged thumbs in memory
     // (slim drops data: and oversize URLs; wiping them here made forge images vanish).
+    // Never let a slim/cleanup pass empty or shrink the player bank.
     state.inventory = slim.inventory;
-    state.bank = slim.bank;
+    state.bank = mergePlayerBankPreserve(state.bank, slim.bank);
     state.cashDelta = Object.assign({}, state.cashDelta || {}, slim.cashDelta);
     state.history = slim.history;
     state.level = slim.level;
@@ -2639,7 +2632,7 @@
               formatPersistKb(lastBytes) +
               " · " +
               ((lastMeta && lastMeta.noteCount) || "?") +
-              " notes). Oldest bank ledgers may prune on cleanup.",
+              " notes). Trimming note/forged thumbs/history before touching bank.",
             false
           );
         }
@@ -2692,7 +2685,7 @@
           idbPutGeSave(payloadH).catch(function () {});
           setStatus(
             "Saved after storage cleanup" +
-              (dropped ? " (pruned " + dropped + " oldest bank ledger/forged stacks)" : "") +
+              (dropped ? " (meta cleanup; bank stacks kept)" : "") +
               " · " +
               formatPersistKb(lastBytes) +
               ".",
@@ -2728,7 +2721,7 @@
                 setStatus(
                   "Could not save GE progress — storage still full after cleanup (" +
                     formatPersistKb(lastBytes) +
-                    " · notes/forged/bank). Export or prune bank ledgers, then retry.",
+                    " · notes/forged). Bank stacks were kept — clear old note text or thumbs, then retry.",
                   true
                 );
               });
@@ -2903,16 +2896,30 @@
     return { ok: true, qty: qty };
   }
 
-  function depositAll() {
+  function depositAll(opts) {
+    opts = opts || {};
+    var quiet = !!opts.quiet;
     var list = invList(PLAYER_ID).slice();
+    var kinds = 0;
+    var units = 0;
     list.forEach(function (it) {
       var have = qtyOf(PLAYER_ID, it.id);
-      if (have > 0) depositItem(it.id, have);
+      if (have < 1) return;
+      if (quiet) {
+        addInv(PLAYER_ID, it.id, -have);
+        addBank(PLAYER_ID, it.id, have);
+      } else {
+        depositItem(it.id, have);
+      }
+      kinds++;
+      units += have;
     });
     // Hard-clear any leftovers
     state.inventory[String(PLAYER_ID)] = {};
     selectedInvItem = null;
+    // Quiet path saves once here; non-quiet depositItem already saved per stack — final save after clear.
     saveState();
+    return { ok: true, kinds: kinds, units: units };
   }
 
   function withdrawAllPage() {
@@ -5814,7 +5821,7 @@
     if (state.autoForge) {
       setAutoForgeStatus("buying…");
       setForgeStatus(
-        "Auto-forge ON — buying ~$1 art, minting prompt ledgers (right-click Generate / Generate all)."
+        "Auto-forge ON — buy → pair → mint ledger → auto-deposit when pack full → repeat (Generate / Generate all)."
       );
       scheduleAutoForge(200);
     } else {
@@ -5827,6 +5834,21 @@
 
   function autoForgeFreeInvSlots() {
     return Math.max(0, INV_SLOTS - inventoryCount(PLAYER_ID));
+  }
+
+  /** When Auto-forge is on and pack is full, deposit-all to bank so buying/minting can continue. */
+  function autoForgeDepositWhenFull() {
+    if (!state || !state.autoForge) return { ok: false, kinds: 0, units: 0 };
+    if (autoForgeFreeInvSlots() > 0) return { ok: false, kinds: 0, units: 0 };
+    var before = inventoryCount(PLAYER_ID);
+    if (before < 1) return { ok: false, kinds: 0, units: 0 };
+    setAutoForgeStatus("depositing…");
+    var res = depositAll({ quiet: true });
+    render();
+    setAutoForgeStatus(
+      "deposited " + (res.kinds || before) + " kind" + ((res.kinds || before) === 1 ? "" : "s") + " → bank"
+    );
+    return res;
   }
 
   function autoForgeClaimOfferSlot() {
@@ -6323,22 +6345,45 @@
     autoForgeBusy = true;
     autoForgeCycle += 1;
     try {
-      setAutoForgeStatus("buying…");
+      // Pack full → auto-deposit so buy/pair/mint keep moving smoothly.
+      var dep = autoForgeDepositWhenFull();
+      var depNote = dep && dep.kinds ? "deposited " + dep.kinds + " → bank; " : "";
+
+      setAutoForgeStatus(depNote + "buying…");
       var nBuy = autoForgeBuyCheap();
+      // If buy stalled because pack filled mid-cycle, deposit and try once more.
+      if (nBuy < 1 && autoForgeFreeInvSlots() < 1 && cashOf(PLAYER_ID) >= 1) {
+        dep = autoForgeDepositWhenFull();
+        if (dep && dep.kinds) {
+          setAutoForgeStatus("deposited; buying…");
+          nBuy = autoForgeBuyCheap();
+        }
+      }
       collectAll();
       render();
 
       setAutoForgeStatus("pairing…");
       var loaded = autoForgeLoadSlots();
       if (!loaded.ok) {
-        setForgeStatus("Auto-forge: " + loaded.error + (nBuy ? " (bought " + nBuy + ")" : ""), true);
-        refreshAutoForgeLedgerStatus(nBuy ? "bought " + nBuy : "pairing…");
+        setForgeStatus(
+          "Auto-forge: " +
+            loaded.error +
+            (nBuy ? " (bought " + nBuy + ")" : "") +
+            (depNote ? " [" + depNote.trim().replace(/;\s*$/, "") + "]" : ""),
+          true
+        );
+        refreshAutoForgeLedgerStatus(nBuy ? "bought " + nBuy : depNote ? "depositing…" : "pairing…");
         autoForgeBusy = false;
         scheduleAutoForge(2200);
         return;
       }
       // Mint prompt ledger — do NOT hold forge UI / wait for Generate.
       var prep = mintForgeLedger({ imaginative: true });
+      // After mint, if pack is full, deposit excess so the next buy cycle is free.
+      if (prep && prep.ok && autoForgeFreeInvSlots() < 1) {
+        setAutoForgeStatus("depositing…");
+        autoForgeDepositWhenFull();
+      }
       autoForgeBusy = false;
       if (!prep.ok) {
         setForgeStatus("Auto-forge ledger failed: " + prep.error, true);
