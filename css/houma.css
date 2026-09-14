@@ -1,0 +1,110 @@
+#panel-houma.panel[hidden] { display: none !important; }
+#panel-houma.panel.active {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  min-height: calc(100dvh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  background: #0b0610;
+}
+body.hm-tab-active #panel-houma.panel.active {
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+body.hm-tab-active .site-footer,
+body.hm-tab-active .site-header .subtitle { display: none; }
+body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
+
+.hm-shell {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  color: #f3ece3;
+}
+.hm-hud {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  background: linear-gradient(180deg, #1a0c18, #0e0810);
+  border-bottom: 1px solid rgba(232, 90, 160, 0.35);
+  font-family: "Bahnschrift", "Trebuchet MS", sans-serif;
+}
+.hm-title {
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #ff4fa3;
+  text-shadow: 0 0 12px rgba(255, 79, 163, 0.45);
+}
+.hm-stars { color: #ffd24a; letter-spacing: 0.12em; }
+.hm-cash { color: #7dffb3; }
+.hm-dist { color: #9ad4ff; }
+.hm-miss { flex: 1 1 12rem; color: #ffe7c2; font-size: 0.82rem; }
+.hm-stage {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: #14081a;
+}
+#hm-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hm-help {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  background: rgba(8, 4, 12, 0.72);
+  border: 1px solid rgba(255, 79, 163, 0.3);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #d8c8d4;
+  pointer-events: none;
+}
+.hm-toast {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.55rem 0.9rem;
+  background: rgba(20, 6, 18, 0.88);
+  border: 1px solid #ff4fa3;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.hm-toast.show { opacity: 1; }
+.hm-radio {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.6rem;
+  max-width: 22rem;
+  padding: 0.55rem 0.7rem 0.65rem;
+  background: rgba(12, 6, 10, 0.82);
+  border: 1px solid rgba(255, 210, 74, 0.35);
+  pointer-events: none;
+}
+.hm-radio-kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffd24a;
+  font-family: Bahnschrift, "Trebuchet MS", sans-serif;
+}
+.hm-radio-copy {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: #f3ece3;
+}

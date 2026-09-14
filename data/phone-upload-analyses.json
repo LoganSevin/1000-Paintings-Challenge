@@ -2948,5 +2948,32 @@
     "kind": "phone-upload",
     "generated_num": 5588,
     "generated_url": "/generated/5588.jpg"
+  },
+  "I SELL ART.png": {
+    "title": "I Sell Art",
+    "description": "A minimalist black and white typographic image featuring the words 'I Sell' in large bold sans-serif font underlined by a thick black line, with the word 'Art' positioned directly below in the same bold style but slightly larger and also underlined.",
+    "prompt": "Minimalist black and white typographic composition on a plain white background. The text 'I Sell' appears in the upper half in very bold, heavy sans-serif typeface with thick stroke weight, perfectly centered. A solid black horizontal line runs directly underneath it. Below the line, the word 'Art' is displayed in the same heavy bold sans-serif font, slightly larger, also centered and underlined by a second thick black horizontal line. High contrast, clean edges, geometric precision, stark minimalist aesthetic, phone photograph of a printed sign.",
+    "style": "minimalist typography",
+    "medium": "digital graphic",
+    "mood": "bold minimalist",
+    "subject_type": "object",
+    "tags": [
+      "typography",
+      "minimalism",
+      "black and white",
+      "text art",
+      "signage",
+      "bold sans-serif"
+    ],
+    "colors": [
+      "black",
+      "white"
+    ],
+    "analyzed_at": "2026-09-09T06:16:39Z",
+    "name": "I SELL ART.png",
+    "url": "/phone-uploads/I SELL ART.png",
+    "kind": "phone-upload",
+    "generated_num": 5596,
+    "generated_url": "/generated/5596.jpg"
   }
 }

@@ -44,6 +44,9 @@
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
   <link rel="stylesheet" href="css/rig.css?v=6" />
+  <link rel="stylesheet" href="css/handfont.css?v=5" />
+  <link rel="stylesheet" href="css/voice.css?v=1" />
+  <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
     "imports": {
@@ -91,7 +94,8 @@
   <link rel="stylesheet" href="css/citations.css?v=1" />
   <link rel="stylesheet" href="css/plasma.css?v=7" />
   <link rel="stylesheet" href="css/spellshop.css?v=1" />
-  <link rel="stylesheet" href="css/runes.css?v=3" />
+  <link rel="stylesheet" href="css/runes.css?v=4" />
+  <link rel="stylesheet" href="css/houma.css?v=2" />
   <link rel="stylesheet" href="css/tab-debug.css?v=7" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
@@ -148,8 +152,10 @@
         <button type="button" class="tab" data-tab="movie">Movie</button>
         <button type="button" class="tab" data-tab="book">Book</button>
         <button type="button" class="tab" data-tab="game">Game</button>
+        <button type="button" class="tab" data-tab="houma">Houma</button>
         <button type="button" class="tab" data-tab="commercial">Commercial</button>
         <button type="button" class="tab" data-tab="income">Income</button>
+        <button type="button" class="tab" data-tab="profit">Profit</button>
         <button type="button" class="tab" data-tab="market">Market (sim)</button>
         <button type="button" class="tab" data-tab="supermarket">Supermarket</button>
         <button type="button" class="tab" data-tab="banker">Banker</button>
@@ -180,6 +186,8 @@
         <button type="button" class="tab" data-tab="live">Live</button>
         <button type="button" class="tab" data-tab="zoo">Zoo</button>
         <button type="button" class="tab" data-tab="rig">Rig</button>
+        <button type="button" class="tab" data-tab="handfont">Hand Font</button>
+        <button type="button" class="tab" data-tab="voice">Voice</button>
       </nav>
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
@@ -2557,6 +2565,98 @@
     </div>
   </section>
 
+  <section id="panel-profit" class="panel" hidden>
+    <div class="pf-shell">
+      <h2>Profit</h2>
+      <p class="pf-hint">
+        Real money only: Cash App $Logan7in, commissions, newsletter, press, Fiverr copy, and xAI Auto top-up so you can keep creating.
+        Simulated Market cash does not count.
+      </p>
+      <div class="pf-grid">
+        <article class="pf-card">
+          <h3>This month</h3>
+          <p class="pf-stat" id="pf-sales">$0</p>
+          <p>Shop + logged Cash App sales. Goal $10,000.</p>
+          <div class="pf-actions">
+            <a class="pf-btn accent" href="https://cash.app/$Logan7in" target="_blank" rel="noopener">Open Cash App</a>
+            <button type="button" class="pf-btn" data-pf-cash="75">Sell a $75 still</button>
+          </div>
+        </article>
+        <article class="pf-card">
+          <h3>xAI credits — auto load</h3>
+          <p class="pf-stat" id="pf-credits">—</p>
+          <p>Warn below <span id="pf-threshold">$8</span>. Suggested top-up <span id="pf-reload">$25</span>. Turn on <strong>Auto top-up</strong> in xAI Console (threshold + amount + monthly cap). This site cannot charge your card.</p>
+          <label class="pf-field">Warn below $
+            <input id="pf-th" type="number" min="2" max="200" value="8" />
+          </label>
+          <label class="pf-field">Reload $
+            <input id="pf-rel" type="number" min="5" max="500" value="25" />
+          </label>
+          <div class="pf-actions">
+            <button type="button" id="pf-open-billing" class="pf-btn accent">Open xAI billing</button>
+            <button type="button" id="pf-save-credits" class="pf-btn">Save warning</button>
+          </div>
+          <p id="pf-credit-status" class="pf-status"></p>
+        </article>
+        <article class="pf-card">
+          <h3>Hire me</h3>
+          <ul>
+            <li>Custom still — $75</li>
+            <li>Character sheet — $120</li>
+            <li>Brand pack (3) — $250</li>
+            <li>Studio week — $400</li>
+          </ul>
+          <div class="pf-actions">
+            <button type="button" class="pf-btn accent" data-pf-cash="75">Pay $75</button>
+            <button type="button" class="pf-btn" data-pf-cash="120">Pay $120</button>
+            <button type="button" class="pf-btn" data-pf-cash="250">Pay $250</button>
+            <button type="button" class="pf-btn" data-pf-cash="400">Pay $400</button>
+          </div>
+        </article>
+        <article class="pf-card">
+          <h3>Newsletter</h3>
+          <p>Subscribers: <strong id="pf-subs">0</strong>. Daily stills: 10 free, or $5/month for 25.</p>
+          <p class="pf-status">Share this link: <a href="https://1000-l7in.netlify.app/subscribe" id="pf-sub-link">1000-l7in.netlify.app/subscribe</a></p>
+          <form id="pf-nl-form">
+            <label class="pf-field">Add email
+              <input id="pf-nl-email" type="email" required placeholder="collector@email.com" />
+            </label>
+            <button type="submit" class="pf-btn accent">Subscribe</button>
+          </form>
+          <div class="pf-actions">
+            <button type="button" id="pf-copy-sub" class="pf-btn">Copy subscribe link</button>
+            <a class="pf-btn" href="subscribe.html">Open subscribe page</a>
+          </div>
+          <p id="pf-nl-join" class="pf-status"></p>
+          <pre id="pf-issue" class="pf-copy"></pre>
+          <p id="pf-nl-status" class="pf-status"></p>
+        </article>
+        <article class="pf-card">
+          <h3>Fiverr (account connected)</h3>
+          <pre id="pf-fiverr" class="pf-copy"></pre>
+          <button type="button" id="pf-copy-fiverr" class="pf-btn accent">Copy gigs</button>
+          <p id="pf-fiverr-status" class="pf-status">Paste into Fiverr → create 3 gigs. Pay on-platform or point to $Logan7in.</p>
+        </article>
+        <article class="pf-card">
+          <h3>Freelance reply</h3>
+          <pre id="pf-proposal" class="pf-copy"></pre>
+          <button type="button" id="pf-copy-proposal" class="pf-btn">Copy proposal</button>
+          <p id="pf-prop-status" class="pf-status">Use this on Upwork, email, and commission DMs.</p>
+        </article>
+        <article class="pf-card">
+          <h3>Press / coverage</h3>
+          <pre id="pf-press" class="pf-copy"></pre>
+          <button type="button" id="pf-copy-press" class="pf-btn">Copy press kit</button>
+          <p id="pf-press-status" class="pf-status">A Gmail draft is waiting for you. Do not blast journalists — send one tight pitch.</p>
+        </article>
+        <article class="pf-card">
+          <h3>Open cash job</h3>
+          <p>Actors Choice — AAO Convention, New Orleans, Oct 9–12, 2026. $15/hr, all-day, black wardrobe. Confirming does not guarantee booking. A reply draft is in Gmail.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-market" class="panel" hidden>
     <div class="mk-shell">
       <header class="mk-top">
@@ -3931,6 +4031,30 @@
     </div>
   </section>
 
+  <section id="panel-houma" class="panel" hidden>
+    <div class="hm-shell">
+      <div class="hm-hud">
+        <span class="hm-title">HOUMA</span>
+        <span id="hm-stars" class="hm-stars">☆☆☆☆☆</span>
+        <span id="hm-cash" class="hm-cash">$120</span>
+        <span id="hm-dist" class="hm-dist">Downtown Houma</span>
+        <span id="hm-miss" class="hm-miss">Wheels — Jack a car downtown.</span>
+        <button type="button" id="hm-tour-btn" class="btn-secondary">Tour</button>
+        <button type="button" id="hm-tour-next" class="btn-secondary">Next</button>
+        <button type="button" id="hm-reset" class="btn-secondary">Reset</button>
+      </div>
+      <div class="hm-stage" id="hm-stage">
+        <canvas id="hm-canvas" width="1280" height="720" aria-label="Houma open world"></canvas>
+        <div id="hm-toast" class="hm-toast"></div>
+        <aside class="hm-radio" id="hm-radio">
+          <p class="hm-radio-kicker" id="hm-tour-title">Hometown</p>
+          <p class="hm-radio-copy" id="hm-tour-copy">This map is real OpenStreetMap Houma — Barrow, Main, Park, Tunnel Blvd — not cubes. Google Earth imagery can’t be copied. Drive the actual street graph.</p>
+        </aside>
+        <div class="hm-help">WASD · F jack · C camera · T tour · you’re on LA-182</div>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-runes" class="panel" hidden>
     <div class="ru-shell">
       <header class="ru-top">
@@ -3973,17 +4097,17 @@
           </div>
           <p class="ru-assign-hint">
             Type mode inserts runes. Assign mode: tap a rune, type a <strong>1–3 letter</strong> key (e.g. <code>a</code>, <code>th</code>, <code>ing</code>), press <strong>Enter</strong>.
-            One rune can hold many keys; longest match wins when translating, so repeats in a prompt each convert.
+            If a letter has a 1-letter slot, that rune always wins. 2–3 letter keys only fire when those letters are not already slotted.
           </p>
           <p id="ru-assign-hud" class="ru-assign-hud" hidden>Assign: …</p>
           <div id="ru-keyboard" class="ru-kb" aria-label="Runic symbol keyboard"></div>
-          <p class="ru-source">74 symbols · green edge = mapped · keys shown under each rune</p>
+          <p class="ru-source">74 symbols · unique seal/cut per key so lookalikes stay distinct · green edge = mapped</p>
         </div>
 
         <div class="ru-card">
           <h3>Cipher blocks (1–3 letters → rune)</h3>
           <p class="ru-assign-hint">
-            English→runes walks the text and matches the <strong>longest</strong> block first (3, then 2, then 1) every time the sequence appears.
+            Your cipher: a slotted 1-letter always wins. 2–3 letter combinations stay saved, but only apply when those letters have no 1-letter rune. Other speakers keep their own combinations.
           </p>
           <div class="ru-new-block-row">
             <label class="ru-label" for="ru-new-block-from">Key (1–3 letters)
@@ -3997,6 +4121,25 @@
           <div id="ru-map-grid" class="ru-map-grid" aria-label="Letter and multi-letter cipher map"></div>
           <div class="ru-actions">
             <button type="button" id="ru-btn-reset-map" class="btn-secondary">Reset map defaults</button>
+          </div>
+        </div>
+
+        <div class="ru-card ru-card-wide">
+          <h3>Tongues · IM</h3>
+          <p class="ru-assign-hint">
+            Everyone named in Banker / Supermarket writes with the same rune types, but their own letter grammar.
+            Chat in English. You see their runes and the plain line so you can learn it. Your 1-letter slots still win in <em>your</em> cipher.
+          </p>
+          <div class="ru-im">
+            <label class="ru-label" for="ru-im-who">Speaker
+              <select id="ru-im-who" class="ru-select" aria-label="Chat partner"></select>
+            </label>
+            <div id="ru-im-lang" class="ru-im-lang">Pick a named speaker to see their alphabet.</div>
+            <div id="ru-im-log" class="ru-im-log" aria-live="polite"></div>
+            <textarea id="ru-im-in" class="ru-english" rows="2" placeholder="Say something in English…" aria-label="IM message"></textarea>
+            <div class="ru-actions">
+              <button type="button" id="ru-im-send" class="btn-cast">Send</button>
+            </div>
           </div>
         </div>
 
@@ -5965,6 +6108,218 @@
     </div>
   </section>
 
+  <section id="panel-handfont" class="panel" hidden>
+    <div class="hf-shell">
+      <header class="hf-top">
+        <h2>Hand Font</h2>
+        <p class="hf-hint">Draw letters as strokes, then write across the full page. Words stay whole at the edge, Fit keeps the text on screen, Weight thickens the ink, and Highlight marks behind each word.</p>
+      </header>
+
+      <div class="hf-body">
+        <aside class="hf-sidebar" aria-label="Font controls">
+          <section class="hf-card">
+            <h3>Glyph</h3>
+            <div class="hf-current-row">
+              <input type="text" id="hf-current-char" class="hf-current-char" value="A" maxlength="2" aria-label="Current glyph" />
+              <div class="hf-current-meta">
+                <span id="hf-glyph-state">Empty</span>
+                <span id="hf-glyph-count">0 strokes</span>
+              </div>
+            </div>
+            <div class="hf-glyph-filters" role="tablist" aria-label="Glyph groups">
+              <button type="button" class="hf-glyph-filter active" data-hf-gfilter="all">All</button>
+              <button type="button" class="hf-glyph-filter" data-hf-gfilter="letters">Letters</button>
+              <button type="button" class="hf-glyph-filter" data-hf-gfilter="numbers">Numbers</button>
+              <button type="button" class="hf-glyph-filter" data-hf-gfilter="symbols">Symbols</button>
+            </div>
+            <div id="hf-glyph-grid" class="hf-glyph-grid" aria-label="Glyph set"></div>
+          </section>
+
+          <section class="hf-card">
+            <h3>Stroke</h3>
+            <div class="hf-segmented" role="group" aria-label="Drawing mode">
+              <button type="button" id="hf-mode-draw" class="hf-tool active">Draw</button>
+              <button type="button" id="hf-mode-erase" class="hf-tool">Erase</button>
+            </div>
+            <label class="hf-field">Ink
+              <input type="color" id="hf-ink" value="#f7ead0" />
+            </label>
+            <label class="hf-field">Brush <span id="hf-brush-label">10</span>
+              <input type="range" id="hf-brush" min="2" max="40" value="10" />
+            </label>
+            <label class="hf-field">Glyph width <span id="hf-width-label">70%</span>
+              <input type="range" id="hf-width" min="35" max="100" value="70" />
+            </label>
+            <label class="hf-check"><input type="checkbox" id="hf-show-guide" checked /> Guides</label>
+            <label class="hf-check"><input type="checkbox" id="hf-show-trace" checked /> Trace letter</label>
+            <div class="hf-actions">
+              <button type="button" id="hf-undo" class="hf-btn">Undo</button>
+              <button type="button" id="hf-clear" class="hf-btn">Clear glyph</button>
+              <button type="button" id="hf-copy-case" class="hf-btn">Copy case</button>
+            </div>
+          </section>
+
+          <section class="hf-card">
+            <h3>Library</h3>
+            <div class="hf-actions">
+              <button type="button" id="hf-save" class="hf-btn accent">Save local</button>
+              <button type="button" id="hf-load" class="hf-btn">Load local</button>
+              <button type="button" id="hf-export" class="hf-btn">Export JSON</button>
+              <label class="hf-btn hf-import">
+                Import JSON
+                <input type="file" id="hf-import" accept="application/json,.json" hidden />
+              </label>
+              <button type="button" id="hf-reset" class="hf-btn danger">Reset all</button>
+            </div>
+            <p id="hf-status" class="hf-status">Ready.</p>
+          </section>
+
+          <section class="hf-card hf-site-card">
+            <h3>Whole Site</h3>
+            <label class="hf-switch">
+              <input type="checkbox" id="hf-site-toggle" disabled />
+              <span>Use this handwriting across the website</span>
+            </label>
+            <p id="hf-completion-count" class="hf-site-progress">0 glyphs drawn</p>
+            <p id="hf-missing-glyphs" class="hf-status">Missing glyphs will appear here.</p>
+          </section>
+        </aside>
+
+        <main class="hf-draw-panel" aria-label="Glyph drawing board">
+          <div class="hf-board-head">
+            <div>
+              <h3 id="hf-board-title">Glyph A</h3>
+              <p>Draw in the square. A normal-width letter stays that shape on the page — you do not need to stretch it.</p>
+            </div>
+            <button type="button" id="hf-center-glyph" class="hf-btn">Center strokes</button>
+          </div>
+          <div class="hf-canvas-wrap">
+            <div class="hf-canvas-square">
+              <canvas id="hf-draw-canvas" width="720" height="720" aria-label="Draw current glyph"></canvas>
+            </div>
+          </div>
+        </main>
+
+        <section class="hf-stage" aria-label="Full page hand text">
+          <div class="hf-stage-bar">
+            <div>
+              <h3>Page</h3>
+              <textarea id="hf-preview-text" class="hf-textarea" rows="4">Logan writes with hand motion.
+1000 Paintings Challenge</textarea>
+            </div>
+            <div>
+              <div class="hf-preview-controls">
+                <label class="hf-field">Size <span id="hf-size-label">72</span>
+                  <input type="range" id="hf-size" min="28" max="160" value="72" />
+                </label>
+                <label class="hf-field">Letter spacing <span id="hf-tracking-label">6%</span>
+                  <input type="range" id="hf-tracking" min="-70" max="80" value="6" />
+                </label>
+                <label class="hf-field">Line gap <span id="hf-line-label">116%</span>
+                  <input type="range" id="hf-line" min="90" max="170" value="116" />
+                </label>
+                <label class="hf-field">Weight <span id="hf-weight-label">100%</span>
+                  <input type="range" id="hf-weight" min="60" max="280" value="100" />
+                </label>
+                <label class="hf-field">Motion speed <span id="hf-speed-label">220</span>
+                  <input type="range" id="hf-speed" min="40" max="520" value="220" />
+                </label>
+                <label class="hf-field">Marker
+                  <input type="color" id="hf-highlight-color" value="#ffe566" />
+                </label>
+              </div>
+              <div class="hf-style-row">
+                <label class="hf-check"><input type="checkbox" id="hf-bold" /> Bold</label>
+                <label class="hf-check"><input type="checkbox" id="hf-highlight" /> Highlight</label>
+                <label class="hf-check"><input type="checkbox" id="hf-fit" checked /> Fit to page</label>
+                <label class="hf-check"><input type="checkbox" id="hf-use-glyph-colors" /> Use glyph colors</label>
+              </div>
+              <div class="hf-actions">
+                <button type="button" id="hf-render" class="hf-btn">Render text</button>
+                <button type="button" id="hf-play" class="hf-btn accent">Write motion</button>
+                <button type="button" id="hf-stop" class="hf-btn">Stop</button>
+                <button type="button" id="hf-download-png" class="hf-btn">PNG</button>
+                <button type="button" id="hf-export-motion" class="hf-btn">Motion JSON</button>
+              </div>
+            </div>
+          </div>
+          <div class="hf-preview-wrap">
+            <canvas id="hf-preview-canvas" width="1600" height="720" aria-label="Full page text in hand font"></canvas>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-voice" class="panel" hidden>
+    <div class="vh-shell">
+      <header class="vh-top">
+        <h2>Voice</h2>
+        <p class="vh-hint">
+          Speak with your hands, not your throat. Point at letters, hold to type, open palm to speak.
+          Record your real voice so the module can play <em>you</em> instead of a stand-in.
+        </p>
+      </header>
+      <div class="vh-body">
+        <div class="vh-stage">
+          <div class="vh-cam-wrap" id="vh-cam-wrap">
+            <video id="vh-video" playsinline muted></video>
+            <canvas id="vh-overlay" aria-hidden="true"></canvas>
+            <div id="vh-cursor" class="vh-cursor"></div>
+            <div id="vh-keys" class="vh-keys" aria-label="Hand keyboard"></div>
+          </div>
+          <div class="vh-line">
+            <textarea id="vh-buffer" class="vh-buffer" rows="2" placeholder="Your line appears here…"></textarea>
+            <button type="button" id="vh-speak" class="vh-btn accent">Speak</button>
+            <button type="button" id="vh-clear" class="vh-btn">Clear</button>
+            <button type="button" id="vh-cam" class="vh-btn">Camera</button>
+          </div>
+          <div id="vh-phrases" class="vh-phrases" aria-label="Quick phrases"></div>
+        </div>
+        <aside class="vh-side">
+          <section class="vh-card">
+            <h3>What I need from you</h3>
+            <p class="vh-need">
+              1–3 minutes of <strong>your</strong> voice, quiet room, phone or this mic.
+              Read the script, then record a few everyday lines you actually say.
+              Same distance from the mic. No music. This is only for your studio clone.
+            </p>
+            <p class="vh-script" id="vh-script">
+              “My name is Logan Sevin. This is my voice for the 1000 Paintings Challenge.
+              One two three four five six seven eight nine ten.
+              The studio is quiet and the paint is still wet.
+              Hello. Thank you. Yes. No. Please. Wait. I need a minute. Let’s go.”
+            </p>
+          </section>
+          <section class="vh-card">
+            <h3>Record</h3>
+            <label class="vh-field">Clip name
+              <input type="text" id="vh-clip-label" value="Logan reference" autocomplete="off" />
+            </label>
+            <label class="vh-field">Kind
+              <select id="vh-clip-kind">
+                <option value="reference">Reference (for cloning)</option>
+                <option value="phrase">Phrase (plays when the line matches)</option>
+              </select>
+            </label>
+            <div class="vh-actions">
+              <button type="button" id="vh-record" class="vh-btn accent">Record</button>
+              <label class="vh-btn">Upload audio
+                <input type="file" id="vh-upload" accept="audio/*,.wav,.mp3,.m4a,.webm,.ogg" hidden />
+              </label>
+            </div>
+            <p id="vh-status" class="vh-status">Record the script as a Reference clip first.</p>
+          </section>
+          <section class="vh-card">
+            <h3>Voice bank</h3>
+            <div id="vh-clips" class="vh-clips"></div>
+          </section>
+        </aside>
+      </div>
+      <audio id="vh-player" hidden></audio>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -6675,6 +7030,10 @@
           <p id="tip-status" class="tip-status" hidden></p>
           <button type="button" id="tip-confirm" class="btn-secondary" hidden>Fan said they paid — log it</button>
           <p class="mx-footer-note">Free share: <a href="https://1000-l7in.netlify.app/" target="_blank" rel="noopener noreferrer">https://1000-l7in.netlify.app/</a> + Cash App $Logan7in on X.</p>
+          <form id="site-nl-form" class="site-nl" action="mailto:lsevin71@gmail.com?subject=Subscribe%201000%20Paintings" method="post">
+            <input id="site-nl-email" type="email" required placeholder="Get the studio letter" aria-label="Newsletter email" />
+            <button type="submit" class="btn-secondary">Subscribe</button>
+          </form>
           <p class="hint tip-credits-hint">When real tips land, transfer/spend in Cash App. Optional: <a href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer">xAI credits</a>.</p>
         </div>
       </div>
@@ -6706,7 +7065,7 @@
 
   <script defer src="js/author-config.js?v=3"></script>
   <script defer src="js/compat.js?v=3"></script>
-  <script defer src="js/xai-credits.js?v=2"></script>
+  <script defer src="js/xai-credits.js?v=3"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
   <script defer src="js/tab-debug.js?v=9"></script>
@@ -6727,7 +7086,8 @@
   <script defer src="js/citations.js?v=1"></script>
   <script defer src="js/plasma.js?v=7"></script>
   <script defer src="js/spellshop.js?v=4"></script>
-  <script defer src="js/runes.js?v=5"></script>
+  <script defer src="js/runes.js?v=6"></script>
+  <script defer src="js/houma.js?v=10"></script>
   <script defer src="js/dream-stasis.js?v=27"></script>
   <script defer src="js/maps.js?v=1"></script>
   <script defer src="js/stare.js?v=16"></script>
@@ -6747,10 +7107,13 @@
   <script defer src="js/live.js?v=24"></script>
   <script defer src="js/zoo.js?v=12"></script>
   <script defer src="js/rig.js?v=6"></script>
+  <script defer src="js/handfont.js?v=8"></script>
+  <script defer src="js/voice.js?v=1"></script>
+  <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=2"></script>
-  <script defer src="js/tabs.js?v=77"></script>
+  <script defer src="js/tabs.js?v=82"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>

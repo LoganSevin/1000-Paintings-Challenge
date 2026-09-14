@@ -5,6 +5,11 @@
   command = "npm install"
   publish = "."
 
+[[redirects]]
+  from = "/subscribe"
+  to = "/subscribe.html"
+  status = 200
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"

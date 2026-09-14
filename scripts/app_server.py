@@ -11236,5 +11236,436 @@ except Exception as _zoo_err:
     print(f"[gallery] Zoo routes failed: {_zoo_err}", flush=True)
 
 
+HANDFONT_PATH = _GALLERY_ROOT / "data" / "hand-font.json"
+
+
+def _respond_handfont_get(handler):
+    if not HANDFONT_PATH.is_file():
+        return handler._json({"ok": True, "font": None})
+    try:
+        data = json.loads(HANDFONT_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return handler._json({"ok": False, "error": "Corrupt hand font file", "font": None}, 500)
+    return handler._json({"ok": True, "font": data})
+
+
+def _respond_handfont_save(handler):
+    try:
+        body = handler._read_json() or {}
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    if not isinstance(body.get("glyphs"), dict):
+        return handler._json({"ok": False, "error": "Missing glyphs"}, 400)
+    HANDFONT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(body, ensure_ascii=False)
+    tmp = HANDFONT_PATH.with_suffix(".json.tmp")
+    try:
+        tmp.write_text(payload, encoding="utf-8")
+        tmp.replace(HANDFONT_PATH)
+    except OSError as exc:
+        return handler._json({"ok": False, "error": str(exc)[:200]}, 500)
+    return handler._json({"ok": True, "bytes": HANDFONT_PATH.stat().st_size, "savedAt": body.get("savedAt")})
+
+
+try:
+    _prev_hf_get = AppHandler.do_GET
+    _prev_hf_post = AppHandler.do_POST
+
+    def _do_get_with_handfont(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/handfont", "/api/handfont/"):
+            return _respond_handfont_get(self)
+        return _prev_hf_get(self)
+
+    def _do_post_with_handfont(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/handfont", "/api/handfont/"):
+            return _respond_handfont_save(self)
+        return _prev_hf_post(self)
+
+    AppHandler.do_GET = _do_get_with_handfont
+    AppHandler.do_POST = _do_post_with_handfont
+    print("[gallery] Hand Font: /api/handfont  →  data/hand-font.json", flush=True)
+except Exception as _hf_err:
+    print(f"[gallery] Hand Font routes failed: {_hf_err}", flush=True)
+
+
+VOICE_BANK_DIR = _GALLERY_ROOT / "data" / "voice-bank"
+VOICE_MANIFEST = VOICE_BANK_DIR / "manifest.json"
+
+
+def _voice_norm(text: str) -> str:
+    s = re.sub(r"[^a-z0-9 ]+", " ", str(text or "").lower())
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _voice_load_manifest() -> dict:
+    if not VOICE_MANIFEST.is_file():
+        return {"clips": []}
+    try:
+        data = json.loads(VOICE_MANIFEST.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return {"clips": []}
+        data.setdefault("clips", [])
+        return data
+    except Exception:
+        return {"clips": []}
+
+
+def _voice_save_manifest(data: dict) -> None:
+    VOICE_BANK_DIR.mkdir(parents=True, exist_ok=True)
+    tmp = VOICE_MANIFEST.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(VOICE_MANIFEST)
+
+
+def _respond_voice_clips(handler):
+    man = _voice_load_manifest()
+    clips = []
+    for c in man.get("clips") or []:
+        if not isinstance(c, dict):
+            continue
+        clips.append(
+            {
+                "id": c.get("id"),
+                "label": c.get("label") or c.get("id"),
+                "kind": c.get("kind") or "phrase",
+                "mime": c.get("mime") or "audio/webm",
+                "bytes": c.get("bytes") or 0,
+            }
+        )
+    return handler._json({"ok": True, "clips": clips, "count": len(clips)})
+
+
+def _respond_voice_audio(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    cid = str((qs.get("id") or [""])[0]).strip()
+    if not cid or "/" in cid or "\\" in cid or ".." in cid:
+        return handler._json({"ok": False, "error": "Bad id"}, 400)
+    man = _voice_load_manifest()
+    clip = next((c for c in man.get("clips") or [] if c.get("id") == cid), None)
+    if not clip:
+        return handler._json({"ok": False, "error": "Missing clip"}, 404)
+    path = VOICE_BANK_DIR / str(clip.get("file") or f"{cid}.webm")
+    if not path.is_file():
+        return handler._json({"ok": False, "error": "Missing file"}, 404)
+    data = path.read_bytes()
+    mime = str(clip.get("mime") or "audio/webm")
+    try:
+        handler.send_response(200)
+        handler.send_header("Content-Type", mime)
+        handler.send_header("Content-Length", str(len(data)))
+        handler.send_header("Cache-Control", "private, max-age=60")
+        handler.end_headers()
+        handler.wfile.write(data)
+    except Exception:
+        pass
+    return True
+
+
+def _respond_voice_save_clip(handler):
+    try:
+        body = handler._read_json() or {}
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    raw = str(body.get("audio_base64") or "").strip()
+    if "," in raw and raw.lower().startswith("data:"):
+        raw = raw.split(",", 1)[1]
+    if not raw:
+        return handler._json({"ok": False, "error": "Missing audio"}, 400)
+    try:
+        data = base64.b64decode(raw)
+    except Exception:
+        return handler._json({"ok": False, "error": "Bad audio data"}, 400)
+    if not data or len(data) < 80:
+        return handler._json({"ok": False, "error": "Empty audio"}, 400)
+    cid = str(body.get("id") or "").strip() or ("vh" + uuid.uuid4().hex[:10])
+    if "/" in cid or "\\" in cid or ".." in cid:
+        return handler._json({"ok": False, "error": "Bad id"}, 400)
+    mime = str(body.get("mime") or "audio/webm")
+    ext = "webm"
+    if "wav" in mime:
+        ext = "wav"
+    elif "mpeg" in mime or "mp3" in mime:
+        ext = "mp3"
+    elif "ogg" in mime:
+        ext = "ogg"
+    elif "mp4" in mime or "m4a" in mime:
+        ext = "m4a"
+    fname = f"{cid}.{ext}"
+    VOICE_BANK_DIR.mkdir(parents=True, exist_ok=True)
+    dest = VOICE_BANK_DIR / fname
+    dest.write_bytes(data)
+    man = _voice_load_manifest()
+    clips = [c for c in man.get("clips") or [] if c.get("id") != cid]
+    clips.append(
+        {
+            "id": cid,
+            "label": str(body.get("label") or cid),
+            "kind": str(body.get("kind") or "phrase"),
+            "mime": mime,
+            "file": fname,
+            "bytes": len(data),
+            "savedAt": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+    man["clips"] = clips
+    _voice_save_manifest(man)
+    return handler._json({"ok": True, "id": cid, "bytes": len(data)})
+
+
+def _respond_voice_delete_clip(handler):
+    qs = parse_qs(urlparse(handler.path).query or "")
+    cid = str((qs.get("id") or [""])[0]).strip()
+    if not cid:
+        return handler._json({"ok": False, "error": "Missing id"}, 400)
+    man = _voice_load_manifest()
+    keep = []
+    removed = None
+    for c in man.get("clips") or []:
+        if c.get("id") == cid:
+            removed = c
+        else:
+            keep.append(c)
+    if not removed:
+        return handler._json({"ok": False, "error": "Missing clip"}, 404)
+    man["clips"] = keep
+    _voice_save_manifest(man)
+    path = VOICE_BANK_DIR / str(removed.get("file") or f"{cid}.webm")
+    try:
+        if path.is_file():
+            path.unlink()
+    except OSError:
+        pass
+    return handler._json({"ok": True, "id": cid})
+
+
+def _respond_voice_speak(handler):
+    try:
+        body = handler._read_json() or {}
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    text = str(body.get("text") or "").strip()
+    if not text:
+        return handler._json({"ok": False, "error": "Missing text"}, 400)
+    man = _voice_load_manifest()
+    clips = [c for c in man.get("clips") or [] if isinstance(c, dict)]
+    ntext = _voice_norm(text)
+
+    def match_label(label: str) -> dict | None:
+        want = _voice_norm(label)
+        for c in clips:
+            if _voice_norm(c.get("label") or "") == want:
+                return c
+        return None
+
+    exact = match_label(ntext)
+    if exact:
+        return handler._json({"ok": True, "mode": "clip", "id": exact.get("id")})
+    words = [w for w in ntext.split(" ") if w]
+    ids = []
+    if words:
+        ok = True
+        for w in words:
+            hit = match_label(w)
+            if not hit:
+                ok = False
+                break
+            ids.append(hit.get("id"))
+        if ok and ids:
+            return handler._json({"ok": True, "mode": "clips", "ids": ids})
+    return handler._json({"ok": True, "mode": "browser", "fallback": True})
+
+
+try:
+    _prev_vh_get = AppHandler.do_GET
+    _prev_vh_post = AppHandler.do_POST
+    _prev_vh_delete = getattr(AppHandler, "do_DELETE", None)
+
+    def _do_get_with_voice(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/voice/clips", "/api/voice/clips/"):
+            return _respond_voice_clips(self)
+        if path in ("/api/voice/audio", "/api/voice/audio/"):
+            return _respond_voice_audio(self)
+        return _prev_vh_get(self)
+
+    def _do_post_with_voice(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/voice/clip", "/api/voice/clip/"):
+            return _respond_voice_save_clip(self)
+        if path in ("/api/voice/speak", "/api/voice/speak/"):
+            return _respond_voice_speak(self)
+        return _prev_vh_post(self)
+
+    def _do_delete_with_voice(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/voice/clip", "/api/voice/clip/"):
+            return _respond_voice_delete_clip(self)
+        if callable(_prev_vh_delete):
+            return _prev_vh_delete(self)
+        self.send_error(501, "Unsupported method")
+        return True
+
+    AppHandler.do_GET = _do_get_with_voice
+    AppHandler.do_POST = _do_post_with_voice
+    AppHandler.do_DELETE = _do_delete_with_voice
+    print("[gallery] Voice: /api/voice/*  →  data/voice-bank/", flush=True)
+except Exception as _vh_err:
+    print(f"[gallery] Voice routes failed: {_vh_err}", flush=True)
+
+
+NEWSLETTER_PATH = _GALLERY_ROOT / "data" / "newsletter-list.json"
+NEWSLETTER_ISSUES_PATH = _GALLERY_ROOT / "data" / "newsletter-issues.json"
+PROFIT_CONFIG_PATH = _GALLERY_ROOT / "data" / "profit-config.json"
+
+
+def _load_json_file(path: Path, default):
+    if not path.is_file():
+        return default
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if data is not None else default
+    except Exception:
+        return default
+
+
+def _save_json_file(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    tmp.replace(path)
+
+
+def _respond_newsletter_get(handler):
+    data = _load_json_file(NEWSLETTER_PATH, {"subscribers": []})
+    n = len(data.get("subscribers") or [])
+    return handler._json({"ok": True, "count": n})
+
+
+def _respond_newsletter_subscribe(handler):
+    try:
+        body = handler._read_json() or {}
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    email = str(body.get("email") or "").strip().lower()
+    if "@" not in email or "." not in email.split("@")[-1]:
+        return handler._json({"ok": False, "error": "Need a real email"}, 400)
+    data = _load_json_file(NEWSLETTER_PATH, {"subscribers": []})
+    subs = data.get("subscribers") if isinstance(data.get("subscribers"), list) else []
+    tier = str(body.get("tier") or "free").strip().lower()
+    if tier not in ("free", "paid"):
+        tier = "free"
+    existing = next((s for s in subs if isinstance(s, dict) and str(s.get("email") or "").lower() == email), None)
+    if existing:
+        if tier == "paid":
+            existing["tier"] = "paid"
+    else:
+        subs.append(
+            {
+                "email": email,
+                "source": str(body.get("source") or "site"),
+                "tier": tier,
+                "at": datetime.now(timezone.utc).isoformat(),
+            }
+        )
+    data["subscribers"] = subs
+    _save_json_file(NEWSLETTER_PATH, data)
+    return handler._json({"ok": True, "count": len(subs)})
+
+
+def _respond_profit_config(handler):
+    if handler.command == "POST":
+        try:
+            body = handler._read_json() or {}
+        except Exception:
+            return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+        cfg = _load_json_file(PROFIT_CONFIG_PATH, {})
+        if not isinstance(cfg, dict):
+            cfg = {}
+        if isinstance(body.get("credits"), dict):
+            cur = dict(cfg.get("credits") or {})
+            for k in ("threshold_usd", "reload_usd", "monthly_cap_usd"):
+                if k in body["credits"]:
+                    try:
+                        cur[k] = float(body["credits"][k])
+                    except (TypeError, ValueError):
+                        pass
+            cfg["credits"] = cur
+        _save_json_file(PROFIT_CONFIG_PATH, cfg)
+        return handler._json({"ok": True, "config": cfg})
+    cfg = _load_json_file(PROFIT_CONFIG_PATH, {})
+    return handler._json({"ok": True, "config": cfg})
+
+
+def _respond_profit_desk(handler):
+    cfg = _load_json_file(PROFIT_CONFIG_PATH, {})
+    credits_cfg = (cfg.get("credits") if isinstance(cfg, dict) else None) or {}
+    nl = _load_json_file(NEWSLETTER_PATH, {"subscribers": []})
+    issues = _load_json_file(NEWSLETTER_ISSUES_PATH, {"issues": []})
+    issue = None
+    if isinstance(issues, dict) and issues.get("issues"):
+        issue = issues["issues"][0]
+    sales = {}
+    try:
+        sales = _gallery_sales_stats() or {}
+    except Exception:
+        sales = {}
+    usage = {}
+    try:
+        usage = fetch_xai_usage_snapshot() or {}
+    except Exception:
+        usage = {}
+    credits = usage.get("credits_usd")
+    try:
+        th = float(credits_cfg.get("threshold_usd") or 8)
+    except (TypeError, ValueError):
+        th = 8.0
+    low = credits is not None and float(credits) < th
+    return handler._json(
+        {
+            "ok": True,
+            "subscribers": len(nl.get("subscribers") or []),
+            "issue": issue,
+            "month_sales_usd": sales.get("month_sales_usd") or 0,
+            "credits_usd": credits,
+            "credits_low": low,
+            "credits_cfg": credits_cfg,
+            "console_url": credits_cfg.get("console_url") or "https://console.x.ai/team/default/billing",
+        }
+    )
+
+
+try:
+    _prev_pf_get = AppHandler.do_GET
+    _prev_pf_post = AppHandler.do_POST
+
+    def _do_get_with_profit(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/newsletter", "/api/newsletter/"):
+            return _respond_newsletter_get(self)
+        if path in ("/api/profit/config", "/api/profit/config/"):
+            return _respond_profit_config(self)
+        if path in ("/api/profit/desk", "/api/profit/desk/"):
+            return _respond_profit_desk(self)
+        return _prev_pf_get(self)
+
+    def _do_post_with_profit(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/newsletter", "/api/newsletter/"):
+            return _respond_newsletter_subscribe(self)
+        if path in ("/api/profit/config", "/api/profit/config/"):
+            return _respond_profit_config(self)
+        return _prev_pf_post(self)
+
+    AppHandler.do_GET = _do_get_with_profit
+    AppHandler.do_POST = _do_post_with_profit
+    print("[gallery] Profit: /api/profit/* /api/newsletter", flush=True)
+except Exception as _pf_err:
+    print(f"[gallery] Profit routes failed: {_pf_err}", flush=True)
+
+
 if __name__ == "__main__":
     main()
+
+

@@ -37,7 +37,11 @@
     "videos": 29,
     "game-bosses": 25,
     "tabloid-print": 49,
-    "custom": 35
+    "custom": 35,
+    "freelance_still": 75,
+    "freelance_character": 120,
+    "freelance_brand_pack": 250,
+    "freelance_week": 400
   },
   "price_gauging": {
     "enabled": true,

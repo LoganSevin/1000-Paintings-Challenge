@@ -1,0 +1,153 @@
+==== git status ==== 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   css/runes.css
+	modified:   css/styles.css
+	modified:   data/banker-vault.json
+	modified:   data/gallery-orders.json
+	modified:   data/lod1-analyses.json
+	modified:   data/lod1-manifest.json
+	modified:   data/market-sim.json
+	modified:   data/match-live.json
+	modified:   data/payment-config.json
+	modified:   data/phone-upload-analyses.json
+	modified:   data/saved-videos-manifest.json
+	modified:   data/spell-stats.json
+	modified:   generated-meta/5596.json
+	modified:   index.html
+	modified:   js/runes.js
+	modified:   js/tabs.js
+	modified:   js/xai-credits.js
+	modified:   netlify.toml
+	modified:   scripts/__pycache__/app_server.cpython-314.pyc
+	modified:   scripts/app_server.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	css/handfont.css
+	css/houma.css
+	css/profit.css
+	css/voice.css
+	data/hand-font.json
+	data/houma-osm.json
+	data/newsletter-issue1-paid.html
+	data/newsletter-issue1-paid.html.json
+	data/newsletter-issues.json
+	data/newsletter-list.json
+	data/profit-config.json
+	generated-meta/5555.json
+	generated-meta/5556.json
+	generated-meta/5557.json
+	generated-meta/5558.json
+	generated-meta/5559.json
+	generated-meta/5560.json
+	generated-meta/5561.json
+	generated-meta/5562.json
+	generated-meta/5563.json
+	generated-meta/5564.json
+	generated-meta/5565.json
+	generated-meta/5566.json
+	generated-meta/5567.json
+	generated-meta/5568.json
+	generated-meta/5569.json
+	generated-meta/5570.json
+	generated-meta/5571.json
+	generated-meta/5572.json
+	generated-meta/5573.json
+	generated-meta/5574.json
+	generated-meta/5575.json
+	generated-meta/5576.json
+	generated-meta/5577.json
+	generated-meta/5578.json
+	generated-meta/5579.json
+	generated-meta/5580.json
+	generated-meta/5581.json
+	generated-meta/5582.json
+	generated-meta/5583.json
+	generated-meta/5584.json
+	generated-meta/5585.json
+	generated-meta/5586.json
+	generated-meta/5587.json
+	generated-meta/5589.json
+	generated-meta/5590.json
+	generated-meta/5591.json
+	generated-meta/5592.json
+	generated-meta/5593.json
+	generated-meta/5594.json
+	generated-meta/5595.json
+	generated-meta/5597.json
+	generated-meta/5598.json
+	generated-meta/5599.json
+	generated-meta/5600.json
+	generated-meta/5601.json
+	generated-meta/5602.json
+	generated-meta/5603.json
+	generated-meta/5604.json
+	generated-meta/5605.json
+	generated-meta/5606.json
+	generated-meta/5607.json
+	generated-meta/5608.json
+	generated-meta/5609.json
+	generated-meta/5610.json
+	generated-meta/5611.json
+	generated-meta/5612.json
+	generated-meta/5613.json
+	generated-meta/5614.json
+	generated-meta/5615.json
+	generated-meta/5616.json
+	generated-meta/5617.json
+	generated-meta/5618.json
+	generated-meta/5619.json
+	generated-meta/5620.json
+	generated-meta/5621.json
+	generated-meta/5622.json
+	generated-meta/5623.json
+	generated-meta/5624.json
+	generated-meta/5625.json
+	generated-meta/5626.json
+	generated-meta/5627.json
+	generated-meta/5628.json
+	generated-meta/5629.json
+	generated-meta/5630.json
+	generated-meta/5631.json
+	generated-meta/5632.json
+	generated-meta/5633.json
+	generated-meta/5634.json
+	generated-meta/5635.json
+	generated-meta/5636.json
+	generated-meta/5637.json
+	generated-meta/5638.json
+	generated-meta/5639.json
+	generated-meta/5640.json
+	generated-meta/5641.json
+	generated-meta/5642.json
+	generated-meta/5643.json
+	generated-meta/5644.json
+	generated-meta/5645.json
+	generated-meta/5646.json
+	generated-meta/5647.json
+	generated-meta/5648.json
+	generated-meta/5649.json
+	generated-meta/5650.json
+	generated-meta/5651.json
+	generated-meta/5652.json
+	generated-meta/5653.json
+	generated-meta/5654.json
+	generated-meta/5655.json
+	js/handfont.js
+	js/houma.js
+	js/profit.js
+	js/voice.js
+	scripts/build_newsletter_html.py
+	scripts/fetch_houma_osm.py
+	subscribe.html
+	sync_log.txt
+	sync_to_github.bat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+==== git add -A ==== 

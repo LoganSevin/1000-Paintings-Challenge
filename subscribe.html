@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Dispatch — subscribe</title>
+  <meta name="description" content="Daily stills from Logan Sevin’s 1000 Paintings Challenge. Free: 10 a day. $5/month: 25." />
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #120e0b;
+      color: #e8ddd0;
+    }
+    .wrap {
+      max-width: 34rem;
+      margin: 0 auto;
+      padding: 2.4rem 1.2rem 3rem;
+    }
+    .kicker {
+      margin: 0;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: #d4a017;
+    }
+    h1 {
+      margin: 0.45rem 0 0.7rem;
+      font-size: 2.1rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: #f3ece3;
+    }
+    .lead { margin: 0 0 1.4rem; line-height: 1.55; color: #c9b8a4; }
+    .card {
+      border: 1px solid #c45c26;
+      background: #1a1612;
+      padding: 1.15rem 1.1rem 1.2rem;
+      margin-bottom: 0.85rem;
+    }
+    .card h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1.05rem;
+      color: #d4a017;
+      font-weight: 400;
+    }
+    .card p { margin: 0 0 0.75rem; font-size: 0.95rem; line-height: 1.5; color: #c9b8a4; }
+    label { display: block; font-size: 0.82rem; color: #c9b8a4; margin-bottom: 0.35rem; }
+    input[type="email"] {
+      width: 100%;
+      min-height: 2.6rem;
+      border: 1px solid #5a4a3a;
+      background: #0d0b09;
+      color: #f3ece3;
+      padding: 0.45rem 0.65rem;
+      font: inherit;
+      margin-bottom: 0.7rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1rem;
+      text-decoration: none;
+      font: inherit;
+      font-size: 0.95rem;
+      border: 1px solid #d4a017;
+      cursor: pointer;
+      color: #f3ece3;
+      background: #c45c26;
+    }
+    .btn.gold { background: #d4a017; color: #1a1612; border-color: #d4a017; }
+    .btn.ghost { background: transparent; margin-right: 0.4rem; }
+    .status { min-height: 1.2rem; margin: 0.55rem 0 0; font-size: 0.88rem; color: #2a9d8f; }
+    .status.err { color: #e76f51; }
+    .links { margin-top: 1.4rem; font-size: 0.9rem; }
+    .links a { color: #d4a017; }
+    .hidden { position: absolute; left: -9999px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="kicker">1000 Paintings Challenge</p>
+    <h1>Studio Dispatch</h1>
+    <p class="lead">
+      Daily stills from Logan Sevin’s studio. Human-authored work. Free list gets 10 stills a day.
+      <strong>$5 a month</strong> gets 25.
+    </p>
+
+    <section class="card">
+      <h2>Free — 10 stills a day</h2>
+      <p>Drop your email. You’ll get the morning cut.</p>
+      <form id="sub-form" name="studio-dispatch" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="studio-dispatch" />
+        <p class="hidden"><label>Don’t fill this <input name="bot-field" /></label></p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+        <button type="submit" class="btn">Subscribe free</button>
+      </form>
+      <p id="sub-status" class="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Paid — 25 stills a day</h2>
+      <p>$5 / month on Cash App. Put <em>newsletter</em> in the note so it gets tagged.</p>
+      <a class="btn gold" href="https://cash.app/$Logan7in/5">Pay $5 on Cash App</a>
+    </section>
+
+    <p class="links">
+      <a href="https://1000-l7in.netlify.app/">Gallery</a>
+      ·
+      <a href="https://github.com/LoganSevin/1000-Paintings-Challenge">GitHub</a>
+      ·
+      <a href="https://x.com/L7IN597">@L7IN597</a>
+    </p>
+  </main>
+  <script>
+    (function () {
+      var form = document.getElementById("sub-form");
+      var status = document.getElementById("sub-status");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = document.getElementById("email").value.trim();
+        if (!email) return;
+        status.className = "status";
+        status.textContent = "Joining…";
+        var body = JSON.stringify({ email: email, source: "subscribe-link", tier: "free" });
+        function mailtoFallback() {
+          location.href = "mailto:lsevin71@gmail.com?subject=" +
+            encodeURIComponent("Subscribe Studio Dispatch") +
+            "&body=" + encodeURIComponent(email);
+        }
+        fetch("/api/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: body,
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok && d && d.ok, d: d }; }); })
+          .then(function (res) {
+            if (res.ok) {
+              status.textContent = "You’re on the free list.";
+              form.reset();
+              return;
+            }
+            return fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: new URLSearchParams({ "form-name": "studio-dispatch", email: email }).toString(),
+            }).then(function (r) {
+              if (r.ok) {
+                status.textContent = "You’re on the list.";
+                form.reset();
+              } else {
+                status.className = "status err";
+                status.textContent = "Could not reach the list — opening mail…";
+                mailtoFallback();
+              }
+            });
+          })
+          .catch(function () {
+            status.className = "status err";
+            status.textContent = "Opening mail to finish signup…";
+            mailtoFallback();
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

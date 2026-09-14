@@ -136,6 +136,23 @@ body::before {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.xai-credits-reload {
+  flex: 0 0 auto;
+  color: #e8d5a8;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.28rem;
+  border-radius: 4px;
+  border: 1px solid rgba(232, 213, 168, 0.35);
+}
+
+.xai-credits-hud.is-low .xai-credits-reload {
+  background: #d9bb66;
+  color: #171207;
+  border-color: transparent;
+}
+
 @media (max-width: 640px) {
   .xai-credits-hud {
     top: 0.2rem;

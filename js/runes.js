@@ -10,6 +10,8 @@
   var INCANT_KEY = "runes_incantation_v1";
   var FILLER_KEY = "runes_filler_v1";
   var SESSION_KEY = "runes_full_session_v3";
+  var NPC_CIPHER_KEY = "runes_npc_ciphers_v1";
+  var IM_KEY = "runes_im_threads_v1";
 
   /**
    * Full set from symbolselect.com (and user paste), in page order.
@@ -84,6 +86,10 @@
     lod1Analyses: {},
     imageUrl: "",
     videoUrl: "",
+    roster: [],
+    npcCiphers: {},
+    imPeerId: "",
+    imBusy: false,
   };
 
   function $(id) {
@@ -357,10 +363,84 @@
   }
 
   /** Sorted longest-first for greedy English → runes matching. */
-  function blocksLongestFirst() {
-    return state.blocks.slice().sort(function (a, b) {
+  function blocksLongestFirst(blocks) {
+    return (blocks || state.blocks).slice().sort(function (a, b) {
       return b.from.length - a.from.length || a.from.localeCompare(b.from);
     });
+  }
+
+  function oneLetterMap(blocks) {
+    var one = {};
+    (blocks || state.blocks).forEach(function (b) {
+      if (b && b.from && b.from.length === 1 && b.to) one[b.from] = b.to;
+    });
+    return one;
+  }
+
+  function hash32(s) {
+    var h = 2166136261;
+    s = String(s || "");
+    for (var i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+
+  function mulberry(seed) {
+    var x = (seed || 1) >>> 0;
+    return function () {
+      x = (Math.imul(x, 1664525) + 1013904223) >>> 0;
+      return x / 4294967296;
+    };
+  }
+
+  function shuffleInPlace(arr, rnd) {
+    var i;
+    var j;
+    var t;
+    for (i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(rnd() * (i + 1));
+      t = arr[i];
+      arr[i] = arr[j];
+      arr[j] = t;
+    }
+    return arr;
+  }
+
+  var CLUSTER_POOL = [
+    "th", "ng", "ing", "st", "ae", "sh", "ch", "ph", "wh", "qu", "ck", "gh",
+    "ou", "ea", "oo", "ee", "ar", "er", "or", "ir", "ur", "an", "en", "in",
+    "on", "un", "al", "el", "il", "ay", "oy", "aw", "ow", "ed", "ly", "tion",
+    "ness", "ment", "igh", "str", "thr", "shr", "tch", "dge", "kn", "wr",
+  ];
+
+  var RUNE_SEALS = "▴▾◆◇○●□■△▽✚✦✧⋆✶✷✸✹✺✻✼✽✾✿❀❁❂❃❄❅❆❇❈❉❊❋⊕⊖⊗⊘⊙⊚⊛⊜⊝⊞⊟⊠⊡".split("");
+
+  function runeLook(index) {
+    var i = index | 0;
+    var hues = [16, 28, 38, 48, 72, 96, 128, 158, 178, 198, 218, 248, 278, 308, 332];
+    var hue = (hues[i % hues.length] + Math.floor(i / hues.length) * 9) % 360;
+    var r1 = 2 + (i * 5) % 14;
+    var r2 = 2 + (i * 7) % 14;
+    var r3 = 2 + (i * 11) % 14;
+    var r4 = 2 + (i * 13) % 14;
+    return {
+      hue: hue,
+      radius: r1 + "px " + r2 + "px " + r3 + "px " + r4 + "px",
+      seal: RUNE_SEALS[i % RUNE_SEALS.length],
+      tilt: ((i * 17) % 21) - 10,
+      cut: i % 4,
+    };
+  }
+
+  function applyRuneLook(el, rune, index) {
+    var look = runeLook(index);
+    el.style.borderRadius = look.radius;
+    el.style.borderColor = "hsla(" + look.hue + ",62%,52%,0.85)";
+    el.style.boxShadow = "inset " + (look.cut === 0 ? "3px 0" : look.cut === 1 ? "-3px 0" : look.cut === 2 ? "0 3px" : "0 -3px") + " 0 hsla(" + look.hue + ",70%,45%,0.9)";
+    el.dataset.ruSeal = look.seal;
+    el.style.setProperty("--ru-tilt", look.tilt + "deg");
   }
 
   /** Rune → list of English keys (for keyboard meta + reverse gloss). */
@@ -395,12 +475,24 @@
   }
 
   /**
-   * Translate English → runes with greedy 3→2→1 letter block matching.
-   * Repeated sequences (e.g. "tt", "ing") match every time they appear.
+   * English → runes.
+   * letter-first (Logan): if this letter has a 1-letter slot, emit that rune.
+   * 2–3 letter keys only fire when none of their letters already have a 1-letter slot.
+   * longest (NPC grammar): longest key wins, so their combinations stay visible.
    */
-  function englishToRunes(text) {
+  function englishToRunes(text, blocksOpt, policy) {
+    policy = policy || "letter-first";
     var filler = ($("ru-filler") && $("ru-filler").value) || "·";
-    var blocks = blocksLongestFirst();
+    var blocks = blocksOpt || state.blocks;
+    var one = oneLetterMap(blocks);
+    var multi = blocks
+      .filter(function (b) {
+        return b && b.from && b.from.length >= 2 && b.to;
+      })
+      .sort(function (a, b) {
+        return b.from.length - a.from.length || a.from.localeCompare(b.from);
+      });
+    var longest = blocksLongestFirst(blocks);
     var out = "";
     var i = 0;
     var s = String(text || "");
@@ -422,17 +514,41 @@
         i++;
         continue;
       }
+      var letter = lower.charAt(i);
       var matched = false;
-      for (var b = 0; b < blocks.length; b++) {
-        var key = blocks[b].from;
+      if (policy === "letter-first" && one[letter]) {
+        out += one[letter];
+        i++;
+        continue;
+      }
+      var list = policy === "longest" ? longest : multi;
+      var b;
+      for (b = 0; b < list.length; b++) {
+        var key = list[b].from;
         var len = key.length;
         if (len < 1) continue;
+        if (policy === "letter-first") {
+          var blocked = false;
+          var k;
+          for (k = 0; k < key.length; k++) {
+            if (one[key.charAt(k)]) {
+              blocked = true;
+              break;
+            }
+          }
+          if (blocked) continue;
+        }
         if (lower.slice(i, i + len) === key) {
-          out += blocks[b].to;
+          out += list[b].to;
           i += len;
           matched = true;
           break;
         }
+      }
+      if (!matched && one[letter]) {
+        out += one[letter];
+        i++;
+        matched = true;
       }
       if (!matched) {
         out += filler || "·";
@@ -442,8 +558,11 @@
     return out;
   }
 
-  function runesToEnglish(text) {
+  function runesToEnglish(text, blocksOpt) {
+    var prev = state.blocks;
+    if (blocksOpt) state.blocks = blocksOpt;
     var rev = runeToKeys();
+    if (blocksOpt) state.blocks = prev;
     var out = "";
     var s = String(text || "");
     // Walk by code point so multi-byte runes stay whole
@@ -467,6 +586,255 @@
       }
     }
     return out;
+  }
+
+  function loadNpcCiphers() {
+    try {
+      var raw = localStorage.getItem(NPC_CIPHER_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") state.npcCiphers = parsed;
+      }
+    } catch (e) {
+      state.npcCiphers = {};
+    }
+  }
+
+  function saveNpcCiphers() {
+    try {
+      localStorage.setItem(NPC_CIPHER_KEY, JSON.stringify(state.npcCiphers));
+    } catch (e) {}
+  }
+
+  function loganLetterRunes() {
+    return oneLetterMap(state.blocks);
+  }
+
+  function buildPersonCipher(person) {
+    var id = String(person.id);
+    var name = String(person.full_name || ((person.first || "") + " " + (person.last || ""))).trim();
+    var seed = hash32("tongue:" + id + ":" + name);
+    var letters = "abcdefghijklmnopqrstuvwxyz".split("");
+    var logan = loganLetterRunes();
+    var tries = 0;
+    var blocks = [];
+    var differ = 0;
+    while (tries < 48) {
+      var rnd = mulberry(seed + tries * 7919);
+      var bag = shuffleInPlace(RUNES.slice(), rnd);
+      blocks = [];
+      letters.forEach(function (L, i) {
+        blocks.push({ from: L, to: bag[i] });
+      });
+      differ = 0;
+      letters.forEach(function (L, i) {
+        if (logan[L] !== bag[i]) differ++;
+      });
+      var clusters = shuffleInPlace(CLUSTER_POOL.slice(), rnd);
+      var take = 8 + (hash32(id) % 5);
+      var used = {};
+      letters.forEach(function (L) {
+        used[L] = true;
+      });
+      var extra = 0;
+      var c;
+      for (c = 0; c < clusters.length && extra < take; c++) {
+        var cl = clusters[c];
+        if (!cl || cl.length < 2 || used[cl]) continue;
+        used[cl] = true;
+        var ru = bag[26 + extra];
+        if (!ru) break;
+        blocks.push({ from: cl, to: ru });
+        extra++;
+      }
+      if (differ >= 20) break;
+      tries++;
+    }
+    return { id: id, name: name, blocks: blocks };
+  }
+
+  function cipherForPerson(person) {
+    if (!person) return { blocks: state.blocks, policy: "letter-first" };
+    if (person.is_player || String(person.id) === "100") {
+      return { blocks: state.blocks, policy: "letter-first" };
+    }
+    var id = String(person.id);
+    if (!state.npcCiphers[id] || !state.npcCiphers[id].blocks) {
+      state.npcCiphers[id] = buildPersonCipher(person);
+      saveNpcCiphers();
+    }
+    return { blocks: state.npcCiphers[id].blocks, policy: "longest" };
+  }
+
+  function encodeAs(person, text) {
+    var c = cipherForPerson(person);
+    return englishToRunes(text, c.blocks, c.policy);
+  }
+
+  function glossAs(person, runes) {
+    var c = cipherForPerson(person);
+    return runesToEnglish(runes, c.blocks);
+  }
+
+  function loadImThreads() {
+    try {
+      var raw = localStorage.getItem(IM_KEY);
+      if (raw) return JSON.parse(raw) || {};
+    } catch (e) {}
+    return {};
+  }
+
+  function saveImThreads(threads) {
+    try {
+      localStorage.setItem(IM_KEY, JSON.stringify(threads));
+    } catch (e) {}
+  }
+
+  function namedRoster() {
+    return (state.roster || []).filter(function (p) {
+      if (!p || p.is_player || String(p.id) === "100") return false;
+      return !!(p.full_name || p.first);
+    });
+  }
+
+  function personByRosterId(id) {
+    var list = state.roster || [];
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (String(list[i].id) === String(id)) return list[i];
+    }
+    return null;
+  }
+
+  function npcReplyPlain(person, userText) {
+    var name = person.full_name || "them";
+    var partner = person.partner_name || "my pair";
+    var bits = [
+      "I write that with a different cut than you.",
+      "In my tongue that cluster sits as one mark.",
+      "The market taught me these bindings, " + name.split(" ")[0] + " speaking.",
+      partner + " uses a neighbor grammar — still not yours.",
+      "Say it again slower; I will answer in my letters.",
+      "Your one-letter slots eat what I fuse.",
+      "I keep that sound as a single rune. Watch the second line.",
+    ];
+    var h = hash32(String(person.id) + "|" + userText + "|" + Date.now().toString().slice(0, 8));
+    var a = bits[h % bits.length];
+    var echo = String(userText || "").trim();
+    if (echo.length > 90) echo = echo.slice(0, 87) + "…";
+    return a + (echo ? " You said: " + echo : "");
+  }
+
+  function renderImWho() {
+    var sel = $("ru-im-who");
+    if (!sel) return;
+    var people = namedRoster();
+    var keep = state.imPeerId;
+    sel.innerHTML = '<option value="">Choose a speaker…</option>';
+    people.forEach(function (p) {
+      var opt = document.createElement("option");
+      opt.value = String(p.id);
+      opt.textContent = p.full_name + " (#" + p.id + ")";
+      sel.appendChild(opt);
+    });
+    if (keep && people.some(function (p) { return String(p.id) === String(keep); })) {
+      sel.value = String(keep);
+    }
+  }
+
+  function renderImLang(person) {
+    var box = $("ru-im-lang");
+    if (!box) return;
+    if (!person) {
+      box.textContent = "Pick someone named in Banker / Supermarket. Their letter→rune grammar is unique.";
+      return;
+    }
+    var c = cipherForPerson(person);
+    var ones = c.blocks.filter(function (b) { return b.from.length === 1; }).slice(0, 26);
+    var multis = c.blocks.filter(function (b) { return b.from.length >= 2; });
+    var line1 = ones.map(function (b) { return b.from + "→" + b.to; }).join("  ");
+    var line2 = multis.map(function (b) { return b.from + "→" + b.to; }).join("  ");
+    box.innerHTML =
+      "<strong>" +
+      escapeHtml(person.full_name) +
+      "</strong> grammar (longest cluster wins for them; your 1-letter slots still win in your own cipher).<br>" +
+      '<span class="ru-im-alpha">' +
+      escapeHtml(line1) +
+      "</span>" +
+      (line2
+        ? "<br>Clusters: " + escapeHtml(line2)
+        : "");
+  }
+
+  function renderImLog() {
+    var log = $("ru-im-log");
+    if (!log) return;
+    var person = personByRosterId(state.imPeerId);
+    if (!person) {
+      log.innerHTML = "";
+      return;
+    }
+    var threads = loadImThreads();
+    var msgs = threads[String(person.id)] || [];
+    log.innerHTML = msgs
+      .map(function (m) {
+        var who = m.role === "me" ? "You" : escapeHtml(person.full_name);
+        return (
+          '<div class="ru-im-msg ru-im-' +
+          m.role +
+          '"><div class="ru-im-who">' +
+          who +
+          '</div><div class="ru-im-plain">' +
+          escapeHtml(m.plain) +
+          '</div><div class="ru-im-runes">' +
+          escapeHtml(m.runes) +
+          "</div></div>"
+        );
+      })
+      .join("");
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function sendIm() {
+    var person = personByRosterId(state.imPeerId);
+    var input = $("ru-im-in");
+    if (!person || !input) return;
+    var plain = String(input.value || "").trim();
+    if (!plain) return;
+    var mine = encodeAs({ is_player: true, id: 100 }, plain);
+    var theirsIn = encodeAs(person, plain);
+    var threads = loadImThreads();
+    var id = String(person.id);
+    if (!threads[id]) threads[id] = [];
+    threads[id].push({ role: "me", plain: plain, runes: mine + (theirsIn !== mine ? "  · their cut: " + theirsIn : "") });
+    var reply = npcReplyPlain(person, plain);
+    threads[id].push({ role: "them", plain: reply, runes: encodeAs(person, reply) });
+    saveImThreads(threads);
+    input.value = "";
+    renderImLog();
+  }
+
+  function loadRoster() {
+    return fetch(apiUrl("/api/banker/roster?t=" + Date.now()), { cache: "no-store" })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(function (data) {
+        var list = (data && (data.roster || data.people)) || [];
+        state.roster = list;
+        list.forEach(function (p) {
+          if (p && !p.is_player && String(p.id) !== "100") cipherForPerson(p);
+        });
+        renderImWho();
+        renderImLang(personByRosterId(state.imPeerId));
+        renderImLog();
+        return list.length;
+      })
+      .catch(function () {
+        state.roster = [];
+        renderImWho();
+        return 0;
+      });
   }
 
   function activeSpells() {
@@ -1575,18 +1943,27 @@
     if (!kb) return;
     var rev = runeToKeys();
     kb.innerHTML = "";
-    RUNES.forEach(function (rune) {
+    RUNES.forEach(function (rune, idx) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "ru-key";
+      btn.dataset.ruI = String(idx);
+      applyRuneLook(btn, rune, idx);
       if (rev[rune] && rev[rune].length) btn.classList.add("mapped");
       if (state.selectedRune === rune) btn.classList.add("selected");
       var meta =
         rev[rune] && rev[rune].length
           ? rev[rune].slice(0, 3).join("·")
           : "·";
+      var look = runeLook(idx);
       btn.innerHTML =
-        escapeHtml(rune) + '<span class="ru-key-meta">' + escapeHtml(meta) + "</span>";
+        '<span class="ru-key-seal" aria-hidden="true">' +
+        escapeHtml(look.seal) +
+        '</span><span class="ru-key-glyph">' +
+        escapeHtml(rune) +
+        '</span><span class="ru-key-meta">' +
+        escapeHtml(meta) +
+        "</span>";
       btn.title =
         "Rune " +
         rune +
@@ -2144,6 +2521,31 @@
     window.addEventListener("beforeunload", function () {
       saveSession(true);
     });
+
+    var who = $("ru-im-who");
+    if (who && !who.dataset.bound) {
+      who.dataset.bound = "1";
+      who.addEventListener("change", function () {
+        state.imPeerId = who.value;
+        renderImLang(personByRosterId(state.imPeerId));
+        renderImLog();
+      });
+    }
+    var send = $("ru-im-send");
+    if (send && !send.dataset.bound) {
+      send.dataset.bound = "1";
+      send.addEventListener("click", sendIm);
+    }
+    var imIn = $("ru-im-in");
+    if (imIn && !imIn.dataset.bound) {
+      imIn.dataset.bound = "1";
+      imIn.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendIm();
+        }
+      });
+    }
   }
 
   function start() {
@@ -2151,6 +2553,7 @@
     if (!state.started) {
       state.started = true;
       loadMap();
+      loadNpcCiphers();
       restoreSession();
       bindControls();
       renderMapGrid();
@@ -2163,7 +2566,7 @@
         syncFromRunes();
       }
     }
-    Promise.all([loadAnalysisCaches(), loadGeneratedPool()]).then(function (res) {
+    Promise.all([loadAnalysisCaches(), loadGeneratedPool(), loadRoster()]).then(function (res) {
       var n = res[1] || 0;
       refreshSpellTexts();
       renderSpellSlots();
@@ -2191,4 +2594,11 @@
   } else if (location.hash.replace("#", "") === "runes") {
     start();
   }
+
+  window.RunesAPI = {
+    englishToRunes: englishToRunes,
+    runesToEnglish: runesToEnglish,
+    encodeAs: encodeAs,
+    cipherForPerson: cipherForPerson,
+  };
 })();

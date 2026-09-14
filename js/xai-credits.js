@@ -32,6 +32,7 @@
         '<span class="xai-credits-line" id="xai-credits-line1">Credits …</span>' +
         '<span class="xai-credits-line" id="xai-credits-line2">Week …</span>' +
         "</a>" +
+        '<a class="xai-credits-reload" id="xai-credits-reload" href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer" title="Auto top-up in xAI billing">Reload</a>' +
         '<button type="button" class="xai-credits-refresh" id="xai-credits-refresh" title="Refresh credits">↻</button>';
       document.body.appendChild(el);
       var btn = document.getElementById("xai-credits-refresh");

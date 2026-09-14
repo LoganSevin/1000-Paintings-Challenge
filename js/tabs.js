@@ -40,6 +40,7 @@
     game: document.getElementById("panel-game"),
     commercial: document.getElementById("panel-commercial"),
     income: document.getElementById("panel-income"),
+    profit: document.getElementById("panel-profit"),
     market: document.getElementById("panel-market"),
     supermarket: document.getElementById("panel-supermarket"),
     banker: document.getElementById("panel-banker"),
@@ -70,6 +71,9 @@
     live: document.getElementById("panel-live"),
     zoo: document.getElementById("panel-zoo"),
     rig: document.getElementById("panel-rig"),
+    handfont: document.getElementById("panel-handfont"),
+    voice: document.getElementById("panel-voice"),
+    houma: document.getElementById("panel-houma"),
   };
   const subtitle = document.getElementById("header-subtitle");
   const stats = document.getElementById("stats");
@@ -104,6 +108,7 @@
     game: "Brush Dash — fuse 6 paintings into a boss",
     commercial: "Brand partnerships — campaign pieces under " + ARTIST + " authorship",
     income: "Get paid on X · fans tip Cash App · track rent/food/gas",
+    profit: "Profit — commissions, newsletter, Fiverr, press, xAI auto top-up",
     market: "Practice only — sim sales & paper trades",
     supermarket: "Art supermarket — aisles, shoppers, receipts → generate",
     banker: "Banker — SIM debit/credit for the supermarket 100 · Luhn · encrypted vault",
@@ -134,6 +139,9 @@
     live: "Live — puppet host on a real TikTok LIVE · comments, gifts, follows",
     zoo: "Zoo — Linnaean taxonomy, stock portraits, circular cast with three spell arcs",
     rig: "Rig — place 2D bones on images yourself; manual skeleton mapping",
+    handfont: "Hand Font — draw letters, write across the page, thicken and highlight",
+    voice: "Voice — speak with your hands; play Logan’s recorded voice as a studio module",
+    houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
   };
 
   function hideOtherTabs(name) {
@@ -202,6 +210,9 @@
     if (name !== "income") {
       window.dispatchEvent(new Event("income-hide"));
     }
+    if (name !== "profit") {
+      window.dispatchEvent(new Event("profit-hide"));
+    }
     if (name !== "supermarket") {
       window.dispatchEvent(new Event("supermarket-hide"));
     }
@@ -234,6 +245,9 @@
     }
     if (name !== "runes") {
       window.dispatchEvent(new Event("runes-hide"));
+    }
+    if (name !== "houma") {
+      window.dispatchEvent(new Event("houma-hide"));
     }
     if (name !== "dream") {
       window.dispatchEvent(new Event("dream-hide"));
@@ -289,6 +303,12 @@
     if (name !== "rig") {
       window.dispatchEvent(new Event("rig-hide"));
     }
+    if (name !== "handfont") {
+      window.dispatchEvent(new Event("handfont-hide"));
+    }
+    if (name !== "voice") {
+      window.dispatchEvent(new Event("voice-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -307,9 +327,12 @@
     document.body.classList.toggle("lv-tab-active", name === "live");
     document.body.classList.toggle("zoo-tab-active", name === "zoo");
     document.body.classList.toggle("rig-tab-active", name === "rig");
+    document.body.classList.toggle("hf-tab-active", name === "handfont");
+    document.body.classList.toggle("vh-tab-active", name === "voice");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
+    document.body.classList.toggle("hm-tab-active", name === "houma");
     document.body.classList.toggle("ds-tab-active", name === "dream");
     document.body.classList.toggle("fi-tab-active", name === "fleeting-idea");
     document.body.classList.toggle("mag-tab-active", name === "mobile-art-gen");
@@ -332,6 +355,7 @@
     document.body.classList.toggle("gm-tab-active", name === "game");
     document.body.classList.toggle("co-tab-active", name === "commercial");
     document.body.classList.toggle("ri-tab-active", name === "income");
+    document.body.classList.toggle("pf-tab-active", name === "profit");
     document.body.classList.toggle("mk-tab-active", name === "market");
     document.body.classList.toggle("sm-tab-active", name === "supermarket");
     document.body.classList.toggle("bk-tab-active", name === "banker");
@@ -501,6 +525,12 @@
         window.Commercial.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "profit") {
+      window.dispatchEvent(new Event("profit-show"));
+      if (window.ProfitDesk && window.ProfitDesk.onShow) {
+        window.ProfitDesk.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "plasma") {
       window.dispatchEvent(new Event("plasma-show"));
       hideOtherTabs(name);
@@ -509,6 +539,12 @@
       hideOtherTabs(name);
     } else if (name === "runes") {
       window.dispatchEvent(new Event("runes-show"));
+      hideOtherTabs(name);
+    } else if (name === "houma") {
+      window.dispatchEvent(new Event("houma-show"));
+      if (window.Houma && window.Houma.onShow) {
+        window.Houma.onShow();
+      }
       hideOtherTabs(name);
     } else if (name === "dream") {
       window.dispatchEvent(new Event("dream-show"));
@@ -609,6 +645,18 @@
         window.Rig.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "handfont") {
+      window.dispatchEvent(new Event("handfont-show"));
+      if (window.HandFont && window.HandFont.onShow) {
+        window.HandFont.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "voice") {
+      window.dispatchEvent(new Event("voice-show"));
+      if (window.VoiceHands && window.VoiceHands.onShow) {
+        window.VoiceHands.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -654,6 +702,10 @@
       }
     } catch (eEmb) {}
     const hash = location.hash.replace("#", "").split("?")[0];
+    if (hash === "subscribe") {
+      location.replace("subscribe.html");
+      return;
+    }
     // Card Duel invite: ?cdroom=1234 opens the duel tab even without #cardduel
     var cdroom = "";
     try {
@@ -688,6 +740,7 @@
       tabName === "game" ||
       tabName === "commercial" ||
       tabName === "income" ||
+      tabName === "profit" ||
       tabName === "market" ||
       tabName === "supermarket" ||
       tabName === "banker" ||
@@ -718,6 +771,9 @@
       tabName === "live" ||
       tabName === "zoo" ||
       tabName === "rig" ||
+      tabName === "handfont" ||
+      tabName === "voice" ||
+      tabName === "houma" ||
       tabName === "maps"
     ) {
       showTab(tabName === "rooms" ? "places" : tabName);
