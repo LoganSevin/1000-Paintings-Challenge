@@ -51,3 +51,7 @@ transfer-to-phone/
 # Local service configs with possible secrets
 data/pulse-google-config.json
 
+sync_to_github.bat
+sync_log.txt
+cleanup_sync.bat
+cleanup_log.txt
