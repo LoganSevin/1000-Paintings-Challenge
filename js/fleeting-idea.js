@@ -1504,13 +1504,19 @@
   function syncHeaderHeight() {
     var header = document.querySelector(".site-header");
     if (!header) return;
-    /* Use viewport bottom of sticky/static header so fixed FI rails clear title + tabs +
-       Work/Debug even when in-flow siblings (e.g. Welcome) offset the header at scrollY=0. */
+    /* Clearance from viewport top to sticky header bottom (title + tabs + Work/Debug).
+       Prefer bottom when the header is pushed down by in-flow siblings; otherwise height. */
     var rect = header.getBoundingClientRect();
     var bottom = Math.ceil(rect.bottom);
     var h = Math.ceil(rect.height);
-    var value = bottom > 0 ? bottom : h;
-    if (value > 0) document.documentElement.style.setProperty("--fi-header-h", value + "px");
+    var value;
+    if (rect.top > 1 && bottom > 0) value = bottom;
+    else if (h > 0) value = h;
+    else value = bottom;
+    /* Ignore transient absurd values while layout settles */
+    if (value > 0 && value < Math.ceil(window.innerHeight * 0.55)) {
+      document.documentElement.style.setProperty("--fi-header-h", value + "px");
+    }
   }
 
   function onFiHeaderScroll() {

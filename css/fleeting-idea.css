@@ -175,6 +175,10 @@ body.fi-tab-active .site-header .subtitle {
   display: none;
 }
 
+body.fi-tab-active .site-header .stats {
+  display: none;
+}
+
 body.fi-tab-active .site-header {
   /* Keep site tabs above fixed FI chrome (z 28–34) so hover/active aren't stolen */
   position: sticky;
@@ -183,21 +187,81 @@ body.fi-tab-active .site-header {
   background: rgba(10, 14, 24, 0.97);
   border-bottom-color: rgba(201, 162, 39, 0.28);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
-  /* Compact title + tabs + Work/Debug; pad past fixed credits/money HUDs */
-  padding-top: 2.85rem;
-  padding-bottom: 0.3rem;
+  /* Clear fixed credits/money HUDs, then keep title + tabs on one tight row */
+  padding: 2.15rem 1rem 0.18rem;
+  box-sizing: border-box;
 }
 
 body.fi-tab-active .site-header .header-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.4rem 0.85rem;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+body.fi-tab-active .site-header .brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+body.fi-tab-active .site-header .brand h1 {
+  font-size: clamp(1.0rem, 2vw, 1.35rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.88),
+    1px -1px 0 rgba(0, 0, 0, 0.88),
+    -1px 1px 0 rgba(0, 0, 0, 0.88),
+    1px 1px 0 rgba(0, 0, 0, 0.88);
 }
 
 body.fi-tab-active .site-header .site-tabs {
+  flex: 1 1 auto;
   align-self: center;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  gap: 0.28rem;
+  min-height: 0;
+  height: auto;
+  padding: 0.14rem 0.28rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Hide scrollbar so it does not inflate strip height / pin labels low */
+  scrollbar-width: none;
+}
+
+body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 body.fi-tab-active .site-header .site-tabs .tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1.15;
+  padding: 0.32rem 0.7rem;
+  min-height: 1.8rem;
+  height: auto;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -213,20 +277,9 @@ body.fi-tab-active .site-header .site-tabs .tab.active {
   font-weight: 600;
 }
 
-body.fi-tab-active .site-header .brand h1 {
-  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
-  line-height: 1.15;
-  font-weight: 700;
-  text-shadow:
-    -1px -1px 0 rgba(0, 0, 0, 0.88),
-    1px -1px 0 rgba(0, 0, 0, 0.88),
-    -1px 1px 0 rgba(0, 0, 0, 0.88),
-    1px 1px 0 rgba(0, 0, 0, 0.88);
-}
-
 body.fi-tab-active .site-header .site-subtabs {
-  padding-top: 0.22rem;
-  padding-bottom: 0.28rem;
+  padding-top: 0.12rem;
+  padding-bottom: 0.16rem;
   align-items: center;
 }
 
