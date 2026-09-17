@@ -84,6 +84,8 @@
     textBoxGesture: null,
     focusTextId: null,
     lasso: null,
+    subjectLasso: false,
+    subjectLassoSourceId: null,
     panelDrag: null,
     viewPan: { x: 0, y: 0 },
     viewPanDrag: null,
@@ -707,7 +709,10 @@
   }
 
   function objectTypeLabel(obj) {
-    if (obj.type === "stencil") return "stencil " + (obj.letter || state.letter);
+    if (obj.type === "stencil") {
+      if (obj.subjectName) return "stencil · " + obj.subjectName;
+      return "stencil " + (obj.letter || state.letter);
+    }
     if (obj.type === "textbox") return "text";
     if (obj.isPip) return "pip";
     return obj.label || "sheet";
@@ -2120,6 +2125,439 @@
     return state.objects.filter(function (o) { return o.type === "stencil"; }).length;
   }
 
+  var PROMPT_SUBJECT_STOP = {
+    a: 1, an: 1, the: 1, and: 1, or: 1, of: 1, in: 1, on: 1, at: 1, to: 1, for: 1,
+    with: 1, from: 1, by: 1, as: 1, into: 1, over: 1, under: 1, near: 1, like: 1,
+    style: 1, mood: 1, lighting: 1, prompt: 1, index: 1, vision: 1, scene: 1,
+  };
+
+  function normalizeSubjectName(raw) {
+    var s = String(raw || "")
+      .replace(/^[\s"'`]+|[\s"'`]+$/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!s) return "";
+    s = s.replace(/^(a|an|the)\s+/i, "").trim();
+    if (s.length < 2 || s.length > 64) return "";
+    return s;
+  }
+
+  function parsePromptSubjects(text) {
+    var raw = String(text || "").trim();
+    if (!raw) return [];
+    var found = [];
+    var seen = {};
+    function push(name) {
+      var n = normalizeSubjectName(name);
+      if (!n) return;
+      var key = n.toLowerCase();
+      if (seen[key]) return;
+      if (PROMPT_SUBJECT_STOP[key]) return;
+      seen[key] = 1;
+      found.push(n);
+    }
+    var quoted = raw.match(/"([^"]{2,64})"|'([^']{2,64})'/g) || [];
+    quoted.forEach(function (q) {
+      push(q.replace(/^["']|["']$/g, ""));
+    });
+    var cleaned = raw
+      .replace(/"[^"]*"|'[^']*'/g, " , ")
+      .replace(/\b(?:featuring|subjects?|including|with)\b[:\s]+/gi, ", ")
+      .replace(/\band\b/gi, ",")
+      .replace(/[;|/]+/g, ",")
+      .replace(/\n+/g, ",");
+    cleaned.split(",").forEach(function (chunk) {
+      var piece = chunk.replace(/\s+/g, " ").trim();
+      if (!piece) return;
+      // Prefer noun-ish tails: drop leading filler words
+      var words = piece.split(" ").filter(Boolean);
+      while (words.length && PROMPT_SUBJECT_STOP[words[0].toLowerCase()]) words.shift();
+      if (!words.length) return;
+      // Keep short phrases (1–5 words)
+      if (words.length > 5) words = words.slice(0, 5);
+      push(words.join(" "));
+    });
+    return found;
+  }
+
+  function getPromptSubjects() {
+    var fromPrompt = parsePromptSubjects(getUserPrompt());
+    var fromStencils = [];
+    state.objects.forEach(function (o) {
+      if (o.type === "stencil" && o.subjectName) fromStencils.push(o.subjectName);
+    });
+    var fromAnalyses = [];
+    sheetPaintingNums().forEach(function (num) {
+      var a = getAnalysis(num) || getLod1Analysis(num);
+      if (!a) return;
+      if (a.title) fromAnalyses.push(a.title);
+      (a.tags || []).slice(0, 6).forEach(function (t) { fromAnalyses.push(t); });
+    });
+    return uniqueStrings(fromPrompt.concat(fromStencils).concat(parsePromptSubjects(fromAnalyses.join(", "))));
+  }
+
+  function ensureFiContextMenu() {
+    var menu = $("fi-ctx-menu");
+    if (menu) return menu;
+    menu = document.createElement("div");
+    menu.id = "fi-ctx-menu";
+    menu.className = "fi-ctx-menu";
+    menu.hidden = true;
+    menu.setAttribute("role", "menu");
+    menu.setAttribute("aria-label", "Fleeting Idea actions");
+    menu.innerHTML =
+      '<button type="button" role="menuitem" data-fi-ctx="place-projector">Place on projector</button>' +
+      '<button type="button" role="menuitem" data-fi-ctx="subject-lasso">Prompt subject lasso</button>' +
+      '<button type="button" role="menuitem" data-fi-ctx="name-stencil" hidden>Name stencil…</button>';
+    document.body.appendChild(menu);
+    menu.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-fi-ctx]");
+      if (!btn || menu.hidden) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var action = btn.getAttribute("data-fi-ctx");
+      var payload = menu._payload || {};
+      hideFiContextMenu();
+      if (action === "place-projector") placeOnProjectorFromCtx(payload);
+      else if (action === "subject-lasso") startPromptSubjectLassoFromCtx(payload);
+      else if (action === "name-stencil") openStencilNameDialog(payload.layerId || state.selectedId);
+    });
+    return menu;
+  }
+
+  function hideFiContextMenu() {
+    var menu = $("fi-ctx-menu");
+    if (!menu) return;
+    menu.hidden = true;
+    menu._payload = null;
+  }
+
+  function showFiContextMenu(clientX, clientY, payload) {
+    var menu = ensureFiContextMenu();
+    payload = payload || {};
+    menu._payload = payload;
+    var placeBtn = menu.querySelector('[data-fi-ctx="place-projector"]');
+    var lassoBtn = menu.querySelector('[data-fi-ctx="subject-lasso"]');
+    var nameBtn = menu.querySelector('[data-fi-ctx="name-stencil"]');
+    var canPlace = !!(payload.url || payload.layerId);
+    var canLasso = !!(payload.layerId || payload.url);
+    var isStencil = false;
+    if (payload.layerId) {
+      var layer = getObject(payload.layerId);
+      isStencil = !!(layer && layer.type === "stencil");
+      if (layer && layer.type === "textbox") canLasso = false;
+    }
+    if (placeBtn) placeBtn.hidden = !canPlace || isStencil;
+    if (lassoBtn) {
+      lassoBtn.hidden = !canLasso || isStencil;
+      lassoBtn.textContent = "Prompt subject lasso";
+    }
+    if (nameBtn) nameBtn.hidden = !isStencil;
+    menu.hidden = false;
+    var pad = 8;
+    var w = menu.offsetWidth || 200;
+    var h = menu.offsetHeight || 96;
+    var x = Math.min(clientX, window.innerWidth - w - pad);
+    var y = Math.min(clientY, window.innerHeight - h - pad);
+    menu.style.left = Math.max(pad, x) + "px";
+    menu.style.top = Math.max(pad, y) + "px";
+  }
+
+  function placeImageOnProjector(slot, opts) {
+    opts = opts || {};
+    if (!slot || !slot.url) {
+      setComposerStatus("No image to place on the projector.");
+      setTimeout(function () { setComposerStatus(""); }, 1600);
+      return Promise.resolve(null);
+    }
+    return addImageObject(slot, null, { scrollPanel: true }).then(function (id) {
+      if (!id) return null;
+      renderObjects();
+      syncStageChrome(true);
+      composeMoment();
+      setComposerStatus(opts.status || "Placed on the overhead projector.");
+      setTimeout(function () { setComposerStatus(""); }, 1600);
+      return id;
+    });
+  }
+
+  function placeOnProjectorFromCtx(payload) {
+    payload = payload || {};
+    if (payload.layerId) {
+      var existing = getObject(payload.layerId);
+      if (existing && existing.type === "image") {
+        if (payload.duplicate) {
+          return placeImageOnProjector(
+            { url: existing.url, label: existing.label || "sheet", paintingNum: existing.paintingNum || null },
+            { status: "Sheet duplicated onto the projector." }
+          );
+        }
+        selectObject(existing.id, { scrollPanel: true, bringToFront: true });
+        panToLayer(existing.id);
+        setComposerStatus("Already on the projector — focused that sheet.");
+        setTimeout(function () { setComposerStatus(""); }, 1600);
+        return Promise.resolve(existing.id);
+      }
+    }
+    if (payload.url) {
+      return placeImageOnProjector({
+        url: payload.url,
+        label: payload.label || "sheet",
+        paintingNum: payload.paintingNum || null,
+      });
+    }
+    setComposerStatus("Nothing to place on the projector.");
+    setTimeout(function () { setComposerStatus(""); }, 1600);
+    return Promise.resolve(null);
+  }
+
+  function startPromptSubjectLasso(layerId) {
+    var obj = getObject(layerId);
+    if (!obj || !layerSupportsLasso(obj)) {
+      setComposerStatus("Pick an image sheet, then use Prompt subject lasso.");
+      setTimeout(function () { setComposerStatus(""); }, 1800);
+      return;
+    }
+    state.subjectLasso = true;
+    state.subjectLassoSourceId = obj.id;
+    selectObject(obj.id, { scrollPanel: true, bringToFront: false });
+    setTool("lasso");
+    var subjects = getPromptSubjects();
+    var hint = subjects.length
+      ? "Lasso a subject — will name from prompt (" + subjects.slice(0, 3).join(", ") + (subjects.length > 3 ? "…" : "") + ")."
+      : "Lasso a subject region — then name the vision stencil from the prompt.";
+    setComposerStatus(hint);
+  }
+
+  function startPromptSubjectLassoFromCtx(payload) {
+    payload = payload || {};
+    if (payload.layerId && getObject(payload.layerId)) {
+      startPromptSubjectLasso(payload.layerId);
+      return;
+    }
+    if (payload.url) {
+      placeImageOnProjector({
+        url: payload.url,
+        label: payload.label || "sheet",
+        paintingNum: payload.paintingNum || null,
+      }, { status: "Sheet on projector — outline the subject." }).then(function (id) {
+        if (id) startPromptSubjectLasso(id);
+      });
+      return;
+    }
+    setComposerStatus("No image for subject lasso.");
+    setTimeout(function () { setComposerStatus(""); }, 1600);
+  }
+
+  function findStencilBySubject(name) {
+    var key = normalizeSubjectName(name).toLowerCase();
+    if (!key) return null;
+    return state.objects.find(function (o) {
+      return o.type === "stencil" && normalizeSubjectName(o.subjectName).toLowerCase() === key;
+    }) || null;
+  }
+
+  function applySubjectNameToStencil(stencil, name) {
+    if (!stencil || stencil.type !== "stencil") return;
+    var n = normalizeSubjectName(name);
+    stencil.subjectName = n || "";
+    if (n) {
+      // Keep letter for glyph, but prefer subject organization in labels
+      stencil.label = n;
+    }
+  }
+
+  function openStencilNameDialog(stencilId) {
+    var stencil = getObject(stencilId);
+    if (!stencil || stencil.type !== "stencil") {
+      setComposerStatus("Select a stencil to name.");
+      setTimeout(function () { setComposerStatus(""); }, 1400);
+      return;
+    }
+    var subjects = getPromptSubjects();
+    var existing = document.getElementById("fi-stencil-name-pop");
+    if (existing) existing.remove();
+    var pop = document.createElement("div");
+    pop.id = "fi-stencil-name-pop";
+    pop.className = "fi-stencil-name-pop";
+    pop.innerHTML =
+      '<label class="fi-stencil-name-label" for="fi-stencil-name-input">Name vision stencil</label>' +
+      '<input type="text" id="fi-stencil-name-input" class="fi-stencil-name-input" list="fi-stencil-subject-list" ' +
+      'placeholder="Subject from prompt…" autocomplete="off" />' +
+      '<datalist id="fi-stencil-subject-list"></datalist>' +
+      '<div class="fi-stencil-name-actions">' +
+      '<button type="button" class="btn-secondary" data-fi-name-act="cancel">Cancel</button>' +
+      '<button type="button" class="btn-cast" data-fi-name-act="save">Save name</button>' +
+      "</div>";
+    document.body.appendChild(pop);
+    var list = pop.querySelector("#fi-stencil-subject-list");
+    subjects.forEach(function (s) {
+      var opt = document.createElement("option");
+      opt.value = s;
+      list.appendChild(opt);
+    });
+    var input = pop.querySelector("#fi-stencil-name-input");
+    input.value = stencil.subjectName || subjects[0] || "";
+    function close() { if (pop && pop.parentNode) pop.parentNode.removeChild(pop); }
+    pop.addEventListener("click", function (e) {
+      var act = e.target.getAttribute("data-fi-name-act");
+      if (!act) return;
+      if (act === "cancel") { close(); return; }
+      if (act === "save") {
+        var chosen = normalizeSubjectName(input.value);
+        var twin = chosen ? findStencilBySubject(chosen) : null;
+        if (twin && twin.id !== stencil.id) {
+          // Update existing subject stencil region; drop the temporary one
+          twin.x = stencil.x;
+          twin.y = stencil.y;
+          twin.w = stencil.w;
+          twin.h = stencil.h;
+          twin.rotation = stencil.rotation;
+          twin.tiltX = stencil.tiltX;
+          twin.tiltY = stencil.tiltY;
+          twin.clipPath = stencil.clipPath || "";
+          twin.clipEdge = !!stencil.clipEdge;
+          twin.visionSourceId = stencil.visionSourceId || twin.visionSourceId;
+          applySubjectNameToStencil(twin, chosen);
+          state.objects = state.objects.filter(function (o) { return o.id !== stencil.id; });
+          state.selectedId = twin.id;
+          bringToFront(twin.id);
+          setComposerStatus('Updated vision stencil "' + chosen + '".');
+        } else {
+          applySubjectNameToStencil(stencil, chosen);
+          setComposerStatus(
+            stencil.subjectName
+              ? 'Stencil named "' + stencil.subjectName + '".'
+              : "Stencil name cleared."
+          );
+        }
+        renderObjects();
+        composeMoment();
+        setTimeout(function () { setComposerStatus(""); }, 1600);
+        close();
+      }
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        pop.querySelector('[data-fi-name-act="save"]').click();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+      }
+    });
+    requestAnimationFrame(function () {
+      input.focus();
+      input.select();
+    });
+  }
+
+  function createOrUpdateVisionStencilFromLasso(sourceObj, clipPath, bedRect) {
+    var pts = parseClipPctPoints(clipPath);
+    if (!sourceObj || pts.length < 3) return null;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    pts.forEach(function (p) {
+      minX = Math.min(minX, p.x);
+      minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x);
+      maxY = Math.max(maxY, p.y);
+    });
+    var box = objectRectPx(sourceObj, bedRect);
+    var cutLeft = box.left + (minX / 100) * box.width;
+    var cutTop = box.top + (minY / 100) * box.height;
+    var cutW = Math.max(8, ((maxX - minX) / 100) * box.width);
+    var cutH = Math.max(8, ((maxY - minY) / 100) * box.height);
+    var layout = {
+      x: (cutLeft / bedRect.width) * 100,
+      y: (cutTop / bedRect.height) * 100,
+      w: (cutW / bedRect.width) * 100,
+      h: (cutH / bedRect.height) * 100,
+      rotation: sourceObj.rotation || 0,
+      tiltX: sourceObj.tiltX || 0,
+      tiltY: sourceObj.tiltY || 0,
+      clipPath: "",
+      clipEdge: false,
+    };
+    var localClip = pts.map(function (p) {
+      var px = box.left + (p.x / 100) * box.width;
+      var py = box.top + (p.y / 100) * box.height;
+      var lx = ((px - cutLeft) / cutW) * 100;
+      var ly = ((py - cutTop) / cutH) * 100;
+      return Math.max(0, Math.min(100, lx)) + "% " + Math.max(0, Math.min(100, ly)) + "%";
+    });
+    layout.clipPath = "polygon(" + localClip.join(", ") + ")";
+    layout.clipEdge = true;
+    var subjects = getPromptSubjects();
+    var preferred = subjects[0] || "";
+    if (preferred) layout.subjectName = preferred;
+    var id = addStencil(layout);
+    var stencil = getObject(id);
+    if (!stencil) return null;
+    stencil.visionSourceId = sourceObj.id;
+    renderObjects();
+    composeMoment();
+    openStencilNameDialog(stencil.id);
+    state.subjectLasso = false;
+    state.subjectLassoSourceId = null;
+    setTool("move");
+    setComposerStatus(
+      stencil.subjectName
+        ? 'Vision stencil "' + stencil.subjectName + '" from subject lasso.'
+        : "Vision stencil region ready — pick a prompt subject name."
+    );
+    setTimeout(function () { setComposerStatus(""); }, 2200);
+    return stencil.id;
+  }
+
+  function onFiContextMenu(e) {
+    var workspace = $("fi-workspace");
+    if (!workspace || !workspace.contains(e.target)) return;
+    var thumb = e.target.closest(".fi-acquired-thumb");
+    var card = e.target.closest(".fi-sheet-card, .fi-layer-card");
+    var pose = e.target.closest(".fi-pose-object");
+    var slot = e.target.closest(".fi-slot");
+    if (!thumb && !card && !pose && !slot) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var payload = {};
+    if (thumb) {
+      payload.url = thumb.dataset.url || (thumb.querySelector("img") && thumb.querySelector("img").src) || "";
+      payload.label = thumb.dataset.label || thumb.title || "";
+      payload.paintingNum = thumb.dataset.paintingNum ? Number(thumb.dataset.paintingNum) : null;
+    } else if (card) {
+      payload.layerId = card.dataset.id || null;
+      var layer = getObject(payload.layerId);
+      if (layer && layer.type === "image") {
+        payload.url = layer.url;
+        payload.label = layer.label || "";
+        payload.paintingNum = layer.paintingNum || null;
+      }
+    } else if (pose) {
+      payload.layerId = pose.dataset.id || null;
+      var poseObj = getObject(payload.layerId);
+      if (poseObj && poseObj.type === "image") {
+        payload.url = poseObj.url;
+        payload.label = poseObj.label || "";
+        payload.paintingNum = poseObj.paintingNum || null;
+      }
+    } else if (slot) {
+      payload.url = slot.dataset.url || "";
+      payload.label = slot.dataset.label || slot.title || "";
+      payload.paintingNum = slot.dataset.paintingNum ? Number(slot.dataset.paintingNum) : null;
+      if (!payload.url && window.FleetingAcquired && window.FleetingAcquired.getSlots) {
+        var idx = Number(slot.dataset.slot);
+        var slots = window.FleetingAcquired.getSlots() || [];
+        var s = slots[idx];
+        if (s && s.url) {
+          payload.url = s.url;
+          payload.label = s.label || "";
+          payload.paintingNum = s.paintingNum || null;
+        }
+      }
+    }
+    showFiContextMenu(e.clientX, e.clientY, payload);
+  }
+
   function addStencil(layout) {
     var count = stencilCount();
     var plate = glassPlateInBed();
@@ -2128,17 +2566,20 @@
       id: id,
       type: "stencil",
       letter: state.letter,
+      subjectName: layout && layout.subjectName ? normalizeSubjectName(layout.subjectName) : "",
       x: layout ? layout.x : plate.x + plate.w * (0.28 + count * 0.06),
       y: layout ? layout.y : plate.y + plate.h * (0.14 + count * 0.05),
       w: layout ? layout.w : plate.w * 0.2,
       h: layout ? layout.h : plate.h * 0.36,
       rotation: layout ? layout.rotation || -2 : Math.random() * 6 - 3,
-      clipPath: "",
+      clipPath: layout && layout.clipPath ? layout.clipPath : "",
+      clipEdge: !!(layout && layout.clipEdge),
       tiltX: layout && layout.tiltX != null ? layout.tiltX : 0,
       tiltY: layout && layout.tiltY != null ? layout.tiltY : 0,
       zIndex: 0,
       bedCoords: true,
     };
+    if (stencil.subjectName) stencil.label = stencil.subjectName;
     assignZ(stencil);
     state.objects.push(stencil);
     state.selectedId = id;
@@ -2804,6 +3245,7 @@
     if (action === "goto") panToLayer(layerId);
     else if (action === "moveto") moveSelectedToLayer(layerId);
     else if (action === "regenerate") regenerateLayer(layerId);
+    else if (action === "name") openStencilNameDialog(layerId);
   }
 
   function renderSheetsPanel() {
@@ -2843,6 +3285,10 @@
       var regenBtn = layerShowsRegenerate(obj)
         ? '<button type="button" class="fi-layer-card-action fi-layer-card-regen" data-action="regenerate" title="Reload or regenerate this image">Regenerate</button>'
         : "";
+      var nameBtn =
+        obj.type === "stencil"
+          ? '<button type="button" class="fi-layer-card-action" data-action="name" title="Name stencil from prompt subjects">Name</button>'
+          : "";
       card.innerHTML =
         '<span class="fi-sheet-card-grip" aria-hidden="true">⋮⋮</span>' +
         '<div class="fi-sheet-card-thumb">' + thumbHtml + "</div>" +
@@ -2855,6 +3301,7 @@
         '<div class="fi-sheet-card-actions">' +
         '<button type="button" class="fi-layer-card-action" data-action="goto" title="Pan OHP to this layer">Go to</button>' +
         moveToBtn +
+        nameBtn +
         regenBtn +
         "</div>";
       list.appendChild(card);
@@ -3051,10 +3498,14 @@
         normalizePlaneObject(obj);
         var glyph = obj.letter || state.letter;
         el.dataset.letter = glyph;
+        if (obj.subjectName) el.dataset.subject = obj.subjectName;
+        var stencilTag = obj.subjectName
+          ? "stencil · " + escapeHtml(obj.subjectName)
+          : "stencil " + escapeHtml(glyph);
         el.innerHTML =
-          '<div class="fi-plane-tilt-stage"><div class="fi-pose-inner fi-stencil-inner"><span class="fi-stencil-glyph">' + glyph + "</span></div></div>" +
+          '<div class="fi-plane-tilt-stage"><div class="fi-pose-inner fi-stencil-inner"><span class="fi-stencil-glyph">' + escapeHtml(glyph) + "</span></div></div>" +
           clipEdge +
-          '<span class="fi-pose-tag">stencil ' + glyph + "</span>" +
+          '<span class="fi-pose-tag">' + stencilTag + "</span>" +
           (obj.id === state.selectedId ? buildHandles(obj) : "");
       } else if (obj.type === "textbox") {
         normalizeTextBoxObject(obj);
@@ -3628,6 +4079,10 @@
     }
     state.tool = tool;
     state.smartLasso = tool === "lasso";
+    if (tool !== "lasso" && state.subjectLasso) {
+      state.subjectLasso = false;
+      state.subjectLassoSourceId = null;
+    }
     document.querySelectorAll(".fi-tool-btn").forEach(function (btn) {
       btn.classList.toggle("active", btn.dataset.tool === tool);
     });
@@ -3772,6 +4227,10 @@
   function applyLassoToSelected(points, edgeMap) {
     if (!state.selectedId || points.length < 3) return;
     var obj = getObject(state.selectedId);
+    if (state.subjectLasso && state.subjectLassoSourceId) {
+      var src = getObject(state.subjectLassoSourceId);
+      if (src && layerSupportsLasso(src)) obj = src;
+    }
     if (!layerSupportsLasso(obj)) {
       setComposerStatus("Select a layer on the glass, then smart-lasso to cut.");
       setTimeout(function () { setComposerStatus(""); }, 1800);
@@ -3792,6 +4251,10 @@
       return Math.max(0, Math.min(100, lx)) + "% " + Math.max(0, Math.min(100, ly)) + "%";
     });
     var clipPath = "polygon(" + pctPoints.join(", ") + ")";
+    if (state.subjectLasso) {
+      createOrUpdateVisionStencilFromLasso(obj, clipPath, bedRect);
+      return;
+    }
     var submitCut = lassoSubmitChecked();
     var done = function () {
       renderObjects();
@@ -4766,6 +5229,23 @@
       workspace.addEventListener("auxclick", function (e) {
         if (e.button === 1) e.preventDefault();
       });
+      workspace.addEventListener("contextmenu", onFiContextMenu);
+    }
+    if (!document.documentElement.dataset.fiCtxDismiss) {
+      document.documentElement.dataset.fiCtxDismiss = "1";
+      document.addEventListener("pointerdown", function (e) {
+        var menu = $("fi-ctx-menu");
+        if (!menu || menu.hidden) return;
+        if (menu.contains(e.target)) return;
+        hideFiContextMenu();
+      }, true);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          hideFiContextMenu();
+          var pop = $("fi-stencil-name-pop");
+          if (pop && pop.parentNode) pop.parentNode.removeChild(pop);
+        }
+      });
     }
 
     var drawCanvas = $("fi-draw-canvas");
@@ -4830,9 +5310,15 @@
     $("fi-drop-paper") && $("fi-drop-paper").addEventListener("click", dropActivePaper);
     $("fi-delete-sheet") && $("fi-delete-sheet").addEventListener("click", deleteSelected);
     $("fi-add-stencil") && $("fi-add-stencil").addEventListener("click", function () {
-      addStencil();
-      setComposerStatus("Added letter stencil.");
-      setTimeout(function () { setComposerStatus(""); }, 1400);
+      var id = addStencil();
+      var subjects = getPromptSubjects();
+      if (subjects.length) {
+        openStencilNameDialog(id);
+        setComposerStatus("Stencil added — pick a prompt subject name.");
+      } else {
+        setComposerStatus("Added letter stencil.");
+      }
+      setTimeout(function () { setComposerStatus(""); }, 1600);
     });
     $("fi-add-textbox") && $("fi-add-textbox").addEventListener("click", addTextBox);
     $("fi-delete-stencil") && $("fi-delete-stencil").addEventListener("click", deleteSelected);
@@ -4981,6 +5467,10 @@
     getLetter: function () { return state.letter; },
     getSheetPaintingNums: sheetPaintingNums,
     addStencil: addStencil,
+    placeOnProjector: placeImageOnProjector,
+    startPromptSubjectLasso: startPromptSubjectLasso,
+    getPromptSubjects: getPromptSubjects,
+    openStencilNameDialog: openStencilNameDialog,
     addTextBox: addTextBox,
     selectObject: selectObject,
     compressDataUrl: compressDataUrl,

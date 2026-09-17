@@ -696,6 +696,15 @@
         var card = document.createElement("div");
         card.className = "fi-slot" + (state.activeSlot === idx ? " active" : "");
         card.dataset.slot = String(idx);
+        if (slot.url) {
+          card.dataset.url = slot.url;
+          card.dataset.label = slot.label || "";
+          if (slot.paintingNum != null) card.dataset.paintingNum = String(slot.paintingNum);
+        } else {
+          delete card.dataset.url;
+          delete card.dataset.label;
+          delete card.dataset.paintingNum;
+        }
 
         var head = document.createElement("div");
         head.className = "fi-slot-head";
@@ -782,6 +791,10 @@
       btn.type = "button";
       btn.className = "fi-acquired-thumb";
       btn.title = item.label || item.name || "";
+      btn.dataset.url = item.url || "";
+      btn.dataset.label = item.label || item.name || "";
+      if (item.paintingNum != null) btn.dataset.paintingNum = String(item.paintingNum);
+      else if (item.num != null && !item.lod1Num) btn.dataset.paintingNum = String(item.num);
       btn.innerHTML =
         '<img src="' +
         escapeAttr(item.url) +

@@ -3208,3 +3208,92 @@ body.fi-tab-active .fi-sheet-card {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* ── Context menu: Place on projector / Prompt subject lasso ── */
+.fi-ctx-menu {
+  position: fixed;
+  z-index: 14000;
+  min-width: 188px;
+  padding: 0.28rem;
+  margin: 0;
+  border: 1px solid rgba(201, 162, 39, 0.48);
+  border-radius: 8px;
+  background: linear-gradient(165deg, rgba(36, 34, 48, 0.97) 0%, rgba(18, 16, 28, 0.98) 100%);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+.fi-ctx-menu[hidden] {
+  display: none !important;
+}
+.fi-ctx-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: rgba(245, 240, 232, 0.94);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.48rem 0.6rem;
+  cursor: pointer;
+}
+.fi-ctx-menu button:hover {
+  border-color: rgba(201, 162, 39, 0.45);
+  background: rgba(201, 162, 39, 0.14);
+}
+.fi-ctx-menu button[hidden] {
+  display: none !important;
+}
+
+.fi-stencil-name-pop {
+  position: fixed;
+  z-index: 14100;
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  width: min(22rem, calc(100vw - 1.5rem));
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(201, 162, 39, 0.48);
+  border-radius: 10px;
+  background: linear-gradient(165deg, rgba(36, 34, 48, 0.98) 0%, rgba(18, 16, 28, 0.99) 100%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  color: rgba(245, 240, 232, 0.94);
+}
+.fi-stencil-name-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(220, 216, 228, 0.82);
+  margin-bottom: 0.4rem;
+}
+.fi-stencil-name-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.28);
+  color: rgba(248, 244, 236, 0.96);
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.55rem;
+}
+.fi-stencil-name-input:focus {
+  outline: none;
+  border-color: rgba(201, 162, 39, 0.7);
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.18);
+}
+.fi-stencil-name-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+.fi-stencil-name-actions .btn-secondary,
+.fi-stencil-name-actions .btn-cast {
+  border-color: rgba(201, 162, 39, 0.42);
+  color: rgba(245, 240, 232, 0.94);
+}
