@@ -1504,8 +1504,31 @@
   function syncHeaderHeight() {
     var header = document.querySelector(".site-header");
     if (!header) return;
-    var h = Math.ceil(header.getBoundingClientRect().height);
-    if (h > 0) document.documentElement.style.setProperty("--fi-header-h", h + "px");
+    /* Use viewport bottom of sticky/static header so fixed FI rails clear title + tabs +
+       Work/Debug even when in-flow siblings (e.g. Welcome) offset the header at scrollY=0. */
+    var rect = header.getBoundingClientRect();
+    var bottom = Math.ceil(rect.bottom);
+    var h = Math.ceil(rect.height);
+    var value = bottom > 0 ? bottom : h;
+    if (value > 0) document.documentElement.style.setProperty("--fi-header-h", value + "px");
+  }
+
+  function onFiHeaderScroll() {
+    if (!document.body.classList.contains("fi-tab-active")) return;
+    if (document.body.classList.contains("fi-interface-hidden")) return;
+    syncHeaderHeight();
+  }
+
+  function bindFiHeaderScroll() {
+    if (window.__fiHeaderScrollBound) return;
+    window.__fiHeaderScrollBound = true;
+    window.addEventListener("scroll", onFiHeaderScroll, { passive: true });
+  }
+
+  function unbindFiHeaderScroll() {
+    if (!window.__fiHeaderScrollBound) return;
+    window.__fiHeaderScrollBound = false;
+    window.removeEventListener("scroll", onFiHeaderScroll);
   }
 
   /** Fixed desktop rails — panels stay put; OHP does not chase growing status text. */
@@ -1514,7 +1537,7 @@
     if (!ws) return;
     ws.style.setProperty("--fi-edge-left", "8.25rem");
     ws.style.setProperty("--fi-edge-right", "12.5rem");
-    ws.style.setProperty("--fi-edge-top", "3.5rem");
+    ws.style.setProperty("--fi-edge-top", "3.75rem");
     ws.style.setProperty("--fi-edge-bottom", "11.5rem");
     syncCubeGeometry();
   }
@@ -4925,6 +4948,7 @@
 
   window.addEventListener("fleeting-idea-show", function () {
     setInterfaceHidden(false);
+    bindFiHeaderScroll();
     syncHeaderHeight();
     syncEdgeInsets();
     syncWorkspaceSize();
@@ -4938,6 +4962,7 @@
     if (overscaleBtn) overscaleBtn.hidden = false;
   });
   window.addEventListener("fleeting-idea-hide", function () {
+    unbindFiHeaderScroll();
     stopCycle();
     var overscaleBtn = $("fi-overscale-toggle");
     if (overscaleBtn) overscaleBtn.hidden = true;
