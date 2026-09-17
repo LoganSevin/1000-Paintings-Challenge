@@ -4124,15 +4124,16 @@
     var card = e.target.closest(".fi-sheet-card");
     var list = $("fi-sheets-list");
     if (!card || !card.dataset.id || !list || !list.contains(card)) return;
+    /* Do not preventDefault here — that blocked wheel/trackpad scroll on the layers list.
+       Capture + preventDefault only after the drag threshold in onPointerMove. */
     state.panelDrag = {
       id: card.dataset.id,
       startY: e.clientY,
       moved: false,
       card: card,
       list: list,
+      pointerId: e.pointerId,
     };
-    if (card.setPointerCapture) try { card.setPointerCapture(e.pointerId); } catch (err) {}
-    e.preventDefault();
   }
 
   function onPointerMove(e) {
@@ -4147,6 +4148,10 @@
         drag.moved = true;
         drag.card.classList.add("fi-sheet-card-dragging");
         drag.list.classList.add("is-reordering");
+        if (drag.card.setPointerCapture && drag.pointerId != null) {
+          try { drag.card.setPointerCapture(drag.pointerId); } catch (err) {}
+        }
+        if (e.cancelable) e.preventDefault();
       }
       panelDragInsertAt(drag.list, drag.card, e.clientY);
       return;
@@ -4775,6 +4780,7 @@
         siteHeader.dataset.fiHeaderObserved = "1";
         var headerObserver = new ResizeObserver(function () {
           syncHeaderHeight();
+          syncWorkspaceSize();
         });
         headerObserver.observe(siteHeader);
       }
