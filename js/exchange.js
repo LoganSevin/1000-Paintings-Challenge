@@ -5819,9 +5819,9 @@
     saveState();
     syncAutoForgeToggleUi();
     if (state.autoForge) {
-      setAutoForgeStatus("buying…");
+      setAutoForgeStatus("bank first…");
       setForgeStatus(
-        "Auto-forge ON — buy → pair → mint ledger → auto-deposit when pack full → repeat (Generate / Generate all)."
+        "Auto-forge ON — forge bank/inv unledgered art first → buy only slot shortfall → deposit pending ledgers → repeat (Generate / Generate all)."
       );
       scheduleAutoForge(200);
     } else {
@@ -5836,19 +5836,83 @@
     return Math.max(0, INV_SLOTS - inventoryCount(PLAYER_ID));
   }
 
-  /** When Auto-forge is on and pack is full, deposit-all to bank so buying/minting can continue. */
-  function autoForgeDepositWhenFull() {
-    if (!state || !state.autoForge) return { ok: false, kinds: 0, units: 0 };
-    if (autoForgeFreeInvSlots() > 0) return { ok: false, kinds: 0, units: 0 };
-    var before = inventoryCount(PLAYER_ID);
-    if (before < 1) return { ok: false, kinds: 0, units: 0 };
-    setAutoForgeStatus("depositing…");
-    var res = depositAll({ quiet: true });
-    render();
-    setAutoForgeStatus(
-      "deposited " + (res.kinds || before) + " kind" + ((res.kinds || before) === 1 ? "" : "s") + " → bank"
-    );
-    return res;
+  /**
+   * Auto-deposit prefers pending ledgers (prep) into bank — never dump-all finished/raw art.
+   * Only deposits enough to free needFree inventory slots.
+   */
+  function autoForgeDepositWhenFull(opts) {
+    opts = opts || {};
+    var needFree = Math.max(1, Math.floor(Number(opts.needFree) || 1));
+    if (!state || !state.autoForge) return { ok: false, kinds: 0, units: 0, ledgers: 0 };
+    if (autoForgeFreeInvSlots() >= needFree) return { ok: false, kinds: 0, units: 0, ledgers: 0 };
+
+    var kinds = 0;
+    var units = 0;
+    var ledgers = 0;
+    setAutoForgeStatus("depositing ledgers…");
+
+    // 1) Pending prompt ledgers in inv → bank (prep image ledgers, not finished art)
+    var pending = listPendingLedgers().filter(function (id) {
+      return qtyOf(PLAYER_ID, id) > 0;
+    });
+    for (var i = 0; i < pending.length && autoForgeFreeInvSlots() < needFree; i++) {
+      var lid = pending[i];
+      var have = qtyOf(PLAYER_ID, lid);
+      if (have < 1) continue;
+      addInv(PLAYER_ID, lid, -have);
+      addBank(PLAYER_ID, lid, have);
+      kinds++;
+      units += have;
+      ledgers++;
+    }
+
+    // 2) Plain notes / color chips only if still jammed (never forge materials / finished proto-pieces)
+    if (autoForgeFreeInvSlots() < needFree) {
+      var inv = invList(PLAYER_ID);
+      for (var j = 0; j < inv.length && autoForgeFreeInvSlots() < needFree; j++) {
+        var nid = Number(inv[j].id);
+        if (!nid) continue;
+        if (ledgerOf(nid)) continue; // already handled
+        if (!(noteOf(nid) || colorChipOf(nid))) continue;
+        var nHave = qtyOf(PLAYER_ID, nid);
+        if (nHave < 1) continue;
+        addInv(PLAYER_ID, nid, -nHave);
+        addBank(PLAYER_ID, nid, nHave);
+        kinds++;
+        units += nHave;
+      }
+    }
+
+    if (kinds > 0) {
+      saveState();
+      render();
+      setAutoForgeStatus(
+        "deposited " +
+          ledgers +
+          " ledger" +
+          (ledgers === 1 ? "" : "s") +
+          (kinds > ledgers ? " (+" + (kinds - ledgers) + " prep)" : "") +
+          " → bank"
+      );
+    }
+    return { ok: kinds > 0, kinds: kinds, units: units, ledgers: ledgers };
+  }
+
+  /** Turn Auto-forge off when SIM purse is empty and we cannot keep minting from owned stock. */
+  function autoForgeStopIfPurseEmpty(needBuy) {
+    if (cashOf(PLAYER_ID) >= 1) return false;
+    var mats = autoForgeMaterialCandidates();
+    // Empty purse: allow continuing only when bank/inv already has forgeable unledgered art.
+    if (!needBuy && mats.length >= 2) return false;
+    setAutoForgeEnabled(false);
+    setForgeStatus("Auto-forge OFF — SIM purse empty.");
+    setAutoForgeStatus("purse empty · off");
+    return true;
+  }
+
+  /** How many more distinct forge materials we need to fill a 3-slot trio (bank+inv counted). */
+  function autoForgeMaterialShortfall() {
+    return Math.max(0, 3 - autoForgeMaterialCandidates().length);
   }
 
   function autoForgeClaimOfferSlot() {
@@ -5896,12 +5960,18 @@
     return 1;
   }
 
-  /** Buy as much ~$1 art as cash + inventory allow (from cheap sells or catalog at 1 SIM). */
-  function autoForgeBuyCheap() {
+  /**
+   * Buy only what is needed to fill forge slots (ledger output) — never stockpile raw buys in bank.
+   * maxBuy defaults to material shortfall (≤3).
+   */
+  function autoForgeBuyCheap(maxBuy) {
     var bought = 0;
     var cash = cashOf(PLAYER_ID);
     var free = autoForgeFreeInvSlots();
-    if (cash < 1 || free < 1) return 0;
+    var cap = Math.max(0, Math.floor(Number(maxBuy)));
+    if (maxBuy == null || isNaN(cap)) cap = autoForgeMaterialShortfall();
+    cap = Math.min(cap, 3);
+    if (cap < 1 || cash < 1 || free < 1) return 0;
 
     // 1) Match existing NPC sell offers priced around $1
     var cheapSells = activeOffers().filter(function (o) {
@@ -5919,12 +5989,14 @@
       return a.price - b.price || a.createdAt - b.createdAt;
     });
 
-    for (var i = 0; i < cheapSells.length && cash >= 1 && free > 0; i++) {
+    for (var i = 0; i < cheapSells.length && cash >= 1 && free > 0 && bought < cap; i++) {
       if (playerSlotOffers().length >= MAX_SLOTS) break;
       if (autoForgeClaimOfferSlot() < 0) break;
       var sell = cheapSells[i];
       var px = Math.max(1, Math.round(Number(sell.price) || 1));
       if (cash < px) continue;
+      // Skip if we already own this id in inv/bank (prefer existing unledgered stock)
+      if (ownedQty(sell.itemId) > 0) continue;
       var res = placeOffer({
         side: "buy",
         itemId: sell.itemId,
@@ -5940,15 +6012,15 @@
       free = autoForgeFreeInvSlots();
     }
 
-    // 2) Stock cheap catalog sells at $1 and buy into them
-    var need = Math.min(free, Math.floor(cash / 1), 6);
+    // 2) Stock cheap catalog sells at $1 and buy into them — only remaining shortfall
+    var need = Math.min(free, Math.floor(cash / 1), cap - bought);
     if (need < 1) {
       saveState();
       return bought;
     }
     var picks = autoForgePickCheapCatalogIds(need);
     var npcId = autoForgeNpcSellerId();
-    for (var p = 0; p < picks.length && cash >= 1 && free > 0; p++) {
+    for (var p = 0; p < picks.length && cash >= 1 && free > 0 && bought < cap; p++) {
       if (playerSlotOffers().length >= MAX_SLOTS) {
         collectAll();
         if (playerSlotOffers().length >= MAX_SLOTS) break;
@@ -5958,6 +6030,7 @@
         if (autoForgeClaimOfferSlot() < 0) break;
       }
       var itemId = picks[p];
+      if (ownedQty(itemId) > 0) continue;
       if (qtyOf(npcId, itemId) < 1) addInv(npcId, itemId, 1);
       placeOffer({
         side: "sell",
@@ -5986,13 +6059,14 @@
   }
 
   function autoForgeMaterialCandidates() {
-    var list = invList(PLAYER_ID).concat(bankList(PLAYER_ID));
+    // Prefer bank unledgered proto-pieces first, then inv — consume owned stock before buying.
+    var list = bankList(PLAYER_ID).concat(invList(PLAYER_ID));
     var out = [];
     var seen = Object.create(null);
     for (var i = 0; i < list.length; i++) {
       var id = Number(list[i].id);
       if (!id || seen[id]) continue;
-      if (noteOf(id) || colorChipOf(id)) continue;
+      if (noteOf(id) || colorChipOf(id)) continue; // ledgers/notes are prep, not forge fillers
       var f = forgedOf(id);
       if (f && f.pendingGenerate) continue;
       seen[id] = 1;
@@ -6228,15 +6302,17 @@
     var overlap = autoForgeOverlapScore(topics, recent);
     // Intra-trio diversity bonus (different materials/subjects together = tasty)
     var unique = {};
+    var bankBonus = 0;
     ids.forEach(function (id) {
+      if (bankQty(PLAYER_ID, id) > 0) bankBonus += 2; // prefer pulling bank unledgered art
       autoForgeItemTopics(id).forEach(function (t) {
         if (t.indexOf("kind-") === 0) unique[t] = 1;
         else if (AUTO_FORGE_MOODS.indexOf(t) >= 0) unique["mood-" + t] = 1;
       });
     });
     var diversity = Object.keys(unique).length;
-    // Prefer some internal contrast but not chaos
-    return overlap * 10 - diversity * 3 + Math.random() * 1.5;
+    // Prefer some internal contrast but not chaos; lower = better
+    return overlap * 10 - diversity * 3 - bankBonus + Math.random() * 1.5;
   }
 
   function autoForgePickDivergentTrio(mats, needCount, recent) {
@@ -6345,19 +6421,38 @@
     autoForgeBusy = true;
     autoForgeCycle += 1;
     try {
-      // Pack full → auto-deposit so buy/pair/mint keep moving smoothly.
-      var dep = autoForgeDepositWhenFull();
-      var depNote = dep && dep.kinds ? "deposited " + dep.kinds + " → bank; " : "";
+      // Prefer pending ledgers → bank when pack is tight (prep), never dump finished art.
+      var dep = autoForgeDepositWhenFull({ needFree: 1 });
+      var depNote =
+        dep && dep.ledgers
+          ? "deposited " + dep.ledgers + " ledger" + (dep.ledgers === 1 ? "" : "s") + "; "
+          : dep && dep.kinds
+            ? "deposited prep; "
+            : "";
 
-      setAutoForgeStatus(depNote + "buying…");
-      var nBuy = autoForgeBuyCheap();
-      // If buy stalled because pack filled mid-cycle, deposit and try once more.
-      if (nBuy < 1 && autoForgeFreeInvSlots() < 1 && cashOf(PLAYER_ID) >= 1) {
-        dep = autoForgeDepositWhenFull();
-        if (dep && dep.kinds) {
-          setAutoForgeStatus("deposited; buying…");
-          nBuy = autoForgeBuyCheap();
+      // Bank/inv unledgered art first — buy only slot shortfall toward ledger output.
+      var shortfall = autoForgeMaterialShortfall();
+      if (autoForgeStopIfPurseEmpty(shortfall > 0)) {
+        autoForgeBusy = false;
+        return;
+      }
+
+      var nBuy = 0;
+      if (shortfall > 0) {
+        // Free a few slots for the buys we actually need (ledgers only — not deposit-all).
+        if (autoForgeFreeInvSlots() < shortfall) {
+          autoForgeDepositWhenFull({ needFree: shortfall });
         }
+        setAutoForgeStatus(depNote + "buying shortfall " + shortfall + "…");
+        nBuy = autoForgeBuyCheap(shortfall);
+        if (nBuy < shortfall && cashOf(PLAYER_ID) < 1) {
+          if (autoForgeStopIfPurseEmpty(true)) {
+            autoForgeBusy = false;
+            return;
+          }
+        }
+      } else {
+        setAutoForgeStatus(depNote + "using bank/inv…");
       }
       collectAll();
       render();
@@ -6365,24 +6460,31 @@
       setAutoForgeStatus("pairing…");
       var loaded = autoForgeLoadSlots();
       if (!loaded.ok) {
+        // No materials left to forge with empty purse → off.
+        if (cashOf(PLAYER_ID) < 1) {
+          autoForgeBusy = false;
+          autoForgeStopIfPurseEmpty(true);
+          return;
+        }
         setForgeStatus(
           "Auto-forge: " +
             loaded.error +
-            (nBuy ? " (bought " + nBuy + ")" : "") +
+            (nBuy ? " (bought " + nBuy + ")" : " (no buy — using owned stock)") +
             (depNote ? " [" + depNote.trim().replace(/;\s*$/, "") + "]" : ""),
           true
         );
-        refreshAutoForgeLedgerStatus(nBuy ? "bought " + nBuy : depNote ? "depositing…" : "pairing…");
+        refreshAutoForgeLedgerStatus(
+          nBuy ? "bought " + nBuy : depNote ? "depositing ledgers…" : "pairing…"
+        );
         autoForgeBusy = false;
         scheduleAutoForge(2200);
         return;
       }
       // Mint prompt ledger — do NOT hold forge UI / wait for Generate.
       var prep = mintForgeLedger({ imaginative: true });
-      // After mint, if pack is full, deposit excess so the next buy cycle is free.
-      if (prep && prep.ok && autoForgeFreeInvSlots() < 1) {
-        setAutoForgeStatus("depositing…");
-        autoForgeDepositWhenFull();
+      // After mint, park pending ledgers in bank (prep), keep forge materials available.
+      if (prep && prep.ok) {
+        autoForgeDepositWhenFull({ needFree: 2 });
       }
       autoForgeBusy = false;
       if (!prep.ok) {
@@ -6391,7 +6493,9 @@
         scheduleAutoForge(1800);
         return;
       }
-      refreshAutoForgeLedgerStatus("minted #" + prep.id);
+      refreshAutoForgeLedgerStatus(
+        (nBuy ? "bought " + nBuy + " · " : "bank-pull · ") + "minted #" + prep.id
+      );
       // Keep cycling — ledgers sit ready in inv/bank until Logan Generate / Generate all.
       scheduleAutoForge(1600);
     } catch (err) {
