@@ -240,17 +240,27 @@ body.fi-tab-active .site-header .site-tabs {
   gap: 0.28rem;
   min-height: 0;
   height: auto;
-  padding: 0.14rem 0.28rem;
+  /* Compact padding: leave a sliver for the thin tab slider without a tall gap */
+  padding: 0.12rem 0.28rem 0.18rem;
   overflow-x: auto;
   overflow-y: hidden;
-  /* Hide scrollbar so it does not inflate strip height / pin labels low */
-  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  /* Compact horizontal slider so Gallery…Zoo tabs stay reachable under FI */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 160, 100, 0.5) transparent;
 }
 
 body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
+  height: 4px;
+}
+
+body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar-thumb {
+  background: rgba(180, 160, 100, 0.5);
+  border-radius: 99px;
 }
 
 body.fi-tab-active .site-header .site-tabs .tab {
