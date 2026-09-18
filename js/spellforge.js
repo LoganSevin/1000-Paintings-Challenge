@@ -1109,6 +1109,16 @@
     }
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.analysis) return extra.analysis;
+    if (extra && extra.genNum) {
+      var gaGen =
+        analyses[String(extra.genNum)] ||
+        analyses[extra.genNum] ||
+        (typeof getLod1Analysis === "function" ? getLod1Analysis(extra.genNum) : null);
+      if (gaGen) {
+        extra.analysis = gaGen;
+        return gaGen;
+      }
+    }
     var a = analyses[String(num)] || analyses[num] || null;
     if (a) return a;
     try {

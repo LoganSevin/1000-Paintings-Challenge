@@ -523,6 +523,13 @@ def main():
     total_min = (time.time() - t_start) / 60
     print(f"Finished. {done} analyzed, {errors} errors in {total_min:.1f} min.")
     print(f"Saved to {ANALYSES_PATH}")
+    try:
+        from publish_descriptions import main as publish_descriptions
+
+        print("Publishing descriptions to logan7in.art ...")
+        publish_descriptions()
+    except Exception as exc:
+        print(f"Auto-publish skipped: {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":

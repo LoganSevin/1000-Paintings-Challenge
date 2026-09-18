@@ -8,4 +8,7 @@ echo  Uses your XAI_API_KEY / data\xai-api-key.txt / Grok login.
 echo.
 python scripts\analyze_lod1.py --workers 3 --delay 0.6
 echo.
+echo  Publishing descriptions to logan7in.art ...
+python scripts\publish_descriptions.py
+echo.
 pause

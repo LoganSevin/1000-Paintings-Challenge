@@ -364,6 +364,13 @@ def main():
     print(f"Saved to {LOD1_ANALYSES_PATH}")
     still = pending_nums(load_lod1_analyses(), list_generated_nums(), force=False)
     print(f"Still missing after this run: {len(still)}")
+    try:
+        from publish_descriptions import main as publish_descriptions
+
+        print("Publishing descriptions to logan7in.art ...")
+        publish_descriptions()
+    except Exception as exc:
+        print(f"Auto-publish skipped: {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":
