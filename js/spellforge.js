@@ -4129,6 +4129,147 @@
     });
   }
 
+  var PC_GENERATED_HINT =
+    "Desktop\\1000 Paintings Challenge\\gallery\\generated";
+
+  function pcSaveBases() {
+    var bases = [];
+    if (isLocalHost()) {
+      bases.push("");
+      return bases;
+    }
+    var configured = apiBase();
+    if (configured) bases.push(configured);
+    bases.push("http://127.0.0.1:8765");
+    bases.push("http://localhost:8765");
+    var seen = {};
+    return bases.filter(function (b) {
+      if (seen[b]) return false;
+      seen[b] = true;
+      return true;
+    });
+  }
+
+  function fetchPcStudio(url, init) {
+    var opts = init || {};
+    opts.cache = opts.cache || "no-store";
+    opts.mode = opts.mode || "cors";
+    try {
+      opts.targetAddressSpace = "loopback";
+    } catch (eAddr) {}
+    return fetch(url, opts);
+  }
+
+  function postSaveGenerated(base, payload) {
+    return fetchPcStudio((base || "") + "/api/save-generated-image", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).then(function (r) {
+      return r.json().then(function (d) {
+        if (!r.ok || (d && d.ok === false)) {
+          throw new Error((d && d.error) || "Save failed");
+        }
+        return d;
+      });
+    });
+  }
+
+  function persistGeneratedStill(url) {
+    if (!url) return Promise.resolve(null);
+    var payload = {
+      source: "spellforge",
+      collection: "generated",
+      reveal: true,
+      description: String(lastFusedPrompt || spellStasis || "").slice(0, 800),
+      meta: { source: "spellforge", spells: getEquippedInOrder() },
+    };
+    if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
+    else payload.image_url = url;
+    var bases = pcSaveBases();
+    var statusEl = document.getElementById("spell-generate-status");
+
+    function tryNext(i) {
+      if (i >= bases.length) {
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = "spell-generate-status";
+          statusEl.textContent =
+            "Preview only — run start_server.bat on this PC so new stills drop into " +
+            PC_GENERATED_HINT;
+        }
+        return null;
+      }
+      return postSaveGenerated(bases[i], payload).then(
+        function (d) {
+          if (d && (d.num != null || d.url)) {
+            if (statusEl) {
+              statusEl.hidden = false;
+              statusEl.className = "spell-generate-status";
+              statusEl.textContent =
+                "Saved on this PC: " +
+                PC_GENERATED_HINT +
+                "\\" +
+                (d.name || d.num + ".jpg") +
+                " (G#" +
+                d.num +
+                "). File Explorer should jump to the file.";
+            }
+            if (d.url && isLocalHost()) {
+              stasisVisionUrl = d.url;
+              updateStasisVisionView(d.url);
+            }
+          }
+          return d;
+        },
+        function () {
+          return tryNext(i + 1);
+        }
+      );
+    }
+    return tryNext(0).catch(function () {
+      return null;
+    });
+  }
+
+  function openGeneratedFolderOnPc() {
+    var statusEl = document.getElementById("spell-generate-status");
+    var bases = pcSaveBases();
+    function tryNext(i) {
+      if (i >= bases.length) {
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.className = "spell-generate-status";
+          statusEl.textContent =
+            "Could not open the folder. Run start_server.bat, then look in " +
+            PC_GENERATED_HINT;
+        }
+        return null;
+      }
+      return fetchPcStudio((bases[i] || "") + "/api/open-generated", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: "{}",
+      })
+        .then(function (r) {
+          return r.json().then(function (d) {
+            if (!r.ok || (d && d.ok === false)) throw new Error("offline");
+            if (statusEl) {
+              statusEl.hidden = false;
+              statusEl.className = "spell-generate-status";
+              statusEl.textContent =
+                "Opened " + (d.path || PC_GENERATED_HINT) + " in File Explorer.";
+            }
+            return d;
+          });
+        })
+        .catch(function () {
+          return tryNext(i + 1);
+        });
+    }
+    return tryNext(0);
+  }
+
   function generateStasisVisionLocal(nums, statusEl) {
     var aspect = getAspectRatio();
     var paletteHex = getPaletteHexList();
@@ -4150,7 +4291,11 @@
       })
       .then(function (dataUrl) {
         applyAspectPreview(aspect);
-        return applyGeneratedVision(dataUrl, nums, statusEl);
+        return applyGeneratedVision(dataUrl, nums, statusEl).then(function () {
+          return persistGeneratedStill(dataUrl).then(function () {
+            return dataUrl;
+          });
+        });
       });
   }
 
@@ -4343,7 +4488,11 @@
         throw new Error("No image returned");
       })
       .then(function (url) {
-        return applyGeneratedVision(url, nums, statusEl);
+        return applyGeneratedVision(url, nums, statusEl).then(function () {
+          return persistGeneratedStill(url).then(function () {
+            return url;
+          });
+        });
       })
       .catch(function (err) {
         if (abortTimer) clearTimeout(abortTimer);
@@ -4598,6 +4747,14 @@
 
     var genBtn = document.getElementById("spell-generate-stasis");
     if (genBtn) genBtn.onclick = generateStasisVision;
+
+    var openGenBtn = document.getElementById("spell-open-generated");
+    if (openGenBtn && !openGenBtn.dataset.bound) {
+      openGenBtn.dataset.bound = "1";
+      openGenBtn.onclick = function () {
+        openGeneratedFolderOnPc();
+      };
+    }
 
     var redefineBtn = document.getElementById("spell-redefine-stasis");
     if (redefineBtn && !redefineBtn.dataset.bound) {

@@ -16,6 +16,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import threading
 import time
 import uuid
@@ -4141,6 +4142,38 @@ def save_generated_still(
     return record
 
 
+def _reveal_path_in_explorer(path: Path) -> bool:
+    """Select a saved still in Windows File Explorer so it is not buried."""
+    try:
+        path = path.resolve()
+        if os.name == "nt":
+            subprocess.Popen(["explorer", "/select,", str(path)])
+        else:
+            subprocess.Popen(["xdg-open", str(path.parent)])
+        return True
+    except Exception:
+        return False
+
+
+def _open_generated_folder() -> dict:
+    gen_dir = Path(globals().get("GENERATED_DIR") or (_GALLERY_ROOT / "generated"))
+    gen_dir.mkdir(parents=True, exist_ok=True)
+    opened = False
+    try:
+        if os.name == "nt":
+            os.startfile(str(gen_dir.resolve()))  # type: ignore[attr-defined]
+        else:
+            subprocess.Popen(["xdg-open", str(gen_dir.resolve())])
+        opened = True
+    except Exception:
+        opened = False
+    return {
+        "ok": opened,
+        "path": str(gen_dir.resolve()),
+        "hint": r"Desktop\1000 Paintings Challenge\gallery\generated",
+    }
+
+
 def _respond_save_generated_image(self):
     try:
         body = self._read_json() or {}
@@ -4158,6 +4191,14 @@ def _respond_save_generated_image(self):
             description=str(body.get("description") or body.get("stasis") or body.get("title") or ""),
             meta=body.get("meta") if isinstance(body.get("meta"), dict) else None,
         )
+        reveal = body.get("reveal")
+        if reveal in (True, 1, "1", "true", "True") and result.get("name"):
+            dest = Path(globals().get("GENERATED_DIR") or (_GALLERY_ROOT / "generated")) / str(
+                result["name"]
+            )
+            if dest.is_file():
+                result["revealed"] = _reveal_path_in_explorer(dest)
+                result["disk_path"] = str(dest)
         return self._json(result, 200)
     except ValueError as e:
         return self._json({"ok": False, "error": str(e)}, 400)
@@ -11663,6 +11704,115 @@ try:
     print("[gallery] Profit: /api/profit/* /api/newsletter", flush=True)
 except Exception as _pf_err:
     print(f"[gallery] Profit routes failed: {_pf_err}", flush=True)
+
+
+# logan7in.art (HTTPS) may POST stills to this PC so they land in gallery/generated.
+_LOCAL_SAVE_CORS_ORIGINS = frozenset(
+    {
+        "https://logan7in.art",
+        "https://www.logan7in.art",
+        "https://1000-l7in.netlify.app",
+        "http://localhost:8765",
+        "http://127.0.0.1:8765",
+    }
+)
+
+
+def _cors_allow_origin(handler):
+    origin = (handler.headers.get("Origin") or "").strip().rstrip("/")
+    if not origin:
+        return None
+    if origin in _LOCAL_SAVE_CORS_ORIGINS:
+        return origin
+    low = origin.lower()
+    if low.startswith("http://localhost:") or low.startswith("http://127.0.0.1:"):
+        return origin
+    if low.startswith("https://localhost:") or low.startswith("https://127.0.0.1:"):
+        return origin
+    if ".ts.net" in low or ".netlify.app" in low:
+        return origin
+    return None
+
+
+_prev_send_header_cors = AppHandler.send_header
+_prev_end_headers_cors = AppHandler.end_headers
+
+
+def _send_header_single_cors(self, keyword, value):
+    key = str(keyword or "").lower()
+    origin = _cors_allow_origin(self)
+    if key == "access-control-allow-origin":
+        if origin:
+            value = origin
+        if getattr(self, "_cors_origin_sent", False):
+            return
+        self._cors_origin_sent = True
+        return _prev_send_header_cors(self, keyword, value)
+    if key.startswith("access-control-"):
+        flag = "_hdr_" + key.replace("-", "_")
+        if getattr(self, flag, False):
+            return
+        setattr(self, flag, True)
+    return _prev_send_header_cors(self, keyword, value)
+
+
+AppHandler.send_header = _send_header_single_cors
+
+
+def _end_headers_with_local_save_cors(self):
+    origin = _cors_allow_origin(self)
+    if origin:
+        self.send_header("Access-Control-Allow-Origin", origin)
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header(
+            "Access-Control-Allow-Headers",
+            "Content-Type, Authorization, Access-Control-Request-Private-Network, Access-Control-Request-Local-Network",
+        )
+        self.send_header("Access-Control-Max-Age", "86400")
+        self.send_header("Vary", "Origin")
+    if origin or (getattr(self, "command", "") or "").upper() == "OPTIONS":
+        self.send_header("Access-Control-Allow-Private-Network", "true")
+        self.send_header("Access-Control-Allow-Local-Network", "true")
+    return _prev_end_headers_cors(self)
+
+
+AppHandler.end_headers = _end_headers_with_local_save_cors
+
+
+def _do_OPTIONS_local_save(self):
+    self.send_response(204)
+    self.send_header("Content-Length", "0")
+    self.end_headers()
+
+
+AppHandler.do_OPTIONS = _do_OPTIONS_local_save
+
+
+def _respond_open_generated(handler):
+    return handler._json(_open_generated_folder(), 200)
+
+
+try:
+    _prev_open_get = AppHandler.do_GET
+    _prev_open_post = AppHandler.do_POST
+
+    def _do_get_open_generated(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/open-generated", "/api/open-generated/"):
+            return _respond_open_generated(self)
+        return _prev_open_get(self)
+
+    def _do_post_open_generated(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/open-generated", "/api/open-generated/"):
+            return _respond_open_generated(self)
+        return _prev_open_post(self)
+
+    AppHandler.do_GET = _do_get_open_generated
+    AppHandler.do_POST = _do_post_open_generated
+    print("[gallery] Local save CORS + /api/open-generated", flush=True)
+except Exception as _open_err:
+    print(f"[gallery] open-generated routes failed: {_open_err}", flush=True)
 
 
 if __name__ == "__main__":
