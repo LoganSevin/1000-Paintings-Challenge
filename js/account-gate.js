@@ -89,7 +89,8 @@
     var html = "";
     if (!signed) {
       html += '<div id="account-google-btn" class="account-google-btn"></div>';
-      html += '<p class="account-note">Sign in, then connect <strong>your</strong> xAI key. This site will not spend Logan&apos;s Grok credits.</p>';
+      html += '<p class="account-note">Sign in with Google, then connect <strong>your</strong> xAI key. Generates on this site bill your Grok account, not Logan&apos;s.</p>';
+      html += '<button type="button" class="account-btn" id="account-key-add">Connect xAI key</button>';
     } else {
       html += '<div class="account-who">';
       if (user.picture) html += '<img class="account-pic" alt="" src="' + user.picture + '" />';
