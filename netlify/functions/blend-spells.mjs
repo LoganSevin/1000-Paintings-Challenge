@@ -7,17 +7,32 @@ import {
   extractResponseText,
   parseJsonBlob,
   jsonResponse,
+  corsPreflight,
+  visitorXaiKey,
+  runWithXaiKey,
 } from "./_lib.mjs";
 
 export default async function handler(request) {
   if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: { "Access-Control-Allow-Origin": "*" } });
+    return corsPreflight();
   }
   if (request.method !== "POST") {
     return jsonResponse({ error: "POST required" }, 405);
   }
 
+  const visitorKey = visitorXaiKey(request);
+  if (!visitorKey) {
+    return jsonResponse(
+      {
+        error:
+          "Connect your xAI API key after Google Sign-In. This site does not spend the artist's Grok credits.",
+      },
+      401
+    );
+  }
+
   try {
+    return await runWithXaiKey(visitorKey, async () => {
     const body = await request.json();
     const spells = (body.spells || []).map((n) => parseInt(n, 10)).filter((n) => n >= 1);
     if (spells.length < 2) {
@@ -69,6 +84,7 @@ export default async function handler(request) {
     const fused = parseJsonBlob(extractResponseText(data));
     fused.spells = spells.slice(0, 3);
     return jsonResponse(fused);
+    });
   } catch (e) {
     return jsonResponse({ error: e.message || String(e) }, 400);
   }

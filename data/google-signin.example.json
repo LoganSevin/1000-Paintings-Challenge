@@ -1,0 +1,4 @@
+{
+  "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+  "_comment": "Google Cloud → APIs & Services → Credentials → OAuth client (Web). Authorized JS origins: http://localhost:8765 https://logan7in.art https://www.logan7in.art https://1000-l7in.netlify.app. Or set GOOGLE_CLIENT_ID on Netlify instead of this file."
+}

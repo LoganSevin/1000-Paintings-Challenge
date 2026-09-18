@@ -1,0 +1,66 @@
+.account-gate {
+  position: fixed;
+  top: 2.55rem;
+  right: 0.45rem;
+  z-index: 10045;
+  width: min(16.5rem, calc(100vw - 1rem));
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: rgba(10, 12, 16, 0.86);
+  border: 1px solid rgba(180, 160, 100, 0.32);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  color: #dce4ee;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.account-google-btn {
+  min-height: 2.2rem;
+}
+
+.account-note {
+  margin: 0.35rem 0 0;
+  color: #c5cdd8;
+}
+
+.account-note.is-ok {
+  color: #c8e6b0;
+}
+
+.account-who {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.account-pic {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+}
+
+.account-btn,
+.account-link {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #e8d5a3;
+  text-decoration: underline;
+  padding: 0.15rem 0;
+}
+
+.account-btn {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  text-decoration: none;
+  background: rgba(201, 162, 39, 0.12);
+}
+
+body.kids-mode .account-gate {
+  display: none !important;
+}

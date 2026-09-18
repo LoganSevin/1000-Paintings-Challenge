@@ -53,6 +53,18 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/api/auth/config"
+  to = "/.netlify/functions/auth-config"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/auth/google"
+  to = "/.netlify/functions/auth-google"
+  status = 200
+  force = true
+
 [[headers]]
   for = "paintings/*"
   [headers.values]

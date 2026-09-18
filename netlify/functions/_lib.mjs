@@ -1,5 +1,21 @@
 import fs from "fs";
 import path from "path";
+import { AsyncLocalStorage } from "node:async_hooks";
+
+const xaiKeyStore = new AsyncLocalStorage();
+
+export function visitorXaiKey(request) {
+  if (!request || !request.headers) return "";
+  const raw =
+    request.headers.get("x-visitor-xai-key") ||
+    request.headers.get("X-Visitor-Xai-Key") ||
+    "";
+  return String(raw).replace(/^Bearer\s+/i, "").trim();
+}
+
+export function runWithXaiKey(key, fn) {
+  return xaiKeyStore.run(String(key || "").trim(), fn);
+}
 
 export const API_IMAGES = "https://api.x.ai/v1/images/generations";
 export const API_RESPONSES = "https://api.x.ai/v1/responses";
@@ -12,6 +28,18 @@ export function jsonResponse(body, status = 200) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type, X-Visitor-Xai-Key",
+    },
+  });
+}
+
+export function corsPreflight() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type, X-Visitor-Xai-Key",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     },
   });
 }
@@ -42,13 +70,11 @@ export function isImageApiConfigured() {
 }
 
 export function getApiKey() {
-  const key = getXaiKey();
-  if (!key) {
-    throw new Error(
-      "XAI_API_KEY is not set. In Netlify: Site settings → Environment variables → add XAI_API_KEY, then redeploy."
-    );
-  }
-  return key;
+  const visitor = xaiKeyStore.getStore();
+  if (visitor) return visitor;
+  throw new Error(
+    "Sign in with Google and connect your own xAI API key. This site does not spend the artist's Grok credits."
+  );
 }
 
 export function getImageApiKey() {

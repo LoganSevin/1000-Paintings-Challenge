@@ -1,9 +1,11 @@
 import { getStore } from "@netlify/blobs";
 import {
-  isImageApiConfigured,
   generateStasisVisionImage,
   saveJob,
   jsonResponse,
+  corsPreflight,
+  visitorXaiKey,
+  runWithXaiKey,
 } from "./_lib.mjs";
 
 async function runJob(jobId, body) {
@@ -40,7 +42,7 @@ async function runJob(jobId, body) {
 
 export default async function handler(request, context) {
   if (request.method === "OPTIONS") {
-    return new Response(null, { status: 204, headers: { "Access-Control-Allow-Origin": "*" } });
+    return corsPreflight();
   }
   if (request.method !== "POST") {
     return jsonResponse({ error: "POST required" }, 405);
@@ -59,20 +61,21 @@ export default async function handler(request, context) {
       ? crypto.randomUUID()
       : `job-${Date.now()}`);
 
-  if (!isImageApiConfigured()) {
+  const visitorKey = visitorXaiKey(request);
+  if (!visitorKey) {
     return jsonResponse(
       {
         error:
-          "No image API key. Add WOMBO_DREAM_API_KEY or XAI_API_KEY on Netlify, set SPELLFORGE_IMAGE_PROVIDER=wombo if using WOMBO, then redeploy.",
+          "Connect your xAI API key after Google Sign-In. logan7in.art does not use the artist's Grok credits.",
       },
-      400
+      401
     );
   }
 
   const store = getStore({ name: "spellforge-jobs", consistency: "strong" });
   await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "queued" });
 
-  const work = runJob(jobId, body);
+  const work = runWithXaiKey(visitorKey, () => runJob(jobId, body));
   if (context?.waitUntil) {
     context.waitUntil(work);
   } else {
