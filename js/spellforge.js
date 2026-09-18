@@ -1224,8 +1224,54 @@
     });
   }
 
+  function genFileUrl(genNum) {
+    if (typeof generatedUrl === "function") return generatedUrl(genNum);
+    if (typeof resolveGalleryUrl === "function") {
+      return resolveGalleryUrl("/generated/" + genNum + ".jpg");
+    }
+    return "/generated/" + genNum + ".jpg";
+  }
+
+  function ingestFromLod1Manifest(d) {
+    var items = (d && d.items) || [];
+    ingestSpellAssets(
+      items.map(function (it) {
+        var n = parseInt(it.num != null ? it.num : it.number, 10);
+        var analysis =
+          typeof getLod1Analysis === "function" ? getLod1Analysis(n) : null;
+        return {
+          number: n,
+          url: genFileUrl(n),
+          source: "generated",
+          title: (analysis && analysis.title) || it.name || ("Gen G#" + n),
+          analysis: analysis,
+        };
+      })
+    );
+    refreshArsenalStats();
+  }
+
+  function loadSpellAssetsFromStatic() {
+    return fetch("data/lod1-manifest.json?t=" + Date.now(), { cache: "default" })
+      .then(function (r) {
+        if (!r.ok) return null;
+        return r.json();
+      })
+      .then(function (d) {
+        if (d && Array.isArray(d.items) && d.items.length) {
+          ingestFromLod1Manifest(d);
+        }
+        return arsenalExtraNums.length;
+      })
+      .catch(function () {
+        return arsenalExtraNums.length;
+      });
+  }
+
   function loadSpellAssets(opts) {
-    // Optional — never block Spellforge if offline / route missing
+    var local =
+      location.hostname === "localhost" || location.hostname === "127.0.0.1";
+    if (!local) return loadSpellAssetsFromStatic();
     var q = "?t=" + Date.now();
     if (opts && opts.skipSketches) q += "&skip_sketches=1";
     var url = apiUrl("/api/transfer/spell-assets" + q);
@@ -1237,22 +1283,20 @@
         });
       })
       .then(function (d) {
-        if (d && d.ok && Array.isArray(d.items)) {
+        if (d && d.ok && Array.isArray(d.items) && d.items.length) {
           ingestSpellAssets(d.items);
           if (d.painting_total) arsenalStats.paintings = d.painting_total;
-          if (typeof d.generated_count === "number") {
-            /* server counts pure generated; phone counted separately */
-          }
           refreshArsenalStats();
           if (d.pages && d.pages > arsenalStats.pages) {
             arsenalStats.pages = d.pages;
           }
           if (d.arsenal_total) arsenalStats.total = d.arsenal_total;
+          return arsenalExtraNums.length;
         }
-        return arsenalExtraNums.length;
+        return loadSpellAssetsFromStatic();
       })
       .catch(function () {
-        return 0;
+        return loadSpellAssetsFromStatic();
       });
   }
 
