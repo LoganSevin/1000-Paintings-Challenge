@@ -21,7 +21,8 @@ async function runJob(jobId, body) {
 
     await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "pending" });
 
-    const imageUrl = await generateStasisVisionImage(stasis, buzz);
+    const aspect = body.aspect_ratio || body.aspect || "16:9";
+    const imageUrl = await generateStasisVisionImage(stasis, buzz, aspect);
     let dataUrl = imageUrl;
     try {
       dataUrl = await materializeStillDataUrl(imageUrl);

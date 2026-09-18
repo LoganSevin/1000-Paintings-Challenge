@@ -147,11 +147,38 @@ export function clipPromptChars(text, max = GEN_PROMPT_SAFE_MAX) {
   return cut.replace(/\s+$/g, "") + "…";
 }
 
-export function buildStasisVisionPrompt(stasis, buzzWords) {
+export const ALLOWED_ASPECTS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
+
+export function normalizeAspect(value, fallback = "16:9") {
+  const v = String(value || "")
+    .trim()
+    .replace("/", ":")
+    .replace(/\s+/g, "");
+  return ALLOWED_ASPECTS.includes(v) ? v : fallback;
+}
+
+export function aspectPhrase(aspect) {
+  const a = normalizeAspect(aspect);
+  const [w, h] = a.split(":").map(Number);
+  const orient = w === h ? "square" : w > h ? "landscape" : "portrait";
+  return `${a} ${orient}`;
+}
+
+export function aspectToSize(aspect, longSide = 1280) {
+  const a = normalizeAspect(aspect);
+  const [aw, ah] = a.split(":").map(Number);
+  if (aw >= ah) {
+    return { width: longSide, height: Math.max(1, Math.round((longSide * ah) / aw)) };
+  }
+  return { width: Math.max(1, Math.round((longSide * aw) / ah)), height: longSide };
+}
+
+export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio) {
   const buzz =
     buzzWords?.length > 0
       ? buzzWords.slice(0, 16).join(", ")
       : "rich painterly detail";
+  const frame = aspectPhrase(aspectRatio);
   const prefix =
     "Create one original fine-art painting that embodies this fused vision. " +
     "Invent fresh imagery — not a photograph or collage of references.\n\n" +
@@ -159,7 +186,7 @@ export function buildStasisVisionPrompt(stasis, buzzWords) {
   const suffix =
     `\n\nBUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
     "The image should read clearly at thumbnail scale yet reward close viewing. " +
-    "Museum-quality, cohesive composition, expressive brushwork, 16:9 landscape.";
+    `Museum-quality, cohesive composition, expressive brushwork. Compose for a ${frame} frame and fill the entire canvas.`;
   const overhead = prefix.length + suffix.length;
   const bodyMax = Math.min(
     GEN_STASIS_BODY_MAX,
@@ -216,12 +243,13 @@ function extractWomboImageUrl(task) {
   throw new Error("No image URL in WOMBO Dream response.");
 }
 
-export async function generateWomboStasisImage(stasis, buzzWords) {
+export async function generateWomboStasisImage(stasis, buzzWords, aspectRatio) {
   const token = getImageApiKey();
   const prompt = buildWomboPrompt(stasis, buzzWords);
   const styleId = parseInt(process.env.WOMBO_STYLE_ID || String(WOMBO_STYLE_DEFAULT), 10) || 1;
-  const width = parseInt(process.env.WOMBO_WIDTH || "1280", 10) || 1280;
-  const height = parseInt(process.env.WOMBO_HEIGHT || "720", 10) || 720;
+  const sized = aspectToSize(aspectRatio, 1280);
+  const width = sized.width;
+  const height = sized.height;
 
   const createResp = await fetch(WOMBO_API, {
     method: "POST",
@@ -293,9 +321,10 @@ export async function materializeStillDataUrl(imageUrl) {
   return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
-export async function generateXaiStasisImage(stasis, buzzWords) {
+export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio) {
   const apiKey = getImageApiKey();
-  const fullPrompt = buildStasisVisionPrompt(stasis, buzzWords);
+  const aspect = normalizeAspect(aspectRatio);
+  const fullPrompt = buildStasisVisionPrompt(stasis, buzzWords, aspect);
 
   const resp = await fetch(API_IMAGES, {
     method: "POST",
@@ -307,7 +336,7 @@ export async function generateXaiStasisImage(stasis, buzzWords) {
       model: IMAGE_MODEL,
       prompt: fullPrompt,
       n: 1,
-      aspect_ratio: "16:9",
+      aspect_ratio: aspect,
     }),
   });
 
@@ -325,9 +354,9 @@ export async function generateXaiStasisImage(stasis, buzzWords) {
   throw new Error("No image data in xAI response.");
 }
 
-export async function generateStasisVisionImage(stasis, buzzWords) {
+export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio) {
   if (getImageProvider() === "wombo") {
-    return generateWomboStasisImage(stasis, buzzWords);
+    return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
   }
-  return generateXaiStasisImage(stasis, buzzWords);
+  return generateXaiStasisImage(stasis, buzzWords, aspectRatio);
 }

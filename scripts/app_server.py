@@ -9365,6 +9365,62 @@ def _cap_prompt_chars(text, max_chars=None):
     return out
 
 
+_ALLOWED_STILL_ASPECTS = ("1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3")
+_STASIS_ASPECT = threading.local()
+
+
+def _normalize_still_aspect(value, default="16:9"):
+    v = str(value or "").strip().replace("/", ":").replace(" ", "")
+    if v in _ALLOWED_STILL_ASPECTS:
+        return v
+    m = re.match(r"^(\d+)[:xX](\d+)$", v)
+    if m:
+        cand = f"{int(m.group(1))}:{int(m.group(2))}"
+        if cand in _ALLOWED_STILL_ASPECTS:
+            return cand
+    return default
+
+
+def _aspect_prompt_phrase(aspect):
+    a = _normalize_still_aspect(aspect)
+    w, h = (int(x) for x in a.split(":"))
+    orient = "square" if w == h else ("landscape" if w > h else "portrait")
+    return f"{a} {orient}"
+
+
+def _rewrite_prompt_aspect(prompt, aspect):
+    phrase = _aspect_prompt_phrase(aspect)
+    p = str(prompt or "")
+    p = re.sub(r"16:9 landscape", phrase, p, flags=re.I)
+    p = re.sub(r"Landscape 16:9", phrase, p, flags=re.I)
+    p = re.sub(r"16:9 wide establishing view", f"{phrase} establishing view", p, flags=re.I)
+    return p
+
+
+def _current_stasis_aspect():
+    return getattr(_STASIS_ASPECT, "value", None)
+
+
+_orig_httpx_client_request = httpx.Client.request
+
+
+def _httpx_client_request_with_still_aspect(self, method, url, *args, **kwargs):
+    aspect = _current_stasis_aspect()
+    url_s = str(url or "")
+    if aspect and "images/generations" in url_s:
+        body = kwargs.get("json")
+        if isinstance(body, dict):
+            body = dict(body)
+            body["aspect_ratio"] = _normalize_still_aspect(aspect)
+            if isinstance(body.get("prompt"), str):
+                body["prompt"] = _rewrite_prompt_aspect(body["prompt"], aspect)
+            kwargs = dict(kwargs)
+            kwargs["json"] = body
+    return _orig_httpx_client_request(self, method, url, *args, **kwargs)
+
+
+httpx.Client.request = _httpx_client_request_with_still_aspect
+
 _orig_build_stasis_vision_prompt = globals().get("build_stasis_vision_prompt")
 
 
@@ -9397,8 +9453,13 @@ def build_stasis_vision_prompt(*args, **kwargs):
             f"{stasis.strip()}\n\n"
             f"BUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): {buzz_s}\n\n"
             "The image should read clearly at thumbnail scale yet reward close viewing. "
-            "Museum-quality, cohesive composition, expressive brushwork, 16:9 landscape."
+            "Museum-quality, cohesive composition, expressive brushwork, "
+            f"{_aspect_prompt_phrase(_current_stasis_aspect() or '16:9')} frame."
         )
+    aspect = _normalize_still_aspect(
+        kwargs.get("aspect_ratio") or _current_stasis_aspect() or "16:9"
+    )
+    prompt = _rewrite_prompt_aspect(prompt, aspect)
     stamp = atomic_signature_stamp()
     artist = "Logan Sevin"
     try:
@@ -9430,6 +9491,9 @@ _orig_run_stasis_vision_job = globals().get("run_stasis_vision_job")
 
 def run_stasis_vision_job(job_id, body, *rest, **kwargs):
     body = dict(body or {})
+    aspect = _normalize_still_aspect(body.get("aspect_ratio") or body.get("aspect") or "16:9")
+    body["aspect_ratio"] = aspect
+    _STASIS_ASPECT.value = aspect
     for key in (
         "stasis",
         "prompt",
@@ -9535,9 +9599,12 @@ def run_stasis_vision_job(job_id, body, *rest, **kwargs):
 
     if not callable(_orig_run_stasis_vision_job):
         raise RuntimeError("run_stasis_vision_job not available")
-    if rest or kwargs:
-        return _orig_run_stasis_vision_job(job_id, body, *rest, **kwargs)
-    return _orig_run_stasis_vision_job(job_id, body)
+    try:
+        if rest or kwargs:
+            return _orig_run_stasis_vision_job(job_id, body, *rest, **kwargs)
+        return _orig_run_stasis_vision_job(job_id, body)
+    finally:
+        _STASIS_ASPECT.value = None
 
 
 if callable(_orig_run_stasis_vision_job):
