@@ -1045,12 +1045,24 @@
     return !!noteOf(n);
   }
 
+  function resolveArsenalNum(n) {
+    n = parseInt(n, 10);
+    if (!n || n < 1) return 0;
+    if (extraSpells[n] || extraSpells[String(n)]) return n;
+    if (noteOf(n)) return n;
+    if (n <= TOTAL) return n;
+    var asGen = GEN_BASE + n;
+    if (extraSpells[asGen] || extraSpells[String(asGen)]) return asGen;
+    return n;
+  }
+
   function isValidSpellNum(n) {
     n = parseInt(n, 10);
     if (!n || n < 1) return false;
     if (n <= TOTAL) return true;
     if (noteOf(n)) return true;
-    return !!extraSpells[n] || !!extraSpells[String(n)];
+    if (extraSpells[n] || extraSpells[String(n)]) return true;
+    return !!(extraSpells[GEN_BASE + n] || extraSpells[String(GEN_BASE + n)]);
   }
 
   function spellKindLabel(num) {
@@ -1074,6 +1086,7 @@
   }
 
   function paintingUrl(num) {
+    num = resolveArsenalNum(num) || num;
     if (noteOf(num)) return NOTE_THUMB;
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
@@ -1082,7 +1095,7 @@
   }
 
   function getAnalysis(num) {
-    num = parseInt(num, 10);
+    num = resolveArsenalNum(num) || parseInt(num, 10);
     var note = noteOf(num);
     if (note) {
       var notePrompt = String(note.text || note.prompt || "");
@@ -1232,16 +1245,24 @@
     return "/generated/" + genNum + ".jpg";
   }
 
-  function ingestFromLod1Manifest(d) {
+  function ingestFromLod1Manifest(d, analysisMap) {
+    analysisMap = analysisMap || {};
     var items = (d && d.items) || [];
     ingestSpellAssets(
       items.map(function (it) {
         var n = parseInt(it.num != null ? it.num : it.number, 10);
         var analysis =
-          typeof getLod1Analysis === "function" ? getLod1Analysis(n) : null;
+          analysisMap[String(n)] ||
+          analysisMap[n] ||
+          (typeof getLod1Analysis === "function" ? getLod1Analysis(n) : null);
+        var rawUrl = it.url || genFileUrl(n);
+        var url =
+          typeof resolveGalleryUrl === "function"
+            ? resolveGalleryUrl(rawUrl)
+            : genFileUrl(n);
         return {
           number: n,
-          url: genFileUrl(n),
+          url: url,
           source: "generated",
           title: (analysis && analysis.title) || it.name || ("Gen G#" + n),
           analysis: analysis,
@@ -1252,14 +1273,25 @@
   }
 
   function loadSpellAssetsFromStatic() {
-    return fetch("data/lod1-manifest.json?t=" + Date.now(), { cache: "default" })
-      .then(function (r) {
-        if (!r.ok) return null;
-        return r.json();
-      })
-      .then(function (d) {
+    return Promise.all([
+      fetch("data/lod1-manifest.json?t=" + Date.now(), { cache: "default" }).then(
+        function (r) {
+          return r.ok ? r.json() : null;
+        }
+      ),
+      fetch("data/lod1-analyses.json?t=" + Date.now(), { cache: "default" })
+        .then(function (r) {
+          return r.ok ? r.json() : {};
+        })
+        .catch(function () {
+          return {};
+        }),
+    ])
+      .then(function (pair) {
+        var d = pair[0];
+        var analysisMap = pair[1] || {};
         if (d && Array.isArray(d.items) && d.items.length) {
-          ingestFromLod1Manifest(d);
+          ingestFromLod1Manifest(d, analysisMap);
         }
         return arsenalExtraNums.length;
       })
@@ -4806,7 +4838,7 @@
   }
 
   function openSlotDialog(num) {
-    num = parseInt(num, 10);
+    num = resolveArsenalNum(parseInt(num, 10));
     if (!num) return;
     pendingPickNumber = num;
     var dialog = document.getElementById("spell-slot-dialog");
@@ -4817,6 +4849,22 @@
     img.src = paintingUrl(num);
     img.alt = "Painting #" + num;
     if (meta) meta.textContent = analysisSpellText(num);
+    var extra = extraSpells[num] || extraSpells[String(num)];
+    if (extra && extra.genNum && !extra.analysis) {
+      fetch("generated-meta/" + extra.genNum + ".json", { cache: "default" })
+        .then(function (r) {
+          return r.ok ? r.json() : null;
+        })
+        .then(function (a) {
+          if (!a) return;
+          extra.analysis = a;
+          extra.title = a.title || extra.title;
+          analyses[String(num)] = a;
+          analyses[num] = a;
+          if (meta && pendingPickNumber === num) meta.textContent = analysisSpellText(num);
+        })
+        .catch(function () {});
+    }
 
     if (!slotDialogBound) {
       slotDialogBound = true;
@@ -4901,7 +4949,7 @@
   }
 
   function jumpToPainting(num) {
-    num = parseInt(num, 10) || 1;
+    num = resolveArsenalNum(parseInt(num, 10) || 1);
     if (!isValidSpellNum(num)) {
       num = Math.max(1, Math.min(TOTAL, num));
     }
