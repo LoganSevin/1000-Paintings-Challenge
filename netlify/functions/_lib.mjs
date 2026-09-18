@@ -72,9 +72,13 @@ export function isImageApiConfigured() {
 export function getApiKey() {
   const visitor = xaiKeyStore.getStore();
   if (visitor) return visitor;
-  throw new Error(
-    "Sign in with Google and connect your own xAI API key. This site does not spend the artist's Grok credits."
-  );
+  const key = getXaiKey();
+  if (!key) {
+    throw new Error(
+      "XAI_API_KEY is not set. In Netlify: Site settings → Environment variables → add XAI_API_KEY, then redeploy."
+    );
+  }
+  return key;
 }
 
 export function getImageApiKey() {

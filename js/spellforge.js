@@ -4377,11 +4377,6 @@
           statusEl.hidden = false;
           statusEl.className = "spell-generate-status error";
           var msg = err && err.message ? err.message : String(err);
-          if (isCreditsError(msg)) {
-            msg =
-              msg +
-              " Free fuse is off by default so quality is preserved. Set SPELLFORGE_LOCAL_FALLBACK_ON_CREDITS = true in spellforge-config.js only if you want stacked paintings.";
-          }
           statusEl.textContent = msg;
         }
       })

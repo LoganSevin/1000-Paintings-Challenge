@@ -1,11 +1,10 @@
 import { getStore } from "@netlify/blobs";
 import {
+  isImageApiConfigured,
   generateStasisVisionImage,
   saveJob,
   jsonResponse,
   corsPreflight,
-  visitorXaiKey,
-  runWithXaiKey,
 } from "./_lib.mjs";
 
 async function runJob(jobId, body) {
@@ -61,21 +60,20 @@ export default async function handler(request, context) {
       ? crypto.randomUUID()
       : `job-${Date.now()}`);
 
-  const visitorKey = visitorXaiKey(request);
-  if (!visitorKey) {
+  if (!isImageApiConfigured()) {
     return jsonResponse(
       {
         error:
-          "Connect your xAI API key after Google Sign-In. logan7in.art does not use the artist's Grok credits.",
+          "No image API key. Add XAI_API_KEY on Netlify (Site settings → Environment variables), then redeploy.",
       },
-      401
+      400
     );
   }
 
   const store = getStore({ name: "spellforge-jobs", consistency: "strong" });
   await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "queued" });
 
-  const work = runWithXaiKey(visitorKey, () => runJob(jobId, body));
+  const work = runJob(jobId, body);
   if (context?.waitUntil) {
     context.waitUntil(work);
   } else {
