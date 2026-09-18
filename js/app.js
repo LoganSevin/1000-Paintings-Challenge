@@ -9,8 +9,8 @@ const REFRESH_MS = 10000;
 const LOD1_REFRESH_MS = 12000;
 const IS_LOCAL =
   location.hostname === "localhost" || location.hostname === "127.0.0.1";
-const CAN_USE_GALLERY_API =
-  location.protocol === "http:" || location.protocol === "https:";
+const CAN_USE_GALLERY_API = IS_LOCAL;
+const PUBLIC_GENERATED_ORIGIN = IS_LOCAL ? "" : "https://l7in-generated.netlify.app";
 
 function galleryApiUrl(path) {
   const base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
@@ -22,6 +22,9 @@ function resolveGalleryUrl(url) {
   const raw = String(url || "").trim();
   if (!raw) return "";
   if (/^https?:\/\//i.test(raw)) return raw;
+  if (raw.startsWith("/generated/") && PUBLIC_GENERATED_ORIGIN) {
+    return PUBLIC_GENERATED_ORIGIN + raw.slice("/generated".length);
+  }
   if (raw.startsWith("/")) {
     if (CAN_USE_GALLERY_API) return galleryApiUrl(raw);
     return raw.slice(1);
@@ -145,6 +148,7 @@ function getLod1Analysis(num) {
 }
 
 function generatedUrl(num) {
+  if (PUBLIC_GENERATED_ORIGIN) return `${PUBLIC_GENERATED_ORIGIN}/${num}.jpg`;
   return `/generated/${num}.jpg`;
 }
 
