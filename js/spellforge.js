@@ -4131,6 +4131,8 @@
 
   var PC_GENERATED_HINT =
     "Desktop\\1000 Paintings Challenge\\gallery\\generated";
+  var lastVisionBlob = null;
+  var lastVisionFileName = "";
 
   function pcSaveBases() {
     var bases = [];
@@ -4160,6 +4162,246 @@
     return fetch(url, opts);
   }
 
+  function setPersistStatus(msg, isError) {
+    var statusEl = document.getElementById("spell-generate-status");
+    if (!statusEl) return;
+    statusEl.hidden = !msg;
+    statusEl.className = isError
+      ? "spell-generate-status error"
+      : "spell-generate-status";
+    statusEl.textContent = msg || "";
+  }
+
+  function stampStillName() {
+    var d = new Date();
+    function pad(n) {
+      return n < 10 ? "0" + n : String(n);
+    }
+    return (
+      "spellforge-" +
+      d.getFullYear() +
+      pad(d.getMonth() + 1) +
+      pad(d.getDate()) +
+      "-" +
+      pad(d.getHours()) +
+      pad(d.getMinutes()) +
+      pad(d.getSeconds()) +
+      ".jpg"
+    );
+  }
+
+  function dataUrlToBlob(dataUrl) {
+    var parts = String(dataUrl || "").split(",");
+    var mime = "image/jpeg";
+    var header = parts[0] || "";
+    var found = header.match(/data:([^;]+)/);
+    if (found) mime = found[1];
+    var bin = atob(parts[1] || "");
+    var arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
+  function blobFromDisplayedImg() {
+    var img = document.getElementById("spell-stasis-vision-img");
+    if (!img || !img.src) {
+      return Promise.reject(new Error("No still on screen to save."));
+    }
+    if (img.src.indexOf("data:") === 0) {
+      return Promise.resolve(dataUrlToBlob(img.src));
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var c = document.createElement("canvas");
+        c.width = img.naturalWidth || img.width;
+        c.height = img.naturalHeight || img.height;
+        if (!c.width || !c.height) {
+          reject(new Error("Still has not finished loading."));
+          return;
+        }
+        var ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        c.toBlob(
+          function (b) {
+            if (b) resolve(b);
+            else reject(new Error("Could not copy the preview."));
+          },
+          "image/jpeg",
+          0.92
+        );
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+
+  function urlToBlob(url) {
+    if (!url && lastVisionBlob) return Promise.resolve(lastVisionBlob);
+    if (!url) return blobFromDisplayedImg();
+    if (String(url).indexOf("data:") === 0) {
+      return Promise.resolve(dataUrlToBlob(url));
+    }
+    if (String(url).indexOf("blob:") === 0) {
+      return fetch(url).then(function (r) {
+        return r.blob();
+      });
+    }
+    return fetch(url, { mode: "cors", cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("fetch");
+        return r.blob();
+      })
+      .catch(function () {
+        return blobFromDisplayedImg();
+      });
+  }
+
+  function triggerDownload(blob, name) {
+    try {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = name || stampStillName();
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+        URL.revokeObjectURL(a.href);
+        if (a.parentNode) a.parentNode.removeChild(a);
+      }, 2500);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function openHandleDb() {
+    return new Promise(function (resolve, reject) {
+      if (!window.indexedDB) {
+        reject(new Error("no idb"));
+        return;
+      }
+      var req = indexedDB.open("spellforge-pc-drop", 1);
+      req.onupgradeneeded = function () {
+        if (!req.result.objectStoreNames.contains("kv")) {
+          req.result.createObjectStore("kv");
+        }
+      };
+      req.onsuccess = function () {
+        resolve(req.result);
+      };
+      req.onerror = function () {
+        reject(req.error);
+      };
+    });
+  }
+
+  function idbGet(key) {
+    return openHandleDb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction("kv", "readonly");
+        var req = tx.objectStore("kv").get(key);
+        req.onsuccess = function () {
+          resolve(req.result || null);
+        };
+        req.onerror = function () {
+          reject(req.error);
+        };
+      });
+    });
+  }
+
+  function idbSet(key, value) {
+    return openHandleDb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction("kv", "readwrite");
+        tx.objectStore("kv").put(value, key);
+        tx.oncomplete = function () {
+          resolve(value);
+        };
+        tx.onerror = function () {
+          reject(tx.error);
+        };
+      });
+    });
+  }
+
+  function getGeneratedDirHandle() {
+    if (!window.showDirectoryPicker) return Promise.resolve(null);
+    return idbGet("generatedFolder")
+      .then(function (handle) {
+        if (!handle || !handle.queryPermission) return null;
+        return handle.queryPermission({ mode: "readwrite" }).then(function (perm) {
+          if (perm === "granted") return handle;
+          if (perm === "prompt" && handle.requestPermission) {
+            return handle.requestPermission({ mode: "readwrite" }).then(function (next) {
+              return next === "granted" ? handle : null;
+            });
+          }
+          return null;
+        });
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function pickGeneratedFolder() {
+    if (!window.showDirectoryPicker) {
+      return Promise.reject(
+        new Error("Use Chrome or Edge to link the generated folder.")
+      );
+    }
+    setPersistStatus(
+      "In the folder window, open Desktop → 1000 Paintings Challenge → gallery → generated, then click Select Folder."
+    );
+    return window
+      .showDirectoryPicker({
+        id: "logan-generated",
+        mode: "readwrite",
+        startIn: "desktop",
+      })
+      .then(function (handle) {
+        return idbSet("generatedFolder", handle).then(function () {
+          setPersistStatus(
+            "Linked. New stills will be written into that folder on this PC."
+          );
+          return handle;
+        });
+      });
+  }
+
+  function ensureGeneratedFolderLinked(opts) {
+    opts = opts || {};
+    return getGeneratedDirHandle().then(function (h) {
+      if (h) return h;
+      if (!opts.promptIfMissing) return null;
+      return pickGeneratedFolder().catch(function (err) {
+        if (err && err.name === "AbortError") {
+          setPersistStatus(
+            "Folder not linked. After the still appears, click Save this still to PC — do not Generate again."
+          );
+          return null;
+        }
+        return null;
+      });
+    });
+  }
+
+  function writeBlobToGeneratedFolder(blob, name) {
+    return getGeneratedDirHandle().then(function (dir) {
+      if (!dir) return null;
+      return dir.getFileHandle(name, { create: true }).then(function (fh) {
+        return fh.createWritable().then(function (writable) {
+          return writable.write(blob).then(function () {
+            return writable.close();
+          });
+        });
+      }).then(function () {
+        return name;
+      });
+    });
+  }
+
   function postSaveGenerated(base, payload) {
     return fetchPcStudio((base || "") + "/api/save-generated-image", {
       method: "POST",
@@ -4175,8 +4417,7 @@
     });
   }
 
-  function persistGeneratedStill(url) {
-    if (!url) return Promise.resolve(null);
+  function persistToLocalhost(url, blob) {
     var payload = {
       source: "spellforge",
       collection: "generated",
@@ -4184,42 +4425,42 @@
       description: String(lastFusedPrompt || spellStasis || "").slice(0, 800),
       meta: { source: "spellforge", spells: getEquippedInOrder() },
     };
-    if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
-    else payload.image_url = url;
-    var bases = pcSaveBases();
-    var statusEl = document.getElementById("spell-generate-status");
-
-    function tryNext(i) {
-      if (i >= bases.length) {
-        if (statusEl) {
-          statusEl.hidden = false;
-          statusEl.className = "spell-generate-status";
-          statusEl.textContent =
-            "Preview only — run start_server.bat on this PC so new stills drop into " +
-            PC_GENERATED_HINT;
+    if (blob) {
+      return new Promise(function (resolve) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          payload.image_base64 = reader.result;
+          resolve();
+        };
+        reader.onerror = function () {
+          resolve();
+        };
+        reader.readAsDataURL(blob);
+      }).then(function () {
+        if (!payload.image_base64) return null;
+        var bases = pcSaveBases();
+        function tryNext(i) {
+          if (i >= bases.length) return null;
+          return postSaveGenerated(bases[i], payload).then(
+            function (d) {
+              return d;
+            },
+            function () {
+              return tryNext(i + 1);
+            }
+          );
         }
-        return null;
-      }
+        return tryNext(0);
+      });
+    }
+    if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
+    else if (url) payload.image_url = url;
+    else return Promise.resolve(null);
+    var bases = pcSaveBases();
+    function tryNext(i) {
+      if (i >= bases.length) return null;
       return postSaveGenerated(bases[i], payload).then(
         function (d) {
-          if (d && (d.num != null || d.url)) {
-            if (statusEl) {
-              statusEl.hidden = false;
-              statusEl.className = "spell-generate-status";
-              statusEl.textContent =
-                "Saved on this PC: " +
-                PC_GENERATED_HINT +
-                "\\" +
-                (d.name || d.num + ".jpg") +
-                " (G#" +
-                d.num +
-                "). File Explorer should jump to the file.";
-            }
-            if (d.url && isLocalHost()) {
-              stasisVisionUrl = d.url;
-              updateStasisVisionView(d.url);
-            }
-          }
           return d;
         },
         function () {
@@ -4227,47 +4468,123 @@
         }
       );
     }
-    return tryNext(0).catch(function () {
-      return null;
-    });
+    return tryNext(0);
+  }
+
+  function persistGeneratedStill(url) {
+    if (!url && !lastVisionBlob) {
+      var img = document.getElementById("spell-stasis-vision-img");
+      url = (img && img.src) || stasisVisionUrl || "";
+    }
+    if (!url && !lastVisionBlob) return Promise.resolve(null);
+    var name = stampStillName();
+    lastVisionFileName = name;
+    return urlToBlob(url)
+      .then(function (blob) {
+        lastVisionBlob = blob;
+        return writeBlobToGeneratedFolder(blob, name).then(function (written) {
+          var downloaded = false;
+          if (!written) downloaded = triggerDownload(blob, name);
+          persistToLocalhost(url, blob).then(function (d) {
+            if (d && d.url && isLocalHost()) {
+              stasisVisionUrl = d.url;
+              updateStasisVisionView(d.url);
+            }
+            if (d && d.name && !written) {
+              setPersistStatus(
+                "Saved on this PC: " +
+                  PC_GENERATED_HINT +
+                  "\\" +
+                  d.name +
+                  (d.num != null ? " (G#" + d.num + ")" : "")
+              );
+            }
+          });
+          if (written) {
+            setPersistStatus(
+              "Saved on this PC in your linked folder as " +
+                written +
+                " — that is " +
+                PC_GENERATED_HINT
+            );
+            return { name: written, via: "folder" };
+          }
+          if (downloaded) {
+            setPersistStatus(
+              "Saved to your Downloads folder as " +
+                name +
+                ". Click Link generated folder once (choose " +
+                PC_GENERATED_HINT +
+                ") so the next still lands there."
+            );
+            return { name: name, via: "downloads" };
+          }
+          setPersistStatus(
+            "Still is on screen only. Click Save this still to PC — do not Generate again.",
+            true
+          );
+          return null;
+        });
+      })
+      .catch(function () {
+        setPersistStatus(
+          "Could not copy the still yet. Click Save this still to PC. Do not Generate again.",
+          true
+        );
+        return null;
+      });
+  }
+
+  function saveCurrentStillToPc() {
+    var img = document.getElementById("spell-stasis-vision-img");
+    var url = (img && img.src) || stasisVisionUrl || "";
+    if (!url && !lastVisionBlob) {
+      setPersistStatus("No still on screen to save.", true);
+      return Promise.resolve(null);
+    }
+    return persistGeneratedStill(url);
   }
 
   function openGeneratedFolderOnPc() {
-    var statusEl = document.getElementById("spell-generate-status");
-    var bases = pcSaveBases();
-    function tryNext(i) {
-      if (i >= bases.length) {
-        if (statusEl) {
-          statusEl.hidden = false;
-          statusEl.className = "spell-generate-status";
-          statusEl.textContent =
-            "Could not open the folder. Run start_server.bat, then look in " +
-            PC_GENERATED_HINT;
-        }
-        return null;
+    return getGeneratedDirHandle().then(function (dir) {
+      if (dir) {
+        setPersistStatus(
+          "Folder is already linked. Look in " + PC_GENERATED_HINT
+        );
+        return dir;
       }
-      return fetchPcStudio((bases[i] || "") + "/api/open-generated", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: "{}",
-      })
-        .then(function (r) {
-          return r.json().then(function (d) {
-            if (!r.ok || (d && d.ok === false)) throw new Error("offline");
-            if (statusEl) {
-              statusEl.hidden = false;
-              statusEl.className = "spell-generate-status";
-              statusEl.textContent =
-                "Opened " + (d.path || PC_GENERATED_HINT) + " in File Explorer.";
-            }
-            return d;
-          });
+      return pickGeneratedFolder();
+    }).then(function (dir) {
+      if (dir) return dir;
+      var bases = pcSaveBases();
+      function tryNext(i) {
+        if (i >= bases.length) {
+          setPersistStatus(
+            "Click Link generated folder and choose " + PC_GENERATED_HINT,
+            true
+          );
+          return null;
+        }
+        return fetchPcStudio((bases[i] || "") + "/api/open-generated", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: "{}",
         })
-        .catch(function () {
-          return tryNext(i + 1);
-        });
-    }
-    return tryNext(0);
+          .then(function (r) {
+            return r.json().then(function (d) {
+              if (!r.ok || (d && d.ok === false)) throw new Error("offline");
+              setPersistStatus(
+                "Opened " + (d.path || PC_GENERATED_HINT) + " in File Explorer."
+              );
+              return d;
+            });
+          })
+          .catch(function () {
+            return tryNext(i + 1);
+          });
+      }
+      return tryNext(0);
+    });
   }
 
   function generateStasisVisionLocal(nums, statusEl) {
@@ -4587,9 +4904,19 @@
       statusEl.textContent = "Calling xAI for stasis vision…";
     }
 
-    var work = localOk
-      ? generateStasisVisionLocal(nums, statusEl)
-      : generateStasisVisionCloud(nums, statusEl, btn);
+    var ready = isLocalHost()
+      ? Promise.resolve(null)
+      : ensureGeneratedFolderLinked({ promptIfMissing: true });
+    var work = ready.then(function () {
+      if (statusEl && !localOk) {
+        statusEl.hidden = false;
+        statusEl.className = "spell-generate-status";
+        statusEl.textContent = "Calling xAI for stasis vision…";
+      }
+      return localOk
+        ? generateStasisVisionLocal(nums, statusEl)
+        : generateStasisVisionCloud(nums, statusEl, btn);
+    });
 
     var failed = null;
     return work
@@ -4752,7 +5079,22 @@
     if (openGenBtn && !openGenBtn.dataset.bound) {
       openGenBtn.dataset.bound = "1";
       openGenBtn.onclick = function () {
-        openGeneratedFolderOnPc();
+        pickGeneratedFolder();
+      };
+    }
+
+    var saveStillBtn = document.getElementById("spell-save-still-pc");
+    if (saveStillBtn && !saveStillBtn.dataset.bound) {
+      saveStillBtn.dataset.bound = "1";
+      saveStillBtn.onclick = function () {
+        saveCurrentStillToPc();
+      };
+    }
+    var saveStillInline = document.getElementById("spell-save-still-pc-inline");
+    if (saveStillInline && !saveStillInline.dataset.bound) {
+      saveStillInline.dataset.bound = "1";
+      saveStillInline.onclick = function () {
+        saveCurrentStillToPc();
       };
     }
 

@@ -964,9 +964,9 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
 
 .spell-save-hint {
   margin: 0 0 0.65rem;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #f0d9a8;
 }
 
 .spell-generate-status.error {

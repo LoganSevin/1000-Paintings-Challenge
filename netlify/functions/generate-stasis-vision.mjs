@@ -2,6 +2,7 @@ import { getStore } from "@netlify/blobs";
 import {
   isImageApiConfigured,
   generateStasisVisionImage,
+  materializeStillDataUrl,
   saveJob,
   jsonResponse,
   corsPreflight,
@@ -21,7 +22,16 @@ async function runJob(jobId, body) {
     await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "pending" });
 
     const imageUrl = await generateStasisVisionImage(stasis, buzz);
-    const image = { url: imageUrl };
+    let dataUrl = imageUrl;
+    try {
+      dataUrl = await materializeStillDataUrl(imageUrl);
+    } catch (e) {
+      dataUrl = imageUrl;
+    }
+    const image = {
+      url: dataUrl,
+      remote_url: String(imageUrl).startsWith("data:") ? "" : imageUrl,
+    };
     await saveJob(store, jobId, {
       id: jobId,
       type: "stasis_vision",

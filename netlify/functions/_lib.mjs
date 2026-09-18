@@ -274,6 +274,25 @@ export async function generateWomboStasisImage(stasis, buzzWords) {
   throw new Error("WOMBO Dream timed out (3 minutes).");
 }
 
+export async function materializeStillDataUrl(imageUrl) {
+  const url = String(imageUrl || "").trim();
+  if (!url) return url;
+  if (url.startsWith("data:")) return url;
+  const resp = await fetch(url);
+  if (!resp.ok) return url;
+  const buf = Buffer.from(await resp.arrayBuffer());
+  if (buf.length < 32) return url;
+  let mime = String(resp.headers.get("content-type") || "image/jpeg")
+    .split(";")[0]
+    .trim();
+  if (!mime.startsWith("image/")) {
+    if (buf[0] === 0xff && buf[1] === 0xd8) mime = "image/jpeg";
+    else if (buf[0] === 0x89) mime = "image/png";
+    else mime = "image/jpeg";
+  }
+  return `data:${mime};base64,${buf.toString("base64")}`;
+}
+
 export async function generateXaiStasisImage(stasis, buzzWords) {
   const apiKey = getImageApiKey();
   const fullPrompt = buildStasisVisionPrompt(stasis, buzzWords);
