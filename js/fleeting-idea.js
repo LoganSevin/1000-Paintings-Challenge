@@ -1548,8 +1548,8 @@
     if (!ws) return;
     ws.style.setProperty("--fi-edge-left", "8.25rem");
     ws.style.setProperty("--fi-edge-right", "12.5rem");
-    ws.style.setProperty("--fi-edge-top", "3.75rem");
-    ws.style.setProperty("--fi-edge-bottom", "11.5rem");
+    ws.style.setProperty("--fi-edge-top", "3.5rem");
+    ws.style.setProperty("--fi-edge-bottom", "7.25rem");
     syncCubeGeometry();
   }
 
@@ -5444,6 +5444,10 @@
     syncHeaderHeight();
     syncEdgeInsets();
     syncWorkspaceSize();
+    requestAnimationFrame(function () {
+      syncHeaderHeight();
+      syncWorkspaceSize();
+    });
     enforceNoBlankImageLayers({ silent: true });
     renderObjects();
     syncStageChrome();

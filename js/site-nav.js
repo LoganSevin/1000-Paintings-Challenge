@@ -8,12 +8,17 @@
 
   /** Only used on public static hosts — keep local studio fully visible. */
   var PUBLIC_PRIMARY = [
+    "kids",
     "gallery",
     "pulse",
     "spellforge",
     "muralwalk",
     "fleeting-idea",
     "conceptualizer",
+    "thousand",
+    "moba",
+    "texture",
+    "champions",
     "income",
   ];
 
@@ -22,7 +27,9 @@
     return (
       h.indexOf("netlify.app") >= 0 ||
       h.indexOf("github.io") >= 0 ||
-      h.indexOf("pages.dev") >= 0
+      h.indexOf("pages.dev") >= 0 ||
+      h === "logan7in.art" ||
+      h === "www.logan7in.art"
     );
   }
 

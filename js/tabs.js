@@ -11,7 +11,7 @@
     }
   } catch (eEmbed) {}
 
-  const tabs = document.querySelectorAll(".site-tabs .tab");
+  const tabs = document.querySelectorAll(".site-tabs .tab, .kids-tabs .tab[data-tab]");
   document.body.setAttribute("data-active-tab", "gallery");
   const panels = {
     gallery: document.getElementById("panel-gallery"),
@@ -74,6 +74,22 @@
     handfont: document.getElementById("panel-handfont"),
     voice: document.getElementById("panel-voice"),
     houma: document.getElementById("panel-houma"),
+    thousand: document.getElementById("panel-thousand"),
+    moba: document.getElementById("panel-moba"),
+    texture: document.getElementById("panel-texture"),
+    champions: document.getElementById("panel-champions"),
+    "kids-baby": document.getElementById("panel-kids-baby"),
+    "kids-child": document.getElementById("panel-kids-child"),
+    "kids-learn": document.getElementById("panel-kids-learn"),
+    "kids-disney": document.getElementById("panel-kids-disney"),
+    "kids-nick": document.getElementById("panel-kids-nick"),
+    "kids-cn": document.getElementById("panel-kids-cn"),
+    "kids-dreamworks": document.getElementById("panel-kids-dreamworks"),
+    "kids-classics": document.getElementById("panel-kids-classics"),
+    "kids-more": document.getElementById("panel-kids-more"),
+    "kids-toonami": document.getElementById("panel-kids-toonami"),
+    "kids-adultswim": document.getElementById("panel-kids-adultswim"),
+    "kids-art": document.getElementById("panel-kids-art"),
   };
   const subtitle = document.getElementById("header-subtitle");
   const stats = document.getElementById("stats");
@@ -142,7 +158,88 @@
     handfont: "Hand Font — draw letters, write across the page, thicken and highlight",
     voice: "Voice — speak with your hands; play Logan’s recorded voice as a studio module",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
+    thousand: "1000 — a thousand different game templates you can click and rewrite",
+    moba: "MOBA — click-to-move lanes, towers, minions, QWER",
+    texture: "Texture — paint Spellforge spells onto the map; QWER rolls a random spell per layer",
+    champions: "Champions — League roster identities; skins save as Name/0, Name/1, …",
+    "kids-baby": "Baby Cartoons — nursery shows and first stories",
+    "kids-child": "Child Cartoons — playable studio games plus a cartoon catalog",
+    "kids-learn": "Learning — Grade 1 through 12 math and English",
+    "kids-art": "Kids Art — catalog identities, Spellforge book, cast / describe / animate",
+    "kids-disney": "Disney — cartoons and TV personalities",
+    "kids-nick": "Nickelodeon — cartoons and TV personalities",
+    "kids-cn": "Cartoon Network — cartoons and TV personalities",
+    "kids-dreamworks": "DreamWorks — features and TV characters",
+    "kids-classics": "Classics — Golden Age, Peanuts, and holiday specials kept as a catalog",
+    "kids-more": "More — grown-up blocks behind the passcode",
+    "kids-toonami": "Toonami — action-block character catalog",
+    "kids-adultswim": "Adult Swim — late-night character catalog",
   };
+
+  var KIDS_TABS = [
+    "kids-baby",
+    "kids-child",
+    "kids-learn",
+    "kids-art",
+    "kids-disney",
+    "kids-nick",
+    "kids-cn",
+    "kids-dreamworks",
+    "kids-classics",
+    "kids-more",
+    "kids-toonami",
+    "kids-adultswim",
+  ];
+  var KIDS_MORE_TABS = ["kids-more", "kids-toonami", "kids-adultswim"];
+
+  function isKidsTab(name) {
+    return KIDS_TABS.indexOf(name) >= 0;
+  }
+
+  function isKidsMode() {
+    try {
+      return sessionStorage.getItem("kidsMode") === "1";
+    } catch (eK) {
+      return document.body.classList.contains("kids-mode");
+    }
+  }
+
+  function moreUnlocked() {
+    try {
+      return sessionStorage.getItem("kidsMoreUnlocked") === "1";
+    } catch (eM) {
+      return false;
+    }
+  }
+
+  function applyKidsChrome(on) {
+    document.body.classList.toggle("kids-mode", !!on);
+    document.querySelectorAll(".kd-locked-extra").forEach(function (el) {
+      el.hidden = !(on && moreUnlocked());
+    });
+    var moreTab = document.getElementById("kids-more-tab");
+    if (moreTab) moreTab.textContent = moreUnlocked() ? "More" : "More 🔒";
+  }
+
+  function enterKidsMode() {
+    try {
+      sessionStorage.setItem("kidsMode", "1");
+    } catch (eIn) {}
+    applyKidsChrome(true);
+  }
+
+  function exitKidsMode() {
+    try {
+      sessionStorage.removeItem("kidsMode");
+    } catch (eOut) {}
+    applyKidsChrome(false);
+  }
+
+  function askKidsPasscode(title) {
+    if (window.KidsLock && window.KidsLock.ask) return window.KidsLock.ask(title);
+    var pin = window.prompt(title || "Passcode");
+    return Promise.resolve(pin === "4200");
+  }
 
   function hideOtherTabs(name) {
     if (name !== "spellforge") {
@@ -151,10 +248,45 @@
     if (name !== "muralwalk") {
       window.dispatchEvent(new Event("muralwalk-hide"));
     }
+    if (!isKidsTab(name)) {
+      window.dispatchEvent(new Event("kids-hide"));
+    }
   }
 
   function showTab(name) {
     if (name === "rooms") name = "places";
+    if (name === "kids") {
+      enterKidsMode();
+      name = "kids-baby";
+    }
+    var kidsTab = isKidsTab(name);
+    if (kidsTab && !isKidsMode()) {
+      enterKidsMode();
+    }
+    if (isKidsMode() && !kidsTab) {
+      askKidsPasscode("Grown-ups only").then(function (ok) {
+        if (ok) {
+          exitKidsMode();
+          showTab(name);
+        }
+      });
+      return;
+    }
+    if (KIDS_MORE_TABS.indexOf(name) >= 0 && !moreUnlocked()) {
+      askKidsPasscode("Ask a grown-up").then(function (ok) {
+        if (ok) {
+          try {
+            sessionStorage.setItem("kidsMoreUnlocked", "1");
+          } catch (eMore) {}
+          if (window.KidsLock && window.KidsLock.unlockMore) {
+            window.KidsLock.unlockMore();
+          }
+          applyKidsChrome(true);
+          showTab(name);
+        }
+      });
+      return;
+    }
     document.body.setAttribute("data-active-tab", name);
     // Leaving Dream: clear freeze classes immediately (before heavy work)
     if (name !== "dream") {
@@ -249,6 +381,18 @@
     if (name !== "houma") {
       window.dispatchEvent(new Event("houma-hide"));
     }
+    if (name !== "thousand") {
+      window.dispatchEvent(new Event("thousand-hide"));
+    }
+    if (name !== "moba") {
+      window.dispatchEvent(new Event("moba-hide"));
+    }
+    if (name !== "texture") {
+      window.dispatchEvent(new Event("texture-hide"));
+    }
+    if (name !== "champions") {
+      window.dispatchEvent(new Event("champions-hide"));
+    }
     if (name !== "dream") {
       window.dispatchEvent(new Event("dream-hide"));
     }
@@ -333,6 +477,10 @@
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
     document.body.classList.toggle("hm-tab-active", name === "houma");
+    document.body.classList.toggle("k-tab-active", name === "thousand");
+    document.body.classList.toggle("mb-tab-active", name === "moba");
+    document.body.classList.toggle("tx-tab-active", name === "texture");
+    document.body.classList.toggle("lc-tab-active", name === "champions");
     document.body.classList.toggle("ds-tab-active", name === "dream");
     document.body.classList.toggle("fi-tab-active", name === "fleeting-idea");
     document.body.classList.toggle("mag-tab-active", name === "mobile-art-gen");
@@ -365,6 +513,8 @@
     document.body.classList.toggle("mt-tab-active", name === "match");
     document.body.classList.toggle("tf-tab-active", name === "transfer");
     document.body.classList.toggle("ft-tab-active", name === "fight");
+    document.body.classList.toggle("kids-tab-active", isKidsTab(name));
+    document.body.classList.toggle("ka-tab-active", name === "kids-art");
 
     if (name !== "fleeting-idea") {
       var ws = document.getElementById("fi-workspace");
@@ -546,6 +696,36 @@
         window.Houma.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "thousand") {
+      window.dispatchEvent(new Event("thousand-show"));
+      if (window.ThousandGames && window.ThousandGames.onShow) {
+        window.ThousandGames.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "moba") {
+      window.dispatchEvent(new Event("moba-show"));
+      if (window.Moba && window.Moba.onShow) {
+        window.Moba.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "texture") {
+      window.dispatchEvent(new Event("texture-show"));
+      if (window.TextureStudio && window.TextureStudio.onShow) {
+        window.TextureStudio.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "champions") {
+      window.dispatchEvent(new Event("champions-show"));
+      if (window.LolChampions && window.LolChampions.onShow) {
+        window.LolChampions.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "kids-art") {
+      window.dispatchEvent(new Event("kids-art-show"));
+      if (window.KidsArt && window.KidsArt.onShow) {
+        window.KidsArt.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "dream") {
       window.dispatchEvent(new Event("dream-show"));
       hideOtherTabs(name);
@@ -673,6 +853,18 @@
     tab.addEventListener("click", () => showTab(tab.dataset.tab));
   });
 
+  var grownUps = document.getElementById("kids-grownups");
+  if (grownUps) {
+    grownUps.addEventListener("click", function () {
+      askKidsPasscode("Grown-ups only").then(function (ok) {
+        if (ok) {
+          exitKidsMode();
+          showTab("gallery");
+        }
+      });
+    });
+  }
+
   function openFromHash() {
     // Studio 3D Spellforge Plane iframe: force Spellforge chrome-free
     try {
@@ -704,6 +896,23 @@
     const hash = location.hash.replace("#", "").split("?")[0];
     if (hash === "subscribe") {
       location.replace("subscribe.html");
+      return;
+    }
+    var storedKids = false;
+    try {
+      storedKids = sessionStorage.getItem("kidsMode") === "1";
+    } catch (eKidsHash) {}
+    if (storedKids) {
+      enterKidsMode();
+      if (isKidsTab(hash) || hash === "kids") {
+        showTab(hash === "kids" ? "kids-baby" : hash);
+      } else {
+        showTab("kids-baby");
+      }
+      return;
+    }
+    if (hash === "kids" || isKidsTab(hash)) {
+      showTab(hash === "kids" ? "kids-baby" : hash);
       return;
     }
     // Card Duel invite: ?cdroom=1234 opens the duel tab even without #cardduel
@@ -774,7 +983,13 @@
       tabName === "handfont" ||
       tabName === "voice" ||
       tabName === "houma" ||
-      tabName === "maps"
+      tabName === "thousand" ||
+      tabName === "moba" ||
+      tabName === "texture" ||
+      tabName === "champions" ||
+      tabName === "maps" ||
+      tabName === "kids" ||
+      isKidsTab(tabName)
     ) {
       showTab(tabName === "rooms" ? "places" : tabName);
     }
@@ -811,4 +1026,11 @@
   window.addEventListener("ideal-ready", openFromHash, { once: true });
   window.addEventListener("match-ready", openFromHash, { once: true });
   window.addEventListener("transfer-ready", openFromHash, { once: true });
+
+  window.GalleryTabs = {
+    showTab: showTab,
+    enterKidsMode: enterKidsMode,
+    exitKidsMode: exitKidsMode,
+    isKidsTab: isKidsTab,
+  };
 })();

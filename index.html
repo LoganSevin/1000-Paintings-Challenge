@@ -23,7 +23,7 @@
     body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
     h1,h2,.brand h1{font-family:Georgia,"Times New Roman",serif}
   </style>
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=21" />
   <link rel="stylesheet" href="css/site-nav.css?v=2" />
   <link rel="stylesheet" href="css/mobile.css?v=8" />
   <link rel="stylesheet" href="css/dream-stasis.css?v=19" />
@@ -59,7 +59,7 @@
   <link rel="stylesheet" href="css/spellforge.css?v=43" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
-  <link rel="stylesheet" href="css/fleeting-idea.css?v=95" />
+  <link rel="stylesheet" href="css/fleeting-idea.css?v=94" />
   <link rel="stylesheet" href="css/tabloid-print.css?v=1" />
   <link rel="stylesheet" href="css/conceptualizer.css?v=8" />
   <link rel="stylesheet" href="css/mobile-art-gen.css?v=2" />
@@ -96,6 +96,12 @@
   <link rel="stylesheet" href="css/spellshop.css?v=1" />
   <link rel="stylesheet" href="css/runes.css?v=4" />
   <link rel="stylesheet" href="css/houma.css?v=2" />
+  <link rel="stylesheet" href="css/thousand.css?v=2" />
+  <link rel="stylesheet" href="css/moba.css?v=8" />
+  <link rel="stylesheet" href="css/texture.css?v=2" />
+  <link rel="stylesheet" href="css/champions.css?v=13" />
+  <link rel="stylesheet" href="css/kids.css?v=3" />
+  <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/tab-debug.css?v=7" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
@@ -121,13 +127,51 @@
     <span class="money-hud-stat money-hud-payout" title="Creator monthly stipend remaining"><strong id="money-hud-creator-due">$300</strong> due</span>
     <a class="money-hud-link" href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer" title="Buy xAI credits">Buy credits</a>
   </div>
+  <button type="button" id="ann-toggle" class="ann-toggle" title="Draw notes on this tab">✎</button>
+  <div id="ann-bar" class="ann-bar" hidden>
+    <button type="button" id="ann-draw" class="active">Pencil</button>
+    <button type="button" id="ann-erase">Erase</button>
+    <label>Radius <input type="range" id="ann-radius" min="4" max="80" value="16" /></label>
+    <input type="color" id="ann-color" value="#e8d5a3" title="Pencil color" />
+    <button type="button" id="ann-clear">Erase all</button>
+    <button type="button" id="ann-done">Done</button>
+  </div>
+  <canvas id="ann-canvas" class="ann-canvas" aria-hidden="true"></canvas>
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">
-        <h1>1000 Paintings Challenge</h1>
+        <div class="brand-title-row">
+          <h1>1000 Paintings Challenge</h1>
+          <div class="star-run" aria-hidden="true">
+            <span class="star-portal star-portal--left"></span>
+            <span class="star-path"></span>
+            <span class="star-track">
+              <span class="star-mover">
+                <span class="star-glyph"><span class="star-tail"></span><span class="star-spin">★</span></span>
+              </span>
+            </span>
+            <span class="star-portal star-portal--right"></span>
+          </div>
+        </div>
+        <div class="time-clock" id="time-clock" title="Local day / night">
+          <div class="time-globe-wrap" id="time-globe-wrap">
+            <span class="time-ring" id="time-ring" title="Drag around the globe to preview time"></span>
+            <span class="time-ring-thumb" id="time-ring-thumb"></span>
+            <div class="time-globe" id="time-globe" aria-hidden="true">
+              <span class="time-sky"></span>
+              <span class="time-stars"></span>
+              <span class="time-sun"></span>
+              <span class="time-moon-disc"></span>
+              <span class="time-yard"></span>
+              <span class="time-house"></span>
+            </div>
+            <span class="time-readout" id="time-readout">12:00</span>
+          </div>
+        </div>
         <p class="subtitle" id="header-subtitle">Art by Logan Sevin — original works, authored &amp; owned by the artist</p>
       </div>
       <nav class="site-tabs" aria-label="Main">
+        <button type="button" class="tab tab-kids-enter" data-tab="kids">Kids</button>
         <button type="button" class="tab active" data-tab="gallery">Gallery</button>
         <button type="button" class="tab" data-tab="pulse">Pulse</button>
         <button type="button" class="tab" data-tab="spellforge">Spellforge</button>
@@ -153,6 +197,10 @@
         <button type="button" class="tab" data-tab="book">Book</button>
         <button type="button" class="tab" data-tab="game">Game</button>
         <button type="button" class="tab" data-tab="houma">Houma</button>
+        <button type="button" class="tab" data-tab="thousand">1000</button>
+        <button type="button" class="tab" data-tab="moba">MOBA</button>
+        <button type="button" class="tab" data-tab="texture">Texture</button>
+        <button type="button" class="tab" data-tab="champions">Champions</button>
         <button type="button" class="tab" data-tab="commercial">Commercial</button>
         <button type="button" class="tab" data-tab="income">Income</button>
         <button type="button" class="tab" data-tab="profit">Profit</button>
@@ -188,6 +236,21 @@
         <button type="button" class="tab" data-tab="rig">Rig</button>
         <button type="button" class="tab" data-tab="handfont">Hand Font</button>
         <button type="button" class="tab" data-tab="voice">Voice</button>
+      </nav>
+      <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
+        <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
+        <button type="button" class="tab" data-tab="kids-child">Child Cartoons</button>
+        <button type="button" class="tab" data-tab="kids-learn">Learning</button>
+        <button type="button" class="tab" data-tab="kids-art">Kids Art</button>
+        <button type="button" class="tab" data-tab="kids-disney">Disney</button>
+        <button type="button" class="tab" data-tab="kids-nick">Nickelodeon</button>
+        <button type="button" class="tab" data-tab="kids-cn">Cartoon Network</button>
+        <button type="button" class="tab" data-tab="kids-dreamworks">DreamWorks</button>
+        <button type="button" class="tab" data-tab="kids-classics">Classics</button>
+        <button type="button" class="tab" data-tab="kids-more" id="kids-more-tab">More 🔒</button>
+        <button type="button" class="tab kd-locked-extra" data-tab="kids-toonami" hidden>Toonami</button>
+        <button type="button" class="tab kd-locked-extra" data-tab="kids-adultswim" hidden>Adult Swim</button>
+        <button type="button" class="tab kids-grownups" id="kids-grownups">Grown-ups 🔒</button>
       </nav>
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
@@ -4031,6 +4094,330 @@
     </div>
   </section>
 
+  <section id="panel-thousand" class="panel" hidden>
+    <div class="k-shell">
+      <aside class="k-list">
+        <h2>1000 <span id="k-count"></span></h2>
+        <p class="k-hint">One thousand different game templates. Click one. Play it. Change the JSON while it runs.</p>
+        <input id="k-search" class="k-search" type="search" placeholder="Search title or family…" />
+        <button type="button" id="k-rand" class="btn-secondary">Random</button>
+        <div id="k-grid" class="k-grid"></div>
+      </aside>
+      <div class="k-play">
+        <div class="k-play-bar">
+          <strong id="k-now">Pick a game</strong>
+        </div>
+        <canvas id="k-canvas" width="640" height="400" aria-label="Game stage"></canvas>
+        <p id="k-status" class="k-status">Click any of the 1000 cards.</p>
+      </div>
+      <aside class="k-edit">
+        <h2>Template</h2>
+        <p class="k-hint">This is the live spec. Edit family, speed, count, goal, colors. Apply keeps your version in this browser.</p>
+        <textarea id="k-json" spellcheck="false">{ }</textarea>
+        <button type="button" id="k-apply" class="btn-secondary">Apply</button>
+        <button type="button" id="k-reset" class="btn-secondary">Reset this game</button>
+      </aside>
+    </div>
+  </section>
+
+  <section id="panel-moba" class="panel" hidden>
+    <div class="mb-shell">
+      <div class="mb-hud">
+        <span class="mb-title">MOBA</span>
+        <span id="mb-hp">620 / 620</span>
+        <span id="mb-mp">340 / 340</span>
+        <span id="mb-gold" class="mb-gold">500g</span>
+        <span id="mb-kda" class="mb-kda">0/0/0</span>
+        <button type="button" id="mb-shop-toggle" class="btn-secondary">Shop (P)</button>
+        <button type="button" id="mb-reset" class="btn-secondary">Reset</button>
+      </div>
+      <div class="mb-stage" id="mb-stage">
+        <canvas id="mb-canvas" width="1280" height="720" aria-label="MOBA map"></canvas>
+        <div id="mb-toast" class="hm-toast"></div>
+        <div class="mb-inv" id="mb-inv" aria-label="Six item inventory">
+          <button type="button" class="mb-inv-slot" id="mb-inv-0" data-slot="0">1</button>
+          <button type="button" class="mb-inv-slot" id="mb-inv-1" data-slot="1">2</button>
+          <button type="button" class="mb-inv-slot" id="mb-inv-2" data-slot="2">3</button>
+          <button type="button" class="mb-inv-slot" id="mb-inv-3" data-slot="3">4</button>
+          <button type="button" class="mb-inv-slot" id="mb-inv-4" data-slot="4">5</button>
+          <button type="button" class="mb-inv-slot" id="mb-inv-5" data-slot="5">6</button>
+        </div>
+        <div class="mb-skills">
+          <div class="mb-skill">Q <span id="mb-q">Q</span></div>
+          <div class="mb-skill">W <span id="mb-w">W</span></div>
+          <div class="mb-skill">E <span id="mb-e">E</span></div>
+          <div class="mb-skill">R <span id="mb-r">R</span></div>
+        </div>
+        <aside class="mb-shop" id="mb-shop" hidden>
+          <div class="mb-shop-head">
+            <h3>Item shop</h3>
+            <span id="mb-shop-count" class="mb-shop-count"></span>
+            <span id="mb-shop-place" class="mb-shop-place">P to close</span>
+            <button type="button" id="mb-shop-describe-all" class="btn-secondary">Describe all looks</button>
+            <button type="button" id="mb-shop-sync" class="btn-secondary">Pull temps</button>
+            <button type="button" id="mb-shop-close" class="btn-secondary">Close (P)</button>
+          </div>
+          <nav id="mb-shop-cats" class="mb-shop-cats" aria-label="Item categories"></nav>
+          <input type="search" id="mb-shop-search" class="mb-shop-search" placeholder="Search items…" autocomplete="off" />
+          <div id="mb-shop-grid" class="mb-shop-grid"></div>
+          <div id="mb-shop-detail" class="mb-shop-detail" hidden>
+            <img id="mb-shop-icon" alt="" />
+            <div class="mb-shop-meta">
+              <strong id="mb-shop-name"></strong>
+              <span id="mb-shop-cost"></span>
+              <span id="mb-shop-id" class="mb-shop-id"></span>
+              <p id="mb-shop-stats" class="mb-shop-stats"></p>
+              <div id="mb-shop-recipe" class="mb-shop-recipe"></div>
+              <p id="mb-shop-desc" class="mb-shop-desc"></p>
+              <p id="mb-shop-look" class="mb-shop-look"></p>
+              <input type="text" id="mb-shop-alter" class="mb-shop-alter" placeholder="Spellforge alter — rusted gold, glass vial, bone charm…" autocomplete="off" />
+              <div class="mb-shop-actions">
+                <button type="button" id="mb-shop-buy" class="btn-secondary">Buy</button>
+                <button type="button" id="mb-shop-regen" class="btn-secondary">Generate thumbnail</button>
+                <button type="button" id="mb-shop-describe" class="btn-secondary">Describe look</button>
+                <button type="button" id="mb-shop-reset" class="btn-secondary">Reset temp</button>
+              </div>
+              <p id="mb-shop-status" class="mb-shop-status"></p>
+            </div>
+          </div>
+        </aside>
+        <div class="mb-help">Click to move · S stop · B recall to pool · QWER · P shop · 6 item slots</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-texture" class="panel" hidden>
+    <div class="tx-shell">
+      <div class="tx-hud">
+        <span class="tx-title">TEXTURE</span>
+        <div class="tx-slots">
+          <button type="button" class="tx-slot active" id="tx-slot-q" title="Q Ground">
+            <span class="tx-slot-key">Q</span>
+            <img alt="" />
+            <span class="tx-slot-num">Ground</span>
+          </button>
+          <button type="button" class="tx-slot" id="tx-slot-w" title="W Paths">
+            <span class="tx-slot-key">W</span>
+            <img alt="" />
+            <span class="tx-slot-num">Paths</span>
+          </button>
+          <button type="button" class="tx-slot" id="tx-slot-e" title="E Water">
+            <span class="tx-slot-key">E</span>
+            <img alt="" />
+            <span class="tx-slot-num">Water</span>
+          </button>
+          <button type="button" class="tx-slot" id="tx-slot-r" title="R Walls">
+            <span class="tx-slot-key">R</span>
+            <img alt="" />
+            <span class="tx-slot-num">Walls</span>
+          </button>
+        </div>
+        <label>Scale <input type="range" id="tx-tile" min="64" max="384" value="160" /> <span id="tx-tile-val">160px</span></label>
+        <label>Crop <input type="range" id="tx-crop" min="20" max="90" value="38" /> <span id="tx-crop-val">38%</span></label>
+        <button type="button" id="tx-rand-all" class="btn-secondary">Random all</button>
+        <button type="button" id="tx-clear" class="btn-secondary">Clear layer</button>
+        <p class="tx-hint">QWER makes a seamless material from a Spellforge still. Drag the floor. Crop tighter if you still see a picture repeating.</p>
+        <span id="tx-status" class="tx-status"></span>
+      </div>
+      <div class="tx-body">
+        <div class="tx-stage" id="tx-stage">
+          <canvas id="tx-canvas" width="1280" height="720" aria-label="Tiled material"></canvas>
+        </div>
+        <aside class="tx-side">
+          <h3>2×2 seam</h3>
+          <canvas id="tx-seam" width="220" height="220" aria-label="Seam check"></canvas>
+          <p class="tx-seam-cap">If you can spot a grid, tighten Crop.</p>
+          <h3>Equipped</h3>
+          <div id="tx-equip" class="tx-equip"></div>
+          <h3>Spellforge</h3>
+          <div class="tx-pager">
+            <button type="button" id="tx-prev" class="btn-secondary">◀</button>
+            <span id="tx-page">1</span>
+            <button type="button" id="tx-next" class="btn-secondary">▶</button>
+          </div>
+          <div id="tx-tray" class="tx-tray"></div>
+          <p class="tx-help">Materials also skin the MOBA ground, paths, water, and walls. This tab is the material, not a postage-stamp map.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-champions" class="panel" hidden>
+    <div class="lc-shell">
+      <div class="lc-hud">
+        <span class="lc-title">CHAMPIONS</span>
+        <span id="lc-count" class="lc-count"></span>
+        <input type="search" id="lc-search" placeholder="Search roster…" autocomplete="off" />
+        <select id="lc-role">
+          <option value="all">All roles</option>
+          <option value="Fighter">Fighter</option>
+          <option value="Tank">Tank</option>
+          <option value="Mage">Mage</option>
+          <option value="Assassin">Assassin</option>
+          <option value="Marksman">Marksman</option>
+          <option value="Support">Support</option>
+        </select>
+        <button type="button" id="lc-sync" class="btn-secondary">Pull roster</button>
+        <button type="button" id="lc-pull-skins" class="btn-secondary">Pull official skins</button>
+        <span id="lc-status" class="lc-status"></span>
+      </div>
+      <div class="lc-body">
+        <div id="lc-grid" class="lc-grid"></div>
+        <section class="lc-book" aria-label="Spellforge book">
+          <h3>Skillset — Spell I–V</h3>
+          <p class="lc-hint">Same book as Spellforge. Click a slot, then a painting. Cast blends Q W E R + Passive with these five.</p>
+          <div id="lc-spell-slots" class="lc-spell-slots"></div>
+          <div class="lc-book-tools">
+            <select id="lc-spell-source" title="Which Spellforge pages">
+              <option value="all" selected>All arsenal</option>
+              <option value="paintings">Paintings · 1000</option>
+              <option value="generated">Generated extras</option>
+            </select>
+            <input type="search" id="lc-spell-search" placeholder="Search # in your spellbook…" />
+            <label>Jump #<input type="number" id="lc-spell-jump" min="1" /></label>
+          </div>
+          <div class="lc-book-pager">
+            <button type="button" id="lc-spell-prev" class="lc-page-arrow" aria-label="Previous page">‹</button>
+            <div class="lc-book-pager-mid">
+              <span id="lc-spell-page">Page 1</span>
+              <label>Go to page <input type="number" id="lc-spell-page-jump" min="1" value="1" /></label>
+            </div>
+            <button type="button" id="lc-spell-next" class="lc-page-arrow" aria-label="Next page">›</button>
+          </div>
+          <div id="lc-spell-tray" class="lc-spell-book" role="list"></div>
+        </section>
+        <aside id="lc-detail" class="lc-detail">
+          <h2 id="lc-name">Pick a champion</h2>
+          <p id="lc-title" class="lc-kicker"></p>
+          <span id="lc-roles"></span>
+          <span id="lc-idline" class="lc-idline"></span>
+          <div id="lc-hero-wrap" class="lc-hero-wrap">
+            <img id="lc-hero" alt="Champion" />
+            <div id="lc-busy" class="lc-busy" hidden>
+              <div class="lc-spinner"></div>
+              <p id="lc-busy-msg">Working…</p>
+              <p id="lc-busy-time">00:00</p>
+            </div>
+          </div>
+          <div id="lc-skins" class="lc-skins"></div>
+          <h3>This skin · variants (0, 1, 2…)</h3>
+          <div id="lc-variants" class="lc-skins"></div>
+          <h3>Look (this skin)</h3>
+          <p id="lc-desc" class="lc-desc"></p>
+          <h3>Official</h3>
+          <p id="lc-site" class="lc-site"></p>
+          <textarea id="lc-prompt" class="lc-prompt" spellcheck="false"></textarea>
+          <input type="text" id="lc-alter" class="lc-alter" placeholder="Skin alter — Star Guardian, project, high noon, porcelain…" autocomplete="off" />
+          <div class="lc-actions">
+            <button type="button" id="lc-cast" class="btn-secondary">Cast skin</button>
+            <button type="button" id="lc-describe" class="btn-secondary">Describe look</button>
+            <select id="lc-anim-action" title="Motion">
+              <optgroup label="Presence">
+                <option value="idle">Idle</option>
+                <option value="idle-breathe">Idle breathe / hair in wind</option>
+                <option value="look-around">Look around</option>
+                <option value="turnaround">Turnaround (front to back)</option>
+                <option value="hover">Hover / levitate</option>
+                <option value="sit">Sit</option>
+                <option value="kneel">Kneel</option>
+                <option value="sleep">Sleep</option>
+                <option value="wake">Wake</option>
+              </optgroup>
+              <optgroup label="Move">
+                <option value="walk">Walk</option>
+                <option value="walk-cycle">Walk cycle in place</option>
+                <option value="run">Run</option>
+                <option value="sprint">Sprint</option>
+                <option value="dash">Dash / blink</option>
+                <option value="jump">Jump</option>
+                <option value="land">Land</option>
+                <option value="climb">Climb</option>
+                <option value="swim">Swim</option>
+                <option value="fly">Fly</option>
+                <option value="glide">Glide</option>
+                <option value="teleport-in">Teleport in</option>
+                <option value="teleport-out">Teleport out</option>
+                <option value="recall">Recall / channel home</option>
+              </optgroup>
+              <optgroup label="Fight">
+                <option value="attack">Basic attack</option>
+                <option value="attack-combo">Attack combo</option>
+                <option value="crit">Critical strike</option>
+                <option value="block">Block / guard</option>
+                <option value="dodge">Dodge</option>
+                <option value="hit">Take a hit</option>
+                <option value="stagger">Stagger</option>
+                <option value="death">Death</option>
+                <option value="revive">Revive</option>
+                <option value="spawn">Spawn from pool</option>
+                <option value="victory">Victory</option>
+                <option value="defeat">Defeat</option>
+              </optgroup>
+              <optgroup label="Kit">
+                <option value="cast">Cast</option>
+                <option value="cast-q">Cast Q</option>
+                <option value="cast-w">Cast W</option>
+                <option value="cast-e">Cast E</option>
+                <option value="cast-r">Cast R / ultimate</option>
+                <option value="channel">Channel</option>
+                <option value="passive">Passive proc</option>
+                <option value="power-up">Power up / transform</option>
+                <option value="summon">Summon</option>
+                <option value="shield">Raise a shield</option>
+                <option value="heal">Heal / restore</option>
+              </optgroup>
+              <optgroup label="Emote">
+                <option value="dance">Dance</option>
+                <option value="taunt">Taunt</option>
+                <option value="joke">Joke</option>
+                <option value="laugh">Laugh</option>
+                <option value="cheer">Cheer</option>
+                <option value="clap">Clap</option>
+                <option value="wave">Wave</option>
+                <option value="bow">Bow</option>
+                <option value="point">Point</option>
+                <option value="cry">Cry</option>
+                <option value="kiss">Blow a kiss</option>
+              </optgroup>
+              <optgroup label="Cinematic">
+                <option value="wind-cloak">Cloak and hair in storm wind</option>
+                <option value="orbit-camera">Slow orbit around the figure</option>
+                <option value="close-up">Close-up face, blinking</option>
+                <option value="full-body-spin">Full-body slow spin</option>
+                <option value="magic-idle">Magic idle — particles, runes</option>
+                <option value="custom">Custom (use the field)</option>
+              </optgroup>
+            </select>
+            <input type="text" id="lc-anim-custom" class="lc-alter" placeholder="Any motion — e.g. twirl staff, ride a wave, fold wings, sip tea…" autocomplete="off" />
+            <label class="lc-anim-opt">Time
+              <select id="lc-anim-duration" title="Clip length">
+                <option value="6">6s</option>
+                <option value="10" selected>10s</option>
+                <option value="15">15s</option>
+              </select>
+            </label>
+            <label class="lc-anim-opt">Aspect
+              <select id="lc-anim-aspect" title="Aspect ratio">
+                <option value="3:4" selected>3:4 portrait</option>
+                <option value="9:16">9:16 story</option>
+                <option value="1:1">1:1 square</option>
+                <option value="4:3">4:3</option>
+                <option value="16:9">16:9 landscape</option>
+                <option value="2:3">2:3</option>
+              </select>
+            </label>
+            <button type="button" id="lc-animate" class="btn-secondary">Animate</button>
+          </div>
+          <video id="lc-video" hidden controls loop muted playsinline></video>
+          <h3>Abilities</h3>
+          <div id="lc-spells" class="lc-spells"></div>
+          <p id="lc-lore" class="lc-lore"></p>
+          <div id="lc-anims" class="lc-anims"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-houma" class="panel" hidden>
     <div class="hm-shell">
       <div class="hm-hud">
@@ -7006,6 +7393,296 @@
     </div>
   </dialog>
 
+  <section id="panel-kids-baby" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Baby Cartoons</h2>
+        <p>Nursery songs, first shows, and gentle stories. Cards are drawn in this studio — tap a show, then Watch search for official videos.</p>
+        <input type="search" id="kd-baby-q" placeholder="Find a baby show…" autocomplete="off" />
+      </header>
+      <div id="kd-baby-grid" class="kd-grid"></div>
+      <p class="kd-note">Original catalog cards. Show names are public titles. This is not an official Cocomelon, Nick Jr, or Disney Junior app.</p>
+    </div>
+  </section>
+
+  <section id="panel-kids-child" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Child Cartoons</h2>
+        <p>Play a studio mini-game, then browse cartoons. Games are original — they do not use official network art.</p>
+      </header>
+      <div class="kd-games" id="kd-game-picks">
+        <button type="button" class="kd-game-pick" data-game="memory">Memory match</button>
+        <button type="button" class="kd-game-pick" data-game="count">Count them</button>
+        <button type="button" class="kd-game-pick" data-game="color">Color hunt</button>
+        <button type="button" class="kd-game-pick" data-game="shape">Find the shape</button>
+        <button type="button" class="kd-game-pick" data-game="letter">Letter start</button>
+        <button type="button" class="kd-game-pick" data-game="stars">Catch stars</button>
+      </div>
+      <div id="kd-game-stage" class="kd-stage" hidden></div>
+      <header class="kd-head">
+        <h2>Shows</h2>
+        <input type="search" id="kd-child-q" placeholder="Find a cartoon…" autocomplete="off" />
+      </header>
+      <div id="kd-child-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-learn" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Learning</h2>
+        <p>Twelve grade years. Pick a grade, then Math, English, or the word wall. Stars save on this browser.</p>
+      </header>
+      <div class="kd-grades" id="kd-grades"></div>
+      <p class="kd-grade-blurb" id="kd-grade-blurb"></p>
+      <div class="kd-split" id="kd-learn-split">
+        <button type="button" data-learn="math" class="active">Math</button>
+        <button type="button" data-learn="english">English</button>
+        <button type="button" data-learn="abc">Word wall</button>
+      </div>
+      <div id="kd-learn-stage" class="kd-stage"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-art" class="panel kids-panel" hidden>
+    <div class="ka-shell">
+      <div class="ka-hud">
+        <span class="ka-title">KIDS ART</span>
+        <span id="ka-count" class="ka-count"></span>
+        <input type="search" id="ka-search" placeholder="Search catalog…" autocomplete="off" />
+        <select id="ka-net">
+          <option value="all">All shelves</option>
+          <option value="baby">Baby</option>
+          <option value="child">Child</option>
+          <option value="disney">Disney</option>
+          <option value="nick">Nickelodeon</option>
+          <option value="cn">Cartoon Network</option>
+          <option value="dreamworks">DreamWorks</option>
+          <option value="classics">Classics</option>
+          <option value="toonami">Toonami</option>
+          <option value="adultswim">Adult Swim</option>
+        </select>
+        <span id="ka-status" class="ka-status"></span>
+      </div>
+      <div class="ka-body">
+        <div id="ka-grid" class="ka-grid"></div>
+        <section class="ka-book" aria-label="Spellforge book">
+          <h3>Skillset — Spell I–V</h3>
+          <p class="ka-hint">Same book as Spellforge and Champions. Arm a slot, pick a painting, then Cast. Original studio art — not official stills.</p>
+          <div id="ka-spell-slots" class="ka-spell-slots"></div>
+          <div class="ka-book-tools">
+            <select id="ka-spell-source" title="Which Spellforge pages">
+              <option value="all">All arsenal</option>
+              <option value="paintings" selected>Paintings · 1000</option>
+              <option value="generated">Generated extras</option>
+            </select>
+            <input type="search" id="ka-spell-search" placeholder="Search # in your spellbook…" />
+            <label>Jump #<input type="number" id="ka-spell-jump" min="1" /></label>
+          </div>
+          <div class="ka-book-pager">
+            <button type="button" id="ka-spell-prev" class="ka-page-arrow" aria-label="Previous page">‹</button>
+            <div class="ka-book-pager-mid">
+              <span id="ka-spell-page">Page 1</span>
+              <label>Go to page <input type="number" id="ka-spell-page-jump" min="1" value="1" /></label>
+            </div>
+            <button type="button" id="ka-spell-next" class="ka-page-arrow" aria-label="Next page">›</button>
+          </div>
+          <div id="ka-spell-tray" class="ka-spell-book" role="list"></div>
+        </section>
+        <aside id="ka-detail" class="ka-detail">
+          <h2 id="ka-name">Pick a catalog character</h2>
+          <p id="ka-title" class="ka-kicker"></p>
+          <span id="ka-idline" class="ka-idline"></span>
+          <div id="ka-hero-wrap" class="ka-hero-wrap">
+            <div id="ka-hero-fallback" class="ka-hero-fallback" aria-hidden="true"></div>
+            <img id="ka-hero" alt="Kids art" />
+            <div id="ka-busy" class="ka-busy" hidden>
+              <div class="ka-spinner"></div>
+              <p id="ka-busy-msg">Working…</p>
+              <p id="ka-busy-time">00:00</p>
+            </div>
+          </div>
+          <div id="ka-skins" class="ka-skins"></div>
+          <h3>This look · variants (0, 1, 2…)</h3>
+          <div id="ka-variants" class="ka-skins"></div>
+          <h3>Look</h3>
+          <p id="ka-desc" class="ka-desc"></p>
+          <p id="ka-site" class="ka-site"></p>
+          <textarea id="ka-prompt" class="ka-prompt" spellcheck="false"></textarea>
+          <input type="text" id="ka-alter" class="ka-alter" placeholder="Alter — bedtime, superhero, clay, watercolor, space…" autocomplete="off" />
+          <div class="ka-actions">
+            <button type="button" id="ka-cast" class="btn-secondary">Cast look</button>
+            <button type="button" id="ka-describe" class="btn-secondary">Describe look</button>
+            <select id="ka-anim-action" title="Motion">
+              <option value="idle">Idle</option>
+              <option value="wave">Wave</option>
+              <option value="dance">Dance</option>
+              <option value="run">Run</option>
+              <option value="jump">Jump</option>
+              <option value="laugh">Laugh</option>
+              <option value="look-around">Look around</option>
+              <option value="turnaround">Turnaround</option>
+              <option value="custom">Custom</option>
+            </select>
+            <input type="text" id="ka-anim-custom" class="ka-alter" placeholder="Any motion…" autocomplete="off" />
+            <label class="ka-anim-opt">Time
+              <select id="ka-anim-duration">
+                <option value="6">6s</option>
+                <option value="10" selected>10s</option>
+                <option value="15">15s</option>
+              </select>
+            </label>
+            <label class="ka-anim-opt">Aspect
+              <select id="ka-anim-aspect">
+                <option value="3:4" selected>3:4</option>
+                <option value="1:1">1:1</option>
+                <option value="16:9">16:9</option>
+              </select>
+            </label>
+            <button type="button" id="ka-animate" class="btn-secondary">Animate</button>
+          </div>
+          <video id="ka-video" hidden controls loop muted playsinline></video>
+          <div id="ka-anims" class="ka-anims"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-kids-disney" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Disney</h2>
+        <p>Split between cartoon characters and live-action TV personalities. Studio cards, not official portraits.</p>
+        <input type="search" id="kd-disney-q" placeholder="Find a character…" autocomplete="off" />
+      </header>
+      <div class="kd-split" id="kd-disney-split">
+        <button type="button" data-side="cartoons" class="active">Cartoons</button>
+        <button type="button" data-side="tv">TV personalities</button>
+      </div>
+      <div id="kd-disney-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-nick" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Nickelodeon</h2>
+        <p>Nicktoons on one side, live-action TV personalities on the other.</p>
+        <input type="search" id="kd-nick-q" placeholder="Find a character…" autocomplete="off" />
+      </header>
+      <div class="kd-split" id="kd-nick-split">
+        <button type="button" data-side="cartoons" class="active">Cartoons</button>
+        <button type="button" data-side="tv">TV personalities</button>
+      </div>
+      <div id="kd-nick-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-cn" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Cartoon Network</h2>
+        <p>Cartoon characters and the live-action / host personalities CN put on air.</p>
+        <input type="search" id="kd-cn-q" placeholder="Find a character…" autocomplete="off" />
+      </header>
+      <div class="kd-split" id="kd-cn-split">
+        <button type="button" data-side="cartoons" class="active">Cartoons</button>
+        <button type="button" data-side="tv">TV personalities</button>
+      </div>
+      <div id="kd-cn-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-dreamworks" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>DreamWorks</h2>
+        <p>Feature characters on one side, TV series on the other. Studio catalog cards — original portraits, not official stills.</p>
+        <input type="search" id="kd-dream-q" placeholder="Find a DreamWorks character…" autocomplete="off" />
+      </header>
+      <div class="kd-split" id="kd-dream-split">
+        <button type="button" data-side="features" class="active">Features</button>
+        <button type="button" data-side="tv">TV</button>
+      </div>
+      <div id="kd-dream-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-classics" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Classics · Preservation</h2>
+        <p>A shelf for shows that came before the cable-network split: Snow White–era fairy tales and theatrical shorts, the Charlie Brown / Peanuts years, and the holiday specials that still air. Catalog only — original studio cards.</p>
+        <input type="search" id="kd-classics-q" placeholder="Find a classic…" autocomplete="off" />
+      </header>
+      <div class="kd-split" id="kd-classics-split">
+        <button type="button" data-side="golden" class="active">Golden Age</button>
+        <button type="button" data-side="peanuts">Charlie Brown era</button>
+        <button type="button" data-side="holiday">Holiday specials</button>
+      </div>
+      <div id="kd-classics-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-more" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>More</h2>
+        <p>Grown-up blocks. Toonami and Adult Swim stay behind the same passcode as leaving Kids Mode.</p>
+      </header>
+      <div class="kd-more-gates" id="kd-more-gates">
+        <button type="button" class="kd-toon" data-tab="kids-toonami">Toonami</button>
+        <button type="button" class="kd-as" data-tab="kids-adultswim">Adult Swim</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-kids-toonami" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Toonami</h2>
+        <p>Action-block characters. Catalog only — original cards, official search links.</p>
+        <input type="search" id="kd-toonami-q" placeholder="Find a Toonami character…" autocomplete="off" />
+      </header>
+      <div id="kd-toonami-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <section id="panel-kids-adultswim" class="panel kids-panel" hidden>
+    <div class="kd-shell">
+      <header class="kd-head">
+        <h2>Adult Swim</h2>
+        <p>Late-night characters. This shelf is for grown-ups. Cards are original studio drawings, not episode stills.</p>
+        <input type="search" id="kd-adult-q" placeholder="Find an Adult Swim character…" autocomplete="off" />
+      </header>
+      <div id="kd-adult-grid" class="kd-grid"></div>
+    </div>
+  </section>
+
+  <div id="kids-lock" class="kids-lock" hidden>
+    <div class="kids-lock-card" role="dialog" aria-modal="true" aria-labelledby="kids-lock-title">
+      <h2 id="kids-lock-title">Grown-ups only</h2>
+      <p>Enter the 4-digit passcode</p>
+      <div class="kids-lock-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="kids-lock-pad">
+        <button type="button" data-k="1">1</button>
+        <button type="button" data-k="2">2</button>
+        <button type="button" data-k="3">3</button>
+        <button type="button" data-k="4">4</button>
+        <button type="button" data-k="5">5</button>
+        <button type="button" data-k="6">6</button>
+        <button type="button" data-k="7">7</button>
+        <button type="button" data-k="8">8</button>
+        <button type="button" data-k="9">9</button>
+        <button type="button" data-k="c">Clear</button>
+        <button type="button" data-k="0">0</button>
+        <button type="button" id="kids-lock-cancel">Cancel</button>
+      </div>
+      <p id="kids-lock-err" class="kids-lock-err"></p>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="site-footer-support" id="support-money-panel">
@@ -7066,6 +7743,8 @@
   <script defer src="js/author-config.js?v=3"></script>
   <script defer src="js/compat.js?v=3"></script>
   <script defer src="js/xai-credits.js?v=3"></script>
+  <script defer src="js/annotations.js?v=2"></script>
+  <script defer src="js/time-clock.js?v=6"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
   <script defer src="js/tab-debug.js?v=9"></script>
@@ -7088,6 +7767,11 @@
   <script defer src="js/spellshop.js?v=4"></script>
   <script defer src="js/runes.js?v=6"></script>
   <script defer src="js/houma.js?v=10"></script>
+  <script defer src="js/thousand-games.js?v=4"></script>
+  <script defer src="js/spell-map-textures.js?v=2"></script>
+  <script defer src="js/moba.js?v=16"></script>
+  <script defer src="js/texture.js?v=2"></script>
+  <script defer src="js/champions.js?v=12"></script>
   <script defer src="js/dream-stasis.js?v=27"></script>
   <script defer src="js/maps.js?v=1"></script>
   <script defer src="js/stare.js?v=16"></script>
@@ -7112,8 +7796,10 @@
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script defer src="js/site-nav.js?v=2"></script>
-  <script defer src="js/tabs.js?v=82"></script>
+  <script defer src="js/site-nav.js?v=4"></script>
+  <script defer src="js/kids.js?v=4"></script>
+  <script defer src="js/kids-art.js?v=7"></script>
+  <script defer src="js/tabs.js?v=89"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>

@@ -1,0 +1,152 @@
+#panel-thousand.panel[hidden] {
+  display: none !important;
+}
+#panel-thousand.panel:not([hidden]),
+#panel-thousand.panel.active {
+  display: flex !important;
+  flex-direction: column;
+  height: calc(100dvh - 4.75rem);
+  min-height: 36rem;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: #16131c;
+  color: #f4ead6;
+}
+body.k-tab-active .site-footer {
+  display: none;
+}
+
+.k-shell {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 36rem;
+  display: grid;
+  grid-template-columns: 22rem minmax(0, 1fr) 22rem;
+  gap: 0;
+}
+
+.k-list,
+.k-edit {
+  overflow: auto;
+  padding: 0.75rem;
+  background: #1c1824;
+  border: 0 solid rgba(232, 213, 163, 0.25);
+}
+.k-list { border-right-width: 1px; }
+.k-edit { border-left-width: 1px; }
+
+.k-shell h2 {
+  margin: 0 0 0.35rem;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: #e8d5a3;
+  font-size: 1.45rem;
+}
+
+.k-hint {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  color: #c4b8a4;
+  line-height: 1.4;
+}
+
+.k-search {
+  width: 100%;
+  min-height: 2.2rem;
+  margin: 0 0 0.45rem;
+  border: 1px solid rgba(232, 213, 163, 0.35);
+  background: #0e0c12;
+  color: #f4ead6;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+}
+
+.k-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.k-card {
+  appearance: none;
+  text-align: left;
+  min-height: 3.2rem;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #2a2433;
+  color: #f4ead6;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+.k-card:hover,
+.k-card.on {
+  border-color: #e8d5a3;
+  background: #3a3220;
+}
+.k-card small {
+  display: block;
+  color: #b8ad9a;
+  font-size: 0.64rem;
+}
+
+.k-play {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem;
+  min-width: 0;
+  background: #121018;
+}
+.k-play-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: #e8d5a3;
+}
+
+#k-canvas {
+  flex: 1 1 auto;
+  width: 100%;
+  height: calc(100dvh - 12rem);
+  min-height: 20rem;
+  background: #07060a;
+  display: block;
+  cursor: crosshair;
+}
+
+.k-status {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  color: #d4c4a8;
+  min-height: 1.2rem;
+}
+
+.k-edit textarea {
+  width: 100%;
+  min-height: 18rem;
+  border: 1px solid rgba(232, 213, 163, 0.28);
+  background: #0e0c12;
+  color: #c8f0b0;
+  font: 0.74rem/1.4 ui-monospace, Consolas, monospace;
+  padding: 0.5rem;
+}
+.k-edit .btn-secondary {
+  margin: 0.35rem 0.35rem 0 0;
+}
+
+@media (max-width: 980px) {
+  .k-shell {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: auto;
+  }
+  #k-canvas {
+    height: 18rem;
+  }
+}

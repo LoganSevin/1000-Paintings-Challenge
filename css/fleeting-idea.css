@@ -14,13 +14,9 @@
 }
 
 body.fi-tab-active {
-  /* Allow wheel/trackpad scroll to content below the OHP fold (panel tail).
-     Mobile keeps overflow:hidden via mobile.css. */
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: auto;
-  min-height: 100dvh;
-  --fi-chrome-bottom-h: 11.5rem;
+  overflow: hidden;
+  height: 100dvh;
+  --fi-chrome-bottom-h: 7.25rem;
 }
 
 body.fi-tab-active #panel-fleeting-idea.active {
@@ -240,27 +236,17 @@ body.fi-tab-active .site-header .site-tabs {
   gap: 0.28rem;
   min-height: 0;
   height: auto;
-  /* Compact padding: leave a sliver for the thin tab slider without a tall gap */
-  padding: 0.12rem 0.28rem 0.18rem;
+  padding: 0.14rem 0.28rem;
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  /* Compact horizontal slider so Gallery…Zoo tabs stay reachable under FI */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(180, 160, 100, 0.5) transparent;
+  /* Hide scrollbar so it does not inflate strip height / pin labels low */
+  scrollbar-width: none;
 }
 
 body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar {
-  height: 4px;
-}
-
-body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-body.fi-tab-active .site-header .site-tabs::-webkit-scrollbar-thumb {
-  background: rgba(180, 160, 100, 0.5);
-  border-radius: 99px;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 body.fi-tab-active .site-header .site-tabs .tab {
@@ -304,7 +290,7 @@ body.fi-tab-active .site-header .site-subtabs {
   --fi-edge-top: 3.25rem;
   --fi-edge-left: 8.25rem;
   --fi-edge-right: 12.5rem;
-  --fi-edge-bottom: 4.5rem;
+  --fi-edge-bottom: 7.25rem;
 }
 
 body.fi-tab-active .fleeting-workspace {
@@ -3177,8 +3163,8 @@ body.fi-tab-active .fi-panel-tail {
 body.fi-tab-active .fleeting-workspace {
   --fi-edge-left: 8.25rem;
   --fi-edge-right: 12.5rem;
-  --fi-edge-top: 3.75rem;
-  --fi-edge-bottom: var(--fi-chrome-bottom-h, 11.5rem);
+  --fi-edge-top: 3.5rem;
+  --fi-edge-bottom: var(--fi-chrome-bottom-h, 7.25rem);
 }
 
 body.fi-tab-active .fi-chrome-left .fi-sheets-list {
@@ -3209,91 +3195,156 @@ body.fi-tab-active .fi-sheet-card {
   }
 }
 
-/* ── Context menu: Place on projector / Prompt subject lasso ── */
-.fi-ctx-menu {
-  position: fixed;
-  z-index: 14000;
-  min-width: 188px;
-  padding: 0.28rem;
+@media (min-width: 769px) {
+/* Compact the tall site header so the glass bed keeps a real viewport */
+body.fi-tab-active .site-header {
+  padding: 0.4rem 1rem 0.45rem;
+}
+body.fi-tab-active .header-inner {
+  gap: 0.12rem;
+}
+body.fi-tab-active .brand h1 {
+  font-size: 1.45rem;
+}
+body.fi-tab-active .brand .subtitle {
+  display: none;
+}
+body.fi-tab-active .time-clock {
+  width: 3.4rem;
   margin: 0;
-  border: 1px solid rgba(201, 162, 39, 0.48);
-  border-radius: 8px;
-  background: linear-gradient(165deg, rgba(36, 34, 48, 0.97) 0%, rgba(18, 16, 28, 0.98) 100%);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
 }
-.fi-ctx-menu[hidden] {
-  display: none !important;
+body.fi-tab-active .time-globe-wrap,
+body.fi-tab-active .time-globe {
+  width: 2.55rem;
+  height: 2.55rem;
+  padding: 0.28rem;
 }
-.fi-ctx-menu button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  background: transparent;
-  color: rgba(245, 240, 232, 0.94);
-  font: inherit;
-  font-size: 0.82rem;
-  padding: 0.48rem 0.6rem;
-  cursor: pointer;
+body.fi-tab-active .time-readout {
+  font-size: 0.62rem;
 }
-.fi-ctx-menu button:hover {
-  border-color: rgba(201, 162, 39, 0.45);
-  background: rgba(201, 162, 39, 0.14);
+body.fi-tab-active .star-run {
+  max-width: 11rem;
+  height: 1.35rem;
 }
-.fi-ctx-menu button[hidden] {
-  display: none !important;
+body.fi-tab-active .site-tabs {
+  max-height: 2.35rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
 }
 
-.fi-stencil-name-pop {
-  position: fixed;
-  z-index: 14100;
-  left: 50%;
-  top: 28%;
-  transform: translateX(-50%);
-  width: min(22rem, calc(100vw - 1.5rem));
-  padding: 0.85rem 0.95rem;
-  border: 1px solid rgba(201, 162, 39, 0.48);
-  border-radius: 10px;
-  background: linear-gradient(165deg, rgba(36, 34, 48, 0.98) 0%, rgba(18, 16, 28, 0.99) 100%);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-  color: rgba(245, 240, 232, 0.94);
+/* OHP is a real grid cell, not a hole under overlapping fixed chrome */
+body.fi-tab-active .fleeting-workspace {
+  display: grid;
+  grid-template-columns: 8.25rem minmax(12rem, 1fr) 12.5rem;
+  grid-template-rows: 3.35rem minmax(18rem, 1fr) var(--fi-chrome-bottom-h, 7.25rem);
+  grid-template-areas:
+    "top top right"
+    "left ohp right"
+    "left bottom right";
 }
-.fi-stencil-name-label {
-  display: block;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+body.fi-tab-active .fi-chrome-layer,
+body.fi-tab-active .fi-chrome-shell {
+  display: contents;
+  position: static;
+  inset: auto;
+  z-index: auto;
+  pointer-events: auto;
+}
+body.fi-tab-active .fi-misty-veil {
+  display: none;
+}
+body.fi-tab-active .fi-stage-layout.fi-ohp-backdrop {
+  position: relative;
+  grid-area: ohp;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 18rem;
+}
+body.fi-tab-active .fi-chrome-top {
+  position: relative;
+  grid-area: top;
+  top: auto;
+  left: auto;
+  right: auto;
+  height: auto;
+  max-height: none;
+  z-index: 3;
+}
+body.fi-tab-active .fi-chrome-left {
+  position: relative;
+  grid-area: left;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  width: auto;
+  max-width: none;
+  z-index: 3;
+}
+body.fi-tab-active .fi-chrome-right {
+  position: relative;
+  grid-area: right;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  max-width: none;
+  z-index: 3;
+}
+body.fi-tab-active .fi-chrome-bottom {
+  position: relative;
+  grid-area: bottom;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  z-index: 3;
+}
+body.fi-tab-active .fi-chrome-bottom .fi-draw-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  z-index: 8;
+}
+body.fi-tab-active .fi-ohp-backdrop .fi-ohp-glow-plate {
+  background: rgba(236, 244, 255, 0.94);
+  border: 2px solid rgba(150, 184, 230, 0.78);
+  box-shadow:
+    0 0 48px rgba(210, 230, 255, 0.55),
+    inset 0 0 40px rgba(255, 255, 255, 0.9);
+}
+body.fi-tab-active .fi-ohp-backdrop .fi-ohp-glow-plate::after {
+  content: "Overhead projector";
+  position: absolute;
+  left: 0.7rem;
+  top: 0.4rem;
+  z-index: 2;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(220, 216, 228, 0.82);
-  margin-bottom: 0.4rem;
+  color: rgba(36, 64, 108, 0.48);
+  pointer-events: none;
 }
-.fi-stencil-name-input {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid rgba(201, 162, 39, 0.35);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.28);
-  color: rgba(248, 244, 236, 0.96);
-  font: inherit;
-  font-size: 0.9rem;
-  padding: 0.45rem 0.55rem;
+
+body.fi-tab-active.fi-interface-hidden .fleeting-workspace {
+  display: block;
 }
-.fi-stencil-name-input:focus {
-  outline: none;
-  border-color: rgba(201, 162, 39, 0.7);
-  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.18);
+body.fi-tab-active.fi-interface-hidden .fi-chrome-layer,
+body.fi-tab-active.fi-interface-hidden .fi-chrome-shell {
+  display: none;
 }
-.fi-stencil-name-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.45rem;
-  margin-top: 0.7rem;
+body.fi-tab-active.fi-interface-hidden .fi-stage-layout.fi-ohp-backdrop {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
 }
-.fi-stencil-name-actions .btn-secondary,
-.fi-stencil-name-actions .btn-cast {
-  border-color: rgba(201, 162, 39, 0.42);
-  color: rgba(245, 240, 232, 0.94);
 }
