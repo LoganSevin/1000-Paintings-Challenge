@@ -4418,7 +4418,7 @@
     var payload = {
       source: "spellforge",
       collection: "generated",
-      reveal: true,
+      reveal: false,
       description: String(lastFusedPrompt || spellStasis || "").slice(0, 800),
       meta: { source: "spellforge", spells: getEquippedInOrder() },
     };
