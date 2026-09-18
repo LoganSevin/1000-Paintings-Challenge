@@ -4172,22 +4172,27 @@
     statusEl.textContent = msg || "";
   }
 
-  function stampStillName() {
-    var d = new Date();
-    function pad(n) {
-      return n < 10 ? "0" + n : String(n);
+  function nextNumberedStillName(dir) {
+    if (!dir || !dir.values) return Promise.resolve(null);
+    var max = 0;
+    var it = dir.values();
+    function step() {
+      return Promise.resolve(it.next()).then(function (res) {
+        if (res.done) return max + 1;
+        var entry = res.value;
+        var m = String((entry && entry.name) || "").match(
+          /^(\d+)\.(jpe?g|png|webp)$/i
+        );
+        if (m) {
+          var n = parseInt(m[1], 10);
+          if (n > max) max = n;
+        }
+        return step();
+      });
     }
-    return (
-      "spellforge-" +
-      d.getFullYear() +
-      pad(d.getMonth() + 1) +
-      pad(d.getDate()) +
-      "-" +
-      pad(d.getHours()) +
-      pad(d.getMinutes()) +
-      pad(d.getSeconds()) +
-      ".jpg"
-    );
+    return step().then(function (n) {
+      return n + ".jpg";
+    });
   }
 
   function dataUrlToBlob(dataUrl) {
@@ -4256,22 +4261,16 @@
       });
   }
 
-  function triggerDownload(blob, name) {
-    try {
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = name || stampStillName();
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () {
-        URL.revokeObjectURL(a.href);
-        if (a.parentNode) a.parentNode.removeChild(a);
-      }, 2500);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  function writeBlobToDir(dir, blob, name) {
+    return dir.getFileHandle(name, { create: true }).then(function (fh) {
+      return fh.createWritable().then(function (writable) {
+        return writable.write(blob).then(function () {
+          return writable.close();
+        });
+      });
+    }).then(function () {
+      return name;
+    });
   }
 
   function openHandleDb() {
@@ -4390,14 +4389,12 @@
   function writeBlobToGeneratedFolder(blob, name) {
     return getGeneratedDirHandle().then(function (dir) {
       if (!dir) return null;
-      return dir.getFileHandle(name, { create: true }).then(function (fh) {
-        return fh.createWritable().then(function (writable) {
-          return writable.write(blob).then(function () {
-            return writable.close();
-          });
-        });
-      }).then(function () {
-        return name;
+      var named = name
+        ? Promise.resolve(name)
+        : nextNumberedStillName(dir);
+      return named.then(function (fileName) {
+        if (!fileName) return null;
+        return writeBlobToDir(dir, blob, fileName);
       });
     });
   }
@@ -4477,53 +4474,39 @@
       url = (img && img.src) || stasisVisionUrl || "";
     }
     if (!url && !lastVisionBlob) return Promise.resolve(null);
-    var name = stampStillName();
-    lastVisionFileName = name;
     return urlToBlob(url)
       .then(function (blob) {
         lastVisionBlob = blob;
-        return writeBlobToGeneratedFolder(blob, name).then(function (written) {
-          var downloaded = false;
-          if (!written) downloaded = triggerDownload(blob, name);
-          persistToLocalhost(url, blob).then(function (d) {
-            if (d && d.url && isLocalHost()) {
+        return persistToLocalhost(url, blob).then(function (d) {
+          if (d && d.name) {
+            lastVisionFileName = d.name;
+            if (d.url && isLocalHost()) {
               stasisVisionUrl = d.url;
               updateStasisVisionView(d.url);
             }
-            if (d && d.name && !written) {
-              setPersistStatus(
-                "Saved on this PC: " +
-                  PC_GENERATED_HINT +
-                  "\\" +
-                  d.name +
-                  (d.num != null ? " (G#" + d.num + ")" : "")
-              );
-            }
-          });
-          if (written) {
             setPersistStatus(
-              "Saved on this PC in your linked folder as " +
-                written +
-                " — that is " +
-                PC_GENERATED_HINT
-            );
-            return { name: written, via: "folder" };
-          }
-          if (downloaded) {
-            setPersistStatus(
-              "Saved to your Downloads folder as " +
-                name +
-                ". Click Link generated folder once (choose " +
+              "Saved as " +
+                d.name +
+                " in " +
                 PC_GENERATED_HINT +
-                ") so the next still lands there."
+                (d.num != null ? " (G#" + d.num + ")" : "")
             );
-            return { name: name, via: "downloads" };
+            return { name: d.name, via: "studio" };
           }
-          setPersistStatus(
-            "Still is on screen only. Click Save this still to PC — do not Generate again.",
-            true
-          );
-          return null;
+          return writeBlobToGeneratedFolder(blob, null).then(function (written) {
+            if (written) {
+              lastVisionFileName = written;
+              setPersistStatus(
+                "Saved as " + written + " in " + PC_GENERATED_HINT
+              );
+              return { name: written, via: "folder" };
+            }
+            setPersistStatus(
+              "Still is on screen only. Click Save this still to PC — do not Generate again.",
+              true
+            );
+            return null;
+          });
         });
       })
       .catch(function () {
