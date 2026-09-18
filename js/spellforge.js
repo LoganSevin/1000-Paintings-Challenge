@@ -1,5 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
+ * Cache bust v92: do not append local-fuse / visitor-key lock copy to generate errors.
  */
 (function () {
   var PAGE_SIZE = 25;
