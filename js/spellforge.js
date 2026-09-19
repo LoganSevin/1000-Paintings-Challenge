@@ -1282,27 +1282,120 @@
     refreshArsenalStats();
   }
 
+  function fetchStaticJson(path) {
+    return fetch(path + (path.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), {
+      cache: "default",
+    })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+
+  function publicAssetUrl(url) {
+    var raw = String(url || "").trim();
+    if (!raw) return "";
+    if (typeof resolveGalleryUrl === "function") return resolveGalleryUrl(raw);
+    if (raw.charAt(0) === "/") return raw.slice(1);
+    return raw;
+  }
+
   function loadSpellAssetsFromStatic() {
     return Promise.all([
-      fetch("data/lod1-manifest.json?t=" + Date.now(), { cache: "default" }).then(
-        function (r) {
-          return r.ok ? r.json() : null;
-        }
-      ),
-      fetch("data/lod1-analyses.json?t=" + Date.now(), { cache: "default" })
-        .then(function (r) {
-          return r.ok ? r.json() : {};
-        })
-        .catch(function () {
-          return {};
-        }),
+      fetchStaticJson("data/lod1-manifest.json"),
+      fetchStaticJson("data/lod1-analyses.json"),
+      fetchStaticJson("data/sketch-manifest.json"),
+      fetchStaticJson("data/sketch-analyses.json"),
+      fetchStaticJson("data/phone-upload-generated.json"),
+      fetchStaticJson("data/phone-upload-analyses.json"),
     ])
-      .then(function (pair) {
-        var d = pair[0];
-        var analysisMap = pair[1] || {};
-        if (d && Array.isArray(d.items) && d.items.length) {
-          ingestFromLod1Manifest(d, analysisMap);
+      .then(function (pack) {
+        var lod1 = pack[0];
+        var lod1A = pack[1] && typeof pack[1] === "object" ? pack[1] : {};
+        var sketchMan = pack[2];
+        var sketchA = pack[3] && typeof pack[3] === "object" ? pack[3] : {};
+        var phoneMap = pack[4] && typeof pack[4] === "object" ? pack[4] : {};
+        var phoneA = pack[5] && typeof pack[5] === "object" ? pack[5] : {};
+
+        var phoneByGen = {};
+        Object.keys(phoneMap).forEach(function (name) {
+          var row = phoneMap[name];
+          if (!row || typeof row !== "object") return;
+          var n = parseInt(row.num, 10);
+          if (n) phoneByGen[n] = { name: name, row: row };
+        });
+        Object.keys(phoneA).forEach(function (name) {
+          var row = phoneA[name];
+          if (!row || typeof row !== "object") return;
+          var n = parseInt(row.generated_num, 10);
+          if (n && !phoneByGen[n]) phoneByGen[n] = { name: name, row: row };
+        });
+
+        var items = [];
+        var lod1Items = lod1 && Array.isArray(lod1.items) ? lod1.items : [];
+        for (var i = 0; i < lod1Items.length; i++) {
+          var it = lod1Items[i];
+          var n = parseInt(it.num != null ? it.num : it.number, 10);
+          if (!n) continue;
+          var phone = phoneByGen[n];
+          var analysis =
+            (phone && phoneA[phone.name]) ||
+            lod1A[String(n)] ||
+            lod1A[n] ||
+            null;
+          var rawUrl = it.url || genFileUrl(n);
+          items.push({
+            number: n,
+            url: publicAssetUrl(rawUrl) || genFileUrl(n),
+            source: phone ? "phone-upload" : "generated",
+            title:
+              (analysis && analysis.title) ||
+              it.name ||
+              (phone ? "Phone G#" + n : "Gen G#" + n),
+            analysis: analysis,
+            name: phone ? phone.name : it.name,
+          });
         }
+
+        var sketchItems =
+          sketchMan && Array.isArray(sketchMan.items) ? sketchMan.items : [];
+        for (var s = 0; s < sketchItems.length; s++) {
+          var sk = sketchItems[s];
+          var sn = parseInt(sk.num != null ? sk.num : sk.number, 10);
+          if (!sn) continue;
+          var sa = sketchA[String(sn)] || sketchA[sn] || {};
+          items.push({
+            number: sn,
+            url: publicAssetUrl(sk.url || "/sketches/" + sn + ".png"),
+            source: "sketch",
+            title: (sa && sa.title) || "Sketch S#" + sn,
+            analysis: sa,
+          });
+          items.push({
+            number: sn,
+            url: publicAssetUrl(
+              (sa && sa.inverted_image_url) || "/sketches-inverted/" + sn + ".png"
+            ),
+            source: "sketch-inverted",
+            title:
+              (sa && (sa.inverted_title || sa.title)) || "Inv sketch SI#" + sn,
+            analysis: sa
+              ? {
+                  title: sa.inverted_title || sa.title,
+                  description: sa.inverted_description || sa.description,
+                  prompt: sa.inverted_prompt || sa.prompt,
+                  tags: sa.tags,
+                  style: sa.style,
+                  mood: sa.mood,
+                }
+              : null,
+          });
+        }
+
+        if (items.length) ingestSpellAssets(items);
+        refreshArsenalStats();
         return arsenalExtraNums.length;
       })
       .catch(function () {

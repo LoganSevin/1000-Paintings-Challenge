@@ -1405,13 +1405,22 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
 }
 
 .jump-to input {
-  width: 4rem;
+  width: 4.5rem;
   padding: 0.35rem 0.4rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text);
+  caret-color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  color-scheme: dark;
   font: inherit;
+}
+
+.jump-to input::placeholder {
+  color: var(--text-muted);
+  -webkit-text-fill-color: var(--text-muted);
+  opacity: 1;
 }
 
 .spell-picker-wrap {
@@ -1527,6 +1536,9 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text);
+  caret-color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  color-scheme: dark;
   font: inherit;
 }
 
