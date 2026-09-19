@@ -21,7 +21,10 @@
   var SCALE_RATIO_MAX = 5.5;
   var EDGE_SNAP_RADIUS = 36;
   var EDGE_THRESHOLD = 0.1;
-  var FLOOD_TOLERANCE = 52;
+  var FLOOD_TOLERANCE = 28;
+  var FLOOD_ERODE_ROUNDS = 1;
+  var FLOOD_INSET = 0.85;
+  var FLOOD_MAX_VISIT_RATIO = 0.42;
 
   var LEXICON = {
     A: { nouns: ["aperture", "amber", "arc"], verbs: ["ascends", "assembles"], moods: ["ancient", "auroral"] },
@@ -2443,12 +2446,9 @@
     var ctx = c.getContext("2d", { willReadFrequently: true });
     if (!ctx) return [];
     ctx.drawImage(img, 0, 0, w, h);
-    var data;
-    try {
-      data = ctx.getImageData(0, 0, w, h).data;
-    } catch (errEdge) {
-      return { edges: new Float32Array(w * h), w: w, h: h, maxMag: 1 };
-    }
+    var imgData = safeGetImageData(ctx, 0, 0, w, h);
+    if (!imgData) return [];
+    var data = imgData.data;
     function sample(x, y) {
       var i = (y * w + x) * 4;
       return [data[i], data[i + 1], data[i + 2], data[i + 3]];
@@ -3401,6 +3401,28 @@
     if (obj.clipPath && obj.clipEdge) updateClipEdge(el, obj.clipPath);
   }
 
+  function ensureLayersPanelVisible() {
+    var ws = $("fi-workspace");
+    if (ws && ws.classList.contains("fi-interface-hidden")) {
+      setInterfaceHidden(false);
+    }
+    document.body.classList.add("fi-tab-active");
+    syncHeaderHeight();
+    syncEdgeInsets();
+    var panel = $("fi-sheets-panel");
+    if (panel) {
+      panel.hidden = false;
+      panel.removeAttribute("hidden");
+      panel.style.visibility = "visible";
+      panel.style.opacity = "1";
+      panel.style.pointerEvents = "auto";
+      panel.classList.add("fi-layers-panel-open");
+      try {
+        panel.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+      } catch (err) { /* ignore */ }
+    }
+  }
+
   function selectObject(id, opts) {
     opts = opts || {};
     var obj = getObject(id);
@@ -3411,8 +3433,13 @@
     if (state.tool === "draw") state.drawTargetId = id;
     if (!opts.noRender) renderObjects();
     if (opts.scrollPanel) {
+      ensureLayersPanelVisible();
       var card = document.querySelector('.fi-sheet-card[data-id="' + id + '"]');
-      if (card && card.scrollIntoView) card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      if (card && card.scrollIntoView) {
+        requestAnimationFrame(function () {
+          card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        });
+      }
     }
   }
 
@@ -3933,11 +3960,22 @@
     return cb ? !!cb.checked : false;
   }
 
+  function safeGetImageData(ctx, sx, sy, sw, sh) {
+    if (!ctx) return null;
+    try {
+      return ctx.getImageData(sx, sy, sw, sh);
+    } catch (err) {
+      /* Tainted canvas (cross-origin without CORS) — callers must not throw. */
+      return null;
+    }
+  }
+
   function imageHasVisibleInk(img, opts) {
     opts = opts || {};
     var sampleMax = opts.sampleMax || 80;
     var minRatio = opts.minRatio || 0.0025;
     if (!img) return false;
+    if (img._fiCorsOk === false) return true;
     var iw = img.naturalWidth || img.width || 0;
     var ih = img.naturalHeight || img.height || 0;
     if (iw < 2 || ih < 2) return false;
@@ -3954,7 +3992,12 @@
     } catch (err) {
       return true;
     }
-    var data = ctx.getImageData(0, 0, w, h).data;
+    var imgData = safeGetImageData(ctx, 0, 0, w, h);
+    if (!imgData) {
+      /* Tainted — assume visible so we do not cull a CDN sheet. */
+      return true;
+    }
+    var data = imgData.data;
     var total = w * h;
     var substantive = 0;
     for (var i = 0; i < data.length; i += 4) {
@@ -4115,18 +4158,42 @@
   function loadImage(url) {
     if (state.imageLoadCache[url]) return state.imageLoadCache[url];
     state.imageLoadCache[url] = new Promise(function (resolve, reject) {
+      function fail(msg) {
+        delete state.imageLoadCache[url];
+        reject(new Error(msg || "Could not load image"));
+      }
+      var needsCors = !!url && String(url).indexOf("data:") !== 0 && String(url).indexOf("blob:") !== 0;
       var img = new Image();
+      if (needsCors) {
+        try {
+          img.crossOrigin = "anonymous";
+        } catch (eCors) { /* ignore */ }
+      }
       img.onload = function () {
         if (!(img.naturalWidth || img.width) || !(img.naturalHeight || img.height)) {
-          delete state.imageLoadCache[url];
-          reject(new Error("Image has no pixels."));
+          fail("Image has no pixels.");
           return;
         }
+        img._fiCorsOk = !needsCors || !!img.crossOrigin;
         resolve(img);
       };
       img.onerror = function () {
-        delete state.imageLoadCache[url];
-        reject(new Error("Could not load image"));
+        /* CORS-anonymous failed — retry without CORS for display; mark unsafe for pixels. */
+        if (needsCors && img.crossOrigin) {
+          var fallback = new Image();
+          fallback._fiCorsOk = false;
+          fallback.onload = function () {
+            if (!(fallback.naturalWidth || fallback.width)) {
+              fail("Image has no pixels.");
+              return;
+            }
+            resolve(fallback);
+          };
+          fallback.onerror = function () { fail("Could not load image"); };
+          fallback.src = url;
+          return;
+        }
+        fail("Could not load image");
       };
       img.src = url;
     });
@@ -4142,8 +4209,16 @@
     c.width = w;
     c.height = h;
     var ctx = c.getContext("2d");
-    ctx.drawImage(img, 0, 0, w, h);
-    var data = ctx.getImageData(0, 0, w, h).data;
+    try {
+      ctx.drawImage(img, 0, 0, w, h);
+    } catch (errDraw) {
+      return { edges: new Float32Array(w * h), w: w, h: h, maxMag: 1 };
+    }
+    var imgData = safeGetImageData(ctx, 0, 0, w, h);
+    if (!imgData) {
+      return { edges: new Float32Array(w * h), w: w, h: h, maxMag: 1 };
+    }
+    var data = imgData.data;
     var gray = new Float32Array(w * h);
     var i, gx, gy, mag;
     for (i = 0; i < w * h; i++) {
@@ -4170,7 +4245,7 @@
   }
 
   function rasterizeForLasso(obj, maxDim) {
-    maxDim = maxDim || 400;
+    maxDim = maxDim || 512;
     var aspect = Math.max(obj.w, 1) / Math.max(obj.h, 1);
     var w = aspect >= 1 ? maxDim : Math.round(maxDim * aspect);
     var h = aspect >= 1 ? Math.round(maxDim / aspect) : maxDim;
@@ -4182,10 +4257,17 @@
           return loadImage(obj.url);
         })
         .then(function (img) {
+          if (img && img._fiCorsOk === false) {
+            return Promise.reject(new Error("Image is cross-origin without CORS — cannot sample pixels."));
+          }
           var c = document.createElement("canvas");
           c.width = w;
           c.height = h;
-          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          var ctx = c.getContext("2d");
+          ctx.drawImage(img, 0, 0, w, h);
+          if (!safeGetImageData(ctx, 0, 0, 1, 1)) {
+            return Promise.reject(new Error("Canvas tainted by cross-origin data."));
+          }
           return c;
         });
     }
@@ -4274,13 +4356,20 @@
     if (!layerSupportsLasso(obj)) return Promise.resolve(null);
     var cacheKey = obj.id + "-px";
     if (state.edgeCache[cacheKey]) return Promise.resolve(state.edgeCache[cacheKey]);
-    return rasterizeForLasso(obj, 400).then(function (canvas) {
+    return rasterizeForLasso(obj, 512).then(function (canvas) {
       var w = canvas.width;
       var h = canvas.height;
-      var data = canvas.getContext("2d").getImageData(0, 0, w, h);
+      var data = safeGetImageData(canvas.getContext("2d"), 0, 0, w, h);
+      if (!data) return null;
       state.edgeCache[cacheKey] = { data: data, w: w, h: h };
       return state.edgeCache[cacheKey];
-    }).catch(function () { return null; });
+    }).catch(function (err) {
+      if (err && err.message) {
+        setComposerStatus("Smart lasso needs a CORS-clean image — try Refresh, or use the media proxy.");
+        setTimeout(function () { setComposerStatus(""); }, 2800);
+      }
+      return null;
+    });
   }
 
   function colorDist(r1, g1, b1, r2, g2, b2) {
@@ -4325,10 +4414,11 @@
         }
       }
     }
+    var sa = data[si + 3];
     var mask = new Uint8Array(w * h);
     var stack = [[lx, ly]];
     var visited = 0;
-    var maxVisit = w * h * 0.72;
+    var maxVisit = w * h * FLOOD_MAX_VISIT_RATIO;
     while (stack.length && visited < maxVisit) {
       var pt = stack.pop();
       var x = pt[0];
@@ -4336,12 +4426,32 @@
       var i = y * w + x;
       if (x < 0 || y < 0 || x >= w || y >= h || mask[i]) continue;
       var pi = i * 4;
+      var a = data[pi + 3];
+      if (a < 18) continue;
+      if (Math.abs(a - sa) > 90) continue;
       if (colorDist(data[pi], data[pi + 1], data[pi + 2], sr, sg, sb) > FLOOD_TOLERANCE) continue;
       mask[i] = 1;
       visited += 1;
       stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
     }
     if (visited < 80) return null;
+    /* Erode fringe so the outline hugs the subject instead of leftover fill. */
+    var erodeRound;
+    for (erodeRound = 0; erodeRound < FLOOD_ERODE_ROUNDS; erodeRound++) {
+      var eroded = new Uint8Array(w * h);
+      var ey, ex, ei;
+      for (ey = 1; ey < h - 1; ey++) {
+        for (ex = 1; ex < w - 1; ex++) {
+          ei = ey * w + ex;
+          if (!mask[ei]) continue;
+          if (mask[ei - 1] && mask[ei + 1] && mask[ei - w] && mask[ei + w]) eroded[ei] = 1;
+        }
+      }
+      mask = eroded;
+    }
+    var keepCount = 0;
+    for (var mi = 0; mi < mask.length; mi++) if (mask[mi]) keepCount++;
+    if (keepCount < 40) return null;
     function isFg(x, y) {
       if (x < 0 || y < 0 || x >= w || y >= h) return false;
       return !!mask[y * w + x];
@@ -4377,8 +4487,8 @@
     var step;
     for (step = 0; step < w * h; step++) {
       contour.push({
-        x: box.left + (cx / w) * box.width,
-        y: box.top + (cy / h) * box.height,
+        x: box.left + ((cx + 0.5) / w) * box.width,
+        y: box.top + ((cy + 0.5) / h) * box.height,
       });
       var startDir = (dir + 6) % 8;
       var found = false;
@@ -4398,12 +4508,23 @@
       if (cx === sx && cy === sy && contour.length > 8) break;
     }
     if (contour.length < 12) return null;
-    var keep = Math.min(120, contour.length);
+    var keep = Math.min(140, contour.length);
     var stride = Math.max(1, Math.floor(contour.length / keep));
     var sampled = [];
     for (var ci = 0; ci < contour.length; ci += stride) sampled.push(contour[ci]);
     if (sampled.length && sampled[sampled.length - 1] !== contour[contour.length - 1]) {
       sampled.push(contour[contour.length - 1]);
+    }
+    var seedBedX = box.left + ((lx + 0.5) / w) * box.width;
+    var seedBedY = box.top + ((ly + 0.5) / h) * box.height;
+    var insetPx = FLOOD_INSET * (box.width / Math.max(w, 1));
+    if (insetPx > 0 && sampled.length >= 3) {
+      sampled = sampled.map(function (p) {
+        var vx = seedBedX - p.x;
+        var vy = seedBedY - p.y;
+        var len = Math.hypot(vx, vy) || 1;
+        return { x: p.x + (vx / len) * insetPx, y: p.y + (vy / len) * insetPx };
+      });
     }
     return sampled.length >= 3 ? sampled : null;
   }
@@ -6001,6 +6122,7 @@
     captureProjection: captureProjection,
     syncEdgeInsets: syncEdgeInsets,
     setInterfaceHidden: setInterfaceHidden,
+    ensureLayersPanelVisible: ensureLayersPanelVisible,
     togglePipLayer: togglePipLayer,
     projectionPreviewUrl: projectionPreviewUrl,
     recompose: function () { state.composeSeed = Date.now(); composeMoment(); },
