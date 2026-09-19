@@ -19,9 +19,9 @@
   var SIZE_MIN = 6;
   var SIZE_MAX = 240;
   var SCALE_RATIO_MAX = 5.5;
-  var EDGE_SNAP_RADIUS = 22;
-  var EDGE_THRESHOLD = 0.16;
-  var FLOOD_TOLERANCE = 38;
+  var EDGE_SNAP_RADIUS = 36;
+  var EDGE_THRESHOLD = 0.1;
+  var FLOOD_TOLERANCE = 52;
 
   var LEXICON = {
     A: { nouns: ["aperture", "amber", "arc"], verbs: ["ascends", "assembles"], moods: ["ancient", "auroral"] },
@@ -2443,7 +2443,12 @@
     var ctx = c.getContext("2d", { willReadFrequently: true });
     if (!ctx) return [];
     ctx.drawImage(img, 0, 0, w, h);
-    var data = ctx.getImageData(0, 0, w, h).data;
+    var data;
+    try {
+      data = ctx.getImageData(0, 0, w, h).data;
+    } catch (errEdge) {
+      return { edges: new Float32Array(w * h), w: w, h: h, maxMag: 1 };
+    }
     function sample(x, y) {
       var i = (y * w + x) * 4;
       return [data[i], data[i + 1], data[i + 2], data[i + 3]];
@@ -4172,13 +4177,17 @@
     w = Math.max(32, w);
     h = Math.max(32, h);
     if (obj.type === "image" && obj.url) {
-      return loadImage(obj.url).then(function (img) {
-        var c = document.createElement("canvas");
-        c.width = w;
-        c.height = h;
-        c.getContext("2d").drawImage(img, 0, 0, w, h);
-        return c;
-      });
+      return fetchImageForPixels(obj.url)
+        .catch(function () {
+          return loadImage(obj.url);
+        })
+        .then(function (img) {
+          var c = document.createElement("canvas");
+          c.width = w;
+          c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          return c;
+        });
     }
     return rasterForWarp(obj, w, h);
   }
@@ -4236,6 +4245,31 @@
     return { x: bestX, y: bestY };
   }
 
+  function snapLassoGlassPoint(raw, obj, edgeMap, prevGlassPt) {
+    if (!raw) return raw;
+    if (!obj || !edgeMap) return raw;
+    var canvas = $("fi-stage-canvas");
+    if (!canvas) return raw;
+    var glassRect = canvas.getBoundingClientRect();
+    var bedRect = acetateBedRect();
+    var ox = glassRect.left - bedRect.left;
+    var oy = glassRect.top - bedRect.top;
+    var prevBed = prevGlassPt
+      ? { x: prevGlassPt.px + ox, y: prevGlassPt.py + oy }
+      : null;
+    var snapped = snapCanvasPointToEdge(raw.px + ox, raw.py + oy, obj, edgeMap, bedRect, prevBed);
+    var px = snapped.x - ox;
+    var py = snapped.y - oy;
+    return {
+      x: raw.w ? (px / raw.w) * 100 : raw.x,
+      y: raw.h ? (py / raw.h) * 100 : raw.y,
+      px: px,
+      py: py,
+      w: raw.w,
+      h: raw.h,
+    };
+  }
+
   function getPixelDataForObject(obj) {
     if (!layerSupportsLasso(obj)) return Promise.resolve(null);
     var cacheKey = obj.id + "-px";
@@ -4266,10 +4300,35 @@
     var sr = data[si];
     var sg = data[si + 1];
     var sb = data[si + 2];
+    var seedLum = sr * 0.299 + sg * 0.587 + sb * 0.114;
+    if (seedLum > 230) {
+      var best = 0;
+      var rRing;
+      var aRing;
+      for (rRing = 1; rRing <= 10; rRing++) {
+        for (aRing = 0; aRing < 14; aRing++) {
+          var tx = Math.round(lx + Math.cos((aRing / 14) * Math.PI * 2) * rRing);
+          var ty = Math.round(ly + Math.sin((aRing / 14) * Math.PI * 2) * rRing);
+          if (tx < 0 || ty < 0 || tx >= w || ty >= h) continue;
+          var ti = (ty * w + tx) * 4;
+          var lum = data[ti] * 0.299 + data[ti + 1] * 0.587 + data[ti + 2] * 0.114;
+          var sat =
+            Math.max(data[ti], data[ti + 1], data[ti + 2]) -
+            Math.min(data[ti], data[ti + 1], data[ti + 2]);
+          var score = 255 - lum + sat;
+          if (score > best) {
+            best = score;
+            sr = data[ti];
+            sg = data[ti + 1];
+            sb = data[ti + 2];
+          }
+        }
+      }
+    }
     var mask = new Uint8Array(w * h);
     var stack = [[lx, ly]];
     var visited = 0;
-    var maxVisit = w * h * 0.45;
+    var maxVisit = w * h * 0.72;
     while (stack.length && visited < maxVisit) {
       var pt = stack.pop();
       var x = pt[0];
@@ -4283,25 +4342,69 @@
       stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
     }
     if (visited < 80) return null;
-    var contour = [];
-    for (var y = 1; y < h - 1; y++) {
-      for (var x = 1; x < w - 1; x++) {
-        var idx = y * w + x;
-        if (!mask[idx]) continue;
-        var border =
-          !mask[idx - 1] || !mask[idx + 1] || !mask[idx - w] || !mask[idx + w];
-        if (border) {
-          contour.push({
-            x: box.left + (x / w) * box.width,
-            y: box.top + (y / h) * box.height,
-          });
+    function isFg(x, y) {
+      if (x < 0 || y < 0 || x >= w || y >= h) return false;
+      return !!mask[y * w + x];
+    }
+    var sx = -1;
+    var sy = -1;
+    var y;
+    var x;
+    for (y = 1; y < h - 1 && sx < 0; y++) {
+      for (x = 1; x < w - 1; x++) {
+        if (isFg(x, y) && (!isFg(x - 1, y) || !isFg(x, y - 1))) {
+          sx = x;
+          sy = y;
+          break;
         }
       }
     }
+    if (sx < 0) return null;
+    var dirs = [
+      [1, 0],
+      [1, 1],
+      [0, 1],
+      [-1, 1],
+      [-1, 0],
+      [-1, -1],
+      [0, -1],
+      [1, -1],
+    ];
+    var contour = [];
+    var cx = sx;
+    var cy = sy;
+    var dir = 0;
+    var step;
+    for (step = 0; step < w * h; step++) {
+      contour.push({
+        x: box.left + (cx / w) * box.width,
+        y: box.top + (cy / h) * box.height,
+      });
+      var startDir = (dir + 6) % 8;
+      var found = false;
+      var k;
+      for (k = 0; k < 8; k++) {
+        var nd = (startDir + k) % 8;
+        var nx = cx + dirs[nd][0];
+        var ny = cy + dirs[nd][1];
+        if (!isFg(nx, ny)) continue;
+        cx = nx;
+        cy = ny;
+        dir = nd;
+        found = true;
+        break;
+      }
+      if (!found) break;
+      if (cx === sx && cy === sy && contour.length > 8) break;
+    }
     if (contour.length < 12) return null;
-    var step = Math.max(1, Math.floor(contour.length / 80));
+    var keep = Math.min(120, contour.length);
+    var stride = Math.max(1, Math.floor(contour.length / keep));
     var sampled = [];
-    for (var ci = 0; ci < contour.length; ci += step) sampled.push(contour[ci]);
+    for (var ci = 0; ci < contour.length; ci += stride) sampled.push(contour[ci]);
+    if (sampled.length && sampled[sampled.length - 1] !== contour[contour.length - 1]) {
+      sampled.push(contour[contour.length - 1]);
+    }
     return sampled.length >= 3 ? sampled : null;
   }
 
@@ -4637,9 +4740,16 @@
       var pt0 = glassPoint(e.clientX, e.clientY);
       var rect = canvas.getBoundingClientRect();
       var hitId = hitTestLayer(e.clientX - bedRect.left, e.clientY - bedRect.top, bedRect);
-      if (hitId) selectObject(hitId, { scrollPanel: true, bringToFront: false });
+      if (hitId) selectObject(hitId, { noRender: true, scrollPanel: true, bringToFront: false });
       var sel = getObject(state.selectedId);
-      state.lasso = { points: [pt0], edgeMap: null, pixelData: null, seedPx: pt0.px, seedPy: pt0.py };
+      var snapped0 = snapLassoGlassPoint(pt0, sel, null, null);
+      state.lasso = {
+        points: [snapped0],
+        edgeMap: null,
+        pixelData: null,
+        seedPx: snapped0.px,
+        seedPy: snapped0.py,
+      };
       if (sel && layerSupportsLasso(sel)) {
         getEdgeMapForObject(sel).then(function (map) {
           if (state.lasso) state.lasso.edgeMap = map;
@@ -4839,6 +4949,12 @@
     }
 
     var objEl = e.target.closest(".fi-pose-object");
+    if (!objEl && state.tool === "move") {
+      var hitMoveId = hitTestLayer(e.clientX - bedRect.left, e.clientY - bedRect.top, bedRect);
+      if (hitMoveId) {
+        objEl = document.querySelector('.fi-pose-object[data-id="' + hitMoveId + '"]');
+      }
+    }
     if (objEl) {
       var id = objEl.dataset.id;
       var o = getObject(id);
@@ -4862,8 +4978,8 @@
         syncTextBoxFromDom(o);
         var freshTb = objEl;
         if (state.selectedId !== id) {
-          selectObject(id, { scrollPanel: true, bringToFront: false });
-          freshTb = document.querySelector('.fi-pose-object[data-id="' + id + '"]');
+          selectObject(id, { noRender: true, scrollPanel: true, bringToFront: false });
+          freshTb = document.querySelector('.fi-pose-object[data-id="' + id + '"]') || objEl;
         }
         if (freshTb && freshTb.setPointerCapture) try { freshTb.setPointerCapture(e.pointerId); } catch (err) {}
         var ptTb = canvasPoint(e.clientX, e.clientY);
@@ -4881,15 +4997,22 @@
         return;
       }
       if (o.locked && state.tool === "move") {
-        selectObject(id, { scrollPanel: true, bringToFront: false });
+        selectObject(id, { noRender: true, scrollPanel: true, bringToFront: false });
         setComposerStatus("Layer is locked — unlock to move.");
         setTimeout(function () { setComposerStatus(""); }, 1400);
         return;
       }
-      selectObject(id, { scrollPanel: true, bringToFront: false });
-      var freshEl = document.querySelector('.fi-pose-object[data-id="' + id + '"]');
-      if (freshEl && freshEl.setPointerCapture) try { freshEl.setPointerCapture(e.pointerId); } catch (err) {}
-      var pt = canvasPoint(e.clientX, e.clientY);
+      selectObject(id, { noRender: true, scrollPanel: true, bringToFront: false });
+      document.querySelectorAll(".fi-pose-object.selected").forEach(function (n) {
+        if (n !== objEl) n.classList.remove("selected");
+      });
+      objEl.classList.add("selected");
+      if (objEl.setPointerCapture) {
+        try {
+          objEl.setPointerCapture(e.pointerId);
+        } catch (errCap) {}
+      }
+      var pt = canvasPoint(e.clientX, e.clientY, bedRect);
       state.drag = {
         id: id,
         startX: pt.x,
@@ -4898,7 +5021,7 @@
         origY: o.y,
         bedRect: bedRect,
       };
-      if (freshEl) applyObjectTransform(freshEl, o, { dragging: true });
+      applyObjectTransform(objEl, o, { dragging: true });
       var building = $("fi-building-viewport");
       if (building) building.classList.add("is-sliding");
       updateHud();
@@ -4955,8 +5078,10 @@
     }
 
     if (state.lasso) {
-      var pt = glassPoint(e.clientX, e.clientY);
+      var rawPt = glassPoint(e.clientX, e.clientY);
+      var lassoSel = getObject(state.selectedId);
       var pts = state.lasso.points;
+      var pt = snapLassoGlassPoint(rawPt, lassoSel, state.lasso.edgeMap, pts[pts.length - 1]);
       var first = pts[0];
       if (pts.length > 8 && Math.hypot(pt.px - first.px, pt.py - first.py) < LASSO_CLOSE_PX) {
         finishLasso();
@@ -5258,8 +5383,9 @@
       return;
     }
     if (state.drag) {
-      var el = document.querySelector('.fi-pose-object[data-id="' + state.drag.id + '"]');
-      var obj = getObject(state.drag.id);
+      var draggedId = state.drag.id;
+      var el = document.querySelector('.fi-pose-object[data-id="' + draggedId + '"]');
+      var obj = getObject(draggedId);
       if (el && obj) {
         el.classList.remove("dragging");
         el.classList.add("settling");
@@ -5270,6 +5396,7 @@
       if (building) building.classList.remove("is-sliding");
       composeMoment();
       state.drag = null;
+      renderObjects();
       updateHud();
     }
     onDrawPointerUp();

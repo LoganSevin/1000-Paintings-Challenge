@@ -2782,6 +2782,14 @@ body.fi-interface-hidden .fi-panel-tail {
   cursor: grab;
   touch-action: none;
   will-change: transform, left, top;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.fi-pose-object img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
 }
 
 .fi-pose-object.fi-acetate {
