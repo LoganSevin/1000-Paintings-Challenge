@@ -56,7 +56,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=46" />
+  <link rel="stylesheet" href="css/spellforge.css?v=47" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=94" />
@@ -7331,11 +7331,38 @@
       <img id="spell-preview-img" alt="" />
     </figure>
     <p id="spell-preview-meta" class="spell-preview-meta"></p>
-    <p class="spell-slot-prompt">Which spell slot?</p>
+    <p class="spell-slot-prompt">Replace which spell? Current loadout is on the buttons.</p>
     <div class="spell-slot-choices">
-      <button type="button" class="btn-spell-slot" data-slot="0">Spell I</button>
-      <button type="button" class="btn-spell-slot" data-slot="1">Spell II</button>
-      <button type="button" class="btn-spell-slot" data-slot="2">Spell III</button>
+      <button type="button" class="btn-spell-slot" data-slot="0">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="spell-slot-choice-thumb-0" alt="" />
+          <span class="spell-slot-choice-empty" id="spell-slot-choice-empty-0">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell I</strong>
+          <em id="spell-slot-choice-label-0">Empty — click to fill</em>
+        </span>
+      </button>
+      <button type="button" class="btn-spell-slot" data-slot="1">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="spell-slot-choice-thumb-1" alt="" />
+          <span class="spell-slot-choice-empty" id="spell-slot-choice-empty-1">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell II</strong>
+          <em id="spell-slot-choice-label-1">Empty — click to fill</em>
+        </span>
+      </button>
+      <button type="button" class="btn-spell-slot" data-slot="2">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="spell-slot-choice-thumb-2" alt="" />
+          <span class="spell-slot-choice-empty" id="spell-slot-choice-empty-2">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell III</strong>
+          <em id="spell-slot-choice-label-2">Empty — click to fill</em>
+        </span>
+      </button>
     </div>
   </dialog>
 
@@ -7821,7 +7848,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=101"></script>
+  <script defer src="js/spellforge.js?v=102"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

@@ -5422,6 +5422,51 @@
     });
   }
 
+  function fillEquipSlotChoices(pendingNum) {
+    var names = ["Spell I", "Spell II", "Spell III"];
+    for (var s = 0; s < 3; s++) {
+      var btn = document.querySelector('.btn-spell-slot[data-slot="' + s + '"]');
+      var thumb = document.getElementById("spell-slot-choice-thumb-" + s);
+      var empty = document.getElementById("spell-slot-choice-empty-" + s);
+      var label = document.getElementById("spell-slot-choice-label-" + s);
+      var equipped = spells[s];
+      if (btn) {
+        btn.classList.toggle("is-occupied", !!equipped);
+        btn.classList.toggle("is-current", !!(equipped && equipped === pendingNum));
+      }
+      if (equipped) {
+        var a = getAnalysis(equipped) || {};
+        var extra = extraSpells[equipped] || extraSpells[String(equipped)];
+        var title =
+          a.title ||
+          (extra && extra.title) ||
+          (noteOf(equipped) ? "Note" : "");
+        var line = spellKindLabel(equipped);
+        if (title && String(title) !== line) line += " · " + title;
+        if (thumb) {
+          thumb.hidden = false;
+          thumb.src = paintingUrl(equipped);
+          thumb.alt = line;
+        }
+        if (empty) empty.hidden = true;
+        if (label) {
+          label.textContent =
+            equipped === pendingNum ? "Already here — click to keep" : "Replace: " + line;
+        }
+        if (btn) btn.title = "Replace " + names[s] + " (" + line + ")";
+      } else {
+        if (thumb) {
+          thumb.hidden = true;
+          thumb.removeAttribute("src");
+          thumb.alt = "";
+        }
+        if (empty) empty.hidden = false;
+        if (label) label.textContent = "Empty — click to fill";
+        if (btn) btn.title = "Fill " + names[s];
+      }
+    }
+  }
+
   function openSlotDialog(num) {
     num = resolveArsenalNum(parseInt(num, 10));
     if (!num) return;
@@ -5434,6 +5479,7 @@
     img.src = paintingUrl(num);
     img.alt = "Painting #" + num;
     if (meta) meta.textContent = analysisSpellText(num);
+    fillEquipSlotChoices(num);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.genNum && !extra.analysis) {
       fetch("generated-meta/" + extra.genNum + ".json", { cache: "default" })
