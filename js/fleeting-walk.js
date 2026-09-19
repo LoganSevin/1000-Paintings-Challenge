@@ -542,35 +542,20 @@
     });
   }
 
-  function refineFromCapture(capturedUrl, replaceId) {
+  function refineFromCapture(capturedUrl) {
     var stasis =
       (stasisText() || "Overhead projection") +
-      " · refine this glass composition into polished fine-art imagery";
+      " · paint a NEW original artwork from this OHP composition — same subjects and arrangement, not a photo of the glass";
     return checkApiReady().then(function (ready) {
-      if (!ready) return capturedUrl;
-      return fetchVisionUrl([], {
+      if (!ready) {
+        throw new Error(apiOfflineMessage());
+      }
+      return generateCloud([], {
         reference_image: capturedUrl,
         refine: true,
         stasisFallback: stasis,
-        statusMsg: "Polishing the OHP capture…",
-      })
-        .then(function (url) {
-          if (replaceId && window.FleetingIdea && window.FleetingIdea.replaceLayerImage) {
-            return window.FleetingIdea.replaceLayerImage(replaceId, url, {
-              label: "generated",
-              loadFailed: false,
-            }).then(function () {
-              return url;
-            });
-          }
-          return applyVisionUrl(url, { addToGlass: true, label: "generated" }).then(function () {
-            return url;
-          });
-        })
-        .catch(function (err) {
-          setStatus("Raw OHP capture is on the glass. Polish skipped: " + (err.message || "offline"), true);
-          return capturedUrl;
-        });
+        statusMsg: "Generating a new painting from the OHP…",
+      });
     });
   }
 
@@ -592,26 +577,19 @@
     window.FleetingIdea.captureProjection({ flash: true, width: 960, height: 540 })
       .then(function (capturedUrl) {
         if (!capturedUrl) throw new Error("OHP capture was empty.");
-        var place =
-          window.FleetingIdea.placeOnProjector
-            ? window.FleetingIdea.placeOnProjector(
-                { url: capturedUrl, label: "capture" },
-                { status: "OHP capture projected." }
-              )
-            : applyVisionUrl(capturedUrl, { addToGlass: true, label: "capture" });
-        return Promise.resolve(place).then(function (layerId) {
-          releaseGenerating(flashBtn);
-          setStatus("OHP captured and projected. Polishing in the background…");
-          return refineFromCapture(capturedUrl, layerId).then(function () {
-            setStatus("Flash & project ready.");
-            setTimeout(function () {
-              setStatus("");
-            }, 2200);
-          });
-        });
+        setStatus("OHP captured — generating a new painting from it…");
+        return refineFromCapture(capturedUrl);
+      })
+      .then(function () {
+        setStatus("New projection generated.");
+        setTimeout(function () {
+          setStatus("");
+        }, 2200);
       })
       .catch(function (err) {
         setStatus(err.message || "Could not flash project.", true);
+      })
+      .finally(function () {
         releaseGenerating(flashBtn);
       });
   }

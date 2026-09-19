@@ -22,7 +22,15 @@ async function runJob(jobId, body) {
     await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "pending" });
 
     const aspect = body.aspect_ratio || body.aspect || "16:9";
-    const imageUrl = await generateStasisVisionImage(stasis, buzz, aspect);
+    const referenceImage = String(
+      body.reference_image || body.spell_reference_image || ""
+    ).trim();
+    const imageUrl = await generateStasisVisionImage(
+      stasis,
+      buzz,
+      aspect,
+      referenceImage
+    );
     let dataUrl = imageUrl;
     try {
       dataUrl = await materializeStillDataUrl(imageUrl);

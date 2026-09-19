@@ -18,6 +18,7 @@ export function runWithXaiKey(key, fn) {
 }
 
 export const API_IMAGES = "https://api.x.ai/v1/images/generations";
+export const API_IMAGE_EDITS = "https://api.x.ai/v1/images/edits";
 export const API_RESPONSES = "https://api.x.ai/v1/responses";
 export const TEXT_MODEL = "grok-4.20-0309-non-reasoning";
 export const IMAGE_MODEL = "grok-imagine-image-quality";
@@ -321,42 +322,95 @@ export async function materializeStillDataUrl(imageUrl) {
   return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
-export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio) {
-  const apiKey = getImageApiKey();
-  const aspect = normalizeAspect(aspectRatio);
-  const fullPrompt = buildStasisVisionPrompt(stasis, buzzWords, aspect);
-
-  const resp = await fetch(API_IMAGES, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: IMAGE_MODEL,
-      prompt: fullPrompt,
-      n: 1,
-      aspect_ratio: aspect,
-    }),
-  });
-
-  const data = await resp.json();
-  if (!resp.ok) {
-    throw new Error(apiErrorMessage(data, resp.status));
-  }
-
+function xaiImageFromResponse(data) {
   const items = data.data || [];
   if (!items.length) throw new Error("No image returned from xAI.");
-
   const item = items[0];
   if (item.b64_json) return `data:image/jpeg;base64,${item.b64_json}`;
   if (item.url) return item.url;
   throw new Error("No image data in xAI response.");
 }
 
-export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio) {
+export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio) {
+  const buzz =
+    buzzWords?.length > 0
+      ? buzzWords.slice(0, 16).join(", ")
+      : "rich painterly detail";
+  const frame = aspectPhrase(aspectRatio);
+  const prefix =
+    "Paint one NEW original fine-art still inspired by the attached overhead-projector composition. " +
+    "This must be a finished museum painting, not a photograph of acetate, glass, or the source collage. " +
+    "Keep the same subjects, spatial arrangement, and mood, but invent fresh brushwork and lighting.\n\n" +
+    "STASIS (scene to paint):\n";
+  const suffix =
+    `\n\nBUZZ WORDS: ${buzz}\n\n` +
+    `Museum-quality, cohesive composition, expressive brushwork. Compose for a ${frame} frame and fill the entire canvas.`;
+  const overhead = prefix.length + suffix.length;
+  const bodyMax = Math.min(
+    GEN_STASIS_BODY_MAX,
+    Math.max(400, GEN_PROMPT_SAFE_MAX - overhead)
+  );
+  const body = clipPromptChars(String(stasis || "").trim(), bodyMax);
+  return clipPromptChars(prefix + body + suffix, GEN_PROMPT_SAFE_MAX);
+}
+
+async function postXaiImage(url, payload, apiKey) {
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await resp.json();
+  if (!resp.ok) {
+    throw new Error(apiErrorMessage(data, resp.status));
+  }
+  return xaiImageFromResponse(data);
+}
+
+export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage) {
+  const apiKey = getImageApiKey();
+  const aspect = normalizeAspect(aspectRatio);
+  const ref = String(referenceImage || "").trim();
+  const fullPrompt = ref
+    ? buildFlashProjectPrompt(stasis, buzzWords, aspect)
+    : buildStasisVisionPrompt(stasis, buzzWords, aspect);
+  const base = {
+    model: IMAGE_MODEL,
+    prompt: fullPrompt,
+    n: 1,
+    aspect_ratio: aspect,
+  };
+  if (ref) {
+    try {
+      return await postXaiImage(
+        API_IMAGE_EDITS,
+        {
+          ...base,
+          image: { url: ref, type: "image_url" },
+        },
+        apiKey
+      );
+    } catch (errEdits) {
+      try {
+        return await postXaiImage(
+          API_IMAGES,
+          { ...base, image_url: ref },
+          apiKey
+        );
+      } catch (errGen) {
+        throw errEdits;
+      }
+    }
+  }
+  return postXaiImage(API_IMAGES, base, apiKey);
+}
+
+export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage) {
   if (getImageProvider() === "wombo") {
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
   }
-  return generateXaiStasisImage(stasis, buzzWords, aspectRatio);
+  return generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
 }
