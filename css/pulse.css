@@ -376,6 +376,7 @@ body.pulse-tab-active #panel-pulse {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
+  position: relative;
 }
 
 .pulse-card-image img {
@@ -505,4 +506,41 @@ body.pulse-tab-active #panel-pulse {
   .pulse-comments {
     margin-left: 0;
   }
+}
+
+.pulse-feed-banner {
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--accent-soft, rgba(180, 140, 80, 0.12));
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.pulse-feed-banner p {
+  margin: 0;
+}
+
+.pulse-compose.pulse-drag-over {
+  outline: 2px dashed var(--accent, #c4a35a);
+  outline-offset: 2px;
+}
+
+.pulse-copy-image-btn {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.45rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+}
+
+.pulse-copy-image-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
 }
