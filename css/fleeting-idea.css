@@ -1,1 +1,7 @@
-@file:///tmp/push_css_only_final.json
+/* Temporary restore stub — full FI CSS follows in next commit */
+#panel-fleeting-idea.panel[hidden] {
+  display: none !important;
+}
+#panel-fleeting-idea.panel.active {
+  display: block;
+}
