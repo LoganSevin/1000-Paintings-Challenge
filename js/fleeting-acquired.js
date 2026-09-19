@@ -793,8 +793,12 @@
       btn.title = item.label || item.name || "";
       btn.dataset.url = item.url || "";
       btn.dataset.label = item.label || item.name || "";
+      if (item.lod1Num != null) btn.dataset.lod1Num = String(item.lod1Num);
+      else if (item.source === "lod1" && item.num != null) btn.dataset.lod1Num = String(item.num);
       if (item.paintingNum != null) btn.dataset.paintingNum = String(item.paintingNum);
-      else if (item.num != null && !item.lod1Num) btn.dataset.paintingNum = String(item.num);
+      else if (item.num != null && !item.lod1Num && item.source !== "lod1") {
+        btn.dataset.paintingNum = String(item.num);
+      }
       btn.innerHTML =
         '<img src="' +
         escapeAttr(item.url) +
@@ -925,6 +929,7 @@
           name: item.name,
           folderId: GENERATED_ID,
           num: item.num,
+          lod1Num: item.num,
         },
         realIndex >= 0 ? realIndex : 0
       );
@@ -1421,7 +1426,7 @@
     libraryHead.className = "fi-library-group-head";
     libraryHead.innerHTML =
       '<h4>Equip library</h4>' +
-      '<p class="fi-library-group-hint">Same flow as painting spells — click a thumb to fill the active slot. Mix #paintings with LOD1s and your uploads.</p>';
+      '<p class="fi-library-group-hint">Click a thumb to drop it on the glass. Right-click for Place on projector or Smart lasso by prompt subjects.</p>';
     library.appendChild(libraryHead);
 
     library.appendChild(

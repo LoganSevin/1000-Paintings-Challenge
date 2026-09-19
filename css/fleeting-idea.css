@@ -3360,6 +3360,51 @@ body.fi-tab-active .fi-ohp-backdrop .fi-ohp-glow-plate::after {
   display: none !important;
 }
 
+.fi-ctx-menu {
+  position: fixed;
+  z-index: 50000;
+  min-width: 13.5rem;
+  max-width: 18rem;
+  padding: 0.28rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  background: rgba(10, 14, 24, 0.96);
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.fi-ctx-menu[hidden] {
+  display: none !important;
+}
+
+.fi-ctx-menu button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.48rem 0.65rem;
+  text-align: left;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(248, 244, 236, 0.96);
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fi-ctx-menu button:hover,
+.fi-ctx-menu button:focus {
+  background: rgba(201, 162, 39, 0.22);
+  color: #fff;
+}
+
+.fi-ctx-menu button[hidden] {
+  display: none !important;
+}
+
 body.fi-tab-active.fi-interface-hidden .fleeting-workspace {
   display: block;
 }

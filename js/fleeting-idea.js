@@ -2207,7 +2207,8 @@
     menu.setAttribute("aria-label", "Fleeting Idea actions");
     menu.innerHTML =
       '<button type="button" role="menuitem" data-fi-ctx="place-projector">Place on projector</button>' +
-      '<button type="button" role="menuitem" data-fi-ctx="subject-lasso">Prompt subject lasso</button>' +
+      '<button type="button" role="menuitem" data-fi-ctx="break-subjects">Smart lasso by prompt subjects</button>' +
+      '<button type="button" role="menuitem" data-fi-ctx="subject-lasso">Draw one subject lasso</button>' +
       '<button type="button" role="menuitem" data-fi-ctx="name-stencil" hidden>Name stencil…</button>';
     document.body.appendChild(menu);
     menu.addEventListener("click", function (e) {
@@ -2219,6 +2220,7 @@
       var payload = menu._payload || {};
       hideFiContextMenu();
       if (action === "place-projector") placeOnProjectorFromCtx(payload);
+      else if (action === "break-subjects") breakPromptSubjectsFromCtx(payload);
       else if (action === "subject-lasso") startPromptSubjectLassoFromCtx(payload);
       else if (action === "name-stencil") openStencilNameDialog(payload.layerId || state.selectedId);
     });
@@ -2237,6 +2239,7 @@
     payload = payload || {};
     menu._payload = payload;
     var placeBtn = menu.querySelector('[data-fi-ctx="place-projector"]');
+    var breakBtn = menu.querySelector('[data-fi-ctx="break-subjects"]');
     var lassoBtn = menu.querySelector('[data-fi-ctx="subject-lasso"]');
     var nameBtn = menu.querySelector('[data-fi-ctx="name-stencil"]');
     var canPlace = !!(payload.url || payload.layerId);
@@ -2248,10 +2251,8 @@
       if (layer && layer.type === "textbox") canLasso = false;
     }
     if (placeBtn) placeBtn.hidden = !canPlace || isStencil;
-    if (lassoBtn) {
-      lassoBtn.hidden = !canLasso || isStencil;
-      lassoBtn.textContent = "Prompt subject lasso";
-    }
+    if (breakBtn) breakBtn.hidden = !canLasso || isStencil;
+    if (lassoBtn) lassoBtn.hidden = !canLasso || isStencil;
     if (nameBtn) nameBtn.hidden = !isStencil;
     menu.hidden = false;
     var pad = 8;
@@ -2347,6 +2348,302 @@
     }
     setComposerStatus("No image for subject lasso.");
     setTimeout(function () { setComposerStatus(""); }, 1600);
+  }
+
+  function analysisForPayload(payload) {
+    payload = payload || {};
+    if (payload.lod1Num) return getLod1Analysis(payload.lod1Num);
+    if (payload.paintingNum) {
+      return getAnalysis(payload.paintingNum) || getLod1Analysis(payload.paintingNum);
+    }
+    var n = parseLod1NumFromUrl(payload.url);
+    if (n) return getLod1Analysis(n);
+    return null;
+  }
+
+  function subjectsForPayload(payload) {
+    var a = analysisForPayload(payload);
+    var chunks = [];
+    if (a) {
+      if (a.title) chunks.push(a.title);
+      if (a.description) chunks.push(a.description);
+      if (a.prompt) chunks.push(a.prompt);
+      if (a.tags && a.tags.length) chunks.push(a.tags.join(", "));
+    }
+    if (payload && payload.label) chunks.push(payload.label);
+    var typed = getUserPrompt();
+    if (typed) chunks.push(typed);
+    var found = parsePromptSubjects(chunks.join("\n"));
+    var extra = String(chunks.join(" ")).match(
+      /\b(?:a|an|the)\s+([a-z][a-z0-9' -]{2,36})/gi
+    );
+    (extra || []).forEach(function (phrase) {
+      var n = normalizeSubjectName(phrase);
+      if (n && found.indexOf(n) < 0) found.push(n);
+    });
+    return uniqueStrings(found).slice(0, 10);
+  }
+
+  function fetchImageForPixels(url) {
+    var abs = url;
+    try {
+      abs = new URL(url, location.href).href;
+    } catch (eAbs) {}
+    var tries = [];
+    try {
+      if (new URL(abs).origin !== location.origin) {
+        tries.push("/api/proxy-media?url=" + encodeURIComponent(abs));
+      }
+    } catch (eOrigin) {}
+    tries.push(abs);
+    function next(i) {
+      if (i >= tries.length) return Promise.reject(new Error("Could not read image pixels."));
+      return fetch(tries[i], { cache: "force-cache" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("http");
+          var ct = String(r.headers.get("content-type") || "");
+          if (ct.indexOf("json") >= 0) throw new Error("json");
+          return r.blob();
+        })
+        .then(function (blob) {
+          if (!blob || blob.size < 40) throw new Error("empty");
+          return new Promise(function (resolve, reject) {
+            var img = new Image();
+            var objUrl = URL.createObjectURL(blob);
+            img.onload = function () {
+              URL.revokeObjectURL(objUrl);
+              resolve(img);
+            };
+            img.onerror = function () {
+              URL.revokeObjectURL(objUrl);
+              reject(new Error("decode"));
+            };
+            img.src = objUrl;
+          });
+        })
+        .catch(function () {
+          return next(i + 1);
+        });
+    }
+    return next(0);
+  }
+
+  function cutSubjectPieces(img, maxPieces) {
+    maxPieces = Math.max(1, Math.min(10, maxPieces || 6));
+    var iw = img.naturalWidth || img.width;
+    var ih = img.naturalHeight || img.height;
+    if (iw < 8 || ih < 8) return [];
+    var maxW = 220;
+    var scale = Math.min(1, maxW / iw);
+    var w = Math.max(8, Math.round(iw * scale));
+    var h = Math.max(8, Math.round(ih * scale));
+    var c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    var ctx = c.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return [];
+    ctx.drawImage(img, 0, 0, w, h);
+    var data = ctx.getImageData(0, 0, w, h).data;
+    function sample(x, y) {
+      var i = (y * w + x) * 4;
+      return [data[i], data[i + 1], data[i + 2], data[i + 3]];
+    }
+    var corners = [sample(1, 1), sample(w - 2, 1), sample(1, h - 2), sample(w - 2, h - 2)];
+    var bg = [0, 0, 0];
+    corners.forEach(function (p) {
+      bg[0] += p[0];
+      bg[1] += p[1];
+      bg[2] += p[2];
+    });
+    bg[0] /= 4;
+    bg[1] /= 4;
+    bg[2] /= 4;
+    var fg = new Uint8Array(w * h);
+    var i;
+    for (i = 0; i < w * h; i++) {
+      var r = data[i * 4];
+      var g = data[i * 4 + 1];
+      var b = data[i * 4 + 2];
+      var a = data[i * 4 + 3];
+      if (a < 18) continue;
+      var dr = r - bg[0];
+      var dg = g - bg[1];
+      var db = b - bg[2];
+      var dist = Math.sqrt(dr * dr + dg * dg + db * db);
+      var lum = r * 0.299 + g * 0.587 + b * 0.114;
+      if (dist > 28 && lum < 248) fg[i] = 1;
+    }
+    var labels = new Int32Array(w * h);
+    var blobs = [];
+    var qx = new Int32Array(w * h);
+    var qy = new Int32Array(w * h);
+    var nextLabel = 1;
+    var minArea = Math.max(18, Math.floor(w * h * 0.008));
+    for (i = 0; i < w * h; i++) {
+      if (!fg[i] || labels[i]) continue;
+      var x0 = i % w;
+      var y0 = (i / w) | 0;
+      var head = 0;
+      var tail = 0;
+      qx[tail] = x0;
+      qy[tail] = y0;
+      tail++;
+      labels[i] = nextLabel;
+      var minx = x0;
+      var miny = y0;
+      var maxx = x0;
+      var maxy = y0;
+      var count = 0;
+      while (head < tail) {
+        var x = qx[head];
+        var y = qy[head];
+        head++;
+        count++;
+        if (x < minx) minx = x;
+        if (y < miny) miny = y;
+        if (x > maxx) maxx = x;
+        if (y > maxy) maxy = y;
+        var nbs = [x - 1, y, x + 1, y, x, y - 1, x, y + 1];
+        for (var n = 0; n < 8; n += 2) {
+          var nx = nbs[n];
+          var ny = nbs[n + 1];
+          if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+          var ni = ny * w + nx;
+          if (!fg[ni] || labels[ni]) continue;
+          labels[ni] = nextLabel;
+          qx[tail] = nx;
+          qy[tail] = ny;
+          tail++;
+        }
+      }
+      if (count >= minArea) {
+        blobs.push({ minx: minx, miny: miny, maxx: maxx, maxy: maxy, count: count, label: nextLabel });
+      }
+      nextLabel++;
+    }
+    blobs.sort(function (a, b) {
+      return b.count - a.count;
+    });
+    blobs = blobs.slice(0, maxPieces);
+    return blobs.map(function (blob) {
+      var pad = 1;
+      var bx = Math.max(0, blob.minx - pad);
+      var by = Math.max(0, blob.miny - pad);
+      var bw = Math.min(w, blob.maxx + pad + 1) - bx;
+      var bh = Math.min(h, blob.maxy + pad + 1) - by;
+      var mask = document.createElement("canvas");
+      mask.width = bw;
+      mask.height = bh;
+      var mctx = mask.getContext("2d");
+      var md = mctx.createImageData(bw, bh);
+      var ox;
+      var oy;
+      for (oy = 0; oy < bh; oy++) {
+        for (ox = 0; ox < bw; ox++) {
+          var li = (by + oy) * w + (bx + ox);
+          if (labels[li] === blob.label) {
+            var mi = (oy * bw + ox) * 4;
+            md.data[mi] = 255;
+            md.data[mi + 1] = 255;
+            md.data[mi + 2] = 255;
+            md.data[mi + 3] = 255;
+          }
+        }
+      }
+      mctx.putImageData(md, 0, 0);
+      var sx = bx / scale;
+      var sy = by / scale;
+      var sw = bw / scale;
+      var sh = bh / scale;
+      var out = document.createElement("canvas");
+      out.width = Math.max(8, Math.round(sw));
+      out.height = Math.max(8, Math.round(sh));
+      var octx = out.getContext("2d");
+      octx.drawImage(img, sx, sy, sw, sh, 0, 0, out.width, out.height);
+      octx.globalCompositeOperation = "destination-in";
+      octx.drawImage(mask, 0, 0, out.width, out.height);
+      octx.globalCompositeOperation = "source-over";
+      return {
+        dataUrl: out.toDataURL("image/png"),
+        aspect: out.width / Math.max(out.height, 1),
+      };
+    }).filter(function (p) {
+      return p && p.dataUrl && p.dataUrl.length > 80;
+    });
+  }
+
+  function breakPromptSubjectsFromCtx(payload) {
+    payload = payload || {};
+    var url = payload.url;
+    if (!url && payload.layerId) {
+      var existing = getObject(payload.layerId);
+      if (existing && existing.url) url = existing.url;
+    }
+    if (!url) {
+      setComposerStatus("No image to break into subjects.");
+      setTimeout(function () { setComposerStatus(""); }, 1800);
+      return Promise.resolve(null);
+    }
+    var subjects = subjectsForPayload(payload);
+    setComposerStatus(
+      subjects.length
+        ? "Lassoing prompt subjects: " + subjects.slice(0, 4).join(", ") + (subjects.length > 4 ? "…" : "")
+        : "No named subjects yet — placing the sheet, then looking for separate pieces."
+    );
+    var slot = {
+      url: url,
+      label: payload.label || "sheet",
+      paintingNum: payload.paintingNum || payload.lod1Num || null,
+    };
+    return placeImageOnProjector(slot, { status: "Sheet on projector — cutting subjects…" })
+      .then(function (baseId) {
+        return fetchImageForPixels(url).then(function (img) {
+          var want = Math.max(subjects.length || 0, 3);
+          var pieces = cutSubjectPieces(img, want);
+          if (!pieces.length) {
+            setComposerStatus("Could not cut separate pieces — the full sheet is on the glass.");
+            setTimeout(function () { setComposerStatus(""); }, 2400);
+            return baseId;
+          }
+          var names = subjects.length ? subjects : pieces.map(function (_, i) { return "piece " + (i + 1); });
+          var adds = pieces.map(function (piece, i) {
+            var name = names[i] || names[names.length - 1] || "subject";
+            var col = i % 4;
+            var row = Math.floor(i / 4);
+            var layout = {
+              x: 8 + col * 22,
+              y: 10 + row * 28,
+              w: 20,
+              h: 20 / Math.max(piece.aspect || 1, 0.4),
+              rotation: (i % 3) - 1,
+            };
+            return addImageObject(
+              { url: piece.dataUrl, label: name, paintingNum: slot.paintingNum },
+              layout,
+              { scrollPanel: i === 0 }
+            );
+          });
+          return Promise.all(adds).then(function (ids) {
+            var n = ids.filter(Boolean).length;
+            normalizeZ();
+            renderObjects();
+            syncStageChrome(true);
+            composeMoment();
+            setComposerStatus(
+              n
+                ? "Broke into " + n + " subject layer" + (n === 1 ? "" : "s") + " from the prompt."
+                : "Could not add subject layers."
+            );
+            setTimeout(function () { setComposerStatus(""); }, 2800);
+            return baseId;
+          });
+        });
+      })
+      .catch(function () {
+        setComposerStatus("Could not read that image to lasso subjects. Placed the full sheet if possible.");
+        setTimeout(function () { setComposerStatus(""); }, 2600);
+        return null;
+      });
   }
 
   function findStencilBySubject(name) {
@@ -2524,6 +2821,9 @@
       payload.url = thumb.dataset.url || (thumb.querySelector("img") && thumb.querySelector("img").src) || "";
       payload.label = thumb.dataset.label || thumb.title || "";
       payload.paintingNum = thumb.dataset.paintingNum ? Number(thumb.dataset.paintingNum) : null;
+      payload.lod1Num = thumb.dataset.lod1Num
+        ? Number(thumb.dataset.lod1Num)
+        : parseLod1NumFromUrl(payload.url);
     } else if (card) {
       payload.layerId = card.dataset.id || null;
       var layer = getObject(payload.layerId);

@@ -48,6 +48,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/proxy-media"
+  to = "/.netlify/functions/proxy-media"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/jobs/:jobId"
   to = "/.netlify/functions/job-status/:jobId"
   status = 200
