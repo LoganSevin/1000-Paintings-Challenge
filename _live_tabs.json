@@ -108,6 +108,10 @@
     "label": "Income"
   },
   {
+    "id": "profit",
+    "label": "Profit"
+  },
+  {
     "id": "market",
     "label": "Market (sim)"
   },
