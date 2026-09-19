@@ -3380,7 +3380,8 @@ body.fi-tab-active .fi-ohp-backdrop .fi-ohp-glow-plate::after {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-.fi-glass-empty-hint[hidden] {
+.fi-glass-empty-hint[hidden],
+.fi-glass-empty-hint.is-hidden {
   display: none !important;
 }
 

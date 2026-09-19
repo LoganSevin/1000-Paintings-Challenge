@@ -3357,7 +3357,10 @@
       });
     }
     if (hint) hint.hidden = hasContent;
-    if (glassHint) glassHint.hidden = hasContent;
+    if (glassHint) {
+      glassHint.hidden = !!hasContent;
+      glassHint.classList.toggle("is-hidden", !!hasContent);
+    }
     var previewUrl = projectionPreviewUrl();
     if (previewUrl && hiddenImg) hiddenImg.src = previewUrl;
     syncPipButton();
@@ -3454,8 +3457,12 @@
     if (!obj.url || obj.loadFailed) return true;
     var el = document.querySelector('.fi-image-object[data-id="' + obj.id + '"] img');
     if (!el) return false;
-    if (!el.complete || el.naturalWidth === 0 || el.naturalHeight === 0) return true;
-    return !imageHasVisibleInk(el);
+    if (!el.complete || el.naturalWidth === 0 || el.naturalHeight === 0) return false;
+    try {
+      return !imageHasVisibleInk(el);
+    } catch (err) {
+      return false;
+    }
   }
 
   function layerShowsRegenerate(obj) {
@@ -3609,7 +3616,7 @@
       card.title = "Drag to reorder · " + objectTypeLabel(obj);
       var thumbHtml = "";
       if (obj.type === "image") {
-        thumbHtml = '<img src="' + obj.url + '" alt="" draggable="false" crossorigin="anonymous" />';
+        thumbHtml = '<img src="' + obj.url + '" alt="" draggable="false" />';
       } else if (obj.type === "stencil") {
         thumbHtml = '<span class="fi-layer-stencil-glyph">' + escapeHtml(obj.letter || state.letter) + "</span>";
       } else if (obj.type === "textbox") {
@@ -3903,7 +3910,12 @@
       }
     });
     updateHud();
-    renderSheetsPanel();
+    try {
+      renderSheetsPanel();
+    } catch (errSheets) {}
+    try {
+      syncStageChrome();
+    } catch (errChrome) {}
     var mount = $("fi-acetate-mount");
     if (mount) mount.classList.toggle("has-active-layer", !!state.selectedId);
     syncDomainChrome();
@@ -3979,6 +3991,10 @@
     var iw = img.naturalWidth || img.width || 0;
     var ih = img.naturalHeight || img.height || 0;
     if (iw < 2 || ih < 2) return false;
+    try {
+      var src = img.currentSrc || img.src || "";
+      if (src && new URL(src, location.href).origin !== location.origin) return true;
+    } catch (errOrigin) {}
     var w = Math.min(sampleMax, iw);
     var h = Math.max(4, Math.round(ih * (w / Math.max(iw, 1))));
     w = Math.max(4, w);
