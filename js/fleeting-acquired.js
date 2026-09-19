@@ -821,6 +821,9 @@
       uploadId: item.uploadId || null,
     };
     equipSlot(state.activeSlot, payload);
+    if (window.FleetingIdea && typeof window.FleetingIdea.placeOnProjector === "function") {
+      window.FleetingIdea.placeOnProjector(payload, { status: "Dropped on the glass." });
+    }
   }
 
   function renderFolderToolsSection(bodyEl, opts) {

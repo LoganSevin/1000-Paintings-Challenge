@@ -3335,6 +3335,31 @@ body.fi-tab-active .fi-ohp-backdrop .fi-ohp-glow-plate::after {
   pointer-events: none;
 }
 
+.fi-glass-empty-hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 30;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  max-width: 16rem;
+  padding: 0.7rem 0.9rem;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: rgba(28, 48, 82, 0.78);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(150, 184, 230, 0.55);
+  border-radius: var(--radius);
+  pointer-events: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.fi-glass-empty-hint[hidden] {
+  display: none !important;
+}
+
 body.fi-tab-active.fi-interface-hidden .fleeting-workspace {
   display: block;
 }

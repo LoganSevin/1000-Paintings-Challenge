@@ -3044,9 +3044,15 @@
 
   function syncStageChrome(hasContent) {
     var hint = $("fi-vision-hint");
+    var glassHint = $("fi-glass-empty-hint");
     var hiddenImg = $("fi-stage-img");
-    if (hasContent == null) hasContent = state.objects.some(function (o) { return o.type === "image" && !o.isPip; });
+    if (hasContent == null) {
+      hasContent = state.objects.some(function (o) {
+        return o.type === "image" || o.type === "stencil" || o.type === "textbox";
+      });
+    }
     if (hint) hint.hidden = hasContent;
+    if (glassHint) glassHint.hidden = hasContent;
     var previewUrl = projectionPreviewUrl();
     if (previewUrl && hiddenImg) hiddenImg.src = previewUrl;
     syncPipButton();
@@ -3522,7 +3528,7 @@
       } else {
         normalizePlaneObject(obj);
         el.innerHTML =
-          '<div class="fi-plane-tilt-stage"><div class="fi-pose-inner"><img src="' + obj.url + '" alt="" draggable="false" crossorigin="anonymous" /></div></div>' +
+          '<div class="fi-plane-tilt-stage"><div class="fi-pose-inner"><img src="' + obj.url + '" alt="" draggable="false" /></div></div>' +
           clipEdge +
           '<span class="fi-pose-tag">' + (obj.isPip ? "pip" : obj.label || "sheet") + "</span>" +
           (obj.id === state.selectedId ? buildHandles(obj) : "");
@@ -3641,7 +3647,7 @@
     try {
       ctx.drawImage(img, 0, 0, w, h);
     } catch (err) {
-      return false;
+      return true;
     }
     var data = ctx.getImageData(0, 0, w, h).data;
     var total = w * h;
@@ -3662,8 +3668,12 @@
     if (!img || !(img.naturalWidth || img.width) || !(img.naturalHeight || img.height)) {
       return Promise.reject(new Error("Image has no pixels."));
     }
-    if (!imageHasVisibleInk(img)) {
-      return Promise.reject(new Error("Image is blank."));
+    try {
+      if (!imageHasVisibleInk(img)) {
+        return Promise.reject(new Error("Image is blank."));
+      }
+    } catch (err) {
+      return Promise.resolve(img);
     }
     return Promise.resolve(img);
   }
@@ -3801,11 +3811,6 @@
     if (state.imageLoadCache[url]) return state.imageLoadCache[url];
     state.imageLoadCache[url] = new Promise(function (resolve, reject) {
       var img = new Image();
-      try {
-        if (new URL(url, location.href).origin !== location.origin) img.crossOrigin = "anonymous";
-      } catch (e) {
-        if (url.indexOf("data:") !== 0 && url.indexOf("blob:") !== 0) img.crossOrigin = "anonymous";
-      }
       img.onload = function () {
         if (!(img.naturalWidth || img.width) || !(img.naturalHeight || img.height)) {
           delete state.imageLoadCache[url];
@@ -5430,6 +5435,7 @@
     bind();
     enforceNoBlankImageLayers({ silent: true });
     renderObjects();
+    syncStageChrome();
     composeMoment();
     Promise.all([loadAnalyses(), loadLod1Analyses()]).then(function () {
       prefetchLod1AnalysesForSlots();
