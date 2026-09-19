@@ -542,24 +542,35 @@
     });
   }
 
-  function refineFromCapture(capturedUrl) {
+  function refineFromCapture(capturedUrl, replaceId) {
     var stasis =
       (stasisText() || "Overhead projection") +
       " · refine this glass composition into polished fine-art imagery";
     return checkApiReady().then(function (ready) {
-      if (!ready) {
-        setStatus("API offline — showing raw OHP capture.", true);
-        return applyVisionUrl(capturedUrl, { addToGlass: true, label: "capture" });
-      }
-      return generateCloud([], {
+      if (!ready) return capturedUrl;
+      return fetchVisionUrl([], {
         reference_image: capturedUrl,
         refine: true,
         stasisFallback: stasis,
-        statusMsg: "Refining overhead capture…",
-      }).catch(function (err) {
-        setStatus("Refine failed — showing raw capture. " + (err.message || ""), true);
-        return applyVisionUrl(capturedUrl, { addToGlass: true, label: "capture" });
-      });
+        statusMsg: "Polishing the OHP capture…",
+      })
+        .then(function (url) {
+          if (replaceId && window.FleetingIdea && window.FleetingIdea.replaceLayerImage) {
+            return window.FleetingIdea.replaceLayerImage(replaceId, url, {
+              label: "generated",
+              loadFailed: false,
+            }).then(function () {
+              return url;
+            });
+          }
+          return applyVisionUrl(url, { addToGlass: true, label: "generated" }).then(function () {
+            return url;
+          });
+        })
+        .catch(function (err) {
+          setStatus("Raw OHP capture is on the glass. Polish skipped: " + (err.message || "offline"), true);
+          return capturedUrl;
+        });
     });
   }
 
@@ -570,31 +581,37 @@
       return;
     }
     state.generating = true;
-    setStatus("Capturing OHP frame…");
+    setStatus("Capturing OHP…");
     var flashBtn = $("fi-flash-frame");
     if (flashBtn) flashBtn.disabled = true;
     state.flashWatchdog = setTimeout(function () {
       releaseGenerating(flashBtn);
       setStatus("Flash & project timed out — try again.", true);
     }, FLASH_TIMEOUT_MS);
-    if (window.FleetingIdea.recompose) window.FleetingIdea.recompose();
 
-    new Promise(function (resolve) {
-      requestAnimationFrame(function () {
-        requestAnimationFrame(resolve);
-      });
-    })
-      .then(function () {
-        return window.FleetingIdea.captureProjection({ flash: true });
-      })
+    window.FleetingIdea.captureProjection({ flash: true, width: 960, height: 540 })
       .then(function (capturedUrl) {
-        setStatus("Captured OHP frame — refining…");
-        return refineFromCapture(capturedUrl);
+        if (!capturedUrl) throw new Error("OHP capture was empty.");
+        var place =
+          window.FleetingIdea.placeOnProjector
+            ? window.FleetingIdea.placeOnProjector(
+                { url: capturedUrl, label: "capture" },
+                { status: "OHP capture projected." }
+              )
+            : applyVisionUrl(capturedUrl, { addToGlass: true, label: "capture" });
+        return Promise.resolve(place).then(function (layerId) {
+          releaseGenerating(flashBtn);
+          setStatus("OHP captured and projected. Polishing in the background…");
+          return refineFromCapture(capturedUrl, layerId).then(function () {
+            setStatus("Flash & project ready.");
+            setTimeout(function () {
+              setStatus("");
+            }, 2200);
+          });
+        });
       })
       .catch(function (err) {
         setStatus(err.message || "Could not flash project.", true);
-      })
-      .finally(function () {
         releaseGenerating(flashBtn);
       });
   }

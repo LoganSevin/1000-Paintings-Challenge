@@ -5418,13 +5418,15 @@
     ctx.clip();
   }
 
-  function drawGlassBackground(ctx) {
-    var g = ctx.createRadialGradient(CAP_W * 0.5, CAP_H * 0.55, 0, CAP_W * 0.5, CAP_H * 0.55, CAP_W * 0.75);
+  function drawGlassBackground(ctx, width, height) {
+    var w = width || CAP_W;
+    var h = height || CAP_H;
+    var g = ctx.createRadialGradient(w * 0.5, h * 0.55, 0, w * 0.5, h * 0.55, w * 0.75);
     g.addColorStop(0, "#f2f6fc");
     g.addColorStop(0.55, "#d8e4f4");
     g.addColorStop(1, "#a8bcd8");
     ctx.fillStyle = g;
-    ctx.fillRect(0, 0, CAP_W, CAP_H);
+    ctx.fillRect(0, 0, w, h);
   }
 
   function clipCornersPath(ctx, corners, w, h) {
@@ -5489,8 +5491,45 @@
     var glow = $("fi-ohp-glow-plate");
     if (glow) {
       glow.classList.add("fi-flash");
-      setTimeout(function () { if (glow) glow.classList.remove("fi-flash"); }, 520);
+      setTimeout(function () { if (glow) glow.classList.remove("fi-flash"); }, 280);
     }
+  }
+
+  function loadImageForCapture(obj) {
+    if (!obj || obj.type !== "image") return Promise.resolve(null);
+    var el = document.querySelector('.fi-image-object[data-id="' + obj.id + '"] img');
+    if (el && el.complete && (el.naturalWidth || el.width) > 2) {
+      return Promise.resolve(el);
+    }
+    var url = obj.url;
+    if (!url) return Promise.resolve(null);
+    return new Promise(function (resolve) {
+      var settled = false;
+      var timer = setTimeout(function () {
+        if (settled) return;
+        settled = true;
+        resolve(null);
+      }, 2200);
+      var work =
+        url.indexOf("data:") === 0 || url.indexOf("blob:") === 0
+          ? loadImage(url)
+          : fetchImageForPixels(url).catch(function () {
+              return loadImage(url);
+            });
+      work
+        .then(function (img) {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(img || null);
+        })
+        .catch(function () {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(null);
+        });
+    });
   }
 
   function captureProjection(opts) {
@@ -5504,8 +5543,10 @@
     if (plate.w < 0.5 || plate.h < 0.5) {
       return Promise.reject(new Error("OHP workspace not ready — try again."));
     }
-    var bedW = Math.round(CAP_W * (100 / plate.w));
-    var bedH = Math.round(CAP_H * (100 / plate.h));
+    var outW = opts.width || 960;
+    var outH = opts.height || 540;
+    var bedW = Math.round(outW * (100 / plate.w));
+    var bedH = Math.round(outH * (100 / plate.h));
     var ceilX = Math.round((plate.x / 100) * bedW);
     var ceilY = Math.round((plate.y / 100) * bedH);
     var ceilW = Math.round((plate.w / 100) * bedW);
@@ -5513,7 +5554,9 @@
     var images = state.objects.filter(function (o) { return o.type === "image"; });
     return Promise.all(
       images.map(function (o) {
-        return loadImage(o.url).then(function (img) { return { obj: o, img: img }; });
+        return loadImageForCapture(o).then(function (img) {
+          return { obj: o, img: img };
+        });
       })
     ).then(function (loaded) {
       var sorted = sortedObjects();
@@ -5550,11 +5593,11 @@
           }
         });
         var canvas = document.createElement("canvas");
-        canvas.width = CAP_W;
-        canvas.height = CAP_H;
+        canvas.width = outW;
+        canvas.height = outH;
         var ctx = canvas.getContext("2d");
-        drawGlassBackground(ctx);
-        ctx.drawImage(bedCanvas, ceilX, ceilY, ceilW, ceilH, 0, 0, CAP_W, CAP_H);
+        drawGlassBackground(ctx, outW, outH);
+        ctx.drawImage(bedCanvas, ceilX, ceilY, ceilW, ceilH, 0, 0, outW, outH);
         return canvas;
       });
     }).then(function (canvas) {
@@ -5562,9 +5605,9 @@
       ctx.save();
       ctx.globalCompositeOperation = "overlay";
       ctx.fillStyle = "rgba(255,255,255,0.12)";
-      ctx.fillRect(0, 0, CAP_W, CAP_H);
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.restore();
-      var dataUrl = canvas.toDataURL("image/jpeg", 0.88);
+      var dataUrl = canvas.toDataURL("image/jpeg", 0.8);
       state.lastCaptureUrl = dataUrl;
       return dataUrl;
     });
@@ -5911,7 +5954,12 @@
     addTextBox: addTextBox,
     selectObject: selectObject,
     compressDataUrl: compressDataUrl,
-    prepareCaptureForApi: function (url) { return compressDataUrl(url, 960, 0.78); },
+    prepareCaptureForApi: function (url) {
+      if (url && url.indexOf("data:image/jpeg") === 0 && url.length < 1500000) {
+        return Promise.resolve(url);
+      }
+      return compressDataUrl(url, 960, 0.78);
+    },
     getTimelapse: function () {
       return { frame: state.cycleIndex + 1, totalFrames: TOTAL_FRAMES, letter: state.letter, cycleMs: CYCLE_MS };
     },
