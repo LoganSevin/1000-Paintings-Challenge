@@ -66,6 +66,7 @@
   var spellStasis = "";
   var spellPrompt = "";
   var stasisUserDirty = false;
+  var physicalUserDirty = false;
   var activeBuzzWords = [];
   var stasisVisionUrl = "";
   var serverOnline = false;
@@ -2948,87 +2949,97 @@
     return meta.moods.length ? meta.moods.join(" + ") : "";
   }
 
+  function clipNoteExcerpt(text, maxLen) {
+    text = String(text || "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    maxLen = maxLen || 280;
+    if (text.length <= maxLen) return text;
+    var cut = text.slice(0, maxLen);
+    var sp = cut.lastIndexOf(" ");
+    if (sp > maxLen * 0.55) cut = cut.slice(0, sp);
+    return cut.replace(/\s+$/, "").replace(/[,:;.-]+$/, "") + "…";
+  }
+
+  function slotNoteExcerpts(nums, maxEach) {
+    maxEach = maxEach || 320;
+    var roman = ["I", "II", "III"];
+    var out = [];
+    for (var s = 0; s < 3; s++) {
+      if (!spells[s]) continue;
+      var num = spells[s];
+      var body = String(getSpellSlotBody(s) || "").trim();
+      if (!body) {
+        var a = getAnalysis(num) || {};
+        body = String(a.description || a.prompt || a.title || "").trim();
+      }
+      // Prefer first paragraph for artistic notes (readable synthesis)
+      var para = body.split(/\n\n+/)[0] || body;
+      para = clipNoteExcerpt(para, maxEach);
+      if (!para) continue;
+      out.push({ slot: s, roman: roman[s], num: num, text: para });
+    }
+    return out;
+  }
+
+  /**
+   * Artistic notes = elaborate synthesis of Spell I/II/III slot texts.
+   * No random stock leads/tails — stays grounded in the equipped notes.
+   */
   function localMixedDescription(nums, meta, variant) {
     variant = (variant || 0) | 0;
-    var frags = [];
-    // Prefer per-slot bodies (may already contain hex colors user chose)
-    var slotBodies = [];
-    for (var s = 0; s < 3; s++) {
-      if (spells[s]) slotBodies.push(getSpellSlotBody(s));
+    var excerpts = slotNoteExcerpts(nums, 300 + (variant % 3) * 40);
+    if (!excerpts.length) {
+      return "Equip Spell I–III notes to build artistic notes.";
     }
-    var sources = slotBodies.length >= 2 ? slotBodies : null;
-    for (var i = 0; i < nums.length; i++) {
-      var rot = (i + (variant % Math.max(1, nums.length))) % nums.length;
-      var line = "";
-      if (sources && sources[rot]) {
-        var body = sources[rot];
-        // First non-empty paragraph / sentence
-        var para = body.split(/\n\n+/)[0] || body;
-        line = para.split(/[.!?]/)[0].trim();
-      }
-      if (!line) {
-        var a = getAnalysis(nums[rot]);
-        if (!a) continue;
-        if (a.description) line = a.description.split(/[.!?]/)[0].trim();
-        else if (a.title) line = a.title;
-      }
-      if (line) frags.push(line);
-    }
-    if (frags.length < 2) {
-      return frags[0] || "Add another spell to fuse descriptions.";
+    if (excerpts.length === 1) {
+      return (
+        "From Spell " +
+        excerpts[0].roman +
+        ": " +
+        excerpts[0].text +
+        " Expand this into a single finished painting that keeps the same subjects, palette cues, and mood."
+      );
     }
     var mood = localFusedMood(meta);
-    var tagSample = meta.tags.slice(0, 6).join(", ");
-    var leads = [
-      "One braided spell:",
-      "A singular fused apparition:",
-      "The merged stasis-field:",
-      "Unified in one vision:",
-    ];
-    var joins = [" Meanwhile, ", " As ", " — yet ", "; together, "];
-    var tails = [
-      " pulse through a single shifting canvas",
-      " coalesce into one luminous frame",
-      " breathe as a shared spectral tableau",
-      " hold in layered suspension",
-    ];
-    return (
-      leads[variant % leads.length] +
-      " " +
-      frags.join(joins[variant % joins.length]) +
-      ". The three visions overlap—shared " +
-      (tagSample || "forms and hues") +
-      tails[variant % tails.length] +
-      (mood ? " in a " + mood + " atmosphere." : ".")
+    var styles =
+      meta && meta.styles && meta.styles.length
+        ? meta.styles.slice(0, 4).join(", ")
+        : "";
+    var lines = [];
+    lines.push(
+      "Artistic synthesis of equipped spells (keep these specifics — invent one new staging that honors all of them):"
     );
+    for (var i = 0; i < excerpts.length; i++) {
+      var ex = excerpts[(i + variant) % excerpts.length];
+      lines.push("Spell " + ex.roman + " (#" + ex.num + "): " + ex.text);
+    }
+    var bridge =
+      "Weave the Spell notes above into one coherent scene: shared subjects and textures from each influence, " +
+      "new composition (not a collage or triptych).";
+    if (styles) bridge += " Lean on style DNA: " + styles + ".";
+    if (mood) bridge += " Atmosphere: " + mood + ".";
+    if (variant % 2 === 1) {
+      bridge +=
+        " Emphasize the interplay between the first and last spell notes; let middle influence softens edges.";
+    }
+    lines.push(bridge);
+    return lines.join("\n");
   }
 
   function localRedefineDescription(nums, meta, current, variant) {
     variant = (variant || 0) | 0;
-    var text = (current || "").trim();
-    if (text) {
-      var parts = text.split(/(?<=[.!?])\s+/).filter(function (p) {
-        return p.trim();
-      });
-      if (parts.length >= 2) {
-        var rot = variant % parts.length;
-        var reordered = parts.slice(rot).concat(parts.slice(0, rot));
-        var openers = [
-          "As one fused spell, ",
-          "In singular stasis, ",
-          "The merged apparition ",
-          "Unified yet restless, ",
-          "Held in one braided frame, ",
-        ];
-        var body = reordered[0].replace(/^[^a-zA-Z]+/, "").trim();
-        if (body) {
-          body = body.charAt(0).toLowerCase() + body.slice(1);
-          reordered[0] = openers[variant % openers.length] + body;
-        }
-        return reordered.join(" ");
-      }
-    }
-    return localMixedDescription(nums, meta, variant + 1);
+    // Prefer re-elaborating from live slot notes so redefine stays related to I/II/III
+    var base = localMixedDescription(nums, meta, variant + 1);
+    var cur = String(current || "").trim();
+    if (!cur || cur.length < 40) return base;
+    // Keep a short echo of the prior artistic notes so redefine feels like an edit, not junk
+    var echo = clipNoteExcerpt(cur.replace(/^Artistic synthesis[\s\S]*?:\s*/i, ""), 220);
+    if (!echo) return base;
+    return (
+      base +
+      "\nRefine further from prior artistic notes (do not abandon slot specifics): " +
+      echo
+    );
   }
 
   function localFusedPayload(nums, meta) {
@@ -3284,6 +3295,13 @@
 
   function getGenerationStasisPayload() {
     var nums = getEquippedInOrder();
+    var el = document.getElementById("spell-physical-prompt");
+    if (physicalUserDirty && el && String(el.value || "").trim()) {
+      return clipPromptText(
+        stripAspectTalkFromPrompt(el.value),
+        PROMPT_BODY_MAX
+      );
+    }
     var meta = collectCombinedMeta(nums);
     return clipPromptText(
       stripAspectTalkFromPrompt(buildPhysicalGenerationPrompt(nums, meta)),
@@ -3311,23 +3329,32 @@
           : "");
   }
 
-  function updatePhysicalPromptPreview() {
+  function updatePhysicalPromptPreview(opts) {
+    opts = opts || {};
+    var force = !!opts.force;
     var el = document.getElementById("spell-physical-prompt");
     var buzzEl = document.getElementById("spell-physical-buzz");
     var nums = getEquippedInOrder();
     if (!el) return;
     if (nums.length < 2) {
       el.value = "";
+      physicalUserDirty = false;
       el.placeholder = "Equip 2–3 spells to build the physical generation prompt…";
       if (buzzEl) buzzEl.textContent = "";
       updatePhysicalPromptCharCount("");
       return;
     }
-    var physical = buildPhysicalGenerationPrompt(
-      nums,
-      collectCombinedMeta(nums)
-    );
-    el.value = physical;
+    var physical;
+    if (!force && physicalUserDirty && String(el.value || "").trim()) {
+      physical = String(el.value || "");
+    } else {
+      physical = buildPhysicalGenerationPrompt(
+        nums,
+        collectCombinedMeta(nums)
+      );
+      el.value = physical;
+      if (force) physicalUserDirty = false;
+    }
     updatePhysicalPromptCharCount(physical);
     var buzz = getActiveBuzz();
     if (buzzEl) {
@@ -3348,6 +3375,7 @@
   function bindPhysicalPromptUi() {
     var copyBtn = document.getElementById("spell-physical-copy");
     var refreshBtn = document.getElementById("spell-physical-refresh");
+    var physicalEl = document.getElementById("spell-physical-prompt");
     if (copyBtn && !copyBtn._bound) {
       copyBtn._bound = true;
       copyBtn.addEventListener("click", function () {
@@ -3370,7 +3398,17 @@
     if (refreshBtn && !refreshBtn._bound) {
       refreshBtn._bound = true;
       refreshBtn.addEventListener("click", function () {
-        updatePhysicalPromptPreview();
+        physicalUserDirty = false;
+        updatePhysicalPromptPreview({ force: true });
+        setRedefineStatus("Rebuilt 4th description from Spell I–III.", false);
+      });
+    }
+    if (physicalEl && !physicalEl._editBound) {
+      physicalEl._editBound = true;
+      physicalEl.addEventListener("input", function () {
+        physicalUserDirty = true;
+        updatePhysicalPromptCharCount(physicalEl.value);
+        lastFusedPrompt = String(physicalEl.value || "").trim();
       });
     }
   }
@@ -3719,9 +3757,12 @@
       moodEl.textContent = mood ? "Mood: " + mood : "";
       moodEl.hidden = !mood;
     }
+    // Artistic notes always derive from Spell I–III slot texts locally.
+    // Remote blend may supply title/styles/mood, but its mixed_description is often unrelated junk.
     var mixed =
-      (fused && fused.mixed_description) ||
-      (nums.length >= 2 ? localMixedDescription(nums, meta) : "");
+      nums.length >= 2
+        ? localMixedDescription(nums, meta)
+        : (fused && fused.mixed_description) || "";
     var slotKey = nums.join(",");
     var slotsChanged = applyFusedUi._lastSlots !== slotKey;
     if (slotsChanged) {
@@ -3730,6 +3771,7 @@
       activeBuzzWords = [];
       // Clear body overrides only for slots that changed painting
       stasisUserDirty = false;
+      physicalUserDirty = false;
       applyFusedUi._lastSlots = slotKey;
       updateStasisVisionView("");
     }
@@ -3746,6 +3788,7 @@
       spellStasis = "";
       spellPrompt = "";
       stasisUserDirty = false;
+      physicalUserDirty = false;
       var promptEl = document.getElementById("spell-prompt");
       if (promptEl) promptEl.value = "";
       stasisVisionUrl = "";
@@ -4673,7 +4716,7 @@
         "Local fuse at " + aspect + " with locked palette (no API credits)…";
     }
     var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
-    updatePhysicalPromptPreview();
+    updatePhysicalPromptPreview(); // respects physicalUserDirty
     return window
       .composeStasisVisionLocal({
         spells: nums,
@@ -4717,6 +4760,7 @@
       stasisSend = clipPromptText(stasisSend, PROMPT_BODY_MAX);
     }
     lastFusedPrompt = stasisSend;
+    // Keep Logan's edited 4th description; only refresh buzz/char chrome
     updatePhysicalPromptPreview();
 
     // Text DNA only — no painting URLs as visual references (those pull the model toward remakes)

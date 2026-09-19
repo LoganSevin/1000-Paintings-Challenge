@@ -66,7 +66,7 @@
   <link rel="stylesheet" href="css/animate.css?v=14" />
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
-  <link rel="stylesheet" href="css/pulse.css?v=2" />
+  <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=3" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
   <link rel="stylesheet" href="css/prompt-lab.css?v=1" />
@@ -321,7 +321,7 @@
     <div class="pulse-layout">
       <aside class="pulse-compose" aria-label="Compose a post">
         <h2>Pulse</h2>
-        <p class="pulse-compose-lead">Share work-in-progress, finished pieces, and thoughts with everyone browsing the gallery.</p>
+        <p class="pulse-compose-lead">Share work-in-progress, finished pieces, and thoughts with everyone browsing the gallery. Paste or drop images into the compose box to attach them.</p>
         <div class="pulse-auth" id="pulse-auth">
           <div class="pulse-auth-signed-out" id="pulse-auth-signed-out" hidden>
             <p class="pulse-auth-label">Sign in to post</p>
@@ -338,8 +338,8 @@
             <button type="button" class="pulse-sign-out-btn" id="pulse-sign-out">Sign out</button>
           </div>
         </div>
-        <p class="pulse-setup-note" id="pulse-setup-note">
-          Google Sign-In is not configured yet. Copy <code>data/pulse-google-config.example.json</code> to <code>data/pulse-google-config.json</code> and add your OAuth client ID, then restart the server.
+        <p class="pulse-setup-note" id="pulse-setup-note" hidden>
+          Checking Pulse server…
         </p>
         <div id="pulse-compose-form">
           <div class="pulse-field" id="pulse-username-field">
@@ -348,7 +348,7 @@
           </div>
           <div class="pulse-field">
             <label for="pulse-text">What's on your mind?</label>
-            <textarea id="pulse-text" maxlength="2000" placeholder="Share an update, a technique, or what you're working on…"></textarea>
+            <textarea id="pulse-text" maxlength="2000" placeholder="Share an update… paste an image (Ctrl+V) to attach"></textarea>
           </div>
           <div class="pulse-field">
             <label for="pulse-painting">Link a painting # (optional)</label>
@@ -356,7 +356,7 @@
           </div>
           <div class="pulse-attach-row">
             <input type="file" id="pulse-image-file" accept="image/*" hidden />
-            <button type="button" class="pulse-attach-btn" id="pulse-attach-btn">📷 Add photo</button>
+            <button type="button" class="pulse-attach-btn" id="pulse-attach-btn">📷 Add / paste photo</button>
           </div>
           <div class="pulse-preview" id="pulse-image-preview" hidden>
             <img id="pulse-preview-img" alt="Attachment preview" />
@@ -414,13 +414,13 @@
             <p id="spell-fused-mood" class="spell-fused-mood"></p>
             <div class="spell-text-stack">
               <div class="spell-stasis-head">
-                <label class="spell-fusion-label" for="spell-stasis">Artist notes (optional — folded into the physical prompt)</label>
+                <label class="spell-fusion-label" for="spell-stasis">Artistic notes (from Spell I–III — edit freely; folded into the physical prompt)</label>
                 <div class="spell-stasis-actions">
                   <button type="button" id="spell-omit-flagged" class="btn-secondary spell-omit-btn" disabled title="Remove all highlighted moderation-trigger words">Omit flagged</button>
                   <button type="button" id="spell-redefine-stasis" class="btn-secondary spell-redefine-btn" disabled title="Reword the short notes">Redefine notes</button>
                 </div>
               </div>
-              <textarea id="spell-stasis" class="spell-stasis" rows="3" spellcheck="true" placeholder="Optional short synthesis notes…" aria-label="Optional artist notes for fusion"></textarea>
+              <textarea id="spell-stasis" class="spell-stasis" rows="3" spellcheck="true" placeholder="Elaborates from Spell I–III notes — edit anytime…" aria-label="Artistic notes derived from equipped spells"></textarea>
               <div class="spell-physical-prompt-wrap">
                 <div class="spell-stasis-head">
                   <label class="spell-fusion-label" for="spell-physical-prompt">Physical generation prompt (what generate actually sends)</label>
@@ -429,8 +429,8 @@
                     <button type="button" id="spell-physical-refresh" class="btn-secondary" style="padding:0.25rem 0.55rem;font-size:0.75rem" title="Rebuild from current Spell I–III texts">Rebuild</button>
                   </div>
                 </div>
-                <p class="spell-buzz-hint">This is the <strong>4th description</strong>: Spell I–III + merge rules. Body is capped at <strong>7200</strong> so server framing stays under xAI’s hard <strong>8000</strong> character limit.</p>
-                <textarea id="spell-physical-prompt" class="spell-stasis spell-physical-prompt" rows="14" readonly spellcheck="false" aria-label="Physical generation prompt sent to the API"></textarea>
+                <p class="spell-buzz-hint">This is the editable <strong>4th description</strong> (combined result): Spell I–III + merge rules. Tweak details here; Rebuild resets from slots. Body capped at <strong>7200</strong> (API max <strong>8000</strong> with framing).</p>
+                <textarea id="spell-physical-prompt" class="spell-stasis spell-physical-prompt" rows="14" spellcheck="true" aria-label="Editable 4th description — physical generation prompt sent to the API"></textarea>
                 <p id="spell-physical-chars" class="spell-physical-chars" aria-live="polite">0 / 7200 body (API max 8000 with framing)</p>
                 <p id="spell-physical-buzz" class="spell-physical-buzz" aria-live="polite"></p>
               </div>
@@ -7840,7 +7840,7 @@
   <script defer src="js/ears.js?v=52"></script>
 
   <script defer src="js/api-chain.js?v=3"></script>
-  <script defer src="js/pulse.js?v=2"></script>
+  <script defer src="js/pulse.js?v=3"></script>
   <script defer src="js/app.js?v=25"></script>
   <script defer src="js/spell-timelapse.js?v=8"></script>
   <script defer src="js/stasis-vision-compose.js?v=6"></script>
@@ -7849,7 +7849,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=102"></script>
+  <script defer src="js/spellforge.js?v=103"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>
