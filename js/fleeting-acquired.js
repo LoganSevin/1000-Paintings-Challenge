@@ -371,6 +371,17 @@
     return folderId === LOD1_SOURCE_ID ? GENERATED_ID : folderId;
   }
 
+  function resolveAcquiredUrl(url, num) {
+    var raw = String(url || "").trim();
+    if (typeof resolveGalleryUrl === "function") {
+      if (raw) return resolveGalleryUrl(raw);
+      if (num) return resolveGalleryUrl("/generated/" + num + ".jpg");
+    }
+    if (typeof generatedUrl === "function" && num) return generatedUrl(num);
+    if (!raw && num) return "/generated/" + num + ".jpg";
+    return raw;
+  }
+
   function loadLod1Manifest() {
     return fetch(LOD1_MANIFEST_URL)
       .then(function (r) {
@@ -382,11 +393,14 @@
         }
         state.lod1s = data.items
           .map(function (item) {
+            var num = item.num;
             return {
-              num: item.num,
-              url: item.url,
-              name: item.name || String(item.num) + ".jpg",
-              label: "LOD1 #" + item.num,
+              num: num,
+              url: resolveAcquiredUrl(item.url, num),
+              name: item.name || String(num) + ".jpg",
+              label: "LOD1 #" + num,
+              lod1Num: num,
+              source: "lod1",
             };
           })
           .sort(function (a, b) {
@@ -410,9 +424,11 @@
     var out = (state.lod1s || []).map(function (item) {
       return {
         name: item.name,
-        url: item.url,
+        url: resolveAcquiredUrl(item.url, item.num),
         num: item.num,
         mtime: item.num,
+        lod1Num: item.num,
+        source: "lod1",
       };
     });
     state.folderCache[GENERATED_ID] = out;
@@ -791,7 +807,7 @@
       btn.type = "button";
       btn.className = "fi-acquired-thumb";
       btn.title = item.label || item.name || "";
-      btn.dataset.url = item.url || "";
+      btn.dataset.url = resolveAcquiredUrl(item.url, item.lod1Num || item.num || item.paintingNum) || "";
       btn.dataset.label = item.label || item.name || "";
       if (item.lod1Num != null) btn.dataset.lod1Num = String(item.lod1Num);
       else if (item.source === "lod1" && item.num != null) btn.dataset.lod1Num = String(item.num);
@@ -801,7 +817,7 @@
       }
       btn.innerHTML =
         '<img src="' +
-        escapeAttr(item.url) +
+        escapeAttr(btn.dataset.url) +
         '" alt="" loading="lazy" width="64" height="64" />';
       btn.addEventListener("click", function () {
         onPick(item, index);
