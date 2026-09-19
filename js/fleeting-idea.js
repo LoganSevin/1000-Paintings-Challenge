@@ -5495,28 +5495,54 @@
     }
   }
 
+  function urlIsLocalPixelSafe(url) {
+    var raw = String(url || "");
+    if (!raw) return false;
+    if (raw.indexOf("data:") === 0 || raw.indexOf("blob:") === 0) return true;
+    try {
+      return new URL(raw, location.href).origin === location.origin;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function canvasToJpegDataUrl(canvas, quality) {
+    try {
+      return canvas.toDataURL("image/jpeg", quality || 0.8);
+    } catch (err) {
+      throw new Error(
+        "Could not snapshot the OHP (a sheet blocked export). Hard-refresh and try Flash & project again."
+      );
+    }
+  }
+
   function loadImageForCapture(obj) {
     if (!obj || obj.type !== "image") return Promise.resolve(null);
+    var url = obj.url || "";
     var el = document.querySelector('.fi-image-object[data-id="' + obj.id + '"] img');
-    if (el && el.complete && (el.naturalWidth || el.width) > 2) {
+    var src = el && (el.currentSrc || el.src);
+    if (
+      el &&
+      el.complete &&
+      (el.naturalWidth || el.width) > 2 &&
+      urlIsLocalPixelSafe(src)
+    ) {
       return Promise.resolve(el);
     }
-    var url = obj.url;
     if (!url) return Promise.resolve(null);
+    if (url.indexOf("data:") === 0 || url.indexOf("blob:") === 0) {
+      return loadImage(url).catch(function () {
+        return null;
+      });
+    }
     return new Promise(function (resolve) {
       var settled = false;
       var timer = setTimeout(function () {
         if (settled) return;
         settled = true;
         resolve(null);
-      }, 2200);
-      var work =
-        url.indexOf("data:") === 0 || url.indexOf("blob:") === 0
-          ? loadImage(url)
-          : fetchImageForPixels(url).catch(function () {
-              return loadImage(url);
-            });
-      work
+      }, 8000);
+      fetchImageForPixels(url)
         .then(function (img) {
           if (settled) return;
           settled = true;
@@ -5563,17 +5589,23 @@
       var warped = sorted.filter(function (obj) {
         return planeIsTilted(obj);
       });
-      return Promise.all(
-        warped.map(function (obj) {
-          var w = (obj.w / 100) * bedW;
-          var h = (obj.h / 100) * bedH;
-          return rasterForWarp(obj, w, h).then(function (raster) {
-            return { id: obj.id, raster: raster };
-          });
-        })
-      ).then(function (rasterRows) {
-        var rasterMap = {};
-        rasterRows.forEach(function (row) { rasterMap[row.id] = row.raster; });
+      var rasterMap = {};
+      warped.forEach(function (obj) {
+        var row = loaded.find(function (l) {
+          return l.obj.id === obj.id;
+        });
+        if (!row || !row.img) return;
+        var rw = Math.max(32, Math.round((obj.w / 100) * bedW));
+        var rh = Math.max(32, Math.round((obj.h / 100) * bedH));
+        var rc = document.createElement("canvas");
+        rc.width = rw;
+        rc.height = rh;
+        try {
+          rc.getContext("2d").drawImage(row.img, 0, 0, rw, rh);
+          rasterMap[obj.id] = rc;
+        } catch (errWarp) {}
+      });
+      return Promise.resolve().then(function () {
         var bedCanvas = document.createElement("canvas");
         bedCanvas.width = bedW;
         bedCanvas.height = bedH;
@@ -5582,12 +5614,14 @@
         bedCtx.fillRect(0, 0, bedW, bedH);
         var drawCanvas = $("fi-draw-canvas");
         if (drawCanvas && drawCanvas.width > 0) {
-          bedCtx.drawImage(drawCanvas, 0, 0, drawCanvas.width, drawCanvas.height, ceilX, ceilY, ceilW, ceilH);
+          try {
+            bedCtx.drawImage(drawCanvas, 0, 0, drawCanvas.width, drawCanvas.height, ceilX, ceilY, ceilW, ceilH);
+          } catch (errInk) {}
         }
         sorted.forEach(function (obj) {
           if (obj.type === "image") {
             var row = loaded.find(function (l) { return l.obj.id === obj.id; });
-            if (row) drawObjectOnCapture(bedCtx, obj, row.img, rasterMap[obj.id], bedW, bedH);
+            if (row && row.img) drawObjectOnCapture(bedCtx, obj, row.img, rasterMap[obj.id], bedW, bedH);
           } else if (obj.type === "stencil" || obj.type === "textbox") {
             drawObjectOnCapture(bedCtx, obj, null, rasterMap[obj.id], bedW, bedH);
           }
@@ -5607,7 +5641,7 @@
       ctx.fillStyle = "rgba(255,255,255,0.12)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.restore();
-      var dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+      var dataUrl = canvasToJpegDataUrl(canvas, 0.8);
       state.lastCaptureUrl = dataUrl;
       return dataUrl;
     });
