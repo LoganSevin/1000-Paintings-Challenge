@@ -1,4 +1,5 @@
 {
   "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
-  "sheets_webhook_url": ""
+  "sheets_webhook_url": "",
+  "_comment": "Copy to pulse-google-config.json (gitignored if secret). Set Google OAuth Web client ID. Optional sheets_webhook_url for account logging. Env PULSE_GOOGLE_CLIENT_ID also works."
 }
