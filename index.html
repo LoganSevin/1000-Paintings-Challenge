@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="css/rig.css?v=6" />
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
-  <link rel="stylesheet" href="css/az.css?v=2" />
+  <link rel="stylesheet" href="css/az.css?v=3" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -6719,7 +6719,7 @@
         <h2>0–Z</h2>
         <p class="az-hint">
           Ladder on the right: <strong>0 highest (y=36)</strong>, <strong>Z lowest (y=1)</strong>.
-          Type in the prompt bar to fold a protein chain and write Desmos-style turn equations.
+          Type a scene — apples, counts, a table. Line work follows the words; hover a rung to see how the next letter would change the structure.
         </p>
       </header>
       <div class="az-body">
@@ -6732,7 +6732,8 @@
           <div id="az-column" class="az-column"></div>
           <div class="az-prompt-bar">
             <label for="az-prompt">Prompt</label>
-            <input id="az-prompt" type="text" maxlength="240" placeholder="Type letters — the chain folds as you write…" autocomplete="off" />
+            <input id="az-prompt" type="text" maxlength="240" placeholder="e.g. 1000 apples on the table" autocomplete="off" />
+            <button type="button" id="az-generate" class="az-btn">Generate still</button>
           </div>
         </div>
         <aside class="az-side">
@@ -6741,6 +6742,10 @@
             <p id="az-readout-glyph" class="az-readout">0</p>
             <p id="az-readout-meta" class="az-meta">0 is the highest point.</p>
             <button type="button" id="az-copy" class="az-btn">Copy glyph</button>
+          </section>
+          <section class="az-card">
+            <h3>Next letter</h3>
+            <p id="az-next-insight" class="az-meta">Hover a rung to preview how that letter would turn the structure.</p>
           </section>
           <section class="az-card">
             <h3>Scale</h3>
@@ -7868,7 +7873,7 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=3"></script>
+  <script defer src="js/az.js?v=4"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>

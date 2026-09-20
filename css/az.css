@@ -176,6 +176,11 @@ body.az-tab-active .site-header {
   outline: 2px solid rgba(29, 78, 216, 0.35);
 }
 
+.az-prompt-bar .az-btn {
+  margin-top: 0;
+  color: #1a2030;
+}
+
 .az-rung {
   appearance: none;
   border: 0;

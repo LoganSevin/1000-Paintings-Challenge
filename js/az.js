@@ -5,20 +5,23 @@
   var COUNT = GLYPHS.length;
   var TOP = COUNT - 1;
   var AA = {
-    A: "Ala", C: "Cys", D: "Asp", E: "Glu", F: "Phe", G: "Gly", H: "His",
-    I: "Ile", K: "Lys", L: "Leu", M: "Met", N: "Asn", P: "Pro", Q: "Gln",
-    R: "Arg", S: "Ser", T: "Thr", V: "Val", W: "Trp", Y: "Tyr",
-    B: "Asx", J: "Xle", O: "Pyl", U: "Sec", X: "Xaa", Z: "Glx",
+    A: "Ala", B: "Asx", C: "Cys", D: "Asp", E: "Glu", F: "Phe", G: "Gly",
+    H: "His", I: "Ile", J: "Xle", K: "Lys", L: "Leu", M: "Met", N: "Asn",
+    O: "Pyl", P: "Pro", Q: "Gln", R: "Arg", S: "Ser", T: "Thr", U: "Sec",
+    V: "Val", W: "Trp", X: "Xaa", Y: "Tyr", Z: "Glx",
     "0": "Gly", "1": "Ala", "2": "Ser", "3": "Thr", "4": "Val",
     "5": "Leu", "6": "Ile", "7": "Pro", "8": "Phe", "9": "Tyr"
   };
 
   var state = {
     selected: 0,
+    hover: -1,
     prompt: "",
-    residues: [],
-    shown: 0,
-    raf: 0
+    parse: { qty: 1, nouns: [], hasTable: false, raw: "" },
+    genUrl: "",
+    genEdges: null,
+    genJob: 0,
+    timer: 0
   };
 
   function $(id) {
@@ -33,12 +36,6 @@
     return GLYPHS.indexOf(String(ch || "").toUpperCase());
   }
 
-  function rankLabel(index) {
-    if (index === 0) return "highest point";
-    if (index === TOP) return "lowest point";
-    return "rung " + (index + 1) + " of " + GLYPHS.length;
-  }
-
   function kappaFor(index) {
     if (index < 0) return 0;
     var k = ((index % 7) - 3) * (Math.PI / 6.5);
@@ -47,34 +44,77 @@
     return k;
   }
 
-  function buildResidues(text) {
-    var pts = [];
-    var x = 0;
-    var y = 0;
-    var theta = 0.22;
-    var raw = String(text || "").toUpperCase();
-    for (var i = 0; i < raw.length; i++) {
-      var ch = raw.charAt(i);
-      if (ch === " " || ch === "-") {
-        theta += 0.18;
-        continue;
-      }
-      var idx = glyphIndex(ch);
-      if (idx < 0) continue;
-      theta += kappaFor(idx);
-      var step = 16 + (idx % 6);
-      x += Math.cos(theta) * step;
-      y += Math.sin(theta) * step;
-      pts.push({
-        x: x,
-        y: y,
-        ch: ch,
-        idx: idx,
-        aa: AA[ch] || "Xaa",
-        hydro: yValue(idx)
-      });
+  function rankLabel(index) {
+    if (index === 0) return "highest point";
+    if (index === TOP) return "lowest point";
+    return "rung " + (index + 1) + " of 36";
+  }
+
+  function parsePrompt(text) {
+    var raw = String(text || "").trim();
+    var lower = raw.toLowerCase();
+    var qty = 1;
+    var m;
+    var re = /\b(\d{1,5})\b/g;
+    while ((m = re.exec(lower))) {
+      var n = parseInt(m[1], 10);
+      if (n > qty) qty = n;
     }
-    return pts;
+    if (/\b(a|an)\b/.test(lower) && qty === 1) qty = 1;
+    if (/\bhundred\b/.test(lower)) qty = Math.max(qty, 100);
+    if (/\bthousand\b/.test(lower)) qty = Math.max(qty, 1000);
+    var nouns = [];
+    var lexicon = [
+      "apple", "apples", "table", "tables", "tree", "trees", "horse", "bird",
+      "eye", "moon", "star", "flower", "leaf", "house", "bowl", "pear",
+      "orange", "grape", "fish", "cat", "dog", "hand", "face", "sun"
+    ];
+    lexicon.forEach(function (w) {
+      if (lower.indexOf(w) >= 0 && nouns.indexOf(w) < 0) nouns.push(w);
+    });
+    if (!nouns.length && raw) nouns.push("form");
+    return {
+      qty: qty,
+      nouns: nouns,
+      hasTable: /\btable/.test(lower),
+      wantsApple: /\bapple/.test(lower),
+      raw: raw
+    };
+  }
+
+  function nextInsight(index) {
+    var i = index < 0 ? state.selected : index;
+    var ch = GLYPHS[i];
+    var k = kappaFor(i);
+    var y = yValue(i);
+    var aa = AA[ch] || "Xaa";
+    var turn =
+      k > 0.4 ? "opens a right loop" : k < -0.4 ? "cinches a left fold" : "extends the chain";
+    var qty = state.parse.qty || 1;
+    var extra =
+      state.parse.wantsApple
+        ? (qty >= 20 ? "would cluster another apple in the pile" : "would add another apple on the plane")
+        : "would add one more residue to the backbone";
+    return {
+      ch: ch,
+      aa: aa,
+      kappa: k,
+      y: y,
+      text:
+        "If the next letter is " +
+        ch +
+        " (" +
+        aa +
+        ", y=" +
+        y +
+        "): κ = " +
+        k.toFixed(3) +
+        " — " +
+        turn +
+        ". " +
+        extra +
+        "."
+    };
   }
 
   function renderColumn() {
@@ -87,7 +127,7 @@
       btn.className = "az-rung" + (i === state.selected ? " is-selected" : "");
       btn.dataset.azIndex = String(i);
       btn.setAttribute("aria-pressed", i === state.selected ? "true" : "false");
-      btn.title = ch + " · " + rankLabel(i);
+      btn.title = nextInsight(i).text;
       btn.innerHTML =
         '<span class="az-y">' +
         yValue(i) +
@@ -98,6 +138,16 @@
         "</span>";
       btn.addEventListener("click", function () {
         selectIndex(i);
+      });
+      btn.addEventListener("mouseenter", function () {
+        state.hover = i;
+        renderInsight();
+        drawScene();
+      });
+      btn.addEventListener("mouseleave", function () {
+        if (state.hover === i) state.hover = -1;
+        renderInsight();
+        drawScene();
       });
       col.appendChild(btn);
     });
@@ -119,55 +169,44 @@
         yValue(state.selected) +
         " (36 at 0, 1 at Z — above the origin).";
     }
+    renderInsight();
   }
 
-  function equationLines(residues) {
-    var lines = [
-      "θ₀ = 0.22",
-      "x_{n+1} = x_n + \\cos(\\theta_n)",
-      "y_{n+1} = y_n + \\sin(\\theta_n)"
-    ];
-    var seen = {};
-    residues.forEach(function (r) {
-      if (seen[r.ch]) return;
-      seen[r.ch] = true;
-      var k = kappaFor(r.idx);
-      lines.push(
-        "\\kappa(" + r.ch + ") = " + k.toFixed(3) +
-          "  ·  y = " + r.hydro + "\\cos(" + (r.idx + 1) + "x)"
-      );
-    });
-    if (residues.length) {
-      lines.push("N = " + residues.length + " residues");
-    }
-    return lines.slice(0, 10);
+  function renderInsight() {
+    var el = $("az-next-insight");
+    if (!el) return;
+    var info = nextInsight(state.hover >= 0 ? state.hover : state.selected);
+    el.textContent = info.text;
   }
 
-  function renderEquations(residues) {
+  function renderEquations() {
     var el = $("az-equations");
     if (!el) return;
-    if (!residues.length) {
-      el.innerHTML = "<em>Type in the prompt — letters become κ turns and Desmos curves.</em>";
+    var p = state.parse;
+    if (!p.raw) {
+      el.innerHTML = "<em>Type a scene. Letters set κ; words set the form; numbers set N.</em>";
       return;
     }
-    el.innerHTML = equationLines(residues)
+    var n = Math.max(1, p.qty);
+    var noun = p.wantsApple ? "apple" : p.nouns[0] || "form";
+    var lines = [
+      "N = " + n + " · " + noun + (n === 1 ? "" : "s"),
+      "θ₀ = 0.22",
+      "x_{n+1} = x_n + cos(θ_n)",
+      "y_{n+1} = y_n + sin(θ_n)"
+    ];
+    if (p.hasTable) lines.push("table: (x/a)^2 + (y/b)^2 = 1");
+    if (p.wantsApple) lines.push("apple: r(φ) = 1 − 0.18 cos(φ)");
+    var next = nextInsight(state.hover >= 0 ? state.hover : state.selected);
+    lines.push("κ_next(" + next.ch + ") = " + next.kappa.toFixed(3));
+    el.innerHTML = lines
       .map(function (line) {
         return "<div>" + line.replace(/</g, "&lt;") + "</div>";
       })
       .join("");
   }
 
-  function drawFold() {
-    var canvas = $("az-fold");
-    if (!canvas) return;
-    var wrap = canvas.parentNode;
-    var w = Math.max(320, wrap.clientWidth || 640);
-    var h = Math.max(240, wrap.clientHeight || 420);
-    if (canvas.width !== w) canvas.width = w;
-    if (canvas.height !== h) canvas.height = h;
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, w, h);
-
+  function drawGrid(ctx, w, h) {
     ctx.fillStyle = "#fbfcfe";
     ctx.fillRect(0, 0, w, h);
     ctx.strokeStyle = "#e6eef8";
@@ -197,109 +236,304 @@
     ctx.fillText("0", 22, h - 14);
     ctx.fillText("x", w - 18, h - 14);
     ctx.fillText("y", 14, 18);
+  }
 
-    var pts = state.residues.slice(0, Math.max(0, Math.round(state.shown)));
-    if (!pts.length) {
+  function drawApple(ctx, x, y, s, ghost) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(s, s);
+    ctx.beginPath();
+    ctx.moveTo(0, -10);
+    ctx.bezierCurveTo(12, -10, 16, 2, 8, 12);
+    ctx.bezierCurveTo(4, 16, -4, 16, -8, 12);
+    ctx.bezierCurveTo(-16, 2, -12, -10, 0, -10);
+    ctx.closePath();
+    ctx.fillStyle = ghost ? "rgba(196, 48, 48, 0.18)" : "rgba(196, 48, 48, 0.82)";
+    ctx.fill();
+    ctx.strokeStyle = ghost ? "rgba(29,78,216,0.55)" : "#1a2030";
+    ctx.setLineDash(ghost ? [4, 4] : []);
+    ctx.lineWidth = ghost ? 1.4 : 1.8;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, -10);
+    ctx.quadraticCurveTo(2, -16, 1, -20);
+    ctx.strokeStyle = "#3d2914";
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(6, -16, 7, 3.5, -0.6, 0, Math.PI * 2);
+    ctx.fillStyle = ghost ? "rgba(46,120,62,0.25)" : "rgba(46,120,62,0.85)";
+    ctx.fill();
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  function drawTable(ctx, cx, cy, w, d) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, w, d, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(166, 124, 72, 0.28)";
+    ctx.fill();
+    ctx.strokeStyle = "#5c3d22";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    var legs = [
+      [cx - w * 0.62, cy + 4],
+      [cx + w * 0.62, cy + 4],
+      [cx - w * 0.5, cy + d],
+      [cx + w * 0.5, cy + d]
+    ];
+    ctx.strokeStyle = "#4a3018";
+    ctx.lineWidth = 3;
+    legs.forEach(function (leg) {
+      ctx.beginPath();
+      ctx.moveTo(leg[0], leg[1]);
+      ctx.lineTo(leg[0] + (leg[0] < cx ? -6 : 6), cy + d + 38);
+      ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  function drawGeneric(ctx, x, y, s, label, ghost) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 16 * s, 12 * s, 0, 0, Math.PI * 2);
+    ctx.fillStyle = ghost ? "rgba(29,78,216,0.12)" : "rgba(201,162,39,0.35)";
+    ctx.fill();
+    ctx.strokeStyle = ghost ? "rgba(29,78,216,0.6)" : "#1a2030";
+    ctx.setLineDash(ghost ? [4, 4] : []);
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.fillStyle = "#111";
+    ctx.font = "700 " + Math.round(10 * s) + "px Times New Roman, serif";
+    ctx.textAlign = "center";
+    ctx.fillText(label, 0, 4);
+    ctx.restore();
+  }
+
+  function appleLayout(n, w, h) {
+    var count = Math.min(n, 48);
+    var pts = [];
+    var cols = Math.ceil(Math.sqrt(count * 1.4));
+    var rows = Math.ceil(count / cols);
+    var ox = w * 0.5;
+    var oy = h * 0.52;
+    var gap = Math.min(38, (w - 120) / Math.max(cols, 1));
+    var i;
+    for (i = 0; i < count; i++) {
+      var c = i % cols;
+      var r = Math.floor(i / cols);
+      pts.push({
+        x: ox + (c - (cols - 1) / 2) * gap + (r % 2) * (gap * 0.28),
+        y: oy + (r - (rows - 1) / 2) * gap * 0.72
+      });
+    }
+    return pts;
+  }
+
+  function drawScene() {
+    var canvas = $("az-fold");
+    if (!canvas) return;
+    var wrap = canvas.parentNode;
+    var w = Math.max(320, wrap.clientWidth || 640);
+    var h = Math.max(240, wrap.clientHeight || 420);
+    if (canvas.width !== w) canvas.width = w;
+    if (canvas.height !== h) canvas.height = h;
+    var ctx = canvas.getContext("2d");
+    drawGrid(ctx, w, h);
+
+    if (state.genUrl && state.genImg && state.genImg.complete) {
+      ctx.save();
+      ctx.globalAlpha = 0.38;
+      var iw = state.genImg.naturalWidth || state.genImg.width;
+      var ih = state.genImg.naturalHeight || state.genImg.height;
+      var sc = Math.min((w - 48) / iw, (h - 48) / ih);
+      ctx.drawImage(state.genImg, 48, 24, iw * sc, ih * sc);
+      ctx.restore();
+    }
+    if (state.genEdges) {
+      ctx.save();
+      ctx.globalAlpha = 0.85;
+      ctx.drawImage(state.genEdges, 0, 0, w, h);
+      ctx.restore();
+    }
+
+    var p = state.parse;
+    if (!p.raw) {
       ctx.fillStyle = "rgba(26,32,48,0.45)";
       ctx.font = "italic 16px Times New Roman, serif";
-      ctx.fillText("Type a sequence — the chain folds as you write.", 56, h * 0.42);
+      ctx.fillText("Type a scene — apples, counts, a table — the line work follows the words.", 56, h * 0.42);
       return;
     }
 
-    var minX = pts[0].x;
-    var maxX = pts[0].x;
-    var minY = pts[0].y;
-    var maxY = pts[0].y;
-    pts.forEach(function (p) {
-      if (p.x < minX) minX = p.x;
-      if (p.x > maxX) maxX = p.x;
-      if (p.y < minY) minY = p.y;
-      if (p.y > maxY) maxY = p.y;
-    });
-    var pad = 48;
-    var spanX = Math.max(40, maxX - minX);
-    var spanY = Math.max(40, maxY - minY);
-    var scale = Math.min((w - pad * 2) / spanX, (h - pad * 2 - 20) / spanY);
-    function tx(p) {
-      return pad + (p.x - minX) * scale;
+    if (p.hasTable) drawTable(ctx, w * 0.48, h * 0.62, Math.min(220, w * 0.32), 36);
+
+    var n = Math.max(1, p.qty);
+    var shown = Math.min(n, 48);
+    if (p.wantsApple) {
+      var pts = appleLayout(shown, w, h);
+      pts.forEach(function (pt, i) {
+        drawApple(ctx, pt.x, pt.y, 1.05 - (i % 5) * 0.04, false);
+      });
+      var nextI = state.hover >= 0 ? state.hover : state.selected;
+      var ghost = appleLayout(shown + 1, w, h);
+      if (ghost[shown]) {
+        drawApple(ctx, ghost[shown].x, ghost[shown].y, 0.92, true);
+        ctx.fillStyle = "#1d4ed8";
+        ctx.font = "italic 12px Times New Roman, serif";
+        ctx.fillText("next " + GLYPHS[nextI], ghost[shown].x + 14, ghost[shown].y - 12);
+      }
+    } else {
+      var noun = (p.nouns[0] || "form").replace(/s$/, "");
+      var i;
+      for (i = 0; i < shown; i++) {
+        var gx = w * 0.28 + (i % 8) * 52;
+        var gy = h * 0.38 + Math.floor(i / 8) * 44;
+        drawGeneric(ctx, gx, gy, 1, noun, false);
+      }
     }
-    function ty(p) {
-      return h - pad - (p.y - minY) * scale;
-    }
 
-    ctx.lineJoin = "round";
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#1d4ed8";
-    ctx.lineWidth = 3.2;
-    ctx.beginPath();
-    pts.forEach(function (p, i) {
-      var px = tx(p);
-      var py = ty(p);
-      if (i === 0) ctx.moveTo(px, py);
-      else ctx.lineTo(px, py);
-    });
-    ctx.stroke();
-
-    ctx.strokeStyle = "rgba(29,78,216,0.28)";
-    ctx.lineWidth = 10;
-    ctx.stroke();
-
-    pts.forEach(function (p, i) {
-      var px = tx(p);
-      var py = ty(p);
-      var r = 7 + (p.idx % 5) * 0.6;
-      var hue = 32 + p.hydro * 6;
-      ctx.beginPath();
-      ctx.arc(px, py, r + 3, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(201,162,39,0.18)";
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(px, py, r, 0, Math.PI * 2);
-      ctx.fillStyle = "hsl(" + hue + ", 62%, 58%)";
-      ctx.fill();
-      ctx.strokeStyle = "#1a2030";
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-      var ang = i === 0 ? 0 : Math.atan2(py - ty(pts[i - 1]), px - tx(pts[i - 1]));
-      ctx.beginPath();
-      ctx.moveTo(px, py);
-      ctx.lineTo(px + Math.cos(ang + 1.2) * (r + 9), py + Math.sin(ang + 1.2) * (r + 9));
-      ctx.strokeStyle = "rgba(26,32,48,0.55)";
-      ctx.stroke();
-      ctx.fillStyle = "#111";
-      ctx.font = "700 10px Times New Roman, serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(p.ch, px, py);
-    });
-    ctx.textAlign = "start";
-    ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = "#1a2030";
+    ctx.font = "italic 15px Times New Roman, serif";
+    var label = shown < n ? shown + " of " + n + " " + (p.wantsApple ? "apples" : p.nouns[0] || "forms") : n + " " + (p.wantsApple ? (n === 1 ? "apple" : "apples") : p.nouns.join(", "));
+    ctx.fillText(label, 52, h - 40);
   }
 
-  function tickFold() {
-    var target = state.residues.length;
-    if (Math.abs(state.shown - target) < 0.04) {
-      state.shown = target;
-      drawFold();
-      state.raf = 0;
-      return;
-    }
-    state.shown += (target - state.shown) * 0.22;
-    drawFold();
-    state.raf = requestAnimationFrame(tickFold);
+  function apiUrl(path) {
+    var base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
+    return base ? base + path : path;
   }
 
-  function setPrompt(text) {
-    state.prompt = String(text || "");
-    state.residues = buildResidues(state.prompt);
-    renderEquations(state.residues);
+  function traceEdges(img, w, h) {
+    var src = document.createElement("canvas");
+    src.width = w;
+    src.height = h;
+    var sctx = src.getContext("2d");
+    var iw = img.naturalWidth || img.width;
+    var ih = img.naturalHeight || img.height;
+    var sc = Math.min(w / iw, h / ih);
+    sctx.drawImage(img, 24, 16, iw * sc, ih * sc);
+    var data;
+    try {
+      data = sctx.getImageData(0, 0, w, h);
+    } catch (err) {
+      return null;
+    }
+    var out = sctx.createImageData(w, h);
+    var px = data.data;
+    var ox = out.data;
+    var y;
+    var x;
+    for (y = 1; y < h - 1; y++) {
+      for (x = 1; x < w - 1; x++) {
+        var i = (y * w + x) * 4;
+        var lum = function (xx, yy) {
+          var j = (yy * w + xx) * 4;
+          return px[j] * 0.3 + px[j + 1] * 0.59 + px[j + 2] * 0.11;
+        };
+        var gx = lum(x + 1, y) - lum(x - 1, y);
+        var gy = lum(x, y + 1) - lum(x, y - 1);
+        var mag = Math.sqrt(gx * gx + gy * gy);
+        if (mag > 28) {
+          ox[i] = 29;
+          ox[i + 1] = 78;
+          ox[i + 2] = 216;
+          ox[i + 3] = Math.min(220, mag * 3);
+        }
+      }
+    }
+    var edge = document.createElement("canvas");
+    edge.width = w;
+    edge.height = h;
+    edge.getContext("2d").putImageData(out, 0, 0);
+    return edge;
+  }
+
+  function pollJob(jobId, left) {
+    if (left <= 0) return Promise.reject(new Error("timed out"));
+    return fetch(apiUrl("/api/jobs/" + encodeURIComponent(jobId)), { cache: "no-store" })
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (job) {
+        if (job && job.status === "done") {
+          var img = job.image || (job.images && job.images[0]);
+          if (img && img.url) return img.url;
+        }
+        if (job && job.status === "failed") throw new Error((job.error && job.error.message) || "failed");
+        return new Promise(function (resolve) {
+          setTimeout(resolve, 1000);
+        }).then(function () {
+          return pollJob(jobId, left - 1);
+        });
+      });
+  }
+
+  function generateStill(prompt) {
+    var job = ++state.genJob;
+    var stasis =
+      "Museum line-art painting of this exact scene, accurate forms, clear contours, no collage: " +
+      prompt;
     var countEl = $("az-fold-count");
-    if (countEl) {
-      countEl.textContent = state.residues.length
-        ? state.residues.length + " residue" + (state.residues.length === 1 ? "" : "s")
-        : "empty chain";
+    if (countEl) countEl.textContent = "generating still…";
+    return fetch(apiUrl("/api/generate-stasis-vision"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        stasis: stasis,
+        buzz_words: ["line art", "contour", "ink", "fill"],
+        aspect_ratio: "16:9"
+      })
+    })
+      .then(function (r) {
+        if (r.status === 202) {
+          return r.json().then(function (d) {
+            return pollJob(d.job_id, 90);
+          });
+        }
+        return r.json().then(function (d) {
+          if (!r.ok) throw new Error((d && d.error) || "generate failed");
+          var img = d.image || (d.images && d.images[0]);
+          if (img && img.url) return img.url;
+          throw new Error("No image");
+        });
+      })
+      .then(function (url) {
+        if (job !== state.genJob) return;
+        state.genUrl = url;
+        var img = new Image();
+        img.onload = function () {
+          if (job !== state.genJob) return;
+          state.genImg = img;
+          var canvas = $("az-fold");
+          state.genEdges = canvas ? traceEdges(img, canvas.width, canvas.height) : null;
+          drawScene();
+          if (countEl) countEl.textContent = "generated line work";
+        };
+        img.src = url;
+      })
+      .catch(function () {
+        if (job !== state.genJob) return;
+        if (countEl) countEl.textContent = "line work (local)";
+      });
+  }
+
+  function applyPrompt(text, generate) {
+    state.prompt = String(text || "");
+    state.parse = parsePrompt(state.prompt);
+    renderEquations();
+    renderInsight();
+    drawScene();
+    var countEl = $("az-fold-count");
+    if (countEl && !generate) {
+      var n = state.parse.qty;
+      countEl.textContent = state.parse.raw
+        ? (state.parse.wantsApple ? n + " apple" + (n === 1 ? "" : "s") : n + " " + (state.parse.nouns[0] || "forms"))
+        : "empty";
     }
-    if (!state.raf) state.raf = requestAnimationFrame(tickFold);
+    if (generate && state.parse.raw) generateStill(state.prompt);
   }
 
   function selectIndex(index) {
@@ -311,10 +545,7 @@
       el.setAttribute("aria-pressed", on ? "true" : "false");
     });
     renderReadout();
-    var rung = document.querySelector('.az-rung[data-az-index="' + i + '"]');
-    if (rung && rung.scrollIntoView) {
-      rung.scrollIntoView({ block: "nearest" });
-    }
+    drawScene();
   }
 
   function copySelected() {
@@ -322,32 +553,24 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(ch).catch(function () {});
     }
-    var btn = $("az-copy");
-    if (btn) {
-      var prev = btn.textContent;
-      btn.textContent = "Copied " + ch;
-      setTimeout(function () {
-        btn.textContent = prev;
-      }, 1200);
-    }
   }
 
   function onKey(e) {
     if (!document.body.classList.contains("az-tab-active")) return;
     var tag = (e.target && e.target.tagName) || "";
-    if (tag === "INPUT" || tag === "TEXTAREA") return;
+    if (tag === "INPUT" || tag === "TEXTAREA") {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        applyPrompt(e.target.value, true);
+      }
+      return;
+    }
     if (e.key === "ArrowDown" || e.key === "j") {
       e.preventDefault();
       selectIndex(state.selected + 1);
     } else if (e.key === "ArrowUp" || e.key === "k") {
       e.preventDefault();
       selectIndex(state.selected - 1);
-    } else if (e.key === "Home") {
-      e.preventDefault();
-      selectIndex(0);
-    } else if (e.key === "End") {
-      e.preventDefault();
-      selectIndex(TOP);
     }
   }
 
@@ -356,8 +579,19 @@
     if (!input || input.dataset.bound) return;
     input.dataset.bound = "1";
     input.addEventListener("input", function () {
-      setPrompt(input.value);
+      applyPrompt(input.value, false);
+      clearTimeout(state.timer);
+      state.timer = setTimeout(function () {
+        applyPrompt(input.value, true);
+      }, 1600);
     });
+    var genBtn = $("az-generate");
+    if (genBtn && !genBtn.dataset.bound) {
+      genBtn.dataset.bound = "1";
+      genBtn.addEventListener("click", function () {
+        applyPrompt(input.value, true);
+      });
+    }
   }
 
   function init() {
@@ -372,25 +606,14 @@
     if (!document.documentElement.dataset.azKeys) {
       document.documentElement.dataset.azKeys = "1";
       document.addEventListener("keydown", onKey);
-      window.addEventListener("resize", function () {
-        drawFold();
-      });
+      window.addEventListener("resize", drawScene);
     }
     var input = $("az-prompt");
-    setPrompt(input ? input.value : state.prompt);
-    drawFold();
+    applyPrompt(input ? input.value : "", false);
   }
 
-  window.AzScale = {
-    onShow: init,
-    glyphs: GLYPHS.slice()
-  };
-
+  window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
   window.addEventListener("az-show", init);
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
