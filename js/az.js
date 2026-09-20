@@ -2,7 +2,8 @@
   "use strict";
 
   var GLYPHS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  var TOP = GLYPHS.length - 1;
+  var COUNT = GLYPHS.length;
+  var TOP = COUNT - 1;
 
   var state = { selected: 0 };
 
@@ -11,7 +12,7 @@
   }
 
   function yValue(index) {
-    return TOP === 0 ? 1 : (TOP - index) / TOP;
+    return COUNT - index;
   }
 
   function rankLabel(index) {
@@ -31,14 +32,14 @@
       btn.dataset.azIndex = String(i);
       btn.setAttribute("aria-pressed", i === state.selected ? "true" : "false");
       btn.title = ch + " · " + rankLabel(i);
-      var y = yValue(i).toFixed(2);
+      var y = String(yValue(i));
       btn.innerHTML =
         '<span class="az-y">' +
         y +
         '</span><span class="az-glyph">' +
         ch +
         '</span><span class="az-idx">' +
-        i +
+        (i + 1) +
         "</span>";
       btn.addEventListener("click", function () {
         selectIndex(i);
@@ -57,11 +58,11 @@
         ch +
         " is the " +
         rankLabel(state.selected) +
-        ". Index " +
-        state.selected +
-        " of 0–35. Height y = " +
-        yValue(state.selected).toFixed(3) +
-        " (1 at 0, 0 at Z).";
+        ". Rung " +
+        (state.selected + 1) +
+        " of 36. Height y = " +
+        yValue(state.selected) +
+        " (36 at 0, 1 at Z — above the origin).";
     }
   }
 
