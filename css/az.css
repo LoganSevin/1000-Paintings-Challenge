@@ -99,10 +99,31 @@ body.az-tab-active .site-header {
   height: 100%;
 }
 
+.az-eq-toggle {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.5rem;
+  z-index: 6;
+  margin: 0;
+  padding: 0.22rem 0.5rem;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a2030;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(26, 32, 48, 0.28);
+  border-radius: 5px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .az-equations {
   position: absolute;
   left: 0.7rem;
-  top: 0.55rem;
+  top: 2.15rem;
+  z-index: 6;
   max-width: 46%;
   margin: 0;
   padding: 0.35rem 0.45rem;
@@ -113,6 +134,10 @@ body.az-tab-active .site-header {
   color: #1d4ed8;
   background: rgba(251, 252, 254, 0.82);
   pointer-events: none;
+}
+
+.az-equations.is-hidden {
+  display: none !important;
 }
 
 .az-preview-drawer {

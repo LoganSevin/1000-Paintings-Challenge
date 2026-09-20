@@ -26,7 +26,10 @@
     previewQueue: [],
     previewBusy: 0,
     previewGen: 0,
-    previewCols: 6
+    previewCols: 6,
+    mainReady: false,
+    pendingPrefer: null,
+    eqHidden: false
   };
 
   function $(id) {
@@ -521,6 +524,10 @@
   }
 
   function queuePremonitions(preferCh) {
+    if (!state.mainReady) {
+      if (preferCh) state.pendingPrefer = preferCh;
+      return;
+    }
     state.previewGen++;
     state.previewQueue = [];
     if (preferCh && !state.previewUrls[previewKey(preferCh)]) {
@@ -710,11 +717,12 @@
 
   function generateStill(prompt) {
     var job = ++state.genJob;
+    var scene = String(prompt || seedSentence());
     var stasis =
       "Museum line-art painting of this exact scene, accurate forms, clear contours, no collage: " +
-      prompt;
+      scene;
     var countEl = $("az-fold-count");
-    if (countEl) countEl.textContent = "generating still…";
+    if (countEl) countEl.textContent = "generating main still…";
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -740,21 +748,37 @@
       .then(function (url) {
         if (job !== state.genJob) return;
         state.genUrl = url;
-        var img = new Image();
-        img.onload = function () {
-          if (job !== state.genJob) return;
-          state.genImg = img;
-          var canvas = $("az-fold");
-          state.genEdges = canvas ? traceEdges(img, canvas.width, canvas.height) : null;
-          drawScene();
-          if (countEl) countEl.textContent = "generated line work";
-        };
-        img.src = url;
+        return new Promise(function (resolve) {
+          var img = new Image();
+          img.onload = function () {
+            if (job === state.genJob) {
+              state.genImg = img;
+              var canvas = $("az-fold");
+              state.genEdges = canvas ? traceEdges(img, canvas.width, canvas.height) : null;
+              drawScene();
+              if (countEl) countEl.textContent = "main still ready";
+            }
+            resolve();
+          };
+          img.onerror = function () {
+            resolve();
+          };
+          img.src = url;
+        });
       })
       .catch(function () {
         if (job !== state.genJob) return;
         if (countEl) countEl.textContent = "line work (local)";
       });
+  }
+
+  function generateMainThenPreviews() {
+    state.mainReady = false;
+    return generateStill(seedSentence()).then(function () {
+      state.mainReady = true;
+      queuePremonitions(state.pendingPrefer);
+      state.pendingPrefer = null;
+    });
   }
 
   function applyPrompt(text, generate) {
@@ -771,10 +795,7 @@
         ? (state.parse.wantsApple ? n + " apple" + (n === 1 ? "" : "s") : n + " " + (state.parse.nouns[0] || "forms"))
         : "empty";
     }
-    if (generate && state.parse.raw) {
-      generateStill(state.prompt);
-      queuePremonitions();
-    }
+    if (generate) generateMainThenPreviews();
   }
 
   function selectIndex(index) {
@@ -815,6 +836,31 @@
     }
   }
 
+  function bindEqToggle() {
+    var btn = $("az-eq-toggle");
+    var panel = $("az-equations");
+    if (!btn || !panel) return;
+    var hidden = false;
+    try {
+      hidden = localStorage.getItem("az-eq-hidden") === "1";
+    } catch (e) {}
+    function apply(hide) {
+      state.eqHidden = hide;
+      panel.classList.toggle("is-hidden", hide);
+      btn.setAttribute("aria-expanded", hide ? "false" : "true");
+      btn.textContent = hide ? "Show values" : "Hide values";
+      try {
+        localStorage.setItem("az-eq-hidden", hide ? "1" : "0");
+      } catch (err) {}
+    }
+    apply(hidden);
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", function () {
+      apply(!state.eqHidden);
+    });
+  }
+
   function bindPrompt() {
     var input = $("az-prompt");
     if (!input || input.dataset.bound) return;
@@ -823,7 +869,7 @@
       applyPrompt(input.value, false);
       clearTimeout(state.timer);
       state.timer = setTimeout(function () {
-        if (input.value) queuePremonitions();
+        generateMainThenPreviews();
       }, 1800);
     });
     var genBtn = $("az-generate");
@@ -858,7 +904,8 @@
     var input = $("az-prompt");
     applyPrompt(input ? input.value : "", false);
     renderPreviewDocks();
-    queuePremonitions();
+    bindEqToggle();
+    generateMainThenPreviews();
   }
 
   window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
