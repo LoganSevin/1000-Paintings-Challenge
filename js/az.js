@@ -21,7 +21,11 @@
     genUrl: "",
     genEdges: null,
     genJob: 0,
-    timer: 0
+    timer: 0,
+    previewUrls: {},
+    previewQueue: [],
+    previewBusy: 0,
+    previewGen: 0
   };
 
   function $(id) {
@@ -406,56 +410,143 @@
     }
   }
 
+  function previewKey(ch) {
+    return (state.prompt || "") + "\n" + ch;
+  }
+
+  function setTileVision(ch, url) {
+    var btn = document.querySelector('.az-preview-tile[data-az-next="' + ch + '"]');
+    if (!btn || !url) return;
+    var media = btn.querySelector("img, canvas");
+    var img = document.createElement("img");
+    img.alt = ch;
+    img.src = url;
+    if (media && media.parentNode) media.parentNode.replaceChild(img, media);
+    else btn.insertBefore(img, btn.firstChild);
+  }
+
+  function fetchPremonition(ch, genId) {
+    var stasis =
+      "Premonition vision: the sentence so far is «" +
+      (state.prompt || "") +
+      "». Show the picture that would appear if the next letter typed is '" +
+      ch +
+      "'. Letter " +
+      ch +
+      " is the next influential variable — it must change the scene. Museum line-art, accurate forms, contour and fill.";
+    return fetch(apiUrl("/api/generate-stasis-vision"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        stasis: stasis,
+        buzz_words: ["line art", "premonition", "next letter " + ch],
+        aspect_ratio: "1:1"
+      })
+    })
+      .then(function (r) {
+        if (r.status === 202) {
+          return r.json().then(function (d) {
+            return pollJob(d.job_id, 90);
+          });
+        }
+        return r.json().then(function (d) {
+          if (!r.ok) throw new Error((d && d.error) || "failed");
+          var img = d.image || (d.images && d.images[0]);
+          if (img && img.url) return img.url;
+          throw new Error("No image");
+        });
+      })
+      .then(function (url) {
+        if (genId !== state.previewGen) return;
+        state.previewUrls[previewKey(ch)] = url;
+        setTileVision(ch, url);
+      })
+      .catch(function () {});
+  }
+
+  function pumpPremonitions() {
+    while (state.previewBusy < 2 && state.previewQueue.length) {
+      var ch = state.previewQueue.shift();
+      if (state.previewUrls[previewKey(ch)]) continue;
+      state.previewBusy++;
+      fetchPremonition(ch, state.previewGen).then(function () {
+        state.previewBusy--;
+        pumpPremonitions();
+      });
+    }
+  }
+
+  function queuePremonitions(preferCh) {
+    if (!state.prompt) return;
+    state.previewGen++;
+    state.previewQueue = [];
+    if (preferCh && !state.previewUrls[previewKey(preferCh)]) {
+      state.previewQueue.push(preferCh);
+    }
+    GLYPHS.forEach(function (ch) {
+      if (!state.previewUrls[previewKey(ch)] && state.previewQueue.indexOf(ch) < 0) {
+        state.previewQueue.push(ch);
+      }
+    });
+    pumpPremonitions();
+  }
+
   function renderPreviewDocks() {
-    var high = $("az-preview-high");
-    var low = $("az-preview-low");
-    if (!high || !low) return;
-    function fill(host, glyphs) {
-      host.innerHTML = "";
-      glyphs.forEach(function (ch) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "az-preview-tile";
-        btn.dataset.azNext = ch;
+    var host = $("az-previews");
+    if (!host) return;
+    host.innerHTML = "";
+    GLYPHS.forEach(function (ch) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "az-preview-tile";
+      btn.dataset.azNext = ch;
+      btn.title = nextInsight(glyphIndex(ch)).text;
+      var cached = state.previewUrls[previewKey(ch)];
+      if (cached) {
+        var img = document.createElement("img");
+        img.alt = ch;
+        img.src = cached;
+        btn.appendChild(img);
+      } else {
         var cv = document.createElement("canvas");
         cv.width = 160;
         cv.height = 100;
-        var g = document.createElement("span");
-        g.className = "az-preview-g";
-        g.textContent = ch;
         btn.appendChild(cv);
-        btn.appendChild(g);
-        btn.title = nextInsight(glyphIndex(ch)).text;
-        btn.addEventListener("mouseenter", function () {
-          state.hover = glyphIndex(ch);
-          renderInsight();
-          drawScene();
-        });
-        btn.addEventListener("mouseleave", function () {
-          state.hover = -1;
-          renderInsight();
-          drawScene();
-        });
-        btn.addEventListener("click", function () {
-          var input = $("az-prompt");
-          if (input) {
-            input.value = (input.value || "") + ch;
-            applyPrompt(input.value, false);
-          }
-          selectIndex(glyphIndex(ch));
-        });
-        host.appendChild(btn);
         var ctx = cv.getContext("2d");
         ctx.fillStyle = "#f7f9fc";
         ctx.fillRect(0, 0, cv.width, cv.height);
         paintParse(ctx, cv.width, cv.height, mutateParse(state.parse, ch), {
           max: 6,
-          scale: 0.55
+          scale: 0.5
         });
+      }
+      var g = document.createElement("span");
+      g.className = "az-preview-g";
+      g.textContent = ch;
+      btn.appendChild(g);
+      btn.addEventListener("mouseenter", function () {
+        state.hover = glyphIndex(ch);
+        renderInsight();
+        drawScene();
+        if (state.prompt && !state.previewUrls[previewKey(ch)]) {
+          queuePremonitions(ch);
+        }
       });
-    }
-    fill(high, ["0", "1", "A", "3"]);
-    fill(low, ["W", "X", "Y", "Z"]);
+      btn.addEventListener("mouseleave", function () {
+        if (state.hover === glyphIndex(ch)) state.hover = -1;
+        renderInsight();
+        drawScene();
+      });
+      btn.addEventListener("click", function () {
+        var input = $("az-prompt");
+        if (input) {
+          input.value = (input.value || "") + ch;
+          applyPrompt(input.value, true);
+        }
+        selectIndex(glyphIndex(ch));
+      });
+      host.appendChild(btn);
+    });
   }
 
   function drawScene() {
@@ -505,7 +596,8 @@
 
     ctx.fillStyle = "#1a2030";
     ctx.font = "italic 15px Times New Roman, serif";
-    var label = shown < n ? shown + " of " + n + " " + (p.wantsApple ? "apples" : p.nouns[0] || "forms") : n + " " + (p.wantsApple ? (n === 1 ? "apple" : "apples") : p.nouns.join(", "));
+    var n = Math.max(1, p.qty || 1);
+    var label = n + " " + (p.wantsApple ? (n === 1 ? "apple" : "apples") : p.nouns.join(", ") || "forms");
     ctx.fillText(label, 52, h - 40);
   }
 
@@ -642,7 +734,10 @@
         ? (state.parse.wantsApple ? n + " apple" + (n === 1 ? "" : "s") : n + " " + (state.parse.nouns[0] || "forms"))
         : "empty";
     }
-    if (generate && state.parse.raw) generateStill(state.prompt);
+    if (generate && state.parse.raw) {
+      generateStill(state.prompt);
+      queuePremonitions();
+    }
   }
 
   function selectIndex(index) {
@@ -691,8 +786,8 @@
       applyPrompt(input.value, false);
       clearTimeout(state.timer);
       state.timer = setTimeout(function () {
-        applyPrompt(input.value, true);
-      }, 1600);
+        if (input.value) queuePremonitions();
+      }, 1800);
     });
     var genBtn = $("az-generate");
     if (genBtn && !genBtn.dataset.bound) {
