@@ -2,6 +2,8 @@
   "use strict";
 
   var GLYPHS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var SPACE = " ";
+  var PREVIEW_GLYPHS = GLYPHS.concat([SPACE]);
   var COUNT = GLYPHS.length;
   var TOP = COUNT - 1;
   var AA = {
@@ -16,6 +18,8 @@
   var state = {
     selected: 0,
     hover: -1,
+    hoverCh: null,
+    lightboxCh: null,
     prompt: "",
     parse: { qty: 1, nouns: [], hasTable: false, raw: "" },
     genUrl: "",
@@ -99,7 +103,8 @@
       W: { kind: "wide", blurb: "spreads the pile into a wide field" },
       X: { kind: "cross", blurb: "crosses the structure with a second axis" },
       Y: { kind: "fork", blurb: "forks the pile into two clusters" },
-      Z: { kind: "ground", blurb: "grounds everything on the origin plane" }
+      Z: { kind: "ground", blurb: "grounds everything on the origin plane" },
+      " ": { kind: "break", blurb: "inserts a space — a word break and a new cluster" }
     };
     return map[ch] || {
       kind: "turn",
@@ -129,13 +134,35 @@
     if (ch === "X") p.cross = true;
     if (ch === "Y") p.fork = true;
     if (ch === "Z") p.ground = true;
+    if (ch === SPACE) p.fork = true;
     p.fx = fx;
     return p;
   }
 
-  function nextInsight(index) {
-    var i = index < 0 ? state.selected : index;
-    var ch = GLYPHS[i];
+  function glyphLabel(ch) {
+    return ch === SPACE ? "space" : ch;
+  }
+
+  function datasetCh(ch) {
+    return ch === SPACE ? "space" : ch;
+  }
+
+  function nextInsight(indexOrCh) {
+    var ch =
+      typeof indexOrCh === "string"
+        ? indexOrCh
+        : GLYPHS[indexOrCh < 0 ? state.selected : indexOrCh];
+    if (ch === SPACE) {
+      return {
+        ch: SPACE,
+        aa: "pause",
+        kappa: 0.18,
+        y: 0,
+        text:
+          "If the next character is a space: the sentence breaks. Forms get breathing room and a new cluster can start."
+      };
+    }
+    var i = glyphIndex(ch);
     var k = kappaFor(i);
     var y = yValue(i);
     var aa = AA[ch] || "Xaa";
@@ -215,11 +242,16 @@
     renderInsight();
   }
 
+  function insightTarget() {
+    if (state.hoverCh != null) return state.hoverCh;
+    if (state.hover >= 0) return GLYPHS[state.hover];
+    return GLYPHS[state.selected];
+  }
+
   function renderInsight() {
     var el = $("az-next-insight");
     if (!el) return;
-    var info = nextInsight(state.hover >= 0 ? state.hover : state.selected);
-    el.textContent = info.text;
+    el.textContent = nextInsight(insightTarget()).text;
   }
 
   function renderEquations() {
@@ -462,7 +494,7 @@
   }
 
   function setTileVision(ch, url) {
-    var btn = document.querySelector('.az-preview-tile[data-az-next="' + ch + '"]');
+    var btn = document.querySelector('.az-preview-tile[data-az-next="' + datasetCh(ch) + '"]');
     if (!btn || !url) return;
     var media = btn.querySelector("img, canvas");
     var img = document.createElement("img");
@@ -478,9 +510,9 @@
       seedSentence() +
       "». Show the picture that would appear if the next letter typed is '" +
       ch +
-      "'. Letter " +
-      ch +
-      " is the next influential variable — it must change the scene. Seeded from the first letter 0 when the prompt is empty. Museum line-art, accurate forms, contour and fill.";
+      "'. " +
+      (ch === SPACE ? "A space is a word break." : "Letter " + ch + " is the next influential variable.") +
+      " It must change the scene. Seeded from the first letter 0 when the prompt is empty. Museum line-art, accurate forms, contour and fill.";
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -507,6 +539,7 @@
         if (genId !== state.previewGen) return;
         state.previewUrls[previewKey(ch)] = url;
         setTileVision(ch, url);
+        persistAzStill(url, "0-Z premonition " + glyphLabel(ch) + " · " + seedSentence());
       })
       .catch(function () {});
   }
@@ -533,7 +566,7 @@
     if (preferCh && !state.previewUrls[previewKey(preferCh)]) {
       state.previewQueue.push(preferCh);
     }
-    GLYPHS.forEach(function (ch) {
+    PREVIEW_GLYPHS.forEach(function (ch) {
       if (!state.previewUrls[previewKey(ch)] && state.previewQueue.indexOf(ch) < 0) {
         state.previewQueue.push(ch);
       }
@@ -550,7 +583,7 @@
       btn.type = "button";
       btn.className = "az-preview-tile";
       btn.dataset.azNext = ch;
-      btn.title = nextInsight(glyphIndex(ch)).text;
+      btn.title = nextInsight(ch).text;
       var cached = state.previewUrls[previewKey(ch)];
       if (cached) {
         var img = document.createElement("img");
@@ -576,6 +609,7 @@
       btn.appendChild(g);
       btn.addEventListener("mouseenter", function () {
         state.hover = glyphIndex(ch);
+        state.hoverCh = ch;
         renderInsight();
         drawScene();
         if (!state.previewUrls[previewKey(ch)]) {
@@ -583,20 +617,141 @@
         }
       });
       btn.addEventListener("mouseleave", function () {
-        if (state.hover === glyphIndex(ch)) state.hover = -1;
+        if (state.hoverCh === ch) {
+          state.hover = -1;
+          state.hoverCh = null;
+        }
         renderInsight();
         drawScene();
       });
-      btn.addEventListener("click", function () {
-        var input = $("az-prompt");
-        if (input) {
-          input.value = (input.value || "") + ch;
-          applyPrompt(input.value, true);
-        }
-        selectIndex(glyphIndex(ch));
+      btn.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        openLightbox(ch);
       });
       host.appendChild(btn);
     });
+    bindSpaceTile();
+  }
+
+  function fillTileSketch(btn, ch) {
+    if (!btn) return;
+    var cached = state.previewUrls[previewKey(ch)];
+    var media = btn.querySelector("img, canvas");
+    if (cached) {
+      var img = document.createElement("img");
+      img.alt = glyphLabel(ch);
+      img.src = cached;
+      if (media) media.parentNode.replaceChild(img, media);
+      else btn.insertBefore(img, btn.firstChild);
+      return;
+    }
+    var cv = media && media.tagName === "CANVAS" ? media : document.createElement("canvas");
+    cv.width = 160;
+    cv.height = 160;
+    var ctx = cv.getContext("2d");
+    ctx.fillStyle = "#f7f9fc";
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    paintParse(ctx, cv.width, cv.height, mutateParse(state.parse.raw ? state.parse : parsePrompt(seedSentence()), ch), {
+      max: 6,
+      scale: 0.5
+    });
+    if (!media) btn.insertBefore(cv, btn.firstChild);
+    else if (media !== cv) media.parentNode.replaceChild(cv, media);
+  }
+
+  function bindSpaceTile() {
+    var btn = $("az-space-tile");
+    if (!btn) return;
+    fillTileSketch(btn, SPACE);
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("mouseenter", function () {
+      state.hoverCh = SPACE;
+      state.hover = -1;
+      renderInsight();
+      drawScene();
+      if (!state.previewUrls[previewKey(SPACE)]) queuePremonitions(SPACE);
+    });
+    btn.addEventListener("mouseleave", function () {
+      if (state.hoverCh === SPACE) state.hoverCh = null;
+      renderInsight();
+      drawScene();
+    });
+    btn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      openLightbox(SPACE);
+    });
+  }
+
+  function openLightbox(ch) {
+    state.lightboxCh = ch;
+    var box = $("az-lightbox");
+    var title = $("az-lightbox-title");
+    var stage = $("az-lightbox-stage");
+    var meta = $("az-lightbox-meta");
+    if (!box || !stage) return;
+    if (title) title.textContent = "Premonition · " + glyphLabel(ch);
+    if (meta) meta.textContent = nextInsight(ch).text;
+    stage.innerHTML = "";
+    var url = state.previewUrls[previewKey(ch)];
+    if (url) {
+      var img = document.createElement("img");
+      img.alt = glyphLabel(ch);
+      img.src = url;
+      stage.appendChild(img);
+    } else {
+      var cv = document.createElement("canvas");
+      cv.width = 720;
+      cv.height = 480;
+      var ctx = cv.getContext("2d");
+      ctx.fillStyle = "#f7f9fc";
+      ctx.fillRect(0, 0, cv.width, cv.height);
+      paintParse(ctx, cv.width, cv.height, mutateParse(state.parse.raw ? state.parse : parsePrompt(seedSentence()), ch), {
+        max: 12,
+        scale: 1.1
+      });
+      stage.appendChild(cv);
+      queuePremonitions(ch);
+    }
+    box.hidden = false;
+  }
+
+  function closeLightbox() {
+    var box = $("az-lightbox");
+    if (box) box.hidden = true;
+    state.lightboxCh = null;
+  }
+
+  function useLightboxLetter() {
+    var ch = state.lightboxCh;
+    closeLightbox();
+    if (ch == null) return;
+    var input = $("az-prompt");
+    if (input) {
+      input.value = (input.value || "") + ch;
+      applyPrompt(input.value, true);
+    }
+    if (ch !== SPACE) selectIndex(glyphIndex(ch));
+  }
+
+  function bindLightbox() {
+    var useBtn = $("az-lightbox-use");
+    var closeBtn = $("az-lightbox-close");
+    var box = $("az-lightbox");
+    if (useBtn && !useBtn.dataset.bound) {
+      useBtn.dataset.bound = "1";
+      useBtn.addEventListener("click", useLightboxLetter);
+    }
+    if (closeBtn && !closeBtn.dataset.bound) {
+      closeBtn.dataset.bound = "1";
+      closeBtn.addEventListener("click", closeLightbox);
+    }
+    if (box && !box.dataset.bound) {
+      box.dataset.bound = "1";
+      box.addEventListener("click", function (e) {
+        if (e.target === box) closeLightbox();
+      });
+    }
   }
 
   function drawScene() {
@@ -629,9 +784,9 @@
     var p = state.parse.raw ? state.parse : parsePrompt(seedSentence());
 
     paintParse(ctx, w, h, p, {});
-    var nextI = state.hover >= 0 ? state.hover : -1;
-    if (nextI >= 0) {
-      var ghostParse = mutateParse(p, GLYPHS[nextI]);
+    var nextCh = state.hoverCh != null || state.hover >= 0 ? insightTarget() : null;
+    if (nextCh) {
+      var ghostParse = mutateParse(p, nextCh);
       ctx.save();
       ctx.globalAlpha = 0.55;
       paintParse(ctx, w, h, ghostParse, { ghost: true, max: Math.min(8, (p.qty || 1) + 1) });
@@ -648,6 +803,47 @@
   function apiUrl(path) {
     var base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
     return base ? base + path : path;
+  }
+
+  function persistAzStill(url, note) {
+    if (!url) return Promise.resolve(null);
+    var payload = {
+      source: "az",
+      collection: "generated",
+      reveal: false,
+      description: String(note || seedSentence()).slice(0, 800),
+      meta: { source: "az", prompt: state.prompt, seed: seedSentence() }
+    };
+    if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
+    else payload.image_url = url;
+    var bases = [];
+    var host = (location.hostname || "").toLowerCase();
+    if (host === "localhost" || host === "127.0.0.1") bases.push("");
+    bases.push("http://127.0.0.1:8765", "http://localhost:8765");
+    function tryNext(i) {
+      if (i >= bases.length) return Promise.resolve(null);
+      var opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        cache: "no-store",
+        mode: bases[i] ? "cors" : "same-origin"
+      };
+      try {
+        opts.targetAddressSpace = "loopback";
+      } catch (eAddr) {}
+      return fetch((bases[i] || "") + "/api/save-generated-image", opts)
+        .then(function (r) {
+          return r.json().then(function (d) {
+            if (!r.ok || (d && d.ok === false)) throw new Error("save");
+            return d;
+          });
+        })
+        .catch(function () {
+          return tryNext(i + 1);
+        });
+    }
+    return tryNext(0);
   }
 
   function traceEdges(img, w, h) {
@@ -748,6 +944,7 @@
       .then(function (url) {
         if (job !== state.genJob) return;
         state.genUrl = url;
+        persistAzStill(url, "0-Z main · " + scene);
         return new Promise(function (resolve) {
           var img = new Image();
           img.onload = function () {
@@ -820,6 +1017,11 @@
   function onKey(e) {
     if (!document.body.classList.contains("az-tab-active")) return;
     var tag = (e.target && e.target.tagName) || "";
+    if (e.key === "Escape" && state.lightboxCh != null) {
+      e.preventDefault();
+      closeLightbox();
+      return;
+    }
     if (tag === "INPUT" || tag === "TEXTAREA") {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -895,6 +1097,7 @@
       document.addEventListener("keydown", onKey);
       window.addEventListener("resize", drawScene);
     }
+    bindLightbox();
     bindPreviewDrag();
     var savedCols = 6;
     try {

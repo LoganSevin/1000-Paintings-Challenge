@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="css/rig.css?v=6" />
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
-  <link rel="stylesheet" href="css/az.css?v=7" />
+  <link rel="stylesheet" href="css/az.css?v=8" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -6728,10 +6728,27 @@
             <canvas id="az-fold" class="az-fold" width="960" height="640" aria-label="Protein line art"></canvas>
             <button type="button" id="az-eq-toggle" class="az-eq-toggle" aria-expanded="true">Hide values</button>
             <div id="az-equations" class="az-equations"></div>
+            <div id="az-lightbox" class="az-lightbox" hidden>
+              <div class="az-lightbox-card">
+                <p id="az-lightbox-title" class="az-lightbox-title">Premonition</p>
+                <div id="az-lightbox-stage" class="az-lightbox-stage"></div>
+                <p id="az-lightbox-meta" class="az-lightbox-meta"></p>
+                <div class="az-lightbox-actions">
+                  <button type="button" id="az-lightbox-use" class="az-btn">Use as next letter</button>
+                  <button type="button" id="az-lightbox-close" class="az-btn">Close</button>
+                </div>
+              </div>
+            </div>
             <div id="az-preview-drawer" class="az-preview-drawer" data-cols="6">
-              <button type="button" id="az-preview-handle" class="az-preview-handle" title="Drag out: 1 column lineup to 6-column grid">
-                <span id="az-preview-col-label">6</span>
-              </button>
+              <div class="az-preview-rail">
+                <button type="button" id="az-preview-handle" class="az-preview-handle" title="Drag out: 1 column lineup to 6-column grid">
+                  <span id="az-preview-col-label">6</span>
+                </button>
+                <button type="button" id="az-space-tile" class="az-preview-tile az-space-tile" data-az-next="space" title="Space word-break premonition">
+                  <canvas width="120" height="160"></canvas>
+                  <span class="az-preview-g">space</span>
+                </button>
+              </div>
               <div id="az-previews" class="az-previews" aria-label="0-Z premonition visions"></div>
             </div>
             <p id="az-fold-count" class="az-fold-count">empty chain</p>
@@ -7880,7 +7897,7 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=8"></script>
+  <script defer src="js/az.js?v=9"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>

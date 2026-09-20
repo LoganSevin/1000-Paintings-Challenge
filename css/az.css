@@ -152,26 +152,46 @@ body.az-tab-active .site-header {
   pointer-events: auto;
 }
 
-.az-preview-handle {
-  flex: 0 0 1.05rem;
+.az-preview-rail {
+  flex: 0 0 3.35rem;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+}
+
+.az-preview-handle {
+  flex: 0 0 1.7rem;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
   padding: 0;
   border: 1px solid rgba(26, 32, 48, 0.28);
   border-right: 0;
-  border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 0;
   background: rgba(255, 255, 255, 0.92);
   color: #1a2030;
   cursor: ew-resize;
   font: inherit;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   user-select: none;
   touch-action: none;
+}
+
+.az-space-tile {
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 0 0 0 6px;
+  border-right: 0;
+}
+
+.az-space-tile canvas,
+.az-space-tile img {
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 4rem;
 }
 
 .az-preview-handle:hover {
@@ -211,6 +231,69 @@ body.az-tab-active .site-header {
 .az-preview-tile.is-active {
   border-color: #1d4ed8;
   box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.28);
+}
+
+.az-lightbox {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(12, 16, 24, 0.55);
+}
+
+.az-lightbox[hidden] {
+  display: none !important;
+}
+
+.az-lightbox-card {
+  width: min(42rem, 92%);
+  max-height: 92%;
+  overflow: auto;
+  padding: 0.85rem 0.95rem 1rem;
+  background: #fbfcfe;
+  border: 1px solid rgba(26, 32, 48, 0.28);
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.az-lightbox-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.az-lightbox-stage {
+  min-height: 16rem;
+  background: #fff;
+  border: 1px solid rgba(26, 32, 48, 0.16);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.az-lightbox-stage img,
+.az-lightbox-stage canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58vh;
+  object-fit: contain;
+  background: #f7f9fc;
+}
+
+.az-lightbox-meta {
+  margin: 0.55rem 0 0.7rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(26, 32, 48, 0.78);
+}
+
+.az-lightbox-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .az-preview-tile canvas,
