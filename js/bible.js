@@ -295,6 +295,8 @@
         el.read.innerHTML = html;
         el.read.scrollTop = 0;
         applyHighlights();
+        wordifyChapter();
+        ensureScan();
 
         var fp = el.read.querySelector('[data-foot="prev"]');
         var fn = el.read.querySelector('[data-foot="next"]');
@@ -512,6 +514,8 @@
   var lastPick = "";
   var speaking = false;
   var speakToken = 0;
+  var scanIndex = 0;
+  var listenLockUntil = 0;
 
   function hlMap() {
     try {
@@ -757,9 +761,13 @@
   }
 
   function syncListenBtn() {
-    if (!el.listen) return;
-    el.listen.textContent = speaking ? "Stop" : "Listen";
-    el.listen.setAttribute("aria-pressed", speaking ? "true" : "false");
+    if (el.listen) {
+      el.listen.classList.toggle("bib-listen-away", speaking);
+      el.listen.setAttribute("aria-pressed", speaking ? "true" : "false");
+      el.listen.textContent = "Listen";
+    }
+    if (el.stop) el.stop.hidden = !speaking;
+    if (el.scan && speaking) el.scan.hidden = false;
   }
 
   function stopSpeech() {
@@ -790,21 +798,180 @@
     return String(page.innerText || "").replace(/\s+/g, " ").trim();
   }
 
-  function speakText(text) {
+  function wordNodes() {
+    if (!el.read) return [];
+    return Array.prototype.slice.call(el.read.querySelectorAll(".bib-w"));
+  }
+
+  function wordifyChapter() {
+    var host = el.read && el.read.querySelector(".bib-text");
+    if (!host) return;
+    var walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) {
+      if (n.parentNode && n.parentNode.classList && n.parentNode.classList.contains("bib-v")) continue;
+      if (n.parentNode && n.parentNode.classList && n.parentNode.classList.contains("bib-w")) continue;
+      nodes.push(n);
+    }
+    var idx = 0;
+    nodes.forEach(function (node) {
+      var parts = String(node.nodeValue || "").split(/(\s+)/);
+      if (parts.length === 1 && !parts[0]) return;
+      var frag = document.createDocumentFragment();
+      parts.forEach(function (p) {
+        if (!p) return;
+        if (/^\s+$/.test(p)) {
+          frag.appendChild(document.createTextNode(p));
+          return;
+        }
+        var span = document.createElement("span");
+        span.className = "bib-w";
+        span.dataset.wi = String(idx++);
+        span.textContent = p;
+        frag.appendChild(span);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function ensureScan() {
+    if (!el.read) return;
+    var scan = $("bib-scan");
+    if (!scan) {
+      scan = document.createElement("div");
+      scan.id = "bib-scan";
+      scan.className = "bib-scan";
+      scan.hidden = true;
+      scan.innerHTML =
+        '<span class="bib-scan-bar" aria-hidden="true"></span>' +
+        '<button type="button" id="bib-stop" class="bib-stop" hidden>Stop</button>';
+      el.read.appendChild(scan);
+    } else if (scan.parentNode !== el.read) {
+      el.read.appendChild(scan);
+    }
+    el.scan = scan;
+    el.stop = $("bib-stop");
+    bindScan();
+    if (el.stop && !el.stop.dataset.bound) {
+      el.stop.dataset.bound = "1";
+      el.stop.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        stopSpeech();
+      });
+    }
+  }
+
+  function placeScanOnWord(i) {
+    var nodes = wordNodes();
+    if (!nodes.length || !el.scan) return;
+    i = Math.max(0, Math.min(nodes.length - 1, i | 0));
+    scanIndex = i;
+    nodes.forEach(function (n, k) {
+      n.classList.toggle("is-now", k === i);
+    });
+    var w = nodes[i];
+    var host = el.read.getBoundingClientRect();
+    var r = w.getBoundingClientRect();
+    el.scan.style.left = r.left - host.left + el.read.scrollLeft - 1 + "px";
+    el.scan.style.top = r.top - host.top + el.read.scrollTop + "px";
+    el.scan.style.height = r.height + "px";
+    el.scan.hidden = false;
+    if (speaking) w.scrollIntoView({ block: "nearest" });
+  }
+
+  function wordIndexAtPoint(clientX, clientY) {
+    var nodes = wordNodes();
+    var best = 0;
+    var bestD = Infinity;
+    nodes.forEach(function (n, i) {
+      var r = n.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      var d = Math.abs(clientX - cx) + Math.abs(clientY - cy);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    return best;
+  }
+
+  function bindScan() {
+    if (!el.scan || el.scan.dataset.bound) return;
+    el.scan.dataset.bound = "1";
+    el.scan.addEventListener("pointerdown", function (e) {
+      if (e.target && e.target.closest && e.target.closest(".bib-stop")) return;
+      if (e.button !== 0) return;
+      e.preventDefault();
+      el.scan.classList.add("is-drag");
+      el.scan.setPointerCapture(e.pointerId);
+      var dragging = true;
+      function move(ev) {
+        if (!dragging) return;
+        placeScanOnWord(wordIndexAtPoint(ev.clientX, ev.clientY));
+      }
+      function up(ev) {
+        dragging = false;
+        el.scan.classList.remove("is-drag");
+        try {
+          el.scan.releasePointerCapture(ev.pointerId);
+        } catch (err) {}
+        el.scan.removeEventListener("pointermove", move);
+        el.scan.removeEventListener("pointerup", up);
+        speakFromWord(scanIndex);
+      }
+      el.scan.addEventListener("pointermove", move);
+      el.scan.addEventListener("pointerup", up);
+    });
+  }
+
+  function speakFromWord(startI) {
+    var nodes = wordNodes();
+    if (!nodes.length) {
+      speakText(selectionText() || lastPick || chapterPlain());
+      return;
+    }
+    startI = Math.max(0, Math.min(nodes.length - 1, startI | 0));
+    scanIndex = startI;
+    placeScanOnWord(startI);
+    var parts = [];
+    var i;
+    for (i = startI; i < nodes.length; i++) parts.push(nodes[i].textContent);
+    speakText(parts.join(" "), startI);
+  }
+
+  function speakText(text, startWord) {
     if (!window.speechSynthesis) return;
     text = String(text || "").replace(/\s+/g, " ").trim();
     if (!text) return;
     var synth = window.speechSynthesis;
     var busy = synth.speaking || synth.pending;
     var token = ++speakToken;
+    var origin = typeof startWord === "number" ? startWord : scanIndex;
     speaking = true;
+    listenLockUntil = Date.now() + 700;
     syncListenBtn();
+    placeScanOnWord(origin);
     var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
     var i = 0;
+    var spokenChars = 0;
     function finished() {
       if (token !== speakToken) return;
       speaking = false;
       syncListenBtn();
+    }
+    function wordAt(charIndex) {
+      var nodes = wordNodes();
+      var acc = 0;
+      var w;
+      for (w = origin; w < nodes.length; w++) {
+        var len = nodes[w].textContent.length;
+        if (charIndex <= acc + len) return w;
+        acc += len + 1;
+      }
+      return nodes.length ? nodes.length - 1 : 0;
     }
     function next() {
       if (token !== speakToken || !speaking) return;
@@ -817,20 +984,28 @@
         next();
         return;
       }
+      var chunkStart = spokenChars;
       var u = new SpeechSynthesisUtterance(part);
       var v = pickVoice();
       if (v) u.voice = v;
       u.lang = (v && v.lang) || "en-GB";
       u.rate = 0.92;
       u.pitch = 0.96;
+      u.onboundary = function (ev) {
+        if (token !== speakToken) return;
+        if ((ev.name || "") !== "word") return;
+        placeScanOnWord(wordAt(chunkStart + (ev.charIndex || 0)));
+      };
       u.onend = function () {
         if (token !== speakToken) return;
+        spokenChars += part.length + 1;
         next();
       };
       u.onerror = function (ev) {
         if (token !== speakToken) return;
         var err = (ev && ev.error) || "";
         if (err === "interrupted" || err === "canceled") return;
+        spokenChars += part.length + 1;
         next();
       };
       synth.speak(u);
@@ -858,12 +1033,23 @@
     kick();
   }
 
-  function toggleListen() {
-    if (speaking) {
-      stopSpeech();
+  function startListen() {
+    if (Date.now() < listenLockUntil) return;
+    if (speaking) return;
+    var nodes = wordNodes();
+    var from = scanIndex;
+    var sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.anchorNode && el.read.contains(sel.anchorNode)) {
+      var w = sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest
+        ? sel.anchorNode.parentElement.closest(".bib-w")
+        : null;
+      if (w && w.dataset.wi) from = Number(w.dataset.wi);
+    }
+    if (!nodes.length) {
+      speakText(selectionText() || lastPick || chapterPlain(), 0);
       return;
     }
-    speakText(selectionText() || lastPick || chapterPlain());
+    speakFromWord(from);
   }
 
   function onBibleContext(e) {
@@ -909,8 +1095,20 @@
       el.shell.classList.toggle("nav-open");
     });
     if (el.listen) {
-      el.listen.addEventListener("click", toggleListen);
+      el.listen.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        startListen();
+      });
     }
+    el.read.addEventListener("scroll", function () {
+      if (el.scan && !el.scan.hidden) placeScanOnWord(scanIndex);
+    });
+    el.read.addEventListener("click", function (e) {
+      var w = e.target && e.target.closest && e.target.closest(".bib-w");
+      if (!w || w.dataset.wi == null) return;
+      placeScanOnWord(Number(w.dataset.wi));
+    });
     window.addEventListener("bible-hide", stopSpeech);
     el.search.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
@@ -939,7 +1137,11 @@
         var text = selectionText() || lastPick;
         if (!text) return;
         if (act === "highlight") wrapSelectionHighlight();
-        else if (act === "listen") speakText(text);
+        else if (act === "listen") {
+          var w = el.read.querySelector(".bib-w");
+          if (w) speakFromWord(scanIndex || 0);
+          else speakText(text, 0);
+        }
         else if (act === "animate") animateSelection(text);
         else if (act === "image") generateSelectionImage(text);
       });
