@@ -293,6 +293,7 @@
 
         el.read.innerHTML = html;
         el.read.scrollTop = 0;
+        applyHighlights();
 
         var fp = el.read.querySelector('[data-foot="prev"]');
         var fn = el.read.querySelector('[data-foot="next"]');
@@ -504,6 +505,264 @@
     });
   }
 
+  /* ---------- highlight + right-click ---------- */
+
+  var KEY_HL = "bibleReader:hl";
+  var lastPick = "";
+
+  function hlMap() {
+    try {
+      return JSON.parse(recall(KEY_HL) || "{}") || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveHl(map) {
+    store(KEY_HL, JSON.stringify(map));
+  }
+
+  function passageRef() {
+    if (!index) return "";
+    return index.books[cur.b].n + " " + cur.c;
+  }
+
+  function selectionText() {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return "";
+    var node = sel.anchorNode;
+    if (!el.read || !el.read.contains(node)) return "";
+    return String(sel.toString() || "").replace(/\s+/g, " ").trim();
+  }
+
+  function wrapSelectionHighlight() {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return "";
+    var range = sel.getRangeAt(0);
+    if (!el.read.contains(range.commonAncestorContainer)) return "";
+    var text = String(sel.toString() || "").replace(/\s+/g, " ").trim();
+    if (text.length < 2) return "";
+    try {
+      var mark = document.createElement("mark");
+      mark.className = "bib-hl";
+      mark.appendChild(range.extractContents());
+      range.insertNode(mark);
+    } catch (err) {
+      return text;
+    }
+    sel.removeAllRanges();
+    var map = hlMap();
+    var key = cur.b + ":" + cur.c;
+    var list = map[key] || [];
+    if (list.indexOf(text) < 0) list.push(text);
+    map[key] = list;
+    saveHl(map);
+    return text;
+  }
+
+  function applyHighlights() {
+    var host = el.read && el.read.querySelector(".bib-text");
+    if (!host) return;
+    var list = hlMap()[cur.b + ":" + cur.c] || [];
+    list.forEach(function (snip) {
+      wrapFirstPlain(host, snip);
+    });
+  }
+
+  function wrapFirstPlain(root, snip) {
+    var needle = String(snip || "").replace(/\s+/g, " ").trim();
+    if (needle.length < 2) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentNode && node.parentNode.classList && node.parentNode.classList.contains("bib-hl")) {
+        continue;
+      }
+      if (node.parentNode && node.parentNode.classList && node.parentNode.classList.contains("bib-v")) {
+        continue;
+      }
+      var raw = node.nodeValue || "";
+      var compact = raw.replace(/\s+/g, " ");
+      var idx = compact.indexOf(needle);
+      if (idx < 0) continue;
+      var real = raw.indexOf(needle);
+      if (real < 0) {
+        var first = needle.slice(0, 12);
+        real = raw.indexOf(first);
+        if (real < 0) continue;
+      }
+      var range = document.createRange();
+      range.setStart(node, real);
+      range.setEnd(node, Math.min(raw.length, real + needle.length));
+      var mark = document.createElement("mark");
+      mark.className = "bib-hl";
+      try {
+        range.surroundContents(mark);
+      } catch (err) {
+        mark.appendChild(range.extractContents());
+        range.insertNode(mark);
+      }
+      return;
+    }
+  }
+
+  function hideCtx() {
+    var menu = $("bib-ctx");
+    if (menu) menu.hidden = true;
+  }
+
+  function showCtx(x, y) {
+    var menu = $("bib-ctx");
+    if (!menu) return;
+    menu.hidden = false;
+    var w = menu.offsetWidth || 180;
+    var h = menu.offsetHeight || 120;
+    var left = Math.min(x, window.innerWidth - w - 8);
+    var top = Math.min(y, window.innerHeight - h - 8);
+    menu.style.left = Math.max(8, left) + "px";
+    menu.style.top = Math.max(8, top) + "px";
+  }
+
+  function persistBibleStill(url, note) {
+    if (!url) return Promise.resolve(null);
+    var payload = {
+      source: "bible",
+      collection: "generated",
+      reveal: false,
+      description: String(note || "").slice(0, 800),
+      meta: { source: "bible", ref: passageRef() },
+    };
+    if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
+    else payload.image_url = url;
+    var bases = [];
+    var host = (location.hostname || "").toLowerCase();
+    if (host === "localhost" || host === "127.0.0.1") bases.push("");
+    bases.push("http://127.0.0.1:8765", "http://localhost:8765");
+    function tryNext(i) {
+      if (i >= bases.length) return Promise.resolve(null);
+      var opts = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        cache: "no-store",
+        mode: bases[i] ? "cors" : "same-origin",
+      };
+      try {
+        opts.targetAddressSpace = "loopback";
+      } catch (eAddr) {}
+      return fetch((bases[i] || "") + "/api/save-generated-image", opts)
+        .then(function (r) {
+          return r.json().then(function (d) {
+            if (!r.ok || (d && d.ok === false)) throw new Error("save");
+            return d;
+          });
+        })
+        .catch(function () {
+          return tryNext(i + 1);
+        });
+    }
+    return tryNext(0);
+  }
+
+  function bibleApiUrl(path) {
+    var base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
+    return base ? base + path : path;
+  }
+
+  function pollJob(jobId, left) {
+    if (left <= 0) return Promise.reject(new Error("timed out"));
+    return fetch(bibleApiUrl("/api/jobs/" + encodeURIComponent(jobId)), { cache: "no-store" })
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (job) {
+        if (job && job.status === "done") {
+          var img = job.image || (job.images && job.images[0]);
+          if (img && img.url) return img.url;
+        }
+        if (job && job.status === "failed") throw new Error((job.error && job.error.message) || "failed");
+        return new Promise(function (resolve) {
+          setTimeout(resolve, 1000);
+        }).then(function () {
+          return pollJob(jobId, left - 1);
+        });
+      });
+  }
+
+  function generateSelectionImage(text) {
+    var vision = $("bib-vision");
+    var status = $("bib-vision-status");
+    var img = $("bib-vision-img");
+    if (vision) vision.hidden = false;
+    if (img) img.classList.remove("is-on");
+    if (status) status.textContent = "Generating a still from the passage…";
+    var stasis =
+      "Museum-quality painting of this King James Scripture, not a photo of a page: " +
+      passageRef() +
+      " — «" +
+      text +
+      "». Luminous fine-art, clear figures, reverent and specific to the words.";
+    return fetch(bibleApiUrl("/api/generate-stasis-vision"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        stasis: stasis,
+        buzz_words: ["scripture", "fine art", "biblical"],
+        aspect_ratio: "16:9",
+      }),
+    })
+      .then(function (r) {
+        if (r.status === 202) {
+          return r.json().then(function (d) {
+            return pollJob(d.job_id, 90);
+          });
+        }
+        return r.json().then(function (d) {
+          if (!r.ok) throw new Error((d && d.error) || "generate failed");
+          var im = d.image || (d.images && d.images[0]);
+          if (im && im.url) return im.url;
+          throw new Error("No image");
+        });
+      })
+      .then(function (url) {
+        if (status) status.textContent = passageRef();
+        if (img) {
+          img.src = url;
+          img.classList.add("is-on");
+        }
+        persistBibleStill(url, passageRef() + " — " + text);
+      })
+      .catch(function (err) {
+        if (status) status.textContent = "Could not generate: " + (err.message || err);
+      });
+  }
+
+  function animateSelection(text) {
+    var tab = document.querySelector('.tab[data-tab="animate"]');
+    if (tab) tab.click();
+    else location.hash = "animate";
+    setTimeout(function () {
+      if (window.Animate && typeof window.Animate.seedFromSpellforge === "function") {
+        window.Animate.seedFromSpellforge({
+          prompt: "Animate this King James passage: " + passageRef() + ". " + text,
+          stasis: text,
+          aspect: "16:9",
+          autoCast: true,
+        });
+      }
+    }, 80);
+  }
+
+  function onBibleContext(e) {
+    if (!el.read || !el.read.contains(e.target)) return;
+    var text = selectionText();
+    if (!text) text = lastPick;
+    if (!text) return;
+    e.preventDefault();
+    lastPick = text;
+    showCtx(e.clientX, e.clientY);
+  }
+
   /* ---------- chrome ---------- */
 
   function applySize() {
@@ -548,6 +807,36 @@
         }
       }
     });
+
+    el.read.addEventListener("mouseup", function () {
+      var t = selectionText();
+      if (t) lastPick = t;
+    });
+    el.read.addEventListener("contextmenu", onBibleContext);
+    var ctx = $("bib-ctx");
+    if (ctx) {
+      ctx.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var act = e.target && e.target.getAttribute("data-bib-ctx");
+        hideCtx();
+        var text = selectionText() || lastPick;
+        if (!text) return;
+        if (act === "highlight") wrapSelectionHighlight();
+        else if (act === "animate") animateSelection(text);
+        else if (act === "image") generateSelectionImage(text);
+      });
+    }
+    document.addEventListener("mousedown", function (e) {
+      var menu = $("bib-ctx");
+      if (menu && !menu.hidden && !menu.contains(e.target)) hideCtx();
+    });
+    var visClose = $("bib-vision-close");
+    if (visClose) {
+      visClose.addEventListener("click", function () {
+        var vis = $("bib-vision");
+        if (vis) vis.hidden = true;
+      });
+    }
 
     document.addEventListener("keydown", function (e) {
       if (document.body.getAttribute("data-active-tab") !== "bible") return;

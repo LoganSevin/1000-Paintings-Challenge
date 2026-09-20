@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
   <link rel="stylesheet" href="css/az.css?v=8" />
-  <link rel="stylesheet" href="css/bible.css?v=1" />
+  <link rel="stylesheet" href="css/bible.css?v=2" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -6809,6 +6809,20 @@
         </div>
         <div class="bib-read" id="bib-read"></div>
       </div>
+      <div id="bib-ctx" class="bib-ctx" hidden>
+        <button type="button" data-bib-ctx="highlight">Highlight</button>
+        <button type="button" data-bib-ctx="animate">Animate selection</button>
+        <button type="button" data-bib-ctx="image">Generate image</button>
+      </div>
+      <div id="bib-vision" class="bib-vision" hidden>
+        <div class="bib-vision-card">
+          <p id="bib-vision-status" class="bib-vision-status">Generating…</p>
+          <img id="bib-vision-img" alt="Generated from Scripture" />
+          <div class="bib-vision-actions">
+            <button type="button" class="bib-btn" id="bib-vision-close">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -7927,7 +7941,7 @@
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
   <script defer src="js/az.js?v=9"></script>
-  <script defer src="js/bible.js?v=1"></script>
+  <script defer src="js/bible.js?v=2"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>

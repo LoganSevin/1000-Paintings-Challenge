@@ -30,6 +30,7 @@ body.bib-tab-active .site-header {
 }
 
 .bib-shell {
+  position: relative;
   --bib-ink: #ece4d4;
   --bib-ink-dim: #9d9384;
   --bib-gold: #c9a227;
@@ -312,6 +313,24 @@ body.bib-tab-active .site-header {
   color: #d8cfbd;
 }
 
+.bib-text {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.bib-text ::selection {
+  background: rgba(201, 162, 39, 0.45);
+  color: #fff8e8;
+}
+
+.bib-hl {
+  background: linear-gradient(transparent 62%, rgba(201, 162, 39, 0.42) 62%);
+  color: inherit;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .bib-v {
   font-family: var(--font-ui, system-ui, sans-serif);
   font-size: 0.62em;
@@ -321,6 +340,90 @@ body.bib-tab-active .site-header {
   margin-right: 0.28em;
   user-select: none;
   font-weight: 600;
+}
+
+.bib-ctx {
+  position: fixed;
+  z-index: 40;
+  min-width: 12.5rem;
+  padding: 0.28rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  background: #1a1713;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.bib-ctx[hidden] {
+  display: none !important;
+}
+
+.bib-ctx button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.48rem 0.7rem;
+  text-align: left;
+  font: inherit;
+  font-size: 0.84rem;
+  color: var(--bib-ink, #ece4d4);
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bib-ctx button:hover {
+  background: rgba(201, 162, 39, 0.18);
+  color: #f3e6c0;
+}
+
+.bib-vision {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(8, 7, 6, 0.62);
+}
+
+.bib-vision[hidden] {
+  display: none !important;
+}
+
+.bib-vision-card {
+  width: min(40rem, 94%);
+  max-height: 90%;
+  overflow: auto;
+  padding: 0.85rem 1rem 1rem;
+  background: #16130f;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 10px;
+}
+
+.bib-vision-status {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  color: var(--bib-ink-dim, #9d9384);
+}
+
+.bib-vision-card img {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.bib-vision-card img.is-on {
+  display: block;
+}
+
+.bib-vision-actions {
+  margin-top: 0.7rem;
 }
 
 .bib-v:first-child {
