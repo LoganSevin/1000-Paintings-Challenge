@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="css/rig.css?v=6" />
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
-  <link rel="stylesheet" href="css/az.css?v=1" />
+  <link rel="stylesheet" href="css/az.css?v=2" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -6718,13 +6718,22 @@
       <header class="az-top">
         <h2>0–Z</h2>
         <p class="az-hint">
-          Thirty-six rungs, stacked like the graph: <strong>0 is the highest point</strong>,
-          <strong>Z is the lowest</strong>. Digits first, then A–Z. Arrow keys move the selection.
+          Ladder on the right: <strong>0 highest (y=36)</strong>, <strong>Z lowest (y=1)</strong>.
+          Type in the prompt bar to fold a protein chain and write Desmos-style turn equations.
         </p>
       </header>
       <div class="az-body">
-        <div class="az-plate" aria-label="Vertical 0 to Z scale">
+        <div class="az-plate" aria-label="Protein fold and 0 to Z scale">
+          <div class="az-fold-wrap">
+            <canvas id="az-fold" class="az-fold" width="960" height="640" aria-label="Protein line art"></canvas>
+            <div id="az-equations" class="az-equations"></div>
+            <p id="az-fold-count" class="az-fold-count">empty chain</p>
+          </div>
           <div id="az-column" class="az-column"></div>
+          <div class="az-prompt-bar">
+            <label for="az-prompt">Prompt</label>
+            <input id="az-prompt" type="text" maxlength="240" placeholder="Type letters — the chain folds as you write…" autocomplete="off" />
+          </div>
         </div>
         <aside class="az-side">
           <section class="az-card">
@@ -7859,7 +7868,7 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=2"></script>
+  <script defer src="js/az.js?v=3"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
