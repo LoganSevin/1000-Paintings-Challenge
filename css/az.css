@@ -1,0 +1,204 @@
+/* 0–Z — vertical glyph ladder, 0 highest, Z lowest */
+
+#panel-az.panel[hidden] {
+  display: none !important;
+}
+
+#panel-az.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.az-tab-active #panel-az.panel.active {
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+
+body.az-tab-active .site-footer,
+body.az-tab-active .site-header .subtitle {
+  display: none;
+}
+
+body.az-tab-active .site-header {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.az-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 55% 40% at 50% 0%, rgba(201, 162, 39, 0.12), transparent 58%),
+    #0c1018;
+  color: #1a2030;
+}
+
+.az-top {
+  flex: 0 0 auto;
+  padding: 0.7rem 1.1rem 0.55rem;
+  color: #eef3ee;
+}
+
+.az-top h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+}
+
+.az-hint {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(238, 243, 238, 0.72);
+}
+
+.az-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16.5rem;
+  gap: 0;
+  padding: 0 0.85rem 0.85rem;
+}
+
+.az-plate {
+  position: relative;
+  min-height: 0;
+  overflow: auto;
+  background: #fbfcfe;
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.az-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100%;
+  padding: 1.1rem 0;
+  margin: 0 auto;
+  width: min(12rem, 100%);
+}
+
+.az-rung {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3.2rem 1fr 3.2rem;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  color: #111;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1;
+}
+
+.az-rung:hover .az-glyph,
+.az-rung:focus-visible .az-glyph {
+  color: #8a6a12;
+}
+
+.az-rung.is-selected .az-glyph {
+  color: #1d4ed8;
+  text-shadow: 0 0 0.4px #1d4ed8;
+}
+
+.az-y {
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: rgba(17, 17, 17, 0.38);
+  text-align: right;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.az-glyph {
+  justify-self: center;
+  font-size: clamp(1.05rem, 2.1vh, 1.55rem);
+  font-weight: 700;
+}
+
+.az-idx {
+  font-size: 0.62rem;
+  color: rgba(17, 17, 17, 0.32);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.az-side {
+  min-height: 0;
+  overflow: auto;
+  padding: 0.85rem 0.9rem 0.85rem 1rem;
+  color: #eef3ee;
+}
+
+.az-card {
+  margin: 0 0 0.9rem;
+  padding: 0.75rem 0.8rem;
+  background: rgba(16, 22, 32, 0.72);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  border-radius: 8px;
+}
+
+.az-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(201, 162, 39, 0.92);
+}
+
+.az-readout {
+  margin: 0 0 0.35rem;
+  font-size: 2.4rem;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1;
+}
+
+.az-meta {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(238, 243, 238, 0.78);
+}
+
+.az-btn {
+  margin-top: 0.55rem;
+  padding: 0.35rem 0.65rem;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #eef3ee;
+  background: rgba(201, 162, 39, 0.16);
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.az-btn:hover {
+  background: rgba(201, 162, 39, 0.28);
+}
+
+@media (max-width: 720px) {
+  .az-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(16rem, 1fr) auto;
+  }
+
+  .az-side {
+    padding-left: 0.15rem;
+  }
+}

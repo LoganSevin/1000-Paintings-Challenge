@@ -73,6 +73,7 @@
     rig: document.getElementById("panel-rig"),
     handfont: document.getElementById("panel-handfont"),
     voice: document.getElementById("panel-voice"),
+    az: document.getElementById("panel-az"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -157,6 +158,7 @@
     rig: "Rig — place 2D bones on images yourself; manual skeleton mapping",
     handfont: "Hand Font — draw letters, write across the page, thicken and highlight",
     voice: "Voice — speak with your hands; play Logan’s recorded voice as a studio module",
+    az: "0–Z — vertical scale, 0 highest, Z lowest",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -453,6 +455,9 @@
     if (name !== "voice") {
       window.dispatchEvent(new Event("voice-hide"));
     }
+    if (name !== "az") {
+      window.dispatchEvent(new Event("az-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -473,6 +478,7 @@
     document.body.classList.toggle("rig-tab-active", name === "rig");
     document.body.classList.toggle("hf-tab-active", name === "handfont");
     document.body.classList.toggle("vh-tab-active", name === "voice");
+    document.body.classList.toggle("az-tab-active", name === "az");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -837,6 +843,12 @@
         window.VoiceHands.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "az") {
+      window.dispatchEvent(new Event("az-show"));
+      if (window.AzScale && window.AzScale.onShow) {
+        window.AzScale.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -921,6 +933,7 @@
       cdroom = new URLSearchParams(location.search).get("cdroom") || "";
     } catch (eCd) {}
     var tabName = hash;
+    if (tabName === "0-z" || tabName === "zeroz" || tabName === "0z") tabName = "az";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";
     if (
@@ -982,6 +995,9 @@
       tabName === "rig" ||
       tabName === "handfont" ||
       tabName === "voice" ||
+      tabName === "az" ||
+      tabName === "0-z" ||
+      tabName === "zeroz" ||
       tabName === "houma" ||
       tabName === "thousand" ||
       tabName === "moba" ||

@@ -46,6 +46,7 @@
   <link rel="stylesheet" href="css/rig.css?v=6" />
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
+  <link rel="stylesheet" href="css/az.css?v=1" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -236,6 +237,7 @@
         <button type="button" class="tab" data-tab="rig">Rig</button>
         <button type="button" class="tab" data-tab="handfont">Hand Font</button>
         <button type="button" class="tab" data-tab="voice">Voice</button>
+        <button type="button" class="tab" data-tab="az">0–Z</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -6711,6 +6713,38 @@
     </div>
   </section>
 
+  <section id="panel-az" class="panel" hidden>
+    <div class="az-shell">
+      <header class="az-top">
+        <h2>0–Z</h2>
+        <p class="az-hint">
+          Thirty-six rungs, stacked like the graph: <strong>0 is the highest point</strong>,
+          <strong>Z is the lowest</strong>. Digits first, then A–Z. Arrow keys move the selection.
+        </p>
+      </header>
+      <div class="az-body">
+        <div class="az-plate" aria-label="Vertical 0 to Z scale">
+          <div id="az-column" class="az-column"></div>
+        </div>
+        <aside class="az-side">
+          <section class="az-card">
+            <h3>Selected</h3>
+            <p id="az-readout-glyph" class="az-readout">0</p>
+            <p id="az-readout-meta" class="az-meta">0 is the highest point.</p>
+            <button type="button" id="az-copy" class="az-btn">Copy glyph</button>
+          </section>
+          <section class="az-card">
+            <h3>Scale</h3>
+            <p class="az-meta">
+              Index 0–35. Height y = (35 − index) / 35, so 0 sits at 1 and Z sits at 0.
+              Six rungs make 36<sup>6</sup> codes.
+            </p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -7825,13 +7859,14 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
+  <script defer src="js/az.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=89"></script>
+  <script defer src="js/tabs.js?v=90"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
