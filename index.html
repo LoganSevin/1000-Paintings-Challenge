@@ -47,6 +47,7 @@
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
   <link rel="stylesheet" href="css/az.css?v=8" />
+  <link rel="stylesheet" href="css/bible.css?v=1" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -238,6 +239,7 @@
         <button type="button" class="tab" data-tab="handfont">Hand Font</button>
         <button type="button" class="tab" data-tab="voice">Voice</button>
         <button type="button" class="tab" data-tab="az">0–Z</button>
+        <button type="button" class="tab" data-tab="bible">Bible</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -6783,6 +6785,33 @@
     </div>
   </section>
 
+
+  <section id="panel-bible" class="panel" hidden>
+    <div class="bib-shell">
+      <aside class="bib-nav">
+        <div class="bib-nav-head">
+          <h2>The Holy Bible</h2>
+          <p>King James Version</p>
+        </div>
+        <div class="bib-nav-scroll" id="bib-nav-scroll"></div>
+      </aside>
+      <div class="bib-main">
+        <div class="bib-bar">
+          <button type="button" class="bib-btn bib-menu" id="bib-menu">Books</button>
+          <button type="button" class="bib-btn" id="bib-prev" aria-label="Previous chapter">&lsaquo;</button>
+          <div class="bib-where" id="bib-where">Genesis 1</div>
+          <button type="button" class="bib-btn" id="bib-next" aria-label="Next chapter">&rsaquo;</button>
+          <div class="bib-sizes">
+            <button type="button" class="bib-btn" id="bib-smaller" title="Smaller text">A&minus;</button>
+            <button type="button" class="bib-btn" id="bib-bigger" title="Larger text">A+</button>
+          </div>
+          <input type="search" class="bib-search" id="bib-search" placeholder="Search or &ldquo;John 3:16&rdquo;" autocomplete="off" />
+        </div>
+        <div class="bib-read" id="bib-read"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -7898,13 +7927,14 @@
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
   <script defer src="js/az.js?v=9"></script>
+  <script defer src="js/bible.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=90"></script>
+  <script defer src="js/tabs.js?v=92"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
