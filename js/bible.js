@@ -219,6 +219,7 @@
     cur = { b: bookIdx, c: chapter };
     store(KEY_POS, bookIdx + ":" + chapter);
     searching = false;
+    stopSpeech();
     render();
   }
 
@@ -509,6 +510,7 @@
 
   var KEY_HL = "bibleReader:hl";
   var lastPick = "";
+  var speaking = false;
 
   function hlMap() {
     try {
@@ -753,6 +755,88 @@
     }, 80);
   }
 
+  function syncListenBtn() {
+    if (!el.listen) return;
+    el.listen.textContent = speaking ? "Stop" : "Listen";
+    el.listen.setAttribute("aria-pressed", speaking ? "true" : "false");
+  }
+
+  function stopSpeech() {
+    speaking = false;
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    } catch (e) {}
+    syncListenBtn();
+  }
+
+  function pickVoice() {
+    if (!window.speechSynthesis) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var named = voices.filter(function (v) {
+      return /en/i.test(v.lang || "") && /Daniel|David|George|James|Arthur|Male|British|UK/i.test(v.name || "");
+    });
+    if (named.length) return named[0];
+    var en = voices.filter(function (v) {
+      return /^en/i.test(v.lang || "");
+    });
+    return en[0] || voices[0] || null;
+  }
+
+  function chapterPlain() {
+    var page = el.read && el.read.querySelector(".bib-text");
+    if (!page) return "";
+    return String(page.innerText || "").replace(/\s+/g, " ").trim();
+  }
+
+  function speakText(text) {
+    if (!window.speechSynthesis) return;
+    text = String(text || "").replace(/\s+/g, " ").trim();
+    if (!text) return;
+    stopSpeech();
+    var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    speaking = true;
+    syncListenBtn();
+    var i = 0;
+    function next() {
+      if (!speaking || i >= chunks.length) {
+        speaking = false;
+        syncListenBtn();
+        return;
+      }
+      var part = chunks[i++].trim();
+      if (!part) {
+        next();
+        return;
+      }
+      var u = new SpeechSynthesisUtterance(part);
+      var v = pickVoice();
+      if (v) u.voice = v;
+      u.lang = (v && v.lang) || "en-GB";
+      u.rate = 0.92;
+      u.pitch = 0.96;
+      u.onend = next;
+      u.onerror = function () {
+        next();
+      };
+      window.speechSynthesis.speak(u);
+    }
+    if (window.speechSynthesis.getVoices && !window.speechSynthesis.getVoices().length) {
+      window.speechSynthesis.onvoiceschanged = function () {
+        window.speechSynthesis.onvoiceschanged = null;
+        next();
+      };
+    }
+    next();
+  }
+
+  function toggleListen() {
+    if (speaking) {
+      stopSpeech();
+      return;
+    }
+    speakText(selectionText() || lastPick || chapterPlain());
+  }
+
   function onBibleContext(e) {
     if (!el.read || !el.read.contains(e.target)) return;
     var text = selectionText();
@@ -795,6 +879,10 @@
     el.menu.addEventListener("click", function () {
       el.shell.classList.toggle("nav-open");
     });
+    if (el.listen) {
+      el.listen.addEventListener("click", toggleListen);
+    }
+    window.addEventListener("bible-hide", stopSpeech);
     el.search.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -822,6 +910,7 @@
         var text = selectionText() || lastPick;
         if (!text) return;
         if (act === "highlight") wrapSelectionHighlight();
+        else if (act === "listen") speakText(text);
         else if (act === "animate") animateSelection(text);
         else if (act === "image") generateSelectionImage(text);
       });
@@ -867,6 +956,7 @@
     el.smaller = $("bib-smaller");
     el.bigger = $("bib-bigger");
     el.menu = $("bib-menu");
+    el.listen = $("bib-listen");
     return el.shell && el.navScroll && el.read && el.where && el.prev && el.next && el.search;
   }
 

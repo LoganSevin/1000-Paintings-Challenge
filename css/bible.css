@@ -221,6 +221,11 @@ body.bib-tab-active .site-header {
   cursor: default;
 }
 
+.bib-btn[aria-pressed="true"] {
+  border-color: var(--bib-gold);
+  color: var(--bib-gold);
+}
+
 .bib-where {
   flex: 1 1 auto;
   min-width: 0;
