@@ -511,6 +511,7 @@
   var KEY_HL = "bibleReader:hl";
   var lastPick = "";
   var speaking = false;
+  var speakToken = 0;
 
   function hlMap() {
     try {
@@ -762,6 +763,7 @@
   }
 
   function stopSpeech() {
+    speakToken += 1;
     speaking = false;
     try {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
@@ -792,15 +794,22 @@
     if (!window.speechSynthesis) return;
     text = String(text || "").replace(/\s+/g, " ").trim();
     if (!text) return;
-    stopSpeech();
-    var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    var synth = window.speechSynthesis;
+    var busy = synth.speaking || synth.pending;
+    var token = ++speakToken;
     speaking = true;
     syncListenBtn();
+    var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
     var i = 0;
+    function finished() {
+      if (token !== speakToken) return;
+      speaking = false;
+      syncListenBtn();
+    }
     function next() {
-      if (!speaking || i >= chunks.length) {
-        speaking = false;
-        syncListenBtn();
+      if (token !== speakToken || !speaking) return;
+      if (i >= chunks.length) {
+        finished();
         return;
       }
       var part = chunks[i++].trim();
@@ -814,19 +823,39 @@
       u.lang = (v && v.lang) || "en-GB";
       u.rate = 0.92;
       u.pitch = 0.96;
-      u.onend = next;
-      u.onerror = function () {
+      u.onend = function () {
+        if (token !== speakToken) return;
         next();
       };
-      window.speechSynthesis.speak(u);
-    }
-    if (window.speechSynthesis.getVoices && !window.speechSynthesis.getVoices().length) {
-      window.speechSynthesis.onvoiceschanged = function () {
-        window.speechSynthesis.onvoiceschanged = null;
+      u.onerror = function (ev) {
+        if (token !== speakToken) return;
+        var err = (ev && ev.error) || "";
+        if (err === "interrupted" || err === "canceled") return;
         next();
       };
+      synth.speak(u);
+      if (synth.paused) synth.resume();
     }
-    next();
+    function kick() {
+      if (token !== speakToken) return;
+      next();
+    }
+    if (busy) {
+      try {
+        synth.cancel();
+      } catch (eCan) {}
+      setTimeout(kick, 80);
+      return;
+    }
+    if (!synth.getVoices().length) {
+      synth.onvoiceschanged = function () {
+        synth.onvoiceschanged = null;
+        kick();
+      };
+      setTimeout(kick, 250);
+      return;
+    }
+    kick();
   }
 
   function toggleListen() {
