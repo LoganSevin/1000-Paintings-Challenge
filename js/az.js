@@ -25,7 +25,8 @@
     previewUrls: {},
     previewQueue: [],
     previewBusy: 0,
-    previewGen: 0
+    previewGen: 0,
+    previewCols: 6
   };
 
   function $(id) {
@@ -410,8 +411,51 @@
     }
   }
 
+  function seedSentence() {
+    return String(state.prompt || "").trim() || GLYPHS[0];
+  }
+
   function previewKey(ch) {
-    return (state.prompt || "") + "\n" + ch;
+    return seedSentence() + "\n" + ch;
+  }
+
+  function applyPreviewCols(n) {
+    var cols = Math.max(1, Math.min(6, n | 0));
+    state.previewCols = cols;
+    try {
+      localStorage.setItem("az-preview-cols", String(cols));
+    } catch (e) {}
+    var drawer = $("az-preview-drawer");
+    var host = $("az-previews");
+    var label = $("az-preview-col-label");
+    if (drawer) drawer.setAttribute("data-cols", String(cols));
+    if (host) host.style.setProperty("--az-cols", String(cols));
+    if (label) label.textContent = String(cols);
+  }
+
+  function bindPreviewDrag() {
+    var handle = $("az-preview-handle");
+    if (!handle || handle.dataset.bound) return;
+    handle.dataset.bound = "1";
+    handle.addEventListener("pointerdown", function (e) {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      handle.setPointerCapture(e.pointerId);
+      var startX = e.clientX;
+      var startCols = state.previewCols;
+      function move(ev) {
+        var dx = startX - ev.clientX;
+        var next = startCols + Math.round(dx / 52);
+        applyPreviewCols(next);
+      }
+      function up(ev) {
+        handle.releasePointerCapture(ev.pointerId);
+        handle.removeEventListener("pointermove", move);
+        handle.removeEventListener("pointerup", up);
+      }
+      handle.addEventListener("pointermove", move);
+      handle.addEventListener("pointerup", up);
+    });
   }
 
   function setTileVision(ch, url) {
@@ -428,12 +472,12 @@
   function fetchPremonition(ch, genId) {
     var stasis =
       "Premonition vision: the sentence so far is «" +
-      (state.prompt || "") +
+      seedSentence() +
       "». Show the picture that would appear if the next letter typed is '" +
       ch +
       "'. Letter " +
       ch +
-      " is the next influential variable — it must change the scene. Museum line-art, accurate forms, contour and fill.";
+      " is the next influential variable — it must change the scene. Seeded from the first letter 0 when the prompt is empty. Museum line-art, accurate forms, contour and fill.";
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -477,7 +521,6 @@
   }
 
   function queuePremonitions(preferCh) {
-    if (!state.prompt) return;
     state.previewGen++;
     state.previewQueue = [];
     if (preferCh && !state.previewUrls[previewKey(preferCh)]) {
@@ -528,7 +571,7 @@
         state.hover = glyphIndex(ch);
         renderInsight();
         drawScene();
-        if (state.prompt && !state.previewUrls[previewKey(ch)]) {
+        if (!state.previewUrls[previewKey(ch)]) {
           queuePremonitions(ch);
         }
       });
@@ -576,13 +619,7 @@
       ctx.restore();
     }
 
-    var p = state.parse;
-    if (!p.raw) {
-      ctx.fillStyle = "rgba(26,32,48,0.45)";
-      ctx.font = "italic 16px Times New Roman, serif";
-      ctx.fillText("Type a scene — apples, counts, a table — the line work follows the words.", 56, h * 0.42);
-      return;
-    }
+    var p = state.parse.raw ? state.parse : parsePrompt(seedSentence());
 
     paintParse(ctx, w, h, p, {});
     var nextI = state.hover >= 0 ? state.hover : -1;
@@ -812,9 +849,16 @@
       document.addEventListener("keydown", onKey);
       window.addEventListener("resize", drawScene);
     }
+    bindPreviewDrag();
+    var savedCols = 6;
+    try {
+      savedCols = parseInt(localStorage.getItem("az-preview-cols") || "6", 10);
+    } catch (eCols) {}
+    applyPreviewCols(savedCols);
     var input = $("az-prompt");
     applyPrompt(input ? input.value : "", false);
     renderPreviewDocks();
+    queuePremonitions();
   }
 
   window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
