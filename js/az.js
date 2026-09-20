@@ -82,19 +82,56 @@
     };
   }
 
+  function letterEffect(ch) {
+    var map = {
+      "0": { kind: "seed", blurb: "resets to one seed form at the origin" },
+      "1": { kind: "one", blurb: "a single close-up object" },
+      "3": { kind: "three", blurb: "three objects, a small still-life" },
+      A: { kind: "apple", blurb: "locks the form to apples" },
+      W: { kind: "wide", blurb: "spreads the pile into a wide field" },
+      X: { kind: "cross", blurb: "crosses the structure with a second axis" },
+      Y: { kind: "fork", blurb: "forks the pile into two clusters" },
+      Z: { kind: "ground", blurb: "grounds everything on the origin plane" }
+    };
+    return map[ch] || {
+      kind: "turn",
+      blurb: "turns the backbone (κ) and shifts height y=" + yValue(glyphIndex(ch))
+    };
+  }
+
+  function mutateParse(base, ch) {
+    var p = {
+      qty: base.qty || 1,
+      nouns: (base.nouns || []).slice(),
+      hasTable: !!base.hasTable,
+      wantsApple: !!base.wantsApple,
+      raw: (base.raw || "") + ch,
+      spread: 1,
+      fork: false,
+      ground: false,
+      cross: false
+    };
+    var fx = letterEffect(ch);
+    if (ch === "0") p.qty = 1;
+    if (ch === "1") p.qty = 1;
+    if (ch === "3") p.qty = 3;
+    if (/^[2-9]$/.test(ch)) p.qty = parseInt(ch, 10);
+    if (ch === "A") p.wantsApple = true;
+    if (ch === "W") p.spread = 1.55;
+    if (ch === "X") p.cross = true;
+    if (ch === "Y") p.fork = true;
+    if (ch === "Z") p.ground = true;
+    p.fx = fx;
+    return p;
+  }
+
   function nextInsight(index) {
     var i = index < 0 ? state.selected : index;
     var ch = GLYPHS[i];
     var k = kappaFor(i);
     var y = yValue(i);
     var aa = AA[ch] || "Xaa";
-    var turn =
-      k > 0.4 ? "opens a right loop" : k < -0.4 ? "cinches a left fold" : "extends the chain";
-    var qty = state.parse.qty || 1;
-    var extra =
-      state.parse.wantsApple
-        ? (qty >= 20 ? "would cluster another apple in the pile" : "would add another apple on the plane")
-        : "would add one more residue to the backbone";
+    var fx = letterEffect(ch);
     return {
       ch: ch,
       aa: aa,
@@ -107,12 +144,10 @@
         aa +
         ", y=" +
         y +
-        "): κ = " +
+        "): the still would " +
+        fx.blurb +
+        ". κ = " +
         k.toFixed(3) +
-        " — " +
-        turn +
-        ". " +
-        extra +
         "."
     };
   }
@@ -197,6 +232,7 @@
     ];
     if (p.hasTable) lines.push("table: (x/a)^2 + (y/b)^2 = 1");
     if (p.wantsApple) lines.push("apple: r(φ) = 1 − 0.18 cos(φ)");
+    lines.push("fill: clockwise → right · counter-clockwise → left");
     var next = nextInsight(state.hover >= 0 ? state.hover : state.selected);
     lines.push("κ_next(" + next.ch + ") = " + next.kappa.toFixed(3));
     el.innerHTML = lines
@@ -249,7 +285,7 @@
     ctx.bezierCurveTo(-16, 2, -12, -10, 0, -10);
     ctx.closePath();
     ctx.fillStyle = ghost ? "rgba(196, 48, 48, 0.18)" : "rgba(196, 48, 48, 0.82)";
-    ctx.fill();
+    ctx.fill("nonzero");
     ctx.strokeStyle = ghost ? "rgba(29,78,216,0.55)" : "#1a2030";
     ctx.setLineDash(ghost ? [4, 4] : []);
     ctx.lineWidth = ghost ? 1.4 : 1.8;
@@ -261,9 +297,9 @@
     ctx.lineWidth = 1.6;
     ctx.stroke();
     ctx.beginPath();
-    ctx.ellipse(6, -16, 7, 3.5, -0.6, 0, Math.PI * 2);
+    ctx.ellipse(6, -16, 7, 3.5, -0.6, 0, Math.PI * 2, true);
     ctx.fillStyle = ghost ? "rgba(46,120,62,0.25)" : "rgba(46,120,62,0.85)";
-    ctx.fill();
+    ctx.fill("nonzero");
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.restore();
@@ -313,24 +349,113 @@
     ctx.restore();
   }
 
-  function appleLayout(n, w, h) {
+  function appleLayout(n, w, h, parse) {
+    parse = parse || {};
     var count = Math.min(n, 48);
     var pts = [];
     var cols = Math.ceil(Math.sqrt(count * 1.4));
     var rows = Math.ceil(count / cols);
-    var ox = w * 0.5;
-    var oy = h * 0.52;
-    var gap = Math.min(38, (w - 120) / Math.max(cols, 1));
+    var spread = parse.spread || 1;
+    var ox = w * (parse.fork ? 0.38 : 0.5);
+    var oy = h * (parse.ground ? 0.68 : 0.52);
+    var gap = Math.min(38, (w - 120) / Math.max(cols, 1)) * spread;
     var i;
     for (i = 0; i < count; i++) {
       var c = i % cols;
       var r = Math.floor(i / cols);
-      pts.push({
-        x: ox + (c - (cols - 1) / 2) * gap + (r % 2) * (gap * 0.28),
-        y: oy + (r - (rows - 1) / 2) * gap * 0.72
-      });
+      var x = ox + (c - (cols - 1) / 2) * gap + (r % 2) * (gap * 0.28);
+      var y = oy + (r - (rows - 1) / 2) * gap * 0.72;
+      if (parse.fork && i >= count / 2) x += w * 0.28;
+      pts.push({ x: x, y: y });
     }
     return pts;
+  }
+
+  function paintParse(ctx, w, h, parse, opts) {
+    opts = opts || {};
+    if (parse.hasTable) drawTable(ctx, w * 0.48, h * (parse.ground ? 0.72 : 0.62), Math.min(220, w * 0.32), 36);
+    if (parse.cross) {
+      ctx.save();
+      ctx.strokeStyle = "rgba(29,78,216,0.35)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(40, 20);
+      ctx.lineTo(w - 20, h - 36);
+      ctx.stroke();
+      ctx.restore();
+    }
+    var n = Math.max(1, parse.qty || 1);
+    var shown = Math.min(n, opts.max || 48);
+    if (parse.wantsApple) {
+      appleLayout(shown, w, h, parse).forEach(function (pt, i) {
+        drawApple(ctx, pt.x, pt.y, (opts.scale || 1) * (1.05 - (i % 5) * 0.04), !!opts.ghost);
+      });
+    } else {
+      var noun = ((parse.nouns && parse.nouns[0]) || "form").replace(/s$/, "");
+      var i;
+      for (i = 0; i < shown; i++) {
+        drawGeneric(
+          ctx,
+          w * 0.28 + (i % 8) * 52 * (parse.spread || 1),
+          h * 0.38 + Math.floor(i / 8) * 44,
+          opts.scale || 1,
+          noun,
+          !!opts.ghost
+        );
+      }
+    }
+  }
+
+  function renderPreviewDocks() {
+    var high = $("az-preview-high");
+    var low = $("az-preview-low");
+    if (!high || !low) return;
+    function fill(host, glyphs) {
+      host.innerHTML = "";
+      glyphs.forEach(function (ch) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "az-preview-tile";
+        btn.dataset.azNext = ch;
+        var cv = document.createElement("canvas");
+        cv.width = 160;
+        cv.height = 100;
+        var g = document.createElement("span");
+        g.className = "az-preview-g";
+        g.textContent = ch;
+        btn.appendChild(cv);
+        btn.appendChild(g);
+        btn.title = nextInsight(glyphIndex(ch)).text;
+        btn.addEventListener("mouseenter", function () {
+          state.hover = glyphIndex(ch);
+          renderInsight();
+          drawScene();
+        });
+        btn.addEventListener("mouseleave", function () {
+          state.hover = -1;
+          renderInsight();
+          drawScene();
+        });
+        btn.addEventListener("click", function () {
+          var input = $("az-prompt");
+          if (input) {
+            input.value = (input.value || "") + ch;
+            applyPrompt(input.value, false);
+          }
+          selectIndex(glyphIndex(ch));
+        });
+        host.appendChild(btn);
+        var ctx = cv.getContext("2d");
+        ctx.fillStyle = "#f7f9fc";
+        ctx.fillRect(0, 0, cv.width, cv.height);
+        paintParse(ctx, cv.width, cv.height, mutateParse(state.parse, ch), {
+          max: 6,
+          scale: 0.55
+        });
+      });
+    }
+    fill(high, ["0", "1", "A", "3"]);
+    fill(low, ["W", "X", "Y", "Z"]);
   }
 
   function drawScene() {
@@ -368,31 +493,14 @@
       return;
     }
 
-    if (p.hasTable) drawTable(ctx, w * 0.48, h * 0.62, Math.min(220, w * 0.32), 36);
-
-    var n = Math.max(1, p.qty);
-    var shown = Math.min(n, 48);
-    if (p.wantsApple) {
-      var pts = appleLayout(shown, w, h);
-      pts.forEach(function (pt, i) {
-        drawApple(ctx, pt.x, pt.y, 1.05 - (i % 5) * 0.04, false);
-      });
-      var nextI = state.hover >= 0 ? state.hover : state.selected;
-      var ghost = appleLayout(shown + 1, w, h);
-      if (ghost[shown]) {
-        drawApple(ctx, ghost[shown].x, ghost[shown].y, 0.92, true);
-        ctx.fillStyle = "#1d4ed8";
-        ctx.font = "italic 12px Times New Roman, serif";
-        ctx.fillText("next " + GLYPHS[nextI], ghost[shown].x + 14, ghost[shown].y - 12);
-      }
-    } else {
-      var noun = (p.nouns[0] || "form").replace(/s$/, "");
-      var i;
-      for (i = 0; i < shown; i++) {
-        var gx = w * 0.28 + (i % 8) * 52;
-        var gy = h * 0.38 + Math.floor(i / 8) * 44;
-        drawGeneric(ctx, gx, gy, 1, noun, false);
-      }
+    paintParse(ctx, w, h, p, {});
+    var nextI = state.hover >= 0 ? state.hover : -1;
+    if (nextI >= 0) {
+      var ghostParse = mutateParse(p, GLYPHS[nextI]);
+      ctx.save();
+      ctx.globalAlpha = 0.55;
+      paintParse(ctx, w, h, ghostParse, { ghost: true, max: Math.min(8, (p.qty || 1) + 1) });
+      ctx.restore();
     }
 
     ctx.fillStyle = "#1a2030";
@@ -525,6 +633,7 @@
     state.parse = parsePrompt(state.prompt);
     renderEquations();
     renderInsight();
+    renderPreviewDocks();
     drawScene();
     var countEl = $("az-fold-count");
     if (countEl && !generate) {
@@ -610,6 +719,7 @@
     }
     var input = $("az-prompt");
     applyPrompt(input ? input.value : "", false);
+    renderPreviewDocks();
   }
 
   window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
