@@ -107,6 +107,41 @@ body.bib-tab-active .site-header {
   color: var(--bib-ink-dim);
 }
 
+.bib-swap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem 0.25rem;
+}
+
+.bib-swap-btn {
+  border: 1px solid var(--bib-rule);
+  background: none;
+  color: var(--bib-ink-dim);
+  font: inherit;
+  font-size: 0.67rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.bib-swap-btn.on {
+  border-color: var(--bib-gold);
+  color: var(--bib-gold);
+}
+
+.bib-prayer {
+  align-items: flex-start;
+}
+
+.bib-prayer .bib-book-ch {
+  max-width: 6.2rem;
+  text-align: right;
+  line-height: 1.25;
+}
+
 .bib-book {
   display: flex;
   align-items: baseline;

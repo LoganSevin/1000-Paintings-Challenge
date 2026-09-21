@@ -103,13 +103,127 @@
 
   /* ---------- sidebar ---------- */
 
+  var navMode = "law";
+  var pendingVerse = 0;
+
+  var PRAYERS = [
+    { g: "Patriarchs", t: "Abraham for Sodom", b: "Genesis", c: 18, v: 23 },
+    { g: "Patriarchs", t: "Abraham’s servant", b: "Genesis", c: 24, v: 12 },
+    { g: "Patriarchs", t: "Jacob at Bethel", b: "Genesis", c: 28, v: 20 },
+    { g: "Patriarchs", t: "Jacob before Esau", b: "Genesis", c: 32, v: 9 },
+    { g: "Moses", t: "Song of Moses", b: "Exodus", c: 15, v: 1 },
+    { g: "Moses", t: "Moses for Israel", b: "Exodus", c: 32, v: 11 },
+    { g: "Moses", t: "Show me thy glory", b: "Exodus", c: 33, v: 12 },
+    { g: "Moses", t: "The priestly blessing", b: "Numbers", c: 6, v: 22 },
+    { g: "Moses", t: "Moses’ last song", b: "Deuteronomy", c: 32, v: 1 },
+    { g: "Judges", t: "Hannah’s vow", b: "1 Samuel", c: 1, v: 10 },
+    { g: "Judges", t: "Hannah’s song", b: "1 Samuel", c: 2, v: 1 },
+    { g: "David", t: "David’s thanksgiving", b: "2 Samuel", c: 7, v: 18 },
+    { g: "David", t: "Psalm 3 — a morning prayer", b: "Psalms", c: 3, v: 1 },
+    { g: "David", t: "Psalm 23 — the shepherd", b: "Psalms", c: 23, v: 1 },
+    { g: "David", t: "Psalm 51 — have mercy", b: "Psalms", c: 51, v: 1 },
+    { g: "David", t: "Psalm 91 — under His wings", b: "Psalms", c: 91, v: 1 },
+    { g: "David", t: "Psalm 103 — bless the Lord", b: "Psalms", c: 103, v: 1 },
+    { g: "David", t: "Psalm 139 — searched me", b: "Psalms", c: 139, v: 1 },
+    { g: "Solomon", t: "Solomon for wisdom", b: "1 Kings", c: 3, v: 6 },
+    { g: "Solomon", t: "Dedication of the temple", b: "1 Kings", c: 8, v: 22 },
+    { g: "Prophets", t: "Elijah on Carmel", b: "1 Kings", c: 18, v: 36 },
+    { g: "Prophets", t: "Hezekiah’s prayer", b: "2 Kings", c: 19, v: 15 },
+    { g: "Prophets", t: "Jonah from the fish", b: "Jonah", c: 2, v: 1 },
+    { g: "Prophets", t: "Habakkuk’s prayer", b: "Habakkuk", c: 3, v: 1 },
+    { g: "Exiles", t: "Ezra’s confession", b: "Ezra", c: 9, v: 5 },
+    { g: "Exiles", t: "Nehemiah’s prayer", b: "Nehemiah", c: 1, v: 4 },
+    { g: "Exiles", t: "Daniel’s confession", b: "Daniel", c: 9, v: 3 },
+    { g: "Jesus", t: "The Lord’s Prayer", b: "Matthew", c: 6, v: 9 },
+    { g: "Jesus", t: "The Lord’s Prayer (Luke)", b: "Luke", c: 11, v: 2 },
+    { g: "Jesus", t: "I thank thee, Father", b: "Matthew", c: 11, v: 25 },
+    { g: "Jesus", t: "At Lazarus’ tomb", b: "John", c: 11, v: 41 },
+    { g: "Jesus", t: "The high-priestly prayer", b: "John", c: 17, v: 1 },
+    { g: "Jesus", t: "Gethsemane", b: "Matthew", c: 26, v: 39 },
+    { g: "Jesus", t: "Father, forgive them", b: "Luke", c: 23, v: 34 },
+    { g: "Jesus", t: "My God, my God", b: "Matthew", c: 27, v: 46 },
+    { g: "Jesus", t: "Father, into thy hands", b: "Luke", c: 23, v: 46 },
+    { g: "Church", t: "The disciples’ prayer", b: "Acts", c: 1, v: 24 },
+    { g: "Church", t: "The church after threats", b: "Acts", c: 4, v: 24 },
+    { g: "Church", t: "Stephen’s last prayer", b: "Acts", c: 7, v: 59 },
+    { g: "Paul", t: "That ye may know Him", b: "Ephesians", c: 1, v: 16 },
+    { g: "Paul", t: "Strengthened with might", b: "Ephesians", c: 3, v: 14 },
+    { g: "Paul", t: "That your love may abound", b: "Philippians", c: 1, v: 9 },
+    { g: "Paul", t: "Filled with His will", b: "Colossians", c: 1, v: 9 },
+    { g: "Paul", t: "The peace of God", b: "Philippians", c: 4, v: 6 },
+    { g: "Last things", t: "Even so, come, Lord Jesus", b: "Revelation", c: 22, v: 20 }
+  ];
+
+  function setNavMode(mode) {
+    navMode = mode === "prayers" ? "prayers" : "law";
+    buildNav();
+    if (navMode === "law") syncNav();
+  }
+
+  function openPrayer(p) {
+    var bi = findBook(p.b);
+    if (bi < 0) return;
+    pendingVerse = p.v || 0;
+    go(bi, p.c);
+    closeNavOnMobile();
+  }
+
+  function buildPrayerList(host) {
+    var lastG = null;
+    PRAYERS.forEach(function (p) {
+      if (p.g !== lastG) {
+        lastG = p.g;
+        var gh = document.createElement("div");
+        gh.className = "bib-group";
+        gh.textContent = p.g;
+        host.appendChild(gh);
+      }
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "bib-book bib-prayer";
+      var nm = document.createElement("span");
+      nm.textContent = p.t;
+      var ct = document.createElement("span");
+      ct.className = "bib-book-ch";
+      ct.textContent = p.b.replace(/^The /, "") + " " + p.c + (p.v ? ":" + p.v : "");
+      btn.appendChild(nm);
+      btn.appendChild(ct);
+      btn.addEventListener("click", function () {
+        openPrayer(p);
+      });
+      host.appendChild(btn);
+    });
+  }
+
+  function lawPrayersToggle() {
+    var row = document.createElement("div");
+    row.className = "bib-swap";
+    function make(label, mode) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "bib-swap-btn" + (navMode === mode ? " on" : "");
+      b.textContent = label;
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setNavMode(mode);
+      });
+      return b;
+    }
+    row.appendChild(make("Law", "law"));
+    row.appendChild(make("Prayers", "prayers"));
+    return row;
+  }
+
   function buildNav() {
     var host = el.navScroll;
     host.textContent = "";
     var lastT = null;
     var lastG = null;
+    var stop = false;
 
     index.books.forEach(function (b, i) {
+      if (stop) return;
       if (b.t !== lastT) {
         lastT = b.t;
         lastG = null;
@@ -120,10 +234,19 @@
       }
       if (b.g !== lastG) {
         lastG = b.g;
-        var gh = document.createElement("div");
-        gh.className = "bib-group";
-        gh.textContent = b.g;
-        host.appendChild(gh);
+        if (b.g === "Law") {
+          host.appendChild(lawPrayersToggle());
+          if (navMode === "prayers") {
+            buildPrayerList(host);
+            stop = true;
+            return;
+          }
+        } else {
+          var gh = document.createElement("div");
+          gh.className = "bib-group";
+          gh.textContent = b.g;
+          host.appendChild(gh);
+        }
       }
 
       var btn = document.createElement("button");
@@ -188,6 +311,7 @@
   }
 
   function syncNav() {
+    if (navMode === "prayers") return;
     el.navScroll.querySelectorAll(".bib-book").forEach(function (b) {
       b.classList.toggle("open", Number(b.dataset.book) === cur.b);
     });
@@ -298,6 +422,13 @@
         wordifyChapter();
         ensureScan();
         injectTitleTransport();
+        if (pendingVerse) {
+          var v = pendingVerse;
+          pendingVerse = 0;
+          setTimeout(function () {
+            highlightVerse(v);
+          }, 40);
+        }
         if (resumeAfterRender) {
           resumeAfterRender = false;
           scanIndex = 0;
