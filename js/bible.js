@@ -219,7 +219,7 @@
     cur = { b: bookIdx, c: chapter };
     store(KEY_POS, bookIdx + ":" + chapter);
     searching = false;
-    stopSpeech();
+    if (!resumeAfterRender) stopSpeech();
     render();
   }
 
@@ -298,6 +298,11 @@
         wordifyChapter();
         ensureScan();
         injectTitleTransport();
+        if (resumeAfterRender) {
+          resumeAfterRender = false;
+          scanIndex = 0;
+          speakFromWord(0);
+        }
 
         var fp = el.read.querySelector('[data-foot="prev"]');
         var fn = el.read.querySelector('[data-foot="next"]');
@@ -521,6 +526,8 @@
   var userPaused = false;
   var keepAlive = 0;
   var heldUtterances = [];
+  var wantContinue = false;
+  var resumeAfterRender = false;
 
   function hlMap() {
     try {
@@ -780,6 +787,8 @@
     speakToken += 1;
     speaking = false;
     userPaused = false;
+    wantContinue = false;
+    resumeAfterRender = false;
     if (keepAlive) {
       clearInterval(keepAlive);
       keepAlive = 0;
@@ -1014,6 +1023,7 @@
     var origin = typeof startWord === "number" ? startWord : scanIndex;
     speaking = true;
     userPaused = false;
+    wantContinue = true;
     syncListenBtn();
     placeScanOnWord(origin);
     function wordAt(charIndex) {
@@ -1036,6 +1046,14 @@
         keepAlive = 0;
       }
       syncListenBtn();
+      if (!wantContinue || !index) return;
+      var meta = index.books[cur.b];
+      if (cur.b === index.books.length - 1 && cur.c >= meta.v.length) {
+        wantContinue = false;
+        return;
+      }
+      resumeAfterRender = true;
+      step(1);
     }
     var u = new SpeechSynthesisUtterance(text.length > 12000 ? text.slice(0, 12000) : text);
     var v = pickVoice();
