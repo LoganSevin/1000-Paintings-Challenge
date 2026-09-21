@@ -512,6 +512,7 @@
   /* ---------- highlight + right-click ---------- */
 
   var KEY_HL = "bibleReader:hl";
+  var KEY_VOICE = "bibleReader:voice";
   var lastPick = "";
   var speaking = false;
   var speakToken = 0;
@@ -789,17 +790,62 @@
     syncListenBtn();
   }
 
+  function scoreVoice(v) {
+    var n = v.name || "";
+    var lang = v.lang || "";
+    var s = 0;
+    if (/^en/i.test(lang)) s += 20;
+    if (/en-GB|en-IE|en-AU/i.test(lang)) s += 10;
+    if (/Natural|Neural|Online|Premium|Studio|WaveNet/i.test(n)) s += 55;
+    if (/Guy|Andrew|Brian|Steffan|Ryan|Christopher|Eric|Thomas|George|Daniel|Arthur/i.test(n)) s += 18;
+    if (/Aria|Jenny|Sonia|Emma|Libby|Sonia/i.test(n)) s += 8;
+    if (/Google UK English Male/i.test(n)) s += 6;
+    if (/(Microsoft David|Microsoft Mark|Microsoft Zira|eSpeak)/i.test(n) && !/Natural|Online/i.test(n)) s -= 50;
+    return s;
+  }
+
   function pickVoice() {
     if (!window.speechSynthesis) return null;
     var voices = window.speechSynthesis.getVoices() || [];
-    var named = voices.filter(function (v) {
-      return /en/i.test(v.lang || "") && /Daniel|David|George|James|Arthur|Male|British|UK/i.test(v.name || "");
+    if (!voices.length) return null;
+    var wanted = recall(KEY_VOICE);
+    if (wanted) {
+      var exact = voices.filter(function (v) {
+        return v.name === wanted;
+      })[0];
+      if (exact) return exact;
+    }
+    var ranked = voices.slice().sort(function (a, b) {
+      return scoreVoice(b) - scoreVoice(a);
     });
-    if (named.length) return named[0];
-    var en = voices.filter(function (v) {
-      return /^en/i.test(v.lang || "");
+    return ranked[0] || null;
+  }
+
+  function fillVoiceSelect() {
+    var sel = $("bib-voice");
+    if (!sel || !window.speechSynthesis) return;
+    var voices = (window.speechSynthesis.getVoices() || []).filter(function (v) {
+      return /^en/i.test(v.lang || "") || !v.lang;
     });
-    return en[0] || voices[0] || null;
+    if (!voices.length) voices = window.speechSynthesis.getVoices() || [];
+    var current = recall(KEY_VOICE) || (pickVoice() && pickVoice().name) || "";
+    sel.innerHTML = "";
+    var auto = document.createElement("option");
+    auto.value = "";
+    auto.textContent = "Soothing (auto)";
+    sel.appendChild(auto);
+    voices
+      .slice()
+      .sort(function (a, b) {
+        return scoreVoice(b) - scoreVoice(a);
+      })
+      .forEach(function (v) {
+        var opt = document.createElement("option");
+        opt.value = v.name;
+        opt.textContent = v.name.replace(/^Microsoft\s+/i, "").replace(/\s+Online \(Natural\)/i, " · natural");
+        sel.appendChild(opt);
+      });
+    sel.value = current;
   }
 
   function chapterPlain() {
@@ -992,8 +1038,8 @@
     var v = pickVoice();
     if (v) u.voice = v;
     u.lang = (v && v.lang) || "en-US";
-    u.rate = 0.9;
-    u.pitch = 1;
+    u.rate = 0.82;
+    u.pitch = 0.88;
     u.volume = 1;
     u.onboundary = function (ev) {
       if (token !== speakToken) return;
@@ -1119,6 +1165,17 @@
     el.menu.addEventListener("click", function () {
       el.shell.classList.toggle("nav-open");
     });
+    fillVoiceSelect();
+    if (window.speechSynthesis) {
+      window.speechSynthesis.onvoiceschanged = fillVoiceSelect;
+    }
+    var voiceSel = $("bib-voice");
+    if (voiceSel && !voiceSel.dataset.bound) {
+      voiceSel.dataset.bound = "1";
+      voiceSel.addEventListener("change", function () {
+        store(KEY_VOICE, voiceSel.value || "");
+      });
+    }
     if (el.shell && !el.shell.dataset.transportBound) {
       el.shell.dataset.transportBound = "1";
       el.shell.addEventListener(

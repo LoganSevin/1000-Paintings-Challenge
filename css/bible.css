@@ -304,6 +304,18 @@ body.bib-tab-active .site-header {
   color: #14120f;
 }
 
+.bib-voice {
+  max-width: 9.5rem;
+  height: 1.85rem;
+  border: 1px solid var(--bib-rule);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--bib-ink);
+  font: inherit;
+  font-size: 0.68rem;
+  border-radius: 4px;
+  padding: 0 0.25rem;
+}
+
 .bib-chapter-head {
   position: relative;
 }
