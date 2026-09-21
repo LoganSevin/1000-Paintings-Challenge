@@ -519,6 +519,7 @@
   var listenLockUntil = 0;
   var userPaused = false;
   var keepAlive = 0;
+  var heldUtterances = [];
 
   function hlMap() {
     try {
@@ -952,22 +953,20 @@
   }
 
   function speakText(text, startWord) {
-    if (!window.speechSynthesis) return;
+    if (!window.speechSynthesis) {
+      window.alert("This browser cannot read aloud. Try Chrome or Edge.");
+      return;
+    }
     text = String(text || "").replace(/\s+/g, " ").trim();
     if (!text) return;
     var synth = window.speechSynthesis;
-    try {
-      if (synth.speaking || synth.pending || synth.paused) synth.cancel();
-    } catch (eCan) {}
     var token = ++speakToken;
+    heldUtterances = [];
     var origin = typeof startWord === "number" ? startWord : scanIndex;
     speaking = true;
     userPaused = false;
     syncListenBtn();
     placeScanOnWord(origin);
-    var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
-    var offset = 0;
-    var pending = 0;
     function wordAt(charIndex) {
       var nodes = wordNodes();
       var acc = 0;
@@ -989,49 +988,40 @@
       }
       syncListenBtn();
     }
+    var u = new SpeechSynthesisUtterance(text.length > 12000 ? text.slice(0, 12000) : text);
     var v = pickVoice();
-    chunks.forEach(function (raw) {
-      var part = String(raw || "").trim();
-      if (!part) return;
-      var chunkStart = offset;
-      offset += part.length + 1;
-      pending++;
-      var u = new SpeechSynthesisUtterance(part);
-      if (v) u.voice = v;
-      u.lang = (v && v.lang) || "en-US";
-      u.rate = 0.92;
-      u.pitch = 1;
-      u.onboundary = function (ev) {
-        if (token !== speakToken) return;
-        if ((ev.name || "") !== "word") return;
-        placeScanOnWord(wordAt(chunkStart + (ev.charIndex || 0)));
-      };
-      u.onend = function () {
-        if (token !== speakToken) return;
-        pending--;
-        if (pending <= 0) finished();
-      };
-      u.onerror = function (ev) {
-        if (token !== speakToken) return;
-        var err = (ev && ev.error) || "";
-        if (err === "interrupted" || err === "canceled") return;
-        pending--;
-        if (pending <= 0) finished();
-      };
-      synth.speak(u);
-    });
-    if (pending === 0) {
+    if (v) u.voice = v;
+    u.lang = (v && v.lang) || "en-US";
+    u.rate = 0.9;
+    u.pitch = 1;
+    u.volume = 1;
+    u.onboundary = function (ev) {
+      if (token !== speakToken) return;
+      if ((ev.name || "") !== "word") return;
+      placeScanOnWord(wordAt(ev.charIndex || 0));
+    };
+    u.onend = function () {
+      if (token !== speakToken) return;
       finished();
-      return;
-    }
-    if (synth.paused) synth.resume();
+    };
+    u.onerror = function (ev) {
+      if (token !== speakToken) return;
+      var err = (ev && ev.error) || "";
+      if (err === "interrupted" || err === "canceled") return;
+      finished();
+    };
+    heldUtterances.push(u);
+    try {
+      if (synth.paused) synth.resume();
+    } catch (eRes) {}
+    synth.speak(u);
     if (keepAlive) clearInterval(keepAlive);
     keepAlive = setInterval(function () {
       if (token !== speakToken || !speaking || userPaused) return;
       try {
         if (synth.paused) synth.resume();
       } catch (eKeep) {}
-    }, 5000);
+    }, 4000);
   }
 
   function playSpeech() {
@@ -1131,17 +1121,24 @@
     });
     if (el.shell && !el.shell.dataset.transportBound) {
       el.shell.dataset.transportBound = "1";
-      el.shell.addEventListener("click", function (e) {
-        if (e.target.closest && e.target.closest(".bib-play")) {
-          e.preventDefault();
-          e.stopPropagation();
-          playSpeech();
-        } else if (e.target.closest && e.target.closest(".bib-pause")) {
-          e.preventDefault();
-          e.stopPropagation();
-          pauseSpeech();
-        }
-      });
+      el.shell.addEventListener(
+        "pointerdown",
+        function (e) {
+          var t = e.target;
+          if (t && t.nodeType === 3) t = t.parentElement;
+          if (!t || !t.closest) return;
+          if (t.closest(".bib-play")) {
+            e.preventDefault();
+            e.stopPropagation();
+            playSpeech();
+          } else if (t.closest(".bib-pause")) {
+            e.preventDefault();
+            e.stopPropagation();
+            pauseSpeech();
+          }
+        },
+        true
+      );
     }
     el.read.addEventListener("scroll", function () {
       if (el.scan && !el.scan.hidden) placeScanOnWord(scanIndex);
@@ -1236,6 +1233,9 @@
     if (started) return;
     if (!collect()) return;
     started = true;
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.getVoices();
+    } catch (eV) {}
 
     var savedSize = parseInt(recall(KEY_SIZE), 10);
     if (!isNaN(savedSize) && savedSize >= 0 && savedSize < SIZES.length) sizeIdx = savedSize;
