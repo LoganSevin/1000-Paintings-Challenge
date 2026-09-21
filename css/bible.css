@@ -275,10 +275,43 @@ body.bib-tab-active .site-header {
   padding: 2.2rem 1.5rem 7rem;
 }
 
-.bib-listen-away {
-  visibility: hidden !important;
-  pointer-events: none !important;
-  transform: translateX(4.5rem);
+.bib-transport {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex: 0 0 auto;
+}
+
+.bib-icon-btn {
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  border: 1px solid var(--bib-gold);
+  background: transparent;
+  color: var(--bib-gold);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bib-icon-btn:hover {
+  background: rgba(201, 162, 39, 0.16);
+}
+
+.bib-icon-btn.is-on {
+  background: var(--bib-gold);
+  color: #14120f;
+}
+
+.bib-chapter-head {
+  position: relative;
+}
+
+.bib-transport-title {
+  position: absolute;
+  right: 0;
+  top: 0.15rem;
 }
 
 .bib-w {
@@ -318,26 +351,8 @@ body.bib-tab-active .site-header {
   pointer-events: none;
 }
 
-.bib-stop {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 1px solid #e10600;
-  background: #2a0a0a;
-  color: #ffd0d0;
-  font: inherit;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.18rem 0.45rem;
-  border-radius: 999px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.bib-stop:hover {
-  background: #e10600;
-  color: #fff;
+.bib-scan .bib-stop {
+  display: none;
 }
 
 .bib-page {

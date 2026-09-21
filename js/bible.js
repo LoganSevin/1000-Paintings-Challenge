@@ -297,6 +297,7 @@
         applyHighlights();
         wordifyChapter();
         ensureScan();
+        injectTitleTransport();
 
         var fp = el.read.querySelector('[data-foot="prev"]');
         var fn = el.read.querySelector('[data-foot="next"]');
@@ -516,6 +517,8 @@
   var speakToken = 0;
   var scanIndex = 0;
   var listenLockUntil = 0;
+  var userPaused = false;
+  var keepAlive = 0;
 
   function hlMap() {
     try {
@@ -761,18 +764,24 @@
   }
 
   function syncListenBtn() {
-    if (el.listen) {
-      el.listen.classList.toggle("bib-listen-away", speaking);
-      el.listen.setAttribute("aria-pressed", speaking ? "true" : "false");
-      el.listen.textContent = "Listen";
-    }
-    if (el.stop) el.stop.hidden = !speaking;
-    if (el.scan && speaking) el.scan.hidden = false;
+    var playing = speaking && !userPaused;
+    document.querySelectorAll(".bib-play").forEach(function (b) {
+      b.classList.toggle("is-on", playing);
+    });
+    document.querySelectorAll(".bib-pause").forEach(function (b) {
+      b.classList.toggle("is-on", speaking && userPaused);
+    });
+    if (el.scan && (speaking || el.scan.hidden === false)) el.scan.hidden = false;
   }
 
   function stopSpeech() {
     speakToken += 1;
     speaking = false;
+    userPaused = false;
+    if (keepAlive) {
+      clearInterval(keepAlive);
+      keepAlive = 0;
+    }
     try {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
     } catch (e) {}
@@ -947,21 +956,18 @@
     text = String(text || "").replace(/\s+/g, " ").trim();
     if (!text) return;
     var synth = window.speechSynthesis;
-    var busy = synth.speaking || synth.pending;
+    try {
+      if (synth.speaking || synth.pending || synth.paused) synth.cancel();
+    } catch (eCan) {}
     var token = ++speakToken;
     var origin = typeof startWord === "number" ? startWord : scanIndex;
     speaking = true;
-    listenLockUntil = Date.now() + 700;
+    userPaused = false;
     syncListenBtn();
     placeScanOnWord(origin);
     var chunks = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
-    var i = 0;
-    var spokenChars = 0;
-    function finished() {
-      if (token !== speakToken) return;
-      speaking = false;
-      syncListenBtn();
-    }
+    var offset = 0;
+    var pending = 0;
     function wordAt(charIndex) {
       var nodes = wordNodes();
       var acc = 0;
@@ -973,24 +979,28 @@
       }
       return nodes.length ? nodes.length - 1 : 0;
     }
-    function next() {
-      if (token !== speakToken || !speaking) return;
-      if (i >= chunks.length) {
-        finished();
-        return;
+    function finished() {
+      if (token !== speakToken) return;
+      speaking = false;
+      userPaused = false;
+      if (keepAlive) {
+        clearInterval(keepAlive);
+        keepAlive = 0;
       }
-      var part = chunks[i++].trim();
-      if (!part) {
-        next();
-        return;
-      }
-      var chunkStart = spokenChars;
+      syncListenBtn();
+    }
+    var v = pickVoice();
+    chunks.forEach(function (raw) {
+      var part = String(raw || "").trim();
+      if (!part) return;
+      var chunkStart = offset;
+      offset += part.length + 1;
+      pending++;
       var u = new SpeechSynthesisUtterance(part);
-      var v = pickVoice();
       if (v) u.voice = v;
-      u.lang = (v && v.lang) || "en-GB";
+      u.lang = (v && v.lang) || "en-US";
       u.rate = 0.92;
-      u.pitch = 0.96;
+      u.pitch = 1;
       u.onboundary = function (ev) {
         if (token !== speakToken) return;
         if ((ev.name || "") !== "word") return;
@@ -998,51 +1008,52 @@
       };
       u.onend = function () {
         if (token !== speakToken) return;
-        spokenChars += part.length + 1;
-        next();
+        pending--;
+        if (pending <= 0) finished();
       };
       u.onerror = function (ev) {
         if (token !== speakToken) return;
         var err = (ev && ev.error) || "";
         if (err === "interrupted" || err === "canceled") return;
-        spokenChars += part.length + 1;
-        next();
+        pending--;
+        if (pending <= 0) finished();
       };
       synth.speak(u);
-      if (synth.paused) synth.resume();
+    });
+    if (pending === 0) {
+      finished();
+      return;
     }
-    function kick() {
-      if (token !== speakToken) return;
-      next();
-    }
-    if (busy) {
+    if (synth.paused) synth.resume();
+    if (keepAlive) clearInterval(keepAlive);
+    keepAlive = setInterval(function () {
+      if (token !== speakToken || !speaking || userPaused) return;
       try {
-        synth.cancel();
-      } catch (eCan) {}
-      setTimeout(kick, 80);
-      return;
-    }
-    if (!synth.getVoices().length) {
-      synth.onvoiceschanged = function () {
-        synth.onvoiceschanged = null;
-        kick();
-      };
-      setTimeout(kick, 250);
-      return;
-    }
-    kick();
+        if (synth.paused) synth.resume();
+      } catch (eKeep) {}
+    }, 5000);
   }
 
-  function startListen() {
-    if (Date.now() < listenLockUntil) return;
-    if (speaking) return;
+  function playSpeech() {
+    var synth = window.speechSynthesis;
+    if (synth && synth.paused) {
+      userPaused = false;
+      speaking = true;
+      try {
+        synth.resume();
+      } catch (eRes) {}
+      syncListenBtn();
+      return;
+    }
+    if (speaking && synth && synth.speaking) return;
     var nodes = wordNodes();
     var from = scanIndex;
     var sel = window.getSelection();
-    if (sel && !sel.isCollapsed && sel.anchorNode && el.read.contains(sel.anchorNode)) {
-      var w = sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest
-        ? sel.anchorNode.parentElement.closest(".bib-w")
-        : null;
+    if (sel && !sel.isCollapsed && sel.anchorNode && el.read && el.read.contains(sel.anchorNode)) {
+      var w =
+        sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest
+          ? sel.anchorNode.parentElement.closest(".bib-w")
+          : null;
       if (w && w.dataset.wi) from = Number(w.dataset.wi);
     }
     if (!nodes.length) {
@@ -1050,6 +1061,30 @@
       return;
     }
     speakFromWord(from);
+  }
+
+  function pauseSpeech() {
+    userPaused = true;
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.pause();
+    } catch (eP) {}
+    syncListenBtn();
+  }
+
+  function injectTitleTransport() {
+    var head = el.read && el.read.querySelector(".bib-chapter-head");
+    if (!head || head.querySelector(".bib-transport")) return;
+    var row = document.createElement("div");
+    row.className = "bib-transport bib-transport-title";
+    row.innerHTML =
+      '<button type="button" class="bib-icon-btn bib-play" title="Play">▶</button>' +
+      '<button type="button" class="bib-icon-btn bib-pause" title="Pause">❚❚</button>';
+    head.appendChild(row);
+    syncListenBtn();
+  }
+
+  function startListen() {
+    playSpeech();
   }
 
   function onBibleContext(e) {
@@ -1094,11 +1129,18 @@
     el.menu.addEventListener("click", function () {
       el.shell.classList.toggle("nav-open");
     });
-    if (el.listen) {
-      el.listen.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        startListen();
+    if (el.shell && !el.shell.dataset.transportBound) {
+      el.shell.dataset.transportBound = "1";
+      el.shell.addEventListener("click", function (e) {
+        if (e.target.closest && e.target.closest(".bib-play")) {
+          e.preventDefault();
+          e.stopPropagation();
+          playSpeech();
+        } else if (e.target.closest && e.target.closest(".bib-pause")) {
+          e.preventDefault();
+          e.stopPropagation();
+          pauseSpeech();
+        }
       });
     }
     el.read.addEventListener("scroll", function () {
@@ -1187,7 +1229,6 @@
     el.smaller = $("bib-smaller");
     el.bigger = $("bib-bigger");
     el.menu = $("bib-menu");
-    el.listen = $("bib-listen");
     return el.shell && el.navScroll && el.read && el.where && el.prev && el.next && el.search;
   }
 
