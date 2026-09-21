@@ -1007,6 +1007,9 @@
     if (!text) return;
     var synth = window.speechSynthesis;
     var token = ++speakToken;
+    try {
+      synth.cancel();
+    } catch (eCan) {}
     heldUtterances = [];
     var origin = typeof startWord === "number" ? startWord : scanIndex;
     speaking = true;
@@ -1072,13 +1075,9 @@
 
   function playSpeech() {
     var synth = window.speechSynthesis;
-    if (synth && synth.paused) {
+    if (userPaused || (synth && (synth.paused || (speaking && !synth.speaking)))) {
       userPaused = false;
-      speaking = true;
-      try {
-        synth.resume();
-      } catch (eRes) {}
-      syncListenBtn();
+      speakFromWord(scanIndex);
       return;
     }
     if (speaking && synth && synth.speaking) return;
@@ -1174,6 +1173,7 @@
       voiceSel.dataset.bound = "1";
       voiceSel.addEventListener("change", function () {
         store(KEY_VOICE, voiceSel.value || "");
+        if (speaking || userPaused) speakFromWord(scanIndex);
       });
     }
     if (el.shell && !el.shell.dataset.transportBound) {
