@@ -54,6 +54,24 @@
   force = true
 
 [[redirects]]
+  from = "/api/gallery-checkin"
+  to = "/.netlify/functions/gallery-checkin"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/pulse/feed"
+  to = "/.netlify/functions/pulse-feed"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/pulse/posts"
+  to = "/.netlify/functions/pulse-posts"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/jobs/:jobId"
   to = "/.netlify/functions/job-status/:jobId"
   status = 200

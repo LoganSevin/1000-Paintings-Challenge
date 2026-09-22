@@ -260,6 +260,17 @@
     });
   }
 
+  window.GalleryAnnotations = {
+    arm: function () {
+      setArmed(true);
+      setMode("draw");
+    },
+    disarm: function () {
+      setArmed(false);
+    },
+    snapshot: snapshot,
+  };
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
   else bind();
 })();

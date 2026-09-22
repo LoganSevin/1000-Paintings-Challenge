@@ -1,0 +1,119 @@
+.gallery-welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: rgba(6, 8, 12, 0.72);
+}
+
+.gallery-welcome[hidden] {
+  display: none !important;
+}
+
+.gallery-welcome-card {
+  width: min(32rem, 94vw);
+  padding: 1.4rem 1.5rem 1.25rem;
+  background: #12151c;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 12px;
+  color: #eef3ee;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-welcome-card h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.8rem;
+}
+
+.gallery-welcome-card p {
+  margin: 0 0 1rem;
+  line-height: 1.45;
+  color: rgba(238, 243, 238, 0.78);
+}
+
+.gallery-checkins-stat {
+  color: inherit;
+}
+
+.gallery-megaphone {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 45;
+  width: 3.1rem;
+  height: 3.1rem;
+  border: 1px solid rgba(201, 162, 39, 0.5);
+  border-radius: 999px;
+  background: #1a1408;
+  color: #f3d27a;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-megaphone:hover {
+  background: #c9a227;
+  color: #14120f;
+}
+
+.gallery-feature {
+  position: fixed;
+  right: 1rem;
+  bottom: 4.4rem;
+  z-index: 46;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 0.9rem 1rem 1rem;
+  background: #16130f;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 10px;
+  color: #ece4d4;
+}
+
+.gallery-feature[hidden] {
+  display: none !important;
+}
+
+.gallery-feature h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.gallery-feature p,
+.gallery-feature label {
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #b9aea0;
+}
+
+.gallery-feature input,
+.gallery-feature textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 0.45rem;
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+  color: inherit;
+  background: #0c0a08;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+}
+
+.gallery-feature textarea {
+  min-height: 4.5rem;
+  resize: vertical;
+}
+
+.gf-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+#gf-status {
+  margin-top: 0.45rem;
+  color: #c9a227;
+}

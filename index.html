@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="css/az.css?v=8" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
+  <link rel="stylesheet" href="css/gallery-welcome.css?v=1" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -140,6 +141,30 @@
     <button type="button" id="ann-done">Done</button>
   </div>
   <canvas id="ann-canvas" class="ann-canvas" aria-hidden="true"></canvas>
+  <div id="gallery-welcome" class="gallery-welcome" hidden>
+    <div class="gallery-welcome-card">
+      <h2>Welcome</h2>
+      <p>You&rsquo;re in Logan Sevin&rsquo;s 1000 Paintings gallery. Click outside this card to enter &mdash; that checks you in.</p>
+      <button type="button" class="btn-primary" data-welcome-dismiss>Enter the gallery</button>
+    </div>
+  </div>
+  <button type="button" id="gallery-megaphone" class="gallery-megaphone" title="Request a feature">&#128226;</button>
+  <div id="gallery-feature" class="gallery-feature" hidden>
+    <h3>Need a feature?</h3>
+    <p>Draw on the page with the pencil, then send it to Pulse. Name is required; email is optional.</p>
+    <label for="gf-name">Name</label>
+    <input id="gf-name" type="text" required autocomplete="name" />
+    <label for="gf-email">Email (optional)</label>
+    <input id="gf-email" type="email" autocomplete="email" />
+    <label for="gf-note">What should this page do?</label>
+    <textarea id="gf-note" placeholder="Describe the feature"></textarea>
+    <div class="gf-actions">
+      <button type="button" id="gf-send" class="btn-primary">Send annotation to Pulse</button>
+      <button type="button" id="gf-cancel" class="btn-secondary">Cancel</button>
+    </div>
+    <p id="gf-status"></p>
+  </div>
+
   <header class="site-header">
     <div class="header-inner">
       <div class="brand">
@@ -260,6 +285,7 @@
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
         <span class="stat"><strong id="stat-analyzed">—</strong> analyzed</span>
+        <span class="stat gallery-checkins-stat"><strong id="gallery-checkins" class="gallery-checkin-count">0</strong> check-ins</span>
       </div>
     </div>
   </header>
@@ -313,6 +339,8 @@
       <span class="gallery-sales-stat"><strong id="gallery-sales-revenue">$0</strong> raised</span>
       <span class="gallery-sales-sep" aria-hidden="true">·</span>
       <span class="gallery-sales-stat"><strong id="gallery-sales-orders">0</strong> orders</span>
+      <span class="gallery-sales-sep" aria-hidden="true">&middot;</span>
+      <span class="gallery-sales-stat"><strong id="gallery-checkins-inline" class="gallery-checkin-count">0</strong> check-ins</span>
     </div>
     <span id="gallery-collection-count" class="gallery-collection-count"></span>
   </div>
@@ -7916,7 +7944,8 @@
   <script defer src="js/author-config.js?v=3"></script>
   <script defer src="js/compat.js?v=3"></script>
   <script defer src="js/xai-credits.js?v=4"></script>
-  <script defer src="js/annotations.js?v=2"></script>
+  <script defer src="js/annotations.js?v=3"></script>
+  <script defer src="js/gallery-welcome.js?v=1"></script>
   <script defer src="js/time-clock.js?v=6"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>

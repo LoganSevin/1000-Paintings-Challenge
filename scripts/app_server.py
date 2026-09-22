@@ -2810,8 +2810,31 @@ def _pulse_delete_post(body):
 _orig_app_handler_do_get_pulse = AppHandler.do_GET
 
 
+
+CHECKINS_PATH = GALLERY / "data" / "gallery-checkins.json"
+
+
+def _checkin_count():
+    try:
+        if CHECKINS_PATH.is_file():
+            data = json.loads(CHECKINS_PATH.read_text(encoding="utf-8"))
+            return int(data.get("count") or 0)
+    except Exception:
+        pass
+    return 0
+
+
+def _bump_checkin():
+    n = _checkin_count() + 1
+    CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CHECKINS_PATH.write_text(json.dumps({"count": n}), encoding="utf-8")
+    return n
+
+
 def _app_handler_do_get_with_pulse(self):
     parsed = urlparse(self.path)
+    if parsed.path == "/api/gallery-checkin":
+        return self._json({"ok": True, "count": _checkin_count()})
     if parsed.path == "/api/pulse/feed":
         return self._json(_pulse_feed_payload())
     if parsed.path == "/api/pulse/config":
@@ -2840,6 +2863,8 @@ def _app_handler_do_post_with_pulse(self):
         "/api/pulse/posts/comment": _pulse_add_comment,
         "/api/pulse/posts/delete": _pulse_delete_post,
     }
+    if parsed.path == "/api/gallery-checkin":
+        return self._json({"ok": True, "count": _bump_checkin()})
     if parsed.path in pulse_routes:
         try:
             body = self._read_json()
