@@ -2814,35 +2814,25 @@ _orig_app_handler_do_get_pulse = AppHandler.do_GET
 CHECKINS_PATH = GALLERY / "data" / "gallery-checkins.json"
 
 
-_CHECKIN_ID_RE = re.compile(r"^[A-Za-z0-9._-]{8,80}$")
-_CHECKIN_MAX_IDS = 25000
-
-
-def _load_checkins():
+def _checkin_count():
     try:
         if CHECKINS_PATH.is_file():
             data = json.loads(CHECKINS_PATH.read_text(encoding="utf-8"))
-            if isinstance(data, dict) and isinstance(data.get("ids"), list):
-                ids = [str(x) for x in data["ids"] if _CHECKIN_ID_RE.match(str(x))]
-                return {"ids": ids}
+            if isinstance(data, dict):
+                if data.get("count") is not None:
+                    return int(data.get("count") or 0)
+                if isinstance(data.get("ids"), list):
+                    return len(data.get("ids") or [])
     except Exception:
         pass
-    return {"ids": []}
+    return 0
 
 
-def _checkin_count():
-    return len(_load_checkins()["ids"])
-
-
-def _bump_checkin(tab_id=""):
-    data = _load_checkins()
-    ids = data["ids"]
-    tab_id = str(tab_id or "").strip()
-    if _CHECKIN_ID_RE.match(tab_id) and tab_id not in ids and len(ids) < _CHECKIN_MAX_IDS:
-        ids.append(tab_id)
-        CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
-        CHECKINS_PATH.write_text(json.dumps({"ids": ids}, ensure_ascii=False), encoding="utf-8")
-    return len(ids)
+def _bump_checkin():
+    n = _checkin_count() + 1
+    CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CHECKINS_PATH.write_text(json.dumps({"count": n}), encoding="utf-8")
+    return n
 
 
 def _app_handler_do_get_with_pulse(self):
@@ -2878,13 +2868,7 @@ def _app_handler_do_post_with_pulse(self):
         "/api/pulse/posts/delete": _pulse_delete_post,
     }
     if parsed.path == "/api/gallery-checkin":
-        tab_id = ""
-        try:
-            body = self._read_json() or {}
-            tab_id = str((body or {}).get("id") or "")
-        except Exception:
-            tab_id = ""
-        return self._json({"ok": True, "count": _bump_checkin(tab_id)})
+        return self._json({"ok": True, "count": _bump_checkin()})
     if parsed.path in pulse_routes:
         try:
             body = self._read_json()

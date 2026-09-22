@@ -41,55 +41,69 @@
 .header-inner > .gallery-checkin-ticker {
   width: 100%;
   max-width: min(90vw, 68rem);
-  margin: 0.15rem 0 0;
+  margin: 0.2rem 0 -0.2rem;
 }
 
 .gallery-checkin-ticker {
-  overflow: hidden;
-  padding: 0.05rem 0.35rem 0.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0.15rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, 0.45) transparent;
 }
 
 .gallery-checkin-ones-view {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.15rem 0.45rem;
-}
-
-.gallery-checkin-ones {
-  color: #c9a227;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  font-variant-numeric: tabular-nums;
-  white-space: normal;
-}
-
-.gallery-checkin-ticker:not(.is-marquee) #gallery-checkins-dup {
-  display: none;
-}
-
-.gallery-checkin-ticker.is-marquee {
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-
-.gallery-checkin-ticker.is-marquee .gallery-checkin-ones-view {
   flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.16rem;
   width: max-content;
-  gap: 0.55em;
-  animation: gallery-ones-scroll 48s linear infinite;
+  min-height: 1.7rem;
+  padding: 0.05rem 0 0.12rem;
 }
 
-.gallery-checkin-ticker.is-marquee .gallery-checkin-ones {
-  white-space: nowrap;
+.gallery-checkin-one {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 1.35rem;
+  height: 1.45rem;
+  padding: 0 0.28rem 0.05rem;
+  border: 1px solid rgba(201, 162, 39, 0.42);
+  border-bottom: none;
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(180deg, #2a220f 0%, #16130c 100%);
+  color: #e8c547;
+  font-family: "Segoe Script", "Segoe Print", "Bradley Hand", "Apple Chancery", cursive;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
-@keyframes gallery-ones-scroll {
+.gallery-checkin-one:nth-child(3n) {
+  transform: rotate(-5deg);
+}
+
+.gallery-checkin-one:nth-child(3n + 1) {
+  transform: rotate(4deg);
+}
+
+.gallery-checkin-one:nth-child(3n + 2) {
+  transform: rotate(-1.5deg);
+}
+
+.gallery-checkin-one.is-new {
+  animation: gallery-one-in 0.28s ease-out;
+}
+
+@keyframes gallery-one-in {
   from {
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateY(8px) scale(0.7);
   }
   to {
-    transform: translateX(-50%);
+    opacity: 1;
   }
 }
 

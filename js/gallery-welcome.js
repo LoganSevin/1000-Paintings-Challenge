@@ -2,8 +2,12 @@
   "use strict";
 
   var SEEN_KEY = "galleryWelcomeSeen";
-  var TAB_KEY = "galleryTabOne";
-  var MAX_ONES = 800;
+  var MAX_ONES = 400;
+  var pageLoadAt = Date.now();
+  var lastTabBump = "";
+  var lastTabAt = 0;
+  var shown = 0;
+  var lastKnown = 0;
 
   function $(id) {
     return document.getElementById(id);
@@ -14,38 +18,34 @@
     return !h || h === "gallery";
   }
 
-  function tabId() {
-    try {
-      var id = sessionStorage.getItem(TAB_KEY);
-      if (id && id.length >= 8) return id;
-      id =
-        (crypto.randomUUID && crypto.randomUUID()) ||
-        "tab-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
-      sessionStorage.setItem(TAB_KEY, id);
-      return id;
-    } catch (e) {
-      return "tab-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
-    }
-  }
-
-  function onesText(n) {
-    n = Math.max(0, parseInt(n, 10) || 0);
-    var paint = Math.min(n, MAX_ONES);
-    if (!paint) return "";
-    return new Array(paint + 1).join("1 ").trim();
-  }
-
   function setTicker(n) {
     n = Math.max(0, parseInt(n, 10) || 0);
-    var el = $("gallery-checkins");
-    if (!el) return;
-    var text = onesText(n);
-    el.textContent = text;
-    var dup = $("gallery-checkins-dup");
-    if (dup) dup.textContent = text;
-    el.setAttribute("aria-label", n === 1 ? "1 tab" : n + " tabs");
-    var ticker = el.closest(".gallery-checkin-ticker");
-    if (ticker) ticker.classList.toggle("is-marquee", n > 28);
+    lastKnown = n;
+    var view = $("gallery-checkins");
+    if (!view) return;
+    var paint = Math.min(n, MAX_ONES);
+    if (paint < shown) {
+      view.textContent = "";
+      shown = 0;
+    }
+    while (shown < paint) {
+      var mark = document.createElement("span");
+      mark.className = "gallery-checkin-one";
+      mark.textContent = "1";
+      if (shown === paint - 1) mark.classList.add("is-new");
+      view.appendChild(mark);
+      shown += 1;
+    }
+    while (view.children.length > paint) {
+      view.removeChild(view.lastChild);
+    }
+    shown = view.children.length;
+    view.setAttribute("aria-label", n === 1 ? "1 tab" : n + " tabs");
+    var ticker = view.closest(".gallery-checkin-ticker");
+    if (ticker) {
+      ticker.classList.toggle("is-overflow", paint > 36);
+      ticker.scrollLeft = ticker.scrollWidth;
+    }
   }
 
   function fetchCount() {
@@ -59,13 +59,10 @@
       .catch(function () {});
   }
 
-  function registerTab() {
-    fetch("/api/gallery-checkin", {
-      method: "POST",
-      cache: "no-store",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: tabId() }),
-    })
+  function bumpCheckin() {
+    lastKnown += 1;
+    setTicker(lastKnown);
+    fetch("/api/gallery-checkin", { method: "POST", cache: "no-store" })
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
@@ -163,7 +160,7 @@
       if (stat) stat.hidden = true;
     }
     fetchCount();
-    registerTab();
+    bumpCheckin();
     showWelcome();
     var overlay = $("gallery-welcome");
     if (overlay) {
@@ -184,9 +181,18 @@
     });
     window.addEventListener("tab-changed", function (e) {
       var tab = e && e.detail && e.detail.tab;
+      var now = Date.now();
+      if (now - pageLoadAt < 800) {
+        if (!tab || tab === "gallery") showWelcome();
+        return;
+      }
+      if (tab && tab === lastTabBump && now - lastTabAt < 350) return;
+      lastTabBump = tab || "";
+      lastTabAt = now;
+      bumpCheckin();
       if (!tab || tab === "gallery") showWelcome();
     });
-    setInterval(fetchCount, 12000);
+    setInterval(fetchCount, 8000);
 
     var mega = $("gallery-megaphone");
     var sheet = $("gallery-feature");
