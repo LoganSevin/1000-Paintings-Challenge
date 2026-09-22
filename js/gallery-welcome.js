@@ -2,10 +2,11 @@
   "use strict";
 
   var SEEN_KEY = "galleryWelcomeSeen";
-  var MAX_ONES = 18;
+  var TAB_KEY = "galleryTabOne";
   var TAB_RE = /^[a-z0-9-]{1,40}$/;
   var counts = {};
   var lastClickAt = 0;
+  var currentTab = "gallery";
 
   function $(id) {
     return document.getElementById(id);
@@ -23,6 +24,20 @@
     if (h === "kjv" || h === "scripture") return "bible";
     if (h === "rooms") return "places";
     return h;
+  }
+
+  function sessionId() {
+    try {
+      var id = sessionStorage.getItem(TAB_KEY);
+      if (id && id.length >= 8) return id;
+      id =
+        (crypto.randomUUID && crypto.randomUUID()) ||
+        "tab-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem(TAB_KEY, id);
+      return id;
+    } catch (e) {
+      return "tab-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+    }
   }
 
   function cssEscape(s) {
@@ -53,32 +68,67 @@
     return tally;
   }
 
-  function paintTab(name, n) {
-    n = Math.max(0, parseInt(n, 10) || 0);
-    var paint = Math.min(n, MAX_ONES);
+  function rowOf(name) {
+    var row = counts[name];
+    if (row && typeof row === "object") {
+      return {
+        opens: parseInt(row.opens, 10) || 0,
+        live: parseInt(row.live, 10) || 0,
+      };
+    }
+    if (typeof row === "number") return { opens: row, live: 0 };
+    return { opens: 0, live: 0 };
+  }
+
+  function paintTab(name, row) {
+    row = row || rowOf(name);
     document.querySelectorAll('[data-tab="' + cssEscape(name) + '"]').forEach(function (btn) {
       if (!btn.closest(".site-tabs, .kids-tabs, .site-tabs-more")) return;
       var tally = ensureTally(btn);
-      while (tally.children.length > paint) tally.removeChild(tally.lastChild);
-      while (tally.children.length < paint) {
-        var mark = document.createElement("span");
-        mark.className = "tab-one";
-        mark.textContent = "1";
-        tally.appendChild(mark);
-      }
-      if (tally.lastChild) {
-        tally.lastChild.classList.add("is-new");
-      }
+      tally.textContent = row.opens + ":" + row.live;
+      tally.classList.toggle("is-live", row.live > 0);
+      btn.title = row.opens + " opens : " + row.live + " here now";
     });
   }
 
   function paintAll(next) {
     counts = next && typeof next === "object" ? next : {};
     tabButtons().forEach(function (btn) {
-      ensureTally(btn);
       var name = btn.getAttribute("data-tab");
-      paintTab(name, counts[name] || 0);
+      paintTab(name, rowOf(name));
     });
+  }
+
+  function applyPayload(d) {
+    if (d && d.counts) paintAll(d.counts);
+  }
+
+  function postTab(name, bump) {
+    name = String(name || "").toLowerCase();
+    if (!TAB_RE.test(name)) return;
+    currentTab = name;
+    if (bump) {
+      var row = rowOf(name);
+      row.opens += 1;
+      row.live = Math.max(1, row.live);
+      counts[name] = row;
+      paintTab(name, row);
+    }
+    fetch("/api/gallery-checkin", {
+      method: "POST",
+      cache: "no-store",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tab: name,
+        id: sessionId(),
+        bump: bump ? true : false,
+      }),
+    })
+      .then(function (r) {
+        return r.ok ? r.json() : null;
+      })
+      .then(applyPayload)
+      .catch(function () {});
   }
 
   function fetchCounts() {
@@ -86,32 +136,8 @@
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
-      .then(function (d) {
-        if (d && d.counts) paintAll(d.counts);
-      })
+      .then(applyPayload)
       .catch(function () {});
-  }
-
-  function bumpTab(name) {
-    name = String(name || "").toLowerCase();
-    if (!TAB_RE.test(name)) return;
-    counts[name] = (parseInt(counts[name], 10) || 0) + 1;
-    paintTab(name, counts[name]);
-    fetch("/api/gallery-checkin", {
-      method: "POST",
-      cache: "no-store",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tab: name }),
-    })
-      .then(function (r) {
-        return r.ok ? r.json() : null;
-      })
-      .then(function (d) {
-        if (d && d.counts) paintAll(d.counts);
-      })
-      .catch(function () {
-        fetchCounts();
-      });
   }
 
   function showWelcome() {
@@ -203,7 +229,7 @@
     }
     tabButtons().forEach(ensureTally);
     fetchCounts();
-    bumpTab(hashTab());
+    postTab(hashTab(), true);
     showWelcome();
     document.addEventListener(
       "click",
@@ -218,7 +244,7 @@
         var name = btn.getAttribute("data-tab");
         if (!name) return;
         lastClickAt = Date.now();
-        bumpTab(name);
+        postTab(name, true);
       },
       true
     );
@@ -237,14 +263,16 @@
       if (e.key === "Escape") dismissWelcome();
     });
     window.addEventListener("hashchange", function () {
-      if (Date.now() - lastClickAt > 500) bumpTab(hashTab());
+      if (Date.now() - lastClickAt > 500) postTab(hashTab(), true);
       if (isGalleryHome()) showWelcome();
     });
     window.addEventListener("tab-changed", function (e) {
       var tab = e && e.detail && e.detail.tab;
       if (!tab || tab === "gallery") showWelcome();
     });
-    setInterval(fetchCounts, 8000);
+    setInterval(function () {
+      postTab(currentTab, false);
+    }, 8000);
 
     var mega = $("gallery-megaphone");
     var sheet = $("gallery-feature");

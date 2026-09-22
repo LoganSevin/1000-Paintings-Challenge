@@ -2815,38 +2815,105 @@ CHECKINS_PATH = GALLERY / "data" / "gallery-checkins.json"
 
 
 _CHECKIN_TAB_RE = re.compile(r"^[a-z0-9-]{1,40}$")
+_CHECKIN_ID_RE = re.compile(r"^[A-Za-z0-9._-]{8,80}$")
+_CHECKIN_PRESENCE_TTL = 25
+_CHECKIN_MAX_PRESENCE = 4000
 
 
-def _load_checkin_counts():
+def _load_checkin_state():
+    state = {"opens": {}, "presence": {}}
     try:
-        if CHECKINS_PATH.is_file():
-            data = json.loads(CHECKINS_PATH.read_text(encoding="utf-8"))
-            if isinstance(data, dict) and isinstance(data.get("counts"), dict):
-                out = {}
-                for key, value in data["counts"].items():
-                    name = str(key).lower()
-                    if _CHECKIN_TAB_RE.match(name):
-                        out[name] = int(value or 0)
-                return out
+        if not CHECKINS_PATH.is_file():
+            return state
+        data = json.loads(CHECKINS_PATH.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return state
+        opens_src = data.get("opens")
+        if not isinstance(opens_src, dict):
+            opens_src = data.get("counts") if isinstance(data.get("counts"), dict) else {}
+        for key, value in opens_src.items():
+            name = str(key).lower()
+            if not _CHECKIN_TAB_RE.match(name):
+                continue
+            if isinstance(value, dict):
+                state["opens"][name] = int(value.get("opens") or 0)
+            else:
+                state["opens"][name] = int(value or 0)
+        presence = data.get("presence")
+        if isinstance(presence, dict):
+            for sid, info in presence.items():
+                if not _CHECKIN_ID_RE.match(str(sid)) or not isinstance(info, dict):
+                    continue
+                tab = str(info.get("tab") or "").lower()
+                seen = float(info.get("seen") or 0)
+                if _CHECKIN_TAB_RE.match(tab) and seen:
+                    state["presence"][str(sid)] = {"tab": tab, "seen": seen}
     except Exception:
         pass
-    return {}
+    return state
 
 
-def _bump_checkin(tab=""):
-    counts = _load_checkin_counts()
+def _prune_checkin_state(state):
+    cutoff = time.time() - _CHECKIN_PRESENCE_TTL
+    presence = {}
+    for sid, info in (state.get("presence") or {}).items():
+        if isinstance(info, dict) and float(info.get("seen") or 0) >= cutoff:
+            presence[sid] = info
+    state["presence"] = presence
+    return state
+
+
+def _checkin_payload(state):
+    live = {}
+    for info in (state.get("presence") or {}).values():
+        tab = (info or {}).get("tab")
+        if tab:
+            live[tab] = int(live.get(tab) or 0) + 1
+    tabs = set(state.get("opens") or {}) | set(live)
+    out = {}
+    for tab in tabs:
+        out[tab] = {
+            "opens": int((state.get("opens") or {}).get(tab) or 0),
+            "live": int(live.get(tab) or 0),
+        }
+    return out
+
+
+def _save_checkin_state(state):
+    CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CHECKINS_PATH.write_text(
+        json.dumps({"opens": state.get("opens") or {}, "presence": state.get("presence") or {}}),
+        encoding="utf-8",
+    )
+
+
+def _touch_checkin(tab="", sid="", bump=False):
+    state = _prune_checkin_state(_load_checkin_state())
     tab = str(tab or "").strip().lower()
+    sid = str(sid or "").strip()
     if _CHECKIN_TAB_RE.match(tab):
-        counts[tab] = int(counts.get(tab) or 0) + 1
-        CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
-        CHECKINS_PATH.write_text(json.dumps({"counts": counts}), encoding="utf-8")
-    return counts
+        if bump:
+            opens = state.setdefault("opens", {})
+            opens[tab] = int(opens.get(tab) or 0) + 1
+        if _CHECKIN_ID_RE.match(sid):
+            presence = state.setdefault("presence", {})
+            presence[sid] = {"tab": tab, "seen": time.time()}
+            if len(presence) > _CHECKIN_MAX_PRESENCE:
+                oldest = sorted(presence.items(), key=lambda item: float((item[1] or {}).get("seen") or 0))
+                for extra_id, _info in oldest[: len(presence) - _CHECKIN_MAX_PRESENCE]:
+                    presence.pop(extra_id, None)
+    _save_checkin_state(state)
+    return _checkin_payload(state)
+
+
 
 
 def _app_handler_do_get_with_pulse(self):
     parsed = urlparse(self.path)
     if parsed.path == "/api/gallery-checkin":
-        return self._json({"ok": True, "counts": _load_checkin_counts()})
+        state = _prune_checkin_state(_load_checkin_state())
+        _save_checkin_state(state)
+        return self._json({"ok": True, "counts": _checkin_payload(state)})
     if parsed.path == "/api/pulse/feed":
         return self._json(_pulse_feed_payload())
     if parsed.path == "/api/pulse/config":
@@ -2877,12 +2944,16 @@ def _app_handler_do_post_with_pulse(self):
     }
     if parsed.path == "/api/gallery-checkin":
         tab = ""
+        sid = ""
+        bump = False
         try:
             body = self._read_json() or {}
             tab = str((body or {}).get("tab") or "")
+            sid = str((body or {}).get("id") or "")
+            bump = bool((body or {}).get("bump"))
         except Exception:
             tab = ""
-        return self._json({"ok": True, "counts": _bump_checkin(tab)})
+        return self._json({"ok": True, "counts": _touch_checkin(tab, sid, bump)})
     if parsed.path in pulse_routes:
         try:
             body = self._read_json()
