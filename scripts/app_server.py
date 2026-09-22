@@ -2816,8 +2816,9 @@ CHECKINS_PATH = GALLERY / "data" / "gallery-checkins.json"
 
 _CHECKIN_TAB_RE = re.compile(r"^[a-z0-9-]{1,40}$")
 _CHECKIN_ID_RE = re.compile(r"^[A-Za-z0-9._-]{8,80}$")
-_CHECKIN_PRESENCE_TTL = 25
+_CHECKIN_PRESENCE_TTL = 45
 _CHECKIN_MAX_PRESENCE = 4000
+_CHECKIN_LOCK = threading.Lock()
 
 
 def _load_checkin_state():
@@ -2888,32 +2889,31 @@ def _save_checkin_state(state):
 
 
 def _touch_checkin(tab="", sid="", bump=False):
-    state = _prune_checkin_state(_load_checkin_state())
-    tab = str(tab or "").strip().lower()
-    sid = str(sid or "").strip()
-    if _CHECKIN_TAB_RE.match(tab):
-        if bump:
-            opens = state.setdefault("opens", {})
-            opens[tab] = int(opens.get(tab) or 0) + 1
-        if _CHECKIN_ID_RE.match(sid):
-            presence = state.setdefault("presence", {})
-            presence[sid] = {"tab": tab, "seen": time.time()}
-            if len(presence) > _CHECKIN_MAX_PRESENCE:
-                oldest = sorted(presence.items(), key=lambda item: float((item[1] or {}).get("seen") or 0))
-                for extra_id, _info in oldest[: len(presence) - _CHECKIN_MAX_PRESENCE]:
-                    presence.pop(extra_id, None)
-    _save_checkin_state(state)
-    return _checkin_payload(state)
-
-
+    with _CHECKIN_LOCK:
+        state = _prune_checkin_state(_load_checkin_state())
+        tab = str(tab or "").strip().lower()
+        sid = str(sid or "").strip()
+        if _CHECKIN_TAB_RE.match(tab):
+            if bump:
+                opens = state.setdefault("opens", {})
+                opens[tab] = int(opens.get(tab) or 0) + 1
+            if _CHECKIN_ID_RE.match(sid):
+                presence = state.setdefault("presence", {})
+                presence[sid] = {"tab": tab, "seen": time.time()}
+                if len(presence) > _CHECKIN_MAX_PRESENCE:
+                    oldest = sorted(presence.items(), key=lambda item: float((item[1] or {}).get("seen") or 0))
+                    for extra_id, _info in oldest[: len(presence) - _CHECKIN_MAX_PRESENCE]:
+                        presence.pop(extra_id, None)
+        _save_checkin_state(state)
+        return _checkin_payload(state)
 
 
 def _app_handler_do_get_with_pulse(self):
     parsed = urlparse(self.path)
     if parsed.path == "/api/gallery-checkin":
-        state = _prune_checkin_state(_load_checkin_state())
-        _save_checkin_state(state)
-        return self._json({"ok": True, "counts": _checkin_payload(state)})
+        with _CHECKIN_LOCK:
+            state = _prune_checkin_state(_load_checkin_state())
+            return self._json({"ok": True, "counts": _checkin_payload(state)})
     if parsed.path == "/api/pulse/feed":
         return self._json(_pulse_feed_payload())
     if parsed.path == "/api/pulse/config":

@@ -3,70 +3,102 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 
 const TAB_RE = /^[a-z0-9-]{1,40}$/;
 const ID_RE = /^[A-Za-z0-9._-]{8,80}$/;
-const PRESENCE_TTL_MS = 25000;
-const MAX_PRESENCE = 4000;
+const PRESENCE_TTL_MS = 45000;
+const OPENS_KEY = "checkins-opens";
+const LEGACY_KEY = "checkins";
+const PRESENCE_PREFIX = "p/";
 
-function parseState(raw) {
-  const state = { opens: {}, presence: {} };
-  if (raw == null || raw === "") return state;
-  let data = raw;
-  if (typeof raw === "string") {
-    const text = raw.trim();
-    if (!text) return state;
-    if (!text.startsWith("{")) return state;
-    try {
-      data = JSON.parse(text);
-    } catch (e) {
-      return state;
-    }
-  }
-  if (typeof data !== "object" || data == null) return state;
-  const opensSrc =
-    data.opens && typeof data.opens === "object"
-      ? data.opens
-      : data.counts && typeof data.counts === "object"
-        ? data.counts
-        : {};
-  for (const [key, value] of Object.entries(opensSrc)) {
+function noStore(body) {
+  const res = jsonResponse(body);
+  const headers = new Headers(res.headers);
+  headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+  return new Response(res.body, { status: res.status, headers });
+}
+
+function normalizeOpens(raw) {
+  const out = {};
+  if (!raw || typeof raw !== "object") return out;
+  const src =
+    raw.opens && typeof raw.opens === "object"
+      ? raw.opens
+      : raw.counts && typeof raw.counts === "object"
+        ? raw.counts
+        : raw;
+  for (const [key, value] of Object.entries(src)) {
     if (!TAB_RE.test(key)) continue;
-    if (value && typeof value === "object") {
-      state.opens[key] = parseInt(value.opens, 10) || 0;
-    } else {
-      state.opens[key] = parseInt(value, 10) || 0;
-    }
+    if (value && typeof value === "object") out[key] = parseInt(value.opens, 10) || 0;
+    else out[key] = parseInt(value, 10) || 0;
   }
-  if (data.presence && typeof data.presence === "object") {
-    for (const [id, info] of Object.entries(data.presence)) {
-      if (!ID_RE.test(id) || !info || typeof info !== "object") continue;
-      const tab = String(info.tab || "").toLowerCase();
-      const seen = parseInt(info.seen, 10) || 0;
-      if (TAB_RE.test(tab) && seen) state.presence[id] = { tab, seen };
-    }
-  }
-  return state;
+  return out;
 }
 
-function prune(state, now) {
-  const cutoff = now - PRESENCE_TTL_MS;
-  const next = {};
-  for (const [id, info] of Object.entries(state.presence || {})) {
-    if (info && info.seen >= cutoff) next[id] = info;
+async function loadOpens(store) {
+  try {
+    const current = await store.get(OPENS_KEY, { type: "json" });
+    if (current && typeof current === "object") return normalizeOpens(current);
+  } catch (e) {}
+  try {
+    const legacy = await store.get(LEGACY_KEY, { type: "json" });
+    const opens = normalizeOpens(legacy);
+    if (Object.keys(opens).length) await store.setJSON(OPENS_KEY, opens);
+    return opens;
+  } catch (e) {
+    return {};
   }
-  state.presence = next;
-  return state;
 }
 
-function payload(state) {
+async function bumpOpens(store, tab) {
+  for (let attempt = 0; attempt < 8; attempt++) {
+    const meta = await store.getWithMetadata(OPENS_KEY, { type: "json" });
+    const opens = normalizeOpens(meta && meta.data);
+    opens[tab] = (opens[tab] || 0) + 1;
+    const options = meta && meta.etag ? { onlyIfMatch: meta.etag } : { onlyIfNew: true };
+    const result = await store.setJSON(OPENS_KEY, opens, options);
+    if (result && result.modified) return opens;
+  }
+  const opens = await loadOpens(store);
+  opens[tab] = (opens[tab] || 0) + 1;
+  await store.setJSON(OPENS_KEY, opens);
+  return opens;
+}
+
+async function loadLive(store, now) {
   const live = {};
-  for (const info of Object.values(state.presence || {})) {
-    if (!info || !info.tab) continue;
-    live[info.tab] = (live[info.tab] || 0) + 1;
+  let blobs = [];
+  try {
+    const listed = await store.list({ prefix: PRESENCE_PREFIX });
+    blobs = listed && listed.blobs ? listed.blobs : [];
+  } catch (e) {
+    return live;
   }
-  const tabs = new Set([...Object.keys(state.opens || {}), ...Object.keys(live)]);
+  const expired = [];
+  await Promise.all(
+    blobs.slice(0, 400).map(async (blob) => {
+      try {
+        const info = await store.get(blob.key, { type: "json" });
+        const seen = parseInt(info && info.seen, 10) || 0;
+        const tab = String((info && info.tab) || "").toLowerCase();
+        if (!seen || now - seen > PRESENCE_TTL_MS) {
+          expired.push(blob.key);
+          return;
+        }
+        if (!TAB_RE.test(tab)) return;
+        live[tab] = (live[tab] || 0) + 1;
+      } catch (e) {}
+    })
+  );
+  expired.slice(0, 40).forEach((key) => {
+    store.delete(key).catch(() => {});
+  });
+  return live;
+}
+
+function payload(opens, live) {
   const counts = {};
+  const tabs = new Set([...Object.keys(opens || {}), ...Object.keys(live || {})]);
   for (const tab of tabs) {
     counts[tab] = {
-      opens: parseInt(state.opens[tab], 10) || 0,
+      opens: parseInt(opens[tab], 10) || 0,
       live: parseInt(live[tab], 10) || 0,
     };
   }
@@ -77,13 +109,7 @@ export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
   const store = getStore({ name: "gallery-meta", consistency: "strong" });
   const now = Date.now();
-  let state = { opens: {}, presence: {} };
-  try {
-    state = prune(parseState(await store.get("checkins")), now);
-  } catch (e) {
-    state = { opens: {}, presence: {} };
-  }
-  let dirty = true;
+  let opens = {};
   if (request.method === "POST") {
     let body = {};
     try {
@@ -93,22 +119,17 @@ export default async function handler(request) {
     }
     const tab = String(body.tab || "").toLowerCase();
     const id = String(body.id || "").trim();
-    if (TAB_RE.test(tab)) {
-      if (body.bump) state.opens[tab] = (parseInt(state.opens[tab], 10) || 0) + 1;
-      if (ID_RE.test(id)) {
-        state.presence[id] = { tab, seen: now };
-        const ids = Object.keys(state.presence);
-        if (ids.length > MAX_PRESENCE) {
-          ids
-            .sort((a, b) => (state.presence[a].seen || 0) - (state.presence[b].seen || 0))
-            .slice(0, ids.length - MAX_PRESENCE)
-            .forEach((old) => {
-              delete state.presence[old];
-            });
-        }
-      }
+    if (TAB_RE.test(tab) && ID_RE.test(id)) {
+      await store.setJSON(PRESENCE_PREFIX + id, { tab, seen: now });
     }
+    if (TAB_RE.test(tab) && body.bump) {
+      opens = await bumpOpens(store, tab);
+    } else {
+      opens = await loadOpens(store);
+    }
+  } else {
+    opens = await loadOpens(store);
   }
-  if (dirty) await store.setJSON("checkins", state);
-  return jsonResponse({ ok: true, counts: payload(state) });
+  const live = await loadLive(store, now);
+  return noStore({ ok: true, counts: payload(opens, live) });
 }

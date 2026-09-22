@@ -270,9 +270,15 @@
       var tab = e && e.detail && e.detail.tab;
       if (!tab || tab === "gallery") showWelcome();
     });
+    setInterval(fetchCounts, 3000);
     setInterval(function () {
       postTab(currentTab, false);
-    }, 8000);
+    }, 5000);
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") return;
+      fetchCounts();
+      postTab(currentTab, false);
+    });
 
     var mega = $("gallery-megaphone");
     var sheet = $("gallery-feature");
