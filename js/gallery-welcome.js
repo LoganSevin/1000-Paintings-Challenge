@@ -2,12 +2,10 @@
   "use strict";
 
   var SEEN_KEY = "galleryWelcomeSeen";
-  var MAX_ONES = 400;
-  var pageLoadAt = Date.now();
-  var lastTabBump = "";
-  var lastTabAt = 0;
-  var shown = 0;
-  var lastKnown = 0;
+  var MAX_ONES = 18;
+  var TAB_RE = /^[a-z0-9-]{1,40}$/;
+  var counts = {};
+  var lastClickAt = 0;
 
   function $(id) {
     return document.getElementById(id);
@@ -18,59 +16,101 @@
     return !h || h === "gallery";
   }
 
-  function setTicker(n) {
-    n = Math.max(0, parseInt(n, 10) || 0);
-    lastKnown = n;
-    var view = $("gallery-checkins");
-    if (!view) return;
-    var paint = Math.min(n, MAX_ONES);
-    if (paint < shown) {
-      view.textContent = "";
-      shown = 0;
-    }
-    while (shown < paint) {
-      var mark = document.createElement("span");
-      mark.className = "gallery-checkin-one";
-      mark.textContent = "1";
-      if (shown === paint - 1) mark.classList.add("is-new");
-      view.appendChild(mark);
-      shown += 1;
-    }
-    while (view.children.length > paint) {
-      view.removeChild(view.lastChild);
-    }
-    shown = view.children.length;
-    view.setAttribute("aria-label", n === 1 ? "1 tab" : n + " tabs");
-    var ticker = view.closest(".gallery-checkin-ticker");
-    if (ticker) {
-      ticker.classList.toggle("is-overflow", paint > 36);
-      ticker.scrollLeft = ticker.scrollWidth;
-    }
+  function hashTab() {
+    var h = (location.hash || "").replace(/^#/, "").split("?")[0];
+    if (!h || h === "subscribe") return "gallery";
+    if (h === "0-z" || h === "zeroz" || h === "0z") return "az";
+    if (h === "kjv" || h === "scripture") return "bible";
+    if (h === "rooms") return "places";
+    return h;
   }
 
-  function fetchCount() {
+  function cssEscape(s) {
+    if (window.CSS && CSS.escape) return CSS.escape(s);
+    return String(s).replace(/[^a-zA-Z0-9_-]/g, "\\$&");
+  }
+
+  function tabButtons() {
+    return document.querySelectorAll(
+      ".site-tabs .tab[data-tab], .kids-tabs .tab[data-tab], .site-tabs-more-item[data-tab]"
+    );
+  }
+
+  function ensureTally(btn) {
+    var tally = btn.querySelector(":scope > .tab-tally");
+    if (tally) return tally;
+    var name = btn.querySelector(":scope > .tab-name");
+    if (!name) {
+      name = document.createElement("span");
+      name.className = "tab-name";
+      while (btn.firstChild) name.appendChild(btn.firstChild);
+      btn.appendChild(name);
+    }
+    tally = document.createElement("span");
+    tally.className = "tab-tally";
+    tally.setAttribute("aria-hidden", "true");
+    btn.insertBefore(tally, btn.firstChild);
+    return tally;
+  }
+
+  function paintTab(name, n) {
+    n = Math.max(0, parseInt(n, 10) || 0);
+    var paint = Math.min(n, MAX_ONES);
+    document.querySelectorAll('[data-tab="' + cssEscape(name) + '"]').forEach(function (btn) {
+      if (!btn.closest(".site-tabs, .kids-tabs, .site-tabs-more")) return;
+      var tally = ensureTally(btn);
+      while (tally.children.length > paint) tally.removeChild(tally.lastChild);
+      while (tally.children.length < paint) {
+        var mark = document.createElement("span");
+        mark.className = "tab-one";
+        mark.textContent = "1";
+        tally.appendChild(mark);
+      }
+      if (tally.lastChild) {
+        tally.lastChild.classList.add("is-new");
+      }
+    });
+  }
+
+  function paintAll(next) {
+    counts = next && typeof next === "object" ? next : {};
+    tabButtons().forEach(function (btn) {
+      ensureTally(btn);
+      var name = btn.getAttribute("data-tab");
+      paintTab(name, counts[name] || 0);
+    });
+  }
+
+  function fetchCounts() {
     return fetch("/api/gallery-checkin", { cache: "no-store" })
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
       .then(function (d) {
-        if (d && d.count != null) setTicker(d.count);
+        if (d && d.counts) paintAll(d.counts);
       })
       .catch(function () {});
   }
 
-  function bumpCheckin() {
-    lastKnown += 1;
-    setTicker(lastKnown);
-    fetch("/api/gallery-checkin", { method: "POST", cache: "no-store" })
+  function bumpTab(name) {
+    name = String(name || "").toLowerCase();
+    if (!TAB_RE.test(name)) return;
+    counts[name] = (parseInt(counts[name], 10) || 0) + 1;
+    paintTab(name, counts[name]);
+    fetch("/api/gallery-checkin", {
+      method: "POST",
+      cache: "no-store",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tab: name }),
+    })
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
       .then(function (d) {
-        if (d && d.count != null) setTicker(d.count);
+        if (d && d.counts) paintAll(d.counts);
       })
       .catch(function () {
-        fetchCount();
+        fetchCounts();
       });
   }
 
@@ -154,14 +194,34 @@
   }
 
   function bind() {
+    var ticker = document.querySelector(".gallery-checkin-ticker");
+    if (ticker) ticker.remove();
     var inline = $("gallery-checkins-inline");
     if (inline) {
       var stat = inline.closest(".gallery-sales-stat");
       if (stat) stat.hidden = true;
     }
-    fetchCount();
-    bumpCheckin();
+    tabButtons().forEach(ensureTally);
+    fetchCounts();
+    bumpTab(hashTab());
     showWelcome();
+    document.addEventListener(
+      "click",
+      function (e) {
+        var btn =
+          e.target &&
+          e.target.closest &&
+          e.target.closest(
+            ".site-tabs .tab[data-tab], .kids-tabs .tab[data-tab], .site-tabs-more-item[data-tab]"
+          );
+        if (!btn) return;
+        var name = btn.getAttribute("data-tab");
+        if (!name) return;
+        lastClickAt = Date.now();
+        bumpTab(name);
+      },
+      true
+    );
     var overlay = $("gallery-welcome");
     if (overlay) {
       overlay.addEventListener("click", function (e) {
@@ -177,22 +237,14 @@
       if (e.key === "Escape") dismissWelcome();
     });
     window.addEventListener("hashchange", function () {
+      if (Date.now() - lastClickAt > 500) bumpTab(hashTab());
       if (isGalleryHome()) showWelcome();
     });
     window.addEventListener("tab-changed", function (e) {
       var tab = e && e.detail && e.detail.tab;
-      var now = Date.now();
-      if (now - pageLoadAt < 800) {
-        if (!tab || tab === "gallery") showWelcome();
-        return;
-      }
-      if (tab && tab === lastTabBump && now - lastTabAt < 350) return;
-      lastTabBump = tab || "";
-      lastTabAt = now;
-      bumpCheckin();
       if (!tab || tab === "gallery") showWelcome();
     });
-    setInterval(fetchCount, 8000);
+    setInterval(fetchCounts, 8000);
 
     var mega = $("gallery-megaphone");
     var sheet = $("gallery-feature");

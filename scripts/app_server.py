@@ -2814,31 +2814,39 @@ _orig_app_handler_do_get_pulse = AppHandler.do_GET
 CHECKINS_PATH = GALLERY / "data" / "gallery-checkins.json"
 
 
-def _checkin_count():
+_CHECKIN_TAB_RE = re.compile(r"^[a-z0-9-]{1,40}$")
+
+
+def _load_checkin_counts():
     try:
         if CHECKINS_PATH.is_file():
             data = json.loads(CHECKINS_PATH.read_text(encoding="utf-8"))
-            if isinstance(data, dict):
-                if data.get("count") is not None:
-                    return int(data.get("count") or 0)
-                if isinstance(data.get("ids"), list):
-                    return len(data.get("ids") or [])
+            if isinstance(data, dict) and isinstance(data.get("counts"), dict):
+                out = {}
+                for key, value in data["counts"].items():
+                    name = str(key).lower()
+                    if _CHECKIN_TAB_RE.match(name):
+                        out[name] = int(value or 0)
+                return out
     except Exception:
         pass
-    return 0
+    return {}
 
 
-def _bump_checkin():
-    n = _checkin_count() + 1
-    CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    CHECKINS_PATH.write_text(json.dumps({"count": n}), encoding="utf-8")
-    return n
+def _bump_checkin(tab=""):
+    counts = _load_checkin_counts()
+    tab = str(tab or "").strip().lower()
+    if _CHECKIN_TAB_RE.match(tab):
+        counts[tab] = int(counts.get(tab) or 0) + 1
+        CHECKINS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        CHECKINS_PATH.write_text(json.dumps({"counts": counts}), encoding="utf-8")
+    return counts
 
 
 def _app_handler_do_get_with_pulse(self):
     parsed = urlparse(self.path)
     if parsed.path == "/api/gallery-checkin":
-        return self._json({"ok": True, "count": _checkin_count()})
+        return self._json({"ok": True, "counts": _load_checkin_counts()})
     if parsed.path == "/api/pulse/feed":
         return self._json(_pulse_feed_payload())
     if parsed.path == "/api/pulse/config":
@@ -2868,7 +2876,13 @@ def _app_handler_do_post_with_pulse(self):
         "/api/pulse/posts/delete": _pulse_delete_post,
     }
     if parsed.path == "/api/gallery-checkin":
-        return self._json({"ok": True, "count": _bump_checkin()})
+        tab = ""
+        try:
+            body = self._read_json() or {}
+            tab = str((body or {}).get("tab") or "")
+        except Exception:
+            tab = ""
+        return self._json({"ok": True, "counts": _bump_checkin(tab)})
     if parsed.path in pulse_routes:
         try:
             body = self._read_json()
