@@ -48,6 +48,7 @@
   <link rel="stylesheet" href="css/voice.css?v=1" />
   <link rel="stylesheet" href="css/az.css?v=8" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
+  <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -2546,6 +2547,25 @@
         <h4 style="margin:0.85rem 0 0.4rem;color:#9ed4ff;font-size:0.9rem">Ready-to-post X captions</h4>
         <div id="mx-templates" class="mx-templates"></div>
         <p id="mx-status" class="mx-status" hidden></p>
+      </section>
+
+      <section id="print-shops" class="ps-box" aria-label="Etsy and Redbubble">
+        <h3>List the gallery on Etsy &amp; Redbubble</h3>
+        <p>
+          Etsy and Redbubble will not ingest logan7in.art by themselves. Create a shop on each (once), export listing packs here, then upload. Paste your live shop URLs so visitors can jump from the gallery into the stores.
+        </p>
+        <div class="ps-row">
+          <a id="ps-open-etsy-shop" class="btn-primary" href="https://www.etsy.com/sell" target="_blank" rel="noopener">Create Etsy shop</a>
+          <a id="ps-open-rb-shop" class="btn-primary" href="https://www.redbubble.com/portfolio/images/new" target="_blank" rel="noopener">Upload to Redbubble</a>
+          <button type="button" id="ps-export-etsy" class="btn-secondary">Download Etsy CSV</button>
+          <button type="button" id="ps-export-rb" class="btn-secondary">Download Redbubble copy pack</button>
+        </div>
+        <div class="ps-row">
+          <input id="ps-etsy-url" type="url" placeholder="https://www.etsy.com/shop/YourShop" autocomplete="off" />
+          <input id="ps-rb-url" type="url" placeholder="https://www.redbubble.com/people/you/shop" autocomplete="off" />
+          <button type="button" id="ps-save-urls" class="btn-secondary">Save shop URLs</button>
+        </div>
+        <p id="ps-status" class="ps-status"></p>
       </section>
 
       <div class="ri-grid">
@@ -7902,6 +7922,7 @@
   <script defer src="js/gallery-save-video.js?v=1"></script>
   <script defer src="js/tab-debug.js?v=9"></script>
   <script defer src="js/gallery-shop.js?v=8"></script>
+  <script defer src="js/print-shops.js?v=1"></script>
   <script defer src="js/real-income.js?v=1"></script>
   <script defer src="js/monetize-x.js?v=1"></script>
   <script defer src="js/sale-art-x.js?v=1"></script>
