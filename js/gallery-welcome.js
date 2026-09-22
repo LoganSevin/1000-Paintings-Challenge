@@ -2,7 +2,9 @@
   "use strict";
 
   var SEEN_KEY = "galleryWelcomeSeen";
-  var LOCAL_COUNT = "galleryCheckinsLocal";
+  var pageLoadAt = Date.now();
+  var lastTabBump = "";
+  var lastTabAt = 0;
 
   function $(id) {
     return document.getElementById(id);
@@ -14,24 +16,9 @@
   }
 
   function setTicker(n) {
-    var els = document.querySelectorAll("#gallery-checkins, .gallery-checkin-count");
-    els.forEach(function (el) {
+    document.querySelectorAll(".gallery-checkin-count").forEach(function (el) {
       el.textContent = String(n);
     });
-  }
-
-  function readLocal() {
-    try {
-      return parseInt(localStorage.getItem(LOCAL_COUNT) || "0", 10) || 0;
-    } catch (e) {
-      return 0;
-    }
-  }
-
-  function writeLocal(n) {
-    try {
-      localStorage.setItem(LOCAL_COUNT, String(n));
-    } catch (e) {}
   }
 
   function fetchCount() {
@@ -40,23 +27,12 @@
         return r.ok ? r.json() : null;
       })
       .then(function (d) {
-        if (d && d.count != null) {
-          setTicker(d.count);
-          return d.count;
-        }
-        setTicker(readLocal());
-        return readLocal();
+        if (d && d.count != null) setTicker(d.count);
       })
-      .catch(function () {
-        setTicker(readLocal());
-        return readLocal();
-      });
+      .catch(function () {});
   }
 
   function bumpCheckin() {
-    var n = readLocal() + 1;
-    writeLocal(n);
-    setTicker(n);
     fetch("/api/gallery-checkin", { method: "POST", cache: "no-store" })
       .then(function (r) {
         return r.ok ? r.json() : null;
@@ -64,7 +40,9 @@
       .then(function (d) {
         if (d && d.count != null) setTicker(d.count);
       })
-      .catch(function () {});
+      .catch(function () {
+        fetchCount();
+      });
   }
 
   function showWelcome() {
@@ -82,23 +60,22 @@
     if (!overlay || overlay.hidden) return;
     overlay.hidden = true;
     try {
-      if (sessionStorage.getItem(SEEN_KEY) === "1") return;
       sessionStorage.setItem(SEEN_KEY, "1");
     } catch (e) {}
-    bumpCheckin();
   }
 
   function captureShot() {
-    var ann = window.GalleryAnnotations && window.GalleryAnnotations.snapshot
-      ? window.GalleryAnnotations.snapshot()
-      : "";
+    var ann =
+      window.GalleryAnnotations && window.GalleryAnnotations.snapshot
+        ? window.GalleryAnnotations.snapshot()
+        : "";
     return Promise.resolve(ann);
   }
 
   function sendFeature() {
-    var name = ($("gf-name") && $("gf-name").value || "").trim();
-    var email = ($("gf-email") && $("gf-email").value || "").trim();
-    var note = ($("gf-note") && $("gf-note").value || "").trim();
+    var name = (($("gf-name") && $("gf-name").value) || "").trim();
+    var email = (($("gf-email") && $("gf-email").value) || "").trim();
+    var note = (($("gf-note") && $("gf-note").value) || "").trim();
     var status = $("gf-status");
     if (!name) {
       if (status) status.textContent = "Please leave a name.";
@@ -106,48 +83,57 @@
       return;
     }
     if (status) status.textContent = "Sending to Pulse…";
-    captureShot().then(function (shot) {
-      var text =
-        "Feature request from " +
-        name +
-        (email ? " (" + email + ")" : "") +
-        "\nPage: " +
-        location.href +
-        (note ? "\n\n" + note : "\n\n(See attached page annotation.)");
-      return fetch("/api/pulse/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: name,
-          text: text,
-          image_base64: shot || undefined,
-          kind: "feature",
-        }),
-      }).then(function (r) {
-        return r.json().then(function (d) {
-          if (!r.ok || d.ok === false) throw new Error(d.error || "Could not post");
-          if (status) status.textContent = "Sent to Pulse. Thank you, " + name + ".";
-          if ($("gf-note")) $("gf-note").value = "";
-          if (window.GalleryAnnotations) window.GalleryAnnotations.disarm();
-          setTimeout(function () {
-            var sheet = $("gallery-feature");
-            if (sheet) sheet.hidden = true;
-            if (status) status.textContent = "";
-          }, 1600);
+    captureShot()
+      .then(function (shot) {
+        var text =
+          "Feature request from " +
+          name +
+          (email ? " (" + email + ")" : "") +
+          "\nPage: " +
+          location.href +
+          (note ? "\n\n" + note : "\n\n(See attached page annotation.)");
+        return fetch("/api/pulse/posts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: name,
+            text: text,
+            image_base64: shot || undefined,
+            kind: "feature",
+          }),
+        }).then(function (r) {
+          return r.json().then(function (d) {
+            if (!r.ok || d.ok === false) throw new Error(d.error || "Could not post");
+            if (status) status.textContent = "Sent to Pulse. Thank you, " + name + ".";
+            if ($("gf-note")) $("gf-note").value = "";
+            if (window.GalleryAnnotations) window.GalleryAnnotations.disarm();
+            setTimeout(function () {
+              var sheet = $("gallery-feature");
+              if (sheet) sheet.hidden = true;
+              if (status) status.textContent = "";
+            }, 1600);
+          });
         });
+      })
+      .catch(function (err) {
+        if (status) {
+          status.textContent =
+            err.message ||
+            "Could not reach Pulse. Keep the studio server running, or try again on logan7in.art after this deploy.";
+        }
       });
-    }).catch(function (err) {
-      if (status) status.textContent = err.message || "Could not reach Pulse. Keep the studio server running, or try again on logan7in.art after this deploy.";
-    });
   }
 
   function bind() {
-    fetchCount();
+    bumpCheckin();
     showWelcome();
     var overlay = $("gallery-welcome");
     if (overlay) {
       overlay.addEventListener("click", function (e) {
-        if (e.target === overlay || (e.target && e.target.closest && e.target.closest("[data-welcome-dismiss]"))) {
+        if (
+          e.target === overlay ||
+          (e.target && e.target.closest && e.target.closest("[data-welcome-dismiss]"))
+        ) {
           dismissWelcome();
         }
       });
@@ -160,8 +146,18 @@
     });
     window.addEventListener("tab-changed", function (e) {
       var tab = e && e.detail && e.detail.tab;
+      var now = Date.now();
+      if (now - pageLoadAt < 800) return;
+      if (tab && tab === lastTabBump && now - lastTabAt < 350) return;
+      lastTabBump = tab || "";
+      lastTabAt = now;
+      bumpCheckin();
       if (!tab || tab === "gallery") showWelcome();
     });
+    window.addEventListener("pageshow", function (e) {
+      if (e && e.persisted) bumpCheckin();
+    });
+    setInterval(fetchCount, 12000);
 
     var mega = $("gallery-megaphone");
     var sheet = $("gallery-feature");

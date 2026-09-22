@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="css/az.css?v=8" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
-  <link rel="stylesheet" href="css/gallery-welcome.css?v=1" />
+  <link rel="stylesheet" href="css/gallery-welcome.css?v=3" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
   {
@@ -144,7 +144,9 @@
   <div id="gallery-welcome" class="gallery-welcome" hidden>
     <div class="gallery-welcome-card">
       <h2>Welcome</h2>
-      <p>You&rsquo;re in Logan Sevin&rsquo;s 1000 Paintings gallery. Click outside this card to enter &mdash; that checks you in.</p>
+      <p>You&rsquo;re in Logan Sevin&rsquo;s 1000 Paintings gallery.</p>
+      <p>The code to get out of the kids tab is <strong>4200</strong>.</p>
+      <p>Prices per piece are subjective. They are really a donation, not a sales price. Logan is not looking to sell the art for those amounts. He is looking for donations to keep the generative process alive and strong.</p>
       <button type="button" class="btn-primary" data-welcome-dismiss>Enter the gallery</button>
     </div>
   </div>
@@ -197,6 +199,11 @@
           </div>
         </div>
         <p class="subtitle" id="header-subtitle">Art by Logan Sevin — original works, authored &amp; owned by the artist</p>
+      </div>
+      <div class="gallery-checkin-ticker" aria-live="polite">
+        <strong id="gallery-checkins" class="gallery-checkin-count">0</strong>
+        <span>check-ins</span>
+        <span class="gallery-checkin-ticker-note">every visit and every tab, from everyone</span>
       </div>
       <nav class="site-tabs" aria-label="Main">
         <button type="button" class="tab tab-kids-enter" data-tab="kids">Kids</button>
@@ -285,7 +292,6 @@
       <div class="stats" id="stats">
         <span class="stat"><strong id="stat-total">—</strong> paintings</span>
         <span class="stat"><strong id="stat-analyzed">—</strong> analyzed</span>
-        <span class="stat gallery-checkins-stat"><strong id="gallery-checkins" class="gallery-checkin-count">0</strong> check-ins</span>
       </div>
     </div>
   </header>
@@ -7945,7 +7951,7 @@
   <script defer src="js/compat.js?v=3"></script>
   <script defer src="js/xai-credits.js?v=4"></script>
   <script defer src="js/annotations.js?v=3"></script>
-  <script defer src="js/gallery-welcome.js?v=1"></script>
+  <script defer src="js/gallery-welcome.js?v=3"></script>
   <script defer src="js/time-clock.js?v=6"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>

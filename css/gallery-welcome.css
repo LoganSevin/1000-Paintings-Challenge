@@ -34,8 +34,38 @@
   color: rgba(238, 243, 238, 0.78);
 }
 
-.gallery-checkins-stat {
-  color: inherit;
+.gallery-welcome-card strong {
+  color: #f3d27a;
+}
+
+.header-inner > .gallery-checkin-ticker {
+  width: 100%;
+  max-width: min(90vw, 68rem);
+  margin: 0.15rem 0 0;
+}
+
+.gallery-checkin-ticker {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  padding: 0.05rem 0.35rem 0.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: rgba(238, 243, 238, 0.72);
+}
+
+.gallery-checkin-ticker strong {
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  color: #c9a227;
+  font-variant-numeric: tabular-nums;
+}
+
+.gallery-checkin-ticker-note {
+  opacity: 0.7;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
 }
 
 .gallery-megaphone {
