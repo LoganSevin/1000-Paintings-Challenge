@@ -40,7 +40,7 @@
       "Dissonance", "Dwelling", "Dervish", "Diaphanous", "Destiny", "Delta", "Doctrine",
       "Data", "Digital", "Devotion", "Death", "Dark", "Day", "Desire", "Dialogue",
       "Design", "Dominion", "Daughter", "Dread", "Delight", "Dust",
-      "Dictionary", "Discourse"
+      "Dictionary", "Discourse", "Dedicated", "Dimension"
     ],
     E: [
       "Echo", "Eclipse", "Ember", "Epiphany", "Elysium", "Entropy", "Eden",
@@ -70,7 +70,7 @@
       "Interest", "Infinite", "Iris", "Ink", "Incantation", "Icarus", "Island",
       "Illusion", "Insight", "Icon", "Idyll", "Ineffable", "Ion", "Intuition",
       "Intelligence", "Idea", "Identity", "Image", "Interface", "Inference",
-      "Inspiration", "Intimacy", "Iron", "Ignition", "Inner", "Idiom"
+      "Inspiration", "Intimacy", "Iron", "Ignition", "Inner", "Idiom", "Imagination"
     ],
     J: [
       "Journey", "Jewel", "Juncture", "Jubilant", "Jasmine", "Jigsaw", "Joule",
@@ -695,6 +695,7 @@
     AI: { gloss: "artificial intelligence", themes: ["tech", "mind", "machine", "learning", "code"], classic: ["Artificial", "Intelligence"] },
     ART: { gloss: "creative expression", themes: ["art", "creation", "beauty", "paint"], classic: ["Atelier", "Render", "Tapestry"] },
     DAY: { gloss: "daylight hours", themes: ["day", "light", "sun", "time"], classic: ["Dawn", "Aurora", "Yield"] },
+    DID: { gloss: "a question that asks for thought", themes: ["thought", "question", "mind", "imagination", "dedication"], classic: ["Dedicated", "Imagination", "Dimension"] },
     GOD: { gloss: "the divine", themes: ["divine", "spirit", "holy", "power"], classic: ["Grace", "Omniscient", "Doctrine"] },
     JOY: { gloss: "glad emotion", themes: ["joy", "delight", "light", "emotion"], classic: ["Jubilee", "Openness", "Yes"] },
     NOW: { gloss: "the present", themes: ["present", "now", "moment", "awareness"], classic: ["Nexus", "Openness", "Witness"] },
@@ -876,7 +877,11 @@
       growth: ["growth", "learning", "ability", "future"],
       learning: ["learning", "mind", "growth", "skill"],
       beginning: ["beginning", "origin", "start"],
-      start: ["beginning", "origin", "start"]
+      start: ["beginning", "origin", "start"],
+      dedicated: ["thought", "dedication", "mind", "question"],
+      imagination: ["thought", "imagination", "mind", "question"],
+      dimension: ["thought", "imagination", "mind", "question"],
+      did: ["thought", "question", "mind"]
     };
     Object.keys(extra).forEach(function (k) {
       WORD_TAGS[k] = extra[k];
