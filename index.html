@@ -47,6 +47,7 @@
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
   <link rel="stylesheet" href="css/az.css?v=8" />
+  <link rel="stylesheet" href="css/engrams.css?v=1" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=8" />
@@ -267,6 +268,7 @@
         <button type="button" class="tab" data-tab="handfont">Hand Font</button>
         <button type="button" class="tab" data-tab="voice">Voice</button>
         <button type="button" class="tab" data-tab="az">0–Z</button>
+        <button type="button" class="tab" data-tab="engrams">Engrams</button>
         <button type="button" class="tab" data-tab="bible">Bible</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
@@ -6835,6 +6837,64 @@
   </section>
 
 
+
+  <section id="panel-engrams" class="panel" hidden>
+    <div class="engrams-shell">
+      <header class="engrams-top">
+        <h2>Engrams</h2>
+        <p class="engrams-hint">
+          Surreal acronyms from any seed. Type a word — each letter expands into a thought-provoking word,
+          then weaves into a poetic line. Build richness from 1 toward 15-letter engrams. As surreal as AI.
+        </p>
+      </header>
+      <div class="engrams-body">
+        <nav id="engrams-rail" class="engrams-rail" aria-label="A to Z letter rail"></nav>
+        <div class="engrams-stage">
+          <div class="engrams-prompt-bar">
+            <label for="engrams-prompt">Seed</label>
+            <input id="engrams-prompt" type="text" maxlength="80" placeholder="e.g. AI, WORD, CLANCY…" autocomplete="off" spellcheck="false" />
+            <button type="button" id="engrams-generate" class="engrams-btn">Generate</button>
+            <button type="button" id="engrams-reshuffle" class="engrams-btn engrams-btn-ghost">Reshuffle</button>
+          </div>
+          <div class="engrams-controls">
+            <div class="engrams-unlock-wrap">
+              <label for="engrams-unlock">Unlock</label>
+              <input id="engrams-unlock" type="range" min="1" max="15" step="1" value="2" />
+              <span class="engrams-unlock-readout">seed <strong id="engrams-seed-len">0</strong> / <strong id="engrams-unlock-label">2</strong></span>
+            </div>
+            <div class="engrams-actions">
+              <button type="button" id="engrams-copy" class="engrams-btn engrams-btn-ghost">Copy</button>
+              <button type="button" id="engrams-save" class="engrams-btn engrams-btn-ghost">Save</button>
+            </div>
+          </div>
+          <div class="engrams-board" aria-live="polite">
+            <p class="engrams-seed-line">Engram <span id="engrams-seed-display" class="engrams-seed-display">—</span></p>
+            <div id="engrams-slots" class="engrams-slots"></div>
+            <p id="engrams-poem" class="engrams-poem">…</p>
+            <p id="engrams-meta" class="engrams-meta"></p>
+            <p id="engrams-note" class="engrams-note" hidden></p>
+          </div>
+        </div>
+        <aside class="engrams-side">
+          <section class="engrams-card" style="flex:1 1 auto">
+            <div class="engrams-card-head">
+              <h3>History</h3>
+              <button type="button" id="engrams-clear-history" class="engrams-btn engrams-btn-ghost">Clear</button>
+            </div>
+            <div id="engrams-history" class="engrams-history"></div>
+          </section>
+          <section class="engrams-card">
+            <h3>How it works</h3>
+            <p class="engrams-empty">
+              Letters A–Z only form the seed (spaces ignored). Unlock 1–15 caps seed length and nudges expansion richness.
+              Reshuffle for a new reading of the same seed. History lives in this browser.
+            </p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-bible" class="panel" hidden>
     <div class="bib-shell">
       <aside class="bib-nav">
@@ -7998,6 +8058,7 @@
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
   <script defer src="js/az.js?v=9"></script>
+  <script defer src="js/engrams.js?v=1"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
@@ -8005,7 +8066,7 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=92"></script>
+  <script defer src="js/tabs.js?v=93"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>

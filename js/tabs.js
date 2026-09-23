@@ -74,6 +74,7 @@
     handfont: document.getElementById("panel-handfont"),
     voice: document.getElementById("panel-voice"),
     az: document.getElementById("panel-az"),
+    engrams: document.getElementById("panel-engrams"),
     bible: document.getElementById("panel-bible"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
@@ -160,6 +161,7 @@
     handfont: "Hand Font — draw letters, write across the page, thicken and highlight",
     voice: "Voice — speak with your hands; play Logan’s recorded voice as a studio module",
     az: "0–Z — vertical scale, 0 highest, Z lowest",
+    engrams: "Engrams — surreal acronyms; each letter blooms into a word",
     bible: "Bible \u2014 the King James Version, all 66 books",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
@@ -460,6 +462,9 @@
     if (name !== "az") {
       window.dispatchEvent(new Event("az-hide"));
     }
+    if (name !== "engrams") {
+      window.dispatchEvent(new Event("engrams-hide"));
+    }
     if (name !== "bible") {
       window.dispatchEvent(new Event("bible-hide"));
     }
@@ -484,6 +489,7 @@
     document.body.classList.toggle("hf-tab-active", name === "handfont");
     document.body.classList.toggle("vh-tab-active", name === "voice");
     document.body.classList.toggle("az-tab-active", name === "az");
+    document.body.classList.toggle("engrams-tab-active", name === "engrams");
     document.body.classList.toggle("bib-tab-active", name === "bible");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
@@ -855,6 +861,12 @@
         window.AzScale.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "engrams") {
+      window.dispatchEvent(new Event("engrams-show"));
+      if (window.Engrams && window.Engrams.onShow) {
+        window.Engrams.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "bible") {
       window.dispatchEvent(new Event("bible-show"));
       if (window.BibleReader && window.BibleReader.onShow) {
@@ -946,6 +958,7 @@
     } catch (eCd) {}
     var tabName = hash;
     if (tabName === "0-z" || tabName === "zeroz" || tabName === "0z") tabName = "az";
+    if (tabName === "engram" || tabName === "acronym") tabName = "engrams";
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";
@@ -1011,6 +1024,8 @@
       tabName === "az" ||
       tabName === "0-z" ||
       tabName === "zeroz" ||
+      tabName === "engrams" ||
+      tabName === "engram" ||
       tabName === "bible" ||
       tabName === "houma" ||
       tabName === "thousand" ||
