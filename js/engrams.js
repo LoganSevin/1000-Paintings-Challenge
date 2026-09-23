@@ -179,7 +179,7 @@
     "affection": ["love", "emotion", "heart"],
     "agency": ["power", "self", "mind"],
     "algorithm": ["tech", "code", "logic", "learning"],
-    "allegory": ["story", "language", "meaning"],
+    "allegory": ["language", "hermeneutic", "interpretation"],
     "altar": ["divine", "spirit", "ritual"],
     "amity": ["friend", "peace", "love"],
     "amusement": ["play", "game", "joy"],
@@ -305,7 +305,7 @@
     "ether": ["spirit", "space", "aether"],
     "example": ["family", "parent", "guide"],
     "exchange": ["money", "value", "wealth"],
-    "exegesis": ["language", "truth", "meaning"],
+    "exegesis": ["language", "hermeneutic", "interpretation"],
     "exhibit": ["gallery", "art", "paint"],
     "expression": ["art", "language", "emotion"],
     "fable": ["story", "myth", "language"],
@@ -399,7 +399,7 @@
     "intuition": ["mind", "feeling", "insight"],
     "iris": ["eye", "color", "vision"],
     "iron": ["royalty", "power", "order"],
-    "jargon": ["language", "code", "tech"],
+    "jargon": ["language", "hermeneutic", "speech"],
     "jest": ["play", "joy", "voice"],
     "journal": ["story", "writing", "memory"],
     "journey": ["road", "life", "quest"],
@@ -427,7 +427,7 @@
     "learning": ["learning", "mind", "knowledge"],
     "legacy": ["past", "family", "memory"],
     "letter": ["language", "writing", "word"],
-    "lexicon": ["language", "word", "knowledge"],
+    "lexicon": ["language", "hermeneutic", "word"],
     "liberty": ["freedom", "power", "self"],
     "life": ["life", "living", "body"],
     "light": ["light", "day", "hope"],
@@ -497,6 +497,7 @@
     "offering": ["gift", "divine", "ritual"],
     "omen": ["moon", "night", "sky"],
     "omniscient": ["knowledge", "divine", "mind"],
+    "ontology": ["language", "hermeneutic", "interpretation"],
     "openness": ["open", "trust", "light"],
     "opera": ["music", "drama", "voice"],
     "opus": ["art", "creation", "work"],
@@ -646,7 +647,7 @@
     "utility": ["use", "tech", "function"],
     "utopia": ["ideal", "future", "peace"],
     "value": ["worth", "money", "ethic"],
-    "vernacular": ["language", "speech", "local"],
+    "vernacular": ["language", "hermeneutic", "speech"],
     "verse": ["poetry", "language", "music"],
     "victory": ["win", "war", "triumph"],
     "virtue": ["good", "moral", "strength"],
@@ -764,6 +765,18 @@
     GALLERY: { gloss: "hall of art", themes: ["gallery", "art", "paint", "display"], classic: ["Glyph", "Atelier", "Lumen", "Legacy", "Exhibit", "Render", "Yarn"] },
     SILENCE: { gloss: "absence of sound", themes: ["silence", "quiet", "peace", "void"], classic: ["Still", "Interval", "Lull", "Emptiness", "Noir", "Calm", "Ease"] },
     PAINTING: { gloss: "painted image", themes: ["paint", "art", "image", "creation"], classic: ["Palette", "Atelier", "Image", "Notion", "Texture", "Ink", "Notion", "Gesture"] },
+    TALENT: { gloss: "natural skill and gift", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Triumph", "Aptitude", "Lucidity", "Excellence", "Nuance", "Tenacity"] },
+    TALENTED: { gloss: "natural skill and gift", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Triumph", "Aptitude", "Lucidity", "Excellence", "Nuance", "Tenacity", "Expertise", "Dexterity"] },
+    GIFTED: { gloss: "born with natural ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Genius", "Insight", "Flair", "Talent", "Excellence", "Dexterity"] },
+    SKILL: { gloss: "practiced ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Strength", "Knack", "Insight", "Lucidity", "Labor"] },
+    SKILLED: { gloss: "highly practiced ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Strength", "Knack", "Insight", "Lucidity", "Labor", "Expertise", "Dexterity"] },
+    GENIUS: { gloss: "exceptional creative intellect", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "mind", "growth"], classic: ["Gift", "Expertise", "Nuance", "Insight", "Uniqueness", "Savoir"] },
+    MASTER: { gloss: "complete command of a craft", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Mastery", "Aptitude", "Skill", "Tenacity", "Excellence", "Rigor"] },
+    HAPPY: { gloss: "glad and content", themes: ["joy", "delight", "light", "emotion", "heart"], classic: ["Heart", "Amity", "Pleasure", "Peace", "Yes"] },
+    SAD: { gloss: "sorrowful feeling", themes: ["sorrow", "grief", "emotion", "loss", "heart"], classic: ["Sorrow", "Ache", "Dread"] },
+    KIND: { gloss: "gentle goodwill", themes: ["kindness", "care", "love", "heart", "peace"], classic: ["Kindness", "Intimacy", "Nurture", "Devotion"] },
+    BRAVE: { gloss: "facing fear with courage", themes: ["courage", "strength", "honor", "power", "heart"], classic: ["Bold", "Resolve", "Armor", "Valor", "Edge"] },
+    SMART: { gloss: "quick of mind", themes: ["mind", "insight", "learning", "skill", "ability"], classic: ["Sharp", "Memory", "Aptitude", "Reason", "Thought"] },
   };
 
 
@@ -789,13 +802,18 @@
       longing: ["love", "desire", "yearn", "heart"],
       loyalty: ["love", "devotion", "trust"],
       luminosity: ["light", "beauty", "hope"],
-      lexicon: ["language", "word", "meaning"],
+      lexicon: ["language", "hermeneutic", "word"],
       letter: ["language", "word", "writing"],
       lyric: ["language", "poetry", "music"],
       dialect: ["language", "word", "voice"],
       dialogue: ["language", "communication", "voice"],
-      dictionary: ["language", "word", "meaning"],
-      discourse: ["language", "speech", "meaning"],
+      dictionary: ["language", "hermeneutic", "interpretation"],
+      discourse: ["language", "hermeneutic", "speech"],
+      exegesis: ["language", "hermeneutic", "interpretation"],
+      allegory: ["language", "hermeneutic", "interpretation"],
+      ontology: ["language", "hermeneutic", "interpretation"],
+      jargon: ["language", "hermeneutic", "speech"],
+      vernacular: ["language", "hermeneutic", "speech"],
       writing: ["language", "word", "writing"],
       word: ["language", "word", "meaning"],
       whisper: ["voice", "language", "intimacy"],
@@ -816,7 +834,26 @@
       creation: ["art", "creation", "making"],
       curiosity: ["mind", "learning", "wonder"],
       clan: ["family", "bond", "identity"],
-      clancy: ["name", "identity", "story"]
+      clancy: ["name", "identity", "story"],
+      aptitude: ["gift", "skill", "ability", "excellence"],
+      excellence: ["gift", "skill", "craft", "excellence"],
+      nuance: ["gift", "skill", "art", "craft"],
+      tenacity: ["gift", "skill", "growth", "strength"],
+      expertise: ["gift", "skill", "ability", "craft"],
+      dexterity: ["gift", "skill", "ability", "craft"],
+      legerdemain: ["skill", "craft", "magic"],
+      knack: ["gift", "skill", "ability"],
+      flair: ["gift", "skill", "art", "excellence"],
+      mastery: ["gift", "skill", "craft", "excellence"],
+      pleasure: ["joy", "delight", "emotion"],
+      bold: ["courage", "strength", "power"],
+      resolve: ["courage", "strength", "will"],
+      valor: ["courage", "honor", "strength"],
+      sharp: ["mind", "insight", "skill"],
+      happy: ["joy", "delight", "emotion", "heart"],
+      kind: ["kindness", "care", "love", "heart"],
+      brave: ["courage", "strength", "honor", "heart"],
+      smart: ["mind", "insight", "learning", "skill"]
     };
     Object.keys(extra).forEach(function (k) {
       WORD_TAGS[k] = extra[k];
@@ -931,42 +968,59 @@
     var map = {
       A: ["art", "beginning"],
       B: ["body", "bond"],
-      C: ["creation", "code"],
+      C: ["creation", "craft"],
       D: ["dream", "depth"],
       E: ["energy", "emotion"],
       F: ["fire", "form"],
       G: ["growth", "grace"],
       H: ["heart", "home"],
-      I: ["insight", "identity"],
+      I: ["insight", "image"],
       J: ["joy", "journey"],
       K: ["knowledge", "kin"],
-      L: ["light", "language"],
+      L: ["light", "life"],
       M: ["mind", "memory"],
-      N: ["nature", "name"],
+      N: ["nature", "now"],
       O: ["origin", "order"],
       P: ["power", "path"],
       Q: ["quest", "quiet"],
       R: ["root", "rhythm"],
       S: ["spirit", "story"],
-      T: ["truth", "time"],
+      T: ["time", "tenderness"],
       U: ["unity", "universe"],
-      V: ["vision", "voice"],
-      W: ["will", "word"],
+      V: ["vision", "vitality"],
+      W: ["will", "warmth"],
       X: ["mystery", "unknown"],
       Y: ["yearn", "youth"],
       Z: ["zenith", "zone"]
     };
     var i;
-    for (i = 0; i < Math.min(letters.length, 6); i++) {
+    // Soft themes are a weak hint only — never let many letters dominate scoring.
+    for (i = 0; i < Math.min(letters.length, 3); i++) {
       var pair = map[letters.charAt(i)];
-      if (pair) soft.push(pair[i % pair.length]);
+      if (pair) soft.push(pair[0]);
     }
     return soft;
   }
 
+  var ABILITY_STEM_RE = /^(TALENT|GIFT|SKILL|ABLE|SMART|CLEVER|BRIGHT|MASTER|EXPERT)/;
+  var QUALITY_SUFFIX_RE = /(ED|FUL|ING|NESS|LY)$/;
+
+  function morphologyThemes(letters) {
+    var themes = [];
+    var isQuality = QUALITY_SUFFIX_RE.test(letters);
+    var isAbility = ABILITY_STEM_RE.test(letters);
+    if (isQuality) {
+      themes.push("character", "emotion");
+    }
+    if (isAbility || (isQuality && ABILITY_STEM_RE.test(letters.replace(QUALITY_SUFFIX_RE, "")))) {
+      themes = themes.concat(["gift", "skill", "craft", "ability", "excellence"]);
+    }
+    return themes;
+  }
+
   function resolveSeedMeaning(letters) {
     if (!letters) {
-      return { gloss: "", themes: ["abstract", "mystery"], classic: null, source: "empty" };
+      return { gloss: "", themes: ["mystery"], classic: null, source: "empty" };
     }
 
     if (SEED_MEANINGS[letters]) {
@@ -1000,21 +1054,33 @@
       }
     }
 
+    var morph = morphologyThemes(letters);
+    var titled = letters.charAt(0) + letters.slice(1).toLowerCase();
+
     if (best && bestScore >= 3) {
       var partial = SEED_MEANINGS[best];
+      // Soft letter themes are a light accent only; never dump abstract defaults on every unknown.
       return {
-        gloss: "echo of " + partial.gloss,
-        themes: unique(partial.themes.concat(letterSoftThemes(letters)).concat(["abstract"])),
+        gloss: morph.length
+          ? "the quality named by " + titled
+          : "echoing the sense of " + partial.gloss,
+        themes: unique(partial.themes.concat(morph).concat(letterSoftThemes(letters).slice(0, 2))),
         classic: null,
         source: "substring:" + best
       };
     }
 
     var soft = letterSoftThemes(letters);
-    var themes = unique(soft.concat(["abstract", "essence", "mystery", "identity"]));
-    var titled = letters.charAt(0) + letters.slice(1).toLowerCase();
+    var themes = unique(morph.concat(soft));
+    if (!themes.length) themes = ["mystery"];
+    var gloss;
+    if (morph.length) {
+      gloss = "the quality named by " + titled;
+    } else {
+      gloss = "echoing the sense of " + titled;
+    }
     return {
-      gloss: "essence of " + titled,
+      gloss: gloss,
       themes: themes,
       classic: null,
       source: "heuristic"
@@ -1034,24 +1100,138 @@
     return n;
   }
 
+  // Words that describe the *tool* (mnemonic / cryptic knowledge) rather than a seed's meaning.
+  // Allowed only when the seed itself is about memory, language, ritual, or mystery.
+  var META_WORDS = {
+    exegesis: true,
+    dictionary: true,
+    discourse: true,
+    lexicon: true,
+    ontology: true,
+    vernacular: true,
+    jargon: true,
+    allegory: true,
+    mnemonic: true,
+    anamnesis: true,
+    koan: true,
+    hermetic: true,
+    hermeticism: true,
+    gnostic: true,
+    sutra: true,
+    sigil: true,
+    praxis: true,
+    cipher: true,
+    aporia: true,
+    bricolage: true,
+    cartography: true,
+    topology: true,
+    fenestration: true,
+    xenolith: true,
+    xenogenesis: true,
+    xenogamy: true,
+    xenogeny: true,
+    xylograph: true,
+    ylem: true,
+    yggdrasil: true,
+    ziggurat: true,
+    buddhafield: true,
+    diaphanous: true,
+    pneuma: true,
+    numinous: true,
+    omniscient: true
+  };
+
+  var LANGUAGE_SEED_THEMES = {
+    language: true,
+    word: true,
+    meaning: true,
+    speech: true,
+    hermeneutic: true,
+    interpretation: true,
+    voice: true,
+    communication: true,
+    writing: true,
+    memory: true,
+    learning: true,
+    ritual: true,
+    magic: true,
+    mystery: true,
+    spell: true
+  };
+
+  // Everyday / high-relatability expansions — prefer when themes overlap.
+  var RELATABLE_WORDS = {
+    gift: true, skill: true, talent: true, craft: true, work: true, art: true,
+    love: true, heart: true, hope: true, joy: true, care: true, trust: true,
+    strength: true, courage: true, growth: true, learning: true, insight: true,
+    passion: true, power: true, peace: true, play: true, path: true, purpose: true,
+    friend: true, family: true, home: true, life: true, light: true, dream: true,
+    fire: true, water: true, earth: true, sky: true, star: true, sun: true,
+    voice: true, story: true, song: true, color: true, paint: true, canvas: true,
+    triumph: true, aptitude: true, excellence: true, nuance: true, tenacity: true,
+    expertise: true, dexterity: true, genius: true, flair: true, knack: true,
+    mastery: true, rigor: true, grace: true, glory: true, honor: true, will: true,
+    warmth: true, breath: true, bloom: true, bridge: true, balance: true, belief: true,
+    calm: true, child: true, city: true, dawn: true, desire: true, delight: true,
+    effort: true, energy: true, emotion: true, expression: true, feeling: true,
+    force: true, form: true, freedom: true, future: true, guidance: true,
+    harmony: true, human: true, hunger: true, idea: true, image: true, inner: true,
+    journey: true, justice: true, kind: true, kindness: true, knowledge: true,
+    labor: true, laughter: true, legacy: true, liberty: true, longing: true,
+    loyalty: true, magic: true, memory: true, mercy: true, mind: true, motion: true,
+    music: true, name: true, nature: true, need: true, note: true, offering: true,
+    openness: true, order: true, origin: true, passion: true, pattern: true,
+    person: true, promise: true, quality: true, quiet: true, radiance: true,
+    reason: true, relation: true, rhythm: true, river: true, romance: true,
+    root: true, self: true, silence: true, soul: true, spirit: true, strength: true,
+    teaching: true, tenderness: true, thought: true, time: true, tongue: true,
+    trust: true, truth: true, understanding: true, unity: true, value: true,
+    vessel: true, victory: true, virtue: true, vision: true, vitality: true,
+    voice: true, vow: true, warmth: true, water: true, wealth: true, will: true,
+    wisdom: true, wonder: true, word: true, work: true, world: true, writing: true,
+    yearn: true, youth: true, zeal: true
+  };
+
+  function seedAllowsMeta(themes) {
+    var i;
+    for (i = 0; i < themes.length; i++) {
+      if (LANGUAGE_SEED_THEMES[themes[i]]) return true;
+    }
+    return false;
+  }
+
   function pickWord(letter, rng, preferredLen, used, themes, classicHint) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
     }
 
+    var allowMeta = seedAllowsMeta(themes || []);
+
     var scored = bank.map(function (w, idx) {
+      var key = String(w).toLowerCase();
       var len = w.replace(/[^a-zA-Z]/g, "").length;
       var dist = Math.abs(len - preferredLen);
       var usedPenalty = used[w] ? 50 : 0;
       var overlap = themeOverlap(w, themes);
-      var themeBonus = -overlap * 22;
-      var classicBonus = classicHint && w === classicHint ? -8 : 0;
-      var jitter = rng() * 4;
+      var themeBonus = -overlap * 28;
+      var classicBonus = classicHint && w === classicHint ? -10 : 0;
+      // Prefer plain, relatable words that still carry the seed's meaning.
+      var relateBonus = RELATABLE_WORDS[key] && overlap > 0 ? -14 : 0;
+      var commonBonus = overlap > 0 && len <= 10 ? -Math.max(0, 8 - Math.abs(len - 7)) * 0.4 : 0;
+      var crypticPenalty = 0;
+      if (META_WORDS[key] && !allowMeta) crypticPenalty = 600;
+      else if (META_WORDS[key] && allowMeta && overlap < 2) crypticPenalty = 600;
+      else if (META_WORDS[key]) crypticPenalty = 8;
+      // Long ornate words without theme overlap feel like cryptic filler.
+      if (!META_WORDS[key] && overlap === 0 && len >= 10) crypticPenalty += 6;
+      var jitter = rng() * 3;
+      var metaSkip = crypticPenalty >= 500;
       return {
         w: w,
-        score: dist * 0.35 + usedPenalty + themeBonus + classicBonus + jitter,
+        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + jitter,
         overlap: overlap,
+        metaSkip: metaSkip,
         idx: idx
       };
     });
@@ -1061,13 +1241,16 @@
     });
 
     var withTheme = scored.filter(function (s) {
-      return s.overlap > 0 && !used[s.w];
+      return s.overlap > 0 && !used[s.w] && !s.metaSkip;
     });
     var pool;
     if (withTheme.length >= 1) {
       pool = withTheme.slice(0, Math.min(6, withTheme.length));
     } else {
-      pool = scored.slice(0, Math.min(5, scored.length));
+      pool = scored.filter(function (s) {
+        return !s.metaSkip;
+      }).slice(0, Math.min(5, scored.length));
+      if (!pool.length) pool = scored.slice(0, Math.min(5, scored.length));
     }
 
     var choice = pool[Math.floor(rng() * pool.length)].w;
