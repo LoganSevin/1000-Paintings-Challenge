@@ -5,7 +5,6 @@
   var TAB_KEY = "galleryTabOne";
   var TAB_RE = /^[a-z0-9-]{1,40}$/;
   var counts = {};
-  var lastClickAt = 0;
   var currentTab = "gallery";
 
   function $(id) {
@@ -103,9 +102,23 @@
     if (d && d.counts) paintAll(d.counts);
   }
 
+  var lastBumpTab = "";
+  var lastBumpAt = 0;
+  var BUMP_DEBOUNCE_MS = 1500;
+
   function postTab(name, bump) {
     name = String(name || "").toLowerCase();
     if (!TAB_RE.test(name)) return;
+    if (bump) {
+      var now = Date.now();
+      // Collapse click + hashchange (and any rapid re-entry) into one open.
+      if (name === lastBumpTab && now - lastBumpAt < BUMP_DEBOUNCE_MS) {
+        bump = false;
+      } else {
+        lastBumpTab = name;
+        lastBumpAt = now;
+      }
+    }
     currentTab = name;
     if (bump) {
       var row = rowOf(name);
@@ -243,7 +256,6 @@
         if (!btn) return;
         var name = btn.getAttribute("data-tab");
         if (!name) return;
-        lastClickAt = Date.now();
         postTab(name, true);
       },
       true
@@ -263,7 +275,11 @@
       if (e.key === "Escape") dismissWelcome();
     });
     window.addEventListener("hashchange", function () {
-      if (Date.now() - lastClickAt > 500) postTab(hashTab(), true);
+      var name = hashTab();
+      // Click path already bumped via capture listener and set currentTab.
+      // Only count hash-only navigations (back/forward, deep links).
+      if (name !== currentTab) postTab(name, true);
+      else postTab(name, false);
       if (isGalleryHome()) showWelcome();
     });
     window.addEventListener("tab-changed", function (e) {
