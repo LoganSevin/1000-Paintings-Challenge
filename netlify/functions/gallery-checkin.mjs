@@ -48,14 +48,10 @@ async function loadOpens(store) {
 }
 
 async function bumpOpens(store, tab) {
-  for (let attempt = 0; attempt < 8; attempt++) {
-    const meta = await store.getWithMetadata(OPENS_KEY, { type: "json" });
-    const opens = normalizeOpens(meta && meta.data);
-    opens[tab] = (opens[tab] || 0) + 1;
-    const options = meta && meta.etag ? { onlyIfMatch: meta.etag } : { onlyIfNew: true };
-    const result = await store.setJSON(OPENS_KEY, opens, options);
-    if (result && result.modified) return opens;
-  }
+  // @netlify/blobs@8 setJSON returns void and has no onlyIfMatch.
+  // The old CAS loop treated a missing `modified` flag as failure and
+  // re-read/wrote +1 up to 8 times, then +1 again in the fallback (~+9
+  // opens per single tab open). One read-modify-write keeps the tally sane.
   const opens = await loadOpens(store);
   opens[tab] = (opens[tab] || 0) + 1;
   await store.setJSON(OPENS_KEY, opens);
