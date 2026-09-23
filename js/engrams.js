@@ -7,9 +7,7 @@
 
   var HISTORY_KEY = "engrams_history_v1";
   var HISTORY_MAX = 40;
-  var MIN_LEN = 1;
-  var MAX_LEN = 15;
-  var DEFAULT_UNLOCK = 2;
+  var MAX_SEED_LEN = 64;
   var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   /** Curated surreal / philosophical / artistic lexicon per letter. */
@@ -138,7 +136,6 @@
   ];
 
   var state = {
-    unlock: DEFAULT_UNLOCK,
     seedRaw: "",
     seedLetters: "",
     words: [],
@@ -176,8 +173,7 @@
   function extractLetters(raw) {
     return String(raw || "")
       .toUpperCase()
-      .replace(/[^A-Z]/g, "")
-      .slice(0, MAX_LEN);
+      .replace(/[^A-Z]/g, "");
   }
 
   function pickWord(letter, rng, preferredLen, used) {
@@ -215,18 +211,18 @@
     return line.charAt(0).toUpperCase() + line.slice(1);
   }
 
-  function preferredWordLen(unlock, letterIndex, seedLen) {
-    var base = Math.max(3, Math.min(14, unlock + 2));
+  function preferredWordLen(seedLen, letterIndex) {
+    var base = Math.max(3, Math.min(14, 4 + (seedLen % 8)));
     var wobble = ((letterIndex * 3 + seedLen) % 5) - 2;
     return Math.max(3, Math.min(14, base + wobble));
   }
 
-  function generate(raw, unlock, nonce) {
+  function generate(raw, nonce) {
     var letters = extractLetters(raw);
     var note = "";
-    var fullAlpha = String(raw || "").toUpperCase().replace(/[^A-Z]/g, "");
-    if (fullAlpha.length > MAX_LEN) {
-      note = "Using first " + MAX_LEN + " letters of a longer seed.";
+    if (letters.length > MAX_SEED_LEN) {
+      letters = letters.slice(0, MAX_SEED_LEN);
+      note = "Long seed trimmed quietly to its first " + MAX_SEED_LEN + " letters.";
     }
     if (!letters.length) {
       return {
@@ -234,34 +230,23 @@
         seedLetters: "",
         words: [],
         poem: "",
-        note: "Type at least one letter (A–Z).",
-        clamped: false
+        note: "Type at least one letter (A–Z)."
       };
     }
-    var unlockN = Math.max(MIN_LEN, Math.min(MAX_LEN, unlock | 0));
-    var clamped = false;
-    if (letters.length > unlockN) {
-      letters = letters.slice(0, unlockN);
-      clamped = true;
-      note = note
-        ? note + " Seed clipped to unlock " + unlockN + "."
-        : "Seed clipped to unlock length " + unlockN + " — raise the slider to go deeper.";
-    }
-    var rng = mulberry32(hashStr(letters + "|" + unlockN + "|" + nonce));
+    var rng = mulberry32(hashStr(letters + "|" + nonce));
     var used = {};
     var words = [];
     var i;
     for (i = 0; i < letters.length; i++) {
       var L = letters.charAt(i);
-      words.push(pickWord(L, rng, preferredWordLen(unlockN, i, letters.length), used));
+      words.push(pickWord(L, rng, preferredWordLen(letters.length, i), used));
     }
     return {
       seedRaw: raw || "",
       seedLetters: letters,
       words: words,
       poem: weavePoem(words, letters, nonce),
-      note: note,
-      clamped: clamped
+      note: note
     };
   }
 
@@ -294,7 +279,6 @@
       seedLetters: entry.seedLetters,
       words: entry.words.slice(),
       poem: entry.poem,
-      unlock: state.unlock,
       at: Date.now()
     });
     if (state.history.length > HISTORY_MAX) state.history.length = HISTORY_MAX;
@@ -333,12 +317,7 @@
     if (!input.value) {
       input.value = L;
     } else {
-      var cur = extractLetters(input.value);
-      if (cur.length < state.unlock) {
-        input.value = input.value + L;
-      } else {
-        input.value = L;
-      }
+      input.value = input.value + L;
     }
     updateRailActive();
     runGenerate(false);
@@ -405,32 +384,15 @@
     }
     if (metaEl) {
       var n = result.seedLetters.length;
-      metaEl.textContent =
-        "Seed " + n + " / unlock " + state.unlock + " · richness toward " + MAX_LEN;
+      metaEl.textContent = "Seed " + n + " letters";
     }
     updateRailActive();
-    updateLengthUI();
-  }
-
-  function updateLengthUI() {
-    var slider = $("engrams-unlock");
-    var label = $("engrams-unlock-label");
-    var seedLen = $("engrams-seed-len");
-    if (slider && Number(slider.value) !== state.unlock) {
-      slider.value = String(state.unlock);
-    }
-    if (label) {
-      label.textContent = String(state.unlock);
-    }
-    if (seedLen) {
-      seedLen.textContent = String(state.seedLetters.length || 0);
-    }
   }
 
   function runGenerate(save) {
     var input = $("engrams-prompt");
     var raw = input ? input.value : state.seedRaw;
-    var result = generate(raw, state.unlock, state.nonce);
+    var result = generate(raw, state.nonce);
     renderStage(result);
     if (save && result.words.length) {
       pushHistory(result);
@@ -551,9 +513,6 @@
   function reopen(h) {
     var input = $("engrams-prompt");
     if (input) input.value = h.seedRaw || h.seedLetters;
-    if (h.unlock) {
-      state.unlock = Math.max(MIN_LEN, Math.min(MAX_LEN, h.unlock | 0));
-    }
     state.nonce = (state.nonce + 1) % 1e9;
     state.seedLetters = h.seedLetters || "";
     state.words = (h.words || []).slice();
@@ -573,7 +532,6 @@
     var reshuf = $("engrams-reshuffle");
     var copy = $("engrams-copy");
     var save = $("engrams-save");
-    var slider = $("engrams-unlock");
     var clearHist = $("engrams-clear-history");
 
     if (input) {
@@ -606,13 +564,6 @@
         runGenerate(true);
       });
     }
-    if (slider) {
-      slider.addEventListener("input", function () {
-        state.unlock = Math.max(MIN_LEN, Math.min(MAX_LEN, parseInt(slider.value, 10) || DEFAULT_UNLOCK));
-        updateLengthUI();
-        runGenerate(false);
-      });
-    }
     if (clearHist) {
       clearHist.addEventListener("click", function () {
         state.history = [];
@@ -631,10 +582,6 @@
     state.history = loadHistory();
     buildLetterRail();
     bind();
-    var slider = $("engrams-unlock");
-    if (slider) {
-      state.unlock = Math.max(MIN_LEN, Math.min(MAX_LEN, parseInt(slider.value, 10) || DEFAULT_UNLOCK));
-    }
     var input = $("engrams-prompt");
     if (input && !input.value) {
       input.value = "AI";
