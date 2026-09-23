@@ -1200,7 +1200,7 @@
     return false;
   }
 
-  function pickWord(letter, rng, preferredLen, used, themes, classicHint) {
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
@@ -1225,11 +1225,17 @@
       else if (META_WORDS[key]) crypticPenalty = 8;
       // Long ornate words without theme overlap feel like cryptic filler.
       if (!META_WORDS[key] && overlap === 0 && len >= 10) crypticPenalty += 6;
+      var nestPenalty = 0;
+      var nestSkip = false;
+      if (neighbor && isNestedExpansion(w, neighbor)) {
+        nestPenalty = 700;
+        nestSkip = true;
+      }
       var jitter = rng() * 3;
-      var metaSkip = crypticPenalty >= 500;
+      var metaSkip = crypticPenalty >= 500 || nestSkip;
       return {
         w: w,
-        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + jitter,
+        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + nestPenalty + jitter,
         overlap: overlap,
         metaSkip: metaSkip,
         idx: idx
@@ -1298,6 +1304,23 @@
     return line.charAt(0).toUpperCase() + line.slice(1);
   }
 
+  function lettersOnly(w) {
+    return String(w || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+  }
+
+  /** True when one expansion is tucked inside the other (a "word from" the earlier word). */
+  function isNestedExpansion(a, b) {
+    var x = lettersOnly(a);
+    var y = lettersOnly(b);
+    if (!x || !y || x === y) return x === y && !!x;
+    // Ignore tiny accidental hits (at, in, or) — real words start at 3+ letters.
+    if (x.length >= 3 && y.indexOf(x) !== -1) return true;
+    if (y.length >= 3 && x.indexOf(y) !== -1) return true;
+    return false;
+  }
+
   function generate(raw, nonce) {
     var letters = extractLetters(raw);
     var note = "";
@@ -1343,17 +1366,66 @@
     var i;
     for (i = 0; i < letters.length; i++) {
       var L = letters.charAt(i);
+      var hint =
+        classic && classic[i] && classic[i].charAt(0).toUpperCase() === L
+          ? classic[i]
+          : null;
+      var nextWord;
       if (useClassic) {
-        words.push(classic[i]);
-        used[classic[i]] = true;
+        nextWord = classic[i];
+        used[nextWord] = true;
       } else {
-        var hint =
-          classic && classic[i] && classic[i].charAt(0).toUpperCase() === L
-            ? classic[i]
-            : null;
-        words.push(
-          pickWord(L, rng, preferredWordLen(letters.length, i), used, themes, hint)
+        nextWord = pickWord(
+          L,
+          rng,
+          preferredWordLen(letters.length, i),
+          used,
+          themes,
+          hint,
+          i > 0 ? words[i - 1] : null
         );
+      }
+      words.push(nextWord);
+
+      // If this expansion is a word taken from the prior expansion, the prior letter re-picks.
+      if (i > 0 && isNestedExpansion(words[i], words[i - 1])) {
+        var prevL = letters.charAt(i - 1);
+        var attempts = 0;
+        while (isNestedExpansion(words[i], words[i - 1]) && attempts < 10) {
+          delete used[words[i - 1]];
+          var prevHint =
+            classic &&
+            classic[i - 1] &&
+            classic[i - 1].charAt(0).toUpperCase() === prevL
+              ? classic[i - 1]
+              : null;
+          // Never re-offer the nested pair; forbid the current word as neighbor.
+          words[i - 1] = pickWord(
+            prevL,
+            rng,
+            preferredWordLen(letters.length, i - 1),
+            used,
+            themes,
+            prevHint,
+            words[i]
+          );
+          used[words[i - 1]] = true;
+          attempts++;
+        }
+        // If still nested after prior re-picks, re-pick the current letter instead.
+        if (isNestedExpansion(words[i], words[i - 1])) {
+          delete used[words[i]];
+          words[i] = pickWord(
+            L,
+            rng,
+            preferredWordLen(letters.length, i),
+            used,
+            themes,
+            null,
+            words[i - 1]
+          );
+          used[words[i]] = true;
+        }
       }
     }
 
