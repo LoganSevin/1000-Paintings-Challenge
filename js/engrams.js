@@ -1,6 +1,8 @@
 /**
  * Engrams — surreal acronym / backronym experience.
- * Type any word; each letter expands into a thought-provoking word.
+ * Type any word; each letter expands into a thought-provoking word
+ * biased toward the seed's meaning so communication cues of the
+ * original word survive elongation.
  */
 (function () {
   "use strict";
@@ -15,110 +17,826 @@
     A: [
       "Arise", "Abyss", "Aurora", "Alchemy", "Aether", "Axiom", "Amethyst",
       "Aphelion", "Arcane", "Astral", "Anamnesis", "Aperture", "Avalanche",
-      "Allegory", "Aeon", "Atelier", "Ambrosia", "Aporia"
+      "Allegory", "Aeon", "Atelier", "Ambrosia", "Aporia", "Artificial",
+      "Algorithm", "Affection", "Altar", "Armor", "Anger", "Art", "Atlas",
+      "Agency", "Avatar", "Ash", "Anchor", "Amity", "Absence"
     ],
     B: [
       "Beacon", "Bloom", "Bardo", "Babel", "Benthos", "Becoming", "Bricolage",
-      "Breath", "Boreal", "Buddhafield", "Basalt", "Beloved", "Brume", "Byzantine"
+      "Breath", "Boreal", "Buddhafield", "Basalt", "Beloved", "Brume", "Byzantine",
+      "Binary", "Brain", "Bond", "Battle", "Blood", "Bone", "Body", "Blaze",
+      "Belief", "Ballad", "Brother", "Birth", "Bridge", "Balance"
     ],
     C: [
       "Chorus", "Chiaroscuro", "Cipher", "Cascade", "Cosmos", "Chrysalis",
       "Catharsis", "Cathedral", "Cartography", "Crescent", "Chimera", "Cadence",
-      "Celestial", "Cloister", "Chronicle"
+      "Celestial", "Cloister", "Chronicle", "Code", "Circuit", "Cognition",
+      "Canvas", "Color", "Compassion", "Conflict", "Chaos", "Child", "City",
+      "Crown", "Compute", "Creation", "Communion", "Courage", "Calm",
+      "Curiosity", "Clan"
     ],
     D: [
       "Dream", "Depth", "Dawn", "Dialect", "Diaspora", "Duet", "Daimon",
-      "Dissonance", "Dwelling", "Dervish", "Diaphanous", "Destiny", "Delta", "Doctrine"
+      "Dissonance", "Dwelling", "Dervish", "Diaphanous", "Destiny", "Delta", "Doctrine",
+      "Data", "Digital", "Devotion", "Death", "Dark", "Day", "Desire", "Dialogue",
+      "Design", "Dominion", "Daughter", "Dread", "Delight", "Dust",
+      "Dictionary", "Discourse"
     ],
     E: [
       "Echo", "Eclipse", "Ember", "Epiphany", "Elysium", "Entropy", "Eden",
-      "Emanation", "Ether", "Eloquent", "Eunoia", "Exegesis", "Elegy", "Emergence"
+      "Emanation", "Ether", "Eloquent", "Eunoia", "Exegesis", "Elegy", "Emergence",
+      "Engine", "Emotion", "Earth", "Enemy", "Empire", "Essence", "Energy",
+      "Expression", "Eternity", "Empathy", "Edenic", "Education", "Edge"
     ],
     F: [
       "Fold", "Fractal", "Fathom", "Flame", "Fugue", "Filament", "Fable",
-      "Frontier", "Fiction", "Fluence", "Formless", "Forge", "Fervor", "Fenestration"
+      "Frontier", "Fiction", "Fluence", "Formless", "Forge", "Fervor", "Fenestration",
+      "Future", "Father", "Friend", "Fear", "Fire", "Faith", "Freedom", "Form",
+      "Frequency", "Family", "Frame", "Forest", "Feeling", "Force"
     ],
     G: [
       "Glyph", "Gossamer", "Gravity", "Genesis", "Grail", "Gnostic", "Garden",
-      "Glimpse", "Golem", "Golden", "Gyre", "Galaxy", "Grace", "Geometry"
+      "Glimpse", "Golem", "Golden", "Gyre", "Galaxy", "Grace", "Geometry",
+      "God", "Gallery", "Game", "Gift", "Grief", "Glory", "Guidance", "Gesture",
+      "Grammar", "Growth", "Guardian", "Glow", "Ground", "Gospel"
     ],
     H: [
       "Horizon", "Halo", "Hymn", "Hologram", "Hearth", "Hush", "Helix",
-      "Hypothesis", "Harbor", "Hermetic", "Hue", "Harbinger", "Hollow", "Hyperion"
+      "Hypothesis", "Harbor", "Hermetic", "Hue", "Harbinger", "Hollow", "Hyperion",
+      "Heart", "Human", "Home", "Hope", "Harmony", "History", "Hardware",
+      "Holy", "Hunger", "Heir", "Heat", "Honor"
     ],
     I: [
       "Interest", "Infinite", "Iris", "Ink", "Incantation", "Icarus", "Island",
-      "Illusion", "Insight", "Icon", "Idyll", "Ineffable", "Ion", "Intuition"
+      "Illusion", "Insight", "Icon", "Idyll", "Ineffable", "Ion", "Intuition",
+      "Intelligence", "Idea", "Identity", "Image", "Interface", "Inference",
+      "Inspiration", "Intimacy", "Iron", "Ignition", "Inner", "Idiom"
     ],
     J: [
       "Journey", "Jewel", "Juncture", "Jubilant", "Jasmine", "Jigsaw", "Joule",
-      "Judgment", "Jade", "Jettison", "Joy", "Juxtapose", "Janus", "Journal"
+      "Judgment", "Jade", "Jettison", "Joy", "Juxtapose", "Janus", "Journal",
+      "Justice", "Jubilee", "Junction", "Jargon", "Join", "Jest"
     ],
     K: [
       "Key", "Kinetic", "Karma", "Kaleidoscope", "Kindling", "Kingdom", "Knot",
-      "Koan", "Kyoto", "Keel", "Kismet", "Knowledge", "Kairos", "Kraken"
+      "Koan", "Kyoto", "Keel", "Kismet", "Knowledge", "Kairos", "Kraken",
+      "Kin", "King", "Kernel", "Kindness", "Keep", "Kiss"
     ],
     L: [
       "Lumen", "Labyrinth", "Liminal", "Lotus", "Lattice", "Lucid", "Legacy",
-      "Lantern", "Lyric", "Lapis", "Leviathan", "Lullaby", "Lexicon", "Longitude"
+      "Lantern", "Lyric", "Lapis", "Leviathan", "Lullaby", "Lexicon", "Longitude",
+      "Love", "Light", "Life", "Language", "Learning", "Logic", "Labor", "Liberty",
+      "Letter", "Lore", "Loss", "Laughter", "Landscape", "Law",
+      "Longing", "Loyalty", "Luminosity"
     ],
     M: [
       "Myth", "Mirror", "Mosaic", "Metamorphosis", "Moon", "Mnemonic", "Muse",
-      "Monad", "Meridian", "Manifest", "Mystery", "Mandala", "Murmur", "Memory"
+      "Monad", "Meridian", "Manifest", "Mystery", "Mandala", "Murmur", "Memory",
+      "Mind", "Machine", "Music", "Mother", "Magic", "Money", "Model", "Meaning",
+      "Message", "Motion", "Mercy", "Mortal", "Matrix", "Melody"
     ],
     N: [
       "Nexus", "Night", "Nebula", "Notion", "Numinous", "Nest", "Narrative",
-      "Nadir", "Nocturne", "Nemesis", "Nectar", "Nova", "Nameless", "Needle"
+      "Nadir", "Nocturne", "Nemesis", "Nectar", "Nova", "Nameless", "Needle",
+      "Name", "Network", "Nature", "Now", "Neural", "Nurture", "Noise", "Nation",
+      "Note", "Number", "Nearness", "Null"
     ],
     O: [
       "Oracle", "Orbit", "Origin", "Omen", "Opaline", "Odyssey", "Ocean",
-      "Obsidian", "Overture", "Omniscient", "Opus", "Outlet", "Oasis", "Ontology"
+      "Obsidian", "Overture", "Omniscient", "Opus", "Outlet", "Oasis", "Ontology",
+      "Order", "Output", "Opera", "Offspring", "Oath", "Offering", "Openness",
+      "Oxide", "Outlook", "Overmind",
+      "Oration"
     ],
     P: [
       "Prism", "Portal", "Poem", "Paradox", "Phoenix", "Pulse", "Palette",
-      "Pilgrim", "Pneuma", "Pinnacle", "Phantom", "Praxis", "Pyre", "Presence"
+      "Pilgrim", "Pneuma", "Pinnacle", "Phantom", "Praxis", "Pyre", "Presence",
+      "Paint", "Power", "Peace", "Play", "Pain", "Past", "Person", "Prayer",
+      "Process", "Pattern", "Promise", "Passion", "Path", "Purpose"
     ],
     Q: [
       "Quest", "Quantum", "Quiet", "Quill", "Quasar", "Quiver", "Quintessence",
-      "Query", "Quorum", "Quartz", "Quixotic", "Quotient", "Quake", "Quondam"
+      "Query", "Quorum", "Quartz", "Quixotic", "Quotient", "Quake", "Quondam",
+      "Queen", "Question", "Quicken", "Quality", "Quench"
     ],
     R: [
       "Riddle", "Radiance", "Rune", "Reverie", "River", "Resonance", "Ritual",
-      "Rose", "Realm", "Rapture", "Root", "Rhapsody", "Relic", "Revelation"
+      "Rose", "Realm", "Rapture", "Root", "Rhapsody", "Relic", "Revelation",
+      "Robot", "Reason", "Romance", "Rage", "Road", "Rhythm", "Recall", "Reign",
+      "Render", "Relation", "Refuge", "Reckoning", "Radiant", "Reply"
     ],
     S: [
       "Surreal", "Silence", "Spiral", "Star", "Synapse", "Solstice", "Shadow",
-      "Symphony", "Seed", "Sigil", "Solitude", "Spectrum", "Sutra", "Seraph"
+      "Symphony", "Seed", "Sigil", "Solitude", "Spectrum", "Sutra", "Seraph",
+      "Soul", "Story", "Speech", "System", "Science", "Spell", "Sun", "Sea",
+      "Sky", "Self", "Space", "Strength", "Sorrow", "Signal", "Syntax", "Spirit"
     ],
     T: [
       "Threshold", "Temple", "Tide", "Tapestry", "Truth", "Twilight", "Talisman",
-      "Tesseract", "Testament", "Thread", "Trance", "Totem", "Topology", "Tremor"
+      "Tesseract", "Testament", "Thread", "Trance", "Totem", "Topology", "Tremor",
+      "Time", "Thought", "Tech", "Tree", "Trust", "Terror", "Tenderness", "Theory",
+      "Token", "Tongue", "Triumph", "Transit", "Texture", "Teaching"
     ],
     U: [
       "Umbra", "Universe", "Unfold", "Utopia", "Ultraviolet", "Undercurrent",
-      "Ursine", "Unity", "Urn", "Uprising", "Ultramarine", "Unspoken", "Umbilical", "Uplift"
+      "Ursine", "Unity", "Urn", "Uprising", "Ultramarine", "Unspoken", "Umbilical", "Uplift",
+      "Understanding", "Union", "Utility", "Urge", "Ultrahuman", "Upstream"
     ],
     V: [
       "Vision", "Vortex", "Veil", "Vesper", "Voyage", "Vivid", "Vault",
-      "Verse", "Vigil", "Vapor", "Vernacular", "Vesperal", "Vertex", "Vita"
+      "Verse", "Vigil", "Vapor", "Vernacular", "Vesperal", "Vertex", "Vita",
+      "Voice", "Virtue", "Victory", "Voltage", "Vessel", "Value", "Void", "Vow",
+      "Velvet", "Vitality"
     ],
     W: [
       "Wonder", "Woven", "Whisper", "Wyrd", "Watershed", "Womb", "Wavelength",
-      "Wilderness", "Waking", "Witness", "Wreathe", "Wayfarer", "Wisdom", "Wisp"
+      "Wilderness", "Waking", "Witness", "Wreathe", "Wayfarer", "Wisdom", "Wisp",
+      "Word", "Work", "Water", "War", "Will", "Warmth", "Writing", "World",
+      "Wound", "Wealth", "Wave", "Worship"
     ],
     X: [
       "Xenolith", "Xanadu", "Xylem", "Xenial", "Xeric", "Xylograph", "Xenogenesis",
-      "X-factor", "Xenon", "Xanthic", "Xylophone", "Xenogamy", "Xiphoid", "Xyst"
+      "X-factor", "Xenon", "Xanthic", "Xylophone", "Xenogamy", "Xiphoid", "Xyst",
+      "Xenotype", "X-axis", "Xenogeny"
     ],
     Y: [
       "Yearn", "Yonder", "Yarn", "Yugen", "Yellow", "Yoke", "Yarrow",
-      "Yield", "Ylem", "Yogic", "Youth", "Yaw", "Yggdrasil", "Yes"
+      "Yield", "Ylem", "Yogic", "Youth", "Yaw", "Yggdrasil", "Yes",
+      "Year", "Yester", "Yowl"
     ],
     Z: [
       "Zenith", "Zephyr", "Zodiac", "Ziggurat", "Zeitgeist", "Zone", "Zest",
-      "Zircon", "Zero", "Zen", "Zigzag", "Zealous", "Zither", "Zoar"
+      "Zircon", "Zero", "Zen", "Zigzag", "Zealous", "Zither", "Zoar",
+      "Zeal", "Zonal"
     ]
   };
+  var WORD_TAGS = {
+    "absence": ["silence", "void", "loss"],
+    "abyss": ["dark", "mystery", "depth"],
+    "ache": ["pain", "hurt", "body"],
+    "aeon": ["time", "eternity"],
+    "aether": ["spirit", "cosmos", "space"],
+    "affection": ["love", "emotion", "heart"],
+    "agency": ["power", "self", "mind"],
+    "algorithm": ["tech", "code", "logic", "learning"],
+    "allegory": ["story", "language", "meaning"],
+    "altar": ["divine", "spirit", "ritual"],
+    "amity": ["friend", "peace", "love"],
+    "amusement": ["play", "game", "joy"],
+    "anamnesis": ["memory", "mind"],
+    "anchor": ["home", "order", "hope"],
+    "anger": ["anger", "emotion", "conflict"],
+    "anxiety": ["fear", "dread", "dark"],
+    "aperture": ["art", "light", "vision"],
+    "aquifer": ["water", "sea", "flow"],
+    "arcane": ["magic", "mystery", "spell"],
+    "archive": ["past", "memory", "history"],
+    "arena": ["game", "play", "rule"],
+    "armor": ["war", "body", "power"],
+    "art": ["art", "creation", "beauty"],
+    "artificial": ["tech", "mind", "machine", "learning"],
+    "ash": ["fire", "death", "past"],
+    "astral": ["space", "spirit", "cosmos"],
+    "atelier": ["art", "paint", "creation"],
+    "atlas": ["earth", "nature", "ground"],
+    "aurora": ["light", "sky", "beauty"],
+    "avatar": ["identity", "tech", "self"],
+    "avenue": ["road", "journey", "path"],
+    "axiom": ["truth", "logic", "knowledge"],
+    "babel": ["language", "chaos", "story"],
+    "balance": ["order", "peace", "body"],
+    "ballad": ["music", "story", "voice"],
+    "base": ["bone", "body", "structure"],
+    "battle": ["war", "conflict", "power"],
+    "beacon": ["light", "hope", "guide"],
+    "becoming": ["life", "self", "future"],
+    "belief": ["faith", "mind", "truth"],
+    "beloved": ["love", "heart", "emotion"],
+    "benthos": ["sea", "depth", "earth"],
+    "binary": ["tech", "code", "logic"],
+    "birth": ["life", "child", "beginning"],
+    "blaze": ["fire", "light", "anger"],
+    "blood": ["blood", "life", "body", "family"],
+    "body": ["body", "human", "self"],
+    "bond": ["love", "friend", "family"],
+    "bone": ["bone", "body", "death"],
+    "brain": ["mind", "body", "learning"],
+    "breath": ["life", "body", "spirit"],
+    "bridge": ["road", "connection", "peace"],
+    "brother": ["family", "friend", "human"],
+    "cadence": ["music", "rhythm", "voice"],
+    "calm": ["peace", "silence", "order"],
+    "canvas": ["art", "paint", "creation"],
+    "cascade": ["chaos", "disorder", "entropy"],
+    "catharsis": ["emotion", "art", "release"],
+    "celestial": ["sky", "space", "divine"],
+    "chaos": ["chaos", "disorder"],
+    "charm": ["magic", "spell", "wonder"],
+    "chiaroscuro": ["art", "light", "dark"],
+    "child": ["child", "family", "life"],
+    "chorus": ["music", "voice", "harmony"],
+    "chronicle": ["story", "time", "memory"],
+    "cipher": ["code", "language", "mystery"],
+    "circuit": ["tech", "machine", "energy"],
+    "city": ["city", "human", "home"],
+    "code": ["code", "tech", "language"],
+    "cognition": ["mind", "learning", "knowledge"],
+    "color": ["art", "paint", "beauty"],
+    "compassion": ["love", "peace", "emotion"],
+    "compute": ["tech", "machine", "mind"],
+    "conflict": ["war", "conflict", "chaos"],
+    "cosmos": ["space", "cosmos", "order"],
+    "courage": ["hope", "war", "power"],
+    "craft": ["work", "labor", "creation"],
+    "creation": ["creation", "art", "life"],
+    "crowd": ["city", "people", "home"],
+    "crown": ["royalty", "power", "order"],
+    "curiosity": ["child", "youth", "family"],
+    "dark": ["dark", "night", "mystery"],
+    "data": ["tech", "knowledge", "code"],
+    "daughter": ["family", "child", "human"],
+    "dawn": ["day", "light", "beginning"],
+    "day": ["day", "light", "time"],
+    "death": ["death", "end", "silence"],
+    "delight": ["joy", "emotion", "light"],
+    "depth": ["dream", "mind", "night"],
+    "design": ["art", "creation", "order"],
+    "desire": ["love", "emotion", "want"],
+    "devotion": ["love", "divine", "faith"],
+    "dialect": ["language", "voice", "identity"],
+    "dialogue": ["language", "voice", "story"],
+    "digital": ["tech", "machine", "code"],
+    "doctrine": ["truth", "order", "knowledge"],
+    "dominion": ["power", "order", "royalty"],
+    "dread": ["fear", "dark", "emotion"],
+    "dream": ["dream", "mind", "night"],
+    "drift": ["road", "journey", "path"],
+    "dust": ["earth", "death", "past"],
+    "dwelling": ["home", "body", "place"],
+    "earth": ["earth", "nature", "home"],
+    "ease": ["peace", "calm", "order"],
+    "echo": ["voice", "memory", "sound"],
+    "eclipse": ["dark", "sun", "moon"],
+    "eddy": ["water", "sea", "flow"],
+    "eden": ["garden", "peace", "beginning"],
+    "edge": ["enemy", "conflict", "war"],
+    "education": ["learning", "knowledge", "mind"],
+    "elegance": ["royalty", "power", "order"],
+    "elegy": ["death", "memory", "voice"],
+    "elm": ["tree", "nature", "life"],
+    "eloquent": ["language", "voice", "beauty"],
+    "elysium": ["peace", "divine", "afterlife"],
+    "ember": ["fire", "hope", "past"],
+    "embrace": ["love", "hold", "warmth"],
+    "emergence": ["life", "future", "creation"],
+    "emotion": ["emotion", "heart", "feeling"],
+    "empathy": ["love", "mind", "emotion"],
+    "empire": ["power", "royalty", "order"],
+    "emptiness": ["silence", "quiet", "peace"],
+    "enemy": ["enemy", "war", "conflict"],
+    "energy": ["energy", "force", "tech"],
+    "engage": ["game", "play", "rule"],
+    "engine": ["machine", "tech", "power", "engine"],
+    "entropy": ["chaos", "time", "physics"],
+    "eon": ["time", "past", "future"],
+    "epiphany": ["mind", "insight", "truth"],
+    "essence": ["spirit", "self", "truth"],
+    "eternity": ["time", "divine", "forever"],
+    "ether": ["spirit", "space", "aether"],
+    "example": ["family", "parent", "guide"],
+    "exchange": ["money", "value", "wealth"],
+    "exegesis": ["language", "truth", "meaning"],
+    "exhibit": ["gallery", "art", "paint"],
+    "expression": ["art", "language", "emotion"],
+    "fable": ["story", "myth", "language"],
+    "faith": ["faith", "divine", "hope"],
+    "family": ["family", "home", "love"],
+    "father": ["family", "human", "parent"],
+    "fear": ["fear", "emotion", "dark"],
+    "feeling": ["emotion", "heart", "body"],
+    "fiction": ["story", "language", "dream"],
+    "fire": ["fire", "energy", "passion"],
+    "flame": ["fire", "light", "passion"],
+    "flesh": ["body", "human", "life"],
+    "force": ["power", "war", "energy"],
+    "forest": ["tree", "nature", "earth"],
+    "forge": ["creation", "fire", "work"],
+    "form": ["art", "order", "body"],
+    "foundation": ["family", "parent", "guide"],
+    "frame": ["art", "order", "vision"],
+    "freedom": ["liberty", "power", "self"],
+    "friend": ["friend", "love", "human"],
+    "frontier": ["future", "space", "journey"],
+    "frost": ["fear", "dread", "dark"],
+    "fugue": ["music", "mind", "pattern"],
+    "future": ["future", "time", "hope"],
+    "galaxy": ["space", "cosmos", "star"],
+    "gallery": ["art", "gallery", "paint"],
+    "gambit": ["game", "play", "rule"],
+    "game": ["game", "play", "rule"],
+    "garden": ["nature", "home", "life"],
+    "gear": ["engine", "machine", "tech"],
+    "genesis": ["beginning", "creation", "life"],
+    "gesture": ["body", "language", "art"],
+    "gift": ["love", "giving", "joy"],
+    "gloom": ["night", "dark", "dream"],
+    "glory": ["royalty", "power", "order"],
+    "glow": ["light", "warmth", "hope"],
+    "glyph": ["language", "code", "symbol"],
+    "god": ["divine", "spirit", "power"],
+    "golem": ["magic", "creation", "body"],
+    "gospel": ["truth", "divine", "story"],
+    "grace": ["beauty", "divine", "peace"],
+    "grammar": ["language", "order", "code"],
+    "grief": ["sorrow", "death", "emotion"],
+    "ground": ["earth", "home", "truth"],
+    "growth": ["life", "nature", "future"],
+    "guardian": ["protect", "power", "friend"],
+    "guidance": ["hope", "path", "wisdom"],
+    "halo": ["divine", "light", "holy"],
+    "harbor": ["home", "sea", "refuge"],
+    "hardware": ["tech", "machine", "body"],
+    "harmony": ["music", "peace", "order"],
+    "havoc": ["chaos", "disorder", "entropy"],
+    "heart": ["heart", "love", "emotion"],
+    "hearth": ["home", "fire", "family"],
+    "heat": ["fire", "energy", "passion"],
+    "heir": ["family", "legacy", "future"],
+    "history": ["past", "story", "memory"],
+    "hologram": ["tech", "illusion", "light"],
+    "holy": ["divine", "spirit", "sacred"],
+    "home": ["home", "family", "place"],
+    "honesty": ["truth", "reality", "light"],
+    "honor": ["virtue", "war", "truth"],
+    "hope": ["hope", "future", "light"],
+    "horizon": ["sky", "future", "journey"],
+    "hue": ["color", "art", "light"],
+    "human": ["human", "self", "body"],
+    "humus": ["earth", "nature", "ground"],
+    "hush": ["silence", "peace", "night"],
+    "hymn": ["music", "divine", "voice"],
+    "hypothesis": ["mind", "science", "learning"],
+    "icon": ["symbol", "art", "tech"],
+    "idea": ["mind", "creation", "thought"],
+    "identity": ["self", "name", "human"],
+    "idiom": ["language", "meaning", "voice"],
+    "ignition": ["fire", "start", "energy"],
+    "illusion": ["mind", "dream", "trick"],
+    "image": ["art", "vision", "memory"],
+    "incantation": ["magic", "spell", "voice"],
+    "inference": ["mind", "logic", "learning"],
+    "injury": ["pain", "hurt", "body"],
+    "ink": ["language", "art", "writing"],
+    "inner": ["self", "mind", "spirit"],
+    "innocence": ["child", "youth", "family"],
+    "insight": ["mind", "truth", "learning"],
+    "inspiration": ["art", "creation", "spirit"],
+    "intelligence": ["mind", "tech", "learning", "knowledge"],
+    "interface": ["tech", "code", "connection"],
+    "intersection": ["city", "people", "home"],
+    "interval": ["time", "past", "future"],
+    "intimacy": ["love", "close", "emotion"],
+    "intuition": ["mind", "feeling", "insight"],
+    "iris": ["eye", "color", "vision"],
+    "iron": ["royalty", "power", "order"],
+    "jargon": ["language", "code", "tech"],
+    "jest": ["play", "joy", "voice"],
+    "journal": ["story", "writing", "memory"],
+    "journey": ["road", "life", "quest"],
+    "joy": ["joy", "emotion", "light"],
+    "jubilant": ["joy", "emotion", "celebration"],
+    "jubilee": ["joy", "celebration", "freedom"],
+    "justice": ["truth", "order", "law"],
+    "kairos": ["time", "moment", "fate"],
+    "kernel": ["code", "core", "essence"],
+    "kin": ["family", "blood", "friend"],
+    "kindling": ["fire", "start", "hope"],
+    "kindness": ["love", "peace", "emotion"],
+    "king": ["royalty", "power", "order"],
+    "kingdom": ["royalty", "power", "order"],
+    "kiss": ["love", "intimacy", "emotion"],
+    "kite": ["sky", "air", "space"],
+    "knowledge": ["knowledge", "mind", "learning"],
+    "kohl": ["dark", "night", "mystery"],
+    "labor": ["work", "body", "creation"],
+    "landscape": ["earth", "art", "nature"],
+    "language": ["language", "word", "voice"],
+    "lantern": ["light", "guide", "night"],
+    "laughter": ["joy", "voice", "emotion"],
+    "law": ["order", "truth", "power"],
+    "learning": ["learning", "mind", "knowledge"],
+    "legacy": ["past", "family", "memory"],
+    "letter": ["language", "writing", "word"],
+    "lexicon": ["language", "word", "knowledge"],
+    "liberty": ["freedom", "power", "self"],
+    "life": ["life", "living", "body"],
+    "light": ["light", "day", "hope"],
+    "logic": ["logic", "mind", "order"],
+    "longing": ["love", "desire", "yearn"],
+    "lore": ["story", "knowledge", "myth"],
+    "loss": ["death", "grief", "absence"],
+    "love": ["love", "heart", "emotion"],
+    "lucid": ["mind", "dream", "clarity"],
+    "lull": ["silence", "quiet", "peace"],
+    "lumen": ["light", "vision", "tech"],
+    "machine": ["machine", "tech", "engine"],
+    "magic": ["magic", "spell", "wonder"],
+    "mark": ["name", "identity", "word"],
+    "matrix": ["tech", "code", "structure"],
+    "meaning": ["meaning", "truth", "language"],
+    "melody": ["music", "beauty", "voice"],
+    "memory": ["memory", "past", "mind"],
+    "menace": ["enemy", "conflict", "war"],
+    "mercy": ["peace", "compassion", "divine"],
+    "meridian": ["moon", "night", "sky"],
+    "message": ["language", "communication", "word"],
+    "mind": ["mind", "thought", "learning"],
+    "mint": ["money", "value", "wealth"],
+    "mirror": ["self", "reflection", "truth"],
+    "mnemonic": ["memory", "past", "learning"],
+    "model": ["tech", "learning", "form"],
+    "moment": ["time", "past", "future"],
+    "money": ["money", "power", "value"],
+    "moon": ["moon", "night", "sky"],
+    "mortal": ["human", "death", "life"],
+    "mosaic": ["art", "pattern", "pieces"],
+    "mother": ["family", "parent", "life"],
+    "motion": ["motion", "body", "time"],
+    "move": ["game", "play", "rule"],
+    "muse": ["art", "inspiration", "creation"],
+    "music": ["music", "sound", "art"],
+    "mystery": ["mystery", "unknown", "spirit"],
+    "myth": ["story", "myth", "spirit"],
+    "name": ["name", "identity", "word"],
+    "narrative": ["story", "language", "time"],
+    "nation": ["royalty", "power", "order"],
+    "nature": ["nature", "earth", "life"],
+    "nearness": ["love", "close", "presence"],
+    "nebula": ["space", "star", "cosmos"],
+    "needle": ["pain", "hurt", "body"],
+    "nemesis": ["anger", "rage", "fire"],
+    "nest": ["home", "family", "safety"],
+    "network": ["tech", "connection", "system"],
+    "neural": ["mind", "tech", "learning"],
+    "nexus": ["engine", "machine", "tech"],
+    "night": ["night", "dark", "dream"],
+    "nocturne": ["music", "night", "dream"],
+    "noir": ["silence", "quiet", "peace"],
+    "note": ["music", "language", "memory"],
+    "notion": ["mind", "idea", "thought"],
+    "nova": ["star", "space", "explosion"],
+    "now": ["present", "time", "moment"],
+    "nucleus": ["bone", "body", "structure"],
+    "null": ["void", "zero", "absence"],
+    "numinous": ["divine", "spirit", "mystery"],
+    "nurture": ["care", "family", "growth"],
+    "oasis": ["water", "refuge", "hope"],
+    "oath": ["promise", "truth", "power"],
+    "ocean": ["sea", "water", "depth"],
+    "odyssey": ["journey", "story", "quest"],
+    "offering": ["gift", "divine", "ritual"],
+    "omen": ["moon", "night", "sky"],
+    "omniscient": ["knowledge", "divine", "mind"],
+    "openness": ["open", "trust", "light"],
+    "opera": ["music", "drama", "voice"],
+    "opus": ["art", "creation", "work"],
+    "oracle": ["prophecy", "truth", "mystery"],
+    "oration": ["voice", "speech", "language"],
+    "orbit": ["space", "order", "cycle"],
+    "order": ["order", "structure", "peace"],
+    "ore": ["money", "value", "wealth"],
+    "organ": ["body", "flesh", "human"],
+    "origin": ["beginning", "source", "past"],
+    "ossuary": ["bone", "body", "structure"],
+    "output": ["tech", "result", "code"],
+    "overmind": ["mind", "tech", "power"],
+    "overture": ["hope", "future", "light"],
+    "oxygen": ["blood", "life", "family"],
+    "pain": ["pain", "body", "emotion"],
+    "paint": ["paint", "art", "color"],
+    "palette": ["art", "paint", "color"],
+    "pall": ["peace", "calm", "order"],
+    "paradox": ["mind", "truth", "contradiction"],
+    "passion": ["love", "fire", "emotion"],
+    "past": ["past", "memory", "time"],
+    "path": ["road", "journey", "life"],
+    "pattern": ["order", "art", "code"],
+    "peace": ["peace", "calm", "order"],
+    "person": ["human", "self", "identity"],
+    "phantom": ["ghost", "memory", "illusion"],
+    "pierce": ["pain", "hurt", "body"],
+    "planet": ["space", "cosmos", "void"],
+    "play": ["play", "game", "joy"],
+    "pneuma": ["spirit", "breath", "life"],
+    "poem": ["language", "art", "poetry"],
+    "portal": ["door", "magic", "space"],
+    "power": ["power", "force", "control"],
+    "praxis": ["action", "practice", "work"],
+    "prayer": ["divine", "hope", "spirit"],
+    "precedent": ["past", "memory", "history"],
+    "presence": ["now", "being", "awareness"],
+    "process": ["work", "tech", "order"],
+    "promise": ["hope", "word", "future"],
+    "pulse": ["life", "body", "rhythm"],
+    "purpose": ["meaning", "will", "life"],
+    "pyre": ["fire", "death", "ritual"],
+    "quantum": ["tech", "physics", "space"],
+    "queen": ["royalty", "power", "order"],
+    "query": ["question", "tech", "mind"],
+    "quiet": ["silence", "peace", "calm"],
+    "quill": ["writing", "language", "art"],
+    "radiance": ["light", "beauty", "glory"],
+    "radiant": ["light", "beauty", "joy"],
+    "rage": ["anger", "fire", "emotion"],
+    "realm": ["dark", "night", "mystery"],
+    "reason": ["mind", "logic", "truth"],
+    "recall": ["memory", "past", "mind"],
+    "refuge": ["home", "safety", "peace"],
+    "reign": ["royalty", "power", "order"],
+    "relation": ["connection", "family", "love"],
+    "relay": ["robot", "machine", "tech"],
+    "render": ["art", "tech", "creation"],
+    "reply": ["language", "voice", "communication"],
+    "resonance": ["sound", "echo", "harmony"],
+    "revelation": ["truth", "divine", "insight"],
+    "reverie": ["dream", "mind", "soft"],
+    "rhapsody": ["music", "emotion", "art"],
+    "rhythm": ["music", "time", "body"],
+    "riddle": ["mystery", "language", "mind"],
+    "rigor": ["fear", "dread", "dark"],
+    "rise": ["future", "hope", "time"],
+    "ritual": ["ritual", "spirit", "order"],
+    "river": ["water", "flow", "journey"],
+    "road": ["road", "journey", "path"],
+    "robot": ["robot", "machine", "tech"],
+    "romance": ["love", "story", "emotion"],
+    "root": ["origin", "earth", "family"],
+    "route": ["road", "journey", "path"],
+    "rule": ["order", "structure", "law"],
+    "rune": ["magic", "language", "symbol"],
+    "saga": ["story", "narrative", "language"],
+    "science": ["knowledge", "learning", "tech"],
+    "sea": ["sea", "water", "depth"],
+    "seed": ["beginning", "life", "potential"],
+    "self": ["self", "identity", "mind"],
+    "seraph": ["divine", "angel", "light"],
+    "shadow": ["dark", "self", "mystery"],
+    "sigil": ["magic", "symbol", "spell"],
+    "signal": ["tech", "communication", "code"],
+    "silence": ["silence", "peace", "void"],
+    "sky": ["sky", "space", "air"],
+    "solstice": ["sun", "light", "day"],
+    "sorrow": ["grief", "pain", "emotion"],
+    "soul": ["soul", "spirit", "self"],
+    "space": ["space", "void", "cosmos"],
+    "spark": ["star", "sky", "space"],
+    "spectrum": ["light", "color", "range"],
+    "speech": ["voice", "language", "word"],
+    "spell": ["magic", "spell", "word"],
+    "spirit": ["spirit", "soul", "life"],
+    "star": ["star", "sky", "hope"],
+    "still": ["silence", "quiet", "peace"],
+    "storm": ["chaos", "disorder", "entropy"],
+    "story": ["story", "language", "narrative"],
+    "strength": ["power", "body", "will"],
+    "summit": ["sky", "air", "space"],
+    "sun": ["sun", "light", "day"],
+    "surge": ["sea", "water", "depth"],
+    "symphony": ["music", "harmony", "art"],
+    "syntax": ["language", "code", "order"],
+    "system": ["order", "tech", "structure"],
+    "tale": ["story", "narrative", "language"],
+    "talisman": ["magic", "protect", "object"],
+    "tapestry": ["art", "story", "woven"],
+    "teaching": ["learning", "knowledge", "wisdom"],
+    "tech": ["tech", "machine", "code"],
+    "temple": ["divine", "sacred", "silence"],
+    "tenderness": ["love", "care", "soft"],
+    "terrain": ["earth", "nature", "ground"],
+    "terror": ["fear", "dark", "emotion"],
+    "testament": ["truth", "story", "faith"],
+    "texture": ["art", "touch", "surface"],
+    "theory": ["mind", "knowledge", "science"],
+    "thesis": ["truth", "reality", "light"],
+    "thought": ["mind", "idea", "thinking"],
+    "threshold": ["boundary", "transition", "door"],
+    "tide": ["sea", "time", "cycle"],
+    "time": ["time", "duration", "change"],
+    "token": ["symbol", "value", "tech"],
+    "tongue": ["language", "voice", "body"],
+    "torch": ["light", "day", "hope"],
+    "torque": ["robot", "machine", "tech"],
+    "trace": ["past", "memory", "history"],
+    "transit": ["city", "people", "home"],
+    "tree": ["tree", "nature", "life"],
+    "trunk": ["tree", "nature", "life"],
+    "trust": ["trust", "love", "faith"],
+    "truth": ["truth", "reality", "light"],
+    "twilight": ["night", "dark", "dream"],
+    "ultrahuman": ["human", "tech", "future"],
+    "ultraviolet": ["sun", "light", "day"],
+    "umbra": ["shadow", "dark", "eclipse"],
+    "understanding": ["mind", "knowledge", "empathy"],
+    "unfold": ["future", "hope", "time"],
+    "union": ["love", "join", "peace"],
+    "unity": ["music", "sound", "harmony"],
+    "universe": ["space", "cosmos", "all"],
+    "unspoken": ["silence", "secret", "emotion"],
+    "unveiling": ["truth", "reality", "light"],
+    "utility": ["use", "tech", "function"],
+    "utopia": ["ideal", "future", "peace"],
+    "value": ["worth", "money", "ethic"],
+    "vernacular": ["language", "speech", "local"],
+    "verse": ["poetry", "language", "music"],
+    "victory": ["win", "war", "triumph"],
+    "virtue": ["good", "moral", "strength"],
+    "vision": ["vision", "future", "sight"],
+    "vita": ["life", "living", "vital"],
+    "voice": ["voice", "language", "expression"],
+    "void": ["void", "empty", "space"],
+    "voltage": ["energy", "tech", "power"],
+    "vow": ["promise", "love", "oath"],
+    "voyage": ["journey", "sea", "adventure"],
+    "war": ["war", "conflict", "violence"],
+    "warmth": ["heat", "love", "comfort"],
+    "water": ["water", "life", "flow"],
+    "wave": ["water", "motion", "energy"],
+    "wavelength": ["energy", "tech", "signal"],
+    "wayfarer": ["journey", "road", "travel"],
+    "wealth": ["money", "abundance", "power"],
+    "weapon": ["war", "conflict", "power"],
+    "whisper": ["voice", "soft", "secret"],
+    "will": ["will", "power", "self"],
+    "wisdom": ["wisdom", "knowledge", "mind"],
+    "witness": ["see", "truth", "memory"],
+    "wonder": ["wonder", "awe", "curiosity"],
+    "word": ["word", "language", "meaning"],
+    "work": ["work", "labor", "creation"],
+    "world": ["world", "earth", "all"],
+    "worship": ["divine", "devotion", "ritual"],
+    "wound": ["pain", "injury", "scar"],
+    "writing": ["writing", "language", "art"],
+    "yard": ["enemy", "conflict", "war"],
+    "yarn": ["story", "thread", "telling"],
+    "year": ["time", "cycle", "measure"],
+    "yearn": ["desire", "love", "longing"],
+    "yes": ["joy", "delight", "light"],
+    "yield": ["play", "game", "joy"],
+    "yonder": ["sky", "air", "space"],
+    "youth": ["youth", "life", "beginning"],
+    "zeitgeist": ["time", "spirit", "culture"],
+    "zen": ["peace", "mind", "spirit"],
+    "zero": ["void", "null", "beginning"],
+    "zest": ["joy", "energy", "flavor"],
+  };
+
+  var SEED_MEANINGS = {
+    AI: { gloss: "artificial intelligence", themes: ["tech", "mind", "machine", "learning", "code"], classic: ["Artificial", "Intelligence"] },
+    ART: { gloss: "creative expression", themes: ["art", "creation", "beauty", "paint"], classic: ["Atelier", "Render", "Tapestry"] },
+    DAY: { gloss: "daylight hours", themes: ["day", "light", "sun", "time"], classic: ["Dawn", "Aurora", "Yield"] },
+    GOD: { gloss: "the divine", themes: ["divine", "spirit", "holy", "power"], classic: ["Grace", "Omniscient", "Doctrine"] },
+    JOY: { gloss: "glad emotion", themes: ["joy", "delight", "light", "emotion"], classic: ["Jubilee", "Openness", "Yes"] },
+    NOW: { gloss: "the present", themes: ["present", "now", "moment", "awareness"], classic: ["Nexus", "Openness", "Witness"] },
+    SEA: { gloss: "ocean waters", themes: ["sea", "water", "depth", "voyage"], classic: ["Surge", "Eddy", "Abyss"] },
+    SKY: { gloss: "heavens above", themes: ["sky", "air", "space", "light"], classic: ["Summit", "Kite", "Yonder"] },
+    SUN: { gloss: "day star", themes: ["sun", "light", "day", "heat"], classic: ["Solstice", "Ultraviolet", "Nova"] },
+    WAR: { gloss: "armed conflict", themes: ["war", "conflict", "power", "violence"], classic: ["Weapon", "Armor", "Rage"] },
+    BODY: { gloss: "physical form", themes: ["body", "flesh", "human", "form"], classic: ["Breath", "Organ", "Depth", "Yield"] },
+    BONE: { gloss: "skeletal matter", themes: ["bone", "body", "structure", "death"], classic: ["Base", "Ossuary", "Nucleus", "Edge"] },
+    CITY: { gloss: "urban place", themes: ["city", "people", "home", "street"], classic: ["Crowd", "Intersection", "Transit", "Yard"] },
+    CODE: { gloss: "program and cipher", themes: ["code", "tech", "language", "logic"], classic: ["Cipher", "Output", "Data", "Engine"] },
+    DARK: { gloss: "absence of light", themes: ["dark", "night", "mystery", "shadow"], classic: ["Depth", "Abyss", "Realm", "Kohl"] },
+    FEAR: { gloss: "anxious dread", themes: ["fear", "dread", "dark", "emotion"], classic: ["Frost", "Echo", "Anxiety", "Rigor"] },
+    FIRE: { gloss: "flame and heat", themes: ["fire", "heat", "passion", "energy"], classic: ["Flame", "Ignition", "Radiance", "Ember"] },
+    GAME: { gloss: "structured play", themes: ["game", "play", "rule", "sport"], classic: ["Gambit", "Arena", "Move", "Engage"] },
+    HOME: { gloss: "dwelling place", themes: ["home", "family", "refuge", "hearth"], classic: ["Hearth", "Oasis", "Nest", "Eden"] },
+    HOPE: { gloss: "expectant desire", themes: ["hope", "future", "light", "faith"], classic: ["Horizon", "Overture", "Promise", "Ember"] },
+    KING: { gloss: "male sovereign", themes: ["royalty", "power", "order", "rule"], classic: ["Kingdom", "Iron", "Nation", "Glory"] },
+    LIFE: { gloss: "living existence", themes: ["life", "living", "body", "breath"], classic: ["Lumen", "Iris", "Flame", "Emergence"] },
+    LOVE: { gloss: "affection and devotion", themes: ["love", "heart", "emotion", "intimacy"], classic: ["Longing", "Openness", "Vow", "Embrace"] },
+    MIND: { gloss: "thought and awareness", themes: ["mind", "thought", "learning", "self"], classic: ["Memory", "Insight", "Notion", "Dream"] },
+    MOON: { gloss: "night satellite", themes: ["moon", "night", "sky", "tide"], classic: ["Meridian", "Orbit", "Omen", "Nocturne"] },
+    NAME: { gloss: "personal label", themes: ["name", "identity", "word", "self"], classic: ["Notion", "Allegory", "Mark", "Essence"] },
+    PAIN: { gloss: "hurt sensation", themes: ["pain", "hurt", "body", "emotion"], classic: ["Pierce", "Ache", "Injury", "Needle"] },
+    PAST: { gloss: "time behind", themes: ["past", "memory", "history", "before"], classic: ["Precedent", "Archive", "Story", "Trace"] },
+    PLAY: { gloss: "joyful activity", themes: ["play", "game", "joy", "fun"], classic: ["Pulse", "Laughter", "Amusement", "Yield"] },
+    ROAD: { gloss: "path of travel", themes: ["road", "journey", "path", "travel"], classic: ["Route", "Odyssey", "Avenue", "Drift"] },
+    SELF: { gloss: "one's own being", themes: ["self", "identity", "mind", "soul"], classic: ["Soul", "Essence", "Lucid", "Form"] },
+    SOUL: { gloss: "immaterial essence", themes: ["soul", "spirit", "self", "essence"], classic: ["Spirit", "Origin", "Umbra", "Lumen"] },
+    STAR: { gloss: "distant sun", themes: ["star", "sky", "space", "hope"], classic: ["Spark", "Transit", "Aurora", "Radiance"] },
+    TIME: { gloss: "duration and change", themes: ["time", "past", "future", "memory"], classic: ["Tide", "Interval", "Moment", "Eon"] },
+    TREE: { gloss: "woody plant", themes: ["tree", "nature", "life", "root"], classic: ["Trunk", "Root", "Eden", "Elm"] },
+    WORD: { gloss: "unit of language", themes: ["language", "word", "voice", "communication", "meaning"], classic: ["Writing", "Oracle", "Reply", "Dialect"] },
+    WORK: { gloss: "labor and craft", themes: ["work", "labor", "creation", "effort"], classic: ["Will", "Opus", "Render", "Craft"] },
+    ANGER: { gloss: "hostile emotion", themes: ["anger", "rage", "fire", "conflict"], classic: ["Ash", "Nemesis", "Grief", "Ember", "Rage"] },
+    BLOOD: { gloss: "vital fluid", themes: ["blood", "life", "family", "body"], classic: ["Bond", "Legacy", "Oxygen", "Origin", "Depth"] },
+    CHAOS: { gloss: "disorder", themes: ["chaos", "disorder", "entropy", "wild"], classic: ["Cascade", "Havoc", "Abyss", "Overture", "Storm"] },
+    CHILD: { gloss: "young person", themes: ["child", "youth", "family", "innocence"], classic: ["Curiosity", "Hope", "Innocence", "Laughter", "Dream"] },
+    DEATH: { gloss: "end of life", themes: ["death", "end", "silence", "memory"], classic: ["Dust", "Elegy", "Ash", "Threshold", "Hush"] },
+    DREAM: { gloss: "vision in sleep", themes: ["dream", "mind", "night", "vision"], classic: ["Depth", "Reverie", "Eden", "Astral", "Myth"] },
+    EARTH: { gloss: "ground and world", themes: ["earth", "nature", "ground", "world"], classic: ["Eden", "Atlas", "Root", "Terrain", "Humus"] },
+    ENEMY: { gloss: "adversary", themes: ["enemy", "conflict", "war", "rival"], classic: ["Edge", "Nemesis", "Ember", "Menace", "Yard"] },
+    HEART: { gloss: "seat of feeling", themes: ["heart", "love", "emotion", "body"], classic: ["Hope", "Emotion", "Affection", "Rhythm", "Tenderness"] },
+    HUMAN: { gloss: "person", themes: ["human", "person", "body", "self"], classic: ["Heart", "Unity", "Memory", "Agency", "Nature"] },
+    LIGHT: { gloss: "illumination", themes: ["light", "day", "hope", "vision"], classic: ["Lumen", "Iris", "Glow", "Halo", "Torch"] },
+    MAGIC: { gloss: "supernatural art", themes: ["magic", "spell", "wonder", "arcane"], classic: ["Mystery", "Arcane", "Glyph", "Incantation", "Charm"] },
+    MONEY: { gloss: "currency and value", themes: ["money", "value", "wealth", "trade"], classic: ["Mint", "Ore", "Note", "Exchange", "Yield"] },
+    MUSIC: { gloss: "organized sound", themes: ["music", "sound", "harmony", "rhythm"], classic: ["Melody", "Unity", "Symphony", "Interval", "Cadence"] },
+    NIGHT: { gloss: "dark hours", themes: ["night", "dark", "dream", "moon"], classic: ["Nocturne", "Iris", "Gloom", "Hush", "Twilight"] },
+    ORDER: { gloss: "structured arrangement", themes: ["order", "structure", "law", "peace"], classic: ["Orbit", "Rule", "Doctrine", "Eden", "Rhythm"] },
+    PAINT: { gloss: "pigment and image", themes: ["paint", "art", "color", "creation"], classic: ["Palette", "Atelier", "Image", "Notion", "Texture"] },
+    PEACE: { gloss: "tranquility", themes: ["peace", "calm", "order", "silence"], classic: ["Pall", "Ease", "Amity", "Calm", "Eden"] },
+    POWER: { gloss: "force and control", themes: ["power", "force", "control", "strength"], classic: ["Pulse", "Orbit", "Will", "Empire", "Reign"] },
+    QUEEN: { gloss: "female sovereign", themes: ["royalty", "power", "order", "grace"], classic: ["Quiet", "Unity", "Empire", "Elegance", "Nation"] },
+    ROBOT: { gloss: "mechanical agent", themes: ["robot", "machine", "tech", "automation"], classic: ["Relay", "Output", "Binary", "Orbit", "Torque"] },
+    SPACE: { gloss: "cosmic expanse", themes: ["space", "cosmos", "void", "star"], classic: ["Star", "Planet", "Aurora", "Cosmos", "Ether"] },
+    SPELL: { gloss: "incantation", themes: ["spell", "magic", "word", "ritual"], classic: ["Sigil", "Power", "Echo", "Lore", "Lexicon"] },
+    STORY: { gloss: "narrative account", themes: ["story", "narrative", "language", "myth"], classic: ["Saga", "Tale", "Oracle", "Riddle", "Yarn"] },
+    TRUTH: { gloss: "what is real", themes: ["truth", "reality", "light", "honesty"], classic: ["Testament", "Revelation", "Unveiling", "Thesis", "Honesty"] },
+    VOICE: { gloss: "spoken sound", themes: ["voice", "speech", "language", "expression"], classic: ["Verse", "Oration", "Idiom", "Cadence", "Echo"] },
+    WATER: { gloss: "fluid of life", themes: ["water", "sea", "flow", "life"], classic: ["Wave", "Aquifer", "Tide", "Eddy", "River"] },
+    ENGINE: { gloss: "machine that works", themes: ["engine", "machine", "tech", "power"], classic: ["Energy", "Nexus", "Gear", "Ignition", "Network", "Ember"] },
+    FATHER: { gloss: "male parent", themes: ["family", "parent", "guide", "legacy"], classic: ["Foundation", "Anchor", "Testament", "Harbor", "Example", "Root"] },
+    FRIEND: { gloss: "companion", themes: ["friend", "bond", "trust", "love"], classic: ["Faith", "Refuge", "Intimacy", "Embrace", "Nearness", "Devotion"] },
+    FUTURE: { gloss: "time ahead", themes: ["future", "hope", "time", "tomorrow"], classic: ["Frontier", "Unfold", "Transit", "Utopia", "Rise", "Emergence"] },
+    MEMORY: { gloss: "recalled past", themes: ["memory", "past", "mind", "recall"], classic: ["Mnemonic", "Echo", "Moment", "Origin", "Recall", "Yarn"] },
+    MOTHER: { gloss: "female parent", themes: ["family", "parent", "care", "life"], classic: ["Mercy", "Origin", "Tenderness", "Hearth", "Embrace", "Root"] },
+    GALLERY: { gloss: "hall of art", themes: ["gallery", "art", "paint", "display"], classic: ["Glyph", "Atelier", "Lumen", "Legacy", "Exhibit", "Render", "Yarn"] },
+    SILENCE: { gloss: "absence of sound", themes: ["silence", "quiet", "peace", "void"], classic: ["Still", "Interval", "Lull", "Emptiness", "Noir", "Calm", "Ease"] },
+    PAINTING: { gloss: "painted image", themes: ["paint", "art", "image", "creation"], classic: ["Palette", "Atelier", "Image", "Notion", "Texture", "Ink", "Notion", "Gesture"] },
+  };
+
+
+
+  // Semantic coverage boosts for high-value letters
+  (function boostTags() {
+    var extra = {
+      openness: ["love", "heart", "trust", "emotion"],
+      offering: ["love", "gift", "devotion"],
+      ocean: ["water", "depth", "emotion"],
+      orbit: ["space", "cycle", "devotion"],
+      oath: ["love", "promise", "vow"],
+      opus: ["art", "creation", "work"],
+      oracle: ["language", "voice", "wisdom", "meaning"],
+      oration: ["language", "voice", "speech"],
+      origin: ["beginning", "source", "identity"],
+      vessel: ["body", "spirit", "heart"],
+      vow: ["love", "promise", "devotion"],
+      virtue: ["good", "moral", "love"],
+      vitality: ["life", "energy", "heart"],
+      velvet: ["soft", "intimacy", "beauty"],
+      laughter: ["joy", "love", "emotion"],
+      longing: ["love", "desire", "yearn", "heart"],
+      loyalty: ["love", "devotion", "trust"],
+      luminosity: ["light", "beauty", "hope"],
+      lexicon: ["language", "word", "meaning"],
+      letter: ["language", "word", "writing"],
+      lyric: ["language", "poetry", "music"],
+      dialect: ["language", "word", "voice"],
+      dialogue: ["language", "communication", "voice"],
+      dictionary: ["language", "word", "meaning"],
+      discourse: ["language", "speech", "meaning"],
+      writing: ["language", "word", "writing"],
+      word: ["language", "word", "meaning"],
+      whisper: ["voice", "language", "intimacy"],
+      wisdom: ["mind", "knowledge", "learning"],
+      algorithm: ["tech", "code", "machine", "learning"],
+      artificial: ["tech", "mind", "machine", "learning"],
+      intelligence: ["mind", "tech", "learning", "code"],
+      interface: ["tech", "machine", "code"],
+      inference: ["mind", "learning", "logic"],
+      inner: ["mind", "self", "emotion"],
+      insight: ["mind", "learning", "wisdom"],
+      affection: ["love", "emotion", "heart"],
+      amity: ["love", "friendship", "peace"],
+      embrace: ["love", "intimacy", "heart"],
+      empathy: ["love", "emotion", "mind"],
+      emotion: ["emotion", "heart", "feeling"],
+      canvas: ["art", "creation", "paint"],
+      creation: ["art", "creation", "making"],
+      curiosity: ["mind", "learning", "wonder"],
+      clan: ["family", "bond", "identity"],
+      clancy: ["name", "identity", "story"]
+    };
+    Object.keys(extra).forEach(function (k) {
+      WORD_TAGS[k] = extra[k];
+    });
+  })();
+
+  // Ensure classic expansion words exist in the letter banks
+  Object.keys(SEED_MEANINGS).forEach(function (seed) {
+    var classic = SEED_MEANINGS[seed].classic;
+    if (!classic) return;
+    classic.forEach(function (w, i) {
+      var L = seed.charAt(i);
+      if (!L || !LEXICON[L]) return;
+      if (LEXICON[L].indexOf(w) === -1) LEXICON[L].push(w);
+      var key = w.toLowerCase();
+      if (!WORD_TAGS[key]) {
+        WORD_TAGS[key] = (SEED_MEANINGS[seed].themes || []).slice(0, 3);
+      }
+    });
+  });
 
   var CONNECTORS = [
     ["from", "the"],
@@ -135,11 +853,31 @@
     ["under"]
   ];
 
+  var THEME_CONNECTOR_BIAS = {
+    love: [1, 8, 7],
+    tech: [2, 6, 0],
+    mind: [7, 6, 1],
+    war: [3, 0, 4],
+    peace: [7, 8, 5],
+    death: [4, 11, 0],
+    light: [0, 5, 2],
+    dark: [4, 11, 5],
+    language: [1, 6, 8],
+    art: [1, 8, 2],
+    water: [6, 10, 2],
+    fire: [2, 0, 3],
+    space: [5, 2, 3],
+    home: [7, 1, 8],
+    divine: [7, 1, 5]
+  };
+
   var state = {
     seedRaw: "",
     seedLetters: "",
     words: [],
     poem: "",
+    gloss: "",
+    themes: [],
     nonce: 0,
     filterLetter: "",
     history: [],
@@ -176,30 +914,196 @@
       .replace(/[^A-Z]/g, "");
   }
 
-  function pickWord(letter, rng, preferredLen, used) {
-    var bank = LEXICON[letter] || [letter + "ther"];
+  function unique(arr) {
+    var seen = {};
+    var out = [];
+    var i;
+    for (i = 0; i < arr.length; i++) {
+      if (!arr[i] || seen[arr[i]]) continue;
+      seen[arr[i]] = true;
+      out.push(arr[i]);
+    }
+    return out;
+  }
+
+  function letterSoftThemes(letters) {
+    var soft = [];
+    var map = {
+      A: ["art", "beginning"],
+      B: ["body", "bond"],
+      C: ["creation", "code"],
+      D: ["dream", "depth"],
+      E: ["energy", "emotion"],
+      F: ["fire", "form"],
+      G: ["growth", "grace"],
+      H: ["heart", "home"],
+      I: ["insight", "identity"],
+      J: ["joy", "journey"],
+      K: ["knowledge", "kin"],
+      L: ["light", "language"],
+      M: ["mind", "memory"],
+      N: ["nature", "name"],
+      O: ["origin", "order"],
+      P: ["power", "path"],
+      Q: ["quest", "quiet"],
+      R: ["root", "rhythm"],
+      S: ["spirit", "story"],
+      T: ["truth", "time"],
+      U: ["unity", "universe"],
+      V: ["vision", "voice"],
+      W: ["will", "word"],
+      X: ["mystery", "unknown"],
+      Y: ["yearn", "youth"],
+      Z: ["zenith", "zone"]
+    };
+    var i;
+    for (i = 0; i < Math.min(letters.length, 6); i++) {
+      var pair = map[letters.charAt(i)];
+      if (pair) soft.push(pair[i % pair.length]);
+    }
+    return soft;
+  }
+
+  function resolveSeedMeaning(letters) {
+    if (!letters) {
+      return { gloss: "", themes: ["abstract", "mystery"], classic: null, source: "empty" };
+    }
+
+    if (SEED_MEANINGS[letters]) {
+      var hit = SEED_MEANINGS[letters];
+      return {
+        gloss: hit.gloss,
+        themes: hit.themes.slice(),
+        classic: hit.classic ? hit.classic.slice() : null,
+        source: "dictionary"
+      };
+    }
+
+    var keys = Object.keys(SEED_MEANINGS);
+    var best = null;
+    var bestScore = 0;
+    var i;
+    for (i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      if (k.length < 3) continue;
+      var score = 0;
+      if (letters.indexOf(k) !== -1) score = k.length * 3;
+      else if (k.indexOf(letters) !== -1 && letters.length >= 3) score = letters.length * 2;
+      else {
+        var p = 0;
+        while (p < k.length && p < letters.length && k.charAt(p) === letters.charAt(p)) p++;
+        if (p >= 3) score = p;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        best = k;
+      }
+    }
+
+    if (best && bestScore >= 3) {
+      var partial = SEED_MEANINGS[best];
+      return {
+        gloss: "echo of " + partial.gloss,
+        themes: unique(partial.themes.concat(letterSoftThemes(letters)).concat(["abstract"])),
+        classic: null,
+        source: "substring:" + best
+      };
+    }
+
+    var soft = letterSoftThemes(letters);
+    var themes = unique(soft.concat(["abstract", "essence", "mystery", "identity"]));
+    var titled = letters.charAt(0) + letters.slice(1).toLowerCase();
+    return {
+      gloss: "essence of " + titled,
+      themes: themes,
+      classic: null,
+      source: "heuristic"
+    };
+  }
+
+  function themeOverlap(word, themes) {
+    var tags = WORD_TAGS[String(word).toLowerCase()] || [];
+    if (!tags.length || !themes.length) return 0;
+    var set = {};
+    var i;
+    for (i = 0; i < themes.length; i++) set[themes[i]] = true;
+    var n = 0;
+    for (i = 0; i < tags.length; i++) {
+      if (set[tags[i]]) n++;
+    }
+    return n;
+  }
+
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint) {
+    var bank = (LEXICON[letter] || [letter + "ther"]).slice();
+    if (classicHint && bank.indexOf(classicHint) === -1) {
+      bank.push(classicHint);
+    }
+
     var scored = bank.map(function (w, idx) {
       var len = w.replace(/[^a-zA-Z]/g, "").length;
       var dist = Math.abs(len - preferredLen);
-      var usedPenalty = used[w] ? 40 : 0;
-      var jitter = rng() * 3;
-      return { w: w, score: dist + usedPenalty + jitter, idx: idx };
+      var usedPenalty = used[w] ? 50 : 0;
+      var overlap = themeOverlap(w, themes);
+      var themeBonus = -overlap * 22;
+      var classicBonus = classicHint && w === classicHint ? -8 : 0;
+      var jitter = rng() * 4;
+      return {
+        w: w,
+        score: dist * 0.35 + usedPenalty + themeBonus + classicBonus + jitter,
+        overlap: overlap,
+        idx: idx
+      };
     });
+
     scored.sort(function (a, b) {
       return a.score - b.score;
     });
-    var choice = scored[0].w;
+
+    var withTheme = scored.filter(function (s) {
+      return s.overlap > 0 && !used[s.w];
+    });
+    var pool;
+    if (withTheme.length >= 1) {
+      pool = withTheme.slice(0, Math.min(6, withTheme.length));
+    } else {
+      pool = scored.slice(0, Math.min(5, scored.length));
+    }
+
+    var choice = pool[Math.floor(rng() * pool.length)].w;
     used[choice] = true;
     return choice;
   }
 
-  function weavePoem(words, seed, nonce) {
+  function preferredWordLen(seedLen, letterIndex) {
+    var base = Math.max(3, Math.min(14, 4 + (seedLen % 8)));
+    var wobble = ((letterIndex * 3 + seedLen) % 5) - 2;
+    return Math.max(3, Math.min(14, base + wobble));
+  }
+
+  function pickConnector(rng, themes) {
+    var biasKey = null;
+    var i;
+    for (i = 0; i < themes.length; i++) {
+      if (THEME_CONNECTOR_BIAS[themes[i]]) {
+        biasKey = themes[i];
+        break;
+      }
+    }
+    if (biasKey && rng() < 0.55) {
+      var idxs = THEME_CONNECTOR_BIAS[biasKey];
+      return CONNECTORS[idxs[Math.floor(rng() * idxs.length)]];
+    }
+    return CONNECTORS[Math.floor(rng() * CONNECTORS.length)];
+  }
+
+  function weavePoem(words, seed, nonce, themes) {
     if (!words.length) return "";
     var rng = mulberry32(hashStr(seed + "|poem|" + nonce));
     var parts = [words[0]];
     var i;
     for (i = 1; i < words.length; i++) {
-      var conn = CONNECTORS[Math.floor(rng() * CONNECTORS.length)];
+      var conn = pickConnector(rng, themes || []);
       if (rng() < 0.55) {
         parts.push(conn.join(" "));
       } else if (rng() < 0.75) {
@@ -209,12 +1113,6 @@
     }
     var line = parts.join(" ");
     return line.charAt(0).toUpperCase() + line.slice(1);
-  }
-
-  function preferredWordLen(seedLen, letterIndex) {
-    var base = Math.max(3, Math.min(14, 4 + (seedLen % 8)));
-    var wobble = ((letterIndex * 3 + seedLen) % 5) - 2;
-    return Math.max(3, Math.min(14, base + wobble));
   }
 
   function generate(raw, nonce) {
@@ -230,22 +1128,59 @@
         seedLetters: "",
         words: [],
         poem: "",
+        gloss: "",
+        themes: [],
         note: "Type at least one letter (A–Z)."
       };
     }
-    var rng = mulberry32(hashStr(letters + "|" + nonce));
+
+    var meaning = resolveSeedMeaning(letters);
+    var themes = meaning.themes || [];
+    var classic = meaning.classic;
+    var useClassic =
+      nonce === 0 &&
+      classic &&
+      classic.length === letters.length;
+
+    if (useClassic) {
+      var ok = true;
+      var ci;
+      for (ci = 0; ci < classic.length; ci++) {
+        if (classic[ci].charAt(0).toUpperCase() !== letters.charAt(ci)) {
+          ok = false;
+          break;
+        }
+      }
+      if (!ok) useClassic = false;
+    }
+
+    var rng = mulberry32(hashStr(letters + "|" + nonce + "|sem"));
     var used = {};
     var words = [];
     var i;
     for (i = 0; i < letters.length; i++) {
       var L = letters.charAt(i);
-      words.push(pickWord(L, rng, preferredWordLen(letters.length, i), used));
+      if (useClassic) {
+        words.push(classic[i]);
+        used[classic[i]] = true;
+      } else {
+        var hint =
+          classic && classic[i] && classic[i].charAt(0).toUpperCase() === L
+            ? classic[i]
+            : null;
+        words.push(
+          pickWord(L, rng, preferredWordLen(letters.length, i), used, themes, hint)
+        );
+      }
     }
+
     return {
       seedRaw: raw || "",
       seedLetters: letters,
       words: words,
-      poem: weavePoem(words, letters, nonce),
+      poem: weavePoem(words, letters, nonce, themes),
+      gloss: meaning.gloss || "",
+      themes: themes,
       note: note
     };
   }
@@ -279,6 +1214,7 @@
       seedLetters: entry.seedLetters,
       words: entry.words.slice(),
       poem: entry.poem,
+      gloss: entry.gloss || "",
       at: Date.now()
     });
     if (state.history.length > HISTORY_MAX) state.history.length = HISTORY_MAX;
@@ -344,6 +1280,8 @@
     state.seedLetters = result.seedLetters;
     state.words = result.words;
     state.poem = result.poem;
+    state.gloss = result.gloss || "";
+    state.themes = result.themes || [];
 
     var seedEl = $("engrams-seed-display");
     var slots = $("engrams-slots");
@@ -384,7 +1322,11 @@
     }
     if (metaEl) {
       var n = result.seedLetters.length;
-      metaEl.textContent = "Seed " + n + " letters";
+      var bits = ["Seed " + n + " letters"];
+      if (result.gloss) {
+        bits.push("echoing: " + result.gloss);
+      }
+      metaEl.textContent = bits.join(" · ");
     }
     updateRailActive();
   }
@@ -410,7 +1352,8 @@
       "\n" +
       (state.words || []).join(" · ") +
       "\n" +
-      (state.poem || "");
+      (state.poem || "") +
+      (state.gloss ? "\n(echoing: " + state.gloss + ")" : "");
     if (!state.seedLetters) return;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(flashCopy).catch(fallbackCopy);
@@ -482,7 +1425,13 @@
       copyBtn.className = "engrams-btn engrams-btn-ghost";
       copyBtn.textContent = "Copy";
       copyBtn.addEventListener("click", function () {
-        var t = h.seedLetters + "\n" + (h.words || []).join(" · ") + "\n" + (h.poem || "");
+        var t =
+          h.seedLetters +
+          "\n" +
+          (h.words || []).join(" · ") +
+          "\n" +
+          (h.poem || "") +
+          (h.gloss ? "\n(echoing: " + h.gloss + ")" : "");
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(t).catch(function () {});
         }
@@ -513,15 +1462,18 @@
   function reopen(h) {
     var input = $("engrams-prompt");
     if (input) input.value = h.seedRaw || h.seedLetters;
-    state.nonce = (state.nonce + 1) % 1e9;
+    state.nonce = 0;
     state.seedLetters = h.seedLetters || "";
     state.words = (h.words || []).slice();
     state.poem = h.poem || "";
+    state.gloss = h.gloss || "";
     renderStage({
       seedRaw: h.seedRaw || h.seedLetters,
       seedLetters: state.seedLetters,
       words: state.words,
       poem: state.poem,
+      gloss: state.gloss,
+      themes: [],
       note: ""
     });
   }
@@ -537,6 +1489,7 @@
     if (input) {
       input.addEventListener("input", function () {
         clearTimeout(state.debounce);
+        state.nonce = 0;
         state.debounce = setTimeout(function () {
           runGenerate(false);
         }, 220);
@@ -602,7 +1555,10 @@
     onShow: onShow,
     onHide: onHide,
     generate: generate,
-    LEXICON: LEXICON
+    resolveSeedMeaning: resolveSeedMeaning,
+    LEXICON: LEXICON,
+    SEED_MEANINGS: SEED_MEANINGS,
+    WORD_TAGS: WORD_TAGS
   };
 
   window.addEventListener("engrams-show", onShow);
