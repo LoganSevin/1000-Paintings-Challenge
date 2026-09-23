@@ -338,7 +338,7 @@
     "gear": ["engine", "machine", "tech"],
     "genesis": ["beginning", "creation", "life"],
     "gesture": ["body", "language", "art"],
-    "gift": ["love", "giving", "joy"],
+    "gift": ["gift", "skill", "ability", "giving"],
     "gloom": ["night", "dark", "dream"],
     "glory": ["royalty", "power", "order"],
     "glow": ["light", "warmth", "hope"],
@@ -728,7 +728,7 @@
     TIME: { gloss: "duration and change", themes: ["time", "past", "future", "memory"], classic: ["Tide", "Interval", "Moment", "Eon"] },
     TREE: { gloss: "woody plant", themes: ["tree", "nature", "life", "root"], classic: ["Trunk", "Root", "Eden", "Elm"] },
     WORD: { gloss: "unit of language", themes: ["language", "word", "voice", "communication", "meaning"], classic: ["Writing", "Oracle", "Reply", "Dialect"] },
-    WORK: { gloss: "labor and craft", themes: ["work", "labor", "creation", "effort"], classic: ["Will", "Opus", "Render", "Craft"] },
+    WORK: { gloss: "labor and effort", themes: ["work", "labor", "effort", "skill"], classic: ["Will", "Output", "Rigor", "Craft"] },
     ANGER: { gloss: "hostile emotion", themes: ["anger", "rage", "fire", "conflict"], classic: ["Ash", "Nemesis", "Grief", "Ember", "Rage"] },
     BLOOD: { gloss: "vital fluid", themes: ["blood", "life", "family", "body"], classic: ["Bond", "Legacy", "Oxygen", "Origin", "Depth"] },
     CHAOS: { gloss: "disorder", themes: ["chaos", "disorder", "entropy", "wild"], classic: ["Cascade", "Havoc", "Abyss", "Overture", "Storm"] },
@@ -765,14 +765,14 @@
     GALLERY: { gloss: "hall of art", themes: ["gallery", "art", "paint", "display"], classic: ["Glyph", "Atelier", "Lumen", "Legacy", "Exhibit", "Render", "Yarn"] },
     SILENCE: { gloss: "absence of sound", themes: ["silence", "quiet", "peace", "void"], classic: ["Still", "Interval", "Lull", "Emptiness", "Noir", "Calm", "Ease"] },
     PAINTING: { gloss: "painted image", themes: ["paint", "art", "image", "creation"], classic: ["Palette", "Atelier", "Image", "Notion", "Texture", "Ink", "Notion", "Gesture"] },
-    TALENT: { gloss: "natural skill and gift", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Triumph", "Aptitude", "Lucidity", "Excellence", "Nuance", "Tenacity"] },
-    TALENTED: { gloss: "natural skill and gift", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Triumph", "Aptitude", "Lucidity", "Excellence", "Nuance", "Tenacity", "Expertise", "Dexterity"] },
-    GIFTED: { gloss: "born with natural ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Genius", "Insight", "Flair", "Talent", "Excellence", "Dexterity"] },
-    SKILL: { gloss: "practiced ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Strength", "Knack", "Insight", "Lucidity", "Labor"] },
-    SKILLED: { gloss: "highly practiced ability", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Strength", "Knack", "Insight", "Lucidity", "Labor", "Expertise", "Dexterity"] },
-    GENIUS: { gloss: "exceptional creative intellect", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "mind", "growth"], classic: ["Gift", "Expertise", "Nuance", "Insight", "Uniqueness", "Savoir"] },
-    MASTER: { gloss: "complete command of a craft", themes: ["gift", "skill", "craft", "art", "excellence", "ability", "growth"], classic: ["Mastery", "Aptitude", "Skill", "Tenacity", "Excellence", "Rigor"] },
-    HAPPY: { gloss: "glad and content", themes: ["joy", "delight", "light", "emotion", "heart"], classic: ["Heart", "Amity", "Pleasure", "Peace", "Yes"] },
+    TALENT: { gloss: "natural skill and gift", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Triumph", "Aptitude", "Learning", "Excellence", "Nuance", "Tenacity"] },
+    TALENTED: { gloss: "natural skill and gift", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Triumph", "Ability", "Learning", "Excellence", "Nuance", "Tenacity", "Expertise", "Dexterity"] },
+    GIFTED: { gloss: "born with natural ability", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Gift", "Insight", "Flair", "Talent", "Excellence", "Dexterity"] },
+    SKILL: { gloss: "practiced ability", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Strength", "Knack", "Insight", "Learning", "Labor"] },
+    SKILLED: { gloss: "highly practiced ability", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Strength", "Knack", "Insight", "Learning", "Labor", "Expertise", "Dexterity"] },
+    GENIUS: { gloss: "exceptional intellect and ability", themes: ["gift", "skill", "ability", "excellence", "mind", "growth"], classic: ["Gift", "Expertise", "Nuance", "Insight", "Uniqueness", "Sharp"] },
+    MASTER: { gloss: "complete command of a craft", themes: ["gift", "skill", "ability", "excellence", "growth"], classic: ["Mastery", "Aptitude", "Skill", "Tenacity", "Excellence", "Rigor"] },
+    HAPPY: { gloss: "glad and content", themes: ["joy", "delight", "emotion", "heart", "cheer"], classic: ["Heart", "Amity", "Pleasure", "Peace", "Yes"] },
     SAD: { gloss: "sorrowful feeling", themes: ["sorrow", "grief", "emotion", "loss", "heart"], classic: ["Sorrow", "Ache", "Dread"] },
     KIND: { gloss: "gentle goodwill", themes: ["kindness", "care", "love", "heart", "peace"], classic: ["Kindness", "Intimacy", "Nurture", "Devotion"] },
     BRAVE: { gloss: "facing fear with courage", themes: ["courage", "strength", "honor", "power", "heart"], classic: ["Bold", "Resolve", "Armor", "Valor", "Edge"] },
@@ -836,15 +836,15 @@
       clan: ["family", "bond", "identity"],
       clancy: ["name", "identity", "story"],
       aptitude: ["gift", "skill", "ability", "excellence"],
-      excellence: ["gift", "skill", "craft", "excellence"],
-      nuance: ["gift", "skill", "art", "craft"],
+      excellence: ["gift", "skill", "ability", "excellence"],
+      nuance: ["gift", "skill", "ability", "excellence"],
       tenacity: ["gift", "skill", "growth", "strength"],
-      expertise: ["gift", "skill", "ability", "craft"],
-      dexterity: ["gift", "skill", "ability", "craft"],
+      expertise: ["gift", "skill", "ability", "excellence"],
+      dexterity: ["gift", "skill", "ability", "excellence"],
       legerdemain: ["skill", "craft", "magic"],
       knack: ["gift", "skill", "ability"],
-      flair: ["gift", "skill", "art", "excellence"],
-      mastery: ["gift", "skill", "craft", "excellence"],
+      flair: ["gift", "skill", "ability", "excellence"],
+      mastery: ["gift", "skill", "ability", "excellence"],
       pleasure: ["joy", "delight", "emotion"],
       bold: ["courage", "strength", "power"],
       resolve: ["courage", "strength", "will"],
@@ -853,7 +853,30 @@
       happy: ["joy", "delight", "emotion", "heart"],
       kind: ["kindness", "care", "love", "heart"],
       brave: ["courage", "strength", "honor", "heart"],
-      smart: ["mind", "insight", "learning", "skill"]
+      smart: ["mind", "insight", "learning", "skill"],
+      ability: ["gift", "skill", "ability", "excellence"],
+      adept: ["gift", "skill", "ability", "excellence"],
+      capable: ["gift", "skill", "ability", "excellence"],
+      competence: ["gift", "skill", "ability", "excellence"],
+      practice: ["skill", "ability", "growth", "work"],
+      practiced: ["skill", "ability", "growth", "work"],
+      prowess: ["gift", "skill", "ability", "excellence"],
+      talent: ["gift", "skill", "ability", "excellence"],
+      skilled: ["gift", "skill", "ability", "excellence"],
+      gifted: ["gift", "skill", "ability", "excellence"],
+      acumen: ["mind", "skill", "ability", "insight"],
+      achieve: ["growth", "excellence", "effort", "ability"],
+      achievement: ["growth", "excellence", "effort", "ability"],
+      care: ["care", "kindness", "heart", "love"],
+      cheer: ["joy", "delight", "emotion", "heart"],
+      courage: ["courage", "strength", "honor", "heart"],
+      glad: ["joy", "delight", "emotion", "heart"],
+      content: ["joy", "peace", "emotion", "heart"],
+      skill: ["gift", "skill", "ability", "excellence"],
+      growth: ["growth", "learning", "ability", "future"],
+      learning: ["learning", "mind", "growth", "skill"],
+      beginning: ["beginning", "origin", "start"],
+      start: ["beginning", "origin", "start"]
     };
     Object.keys(extra).forEach(function (k) {
       WORD_TAGS[k] = extra[k];
@@ -874,6 +897,116 @@
       }
     });
   });
+
+  // Everyday definitional words — prefer these over studio jargon for non-art seeds.
+  (function addPlainLexicon() {
+    var plain = {
+      A: ["Ability", "Adept", "Acumen", "Achieve", "Aware", "Action"],
+      B: ["Brave", "Bright", "Best", "Build", "Belong"],
+      C: ["Capable", "Care", "Courage", "Competence", "Commitment", "Cheer"],
+      D: ["Dedication", "Drive", "Do", "Develop"],
+      E: ["Effort", "Earnest", "Excel", "Ease"],
+      F: ["Focus", "Facility", "Fluent", "Fortitude"],
+      G: ["Growth", "Grit", "Good", "Glad"],
+      H: ["Honest", "Help", "Hardy"],
+      I: ["Improve", "Invent", "Idle"],
+      K: ["Know", "Keen"],
+      L: ["Learn", "Level", "Lead"],
+      M: ["Might", "Method", "Mastery"],
+      N: ["Natural", "Nimble", "Need"],
+      P: ["Practice", "Prowess", "Progress", "Patient"],
+      Q: ["Quick", "Qualify"],
+      R: ["Ready", "Reliable", "Raise"],
+      S: ["Skill", "Skilled", "Steady", "Simple", "Strong"],
+      T: ["Talent", "Tenacity", "Try", "Train"],
+      U: ["Useful", "Upward"],
+      V: ["Value", "Versatile"],
+      W: ["Worthy", "Workable", "Willing"]
+    };
+    var tags = {
+      ability: ["gift", "skill", "ability", "excellence"],
+      adept: ["gift", "skill", "ability", "excellence"],
+      acumen: ["mind", "skill", "ability", "insight"],
+      achieve: ["growth", "excellence", "effort", "ability"],
+      aware: ["mind", "insight", "learning"],
+      action: ["effort", "work", "ability"],
+      brave: ["courage", "strength", "honor", "heart"],
+      bright: ["mind", "insight", "light", "learning"],
+      best: ["excellence", "ability", "skill"],
+      build: ["growth", "work", "creation", "effort"],
+      belong: ["home", "heart", "bond"],
+      capable: ["gift", "skill", "ability", "excellence"],
+      care: ["care", "kindness", "heart", "love"],
+      courage: ["courage", "strength", "honor", "heart"],
+      competence: ["gift", "skill", "ability", "excellence"],
+      commitment: ["effort", "growth", "loyalty", "work"],
+      cheer: ["joy", "delight", "emotion", "heart"],
+      dedication: ["effort", "growth", "work", "loyalty"],
+      drive: ["effort", "power", "growth", "will"],
+      do: ["work", "effort", "action"],
+      develop: ["growth", "learning", "ability", "skill"],
+      effort: ["work", "labor", "effort", "growth"],
+      earnest: ["effort", "truth", "heart"],
+      excel: ["excellence", "skill", "ability", "growth"],
+      ease: ["peace", "calm", "joy"],
+      focus: ["mind", "skill", "ability", "attention"],
+      facility: ["skill", "ability", "ease"],
+      fluent: ["skill", "ability", "language"],
+      fortitude: ["courage", "strength", "honor"],
+      growth: ["growth", "learning", "ability", "future"],
+      grit: ["strength", "growth", "effort", "courage"],
+      good: ["kindness", "heart", "peace"],
+      glad: ["joy", "delight", "emotion", "heart"],
+      honest: ["truth", "reality", "honor"],
+      help: ["care", "kindness", "friend"],
+      hardy: ["strength", "courage", "body"],
+      improve: ["growth", "learning", "ability"],
+      invent: ["mind", "creation", "idea"],
+      know: ["knowledge", "mind", "learning"],
+      keen: ["mind", "insight", "skill"],
+      learn: ["learning", "mind", "growth", "skill"],
+      level: ["skill", "ability", "order"],
+      lead: ["power", "guidance", "strength"],
+      might: ["power", "strength", "ability"],
+      method: ["skill", "order", "work"],
+      natural: ["gift", "nature", "ability"],
+      nimble: ["skill", "ability", "body"],
+      need: ["desire", "emotion", "body"],
+      practice: ["skill", "ability", "growth", "work"],
+      prowess: ["gift", "skill", "ability", "excellence"],
+      progress: ["growth", "future", "learning"],
+      patient: ["calm", "care", "time"],
+      quick: ["mind", "skill", "ability"],
+      qualify: ["skill", "ability", "excellence"],
+      ready: ["ability", "will", "start"],
+      reliable: ["trust", "honor", "work"],
+      raise: ["growth", "effort", "power"],
+      skill: ["gift", "skill", "ability", "excellence"],
+      skilled: ["gift", "skill", "ability", "excellence"],
+      steady: ["strength", "calm", "trust"],
+      simple: ["truth", "clarity", "ease"],
+      strong: ["strength", "power", "courage"],
+      talent: ["gift", "skill", "ability", "excellence"],
+      try: ["effort", "growth", "will"],
+      train: ["skill", "learning", "growth", "ability"],
+      useful: ["work", "value", "ability"],
+      upward: ["growth", "hope", "future"],
+      value: ["value", "worth", "truth"],
+      versatile: ["skill", "ability", "gift"],
+      worthy: ["honor", "value", "excellence"],
+      workable: ["work", "skill", "ability"],
+      willing: ["will", "effort", "heart"]
+    };
+    Object.keys(plain).forEach(function (L) {
+      plain[L].forEach(function (w) {
+        if (LEXICON[L].indexOf(w) === -1) LEXICON[L].push(w);
+        var key = w.toLowerCase();
+        if (tags[key]) WORD_TAGS[key] = tags[key];
+        else if (!WORD_TAGS[key]) WORD_TAGS[key] = ["ability", "skill", "growth"];
+      });
+    });
+  })();
+
 
   var CONNECTORS = [
     ["from", "the"],
@@ -966,18 +1099,18 @@
   function letterSoftThemes(letters) {
     var soft = [];
     var map = {
-      A: ["art", "beginning"],
+      A: ["ability", "beginning"],
       B: ["body", "bond"],
-      C: ["creation", "craft"],
+      C: ["care", "courage"],
       D: ["dream", "depth"],
       E: ["energy", "emotion"],
-      F: ["fire", "form"],
+      F: ["fire", "feeling"],
       G: ["growth", "grace"],
       H: ["heart", "home"],
-      I: ["insight", "image"],
+      I: ["insight", "idea"],
       J: ["joy", "journey"],
       K: ["knowledge", "kin"],
-      L: ["light", "life"],
+      L: ["life", "love"],
       M: ["mind", "memory"],
       N: ["nature", "now"],
       O: ["origin", "order"],
@@ -985,13 +1118,13 @@
       Q: ["quest", "quiet"],
       R: ["root", "rhythm"],
       S: ["spirit", "story"],
-      T: ["time", "tenderness"],
-      U: ["unity", "universe"],
-      V: ["vision", "vitality"],
+      T: ["time", "truth"],
+      U: ["unity", "understanding"],
+      V: ["value", "vitality"],
       W: ["will", "warmth"],
       X: ["mystery", "unknown"],
       Y: ["yearn", "youth"],
-      Z: ["zenith", "zone"]
+      Z: ["zeal", "zone"]
     };
     var i;
     // Soft themes are a weak hint only — never let many letters dominate scoring.
@@ -1013,7 +1146,7 @@
       themes.push("character", "emotion");
     }
     if (isAbility || (isQuality && ABILITY_STEM_RE.test(letters.replace(QUALITY_SUFFIX_RE, "")))) {
-      themes = themes.concat(["gift", "skill", "craft", "ability", "excellence"]);
+      themes = themes.concat(["gift", "skill", "ability", "excellence", "growth"]);
     }
     return themes;
   }
@@ -1102,6 +1235,58 @@
 
   // Words that describe the *tool* (mnemonic / cryptic knowledge) rather than a seed's meaning.
   // Allowed only when the seed itself is about memory, language, ritual, or mystery.
+  // Studio / gallery jargon — heavy penalty unless the seed is literally about art.
+  var ART_BUZZ = {
+    art: true,
+    atelier: true,
+    palette: true,
+    canvas: true,
+    tapestry: true,
+    aperture: true,
+    chiaroscuro: true,
+    texture: true,
+    render: true,
+    exhibit: true,
+    mural: true,
+    ultramarine: true,
+    opus: true,
+    mosaic: true,
+    muse: true,
+    hue: true,
+    landscape: true,
+    inspiration: true,
+    xylograph: true,
+    fresco: true,
+    easel: true,
+    gesso: true,
+    impasto: true,
+    sfumato: true,
+    collage: true,
+    vignette: true,
+    gallery: true,
+    brushwork: true,
+    studio: true,
+    pigment: true,
+    frescoes: true,
+    frame: true,
+    gesture: true,
+    design: true
+  };
+
+  var ART_SEED_THEMES = {
+    art: true,
+    paint: true,
+    gallery: true
+  };
+
+  function seedAllowsArtBuzz(themes) {
+    var i;
+    for (i = 0; i < (themes || []).length; i++) {
+      if (ART_SEED_THEMES[themes[i]]) return true;
+    }
+    return false;
+  }
+
   var META_WORDS = {
     exegesis: true,
     dictionary: true,
@@ -1161,13 +1346,14 @@
 
   // Everyday / high-relatability expansions — prefer when themes overlap.
   var RELATABLE_WORDS = {
-    gift: true, skill: true, talent: true, craft: true, work: true, art: true,
+    gift: true, skill: true, talent: true, craft: true, work: true, ability: true,
+    adept: true, capable: true, practice: true, prowess: true, growth: true,
     love: true, heart: true, hope: true, joy: true, care: true, trust: true,
     strength: true, courage: true, growth: true, learning: true, insight: true,
     passion: true, power: true, peace: true, play: true, path: true, purpose: true,
     friend: true, family: true, home: true, life: true, light: true, dream: true,
     fire: true, water: true, earth: true, sky: true, star: true, sun: true,
-    voice: true, story: true, song: true, color: true, paint: true, canvas: true,
+    voice: true, story: true, song: true, color: true, paint: true, art: true,
     triumph: true, aptitude: true, excellence: true, nuance: true, tenacity: true,
     expertise: true, dexterity: true, genius: true, flair: true, knack: true,
     mastery: true, rigor: true, grace: true, glory: true, honor: true, will: true,
@@ -1207,6 +1393,7 @@
     }
 
     var allowMeta = seedAllowsMeta(themes || []);
+    var allowArtBuzz = seedAllowsArtBuzz(themes || []);
 
     var scored = bank.map(function (w, idx) {
       var key = String(w).toLowerCase();
@@ -1225,6 +1412,9 @@
       else if (META_WORDS[key]) crypticPenalty = 8;
       // Long ornate words without theme overlap feel like cryptic filler.
       if (!META_WORDS[key] && overlap === 0 && len >= 10) crypticPenalty += 6;
+      // Art-studio jargon only when the seed itself is about art/paint/gallery.
+      var artBuzzPenalty = 0;
+      if (ART_BUZZ[key] && !allowArtBuzz) artBuzzPenalty = 650;
       var nestPenalty = 0;
       var nestSkip = false;
       if (neighbor && isNestedExpansion(w, neighbor)) {
@@ -1232,10 +1422,10 @@
         nestSkip = true;
       }
       var jitter = rng() * 3;
-      var metaSkip = crypticPenalty >= 500 || nestSkip;
+      var metaSkip = crypticPenalty >= 500 || artBuzzPenalty >= 500 || nestSkip;
       return {
         w: w,
-        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + nestPenalty + jitter,
+        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + artBuzzPenalty + nestPenalty + jitter,
         overlap: overlap,
         metaSkip: metaSkip,
         idx: idx
