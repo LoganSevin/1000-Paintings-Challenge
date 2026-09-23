@@ -281,6 +281,7 @@ body.engrams-tab-active .site-header {
   margin: 0;
   font-size: 0.78rem;
   color: rgba(238, 232, 216, 0.55);
+  font-style: italic;
 }
 
 .engrams-note {
