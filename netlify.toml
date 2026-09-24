@@ -60,6 +60,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/page-chat"
+  to = "/.netlify/functions/page-chat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/pulse/feed"
   to = "/.netlify/functions/pulse-feed"
   status = 200
