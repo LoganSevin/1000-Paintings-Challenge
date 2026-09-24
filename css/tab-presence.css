@@ -1,0 +1,110 @@
+/* Little head icons above each tab — empty outline / filled when occupied */
+
+.site-tabs {
+  /* Room for the head stack so overflow-y:hidden does not clip */
+  padding-top: 0.55rem;
+  align-items: flex-end;
+}
+
+.kids-tabs {
+  padding-top: 0.45rem;
+  align-items: flex-end;
+}
+
+.site-tabs .tab[data-tab],
+.kids-tabs .tab[data-tab] {
+  position: relative;
+  padding-top: 0.15rem !important;
+}
+
+.tab-presence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.05rem;
+  min-height: 1.55rem;
+  margin: 0 0 0.08rem;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.tab-presence-count {
+  display: block;
+  min-height: 0.7rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: rgba(232, 213, 163, 0.35);
+}
+
+.tab-presence.is-occupied .tab-presence-count {
+  color: #f0d78a;
+  text-shadow: 0 0 6px rgba(201, 162, 39, 0.35);
+}
+
+.tab-presence-svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  display: block;
+  overflow: visible;
+}
+
+.tab-presence-svg .tp-stroke {
+  fill: none;
+  stroke: rgba(160, 150, 120, 0.45);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tab-presence-svg .tp-fill {
+  fill: transparent;
+  stroke: none;
+}
+
+.tab-presence.is-occupied .tab-presence-svg .tp-stroke {
+  stroke: #c9a227;
+}
+
+.tab-presence.is-occupied .tab-presence-svg .tp-fill {
+  fill: #c9a227;
+}
+
+.tab-presence.is-occupied .tab-presence-svg .tp-face {
+  stroke: #1a140c;
+  fill: none;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+}
+
+.tab-presence:not(.is-occupied) .tab-presence-svg .tp-face {
+  stroke: rgba(160, 150, 120, 0.4);
+  fill: none;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+}
+
+/* Overflow "More" menu items: compact inline head */
+.site-tabs-more-item[data-tab] .tab-presence {
+  flex-direction: row;
+  min-height: 0;
+  margin: 0 0.35rem 0 0;
+  gap: 0.2rem;
+}
+
+.site-tabs-more-item[data-tab] .tab-presence-count {
+  min-width: 0.7rem;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .tab-presence-svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+  .tab-presence {
+    min-height: 1.35rem;
+  }
+}
