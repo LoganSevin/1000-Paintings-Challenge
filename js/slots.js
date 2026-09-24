@@ -6,7 +6,7 @@
   "use strict";
 
   var CREDITS_KEY = "slotsPlayCredits.v2";
-  var SOUND_KEY = "slotsSoundOn.v1";
+  var SOUND_KEY = "slotsSoundOn.v2";
   var BET_KEY = "slotsBet.v1";
   var START_CREDITS = 100;
   var COLS = 5;
@@ -85,24 +85,24 @@
 
   var BONUS_CARDS = [
     { type: "credits", mult: 5 },
-    { type: "credits", mult: 5 },
     { type: "credits", mult: 8 },
-    { type: "credits", mult: 8 },
-    { type: "credits", mult: 10 },
     { type: "credits", mult: 10 },
     { type: "credits", mult: 15 },
     { type: "credits", mult: 20 },
     { type: "credits", mult: 25 },
-    { type: "credits", mult: 30 },
     { type: "credits", mult: 50 },
     { type: "freespins", amount: 3 },
+    { type: "freespins", amount: 3 },
+    { type: "freespins", amount: 5 },
+    { type: "freespins", amount: 5 },
+    { type: "freespins", amount: 8 },
   ];
 
   var state = {
     credits: START_CREDITS,
     bet: 1,
     spinning: false,
-    sound: false,
+    sound: true,
     symbols: null, // regular + specials map by id
     regular: [],
     grid: null, // [col][row] = symbol id
@@ -113,13 +113,19 @@
     freeTotalWin: 0,
     inFree: false,
     autoLeft: 0,
+    autoSaved: 0, // paused auto-spin count across bonus / free spins
     bonusOpen: false,
+    forceGrid: null, // test hook: one-shot next grid
+    bonusResolve: null,
   };
 
   var el = {};
   var strips = [];
   var audioCtx = null;
   var autoTimer = 0;
+  var symbolsPromise = null;
+  var symbolsLocked = false;
+  var animFast = false;
 
   function $(id) {
     return document.getElementById(id);
@@ -158,26 +164,206 @@
     store(CREDITS_KEY, String(Math.floor(state.credits)));
   }
   function loadPrefs() {
-    state.sound = recall(SOUND_KEY) === "1";
+    // v2 key defaults ON; ignore legacy v1 "off" so sound works after the fix.
+    var saved = recall(SOUND_KEY);
+    if (saved === "0") state.sound = false;
+    else if (saved === "1") state.sound = true;
+    else state.sound = true;
     var b = parseInt(recall(BET_KEY), 10);
     if (b === 1 || b === 5 || b === 10) state.bet = b;
   }
 
-  function beep(freq, dur, type) {
-    if (!state.sound) return;
+  var masterGain = null;
+  var spinNodes = null;
+  var soundErrors = [];
+  var soundFired = [];
+
+  function noteSound(name) {
+    soundFired.push(name);
+    if (soundFired.length > 100) soundFired.shift();
+  }
+
+  function ensureAudio() {
     try {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      var o = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      o.type = type || "square";
-      o.frequency.value = freq;
-      g.gain.value = 0.035;
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      if (!audioCtx) {
+        audioCtx = new AC();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = 0.22;
+        masterGain.connect(audioCtx.destination);
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume().catch(function () {});
+      }
+      return audioCtx;
+    } catch (e) {
+      soundErrors.push(String(e && e.message ? e.message : e));
+      return null;
+    }
+  }
+
+  function tone(freq, dur, type, vol, when) {
+    if (!state.sound) return;
+    var ctx = ensureAudio();
+    if (!ctx || !masterGain) return;
+    try {
+      var t0 = ctx.currentTime + (when || 0);
+      var o = ctx.createOscillator();
+      var g = ctx.createGain();
+      o.type = type || "sine";
+      o.frequency.setValueAtTime(freq, t0);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(Math.max(0.0002, vol || 0.08), t0 + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + Math.max(0.03, dur));
       o.connect(g);
-      g.connect(audioCtx.destination);
-      o.start();
-      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-      o.stop(audioCtx.currentTime + dur);
+      g.connect(masterGain);
+      o.start(t0);
+      o.stop(t0 + dur + 0.02);
+    } catch (e) {
+      soundErrors.push(String(e && e.message ? e.message : e));
+    }
+  }
+
+  function noiseBurst(dur, vol) {
+    if (!state.sound) return;
+    var ctx = ensureAudio();
+    if (!ctx || !masterGain) return;
+    try {
+      var n = Math.max(1, Math.floor(ctx.sampleRate * dur));
+      var buf = ctx.createBuffer(1, n, ctx.sampleRate);
+      var data = buf.getChannelData(0);
+      for (var i = 0; i < n; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / n);
+      var src = ctx.createBufferSource();
+      src.buffer = buf;
+      var g = ctx.createGain();
+      var f = ctx.createBiquadFilter();
+      f.type = "bandpass";
+      f.frequency.value = 1800;
+      f.Q.value = 0.7;
+      g.gain.value = vol || 0.05;
+      src.connect(f);
+      f.connect(g);
+      g.connect(masterGain);
+      src.start();
+      src.stop(ctx.currentTime + dur + 0.01);
+    } catch (e) {
+      soundErrors.push(String(e && e.message ? e.message : e));
+    }
+  }
+
+  function sndClick() {
+    noteSound("click");
+    tone(720, 0.04, "triangle", 0.04);
+    tone(480, 0.05, "sine", 0.03, 0.01);
+  }
+
+  function stopSpinWhirr() {
+    if (!spinNodes) return;
+    try {
+      if (spinNodes.tickTimer) clearInterval(spinNodes.tickTimer);
+      if (audioCtx && spinNodes.g) {
+        spinNodes.g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+      }
+      var stopAt = (audioCtx && audioCtx.currentTime) + 0.06;
+      if (spinNodes.osc) spinNodes.osc.stop(stopAt);
+      if (spinNodes.lfo) spinNodes.lfo.stop(stopAt);
     } catch (e) {}
+    spinNodes = null;
+  }
+
+  function sndSpinStart() {
+    noteSound("spinStart");
+    stopSpinWhirr();
+    if (!state.sound) return;
+    var ctx = ensureAudio();
+    if (!ctx || !masterGain) return;
+    try {
+      var osc = ctx.createOscillator();
+      var lfo = ctx.createOscillator();
+      var lfoGain = ctx.createGain();
+      var g = ctx.createGain();
+      osc.type = "sawtooth";
+      osc.frequency.value = 55;
+      lfo.frequency.value = 12;
+      lfoGain.gain.value = 18;
+      lfo.connect(lfoGain);
+      lfoGain.connect(osc.frequency);
+      g.gain.value = 0.035;
+      osc.connect(g);
+      g.connect(masterGain);
+      osc.start();
+      lfo.start();
+      var tickTimer = setInterval(function () {
+        if (!state.sound || !state.spinning) return;
+        tone(240 + Math.random() * 80, 0.025, "square", 0.028);
+      }, 95);
+      spinNodes = { osc: osc, lfo: lfo, g: g, tickTimer: tickTimer };
+      tone(160, 0.06, "sawtooth", 0.05);
+    } catch (e) {
+      soundErrors.push(String(e && e.message ? e.message : e));
+    }
+  }
+
+  function sndReelStop(col) {
+    noteSound("reelStop");
+    noiseBurst(0.045, 0.06);
+    tone(90 + col * 12, 0.08, "triangle", 0.09);
+    tone(180 + col * 20, 0.05, "sine", 0.04, 0.02);
+  }
+
+  function sndLose() {
+    noteSound("lose");
+    tone(140, 0.08, "triangle", 0.04);
+    tone(100, 0.1, "sine", 0.03, 0.04);
+  }
+
+  function sndFanfare(kind) {
+    noteSound("fanfare:" + (kind || "win"));
+    var seq =
+      kind === "bonus"
+        ? [392, 494, 587, 784, 988]
+        : kind === "free"
+          ? [523, 659, 784, 1046]
+          : [440, 554, 659, 880, 1175];
+    for (var i = 0; i < seq.length; i++) {
+      tone(seq[i], 0.14, i % 2 ? "triangle" : "sine", 0.07, i * 0.09);
+    }
+    noiseBurst(0.08, 0.04);
+  }
+
+  function sndWin(amount, bet) {
+    noteSound("win");
+    var ratio = bet > 0 ? amount / bet : amount;
+    var scale = Math.max(0.5, Math.min(3, Math.log10(1 + ratio * 4) + 0.5));
+    var base = 440;
+    for (var i = 0; i < 3 + Math.floor(scale); i++) {
+      tone(base * (1 + i * 0.33), 0.12 + i * 0.03, "sine", 0.05 * scale, i * 0.07);
+    }
+    if (ratio >= 10) sndFanfare("big");
+  }
+
+  function sndCardFlip() {
+    noteSound("cardFlip");
+    noiseBurst(0.03, 0.05);
+    tone(620, 0.06, "square", 0.045);
+    tone(880, 0.08, "triangle", 0.04, 0.04);
+  }
+
+  function sndBonusOpen() {
+    noteSound("bonusOpen");
+    sndFanfare("bonus");
+  }
+
+  function sndFreeSpins() {
+    noteSound("freeSpins");
+    sndFanfare("free");
+  }
+
+  function sndRefill() {
+    noteSound("refill");
+    tone(400, 0.08, "sine", 0.05);
+    tone(600, 0.1, "sine", 0.04, 0.06);
   }
 
   function buildSymbolTable(regular) {
@@ -192,7 +378,8 @@
   }
 
   function loadSymbols() {
-    return fetch("data/manifest.json", { cache: "default" })
+    if (symbolsPromise) return symbolsPromise;
+    symbolsPromise = fetch("data/manifest.json", { cache: "default" })
       .then(function (r) {
         if (!r.ok) throw new Error("manifest");
         return r.json();
@@ -241,7 +428,12 @@
             };
           })
         );
+      })
+      .then(function (pack) {
+        symbolsLocked = true;
+        return pack;
       });
+    return symbolsPromise;
   }
 
   /** Weighted pick for one cell. col is 0..4 */
@@ -264,6 +456,11 @@
   }
 
   function spinGrid() {
+    if (state.forceGrid) {
+      var forced = state.forceGrid;
+      state.forceGrid = null;
+      return forced;
+    }
     var grid = [];
     for (var c = 0; c < COLS; c++) {
       grid[c] = [];
@@ -478,34 +675,74 @@
     return '<div class="' + cls + '">' + inner + "</div>";
   }
 
-  function buildStrip(reelEl, loops) {
+  function symCellHtml(sid, h, c, r) {
+    var attrs =
+      'class="sl-sym" data-sid="' +
+      esc(sid) +
+      '"' +
+      (c != null
+        ? ' data-c="' + c + '" data-r="' + r + '"'
+        : "") +
+      ' style="height:' +
+      h +
+      'px"';
+    return "<div " + attrs + ">" + symHtml(state.symbols[sid]) + "</div>";
+  }
+
+  /** Build a tall strip whose landing window is exactly resultRows (3 ids). */
+  function buildResultStrip(reelEl, col, resultRows, h) {
+    h = h || cellH();
     var ids = [];
-    state.regular.forEach(function (s) {
-      ids.push(s.id);
-    });
-    ids.push("wild", "scatter", "bonus");
-    var h = cellH();
-    var n = ids.length * (loops || 6);
+    // Enough filler so the spin travels visibly; length varies per reel.
+    var filler = 24 + col * 5;
+    for (var i = 0; i < filler; i++) {
+      ids.push(pickSymbolId(col));
+    }
+    var landIndex = ids.length;
+    ids.push(resultRows[0], resultRows[1], resultRows[2]);
+    // A couple below the window so the strip isn't empty under the land.
+    for (var j = 0; j < 3; j++) ids.push(pickSymbolId(col));
+
     var html = "";
-    for (var i = 0; i < n; i++) {
-      var sid = ids[i % ids.length];
-      html +=
-        '<div class="sl-sym" style="height:' +
-        h +
-        'px">' +
-        symHtml(state.symbols[sid]) +
-        "</div>";
+    for (var k = 0; k < ids.length; k++) {
+      html += symCellHtml(ids[k], h, null, null);
     }
     var strip = document.createElement("div");
     strip.className = "sl-strip";
+    strip.style.transition = "none";
+    strip.style.transform = "translateY(0)";
     strip.innerHTML = html;
     reelEl.innerHTML = "";
     reelEl.appendChild(strip);
-    return strip;
+    return { strip: strip, landIndex: landIndex, h: h };
+  }
+
+  /** After land: keep the same 3 visible nodes, drop filler, clear transform. */
+  function normalizeReel(reel, strip, landIndex, col) {
+    var nodes = strip.querySelectorAll(".sl-sym");
+    var keep = [];
+    for (var r = 0; r < ROWS; r++) {
+      var node = nodes[landIndex + r];
+      if (!node) continue;
+      node.setAttribute("data-c", String(col));
+      node.setAttribute("data-r", String(r));
+      keep.push(node);
+    }
+    var settled = document.createElement("div");
+    settled.className = "sl-strip sl-strip-static";
+    settled.style.transition = "none";
+    settled.style.transform = "none";
+    keep.forEach(function (n) {
+      settled.appendChild(n);
+    });
+    reel.classList.remove("is-spinning");
+    reel.innerHTML = "";
+    reel.appendChild(settled);
+    strips[col] = settled;
   }
 
   function renderStaticGrid(grid) {
-    if (!el.reels) return;
+    if (!el.reels || !grid) return;
     var h = cellH();
     el.reels.innerHTML = "";
     strips = [];
@@ -515,19 +752,11 @@
       reel.style.height = 3 * h + "px";
       var strip = document.createElement("div");
       strip.className = "sl-strip sl-strip-static";
+      strip.style.transition = "none";
+      strip.style.transform = "none";
       var html = "";
       for (var r = 0; r < ROWS; r++) {
-        var sid = grid[c][r];
-        html +=
-          '<div class="sl-sym" data-c="' +
-          c +
-          '" data-r="' +
-          r +
-          '" style="height:' +
-          h +
-          'px">' +
-          symHtml(state.symbols[sid]) +
-          "</div>";
+        html += symCellHtml(grid[c][r], h, c, r);
       }
       strip.innerHTML = html;
       reel.appendChild(strip);
@@ -625,7 +854,7 @@
     html +=
       "<div class=\"sl-pay-row\"><span>Free spins</span><strong>2× wins · same bet · can retrigger</strong></div>";
     html +=
-      "<div class=\"sl-pay-row\"><span>Bonus</span><strong>Bonus on reels 1+3+5 → pick 3 of 12 cards</strong></div>";
+      "<div class=\"sl-pay-row\"><span>Bonus</span><strong>Bonus on reels 1+3+5 → pick 3 cards → free spins (+3/+5/+8) & credits</strong></div>";
     html +=
       "<div class=\"sl-pay-row\"><span>Paylines</span><strong>20 fixed · left to right · bet split across lines</strong></div>";
     html += "</div></details>";
@@ -730,6 +959,7 @@
   function animateReelsTo(grid) {
     return new Promise(function (resolve) {
       var h = cellH();
+      if (el.linesSvg) el.linesSvg.innerHTML = "";
       el.reels.innerHTML = "";
       strips = [];
       var jobs = [];
@@ -738,107 +968,252 @@
           var reel = document.createElement("div");
           reel.className = "sl-reel is-spinning";
           reel.style.height = 3 * h + "px";
-          var strip = buildStrip(reel, 10);
+          var built = buildResultStrip(reel, col, grid[col], h);
+          var strip = built.strip;
+          var landIndex = built.landIndex;
           el.reels.appendChild(reel);
           strips[col] = strip;
-          var delay = col * 220;
-          var dur = 1400 + col * 280;
+          var delay = animFast ? col * 25 : col * 220;
+          var dur = animFast ? 90 + col * 30 : 1400 + col * 280;
           jobs.push(
             new Promise(function (res) {
               void strip.offsetHeight;
               setTimeout(function () {
-                // land so first 3 visible match grid[col]
-                // strip has repeating ids — just settle via static render after
                 strip.style.transition =
                   "transform " + dur + "ms cubic-bezier(0.12, 0.75, 0.12, 1)";
-                strip.style.transform = "translateY(" + -(8 + col) * h * 3 + "px)";
-                beep(200 + col * 40, 0.04, "triangle");
-                setTimeout(res, dur + 40);
+                strip.style.transform =
+                  "translateY(" + -(landIndex * built.h) + "px)";
+                /* reel tick covered by spin whirr */
+                setTimeout(function () {
+                  normalizeReel(reel, strip, landIndex, col);
+                  sndReelStop(col);
+                  if (col === COLS - 1) stopSpinWhirr();
+                  res();
+                }, dur + 40);
               }, delay);
             })
           );
         })(c);
       }
       Promise.all(jobs).then(function () {
-        renderStaticGrid(grid);
+        // DOM already shows the result cells; do not re-randomize or rebuild identities.
         resolve();
       });
     });
   }
 
-  function stopAuto() {
-    state.autoLeft = 0;
+  function clearAutoTimer() {
     if (autoTimer) {
       clearTimeout(autoTimer);
       autoTimer = 0;
     }
+  }
+
+  function stopAuto() {
+    state.autoLeft = 0;
+    state.autoSaved = 0;
+    clearAutoTimer();
     if (el.auto) el.auto.value = "0";
+  }
+
+  /** Pause auto without forgetting the remaining count (bonus / free spins). */
+  function pauseAuto() {
+    if (state.autoLeft > 0) state.autoSaved = state.autoLeft;
+    clearAutoTimer();
+  }
+
+  function resumeAutoAfterFeature() {
+    if (state.autoSaved > 0) {
+      state.autoLeft = state.autoSaved;
+      state.autoSaved = 0;
+      if (el.auto) el.auto.value = String(state.autoLeft);
+    }
+    scheduleAuto();
   }
 
   function scheduleAuto() {
     if (state.autoLeft <= 0) return;
-    if (state.bonusOpen || state.spinning) return;
+    if (state.bonusOpen || state.spinning || state.inFree) return;
+    clearAutoTimer();
     autoTimer = setTimeout(function () {
-      if (state.autoLeft <= 0) return;
+      if (state.autoLeft <= 0 || state.bonusOpen || state.spinning) return;
       state.autoLeft -= 1;
+      if (el.auto) el.auto.value = state.autoLeft > 0 ? String(state.autoLeft) : "0";
       spin();
-    }, state.inFree ? 700 : 900);
+    }, 900);
   }
 
-  function openBonus() {
-    state.bonusOpen = true;
-    stopAuto();
-    paintHud();
-    if (!el.bonusModal) return Promise.resolve({ credits: 0, free: 0 });
-    el.bonusModal.hidden = false;
-    var cards = BONUS_CARDS.slice();
-    // shuffle
-    for (var i = cards.length - 1; i > 0; i--) {
+  function shuffleInPlace(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
-      var t = cards[i];
-      cards[i] = cards[j];
-      cards[j] = t;
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
     }
+    return arr;
+  }
+
+  function cardLabel(card) {
+    return card.type === "freespins"
+      ? "+" + card.amount + " FS"
+      : "×" + card.mult;
+  }
+
+  function applyCardPrize(card, totals, betUsed) {
+    if (card.type === "freespins") totals.free += card.amount;
+    else totals.credits += card.mult * betUsed;
+  }
+
+  function openBonus(betUsed) {
+    betUsed = betUsed || state.bet;
+    state.bonusOpen = true;
+    // Unlock the spin flag while the modal is up — bonusOpen still blocks new spins.
+    state.spinning = false;
+    pauseAuto();
+    paintHud();
+    if (!el.bonusModal) {
+      return Promise.resolve({ credits: 0, free: 5 });
+    }
+
+    var cards = shuffleInPlace(BONUS_CARDS.slice());
     var picks = [];
-    var totalCredits = 0;
-    var totalFree = 0;
+    var totals = { credits: 0, free: 0 };
+    var settled = false;
+    var autoCloseTimer = 0;
+
+    el.bonusModal.hidden = false;
+    if (el.bonusHint) {
+      el.bonusHint.textContent =
+        "Pick 3 cards — free spins (+3 / +5 / +8) or credit prizes. At least one free-spin prize is guaranteed.";
+    }
+    if (el.bonusSummary) {
+      el.bonusSummary.hidden = true;
+      el.bonusSummary.textContent = "";
+    }
+    if (el.bonusStart) {
+      el.bonusStart.hidden = true;
+      el.bonusStart.disabled = false;
+    }
     var grid = el.bonusGrid;
     grid.innerHTML = "";
-    setMsg("Bonus! Pick 3 cards", "win");
-    beep(480, 0.1, "sine");
+    setMsg("Bonus! Pick 3 cards for free spins", "win");
+    sndBonusOpen();
+
+    function finishBonus(prize) {
+      if (settled) return;
+      settled = true;
+      state.bonusResolve = null;
+      if (autoCloseTimer) clearTimeout(autoCloseTimer);
+      el.bonusModal.hidden = true;
+      state.bonusOpen = false;
+      paintHud();
+      if (resolveFn) resolveFn(prize);
+    }
+
+    var resolveFn = null;
+
+    function showStartScreen() {
+      // Guarantee free spins
+      if (totals.free <= 0) {
+        totals.free = 5;
+      }
+      document.querySelectorAll(".sl-bonus-card").forEach(function (b) {
+        b.disabled = true;
+      });
+      var parts = [];
+      if (totals.free > 0) parts.push("+" + totals.free + " free spins");
+      if (totals.credits > 0) parts.push("+" + Math.round(totals.credits) + " credits");
+      var summary = "Bonus total: " + parts.join(" · ");
+      if (el.bonusSummary) {
+        el.bonusSummary.textContent = summary;
+        el.bonusSummary.hidden = false;
+      }
+      setMsg(summary, "win");
+      sndFreeSpins();
+      if (el.bonusStart) {
+        el.bonusStart.hidden = false;
+        el.bonusStart.focus();
+      }
+      autoCloseTimer = setTimeout(function () {
+        finishBonus({ credits: totals.credits, free: totals.free });
+      }, 3000);
+    }
+
+    function revealCard(btn, card) {
+      if (settled || btn.classList.contains("revealed") || picks.length >= 3) return;
+      // Guarantee: if this is the 3rd pick and no FS yet, force a +5 FS prize.
+      if (picks.length === 2 && totals.free <= 0 && card.type !== "freespins") {
+        card = { type: "freespins", amount: 5 };
+      }
+      btn.classList.add("revealed");
+      btn.innerHTML = '<span class="sl-bonus-front">' + esc(cardLabel(card)) + "</span>";
+      picks.push(card);
+      applyCardPrize(card, totals, betUsed);
+      sndCardFlip();
+      if (picks.length >= 3) showStartScreen();
+    }
+
+    cards.forEach(function (card) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "sl-bonus-card";
+      btn.setAttribute("aria-label", "Bonus card");
+      btn._slCard = card;
+      btn.innerHTML = '<span class="sl-bonus-back">?</span>';
+      function onPick(ev) {
+        if (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+        }
+        revealCard(btn, btn._slCard);
+      }
+      // Single click/tap handler (touch-action: manipulation on cards).
+      btn.addEventListener("click", onPick);
+      grid.appendChild(btn);
+    });
+
+    function onStartClick(ev) {
+      if (ev) ev.preventDefault();
+      if (picks.length < 3) return;
+      finishBonus({ credits: totals.credits, free: totals.free });
+    }
+    if (el.bonusStart) {
+      el.bonusStart.onclick = onStartClick;
+    }
+
+    function forceCompleteRemaining() {
+      if (settled) return;
+      var buttons = grid.querySelectorAll(".sl-bonus-card:not(.revealed)");
+      for (var bi = 0; bi < buttons.length && picks.length < 3; bi++) {
+        revealCard(buttons[bi], buttons[bi]._slCard || { type: "freespins", amount: 5 });
+      }
+      if (totals.free <= 0) totals.free = 5;
+      // Skip the 3s linger when escaping / closing — award and go.
+      finishBonus({ credits: totals.credits, free: totals.free });
+    }
+
+    function onEsc(e) {
+      if (e.key !== "Escape") return;
+      e.preventDefault();
+      forceCompleteRemaining();
+    }
+    window.addEventListener("keydown", onEsc);
+
+    if (el.bonusClose) {
+      el.bonusClose.onclick = function (ev) {
+        ev.preventDefault();
+        forceCompleteRemaining();
+      };
+    }
 
     return new Promise(function (resolve) {
-      cards.forEach(function (card, idx) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "sl-bonus-card";
-        btn.innerHTML = '<span class="sl-bonus-back">?</span>';
-        btn.addEventListener("click", function () {
-          if (btn.classList.contains("revealed") || picks.length >= 3) return;
-          btn.classList.add("revealed");
-          var label =
-            card.type === "freespins"
-              ? "+" + card.amount + " FS"
-              : "×" + card.mult;
-          btn.innerHTML =
-            '<span class="sl-bonus-front">' + esc(label) + "</span>";
-          picks.push(card);
-          if (card.type === "freespins") totalFree += card.amount;
-          else totalCredits += card.mult * state.bet;
-          beep(360 + picks.length * 80, 0.08, "square");
-          if (picks.length >= 3) {
-            document.querySelectorAll(".sl-bonus-card").forEach(function (b) {
-              b.disabled = true;
-            });
-            setTimeout(function () {
-              el.bonusModal.hidden = true;
-              state.bonusOpen = false;
-              resolve({ credits: totalCredits, free: totalFree });
-            }, 900);
-          }
-        });
-        grid.appendChild(btn);
-      });
+      resolveFn = function (prize) {
+        window.removeEventListener("keydown", onEsc);
+        if (el.bonusStart) el.bonusStart.onclick = null;
+        if (el.bonusClose) el.bonusClose.onclick = null;
+        resolve(prize);
+      };
+      state.bonusResolve = resolveFn;
     });
   }
 
@@ -855,6 +1230,7 @@
     setLast(total > 0 ? "FS total +" + Math.round(total) : "", total > 0);
     state.freeTotalWin = 0;
     paintHud();
+    resumeAutoAfterFeature();
   }
 
   function applyEval(evalResult, betUsed) {
@@ -870,11 +1246,11 @@
           "!",
         "win"
       );
-      beep(560, 0.1, "square");
+      sndWin(win, betUsed);
     } else {
       setLast(state.inFree ? "Free spin · no win" : "No win", false);
       setMsg(state.inFree ? "Free spins left: " + state.freeSpins : "Try again — just for fun.", "");
-      beep(120, 0.06, "triangle");
+      sndLose();
     }
     highlightWins(evalResult.lineWins, evalResult.scatter.n >= 3 ? evalResult.scatter.cells : []);
     showLineSummary(evalResult);
@@ -885,13 +1261,13 @@
         state.freeBet = betUsed;
         state.freeTotalWin = win;
         state.freeSpins = evalResult.freeAward;
-        stopAuto();
+        pauseAuto();
         setMsg("Free spins! " + evalResult.freeAward + " awarded (2×)", "win");
       } else {
         state.freeSpins += evalResult.freeAward;
         setMsg("Retrigger! +" + evalResult.freeAward + " free spins", "win");
       }
-      beep(700, 0.12, "sine");
+      sndFreeSpins();
     }
   }
 
@@ -903,42 +1279,48 @@
     var chain = Promise.resolve();
     if (evalResult.bonus) {
       chain = chain.then(function () {
-        return openBonus().then(function (prize) {
+        return openBonus(betUsed).then(function (prize) {
           if (prize.credits > 0) {
             state.credits += prize.credits;
             saveCredits();
             if (state.inFree) state.freeTotalWin += prize.credits;
-            setMsg("Bonus +" + Math.round(prize.credits) + " credits!", "win");
-            setLast("Bonus +" + Math.round(prize.credits), true);
           }
-          if (prize.free > 0) {
-            if (!state.inFree) {
-              state.inFree = true;
-              state.freeBet = betUsed;
-              state.freeTotalWin = state.freeTotalWin || 0;
-              state.freeSpins = prize.free;
-            } else {
-              state.freeSpins += prize.free;
-            }
-            setMsg("Bonus awarded +" + prize.free + " free spins!", "win");
+          var freeGain = Math.max(0, prize.free || 0);
+          if (freeGain <= 0) freeGain = 5; // belt-and-suspenders
+          if (!state.inFree) {
+            state.inFree = true;
+            state.freeBet = betUsed;
+            state.freeTotalWin = state.freeTotalWin || 0;
+            state.freeSpins = freeGain;
+          } else {
+            state.freeSpins += freeGain;
           }
+          setMsg(
+            "Bonus → +" +
+              freeGain +
+              " free spins" +
+              (prize.credits > 0 ? " · +" + Math.round(prize.credits) + " credits" : "") +
+              "!",
+            "win"
+          );
+          setLast("Bonus +" + freeGain + " FS", true);
           paintHud();
         });
       });
     }
 
     return chain.then(function () {
-      if (evalResult.bonus || evalResult.freeAward > 0) stopAuto();
       if (state.inFree && state.freeSpins <= 0) finishFreeSession();
       state.spinning = false;
       paintHud();
       if (state.inFree && state.freeSpins > 0 && !state.bonusOpen) {
+        clearAutoTimer();
         autoTimer = setTimeout(function () {
           spin();
-        }, 850);
+        }, animFast ? 200 : 850);
         return;
       }
-      scheduleAuto();
+      if (!state.inFree) resumeAutoAfterFeature();
     });
   }
 
@@ -970,7 +1352,8 @@
     paintHud();
     setMsg(state.inFree ? "Free spinning…" : "Spinning…", "");
     if (el.winSummary) el.winSummary.hidden = true;
-    beep(180, 0.05, "sawtooth");
+    ensureAudio();
+    sndSpinStart();
 
     var grid = spinGrid();
     state.grid = grid;
@@ -986,7 +1369,7 @@
     setMsg("Refilled to " + START_CREDITS + " play credits.", "");
     setLast("");
     paintHud();
-    beep(400, 0.08, "sine");
+    sndRefill();
   }
 
   function cacheEls() {
@@ -1007,40 +1390,74 @@
     el.fsCount = $("sl-fs-count");
     el.bonusModal = $("sl-bonus-modal");
     el.bonusGrid = $("sl-bonus-grid");
+    el.bonusHint = $("sl-bonus-hint");
+    el.bonusSummary = $("sl-bonus-summary");
+    el.bonusStart = $("sl-bonus-start");
+    el.bonusClose = $("sl-bonus-close");
   }
 
   function bind() {
     if (!el.panel) return;
+    function unlockAudio() {
+      ensureAudio();
+    }
+    el.panel.addEventListener("pointerdown", unlockAudio, { passive: true });
+    el.panel.addEventListener("touchstart", unlockAudio, { passive: true });
+    el.panel.addEventListener("click", unlockAudio, true);
+
     document.querySelectorAll(".sl-bet").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        if (state.spinning || state.inFree) return;
+        ensureAudio();
+        sndClick();
+        if (state.spinning || state.inFree || state.bonusOpen) return;
         state.bet = parseInt(btn.getAttribute("data-bet"), 10) || 1;
         store(BET_KEY, String(state.bet));
         paintHud();
       });
     });
-    if (el.spin) el.spin.addEventListener("click", spin);
-    if (el.refill) el.refill.addEventListener("click", refill);
+    if (el.spin)
+      el.spin.addEventListener("click", function () {
+        ensureAudio();
+        sndClick();
+        spin();
+      });
+    if (el.refill)
+      el.refill.addEventListener("click", function () {
+        ensureAudio();
+        refill();
+      });
     if (el.sound) {
       el.sound.addEventListener("click", function () {
+        ensureAudio();
         state.sound = !state.sound;
         store(SOUND_KEY, state.sound ? "1" : "0");
         paintHud();
-        if (state.sound) beep(440, 0.06, "sine");
+        if (state.sound) {
+          sndClick();
+          tone(520, 0.08, "sine", 0.06);
+        } else {
+          stopSpinWhirr();
+        }
       });
     }
     if (el.auto) {
       el.auto.addEventListener("change", function () {
+        ensureAudio();
+        sndClick();
         var n = parseInt(el.auto.value, 10) || 0;
         state.autoLeft = n;
-        if (n > 0 && !state.spinning) spin();
+        state.autoSaved = 0;
+        if (n > 0 && !state.spinning && !state.bonusOpen) spin();
       });
     }
     window.addEventListener("keydown", function (e) {
       if (e.code !== "Space" && e.key !== " ") return;
+      if (e.repeat) return;
       if (document.body.getAttribute("data-active-tab") !== "slots") return;
       if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+      if (state.spinning || state.bonusOpen) return;
       e.preventDefault();
+      ensureAudio();
       spin();
     });
     window.addEventListener("slots-show", onShow);
@@ -1069,9 +1486,11 @@
       loadPrefs();
       paintHud();
       loadSymbols().then(function (pack) {
-        state.regular = pack.regular;
-        state.symbols = pack.map;
-        state.grid = seedGrid();
+        if (!state.symbols) {
+          state.regular = pack.regular;
+          state.symbols = pack.map;
+        }
+        if (!state.grid) state.grid = seedGrid();
         renderStaticGrid(state.grid);
         renderPaytable();
         paintHud();
@@ -1091,6 +1510,7 @@
     ) {
       onShow();
     }
+    checkSlotsDebug();
   }
 
   if (document.readyState === "loading") {
@@ -1099,5 +1519,120 @@
     init();
   }
 
-  window.Slots = { onShow: onShow, spin: spin };
+  function readVisibleGrid() {
+    var out = [];
+    for (var c = 0; c < COLS; c++) {
+      out[c] = [];
+      for (var r = 0; r < ROWS; r++) {
+        var node =
+          el.reels &&
+          el.reels.querySelector(
+            '.sl-sym[data-c="' + c + '"][data-r="' + r + '"]'
+          );
+        out[c][r] = node ? node.getAttribute("data-sid") : null;
+      }
+    }
+    return out;
+  }
+
+  window.Slots = {
+    onShow: onShow,
+    spin: spin,
+    isSpinning: function () {
+      return !!state.spinning;
+    },
+    getGrid: function () {
+      return state.grid ? state.grid.map(function (col) { return col.slice(); }) : null;
+    },
+    getVisibleGrid: readVisibleGrid,
+    /** Test helpers — not used by the UI. */
+    __test: {
+      forceGrid: function (g) {
+        state.forceGrid = g;
+      },
+      grantFreeSpins: function (n, bet) {
+        state.inFree = true;
+        state.freeSpins = n;
+        state.freeBet = bet || state.bet;
+        state.freeTotalWin = 0;
+        stopAuto();
+        paintHud();
+      },
+      setAuto: function (n) {
+        state.autoLeft = n;
+        if (el.auto) el.auto.value = String(n);
+      },
+      setFast: function (on) {
+        animFast = !!on;
+      },
+      stopPending: function () {
+        stopAuto();
+        clearAutoTimer();
+      },
+      ensureAudio: ensureAudio,
+      getAudioState: function () {
+        return audioCtx ? audioCtx.state : "none";
+      },
+      getSoundFired: function () {
+        return soundFired.slice();
+      },
+      getSoundErrors: function () {
+        return soundErrors.slice();
+      },
+      clearSoundLog: function () {
+        soundFired = [];
+        soundErrors = [];
+      },
+      isSoundOn: function () {
+        return !!state.sound;
+      },
+      isBonusOpen: function () {
+        return !!state.bonusOpen;
+      },
+      getFreeSpins: function () {
+        return { inFree: !!state.inFree, left: state.freeSpins };
+      },
+      /** Force a bonus-triggering grid on the next spin. */
+      forceBonusSpin: function () {
+        var g = [];
+        for (var c = 0; c < COLS; c++) {
+          g[c] = [];
+          for (var r = 0; r < ROWS; r++) g[c][r] = state.regular[0].id;
+        }
+        g[0][1] = "bonus";
+        g[2][1] = "bonus";
+        g[4][1] = "bonus";
+        state.forceGrid = g;
+      },
+      pickBonusCards: function (n) {
+        n = n || 3;
+        var cards = document.querySelectorAll(".sl-bonus-card:not(.revealed)");
+        for (var i = 0; i < n && i < cards.length; i++) cards[i].click();
+      },
+      startBonusFreeSpins: function () {
+        if (el.bonusStart) el.bonusStart.click();
+      },
+    },
+  };
+
+  function checkSlotsDebug() {
+    try {
+      var q = new URLSearchParams(location.search || "");
+      var flag = q.get("slotsdebug") || "";
+      if (/bonus/i.test(flag) || /slotsdebug=bonus/i.test(location.hash || "")) {
+        onShow();
+        loadSymbols().then(function (pack) {
+          if (!state.symbols) {
+            state.regular = pack.regular;
+            state.symbols = pack.map;
+          }
+          window.Slots.__test.setFast(true);
+          window.Slots.__test.forceBonusSpin();
+          setTimeout(function () {
+            if (!state.spinning && !state.bonusOpen) spin();
+          }, 300);
+        });
+      }
+    } catch (e) {}
+  }
 })();

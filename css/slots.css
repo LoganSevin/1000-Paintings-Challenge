@@ -507,3 +507,59 @@ body.sl-tab-active #panel-slots {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.sl-bonus-card-panel {
+  position: relative;
+}
+
+.sl-bonus-close {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  background: #1a1814;
+  color: #f0d78a;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.sl-bonus-close:hover {
+  border-color: #f0d78a;
+}
+
+.sl-bonus-summary {
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
+  color: #9dffb8;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.sl-bonus-start {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #c9a227;
+  background: linear-gradient(180deg, #3a2e14, #1e180c);
+  color: #f0d78a;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.sl-bonus-start:hover {
+  filter: brightness(1.08);
+}
+
+.sl-bonus-card {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}

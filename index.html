@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="css/az.css?v=9" />
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
-  <link rel="stylesheet" href="css/slots.css?v=2" />
+  <link rel="stylesheet" href="css/slots.css?v=3" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
@@ -6979,7 +6979,7 @@
             <button type="button" class="sl-bet" data-bet="10">10</button>
           </div>
           <button type="button" class="sl-spin" id="sl-spin">Spin</button>
-          <button type="button" class="sl-icon-btn" id="sl-sound" title="Spin sounds (off by default)">Sound</button>
+          <button type="button" class="sl-icon-btn" id="sl-sound" title="Spin sounds (on by default; click to toggle)">Sound</button>
           <div class="sl-auto-row">
             <span>Auto</span>
             <select id="sl-auto" class="sl-auto" aria-label="Auto spin" title="Stops on bonus or free spins">
@@ -7001,10 +7001,13 @@
       </div>
     </div>
     <div id="sl-bonus-modal" class="sl-bonus-modal" hidden>
-      <div class="sl-bonus-card-panel" role="dialog" aria-label="Bonus pick">
+      <div class="sl-bonus-card-panel" role="dialog" aria-modal="true" aria-label="Bonus pick">
+        <button type="button" class="sl-bonus-close" id="sl-bonus-close" title="Close (awards picks)">✕</button>
         <h3>Bonus pick</h3>
-        <p>Choose 3 face-down cards for credit prizes or free spins.</p>
+        <p id="sl-bonus-hint">Pick 3 cards — free spins (+3 / +5 / +8) or credit prizes. Free spins are guaranteed.</p>
         <div class="sl-bonus-grid" id="sl-bonus-grid"></div>
+        <p class="sl-bonus-summary" id="sl-bonus-summary" hidden></p>
+        <button type="button" class="sl-bonus-start" id="sl-bonus-start" hidden>Start free spins</button>
       </div>
     </div>
   </section>
@@ -8130,7 +8133,7 @@
   <script defer src="js/az.js?v=10"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
-  <script defer src="js/slots.js?v=2"></script>
+  <script defer src="js/slots.js?v=4"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
