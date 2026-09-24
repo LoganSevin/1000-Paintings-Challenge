@@ -55,21 +55,66 @@
 }
 
 .tab-tally {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
   min-height: 0.85em;
-  margin: 0 0 0.06rem;
-  color: rgba(232, 197, 71, 0.72);
+  margin: 0 0 0.08rem;
+  color: rgba(180, 170, 140, 0.7);
   font-size: 0.66rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   line-height: 1;
   white-space: nowrap;
   pointer-events: none;
 }
 
-.tab-tally.is-live {
+.tab-tally.has-opens {
   color: #e8c547;
+}
+
+.tab-eye-svg {
+  width: 0.78rem;
+  height: 0.52rem;
+  display: block;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.tab-eye-outline {
+  fill: none;
+  stroke: rgba(160, 150, 120, 0.55);
+  stroke-width: 1.35;
+}
+
+.tab-eye-iris {
+  fill: none;
+  stroke: rgba(160, 150, 120, 0.55);
+  stroke-width: 1.15;
+}
+
+.tab-eye-pupil {
+  fill: rgba(160, 150, 120, 0.55);
+  stroke: none;
+}
+
+.tab-tally.has-opens .tab-eye-outline,
+.tab-tally.has-opens .tab-eye-iris {
+  stroke: rgba(201, 162, 39, 0.85);
+}
+
+.tab-tally.has-opens .tab-eye-pupil {
+  fill: #c9a227;
+}
+
+.tab-opens {
+  color: inherit;
+}
+
+.site-tabs-more-item[data-tab] .tab-tally {
+  margin: 0.1rem 0 0.15rem;
 }
 
 .tab-name {

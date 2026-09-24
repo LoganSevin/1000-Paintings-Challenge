@@ -4,8 +4,7 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 const TAB_RE = /^[a-z0-9-]{1,40}$/;
 const ID_RE = /^[A-Za-z0-9._-]{8,80}$/;
 const PRESENCE_TTL_MS = 45000;
-const OPENS_KEY = "checkins-opens";
-const LEGACY_KEY = "checkins";
+const OPENS_KEY = "tab-opens-v2";
 const PRESENCE_PREFIX = "p/";
 
 function noStore(body) {
@@ -33,18 +32,13 @@ function normalizeOpens(raw) {
 }
 
 async function loadOpens(store) {
+  // Fresh key (tab-opens-v2): do not migrate legacy checkins / checkins-opens,
+  // so deploy resets all open counts to 0.
   try {
     const current = await store.get(OPENS_KEY, { type: "json" });
     if (current && typeof current === "object") return normalizeOpens(current);
   } catch (e) {}
-  try {
-    const legacy = await store.get(LEGACY_KEY, { type: "json" });
-    const opens = normalizeOpens(legacy);
-    if (Object.keys(opens).length) await store.setJSON(OPENS_KEY, opens);
-    return opens;
-  } catch (e) {
-    return {};
-  }
+  return {};
 }
 
 async function bumpOpens(store, tab) {
