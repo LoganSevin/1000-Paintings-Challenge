@@ -680,7 +680,7 @@
     "worship": ["divine", "devotion", "ritual"],
     "wound": ["pain", "injury", "scar"],
     "writing": ["writing", "language", "art"],
-    "yard": ["enemy", "conflict", "war"],
+    "yard": ["city", "home", "earth", "street"],
     "yarn": ["story", "thread", "telling"],
     "year": ["time", "cycle", "measure"],
     "yearn": ["desire", "love", "longing"],
@@ -950,7 +950,28 @@
       landscape: ["landscape", "sight", "beauty", "earth", "awe"],
       vista: ["vision", "sight", "awe", "landscape", "beauty"],
       specter: ["absence", "fear", "memory"],
-      miss: ["longing", "absence", "love", "loss", "heart"]
+      miss: ["longing", "absence", "love", "loss", "heart"],
+      yard: ["city", "home", "earth", "street"],
+      // Spectacular / vista kinship — keep grandeur letters off urban fillers
+      pinnacle: ["awe", "glory", "beauty", "wonder", "sight"],
+      prism: ["light", "beauty", "color", "sight", "awe"],
+      phoenix: ["fire", "glory", "awe", "rebirth", "wonder"],
+      panorama: ["vision", "sight", "landscape", "awe", "beauty"],
+      spectacle: ["awe", "beauty", "wonder", "sight", "glory"],
+      spectacular: ["awe", "beauty", "wonder", "glory", "sight"],
+      pageant: ["awe", "beauty", "glory", "wonder"],
+      parade: ["awe", "people", "glory"],
+      peak: ["awe", "glory", "height", "wonder"],
+      eye: ["vision", "sight", "awe", "beauty"],
+      eyes: ["vision", "sight", "awe", "beauty"],
+      expanse: ["vast", "space", "landscape", "awe", "breadth"],
+      elegance: ["beauty", "grace", "awe"],
+      elegant: ["beauty", "grace", "awe"],
+      ethereal: ["beauty", "spirit", "awe", "light"],
+      elysium: ["beauty", "paradise", "awe", "peace"],
+      epiphany: ["wonder", "insight", "awe", "light"],
+      shadow: ["dark", "absence", "mystery", "longing"],
+      yearning: ["desire", "love", "longing", "absence", "heart"]
     };
     Object.keys(extra).forEach(function (k) {
       WORD_TAGS[k] = extra[k];
@@ -977,20 +998,32 @@
     var add = {
       V: ["Vista"],
       S: ["Solitude", "Street"],
-      M: ["Missing"],
+      M: ["Missing", "Memory"],
       A: ["Awe"],
       B: ["Breadth", "Beauty"],
-      L: ["Landscape"]
+      L: ["Landscape"],
+      P: ["Pinnacle", "Prism", "Panorama"],
+      E: ["Eye", "Ethereal", "Elysium"],
+      G: ["Grandeur", "Glory"]
     };
     var tags = {
       vista: ["vision", "sight", "awe", "landscape", "beauty"],
       solitude: ["absence", "silence", "longing", "void"],
       street: ["city", "street", "people", "home"],
       missing: ["longing", "absence", "love", "loss", "heart"],
+      memory: ["memory", "past", "longing", "absence", "heart"],
       awe: ["awe", "wonder", "beauty", "sacred"],
       breadth: ["breadth", "vast", "space", "horizon"],
       beauty: ["beauty", "awe", "joy", "wonder"],
-      landscape: ["landscape", "sight", "beauty", "earth", "awe"]
+      landscape: ["landscape", "sight", "beauty", "earth", "awe"],
+      pinnacle: ["awe", "glory", "beauty", "wonder", "sight"],
+      prism: ["light", "beauty", "color", "sight", "awe"],
+      panorama: ["vision", "sight", "landscape", "awe", "beauty"],
+      eye: ["vision", "sight", "awe", "beauty"],
+      ethereal: ["beauty", "spirit", "awe", "light"],
+      elysium: ["beauty", "paradise", "awe", "peace"],
+      grandeur: ["awe", "glory", "beauty", "wonder"],
+      glory: ["glory", "awe", "beauty", "wonder"]
     };
     Object.keys(add).forEach(function (L) {
       if (!LEXICON[L]) return;
@@ -1429,6 +1462,13 @@
     about: true, over: true, under: true, again: true, further: true, once: true
   };
 
+  /** Pronouns kept as literal glue in the Engram parallel (chips still expand). */
+  var PRONOUN_GLUE = {
+    i: true, you: true, me: true, we: true, us: true,
+    he: true, she: true, they: true, them: true, him: true,
+    thou: true, thee: true, ye: true
+  };
+
   // Map semantic themes → emotional valence buckets for connotation scoring.
   var EMOTION_OF_THEME = {
     love: ["tender", "intimate"],
@@ -1724,23 +1764,86 @@
     };
   }
 
-  function themesForLetterIndex(letterIndex, groups, statementThemes, perWordThemes) {
-    var base = (statementThemes || []).slice();
+  /** Which seed-word group owns this letter index, or null. */
+  function groupForLetterIndex(letterIndex, groups) {
     var g;
     for (g = 0; g < (groups || []).length; g++) {
       var gr = groups[g];
       if (letterIndex >= gr.startIndex && letterIndex < gr.startIndex + gr.letters.length) {
-        var key = String(gr.word || "")
-          .toLowerCase()
-          .replace(/[^a-z]/g, "");
-        var local =
-          (perWordThemes && (perWordThemes[key] || perWordThemes[gr.letters])) ||
-          contentWordMeaning(gr.word).themes ||
-          [];
-        return unique(base.concat(local));
+        return gr;
       }
     }
-    return unique(base);
+    return null;
+  }
+
+  /**
+   * Primary themes for a letter = meaning of its seed word W only.
+   * Statement themes are seasoning passed separately (never equal-weight flood).
+   */
+  function themesForLetterIndex(letterIndex, groups, statementThemes, perWordThemes) {
+    var gr = groupForLetterIndex(letterIndex, groups);
+    if (!gr) return [];
+    var key = String(gr.word || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    var local =
+      (perWordThemes && (perWordThemes[key] || perWordThemes[gr.letters])) ||
+      contentWordMeaning(gr.word).themes ||
+      [];
+    return unique(local);
+  }
+
+  /** Themes belonging to other content words in the phrase (for cross-word penalty). */
+  function otherContentThemes(letterIndex, groups, perWordThemes, parts) {
+    var mine = groupForLetterIndex(letterIndex, groups);
+    var myKey = mine
+      ? String(mine.word || "")
+          .toLowerCase()
+          .replace(/[^a-z]/g, "")
+      : "";
+    var out = [];
+    var i;
+    var list = parts && parts.length ? parts : null;
+    if (list) {
+      for (i = 0; i < list.length; i++) {
+        var pk = String(list[i].word || "")
+          .toLowerCase()
+          .replace(/[^a-z]/g, "");
+        if (!pk || pk === myKey) continue;
+        out = out.concat(list[i].themes || []);
+      }
+      return unique(out);
+    }
+    // Fallback: all per-word themes except current.
+    var keys = Object.keys(perWordThemes || {});
+    for (i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      if (k === myKey || (mine && k === mine.letters)) continue;
+      // Skip letter-soup keys that duplicate word keys.
+      if (/^[A-Z]+$/.test(k)) continue;
+      out = out.concat(perWordThemes[k] || []);
+    }
+    return unique(out);
+  }
+
+  function wordStemForLetterIndex(letterIndex, groups) {
+    var gr = groupForLetterIndex(letterIndex, groups);
+    if (!gr) return "";
+    return String(gr.word || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+  }
+
+  function wordGlossForStem(stem, parts) {
+    if (!stem || !(parts || []).length) return "";
+    var i;
+    for (i = 0; i < parts.length; i++) {
+      var pk = String(parts[i].word || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      if (pk === stem) return parts[i].gloss || "";
+    }
+    return "";
   }
 
   function themeOverlap(word, themes) {
@@ -1997,53 +2100,121 @@
   }
 
   /**
-   * Small bonus when the candidate literally is / stems from a content word
-   * and still starts with the required letter (rare but on-intention).
+   * Bonus when candidate is / stems from the *current* seed word W.
+   * Matching a *different* content word in the phrase is a penalty (stops
+   * "city" flooding every C while expanding "spectacular").
    */
-  function contentStemBonus(word, letter, contentStems) {
-    if (!(contentStems || []).length) return 0;
+  function contentStemBonus(word, letter, wordStem, otherStems) {
     var key = String(word || "")
       .toLowerCase()
       .replace(/[^a-z]/g, "");
     var L = String(letter || "").toLowerCase();
     if (!key || !L || key.charAt(0) !== L) return 0;
+    var stem = String(wordStem || "").toLowerCase();
+    if (stem && stem.charAt(0) === L) {
+      if (key === stem) return -36;
+      if (stem.length >= 4 && key.indexOf(stem) === 0) return -24;
+      if (key.length >= 4 && stem.indexOf(key) === 0) return -24;
+      if (stem.length >= 5 && key.length >= 5 && stem.slice(0, 5) === key.slice(0, 5)) return -16;
+    }
     var i;
-    for (i = 0; i < contentStems.length; i++) {
-      var stem = contentStems[i];
-      if (!stem || stem.charAt(0) !== L) continue;
-      if (key === stem) return -28;
-      if (stem.length >= 4 && key.indexOf(stem) === 0) return -18;
-      if (key.length >= 4 && stem.indexOf(key) === 0) return -18;
-      if (stem.length >= 5 && key.length >= 5 && stem.slice(0, 5) === key.slice(0, 5)) return -12;
+    for (i = 0; i < (otherStems || []).length; i++) {
+      var other = otherStems[i];
+      if (!other || other.charAt(0) !== L) continue;
+      if (key === other) return 48;
+      if (other.length >= 4 && (key.indexOf(other) === 0 || other.indexOf(key) === 0)) return 36;
+      if (other.length >= 5 && key.length >= 5 && other.slice(0, 5) === key.slice(0, 5)) return 28;
     }
     return 0;
   }
 
-  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen, emotions, statementDriven, intention, contentStems) {
+  /** Shared tags between candidate and seed word W (synonym / near-meaning). */
+  function synonymOverlapWithWord(word, wordStem) {
+    if (!wordStem) return 0;
+    var key = String(word || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    var stem = String(wordStem || "").toLowerCase();
+    if (!key) return 0;
+    var wTags = WORD_TAGS[stem] || [];
+    if (!wTags.length) {
+      var sm = SEED_MEANINGS[stem.toUpperCase()];
+      if (sm && sm.themes) wTags = sm.themes;
+    }
+    if (!wTags.length) {
+      wTags = contentWordMeaning(stem).themes || [];
+    }
+    if (!wTags.length) return 0;
+    var cTags = WORD_TAGS[key] || [];
+    if (!cTags.length) return 0;
+    var set = {};
+    var i;
+    for (i = 0; i < wTags.length; i++) set[wTags[i]] = true;
+    var n = 0;
+    for (i = 0; i < cTags.length; i++) {
+      if (set[cTags[i]]) n++;
+    }
+    return n;
+  }
+
+  /**
+   * Penalize candidates whose tags lean toward a *different* content word
+   * more than toward the word being expanded.
+   */
+  function crossWordThemePenalty(word, primaryThemes, foreignThemes) {
+    var primary = themeOverlap(word, primaryThemes || []);
+    var foreign = themeOverlap(word, foreignThemes || []);
+    if (foreign <= 0) return 0;
+    if (foreign > primary) return (foreign - primary) * 22 + 18;
+    if (foreign >= 2 && primary === 0) return foreign * 16;
+    return 0;
+  }
+
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen, emotions, statementDriven, intention, pickCtx) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
     }
 
-    var allowMeta = seedAllowsMeta(themes || []);
-    var allowArtBuzz = seedAllowsArtBuzz(themes || []);
+    pickCtx = pickCtx || {};
+    var seasonThemes = pickCtx.seasonThemes || [];
+    var foreignThemes = pickCtx.foreignThemes || [];
+    var wordStem = pickCtx.wordStem || "";
+    var otherStems = pickCtx.otherStems || [];
+    var wordIntention = pickCtx.wordIntention || "";
+    var statementIntention = pickCtx.statementIntention || intention || "";
+
+    // Primary themes = this seed word W. Seasoning = whole-statement themes at lower weight.
+    var primaryThemes = themes || [];
+    var allowMeta = seedAllowsMeta(primaryThemes) || seedAllowsMeta(seasonThemes);
+    var allowArtBuzz = seedAllowsArtBuzz(primaryThemes) || seedAllowsArtBuzz(seasonThemes);
     var lenWeight = strongLen ? 4.5 : 0.25;
-    // When the seed statement carries meaning, bias harder toward theme + emotion kinship.
-    // Turned up past #18 so intention seasons word picks more strongly.
-    var themeWeight = statementDriven ? 62 : 28;
-    var emotionWeight = statementDriven ? 40 : 12;
-    var emos = emotions || [];
+    var themeWeight = statementDriven ? 72 : 28;
+    var seasonThemeWeight = statementDriven ? 14 : 0;
+    var emotionWeight = statementDriven ? 36 : 12;
+    var seasonEmotionWeight = statementDriven ? 10 : 0;
+    var primaryEmotions = emotionsFromThemes(primaryThemes);
+    var emos = (primaryEmotions && primaryEmotions.length ? primaryEmotions : emotions) || [];
+    var seasonEmos = emotions || [];
 
     var seedIsAbility = false;
     var ti;
-    for (ti = 0; ti < (themes || []).length; ti++) {
+    for (ti = 0; ti < primaryThemes.length; ti++) {
       if (
-        themes[ti] === "gift" ||
-        themes[ti] === "skill" ||
-        themes[ti] === "ability" ||
-        themes[ti] === "excellence"
+        primaryThemes[ti] === "gift" ||
+        primaryThemes[ti] === "skill" ||
+        primaryThemes[ti] === "ability" ||
+        primaryThemes[ti] === "excellence"
       ) {
         seedIsAbility = true;
+        break;
+      }
+    }
+
+    var seedIsUrban = false;
+    for (ti = 0; ti < primaryThemes.length; ti++) {
+      if (URBAN_THEMES[primaryThemes[ti]]) {
+        seedIsUrban = true;
         break;
       }
     }
@@ -2053,12 +2224,15 @@
       var len = w.replace(/[^a-zA-Z]/g, "").length;
       var dist = Math.abs(len - preferredLen);
       var usedPenalty = used[w] ? 50 : 0;
-      var overlap = themeOverlap(w, themes);
+      var overlap = themeOverlap(w, primaryThemes);
+      var seasonOverlap = statementDriven ? themeOverlap(w, seasonThemes) : 0;
       var eOverlap = emotionOverlap(w, emos);
-      var themeBonus = -overlap * themeWeight;
-      var emotionBonus = -eOverlap * emotionWeight;
-      var clashPenalty = emotionClashPenalty(w, emos, themes) * (statementDriven ? 35 : 18);
-      // Ability-lexicon filler drifts off-emotion for vista / longing / fear seeds.
+      var seasonEOverlap = statementDriven ? emotionOverlap(w, seasonEmos) : 0;
+      var themeBonus = -overlap * themeWeight - seasonOverlap * seasonThemeWeight;
+      var emotionBonus = -eOverlap * emotionWeight - seasonEOverlap * seasonEmotionWeight;
+      var clashPenalty =
+        emotionClashPenalty(w, emos.length ? emos : seasonEmos, primaryThemes) *
+        (statementDriven ? 35 : 18);
       var abilityDrift = 0;
       var tags = WORD_TAGS[key] || [];
       var abilityTagged = false;
@@ -2077,13 +2251,6 @@
       if (statementDriven && abilityTagged && !seedIsAbility && overlap === 0) {
         abilityDrift = 55;
       }
-      var seedIsUrban = false;
-      for (ti = 0; ti < (themes || []).length; ti++) {
-        if (URBAN_THEMES[themes[ti]]) {
-          seedIsUrban = true;
-          break;
-        }
-      }
       var urbanTagged = false;
       for (ai = 0; ai < tags.length; ai++) {
         if (URBAN_THEMES[tags[ai]]) {
@@ -2091,41 +2258,40 @@
           break;
         }
       }
-      // City/street words belong to urban seeds, not tender longing alone.
-      if (
-        statementDriven &&
-        urbanTagged &&
-        !seedIsUrban &&
-        overlap === 0 &&
-        emotionClashPenalty(w, emos, themes) === 0
-      ) {
-        var softStmt = false;
-        var ei;
-        for (ei = 0; ei < emos.length; ei++) {
-          if (SOFT_EMOTIONS[emos[ei]] || emos[ei] === "melancholy") softStmt = true;
-        }
-        if (softStmt) abilityDrift += 50;
+      // City/street words belong to the urban seed word, not every letter in the phrase.
+      if (statementDriven && urbanTagged && !seedIsUrban && overlap === 0) {
+        abilityDrift += 70;
       }
       var classicBonus = classicHint && w === classicHint ? -10 : 0;
-      // Intention seasoning: tags/gloss overlap + rare literal content-stem hits.
-      var intentHit = statementDriven ? intentionOverlap(w, intention) : 0;
-      var intentBonus = statementDriven ? -intentHit * 20 : 0;
+      // Word-local intention first; whole-statement intention only seasons lightly.
+      var wordIntentHit = statementDriven && wordIntention ? intentionOverlap(w, wordIntention) : 0;
+      var stmtIntentHit = statementDriven ? intentionOverlap(w, statementIntention) : 0;
+      var intentBonus = 0;
       if (statementDriven) {
-        intentBonus += contentStemBonus(w, letter, contentStems);
+        intentBonus = -wordIntentHit * 24 - stmtIntentHit * 6;
+        intentBonus += contentStemBonus(w, letter, wordStem, otherStems);
       }
-      // Prefer plain, relatable words that still carry the seed's meaning.
-      var relateBonus = RELATABLE_WORDS[key] && (overlap > 0 || eOverlap > 0 || intentHit > 0) ? -14 : 0;
+      var synHit = statementDriven ? synonymOverlapWithWord(w, wordStem) : 0;
+      var synBonus = statementDriven ? -synHit * 38 : 0;
+      var crossPenalty = statementDriven
+        ? crossWordThemePenalty(w, primaryThemes, foreignThemes)
+        : 0;
+      // Prefer plain, relatable words that still carry *this* word's meaning.
+      var relateBonus =
+        RELATABLE_WORDS[key] && (overlap > 0 || eOverlap > 0 || wordIntentHit > 0 || synHit > 0)
+          ? -14
+          : 0;
       var commonBonus =
-        (overlap > 0 || eOverlap > 0) && len <= 10
+        (overlap > 0 || eOverlap > 0 || synHit > 0) && len <= 10
           ? -Math.max(0, 8 - Math.abs(len - 7)) * 0.4
           : 0;
       var crypticPenalty = 0;
       if (META_WORDS[key] && !allowMeta) crypticPenalty = 600;
-      else if (META_WORDS[key] && allowMeta && overlap < 2) crypticPenalty = 600;
+      else if (META_WORDS[key] && allowMeta && overlap < 2 && synHit < 1) crypticPenalty = 600;
       else if (META_WORDS[key]) crypticPenalty = 8;
-      // Long ornate words without theme/emotion overlap feel like cryptic filler.
-      if (!META_WORDS[key] && overlap === 0 && eOverlap === 0 && len >= 10) crypticPenalty += 6;
-      // Art-studio jargon only when the seed itself is about art/paint/gallery.
+      if (!META_WORDS[key] && overlap === 0 && eOverlap === 0 && synHit === 0 && len >= 10) {
+        crypticPenalty += 6;
+      }
       var artBuzzPenalty = 0;
       if (ART_BUZZ[key] && !allowArtBuzz) artBuzzPenalty = 650;
       var nestPenalty = 0;
@@ -2136,7 +2302,7 @@
       }
       var jitter = rng() * 3;
       var harshSkip = false;
-      if (statementDriven && clashPenalty >= 100 && overlap === 0) {
+      if (statementDriven && clashPenalty >= 100 && overlap === 0 && synHit === 0) {
         harshSkip = true;
       }
       var metaSkip = crypticPenalty >= 500 || artBuzzPenalty >= 500 || nestSkip || harshSkip;
@@ -2150,6 +2316,8 @@
           clashPenalty +
           classicBonus +
           intentBonus +
+          synBonus +
+          crossPenalty +
           relateBonus +
           commonBonus +
           crypticPenalty +
@@ -2159,6 +2327,8 @@
           jitter,
         overlap: overlap,
         eOverlap: eOverlap,
+        synHit: synHit,
+        wordIntentHit: wordIntentHit,
         metaSkip: metaSkip,
         idx: idx
       };
@@ -2170,33 +2340,45 @@
 
     var withTheme = scored.filter(function (s) {
       if (used[s.w] || s.metaSkip) return false;
-      if (s.overlap > 0) return true;
+      if (s.overlap > 0 || s.synHit > 0) return true;
       if (statementDriven) {
-        // Intention-seasoned candidates count even without hard theme tags.
-        if (intentionOverlap(s.w, intention) > 0) return true;
+        if (s.wordIntentHit > 0) return true;
         return s.eOverlap >= 2;
       }
       return s.eOverlap > 0;
     });
+    // When strong W-kinship exists, drop weak one-tag flukes (City/Velvet floods).
+    var strongKin = withTheme.filter(function (s) {
+      return s.overlap >= 2 || s.synHit >= 2 || s.wordIntentHit > 0;
+    });
+    if (strongKin.length >= 1) withTheme = strongKin;
+
     var pool;
     if (strongLen) {
-      // Explicit dial: let length compete with theme in the score (theme still heavily rewarded).
-      // Avoid theme-only pools that ignore a 3 vs 12 dial when few themed lengths exist.
       pool = scored.filter(function (s) {
         return !used[s.w] && !s.metaSkip;
       }).slice(0, Math.min(4, scored.length));
       if (!pool.length) {
         pool = scored.filter(function (s) {
-          return !s.metaSkip;
+          return !used[s.w] && !s.metaSkip;
         }).slice(0, Math.min(4, scored.length));
       }
-      if (!pool.length) pool = scored.slice(0, Math.min(4, scored.length));
+      if (!pool.length) {
+        pool = scored.filter(function (s) {
+          return !used[s.w];
+        }).slice(0, Math.min(4, scored.length));
+      }
     } else if (withTheme.length >= 1) {
-      pool = withTheme.slice(0, Math.min(6, withTheme.length));
+      pool = withTheme.slice(0, Math.min(3, withTheme.length));
     } else {
       pool = scored.filter(function (s) {
-        return !s.metaSkip;
+        return !used[s.w] && !s.metaSkip;
       }).slice(0, Math.min(5, scored.length));
+      if (!pool.length) {
+        pool = scored.filter(function (s) {
+          return !used[s.w];
+        }).slice(0, Math.min(5, scored.length));
+      }
       if (!pool.length) pool = scored.slice(0, Math.min(5, scored.length));
     }
 
@@ -2396,57 +2578,113 @@
   }
 
   /**
-   * Build the poem: one sensible sentence for a single-word seed,
-   * or one sentence/clause per seed word for multi-word seeds.
+   * Join one content word's expansions lightly (parallel of that word opened).
+   * Short runs use "and"/commas; long runs prefer middots — never new sentences.
+   */
+  function formatExpansionRun(slice, rng) {
+    slice = (slice || []).filter(Boolean);
+    if (!slice.length) return "";
+    if (slice.length === 1) return slice[0];
+    if (slice.length === 2) {
+      return slice[0] + " and " + slice[1];
+    }
+    if (slice.length === 3) {
+      if (rng() < 0.45) return slice[0] + " · " + slice[1] + " · " + slice[2];
+      return slice[0] + ", " + slice[1] + ", and " + slice[2];
+    }
+    return slice.join(" · ");
+  }
+
+  /**
+   * Walk raw seed tokens keeping lead/trail punctuation and classifying
+   * stopwords + pronouns as glue vs content (to expand).
+   */
+  function parseSeedTokens(raw) {
+    var parts = String(raw || "").trim().match(/\S+/g) || [];
+    var out = [];
+    var letterIdx = 0;
+    var i;
+    for (i = 0; i < parts.length; i++) {
+      var part = parts[i];
+      var m = part.match(/^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9]*)$/);
+      var lead = m ? m[1] : "";
+      var core = m ? m[2] : part;
+      var trail = m ? m[3] : "";
+      if (!core && !lead && !trail) continue;
+      var letters = extractLetters(core);
+      var lower = String(core || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      var kind = "content";
+      if (!letters.length) kind = "punct";
+      else if (STATEMENT_STOPWORDS[lower] || PRONOUN_GLUE[lower]) kind = "glue";
+      out.push({
+        lead: lead,
+        core: core,
+        trail: trail,
+        lower: lower,
+        letters: letters,
+        kind: kind,
+        startIndex: letterIdx
+      });
+      letterIdx += letters.length;
+    }
+    return out;
+  }
+
+  /**
+   * Build the Engram as a parallel of the seed statement:
+   * keep stopwords/pronouns/punctuation as glue; open each content word
+   * into its expansions in order. Single-word seeds keep a readable list weave.
    */
   function weavePoem(words, seed, nonce, themes, seedRaw, intention) {
     if (!words.length) return "";
     var rng = mulberry32(hashStr(seed + "|poem|" + nonce + "|" + (intention || "")));
-    var groups = tokenizeSeedWords(seedRaw || "");
-    var oneClause = function (slice) {
-      return ensurePeriod(capitalizeSentence(weaveSense(slice, rng)));
-    };
+    var tokens = parseSeedTokens(seedRaw || "");
+    var contentTokens = tokens.filter(function (t) {
+      return t.kind === "content";
+    });
 
-    if (groups.length <= 1) {
-      return oneClause(words);
-    }
-
-    var last = groups[groups.length - 1];
-    var covered = last.startIndex + last.letters.length;
-    if (covered !== words.length) {
-      return oneClause(words);
-    }
-
-    var clauses = [];
-    var g;
-    for (g = 0; g < groups.length; g++) {
-      var gr = groups[g];
-      var slice = words.slice(gr.startIndex, gr.startIndex + gr.letters.length);
-      if (!slice.length) continue;
-      var clause = oneClause(slice);
-      // Light intention frame per content word — whisper the seed word, never paste the whole statement.
-      var gw = String(gr.word || "")
-        .toLowerCase()
-        .replace(/[^a-z]/g, "");
-      if (
-        intention &&
-        gw &&
-        !STATEMENT_STOPWORDS[gw] &&
-        rng() < 0.4 &&
-        clause.toLowerCase().indexOf(gw) !== 0
-      ) {
-        var body = clause.replace(/\.$/, "");
-        clause =
-          "Of " +
-          gw +
-          " — " +
-          body.charAt(0).toLowerCase() +
-          body.slice(1) +
-          ".";
+    // Single content word (or bare letters): readable list weave.
+    if (contentTokens.length <= 1 && tokens.length <= 1) {
+      var list = ensurePeriod(capitalizeSentence(weaveSense(words, rng)));
+      // Preserve terminal punctuation from the typed seed when present.
+      var rawTrim = String(seedRaw || "").trim();
+      var endPunct = rawTrim.match(/[.!?]+$/);
+      if (endPunct) {
+        list = list.replace(/[.!?]+$/, "") + endPunct[0];
       }
-      clauses.push(clause);
+      return list;
     }
-    return clauses.join(" ");
+
+    var pieces = [];
+    var t;
+    for (t = 0; t < tokens.length; t++) {
+      var tok = tokens[t];
+      if (tok.kind === "glue" || tok.kind === "punct") {
+        pieces.push(tok.lead + tok.core + tok.trail);
+        continue;
+      }
+      var slice = words.slice(tok.startIndex, tok.startIndex + tok.letters.length);
+      var run = formatExpansionRun(slice, rng);
+      if (!run) {
+        pieces.push(tok.lead + tok.core + tok.trail);
+        continue;
+      }
+      pieces.push(tok.lead + run + tok.trail);
+    }
+
+    var joined = pieces.join(" ").replace(/\s+/g, " ").trim();
+    // Fix space before trailing punctuation glued to prior token already.
+    joined = joined.replace(/\s+([,.;:!?])/g, "$1");
+    if (!joined) return "";
+    // Capitalize sentence start; keep internal glue lowercase as typed.
+    joined = joined.charAt(0).toUpperCase() + joined.slice(1);
+    var rawEnd = String(seedRaw || "").trim().match(/[.!?]+$/);
+    if (rawEnd && !/[.!?]$/.test(joined)) {
+      joined += rawEnd[0];
+    }
+    return joined;
   }
 
   function lettersOnly(w) {
@@ -2547,10 +2785,39 @@
       if (!ok) useClassic = false;
     }
 
+    var statementParts = meaning.parts || statement.parts || [];
     var rng = mulberry32(hashStr(letters + "|" + nonce + "|sem"));
     var used = {};
     var words = [];
     var i;
+
+    function pickCtxForIndex(idx) {
+      if (!statementDriven) {
+        return {
+          seasonThemes: [],
+          foreignThemes: [],
+          wordStem: "",
+          otherStems: [],
+          wordIntention: "",
+          statementIntention: intention || ""
+        };
+      }
+      var stem = wordStemForLetterIndex(idx, groups);
+      var other = [];
+      var si;
+      for (si = 0; si < contentStems.length; si++) {
+        if (contentStems[si] && contentStems[si] !== stem) other.push(contentStems[si]);
+      }
+      return {
+        seasonThemes: themes,
+        foreignThemes: otherContentThemes(idx, groups, perWordThemes, statementParts),
+        wordStem: stem,
+        otherStems: other,
+        wordIntention: wordGlossForStem(stem, statementParts) || stem,
+        statementIntention: intention || ""
+      };
+    }
+
     for (i = 0; i < letters.length; i++) {
       var L = letters.charAt(i);
       var hint =
@@ -2561,6 +2828,16 @@
       var localThemes = statementDriven
         ? themesForLetterIndex(i, groups, themes, perWordThemes)
         : themes;
+      // Stopwords/pronoun glue letters: soft statement seasoning only (chips still expand).
+      var stemNow = statementDriven ? wordStemForLetterIndex(i, groups) : "";
+      if (
+        statementDriven &&
+        stemNow &&
+        (STATEMENT_STOPWORDS[stemNow] || PRONOUN_GLUE[stemNow])
+      ) {
+        localThemes = softContentHeuristics(stemNow, extractLetters(stemNow));
+        if (!localThemes.length) localThemes = themes.slice(0, 3);
+      }
       var nextWord;
       if (useClassic) {
         nextWord = classic[i];
@@ -2578,7 +2855,7 @@
           emotions,
           statementDriven,
           intention,
-          contentStems
+          pickCtxForIndex(i)
         );
       }
       words.push(nextWord);
@@ -2598,7 +2875,15 @@
           var prevThemes = statementDriven
             ? themesForLetterIndex(i - 1, groups, themes, perWordThemes)
             : themes;
-          // Never re-offer the nested pair; forbid the current word as neighbor.
+          var prevStem = statementDriven ? wordStemForLetterIndex(i - 1, groups) : "";
+          if (
+            statementDriven &&
+            prevStem &&
+            (STATEMENT_STOPWORDS[prevStem] || PRONOUN_GLUE[prevStem])
+          ) {
+            prevThemes = softContentHeuristics(prevStem, extractLetters(prevStem));
+            if (!prevThemes.length) prevThemes = themes.slice(0, 3);
+          }
           words[i - 1] = pickWord(
             prevL,
             rng,
@@ -2611,12 +2896,11 @@
             emotions,
             statementDriven,
             intention,
-            contentStems
+            pickCtxForIndex(i - 1)
           );
           used[words[i - 1]] = true;
           attempts++;
         }
-        // If still nested after prior re-picks, re-pick the current letter instead.
         if (isNestedExpansion(words[i], words[i - 1])) {
           delete used[words[i]];
           words[i] = pickWord(
@@ -2631,7 +2915,7 @@
             emotions,
             statementDriven,
             intention,
-            contentStems
+            pickCtxForIndex(i)
           );
           used[words[i]] = true;
         }
