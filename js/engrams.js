@@ -1016,37 +1016,96 @@
   })();
 
 
-  var CONNECTORS = [
-    ["from", "the"],
-    ["of", "the"],
-    ["into", "the"],
-    ["toward", "the"],
-    ["beneath", "the"],
-    ["beyond", "the"],
-    ["through", "the"],
-    ["within", "the"],
-    ["as", "the"],
-    ["amid", "the"],
-    ["across", "the"],
-    ["under"]
-  ];
-
-  var THEME_CONNECTOR_BIAS = {
-    love: [1, 8, 7],
-    tech: [2, 6, 0],
-    mind: [7, 6, 1],
-    war: [3, 0, 4],
-    peace: [7, 8, 5],
-    death: [4, 11, 0],
-    light: [0, 5, 2],
-    dark: [4, 11, 5],
-    language: [1, 6, 8],
-    art: [1, 8, 2],
-    water: [6, 10, 2],
-    fire: [2, 0, 3],
-    space: [5, 2, 3],
-    home: [7, 1, 8],
-    divine: [7, 1, 5]
+  /**
+   * Light POS / role hints for readable weaving.
+   * Default is noun; cover frequent lexicon / classic / relatable words.
+   */
+  var WORD_POS = {
+    // Clear verbs (ambiguous noun/verb expansions default to noun)
+    arise: "verb",
+    achieve: "verb",
+    excel: "verb",
+    engage: "verb",
+    yield: "verb",
+    become: "verb",
+    becoming: "verb",
+    compute: "verb",
+    create: "verb",
+    design: "verb",
+    // embrace stays noun by default
+    learn: "verb",
+    move: "verb",
+    seek: "verb",
+    teach: "verb",
+    unite: "verb",
+    write: "verb",
+    writing: "verb",
+    yearn: "verb",
+    breathe: "verb",
+    build: "verb",
+    choose: "verb",
+    dance: "verb",
+    find: "verb",
+    grow: "verb",
+    heal: "verb",
+    ignite: "verb",
+    inspire: "verb",
+    know: "verb",
+    listen: "verb",
+    make: "verb",
+    reach: "verb",
+    remember: "verb",
+    speak: "verb",
+    stand: "verb",
+    think: "verb",
+    transform: "verb",
+    understand: "verb",
+    walk: "verb",
+    want: "verb",
+    // adjectives
+    artificial: "adj",
+    astral: "adj",
+    binary: "adj",
+    boreal: "adj",
+    byzantine: "adj",
+    capable: "adj",
+    celestial: "adj",
+    dedicated: "adj",
+    digital: "adj",
+    diaphanous: "adj",
+    eloquent: "adj",
+    inner: "adj",
+    kind: "adj",
+    lucid: "adj",
+    quiet: "adj",
+    ultraviolet: "adj",
+    sacred: "adj",
+    radiant: "adj",
+    eternal: "adj",
+    fierce: "adj",
+    gentle: "adj",
+    golden: "adj",
+    holy: "adj",
+    human: "adj",
+    infinite: "adj",
+    luminous: "adj",
+    noble: "adj",
+    open: "adj",
+    pure: "adj",
+    silent: "adj",
+    soft: "adj",
+    true: "adj",
+    vast: "adj",
+    vital: "adj",
+    wild: "adj",
+    wise: "adj",
+    zealous: "adj",
+    bright: "adj",
+    nimble: "adj",
+    clear: "adj",
+    deep: "adj",
+    vivid: "adj",
+    tender: "adj"
   };
 
   var state = {
@@ -1590,38 +1649,143 @@
     return (n - LEN_MIN + 0.5) * span;
   }
 
-  function pickConnector(rng, themes) {
-    var biasKey = null;
-    var i;
-    for (i = 0; i < themes.length; i++) {
-      if (THEME_CONNECTOR_BIAS[themes[i]]) {
-        biasKey = themes[i];
-        break;
-      }
-    }
-    if (biasKey && rng() < 0.55) {
-      var idxs = THEME_CONNECTOR_BIAS[biasKey];
-      return CONNECTORS[idxs[Math.floor(rng() * idxs.length)]];
-    }
-    return CONNECTORS[Math.floor(rng() * CONNECTORS.length)];
+  function wordPos(w) {
+    var key = String(w || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    if (!key) return "other";
+    if (WORD_POS[key]) return WORD_POS[key];
+    // Light heuristics for uncovered lexicon entries (avoid false verbs like "promise").
+    if (/(ous|ful|ive|ical|less|ish|able|ible|esque|ble)$/.test(key)) return "adj";
+    if (/^[a-z]+ize$/.test(key) && key.length > 6) return "verb";
+    return "noun";
   }
 
-  function weavePoem(words, seed, nonce, themes) {
+  function capitalizeSentence(s) {
+    s = String(s || "").replace(/\s+/g, " ").trim();
+    if (!s) return "";
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  function ensurePeriod(s) {
+    s = String(s || "").trim();
+    if (!s) return "";
+    if (/[.!?]$/.test(s)) return s;
+    return s + ".";
+  }
+
+  /**
+   * Format a short noun-ish run as readable English (lists, of-phrases).
+   * Preserves word order; keeps clauses short so long seeds stay sensible.
+   */
+  function formatChunk(chunk, rng) {
+    chunk = (chunk || []).filter(Boolean);
+    if (!chunk.length) return "";
+    if (chunk.length === 1) return chunk[0];
+    if (chunk.length === 2) {
+      var a = wordPos(chunk[0]);
+      var b = wordPos(chunk[1]);
+      if (a === "adj" && b === "noun") return chunk[0] + " " + chunk[1];
+      if (b === "verb") return chunk[0] + " that can " + chunk[1].toLowerCase();
+      if (a === "verb" && b === "noun") return chunk[0] + " the " + chunk[1];
+      var two = ["and", "of", "with", "for"];
+      return chunk[0] + " " + two[Math.floor(rng() * two.length)] + " " + chunk[1];
+    }
+    if (chunk.length === 3) {
+      var p0 = wordPos(chunk[0]);
+      var p1 = wordPos(chunk[1]);
+      var p2 = wordPos(chunk[2]);
+      if (p0 === "adj" && p1 === "noun") {
+        return chunk[0] + " " + chunk[1] + " and " + chunk[2];
+      }
+      if (p1 === "verb") {
+        return chunk[0] + " " + chunk[1].toLowerCase() + " " + chunk[2];
+      }
+      var three = Math.floor(rng() * 4);
+      if (three <= 1) return chunk[0] + ", " + chunk[1] + ", and " + chunk[2];
+      if (three === 2) return chunk[0] + " of " + chunk[1] + " and " + chunk[2];
+      return chunk[0] + " and " + chunk[1] + " with " + chunk[2];
+    }
+    // 4+: "A, B, and C" style on the whole chunk
+    var head = chunk.slice(0, -1);
+    var last = chunk[chunk.length - 1];
+    return head.join(", ") + ", and " + last;
+  }
+
+  /**
+   * Weave expansion words into one coherent clause (no trailing period).
+   * Long runs are split into 2–3 word chunks and joined with light verbs
+   * so the line reads as English instead of stacked surreal prepositions.
+   */
+  function weaveSense(words, rng) {
+    words = (words || []).filter(Boolean);
+    if (!words.length) return "";
+    if (words.length === 1) return words[0];
+    if (words.length <= 4) return formatChunk(words, rng);
+
+    var chunks = [];
+    var i = 0;
+    while (i < words.length) {
+      var left = words.length - i;
+      var take = 3;
+      if (left === 4) take = 2;
+      else if (left === 1) take = 1;
+      else if (left === 2) take = 2;
+      else if (rng() < 0.35) take = 2;
+      chunks.push(words.slice(i, i + take));
+      i += take;
+    }
+
+    var bridges = [
+      "and",
+      "then",
+      "along with",
+      "together with",
+      "beside",
+      "and then"
+    ];
+    var parts = [];
+    var b;
+    for (b = 0; b < chunks.length; b++) {
+      parts.push(formatChunk(chunks[b], rng));
+      if (b < chunks.length - 1) {
+        parts.push(bridges[Math.floor(rng() * bridges.length)]);
+      }
+    }
+    return parts.join(" ").replace(/\s+/g, " ").trim();
+  }
+
+  /**
+   * Build the poem: one sensible sentence for a single-word seed,
+   * or one sentence/clause per seed word for multi-word seeds.
+   */
+  function weavePoem(words, seed, nonce, themes, seedRaw) {
     if (!words.length) return "";
     var rng = mulberry32(hashStr(seed + "|poem|" + nonce));
-    var parts = [words[0]];
-    var i;
-    for (i = 1; i < words.length; i++) {
-      var conn = pickConnector(rng, themes || []);
-      if (rng() < 0.55) {
-        parts.push(conn.join(" "));
-      } else if (rng() < 0.75) {
-        parts.push(conn[0]);
-      }
-      parts.push(words[i]);
+    var groups = tokenizeSeedWords(seedRaw || "");
+    var oneClause = function (slice) {
+      return ensurePeriod(capitalizeSentence(weaveSense(slice, rng)));
+    };
+
+    if (groups.length <= 1) {
+      return oneClause(words);
     }
-    var line = parts.join(" ");
-    return line.charAt(0).toUpperCase() + line.slice(1);
+
+    var last = groups[groups.length - 1];
+    var covered = last.startIndex + last.letters.length;
+    if (covered !== words.length) {
+      return oneClause(words);
+    }
+
+    var clauses = [];
+    var g;
+    for (g = 0; g < groups.length; g++) {
+      var gr = groups[g];
+      var slice = words.slice(gr.startIndex, gr.startIndex + gr.letters.length);
+      if (!slice.length) continue;
+      clauses.push(oneClause(slice));
+    }
+    return clauses.join(" ");
   }
 
   function lettersOnly(w) {
@@ -1762,7 +1926,7 @@
       seedRaw: raw || "",
       seedLetters: letters,
       words: words,
-      poem: weavePoem(words, letters, nonce, themes),
+      poem: weavePoem(words, letters, nonce, themes, raw || ""),
       gloss: meaning.gloss || "",
       themes: themes,
       note: note
@@ -2394,7 +2558,11 @@
     resolveSeedMeaning: resolveSeedMeaning,
     LEXICON: LEXICON,
     SEED_MEANINGS: SEED_MEANINGS,
-    WORD_TAGS: WORD_TAGS
+    WORD_TAGS: WORD_TAGS,
+    weaveSense: weaveSense,
+    weavePoem: weavePoem,
+    wordPos: wordPos,
+    tokenizeSeedWords: tokenizeSeedWords
   };
 
   window.addEventListener("engrams-show", onShow);
