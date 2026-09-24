@@ -1096,6 +1096,33 @@
       .replace(/[^A-Z]/g, "");
   }
 
+  /**
+   * Split raw seed into word groups for vertical layout.
+   * Each group keeps the display token (punctuation stripped for the label)
+   * and the A–Z letters with their global offset into seedLetters/words.
+   */
+  function tokenizeSeedWords(raw) {
+    var parts = String(raw || "").trim().split(/\s+/);
+    var groups = [];
+    var globalIdx = 0;
+    var i;
+    if (!String(raw || "").trim()) return groups;
+    for (i = 0; i < parts.length; i++) {
+      var token = parts[i];
+      if (!token) continue;
+      var letters = extractLetters(token);
+      var label = token.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "") || token;
+      if (!letters.length) continue;
+      groups.push({
+        word: label,
+        letters: letters,
+        startIndex: globalIdx
+      });
+      globalIdx += letters.length;
+    }
+    return groups;
+  }
+
   function unique(arr) {
     var seen = {};
     var out = [];
@@ -2015,40 +2042,111 @@
     var poemEl = $("engrams-poem");
     var noteEl = $("engrams-note");
     var metaEl = $("engrams-meta");
+    var groups = tokenizeSeedWords(result.seedRaw || "");
+    var letterCount = (result.seedLetters || "").length;
 
     if (seedEl) {
-      seedEl.textContent = result.seedLetters
-        ? result.seedLetters.split("").join(" · ")
-        : "—";
+      var labels = [];
+      var gi;
+      for (gi = 0; gi < groups.length; gi++) {
+        if (groups[gi].startIndex >= letterCount) break;
+        labels.push(groups[gi].word);
+      }
+      seedEl.textContent = labels.length ? labels.join(" · ") : "—";
     }
     if (slots) {
       var dragIdx = state.lensDrag ? state.lensDrag.idx : -1;
       slots.innerHTML = "";
-      result.words.forEach(function (w, idx) {
-        var card = document.createElement("div");
-        card.className = "engrams-slot";
-        var head = document.createElement("div");
-        head.className = "engrams-slot-head";
-        var letter = document.createElement("span");
-        letter.className = "engrams-slot-letter";
-        var L = result.seedLetters.charAt(idx) || "";
-        letter.textContent = L;
-        var pref = lensForIndex(idx, result.seedLetters);
-        var radial = makeRadialDial(idx, L, pref);
-        head.appendChild(letter);
-        head.appendChild(radial);
-        var word = document.createElement("span");
-        word.className = "engrams-slot-word";
-        word.textContent = w;
-        card.appendChild(head);
-        card.appendChild(word);
-        slots.appendChild(card);
-      });
       if (!result.words.length) {
         slots.innerHTML = '<p class="engrams-empty">Type a word — each letter becomes an engram expansion.</p>';
-      } else if (dragIdx >= 0) {
-        var keep = slots.querySelector('.engrams-radial[data-idx="' + dragIdx + '"]');
-        if (keep) keep.classList.add("is-dragging");
+      } else {
+        var stack = document.createElement("div");
+        stack.className = "engrams-word-stack";
+        groups.forEach(function (group) {
+          if (group.startIndex >= letterCount) return;
+          var end = Math.min(group.startIndex + group.letters.length, letterCount);
+          if (end <= group.startIndex) return;
+
+          var groupEl = document.createElement("div");
+          groupEl.className = "engrams-word-group";
+
+          var label = document.createElement("div");
+          label.className = "engrams-word-label";
+          label.textContent = group.word;
+          groupEl.appendChild(label);
+
+          var wordSlots = document.createElement("div");
+          wordSlots.className = "engrams-word-slots";
+
+          var idx;
+          for (idx = group.startIndex; idx < end; idx++) {
+            var w = result.words[idx];
+            if (w == null) continue;
+            var card = document.createElement("div");
+            card.className = "engrams-slot";
+            var head = document.createElement("div");
+            head.className = "engrams-slot-head";
+            var letter = document.createElement("span");
+            letter.className = "engrams-slot-letter";
+            var L = result.seedLetters.charAt(idx) || "";
+            letter.textContent = L;
+            var pref = lensForIndex(idx, result.seedLetters);
+            var radial = makeRadialDial(idx, L, pref);
+            head.appendChild(letter);
+            head.appendChild(radial);
+            var word = document.createElement("span");
+            word.className = "engrams-slot-word";
+            word.textContent = w;
+            card.appendChild(head);
+            card.appendChild(word);
+            wordSlots.appendChild(card);
+          }
+
+          if (!wordSlots.childNodes.length) return;
+          groupEl.appendChild(wordSlots);
+          stack.appendChild(groupEl);
+        });
+
+        // Fallback: flat letter list had no whitespace groups (or raw empty) —
+        // still show every expansion in one vertical column.
+        if (!stack.childNodes.length) {
+          var fallback = document.createElement("div");
+          fallback.className = "engrams-word-group";
+          var fbLabel = document.createElement("div");
+          fbLabel.className = "engrams-word-label";
+          fbLabel.textContent = result.seedLetters || "seed";
+          fallback.appendChild(fbLabel);
+          var fbSlots = document.createElement("div");
+          fbSlots.className = "engrams-word-slots";
+          result.words.forEach(function (w, idx) {
+            var card = document.createElement("div");
+            card.className = "engrams-slot";
+            var head = document.createElement("div");
+            head.className = "engrams-slot-head";
+            var letter = document.createElement("span");
+            letter.className = "engrams-slot-letter";
+            var L = result.seedLetters.charAt(idx) || "";
+            letter.textContent = L;
+            var pref = lensForIndex(idx, result.seedLetters);
+            var radial = makeRadialDial(idx, L, pref);
+            head.appendChild(letter);
+            head.appendChild(radial);
+            var word = document.createElement("span");
+            word.className = "engrams-slot-word";
+            word.textContent = w;
+            card.appendChild(head);
+            card.appendChild(word);
+            fbSlots.appendChild(card);
+          });
+          fallback.appendChild(fbSlots);
+          stack.appendChild(fallback);
+        }
+
+        slots.appendChild(stack);
+        if (dragIdx >= 0) {
+          var keep = slots.querySelector('.engrams-radial[data-idx="' + dragIdx + '"]');
+          if (keep) keep.classList.add("is-dragging");
+        }
       }
     }
     if (poemEl) {
