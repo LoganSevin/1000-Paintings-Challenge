@@ -2,3 +2,4 @@
 /api/blend-spells /.netlify/functions/blend-spells 200
 /api/generate-stasis-vision /.netlify/functions/generate-stasis-vision 200
 /api/jobs/* /.netlify/functions/job-status/:splat 200
+/api/page-chat /.netlify/functions/page-chat 200
