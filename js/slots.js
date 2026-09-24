@@ -39,14 +39,14 @@
 
   // Regular painting symbols: pays = [3oak, 4oak, 5oak] × line bet
   var PAINTING_PICKS = [
-    { number: 1, weight: 4, pays: [29, 116, 290] },
-    { number: 7, weight: 5, pays: [23, 91, 222] },
-    { number: 42, weight: 6, pays: [20, 72, 182] },
-    { number: 100, weight: 8, pays: [17, 59, 130] },
-    { number: 250, weight: 10, pays: [14, 46, 106] },
-    { number: 500, weight: 12, pays: [12, 36, 84] },
-    { number: 777, weight: 14, pays: [9, 27, 59] },
-    { number: 999, weight: 16, pays: [7, 21, 46] },
+    { number: 1, weight: 4, pays: [21, 84, 210] },
+    { number: 7, weight: 5, pays: [17, 66, 160] },
+    { number: 42, weight: 6, pays: [14, 52, 130] },
+    { number: 100, weight: 8, pays: [12, 42, 94] },
+    { number: 250, weight: 10, pays: [10, 33, 76] },
+    { number: 500, weight: 12, pays: [9, 26, 60] },
+    { number: 777, weight: 14, pays: [6, 19, 42] },
+    { number: 999, weight: 16, pays: [5, 15, 33] },
   ];
 
   var WILD = {
@@ -54,43 +54,63 @@
     label: "Wild",
     kind: "wild",
     weight: 3.8,
-    pays: [36, 145, 360],
+    pays: [26, 105, 260],
   };
   var SCATTER = {
     id: "scatter",
-    label: "Scatter",
+    label: "Lock Link",
     kind: "scatter",
-    weight: 2.4,
-    // pays × total bet for 3/4/5 anywhere
-    scatterPay: [0, 0, 0, 2, 8, 40],
-    freeSpins: [0, 0, 0, 10, 15, 20],
+    // Tuned for ~1/100–150 Lock It Link triggers (6+ orbs on 15 cells).
+    weight: 11.8,
+    // Small anywhere pays for 3–5 orbs (× total bet). 6+ starts Lock It Link.
+    scatterPay: [0, 0, 0, 1, 2, 5],
+    linkTrigger: 6,
   };
+
+  // Lock It Link orb prizes (× bet). Weighted low so feature RTP stays ~10–15%.
+  var LINK_ORB_TABLE = [
+    { kind: "credit", mult: 1, w: 28 },
+    { kind: "credit", mult: 1, w: 18 },
+    { kind: "credit", mult: 2, w: 16 },
+    { kind: "credit", mult: 2, w: 12 },
+    { kind: "credit", mult: 3, w: 10 },
+    { kind: "credit", mult: 4, w: 6 },
+    { kind: "credit", mult: 5, w: 4 },
+    { kind: "credit", mult: 8, w: 2.5 },
+    { kind: "jackpot", label: "MINI", mult: 15, w: 1.6 },
+    { kind: "jackpot", label: "MINOR", mult: 40, w: 0.7 },
+    { kind: "jackpot", label: "MAJOR", mult: 100, w: 0.2 },
+  ];
+  var LINK_GRAND_MULT = 1000;
+  var LINK_RESPIN_START = 3;
+  // Chance each empty cell becomes an orb on a respin (feature math).
+  var LINK_ORB_LAND_P = 0.04;
   var BONUS = {
     id: "bonus",
     label: "Bonus",
     kind: "bonus",
-    weight: 5.5,
+    weight: 3.2,
   };
 
   var FALLBACK_REG = [
-    { id: "star", label: "Star", emoji: "★", weight: 4, pays: [29, 116, 290] },
-    { id: "moon", label: "Moon", emoji: "☾", weight: 5, pays: [23, 91, 222] },
-    { id: "sun", label: "Sun", emoji: "☀", weight: 6, pays: [20, 72, 182] },
-    { id: "gem", label: "Gem", emoji: "◆", weight: 8, pays: [17, 59, 130] },
-    { id: "leaf", label: "Leaf", emoji: "❧", weight: 10, pays: [14, 46, 106] },
-    { id: "ring", label: "Ring", emoji: "◎", weight: 12, pays: [12, 36, 84] },
-    { id: "bolt", label: "Bolt", emoji: "⚡", weight: 14, pays: [9, 27, 59] },
-    { id: "heart", label: "Heart", emoji: "♥", weight: 16, pays: [7, 21, 46] },
+    { id: "star", label: "Star", emoji: "★", weight: 4, pays: [21, 84, 210] },
+    { id: "moon", label: "Moon", emoji: "☾", weight: 5, pays: [17, 66, 160] },
+    { id: "sun", label: "Sun", emoji: "☀", weight: 6, pays: [14, 52, 130] },
+    { id: "gem", label: "Gem", emoji: "◆", weight: 8, pays: [12, 42, 94] },
+    { id: "leaf", label: "Leaf", emoji: "❧", weight: 10, pays: [10, 33, 76] },
+    { id: "ring", label: "Ring", emoji: "◎", weight: 12, pays: [9, 26, 60] },
+    { id: "bolt", label: "Bolt", emoji: "⚡", weight: 14, pays: [6, 19, 42] },
+    { id: "heart", label: "Heart", emoji: "♥", weight: 16, pays: [5, 15, 33] },
   ];
 
   var BONUS_CARDS = [
     { type: "credits", mult: 5 },
+    { type: "credits", mult: 5 },
     { type: "credits", mult: 8 },
     { type: "credits", mult: 10 },
+    { type: "credits", mult: 12 },
     { type: "credits", mult: 15 },
-    { type: "credits", mult: 20 },
     { type: "credits", mult: 25 },
-    { type: "credits", mult: 50 },
     { type: "freespins", amount: 3 },
     { type: "freespins", amount: 3 },
     { type: "freespins", amount: 5 },
@@ -117,6 +137,9 @@
     bonusOpen: false,
     forceGrid: null, // test hook: one-shot next grid
     bonusResolve: null,
+    linkActive: false,
+    link: null, // hold-and-spin session state
+    linkSkipWait: false,
   };
 
   var el = {};
@@ -366,6 +389,41 @@
     tone(600, 0.1, "sine", 0.04, 0.06);
   }
 
+  function sndLinkLock() {
+    noteSound("linkLock");
+    tone(660, 0.07, "square", 0.06);
+    tone(880, 0.09, "sine", 0.05, 0.04);
+    noiseBurst(0.03, 0.04);
+  }
+
+  function sndLinkReset() {
+    noteSound("linkReset");
+    tone(523, 0.08, "triangle", 0.07);
+    tone(659, 0.08, "triangle", 0.07, 0.07);
+    tone(784, 0.12, "sine", 0.08, 0.14);
+  }
+
+  function sndLinkEmpty() {
+    noteSound("linkEmpty");
+    tone(160, 0.05, "triangle", 0.035);
+  }
+
+  function sndLinkTally() {
+    noteSound("linkTally");
+    tone(740, 0.05, "sine", 0.045);
+  }
+
+  function sndLinkGrand() {
+    noteSound("linkGrand");
+    sndFanfare("big");
+    tone(1175, 0.2, "sine", 0.09, 0.35);
+  }
+
+  function sndLinkStart() {
+    noteSound("linkStart");
+    sndFanfare("bonus");
+  }
+
   function buildSymbolTable(regular) {
     var map = {};
     regular.forEach(function (s) {
@@ -573,10 +631,12 @@
     }
     var sc = countSpecial(grid, "scatter");
     var scatterWin = 0;
-    var freeAward = 0;
-    if (sc.n >= 3) {
+    var link = false;
+    if (sc.n >= (SCATTER.linkTrigger || 6)) {
+      link = true;
+      // No scatter cash pay when Lock It Link starts — feature pays the orbs.
+    } else if (sc.n >= 3) {
       scatterWin = (SCATTER.scatterPay[Math.min(sc.n, 5)] || 0) * bet * freeMult;
-      freeAward = SCATTER.freeSpins[Math.min(sc.n, 5)] || 0;
       total += scatterWin;
     }
     var bonus = bonusTriggered(grid);
@@ -584,7 +644,8 @@
       lineWins: lineWins,
       scatter: sc,
       scatterWin: scatterWin,
-      freeAward: freeAward,
+      freeAward: 0,
+      link: link,
       bonus: bonus,
       total: total,
     };
@@ -597,6 +658,10 @@
     WILD: WILD,
     SCATTER: SCATTER,
     BONUS: BONUS,
+    LINK_ORB_TABLE: LINK_ORB_TABLE,
+    LINK_GRAND_MULT: LINK_GRAND_MULT,
+    LINK_RESPIN_START: LINK_RESPIN_START,
+    LINK_ORB_LAND_P: LINK_ORB_LAND_P,
     PAINTING_PICKS: PAINTING_PICKS,
     BONUS_CARDS: BONUS_CARDS,
     pickSymbolId: function (col, regular) {
@@ -658,7 +723,8 @@
     if (sym.kind === "wild") {
       inner = '<span class="sl-special-mark">W</span><span class="sl-special-sub">WILD</span>';
     } else if (sym.kind === "scatter") {
-      inner = '<span class="sl-special-mark">✦</span><span class="sl-special-sub">SCATTER</span>';
+      inner =
+        '<span class="sl-orb" aria-hidden="true"></span><span class="sl-special-sub">LINK</span>';
     } else if (sym.kind === "bonus") {
       inner = '<span class="sl-special-mark">★</span><span class="sl-special-sub">BONUS</span>';
     } else if (sym.url) {
@@ -846,15 +912,19 @@
       "</strong></div>";
     html += "</div></details>";
     html +=
-      '<details class="sl-details"><summary>Wild · Scatter · Bonus · Free spins</summary><div class="sl-pay-rows">';
+      '<details class="sl-details"><summary>Wild · Lock It Link · Bonus · Free spins</summary><div class="sl-pay-rows">';
     html +=
       "<div class=\"sl-pay-row\"><span>Wild</span><strong>Substitutes any regular · not on reel 1</strong></div>";
     html +=
-      "<div class=\"sl-pay-row\"><span>Scatter 3 / 4 / 5</span><strong>×2 / ×8 / ×40 total bet + 10 / 15 / 20 free spins</strong></div>";
+      "<div class=\"sl-pay-row\"><span>Link orbs 3 / 4 / 5</span><strong>×1 / ×2 / ×4 total bet</strong></div>";
     html +=
-      "<div class=\"sl-pay-row\"><span>Free spins</span><strong>2× wins · same bet · can retrigger</strong></div>";
+      "<div class=\"sl-pay-row\"><span>Lock It Link</span><strong>6+ glowing orbs → hold &amp; spin · RESPINS 3 · new orb resets to 3 · tally all values</strong></div>";
     html +=
-      "<div class=\"sl-pay-row\"><span>Bonus</span><strong>Bonus on reels 1+3+5 → pick 3 cards → free spins (+3/+5/+8) & credits</strong></div>";
+      "<div class=\"sl-pay-row\"><span>Orbs</span><strong>1×–8× bet · MINI 15× · MINOR 40× · MAJOR 100× · GRAND 1000× if all 15 fill</strong></div>";
+    html +=
+      "<div class=\"sl-pay-row\"><span>Bonus pick</span><strong>Bonus on reels 1+3+5 → pick 3 cards → free spins (+3/+5/+8) & credits</strong></div>";
+    html +=
+      "<div class=\"sl-pay-row\"><span>Free spins</span><strong>From bonus pick · 2× wins · same bet · can retrigger</strong></div>";
     html +=
       "<div class=\"sl-pay-row\"><span>Paylines</span><strong>20 fixed · left to right · bet split across lines</strong></div>";
     html += "</div></details>";
@@ -879,7 +949,7 @@
       legend +=
         "<figure>" +
         symHtml(state.symbols.scatter, true) +
-        "<figcaption>Scatter</figcaption></figure>";
+        "<figcaption>Link</figcaption></figure>";
       legend +=
         "<figure>" +
         symHtml(state.symbols.bonus, true) +
@@ -892,8 +962,13 @@
     if (el.credits) el.credits.textContent = String(Math.floor(state.credits));
     if (el.refill) el.refill.hidden = state.credits > 0 || state.inFree;
     if (el.spin) {
-      el.spin.disabled = state.spinning || state.bonusOpen || (!state.inFree && state.credits < state.bet);
-      el.spin.textContent = state.inFree ? "Free spin" : "Spin";
+      el.spin.disabled =
+        state.spinning ||
+        state.bonusOpen ||
+        state.linkActive ||
+        (!state.inFree && state.credits < state.bet);
+      if (state.linkActive) el.spin.textContent = "Link…";
+      else el.spin.textContent = state.inFree ? "Free spin" : "Spin";
     }
     document.querySelectorAll(".sl-bet").forEach(function (btn) {
       var v = parseInt(btn.getAttribute("data-bet"), 10);
@@ -905,7 +980,8 @@
       el.fsBanner.hidden = !state.inFree;
       if (el.fsCount) el.fsCount.textContent = String(state.freeSpins);
     }
-    if (el.auto) el.auto.disabled = state.spinning || state.bonusOpen;
+    if (el.auto) el.auto.disabled = state.spinning || state.bonusOpen || state.linkActive;
+    paintLinkBanner();
   }
 
   function setMsg(text, kind) {
@@ -1033,7 +1109,7 @@
 
   function scheduleAuto() {
     if (state.autoLeft <= 0) return;
-    if (state.bonusOpen || state.spinning || state.inFree) return;
+    if (state.bonusOpen || state.spinning || state.inFree || state.linkActive) return;
     clearAutoTimer();
     autoTimer = setTimeout(function () {
       if (state.autoLeft <= 0 || state.bonusOpen || state.spinning) return;
@@ -1062,6 +1138,365 @@
   function applyCardPrize(card, totals, betUsed) {
     if (card.type === "freespins") totals.free += card.amount;
     else totals.credits += card.mult * betUsed;
+  }
+
+
+  function rollLinkOrb() {
+    var total = 0;
+    for (var i = 0; i < LINK_ORB_TABLE.length; i++) total += LINK_ORB_TABLE[i].w;
+    var r = Math.random() * total;
+    for (var j = 0; j < LINK_ORB_TABLE.length; j++) {
+      r -= LINK_ORB_TABLE[j].w;
+      if (r <= 0) {
+        var row = LINK_ORB_TABLE[j];
+        return {
+          locked: true,
+          kind: row.kind,
+          mult: row.mult,
+          label: row.label || null,
+          value: 0, // filled when bet known
+        };
+      }
+    }
+    var fallback = LINK_ORB_TABLE[0];
+    return { locked: true, kind: fallback.kind, mult: fallback.mult, label: null, value: 0 };
+  }
+
+  function orbCredits(orb, bet) {
+    return Math.round((orb.mult || 0) * bet);
+  }
+
+  function paintLinkBanner() {
+    if (!el.linkBanner) return;
+    var L = state.link;
+    var on = !!(state.linkActive && L);
+    el.linkBanner.hidden = !on;
+    if (!on) return;
+    if (el.linkCount) el.linkCount.textContent = String(L.respins);
+    if (el.linkDots) {
+      var dots = "";
+      for (var i = 0; i < LINK_RESPIN_START; i++) {
+        dots += i < L.respins ? "●" : "○";
+      }
+      el.linkDots.textContent = dots;
+      el.linkDots.classList.toggle("is-reset", !!L.resetFlash);
+    }
+    if (el.linkTotal) el.linkTotal.textContent = String(Math.round(L.displayTotal || 0));
+  }
+
+  function renderLinkGrid() {
+    if (!el.reels || !state.link) return;
+    var L = state.link;
+    var h = cellH();
+    el.reels.classList.add("sl-reels-link");
+    el.reels.innerHTML = "";
+    strips = [];
+    if (el.linesSvg) el.linesSvg.innerHTML = "";
+    for (var c = 0; c < COLS; c++) {
+      var reel = document.createElement("div");
+      reel.className = "sl-reel sl-reel-link";
+      reel.style.height = 3 * h + "px";
+      var strip = document.createElement("div");
+      strip.className = "sl-strip sl-strip-static";
+      var html = "";
+      for (var r = 0; r < ROWS; r++) {
+        var cell = L.cells[c][r];
+        var cls = "sl-sym sl-link-cell";
+        if (cell.locked) cls += " is-locked";
+        if (cell.spinning) cls += " is-spinning-cell";
+        if (cell.jackpot) cls += " is-jackpot";
+        if (cell.grand) cls += " is-grand";
+        var inner;
+        if (cell.locked) {
+          if (cell.kind === "jackpot") {
+            inner =
+              '<div class="sl-link-orb jackpot"><span class="sl-link-jp">' +
+              esc(cell.label) +
+              '</span><span class="sl-link-val">' +
+              esc(String(cell.value)) +
+              "</span></div>";
+          } else {
+            inner =
+              '<div class="sl-link-orb"><span class="sl-link-val">' +
+              esc(String(cell.value)) +
+              "</span></div>";
+          }
+        } else {
+          inner = '<div class="sl-link-blank">·</div>';
+        }
+        html +=
+          '<div class="' +
+          cls +
+          '" data-c="' +
+          c +
+          '" data-r="' +
+          r +
+          '" data-sid="' +
+          (cell.locked ? "orb" : "blank") +
+          '" style="height:' +
+          h +
+          'px">' +
+          inner +
+          "</div>";
+      }
+      strip.innerHTML = html;
+      reel.appendChild(strip);
+      el.reels.appendChild(reel);
+      strips.push(strip);
+    }
+    paintLinkBanner();
+  }
+
+  function countLocked(cells) {
+    var n = 0;
+    for (var c = 0; c < COLS; c++)
+      for (var r = 0; r < ROWS; r++) if (cells[c][r].locked) n++;
+    return n;
+  }
+
+  function sumLocked(cells) {
+    var s = 0;
+    for (var c = 0; c < COLS; c++)
+      for (var r = 0; r < ROWS; r++) if (cells[c][r].locked) s += cells[c][r].value || 0;
+    return s;
+  }
+
+  function waitLinkGap(ms) {
+    ms = animFast ? Math.min(ms, 80) : ms;
+    return new Promise(function (resolve) {
+      if (state.linkSkipWait) {
+        state.linkSkipWait = false;
+        resolve();
+        return;
+      }
+      var left = ms;
+      var step = 50;
+      function tick() {
+        if (state.linkSkipWait) {
+          state.linkSkipWait = false;
+          resolve();
+          return;
+        }
+        left -= step;
+        if (left <= 0) resolve();
+        else setTimeout(tick, step);
+      }
+      setTimeout(tick, step);
+    });
+  }
+
+  function animateEmptyCells(outcomes) {
+    // outcomes: list of {c,r,orb|null} decided first — land exactly on them.
+    return new Promise(function (resolve) {
+      var L = state.link;
+      outcomes.forEach(function (o) {
+        L.cells[o.c][o.r].spinning = true;
+      });
+      renderLinkGrid();
+      var dur = animFast ? 120 : 520;
+      setTimeout(function () {
+        outcomes.forEach(function (o) {
+          var cell = L.cells[o.c][o.r];
+          cell.spinning = false;
+          if (o.orb) {
+            cell.locked = true;
+            cell.kind = o.orb.kind;
+            cell.mult = o.orb.mult;
+            cell.label = o.orb.label;
+            cell.value = orbCredits(o.orb, L.bet);
+            cell.jackpot = o.orb.kind === "jackpot";
+          }
+        });
+        renderLinkGrid();
+        resolve();
+      }, dur);
+    });
+  }
+
+  function tallyLinkTotal() {
+    return new Promise(function (resolve) {
+      var L = state.link;
+      var locked = [];
+      for (var c = 0; c < COLS; c++) {
+        for (var r = 0; r < ROWS; r++) {
+          if (L.cells[c][r].locked) locked.push(L.cells[c][r]);
+        }
+      }
+      L.displayTotal = 0;
+      paintLinkBanner();
+      if (el.linkSummary) {
+        el.linkSummary.hidden = false;
+        el.linkSummary.innerHTML =
+          '<div class="sl-link-summary-title">Lock It Link</div><div class="sl-link-summary-total">TOTAL <strong id="sl-link-summary-val">0</strong></div>';
+      }
+      var i = 0;
+      var running = 0;
+      function next() {
+        if (i >= locked.length) {
+          if (L.grand) {
+            running += L.grandBonus;
+            L.displayTotal = running;
+            sndLinkGrand();
+            if (el.linkSummary) {
+              el.linkSummary.innerHTML +=
+                '<div class="sl-link-grand">GRAND +' + Math.round(L.grandBonus) + "</div>";
+            }
+            paintLinkBanner();
+            var sv = document.getElementById("sl-link-summary-val");
+            if (sv) sv.textContent = String(Math.round(running));
+          }
+          L.total = running;
+          setTimeout(resolve, animFast ? 200 : 900);
+          return;
+        }
+        var cell = locked[i++];
+        running += cell.value || 0;
+        L.displayTotal = running;
+        paintLinkBanner();
+        sndLinkTally();
+        var node = el.reels.querySelector(
+          '.sl-link-cell[data-c="' + cell._c + '"][data-r="' + cell._r + '"]'
+        );
+        // mark cells with coords
+        var sv = document.getElementById("sl-link-summary-val");
+        if (sv) sv.textContent = String(Math.round(running));
+        setTimeout(next, animFast ? 40 : 160);
+      }
+      // stamp coords for highlight
+      for (var c2 = 0; c2 < COLS; c2++)
+        for (var r2 = 0; r2 < ROWS; r2++) {
+          L.cells[c2][r2]._c = c2;
+          L.cells[c2][r2]._r = r2;
+        }
+      next();
+    });
+  }
+
+  function endLinkFeature() {
+    return tallyLinkTotal().then(function () {
+      var L = state.link;
+      var win = L.total || 0;
+      if (win > 0) {
+        state.credits += win;
+        saveCredits();
+        if (state.inFree) state.freeTotalWin += win;
+        setLast("Link +" + Math.round(win), true);
+        setMsg("Lock It Link +" + Math.round(win) + " play credits!", "win");
+      } else {
+        setMsg("Lock It Link — no total.", "");
+      }
+      return waitLinkGap(animFast ? 200 : 1200).then(function () {
+        state.linkActive = false;
+        state.link = null;
+        if (el.linkBanner) el.linkBanner.hidden = true;
+        if (el.linkSummary) {
+          el.linkSummary.hidden = true;
+          el.linkSummary.innerHTML = "";
+        }
+        el.reels.classList.remove("sl-reels-link");
+        if (state.grid) renderStaticGrid(state.grid);
+        paintHud();
+      });
+    });
+  }
+
+  function runLinkFeature(triggerGrid, betUsed) {
+    pauseAuto();
+    state.linkActive = true;
+    state.spinning = false;
+    var cells = [];
+    var triggerCells = [];
+    for (var c = 0; c < COLS; c++) {
+      cells[c] = [];
+      for (var r = 0; r < ROWS; r++) {
+        if (triggerGrid[c][r] === "scatter") {
+          var orb = rollLinkOrb();
+          orb.value = orbCredits(orb, betUsed);
+          orb.jackpot = orb.kind === "jackpot";
+          cells[c][r] = orb;
+          triggerCells.push({ c: c, r: r });
+        } else {
+          cells[c][r] = { locked: false, spinning: false, value: 0 };
+        }
+      }
+    }
+    state.link = {
+      bet: betUsed,
+      respins: LINK_RESPIN_START,
+      cells: cells,
+      displayTotal: sumLocked(cells),
+      total: 0,
+      grand: false,
+      grandBonus: 0,
+      resetFlash: false,
+    };
+    sndLinkStart();
+    setMsg("Lock It Link! " + triggerCells.length + " orbs locked — RESPINS 3", "win");
+    renderLinkGrid();
+    triggerCells.forEach(function () {
+      sndLinkLock();
+    });
+    paintHud();
+
+    function respinOnce() {
+      var L = state.link;
+      if (!L) return Promise.resolve();
+      // Decide outcomes first (result integrity).
+      var outcomes = [];
+      var anyNew = false;
+      for (var c = 0; c < COLS; c++) {
+        for (var r = 0; r < ROWS; r++) {
+          if (L.cells[c][r].locked) continue;
+          if (Math.random() < LINK_ORB_LAND_P) {
+            var orb = rollLinkOrb();
+            outcomes.push({ c: c, r: r, orb: orb });
+            anyNew = true;
+          } else {
+            outcomes.push({ c: c, r: r, orb: null });
+          }
+        }
+      }
+      if (!outcomes.length) {
+        L.respins = 0;
+        return Promise.resolve();
+      }
+      return animateEmptyCells(outcomes).then(function () {
+        if (anyNew) {
+          L.respins = LINK_RESPIN_START;
+          L.resetFlash = true;
+          paintLinkBanner();
+          sndLinkReset();
+          setMsg("New orb! Respins reset to 3", "win");
+          return waitLinkGap(280).then(function () {
+            L.resetFlash = false;
+            paintLinkBanner();
+          });
+        }
+        L.respins -= 1;
+        sndLinkEmpty();
+        paintLinkBanner();
+        setMsg("RESPINS: " + L.respins, L.respins > 0 ? "" : "win");
+        return Promise.resolve();
+      });
+    }
+
+    function loop() {
+      var L = state.link;
+      if (!L) return Promise.resolve();
+      if (countLocked(L.cells) >= COLS * ROWS) {
+        L.grand = true;
+        L.grandBonus = LINK_GRAND_MULT * L.bet;
+        L.respins = 0;
+        setMsg("GRID FULL — GRAND!", "win");
+        return endLinkFeature();
+      }
+      if (L.respins <= 0) return endLinkFeature();
+      return waitLinkGap(700).then(function () {
+        return respinOnce().then(loop);
+      });
+    }
+
+    return loop();
   }
 
   function openBonus(betUsed) {
@@ -1252,23 +1687,10 @@
       setMsg(state.inFree ? "Free spins left: " + state.freeSpins : "Try again — just for fun.", "");
       sndLose();
     }
-    highlightWins(evalResult.lineWins, evalResult.scatter.n >= 3 ? evalResult.scatter.cells : []);
+    var highlightScatter =
+      evalResult.link || evalResult.scatter.n >= 3 ? evalResult.scatter.cells : [];
+    highlightWins(evalResult.lineWins, highlightScatter);
     showLineSummary(evalResult);
-
-    if (evalResult.freeAward > 0) {
-      if (!state.inFree) {
-        state.inFree = true;
-        state.freeBet = betUsed;
-        state.freeTotalWin = win;
-        state.freeSpins = evalResult.freeAward;
-        pauseAuto();
-        setMsg("Free spins! " + evalResult.freeAward + " awarded (2×)", "win");
-      } else {
-        state.freeSpins += evalResult.freeAward;
-        setMsg("Retrigger! +" + evalResult.freeAward + " free spins", "win");
-      }
-      sndFreeSpins();
-    }
   }
 
   function afterSpin(grid, betUsed) {
@@ -1277,6 +1699,11 @@
     applyEval(evalResult, betUsed);
 
     var chain = Promise.resolve();
+    if (evalResult.link) {
+      chain = chain.then(function () {
+        return runLinkFeature(grid, betUsed);
+      });
+    }
     if (evalResult.bonus) {
       chain = chain.then(function () {
         return openBonus(betUsed).then(function (prize) {
@@ -1286,7 +1713,7 @@
             if (state.inFree) state.freeTotalWin += prize.credits;
           }
           var freeGain = Math.max(0, prize.free || 0);
-          if (freeGain <= 0) freeGain = 5; // belt-and-suspenders
+          if (freeGain <= 0) freeGain = 5;
           if (!state.inFree) {
             state.inFree = true;
             state.freeBet = betUsed;
@@ -1313,7 +1740,8 @@
       if (state.inFree && state.freeSpins <= 0) finishFreeSession();
       state.spinning = false;
       paintHud();
-      if (state.inFree && state.freeSpins > 0 && !state.bonusOpen) {
+      if (state.linkActive || state.bonusOpen) return;
+      if (state.inFree && state.freeSpins > 0) {
         clearAutoTimer();
         autoTimer = setTimeout(function () {
           spin();
@@ -1325,7 +1753,7 @@
   }
 
   function spin() {
-    if (state.spinning || state.bonusOpen) return;
+    if (state.spinning || state.bonusOpen || state.linkActive) return;
     if (!state.symbols) return;
 
     var betUsed = state.bet;
@@ -1394,6 +1822,11 @@
     el.bonusSummary = $("sl-bonus-summary");
     el.bonusStart = $("sl-bonus-start");
     el.bonusClose = $("sl-bonus-close");
+    el.linkBanner = $("sl-link-banner");
+    el.linkCount = $("sl-link-count");
+    el.linkDots = $("sl-link-dots");
+    el.linkTotal = $("sl-link-total");
+    el.linkSummary = $("sl-link-summary");
   }
 
   function bind() {
@@ -1418,6 +1851,10 @@
     if (el.spin)
       el.spin.addEventListener("click", function () {
         ensureAudio();
+        if (state.linkActive) {
+          state.linkSkipWait = true;
+          return;
+        }
         sndClick();
         spin();
       });
@@ -1455,11 +1892,21 @@
       if (e.repeat) return;
       if (document.body.getAttribute("data-active-tab") !== "slots") return;
       if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+      if (state.linkActive) {
+        e.preventDefault();
+        state.linkSkipWait = true;
+        return;
+      }
       if (state.spinning || state.bonusOpen) return;
       e.preventDefault();
       ensureAudio();
       spin();
     });
+    if (el.reels) {
+      el.reels.addEventListener("click", function () {
+        if (state.linkActive) state.linkSkipWait = true;
+      });
+    }
     window.addEventListener("slots-show", onShow);
     window.addEventListener("tab-changed", function (e) {
       if (e.detail && e.detail.tab === "slots") onShow();
@@ -1604,6 +2051,39 @@
         g[4][1] = "bonus";
         state.forceGrid = g;
       },
+      forceLink: function () {
+        var g = [];
+        var n = 0;
+        for (var c = 0; c < COLS; c++) {
+          g[c] = [];
+          for (var r = 0; r < ROWS; r++) {
+            if (n < 6) {
+              g[c][r] = "scatter";
+              n++;
+            } else {
+              g[c][r] = state.regular[0].id;
+            }
+          }
+        }
+        state.forceGrid = g;
+      },
+      isLinkActive: function () {
+        return !!state.linkActive;
+      },
+      getLink: function () {
+        return state.link
+          ? {
+              respins: state.link.respins,
+              locked: countLocked(state.link.cells),
+              displayTotal: state.link.displayTotal,
+              total: state.link.total,
+              grand: !!state.link.grand,
+            }
+          : null;
+      },
+      skipLinkWait: function () {
+        state.linkSkipWait = true;
+      },
       pickBonusCards: function (n) {
         n = n || 3;
         var cards = document.querySelectorAll(".sl-bonus-card:not(.revealed)");
@@ -1618,8 +2098,8 @@
   function checkSlotsDebug() {
     try {
       var q = new URLSearchParams(location.search || "");
-      var flag = q.get("slotsdebug") || "";
-      if (/bonus/i.test(flag) || /slotsdebug=bonus/i.test(location.hash || "")) {
+      var flag = (q.get("slotsdebug") || "") + (location.hash || "");
+      if (/bonus/i.test(flag)) {
         onShow();
         loadSymbols().then(function (pack) {
           if (!state.symbols) {
@@ -1629,7 +2109,20 @@
           window.Slots.__test.setFast(true);
           window.Slots.__test.forceBonusSpin();
           setTimeout(function () {
-            if (!state.spinning && !state.bonusOpen) spin();
+            if (!state.spinning && !state.bonusOpen && !state.linkActive) spin();
+          }, 300);
+        });
+      } else if (/link/i.test(flag)) {
+        onShow();
+        loadSymbols().then(function (pack) {
+          if (!state.symbols) {
+            state.regular = pack.regular;
+            state.symbols = pack.map;
+          }
+          window.Slots.__test.setFast(true);
+          window.Slots.__test.forceLink();
+          setTimeout(function () {
+            if (!state.spinning && !state.bonusOpen && !state.linkActive) spin();
           }, 300);
         });
       }

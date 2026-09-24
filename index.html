@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="css/az.css?v=9" />
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
-  <link rel="stylesheet" href="css/slots.css?v=3" />
+  <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
@@ -6958,7 +6958,7 @@
     <div class="sl-shell">
       <header class="sl-top">
         <h2>Slots</h2>
-        <p class="sl-hint">5&times;3 reels · 20 paylines · wilds, scatters, free spins &amp; a bonus pick. Painting symbols from the gallery.</p>
+        <p class="sl-hint">5&times;3 reels · 20 paylines · wilds, Lock It Link (6+ orbs), bonus pick free spins. Painting symbols from the gallery.</p>
         <p class="sl-disclaimer">Just for fun — play credits have no cash value.</p>
       </header>
       <div class="sl-machine" aria-label="Slot machine">
@@ -6967,9 +6967,14 @@
           <div class="sl-last" id="sl-last"></div>
         </div>
         <div class="sl-fs-banner" id="sl-fs-banner" hidden>Free spins left: <strong id="sl-fs-count">0</strong> · 2&times; wins</div>
+        <div class="sl-link-banner" id="sl-link-banner" hidden>
+          <div class="sl-link-respins">RESPINS: <strong id="sl-link-count">3</strong> <span class="sl-link-dots" id="sl-link-dots">●●●</span></div>
+          <div class="sl-link-running">TOTAL: <strong id="sl-link-total">0</strong></div>
+        </div>
         <div class="sl-grid-wrap">
           <div class="sl-reels" id="sl-reels" role="group" aria-label="5 by 3 reels"></div>
           <svg class="sl-lines" id="sl-lines" aria-hidden="true"></svg>
+          <div class="sl-link-summary" id="sl-link-summary" hidden></div>
         </div>
         <div class="sl-controls">
           <div class="sl-bet-row" role="group" aria-label="Bet">
@@ -6982,7 +6987,7 @@
           <button type="button" class="sl-icon-btn" id="sl-sound" title="Spin sounds (on by default; click to toggle)">Sound</button>
           <div class="sl-auto-row">
             <span>Auto</span>
-            <select id="sl-auto" class="sl-auto" aria-label="Auto spin" title="Stops on bonus or free spins">
+            <select id="sl-auto" class="sl-auto" aria-label="Auto spin" title="Stops on Lock It Link, bonus, or free spins">
               <option value="0">Off</option>
               <option value="10">10</option>
               <option value="25">25</option>
@@ -8133,7 +8138,7 @@
   <script defer src="js/az.js?v=10"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
-  <script defer src="js/slots.js?v=4"></script>
+  <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
