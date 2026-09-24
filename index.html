@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="css/rig.css?v=6" />
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
-  <link rel="stylesheet" href="css/az.css?v=8" />
+  <link rel="stylesheet" href="css/az.css?v=9" />
   <link rel="stylesheet" href="css/engrams.css?v=7" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
@@ -6810,6 +6810,10 @@
           <div class="az-prompt-bar">
             <label for="az-prompt">Prompt</label>
             <input id="az-prompt" type="text" maxlength="240" placeholder="e.g. 1000 apples on the table" autocomplete="off" />
+            <label class="az-letter-grid-toggle" for="az-letter-grid" title="When on: generate the 36 letter stills (0–Z grid). When off: one standalone image from the prompt. Both save to Generated.">
+              <input type="checkbox" id="az-letter-grid" checked role="switch" aria-checked="true" />
+              <span>36 letter grid</span>
+            </label>
             <button type="button" id="az-generate" class="az-btn">Generate still</button>
           </div>
         </div>
@@ -8053,7 +8057,7 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=9"></script>
+  <script defer src="js/az.js?v=10"></script>
   <script defer src="js/engrams.js?v=7"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/profit.js?v=2"></script>
