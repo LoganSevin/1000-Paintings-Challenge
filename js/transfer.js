@@ -30,6 +30,74 @@
     return base ? base + path : path;
   }
 
+  var IS_LOCAL =
+    location.hostname === "localhost" ||
+    location.hostname === "127.0.0.1" ||
+    /^192\.168\.|^10\.|^172\.(1[6-9]|2\d|3[0-1])\./.test(location.hostname);
+  var PUBLIC_GENERATED_ORIGIN = IS_LOCAL ? "" : "https://l7in-generated.netlify.app";
+  var PC_ONLY =
+    "Phone uploads work when the gallery is running on your PC";
+  var PC_ONLY_TRAY =
+    "Phone tray works when the gallery is running on your PC";
+  var PC_ONLY_VIDEOS =
+    "Saved videos work when the gallery is running on your PC";
+  var PC_ONLY_GENERIC =
+    "This Transfer action needs the gallery running on your PC (start_server.bat)";
+
+  function isHtmlContentType(ct) {
+    return /text\/html/i.test(String(ct || ""));
+  }
+
+  /** Parse JSON only when the response looks like JSON — never throw on SPA HTML. */
+  function fetchJson(url, opts) {
+    return fetch(url, opts).then(function (r) {
+      var ct = r.headers.get("content-type") || "";
+      if (!r.ok || isHtmlContentType(ct)) {
+        var err = new Error(
+          isHtmlContentType(ct) || r.status === 404 ? "pc-only" : "Request failed (" + r.status + ")"
+        );
+        err.status = r.status;
+        err.pcOnly = isHtmlContentType(ct) || r.status === 404;
+        throw err;
+      }
+      return r.text().then(function (raw) {
+        var t = String(raw || "").trim();
+        if (!t || t.charAt(0) === "<") {
+          var e2 = new Error("pc-only");
+          e2.pcOnly = true;
+          e2.status = r.status;
+          throw e2;
+        }
+        try {
+          return { res: r, data: JSON.parse(t) };
+        } catch (parseErr) {
+          var e3 = new Error("pc-only");
+          e3.pcOnly = true;
+          e3.status = r.status;
+          throw e3;
+        }
+      });
+    });
+  }
+
+  function resolveMediaUrl(url) {
+    var raw = String(url || "").trim();
+    if (!raw) return "";
+    if (/^https?:\/\//i.test(raw)) return raw;
+    if (raw.startsWith("/generated/") && PUBLIC_GENERATED_ORIGIN) {
+      return PUBLIC_GENERATED_ORIGIN + raw.slice("/generated".length);
+    }
+    return raw;
+  }
+
+  function pcOnlyMessageForCollection(coll) {
+    coll = String(coll || "").toLowerCase();
+    if (coll === "to-phone" || coll === "transfer-to-phone") return PC_ONLY_TRAY;
+    if (coll === "phone-uploads") return PC_ONLY;
+    if (coll === "videos" || coll === "saved-videos") return PC_ONLY_VIDEOS;
+    return PC_ONLY_GENERIC;
+  }
+
   function setStatus(msg, kind) {
     var el = $("tf-status");
     if (!el) return;
@@ -215,10 +283,75 @@
   }
 
   function thumbUrl(it) {
-    var url = it && it.url ? String(it.url) : "";
+    var src = it && it.url ? String(it.url) : "";
+    var url = resolveMediaUrl(src);
     if (!url || isVideoUrl(url) || (it && it.kind === "video")) return url;
+    // Thumb resize API is PC-only; on Netlify use the real image URL.
+    if (!IS_LOCAL) return url;
     var w = isPhoneViewport() ? 180 : 240;
-    return apiUrl("/api/transfer/thumb?src=" + encodeURIComponent(url) + "&w=" + w);
+    return apiUrl("/api/transfer/thumb?src=" + encodeURIComponent(src) + "&w=" + w);
+  }
+
+  function applyCatalogItems(items, statusNote) {
+    state.items = items || [];
+    catalogCache[state.collection || "paintings"] = state.items;
+    state.visible = Math.min(pageSize(), state.items.length);
+    renderGalleryGrid();
+    setStatus(
+      statusNote ||
+        (state.items.length || 0) + " items · tap to select · Download zip",
+      "ok"
+    );
+  }
+
+  /** Static indexes shipped with the Netlify site (paintings + generated). */
+  function loadStaticCatalog(coll) {
+    coll = String(coll || "").toLowerCase();
+    var lim = isPhoneViewport() ? 72 : 400;
+    if (coll === "paintings" || coll === "painting" || coll === "main") {
+      return Promise.all([
+        fetchJson("data/manifest.json", { cache: "default" }),
+        fetchJson("data/analyses.json", { cache: "default" }).catch(function () {
+          return { data: {} };
+        }),
+      ]).then(function (pair) {
+        var man = pair[0].data;
+        var analyses = pair[1].data || {};
+        var list = Array.isArray(man) ? man : [];
+        return list.slice(0, lim || 600).map(function (row) {
+          var n = row.number != null ? row.number : row.num;
+          var name = row.filename || n + ".jpg";
+          var a = analyses[String(n)] || {};
+          return {
+            id: "paintings/" + n,
+            title: a.title || "#" + n,
+            url: "/paintings/" + name,
+            collection: "paintings",
+            name: name,
+            kind: "image",
+          };
+        });
+      });
+    }
+    if (coll === "generated" || coll === "lod1") {
+      return fetchJson("data/lod1-manifest.json", { cache: "default" }).then(function (pack) {
+        var d = pack.data || {};
+        var items = Array.isArray(d.items) ? d.items : [];
+        return items.slice(0, lim || 400).map(function (it) {
+          var name = it.name || (it.num != null ? it.num + ".jpg" : "");
+          var url = it.url || (name ? "/generated/" + name : "");
+          return {
+            id: String(it.num != null ? it.num : url),
+            title: it.num != null ? "#" + it.num : name || url,
+            url: url,
+            collection: "generated",
+            name: name,
+            kind: "image",
+          };
+        });
+      });
+    }
+    return Promise.resolve(null);
   }
 
   function loadCatalog() {
@@ -228,7 +361,10 @@
     if (catalogCache[coll]) {
       state.items = catalogCache[coll];
       if (!state.visible) state.visible = Math.min(pageSize(), state.items.length);
-      else state.visible = Math.min(state.visible, state.items.length) || Math.min(pageSize(), state.items.length);
+      else
+        state.visible =
+          Math.min(state.visible, state.items.length) ||
+          Math.min(pageSize(), state.items.length);
       renderGalleryGrid();
       setStatus((state.items.length || 0) + " items · tap to select · Download zip", "ok");
       return Promise.resolve();
@@ -236,7 +372,36 @@
     grid.innerHTML = '<p class="tf-empty">Loading…</p>';
     setStatus("Loading " + coll + "…", "");
     var lim = isPhoneViewport() ? 72 : 400;
-    return fetch(
+
+    function showPcOnly() {
+      var msg = pcOnlyMessageForCollection(coll);
+      state.items = [];
+      state.visible = 0;
+      grid.innerHTML = '<p class="tf-empty">' + escapeHtml(msg) + "</p>";
+      setStatus(msg, "err");
+      var more = $("tf-load-more");
+      if (more) more.hidden = true;
+      updateSelectBar();
+    }
+
+    function tryStatic() {
+      return loadStaticCatalog(coll)
+        .then(function (items) {
+          if (items && items.length) {
+            applyCatalogItems(
+              items,
+              items.length + " items · browse on this site (zip / phone tray need your PC)"
+            );
+            return;
+          }
+          showPcOnly();
+        })
+        .catch(function () {
+          showPcOnly();
+        });
+    }
+
+    return fetchJson(
       apiUrl(
         "/api/transfer/catalog?collection=" +
           encodeURIComponent(coll) +
@@ -245,23 +410,15 @@
       ),
       { cache: "default" }
     )
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (d) {
+      .then(function (pack) {
+        var d = pack.data;
         if (!d || !d.ok) throw new Error((d && d.error) || "Catalog failed");
-        state.items = d.items || [];
-        catalogCache[coll] = state.items;
-        state.visible = Math.min(pageSize(), state.items.length);
-        renderGalleryGrid();
-        setStatus((state.items.length || 0) + " items · tap to select · Download zip", "ok");
+        applyCatalogItems(d.items || []);
       })
       .catch(function (err) {
-        grid.innerHTML =
-          '<p class="tf-empty">' +
-          escapeHtml((err && err.message) || "Could not load gallery") +
-          "</p>";
-        setStatus((err && err.message) || "Catalog error — restart start_server.bat", "err");
+        if (err && err.pcOnly) return tryStatic();
+        // Unexpected API error — still try static for paintings/generated
+        return tryStatic();
       });
   }
 
@@ -371,7 +528,13 @@
       body: JSON.stringify({ urls: urls }),
     })
       .then(function (r) {
-        if (!r.ok) {
+        var ct = r.headers.get("content-type") || "";
+        if (!r.ok || isHtmlContentType(ct)) {
+          var err = new Error("pc-only");
+          err.pcOnly = true;
+          throw err;
+        }
+        if (/application\/json/i.test(ct)) {
           return r.json().then(function (d) {
             throw new Error((d && d.error) || "Zip failed (" + r.status + ")");
           });
@@ -391,11 +554,15 @@
         setStatus("Download started (" + urls.length + " files).", "ok");
       })
       .catch(function (err) {
-        setStatus((err && err.message) || "Zip failed — opening files one by one…", "err");
+        var note =
+          err && err.pcOnly
+            ? "Zip needs the PC gallery server — opening selected files one by one…"
+            : (err && err.message) || "Zip failed — opening files one by one…";
+        setStatus(note, "err");
         urls.slice(0, 12).forEach(function (u, i) {
           setTimeout(function () {
             var a = document.createElement("a");
-            a.href = u;
+            a.href = resolveMediaUrl(u);
             a.download = "";
             a.target = "_blank";
             a.rel = "noopener";
@@ -418,15 +585,14 @@
     var ok = 0;
     urls.forEach(function (url) {
       chain = chain.then(function () {
-        return fetch(apiUrl("/api/transfer/stage"), {
+        return fetchJson(apiUrl("/api/transfer/stage"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url: url, box: "to-phone" }),
-        }).then(function (r) {
-          return r.json().then(function (d) {
-            if (!r.ok || (d && d.ok === false)) throw new Error((d && d.error) || "Stage failed");
-            ok++;
-          });
+        }).then(function (pack) {
+          var d = pack.data;
+          if (!d || d.ok === false) throw new Error((d && d.error) || "Stage failed");
+          ok++;
         });
       });
     });
@@ -436,7 +602,10 @@
         if (state.collection === "to-phone") loadCatalog();
       })
       .catch(function (err) {
-        setStatus((err && err.message) || "Stage failed", "err");
+        setStatus(
+          err && err.pcOnly ? PC_ONLY_TRAY : (err && err.message) || "Stage failed",
+          "err"
+        );
       });
   }
 
@@ -458,7 +627,7 @@
     var name = file.name || "photo-" + Date.now() + ".jpg";
     return readFileAsDataUrl(file)
       .then(function (dataUrl) {
-        return fetch(apiUrl("/api/transfer/upload"), {
+        return fetchJson(apiUrl("/api/transfer/upload"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -466,29 +635,27 @@
             name: name,
             image_base64: dataUrl,
           }),
-        });
-      })
-      .then(function (r) {
-        return r.json().then(function (d) {
-          if (!r.ok || (d && d.ok === false)) {
-            throw new Error((d && d.error) || "HTTP " + r.status);
-          }
+        }).then(function (pack) {
+          var d = pack.data;
+          if (!d || d.ok === false) throw new Error((d && d.error) || "Upload failed");
           return d;
         });
       })
       .catch(function (err) {
-        // Fallback multipart
+        if (err && err.pcOnly) throw err;
+        // Fallback multipart (still PC-only on Netlify)
         var fd = new FormData();
         fd.append("file", file, name);
         fd.append("box", BOX_FROM_PHONE);
-        return fetch(apiUrl("/api/transfer/upload"), { method: "POST", body: fd }).then(function (r) {
-          return r.json().then(function (d) {
-            if (!r.ok || (d && d.ok === false)) {
+        return fetchJson(apiUrl("/api/transfer/upload"), { method: "POST", body: fd }).then(
+          function (pack) {
+            var d = pack.data;
+            if (!d || d.ok === false) {
               throw new Error((d && d.error) || (err && err.message) || "Upload failed");
             }
             return d;
-          });
-        });
+          }
+        );
       });
   }
 
@@ -518,7 +685,9 @@
       })
       .catch(function (err) {
         setUploadStatus(
-          (err && err.message) || "Upload failed — use QR home Wi‑Fi IP, not VirtualBox",
+          err && err.pcOnly
+            ? PC_ONLY
+            : (err && err.message) || "Upload failed — use QR home Wi‑Fi IP, not VirtualBox",
           "err"
         );
         return refreshUploadList();
@@ -537,13 +706,11 @@
   function refreshUploadList() {
     var grid = $("tf-upload-grid");
     if (!grid) return Promise.resolve();
-    return fetch(apiUrl("/api/transfer/list?box=" + BOX_FROM_PHONE + "&t=" + Date.now()), {
+    return fetchJson(apiUrl("/api/transfer/list?box=" + BOX_FROM_PHONE + "&t=" + Date.now()), {
       cache: "no-store",
     })
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (d) {
+      .then(function (pack) {
+        var d = pack.data;
         var items = (d && d.items) || [];
         var c = $("tf-upload-count");
         if (c) c.textContent = String(items.length);
@@ -624,16 +791,17 @@
       .catch(function (err) {
         if (grid)
           grid.innerHTML =
-            '<p class="tf-empty">' + escapeHtml((err && err.message) || "List failed") + "</p>";
+            '<p class="tf-empty">' +
+            escapeHtml(err && err.pcOnly ? PC_ONLY : (err && err.message) || "List failed") +
+            "</p>";
+        if (err && err.pcOnly) setUploadStatus(PC_ONLY, "err");
       });
   }
 
   function loadStatus() {
-    return fetch(apiUrl("/api/transfer/status") + "?t=" + Date.now(), { cache: "no-store" })
-      .then(function (r) {
-        return r.json();
-      })
-      .then(function (d) {
+    return fetchJson(apiUrl("/api/transfer/status") + "?t=" + Date.now(), { cache: "no-store" })
+      .then(function (pack) {
+        var d = pack.data;
         if (!d || !d.ok) throw new Error((d && d.error) || "offline");
         updatePortalUi(d);
         return d;
@@ -644,13 +812,13 @@
   }
 
   function preferLan(url) {
-    return fetch(apiUrl("/api/transfer/prefer-lan"), {
+    return fetchJson(apiUrl("/api/transfer/prefer-lan"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url: url }),
     })
-      .then(function (r) {
-        return r.json();
+      .then(function (pack) {
+        return pack.data;
       })
       .catch(function () {
         return null;
