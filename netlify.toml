@@ -66,6 +66,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/presence"
+  to = "/.netlify/functions/presence"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/pulse/feed"
   to = "/.netlify/functions/pulse-feed"
   status = 200
