@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="css/az.css?v=9" />
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
-  <link rel="stylesheet" href="css/slots.css?v=1" />
+  <link rel="stylesheet" href="css/slots.css?v=2" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
@@ -6958,7 +6958,7 @@
     <div class="sl-shell">
       <header class="sl-top">
         <h2>Slots</h2>
-        <p class="sl-hint">Spin Logan&rsquo;s paintings. Match two or three on the pay table to win play credits.</p>
+        <p class="sl-hint">5&times;3 reels · 20 paylines · wilds, scatters, free spins &amp; a bonus pick. Painting symbols from the gallery.</p>
         <p class="sl-disclaimer">Just for fun — play credits have no cash value.</p>
       </header>
       <div class="sl-machine" aria-label="Slot machine">
@@ -6966,7 +6966,11 @@
           <div class="sl-credits">Play credits: <strong id="sl-credits">100</strong></div>
           <div class="sl-last" id="sl-last"></div>
         </div>
-        <div class="sl-reels" id="sl-reels" role="group" aria-label="Reels"></div>
+        <div class="sl-fs-banner" id="sl-fs-banner" hidden>Free spins left: <strong id="sl-fs-count">0</strong> · 2&times; wins</div>
+        <div class="sl-grid-wrap">
+          <div class="sl-reels" id="sl-reels" role="group" aria-label="5 by 3 reels"></div>
+          <svg class="sl-lines" id="sl-lines" aria-hidden="true"></svg>
+        </div>
         <div class="sl-controls">
           <div class="sl-bet-row" role="group" aria-label="Bet">
             <span>Bet</span>
@@ -6976,14 +6980,31 @@
           </div>
           <button type="button" class="sl-spin" id="sl-spin">Spin</button>
           <button type="button" class="sl-icon-btn" id="sl-sound" title="Spin sounds (off by default)">Sound</button>
+          <div class="sl-auto-row">
+            <span>Auto</span>
+            <select id="sl-auto" class="sl-auto" aria-label="Auto spin" title="Stops on bonus or free spins">
+              <option value="0">Off</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+          </div>
           <button type="button" class="sl-icon-btn" id="sl-refill" hidden title="Refill play credits">Refill</button>
         </div>
         <p class="sl-msg" id="sl-msg">Press Spin or Space</p>
+        <div class="sl-win-summary" id="sl-win-summary" hidden></div>
         <div class="sl-paytable">
           <h3>Pay table</h3>
-          <div class="sl-pay-rows" id="sl-pay-rows"></div>
+          <div id="sl-pay-rows"></div>
           <div class="sl-symbols" id="sl-symbols" aria-label="Symbols"></div>
         </div>
+      </div>
+    </div>
+    <div id="sl-bonus-modal" class="sl-bonus-modal" hidden>
+      <div class="sl-bonus-card-panel" role="dialog" aria-label="Bonus pick">
+        <h3>Bonus pick</h3>
+        <p>Choose 3 face-down cards for credit prizes or free spins.</p>
+        <div class="sl-bonus-grid" id="sl-bonus-grid"></div>
       </div>
     </div>
   </section>
@@ -8109,7 +8130,7 @@
   <script defer src="js/az.js?v=10"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
-  <script defer src="js/slots.js?v=1"></script>
+  <script defer src="js/slots.js?v=2"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
