@@ -2108,7 +2108,7 @@
         });
 
         // Fallback: flat letter list had no whitespace groups (or raw empty) —
-        // still show every expansion in one vertical column.
+        // still show every expansion in one horizontal wrapping row.
         if (!stack.childNodes.length) {
           var fallback = document.createElement("div");
           fallback.className = "engrams-word-group";
