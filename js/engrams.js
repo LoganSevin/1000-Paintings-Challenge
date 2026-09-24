@@ -781,6 +781,28 @@
     KIND: { gloss: "gentle goodwill", themes: ["kindness", "care", "love", "heart", "peace"], classic: ["Kindness", "Intimacy", "Nurture", "Devotion"] },
     BRAVE: { gloss: "facing fear with courage", themes: ["courage", "strength", "honor", "power", "heart"], classic: ["Bold", "Resolve", "Armor", "Valor", "Edge"] },
     SMART: { gloss: "quick of mind", themes: ["mind", "insight", "learning", "skill", "ability"], classic: ["Sharp", "Memory", "Aptitude", "Reason", "Thought"] },
+    // Phrase / content-word senses (no classic lock — used by resolveStatementMeaning)
+    SPECTACULAR: { gloss: "awe at stunning grandeur", themes: ["awe", "beauty", "wonder", "glory", "sight"] },
+    VIEW: { gloss: "a sight laid out before the eye", themes: ["vision", "sight", "awe", "beauty", "landscape"] },
+    MISS: { gloss: "aching absence of someone dear", themes: ["longing", "absence", "love", "loss", "heart"] },
+    MISSING: { gloss: "aching absence of someone dear", themes: ["longing", "absence", "love", "loss", "heart"] },
+    HORIZONTAL: { gloss: "breadth stretching sideways", themes: ["breadth", "vast", "space", "horizon"] },
+    EXPECTATION: { gloss: "anticipation of what may come", themes: ["hope", "future", "anticipation", "desire"] },
+    EXPECT: { gloss: "looking ahead with anticipation", themes: ["hope", "future", "anticipation", "desire"] },
+    YOU: { gloss: "intimate address to another", themes: ["intimacy", "love", "person", "heart"] },
+    I: { gloss: "the speaking self", themes: ["self", "person", "heart"] },
+    ME: { gloss: "the speaking self", themes: ["self", "person", "heart"] },
+    AWE: { gloss: "reverent wonder", themes: ["awe", "wonder", "beauty", "sacred"] },
+    BEAUTY: { gloss: "that which delights the eye and heart", themes: ["beauty", "awe", "joy", "wonder"] },
+    LONGING: { gloss: "tender yearning across distance", themes: ["longing", "desire", "love", "absence", "heart"] },
+    ABSENCE: { gloss: "the hollow where someone was", themes: ["absence", "loss", "silence", "longing", "void"] },
+    URBAN: { gloss: "of the city", themes: ["city", "people", "street", "home"] },
+    VISTA: { gloss: "a sweeping outlook", themes: ["vision", "sight", "awe", "landscape", "beauty"] },
+    SIGHT: { gloss: "what the eye takes in", themes: ["vision", "sight", "awe", "beauty"] },
+    ANTICIPATION: { gloss: "tense waiting for what comes", themes: ["anticipation", "hope", "future", "desire", "anxious"] },
+    BREADTH: { gloss: "wide-open expanse", themes: ["breadth", "vast", "space", "horizon"] },
+    TENDER: { gloss: "gentle soft feeling", themes: ["love", "care", "heart", "intimacy"] },
+    TENDERNESS: { gloss: "gentle soft feeling", themes: ["love", "care", "heart", "intimacy"] },
   };
 
 
@@ -884,7 +906,51 @@
       dedicated: ["thought", "dedication", "mind", "question"],
       imagination: ["thought", "imagination", "mind", "question"],
       dimension: ["thought", "imagination", "mind", "question"],
-      did: ["thought", "question", "mind"]
+      did: ["thought", "question", "mind"],
+      // Emotion / phrase-connotation coverage
+      vision: ["vision", "sight", "awe", "beauty", "future"],
+      wonder: ["wonder", "awe", "curiosity", "beauty"],
+      radiance: ["light", "beauty", "glory", "awe"],
+      radiant: ["light", "beauty", "joy", "awe"],
+      aurora: ["light", "sky", "beauty", "awe"],
+      aperture: ["vision", "sight", "light", "awe"],
+      image: ["vision", "sight", "memory", "beauty"],
+      iris: ["vision", "sight", "eye", "beauty"],
+      horizon: ["horizon", "vast", "breadth", "future", "sky"],
+      yonder: ["horizon", "vast", "space", "journey"],
+      space: ["space", "vast", "cosmos", "breadth"],
+      universe: ["space", "vast", "cosmos", "awe"],
+      overture: ["hope", "future", "anticipation", "light"],
+      promise: ["hope", "future", "anticipation", "word"],
+      unfold: ["future", "anticipation", "hope"],
+      utopia: ["hope", "future", "joy"],
+      memory: ["memory", "past", "longing", "absence", "heart"],
+      murmur: ["intimacy", "longing", "voice", "heart"],
+      mercy: ["tender", "care", "love", "peace"],
+      moment: ["time", "presence", "absence", "heart"],
+      mother: ["family", "care", "love", "tenderness"],
+      solitude: ["absence", "silence", "longing", "void"],
+      silence: ["silence", "absence", "peace", "void"],
+      sorrow: ["grief", "loss", "longing", "emotion", "heart"],
+      soul: ["soul", "spirit", "heart", "intimacy"],
+      yearn: ["desire", "love", "longing", "absence", "heart"],
+      longing: ["love", "desire", "yearn", "heart", "absence"],
+      loss: ["loss", "grief", "absence", "death", "heart"],
+      void: ["void", "absence", "empty", "space"],
+      absence: ["absence", "silence", "void", "loss", "longing"],
+      tenderness: ["love", "care", "soft", "intimacy", "heart"],
+      warmth: ["heat", "love", "comfort", "tender", "heart"],
+      nearness: ["love", "close", "presence", "intimacy"],
+      intimacy: ["love", "intimacy", "heart", "emotion"],
+      city: ["city", "people", "home", "street"],
+      crowd: ["city", "people", "home", "street"],
+      transit: ["city", "people", "street", "journey"],
+      intersection: ["city", "people", "street", "home"],
+      street: ["city", "street", "people", "home"],
+      landscape: ["landscape", "sight", "beauty", "earth", "awe"],
+      vista: ["vision", "sight", "awe", "landscape", "beauty"],
+      specter: ["absence", "fear", "memory"],
+      miss: ["longing", "absence", "love", "loss", "heart"]
     };
     Object.keys(extra).forEach(function (k) {
       WORD_TAGS[k] = extra[k];
@@ -905,6 +971,37 @@
       }
     });
   });
+
+  // Phrase-feeling lexicon extras (sight / longing / expanse)
+  (function boostEmotionLexicon() {
+    var add = {
+      V: ["Vista"],
+      S: ["Solitude", "Street"],
+      M: ["Missing"],
+      A: ["Awe"],
+      B: ["Breadth", "Beauty"],
+      L: ["Landscape"]
+    };
+    var tags = {
+      vista: ["vision", "sight", "awe", "landscape", "beauty"],
+      solitude: ["absence", "silence", "longing", "void"],
+      street: ["city", "street", "people", "home"],
+      missing: ["longing", "absence", "love", "loss", "heart"],
+      awe: ["awe", "wonder", "beauty", "sacred"],
+      breadth: ["breadth", "vast", "space", "horizon"],
+      beauty: ["beauty", "awe", "joy", "wonder"],
+      landscape: ["landscape", "sight", "beauty", "earth", "awe"]
+    };
+    Object.keys(add).forEach(function (L) {
+      if (!LEXICON[L]) return;
+      add[L].forEach(function (w) {
+        if (LEXICON[L].indexOf(w) === -1) LEXICON[L].push(w);
+      });
+    });
+    Object.keys(tags).forEach(function (k) {
+      WORD_TAGS[k] = tags[k];
+    });
+  })();
 
   // Everyday definitional words — prefer these over studio jargon for non-art seeds.
   (function addPlainLexicon() {
@@ -1318,6 +1415,318 @@
     };
   }
 
+  var STATEMENT_STOPWORDS = {
+    a: true, an: true, the: true, of: true, to: true, for: true, in: true, on: true, at: true,
+    by: true, and: true, or: true, as: true, is: true, are: true, was: true, were: true,
+    be: true, been: true, being: true, from: true, with: true, into: true, onto: true,
+    my: true, your: true, our: true, their: true, his: true, her: true, its: true,
+    this: true, that: true, these: true, those: true, it: true, its: true,
+    am: true, do: true, does: true, did: true, not: true, no: true, nor: true,
+    but: true, if: true, then: true, so: true, than: true, too: true, very: true,
+    can: true, could: true, would: true, should: true, will: true, just: true,
+    about: true, over: true, under: true, again: true, further: true, once: true
+  };
+
+  // Map semantic themes → emotional valence buckets for connotation scoring.
+  var EMOTION_OF_THEME = {
+    love: ["tender", "intimate"],
+    heart: ["tender", "intimate"],
+    intimacy: ["tender", "intimate"],
+    longing: ["tender", "melancholy", "intimate"],
+    absence: ["melancholy", "tender"],
+    loss: ["melancholy", "tender"],
+    desire: ["tender", "anxious"],
+    yearn: ["tender", "melancholy", "intimate"],
+    care: ["tender"],
+    kindness: ["tender"],
+    soft: ["tender"],
+    tenderness: ["tender", "intimate"],
+    fear: ["anxious", "cold"],
+    dread: ["anxious", "cold"],
+    dark: ["cold", "melancholy"],
+    anxiety: ["anxious", "cold"],
+    anger: ["fierce"],
+    rage: ["fierce"],
+    war: ["fierce", "cold"],
+    conflict: ["fierce"],
+    violence: ["fierce"],
+    enemy: ["fierce", "cold"],
+    awe: ["awe", "vast"],
+    beauty: ["awe", "joyful"],
+    wonder: ["awe", "joyful"],
+    glory: ["awe", "joyful"],
+    sight: ["awe"],
+    vision: ["awe"],
+    landscape: ["awe", "vast"],
+    city: ["vast"],
+    street: ["vast"],
+    hope: ["joyful", "anxious"],
+    future: ["anxious", "joyful"],
+    anticipation: ["anxious", "joyful"],
+    breadth: ["vast"],
+    vast: ["vast", "awe"],
+    space: ["vast"],
+    horizon: ["vast", "awe"],
+    joy: ["joyful"],
+    delight: ["joyful"],
+    cheer: ["joyful"],
+    peace: ["tender", "sacred"],
+    divine: ["sacred", "awe"],
+    spirit: ["sacred"],
+    sacred: ["sacred", "awe"],
+    grief: ["melancholy", "tender"],
+    sorrow: ["melancholy"],
+    pain: ["melancholy"],
+    self: ["intimate"],
+    person: ["intimate"]
+  };
+
+  // Only these count toward emotionOverlap (skip ultra-broad warm/mundane).
+  var SALIENT_EMOTIONS = {
+    awe: true,
+    tender: true,
+    melancholy: true,
+    fierce: true,
+    anxious: true,
+    vast: true,
+    intimate: true,
+    sacred: true,
+    joyful: true,
+    cold: true
+  };
+
+  var HARSH_THEMES = {
+    war: true, conflict: true, violence: true, rage: true, anger: true,
+    enemy: true, tech: true, machine: true, code: true, robot: true
+  };
+
+  var URBAN_THEMES = {
+    city: true,
+    street: true
+  };
+
+  var SOFT_EMOTIONS = {
+    tender: true, warm: true, intimate: true, joyful: true, sacred: true
+  };
+
+  var FIERCE_EMOTIONS = {
+    fierce: true
+  };
+
+  function softContentHeuristics(lower, letters) {
+    var out = [];
+    if (/view|sight|gaze|vista|scene|outlook/.test(lower)) {
+      out = out.concat(["vision", "sight", "awe", "beauty"]);
+    }
+    if (/spectacul|magnific|wondrous|amazing|gorgeous|beautif|sublime|grandeur/.test(lower)) {
+      out = out.concat(["awe", "beauty", "wonder", "glory"]);
+    }
+    if (/^miss(ing)?$|longing|yearn|absent|homesick/.test(lower)) {
+      out = out.concat(["longing", "absence", "loss", "love", "heart"]);
+    }
+    if (/expect|anticip|await/.test(lower)) {
+      out = out.concat(["hope", "future", "anticipation", "desire"]);
+    }
+    if (/horizont|breadth|wide|broad|expanse/.test(lower)) {
+      out = out.concat(["breadth", "vast", "space", "horizon"]);
+    }
+    if (/^city$|urban|metropol|town|skyline/.test(lower)) {
+      out = out.concat(["city", "people", "street", "home"]);
+    }
+    if (/^you$|^thou$|^thee$/.test(lower)) {
+      out = out.concat(["intimacy", "love", "person", "heart"]);
+    }
+    if (/^i$|^me$|^we$|^us$/.test(lower)) {
+      out = out.concat(["self", "person", "heart"]);
+    }
+    if (/fear|dread|terror|afraid|scare/.test(lower)) {
+      out = out.concat(["fear", "dread", "dark", "emotion"]);
+    }
+    if (/love|adore|cherish|beloved/.test(lower)) {
+      out = out.concat(["love", "heart", "emotion", "intimacy"]);
+    }
+    if (/hope|wish|dream/.test(lower)) {
+      out = out.concat(["hope", "future", "light", "desire"]);
+    }
+    return unique(out.concat(morphologyThemes(letters || "")));
+  }
+
+  function contentWordMeaning(label) {
+    var letters = extractLetters(label);
+    if (!letters) return { gloss: "", themes: [], source: "empty" };
+    if (SEED_MEANINGS[letters]) {
+      var hit = SEED_MEANINGS[letters];
+      return {
+        gloss: hit.gloss,
+        themes: (hit.themes || []).slice(),
+        source: "dictionary"
+      };
+    }
+    var lower = String(label || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    var tags = WORD_TAGS[lower];
+    if (tags && tags.length) {
+      return {
+        gloss: "the sense of " + lower,
+        themes: tags.slice(),
+        source: "tags"
+      };
+    }
+    var soft = softContentHeuristics(lower, letters);
+    if (!soft.length) {
+      return { gloss: "", themes: [], source: "empty" };
+    }
+    return {
+      gloss: "feeling around " + lower,
+      themes: soft,
+      source: "heuristic"
+    };
+  }
+
+  function emotionsFromThemes(themes) {
+    var out = [];
+    var i;
+    var j;
+    for (i = 0; i < (themes || []).length; i++) {
+      var emos = EMOTION_OF_THEME[themes[i]];
+      if (!emos) continue;
+      for (j = 0; j < emos.length; j++) out.push(emos[j]);
+    }
+    return unique(out);
+  }
+
+  function buildStatementGloss(parts, emotions) {
+    var glosses = [];
+    var weak = [];
+    var i;
+    for (i = 0; i < (parts || []).length; i++) {
+      if (!parts[i].gloss) continue;
+      // Prefer dictionary / tag glosses over thin "feeling around X" heuristics.
+      if (parts[i].source === "heuristic" && /^feeling around /.test(parts[i].gloss)) {
+        weak.push(parts[i].gloss);
+      } else {
+        glosses.push(parts[i].gloss);
+      }
+    }
+    if (!glosses.length) glosses = weak;
+    if (glosses.length === 1) return glosses[0];
+    if (glosses.length === 2) return glosses[0] + "; " + glosses[1];
+    if (glosses.length >= 3) {
+      return glosses[0] + "; " + glosses[1] + "; " + glosses[2];
+    }
+    var emoLabel = {
+      awe: "awe",
+      tender: "tenderness",
+      melancholy: "longing",
+      joyful: "joy",
+      anxious: "anticipation",
+      vast: "vastness",
+      intimate: "intimacy",
+      warm: "warmth",
+      sacred: "reverence",
+      fierce: "intensity",
+      cold: "distance",
+      mundane: "everyday life"
+    };
+    var bits = [];
+    for (i = 0; i < Math.min((emotions || []).length, 3); i++) {
+      var lab = emoLabel[emotions[i]];
+      if (lab) bits.push(lab);
+    }
+    if (bits.length === 1) return "feeling of " + bits[0];
+    if (bits.length === 2) return "feeling of " + bits[0] + " and " + bits[1];
+    if (bits.length >= 3) {
+      return "feeling of " + bits[0] + ", " + bits[1] + ", and " + bits[2];
+    }
+    return "";
+  }
+
+  /**
+   * Derive themes + emotional valence from the raw seed *statement*
+   * (content words), not the flattened letter soup.
+   */
+  function resolveStatementMeaning(raw) {
+    var groups = tokenizeSeedWords(raw);
+    var parts = [];
+    var themes = [];
+    var i;
+    for (i = 0; i < groups.length; i++) {
+      var label = groups[i].word;
+      var lower = String(label || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      if (!lower || STATEMENT_STOPWORDS[lower]) continue;
+      var meaning = contentWordMeaning(label);
+      if (!meaning.themes.length && !meaning.gloss) continue;
+      parts.push({
+        word: label,
+        letters: groups[i].letters,
+        startIndex: groups[i].startIndex,
+        gloss: meaning.gloss,
+        themes: meaning.themes,
+        source: meaning.source
+      });
+      // Content-word themes weighted: push twice so they outrank later soft accents.
+      themes = themes.concat(meaning.themes).concat(meaning.themes);
+    }
+
+    themes = unique(themes);
+    if (!parts.length) {
+      return {
+        gloss: "",
+        themes: [],
+        emotions: [],
+        classic: null,
+        source: "empty",
+        contentCount: 0,
+        parts: [],
+        perWordThemes: {}
+      };
+    }
+
+    var emotions = emotionsFromThemes(themes);
+    var gloss = buildStatementGloss(parts, emotions);
+    var perWordThemes = {};
+    for (i = 0; i < parts.length; i++) {
+      var key = String(parts[i].word || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      perWordThemes[key] = parts[i].themes.slice();
+      perWordThemes[parts[i].letters] = parts[i].themes.slice();
+    }
+
+    return {
+      gloss: gloss,
+      themes: themes,
+      emotions: emotions,
+      classic: null,
+      source: "statement",
+      contentCount: parts.length,
+      parts: parts,
+      perWordThemes: perWordThemes
+    };
+  }
+
+  function themesForLetterIndex(letterIndex, groups, statementThemes, perWordThemes) {
+    var base = (statementThemes || []).slice();
+    var g;
+    for (g = 0; g < (groups || []).length; g++) {
+      var gr = groups[g];
+      if (letterIndex >= gr.startIndex && letterIndex < gr.startIndex + gr.letters.length) {
+        var key = String(gr.word || "")
+          .toLowerCase()
+          .replace(/[^a-z]/g, "");
+        var local =
+          (perWordThemes && (perWordThemes[key] || perWordThemes[gr.letters])) ||
+          contentWordMeaning(gr.word).themes ||
+          [];
+        return unique(base.concat(local));
+      }
+    }
+    return unique(base);
+  }
+
   function themeOverlap(word, themes) {
     var tags = WORD_TAGS[String(word).toLowerCase()] || [];
     if (!tags.length || !themes.length) return 0;
@@ -1329,6 +1738,65 @@
       if (set[tags[i]]) n++;
     }
     return n;
+  }
+
+  function wordEmotions(word) {
+    var tags = WORD_TAGS[String(word).toLowerCase()] || [];
+    return emotionsFromThemes(tags);
+  }
+
+  function emotionOverlap(word, emotions) {
+    if (!(emotions || []).length) return 0;
+    var we = wordEmotions(word);
+    if (!we.length) return 0;
+    var set = {};
+    var i;
+    for (i = 0; i < emotions.length; i++) {
+      if (SALIENT_EMOTIONS[emotions[i]]) set[emotions[i]] = true;
+    }
+    var n = 0;
+    for (i = 0; i < we.length; i++) {
+      if (set[we[i]] && SALIENT_EMOTIONS[we[i]]) n++;
+    }
+    return n;
+  }
+
+  function emotionClashPenalty(word, emotions, themes) {
+    if (!(emotions || []).length) return 0;
+    var we = wordEmotions(word);
+    var stmtSoft = false;
+    var stmtFierce = false;
+    var stmtAnxious = false;
+    var i;
+    for (i = 0; i < emotions.length; i++) {
+      if (SOFT_EMOTIONS[emotions[i]]) stmtSoft = true;
+      if (FIERCE_EMOTIONS[emotions[i]]) stmtFierce = true;
+      if (emotions[i] === "anxious" || emotions[i] === "cold") stmtAnxious = true;
+    }
+    // Fear / dread registers are anxious, not tender — don't treat as soft kinship.
+    if (stmtAnxious && !stmtFierce) stmtSoft = false;
+    var wordFierce = false;
+    var wordSoft = false;
+    for (i = 0; i < we.length; i++) {
+      if (FIERCE_EMOTIONS[we[i]]) wordFierce = true;
+      if (SOFT_EMOTIONS[we[i]]) wordSoft = true;
+    }
+    var penalty = 0;
+    // Tender / longing statement should avoid war/rage expansions.
+    if (stmtSoft && !stmtFierce && wordFierce && !wordSoft) penalty += 3;
+    var tags = WORD_TAGS[String(word).toLowerCase()] || [];
+    var harshHit = false;
+    for (i = 0; i < tags.length; i++) {
+      if (HARSH_THEMES[tags[i]]) {
+        harshHit = true;
+        break;
+      }
+    }
+    // Harsh themes (war/tech/rage) vs soft statement — always costly without theme kinship.
+    if (harshHit && stmtSoft && !stmtFierce && themeOverlap(word, themes || []) === 0) {
+      penalty += 4;
+    }
+    return penalty;
   }
 
   // Words that describe the *tool* (mnemonic / cryptic knowledge) rather than a seed's meaning.
@@ -1484,7 +1952,7 @@
     return false;
   }
 
-  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen) {
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen, emotions, statementDriven) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
@@ -1493,6 +1961,24 @@
     var allowMeta = seedAllowsMeta(themes || []);
     var allowArtBuzz = seedAllowsArtBuzz(themes || []);
     var lenWeight = strongLen ? 4.5 : 0.25;
+    // When the seed statement carries meaning, bias harder toward theme + emotion kinship.
+    var themeWeight = statementDriven ? 40 : 28;
+    var emotionWeight = statementDriven ? 25 : 12;
+    var emos = emotions || [];
+
+    var seedIsAbility = false;
+    var ti;
+    for (ti = 0; ti < (themes || []).length; ti++) {
+      if (
+        themes[ti] === "gift" ||
+        themes[ti] === "skill" ||
+        themes[ti] === "ability" ||
+        themes[ti] === "excellence"
+      ) {
+        seedIsAbility = true;
+        break;
+      }
+    }
 
     var scored = bank.map(function (w, idx) {
       var key = String(w).toLowerCase();
@@ -1500,17 +1986,71 @@
       var dist = Math.abs(len - preferredLen);
       var usedPenalty = used[w] ? 50 : 0;
       var overlap = themeOverlap(w, themes);
-      var themeBonus = -overlap * 28;
+      var eOverlap = emotionOverlap(w, emos);
+      var themeBonus = -overlap * themeWeight;
+      var emotionBonus = -eOverlap * emotionWeight;
+      var clashPenalty = emotionClashPenalty(w, emos, themes) * (statementDriven ? 35 : 18);
+      // Ability-lexicon filler drifts off-emotion for vista / longing / fear seeds.
+      var abilityDrift = 0;
+      var tags = WORD_TAGS[key] || [];
+      var abilityTagged = false;
+      var ai;
+      for (ai = 0; ai < tags.length; ai++) {
+        if (
+          tags[ai] === "gift" ||
+          tags[ai] === "skill" ||
+          tags[ai] === "ability" ||
+          tags[ai] === "excellence"
+        ) {
+          abilityTagged = true;
+          break;
+        }
+      }
+      if (statementDriven && abilityTagged && !seedIsAbility && overlap === 0) {
+        abilityDrift = 55;
+      }
+      var seedIsUrban = false;
+      for (ti = 0; ti < (themes || []).length; ti++) {
+        if (URBAN_THEMES[themes[ti]]) {
+          seedIsUrban = true;
+          break;
+        }
+      }
+      var urbanTagged = false;
+      for (ai = 0; ai < tags.length; ai++) {
+        if (URBAN_THEMES[tags[ai]]) {
+          urbanTagged = true;
+          break;
+        }
+      }
+      // City/street words belong to urban seeds, not tender longing alone.
+      if (
+        statementDriven &&
+        urbanTagged &&
+        !seedIsUrban &&
+        overlap === 0 &&
+        emotionClashPenalty(w, emos, themes) === 0
+      ) {
+        var softStmt = false;
+        var ei;
+        for (ei = 0; ei < emos.length; ei++) {
+          if (SOFT_EMOTIONS[emos[ei]] || emos[ei] === "melancholy") softStmt = true;
+        }
+        if (softStmt) abilityDrift += 50;
+      }
       var classicBonus = classicHint && w === classicHint ? -10 : 0;
       // Prefer plain, relatable words that still carry the seed's meaning.
-      var relateBonus = RELATABLE_WORDS[key] && overlap > 0 ? -14 : 0;
-      var commonBonus = overlap > 0 && len <= 10 ? -Math.max(0, 8 - Math.abs(len - 7)) * 0.4 : 0;
+      var relateBonus = RELATABLE_WORDS[key] && (overlap > 0 || eOverlap > 0) ? -14 : 0;
+      var commonBonus =
+        (overlap > 0 || eOverlap > 0) && len <= 10
+          ? -Math.max(0, 8 - Math.abs(len - 7)) * 0.4
+          : 0;
       var crypticPenalty = 0;
       if (META_WORDS[key] && !allowMeta) crypticPenalty = 600;
       else if (META_WORDS[key] && allowMeta && overlap < 2) crypticPenalty = 600;
       else if (META_WORDS[key]) crypticPenalty = 8;
-      // Long ornate words without theme overlap feel like cryptic filler.
-      if (!META_WORDS[key] && overlap === 0 && len >= 10) crypticPenalty += 6;
+      // Long ornate words without theme/emotion overlap feel like cryptic filler.
+      if (!META_WORDS[key] && overlap === 0 && eOverlap === 0 && len >= 10) crypticPenalty += 6;
       // Art-studio jargon only when the seed itself is about art/paint/gallery.
       var artBuzzPenalty = 0;
       if (ART_BUZZ[key] && !allowArtBuzz) artBuzzPenalty = 650;
@@ -1521,11 +2061,29 @@
         nestSkip = true;
       }
       var jitter = rng() * 3;
-      var metaSkip = crypticPenalty >= 500 || artBuzzPenalty >= 500 || nestSkip;
+      var harshSkip = false;
+      if (statementDriven && clashPenalty >= 100 && overlap === 0) {
+        harshSkip = true;
+      }
+      var metaSkip = crypticPenalty >= 500 || artBuzzPenalty >= 500 || nestSkip || harshSkip;
       return {
         w: w,
-        score: dist * lenWeight + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + artBuzzPenalty + nestPenalty + jitter,
+        score:
+          dist * lenWeight +
+          usedPenalty +
+          themeBonus +
+          emotionBonus +
+          clashPenalty +
+          classicBonus +
+          relateBonus +
+          commonBonus +
+          crypticPenalty +
+          artBuzzPenalty +
+          nestPenalty +
+          abilityDrift +
+          jitter,
         overlap: overlap,
+        eOverlap: eOverlap,
         metaSkip: metaSkip,
         idx: idx
       };
@@ -1536,7 +2094,10 @@
     });
 
     var withTheme = scored.filter(function (s) {
-      return s.overlap > 0 && !used[s.w] && !s.metaSkip;
+      if (used[s.w] || s.metaSkip) return false;
+      if (s.overlap > 0) return true;
+      if (statementDriven) return s.eOverlap >= 2;
+      return s.eOverlap > 0;
     });
     var pool;
     if (strongLen) {
@@ -1820,15 +2381,37 @@
         poem: "",
         gloss: "",
         themes: [],
+        emotions: [],
         note: "Type at least one letter (A–Z)."
       };
     }
 
     ensureTargetLens(letters);
 
-    var meaning = resolveSeedMeaning(letters);
+    var groups = tokenizeSeedWords(raw);
+    var statement = resolveStatementMeaning(raw);
+    var letterMeaning = resolveSeedMeaning(letters);
+    // Exact single known seed word keeps classic lock; phrases use statement meaning (never letter-soup classic).
+    var isExactSingle =
+      groups.length === 1 && !!SEED_MEANINGS[letters] && letterMeaning.source === "dictionary";
+    var meaning;
+    var statementDriven = false;
+    if (isExactSingle) {
+      meaning = letterMeaning;
+      meaning.emotions = emotionsFromThemes(meaning.themes || []);
+    } else if (statement.contentCount > 0) {
+      meaning = statement;
+      statementDriven = true;
+    } else {
+      meaning = letterMeaning;
+      meaning.classic = null;
+      meaning.emotions = emotionsFromThemes(meaning.themes || []);
+    }
+
     var themes = meaning.themes || [];
-    var classic = meaning.classic;
+    var emotions = meaning.emotions || emotionsFromThemes(themes);
+    var classic = isExactSingle ? meaning.classic : null;
+    var perWordThemes = meaning.perWordThemes || {};
     var strongLen = !!state.lensTouched;
     // Classic lock only on untouched first generate; dials must be able to override.
     var useClassic =
@@ -1860,6 +2443,9 @@
           ? classic[i]
           : null;
       var prefLen = lensForIndex(i, letters);
+      var localThemes = statementDriven
+        ? themesForLetterIndex(i, groups, themes, perWordThemes)
+        : themes;
       var nextWord;
       if (useClassic) {
         nextWord = classic[i];
@@ -1870,10 +2456,12 @@
           rng,
           prefLen,
           used,
-          themes,
+          localThemes,
           hint,
           i > 0 ? words[i - 1] : null,
-          strongLen
+          strongLen,
+          emotions,
+          statementDriven
         );
       }
       words.push(nextWord);
@@ -1890,16 +2478,21 @@
             classic[i - 1].charAt(0).toUpperCase() === prevL
               ? classic[i - 1]
               : null;
+          var prevThemes = statementDriven
+            ? themesForLetterIndex(i - 1, groups, themes, perWordThemes)
+            : themes;
           // Never re-offer the nested pair; forbid the current word as neighbor.
           words[i - 1] = pickWord(
             prevL,
             rng,
             lensForIndex(i - 1, letters),
             used,
-            themes,
+            prevThemes,
             prevHint,
             words[i],
-            strongLen
+            strongLen,
+            emotions,
+            statementDriven
           );
           used[words[i - 1]] = true;
           attempts++;
@@ -1912,10 +2505,12 @@
             rng,
             lensForIndex(i, letters),
             used,
-            themes,
+            localThemes,
             null,
             words[i - 1],
-            strongLen
+            strongLen,
+            emotions,
+            statementDriven
           );
           used[words[i]] = true;
         }
@@ -1929,6 +2524,7 @@
       poem: weavePoem(words, letters, nonce, themes, raw || ""),
       gloss: meaning.gloss || "",
       themes: themes,
+      emotions: emotions,
       note: note
     };
   }
@@ -2556,6 +3152,7 @@
     onHide: onHide,
     generate: generate,
     resolveSeedMeaning: resolveSeedMeaning,
+    resolveStatementMeaning: resolveStatementMeaning,
     LEXICON: LEXICON,
     SEED_MEANINGS: SEED_MEANINGS,
     WORD_TAGS: WORD_TAGS,
