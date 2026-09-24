@@ -1211,6 +1211,7 @@
     words: [],
     poem: "",
     gloss: "",
+    intention: "",
     themes: [],
     nonce: 0,
     filterLetter: "",
@@ -1323,7 +1324,8 @@
     };
     var i;
     // Soft themes are a weak hint only — never let many letters dominate scoring.
-    for (i = 0; i < Math.min(letters.length, 3); i++) {
+    // Cap even tighter so statement intention can season picks without letter-soup noise.
+    for (i = 0; i < Math.min(letters.length, 2); i++) {
       var pair = map[letters.charAt(i)];
       if (pair) soft.push(pair[0]);
     }
@@ -1392,7 +1394,7 @@
         gloss: morph.length
           ? "the quality named by " + titled
           : "echoing the sense of " + partial.gloss,
-        themes: unique(partial.themes.concat(morph).concat(letterSoftThemes(letters).slice(0, 2))),
+        themes: unique(partial.themes.concat(morph).concat(letterSoftThemes(letters).slice(0, 1))),
         classic: null,
         source: "substring:" + best
       };
@@ -1675,13 +1677,15 @@
     if (!parts.length) {
       return {
         gloss: "",
+        intention: "",
         themes: [],
         emotions: [],
         classic: null,
         source: "empty",
         contentCount: 0,
         parts: [],
-        perWordThemes: {}
+        perWordThemes: {},
+        contentStems: []
       };
     }
 
@@ -1696,15 +1700,27 @@
       perWordThemes[parts[i].letters] = parts[i].themes.slice();
     }
 
+    var contentStems = [];
+    for (i = 0; i < parts.length; i++) {
+      var stem = String(parts[i].word || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      if (stem) contentStems.push(stem);
+    }
+    // Intention seasons generation: prefer gloss, else joined content words.
+    var intention = gloss || contentStems.join(" ");
+
     return {
       gloss: gloss,
+      intention: intention,
       themes: themes,
       emotions: emotions,
       classic: null,
       source: "statement",
       contentCount: parts.length,
       parts: parts,
-      perWordThemes: perWordThemes
+      perWordThemes: perWordThemes,
+      contentStems: contentStems
     };
   }
 
@@ -1952,7 +1968,58 @@
     return false;
   }
 
-  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen, emotions, statementDriven) {
+  /** How strongly a candidate overlaps the statement intention (gloss / content words). */
+  function intentionOverlap(word, intention) {
+    if (!intention) return 0;
+    var key = String(word || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    if (!key) return 0;
+    var intent = String(intention).toLowerCase();
+    var n = 0;
+    var tags = WORD_TAGS[key] || [];
+    var i;
+    for (i = 0; i < tags.length; i++) {
+      if (tags[i] && intent.indexOf(tags[i]) !== -1) n++;
+    }
+    // Gloss-ish fragments: whole word or long stem inside the intention string.
+    if (intent.indexOf(key) !== -1) n += 2;
+    else if (key.length >= 4) {
+      for (i = 0; i < intent.length - 3; i++) {
+        var frag = intent.substr(i, Math.min(key.length, 8));
+        if (frag.length >= 4 && (key.indexOf(frag) === 0 || frag.indexOf(key.slice(0, 4)) === 0)) {
+          n += 1;
+          break;
+        }
+      }
+    }
+    return n;
+  }
+
+  /**
+   * Small bonus when the candidate literally is / stems from a content word
+   * and still starts with the required letter (rare but on-intention).
+   */
+  function contentStemBonus(word, letter, contentStems) {
+    if (!(contentStems || []).length) return 0;
+    var key = String(word || "")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+    var L = String(letter || "").toLowerCase();
+    if (!key || !L || key.charAt(0) !== L) return 0;
+    var i;
+    for (i = 0; i < contentStems.length; i++) {
+      var stem = contentStems[i];
+      if (!stem || stem.charAt(0) !== L) continue;
+      if (key === stem) return -28;
+      if (stem.length >= 4 && key.indexOf(stem) === 0) return -18;
+      if (key.length >= 4 && stem.indexOf(key) === 0) return -18;
+      if (stem.length >= 5 && key.length >= 5 && stem.slice(0, 5) === key.slice(0, 5)) return -12;
+    }
+    return 0;
+  }
+
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen, emotions, statementDriven, intention, contentStems) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
@@ -1962,8 +2029,9 @@
     var allowArtBuzz = seedAllowsArtBuzz(themes || []);
     var lenWeight = strongLen ? 4.5 : 0.25;
     // When the seed statement carries meaning, bias harder toward theme + emotion kinship.
-    var themeWeight = statementDriven ? 40 : 28;
-    var emotionWeight = statementDriven ? 25 : 12;
+    // Turned up past #18 so intention seasons word picks more strongly.
+    var themeWeight = statementDriven ? 62 : 28;
+    var emotionWeight = statementDriven ? 40 : 12;
     var emos = emotions || [];
 
     var seedIsAbility = false;
@@ -2039,8 +2107,14 @@
         if (softStmt) abilityDrift += 50;
       }
       var classicBonus = classicHint && w === classicHint ? -10 : 0;
+      // Intention seasoning: tags/gloss overlap + rare literal content-stem hits.
+      var intentHit = statementDriven ? intentionOverlap(w, intention) : 0;
+      var intentBonus = statementDriven ? -intentHit * 20 : 0;
+      if (statementDriven) {
+        intentBonus += contentStemBonus(w, letter, contentStems);
+      }
       // Prefer plain, relatable words that still carry the seed's meaning.
-      var relateBonus = RELATABLE_WORDS[key] && (overlap > 0 || eOverlap > 0) ? -14 : 0;
+      var relateBonus = RELATABLE_WORDS[key] && (overlap > 0 || eOverlap > 0 || intentHit > 0) ? -14 : 0;
       var commonBonus =
         (overlap > 0 || eOverlap > 0) && len <= 10
           ? -Math.max(0, 8 - Math.abs(len - 7)) * 0.4
@@ -2075,6 +2149,7 @@
           emotionBonus +
           clashPenalty +
           classicBonus +
+          intentBonus +
           relateBonus +
           commonBonus +
           crypticPenalty +
@@ -2096,7 +2171,11 @@
     var withTheme = scored.filter(function (s) {
       if (used[s.w] || s.metaSkip) return false;
       if (s.overlap > 0) return true;
-      if (statementDriven) return s.eOverlap >= 2;
+      if (statementDriven) {
+        // Intention-seasoned candidates count even without hard theme tags.
+        if (intentionOverlap(s.w, intention) > 0) return true;
+        return s.eOverlap >= 2;
+      }
       return s.eOverlap > 0;
     });
     var pool;
@@ -2320,9 +2399,9 @@
    * Build the poem: one sensible sentence for a single-word seed,
    * or one sentence/clause per seed word for multi-word seeds.
    */
-  function weavePoem(words, seed, nonce, themes, seedRaw) {
+  function weavePoem(words, seed, nonce, themes, seedRaw, intention) {
     if (!words.length) return "";
-    var rng = mulberry32(hashStr(seed + "|poem|" + nonce));
+    var rng = mulberry32(hashStr(seed + "|poem|" + nonce + "|" + (intention || "")));
     var groups = tokenizeSeedWords(seedRaw || "");
     var oneClause = function (slice) {
       return ensurePeriod(capitalizeSentence(weaveSense(slice, rng)));
@@ -2344,7 +2423,28 @@
       var gr = groups[g];
       var slice = words.slice(gr.startIndex, gr.startIndex + gr.letters.length);
       if (!slice.length) continue;
-      clauses.push(oneClause(slice));
+      var clause = oneClause(slice);
+      // Light intention frame per content word — whisper the seed word, never paste the whole statement.
+      var gw = String(gr.word || "")
+        .toLowerCase()
+        .replace(/[^a-z]/g, "");
+      if (
+        intention &&
+        gw &&
+        !STATEMENT_STOPWORDS[gw] &&
+        rng() < 0.4 &&
+        clause.toLowerCase().indexOf(gw) !== 0
+      ) {
+        var body = clause.replace(/\.$/, "");
+        clause =
+          "Of " +
+          gw +
+          " — " +
+          body.charAt(0).toLowerCase() +
+          body.slice(1) +
+          ".";
+      }
+      clauses.push(clause);
     }
     return clauses.join(" ");
   }
@@ -2380,6 +2480,7 @@
         words: [],
         poem: "",
         gloss: "",
+        intention: "",
         themes: [],
         emotions: [],
         note: "Type at least one letter (A–Z)."
@@ -2412,6 +2513,20 @@
     var emotions = meaning.emotions || emotionsFromThemes(themes);
     var classic = isExactSingle ? meaning.classic : null;
     var perWordThemes = meaning.perWordThemes || {};
+    var intention =
+      meaning.intention ||
+      meaning.gloss ||
+      (statementDriven ? String(raw || "").trim() : "");
+    var contentStems = meaning.contentStems || [];
+    if (!contentStems.length && statementDriven && meaning.parts) {
+      var pi;
+      for (pi = 0; pi < meaning.parts.length; pi++) {
+        var st = String(meaning.parts[pi].word || "")
+          .toLowerCase()
+          .replace(/[^a-z]/g, "");
+        if (st) contentStems.push(st);
+      }
+    }
     var strongLen = !!state.lensTouched;
     // Classic lock only on untouched first generate; dials must be able to override.
     var useClassic =
@@ -2461,7 +2576,9 @@
           i > 0 ? words[i - 1] : null,
           strongLen,
           emotions,
-          statementDriven
+          statementDriven,
+          intention,
+          contentStems
         );
       }
       words.push(nextWord);
@@ -2492,7 +2609,9 @@
             words[i],
             strongLen,
             emotions,
-            statementDriven
+            statementDriven,
+            intention,
+            contentStems
           );
           used[words[i - 1]] = true;
           attempts++;
@@ -2510,7 +2629,9 @@
             words[i - 1],
             strongLen,
             emotions,
-            statementDriven
+            statementDriven,
+            intention,
+            contentStems
           );
           used[words[i]] = true;
         }
@@ -2521,8 +2642,16 @@
       seedRaw: raw || "",
       seedLetters: letters,
       words: words,
-      poem: weavePoem(words, letters, nonce, themes, raw || ""),
+      poem: weavePoem(
+        words,
+        letters,
+        nonce,
+        themes,
+        raw || "",
+        statementDriven ? intention : ""
+      ),
       gloss: meaning.gloss || "",
+      intention: intention || "",
       themes: themes,
       emotions: emotions,
       note: note
@@ -2559,6 +2688,7 @@
       words: entry.words.slice(),
       poem: entry.poem,
       gloss: entry.gloss || "",
+      intention: entry.intention || entry.gloss || "",
       at: Date.now()
     });
     if (state.history.length > HISTORY_MAX) state.history.length = HISTORY_MAX;
@@ -2794,6 +2924,7 @@
     state.words = result.words;
     state.poem = result.poem;
     state.gloss = result.gloss || "";
+    state.intention = result.intention || result.gloss || "";
     state.themes = result.themes || [];
     ensureTargetLens(result.seedLetters || "");
 
@@ -2806,13 +2937,9 @@
     var letterCount = (result.seedLetters || "").length;
 
     if (seedEl) {
-      var labels = [];
-      var gi;
-      for (gi = 0; gi < groups.length; gi++) {
-        if (groups[gi].startIndex >= letterCount) break;
-        labels.push(groups[gi].word);
-      }
-      seedEl.textContent = labels.length ? labels.join(" · ") : "—";
+      // Always show the typed seed statement so Seed ↔ Engram comparison is automatic.
+      var statement = String(result.seedRaw || "").trim();
+      seedEl.textContent = statement || "—";
     }
     if (slots) {
       var dragIdx = state.lensDrag ? state.lensDrag.idx : -1;
@@ -2919,8 +3046,9 @@
     if (metaEl) {
       var n = result.seedLetters.length;
       var bits = ["Seed " + n + " letters"];
-      if (result.gloss) {
-        bits.push("echoing: " + result.gloss);
+      var echo = result.intention || result.gloss;
+      if (echo) {
+        bits.push("echoing: " + echo);
       }
       metaEl.textContent = bits.join(" · ");
     }
@@ -2943,13 +3071,16 @@
   }
 
   function copyCurrent() {
+    var statement = String(state.seedRaw || state.seedLetters || "").trim();
+    var echo = state.intention || state.gloss;
     var text =
-      (state.seedLetters || "") +
+      "Seed: " +
+      statement +
+      "\nEngram: " +
+      (state.poem || "") +
       "\n" +
       (state.words || []).join(" · ") +
-      "\n" +
-      (state.poem || "") +
-      (state.gloss ? "\n(echoing: " + state.gloss + ")" : "");
+      (echo ? "\n(echoing: " + echo + ")" : "");
     if (!state.seedLetters) return;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(flashCopy).catch(fallbackCopy);
@@ -2994,7 +3125,7 @@
 
       var head = document.createElement("header");
       var seed = document.createElement("strong");
-      seed.textContent = h.seedLetters;
+      seed.textContent = String(h.seedRaw || h.seedLetters || "").trim() || h.seedLetters;
       var sub = document.createElement("span");
       sub.className = "engrams-hist-sub";
       sub.textContent = (h.words || []).join(" · ");
@@ -3021,13 +3152,16 @@
       copyBtn.className = "engrams-btn engrams-btn-ghost";
       copyBtn.textContent = "Copy";
       copyBtn.addEventListener("click", function () {
+        var statement = String(h.seedRaw || h.seedLetters || "").trim();
+        var echo = h.intention || h.gloss;
         var t =
-          h.seedLetters +
+          "Seed: " +
+          statement +
+          "\nEngram: " +
+          (h.poem || "") +
           "\n" +
           (h.words || []).join(" · ") +
-          "\n" +
-          (h.poem || "") +
-          (h.gloss ? "\n(echoing: " + h.gloss + ")" : "");
+          (echo ? "\n(echoing: " + echo + ")" : "");
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(t).catch(function () {});
         }
@@ -3063,12 +3197,14 @@
     state.words = (h.words || []).slice();
     state.poem = h.poem || "";
     state.gloss = h.gloss || "";
+    state.intention = h.intention || h.gloss || "";
     renderStage({
       seedRaw: h.seedRaw || h.seedLetters,
       seedLetters: state.seedLetters,
       words: state.words,
       poem: state.poem,
       gloss: state.gloss,
+      intention: state.intention,
       themes: [],
       note: ""
     });
