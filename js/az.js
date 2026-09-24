@@ -33,7 +33,8 @@
     previewCols: 6,
     mainReady: false,
     pendingPrefer: null,
-    eqHidden: false
+    eqHidden: false,
+    letterGrid: true
   };
 
   function $(id) {
@@ -539,7 +540,7 @@
         if (genId !== state.previewGen) return;
         state.previewUrls[previewKey(ch)] = url;
         setTileVision(ch, url);
-        persistAzStill(url, "0-Z premonition " + glyphLabel(ch) + " · " + seedSentence());
+        if (state.letterGrid) persistAzStill(url, "0-Z letter " + glyphLabel(ch) + " · " + seedSentence());
       })
       .catch(function () {});
   }
@@ -557,6 +558,7 @@
   }
 
   function queuePremonitions(preferCh) {
+    if (!state.letterGrid) return;
     if (!state.mainReady) {
       if (preferCh) state.pendingPrefer = preferCh;
       return;
@@ -767,9 +769,23 @@
 
     if (state.genUrl && state.genImg && state.genImg.complete) {
       ctx.save();
-      ctx.globalAlpha = 0.38;
       var iw = state.genImg.naturalWidth || state.genImg.width;
       var ih = state.genImg.naturalHeight || state.genImg.height;
+      if (!state.letterGrid) {
+        ctx.fillStyle = "#0c1018";
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalAlpha = 1;
+        var scFull = Math.min(w / iw, h / ih);
+        var dw = iw * scFull;
+        var dh = ih * scFull;
+        ctx.drawImage(state.genImg, (w - dw) / 2, (h - dh) / 2, dw, dh);
+        ctx.restore();
+        ctx.fillStyle = "#eef3ee";
+        ctx.font = "italic 14px Times New Roman, serif";
+        ctx.fillText(String(state.prompt || seedSentence()).slice(0, 72) || "standalone", 16, h - 16);
+        return;
+      }
+      ctx.globalAlpha = 0.38;
       var sc = Math.min((w - 48) / iw, (h - 48) / ih);
       ctx.drawImage(state.genImg, 48, 24, iw * sc, ih * sc);
       ctx.restore();
@@ -812,14 +828,25 @@
       collection: "generated",
       reveal: false,
       description: String(note || seedSentence()).slice(0, 800),
-      meta: { source: "az", prompt: state.prompt, seed: seedSentence() }
+      meta: {
+        source: "az",
+        mode: state.letterGrid ? "letter-grid" : "standalone",
+        prompt: state.prompt,
+        seed: seedSentence()
+      }
     };
     if (String(url).indexOf("data:") === 0) payload.image_base64 = url;
     else payload.image_url = url;
     var bases = [];
+    var sf = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");
+    if (sf) bases.push(sf);
+    bases.push("");
     var host = (location.hostname || "").toLowerCase();
-    if (host === "localhost" || host === "127.0.0.1") bases.push("");
-    bases.push("http://127.0.0.1:8765", "http://localhost:8765");
+    if (host === "localhost" || host === "127.0.0.1") {
+      bases.push("http://127.0.0.1:8765", "http://localhost:8765");
+    } else {
+      bases.push("http://127.0.0.1:8765", "http://localhost:8765");
+    }
     function tryNext(i) {
       if (i >= bases.length) return Promise.resolve(null);
       var opts = {
@@ -944,16 +971,25 @@
       .then(function (url) {
         if (job !== state.genJob) return;
         state.genUrl = url;
-        persistAzStill(url, "0-Z main · " + scene);
+        var note = state.letterGrid
+          ? "0-Z main · " + scene
+          : "0-Z standalone · " + scene;
+        persistAzStill(url, note);
         return new Promise(function (resolve) {
           var img = new Image();
           img.onload = function () {
             if (job === state.genJob) {
               state.genImg = img;
               var canvas = $("az-fold");
-              state.genEdges = canvas ? traceEdges(img, canvas.width, canvas.height) : null;
+              state.genEdges = canvas && state.letterGrid
+                ? traceEdges(img, canvas.width, canvas.height)
+                : null;
               drawScene();
-              if (countEl) countEl.textContent = "main still ready";
+              if (countEl) {
+                countEl.textContent = state.letterGrid
+                  ? "main still ready"
+                  : "standalone still ready · saved to Generated";
+              }
             }
             resolve();
           };
@@ -969,13 +1005,66 @@
       });
   }
 
+  function stopLetterGridJobs() {
+    state.previewGen++;
+    state.previewQueue = [];
+    state.previewBusy = 0;
+    state.pendingPrefer = null;
+  }
+
+  function applyLetterGridUi() {
+    var drawer = $("az-preview-drawer");
+    var shell = document.querySelector("#panel-az .az-shell") || document.querySelector(".az-shell");
+    if (drawer) drawer.hidden = !state.letterGrid;
+    if (shell) shell.classList.toggle("az-letter-grid-off", !state.letterGrid);
+    var toggle = $("az-letter-grid");
+    if (toggle) {
+      toggle.checked = !!state.letterGrid;
+      toggle.setAttribute("aria-checked", state.letterGrid ? "true" : "false");
+    }
+    var genBtn = $("az-generate");
+    if (genBtn) {
+      genBtn.textContent = state.letterGrid ? "Generate still" : "Generate standalone";
+    }
+  }
+
+  function setLetterGrid(on, opts) {
+    opts = opts || {};
+    state.letterGrid = !!on;
+    try {
+      localStorage.setItem("az-letter-grid", state.letterGrid ? "1" : "0");
+    } catch (e) {}
+    applyLetterGridUi();
+    if (!state.letterGrid) {
+      stopLetterGridJobs();
+    } else if (state.mainReady && !opts.skipQueue) {
+      queuePremonitions(state.pendingPrefer);
+      state.pendingPrefer = null;
+    }
+    drawScene();
+  }
+
+  function generateStandalone() {
+    state.mainReady = false;
+    stopLetterGridJobs();
+    return generateStill(seedSentence()).then(function () {
+      state.mainReady = true;
+    });
+  }
+
   function generateMainThenPreviews() {
     state.mainReady = false;
     return generateStill(seedSentence()).then(function () {
       state.mainReady = true;
+      if (!state.letterGrid) return;
       queuePremonitions(state.pendingPrefer);
       state.pendingPrefer = null;
     });
+  }
+
+  function runGenerate() {
+    if (state.letterGrid) return generateMainThenPreviews();
+    return generateStandalone();
   }
 
   function applyPrompt(text, generate) {
@@ -983,7 +1072,7 @@
     state.parse = parsePrompt(state.prompt);
     renderEquations();
     renderInsight();
-    renderPreviewDocks();
+    if (state.letterGrid) renderPreviewDocks();
     drawScene();
     var countEl = $("az-fold-count");
     if (countEl && !generate) {
@@ -992,7 +1081,7 @@
         ? (state.parse.wantsApple ? n + " apple" + (n === 1 ? "" : "s") : n + " " + (state.parse.nouns[0] || "forms"))
         : "empty";
     }
-    if (generate) generateMainThenPreviews();
+    if (generate) runGenerate();
   }
 
   function selectIndex(index) {
@@ -1063,6 +1152,15 @@
     });
   }
 
+  function bindLetterGridToggle() {
+    var toggle = $("az-letter-grid");
+    if (!toggle || toggle.dataset.bound) return;
+    toggle.dataset.bound = "1";
+    toggle.addEventListener("change", function () {
+      setLetterGrid(!!toggle.checked);
+    });
+  }
+
   function bindPrompt() {
     var input = $("az-prompt");
     if (!input || input.dataset.bound) return;
@@ -1071,7 +1169,7 @@
       applyPrompt(input.value, false);
       clearTimeout(state.timer);
       state.timer = setTimeout(function () {
-        generateMainThenPreviews();
+        runGenerate();
       }, 1800);
     });
     var genBtn = $("az-generate");
@@ -1087,6 +1185,7 @@
     renderColumn();
     renderReadout();
     bindPrompt();
+    bindLetterGridToggle();
     var copyBtn = $("az-copy");
     if (copyBtn && !copyBtn.dataset.bound) {
       copyBtn.dataset.bound = "1";
@@ -1104,11 +1203,18 @@
       savedCols = parseInt(localStorage.getItem("az-preview-cols") || "6", 10);
     } catch (eCols) {}
     applyPreviewCols(savedCols);
+    var letterOn = true;
+    try {
+      var stored = localStorage.getItem("az-letter-grid");
+      if (stored === "0") letterOn = false;
+      else if (stored === "1") letterOn = true;
+    } catch (eGrid) {}
+    setLetterGrid(letterOn, { skipQueue: true });
     var input = $("az-prompt");
     applyPrompt(input ? input.value : "", false);
-    renderPreviewDocks();
+    if (state.letterGrid) renderPreviewDocks();
     bindEqToggle();
-    generateMainThenPreviews();
+    runGenerate();
   }
 
   window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
