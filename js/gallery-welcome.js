@@ -50,9 +50,22 @@
     );
   }
 
+  var EYE_SVG =
+    '<svg class="tab-eye-svg" viewBox="0 0 24 16" aria-hidden="true" focusable="false">' +
+    '<ellipse class="tab-eye-outline" cx="12" cy="8" rx="9.5" ry="6.2"></ellipse>' +
+    '<circle class="tab-eye-iris" cx="12" cy="8" r="3.1"></circle>' +
+    '<circle class="tab-eye-pupil" cx="12" cy="8" r="1.35"></circle>' +
+    "</svg>";
+
   function ensureTally(btn) {
     var tally = btn.querySelector(":scope > .tab-tally");
-    if (tally) return tally;
+    if (tally) {
+      if (!tally.querySelector(".tab-eye-svg")) {
+        tally.textContent = "";
+        tally.innerHTML = EYE_SVG + '<span class="tab-opens">0</span>';
+      }
+      return tally;
+    }
     var name = btn.querySelector(":scope > .tab-name");
     if (!name) {
       name = document.createElement("span");
@@ -63,7 +76,16 @@
     tally = document.createElement("span");
     tally.className = "tab-tally";
     tally.setAttribute("aria-hidden", "true");
-    btn.insertBefore(tally, btn.firstChild);
+    tally.innerHTML = EYE_SVG + '<span class="tab-opens">0</span>';
+    var presence = btn.querySelector(":scope > .tab-presence");
+    if (presence) {
+      if (presence.nextSibling) btn.insertBefore(tally, presence.nextSibling);
+      else btn.appendChild(tally);
+    } else if (name) {
+      btn.insertBefore(tally, name);
+    } else {
+      btn.insertBefore(tally, btn.firstChild);
+    }
     return tally;
   }
 
@@ -84,9 +106,15 @@
     document.querySelectorAll('[data-tab="' + cssEscape(name) + '"]').forEach(function (btn) {
       if (!btn.closest(".site-tabs, .kids-tabs, .site-tabs-more")) return;
       var tally = ensureTally(btn);
-      tally.textContent = row.opens + ":" + row.live;
-      tally.classList.toggle("is-live", row.live > 0);
-      btn.title = row.opens + " opens : " + row.live + " here now";
+      var opensEl = tally.querySelector(".tab-opens");
+      if (opensEl) opensEl.textContent = String(row.opens || 0);
+      else tally.textContent = String(row.opens || 0);
+      tally.classList.toggle("has-opens", (row.opens || 0) > 0);
+      // Title: opens only here; live/presence is owned by tab-presence.js
+      var base = row.opens + " open" + (row.opens === 1 ? "" : "s");
+      var prev = (btn.title || "").replace(/^\d+ opens?(?: : \d+ here now)?(?:\s*·\s*)?/, "");
+      prev = prev.replace(/^\d+ open(?:s)?(?:\s*·\s*)?/, "");
+      btn.title = base + (prev ? " · " + prev : "");
     });
   }
 
