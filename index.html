@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="css/handfont.css?v=5" />
   <link rel="stylesheet" href="css/voice.css?v=1" />
   <link rel="stylesheet" href="css/az.css?v=9" />
-  <link rel="stylesheet" href="css/engrams.css?v=10" />
+  <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=9" />
@@ -6867,9 +6867,17 @@
             </div>
           </div>
           <div class="engrams-board" aria-live="polite">
-            <p class="engrams-seed-line">Engram <span id="engrams-seed-display" class="engrams-seed-display">—</span></p>
-            <div id="engrams-slots" class="engrams-slots"></div>
-            <p id="engrams-poem" class="engrams-poem">…</p>
+            <div class="engrams-compare">
+              <p class="engrams-compare-seed">
+                <span class="engrams-compare-label">Seed</span>
+                <span id="engrams-seed-display" class="engrams-seed-statement">—</span>
+              </p>
+              <div id="engrams-slots" class="engrams-slots"></div>
+              <div class="engrams-compare-engram">
+                <span class="engrams-compare-label">Engram</span>
+                <p id="engrams-poem" class="engrams-poem">…</p>
+              </div>
+            </div>
             <p id="engrams-meta" class="engrams-meta"></p>
             <p id="engrams-note" class="engrams-note" hidden></p>
           </div>
@@ -8058,7 +8066,7 @@
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
   <script defer src="js/az.js?v=10"></script>
-  <script defer src="js/engrams.js?v=13"></script>
+  <script defer src="js/engrams.js?v=14"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>

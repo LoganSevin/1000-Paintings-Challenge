@@ -220,18 +220,48 @@ body.engrams-tab-active .site-header {
   border-radius: 12px;
 }
 
-.engrams-seed-line {
-  margin: 0 0 0.55rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(240, 215, 138, 0.65);
+.engrams-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
 }
 
-.engrams-seed-display {
-  color: #fff4c8;
-  letter-spacing: 0.18em;
+.engrams-compare-seed,
+.engrams-compare-engram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.28rem;
+}
+
+.engrams-compare-label {
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 215, 138, 0.62);
+}
+
+.engrams-compare-seed .engrams-compare-label {
+  color: rgba(240, 215, 138, 0.48);
+}
+
+.engrams-seed-statement {
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(240, 228, 180, 0.78);
+  background: rgba(0, 0, 0, 0.18);
+  border-left: 2px solid rgba(201, 162, 39, 0.45);
+  border-radius: 0 6px 6px 0;
+}
+
+.engrams-compare-engram .engrams-poem {
+  margin: 0;
 }
 
 .engrams-slots {
