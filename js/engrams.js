@@ -9,7 +9,10 @@
 
   var HISTORY_KEY = "engrams_history_v1";
   var HISTORY_MAX = 40;
+  var LENS_KEY_PREFIX = "engrams_lens_v1_";
   var MAX_SEED_LEN = 64;
+  var LEN_MIN = 1;
+  var LEN_MAX = 15;
   var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   /** Curated surreal / philosophical / artistic lexicon per letter. */
@@ -1057,7 +1060,11 @@
     filterLetter: "",
     history: [],
     debounce: 0,
-    inited: false
+    inited: false,
+    targetLens: [],
+    lensKey: "",
+    lensTouched: false,
+    lensDrag: null
   };
 
   function $(id) {
@@ -1391,7 +1398,7 @@
     return false;
   }
 
-  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor) {
+  function pickWord(letter, rng, preferredLen, used, themes, classicHint, neighbor, strongLen) {
     var bank = (LEXICON[letter] || [letter + "ther"]).slice();
     if (classicHint && bank.indexOf(classicHint) === -1) {
       bank.push(classicHint);
@@ -1399,6 +1406,7 @@
 
     var allowMeta = seedAllowsMeta(themes || []);
     var allowArtBuzz = seedAllowsArtBuzz(themes || []);
+    var lenWeight = strongLen ? 4.5 : 0.25;
 
     var scored = bank.map(function (w, idx) {
       var key = String(w).toLowerCase();
@@ -1430,7 +1438,7 @@
       var metaSkip = crypticPenalty >= 500 || artBuzzPenalty >= 500 || nestSkip;
       return {
         w: w,
-        score: dist * 0.25 + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + artBuzzPenalty + nestPenalty + jitter,
+        score: dist * lenWeight + usedPenalty + themeBonus + classicBonus + relateBonus + commonBonus + crypticPenalty + artBuzzPenalty + nestPenalty + jitter,
         overlap: overlap,
         metaSkip: metaSkip,
         idx: idx
@@ -1445,7 +1453,19 @@
       return s.overlap > 0 && !used[s.w] && !s.metaSkip;
     });
     var pool;
-    if (withTheme.length >= 1) {
+    if (strongLen) {
+      // Explicit dial: let length compete with theme in the score (theme still heavily rewarded).
+      // Avoid theme-only pools that ignore a 3 vs 12 dial when few themed lengths exist.
+      pool = scored.filter(function (s) {
+        return !used[s.w] && !s.metaSkip;
+      }).slice(0, Math.min(4, scored.length));
+      if (!pool.length) {
+        pool = scored.filter(function (s) {
+          return !s.metaSkip;
+        }).slice(0, Math.min(4, scored.length));
+      }
+      if (!pool.length) pool = scored.slice(0, Math.min(4, scored.length));
+    } else if (withTheme.length >= 1) {
       pool = withTheme.slice(0, Math.min(6, withTheme.length));
     } else {
       pool = scored.filter(function (s) {
@@ -1463,6 +1483,84 @@
     var base = Math.max(3, Math.min(14, 4 + (seedLen % 8)));
     var wobble = ((letterIndex * 3 + seedLen) % 5) - 2;
     return Math.max(3, Math.min(14, base + wobble));
+  }
+
+  function clampPreferredLen(n) {
+    var v = Math.round(Number(n));
+    if (!isFinite(v)) v = 7;
+    return Math.max(LEN_MIN, Math.min(LEN_MAX, v));
+  }
+
+  function defaultTargetLens(letters) {
+    var out = [];
+    var i;
+    for (i = 0; i < letters.length; i++) {
+      out.push(clampPreferredLen(preferredWordLen(letters.length, i)));
+    }
+    return out;
+  }
+
+  function lensForIndex(i, letters) {
+    var lens = state.targetLens;
+    if (lens && lens.length === letters.length && lens[i] != null) {
+      return clampPreferredLen(lens[i]);
+    }
+    return clampPreferredLen(preferredWordLen(letters.length, i));
+  }
+
+  function loadStoredLens(letters) {
+    try {
+      var raw = localStorage.getItem(LENS_KEY_PREFIX + letters);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed) || parsed.length !== letters.length) return null;
+      return parsed.map(clampPreferredLen);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function persistTargetLens(letters) {
+    if (!letters || !state.targetLens || state.targetLens.length !== letters.length) return;
+    try {
+      localStorage.setItem(LENS_KEY_PREFIX + letters, JSON.stringify(state.targetLens));
+    } catch (e) {}
+  }
+
+  /** Keep targetLens aligned to current seed letters; init from defaults or localStorage. */
+  function ensureTargetLens(letters) {
+    if (!letters) {
+      state.targetLens = [];
+      state.lensKey = "";
+      state.lensTouched = false;
+      return;
+    }
+    if (state.lensKey === letters && state.targetLens.length === letters.length) {
+      return;
+    }
+    var stored = loadStoredLens(letters);
+    if (stored) {
+      state.targetLens = stored;
+      state.lensKey = letters;
+      state.lensTouched = true;
+      return;
+    }
+    state.targetLens = defaultTargetLens(letters);
+    state.lensKey = letters;
+    state.lensTouched = false;
+  }
+
+  function angleToPreferredLen(angleDeg) {
+    var t = ((angleDeg % 360) + 360) % 360;
+    var span = 360 / (LEN_MAX - LEN_MIN + 1);
+    var idx = Math.floor(t / span);
+    return clampPreferredLen(LEN_MIN + idx);
+  }
+
+  function preferredLenToAngle(len) {
+    var n = clampPreferredLen(len);
+    var span = 360 / (LEN_MAX - LEN_MIN + 1);
+    return (n - LEN_MIN + 0.5) * span;
   }
 
   function pickConnector(rng, themes) {
@@ -1535,13 +1633,18 @@
       };
     }
 
+    ensureTargetLens(letters);
+
     var meaning = resolveSeedMeaning(letters);
     var themes = meaning.themes || [];
     var classic = meaning.classic;
+    var strongLen = !!state.lensTouched;
+    // Classic lock only on untouched first generate; dials must be able to override.
     var useClassic =
       nonce === 0 &&
       classic &&
-      classic.length === letters.length;
+      classic.length === letters.length &&
+      !state.lensTouched;
 
     if (useClassic) {
       var ok = true;
@@ -1565,6 +1668,7 @@
         classic && classic[i] && classic[i].charAt(0).toUpperCase() === L
           ? classic[i]
           : null;
+      var prefLen = lensForIndex(i, letters);
       var nextWord;
       if (useClassic) {
         nextWord = classic[i];
@@ -1573,11 +1677,12 @@
         nextWord = pickWord(
           L,
           rng,
-          preferredWordLen(letters.length, i),
+          prefLen,
           used,
           themes,
           hint,
-          i > 0 ? words[i - 1] : null
+          i > 0 ? words[i - 1] : null,
+          strongLen
         );
       }
       words.push(nextWord);
@@ -1598,11 +1703,12 @@
           words[i - 1] = pickWord(
             prevL,
             rng,
-            preferredWordLen(letters.length, i - 1),
+            lensForIndex(i - 1, letters),
             used,
             themes,
             prevHint,
-            words[i]
+            words[i],
+            strongLen
           );
           used[words[i - 1]] = true;
           attempts++;
@@ -1613,11 +1719,12 @@
           words[i] = pickWord(
             L,
             rng,
-            preferredWordLen(letters.length, i),
+            lensForIndex(i, letters),
             used,
             themes,
             null,
-            words[i - 1]
+            words[i - 1],
+            strongLen
           );
           used[words[i]] = true;
         }
@@ -1725,6 +1832,175 @@
     });
   }
 
+  function updateRadialVisual(radial, len) {
+    var n = clampPreferredLen(len);
+    var angle = preferredLenToAngle(n);
+    radial.style.setProperty("--radial-angle", angle + "deg");
+    radial.setAttribute("aria-valuenow", String(n));
+    var valEl = radial.querySelector(".engrams-radial-value");
+    if (valEl) valEl.textContent = String(n);
+  }
+
+  function setTargetLen(idx, len, regenerate) {
+    var letters = state.seedLetters || "";
+    if (!letters || idx < 0 || idx >= letters.length) return;
+    ensureTargetLens(letters);
+    var n = clampPreferredLen(len);
+    var prev = state.targetLens[idx];
+    var wasTouched = state.lensTouched;
+    state.targetLens[idx] = n;
+    state.lensTouched = true;
+    persistTargetLens(letters);
+    updateRadialAtIndex(idx, n);
+    // Regen when length changes, or first touch (so classic lock yields to the dial).
+    if (regenerate && (prev !== n || !wasTouched)) {
+      state.nonce = (state.nonce + 1) % 1e9;
+      runGenerate(false);
+    }
+  }
+
+  function updateRadialAtIndex(idx, len) {
+    var slots = $("engrams-slots");
+    if (!slots) return;
+    var radial = slots.querySelector('.engrams-radial[data-idx="' + idx + '"]');
+    if (radial) updateRadialVisual(radial, len);
+  }
+
+  function clientPoint(ev) {
+    if (ev.touches && ev.touches.length) {
+      return { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
+    }
+    if (ev.changedTouches && ev.changedTouches.length) {
+      return { x: ev.changedTouches[0].clientX, y: ev.changedTouches[0].clientY };
+    }
+    return { x: ev.clientX, y: ev.clientY };
+  }
+
+  function lenFromRadialEvent(radial, ev) {
+    var rect = radial.getBoundingClientRect();
+    var pt = clientPoint(ev);
+    var dx = pt.x - (rect.left + rect.width / 2);
+    var dy = pt.y - (rect.top + rect.height / 2);
+    // 0° at top, clockwise — matches dial mapping.
+    var angle = Math.atan2(dx, -dy) * (180 / Math.PI);
+    if (angle < 0) angle += 360;
+    return angleToPreferredLen(angle);
+  }
+
+  function endLensDrag() {
+    if (!state.lensDrag) return;
+    state.lensDrag = null;
+    document.removeEventListener("mousemove", onLensDragMove);
+    document.removeEventListener("mouseup", onLensDragEnd);
+    document.removeEventListener("touchmove", onLensDragMove);
+    document.removeEventListener("touchend", onLensDragEnd);
+    document.removeEventListener("touchcancel", onLensDragEnd);
+  }
+
+  function onLensDragMove(ev) {
+    if (!state.lensDrag) return;
+    ev.preventDefault();
+    var idx = state.lensDrag.idx;
+    var slots = $("engrams-slots");
+    var radial = slots
+      ? slots.querySelector('.engrams-radial[data-idx="' + idx + '"]')
+      : null;
+    if (!radial) return;
+    var len = lenFromRadialEvent(radial, ev);
+    if (state.targetLens[idx] !== len) {
+      setTargetLen(idx, len, true);
+    } else {
+      updateRadialVisual(radial, len);
+    }
+  }
+
+  function onLensDragEnd(ev) {
+    if (!state.lensDrag) return;
+    var idx = state.lensDrag.idx;
+    var slots = $("engrams-slots");
+    var radial = slots
+      ? slots.querySelector('.engrams-radial[data-idx="' + idx + '"]')
+      : null;
+    if (radial && (ev.type === "mouseup" || ev.type === "touchend")) {
+      var len = lenFromRadialEvent(radial, ev);
+      setTargetLen(idx, len, true);
+    }
+    endLensDrag();
+  }
+
+  function bindRadial(radial, idx, letter) {
+    radial.addEventListener("mousedown", function (ev) {
+      if (ev.button != null && ev.button !== 0) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      endLensDrag();
+      state.lensDrag = { idx: idx };
+      setTargetLen(idx, lenFromRadialEvent(radial, ev), true);
+      document.addEventListener("mousemove", onLensDragMove);
+      document.addEventListener("mouseup", onLensDragEnd);
+    });
+    radial.addEventListener(
+      "touchstart",
+      function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        endLensDrag();
+        state.lensDrag = { idx: idx };
+        setTargetLen(idx, lenFromRadialEvent(radial, ev), true);
+        document.addEventListener("touchmove", onLensDragMove, { passive: false });
+        document.addEventListener("touchend", onLensDragEnd);
+        document.addEventListener("touchcancel", onLensDragEnd);
+      },
+      { passive: false }
+    );
+    radial.addEventListener("keydown", function (ev) {
+      var cur = clampPreferredLen(
+        (state.targetLens && state.targetLens[idx]) || lensForIndex(idx, state.seedLetters)
+      );
+      if (ev.key === "ArrowRight" || ev.key === "ArrowUp") {
+        ev.preventDefault();
+        setTargetLen(idx, cur + 1, true);
+      } else if (ev.key === "ArrowLeft" || ev.key === "ArrowDown") {
+        ev.preventDefault();
+        setTargetLen(idx, cur - 1, true);
+      } else if (ev.key === "Home") {
+        ev.preventDefault();
+        setTargetLen(idx, LEN_MIN, true);
+      } else if (ev.key === "End") {
+        ev.preventDefault();
+        setTargetLen(idx, LEN_MAX, true);
+      }
+    });
+  }
+
+  function makeRadialDial(idx, letter, len) {
+    var radial = document.createElement("div");
+    radial.className = "engrams-radial";
+    radial.dataset.idx = String(idx);
+    radial.setAttribute("role", "slider");
+    radial.setAttribute("tabindex", "0");
+    radial.setAttribute("aria-valuemin", String(LEN_MIN));
+    radial.setAttribute("aria-valuemax", String(LEN_MAX));
+    radial.setAttribute("aria-valuenow", String(clampPreferredLen(len)));
+    radial.setAttribute(
+      "aria-label",
+      "Preferred length for letter " + (letter || "?")
+    );
+    radial.title = "Preferred word length 1–15";
+
+    var knob = document.createElement("span");
+    knob.className = "engrams-radial-knob";
+    knob.setAttribute("aria-hidden", "true");
+    var value = document.createElement("span");
+    value.className = "engrams-radial-value";
+    value.textContent = String(clampPreferredLen(len));
+    radial.appendChild(knob);
+    radial.appendChild(value);
+    updateRadialVisual(radial, len);
+    bindRadial(radial, idx, letter);
+    return radial;
+  }
+
   function renderStage(result) {
     state.seedRaw = result.seedRaw;
     state.seedLetters = result.seedLetters;
@@ -1732,6 +2008,7 @@
     state.poem = result.poem;
     state.gloss = result.gloss || "";
     state.themes = result.themes || [];
+    ensureTargetLens(result.seedLetters || "");
 
     var seedEl = $("engrams-seed-display");
     var slots = $("engrams-slots");
@@ -1745,22 +2022,33 @@
         : "—";
     }
     if (slots) {
+      var dragIdx = state.lensDrag ? state.lensDrag.idx : -1;
       slots.innerHTML = "";
       result.words.forEach(function (w, idx) {
         var card = document.createElement("div");
         card.className = "engrams-slot";
+        var head = document.createElement("div");
+        head.className = "engrams-slot-head";
         var letter = document.createElement("span");
         letter.className = "engrams-slot-letter";
-        letter.textContent = result.seedLetters.charAt(idx) || "";
+        var L = result.seedLetters.charAt(idx) || "";
+        letter.textContent = L;
+        var pref = lensForIndex(idx, result.seedLetters);
+        var radial = makeRadialDial(idx, L, pref);
+        head.appendChild(letter);
+        head.appendChild(radial);
         var word = document.createElement("span");
         word.className = "engrams-slot-word";
         word.textContent = w;
-        card.appendChild(letter);
+        card.appendChild(head);
         card.appendChild(word);
         slots.appendChild(card);
       });
       if (!result.words.length) {
         slots.innerHTML = '<p class="engrams-empty">Type a word — each letter becomes an engram expansion.</p>';
+      } else if (dragIdx >= 0) {
+        var keep = slots.querySelector('.engrams-radial[data-idx="' + dragIdx + '"]');
+        if (keep) keep.classList.add("is-dragging");
       }
     }
     if (poemEl) {

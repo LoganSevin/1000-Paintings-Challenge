@@ -245,6 +245,7 @@ body.engrams-tab-active .site-header {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  position: relative;
   min-width: 5.5rem;
   padding: 0.45rem 0.55rem;
   background: linear-gradient(160deg, rgba(201, 162, 39, 0.12), rgba(90, 60, 160, 0.08));
@@ -252,17 +253,103 @@ body.engrams-tab-active .site-header {
   border-radius: 8px;
 }
 
+.engrams-slot-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
 .engrams-slot-letter {
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #c9a227;
+  padding-top: 0.15rem;
 }
 
 .engrams-slot-word {
   font-size: 1rem;
   font-weight: 600;
   color: #f7f1e4;
+}
+
+/* Per-glyph preferred length dial (1–15) */
+.engrams-radial {
+  --radial-angle: 0deg;
+  position: relative;
+  flex: 0 0 auto;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  background:
+    conic-gradient(
+      from -90deg,
+      rgba(201, 162, 39, 0.15) 0deg,
+      rgba(232, 196, 90, 0.65) var(--radial-angle),
+      rgba(201, 162, 39, 0.12) var(--radial-angle),
+      rgba(201, 162, 39, 0.12) 360deg
+    );
+  box-shadow:
+    inset 0 0 0 1.5px rgba(201, 162, 39, 0.45),
+    0 0 6px rgba(201, 162, 39, 0.18);
+  outline: none;
+}
+
+.engrams-radial::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #12141c;
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.2);
+  pointer-events: none;
+}
+
+.engrams-radial:hover,
+.engrams-radial:focus-visible {
+  box-shadow:
+    inset 0 0 0 1.5px rgba(240, 215, 138, 0.75),
+    0 0 8px rgba(232, 196, 90, 0.35);
+}
+
+.engrams-radial.is-dragging,
+.engrams-radial:active {
+  box-shadow:
+    inset 0 0 0 1.5px #f0d78a,
+    0 0 10px rgba(232, 196, 90, 0.45);
+}
+
+.engrams-radial-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px;
+  border-radius: 50%;
+  background: #e8c45a;
+  box-shadow: 0 0 4px rgba(240, 215, 138, 0.75);
+  transform: rotate(var(--radial-angle)) translateY(-0.72rem);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.engrams-radial-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f0d78a;
+  pointer-events: none;
 }
 
 .engrams-poem {
