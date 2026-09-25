@@ -739,7 +739,10 @@
     var chain = Promise.resolve();
     files.forEach(function (file, i) {
       chain = chain.then(function () {
-        setUploadStatus("Uploading " + (i + 1) + " / " + files.length + "…", "");
+        setUploadStatus(
+          "Uploading and describing " + (i + 1) + " / " + files.length + "…",
+          ""
+        );
         return uploadOneFile(file).then(function () {
           ok++;
         });
@@ -750,7 +753,7 @@
         setUploadStatus(
           "Uploaded " +
             ok +
-            " photo(s). They are in Phone uploads and ready for Gallery, Spellforge, and other tabs.",
+            " photo(s) with descriptions. They are in Phone uploads and ready for Gallery, Spellforge, and other tabs.",
           "ok"
         );
         return refreshUploadList();
