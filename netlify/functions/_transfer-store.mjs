@@ -3,10 +3,10 @@ import { getStore } from "@netlify/blobs";
 import {
   API_RESPONSES,
   TEXT_MODEL,
-  getApiKey,
   apiErrorMessage,
   extractResponseText,
   parseJsonBlob,
+  withXaiKeyFallback,
 } from "./_lib.mjs";
 
 const PHONE_UPLOAD_ANALYSIS_PROMPT =
@@ -201,34 +201,38 @@ async function describeViaChat(apiKey, model, dataUrl) {
 }
 
 export async function describePhoneImage(buf, mime) {
-  const apiKey = getApiKey();
   const type = sniffMime(buf, mime || "image/jpeg");
   const b64 = Buffer.from(buf).toString("base64");
   const dataUrl = "data:" + type + ";base64," + b64;
   const models = [TEXT_MODEL, "grok-4.7", "grok-4"].filter(function (name, i, arr) {
     return name && arr.indexOf(name) === i;
   });
-  let lastErr = "Describe failed";
-  for (let i = 0; i < models.length; i++) {
+  return withXaiKeyFallback(async function (apiKey) {
+    let lastErr = "Describe failed";
+    for (let i = 0; i < models.length; i++) {
+      try {
+        const analysis = await describeViaResponses(apiKey, models[i], dataUrl);
+        analysis.kind = "phone-upload";
+        analysis.analyzed_at = new Date().toISOString();
+        analysis.model = models[i];
+        return analysis;
+      } catch (err) {
+        lastErr = String((err && err.message) || err);
+        if (String(lastErr).toLowerCase().includes("credit") || String(lastErr).toLowerCase().includes("spending")) {
+          throw err;
+        }
+      }
+    }
     try {
-      const analysis = await describeViaResponses(apiKey, models[i], dataUrl);
+      const analysis = await describeViaChat(apiKey, models[0] || "grok-4.7", dataUrl);
       analysis.kind = "phone-upload";
       analysis.analyzed_at = new Date().toISOString();
-      analysis.model = models[i];
+      analysis.model = (models[0] || "grok-4.7") + "-chat";
       return analysis;
     } catch (err) {
-      lastErr = String((err && err.message) || err);
+      throw new Error(String((err && err.message) || lastErr).slice(0, 240));
     }
-  }
-  try {
-    const analysis = await describeViaChat(apiKey, models[0] || "grok-4.7", dataUrl);
-    analysis.kind = "phone-upload";
-    analysis.analyzed_at = new Date().toISOString();
-    analysis.model = (models[0] || "grok-4.7") + "-chat";
-    return analysis;
-  } catch (err) {
-    throw new Error(String((err && err.message) || lastErr).slice(0, 240));
-  }
+  });
 }
 
 export async function patchPhoneItem(store, id, patch) {

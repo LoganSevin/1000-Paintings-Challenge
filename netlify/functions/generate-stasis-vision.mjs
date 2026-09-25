@@ -10,7 +10,8 @@ import {
   runWithXaiKey,
 } from "./_lib.mjs";
 
-async function runJob(jobId, body) {
+async function runJob(jobId, body, visitorKey) {
+  return runWithXaiKey(visitorKey, async function () {
   const store = getStore({ name: "spellforge-jobs", consistency: "strong" });
   try {
     const stasis = (body.stasis || "").trim();
@@ -58,6 +59,7 @@ async function runJob(jobId, body) {
       error: { message: e.message || String(e) },
     });
   }
+  });
 }
 
 export default async function handler(request, context) {
@@ -95,9 +97,7 @@ export default async function handler(request, context) {
   const store = getStore({ name: "spellforge-jobs", consistency: "strong" });
   await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "queued" });
 
-  const work = runWithXaiKey(visitorKey, function () {
-    return runJob(jobId, body);
-  });
+  const work = runJob(jobId, body, visitorKey);
   if (context?.waitUntil) {
     context.waitUntil(work);
   } else {

@@ -715,12 +715,10 @@
     );
   }
 
-  function formatCreditsError(msg) {
+  function formatCreditsError() {
     return (
-      "xAI credits are empty or the monthly spending cap is hit. " +
-      "Use Buy credits in the header → console.x.ai Billing to add funds or raise the limit. " +
-      "Then retry Generate. " +
-      (msg ? "(" + String(msg).slice(0, 180) + ")" : "")
+      "This xAI key can’t spend right now. Connect another xAI API key " +
+      "(console.x.ai → API keys) so Generate can keep going on that account."
     );
   }
 
@@ -4777,7 +4775,7 @@
       });
   }
 
-  function generateStasisVisionCloud(nums, statusEl, btn) {
+  function generateStasisVisionCloud(nums, statusEl, btn, retriedVisitorKey) {
     var jobId =
       typeof crypto !== "undefined" && crypto.randomUUID
         ? crypto.randomUUID()
@@ -4987,8 +4985,23 @@
             ? msg
             : "Lost connection to your PC (Tailscale or server). Reconnect Tailscale, confirm start_server.bat is running, hard-refresh, try again.";
         }
+        if (isCreditsError(msg) && !retriedVisitorKey) {
+          var ask =
+            window.AccountGate && window.AccountGate.promptKeyAsync
+              ? window.AccountGate.promptKeyAsync()
+              : Promise.resolve(false);
+          if (statusEl) {
+            statusEl.hidden = false;
+            statusEl.className = "spell-generate-status";
+            statusEl.textContent = "This xAI key can’t spend. Paste another API key to keep generating…";
+          }
+          return ask.then(function (ok) {
+            if (!ok) throw new Error(formatCreditsError());
+            return generateStasisVisionCloud(nums, statusEl, btn, true);
+          });
+        }
         if (isCreditsError(msg) && !allowLocalCreditsFallback()) {
-          msg = formatCreditsError(msg);
+          msg = formatCreditsError();
         }
         if (isCreditsError(msg) && allowLocalCreditsFallback() && !skipLocalFuse) {
           if (statusEl) {

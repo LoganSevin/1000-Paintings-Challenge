@@ -54,8 +54,10 @@
   }
 
   function needsVisitorKey(url) {
-    return /\/api\/(generate-stasis-vision|blend-spells|redefine-stasis|animate-cast)\b/.test(
-      String(url || "")
+    var u = String(url || "");
+    return (
+      /\/api\/(generate-stasis-vision|blend-spells|redefine-stasis|animate-cast|transfer)/.test(u) ||
+      /\/.netlify\/functions\/(generate-stasis-vision|blend-spells|redefine-stasis|transfer)/.test(u)
     );
   }
 
@@ -115,17 +117,30 @@
     if (!signed) initGoogleButton();
   }
 
+  function promptKeyAsync() {
+    return new Promise(function (resolve) {
+      var cur = getVisitorXaiKey();
+      var next = window.prompt(
+        "Paste an xAI API key from https://console.x.ai/team/default/api-keys\nSpellforge, blend, and describe will bill that key so generating can continue.",
+        ""
+      );
+      if (next == null) {
+        resolve(!!cur);
+        return;
+      }
+      next = String(next).trim();
+      if (!next) {
+        resolve(!!cur);
+        return;
+      }
+      setVisitorXaiKey(next);
+      render();
+      resolve(true);
+    });
+  }
+
   function promptKey() {
-    var cur = getVisitorXaiKey();
-    var next = window.prompt(
-      "Paste your xAI API key from https://console.x.ai/team/default/api-keys\nGenerates on this site will use YOUR credits, not the artist's.",
-      cur ? "••••••••" : ""
-    );
-    if (next == null) return;
-    next = next.trim();
-    if (!next || next.indexOf("•") === 0) return;
-    setVisitorXaiKey(next);
-    render();
+    promptKeyAsync();
   }
 
   function signOut() {
@@ -250,6 +265,8 @@
 
   window.AccountGate = {
     getVisitorXaiKey: getVisitorXaiKey,
+    promptKey: promptKey,
+    promptKeyAsync: promptKeyAsync,
     getUser: function () {
       return user;
     },

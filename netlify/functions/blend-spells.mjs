@@ -1,7 +1,6 @@
 import {
   API_RESPONSES,
   TEXT_MODEL,
-  getApiKey,
   apiErrorMessage,
   loadAnalyses,
   extractResponseText,
@@ -9,7 +8,7 @@ import {
   jsonResponse,
   corsPreflight,
   visitorXaiKey,
-  runWithXaiKey,
+  withXaiKeyFallback,
 } from "./_lib.mjs";
 
 export default async function handler(request) {
@@ -21,7 +20,7 @@ export default async function handler(request) {
   }
 
   try {
-    return await runWithXaiKey(visitorXaiKey(request), async function () {
+    return await withXaiKeyFallback(async function (apiKey) {
     const body = await request.json();
     const spells = (body.spells || []).map((n) => parseInt(n, 10)).filter((n) => n >= 1);
     if (spells.length < 2) {
@@ -42,7 +41,7 @@ export default async function handler(request) {
       };
     });
 
-    const apiKey = getApiKey();
+
     const userText =
       "Fuse these paintings into one unified spell. Interweave their imagery in a single " +
       "mixed description (do not list them separately). Return ONLY JSON:\n" +
@@ -73,7 +72,7 @@ export default async function handler(request) {
     const fused = parseJsonBlob(extractResponseText(data));
     fused.spells = spells.slice(0, 3);
     return jsonResponse(fused);
-    });
+    }, visitorXaiKey(request));
   } catch (e) {
     return jsonResponse({ error: e.message || String(e) }, 400);
   }

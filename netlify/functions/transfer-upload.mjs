@@ -1,5 +1,5 @@
 import { Buffer } from "node:buffer";
-import { jsonResponse, corsPreflight } from "./_lib.mjs";
+import { jsonResponse, corsPreflight, visitorXaiKey, runWithXaiKey } from "./_lib.mjs";
 import { decodeDataUrl, phoneStore, savePhoneImage } from "./_transfer-store.mjs";
 
 function noStore(body, status = 200) {
@@ -40,7 +40,9 @@ export default async function handler(request) {
       buf = Buffer.from(ab);
       if (ctype.startsWith("image/")) mime = ctype.split(";")[0].trim();
     }
-    const result = await savePhoneImage(store, buf, mime, name);
+    const result = await runWithXaiKey(visitorXaiKey(request), function () {
+      return savePhoneImage(store, buf, mime, name);
+    });
     return noStore(result);
   } catch (err) {
     const status = err && err.status ? err.status : 500;

@@ -48,8 +48,38 @@ export function corsPreflight() {
 export const WOMBO_API = "https://api.luan.tools/api/tasks/";
 export const WOMBO_STYLE_DEFAULT = 1;
 
+export function isCreditsLimitError(err) {
+  const m = String(err && err.message ? err.message : err || "").toLowerCase();
+  return (
+    m.includes("credit") ||
+    m.includes("spending limit") ||
+    m.includes("monthly spending") ||
+    m.includes("purchase more")
+  );
+}
+
+export function listXaiKeys(extra) {
+  const keys = [];
+  const seen = new Set();
+  function add(raw) {
+    const key = String(raw || "").trim();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    keys.push(key);
+  }
+  add(extra);
+  add(xaiKeyStore.getStore());
+  String(process.env.XAI_API_KEY || "")
+    .split(/[\n\r,;]+/)
+    .forEach(add);
+  String(process.env.XAI_API_KEYS || "")
+    .split(/[\n\r,;]+/)
+    .forEach(add);
+  return keys;
+}
+
 export function getXaiKey() {
-  return (process.env.XAI_API_KEY || process.env.XAI_API_KEYS || "").trim();
+  return listXaiKeys()[0] || "";
 }
 
 export function getWomboKey() {
@@ -71,15 +101,34 @@ export function isImageApiConfigured() {
 }
 
 export function getApiKey() {
-  const visitor = xaiKeyStore.getStore();
-  if (visitor) return visitor;
-  const key = getXaiKey();
+  const key = listXaiKeys()[0];
   if (!key) {
     throw new Error(
-      "XAI_API_KEY is not set. In Netlify: Site settings → Environment variables → add XAI_API_KEY, then redeploy."
+      "No xAI API key. Connect a key from console.x.ai, or add XAI_API_KEY on Netlify."
     );
   }
   return key;
+}
+
+export async function withXaiKeyFallback(fn, extraKey) {
+  const keys = listXaiKeys(extraKey);
+  if (!keys.length) {
+    throw new Error(
+      "No xAI API key. Connect a key from console.x.ai to keep generating."
+    );
+  }
+  let lastErr;
+  for (let i = 0; i < keys.length; i++) {
+    try {
+      return await runWithXaiKey(keys[i], function () {
+        return fn(keys[i]);
+      });
+    } catch (err) {
+      lastErr = err;
+      if (!isCreditsLimitError(err)) throw err;
+    }
+  }
+  throw lastErr;
 }
 
 export function getImageApiKey() {
@@ -245,7 +294,10 @@ function extractWomboImageUrl(task) {
 }
 
 export async function generateWomboStasisImage(stasis, buzzWords, aspectRatio) {
-  const token = getImageApiKey();
+  const token = getWomboKey();
+  if (!token) {
+    throw new Error("WOMBO_DREAM_API_KEY is not set.");
+  }
   const prompt = buildWomboPrompt(stasis, buzzWords);
   const styleId = parseInt(process.env.WOMBO_STYLE_ID || String(WOMBO_STYLE_DEFAULT), 10) || 1;
   const sized = aspectToSize(aspectRatio, 1280);
@@ -371,46 +423,54 @@ async function postXaiImage(url, payload, apiKey) {
 }
 
 export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage) {
-  const apiKey = getImageApiKey();
-  const aspect = normalizeAspect(aspectRatio);
-  const ref = String(referenceImage || "").trim();
-  const fullPrompt = ref
-    ? buildFlashProjectPrompt(stasis, buzzWords, aspect)
-    : buildStasisVisionPrompt(stasis, buzzWords, aspect);
-  const base = {
-    model: IMAGE_MODEL,
-    prompt: fullPrompt,
-    n: 1,
-    aspect_ratio: aspect,
-  };
-  if (ref) {
-    try {
-      return await postXaiImage(
-        API_IMAGE_EDITS,
-        {
-          ...base,
-          image: { url: ref, type: "image_url" },
-        },
-        apiKey
-      );
-    } catch (errEdits) {
+  return withXaiKeyFallback(async function (apiKey) {
+    const aspect = normalizeAspect(aspectRatio);
+    const ref = String(referenceImage || "").trim();
+    const fullPrompt = ref
+      ? buildFlashProjectPrompt(stasis, buzzWords, aspect)
+      : buildStasisVisionPrompt(stasis, buzzWords, aspect);
+    const base = {
+      model: IMAGE_MODEL,
+      prompt: fullPrompt,
+      n: 1,
+      aspect_ratio: aspect,
+    };
+    if (ref) {
       try {
         return await postXaiImage(
-          API_IMAGES,
-          { ...base, image_url: ref },
+          API_IMAGE_EDITS,
+          {
+            ...base,
+            image: { url: ref, type: "image_url" },
+          },
           apiKey
         );
-      } catch (errGen) {
-        throw errEdits;
+      } catch (errEdits) {
+        try {
+          return await postXaiImage(
+            API_IMAGES,
+            { ...base, image_url: ref },
+            apiKey
+          );
+        } catch (errGen) {
+          throw errEdits;
+        }
       }
     }
-  }
-  return postXaiImage(API_IMAGES, base, apiKey);
+    return postXaiImage(API_IMAGES, base, apiKey);
+  });
 }
 
 export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage) {
   if (getImageProvider() === "wombo") {
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
   }
-  return generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
+  try {
+    return await generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
+  } catch (err) {
+    if (isCreditsLimitError(err) && getWomboKey()) {
+      return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
+    }
+    throw err;
+  }
 }

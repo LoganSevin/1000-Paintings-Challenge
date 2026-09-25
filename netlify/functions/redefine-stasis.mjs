@@ -1,7 +1,6 @@
 import {
   API_RESPONSES,
   TEXT_MODEL,
-  getApiKey,
   apiErrorMessage,
   loadAnalyses,
   extractResponseText,
@@ -9,7 +8,7 @@ import {
   jsonResponse,
   corsPreflight,
   visitorXaiKey,
-  runWithXaiKey,
+  withXaiKeyFallback,
 } from "./_lib.mjs";
 
 export default async function handler(request) {
@@ -21,7 +20,7 @@ export default async function handler(request) {
   }
 
   try {
-    return await runWithXaiKey(visitorXaiKey(request), async function () {
+    return await withXaiKeyFallback(async function (apiKey) {
     const body = await request.json();
     const spells = (body.spells || []).map((n) => parseInt(n, 10)).filter((n) => n >= 1);
     if (spells.length < 2) {
@@ -44,7 +43,7 @@ export default async function handler(request) {
 
     const current = String(body.stasis || "").trim();
     const variant = parseInt(body.variant || "0", 10) || 0;
-    const apiKey = getApiKey();
+
     const userText =
       "Refine a fused spell STASIS — one singular unified entity from three paintings.\n" +
       "Rewrite the current stasis with fresh vocabulary and sentence structure. " +
@@ -84,7 +83,7 @@ export default async function handler(request) {
     }
     result.spells = spells.slice(0, 3);
     return jsonResponse(result);
-    });
+    }, visitorXaiKey(request));
   } catch (e) {
     return jsonResponse({ error: e.message || String(e) }, 400);
   }
