@@ -75,11 +75,24 @@ body.vd-tab-active .site-header .subtitle {
   transition: height 0.45s ease;
 }
 
+.vd-gauge-num {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #fff6c8;
+  text-align: center;
+  line-height: 1;
+}
+
 .vd-gauge-label {
   position: relative;
   z-index: 1;
   display: block;
-  padding: 0.28rem 0.2rem;
+  padding: 0.2rem 0.2rem 0.35rem;
   font-size: 0.62rem;
   line-height: 1.2;
   color: #e8c547;

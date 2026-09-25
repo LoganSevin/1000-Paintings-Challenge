@@ -12,7 +12,8 @@
     { unit: "Team", note: "xAI billing account UUID. Their org, not this gallery’s door." },
   ];
 
-  var fills = [18, 22, 16, 20, 14, 12, 24, 10];
+  var STORE = "logan7in-vendor-gauges-v1";
+  var counts = [0, 0, 0, 0, 0, 0, 0, 0];
   var slot = 0;
   var timer = 0;
 
@@ -20,42 +21,62 @@
     return document.getElementById(id);
   }
 
-  function fillFromStudio(i) {
-    var snap =
-      window.StudioTelemetry && window.StudioTelemetry.snapshot
-        ? window.StudioTelemetry.snapshot()
-        : null;
-    if (!snap) return fills[i];
-    var map = [
-      Math.min(100, 12 + snap.describe * 8 + snap.blend * 8),
-      Math.min(100, 10 + snap.cloud_try * 12),
-      Math.min(100, 8 + snap.activity * 3),
-      Math.min(100, 8 + snap.cloud_fail * 10 + snap.cloud_try * 4),
-      snap.cloud_try || snap.describe ? 55 : 18,
-      20,
-      Math.min(100, 10 + (snap.cloud_try + snap.blend + snap.describe) * 8),
-      Math.min(100, 15 + snap.tab_hits * 2),
-    ];
-    return map[i];
+  function loadState() {
+    try {
+      var raw = JSON.parse(localStorage.getItem(STORE) || "null");
+      if (raw && Array.isArray(raw.counts) && raw.counts.length === UNITS.length) {
+        counts = raw.counts.map(function (n) {
+          return Math.max(0, parseInt(n, 10) || 0);
+        });
+        slot = Math.max(0, parseInt(raw.slot, 10) || 0) % UNITS.length;
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORE, JSON.stringify({ counts: counts, slot: slot, at: Date.now() }));
+    } catch (e) {}
+  }
+
+  function fillPct(i) {
+    return Math.min(92, 8 + counts[i] * 4);
+  }
+
+  function paintBox(i) {
+    var host = $("vd-gauges");
+    if (!host || !host.children[i]) return;
+    var box = host.children[i];
+    var fill = box.querySelector(".vd-gauge-fill");
+    var num = box.querySelector(".vd-gauge-num");
+    if (fill) fill.style.height = fillPct(i) + "%";
+    if (num) num.textContent = String(counts[i]);
   }
 
   function paintGauges() {
     var host = $("vd-gauges");
-    if (!host || host.children.length) return;
+    if (!host) return;
+    host.innerHTML = "";
     UNITS.forEach(function (row, i) {
       var box = document.createElement("div");
       box.className = "vd-gauge";
       box.setAttribute("data-i", String(i));
       var fill = document.createElement("div");
       fill.className = "vd-gauge-fill";
-      fill.style.height = fills[i] + "%";
+      fill.style.height = fillPct(i) + "%";
       var drop = document.createElement("div");
       drop.className = "vd-drop";
+      var num = document.createElement("strong");
+      num.className = "vd-gauge-num";
+      num.textContent = String(counts[i]);
       var label = document.createElement("span");
       label.className = "vd-gauge-label";
       label.textContent = row.unit;
       box.appendChild(fill);
       box.appendChild(drop);
+      box.appendChild(num);
       box.appendChild(label);
       host.appendChild(box);
     });
@@ -82,28 +103,33 @@
     box.classList.remove("is-drop");
     void box.offsetWidth;
     box.classList.add("is-drop");
-    fills[i] = Math.min(92, Math.max(fillFromStudio(i), fills[i] + 7));
-    var fill = box.querySelector(".vd-gauge-fill");
-    if (fill) fill.style.height = fills[i] + "%";
+    counts[i] += 1;
+    paintBox(i);
+    saveState();
     setTimeout(function () {
       npc.classList.remove("is-drop");
     }, 450);
   }
 
   function tick() {
-    if (!document.body.classList.contains("vd-tab-active") && document.body.getAttribute("data-active-tab") !== "vendor") {
+    if (
+      !document.body.classList.contains("vd-tab-active") &&
+      document.body.getAttribute("data-active-tab") !== "vendor"
+    ) {
       return;
     }
     setNpc(slot);
     setTimeout(function () {
       dropInto(slot);
       slot = (slot + 1) % UNITS.length;
+      saveState();
     }, 720);
   }
 
   function bind() {
     var ul = $("vd-units");
     if (!ul) return;
+    loadState();
     ul.innerHTML = "";
     UNITS.forEach(function (row) {
       var li = document.createElement("li");
@@ -118,19 +144,13 @@
       ul.appendChild(li);
     });
     paintGauges();
-    UNITS.forEach(function (_, i) {
-      fills[i] = fillFromStudio(i);
-      var box = $("vd-gauges") && $("vd-gauges").children[i];
-      if (box) {
-        var fill = box.querySelector(".vd-gauge-fill");
-        if (fill) fill.style.height = fills[i] + "%";
-      }
-    });
-    setNpc(0);
+    setNpc(slot);
     if (timer) clearInterval(timer);
     timer = setInterval(tick, 1600);
     window.addEventListener("tab-changed", function (e) {
       if (e.detail && e.detail.tab === "vendor") {
+        loadState();
+        paintGauges();
         setNpc(slot);
       }
     });
