@@ -29,6 +29,112 @@ body.api-tab-active .site-header .subtitle { display: none; }
   background: var(--bg);
 }
 
+.api-subtabs {
+  display: flex;
+  gap: 0.25rem;
+  flex: 0 0 auto;
+  padding: 0.4rem 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.api-subtab {
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+}
+
+.api-subtab.active {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.api-pane[hidden] {
+  display: none !important;
+}
+
+.api-pane[data-api-pane="chains"]:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.api-logic-pane {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem 1.5rem;
+}
+
+.api-logic {
+  max-width: 42rem;
+}
+
+.api-logic h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+}
+
+.api-logic-lede {
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #e8c547;
+}
+
+.api-logic h3 {
+  margin: 1.15rem 0 0.4rem;
+  font-size: 1.02rem;
+}
+
+.api-logic p,
+.api-logic li {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.api-logic ul,
+.api-logic ol {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.api-logic code {
+  font-size: 0.8em;
+}
+
+.api-logic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+}
+
+.api-logic-table th,
+.api-logic-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.api-logic-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .api-top {
   flex: 0 0 auto;
   padding: 0.5rem 0.65rem 0.4rem;

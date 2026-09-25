@@ -74,7 +74,7 @@
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
-  <link rel="stylesheet" href="css/api-chain.css?v=3" />
+  <link rel="stylesheet" href="css/api-chain.css?v=4" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
   <link rel="stylesheet" href="css/prompt-lab.css?v=1" />
   <link rel="stylesheet" href="css/gab.css?v=9" />
@@ -1509,9 +1509,66 @@
 
   <section id="panel-api" class="panel" hidden>
     <div class="api-shell">
+      <div class="api-subtabs" role="tablist" aria-label="API views">
+        <button type="button" class="api-subtab active" data-api-pane="logic">How it works</button>
+        <button type="button" class="api-subtab" data-api-pane="chains">Spell chains</button>
+      </div>
+      <div class="api-pane api-logic-pane" data-api-pane="logic">
+        <article class="api-logic">
+          <h2>API logic</h2>
+          <p class="api-logic-lede">Using logan7in.art should not cost Logan money, and it should not cost a visitor money either. Cloud AI is optional extra, not a ticket to walk in the door.</p>
+
+          <h3>Two different things named API</h3>
+          <ol>
+            <li><strong>This tab’s spell chains</strong> — you drag paintings into a pipeline, save a name, and call <code>@YourChainName</code> from Animate. That runs in the browser. No xAI bill.</li>
+            <li><strong>Cloud model calls</strong> — Spellforge Generate, blend, redefine, and “describe this photo” can ask xAI (Grok) to invent a new image or write a caption. Those calls are metered. Whoever’s <em>key</em> is on the request is who xAI charges.</li>
+          </ol>
+
+          <h3>Who gets billed, when</h3>
+          <p>xAI does not charge “the website.” It charges an API key. This site can send one of three keys:</p>
+          <ul>
+            <li><strong>The Netlify site key</strong> (<code>XAI_API_KEY</code>) — Logan’s team wallet. That is the key that hit the monthly cap. Every unguarded Generate on the live site was drawing from it.</li>
+            <li><strong>A visitor key</strong> — if someone pastes their own key, xAI bills them. That is still someone paying to look at art. It is not the default, and it is not required to use the studio.</li>
+            <li><strong>No key</strong> — browse Gallery, Kids, Bible, Pulse, Transfer (except describe), and Spellforge’s on-device fuse. Those are free.</li>
+          </ul>
+
+          <h3>The rule this site is supposed to follow</h3>
+          <p>The gallery is meant to <strong>make</strong> money (donations, prints, optional paid cloud if someone <em>chooses</em> it). It is not meant to <strong>spend</strong> Logan’s xAI prepaid credits just because a tab opened. A visitor should not have to buy Grok credits to open a painting, switch tabs, or get a stasis vision when the cloud wallet is capped.</p>
+          <p>So: if xAI refuses a Generate (“credits empty” / “spending limit”), Spellforge fuses the equipped spells <strong>on this device</strong>. That is a local canvas merge, not a new Grok painting, and it does not invoice anyone.</p>
+
+          <h3>What is free vs what can cost</h3>
+          <table class="api-logic-table">
+            <thead>
+              <tr><th>Action</th><th>Costs xAI?</th><th>Who would pay</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Open the site, switch tabs, read, listen, Kids Mode</td><td>No</td><td>—</td></tr>
+              <tr><td>API tab spell chains, save/run chain, copy fused prompt</td><td>No</td><td>—</td></tr>
+              <tr><td>Spellforge Generate when xAI is capped (on-device fuse)</td><td>No</td><td>—</td></tr>
+              <tr><td>Spellforge Generate when a key still has spend</td><td>Yes</td><td>That key’s account</td></tr>
+              <tr><td>Blend / redefine stasis on the cloud</td><td>Yes</td><td>That key’s account</td></tr>
+              <tr><td>Describe a phone upload (write title + prompt)</td><td>Yes</td><td>That key’s account</td></tr>
+              <tr><td>Upload a phone photo (save the file only)</td><td>No</td><td>—</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Why it got expensive</h3>
+          <p>Live Spellforge was wired to the site key, so every cloud Generate, blend, and describe hit the same team wallet. There is no “Logan7in unlimited.” xAI meters tokens and image gens. A busy night of Generate can empty prepaid credits or trip a monthly cap. That is a vendor invoice, not rent on this domain.</p>
+          <p>The Buy credits HUD exists so you can <em>see</em> that wallet. It is not a requirement to use the studio. You do not owe xAI money to keep the lights on here.</p>
+
+          <h3>How to keep it from costing anyone</h3>
+          <ul>
+            <li>Leave Generate on the default path: try cloud, then fuse locally if the wallet is capped.</li>
+            <li>Do not paste a visitor xAI key unless you <em>want</em> a paid Grok painting billed to that key.</li>
+            <li>Phone uploads can sit as images without Describe. Describe is the paid caption step.</li>
+            <li>Donations and print shops are how the site is supposed to earn. Cloud gens are optional, not the product’s cover charge.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="api-pane" data-api-pane="chains" hidden>
       <div class="api-top">
-        <h2>API</h2>
-        <p class="api-hint">Drag <strong>spells</strong> onto the chain, name it, then <strong>Save chain</strong>. Use <strong>@YourChainName</strong> in Animate — chain tags appear in <strong>yellow</strong>.</p>
+        <h2>Spell chains</h2>
+        <p class="api-hint">Drag <strong>spells</strong> onto the chain, name it, then <strong>Save chain</strong>. Use <strong>@YourChainName</strong> in Animate — chain tags appear in <strong>yellow</strong>. This builder does not call xAI.</p>
         <div class="api-meta-row">
           <input type="text" id="api-name" class="api-name-input" placeholder="Chain name (required)…" autocomplete="off" />
           <input type="text" id="api-desc" class="api-desc-input" placeholder="Short description (optional)…" autocomplete="off" />
@@ -1556,6 +1613,7 @@
           <span id="api-tray-count" class="st-tray-count">Loading…</span>
         </div>
         <div id="api-spell-strip" class="st-spell-strip"></div>
+      </div>
       </div>
     </div>
   </section>
@@ -8154,7 +8212,7 @@
   <script defer src="js/brew.js?v=5"></script>
   <script defer src="js/ears.js?v=52"></script>
 
-  <script defer src="js/api-chain.js?v=3"></script>
+  <script defer src="js/api-chain.js?v=4"></script>
   <script defer src="js/pulse.js?v=3"></script>
   <script defer src="js/app.js?v=26"></script>
   <script defer src="js/spell-timelapse.js?v=8"></script>

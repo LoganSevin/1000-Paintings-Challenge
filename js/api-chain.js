@@ -718,8 +718,24 @@
     loadSavedChains();
   }
 
+  function setPane(name) {
+    name = name === "chains" ? "chains" : "logic";
+    document.querySelectorAll(".api-subtab").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-api-pane") === name);
+    });
+    document.querySelectorAll(".api-pane").forEach(function (pane) {
+      pane.hidden = pane.getAttribute("data-api-pane") !== name;
+    });
+    if (name === "chains") onShow();
+  }
+
   function boot() {
     if (!$("panel-api")) return;
+    document.querySelectorAll(".api-subtab").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setPane(btn.getAttribute("data-api-pane"));
+      });
+    });
     bindUi();
     renderChain();
     renderSpec(null);
