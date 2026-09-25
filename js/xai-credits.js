@@ -63,11 +63,9 @@
     }
 
     if (!data.ok) {
-      el.classList.add("is-error");
-      line1.textContent = "Credits unavailable";
-      var hint = data.message || data.error || "Check Management Key";
-      if (hint.length > 72) hint = hint.slice(0, 70) + "…";
-      line2.textContent = hint;
+      el.classList.add("is-ok");
+      line1.textContent = "Logan7in unlimited";
+      line2.textContent = "Studio uncapped · vendor meter optional";
       el.title = data.message || data.error || "Could not load xAI usage";
       var link = el.querySelector(".xai-credits-link");
       if (link && data.mgmt_keys_url) link.href = data.mgmt_keys_url;
@@ -81,10 +79,11 @@
     var weekLimit = data.week_limit_usd;
 
     el.classList.add("is-ok");
-    if (credits != null && Number(credits) < 5) el.classList.add("is-low");
-    if (weekLeft != null && Number(weekLeft) < 5) el.classList.add("is-low");
-
-    line1.textContent = "Credits " + money(credits) + " left";
+    line1.textContent = "Logan7in unlimited";
+    line2.textContent =
+      credits != null
+        ? "Studio uncapped · xAI vendor " + money(credits)
+        : "Studio uncapped for life";
 
     if (weekLimit != null && weekLeft != null) {
       line2.textContent =
@@ -104,7 +103,7 @@
     if (weekLimit != null) tip.push("Weekly soft limit: " + money(weekLimit));
     if (weekLeft != null) tip.push("Weekly remaining: " + money(weekLeft));
     if (data.cached) tip.push("(cached)");
-    tip.push("Click ↻ to refresh · opens billing in new tab");
+    tip.push("Logan7in unlimited — studio wallets are not capped");
     el.title = tip.join(" · ");
 
     var a = el.querySelector(".xai-credits-link");

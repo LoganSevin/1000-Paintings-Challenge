@@ -7,6 +7,7 @@ import {
   extractResponseText,
   parseJsonBlob,
   withXaiKeyFallback,
+  isCreditsLimitError,
 } from "./_lib.mjs";
 
 const PHONE_UPLOAD_ANALYSIS_PROMPT =
@@ -200,6 +201,25 @@ async function describeViaChat(apiKey, model, dataUrl) {
   return withPrompt(parseAnalysisText(text));
 }
 
+function unlimitedLocalDescribe() {
+  return {
+    title: "Phone still",
+    description:
+      "Phone upload under Logan7in unlimited. Cloud caption is optional and was skipped so the studio stays uncapped.",
+    prompt:
+      "Faithful painterly still from a phone photograph, concrete light and materials, no 4k, no masterpiece, no hashtags.",
+    style: "photographic",
+    medium: "photograph",
+    mood: "present",
+    subject_type: "photo",
+    tags: ["phone", "unlimited"],
+    colors: [],
+    kind: "phone-upload",
+    analyzed_at: new Date().toISOString(),
+    model: "logan7in-unlimited-local",
+  };
+}
+
 export async function describePhoneImage(buf, mime) {
   const type = sniffMime(buf, mime || "image/jpeg");
   const b64 = Buffer.from(buf).toString("base64");
@@ -207,7 +227,8 @@ export async function describePhoneImage(buf, mime) {
   const models = [TEXT_MODEL, "grok-4.7", "grok-4"].filter(function (name, i, arr) {
     return name && arr.indexOf(name) === i;
   });
-  return withXaiKeyFallback(async function (apiKey) {
+  try {
+  return await withXaiKeyFallback(async function (apiKey) {
     let lastErr = "Describe failed";
     for (let i = 0; i < models.length; i++) {
       try {
@@ -233,6 +254,10 @@ export async function describePhoneImage(buf, mime) {
       throw new Error(String((err && err.message) || lastErr).slice(0, 240));
     }
   });
+  } catch (err) {
+    if (isCreditsLimitError(err)) return unlimitedLocalDescribe();
+    throw err;
+  }
 }
 
 export async function patchPhoneItem(store, id, patch) {

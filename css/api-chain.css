@@ -135,6 +135,29 @@ body.api-tab-active .site-header .subtitle { display: none; }
   font-weight: 600;
 }
 
+.logan7in-unlimited {
+  position: fixed;
+  top: 0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10050;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 197, 71, 0.55);
+  background: rgba(18, 16, 10, 0.92);
+  color: #e8c547;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logan7in-unlimited:hover {
+  color: #fff3c4;
+}
+
 .api-top {
   flex: 0 0 auto;
   padding: 0.5rem 0.65rem 0.4rem;
