@@ -15,6 +15,7 @@
   document.body.setAttribute("data-active-tab", "gallery");
   const panels = {
     gallery: document.getElementById("panel-gallery"),
+    studio: document.getElementById("panel-studio"),
     pulse: document.getElementById("panel-pulse"),
     spellforge: document.getElementById("panel-spellforge"),
     muralwalk: document.getElementById("panel-muralwalk"),
@@ -107,6 +108,7 @@
     "Logan Sevin";
   const subtitles = {
     gallery: "Art by " + ARTIST + " — original works, authored & owned by the artist",
+    studio: "Studio actions — make, look, language, meter, share",
     pulse: "Share updates, WIPs, and reactions — a social feed for " + ARTIST + "’s gallery",
     spellforge: "Shuffled spellbook — paint with " + ARTIST + "’s 1000 works",
     muralwalk: "Walk the mural — " + ARTIST + "’s paintings as living floor",
@@ -524,6 +526,7 @@
     document.body.classList.toggle("pulse-tab-active", name === "pulse");
     document.body.classList.toggle("api-tab-active", name === "api");
     document.body.classList.toggle("as-tab-active", name === "assets");
+    document.body.classList.toggle("su-tab-active", name === "studio");
     document.body.classList.toggle("xa-tab-active", name === "xai");
     document.body.classList.toggle("sc-tab-active", name === "chains");
     document.body.classList.toggle("tm-tab-active", name === "telemetry");
@@ -633,6 +636,8 @@
       if (window.Pulse && window.Pulse.onShow) {
         window.Pulse.onShow();
       }
+      hideOtherTabs(name);
+    } else if (name === "studio") {
       hideOtherTabs(name);
     } else if (name === "assets") {
       window.dispatchEvent(new Event("assets-show"));

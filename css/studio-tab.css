@@ -1,0 +1,118 @@
+#panel-studio.panel[hidden] {
+  display: none !important;
+}
+
+#panel-studio.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 8rem);
+  max-height: calc(100dvh - 8rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.su-tab-active #panel-studio.panel.active {
+  min-height: calc(100dvh - 5.5rem);
+  max-height: calc(100dvh - 5.5rem);
+}
+
+body.su-tab-active .site-footer,
+body.su-tab-active .site-header .subtitle {
+  display: none;
+}
+
+.su-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem 1.5rem;
+  background: var(--bg);
+}
+
+.su-shell h2 {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display);
+}
+
+.su-lede {
+  margin: 0 0 0.75rem;
+  color: #e8c547;
+  max-width: 40rem;
+  line-height: 1.45;
+}
+
+.su-search {
+  width: min(28rem, 100%);
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.su-group {
+  margin: 0 0 1.1rem;
+  max-width: 40rem;
+}
+
+.su-group h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.su-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.su-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.su-list li:last-child {
+  border-bottom: 0;
+}
+
+.su-list a,
+.su-list button {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.su-list a:hover,
+.su-list button:hover {
+  background: rgba(232, 197, 71, 0.08);
+}
+
+.su-act {
+  color: #e8c547;
+  font-weight: 600;
+}
+
+.su-note {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
