@@ -446,6 +446,7 @@ body::before {
   width: min(11rem, 100%);
   height: auto;
   margin: 0.15rem auto 0.2rem;
+  padding-bottom: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -587,7 +588,13 @@ body::before {
 }
 .time-readout {
   display: block;
-  margin-top: 0.18rem;
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.75rem);
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 8;
+  pointer-events: none;
   text-align: center;
   font-size: 0.72rem;
   font-variant-numeric: tabular-nums;
