@@ -45,11 +45,42 @@ body.xa-tab-active .site-header .subtitle {
   line-height: 1.45;
 }
 
+.xa-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) minmax(18rem, 1fr);
+  gap: 1rem 1.25rem;
+  align-items: start;
+  max-width: 64rem;
+}
+
+@media (max-width: 720px) {
+  .xa-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.xa-vendor {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.xa-vendor svg {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+}
+
+.xa-vendor figcaption {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .xa-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 0.75rem;
-  max-width: 54rem;
 }
 
 .xa-card {
