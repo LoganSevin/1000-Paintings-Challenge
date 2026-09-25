@@ -69,6 +69,7 @@
     var left = host.offsetLeft + cell.offsetLeft + cell.offsetWidth / 2 - npc.offsetWidth / 2;
     npc.style.left = Math.max(0, left) + "px";
     npc.classList.add("is-walk");
+    npc.classList.remove("is-drop");
   }
 
   function dropInto(i) {

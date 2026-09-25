@@ -46,7 +46,7 @@ body.vd-tab-active .site-header .subtitle {
 .vd-stage {
   position: relative;
   margin: 0 0 1.1rem;
-  padding: 3.4rem 0.2rem 0;
+  padding: 2.1rem 0.2rem 0;
   max-width: 56rem;
 }
 
@@ -116,41 +116,94 @@ body.vd-tab-active .site-header .subtitle {
 
 .vd-npc {
   position: absolute;
-  top: 0;
+  top: 0.15rem;
   left: 0;
-  width: 2.4rem;
-  height: 3.3rem;
+  width: 1.05rem;
+  height: 1.55rem;
   z-index: 2;
-  transition: left 0.7s linear;
+  pointer-events: none;
+  transition: left 0.55s linear;
+}
+
+.vd-npc-inner {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
 }
 
 .vd-npc svg {
   width: 100%;
   height: 100%;
   display: block;
+  overflow: visible;
 }
 
-.vd-npc.is-walk .vd-leg-a,
-.vd-npc.is-walk .vd-leg-b {
-  animation: vd-walk 0.35s linear infinite;
+.vd-npc.is-walk .vd-npc-inner {
+  animation: vd-bob 0.22s ease-in-out infinite;
+}
+
+.vd-leg-a,
+.vd-leg-b,
+.vd-arm {
+  transform-box: fill-box;
+  transform-origin: 16px 22.5px;
+}
+
+.vd-arm {
+  transform-origin: 16px 16px;
+}
+
+.vd-npc.is-walk .vd-leg-a {
+  animation: vd-stride 0.22s linear infinite;
 }
 
 .vd-npc.is-walk .vd-leg-b {
-  animation-delay: -0.17s;
+  animation: vd-stride 0.22s linear infinite reverse;
+}
+
+.vd-npc.is-walk .vd-arm {
+  animation: vd-swing 0.22s linear infinite;
 }
 
 .vd-npc.is-drop .vd-arm {
-  transform-origin: 20px 20px;
-  animation: vd-toss 0.45s ease;
+  animation: vd-toss 0.4s ease;
 }
 
-@keyframes vd-walk {
+.vd-npc.is-drop .vd-held {
+  animation: vd-release 0.4s ease forwards;
+}
+
+@keyframes vd-bob {
   0%,
   100% {
-    d: path("M20 30l-7 16");
+    transform: translateY(0);
   }
   50% {
-    d: path("M20 30l7 14");
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes vd-stride {
+  0% {
+    transform: rotate(32deg);
+  }
+  50% {
+    transform: rotate(-32deg);
+  }
+  100% {
+    transform: rotate(32deg);
+  }
+}
+
+@keyframes vd-swing {
+  0% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(22deg);
+  }
+  100% {
+    transform: rotate(-18deg);
   }
 }
 
@@ -158,11 +211,22 @@ body.vd-tab-active .site-header .subtitle {
   0% {
     transform: rotate(0);
   }
-  40% {
-    transform: rotate(40deg);
+  35% {
+    transform: rotate(55deg);
   }
   100% {
     transform: rotate(0);
+  }
+}
+
+@keyframes vd-release {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(6px, 10px);
   }
 }
 
