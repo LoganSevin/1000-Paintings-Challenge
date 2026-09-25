@@ -112,8 +112,12 @@ body.src-tab-active .site-header .subtitle {
   color: #e8c547;
 }
 
-.src-copy {
+.src-seek-btn {
   margin-left: auto;
+}
+
+.src-seek-btn,
+.src-copy {
   border: 1px solid var(--border);
   border-radius: 6px;
   background: transparent;
@@ -122,6 +126,105 @@ body.src-tab-active .site-header .subtitle {
   font-size: 0.72rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;
+}
+
+.src-seek {
+  max-height: 9rem;
+  overflow: auto;
+  border-bottom: 1px solid var(--border);
+  padding: 0.35rem 0.65rem 0.5rem;
+  background: #10110f;
+}
+
+.src-seek h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  color: #e8c547;
+}
+
+.src-seek ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.src-seek button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: #d8e0d4;
+  font: inherit;
+  font-size: 0.7rem;
+  padding: 0.15rem 0;
+  cursor: pointer;
+}
+
+.src-seek button:hover {
+  color: #e8c547;
+}
+
+.src-define-menu {
+  position: fixed;
+  z-index: 10140;
+  min-width: 11rem;
+  padding: 0.25rem;
+  background: #1a1810;
+  border: 1px solid rgba(232, 197, 71, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+}
+
+.src-define-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: #e8eee6;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.src-define-menu button:hover {
+  background: rgba(232, 197, 71, 0.16);
+}
+
+.src-define-card {
+  position: fixed;
+  z-index: 10130;
+  width: min(26rem, calc(100vw - 1.5rem));
+  max-height: min(70vh, 28rem);
+  overflow: auto;
+  padding: 0.7rem 0.8rem;
+  background: #14120c;
+  border: 1px solid rgba(232, 197, 71, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  color: #e8eee6;
+}
+
+.src-define-card h4 {
+  margin: 0 0 0.35rem;
+  color: #e8c547;
+  font-size: 0.95rem;
+}
+
+.src-define-card p,
+.src-define-card pre {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.src-readout mark {
+  background: rgba(232, 197, 71, 0.28);
+  color: inherit;
 }
 
 .src-readout {

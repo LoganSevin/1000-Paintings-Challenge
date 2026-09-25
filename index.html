@@ -80,7 +80,7 @@
   <link rel="stylesheet" href="css/tokens-tab.css?v=1" />
   <link rel="stylesheet" href="css/vendor-tab.css?v=4" />
   <link rel="stylesheet" href="css/key-tab.css?v=1" />
-  <link rel="stylesheet" href="css/source-tabs.css?v=1" />
+  <link rel="stylesheet" href="css/source-tabs.css?v=2" />
   <link rel="stylesheet" href="css/telemetry-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=11" />
@@ -1625,7 +1625,12 @@
         <div class="src-toolbar">
           <strong class="src-current">—</strong>
           <span class="src-meta"></span>
+          <button type="button" class="src-seek-btn">Seek</button>
           <button type="button" class="src-copy">Copy</button>
+        </div>
+        <div class="src-seek" hidden>
+          <h3 class="src-seek-title"></h3>
+          <ul class="src-seek-list"></ul>
         </div>
         <pre class="src-readout"></pre>
       </div>
@@ -1644,7 +1649,12 @@
         <div class="src-toolbar">
           <strong class="src-current">—</strong>
           <span class="src-meta"></span>
+          <button type="button" class="src-seek-btn">Seek</button>
           <button type="button" class="src-copy">Copy</button>
+        </div>
+        <div class="src-seek" hidden>
+          <h3 class="src-seek-title"></h3>
+          <ul class="src-seek-list"></ul>
         </div>
         <pre class="src-readout"></pre>
       </div>
@@ -8594,7 +8604,7 @@
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
   <script defer src="js/tabs.js?v=104"></script>
-  <script defer src="js/source-tabs.js?v=1"></script>
+  <script defer src="js/source-tabs.js?v=2"></script>
   <script defer src="js/studio-tab.js?v=1"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
