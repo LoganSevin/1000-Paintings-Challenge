@@ -3,6 +3,11 @@
  * Pages through all 16,777,216 RGB colors, 64 swatches (8×8) per page.
  *   Horizontal page (0–255)  = green.
  *   Vertical page   (0–4095) = red * 16 + blue group (blue = group * 64 + i).
+ * Counting modes:
+ *   "original" (default) — exactly the reference: 16 blue groups per red, so blue slots
+ *     run 0–1023 and roll over into green/red (4 × 16,777,216 slots, colors repeat).
+ *   "unique" — 4 blue groups per red: vertical page (0–1023) = red * 4 + group, blue 0–255,
+ *     so every color appears exactly once and Spell = index + 1 (1 … 16,777,216).
  * Each swatch: Spell N (absolute index + 1), original RGB, and display RGB after a
  * channel-order permutation (BGR default). A strip at the top shows the original color.
  * Math is identical to the standalone rgb-color-proof-pager.html.
@@ -13,8 +18,28 @@
   var STORE_KEY = "colorsPager.v1";
   var SLOTS_PER_PAGE = 64; // 8x8 grid
   var TOTAL_H_PAGES = 256; // Full green range
-  var TOTAL_V_PAGES = 4096; // red * 16 + blue page group
   var ORDERS = ["BGR", "RGB", "GRB", "BRG", "RBG", "GBR"];
+  var MODES = ["original", "unique"];
+  // Blue page groups per red value: 16 in the reference (blue slots 0–1023), 4 for unique.
+  var GROUPS_PER_RED = { original: 16, unique: 4 };
+  var MODE_NOTES = {
+    original:
+      "Original: 4,096 × 256 pages = 4 × 16,777,216 slots — blue slots run 0–1023 and roll into green/red, so each color repeats 4 times.",
+    unique: "Unique: 1,024 × 256 pages — each of the 16,777,216 colors appears exactly once.",
+  };
+
+  function normMode(mode) {
+    return mode === "unique" ? "unique" : "original";
+  }
+
+  function groupsPerRed(mode) {
+    return GROUPS_PER_RED[normMode(mode)];
+  }
+
+  /** Vertical page count: 4096 (original, red * 16 + group) or 1024 (unique, red * 4 + group). */
+  function totalVPages(mode) {
+    return 256 * groupsPerRed(mode);
+  }
 
   // ---- math (verbatim from the reference) -----------------------------------
 
@@ -48,10 +73,11 @@
     return rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114;
   }
 
-  /** Swatch i (0–63) on page (hPage, vPage). */
-  function slotAt(hPage, vPage, i, order) {
-    var red = Math.floor(vPage / 16);
-    var bluePageGroup = vPage % 16;
+  /** Swatch i (0–63) on page (hPage, vPage). `mode` defaults to "original" (the reference). */
+  function slotAt(hPage, vPage, i, order, mode) {
+    var gpr = groupsPerRed(mode);
+    var red = Math.floor(vPage / gpr);
+    var bluePageGroup = vPage % gpr;
     var green = hPage;
     var blue = bluePageGroup * SLOTS_PER_PAGE + i;
     var absoluteIndex = (red * 256 + green) * 256 + blue;
@@ -66,12 +92,21 @@
     };
   }
 
-  /** Where display color (r, g, b) under `order` lives: page + swatch index. */
-  function locateRGB(r, g, b, order) {
+  /**
+   * Where display color (r, g, b) under `order` lives: page + swatch index.
+   * In "original" mode this is the reference's jump target, which is also the color's
+   * canonical (first, lowest-Spell) occurrence among its 4 slots.
+   */
+  function locateRGB(r, g, b, order, mode) {
     var orig = reversePermuteRGB(r, g, b, order);
+    return locateOriginal(orig, mode);
+  }
+
+  /** Page + swatch for an original (un-permuted) color. */
+  function locateOriginal(orig, mode) {
     return {
       hPage: orig.g,
-      vPage: orig.r * 16 + Math.floor(orig.b / SLOTS_PER_PAGE),
+      vPage: orig.r * groupsPerRed(mode) + Math.floor(orig.b / SLOTS_PER_PAGE),
       i: orig.b % SLOTS_PER_PAGE,
       original: orig,
       absoluteIndex: (orig.r * 256 + orig.g) * 256 + orig.b,
@@ -95,8 +130,9 @@
 
   var state = {
     hPage: 0, // Green component
-    vPage: 0, // Red component * 16 + Blue page group
+    vPage: 0, // Red * 16 + blue page group (original) or red * 4 + group (unique)
     order: "BGR",
+    mode: "original",
     selected: null, // absoluteIndex of the swatch shown in the detail panel
     started: false,
     slots: [],
@@ -111,8 +147,10 @@
     try {
       var p = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
       if (!p) return;
+      // Older colorsPager.v1 entries have no mode → original.
+      if (MODES.indexOf(p.mode) >= 0) state.mode = p.mode;
       if (Number.isInteger(p.h) && p.h >= 0 && p.h < TOTAL_H_PAGES) state.hPage = p.h;
-      if (Number.isInteger(p.v) && p.v >= 0 && p.v < TOTAL_V_PAGES) state.vPage = p.v;
+      if (Number.isInteger(p.v) && p.v >= 0 && p.v < totalVPages(state.mode)) state.vPage = p.v;
       if (ORDERS.indexOf(p.order) >= 0) state.order = p.order;
     } catch (e) {}
   }
@@ -121,7 +159,7 @@
     try {
       localStorage.setItem(
         STORE_KEY,
-        JSON.stringify({ h: state.hPage, v: state.vPage, order: state.order })
+        JSON.stringify({ h: state.hPage, v: state.vPage, order: state.order, mode: state.mode })
       );
     } catch (e) {}
   }
@@ -168,11 +206,12 @@
     el.hInput.value = state.hPage;
     el.vInput.value = state.vPage;
     el.order.value = state.order;
+    renderMode();
 
     var first = null;
     var last = null;
     for (var i = 0; i < SLOTS_PER_PAGE; i++) {
-      var s = slotAt(state.hPage, state.vPage, i, state.order);
+      var s = slotAt(state.hPage, state.vPage, i, state.order, state.mode);
       var o = s.original;
       var d = s.display;
       var ui = state.slots[i];
@@ -196,8 +235,9 @@
       last = s;
     }
 
-    var red = Math.floor(state.vPage / 16);
-    var group = state.vPage % 16;
+    var gpr = groupsPerRed(state.mode);
+    var red = Math.floor(state.vPage / gpr);
+    var group = state.vPage % gpr;
     el.info.textContent =
       "Green " + state.hPage +
       " · Red " + red +
@@ -205,7 +245,7 @@
       " · Spells " + first.spell.toLocaleString() + "–" + last.spell.toLocaleString();
 
     el.up.disabled = state.vPage <= 0;
-    el.down.disabled = state.vPage >= TOTAL_V_PAGES - 1;
+    el.down.disabled = state.vPage >= totalVPages(state.mode) - 1;
     el.left.disabled = state.hPage <= 0;
     el.right.disabled = state.hPage >= TOTAL_H_PAGES - 1;
 
@@ -241,8 +281,64 @@
     }
   }
 
+  function renderMode() {
+    var maxV = totalVPages(state.mode) - 1;
+    el.vInput.max = String(maxV);
+    el.vOf.textContent = "/ " + maxV;
+    el.hintV.textContent = state.mode === "unique" ? "red × 4 + blue group" : "red × 16 + blue group";
+    el.hintVMax.textContent = "0–" + maxV;
+    el.modeNote.textContent = MODE_NOTES[state.mode];
+    el.modeBtns.forEach(function (btn) {
+      var on = btn.getAttribute("data-mode") === state.mode;
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  function flashSlot(i) {
+    var node = state.slots[i] && state.slots[i].node;
+    if (!node) return;
+    node.classList.remove("clr-flash");
+    void node.offsetWidth; // restart the highlight animation
+    node.classList.add("clr-flash");
+  }
+
+  /**
+   * Switch counting mode, staying on the same color: the selected swatch if it is on
+   * this page, otherwise the page's first swatch. Lands on the color's canonical slot.
+   */
+  function setMode(mode) {
+    mode = normMode(mode);
+    if (mode === state.mode) return;
+    var target = null;
+    var keepSelection = false;
+    if (state.started) {
+      for (var i = 0; i < SLOTS_PER_PAGE; i++) {
+        var s = slotAt(state.hPage, state.vPage, i, state.order, state.mode);
+        if (state.selected != null && s.absoluteIndex === state.selected) {
+          target = s.original;
+          keepSelection = true;
+          break;
+        }
+      }
+      if (!target) target = slotAt(state.hPage, state.vPage, 0, state.order, state.mode).original;
+    }
+    state.mode = mode;
+    if (target) {
+      var loc = locateOriginal(target, mode);
+      state.hPage = loc.hPage;
+      state.vPage = loc.vPage;
+      if (keepSelection) state.selected = loc.absoluteIndex;
+      renderPage();
+      if (keepSelection) flashSlot(loc.i);
+    } else {
+      if (state.vPage >= totalVPages(mode)) state.vPage = totalVPages(mode) - 1;
+      savePrefs();
+    }
+  }
+
   function selectSlot(i) {
-    var s = slotAt(state.hPage, state.vPage, i, state.order);
+    var s = slotAt(state.hPage, state.vPage, i, state.order, state.mode);
     state.selected = s.absoluteIndex;
     state.slots.forEach(function (ui, k) {
       var on = k === i;
@@ -258,7 +354,7 @@
     if (dh < 0 && state.hPage > 0) state.hPage--;
     if (dh > 0 && state.hPage < TOTAL_H_PAGES - 1) state.hPage++;
     if (dv < 0 && state.vPage > 0) state.vPage--;
-    if (dv > 0 && state.vPage < TOTAL_V_PAGES - 1) state.vPage++;
+    if (dv > 0 && state.vPage < totalVPages(state.mode) - 1) state.vPage++;
     renderPage();
   }
 
@@ -266,7 +362,7 @@
     var newH = parseInt(el.hInput.value, 10);
     var newV = parseInt(el.vInput.value, 10);
     if (!isNaN(newH) && newH >= 0 && newH < TOTAL_H_PAGES) state.hPage = newH;
-    if (!isNaN(newV) && newV >= 0 && newV < TOTAL_V_PAGES) state.vPage = newV;
+    if (!isNaN(newV) && newV >= 0 && newV < totalVPages(state.mode)) state.vPage = newV;
     renderPage();
   }
 
@@ -281,18 +377,13 @@
     }
     el.jumpMsg.textContent = "";
     el.jumpMsg.classList.remove("clr-err");
-    var loc = locateRGB(r, g, b, state.order);
+    var loc = locateRGB(r, g, b, state.order, state.mode);
     state.hPage = loc.hPage;
     state.vPage = loc.vPage;
     state.selected = loc.absoluteIndex;
     renderPage();
     showDetailFor(loc.absoluteIndex, true);
-    var node = state.slots[loc.i] && state.slots[loc.i].node;
-    if (node) {
-      node.classList.remove("clr-flash");
-      void node.offsetWidth; // restart the highlight animation
-      node.classList.add("clr-flash");
-    }
+    flashSlot(loc.i);
   }
 
   function copyText(text) {
@@ -362,6 +453,11 @@
     el.copyDisp = $("clr-copy-disp");
     el.copyOrig = $("clr-copy-orig");
     el.copyStatus = $("clr-copy-status");
+    el.vOf = $("clr-v-of");
+    el.hintV = $("clr-hint-v");
+    el.hintVMax = $("clr-hint-vmax");
+    el.modeNote = $("clr-mode-note");
+    el.modeBtns = Array.prototype.slice.call(document.querySelectorAll("#panel-colors .clr-mode-btn"));
   }
 
   function onEnter(fn) {
@@ -396,6 +492,11 @@
     });
     el.copyDisp.addEventListener("click", onCopy);
     el.copyOrig.addEventListener("click", onCopy);
+    el.modeBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setMode(btn.getAttribute("data-mode"));
+      });
+    });
 
     // Arrow keys page when Colors is active and focus isn't in a form field.
     window.addEventListener("keydown", function (e) {
@@ -445,8 +546,15 @@
   window.Colors = {
     onShow: onShow,
     getState: function () {
-      return { hPage: state.hPage, vPage: state.vPage, order: state.order, selected: state.selected };
+      return {
+        hPage: state.hPage,
+        vPage: state.vPage,
+        order: state.order,
+        mode: state.mode,
+        selected: state.selected,
+      };
     },
+    setMode: setMode,
   };
   window.ColorsMath = {
     indexToOriginalRGB: indexToOriginalRGB,
@@ -454,6 +562,9 @@
     reversePermuteRGB: reversePermuteRGB,
     slotAt: slotAt,
     locateRGB: locateRGB,
+    locateOriginal: locateOriginal,
+    totalVPages: totalVPages,
+    groupsPerRed: groupsPerRed,
     toHex: toHex,
   };
 })();

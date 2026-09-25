@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
-  <link rel="stylesheet" href="css/colors.css?v=1" />
+  <link rel="stylesheet" href="css/colors.css?v=2" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/account-gate.css?v=1" />
@@ -7480,13 +7480,21 @@
         <h2>Colors</h2>
         <p class="clr-hint">
           RGB color proof pager — all <strong>16,777,216</strong> colors, 64 per page.
-          Horizontal page = <strong>green</strong> (0–255); vertical page = <strong>red × 16 + blue group</strong> (0–4095).
+          Horizontal page = <strong>green</strong> (0–255); vertical page = <strong id="clr-hint-v">red × 16 + blue group</strong> (<span id="clr-hint-vmax">0–4095</span>).
           The strip on each swatch is the original color; the swatch is shown in the chosen channel order.
           Arrow keys turn pages.
         </p>
       </header>
 
       <div class="clr-controls" role="group" aria-label="Color pager controls">
+        <div class="clr-row clr-mode-row">
+          <span class="clr-field-label" id="clr-mode-label">Counting</span>
+          <div class="clr-mode" role="group" aria-labelledby="clr-mode-label">
+            <button type="button" class="clr-mode-btn is-on" data-mode="original" aria-pressed="true">Original</button>
+            <button type="button" class="clr-mode-btn" data-mode="unique" aria-pressed="false">Unique</button>
+          </div>
+          <span id="clr-mode-note" class="clr-mode-note" aria-live="polite">Original: 4,096 × 256 pages = 4 × 16,777,216 slots — blue slots run 0–1023 and roll into green/red, so each color repeats 4 times.</span>
+        </div>
         <div class="clr-row clr-nav" role="group" aria-label="Page">
           <button type="button" class="clr-btn" id="clr-up" aria-label="Up (previous vertical page)">↑ Up</button>
           <button type="button" class="clr-btn" id="clr-down" aria-label="Down (next vertical page)">↓ Down</button>
@@ -7500,7 +7508,7 @@
           </label>
           <label class="clr-field">Vertical page
             <input type="number" id="clr-v-input" class="clr-num clr-num-wide" min="0" max="4095" value="0" inputmode="numeric" />
-            <span class="clr-of">/ 4095</span>
+            <span class="clr-of" id="clr-v-of">/ 4095</span>
           </label>
           <button type="button" class="clr-btn accent" id="clr-go-page">Go</button>
         </div>
@@ -8678,7 +8686,7 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/slots.js?v=5"></script>
-  <script defer src="js/colors.js?v=1"></script>
+  <script defer src="js/colors.js?v=2"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
