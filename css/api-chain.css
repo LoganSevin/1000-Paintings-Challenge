@@ -1,8 +1,10 @@
 /* API tab — spell chain → generated endpoints */
 
-#panel-api.panel[hidden] { display: none !important; }
+#panel-api.panel[hidden],
+#panel-chains.panel[hidden] { display: none !important; }
 
-#panel-api.panel.active {
+#panel-api.panel.active,
+#panel-chains.panel.active {
   display: flex;
   flex-direction: column;
   min-height: calc(100dvh - 8rem);
@@ -12,13 +14,16 @@
   margin: 0;
 }
 
-body.api-tab-active #panel-api.panel.active {
+body.api-tab-active #panel-api.panel.active,
+body.sc-tab-active #panel-chains.panel.active {
   min-height: calc(100dvh - 5.5rem);
   max-height: calc(100dvh - 5.5rem);
 }
 
 body.api-tab-active .site-footer,
-body.api-tab-active .site-header .subtitle { display: none; }
+body.api-tab-active .site-header .subtitle,
+body.sc-tab-active .site-footer,
+body.sc-tab-active .site-header .subtitle { display: none; }
 
 .api-shell {
   display: flex;

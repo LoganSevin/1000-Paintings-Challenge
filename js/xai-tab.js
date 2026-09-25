@@ -30,40 +30,56 @@
   function paintMeter(data) {
     var el = $("xa-meter");
     var cloud = $("xa-cloud-meter");
+    var studio = window.StudioTelemetry && window.StudioTelemetry.snapshot
+      ? window.StudioTelemetry.snapshot()
+      : null;
     function fill(node) {
       if (!node) return;
-      if (!data) {
-        node.innerHTML = "<p>Vendor meter: waiting…</p>";
-        return;
+      var html = "";
+      if (studio) {
+        html +=
+          "<p class=\"xa-meter\">Studio meter: <strong>" +
+          studio.activity +
+          "</strong> actions · " +
+          studio.cloud_try +
+          " cloud tries · " +
+          studio.fuse +
+          " on-device fuses · " +
+          studio.describe +
+          " describes</p>";
       }
-      if (!data.ok) {
-        node.innerHTML =
-          "<p>Vendor meter unavailable. That does not cap Logan7in unlimited.</p>";
-        return;
+      if (data && data.ok && data.vendor_ok !== false && data.credits_usd != null) {
+        html +=
+          "<p class=\"xa-meter\">Prepaid at xAI: <strong>" +
+          money(data.credits_usd) +
+          "</strong></p>" +
+          "<p class=\"xa-meter\">This week at xAI: <strong>" +
+          money(data.week_spent_usd) +
+          "</strong> spent" +
+          (data.week_limit_usd != null ? " of " + money(data.week_limit_usd) + " soft limit" : "") +
+          "</p>";
+      } else {
+        html +=
+          "<p>xAI prepaid readout is not linked on this host yet (needs a Management Key on Netlify). The studio meter above is live and functional.</p>";
+        if (data && data.message) {
+          html += "<p class=\"xa-key-state\">" + String(data.message).slice(0, 180) + "</p>";
+        }
       }
-      node.innerHTML =
-        "<p class=\"xa-meter\">Prepaid at xAI: <strong>" +
-        money(data.credits_usd) +
-        "</strong></p>" +
-        "<p class=\"xa-meter\">This week at xAI: <strong>" +
-        money(data.week_spent_usd) +
-        "</strong> spent" +
-        (data.week_limit_usd != null ? " of " + money(data.week_limit_usd) + " soft limit" : "") +
-        "</p>" +
-        "<p>Those numbers are telemetry. They are not a door on this site.</p>";
+      html += "<p>Vendor dollars never cap Logan7in unlimited.</p>";
+      node.innerHTML = html;
     }
     fill(el);
     fill(cloud);
-    setNeedle(data);
+    setNeedle(data, studio);
   }
 
-  function setNeedle(data) {
+  function setNeedle(data, studio) {
     var needle = $("xa-needle");
     var read = $("xa-gauge-read");
     var keeper = $("xa-keeper");
     var pct = 0;
-    var label = "idle";
-    if (data && data.ok) {
+    var label = "studio";
+    if (data && data.ok && data.vendor_ok !== false && data.credits_usd != null) {
       var spent = Number(data.week_spent_usd);
       var limit = Number(data.week_limit_usd);
       var credits = Number(data.credits_usd);
@@ -74,6 +90,9 @@
         pct = Math.max(0, Math.min(1, credits / 100));
         label = money(credits);
       }
+    } else if (studio && studio.needle != null) {
+      pct = studio.needle;
+      label = studio.activity + " acts";
     }
     var deg = -90 + pct * 180;
     if (needle) needle.style.transform = "rotate(" + deg + "deg)";
@@ -115,6 +134,9 @@
     paintMeter(window.XaiCreditsHud && window.XaiCreditsHud.getLast && window.XaiCreditsHud.getLast());
     window.addEventListener("xai-usage-updated", function (e) {
       paintMeter(e.detail);
+    });
+    window.addEventListener("studio-telemetry-updated", function () {
+      paintMeter(window.XaiCreditsHud && window.XaiCreditsHud.getLast && window.XaiCreditsHud.getLast());
     });
     var refresh = $("xa-refresh");
     if (refresh) {

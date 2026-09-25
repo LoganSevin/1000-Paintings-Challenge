@@ -721,6 +721,9 @@
       statusEl.textContent =
         "xAI won’t run this generate — fusing your equipped spells on this device.";
     }
+    try {
+      window.dispatchEvent(new Event("spellforge-local-fuse"));
+    } catch (eFuse) {}
     return generateStasisVisionLocal(nums, statusEl);
   }
 

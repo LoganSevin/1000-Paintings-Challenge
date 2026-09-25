@@ -84,6 +84,18 @@
   force = true
 
 [[redirects]]
+  from = "/api/xai-usage"
+  to = "/.netlify/functions/xai-usage"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/credits"
+  to = "/.netlify/functions/xai-usage"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/page-chat"
   to = "/.netlify/functions/page-chat"
   status = 200

@@ -1294,6 +1294,7 @@
 
   window.ApiChain = { onShow: onShow };
   window.addEventListener("api-chain-show", onShow);
+  window.addEventListener("chains-show", onShow);
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
   } else {

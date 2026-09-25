@@ -74,9 +74,9 @@
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/assets-tab.css?v=1" />
-  <link rel="stylesheet" href="css/xai-tab.css?v=4" />
+  <link rel="stylesheet" href="css/xai-tab.css?v=5" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
-  <link rel="stylesheet" href="css/api-chain.css?v=10" />
+  <link rel="stylesheet" href="css/api-chain.css?v=11" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
   <link rel="stylesheet" href="css/prompt-lab.css?v=1" />
   <link rel="stylesheet" href="css/gab.css?v=9" />
@@ -224,6 +224,8 @@
         <button type="button" class="tab" data-tab="maps">Maps</button>
         <button type="button" class="tab" data-tab="api">API</button>
         <button type="button" class="tab" data-tab="xai">xAI</button>
+        <button type="button" class="tab" data-tab="chains">Spell chains</button>
+        <button type="button" class="tab" data-tab="telemetry">Telemetry</button>
         <button type="button" class="tab" data-tab="spells">Spells</button>
         <button type="button" class="tab" data-tab="prompt">Prompt</button>
         <button type="button" class="tab" data-tab="gab">Gab</button>
@@ -1495,6 +1497,25 @@
     </div>
   </section>
 
+  <section id="panel-telemetry" class="panel" hidden>
+    <div class="tm-shell">
+      <h2>Telemetry</h2>
+      <p class="tm-lede">Live studio meter. This is insight from this browser — cloud tries, on-device fuses, describes, tab hits. It stays available even when xAI prepaid readout is not linked.</p>
+      <div class="tm-grid">
+        <div class="tm-stat"><strong id="tm-activity">0</strong><span>studio actions</span></div>
+        <div class="tm-stat"><strong id="tm-cloud-try">0</strong><span>cloud tries</span></div>
+        <div class="tm-stat"><strong id="tm-cloud-ok">0</strong><span>cloud ok</span></div>
+        <div class="tm-stat"><strong id="tm-cloud-fail">0</strong><span>cloud fail</span></div>
+        <div class="tm-stat"><strong id="tm-fuse">0</strong><span>on-device fuse</span></div>
+        <div class="tm-stat"><strong id="tm-describe">0</strong><span>describe / upload</span></div>
+        <div class="tm-stat"><strong id="tm-blend">0</strong><span>blend / redefine</span></div>
+        <div class="tm-stat"><strong id="tm-tabs">0</strong><span>tab opens</span></div>
+      </div>
+      <h3>Recent</h3>
+      <ul class="tm-log" id="tm-log"></ul>
+    </div>
+  </section>
+
   <section id="panel-rooms" class="panel" hidden>
     <div class="st-shell">
       <div class="st-top">
@@ -1647,7 +1668,7 @@
     <div class="api-shell">
       <div class="api-subtabs" role="tablist" aria-label="API views">
         <button type="button" class="api-subtab active" data-api-pane="logic">How it works</button>
-        <button type="button" class="api-subtab" data-api-pane="chains">Spell chains</button>
+        <a class="api-subtab" href="#chains">Spell chains</a>
       </div>
       <div class="api-pane api-logic-pane" data-api-pane="logic">
         <article class="api-logic">
@@ -1665,7 +1686,7 @@
 
           <h3>Two different things named API</h3>
           <ol>
-            <li><strong>This tab’s spell chains</strong> — you drag paintings into a pipeline, save a name, and call <code>@YourChainName</code> from Animate. That runs in the browser. No xAI bill.</li>
+            <li><strong>Spell chains tab</strong> — you drag paintings into a pipeline, save a name, and call <code>@YourChainName</code> from Animate. That runs in the browser. No xAI bill.</li>
             <li><strong>Cloud model calls</strong> — Spellforge Generate, blend, redefine, and “describe this photo” can ask xAI (Grok) to invent a new image or write a caption. Those calls are metered. Whoever’s <em>key</em> is on the request is who xAI charges.</li>
           </ol>
 
@@ -1717,7 +1738,11 @@
           </div>
         </article>
       </div>
-      <div class="api-pane" data-api-pane="chains" hidden>
+    </div>
+  </section>
+
+  <section id="panel-chains" class="panel" hidden>
+    <div class="api-shell">
       <div class="api-top">
         <h2>Spell chains</h2>
         <p class="api-hint">Drag <strong>spells</strong> onto the chain, name it, then <strong>Save chain</strong>. Use <strong>@YourChainName</strong> in Animate — chain tags appear in <strong>yellow</strong>. This builder does not call xAI.</p>
@@ -1765,7 +1790,6 @@
           <span id="api-tray-count" class="st-tray-count">Loading…</span>
         </div>
         <div id="api-spell-strip" class="st-spell-strip"></div>
-      </div>
       </div>
     </div>
   </section>
@@ -8291,6 +8315,7 @@
   <script defer src="js/author-config.js?v=3"></script>
   <script defer src="js/compat.js?v=3"></script>
   <script defer src="js/logan7in-unlimited.js?v=1"></script>
+  <script defer src="js/studio-telemetry.js?v=1"></script>
   <script defer src="js/xai-credits.js?v=5"></script>
   <script defer src="js/account-gate.js?v=1"></script>
   <script defer src="js/annotations.js?v=3"></script>
@@ -8357,9 +8382,10 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=97"></script>
+  <script defer src="js/tabs.js?v=98"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
-  <script defer src="js/xai-tab.js?v=3"></script>
+  <script defer src="js/xai-tab.js?v=4"></script>
+  <script defer src="js/telemetry-tab.js?v=1"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
@@ -8367,7 +8393,7 @@
   <script defer src="js/brew.js?v=5"></script>
   <script defer src="js/ears.js?v=52"></script>
 
-  <script defer src="js/api-chain.js?v=10"></script>
+  <script defer src="js/api-chain.js?v=11"></script>
   <script defer src="js/pulse.js?v=3"></script>
   <script defer src="js/app.js?v=26"></script>
   <script defer src="js/spell-timelapse.js?v=8"></script>
