@@ -32,6 +32,9 @@
     xai: document.getElementById("panel-xai"),
     vendor: document.getElementById("panel-vendor"),
     key: document.getElementById("panel-key"),
+    js: document.getElementById("panel-js"),
+    css: document.getElementById("panel-css"),
+    html: document.getElementById("panel-html"),
     grok: document.getElementById("panel-grok"),
     tokens: document.getElementById("panel-tokens"),
     chains: document.getElementById("panel-chains"),
@@ -129,6 +132,9 @@
     xai: "xAI vendor meter and optional key — studio use stays unlimited",
     vendor: "Vendor units xAI meters — tokens, image gens, prepaid, keys",
     key: "Keys — see, add, and fund so balance goes over required (required < spend)",
+    js: "JavaScript source — every script this page loads",
+    css: "Stylesheet source — every CSS file this page loads",
+    html: "HTML readout — index.html and each panel’s markup",
     grok: "Grok is the model — optional cloud stills and captions, not a studio ticket",
     tokens: "Tokens are xAI’s text billing unit — not a studio budget",
     chains: "Spell chains — drag paintings into a callable pipeline, no xAI bill",
@@ -538,6 +544,7 @@
     document.body.classList.toggle("xa-tab-active", name === "xai");
     document.body.classList.toggle("vd-tab-active", name === "vendor");
     document.body.classList.toggle("ky-tab-active", name === "key");
+    document.body.classList.toggle("src-tab-active", name === "js" || name === "css" || name === "html");
     document.body.classList.toggle("gk-tab-active", name === "grok");
     document.body.classList.toggle("tk-tab-active", name === "tokens");
     document.body.classList.toggle("sc-tab-active", name === "chains");
@@ -674,6 +681,9 @@
       hideOtherTabs(name);
     } else if (name === "grok") {
       if (window.GrokTab && window.GrokTab.onShow) window.GrokTab.onShow();
+      hideOtherTabs(name);
+    } else if (name === "js" || name === "css" || name === "html") {
+      if (window.SourceTabs && window.SourceTabs.onShow) window.SourceTabs.onShow(name);
       hideOtherTabs(name);
     } else if (name === "key") {
       if (window.KeyTab && window.KeyTab.onShow) window.KeyTab.onShow();

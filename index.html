@@ -80,6 +80,7 @@
   <link rel="stylesheet" href="css/tokens-tab.css?v=1" />
   <link rel="stylesheet" href="css/vendor-tab.css?v=4" />
   <link rel="stylesheet" href="css/key-tab.css?v=1" />
+  <link rel="stylesheet" href="css/source-tabs.css?v=1" />
   <link rel="stylesheet" href="css/telemetry-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=11" />
@@ -233,6 +234,9 @@
         <button type="button" class="tab" data-tab="xai">xAI</button>
         <button type="button" class="tab" data-tab="vendor">Vendor</button>
         <button type="button" class="tab" data-tab="key">Key</button>
+        <button type="button" class="tab" data-tab="js">JS</button>
+        <button type="button" class="tab" data-tab="css">CSS</button>
+        <button type="button" class="tab" data-tab="html">HTML</button>
         <button type="button" class="tab" data-tab="grok">Grok</button>
         <button type="button" class="tab" data-tab="tokens">Tokens</button>
         <button type="button" class="tab" data-tab="chains">Spell chains</button>
@@ -1606,6 +1610,63 @@
         </div>
       </div>
       <div id="ky-list"></div>
+    </div>
+  </section>
+
+  <section id="panel-js" class="panel" hidden>
+    <div class="src-shell">
+      <aside class="src-side">
+        <h2>JS</h2>
+        <p>Every script this page loads. Click a file to read it. This is the real source, cache stamp included.</p>
+        <input type="search" class="src-search" placeholder="Filter js…" autocomplete="off" />
+        <ul class="src-files"></ul>
+      </aside>
+      <div class="src-main">
+        <div class="src-toolbar">
+          <strong class="src-current">—</strong>
+          <span class="src-meta"></span>
+          <button type="button" class="src-copy">Copy</button>
+        </div>
+        <pre class="src-readout"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-css" class="panel" hidden>
+    <div class="src-shell">
+      <aside class="src-side">
+        <h2>CSS</h2>
+        <p>Every stylesheet this page loads. The ?v= number is a cache stamp for that file only.</p>
+        <input type="search" class="src-search" placeholder="Filter css…" autocomplete="off" />
+        <ul class="src-files"></ul>
+      </aside>
+      <div class="src-main">
+        <div class="src-toolbar">
+          <strong class="src-current">—</strong>
+          <span class="src-meta"></span>
+          <button type="button" class="src-copy">Copy</button>
+        </div>
+        <pre class="src-readout"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-html" class="panel" hidden>
+    <div class="src-shell">
+      <aside class="src-side">
+        <h2>HTML</h2>
+        <p>index.html plus each panel’s live markup. This is the readout of the things on the page.</p>
+        <input type="search" class="src-search" placeholder="Filter html…" autocomplete="off" />
+        <ul class="src-files"></ul>
+      </aside>
+      <div class="src-main">
+        <div class="src-toolbar">
+          <strong class="src-current">—</strong>
+          <span class="src-meta"></span>
+          <button type="button" class="src-copy">Copy</button>
+        </div>
+        <pre class="src-readout"></pre>
+      </div>
     </div>
   </section>
 
@@ -8532,7 +8593,8 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=103"></script>
+  <script defer src="js/tabs.js?v=104"></script>
+  <script defer src="js/source-tabs.js?v=1"></script>
   <script defer src="js/studio-tab.js?v=1"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
