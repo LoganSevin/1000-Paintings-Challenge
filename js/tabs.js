@@ -28,6 +28,7 @@
     assets: document.getElementById("panel-assets"),
     maps: document.getElementById("panel-maps"),
     api: document.getElementById("panel-api"),
+    xai: document.getElementById("panel-xai"),
     spells: document.getElementById("panel-spells"),
     prompt: document.getElementById("panel-prompt"),
     gab: document.getElementById("panel-gab"),
@@ -117,6 +118,7 @@
     assets: "Studio library — idea pictures, phone uploads, objects, maps, paintings",
     maps: "Maps — arenas, overworlds, dungeons & stages for Fight and worlds",
     api: "Chain spells into pipelines — generate callable chain APIs",
+    xai: "xAI vendor meter and optional key — studio use stays unlimited",
     spells: "Cast spells into images — " + ARTIST + "’s gallery DNA",
     prompt: "Drop images — studio prompt tools you can edit and copy",
     gab: "Pyramid letter finishers — generate visions, drag spells to cast",
@@ -517,6 +519,7 @@
     document.body.classList.toggle("pulse-tab-active", name === "pulse");
     document.body.classList.toggle("api-tab-active", name === "api");
     document.body.classList.toggle("as-tab-active", name === "assets");
+    document.body.classList.toggle("xa-tab-active", name === "xai");
     document.body.classList.toggle("sp-tab-active", name === "spells");
     document.body.classList.toggle("pr-tab-active", name === "prompt");
     document.body.classList.toggle("gb-tab-active", name === "gab");
@@ -628,6 +631,12 @@
       window.dispatchEvent(new Event("assets-show"));
       if (window.AssetsTab && window.AssetsTab.onShow) {
         window.AssetsTab.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "xai") {
+      window.dispatchEvent(new Event("xai-show"));
+      if (window.XaiTab && window.XaiTab.onShow) {
+        window.XaiTab.onShow();
       }
       hideOtherTabs(name);
     } else if (name === "api") {

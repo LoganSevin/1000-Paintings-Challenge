@@ -74,6 +74,7 @@
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/assets-tab.css?v=1" />
+  <link rel="stylesheet" href="css/xai-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=10" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
@@ -222,6 +223,7 @@
         <button type="button" class="tab" data-tab="assets">Assets</button>
         <button type="button" class="tab" data-tab="maps">Maps</button>
         <button type="button" class="tab" data-tab="api">API</button>
+        <button type="button" class="tab" data-tab="xai">xAI</button>
         <button type="button" class="tab" data-tab="spells">Spells</button>
         <button type="button" class="tab" data-tab="prompt">Prompt</button>
         <button type="button" class="tab" data-tab="gab">Gab</button>
@@ -1383,6 +1385,45 @@
     <div id="as-lightbox" class="as-lightbox" hidden>
       <img id="as-lightbox-img" alt="" />
       <p id="as-lightbox-cap"></p>
+    </div>
+  </section>
+
+  <section id="panel-xai" class="panel" hidden>
+    <div class="xa-shell">
+      <h2>xAI</h2>
+      <p class="xa-lede">xAI is a vendor. Logan7in unlimited is the studio. This tab shows the vendor meter and an optional key. It does not charge you to use the site.</p>
+      <div class="xa-grid">
+        <article class="xa-card">
+          <h3>Logan7in unlimited</h3>
+          <p>Prepaid unlimited, monthly unlimited, for life. Browse, Kids, Assets, spell chains, and on-device fuse never send a bill. If cloud Generate cannot spend, Spellforge still fuses on this device.</p>
+        </article>
+        <article class="xa-card">
+          <h3>Vendor meter</h3>
+          <div id="xa-meter"><p>Vendor meter: waiting…</p></div>
+          <div class="xa-actions">
+            <button type="button" class="xa-btn" id="xa-refresh">Refresh meter</button>
+            <a class="xa-btn" href="https://console.x.ai" target="_blank" rel="noopener noreferrer">xAI console</a>
+          </div>
+        </article>
+        <article class="xa-card">
+          <h3>Optional visitor key</h3>
+          <p id="xa-key-state" class="xa-key-state">No visitor key saved.</p>
+          <p>Only paste a key if you <em>want</em> a paid Grok still billed to that account. Clearing it returns to the free studio path.</p>
+          <div class="xa-actions">
+            <button type="button" class="xa-btn accent" id="xa-connect">Paste xAI key</button>
+            <button type="button" class="xa-btn" id="xa-clear">Clear key</button>
+          </div>
+        </article>
+        <article class="xa-card">
+          <h3>What cloud xAI is for</h3>
+          <ul>
+            <li>Spellforge Generate when a key can still spend</li>
+            <li>Blend / redefine stasis text</li>
+            <li>Describe on a phone upload</li>
+          </ul>
+          <p>Those calls are metered to the key on the request. They are extras, not a cover charge.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -8248,8 +8289,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=95"></script>
+  <script defer src="js/tabs.js?v=96"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
+  <script defer src="js/xai-tab.js?v=1"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
