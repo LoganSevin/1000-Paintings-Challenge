@@ -708,9 +708,19 @@
     var m = String(msg).toLowerCase();
     return (
       m.indexOf("credit") >= 0 ||
+      m.indexOf("spending limit") >= 0 ||
       m.indexOf("license") >= 0 ||
       m.indexOf("purchase") >= 0 ||
       m.indexOf("billing") >= 0
+    );
+  }
+
+  function formatCreditsError(msg) {
+    return (
+      "xAI credits are empty or the monthly spending cap is hit. " +
+      "Use Buy credits in the header → console.x.ai Billing to add funds or raise the limit. " +
+      "Then retry Generate. " +
+      (msg ? "(" + String(msg).slice(0, 180) + ")" : "")
     );
   }
 
@@ -4977,6 +4987,9 @@
             ? msg
             : "Lost connection to your PC (Tailscale or server). Reconnect Tailscale, confirm start_server.bat is running, hard-refresh, try again.";
         }
+        if (isCreditsError(msg) && !allowLocalCreditsFallback()) {
+          msg = formatCreditsError(msg);
+        }
         if (isCreditsError(msg) && allowLocalCreditsFallback() && !skipLocalFuse) {
           if (statusEl) {
             statusEl.hidden = false;
@@ -5092,6 +5105,7 @@
           statusEl.hidden = false;
           statusEl.className = "spell-generate-status error";
           var msg = err && err.message ? err.message : String(err);
+          if (isCreditsError(msg)) msg = formatCreditsError(msg);
           statusEl.textContent = msg;
         }
       })

@@ -8,6 +8,8 @@ import {
   parseJsonBlob,
   jsonResponse,
   corsPreflight,
+  visitorXaiKey,
+  runWithXaiKey,
 } from "./_lib.mjs";
 
 export default async function handler(request) {
@@ -19,6 +21,7 @@ export default async function handler(request) {
   }
 
   try {
+    return await runWithXaiKey(visitorXaiKey(request), async function () {
     const body = await request.json();
     const spells = (body.spells || []).map((n) => parseInt(n, 10)).filter((n) => n >= 1);
     if (spells.length < 2) {
@@ -70,6 +73,7 @@ export default async function handler(request) {
     const fused = parseJsonBlob(extractResponseText(data));
     fused.spells = spells.slice(0, 3);
     return jsonResponse(fused);
+    });
   } catch (e) {
     return jsonResponse({ error: e.message || String(e) }, 400);
   }

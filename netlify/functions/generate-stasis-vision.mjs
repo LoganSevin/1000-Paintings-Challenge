@@ -6,6 +6,8 @@ import {
   saveJob,
   jsonResponse,
   corsPreflight,
+  visitorXaiKey,
+  runWithXaiKey,
 } from "./_lib.mjs";
 
 async function runJob(jobId, body) {
@@ -79,7 +81,8 @@ export default async function handler(request, context) {
       ? crypto.randomUUID()
       : `job-${Date.now()}`);
 
-  if (!isImageApiConfigured()) {
+  const visitorKey = visitorXaiKey(request);
+  if (!visitorKey && !isImageApiConfigured()) {
     return jsonResponse(
       {
         error:
@@ -92,7 +95,9 @@ export default async function handler(request, context) {
   const store = getStore({ name: "spellforge-jobs", consistency: "strong" });
   await saveJob(store, jobId, { id: jobId, type: "stasis_vision", status: "queued" });
 
-  const work = runJob(jobId, body);
+  const work = runWithXaiKey(visitorKey, function () {
+    return runJob(jobId, body);
+  });
   if (context?.waitUntil) {
     context.waitUntil(work);
   } else {
