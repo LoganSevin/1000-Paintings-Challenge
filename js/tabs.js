@@ -89,6 +89,7 @@
     engrams: document.getElementById("panel-engrams"),
     bible: document.getElementById("panel-bible"),
     slots: document.getElementById("panel-slots"),
+    colors: document.getElementById("panel-colors"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -189,6 +190,7 @@
     engrams: "Engrams — surreal acronyms; each letter blooms into a word",
     bible: "Bible \u2014 the King James Version, all 66 books",
     slots: "Slots — spin painting reels for play credits (no cash value)",
+    colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -498,6 +500,9 @@
     if (name !== "slots") {
       window.dispatchEvent(new Event("slots-hide"));
     }
+    if (name !== "colors") {
+      window.dispatchEvent(new Event("colors-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -522,6 +527,7 @@
     document.body.classList.toggle("engrams-tab-active", name === "engrams");
     document.body.classList.toggle("bib-tab-active", name === "bible");
     document.body.classList.toggle("sl-tab-active", name === "slots");
+    document.body.classList.toggle("clr-tab-active", name === "colors");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -967,6 +973,12 @@
         window.Slots.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "colors") {
+      window.dispatchEvent(new Event("colors-show"));
+      if (window.Colors && window.Colors.onShow) {
+        window.Colors.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1056,6 +1068,7 @@
     if (tabName === "engram" || tabName === "acronym") tabName = "engrams";
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
     if (tabName === "slot" || tabName === "slot-machine") tabName = "slots";
+    if (tabName === "color" || tabName === "colours" || tabName === "colour") tabName = "colors";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";
     if (
@@ -1125,6 +1138,7 @@
       tabName === "bible" ||
       tabName === "slots" ||
       tabName === "slot" ||
+      tabName === "colors" ||
       tabName === "houma" ||
       tabName === "thousand" ||
       tabName === "moba" ||

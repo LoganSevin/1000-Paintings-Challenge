@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
+  <link rel="stylesheet" href="css/colors.css?v=1" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/account-gate.css?v=1" />
@@ -296,6 +297,7 @@
         <button type="button" class="tab" data-tab="engrams">Engrams</button>
         <button type="button" class="tab" data-tab="bible">Bible</button>
         <button type="button" class="tab" data-tab="slots">Slots</button>
+        <button type="button" class="tab" data-tab="colors">Colors</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -7472,6 +7474,85 @@
     </div>
   </section>
 
+  <section id="panel-colors" class="panel" hidden>
+    <div class="clr-shell">
+      <header class="clr-top">
+        <h2>Colors</h2>
+        <p class="clr-hint">
+          RGB color proof pager — all <strong>16,777,216</strong> colors, 64 per page.
+          Horizontal page = <strong>green</strong> (0–255); vertical page = <strong>red × 16 + blue group</strong> (0–4095).
+          The strip on each swatch is the original color; the swatch is shown in the chosen channel order.
+          Arrow keys turn pages.
+        </p>
+      </header>
+
+      <div class="clr-controls" role="group" aria-label="Color pager controls">
+        <div class="clr-row clr-nav" role="group" aria-label="Page">
+          <button type="button" class="clr-btn" id="clr-up" aria-label="Up (previous vertical page)">↑ Up</button>
+          <button type="button" class="clr-btn" id="clr-down" aria-label="Down (next vertical page)">↓ Down</button>
+          <button type="button" class="clr-btn" id="clr-left" aria-label="Left (previous horizontal page)">← Left</button>
+          <button type="button" class="clr-btn" id="clr-right" aria-label="Right (next horizontal page)">→ Right</button>
+        </div>
+        <div class="clr-row">
+          <label class="clr-field">Horizontal page
+            <input type="number" id="clr-h-input" class="clr-num" min="0" max="255" value="0" inputmode="numeric" />
+            <span class="clr-of">/ 255</span>
+          </label>
+          <label class="clr-field">Vertical page
+            <input type="number" id="clr-v-input" class="clr-num clr-num-wide" min="0" max="4095" value="0" inputmode="numeric" />
+            <span class="clr-of">/ 4095</span>
+          </label>
+          <button type="button" class="clr-btn accent" id="clr-go-page">Go</button>
+        </div>
+        <div class="clr-row">
+          <span class="clr-field-label">Jump to RGB</span>
+          <input type="number" id="clr-r-input" class="clr-num" min="0" max="255" placeholder="R" aria-label="Red" inputmode="numeric" />
+          <input type="number" id="clr-g-input" class="clr-num" min="0" max="255" placeholder="G" aria-label="Green" inputmode="numeric" />
+          <input type="number" id="clr-b-input" class="clr-num" min="0" max="255" placeholder="B" aria-label="Blue" inputmode="numeric" />
+          <button type="button" class="clr-btn accent" id="clr-go-rgb">Go</button>
+          <span id="clr-jump-msg" class="clr-jump-msg" aria-live="polite"></span>
+        </div>
+        <div class="clr-row">
+          <label class="clr-field">Channel order
+            <select id="clr-order" class="clr-select">
+              <option value="BGR" selected>Blue → Green → Red (original)</option>
+              <option value="RGB">Red → Green → Blue</option>
+              <option value="GRB">Green → Red → Blue</option>
+              <option value="BRG">Blue → Red → Green</option>
+              <option value="RBG">Red → Blue → Green</option>
+              <option value="GBR">Green → Blue → Red</option>
+            </select>
+          </label>
+        </div>
+        <p id="clr-page-info" class="clr-page-info" aria-live="polite"></p>
+      </div>
+
+      <div class="clr-body">
+        <div id="clr-grid" class="clr-grid" aria-label="64 color swatches, 8 by 8"></div>
+
+        <aside class="clr-detail-wrap" aria-label="Selected color">
+          <p id="clr-detail-empty" class="clr-detail-empty">Tap a swatch to see its Spell number, RGB, and hex.</p>
+          <div id="clr-detail" class="clr-detail" hidden>
+            <div id="clr-d-swatch" class="clr-d-swatch">
+              <span id="clr-d-swatch-tab" class="clr-orig-tab" aria-hidden="true"></span>
+              <span id="clr-d-swatch-hex" class="clr-d-swatch-hex"></span>
+            </div>
+            <h3 id="clr-d-spell" class="clr-d-spell"></h3>
+            <dl class="clr-d-list">
+              <dt>Original RGB</dt>
+              <dd><span id="clr-d-orig"></span> <code id="clr-d-orig-hex"></code>
+                <button type="button" class="clr-btn clr-btn-sm" id="clr-copy-orig">Copy</button></dd>
+              <dt>Display RGB <span class="clr-d-order">(<span id="clr-d-order"></span>)</span></dt>
+              <dd><span id="clr-d-disp"></span> <code id="clr-d-disp-hex"></code>
+                <button type="button" class="clr-btn clr-btn-sm accent" id="clr-copy-disp">Copy hex</button></dd>
+            </dl>
+            <p id="clr-copy-status" class="clr-copy-status" aria-live="polite"></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -8597,13 +8678,14 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/slots.js?v=5"></script>
+  <script defer src="js/colors.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=104"></script>
+  <script defer src="js/tabs.js?v=105"></script>
   <script defer src="js/source-tabs.js?v=4"></script>
   <script defer src="js/studio-tab.js?v=1"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
