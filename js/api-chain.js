@@ -765,6 +765,23 @@
     ["prints", "Etsy / Redbubble listings. A way the site can make money without metering Grok."],
     ["netlify", "The host that serves logan7in.art. It can store the site xAI key. Hosting the files is not the same as xAI billing."],
     ["fuse locally", "Same as on-device fuse: merge equipped spells in the browser when cloud Generate cannot spend."],
+    ["ticket", "A fee or key you would need before using the site. Logan7in unlimited means there is no ticket."],
+    ["vendor", "An outside company you can optionally call. xAI is a vendor. The gallery is not their product."],
+    ["invoice", "A bill from the vendor for metered cloud use. An invoice to a key is not a lock on the studio."],
+    ["telemetry", "A readout of what the vendor thinks. The credits HUD is telemetry. It does not grant or deny access."],
+    ["equipped spells", "The paintings sitting in Spellforge slots I–III. Local fuse composes those images on this device."],
+    ["caption", "Words about a picture: title, what’s visible, a prompt. Describe writes a caption. The photo can exist without one."],
+    ["still", "A single finished picture, not a video. A stasis vision is a still."],
+    ["paywall", "A stop that demands money before you continue. Studio use is not behind a paywall."],
+    ["subscription", "A recurring paid plan that can end. Logan7in unlimited is not a subscription."],
+    ["trial", "A short test period that expires. Unlimited is not a trial."],
+    ["secret string", "The API key itself — a password-like token xAI uses to pick an account to charge."],
+    ["host", "Where the website files live (Netlify). Hosting pages is not the same as paying Grok per generate."],
+    ["stacked", "How local fuse can layer the equipped paintings. It is a composition of what you already picked, not a new Grok invent."],
+    ["composed", "Put together from parts you already have. On-device fuse composes equipped spells."],
+    ["optional", "You can skip it and the studio still works. Cloud Generate, describe, and visitor keys are optional."],
+    ["free path", "Everything that does not send a key to xAI: browse, Kids, chains, uploads, on-device fuse."],
+    ["account", "Whose xAI billing the key belongs to. Site key = Logan’s team. Visitor key = whoever pasted it."],
   ];
 
   function normPhrase(s) {
@@ -809,7 +826,7 @@
     return {
       term: q,
       text:
-        "That selection is not a headword in this glossary. It is ordinary wording from How it works. Try a shorter piece — a name like “API key”, “on-device fuse”, or “vendor meter”.",
+        "That selection is not a headword yet. It is ordinary wording. Highlight a shorter name inside this card — like “API key”, “vendor”, “invoice”, or “on-device fuse” — and Define again to go deeper.",
       exact: false,
     };
   }
@@ -870,47 +887,118 @@
     card.className = "api-define-card";
     card.hidden = true;
     card.setAttribute("role", "dialog");
+    card.innerHTML =
+      '<div class="api-define-toolbar">' +
+      '<button type="button" data-api-define-back hidden>Back</button>' +
+      '<span class="api-define-crumb"></span>' +
+      "</div>" +
+      "<h4></h4>" +
+      '<p class="api-define-body"></p>' +
+      '<p class="api-define-hint">Highlight any of this and right-click Define to go deeper.</p>';
     document.body.appendChild(menu);
     document.body.appendChild(card);
     var pending = "";
+    var stack = [];
+    var current = null;
 
-    function hideAll() {
+    function hideMenu() {
       menu.hidden = true;
-      card.hidden = true;
     }
 
-    function showDef(phrase, x, y) {
-      var hit = definePhrase(phrase);
-      card.innerHTML =
-        "<h4></h4><p></p>";
+    function hideAll() {
+      hideMenu();
+      card.hidden = true;
+      stack = [];
+      current = null;
+      clearDefineMark(root);
+      clearDefineMark(card);
+    }
+
+    function paintCard(hit, x, y) {
+      current = hit;
       card.querySelector("h4").textContent = hit.term;
-      card.querySelector("p").textContent = hit.text;
+      var body = card.querySelector(".api-define-body");
+      clearDefineMark(body);
+      body.textContent = hit.text;
+      var back = card.querySelector("[data-api-define-back]");
+      var crumb = card.querySelector(".api-define-crumb");
+      back.hidden = stack.length === 0;
+      crumb.textContent = stack.length
+        ? stack
+            .map(function (s) {
+              return s.term;
+            })
+            .concat([hit.term])
+            .join(" → ")
+        : "Define again inside this card";
+      hideMenu();
       placePopover(card, x, y);
-      menu.hidden = true;
+    }
+
+    function showDef(phrase, x, y, fromCard) {
+      var hit = definePhrase(phrase);
+      if (!hit) return;
+      if (fromCard && current) stack.push(current);
+      else if (!fromCard) stack = [];
+      paintCard(hit, x, y);
+    }
+
+    function openMenu(e, scope, fromCard) {
+      var phrase =
+        isolateSelection(scope) ||
+        String(window.getSelection() || "").replace(/\s+/g, " ").trim();
+      if (!phrase) return false;
+      e.preventDefault();
+      pending = phrase;
+      menu.setAttribute("data-from-card", fromCard ? "1" : "0");
+      menu.querySelector("button").textContent =
+        "Define “" + (phrase.length > 28 ? phrase.slice(0, 26) + "…" : phrase) + "”";
+      placePopover(menu, e.clientX, e.clientY);
+      return true;
     }
 
     root.addEventListener("contextmenu", function (e) {
-      var phrase = isolateSelection(root) || String(window.getSelection() || "").replace(/\s+/g, " ").trim();
-      if (!phrase) return;
-      e.preventDefault();
-      pending = phrase;
-      menu.querySelector("button").textContent = "Define “" + (phrase.length > 28 ? phrase.slice(0, 26) + "…" : phrase) + "”";
-      card.hidden = true;
-      placePopover(menu, e.clientX, e.clientY);
+      openMenu(e, root, false);
+    });
+
+    card.addEventListener("contextmenu", function (e) {
+      openMenu(e, card, true);
     });
 
     menu.addEventListener("click", function (e) {
       if (!e.target || !e.target.closest("[data-api-define]")) return;
       var rect = menu.getBoundingClientRect();
-      showDef(pending, rect.left, rect.bottom + 4);
+      var fromCard = menu.getAttribute("data-from-card") === "1";
+      showDef(pending, rect.left, rect.bottom + 4, fromCard);
+    });
+
+    card.addEventListener("click", function (e) {
+      var back = e.target && e.target.closest("[data-api-define-back]");
+      if (!back) return;
+      var prev = stack.pop();
+      if (!prev) return;
+      var rect = card.getBoundingClientRect();
+      paintCard(prev, rect.left, rect.top);
     });
 
     document.addEventListener("click", function (e) {
       if (menu.contains(e.target) || card.contains(e.target)) return;
+      if (String(window.getSelection() || "").trim()) return;
       hideAll();
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") hideAll();
+      if (e.key !== "Escape") return;
+      if (!menu.hidden) {
+        hideMenu();
+        return;
+      }
+      if (!card.hidden && stack.length) {
+        var prev = stack.pop();
+        var rect = card.getBoundingClientRect();
+        paintCard(prev, rect.left, rect.top);
+        return;
+      }
+      hideAll();
     });
   }
 
