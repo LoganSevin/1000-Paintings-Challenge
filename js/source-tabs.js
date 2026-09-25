@@ -230,25 +230,65 @@
       });
     }
 
-    function openItem(item) {
+    function showTextWithHit(text, line, token) {
+      var lines = text.split(/\n/);
+      var i = (line || 0) - 1;
+      if (i < 0 || i >= lines.length) {
+        pre.textContent = text;
+        return;
+      }
+      pre.textContent = "";
+      if (i > 0) pre.appendChild(document.createTextNode(lines.slice(0, i).join("\n") + "\n"));
+      var mark = document.createElement("mark");
+      mark.className = "src-hit-line";
+      mark.id = "src-hit-" + kind;
+      var lineText = lines[i];
+      if (token && lineText.indexOf(token) >= 0) {
+        var parts = lineText.split(token);
+        parts.forEach(function (part, idx) {
+          if (idx) {
+            var tok = document.createElement("mark");
+            tok.className = "src-hit-token";
+            tok.textContent = token;
+            mark.appendChild(tok);
+          }
+          mark.appendChild(document.createTextNode(part));
+        });
+      } else {
+        mark.textContent = lineText || " ";
+      }
+      pre.appendChild(mark);
+      if (i < lines.length - 1) {
+        pre.appendChild(document.createTextNode("\n" + lines.slice(i + 1).join("\n")));
+      }
+      requestAnimationFrame(function () {
+        mark.scrollIntoView({ block: "center", inline: "nearest" });
+      });
+    }
+
+    function openItem(item, line, token) {
       current = item;
       paintList(search && search.value);
       title.textContent = item.name;
+      function apply(text) {
+        item.content = text;
+        current.content = text;
+        var lines = text.split(/\r?\n/).length;
+        meta.textContent = lines + " lines · " + text.length + " chars";
+        if (line) showTextWithHit(text, line, token);
+        else pre.textContent = text;
+      }
+      if (item.content && !line) {
+        apply(item.content);
+        return;
+      }
+      if (item.content && line) {
+        apply(item.content);
+        return;
+      }
       pre.textContent = "Loading…";
       loadItem(item)
-        .then(function (text) {
-          current.content = text;
-          pre.textContent = text;
-          var lines = text.split(/\r?\n/).length;
-          meta.textContent = lines + " lines · " + text.length + " chars";
-          if (item._seekLine) {
-            var lh = parseFloat(getComputedStyle(pre).lineHeight);
-            if (!lh || isNaN(lh)) lh = parseFloat(getComputedStyle(pre).fontSize) * 1.45 || 16;
-            var pad = parseFloat(getComputedStyle(pre).paddingTop) || 0;
-            pre.scrollTop = Math.max(0, (item._seekLine - 4) * lh - pad);
-            item._seekLine = 0;
-          }
-        })
+        .then(apply)
         .catch(function (err) {
           pre.textContent = String((err && err.message) || err);
           meta.textContent = "error";
@@ -307,8 +347,7 @@
           btn.type = "button";
           btn.textContent = hit.item.name + ":" + hit.line + "  " + hit.preview;
           btn.addEventListener("click", function () {
-            hit.item._seekLine = hit.line;
-            openItem(hit.item);
+            openItem(hit.item, hit.line, token);
           });
           li.appendChild(btn);
           seekList.appendChild(li);
