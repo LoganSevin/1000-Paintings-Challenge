@@ -30,6 +30,7 @@
     maps: document.getElementById("panel-maps"),
     api: document.getElementById("panel-api"),
     xai: document.getElementById("panel-xai"),
+    vendor: document.getElementById("panel-vendor"),
     grok: document.getElementById("panel-grok"),
     tokens: document.getElementById("panel-tokens"),
     chains: document.getElementById("panel-chains"),
@@ -125,6 +126,7 @@
     maps: "Maps — arenas, overworlds, dungeons & stages for Fight and worlds",
     api: "Chain spells into pipelines — generate callable chain APIs",
     xai: "xAI vendor meter and optional key — studio use stays unlimited",
+    vendor: "Vendor units xAI meters — tokens, image gens, prepaid, keys",
     grok: "Grok is the model — optional cloud stills and captions, not a studio ticket",
     tokens: "Tokens are xAI’s text billing unit — not a studio budget",
     chains: "Spell chains — drag paintings into a callable pipeline, no xAI bill",
@@ -532,6 +534,7 @@
     document.body.classList.toggle("as-tab-active", name === "assets");
     document.body.classList.toggle("su-tab-active", name === "studio");
     document.body.classList.toggle("xa-tab-active", name === "xai");
+    document.body.classList.toggle("vd-tab-active", name === "vendor");
     document.body.classList.toggle("gk-tab-active", name === "grok");
     document.body.classList.toggle("tk-tab-active", name === "tokens");
     document.body.classList.toggle("sc-tab-active", name === "chains");
@@ -668,6 +671,8 @@
       hideOtherTabs(name);
     } else if (name === "grok") {
       if (window.GrokTab && window.GrokTab.onShow) window.GrokTab.onShow();
+      hideOtherTabs(name);
+    } else if (name === "vendor") {
       hideOtherTabs(name);
     } else if (name === "xai") {
       window.dispatchEvent(new Event("xai-show"));

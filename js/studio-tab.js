@@ -15,6 +15,7 @@
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "Define invoice", note: "Bill in the vendor meter", href: "#api" },
     { group: "Meter", name: "xAI vendor meter", note: "Maintainer keeps the gauge; studio uncapped", href: "#xai" },
+    { group: "Meter", name: "Vendor units", note: "Tokens, image gens, prepaid, keys", href: "#vendor" },
     { group: "Meter", name: "Grok", note: "The model — optional stills and captions", href: "#grok" },
     { group: "Meter", name: "Tokens", note: "xAI text billing unit, not a studio budget", href: "#tokens" },
     { group: "Meter", name: "Cloud xAI", note: "Vendor view, not the studio", href: "#cloud-xai" },
