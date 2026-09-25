@@ -718,6 +718,202 @@
     loadSavedChains();
   }
 
+  var DEFINE = [
+    ["logan7in unlimited", "The studio license on this site: usage is not capped by a monthly or prepaid wallet. You can keep using logan7in.art for life without buying a ticket. xAI may still meter their own cloud; that meter is not a door here."],
+    ["studio license", "The rule this gallery runs on, not an xAI product. It says the site stays usable whether or not a Grok key can spend."],
+    ["prepaid unlimited", "No “you have $X left on this site” bucket. Logan7in unlimited does not run out of prepaid studio credits because the studio does not sell access by the dollar."],
+    ["monthly unlimited", "No monthly usage cap on the gallery itself. A busy month does not lock Generate or the rest of the tabs."],
+    ["for life", "The uncapped studio rule does not expire. It is not a trial and not a subscription that ends."],
+    ["xai", "The company behind Grok. Their API is a paid vendor. They charge whoever’s API key is on the request. They do not own this gallery."],
+    ["grok", "xAI’s model. Cloud Generate / describe / blend can ask Grok to invent a still or write a caption. That is optional paid cloud work, not the cover charge."],
+    ["meters", "Counts usage to bill it. xAI meters tokens and image gens on their cloud. A meter is a vendor invoice, not a lock on logan7in.art."],
+    ["vendor meter", "xAI’s own billing counter. The credits HUD can show it as telemetry. It is not a requirement to walk into the studio."],
+    ["tokens", "Chunks of text the model reads or writes. Cloud blend, redefine, and describe spend tokens. Local fuse and browsing do not."],
+    ["image gens", "Paid cloud requests that ask a model to make a new picture. Spellforge Generate uses this when a key can still spend."],
+    ["cloud", "Someone else’s computers (here, xAI). A cloud call leaves this browser, hits their API, and can be billed to a key."],
+    ["wallets", "Who would be charged if a paid cloud call runs: Logan’s site key, or a visitor’s pasted key. Studio wallets are not a door under Logan7in unlimited."],
+    ["door", "A lock that would stop you using the site. A capped xAI wallet used to feel like a door. Unlimited means that is not allowed to block usage."],
+    ["monthly studio cap", "A made-up limit we refuse: “you already generated too much this month on logan7in.art.” There isn’t one."],
+    ["prepaid studio cap", "A made-up limit we refuse: “the gallery’s prepaid bucket is empty, so stop.” There isn’t one."],
+    ["abundant", "Treated as plentiful, not rationed. Walking into the studio and getting a vision should not be scarce."],
+    ["spell chains", "The builder on this tab’s second pane. You drag paintings into a pipeline, save a name, and call it from Animate. It runs in the browser and does not call xAI."],
+    ["pipeline", "The ordered steps of a spell chain: ingest → fuse/transform → refine → emit. Local text assembly, not a paid image gen."],
+    ["@yourchainname", "How Animate refers to a saved chain. Yellow chain tags. Still local — no xAI bill."],
+    ["animate", "The studio tab that can play motion. It can read a saved chain by name. That lookup is free."],
+    ["browser", "This device. Local fuse, chains, and most tabs run here with no xAI invoice."],
+    ["cloud model calls", "Requests to Grok: Generate, blend, redefine, describe. Metered to whichever API key is sent. Optional."],
+    ["spellforge generate", "The Spellforge button that tries to make a stasis vision. Tries cloud if a key can spend; if not, fuses equipped spells on this device."],
+    ["blend", "Cloud step that weaves several spell descriptions into one fused text. Can spend tokens on a key. Not required to use the studio."],
+    ["redefine", "Cloud rewrite of the current stasis text. Same idea as blend: optional, billed to a key if it runs on xAI."],
+    ["describe", "Cloud caption of a phone upload: title, what’s visible, generation prompt. Paid if it hits xAI. Uploading the photo itself is free. If the vendor wallet won’t spend, a local stub caption is used so upload is not a locked door."],
+    ["metered", "Counted for a bill. Cloud calls are metered by xAI. Studio use is not metered as a paywall."],
+    ["api key", "A secret string xAI uses to know which account to charge. The site can send Logan’s Netlify key, a visitor’s key, or no key (free path)."],
+    ["xai_api_key", "The Netlify environment key — Logan’s team wallet. Unguarded live Generates used to drain this. It is a vendor key, not the studio license."],
+    ["netlify site key", "Same as XAI_API_KEY: the key stored on the host. xAI bills that team if Generate goes to the cloud with no visitor key."],
+    ["team wallet", "The xAI billing account tied to that site key (the team id in their error). Capping that wallet must not cap logan7in.art."],
+    ["visitor key", "A key someone pastes so cloud gens bill them. Still someone paying. Not the default. Not required."],
+    ["no key", "The free path: browse, Kids, chains, uploads, on-device fuse. Nothing is sent to xAI."],
+    ["on-device fuse", "Spellforge merges the equipped paintings in this browser into a stasis vision. No Grok invoice. This is how Generate stays unlimited when cloud won’t spend."],
+    ["on this device", "In your browser, on this phone or computer — not on xAI’s servers."],
+    ["local canvas merge", "The on-device fuse: stacked/composed from the equipped spell images. Not a brand-new Grok painting, and not a bill."],
+    ["stasis vision", "The still Spellforge is trying to make from the fused spells. Cloud = new Grok image. Capped cloud = local fuse of what you already equipped."],
+    ["credits empty", "xAI saying that key’s prepaid balance is gone. Under Logan7in unlimited, Generate still runs locally instead of sending you to Buy credits."],
+    ["spending limit", "xAI saying that key hit a monthly cap. Same rule: studio usage continues; vendor cap is not a door."],
+    ["vendor telemetry", "The credits readout. It can show what xAI thinks that wallet has left. It does not decide whether you may use the site."],
+    ["cover charge", "A fee to walk in. Cloud gens are not that. Donations and prints are how the gallery is supposed to earn."],
+    ["donations", "Money given to keep the generative process going. Suggested amounts on pieces are donations, not sale prices."],
+    ["prints", "Etsy / Redbubble listings. A way the site can make money without metering Grok."],
+    ["netlify", "The host that serves logan7in.art. It can store the site xAI key. Hosting the files is not the same as xAI billing."],
+    ["fuse locally", "Same as on-device fuse: merge equipped spells in the browser when cloud Generate cannot spend."],
+  ];
+
+  function normPhrase(s) {
+    return String(s || "")
+      .toLowerCase()
+      .replace(/[“”"']/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function definePhrase(raw) {
+    var q = normPhrase(raw);
+    if (!q || q.length < 2) return null;
+    var i;
+    var best = null;
+    var bestScore = 0;
+    for (i = 0; i < DEFINE.length; i++) {
+      var key = DEFINE[i][0];
+      var def = DEFINE[i][1];
+      if (q === key) return { term: key, text: def, exact: true };
+      if (q.indexOf(key) >= 0 || key.indexOf(q) >= 0) {
+        var score = Math.min(q.length, key.length) / Math.max(q.length, key.length) + (q.indexOf(key) >= 0 ? 0.35 : 0);
+        if (score > bestScore) {
+          bestScore = score;
+          best = { term: key, text: def, exact: false };
+        }
+      }
+    }
+    if (best && bestScore >= 0.35) return best;
+    var words = q.split(" ").filter(function (w) {
+      return w.length > 3;
+    });
+    for (i = 0; i < DEFINE.length; i++) {
+      var hits = 0;
+      words.forEach(function (w) {
+        if (DEFINE[i][0].indexOf(w) >= 0) hits++;
+      });
+      if (hits && hits / Math.max(words.length, 1) >= 0.5) {
+        return { term: DEFINE[i][0], text: DEFINE[i][1], exact: false };
+      }
+    }
+    return {
+      term: q,
+      text:
+        "That selection is not a headword in this glossary. It is ordinary wording from How it works. Try a shorter piece — a name like “API key”, “on-device fuse”, or “vendor meter”.",
+      exact: false,
+    };
+  }
+
+  function clearDefineMark(root) {
+    if (!root) return;
+    root.querySelectorAll("mark.api-define-mark").forEach(function (mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+      parent.normalize();
+    });
+  }
+
+  function isolateSelection(root) {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return "";
+    var range = sel.getRangeAt(0);
+    if (!root.contains(range.commonAncestorContainer)) return "";
+    var text = String(sel).replace(/\s+/g, " ").trim();
+    if (text.length < 2) return "";
+    clearDefineMark(root);
+    var mark = document.createElement("mark");
+    mark.className = "api-define-mark";
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      mark.appendChild(range.extractContents());
+      range.insertNode(mark);
+    }
+    sel.removeAllRanges();
+    return text;
+  }
+
+  function placePopover(el, x, y) {
+    el.hidden = false;
+    el.style.left = "0px";
+    el.style.top = "0px";
+    var pad = 8;
+    var w = el.offsetWidth;
+    var h = el.offsetHeight;
+    var left = Math.min(Math.max(pad, x), window.innerWidth - w - pad);
+    var top = Math.min(Math.max(pad, y), window.innerHeight - h - pad);
+    el.style.left = left + "px";
+    el.style.top = top + "px";
+  }
+
+  function bindDefiner() {
+    var root = document.querySelector(".api-logic");
+    if (!root) return;
+    var menu = document.createElement("div");
+    menu.id = "api-define-menu";
+    menu.className = "api-define-menu";
+    menu.hidden = true;
+    menu.innerHTML = '<button type="button" data-api-define>Define</button>';
+    var card = document.createElement("div");
+    card.id = "api-define-card";
+    card.className = "api-define-card";
+    card.hidden = true;
+    card.setAttribute("role", "dialog");
+    document.body.appendChild(menu);
+    document.body.appendChild(card);
+    var pending = "";
+
+    function hideAll() {
+      menu.hidden = true;
+      card.hidden = true;
+    }
+
+    function showDef(phrase, x, y) {
+      var hit = definePhrase(phrase);
+      card.innerHTML =
+        "<h4></h4><p></p>";
+      card.querySelector("h4").textContent = hit.term;
+      card.querySelector("p").textContent = hit.text;
+      placePopover(card, x, y);
+      menu.hidden = true;
+    }
+
+    root.addEventListener("contextmenu", function (e) {
+      var phrase = isolateSelection(root) || String(window.getSelection() || "").replace(/\s+/g, " ").trim();
+      if (!phrase) return;
+      e.preventDefault();
+      pending = phrase;
+      menu.querySelector("button").textContent = "Define “" + (phrase.length > 28 ? phrase.slice(0, 26) + "…" : phrase) + "”";
+      card.hidden = true;
+      placePopover(menu, e.clientX, e.clientY);
+    });
+
+    menu.addEventListener("click", function (e) {
+      if (!e.target || !e.target.closest("[data-api-define]")) return;
+      var rect = menu.getBoundingClientRect();
+      showDef(pending, rect.left, rect.bottom + 4);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (menu.contains(e.target) || card.contains(e.target)) return;
+      hideAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") hideAll();
+    });
+  }
+
   function setPane(name) {
     name = name === "chains" ? "chains" : "logic";
     document.querySelectorAll(".api-subtab").forEach(function (btn) {
@@ -737,6 +933,7 @@
       });
     });
     bindUi();
+    bindDefiner();
     renderChain();
     renderSpec(null);
     renderFusedOutput("", true);

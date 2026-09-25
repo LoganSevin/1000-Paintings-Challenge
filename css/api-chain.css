@@ -158,6 +158,70 @@ body.api-tab-active .site-header .subtitle { display: none; }
   color: #fff3c4;
 }
 
+.api-logic-hint {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.api-logic mark.api-define-mark {
+  background: rgba(232, 197, 71, 0.35);
+  color: inherit;
+  padding: 0 0.12em;
+  border-radius: 2px;
+}
+
+.api-define-menu,
+.api-define-card {
+  position: fixed;
+  z-index: 10080;
+  background: #14120c;
+  border: 1px solid rgba(232, 197, 71, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  color: #e8eee6;
+}
+
+.api-define-menu {
+  min-width: 10rem;
+  padding: 0.25rem;
+}
+
+.api-define-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.api-define-menu button:hover {
+  background: rgba(232, 197, 71, 0.16);
+}
+
+.api-define-card {
+  width: min(22rem, calc(100vw - 1.5rem));
+  padding: 0.7rem 0.8rem 0.8rem;
+}
+
+.api-define-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: #e8c547;
+}
+
+.api-define-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .api-top {
   flex: 0 0 auto;
   padding: 0.5rem 0.65rem 0.4rem;
