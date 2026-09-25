@@ -106,6 +106,157 @@
     return { term: token || raw, text: bits.join("\n\n") };
   }
 
+  function cssEsc(t) {
+    if (window.CSS && CSS.escape) return CSS.escape(t);
+    return String(t).replace(/[^a-zA-Z0-9_-]/g, "\\$&");
+  }
+
+  function findAffected(token) {
+    var t = identOf(token).replace(/^[#.]/, "");
+    if (!t) return [];
+    var seen = [];
+    function add(el) {
+      if (!el || seen.indexOf(el) >= 0) return;
+      if (el === document.body || el === document.documentElement) return;
+      seen.push(el);
+    }
+    add(document.getElementById(t));
+    add(document.getElementById("panel-" + t));
+    try {
+      document.querySelectorAll("." + cssEsc(t)).forEach(add);
+      document.querySelectorAll("#" + cssEsc(t)).forEach(add);
+      document.querySelectorAll('[data-tab="' + t + '"]').forEach(add);
+    } catch (e) {}
+    return seen.slice(0, 10);
+  }
+
+  function clearViewHits() {
+    document.querySelectorAll(".src-view-hit").forEach(function (el) {
+      el.classList.remove("src-view-hit");
+    });
+  }
+
+  function fillPipDoc(doc, token, els) {
+    doc.title = "View “" + token + "”";
+    doc.body.style.margin = "0";
+    doc.body.style.background = "#0c0d10";
+    doc.body.style.color = "#e8eee6";
+    doc.body.style.fontFamily = "Georgia, serif";
+    var bar = doc.createElement("div");
+    bar.style.cssText = "padding:8px 10px;font-size:12px;color:#e8c547;border-bottom:1px solid #3a3420";
+    bar.textContent =
+      els.length
+        ? "“" + token + "” affects " + els.length + " object" + (els.length === 1 ? "" : "s") + " on the live site."
+        : "No live object found for “" + token + "”.";
+    doc.body.appendChild(bar);
+    var map = doc.createElement("div");
+    map.style.cssText =
+      "position:relative;height:88px;margin:8px;border:1px solid #c9a227;background:#16140e;overflow:hidden";
+    var pageW = Math.max(document.documentElement.scrollWidth, window.innerWidth, 1);
+    var pageH = Math.max(document.documentElement.scrollHeight, window.innerHeight, 1);
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var pin = doc.createElement("div");
+      var w = Math.max(r.width, 8);
+      var h = Math.max(r.height, 8);
+      pin.style.cssText =
+        "position:absolute;background:rgba(232,197,71,0.55);outline:1px solid #e8c547;left:" +
+        ((r.left + window.scrollX) / pageW) * 100 +
+        "%;top:" +
+        ((r.top + window.scrollY) / pageH) * 100 +
+        "%;width:" +
+        (w / pageW) * 100 +
+        "%;height:" +
+        (h / pageH) * 100 +
+        "%";
+      map.appendChild(pin);
+    });
+    var you = doc.createElement("div");
+    you.style.cssText =
+      "position:absolute;border:1px dashed rgba(255,255,255,0.35);left:" +
+      (window.scrollX / pageW) * 100 +
+      "%;top:" +
+      (window.scrollY / pageH) * 100 +
+      "%;width:" +
+      (window.innerWidth / pageW) * 100 +
+      "%;height:" +
+      (window.innerHeight / pageH) * 100 +
+      "%";
+    map.appendChild(you);
+    doc.body.appendChild(map);
+    var stage = doc.createElement("div");
+    stage.style.cssText = "padding:8px;overflow:auto;max-height:220px";
+    if (els[0]) {
+      try {
+        var clone = els[0].cloneNode(true);
+        clone.style.maxWidth = "100%";
+        clone.style.maxHeight = "200px";
+        clone.style.transformOrigin = "top left";
+        stage.appendChild(clone);
+      } catch (e) {}
+    }
+    doc.body.appendChild(stage);
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+      try {
+        doc.head.appendChild(link.cloneNode(true));
+      } catch (e2) {}
+    });
+  }
+
+  function openPipFallback(token, els) {
+    var box = document.getElementById("src-pip");
+    if (!box) {
+      box = document.createElement("div");
+      box.id = "src-pip";
+      box.className = "src-pip";
+      box.innerHTML =
+        '<div class="src-pip-bar"><span class="src-pip-title"></span><button type="button" class="src-pip-close">×</button></div><div class="src-pip-body"></div>';
+      document.body.appendChild(box);
+      box.querySelector(".src-pip-close").addEventListener("click", function () {
+        box.hidden = true;
+        clearViewHits();
+      });
+    }
+    box.hidden = false;
+    box.querySelector(".src-pip-title").textContent = "View “" + token + "”";
+    var body = box.querySelector(".src-pip-body");
+    body.innerHTML = "";
+    fillPipDoc(
+      {
+        title: "",
+        body: body,
+        createElement: function (n) {
+          return document.createElement(n);
+        },
+        head: { appendChild: function () {} },
+      },
+      token,
+      els
+    );
+  }
+
+  function viewAffected(token) {
+    clearViewHits();
+    var t = identOf(token);
+    var els = findAffected(t);
+    els.forEach(function (el) {
+      el.classList.add("src-view-hit");
+    });
+    if (window.documentPictureInPicture && documentPictureInPicture.requestWindow) {
+      documentPictureInPicture
+        .requestWindow({ width: 420, height: 320 })
+        .then(function (win) {
+          fillPipDoc(win.document, t, els);
+          win.addEventListener("pagehide", clearViewHits);
+        })
+        .catch(function () {
+          openPipFallback(t, els);
+        });
+    } else {
+      openPipFallback(t, els);
+    }
+  }
+
   function fileName(url) {
     try {
       var u = new URL(url, location.href);
@@ -380,7 +531,8 @@
       menu.hidden = true;
       menu.innerHTML =
         '<button type="button" data-src-define>Define</button>' +
-        '<button type="button" data-src-seek>Seek</button>';
+        '<button type="button" data-src-seek>Seek</button>' +
+        '<button type="button" data-src-view>View</button>';
       document.body.appendChild(menu);
     }
     var pending = "";
@@ -389,24 +541,27 @@
       if (!token) return;
       e.preventDefault();
       pending = token;
-      menu._ctx = { token: token, showDefine: showDefine, runSeek: runSeek };
+      menu._ctx = { token: token, showDefine: showDefine, runSeek: runSeek, viewAffected: viewAffected };
       menu.hidden = false;
       menu.style.left = e.clientX + 10 + "px";
       menu.style.top = e.clientY + 10 + "px";
       menu.querySelector("[data-src-define]").textContent =
         "Define “" + (token.length > 24 ? token.slice(0, 22) + "…" : token) + "”";
       menu.querySelector("[data-src-seek]").textContent = "Seek “" + identOf(token) + "”";
+      menu.querySelector("[data-src-view]").textContent = "View “" + identOf(token) + "”";
     });
     if (!menu.dataset.bound) {
       menu.dataset.bound = "1";
       menu.addEventListener("click", function (e) {
         var def = e.target && e.target.closest("[data-src-define]");
         var sk = e.target && e.target.closest("[data-src-seek]");
+        var vw = e.target && e.target.closest("[data-src-view]");
         var rect = menu.getBoundingClientRect();
         var ctx = menu._ctx || {};
         menu.hidden = true;
         if (def && ctx.showDefine) ctx.showDefine(ctx.token, rect.left, rect.bottom + 6);
         if (sk && ctx.runSeek) ctx.runSeek(ctx.token);
+        if (vw) viewAffected(ctx.token);
       });
       document.addEventListener("click", function (e) {
         var card = document.getElementById("src-define-card");
