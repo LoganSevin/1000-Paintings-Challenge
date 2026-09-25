@@ -171,7 +171,6 @@ body.api-tab-active .site-header .subtitle { display: none; }
   border-radius: 2px;
 }
 
-.api-define-menu,
 .api-define-card {
   position: fixed;
   z-index: 10080;
@@ -183,8 +182,15 @@ body.api-tab-active .site-header .subtitle { display: none; }
 }
 
 .api-define-menu {
-  min-width: 10rem;
+  position: fixed;
+  z-index: 10140;
+  min-width: 12rem;
   padding: 0.25rem;
+  background: #1a1810;
+  border: 1px solid rgba(232, 197, 71, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+  color: #e8eee6;
 }
 
 .api-define-menu button {
@@ -253,6 +259,41 @@ body.api-tab-active .site-header .subtitle { display: none; }
   margin: 0.55rem 0 0;
   font-size: 0.72rem;
   color: var(--text-muted);
+}
+
+.api-suggest-box {
+  margin: 1.25rem 0 0;
+  padding: 0.7rem 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.api-suggest-box h3 {
+  margin: 0 0 0.35rem;
+}
+
+.api-suggest-box ul {
+  margin: 0.35rem 0 0.6rem;
+  padding-left: 1.15rem;
+}
+
+.api-suggest-box li {
+  font-size: 0.82rem;
+}
+
+.api-suggest-empty {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.api-suggest-export {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.28rem 0.55rem;
+  cursor: pointer;
 }
 
 .api-top {

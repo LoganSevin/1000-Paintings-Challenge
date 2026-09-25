@@ -881,7 +881,9 @@
     menu.id = "api-define-menu";
     menu.className = "api-define-menu";
     menu.hidden = true;
-    menu.innerHTML = '<button type="button" data-api-define>Define</button>';
+    menu.innerHTML =
+      '<button type="button" data-api-define>Define</button>' +
+      '<button type="button" data-api-suggest>Suggest for fix</button>';
     var card = document.createElement("div");
     card.id = "api-define-card";
     card.className = "api-define-card";
@@ -895,11 +897,58 @@
       "<h4></h4>" +
       '<p class="api-define-body"></p>' +
       '<p class="api-define-hint">Highlight any of this and right-click Define to go deeper.</p>';
-    document.body.appendChild(menu);
     document.body.appendChild(card);
+    document.body.appendChild(menu);
     var pending = "";
     var stack = [];
     var current = null;
+    var ignoreClickUntil = 0;
+    var SUGGEST_KEY = "logan7in-api-define-suggestions-v1";
+
+    function loadSuggestions() {
+      try {
+        var raw = JSON.parse(localStorage.getItem(SUGGEST_KEY) || "[]");
+        return Array.isArray(raw) ? raw : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function saveSuggestions(rows) {
+      try {
+        localStorage.setItem(SUGGEST_KEY, JSON.stringify(rows.slice(0, 200)));
+      } catch (err) {}
+      renderSuggestions();
+    }
+
+    function renderSuggestions() {
+      var list = $("api-suggest-list");
+      var empty = $("api-suggest-empty");
+      if (!list) return;
+      var rows = loadSuggestions();
+      list.innerHTML = "";
+      rows.forEach(function (row) {
+        var li = document.createElement("li");
+        li.textContent = row.phrase + (row.from ? " (from “" + row.from + "”)" : "");
+        list.appendChild(li);
+      });
+      if (empty) empty.hidden = rows.length > 0;
+    }
+
+    renderSuggestions();
+    var exportBtn = $("api-suggest-export");
+    if (exportBtn) {
+      exportBtn.addEventListener("click", function () {
+        var blob = new Blob([JSON.stringify(loadSuggestions(), null, 2)], {
+          type: "application/json",
+        });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "logan7in-api-define-suggestions.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    }
 
     function hideMenu() {
       menu.hidden = true;
@@ -944,16 +993,20 @@
     }
 
     function openMenu(e, scope, fromCard) {
+      var target = fromCard ? card.querySelector(".api-define-body") || card : scope;
       var phrase =
-        isolateSelection(scope) ||
+        isolateSelection(target) ||
         String(window.getSelection() || "").replace(/\s+/g, " ").trim();
       if (!phrase) return false;
       e.preventDefault();
+      e.stopPropagation();
       pending = phrase;
+      ignoreClickUntil = Date.now() + 500;
       menu.setAttribute("data-from-card", fromCard ? "1" : "0");
-      menu.querySelector("button").textContent =
-        "Define “" + (phrase.length > 28 ? phrase.slice(0, 26) + "…" : phrase) + "”";
-      placePopover(menu, e.clientX, e.clientY);
+      var label = phrase.length > 28 ? phrase.slice(0, 26) + "…" : phrase;
+      menu.querySelector("[data-api-define]").textContent = "Define “" + label + "”";
+      placePopover(menu, e.clientX + 12, e.clientY + 12);
+      menu.style.zIndex = "10140";
       return true;
     }
 
@@ -966,10 +1019,30 @@
     });
 
     menu.addEventListener("click", function (e) {
-      if (!e.target || !e.target.closest("[data-api-define]")) return;
-      var rect = menu.getBoundingClientRect();
       var fromCard = menu.getAttribute("data-from-card") === "1";
-      showDef(pending, rect.left, rect.bottom + 4, fromCard);
+      var rect = menu.getBoundingClientRect();
+      if (e.target && e.target.closest("[data-api-define]")) {
+        showDef(pending, rect.left, rect.bottom + 8, fromCard);
+        return;
+      }
+      if (e.target && e.target.closest("[data-api-suggest]")) {
+        var rows = loadSuggestions();
+        var phrase = normPhrase(pending);
+        if (
+          phrase &&
+          !rows.some(function (row) {
+            return normPhrase(row.phrase) === phrase;
+          })
+        ) {
+          rows.unshift({
+            phrase: pending,
+            from: current && current.term ? current.term : "",
+            at: new Date().toISOString(),
+          });
+          saveSuggestions(rows);
+        }
+        hideMenu();
+      }
     });
 
     card.addEventListener("click", function (e) {
@@ -982,6 +1055,7 @@
     });
 
     document.addEventListener("click", function (e) {
+      if (Date.now() < ignoreClickUntil) return;
       if (menu.contains(e.target) || card.contains(e.target)) return;
       if (String(window.getSelection() || "").trim()) return;
       hideAll();
