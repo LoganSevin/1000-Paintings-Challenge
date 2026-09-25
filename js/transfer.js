@@ -855,7 +855,13 @@
                   "</div>"
                 : it.analysisStatus === "analyzing"
                   ? '<p class="tf-muted">AI is writing description + prompt…</p>'
-                  : "") +
+                  : it.analysisStatus === "failed"
+                    ? '<p class="tf-muted">Describe failed' +
+                      (it.analysisError ? ": " + escapeHtml(it.analysisError) : "") +
+                      '</p><button type="button" class="tf-redescribe" data-tf-redescribe="' +
+                      escapeHtml(it.id || "") +
+                      '">Retry describe</button>'
+                    : "") +
               "</div>"
             );
           })
@@ -939,6 +945,27 @@
     $("tf-stage-sel") &&
       $("tf-stage-sel").addEventListener("click", stageSelectedToPhone);
 
+    $("tf-upload-grid") &&
+      $("tf-upload-grid").addEventListener("click", function (e) {
+        var btn = e.target && e.target.closest ? e.target.closest("[data-tf-redescribe]") : null;
+        if (!btn) return;
+        var id = btn.getAttribute("data-tf-redescribe");
+        if (!id) return;
+        btn.disabled = true;
+        setUploadStatus("Retrying description…", "");
+        fetchJson(IS_LOCAL ? apiUrl("/api/transfer/reanalyze") : "/api/transfer/describe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(IS_LOCAL ? { name: id } : { id: id }),
+        })
+          .then(function () {
+            return refreshUploadList();
+          })
+          .catch(function (err) {
+            setUploadStatus(friendlyUploadError(err), "err");
+            btn.disabled = false;
+          });
+      });
     $("tf-upload-btn") &&
       $("tf-upload-btn").addEventListener("click", function () {
         var inp = $("tf-upload-input");

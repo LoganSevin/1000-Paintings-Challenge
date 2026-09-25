@@ -3,7 +3,7 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 import {
   TAB_BOX,
   decodeDataUrl,
-  fileUrl,
+  describeSavedPhone,
   loadIndex,
   phoneStore,
   savePhoneImage,
@@ -20,6 +20,7 @@ function noStore(body, status = 200) {
 function routeName(pathname) {
   const path = String(pathname || "").replace(/\/+$/, "");
   if (path.endsWith("/upload") || path.includes("/transfer/upload")) return "upload";
+  if (path.includes("/describe") || path.includes("/reanalyze")) return "describe";
   if (path.endsWith("/file") || path.includes("/transfer/file")) return "file";
   if (path.endsWith("/list") || path.includes("/transfer/list")) return "list";
   if (path.includes("/catalog")) return "catalog";
@@ -90,10 +91,15 @@ export default async function handler(request) {
       return noStore({ ok: true, box: TAB_BOX, items, count: items.length });
     }
 
-    if (request.method === "POST" && (route === "upload" || route === "")) {
+    if (request.method === "POST" && (route === "describe" || route === "upload" || route === "")) {
       const ctype = String(request.headers.get("content-type") || "").toLowerCase();
-      if (ctype.includes("json")) {
+      if (ctype.includes("json") || route === "describe") {
         const body = JSON.parse((await request.text()) || "{}");
+        const id = String(body.id || "").trim();
+        if (id && !body.image_base64 && !body.data && !body.image) {
+          const row = await describeSavedPhone(store, id);
+          return noStore({ ok: true, item: toListItem(row), analysis: row.analysis });
+        }
         const decoded = decodeDataUrl(body.image_base64 || body.data || body.image || "");
         if (!decoded) return noStore({ ok: false, error: "Provide a photo" }, 400);
         const result = await savePhoneImage(

@@ -95,6 +95,39 @@ function parseAnalysisText(text) {
   }
 }
 
+function extractAnyText(body) {
+  let text = extractResponseText(body);
+  if (text) return text;
+  if (typeof body?.output_text === "string" && body.output_text.trim()) return body.output_text;
+  for (const item of body?.output || []) {
+    if (!item) continue;
+    if ((item.type === "output_text" || item.type === "text") && item.text) return item.text;
+    if (typeof item.text === "string" && item.text.trim()) return item.text;
+    for (const block of item.content || []) {
+      if (block && (block.text || block.output_text)) return block.text || block.output_text;
+    }
+  }
+  const choice = body?.choices?.[0]?.message?.content;
+  if (typeof choice === "string") return choice;
+  if (Array.isArray(choice)) {
+    return choice.map((part) => part?.text || part?.content || "").join("");
+  }
+  return "";
+}
+
+async function readXaiJson(resp) {
+  const raw = await resp.text();
+  let data = {};
+  try {
+    data = raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    if (!resp.ok) throw new Error((raw || "HTTP " + resp.status).slice(0, 220));
+    throw new Error("xAI returned non-JSON");
+  }
+  if (!resp.ok) throw new Error(apiErrorMessage(data, resp.status));
+  return data;
+}
+
 function withPrompt(result) {
   const row = result && typeof result === "object" ? result : {};
   if (String(row.prompt || "").trim()) return row;
@@ -114,11 +147,7 @@ function withPrompt(result) {
   return row;
 }
 
-export async function describePhoneImage(buf, mime) {
-  const apiKey = getApiKey();
-  const type = sniffMime(buf, mime || "image/jpeg");
-  const b64 = Buffer.from(buf).toString("base64");
-  const dataUrl = "data:" + type + ";base64," + b64;
+async function describeViaResponses(apiKey, model, dataUrl) {
   const resp = await fetch(API_RESPONSES, {
     method: "POST",
     headers: {
@@ -126,7 +155,7 @@ export async function describePhoneImage(buf, mime) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: TEXT_MODEL,
+      model,
       input: [
         {
           role: "user",
@@ -139,14 +168,110 @@ export async function describePhoneImage(buf, mime) {
       store: false,
     }),
   });
-  const data = await resp.json();
-  if (!resp.ok) throw new Error(apiErrorMessage(data, resp.status));
-  const text = extractResponseText(data);
-  if (!text) throw new Error("Empty description from the model");
-  const analysis = withPrompt(parseAnalysisText(text));
-  analysis.kind = "phone-upload";
-  analysis.analyzed_at = new Date().toISOString();
-  return analysis;
+  const data = await readXaiJson(resp);
+  const text = extractAnyText(data);
+  if (!text) throw new Error("Empty description from " + model);
+  return withPrompt(parseAnalysisText(text));
+}
+
+async function describeViaChat(apiKey, model, dataUrl) {
+  const resp = await fetch("https://api.x.ai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + apiKey,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model,
+      messages: [
+        {
+          role: "user",
+          content: [
+            { type: "image_url", image_url: { url: dataUrl, detail: "low" } },
+            { type: "text", text: PHONE_UPLOAD_ANALYSIS_PROMPT },
+          ],
+        },
+      ],
+    }),
+  });
+  const data = await readXaiJson(resp);
+  const text = extractAnyText(data);
+  if (!text) throw new Error("Empty chat description from " + model);
+  return withPrompt(parseAnalysisText(text));
+}
+
+export async function describePhoneImage(buf, mime) {
+  const apiKey = getApiKey();
+  const type = sniffMime(buf, mime || "image/jpeg");
+  const b64 = Buffer.from(buf).toString("base64");
+  const dataUrl = "data:" + type + ";base64," + b64;
+  const models = [TEXT_MODEL, "grok-4.7", "grok-4"].filter(function (name, i, arr) {
+    return name && arr.indexOf(name) === i;
+  });
+  let lastErr = "Describe failed";
+  for (let i = 0; i < models.length; i++) {
+    try {
+      const analysis = await describeViaResponses(apiKey, models[i], dataUrl);
+      analysis.kind = "phone-upload";
+      analysis.analyzed_at = new Date().toISOString();
+      analysis.model = models[i];
+      return analysis;
+    } catch (err) {
+      lastErr = String((err && err.message) || err);
+    }
+  }
+  try {
+    const analysis = await describeViaChat(apiKey, models[0] || "grok-4.7", dataUrl);
+    analysis.kind = "phone-upload";
+    analysis.analyzed_at = new Date().toISOString();
+    analysis.model = (models[0] || "grok-4.7") + "-chat";
+    return analysis;
+  } catch (err) {
+    throw new Error(String((err && err.message) || lastErr).slice(0, 240));
+  }
+}
+
+export async function patchPhoneItem(store, id, patch) {
+  const items = await loadIndex(store);
+  let found = null;
+  const next = items.map(function (row) {
+    if (String(row.id) !== String(id)) return row;
+    found = Object.assign({}, row, patch);
+    return found;
+  });
+  if (!found) {
+    const err = new Error("Upload not found");
+    err.status = 404;
+    throw err;
+  }
+  await saveIndex(store, next);
+  return found;
+}
+
+export async function describeSavedPhone(store, id) {
+  const key = String(id || "").replace(/[^A-Za-z0-9._-]/g, "");
+  if (!key) {
+    const err = new Error("id required");
+    err.status = 400;
+    throw err;
+  }
+  const meta = await store.getWithMetadata("file/" + key, { type: "arrayBuffer" });
+  if (!meta || !meta.data) {
+    const err = new Error("Photo file missing");
+    err.status = 404;
+    throw err;
+  }
+  const mime = (meta.metadata && (meta.metadata.contentType || meta.metadata.contenttype)) || "image/jpeg";
+  const buf = Buffer.from(meta.data);
+  const analysis = await describePhoneImage(buf, mime);
+  return patchPhoneItem(store, key, {
+    analysis,
+    analysisStatus: "ready",
+    title: analysis.title || undefined,
+    description: analysis.description || "",
+    prompt: analysis.prompt || "",
+    analysisError: "",
+  });
 }
 
 export function phoneStore() {
