@@ -30,6 +30,7 @@
     maps: document.getElementById("panel-maps"),
     api: document.getElementById("panel-api"),
     xai: document.getElementById("panel-xai"),
+    grok: document.getElementById("panel-grok"),
     chains: document.getElementById("panel-chains"),
     telemetry: document.getElementById("panel-telemetry"),
     spells: document.getElementById("panel-spells"),
@@ -123,6 +124,7 @@
     maps: "Maps — arenas, overworlds, dungeons & stages for Fight and worlds",
     api: "Chain spells into pipelines — generate callable chain APIs",
     xai: "xAI vendor meter and optional key — studio use stays unlimited",
+    grok: "Grok is the model — optional cloud stills and captions, not a studio ticket",
     chains: "Spell chains — drag paintings into a callable pipeline, no xAI bill",
     telemetry: "Studio meter — cloud tries, fuses, describes, tab hits",
     spells: "Cast spells into images — " + ARTIST + "’s gallery DNA",
@@ -528,6 +530,7 @@
     document.body.classList.toggle("as-tab-active", name === "assets");
     document.body.classList.toggle("su-tab-active", name === "studio");
     document.body.classList.toggle("xa-tab-active", name === "xai");
+    document.body.classList.toggle("gk-tab-active", name === "grok");
     document.body.classList.toggle("sc-tab-active", name === "chains");
     document.body.classList.toggle("tm-tab-active", name === "telemetry");
     document.body.classList.toggle("sp-tab-active", name === "spells");
@@ -656,6 +659,9 @@
       if (window.TelemetryTab && window.TelemetryTab.onShow) {
         window.TelemetryTab.onShow();
       }
+      hideOtherTabs(name);
+    } else if (name === "grok") {
+      if (window.GrokTab && window.GrokTab.onShow) window.GrokTab.onShow();
       hideOtherTabs(name);
     } else if (name === "xai") {
       window.dispatchEvent(new Event("xai-show"));

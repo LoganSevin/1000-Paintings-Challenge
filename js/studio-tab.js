@@ -15,6 +15,7 @@
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "Define invoice", note: "Bill in the vendor meter", href: "#api" },
     { group: "Meter", name: "xAI vendor meter", note: "Maintainer keeps the gauge; studio uncapped", href: "#xai" },
+    { group: "Meter", name: "Grok", note: "The model — optional stills and captions", href: "#grok" },
     { group: "Meter", name: "Cloud xAI", note: "Vendor view, not the studio", href: "#cloud-xai" },
     { group: "Meter", name: "Telemetry", note: "Cloud tries, fuses, describes, tab hits", href: "#telemetry" },
     { group: "Share", name: "Pulse", note: "Feed, feature requests", href: "#pulse" },

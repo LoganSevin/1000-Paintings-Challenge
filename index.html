@@ -225,6 +225,7 @@
         <button type="button" class="tab" data-tab="maps">Maps</button>
         <button type="button" class="tab" data-tab="api">API</button>
         <button type="button" class="tab" data-tab="xai">xAI</button>
+        <button type="button" class="tab" data-tab="grok">Grok</button>
         <button type="button" class="tab" data-tab="chains">Spell chains</button>
         <button type="button" class="tab" data-tab="telemetry">Telemetry</button>
         <button type="button" class="tab" data-tab="spells">Spells</button>
@@ -1504,6 +1505,44 @@
       <p class="su-lede">Actions you can take in Logan Sevin’s studio. Logan7in unlimited — none of these are a cover charge.</p>
       <input type="search" id="su-search" class="su-search" placeholder="Filter actions…" autocomplete="off" />
       <div id="su-groups"></div>
+    </div>
+  </section>
+
+  <section id="panel-grok" class="panel" hidden>
+    <div class="gk-shell">
+      <h2>Grok</h2>
+      <p class="gk-lede">Grok is xAI’s model. Logan7in unlimited is the studio. You do not need Grok to walk in. When a key can spend, Grok can invent a still or write a caption. When it cannot, Spellforge fuses on this device.</p>
+      <div class="gk-grid">
+        <article class="gk-card">
+          <h3>What Grok does here</h3>
+          <ul>
+            <li>Spellforge Generate — a new still, if the key can spend</li>
+            <li>Blend / redefine — weave spell text</li>
+            <li>Describe — title and prompt for a phone upload</li>
+          </ul>
+          <div class="gk-actions">
+            <a class="gk-btn accent" href="#spellforge">Open Spellforge</a>
+            <a class="gk-btn" href="#cloud-xai">Cloud xAI</a>
+          </div>
+        </article>
+        <article class="gk-card">
+          <h3>Optional key</h3>
+          <p id="gk-key-state">No Grok key saved.</p>
+          <p>Paste a key only if you want Grok billed to that account. Clearing it is the free path.</p>
+          <div class="gk-actions">
+            <button type="button" class="gk-btn accent" id="gk-connect">Paste Grok key</button>
+            <button type="button" class="gk-btn" id="gk-clear">Clear key</button>
+          </div>
+        </article>
+        <article class="gk-card">
+          <h3>What Grok is not</h3>
+          <p>Not a cover charge. Not the owner of the paintings. Not a cap on Logan7in unlimited. xAI meters Grok. The gallery does not meter you.</p>
+          <div class="gk-actions">
+            <a class="gk-btn" href="#api">API How it works</a>
+            <a class="gk-btn" href="#studio">Studio actions</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -8392,8 +8431,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=99"></script>
+  <script defer src="js/tabs.js?v=100"></script>
   <script defer src="js/studio-tab.js?v=1"></script>
+  <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
   <script defer src="js/xai-tab.js?v=4"></script>
   <script defer src="js/telemetry-tab.js?v=1"></script>

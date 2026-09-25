@@ -1,0 +1,100 @@
+#panel-grok.panel[hidden] {
+  display: none !important;
+}
+
+#panel-grok.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 8rem);
+  max-height: calc(100dvh - 8rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.gk-tab-active #panel-grok.panel.active {
+  min-height: calc(100dvh - 5.5rem);
+  max-height: calc(100dvh - 5.5rem);
+}
+
+body.gk-tab-active .site-footer,
+body.gk-tab-active .site-header .subtitle {
+  display: none;
+}
+
+.gk-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem 1.5rem;
+  background: var(--bg);
+}
+
+.gk-shell h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.gk-lede {
+  margin: 0 0 1rem;
+  color: #e8c547;
+  max-width: 42rem;
+  line-height: 1.45;
+}
+
+.gk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem;
+  max-width: 54rem;
+}
+
+.gk-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  background: var(--bg-elevated);
+}
+
+.gk-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  color: #e8c547;
+}
+
+.gk-card p,
+.gk-card li {
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.gk-card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.gk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.gk-btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gk-btn.accent {
+  border-color: #c9a227;
+  color: #e8c547;
+}
