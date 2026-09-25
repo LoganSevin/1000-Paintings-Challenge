@@ -474,3 +474,307 @@ body.clr-tab-active #panel-colors {
     padding: 0.45rem 1rem;
   }
 }
+
+/* ---- 3-tone generator: add-as-tone, tray, results ---- */
+
+#panel-colors .clr-add-tone-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin-top: 0.55rem;
+}
+
+#panel-colors .clr-tone-msg {
+  font-size: 0.75rem;
+  color: #7dffb3;
+}
+
+#panel-colors .clr-tone-msg.clr-err,
+#panel-colors .clr-gen-status.clr-err,
+#panel-colors .clr-gen-save.clr-err {
+  color: #ffb0a8;
+}
+
+#panel-colors .clr-tones {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+#panel-colors .clr-tones-title {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display, Georgia, "Times New Roman", serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--accent, #c9a227);
+}
+
+#panel-colors .clr-tones-hint {
+  margin: 0 0 0.55rem;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: rgba(200, 190, 160, 0.78);
+}
+
+#panel-colors .clr-tones-hint strong {
+  color: #e8d5a3;
+}
+
+#panel-colors .clr-tones-hint kbd {
+  font: inherit;
+  font-size: 0.72rem;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+#panel-colors .clr-tone-tray,
+#panel-colors .clr-gen-tones {
+  list-style: none;
+  margin: 0 0 0.55rem;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+#panel-colors .clr-tone-slot,
+#panel-colors .clr-gen-tones li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.4rem;
+  padding: 0.25rem 0.35rem;
+  border-radius: 8px;
+  border: 1px dashed rgba(201, 162, 39, 0.3);
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.78rem;
+  color: var(--text-muted, #9a9288);
+}
+
+#panel-colors .clr-tone-slot.is-filled,
+#panel-colors .clr-gen-tones li {
+  border-style: solid;
+  color: #f0e6cc;
+}
+
+#panel-colors .clr-tone-chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: repeating-linear-gradient(45deg, #1a1712 0 4px, #231f18 4px 8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(200, 190, 160, 0.6);
+}
+
+#panel-colors .clr-tone-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+#panel-colors .clr-tone-hex {
+  font-size: 0.78rem;
+  color: #f5f0e8;
+}
+
+#panel-colors .clr-tone-name {
+  font-size: 0.72rem;
+  color: rgba(200, 190, 160, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#panel-colors .clr-tone-x {
+  flex: 0 0 auto;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: rgba(34, 31, 28, 0.95);
+  color: #f0e6cc;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#panel-colors .clr-tone-x:hover {
+  border-color: #ffb0a8;
+  color: #ffb0a8;
+}
+
+#panel-colors .clr-tone-x:focus-visible {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 1px;
+}
+
+#panel-colors .clr-gen-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+}
+
+#panel-colors .clr-select-sm {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.35rem;
+}
+
+#panel-colors .clr-gen-status {
+  min-height: 1.1em;
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(200, 190, 160, 0.85);
+}
+
+#panel-colors .clr-gen-key {
+  margin-top: 0.35rem;
+}
+
+#panel-colors .clr-gen-results {
+  margin-top: 1.1rem;
+}
+
+#panel-colors .clr-gen-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr));
+  gap: 0.85rem;
+}
+
+#panel-colors .clr-gen-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(10rem, 1fr);
+  gap: 0.7rem;
+  padding: 0.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: linear-gradient(180deg, #16140f 0%, #0e0c0a 100%);
+}
+
+#panel-colors .clr-gen-media {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+#panel-colors .clr-gen-img-link,
+#panel-colors .clr-gen-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#panel-colors .clr-gen-img {
+  object-fit: cover;
+}
+
+#panel-colors .clr-gen-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+}
+
+#panel-colors .clr-gen-card.is-pending .clr-gen-placeholder {
+  animation: clr-gen-pulse 1.6s ease-in-out infinite;
+}
+
+#panel-colors .clr-gen-placeholder span {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #f5f0e8;
+  font-size: 0.8rem;
+}
+
+#panel-colors .clr-gen-card.is-failed .clr-gen-placeholder {
+  opacity: 0.35;
+  animation: none;
+}
+
+@keyframes clr-gen-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #panel-colors .clr-gen-card.is-pending .clr-gen-placeholder {
+    animation: none;
+  }
+}
+
+#panel-colors .clr-gen-side {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#panel-colors .clr-gen-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 190, 160, 0.7);
+}
+
+#panel-colors .clr-gen-subject {
+  margin: 0 0 0.35rem;
+  font-size: 0.74rem;
+  color: rgba(200, 190, 160, 0.85);
+}
+
+#panel-colors .clr-gen-save {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  color: #7dffb3;
+}
+
+#panel-colors .clr-gen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+#panel-colors .clr-gen-actions a.clr-btn {
+  text-decoration: none;
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  #panel-colors .clr-gen-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #panel-colors .clr-gen-tones {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  #panel-colors .clr-gen-tones li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  #panel-colors .clr-gen-tones li .clr-tone-chip {
+    width: 100%;
+  }
+  #panel-colors .clr-tone-x {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+  #panel-colors .clr-gen-row .clr-btn {
+    flex: 1 1 auto;
+  }
+}

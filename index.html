@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
-  <link rel="stylesheet" href="css/colors.css?v=2" />
+  <link rel="stylesheet" href="css/colors.css?v=3" />
   <link rel="stylesheet" href="css/print-shops.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/account-gate.css?v=1" />
@@ -7555,9 +7555,43 @@
                 <button type="button" class="clr-btn clr-btn-sm accent" id="clr-copy-disp">Copy hex</button></dd>
             </dl>
             <p id="clr-copy-status" class="clr-copy-status" aria-live="polite"></p>
+            <div class="clr-add-tone-row">
+              <button type="button" class="clr-btn accent" id="clr-add-tone">+ Add as tone</button>
+              <span id="clr-tone-msg" class="clr-tone-msg" aria-live="polite"></span>
+            </div>
           </div>
+
+          <section class="clr-tones" aria-labelledby="clr-tones-title">
+            <h3 id="clr-tones-title" class="clr-tones-title">3-tone generator</h3>
+            <p class="clr-tones-hint">Pick 3 swatches with <strong>Add as tone</strong> or <kbd>Shift</kbd>-click. Generate paints anything at all, using only those 3 tones. No prompt needed.</p>
+            <ol id="clr-tone-tray" class="clr-tone-tray" aria-label="Tone tray"></ol>
+            <div class="clr-gen-row">
+              <label class="clr-field">Frame
+                <select id="clr-gen-aspect" class="clr-select clr-select-sm">
+                  <option value="1:1">1:1</option>
+                  <option value="4:3">4:3</option>
+                  <option value="3:4">3:4</option>
+                  <option value="16:9">16:9</option>
+                  <option value="9:16">9:16</option>
+                  <option value="3:2">3:2</option>
+                  <option value="2:3">2:3</option>
+                </select>
+              </label>
+              <button type="button" class="clr-btn accent" id="clr-gen-go" disabled>Generate</button>
+              <button type="button" class="clr-btn" id="clr-gen-reroll" hidden>↻ Reroll</button>
+            </div>
+            <p id="clr-gen-status" class="clr-gen-status" aria-live="polite"></p>
+            <div id="clr-gen-key" class="clr-gen-key" hidden>
+              <button type="button" class="clr-btn clr-btn-sm" id="clr-gen-connect">Connect xAI key</button>
+            </div>
+          </section>
         </aside>
       </div>
+
+      <section id="clr-gen-results" class="clr-gen-results" aria-label="3-tone generations" hidden>
+        <h3 class="clr-tones-title">3-tone paintings</h3>
+        <div id="clr-gen-list" class="clr-gen-list"></div>
+      </section>
     </div>
   </section>
 
@@ -8686,7 +8720,8 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/slots.js?v=5"></script>
-  <script defer src="js/colors.js?v=2"></script>
+  <script defer src="js/colors.js?v=3"></script>
+  <script defer src="js/colors-gen.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
