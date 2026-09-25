@@ -267,6 +267,7 @@
 
   function showTab(name) {
     if (name === "rooms") name = "places";
+    if (name === "cloud-xai") name = "xai";
     if (name === "kids") {
       enterKidsMode();
       name = "kids-baby";
@@ -639,6 +640,13 @@
         window.XaiTab.onShow();
       }
       hideOtherTabs(name);
+      if (window.XaiTab && window.XaiTab.isCloud && window.XaiTab.isCloud()) {
+        try {
+          history.replaceState(null, "", "#cloud-xai");
+        } catch (eCloud) {
+          location.hash = "cloud-xai";
+        }
+      }
     } else if (name === "api") {
       window.dispatchEvent(new Event("api-chain-show"));
       if (window.ApiChain && window.ApiChain.onShow) {
@@ -988,6 +996,7 @@
     } catch (eCd) {}
     var tabName = hash;
     if (tabName === "0-z" || tabName === "zeroz" || tabName === "0z") tabName = "az";
+    if (tabName === "cloud-xai" || tabName === "xaicloud") tabName = "xai";
     if (tabName === "engram" || tabName === "acronym") tabName = "engrams";
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
     if (tabName === "slot" || tabName === "slot-machine") tabName = "slots";

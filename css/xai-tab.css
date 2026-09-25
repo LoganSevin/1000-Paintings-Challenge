@@ -32,10 +32,61 @@ body.xa-tab-active .site-header .subtitle {
   padding: 0.75rem 1rem 1.5rem;
 }
 
-.xa-shell h2 {
+.xa-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin: 0 0 0.35rem;
+}
+
+.xa-shell h2 {
+  margin: 0;
   font-family: var(--font-display);
   font-size: 1.35rem;
+}
+
+.xa-cloud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(232, 197, 71, 0.55);
+  border-radius: 999px;
+  background: transparent;
+  color: #e8c547;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.7rem 0.28rem 0.45rem;
+  cursor: pointer;
+}
+
+.xa-cloud-btn svg {
+  width: 1.7rem;
+  height: 1.05rem;
+}
+
+.xa-cloud-btn:hover,
+.xa-shell.is-cloud .xa-cloud-btn {
+  background: rgba(232, 197, 71, 0.12);
+}
+
+.xa-cloud-hero {
+  margin: 0 0 0.75rem;
+  max-width: 12rem;
+}
+
+.xa-cloud-hero svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.xa-shell.is-cloud #xa-studio {
+  display: none;
+}
+
+.xa-shell.is-cloud #xa-cloud {
+  display: block;
 }
 
 .xa-lede {

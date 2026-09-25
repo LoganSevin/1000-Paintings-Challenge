@@ -74,7 +74,7 @@
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/assets-tab.css?v=1" />
-  <link rel="stylesheet" href="css/xai-tab.css?v=2" />
+  <link rel="stylesheet" href="css/xai-tab.css?v=3" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=10" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
@@ -1390,8 +1390,17 @@
 
   <section id="panel-xai" class="panel" hidden>
     <div class="xa-shell">
-      <h2>xAI</h2>
-      <p class="xa-lede">xAI is a vendor. Logan7in unlimited is the studio. This tab shows the vendor meter and an optional key. It does not charge you to use the site.</p>
+      <div class="xa-head">
+        <h2 id="xa-title">xAI</h2>
+        <button type="button" class="xa-cloud-btn" id="xa-open-cloud" title="Open Cloud xAI">
+          <svg viewBox="0 0 64 40" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M16 30h30c7 0 12-5 12-11 0-6-5-10-11-10-1-7-7-12-14-12-6 0-11 4-13 9-7 1-12 6-12 13 0 6 5 11 12 11z"/>
+          </svg>
+          <span>Cloud xAI</span>
+        </button>
+      </div>
+      <p class="xa-lede" id="xa-lede">xAI is a vendor. Logan7in unlimited is the studio. This tab shows the vendor meter and an optional key. It does not charge you to use the site.</p>
+      <div class="xa-studio" id="xa-studio">
       <div class="xa-layout">
       <figure class="xa-vendor" aria-label="Vendor meter">
         <svg viewBox="0 0 280 300" role="img" aria-labelledby="xa-vendor-title">
@@ -1447,6 +1456,21 @@
           <p>Those calls are metered to the key on the request. They are extras, not a cover charge.</p>
         </article>
       </div>
+      </div>
+      </div>
+      <div class="xa-cloud" id="xa-cloud" hidden>
+        <figure class="xa-cloud-hero" aria-hidden="true">
+          <svg viewBox="0 0 64 40">
+            <path fill="none" stroke="#e8c547" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M16 30h30c7 0 12-5 12-11 0-6-5-10-11-10-1-7-7-12-14-12-6 0-11 4-13 9-7 1-12 6-12 13 0 6 5 11 12 11z"/>
+          </svg>
+        </figure>
+        <p class="xa-lede">This is Cloud xAI — the vendor’s metered Grok, not the studio. Logan7in unlimited still holds: if the cloud cannot spend, the site keeps working on-device.</p>
+        <div class="xa-actions">
+          <button type="button" class="xa-btn" id="xa-cloud-refresh">Refresh meter</button>
+          <a class="xa-btn accent" href="https://console.x.ai" target="_blank" rel="noopener noreferrer">Open xAI console</a>
+          <button type="button" class="xa-btn" id="xa-back-studio">Back to xAI</button>
+        </div>
+        <div id="xa-cloud-meter" class="xa-card" style="margin-top:0.85rem;max-width:28rem"></div>
       </div>
     </div>
   </section>
@@ -8313,9 +8337,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=96"></script>
+  <script defer src="js/tabs.js?v=97"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
-  <script defer src="js/xai-tab.js?v=1"></script>
+  <script defer src="js/xai-tab.js?v=2"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
