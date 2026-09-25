@@ -592,6 +592,7 @@ body::before {
   font-size: 0.72rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.06em;
+  white-space: nowrap;
   color: #e8d5a3;
   text-shadow: 0 1px 2px #000;
 }

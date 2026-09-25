@@ -84,7 +84,7 @@
     return now.getHours() * 60 + now.getMinutes();
   }
 
-  function applyHour(h, preview) {
+  function applyHour(h, preview, now) {
     var el = document.getElementById("time-globe");
     var wrap = document.getElementById("time-clock");
     if (!el) return;
@@ -113,9 +113,16 @@
       wrapEl.style.setProperty("--ring-x", rx.toFixed(1) + "%");
       wrapEl.style.setProperty("--ring-y", ry.toFixed(1) + "%");
     }
-    var hh = String(Math.floor(h)).padStart(2, "0");
-    var mm = String(Math.floor((h % 1) * 60)).padStart(2, "0");
-    var stamp = hh + ":" + mm;
+    var hh, mm, stamp;
+    if (now && !preview) {
+      hh = String(now.getHours()).padStart(2, "0");
+      mm = String(now.getMinutes()).padStart(2, "0");
+      stamp = hh + ":" + mm + ":" + String(now.getSeconds()).padStart(2, "0");
+    } else {
+      hh = String(Math.floor(h)).padStart(2, "0");
+      mm = String(Math.floor((h % 1) * 60)).padStart(2, "0");
+      stamp = hh + ":" + mm;
+    }
     var readout = document.getElementById("time-readout");
     if (readout) readout.textContent = stamp + (preview ? " · preview" : "");
     if (wrap) {
@@ -135,9 +142,20 @@
     return ((h % 24) + 24) % 24;
   }
 
+  function applyNow() {
+    var now = new Date();
+    applyHour(now.getHours() + now.getMinutes() / 60 + now.getSeconds() / 3600, false, now);
+  }
+
   function tick() {
     if (previewing) return;
-    applyHour(nowHours(), false);
+    applyNow();
+  }
+
+  // Line ticks up with the real second boundary so the seconds flip on time.
+  function scheduleTick() {
+    tick();
+    setTimeout(scheduleTick, 1000 - (Date.now() % 1000) + 5);
   }
 
   function bindSlider() {
@@ -161,7 +179,7 @@
     function snap() {
       if (!previewing) return;
       previewing = false;
-      applyHour(nowHours(), false);
+      applyNow();
     }
     node.addEventListener("pointerup", snap);
     node.addEventListener("pointercancel", snap);
@@ -173,7 +191,7 @@
   }
 
   start();
-  setInterval(tick, 1000);
+  scheduleTick();
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", start);
   }
