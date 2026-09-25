@@ -3243,8 +3243,12 @@ body.fi-tab-active .time-globe {
   height: 2.55rem;
   padding: 0.28rem;
 }
+body.fi-tab-active .time-clock {
+  padding-bottom: 1.1rem;
+}
 body.fi-tab-active .time-readout {
   font-size: 0.62rem;
+  top: calc(100% + 0.45rem);
 }
 body.fi-tab-active .star-run {
   max-width: 11rem;
