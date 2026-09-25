@@ -520,6 +520,34 @@ async function loadAssetCollection(collection) {
     }
   }
 
+  if (collection === "phone-uploads") {
+    try {
+      const res = await fetch(`/api/transfer/list?box=phone-uploads&t=${Date.now()}`, {
+        cache: "no-store",
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const rows = data && Array.isArray(data.items) ? data.items : [];
+        return normalizeAssetItems(
+          rows.map((it) => ({
+            id: it.id || `phone-uploads/${it.name}`,
+            url: it.url,
+            title: it.title || it.name || "Phone",
+            subtitle: "Phone",
+            collection: "phone-uploads",
+            source: "phone-upload",
+            name: it.name,
+            description: (it.analysis && it.analysis.description) || "",
+            prompt: (it.analysis && it.analysis.prompt) || "",
+          })),
+          "phone-uploads"
+        );
+      }
+    } catch (err) {
+      console.warn("Phone uploads list failed:", err);
+    }
+  }
+
   if (collection === "generated") {
     await loadLod1Data();
     return normalizeAssetItems(

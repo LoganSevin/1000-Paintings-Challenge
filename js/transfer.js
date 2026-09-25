@@ -36,9 +36,9 @@
     /^192\.168\.|^10\.|^172\.(1[6-9]|2\d|3[0-1])\./.test(location.hostname);
   var PUBLIC_GENERATED_ORIGIN = IS_LOCAL ? "" : "https://l7in-generated.netlify.app";
   var PC_ONLY =
-    "Phone uploads work when the gallery is running on your PC";
+    "Could not reach phone uploads. Refresh logan7in.art and try again.";
   var PC_ONLY_TRAY =
-    "Phone tray works when the gallery is running on your PC";
+    "Phone tray zip/stage still needs the gallery running on your PC";
   var PC_ONLY_VIDEOS =
     "Saved videos work when the gallery is running on your PC";
   var PC_ONLY_GENERIC =
@@ -622,18 +622,44 @@
     });
   }
 
+  function prepareImageForUpload(file) {
+    var fallbackName = file.name || "photo-" + Date.now() + ".jpg";
+    return readFileAsDataUrl(file).then(function (dataUrl) {
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = function () {
+          var max = 1600;
+          var w = img.naturalWidth || img.width || 1;
+          var h = img.naturalHeight || img.height || 1;
+          var scale = Math.min(1, max / Math.max(w, h));
+          var canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(w * scale));
+          canvas.height = Math.max(1, Math.round(h * scale));
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          var out = canvas.toDataURL("image/jpeg", 0.84);
+          var stem = String(fallbackName).replace(/\.[^.]+$/, "") || "photo";
+          resolve({ name: stem + ".jpg", dataUrl: out });
+        };
+        img.onerror = function () {
+          resolve({ name: fallbackName, dataUrl: dataUrl });
+        };
+        img.src = dataUrl;
+      });
+    });
+  }
+
   /** Base64 JSON first — far more reliable on iOS Safari than multipart. */
   function uploadOneFile(file) {
-    var name = file.name || "photo-" + Date.now() + ".jpg";
-    return readFileAsDataUrl(file)
-      .then(function (dataUrl) {
+    return prepareImageForUpload(file)
+      .then(function (prepared) {
         return fetchJson(apiUrl("/api/transfer/upload"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             box: BOX_FROM_PHONE,
-            name: name,
-            image_base64: dataUrl,
+            name: prepared.name,
+            image_base64: prepared.dataUrl,
           }),
         }).then(function (pack) {
           var d = pack.data;
@@ -645,7 +671,7 @@
         if (err && err.pcOnly) throw err;
         // Fallback multipart (still PC-only on Netlify)
         var fd = new FormData();
-        fd.append("file", file, name);
+        fd.append("file", file, file.name || "photo.jpg");
         fd.append("box", BOX_FROM_PHONE);
         return fetchJson(apiUrl("/api/transfer/upload"), { method: "POST", body: fd }).then(
           function (pack) {
@@ -678,7 +704,7 @@
         setUploadStatus(
           "Uploaded " +
             ok +
-            " → phone-uploads/ + Generated mix · describing for prompt weights…",
+            " photo(s). They are in Phone uploads and ready for Gallery, Spellforge, and other tabs.",
           "ok"
         );
         return refreshUploadList();
@@ -687,7 +713,7 @@
         setUploadStatus(
           err && err.pcOnly
             ? PC_ONLY
-            : (err && err.message) || "Upload failed — use QR home Wi‑Fi IP, not VirtualBox",
+            : (err && err.message) || "Upload failed",
           "err"
         );
         return refreshUploadList();

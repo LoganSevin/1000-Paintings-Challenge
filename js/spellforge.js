@@ -1396,8 +1396,40 @@
         }
 
         if (items.length) ingestSpellAssets(items);
-        refreshArsenalStats();
-        return arsenalExtraNums.length;
+        return fetch("/api/transfer/list?box=phone-uploads&t=" + Date.now(), {
+          cache: "no-store",
+        })
+          .then(function (r) {
+            return r.ok ? r.json() : null;
+          })
+          .then(function (d) {
+            var phoneItems = (d && d.items) || [];
+            if (phoneItems.length) {
+              ingestSpellAssets(
+                phoneItems.map(function (it) {
+                  var id = String(it.id || it.name || it.url || "");
+                  var h = 0;
+                  for (var p = 0; p < id.length; p++) {
+                    h = ((h << 5) - h + id.charCodeAt(p)) | 0;
+                  }
+                  return {
+                    number: 900000 + (Math.abs(h) % 89999),
+                    url: it.url,
+                    source: "phone-upload",
+                    title: it.title || it.name || "Phone",
+                    analysis: it.analysis || null,
+                    name: it.name,
+                  };
+                })
+              );
+            }
+            refreshArsenalStats();
+            return arsenalExtraNums.length;
+          })
+          .catch(function () {
+            refreshArsenalStats();
+            return arsenalExtraNums.length;
+          });
       })
       .catch(function () {
         return arsenalExtraNums.length;

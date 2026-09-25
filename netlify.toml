@@ -54,6 +54,18 @@
   force = true
 
 [[redirects]]
+  from = "/api/transfer/*"
+  to = "/.netlify/functions/transfer"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/transfer"
+  to = "/.netlify/functions/transfer"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/gallery-checkin"
   to = "/.netlify/functions/gallery-checkin"
   status = 200
