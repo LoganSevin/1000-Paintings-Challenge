@@ -417,3 +417,60 @@ body.clr-tab-active #panel-colors {
     word-break: break-all;
   }
 }
+
+/* ---- counting-mode toggle (Original / Unique) ---- */
+
+#panel-colors .clr-mode {
+  display: inline-flex;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+#panel-colors .clr-mode-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.8rem;
+  border: 0;
+  background: rgba(34, 31, 28, 0.95);
+  color: #f0e6cc;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+#panel-colors .clr-mode-btn + .clr-mode-btn {
+  border-left: 1px solid rgba(201, 162, 39, 0.4);
+}
+
+#panel-colors .clr-mode-btn:hover:not(.is-on) {
+  background: rgba(60, 50, 26, 0.95);
+}
+
+#panel-colors .clr-mode-btn.is-on {
+  background: linear-gradient(180deg, #d4af37, #a8841c);
+  color: #1a1408;
+  font-weight: 700;
+}
+
+#panel-colors .clr-mode-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+
+#panel-colors .clr-mode-note {
+  flex: 1 1 18rem;
+  min-width: 0;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: rgba(200, 190, 160, 0.78);
+}
+
+@media (max-width: 640px) {
+  #panel-colors .clr-mode-note {
+    flex-basis: 100%;
+  }
+  #panel-colors .clr-mode-btn {
+    padding: 0.45rem 1rem;
+  }
+}
