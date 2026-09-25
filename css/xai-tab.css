@@ -128,6 +128,26 @@ body.xa-tab-active .site-header .subtitle {
   color: var(--text-muted);
 }
 
+#xa-needle {
+  transform-box: view-box;
+  transform-origin: 160px 150px;
+  transition: transform 0.85s ease;
+}
+
+#xa-keeper.is-keeping {
+  animation: xa-keep 0.65s ease;
+}
+
+@keyframes xa-keep {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  35% {
+    transform: translate(0, -5px);
+  }
+}
+
 .xa-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

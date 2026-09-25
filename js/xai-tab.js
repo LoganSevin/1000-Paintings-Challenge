@@ -54,6 +54,35 @@
     }
     fill(el);
     fill(cloud);
+    setNeedle(data);
+  }
+
+  function setNeedle(data) {
+    var needle = $("xa-needle");
+    var read = $("xa-gauge-read");
+    var keeper = $("xa-keeper");
+    var pct = 0;
+    var label = "idle";
+    if (data && data.ok) {
+      var spent = Number(data.week_spent_usd);
+      var limit = Number(data.week_limit_usd);
+      var credits = Number(data.credits_usd);
+      if (limit > 0 && !isNaN(spent)) {
+        pct = Math.max(0, Math.min(1, spent / limit));
+        label = Math.round(pct * 100) + "% week";
+      } else if (!isNaN(credits)) {
+        pct = Math.max(0, Math.min(1, credits / 100));
+        label = money(credits);
+      }
+    }
+    var deg = -90 + pct * 180;
+    if (needle) needle.style.transform = "rotate(" + deg + "deg)";
+    if (read) read.textContent = label;
+    if (keeper) {
+      keeper.classList.remove("is-keeping");
+      void keeper.getBoundingClientRect();
+      keeper.classList.add("is-keeping");
+    }
   }
 
   function setCloud(on) {

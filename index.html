@@ -74,7 +74,7 @@
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/assets-tab.css?v=1" />
-  <link rel="stylesheet" href="css/xai-tab.css?v=3" />
+  <link rel="stylesheet" href="css/xai-tab.css?v=4" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=10" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
@@ -1403,26 +1403,46 @@
       <div class="xa-studio" id="xa-studio">
       <div class="xa-layout">
       <figure class="xa-vendor" aria-label="Vendor meter">
-        <svg viewBox="0 0 280 300" role="img" aria-labelledby="xa-vendor-title">
-          <title id="xa-vendor-title">Vendor meter</title>
-          <g fill="none" stroke="#e8c547" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="128" cy="78" rx="52" ry="58"/>
-            <path d="M98 68c8-10 18-12 28-2"/>
-            <path d="M132 66c8-10 20-11 28 1"/>
-            <path d="M118 96c8 10 22 10 30-1"/>
-            <path d="M128 136v28"/>
-            <path d="M78 198c8-28 22-40 50-42 30 2 48 16 56 42"/>
-            <path d="M72 198h120"/>
-            <rect x="48" y="198" width="168" height="58" rx="4"/>
+        <svg viewBox="0 0 320 360" role="img" aria-labelledby="xa-vendor-title">
+          <title id="xa-vendor-title">Vendor meter kept by the maintainer auctioneer philanthropist</title>
+          <g fill="none" stroke="#e8c547" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 150 A90 90 0 0 1 250 150"/>
+            <path d="M70 150h180"/>
+            <circle cx="160" cy="150" r="7" fill="#e8c547" stroke="none"/>
           </g>
-          <text x="132" y="236" text-anchor="middle" fill="#e8c547" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic">Vendor</text>
-          <g fill="none" stroke="#6dbf6a" stroke-width="2.6" stroke-linecap="round">
-            <path d="M214 54c10 2 16 14 12 28-3 10-12 16-20 14-9-2-14-12-12-22 2-10 10-18 20-20z"/>
-            <path d="M218 52v-10"/>
-            <ellipse cx="218" cy="40" rx="6" ry="3" fill="#6dbf6a" stroke="none"/>
+          <g fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round">
+            <path d="M80 145 L74 132"/>
+            <path d="M110 78 L104 66"/>
+            <path d="M160 60 L160 46"/>
+            <path d="M210 78 L216 66"/>
+            <path d="M240 145 L246 132"/>
           </g>
+          <g id="xa-needle">
+            <line x1="160" y1="150" x2="160" y2="72" stroke="#e8c547" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="160" cy="150" r="5" fill="#1a160c" stroke="#e8c547" stroke-width="2"/>
+          </g>
+          <text id="xa-gauge-read" x="160" y="178" text-anchor="middle" fill="#e8c547" font-size="13" font-family="Georgia, serif">idle</text>
+          <g id="xa-keeper" fill="none" stroke="#e8c547" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="78" cy="214" rx="22" ry="24"/>
+            <path d="M66 208c4-5 9-6 14-1"/>
+            <path d="M80 207c4-5 10-5 14 1"/>
+            <path d="M74 222c5 5 12 5 16 0"/>
+            <path d="M78 238v18"/>
+            <path d="M62 268c4-12 10-16 16-16 8 1 14 6 18 16"/>
+            <path d="M96 248c12-2 22 2 28 10"/>
+            <path d="M52 248l-16-10"/>
+            <path d="M32 230v22"/>
+            <path d="M24 230h16"/>
+          </g>
+          <g fill="none" stroke="#6dbf6a" stroke-width="2.4" stroke-linecap="round">
+            <path d="M268 88c8 2 12 12 9 22-2 8-10 12-16 11-7-1-11-9-9-17 2-8 8-15 16-16z"/>
+            <path d="M270 86v-8"/>
+            <ellipse cx="270" cy="76" rx="5" ry="2.5" fill="#6dbf6a" stroke="none"/>
+          </g>
+          <rect x="48" y="292" width="224" height="44" rx="4" fill="none" stroke="#e8c547" stroke-width="3"/>
+          <text x="160" y="320" text-anchor="middle" fill="#e8c547" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-style="italic">Vendor</text>
         </svg>
-        <figcaption>Vendor meter — optional. Not a cap on the studio.</figcaption>
+        <figcaption>Maintainer · auctioneer · philanthropist keeps this meter. The needle is vendor telemetry. It does not cap the studio.</figcaption>
       </figure>
       <div class="xa-grid">
         <article class="xa-card">
@@ -8339,7 +8359,7 @@
   <script defer src="js/kids-art.js?v=7"></script>
   <script defer src="js/tabs.js?v=97"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
-  <script defer src="js/xai-tab.js?v=2"></script>
+  <script defer src="js/xai-tab.js?v=3"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>
