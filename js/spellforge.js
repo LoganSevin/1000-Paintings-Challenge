@@ -602,11 +602,10 @@
     return forceLocalOnly();
   }
 
-  /** Allow opt-in free fuse after credits errors (default off). */
+  /** When xAI won't spend, fuse on this device. Opt out with SPELLFORGE_LOCAL_FALLBACK_ON_CREDITS = false. */
   function allowLocalCreditsFallback() {
-    return (
-      window.SPELLFORGE_LOCAL_FALLBACK_ON_CREDITS === true && hasLocalCompose()
-    );
+    if (window.SPELLFORGE_LOCAL_FALLBACK_ON_CREDITS === false) return false;
+    return hasLocalCompose();
   }
 
   function canGenerateVision() {
@@ -715,11 +714,14 @@
     );
   }
 
-  function formatCreditsError() {
-    return (
-      "This xAI key can’t spend right now. Connect another xAI API key " +
-      "(console.x.ai → API keys) so Generate can keep going on that account."
-    );
+  function fuseLocallyBecauseXaiCapped(nums, statusEl) {
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.className = "spell-generate-status";
+      statusEl.textContent =
+        "xAI won’t run this generate — fusing your equipped spells on this device.";
+    }
+    return generateStasisVisionLocal(nums, statusEl);
   }
 
   function parseApiResponse(res) {
@@ -3627,9 +3629,7 @@
           "<code>start_server.bat</code> again, then hard-refresh (Ctrl+Shift+R).";
       } else if (isNetlifySite()) {
         banner.innerHTML =
-          "<strong>AI key not set.</strong> Generate still uses the cloud path and will error until you add " +
-          "<code>XAI_API_KEY</code> on Netlify (see <code>NETLIFY_API_KEY.md</code>). " +
-          "Free local fuse is opt-in only (<code>SPELLFORGE_LOCAL_GENERATE</code>).";
+          "Cloud generate is optional. If xAI will not run, Generate fuses your equipped spells on this device.";
       } else if (isRenderSite()) {
         banner.innerHTML =
           "<strong>AI key not set on Render.</strong> In the Render dashboard open this Web Service → " +
@@ -4753,7 +4753,7 @@
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
       statusEl.textContent =
-        "Local fuse at " + aspect + " with locked palette (no API credits)…";
+        "Fusing equipped spells on this device at " + aspect + "…";
     }
     var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
     updatePhysicalPromptPreview(); // respects physicalUserDirty
@@ -4985,32 +4985,8 @@
             ? msg
             : "Lost connection to your PC (Tailscale or server). Reconnect Tailscale, confirm start_server.bat is running, hard-refresh, try again.";
         }
-        if (isCreditsError(msg) && !retriedVisitorKey) {
-          var ask =
-            window.AccountGate && window.AccountGate.promptKeyAsync
-              ? window.AccountGate.promptKeyAsync()
-              : Promise.resolve(false);
-          if (statusEl) {
-            statusEl.hidden = false;
-            statusEl.className = "spell-generate-status";
-            statusEl.textContent = "This xAI key can’t spend. Paste another API key to keep generating…";
-          }
-          return ask.then(function (ok) {
-            if (!ok) throw new Error(formatCreditsError());
-            return generateStasisVisionCloud(nums, statusEl, btn, true);
-          });
-        }
-        if (isCreditsError(msg) && !allowLocalCreditsFallback()) {
-          msg = formatCreditsError();
-        }
-        if (isCreditsError(msg) && allowLocalCreditsFallback() && !skipLocalFuse) {
-          if (statusEl) {
-            statusEl.hidden = false;
-            statusEl.className = "spell-generate-status";
-            statusEl.textContent =
-              "No API credits — fusing paintings locally (opt-in fallback)…";
-          }
-          return generateStasisVisionLocal(nums, statusEl);
+        if (isCreditsError(msg) && !skipLocalFuse && allowLocalCreditsFallback()) {
+          return fuseLocallyBecauseXaiCapped(nums, statusEl);
         }
         throw new Error(msg);
       });
@@ -5104,22 +5080,14 @@
           isCreditsError(err && err.message) &&
           allowLocalCreditsFallback()
         ) {
-          if (statusEl) {
-            statusEl.hidden = false;
-            statusEl.className = "spell-generate-status";
-            statusEl.textContent =
-              "No API credits — fusing paintings locally (opt-in fallback)…";
-          }
-          return generateStasisVisionLocal(nums, statusEl);
+          return fuseLocallyBecauseXaiCapped(nums, statusEl);
         }
         failed = err;
         updateStasisVisionView(stasisVisionUrl);
         if (statusEl) {
           statusEl.hidden = false;
           statusEl.className = "spell-generate-status error";
-          var msg = err && err.message ? err.message : String(err);
-          if (isCreditsError(msg)) msg = formatCreditsError(msg);
-          statusEl.textContent = msg;
+          statusEl.textContent = err && err.message ? err.message : String(err);
         }
       })
       .finally(function () {
