@@ -79,6 +79,7 @@
   <link rel="stylesheet" href="css/grok-tab.css?v=1" />
   <link rel="stylesheet" href="css/tokens-tab.css?v=1" />
   <link rel="stylesheet" href="css/vendor-tab.css?v=4" />
+  <link rel="stylesheet" href="css/key-tab.css?v=1" />
   <link rel="stylesheet" href="css/telemetry-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=11" />
@@ -231,6 +232,7 @@
         <button type="button" class="tab" data-tab="api">API</button>
         <button type="button" class="tab" data-tab="xai">xAI</button>
         <button type="button" class="tab" data-tab="vendor">Vendor</button>
+        <button type="button" class="tab" data-tab="key">Key</button>
         <button type="button" class="tab" data-tab="grok">Grok</button>
         <button type="button" class="tab" data-tab="tokens">Tokens</button>
         <button type="button" class="tab" data-tab="chains">Spell chains</button>
@@ -1587,6 +1589,23 @@
         <a class="vd-btn" href="#grok">Grok</a>
         <a class="vd-btn" href="#telemetry">Telemetry</a>
       </div>
+    </div>
+  </section>
+
+  <section id="panel-key" class="panel" hidden>
+    <div class="ky-shell">
+      <h2>Key</h2>
+      <p class="ky-lede">See keys, add keys, add value. Required spend is always <strong>less than</strong> Spend value, never equal. A key can go only when <strong>balance &gt; required</strong>.</p>
+      <div class="ky-add">
+        <h3>Add a key</h3>
+        <div class="ky-row">
+          <input id="ky-name" type="text" placeholder="Name (optional)" autocomplete="off" />
+          <input id="ky-secret" type="password" placeholder="xAI API key" autocomplete="off" />
+          <input id="ky-spend" class="ky-num" type="number" min="0.0001" step="0.01" value="0.08" title="Spend value" />
+          <button type="button" class="ky-btn accent" id="ky-add-btn">Add key</button>
+        </div>
+      </div>
+      <div id="ky-list"></div>
     </div>
   </section>
 
@@ -8513,11 +8532,12 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=102"></script>
+  <script defer src="js/tabs.js?v=103"></script>
   <script defer src="js/studio-tab.js?v=1"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>
+  <script defer src="js/key-tab.js?v=1"></script>
   <script defer src="js/assets-tab.js?v=1"></script>
   <script defer src="js/xai-tab.js?v=4"></script>
   <script defer src="js/telemetry-tab.js?v=1"></script>

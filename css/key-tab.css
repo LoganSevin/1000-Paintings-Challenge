@@ -1,0 +1,138 @@
+#panel-key.panel[hidden] {
+  display: none !important;
+}
+
+#panel-key.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 8rem);
+  max-height: calc(100dvh - 8rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.ky-tab-active #panel-key.panel.active {
+  min-height: calc(100dvh - 5.5rem);
+  max-height: calc(100dvh - 5.5rem);
+}
+
+body.ky-tab-active .site-footer,
+body.ky-tab-active .site-header .subtitle {
+  display: none;
+}
+
+.ky-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75rem 1rem 1.5rem;
+  background: var(--bg);
+}
+
+.ky-shell h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+}
+
+.ky-lede {
+  margin: 0 0 1rem;
+  color: #e8c547;
+  max-width: 42rem;
+  line-height: 1.45;
+  font-size: 0.88rem;
+}
+
+.ky-add,
+.ky-card {
+  max-width: 40rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  margin: 0 0 0.7rem;
+  background: var(--bg-elevated);
+}
+
+.ky-add h3,
+.ky-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  color: #e8c547;
+}
+
+.ky-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.4rem;
+}
+
+.ky-row input {
+  flex: 1 1 10rem;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #0c0d10;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.ky-row input.ky-num {
+  flex: 0 0 6.5rem;
+}
+
+.ky-btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.ky-btn.accent {
+  border-color: #c9a227;
+  color: #e8c547;
+}
+
+.ky-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  margin: 0.35rem 0;
+}
+
+.ky-meta span {
+  color: var(--text-muted);
+}
+
+.ky-meta strong {
+  display: block;
+  color: #e8c547;
+  font-variant-numeric: tabular-nums;
+}
+
+.ky-status {
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+.ky-status.ok {
+  color: #8ec9a0;
+}
+
+.ky-status.need {
+  color: #e8a04a;
+}
+
+.ky-mask {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  word-break: break-all;
+}
