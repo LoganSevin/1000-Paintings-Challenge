@@ -792,10 +792,26 @@
       .trim();
   }
 
+  function userMeaningRows() {
+    try {
+      var raw = JSON.parse(localStorage.getItem("logan7in-api-define-suggestions-v1") || "[]");
+      return Array.isArray(raw) ? raw.filter(function (row) { return row && row.meaning; }) : [];
+    } catch (err) {
+      return [];
+    }
+  }
+
   function definePhrase(raw) {
     var q = normPhrase(raw);
     if (!q || q.length < 2) return null;
     var i;
+    var users = userMeaningRows();
+    for (i = 0; i < users.length; i++) {
+      var up = normPhrase(users[i].phrase);
+      if (up === q || q.indexOf(up) >= 0 || up.indexOf(q) >= 0) {
+        return { term: users[i].phrase, text: String(users[i].meaning), exact: up === q, user: true };
+      }
+    }
     var best = null;
     var bestScore = 0;
     for (i = 0; i < DEFINE.length; i++) {
@@ -884,6 +900,15 @@
     menu.innerHTML =
       '<button type="button" data-api-define>Define</button>' +
       '<button type="button" data-api-suggest>Suggest for fix</button>';
+    var term = document.createElement("div");
+    term.id = "api-suggest-term";
+    term.className = "api-suggest-term";
+    term.hidden = true;
+    term.innerHTML =
+      '<div class="api-term-bar">suggest › <span class="api-term-mention"></span></div>' +
+      '<div class="api-term-row"><span class="api-term-gt">&gt;</span>' +
+      '<textarea class="api-term-input" rows="4" placeholder="Type the meaning this page should use from now on…"></textarea></div>' +
+      '<p class="api-term-hint">Enter applies. Esc cancels. Your words become the definition and a reflection on How it works.</p>';
     var card = document.createElement("div");
     card.id = "api-define-card";
     card.className = "api-define-card";
@@ -899,6 +924,7 @@
       '<p class="api-define-hint">Highlight any of this and right-click Define to go deeper.</p>';
     document.body.appendChild(card);
     document.body.appendChild(menu);
+    document.body.appendChild(term);
     var pending = "";
     var stack = [];
     var current = null;
@@ -929,7 +955,14 @@
       list.innerHTML = "";
       rows.forEach(function (row) {
         var li = document.createElement("li");
-        li.textContent = row.phrase + (row.from ? " (from “" + row.from + "”)" : "");
+        var strong = document.createElement("strong");
+        strong.textContent = row.phrase;
+        li.appendChild(strong);
+        if (row.meaning) {
+          li.appendChild(document.createTextNode(" — " + row.meaning));
+        } else if (row.from) {
+          li.appendChild(document.createTextNode(" (from “" + row.from + "”)"));
+        }
         list.appendChild(li);
       });
       if (empty) empty.hidden = rows.length > 0;
@@ -954,13 +987,75 @@
       menu.hidden = true;
     }
 
+    function hideTerm() {
+      term.hidden = true;
+    }
+
     function hideAll() {
       hideMenu();
+      hideTerm();
       card.hidden = true;
       stack = [];
       current = null;
       clearDefineMark(root);
       clearDefineMark(card);
+    }
+
+    function openTerm(phrase) {
+      hideMenu();
+      term.querySelector(".api-term-mention").textContent = phrase;
+      var input = term.querySelector(".api-term-input");
+      input.value = "";
+      ignoreClickUntil = Date.now() + 800;
+      var rect = menu.getBoundingClientRect();
+      var x = rect.left || 24;
+      var y = (rect.bottom || 24) + 8;
+      placePopover(term, x, y);
+      term.style.zIndex = "10150";
+      setTimeout(function () {
+        input.focus();
+      }, 30);
+    }
+
+    function applySuggestion(phrase, meaning) {
+      meaning = String(meaning || "").replace(/\s+/g, " ").trim();
+      if (!meaning) return;
+      var rows = loadSuggestions();
+      var n = normPhrase(phrase);
+      var found = false;
+      rows.forEach(function (row) {
+        if (normPhrase(row.phrase) === n) {
+          row.meaning = meaning;
+          row.at = new Date().toISOString();
+          found = true;
+        }
+      });
+      if (!found) {
+        rows.unshift({
+          phrase: phrase,
+          meaning: meaning,
+          from: current && current.term ? current.term : "",
+          at: new Date().toISOString(),
+        });
+      }
+      saveSuggestions(rows);
+      DEFINE.unshift([n, meaning]);
+      root.querySelectorAll(".api-reflection").forEach(function (el) {
+        if (normPhrase(el.getAttribute("data-phrase")) === n) el.remove();
+      });
+      var mark = root.querySelector("mark.api-define-mark") || card.querySelector("mark.api-define-mark");
+      if (mark) {
+        var note = document.createElement("span");
+        note.className = "api-reflection";
+        note.setAttribute("data-phrase", n);
+        note.textContent = " [" + meaning + "]";
+        mark.after(note);
+      }
+      var hit = { term: phrase, text: meaning, exact: true, user: true };
+      if (current) stack.push(current);
+      var anchor = term.getBoundingClientRect();
+      hideTerm();
+      paintCard(hit, anchor.left, Math.max(8, anchor.top - 8));
     }
 
     function paintCard(hit, x, y) {
@@ -1026,22 +1121,7 @@
         return;
       }
       if (e.target && e.target.closest("[data-api-suggest]")) {
-        var rows = loadSuggestions();
-        var phrase = normPhrase(pending);
-        if (
-          phrase &&
-          !rows.some(function (row) {
-            return normPhrase(row.phrase) === phrase;
-          })
-        ) {
-          rows.unshift({
-            phrase: pending,
-            from: current && current.term ? current.term : "",
-            at: new Date().toISOString(),
-          });
-          saveSuggestions(rows);
-        }
-        hideMenu();
+        openTerm(pending);
       }
     });
 
@@ -1054,14 +1134,30 @@
       paintCard(prev, rect.left, rect.top);
     });
 
+    term.querySelector(".api-term-input").addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        hideTerm();
+        return;
+      }
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        applySuggestion(pending, e.target.value);
+      }
+    });
+
     document.addEventListener("click", function (e) {
       if (Date.now() < ignoreClickUntil) return;
-      if (menu.contains(e.target) || card.contains(e.target)) return;
+      if (menu.contains(e.target) || card.contains(e.target) || term.contains(e.target)) return;
       if (String(window.getSelection() || "").trim()) return;
       hideAll();
     });
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape") return;
+      if (!term.hidden) {
+        hideTerm();
+        return;
+      }
       if (!menu.hidden) {
         hideMenu();
         return;
