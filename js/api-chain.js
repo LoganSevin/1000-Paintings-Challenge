@@ -767,7 +767,7 @@
     ["fuse locally", "Same as on-device fuse: merge equipped spells in the browser when cloud Generate cannot spend."],
     ["ticket", "A fee or key you would need before using the site. Logan7in unlimited means there is no ticket."],
     ["vendor", "An outside company you can optionally call. xAI is a vendor. The gallery is not their product."],
-    ["invoice", "A bill from the vendor for metered cloud use. An invoice to a key is not a lock on the studio."],
+    ["invoice", "A bill stuffed into the vendor meter. xAI invoices a key for metered cloud use. That bill is not a lock on the studio."],
     ["telemetry", "A readout of what the vendor thinks. The credits HUD is telemetry. It does not grant or deny access."],
     ["equipped spells", "The paintings sitting in Spellforge slots I–III. Local fuse composes those images on this device."],
     ["caption", "Words about a picture: title, what’s visible, a prompt. Describe writes a caption. The photo can exist without one."],
@@ -783,6 +783,51 @@
     ["free path", "Everything that does not send a key to xAI: browse, Kids, chains, uploads, on-device fuse."],
     ["account", "Whose xAI billing the key belongs to. Site key = Logan’s team. Visitor key = whoever pasted it."],
   ];
+
+  var CONCEPT_ART = {
+    invoice: "assets/api-logic/invoice.jpg",
+    bill: "assets/api-logic/invoice.jpg",
+    "vendor meter": "assets/api-logic/vendor-meter.jpg",
+    meters: "assets/api-logic/vendor-meter.jpg",
+    metered: "assets/api-logic/vendor-meter.jpg",
+    "api key": "assets/api-logic/api-key.jpg",
+    xai_api_key: "assets/api-logic/api-key.jpg",
+    "secret string": "assets/api-logic/api-key.jpg",
+    "on-device fuse": "assets/api-logic/on-device-fuse.jpg",
+    "fuse locally": "assets/api-logic/on-device-fuse.jpg",
+    "local canvas merge": "assets/api-logic/on-device-fuse.jpg",
+    "logan7in unlimited": "assets/api-logic/unlimited.jpg",
+    abundant: "assets/api-logic/unlimited.jpg",
+    "spell chains": "assets/api-logic/spell-chains.jpg",
+    pipeline: "assets/api-logic/spell-chains.jpg",
+    "cloud model calls": "assets/api-logic/cloud-calls.jpg",
+    cloud: "assets/api-logic/cloud-calls.jpg",
+    "image gens": "assets/api-logic/cloud-calls.jpg",
+    wallets: "assets/api-logic/wallets.jpg",
+    door: "assets/api-logic/wallets.jpg",
+    "team wallet": "assets/api-logic/wallets.jpg",
+  };
+
+  var VISUAL_TILES = [
+    { term: "invoice", label: "Invoice" },
+    { term: "vendor meter", label: "Vendor meter" },
+    { term: "api key", label: "API key" },
+    { term: "on-device fuse", label: "On-device fuse" },
+    { term: "logan7in unlimited", label: "Unlimited" },
+    { term: "spell chains", label: "Spell chains" },
+    { term: "cloud model calls", label: "Cloud calls" },
+    { term: "wallets", label: "Wallets" },
+  ];
+
+  function artFor(term) {
+    var q = normPhrase(term);
+    if (CONCEPT_ART[q]) return CONCEPT_ART[q];
+    var keys = Object.keys(CONCEPT_ART);
+    for (var i = 0; i < keys.length; i++) {
+      if (q.indexOf(keys[i]) >= 0 || keys[i].indexOf(q) >= 0) return CONCEPT_ART[keys[i]];
+    }
+    return "";
+  }
 
   function normPhrase(s) {
     return String(s || "")
@@ -809,7 +854,13 @@
     for (i = 0; i < users.length; i++) {
       var up = normPhrase(users[i].phrase);
       if (up === q || q.indexOf(up) >= 0 || up.indexOf(q) >= 0) {
-        return { term: users[i].phrase, text: String(users[i].meaning), exact: up === q, user: true };
+        return {
+          term: users[i].phrase,
+          text: String(users[i].meaning),
+          exact: up === q,
+          user: true,
+          image: artFor(users[i].phrase),
+        };
       }
     }
     var best = null;
@@ -817,12 +868,12 @@
     for (i = 0; i < DEFINE.length; i++) {
       var key = DEFINE[i][0];
       var def = DEFINE[i][1];
-      if (q === key) return { term: key, text: def, exact: true };
+      if (q === key) return { term: key, text: def, exact: true, image: artFor(key) };
       if (q.indexOf(key) >= 0 || key.indexOf(q) >= 0) {
         var score = Math.min(q.length, key.length) / Math.max(q.length, key.length) + (q.indexOf(key) >= 0 ? 0.35 : 0);
         if (score > bestScore) {
           bestScore = score;
-          best = { term: key, text: def, exact: false };
+          best = { term: key, text: def, exact: false, image: artFor(key) };
         }
       }
     }
@@ -836,7 +887,12 @@
         if (DEFINE[i][0].indexOf(w) >= 0) hits++;
       });
       if (hits && hits / Math.max(words.length, 1) >= 0.5) {
-        return { term: DEFINE[i][0], text: DEFINE[i][1], exact: false };
+        return {
+          term: DEFINE[i][0],
+          text: DEFINE[i][1],
+          exact: false,
+          image: artFor(DEFINE[i][0]),
+        };
       }
     }
     return {
@@ -844,6 +900,7 @@
       text:
         "That selection is not a headword yet. It is ordinary wording. Highlight a shorter name inside this card — like “API key”, “vendor”, “invoice”, or “on-device fuse” — and Define again to go deeper.",
       exact: false,
+      image: artFor(q),
     };
   }
 
@@ -920,6 +977,7 @@
       '<span class="api-define-crumb"></span>' +
       "</div>" +
       "<h4></h4>" +
+      '<img class="api-define-visual" alt="" hidden />' +
       '<p class="api-define-body"></p>' +
       '<p class="api-define-hint">Highlight any of this and right-click Define to go deeper.</p>';
     document.body.appendChild(card);
@@ -982,6 +1040,30 @@
         URL.revokeObjectURL(a.href);
       });
     }
+
+    (function renderVisuals() {
+      var host = $("api-visuals");
+      if (!host) return;
+      host.innerHTML = "";
+      VISUAL_TILES.forEach(function (tile) {
+        var src = artFor(tile.term);
+        if (!src) return;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "api-visual-tile";
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = tile.label;
+        var cap = document.createElement("span");
+        cap.textContent = tile.label;
+        btn.appendChild(img);
+        btn.appendChild(cap);
+        btn.addEventListener("click", function () {
+          showDef(tile.term, window.innerWidth / 2 - 120, 120, false);
+        });
+        host.appendChild(btn);
+      });
+    })();
 
     function hideMenu() {
       menu.hidden = true;
@@ -1061,6 +1143,17 @@
     function paintCard(hit, x, y) {
       current = hit;
       card.querySelector("h4").textContent = hit.term;
+      var fig = card.querySelector(".api-define-visual");
+      if (fig) {
+        if (hit.image) {
+          fig.hidden = false;
+          fig.src = hit.image;
+          fig.alt = hit.term;
+        } else {
+          fig.hidden = true;
+          fig.removeAttribute("src");
+        }
+      }
       var body = card.querySelector(".api-define-body");
       clearDefineMark(body);
       body.textContent = hit.text;
