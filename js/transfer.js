@@ -625,67 +625,104 @@
     });
   }
 
+  function heicHint() {
+    return "This phone photo format can’t be read (often HEIC). Take a screenshot or pick a JPEG.";
+  }
+
+  function loadImageElement(src) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        resolve(img);
+      };
+      img.onerror = function () {
+        reject(new Error(heicHint()));
+      };
+      img.src = src;
+    });
+  }
+
+  function sourceFromFile(file) {
+    if (typeof createImageBitmap === "function") {
+      return createImageBitmap(file).catch(function () {
+        return readFileAsDataUrl(file).then(loadImageElement);
+      });
+    }
+    return readFileAsDataUrl(file).then(loadImageElement);
+  }
+
+  function canvasToJpegBlob(canvas, quality) {
+    return new Promise(function (resolve, reject) {
+      canvas.toBlob(
+        function (blob) {
+          if (blob) resolve(blob);
+          else reject(new Error("Could not compress this photo"));
+        },
+        "image/jpeg",
+        quality
+      );
+    });
+  }
+
   function prepareImageForUpload(file) {
     var fallbackName = file.name || "photo-" + Date.now() + ".jpg";
-    return readFileAsDataUrl(file).then(function (dataUrl) {
-      return new Promise(function (resolve, reject) {
-        var img = new Image();
-        img.onload = function () {
-          var max = 1280;
-          var w = img.naturalWidth || img.width || 1;
-          var h = img.naturalHeight || img.height || 1;
-          var scale = Math.min(1, max / Math.max(w, h));
-          var canvas = document.createElement("canvas");
-          canvas.width = Math.max(1, Math.round(w * scale));
-          canvas.height = Math.max(1, Math.round(h * scale));
-          var ctx = canvas.getContext("2d");
-          if (!ctx) {
-            reject(new Error("Could not prepare this photo"));
-            return;
-          }
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          var q = 0.78;
-          var out = canvas.toDataURL("image/jpeg", q);
-          while (out.length > 1800000 && q > 0.42) {
-            q -= 0.12;
-            out = canvas.toDataURL("image/jpeg", q);
-          }
-          if (out.length > 2200000) {
-            canvas.width = Math.max(1, Math.round(canvas.width * 0.65));
-            canvas.height = Math.max(1, Math.round(canvas.height * 0.65));
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            out = canvas.toDataURL("image/jpeg", 0.62);
-          }
-          if (out.length > 2500000) {
-            reject(new Error("This photo is still too large after shrinking. Try another shot."));
-            return;
-          }
-          var stem = String(fallbackName).replace(/\.[^.]+$/, "") || "photo";
-          resolve({ name: stem + ".jpg", dataUrl: out });
-        };
-        img.onerror = function () {
-          reject(
-            new Error(
-              "This phone photo format can’t be read (often HEIC). Take a screenshot or pick a JPEG."
-            )
-          );
-        };
-        img.src = dataUrl;
+    return sourceFromFile(file).then(function (source) {
+      var w = source.width || source.naturalWidth || 1;
+      var h = source.height || source.naturalHeight || 1;
+      var scale = Math.min(1, 1200 / Math.max(w, h));
+      var canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(w * scale));
+      canvas.height = Math.max(1, Math.round(h * scale));
+      var ctx = canvas.getContext("2d");
+      if (!ctx) throw new Error("Could not prepare this photo");
+      ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+      if (source.close) {
+        try {
+          source.close();
+        } catch (eClose) {}
+      }
+      var stem = String(fallbackName).replace(/\.[^.]+$/, "") || "photo";
+      return canvasToJpegBlob(canvas, 0.72).then(function (blob) {
+        if (blob.size <= 900000) return { name: stem + ".jpg", blob: blob };
+        return canvasToJpegBlob(canvas, 0.52).then(function (smaller) {
+          if (smaller.size <= 1100000) return { name: stem + ".jpg", blob: smaller };
+          var next = document.createElement("canvas");
+          next.width = Math.max(1, Math.round(canvas.width * 0.6));
+          next.height = Math.max(1, Math.round(canvas.height * 0.6));
+          next.getContext("2d").drawImage(canvas, 0, 0, next.width, next.height);
+          return canvasToJpegBlob(next, 0.48).then(function (tiny) {
+            if (tiny.size > 1400000) {
+              throw new Error("This photo is still too large. Try a screenshot.");
+            }
+            return { name: stem + ".jpg", blob: tiny };
+          });
+        });
       });
     });
   }
 
-  /** JSON data-URL upload — works on logan7in.art and on the PC server. */
+  function uploadEndpoint() {
+    if (IS_LOCAL) return apiUrl("/api/transfer/upload");
+    return "/.netlify/functions/transfer-upload";
+  }
+
+  function friendlyUploadError(err) {
+    var msg = String((err && err.message) || err || "");
+    if (/load failed|failed to fetch|networkerror|abort/i.test(msg)) {
+      return "Upload could not reach the server. Try a screenshot or a smaller JPEG.";
+    }
+    return msg || "Upload failed";
+  }
+
   function uploadOneFile(file) {
     return prepareImageForUpload(file).then(function (prepared) {
-      return fetchJson(apiUrl("/api/transfer/upload"), {
+      return fetchJson(uploadEndpoint(), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          box: BOX_FROM_PHONE,
-          name: prepared.name,
-          image_base64: prepared.dataUrl,
-        }),
+        headers: {
+          "Content-Type": prepared.blob.type || "image/jpeg",
+          "X-File-Name": encodeURIComponent(prepared.name),
+        },
+        body: prepared.blob,
       }).then(function (pack) {
         var d = pack.data;
         if (!d || d.ok === false) throw new Error((d && d.error) || "Upload failed");
@@ -720,9 +757,7 @@
       })
       .catch(function (err) {
         setUploadStatus(
-          err && err.pcOnly
-            ? PC_ONLY
-            : (err && err.message) || "Upload failed",
+          err && err.pcOnly ? PC_ONLY : friendlyUploadError(err),
           "err"
         );
         return refreshUploadList();

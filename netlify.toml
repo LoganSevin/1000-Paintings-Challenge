@@ -23,6 +23,9 @@
 [functions."redefine-stasis"]
   timeout = 60
 
+[functions."transfer-upload"]
+  timeout = 26
+
 [[redirects]]
   from = "/api/health"
   to = "/.netlify/functions/health"
@@ -50,6 +53,12 @@
 [[redirects]]
   from = "/api/proxy-media"
   to = "/.netlify/functions/proxy-media"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/transfer/upload"
+  to = "/.netlify/functions/transfer-upload"
   status = 200
   force = true
 
