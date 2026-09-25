@@ -73,6 +73,7 @@
   <link rel="stylesheet" href="css/animate.css?v=14" />
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
+  <link rel="stylesheet" href="css/assets-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=10" />
   <link rel="stylesheet" href="css/spells.css?v=4" />
@@ -218,6 +219,7 @@
         <button type="button" class="tab" data-tab="characters">Characters</button>
         <button type="button" class="tab" data-tab="objects">Objects</button>
         <button type="button" class="tab" data-tab="places">Places</button>
+        <button type="button" class="tab" data-tab="assets">Assets</button>
         <button type="button" class="tab" data-tab="maps">Maps</button>
         <button type="button" class="tab" data-tab="api">API</button>
         <button type="button" class="tab" data-tab="spells">Spells</button>
@@ -1356,6 +1358,31 @@
         </div>
         <div id="ob-spell-strip" class="st-spell-strip"></div>
       </div>
+    </div>
+  </section>
+
+  <section id="panel-assets" class="panel" hidden>
+    <div class="as-shell">
+      <div class="as-top">
+        <h2>Assets</h2>
+        <p class="as-hint">One shelf for studio pictures: idea pictures, phone uploads, objects, maps, and paintings. Click to enlarge. Drag a thumb into other tabs that accept images.</p>
+        <div class="as-filters">
+          <button type="button" class="as-filter active" data-as-filter="ideas">Idea pictures</button>
+          <button type="button" class="as-filter" data-as-filter="phone">Phone</button>
+          <button type="button" class="as-filter" data-as-filter="objects">Objects</button>
+          <button type="button" class="as-filter" data-as-filter="maps">Maps</button>
+          <button type="button" class="as-filter" data-as-filter="paintings">Paintings</button>
+        </div>
+        <p class="as-status" id="as-status" aria-live="polite"></p>
+      </div>
+      <div class="as-grid-wrap">
+        <div id="as-grid" class="as-grid"></div>
+        <button type="button" id="as-more" class="as-more" hidden>Load more</button>
+      </div>
+    </div>
+    <div id="as-lightbox" class="as-lightbox" hidden>
+      <img id="as-lightbox-img" alt="" />
+      <p id="as-lightbox-cap"></p>
     </div>
   </section>
 
@@ -8221,7 +8248,8 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=94"></script>
+  <script defer src="js/tabs.js?v=95"></script>
+  <script defer src="js/assets-tab.js?v=1"></script>
   <script defer src="js/spells.js?v=5"></script>
   <script defer src="js/prompt-lab.js?v=1"></script>
   <script defer src="js/gab.js?v=13"></script>

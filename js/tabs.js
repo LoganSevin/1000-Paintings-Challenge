@@ -25,6 +25,7 @@
     characters: document.getElementById("panel-characters"),
     objects: document.getElementById("panel-objects"),
     places: document.getElementById("panel-rooms"),
+    assets: document.getElementById("panel-assets"),
     maps: document.getElementById("panel-maps"),
     api: document.getElementById("panel-api"),
     spells: document.getElementById("panel-spells"),
@@ -113,6 +114,7 @@
     characters: "Studio characters — Z-spin turntable, save & cast in Animate",
     objects: "Props & items — studio objects, save & @tag in Animate",
     places: "Places & environments — scenes for Animate",
+    assets: "Studio library — idea pictures, phone uploads, objects, maps, paintings",
     maps: "Maps — arenas, overworlds, dungeons & stages for Fight and worlds",
     api: "Chain spells into pipelines — generate callable chain APIs",
     spells: "Cast spells into images — " + ARTIST + "’s gallery DNA",
@@ -514,6 +516,7 @@
     document.body.classList.toggle("rm-tab-active", name === "places");
     document.body.classList.toggle("pulse-tab-active", name === "pulse");
     document.body.classList.toggle("api-tab-active", name === "api");
+    document.body.classList.toggle("as-tab-active", name === "assets");
     document.body.classList.toggle("sp-tab-active", name === "spells");
     document.body.classList.toggle("pr-tab-active", name === "prompt");
     document.body.classList.toggle("gb-tab-active", name === "gab");
@@ -619,6 +622,12 @@
       window.dispatchEvent(new Event("pulse-show"));
       if (window.Pulse && window.Pulse.onShow) {
         window.Pulse.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "assets") {
+      window.dispatchEvent(new Event("assets-show"));
+      if (window.AssetsTab && window.AssetsTab.onShow) {
+        window.AssetsTab.onShow();
       }
       hideOtherTabs(name);
     } else if (name === "api") {
