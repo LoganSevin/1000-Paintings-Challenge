@@ -133,6 +133,8 @@
     vPage: 0, // Red * 16 + blue page group (original) or red * 4 + group (unique)
     order: "BGR",
     mode: "original",
+    tones: [null, null, null], // 3-tone tray: { hex, orig, spell, order } (display color = hex)
+    detailIndex: null, // absoluteIndex currently shown in the detail panel
     selected: null, // absoluteIndex of the swatch shown in the detail panel
     started: false,
     slots: [],
@@ -143,7 +145,11 @@
     return document.getElementById(id);
   }
 
+  var prefsLoaded = false;
+
   function loadPrefs() {
+    if (prefsLoaded) return;
+    prefsLoaded = true;
     try {
       var p = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
       if (!p) return;
@@ -152,6 +158,10 @@
       if (Number.isInteger(p.h) && p.h >= 0 && p.h < TOTAL_H_PAGES) state.hPage = p.h;
       if (Number.isInteger(p.v) && p.v >= 0 && p.v < totalVPages(state.mode)) state.vPage = p.v;
       if (ORDERS.indexOf(p.order) >= 0) state.order = p.order;
+      // Older colorsPager.v1 entries have no tones → empty tray.
+      if (Array.isArray(p.tones)) {
+        for (var t = 0; t < TONE_SLOTS; t++) state.tones[t] = cleanTone(p.tones[t]);
+      }
     } catch (e) {}
   }
 
@@ -159,9 +169,111 @@
     try {
       localStorage.setItem(
         STORE_KEY,
-        JSON.stringify({ h: state.hPage, v: state.vPage, order: state.order, mode: state.mode })
+        JSON.stringify({
+          h: state.hPage,
+          v: state.vPage,
+          order: state.order,
+          mode: state.mode,
+          tones: state.tones,
+        })
       );
     } catch (e) {}
+  }
+
+  // ---- 3-tone tray -----------------------------------------------------------
+
+  var TONE_SLOTS = 3;
+  var HEX_RE = /^#[0-9A-F]{6}$/;
+
+  function cleanTone(t) {
+    if (!t || typeof t !== "object") return null;
+    var hex = String(t.hex || "").toUpperCase();
+    if (!HEX_RE.test(hex)) return null;
+    var orig = String(t.orig || "").toUpperCase();
+    var spell = parseInt(t.spell, 10);
+    return {
+      hex: hex,
+      orig: HEX_RE.test(orig) ? orig : hex,
+      spell: Number.isInteger(spell) && spell > 0 ? spell : null,
+      order: ORDERS.indexOf(t.order) >= 0 ? t.order : "BGR",
+    };
+  }
+
+  /** Tone for a swatch: the color as displayed (after the channel order). */
+  function toneFromIndex(absoluteIndex) {
+    var o = indexToOriginalRGB(absoluteIndex);
+    var d = permuteRGB(o, state.order);
+    return { hex: toHex(d), orig: toHex(o), spell: absoluteIndex + 1, order: state.order };
+  }
+
+  function emitTones() {
+    try {
+      window.dispatchEvent(
+        new CustomEvent("colors-tones-change", { detail: { tones: getTones() } })
+      );
+    } catch (e) {}
+  }
+
+  function getTones() {
+    loadPrefs();
+    return state.tones.map(function (t) {
+      return t ? { hex: t.hex, orig: t.orig, spell: t.spell, order: t.order } : null;
+    });
+  }
+
+  /** Add to the first empty slot. Returns { ok, slot, reason }. */
+  function addTone(tone) {
+    loadPrefs();
+    tone = cleanTone(tone);
+    if (!tone) return { ok: false, reason: "invalid" };
+    for (var k = 0; k < TONE_SLOTS; k++) {
+      if (state.tones[k] && state.tones[k].hex === tone.hex) {
+        return { ok: false, slot: k, reason: "duplicate" };
+      }
+    }
+    for (var i = 0; i < TONE_SLOTS; i++) {
+      if (!state.tones[i]) {
+        state.tones[i] = tone;
+        savePrefs();
+        emitTones();
+        return { ok: true, slot: i };
+      }
+    }
+    return { ok: false, reason: "full" };
+  }
+
+  function removeTone(slot) {
+    loadPrefs();
+    if (slot < 0 || slot >= TONE_SLOTS || !state.tones[slot]) return false;
+    state.tones[slot] = null;
+    savePrefs();
+    emitTones();
+    return true;
+  }
+
+  function clearTones() {
+    loadPrefs();
+    state.tones = [null, null, null];
+    savePrefs();
+    emitTones();
+  }
+
+  function addToneFromIndex(absoluteIndex) {
+    var res = addTone(toneFromIndex(absoluteIndex));
+    var hex = toneFromIndex(absoluteIndex).hex;
+    var msg =
+      res.ok
+        ? "Added " + hex + " as tone " + (res.slot + 1) + "."
+        : res.reason === "duplicate"
+          ? hex + " is already tone " + (res.slot + 1) + "."
+          : res.reason === "full"
+            ? "Tone tray is full — remove a tone first."
+            : "";
+    if (el.toneMsg) {
+      el.toneMsg.textContent = msg;
+      el.toneMsg.classList.toggle("clr-err", !res.ok);
+    }
+    return res;
   }
 
   // ---- render ---------------------------------------------------------------
@@ -255,6 +367,8 @@
   }
 
   function showDetailFor(absoluteIndex, scroll) {
+    if (state.detailIndex !== absoluteIndex && el.toneMsg) el.toneMsg.textContent = "";
+    state.detailIndex = absoluteIndex;
     var o = indexToOriginalRGB(absoluteIndex);
     var d = permuteRGB(o, state.order);
     var dHex = toHex(d);
@@ -458,6 +572,8 @@
     el.hintVMax = $("clr-hint-vmax");
     el.modeNote = $("clr-mode-note");
     el.modeBtns = Array.prototype.slice.call(document.querySelectorAll("#panel-colors .clr-mode-btn"));
+    el.addTone = $("clr-add-tone");
+    el.toneMsg = $("clr-tone-msg");
   }
 
   function onEnter(fn) {
@@ -488,8 +604,16 @@
     el.grid.addEventListener("click", function (e) {
       var node = e.target && e.target.closest ? e.target.closest(".clr-slot") : null;
       if (!node) return;
-      selectSlot(parseInt(node.getAttribute("data-i"), 10));
+      var i = parseInt(node.getAttribute("data-i"), 10);
+      selectSlot(i);
+      // Shift-click also drops the swatch into the 3-tone tray.
+      if (e.shiftKey) addToneFromIndex(slotAt(state.hPage, state.vPage, i, state.order, state.mode).absoluteIndex);
     });
+    if (el.addTone) {
+      el.addTone.addEventListener("click", function () {
+        if (state.detailIndex != null) addToneFromIndex(state.detailIndex);
+      });
+    }
     el.copyDisp.addEventListener("click", onCopy);
     el.copyOrig.addEventListener("click", onCopy);
     el.modeBtns.forEach(function (btn) {
@@ -523,6 +647,7 @@
     loadPrefs();
     buildGrid();
     renderPage();
+    emitTones();
   }
 
   function init() {
@@ -552,9 +677,18 @@
         order: state.order,
         mode: state.mode,
         selected: state.selected,
+        tones: getTones(),
       };
     },
     setMode: setMode,
+    isStarted: function () {
+      return state.started;
+    },
+    getTones: getTones,
+    addTone: addTone,
+    addToneFromIndex: addToneFromIndex,
+    removeTone: removeTone,
+    clearTones: clearTones,
   };
   window.ColorsMath = {
     indexToOriginalRGB: indexToOriginalRGB,
