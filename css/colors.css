@@ -1,0 +1,419 @@
+/* Colors — RGB color proof pager (all 16,777,216 colors, 8×8 per page).
+   Everything is scoped to #panel-colors / .clr-* so nothing leaks into other tabs. */
+
+#panel-colors.panel[hidden] {
+  display: none !important;
+}
+
+#panel-colors.panel.active {
+  display: block;
+  min-height: calc(100vh - 100px);
+}
+
+body.clr-tab-active #panel-colors {
+  background: #0a0c10;
+}
+
+#panel-colors .clr-shell {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem 2.2rem;
+  color: var(--text, #f5f0e8);
+  font-family: var(--font-ui, "DM Sans", system-ui, sans-serif);
+}
+
+#panel-colors .clr-top h2 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display, Georgia, "Times New Roman", serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--accent, #c9a227);
+}
+
+#panel-colors .clr-hint {
+  margin: 0 0 0.75rem;
+  max-width: 52rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(200, 190, 160, 0.78);
+}
+
+#panel-colors .clr-hint strong {
+  color: #e8d5a3;
+  font-weight: 600;
+}
+
+/* ---- controls ---- */
+
+#panel-colors .clr-controls {
+  border-radius: 12px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, 0.1), transparent 60%),
+    linear-gradient(180deg, #16140f 0%, #0e0c0a 100%);
+  padding: 0.65rem 0.75rem 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+#panel-colors .clr-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+  margin-bottom: 0.5rem;
+}
+
+#panel-colors .clr-field,
+#panel-colors .clr-field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: rgba(232, 213, 163, 0.85);
+}
+
+#panel-colors .clr-of {
+  color: var(--text-muted, #9a9288);
+  font-variant-numeric: tabular-nums;
+}
+
+#panel-colors .clr-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  background: rgba(34, 31, 28, 0.95);
+  color: #f0e6cc;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#panel-colors .clr-btn:hover:not(:disabled) {
+  border-color: rgba(240, 215, 138, 0.8);
+  background: rgba(60, 50, 26, 0.95);
+}
+
+#panel-colors .clr-btn:focus-visible,
+#panel-colors .clr-num:focus-visible,
+#panel-colors .clr-select:focus-visible {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}
+
+#panel-colors .clr-btn.accent {
+  background: linear-gradient(180deg, #d4af37, #a8841c);
+  border-color: #e8c65a;
+  color: #1a1408;
+  font-weight: 700;
+}
+
+#panel-colors .clr-btn.accent:hover:not(:disabled) {
+  background: linear-gradient(180deg, #e2bf4a, #b8922a);
+}
+
+#panel-colors .clr-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#panel-colors .clr-btn-sm {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+}
+
+#panel-colors .clr-num,
+#panel-colors .clr-select {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 7px;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: #f5f0e8;
+  font-variant-numeric: tabular-nums;
+}
+
+#panel-colors .clr-num {
+  width: 4.4rem;
+}
+
+#panel-colors .clr-num-wide {
+  width: 5.2rem;
+}
+
+#panel-colors .clr-select {
+  max-width: 100%;
+}
+
+#panel-colors .clr-jump-msg {
+  font-size: 0.78rem;
+}
+
+#panel-colors .clr-jump-msg.clr-err {
+  color: #ffb0a8;
+}
+
+#panel-colors .clr-page-info {
+  margin: 0.1rem 0 0.15rem;
+  font-size: 0.78rem;
+  color: rgba(200, 190, 160, 0.78);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- grid + detail ---- */
+
+#panel-colors .clr-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (min-width: 1180px) {
+  #panel-colors .clr-body {
+    grid-template-columns: minmax(0, 988px) minmax(14rem, 17rem);
+    justify-content: center;
+  }
+  #panel-colors .clr-detail-wrap {
+    position: sticky;
+    top: 0.75rem;
+  }
+}
+
+#panel-colors .clr-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  max-width: 988px; /* 8 × 120px swatches + gaps, like the reference */
+  margin: 0 auto;
+}
+
+#panel-colors .clr-slot {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* 120 × 80 in the reference */
+  margin: 0;
+  padding: 0;
+  border: 1px solid #444;
+  border-radius: 6px;
+  overflow: hidden;
+  font: inherit;
+  font-size: clamp(0.56rem, 1.05vw, 0.75rem);
+  line-height: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#panel-colors .clr-slot:hover {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: -2px;
+}
+
+#panel-colors .clr-slot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+
+/* Selection ring is drawn inside the swatch (above the original-color strip)
+   so nothing paints into the grid gaps. */
+#panel-colors .clr-slot.clr-selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 2px solid #fff;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px var(--accent, #c9a227);
+  pointer-events: none;
+}
+
+#panel-colors .clr-slot.clr-flash::after {
+  animation: clr-flash 0.6s ease-in-out 3;
+}
+
+@keyframes clr-flash {
+  0%, 100% { box-shadow: inset 0 0 0 2px var(--accent, #c9a227); }
+  50% { box-shadow: inset 0 0 0 7px var(--accent, #c9a227); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #panel-colors .clr-slot.clr-flash::after {
+    animation: none;
+  }
+}
+
+/* Original-color strip across the top of each swatch */
+#panel-colors .clr-orig-tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  border-bottom: 1px solid #444;
+}
+
+#panel-colors .clr-slot-text {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 100%;
+  padding: 2px;
+  font-weight: bold;
+}
+
+#panel-colors .clr-slot-spell,
+#panel-colors .clr-slot-line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/* ---- detail panel ---- */
+
+#panel-colors .clr-detail-wrap {
+  border-radius: 12px;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: linear-gradient(180deg, #16140f 0%, #0e0c0a 100%);
+  padding: 0.75rem;
+}
+
+#panel-colors .clr-detail-empty {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted, #9a9288);
+}
+
+#panel-colors .clr-d-swatch {
+  position: relative;
+  height: 6.5rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0.4rem 0.5rem;
+}
+
+#panel-colors .clr-d-swatch .clr-orig-tab {
+  height: 16px;
+}
+
+#panel-colors .clr-d-swatch-hex {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+#panel-colors .clr-d-spell {
+  margin: 0.6rem 0 0.35rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #f0d78a;
+  font-variant-numeric: tabular-nums;
+}
+
+#panel-colors .clr-d-list {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+#panel-colors .clr-d-list dt {
+  margin-top: 0.45rem;
+  color: var(--text-muted, #9a9288);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#panel-colors .clr-d-list dd {
+  margin: 0.15rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#panel-colors .clr-d-list code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color: #e8d5a3;
+}
+
+#panel-colors .clr-d-order {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#panel-colors .clr-copy-status {
+  min-height: 1.1em;
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  color: #7dffb3;
+}
+
+/* ---- tablet ---- */
+@media (max-width: 900px) {
+  #panel-colors .clr-grid {
+    gap: 3px;
+  }
+  #panel-colors .clr-slot-text {
+    top: 11px;
+  }
+  #panel-colors .clr-orig-tab {
+    height: 8px;
+  }
+}
+
+/* ---- phone: keep 8 columns, shrink swatches, Spell number only ---- */
+@media (max-width: 640px) {
+  #panel-colors .clr-shell {
+    padding: 0.5rem 0.5rem 1.8rem;
+  }
+  #panel-colors .clr-controls {
+    padding: 0.55rem 0.55rem 0.35rem;
+  }
+  #panel-colors .clr-nav .clr-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.45rem 0.3rem;
+  }
+  #panel-colors .clr-field {
+    flex-wrap: wrap;
+  }
+  #panel-colors .clr-select {
+    width: 100%;
+  }
+  #panel-colors .clr-grid {
+    gap: 2px;
+  }
+  #panel-colors .clr-slot {
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    font-size: 0.5rem;
+    line-height: 1.1em;
+  }
+  #panel-colors .clr-orig-tab {
+    height: 6px;
+  }
+  #panel-colors .clr-slot-text {
+    top: 8px;
+    padding: 1px;
+  }
+  #panel-colors .clr-slot-word,
+  #panel-colors .clr-slot-line {
+    display: none;
+  }
+  #panel-colors .clr-slot-num {
+    display: block;
+    white-space: normal;
+    word-break: break-all;
+  }
+}
