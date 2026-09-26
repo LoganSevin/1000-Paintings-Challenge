@@ -100,6 +100,34 @@ export function getCfCreds() {
   return accountId && token ? { accountId, token } : null;
 }
 
+/**
+ * Pollinations (gen.pollinations.ai) — third fallback behind Cloudflare. Its current API needs a
+ * secret `sk_` key for server use (POLLINATIONS_API_KEY); without one this provider is off.
+ */
+export const POLLINATIONS_IMAGE_URL = "https://gen.pollinations.ai/image/";
+export const POLLINATIONS_DEFAULT_MODEL = "flux";
+export const POLLINATIONS_TIMEOUT_MS = 60000;
+/** Abort after this long (POLLINATIONS_TIMEOUT_MS env, 1–75 s); the job function allows 120 s total. */
+export function getPollinationsTimeoutMs() {
+  const n = parseInt(String(process.env.POLLINATIONS_TIMEOUT_MS || ""), 10);
+  return n >= 1000 && n <= 75000 ? n : POLLINATIONS_TIMEOUT_MS;
+}
+export function getPollinationsKey() {
+  return String(process.env.POLLINATIONS_API_KEY || "").trim();
+}
+export function getPollinationsModel() {
+  return String(process.env.POLLINATIONS_IMAGE_MODEL || "").trim() || POLLINATIONS_DEFAULT_MODEL;
+}
+
+/** Ordered image fallback chain after the primary provider, for /api/health. */
+export function getImageFallbackChain() {
+  const chain = [];
+  if (getCfCreds()) chain.push("cloudflare");
+  if (getPollinationsKey()) chain.push("pollinations");
+  if (getWomboKey()) chain.push("wombo");
+  return chain;
+}
+
 /** flux-1-schnell diffusion steps (Cloudflare max 8). CF_IMAGE_STEPS overrides. */
 export const CF_FLUX_STEPS_DEFAULT = 4;
 export function getCfFluxSteps() {
@@ -116,17 +144,20 @@ export function getImageProvider() {
   const hasXai = !!getXaiKey();
   const hasWombo = !!getWomboKey();
   const hasCf = !!getCfCreds();
+  const hasPoll = !!getPollinationsKey();
+  if (forced === "pollinations" && hasPoll) return "pollinations";
   if (forced === "cloudflare" && hasCf) return "cloudflare";
   if (forced === "wombo") return hasWombo ? "wombo" : hasXai ? "xai" : hasCf ? "cloudflare" : "wombo";
   if (forced === "xai") return hasXai ? "xai" : hasCf ? "cloudflare" : hasWombo ? "wombo" : "xai";
   if (!hasXai && hasCf) return "cloudflare";
   if (hasWombo && !hasXai) return "wombo";
+  if (!hasXai && hasPoll) return "pollinations";
   return "xai";
 }
 
 export function isImageApiConfigured() {
   const provider = getImageProvider();
-  if (provider === "cloudflare") return true;
+  if (provider === "cloudflare" || provider === "pollinations") return true;
   return provider === "wombo" ? !!getWomboKey() : !!getXaiKey();
 }
 
@@ -873,6 +904,83 @@ export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRat
   return String(image).startsWith("data:") ? image : `data:image/jpeg;base64,${image}`;
 }
 
+/**
+ * Text-to-image via Pollinations' documented GET /image/{prompt} with a Bearer `sk_` key.
+ * Same prompt as the Cloudflare path; the image is downloaded here and returned as a data: URL.
+ */
+export async function generatePollinationsStasisImage(stasis, buzzWords, aspectRatio, opts = {}) {
+  const key = getPollinationsKey();
+  if (!key) throw new Error("Pollinations is not configured (set POLLINATIONS_API_KEY).");
+  const aspect = normalizeAspect(aspectRatio);
+  const sized = aspectToSize(aspect, 1024);
+  const params = new URLSearchParams({
+    model: getPollinationsModel(),
+    width: String(Math.max(256, Math.round(sized.width / 16) * 16)),
+    height: String(Math.max(256, Math.round(sized.height / 16) * 16)),
+    seed: String(Math.floor(Math.random() * 2147483646) + 1),
+    safe: "sexual",
+  });
+  const prompt = buildCloudflarePrompt(stasis, buzzWords, aspect, opts);
+  const url = POLLINATIONS_IMAGE_URL + encodeURIComponent(prompt) + "?" + params.toString();
+  const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const timeoutMs = getPollinationsTimeoutMs();
+  const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs) : null;
+  let resp;
+  try {
+    resp = await fetch(url, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${key}` },
+      signal: ctrl ? ctrl.signal : undefined,
+    });
+    const type = String(resp.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+    if (resp.ok && type.startsWith("image/")) {
+      const buf = Buffer.from(await resp.arrayBuffer());
+      if (buf.length < 32) throw new Error("Pollinations returned an empty image.");
+      return `data:${type};base64,${buf.toString("base64")}`;
+    }
+    const data = await resp.json().catch(function () {
+      return {};
+    });
+    const msg =
+      (data && data.error && (data.error.message || (typeof data.error === "string" ? data.error : ""))) ||
+      (data && data.message) ||
+      `HTTP ${resp.status}`;
+    throw new Error(`Pollinations: ${msg}`);
+  } catch (e) {
+    if (e && e.name === "AbortError") {
+      throw new Error(`Pollinations: timed out after ${Math.round(timeoutMs / 1000)}s`);
+    }
+    throw e;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
+/** Cloudflare, then Pollinations: each free fallback tried in turn; throws with every reason. */
+async function generateFreeFallbackImage(stasis, buzzWords, aspectRatio, cfOpts) {
+  let cfErr = null;
+  if (getCfCreds()) {
+    try {
+      return await generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
+    } catch (e) {
+      cfErr = e;
+    }
+  }
+  if (getPollinationsKey()) {
+    try {
+      return await generatePollinationsStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
+    } catch (pErr) {
+      const why = `Pollinations fallback also failed: ${(pErr && pErr.message) || String(pErr)}`;
+      const err = new Error(
+        cfErr ? `Free Cloudflare fallback also failed: ${(cfErr && cfErr.message) || String(cfErr)}; ${why}` : why
+      );
+      err.fallbackReasons = true;
+      throw err;
+    }
+  }
+  throw cfErr;
+}
+
 /** xAI failures that should hand off to the free Cloudflare fallback. */
 export function shouldUseCloudflareFallback(err) {
   const m = String(err && err.message ? err.message : err || "").toLowerCase();
@@ -888,8 +996,12 @@ export function shouldUseCloudflareFallback(err) {
 
 export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts = {}) {
   const provider = getImageProvider();
+  if (provider === "pollinations") {
+    return generatePollinationsStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
+  }
   if (provider === "cloudflare") {
-    return generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
+    if (!getPollinationsKey()) return generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
+    return generateFreeFallbackImage(stasis, buzzWords, aspectRatio, cfOpts);
   }
   if (provider === "wombo") {
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
@@ -897,18 +1009,18 @@ export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, 
   try {
     return await generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
   } catch (err) {
-    if (getCfCreds() && shouldUseCloudflareFallback(err)) {
+    if ((getCfCreds() || getPollinationsKey()) && shouldUseCloudflareFallback(err)) {
       try {
-        return await generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
-      } catch (cfErr) {
+        return await generateFreeFallbackImage(stasis, buzzWords, aspectRatio, cfOpts);
+      } catch (fbErr) {
         if (isCreditsLimitError(err) && getWomboKey()) {
           return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
         }
-        throw new Error(
-          `${(err && err.message) || String(err)} (Free Cloudflare fallback also failed: ${
-            (cfErr && cfErr.message) || String(cfErr)
-          })`
-        );
+        const reason =
+          fbErr && fbErr.fallbackReasons
+            ? fbErr.message
+            : `Free Cloudflare fallback also failed: ${(fbErr && fbErr.message) || String(fbErr)}`;
+        throw new Error(`${(err && err.message) || String(err)} (${reason})`);
       }
     }
     if (isCreditsLimitError(err) && getWomboKey()) {

@@ -1,7 +1,10 @@
 import {
   getCfCreds,
   getCfImageModel,
+  getImageFallbackChain,
   getImageProvider,
+  getPollinationsKey,
+  getPollinationsModel,
   getWomboKey,
   getXaiKey,
   isImageApiConfigured,
@@ -24,6 +27,9 @@ export default async function handler() {
     cloudflare_configured: !!getCfCreds(),
     fallback_provider: getCfCreds() ? "cloudflare" : getWomboKey() ? "wombo" : null,
     cloudflare_image_model: getCfCreds() ? getCfImageModel() : null,
+    pollinations_configured: !!getPollinationsKey(),
+    pollinations_image_model: getPollinationsKey() ? getPollinationsModel() : null,
+    fallback_chain: getImageFallbackChain(),
     local_generate: true,
   });
 }
