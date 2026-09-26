@@ -4849,6 +4849,12 @@
         }
       }
     }
+    // The user's own "Extra buzz" text, sent on its own so the free Cloudflare fallback can
+    // always use it verbatim (the xAI path ignores this field).
+    var extraBuzzSend = stripAspectTalkFromPrompt(String(spellPrompt || "").trim());
+    if (extraBuzzSend && autoSoftenEnabled()) {
+      extraBuzzSend = softenPromptForModeration(extraBuzzSend);
+    }
     var buzz = filterBuzzNoAspect(getActiveBuzz().slice(0, 12));
     // Reinforce product goals without aspect-ratio words
     ["original painting", "brand new composition", "invented scene"].forEach(
@@ -4904,6 +4910,7 @@
         stasis: stasisSend,
         prompt: stasisSend,
         buzz_words: buzz.slice(0, 16),
+        extra_buzz: extraBuzzSend,
         // Painting-range IDs only — arsenal 100000+ / 300000+ must not become source stills
         spells: nums.filter(function (id) {
           return id >= 1 && id <= 1000;
