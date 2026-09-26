@@ -765,10 +765,12 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
     const word = FLUX_NUM_WORDS[n] || String(n);
     const wide = /^Wide/.test(fluxFraming(aspect));
     // The user's words lead the prompt verbatim (FLUX weighs the opening most), are restated in the
-    // opener and, reordered, in the closing line so a later item is not drowned by the first one.
+    // opener, and each item is named again "in equal measure" in the closing line so a later item
+    // is not drowned by the first one.
     const shortExtra = extra && extra.length <= 160;
     const items = extra.split(/\s*,\s*/).filter(Boolean);
-    const rotated = items.length > 1 ? items.slice().reverse().join(", ") : extra;
+    const rotated =
+      items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] + " in equal measure" : extra;
     const lead = extra ? (shortExtra ? extra.charAt(0).toUpperCase() + extra.slice(1) : extra) + "." : "";
     const opener =
       `${medium} of one single seamless ${wide ? "panoramic " : ""}scene` +
