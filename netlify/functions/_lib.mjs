@@ -100,6 +100,13 @@ export function getCfCreds() {
   return accountId && token ? { accountId, token } : null;
 }
 
+/** flux-1-schnell diffusion steps (Cloudflare max 8). CF_IMAGE_STEPS overrides. */
+export const CF_FLUX_STEPS_DEFAULT = 4;
+export function getCfFluxSteps() {
+  const n = parseInt(String(process.env.CF_IMAGE_STEPS || ""), 10);
+  return n >= 1 && n <= 8 ? n : CF_FLUX_STEPS_DEFAULT;
+}
+
 export function getCfImageModel() {
   return String(process.env.CF_IMAGE_MODEL || "").trim() || CF_DEFAULT_IMAGE_MODEL;
 }
@@ -528,11 +535,202 @@ export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, ref
   });
 }
 
-/** Prompt for Cloudflare models: same painting prompt, stasis trimmed so the whole thing fits CF_PROMPT_MAX. */
+/*
+ * FLUX-friendly prompt for the Cloudflare fallback.
+ * FLUX schnell reads a short plain description best (its text encoder only takes the first
+ * ~256 tokens, and the opening words weigh most). The long xAI stasis prompt led with
+ * meta-instructions ("NOT a remake… Do not preserve…") and, once clipped, lost Influence II/III
+ * entirely. So: subject first in plain words, then medium/palette/mood/framing, one short
+ * "no text" tail. The xAI prompt path does not use this.
+ */
+export const FLUX_PROMPT_TARGET = 1100;
+const FLUX_META_RE =
+  /\b(remake|restage|near-copy|collage|triptych|letterbox\w*|product-ready|for sale|motif dna|influence texts?|fusion directive|studio author|thumbnail|museum-quality|fill the (entire )?canvas|brand[- ]new|never existed|override|mandatory|repaint|seeded from|entire brief|invent it freely)\b/i;
+const FLUX_NEGATIVE_START_RE = /^(no|never|do not|don't|avoid|without|introduce no)\b/i;
+const FLUX_BUZZ_SKIP_RE =
+  /^(original painting|brand new composition|invented scene|painting|art|artwork|three-tone palette|limited palette)$/i;
+const FLUX_NON_PAINT_STYLE_RE = /\b(cgi|3d|render|photo\w*|digital|pixel|vector)\b/i;
+const FLUX_MEDIUM_RE =
+  /\b(oil|acrylic|watercolou?r|gouache|ink|pencil|charcoal|pastel|line[- ]art|sketch|fresco|tempera|woodcut|linocut|mosaic|photograph\w*|3d)\b/i;
+
+function fluxSentences(text) {
+  return String(text || "")
+    .replace(/\s*\(#[0-9a-f]{3,8}\)/gi, "") // "Crimson Red (#C81D25)" -> "Crimson Red" (FLUX can't read hex)
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(/(?<=[.!?…])\s+(?=[A-Z0-9"“(«])/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+}
+
+/** "The painting portrays stylized figures…" -> "Stylized figures…" */
+function fluxPlainLead(sentence) {
+  const t = String(sentence || "").replace(
+    /^(the|this|a|an)\s+(painting|image|artwork|piece|work|scene|composition|picture|illustration|render(ing)?)\s+(portrays|depicts|shows|features|presents|captures|illustrates|is of)\s+/i,
+    ""
+  );
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+/** Leading whole sentences of `text` within `budget` chars; the first sentence is always kept whole. */
+function fluxLeadSentences(text, budget) {
+  const out = [];
+  let len = 0;
+  for (const raw of fluxSentences(text)) {
+    const sent = fluxPlainLead(raw);
+    if (out.length && len + 1 + sent.length > budget) break;
+    out.push(sent);
+    len += (out.length > 1 ? 1 : 0) + sent.length;
+  }
+  return out.join(" ");
+}
+
+function fluxDescFromSlotBody(body) {
+  const paras = String(body || "")
+    .split(/\n\s*\n+/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+  let title = "";
+  const desc = [];
+  for (let i = 0; i < paras.length; i++) {
+    const para = paras[i];
+    if (/^(style|tags|generation prompt|source \(verbatim\))\s*:/i.test(para)) continue;
+    if (/^(generated still|phone upload|line sketch|inverted sketch)\b/i.test(para)) continue;
+    if (/^\(description pending/i.test(para)) continue;
+    if (i === 0 && !title && para.length <= 80 && !/[.!?]$/.test(para) && paras.length > 1) {
+      title = para;
+      continue;
+    }
+    desc.push(para);
+  }
+  return { title, desc: desc.join(" ") || title };
+}
+
+function fluxColorNames(text) {
+  const names = [];
+  const t = String(text || "");
+  const add = (n) => {
+    const v = String(n || "").replace(/\s+/g, " ").trim();
+    if (v && v.length <= 40 && !names.some((x) => x.toLowerCase() === v.toLowerCase())) names.push(v);
+  };
+  let m;
+  const labeled = /([A-Z][A-Za-z' -]{1,38}?)\s*\(#[0-9a-f]{3,8}\)/gi; // "Crimson Red (#C81D25)"
+  while ((m = labeled.exec(t))) add(m[1].replace(/^.*[•:;]\s*/, ""));
+  const toned = /#[0-9a-f]{3,8}\s*[—-]\s*([A-Za-z][A-Za-z' -]{1,38}?)\s*(?:\(|$|\n)/gim; // "#0E5E6F — Deep Teal ("
+  while ((m = toned.exec(t))) add(m[1]);
+  return names.slice(0, 6);
+}
+
+function fluxFraming(aspect) {
+  const a = normalizeAspect(aspect);
+  const [w, h] = a.split(":").map(Number);
+  if (w === h) return "Square composition that fills the frame.";
+  return w > h
+    ? "Wide landscape composition that fills the frame."
+    : "Tall portrait composition that fills the frame.";
+}
+
+/** Spellforge auto-built stasis -> { subjects[], colors[], styles[], moods[], extra } or null. */
+function parseSpellforgeStasis(stasis) {
+  const text = String(stasis || "");
+  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+/.test(text)) return null;
+  const subjects = [];
+  const re = /──\s*INFLUENCE\s+[IV]+[^\n]*──\s*\n([\s\S]*?)(?=\n\s*──\s*INFLUENCE|\n\s*FUSION DIRECTIVE|\n\s*Style DNA|\n\s*Buzz words:|$)/g;
+  let m;
+  while ((m = re.exec(text))) {
+    const d = fluxDescFromSlotBody(m[1]);
+    if (d.desc && d.desc !== "(no description)") subjects.push(d);
+  }
+  const line = (label) => {
+    const r = new RegExp("^" + label + "[^:\\n]*:[ \\t]*([^\\n]+)", "m").exec(text);
+    return r ? r[1].replace(/[.…]+$/, "").trim() : "";
+  };
+  const locksBlock = (/(MANDATORY[^\n]*\n?(?:\s*•[^\n]*\n?)*)/.exec(text) || [""])[0];
+  return {
+    subjects,
+    colors: fluxColorNames(locksBlock),
+    styles: line("Style DNA").split(/,\s*/).filter(Boolean),
+    moods: line("Mood DNA").split(/\s*\+\s*/).filter(Boolean),
+    extra: line("Extra direction"),
+  };
+}
+
+/** Any other page's stasis (Colors, 0-Z, edited 4th description…): keep content, drop meta/negatives. */
+function parseGenericStasis(stasis) {
+  const raw = String(stasis || "");
+  const colors = fluxColorNames(raw);
+  const lines = raw.split(/\n+/).filter((l) => !/^\s*[•*-]\s/.test(l)); // bullet spec lines -> palette only
+  const kept = [];
+  const subjectFirst = [];
+  for (const sent of fluxSentences(lines.join("\n"))) {
+    let t = sent.replace(/^[A-Z0-9 '’&-]{6,}\s*[—:-]\s*/, ""); // drop "THREE-TONE PAINTING — " style headings
+    if (!t || FLUX_META_RE.test(t) || FLUX_NEGATIVE_START_RE.test(t)) continue;
+    if (/^subject\s*:/i.test(t)) {
+      t = t.replace(/^subject\s*:\s*(anything at all\s*[—-]\s*this time,\s*)?/i, "");
+      subjectFirst.push(t.charAt(0).toUpperCase() + t.slice(1));
+      continue;
+    }
+    kept.push(fluxPlainLead(t));
+  }
+  return { text: subjectFirst.concat(kept).join(" "), colors };
+}
+
 export function buildCloudflarePrompt(stasis, buzzWords, aspect) {
-  const overhead = buildStasisVisionPrompt("", buzzWords, aspect).length + 2;
-  const body = clipPromptChars(String(stasis || "").trim(), Math.max(200, CF_PROMPT_MAX - overhead));
-  return clipPromptChars(buildStasisVisionPrompt(body, buzzWords, aspect), CF_PROMPT_MAX);
+  const sf = parseSpellforgeStasis(stasis);
+  const gen = sf && sf.subjects.length ? null : parseGenericStasis(stasis);
+  const colors = (sf ? sf.colors : gen.colors) || [];
+  const moods = sf ? sf.moods.slice(0, 2) : [];
+  const styles = sf ? sf.styles.filter((x) => !FLUX_NON_PAINT_STYLE_RE.test(x)).slice(0, 3) : [];
+  const subjectText = sf && sf.subjects.length ? "" : gen.text;
+
+  const tail = [];
+  const mediumNamed = FLUX_MEDIUM_RE.test(subjectText) || (sf && FLUX_MEDIUM_RE.test(sf.extra || ""));
+  if (!mediumNamed) {
+    tail.push(
+      "Expressive fine-art oil painting with visible brushstrokes" +
+        (styles.length ? ", " + styles.join(", ").toLowerCase() + " influences" : "") +
+        "."
+    );
+  }
+  if (colors.length) tail.push("Dominant colors: " + colors.join(", ") + ".");
+  if (moods.length) tail.push("Mood: " + moods.join(", ").toLowerCase().replace(/[.…]+$/, "") + ".");
+  tail.push(fluxFraming(aspect));
+  tail.push("No text, no signature, no watermark.");
+  const tailText = tail.join(" ");
+
+  let subject;
+  if (sf && sf.subjects.length) {
+    const n = sf.subjects.length;
+    const extra = sf.extra ? fluxLeadSentences(sf.extra, 240) : "";
+    const budget = Math.max(300, FLUX_PROMPT_TARGET - tailText.length - extra.length - 60);
+    const each = Math.floor(budget / n);
+    const parts = sf.subjects.map((d) => fluxLeadSentences(d.desc, each).replace(/[.…]*$/, ""));
+    subject =
+      (n > 1 ? "One unified painted scene. " : "") +
+      parts.map((x, i) => (i === 0 ? x : "In the same scene, " + x.charAt(0).toLowerCase() + x.slice(1))).join(". ") +
+      "." +
+      (extra ? " " + extra : "");
+  } else {
+    subject = fluxLeadSentences(subjectText, Math.max(300, FLUX_PROMPT_TARGET - tailText.length - 80));
+  }
+
+  // Only a single run-on sentence longer than the hard limit can get here; keep the tail intact.
+  const subjectMax = CF_PROMPT_MAX - tailText.length - 2;
+  if (subject.length > subjectMax) subject = clipPromptChars(subject, subjectMax);
+
+  const lower = subject.toLowerCase();
+  const details = (buzzWords || [])
+    .map((b) => String(b || "").trim())
+    .filter((b) => b && !/^#?[0-9a-f]{6}$/i.test(b) && !/\d+\s*[:/]\s*\d+|aspect/i.test(b))
+    .filter((b) => !FLUX_BUZZ_SKIP_RE.test(b) && !lower.includes(b.toLowerCase()))
+    .filter((b) => !colors.some((c) => c.toLowerCase() === b.toLowerCase()))
+    .slice(0, 6);
+  const detailText = details.length ? " Details: " + details.join(", ") + "." : "";
+  let prompt = (subject + detailText + " " + tailText).replace(/\s+/g, " ").trim();
+  if (prompt.length > CF_PROMPT_MAX) {
+    prompt = (subject + " " + tailText).replace(/\s+/g, " ").trim();
+  }
+  return clipPromptChars(prompt, CF_PROMPT_MAX);
 }
 
 /** Text-to-image via Cloudflare Workers AI REST. Reference images are ignored. Returns a data: URL. */
@@ -552,7 +750,7 @@ export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRat
     payload.width = Math.max(256, Math.floor(sized.width / 8) * 8);
     payload.height = Math.max(256, Math.floor(sized.height / 8) * 8);
   } else if (/flux-1-schnell/i.test(model)) {
-    payload.steps = 4;
+    payload.steps = getCfFluxSteps();
   }
   const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(
     creds.accountId
