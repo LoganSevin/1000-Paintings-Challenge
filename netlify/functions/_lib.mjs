@@ -110,6 +110,28 @@ export function getApiKey() {
   return key;
 }
 
+/** xAI rejected the key itself (wrong/revoked/placeholder), as opposed to a billing limit. */
+export function isInvalidKeyError(err) {
+  const m = String(err && err.message ? err.message : err || "").toLowerCase();
+  return (
+    m.includes("incorrect api key") ||
+    m.includes("invalid api key") ||
+    m.includes("api key is invalid") ||
+    m.includes("invalid authentication") ||
+    m.includes("no api key provided") ||
+    /\bunauthori[sz]ed\b/.test(m)
+  );
+}
+
+export const VISITOR_KEY_REJECTED = "Your saved xAI key was rejected by xAI";
+
+/**
+ * Try keys in order (visitor key first, then XAI_API_KEY / XAI_API_KEYS).
+ * Moves on to the next key when a key is out of credits OR rejected as invalid,
+ * so a stale/wrong visitor key no longer blocks the site key. Any other error
+ * stops immediately. If the visitor key was rejected and nothing else worked,
+ * the error says so (prefix VISITOR_KEY_REJECTED) so the page can ask to reconnect.
+ */
 export async function withXaiKeyFallback(fn, extraKey) {
   const keys = listXaiKeys(extraKey);
   if (!keys.length) {
@@ -117,7 +139,27 @@ export async function withXaiKeyFallback(fn, extraKey) {
       "No xAI API key. Connect a key from console.x.ai to keep generating."
     );
   }
+  const visitorKeys = new Set(
+    [extraKey, xaiKeyStore.getStore()]
+      .map((k) => String(k || "").trim())
+      .filter(Boolean)
+  );
   let lastErr;
+  let visitorRejected = null;
+  function finalError(err) {
+    if (!visitorRejected) return err;
+    const why = visitorRejected.message || String(visitorRejected);
+    if (err === visitorRejected) {
+      return new Error(
+        `${VISITOR_KEY_REJECTED} (${why}). Reconnect a valid key from console.x.ai.`
+      );
+    }
+    return new Error(
+      `${VISITOR_KEY_REJECTED} (${why}). The site's backup key also failed: ${
+        (err && err.message) || String(err)
+      }`
+    );
+  }
   for (let i = 0; i < keys.length; i++) {
     try {
       return await runWithXaiKey(keys[i], function () {
@@ -125,10 +167,12 @@ export async function withXaiKeyFallback(fn, extraKey) {
       });
     } catch (err) {
       lastErr = err;
-      if (!isCreditsLimitError(err)) throw err;
+      const invalid = isInvalidKeyError(err);
+      if (invalid && !visitorRejected && visitorKeys.has(keys[i])) visitorRejected = err;
+      if (!invalid && !isCreditsLimitError(err)) throw finalError(err);
     }
   }
-  throw lastErr;
+  throw finalError(lastErr);
 }
 
 export function getImageApiKey() {

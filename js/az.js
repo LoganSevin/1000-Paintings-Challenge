@@ -32,6 +32,7 @@
     previewGen: 0,
     previewCols: 6,
     mainReady: false,
+    mainSeed: null, // seed sentence of the last clicked main still (resume only applies to it)
     pendingPrefer: null,
     eqHidden: false,
     letterGrid: true
@@ -506,6 +507,8 @@
   }
 
   function fetchPremonition(ch, genId) {
+    var key = previewKey(ch);
+    var seed = seedSentence();
     var stasis =
       "Premonition vision: the sentence so far is «" +
       seedSentence() +
@@ -537,26 +540,70 @@
         });
       })
       .then(function (url) {
-        if (genId !== state.previewGen) return;
-        state.previewUrls[previewKey(ch)] = url;
-        setTileVision(ch, url);
-        if (state.letterGrid) persistAzStill(url, "0-Z letter " + glyphLabel(ch) + " · " + seedSentence());
+        // A request that was already paid for is kept even if its run was stopped or
+        // replaced: cache it under the sentence it was made for (so Resume never pays
+        // twice) and save it. Only draw it if that sentence is still the current one.
+        state.previewUrls[key] = url;
+        if (key === previewKey(ch)) setTileVision(ch, url);
+        persistAzStill(url, "0-Z letter " + glyphLabel(ch) + " · " + seed);
+        updateResumeButton();
       })
       .catch(function () {});
   }
 
   function pumpPremonitions() {
+    var gen = state.previewGen;
     while (state.previewBusy < 2 && state.previewQueue.length) {
       var ch = state.previewQueue.shift();
       if (state.previewUrls[previewKey(ch)]) continue;
       state.previewBusy++;
-      fetchPremonition(ch, state.previewGen).then(function () {
+      fetchPremonition(ch, gen).then(function () {
+        if (gen !== state.previewGen) return; // stopped or restarted by a newer click
         state.previewBusy--;
         pumpPremonitions();
       });
     }
+    updateResumeButton();
   }
 
+  /** Letters still missing a premonition for the current sentence. */
+  function missingPremonitions() {
+    return PREVIEW_GLYPHS.filter(function (ch) {
+      return !state.previewUrls[previewKey(ch)];
+    });
+  }
+
+  function premonitionsRunning() {
+    return state.previewBusy > 0 || state.previewQueue.length > 0;
+  }
+
+  /**
+   * Premonitions only ever start from a click (Generate, or Resume). When a clicked
+   * run was stopped (letter grid off) and letters are still missing for the same
+   * sentence, offer "Resume N pending" instead of restarting on its own.
+   */
+  function updateResumeButton() {
+    var btn = $("az-resume");
+    if (!btn) return;
+    var n = 0;
+    if (state.letterGrid && state.mainReady && state.mainSeed === seedSentence() && !premonitionsRunning()) {
+      n = missingPremonitions().length;
+    }
+    btn.hidden = n === 0;
+    btn.textContent = "Resume " + n + " pending";
+  }
+
+  /** Hover / lightbox: move a letter to the front of a queue that is already running. Never starts one. */
+  function preferPremonition(ch) {
+    if (!state.letterGrid || !state.mainReady) return;
+    var at = state.previewQueue.indexOf(ch);
+    if (at > 0) {
+      state.previewQueue.splice(at, 1);
+      state.previewQueue.unshift(ch);
+    }
+  }
+
+  /** Start a premonition run. Callers: a clicked Generate (after its main still) or the Resume button. */
   function queuePremonitions(preferCh) {
     if (!state.letterGrid) return;
     if (!state.mainReady) {
@@ -564,6 +611,7 @@
       return;
     }
     state.previewGen++;
+    state.previewBusy = 0;
     state.previewQueue = [];
     if (preferCh && !state.previewUrls[previewKey(preferCh)]) {
       state.previewQueue.push(preferCh);
@@ -614,9 +662,7 @@
         state.hoverCh = ch;
         renderInsight();
         drawScene();
-        if (!state.previewUrls[previewKey(ch)]) {
-          queuePremonitions(ch);
-        }
+        if (!state.previewUrls[previewKey(ch)]) preferPremonition(ch);
       });
       btn.addEventListener("mouseleave", function () {
         if (state.hoverCh === ch) {
@@ -672,7 +718,7 @@
       state.hover = -1;
       renderInsight();
       drawScene();
-      if (!state.previewUrls[previewKey(SPACE)]) queuePremonitions(SPACE);
+      if (!state.previewUrls[previewKey(SPACE)]) preferPremonition(SPACE);
     });
     btn.addEventListener("mouseleave", function () {
       if (state.hoverCh === SPACE) state.hoverCh = null;
@@ -713,7 +759,7 @@
         scale: 1.1
       });
       stage.appendChild(cv);
-      queuePremonitions(ch);
+      preferPremonition(ch);
     }
     box.hidden = false;
   }
@@ -1010,6 +1056,7 @@
     state.previewQueue = [];
     state.previewBusy = 0;
     state.pendingPrefer = null;
+    updateResumeButton();
   }
 
   function applyLetterGridUi() {
@@ -1037,15 +1084,15 @@
     applyLetterGridUi();
     if (!state.letterGrid) {
       stopLetterGridJobs();
-    } else if (state.mainReady && !opts.skipQueue) {
-      queuePremonitions(state.pendingPrefer);
-      state.pendingPrefer = null;
     }
+    // Turning the grid back on never restarts generation by itself — see Resume.
+    updateResumeButton();
     drawScene();
   }
 
   function generateStandalone() {
     state.mainReady = false;
+    state.mainSeed = seedSentence();
     stopLetterGridJobs();
     return generateStill(seedSentence()).then(function () {
       state.mainReady = true;
@@ -1054,6 +1101,7 @@
 
   function generateMainThenPreviews() {
     state.mainReady = false;
+    state.mainSeed = seedSentence();
     return generateStill(seedSentence()).then(function () {
       state.mainReady = true;
       if (!state.letterGrid) return;
@@ -1081,6 +1129,7 @@
         ? (state.parse.wantsApple ? n + " apple" + (n === 1 ? "" : "s") : n + " " + (state.parse.nouns[0] || "forms"))
         : "empty";
     }
+    updateResumeButton();
     if (generate) runGenerate();
   }
 
@@ -1112,7 +1161,9 @@
       return;
     }
     if (tag === "INPUT" || tag === "TEXTAREA") {
-      if (e.key === "Enter") {
+      // Enter in the 0-Z prompt submits it like the Generate button. Other fields
+      // (e.g. page chat) must never start a generate.
+      if (e.key === "Enter" && e.target.id === "az-prompt") {
         e.preventDefault();
         applyPrompt(e.target.value, true);
       }
@@ -1166,17 +1217,21 @@
     if (!input || input.dataset.bound) return;
     input.dataset.bound = "1";
     input.addEventListener("input", function () {
+      // Live local sketch only — generating costs credits, so it waits for Generate.
       applyPrompt(input.value, false);
-      clearTimeout(state.timer);
-      state.timer = setTimeout(function () {
-        runGenerate();
-      }, 1800);
     });
     var genBtn = $("az-generate");
     if (genBtn && !genBtn.dataset.bound) {
       genBtn.dataset.bound = "1";
       genBtn.addEventListener("click", function () {
         applyPrompt(input.value, true);
+      });
+    }
+    var resumeBtn = $("az-resume");
+    if (resumeBtn && !resumeBtn.dataset.bound) {
+      resumeBtn.dataset.bound = "1";
+      resumeBtn.addEventListener("click", function () {
+        queuePremonitions(null);
       });
     }
   }
@@ -1214,10 +1269,24 @@
     applyPrompt(input ? input.value : "", false);
     if (state.letterGrid) renderPreviewDocks();
     bindEqToggle();
-    runGenerate();
+    // No generate here: init runs on page load and on every tab open. Stills are
+    // generated only from the Generate button (or Enter in the 0-Z prompt).
+    updateResumeButton();
   }
 
-  window.AzScale = { onShow: init, glyphs: GLYPHS.slice() };
+  window.AzScale = {
+    onShow: init,
+    glyphs: GLYPHS.slice(),
+    getState: function () {
+      return {
+        mainReady: state.mainReady,
+        queued: state.previewQueue.length,
+        busy: state.previewBusy,
+        missing: missingPremonitions().length,
+        letterGrid: state.letterGrid,
+      };
+    },
+  };
   window.addEventListener("az-show", init);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

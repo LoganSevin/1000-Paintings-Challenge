@@ -741,6 +741,48 @@
     return /api key|xai key|credit|spending limit|billing|license|purchase|unauthori[sz]ed|401|403/i.test(String(msg || ""));
   }
 
+  /** xAI refused the key itself (the server says "Your saved xAI key was rejected…" or passes xAI's text). */
+  function isRejectedKey(msg) {
+    return /saved xai key was rejected|incorrect api key|invalid api key|api key is invalid/i.test(String(msg || ""));
+  }
+
+  function isCreditsMsg(msg) {
+    return /used all available credits|spending limit|purchase more credits|credit/i.test(String(msg || ""));
+  }
+
+  function savedVisitorKey() {
+    try {
+      return (window.AccountGate && window.AccountGate.getVisitorXaiKey && window.AccountGate.getVisitorXaiKey()) || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  /** Same clear as the Grok / xAI tabs: drop every l7in_xai_key_* entry in this browser. */
+  function forgetSavedKeys() {
+    try {
+      Object.keys(localStorage).forEach(function (k) {
+        if (k.indexOf("l7in_xai_key_") === 0) localStorage.removeItem(k);
+      });
+    } catch (e) {}
+  }
+
+  /** Plain-language status for key / billing failures. */
+  function friendlyKeyMessage(msg) {
+    var rejected = isRejectedKey(msg);
+    var credits = isCreditsMsg(msg);
+    if (rejected && credits) {
+      return "xAI rejected the key saved in this browser, and the site's own key is out of credits. Reconnect a valid xAI key (console.x.ai) to generate.";
+    }
+    if (rejected) {
+      return "xAI rejected the key saved in this browser. Reconnect a valid key from console.x.ai, or forget it to use the site's key.";
+    }
+    if (credits) {
+      return "The xAI account used for this generate is out of credits or at its spending limit. Connect an xAI key with credits to keep generating.";
+    }
+    return msg;
+  }
+
   /** Generate from the given tones (default: the tray). */
   function generate(tonesArg) {
     if (busy) return Promise.resolve(null);
@@ -816,10 +858,14 @@
         }
         job.card.classList.add("is-failed");
         job.els.phText.textContent = "Failed";
-        job.els.save.textContent = msg;
+        job.els.save.textContent = msg; // raw server/xAI text stays on the card
         job.els.save.classList.add("clr-err");
-        setStatus(msg, true);
-        if (isKeyError(msg) && window.AccountGate && !isLocalHost()) el.keyRow.hidden = false;
+        var keyTrouble = isKeyError(msg) && window.AccountGate && !isLocalHost();
+        setStatus(keyTrouble ? friendlyKeyMessage(msg) : msg, true);
+        if (keyTrouble) {
+          el.keyRow.hidden = false;
+          if (el.forget) el.forget.hidden = !savedVisitorKey();
+        }
         return null;
       })
       .then(function (r) {
@@ -838,6 +884,7 @@
     el.status = $("clr-gen-status");
     el.keyRow = $("clr-gen-key");
     el.connect = $("clr-gen-connect");
+    el.forget = $("clr-gen-forget");
     el.results = $("clr-gen-results");
     el.list = $("clr-gen-list");
     if (!el.tray || !el.go || !el.list) return;
@@ -861,6 +908,14 @@
             }
           });
         }
+      });
+    }
+    if (el.forget) {
+      el.forget.addEventListener("click", function () {
+        forgetSavedKeys();
+        el.forget.hidden = true;
+        el.keyRow.hidden = true;
+        setStatus("Saved key removed from this browser — Generate will use the site's key.");
       });
     }
     window.addEventListener("colors-tones-change", function () {
