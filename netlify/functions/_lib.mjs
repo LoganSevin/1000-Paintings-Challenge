@@ -675,66 +675,155 @@ function parseGenericStasis(stasis) {
   return { text: subjectFirst.concat(kept).join(" "), colors };
 }
 
-export function buildCloudflarePrompt(stasis, buzzWords, aspect) {
+/** Words that end a trimmed clause badly ("…a fox with" -> "…a fox"). */
+const FLUX_DANGLING_RE = /[\s,;:—–]+(and|or|with|while|of|in|on|at|to|by|for|from|the|a|an|its|their|as|that|which)?\s*$/i;
+
+/** Core subject + key visual elements of one spell, bounded to `cap` chars (clause, then word boundary). */
+function fluxSpellCore(desc, cap) {
+  const sents = fluxSentences(desc)
+    .filter((s) => !FLUX_META_RE.test(s) && !FLUX_NEGATIVE_START_RE.test(s))
+    .map(fluxPlainLead);
+  let out = "";
+  for (const s of sents) {
+    if (!out) out = s;
+    else if (out.length + 1 + s.length <= cap) out += " " + s;
+    else break;
+  }
+  if (out.length > cap) {
+    const head = out.slice(0, cap + 1);
+    let cut = -1;
+    for (const b of [". ", "; ", ", ", " — ", " – ", ": ", " while ", " with ", " and "]) {
+      const i = head.lastIndexOf(b);
+      if (i >= cap * 0.5 && i > cut) cut = i;
+    }
+    if (cut < 0) cut = head.lastIndexOf(" ");
+    out = out.slice(0, cut > 0 ? cut : cap);
+    let prev;
+    do {
+      prev = out;
+      out = out.replace(FLUX_DANGLING_RE, "");
+    } while (out !== prev);
+  }
+  return out.replace(/[\s.…,;:]+$/, "").trim();
+}
+
+/** The user's own extra buzz words, verbatim (whitespace collapsed, trailing period dropped). */
+function fluxExtraBuzz(v) {
+  const raw = Array.isArray(v)
+    ? v.map((x) => String(x || "").trim()).filter(Boolean).join(", ")
+    : typeof v === "string"
+      ? v
+      : "";
+  const t = raw.replace(/\s+/g, " ").replace(/[\s.…]+$/, "").trim();
+  return t.length > FLUX_EXTRA_MAX ? clipPromptChars(t, FLUX_EXTRA_MAX).replace(/…$/, "") : t;
+}
+
+const FLUX_EXTRA_MAX = 800;
+const FLUX_NUM_WORDS = ["", "one", "two", "three", "four", "five", "six"];
+
+function fluxRegions(n, aspect) {
+  const a = normalizeAspect(aspect);
+  const [w, h] = a.split(":").map(Number);
+  const tall = h > w;
+  if (n === 2) return tall ? ["In the upper half", "In the lower half"] : ["On the left", "On the right"];
+  if (n === 3) return tall ? ["At the top", "In the middle", "At the bottom"] : ["On the left", "In the center", "On the right"];
+  if (n === 4) return ["In the upper left", "In the upper right", "In the lower left", "In the lower right"];
+  return Array.from({ length: n }, (_, i) => `Focal element ${i + 1}`);
+}
+
+/**
+ * opts.extraBuzz — the Spellforge "Extra buzz" field (request `extra_buzz`); falls back to the
+ * stasis "Extra direction:" line. It is always included verbatim near the start of the prompt.
+ * Spells get equal, bounded shares, each placed in its own region of one scene.
+ */
+export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
   const sf = parseSpellforgeStasis(stasis);
   const gen = sf && sf.subjects.length ? null : parseGenericStasis(stasis);
+  const genExtra = gen ? (/^Extra direction[^:\n]*:[ \t]*([^\n]+)/m.exec(String(stasis || "")) || [])[1] : "";
+  const extra = fluxExtraBuzz((opts && opts.extraBuzz) || (sf ? sf.extra : genExtra) || "");
   const colors = (sf ? sf.colors : gen.colors) || [];
   const moods = sf ? sf.moods.slice(0, 2) : [];
   const styles = sf ? sf.styles.filter((x) => !FLUX_NON_PAINT_STYLE_RE.test(x)).slice(0, 3) : [];
-  const subjectText = sf && sf.subjects.length ? "" : gen.text;
+  const subjectText = gen ? gen.text.replace(/(^|\s)Extra direction[^:]*:[^.]*\.?/i, " ").trim() : "";
+  const mediumNamed = FLUX_MEDIUM_RE.test(extra) || (gen && FLUX_MEDIUM_RE.test(subjectText));
+  const medium = mediumNamed ? "A painting" : "An expressive fine-art oil painting";
+  const extraLine = extra ? `Prominently featuring: ${extra}.` : "";
 
   const tail = [];
-  const mediumNamed = FLUX_MEDIUM_RE.test(subjectText) || (sf && FLUX_MEDIUM_RE.test(sf.extra || ""));
-  if (!mediumNamed) {
-    tail.push(
-      "Expressive fine-art oil painting with visible brushstrokes" +
-        (styles.length ? ", " + styles.join(", ").toLowerCase() + " influences" : "") +
-        "."
-    );
-  }
+  if (!mediumNamed) tail.push("Visible brushstrokes.");
+  if (styles.length) tail.push("Style influences: " + styles.join(", ").toLowerCase() + ".");
   if (colors.length) tail.push("Dominant colors: " + colors.join(", ") + ".");
   if (moods.length) tail.push("Mood: " + moods.join(", ").toLowerCase().replace(/[.…]+$/, "") + ".");
   tail.push(fluxFraming(aspect));
   tail.push("No text, no signature, no watermark.");
   const tailText = tail.join(" ");
 
-  let subject;
+  let prompt;
   if (sf && sf.subjects.length) {
-    const n = sf.subjects.length;
-    const extra = sf.extra ? fluxLeadSentences(sf.extra, 240) : "";
-    const budget = Math.max(300, FLUX_PROMPT_TARGET - tailText.length - extra.length - 60);
-    const each = Math.floor(budget / n);
-    const parts = sf.subjects.map((d) => fluxLeadSentences(d.desc, each).replace(/[.…]*$/, ""));
-    subject =
-      (n > 1 ? "One unified painted scene. " : "") +
-      parts.map((x, i) => (i === 0 ? x : "In the same scene, " + x.charAt(0).toLowerCase() + x.slice(1))).join(". ") +
-      "." +
-      (extra ? " " + extra : "");
+    const subs = sf.subjects.slice(0, 4);
+    const n = subs.length;
+    const word = FLUX_NUM_WORDS[n] || String(n);
+    const wide = /^Wide/.test(fluxFraming(aspect));
+    // The user's words lead the prompt verbatim (FLUX weighs the opening most), are restated in the
+    // opener and, reordered, in the closing line so a later item is not drowned by the first one.
+    const shortExtra = extra && extra.length <= 160;
+    const items = extra.split(/\s*,\s*/).filter(Boolean);
+    const rotated = items.length > 1 ? items.slice().reverse().join(", ") : extra;
+    const lead = extra ? (shortExtra ? extra.charAt(0).toUpperCase() + extra.slice(1) : extra) + "." : "";
+    const opener =
+      `${medium} of one single seamless ${wide ? "panoramic " : ""}scene` +
+      (shortExtra ? `, prominently featuring ${extra}, ${items.length > 1 ? "each" : ""} clearly visible,` : "") +
+      (n > 1 ? ` with ${word} equal focal elements of the same size and prominence.` : ` with one clear focal subject.`);
+    const unifier =
+      n > 1
+        ? `${n === 2 ? "Both" : "All " + word} stand together in the same continuous landscape with equal visual weight` +
+          (shortExtra ? `, surrounded by ${rotated}.` : ".")
+        : shortExtra
+          ? `Surrounded by ${rotated}.`
+          : "";
+    const fixedLen = lead.length + opener.length + unifier.length + tailText.length + 20 * n + 8;
+    const cap = Math.max(110, Math.min(n === 1 ? 420 : 260, Math.floor((FLUX_PROMPT_TARGET - fixedLen) / n)));
+    // Balance: every spell gets the same bounded share, and none may run much longer than the
+    // shortest one (a long first sentence is trimmed to its core clause).
+    let cores = subs.map((d) => fluxSpellCore(d.desc, cap));
+    if (n > 1) {
+      const shortest = Math.min(...cores.map((c) => c.length));
+      const even = Math.max(120, Math.round(shortest * 1.3));
+      if (cores.some((c) => c.length > even)) cores = subs.map((d) => fluxSpellCore(d.desc, Math.min(cap, even)));
+    }
+    const regions = n > 1 ? fluxRegions(n, aspect) : ["At the center"];
+    const lcArticle = (c) => c.replace(/^(A|An|The|Two|Three|Several|Many)\b/, (w) => w.toLowerCase());
+    const body = cores.map((c, i) => `${i ? regions[i].toLowerCase() : regions[i]}, ${lcArticle(c)}`).join("; ") + ".";
+    prompt = [lead, opener.replace(/,\s+clearly/, ", clearly").replace(/\s+,/g, ","), body, unifier, tailText]
+      .filter(Boolean)
+      .join(" ");
   } else {
-    subject = fluxLeadSentences(subjectText, Math.max(300, FLUX_PROMPT_TARGET - tailText.length - 80));
+    const budget = Math.max(300, FLUX_PROMPT_TARGET - tailText.length - extraLine.length - medium.length - 80);
+    let subject = fluxLeadSentences(subjectText, budget);
+    const subjectMax = CF_PROMPT_MAX - tailText.length - extraLine.length - medium.length - 8;
+    if (subject.length > subjectMax) subject = clipPromptChars(subject, subjectMax);
+    const lower = (subject + " " + extra).toLowerCase();
+    const details = (buzzWords || [])
+      .map((b) => String(b || "").trim())
+      .filter((b) => b && !/^#?[0-9a-f]{6}$/i.test(b) && !/\d+\s*[:/]\s*\d+|aspect/i.test(b))
+      .filter((b) => !FLUX_BUZZ_SKIP_RE.test(b) && !lower.includes(b.toLowerCase()))
+      .filter((b) => !colors.some((c) => c.toLowerCase() === b.toLowerCase()))
+      .slice(0, 6);
+    const detailText = details.length ? "Details: " + details.join(", ") + "." : "";
+    const lead = FLUX_MEDIUM_RE.test(subject) ? "" : medium + ".";
+    prompt = [extraLine, subject, detailText, lead, tailText].filter(Boolean).join(" ");
+    if (prompt.replace(/\s+/g, " ").length > CF_PROMPT_MAX) prompt = [extraLine, subject, lead, tailText].filter(Boolean).join(" ");
   }
-
-  // Only a single run-on sentence longer than the hard limit can get here; keep the tail intact.
-  const subjectMax = CF_PROMPT_MAX - tailText.length - 2;
-  if (subject.length > subjectMax) subject = clipPromptChars(subject, subjectMax);
-
-  const lower = subject.toLowerCase();
-  const details = (buzzWords || [])
-    .map((b) => String(b || "").trim())
-    .filter((b) => b && !/^#?[0-9a-f]{6}$/i.test(b) && !/\d+\s*[:/]\s*\d+|aspect/i.test(b))
-    .filter((b) => !FLUX_BUZZ_SKIP_RE.test(b) && !lower.includes(b.toLowerCase()))
-    .filter((b) => !colors.some((c) => c.toLowerCase() === b.toLowerCase()))
-    .slice(0, 6);
-  const detailText = details.length ? " Details: " + details.join(", ") + "." : "";
-  let prompt = (subject + detailText + " " + tailText).replace(/\s+/g, " ").trim();
+  prompt = prompt.replace(/\s+/g, " ").trim();
   if (prompt.length > CF_PROMPT_MAX) {
-    prompt = (subject + " " + tailText).replace(/\s+/g, " ").trim();
+    // Only reachable with a huge extra + long run-on text; keep extra and the tail.
+    prompt = clipPromptChars(prompt.slice(0, prompt.length - tailText.length), CF_PROMPT_MAX - tailText.length - 1) + " " + tailText;
   }
-  return clipPromptChars(prompt, CF_PROMPT_MAX);
+  return prompt;
 }
 
 /** Text-to-image via Cloudflare Workers AI REST. Reference images are ignored. Returns a data: URL. */
-export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRatio) {
+export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, opts = {}) {
   const creds = getCfCreds();
   if (!creds) {
     throw new Error(
@@ -743,7 +832,7 @@ export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRat
   }
   const model = getCfImageModel();
   const aspect = normalizeAspect(aspectRatio);
-  const payload = { prompt: buildCloudflarePrompt(stasis, buzzWords, aspect) };
+  const payload = { prompt: buildCloudflarePrompt(stasis, buzzWords, aspect, opts) };
   const isSdxl = /stable-diffusion-xl/i.test(model);
   if (isSdxl) {
     const sized = aspectToSize(aspect, 1024);
@@ -795,10 +884,10 @@ export function shouldUseCloudflareFallback(err) {
   );
 }
 
-export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage) {
+export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts = {}) {
   const provider = getImageProvider();
   if (provider === "cloudflare") {
-    return generateCloudflareStasisImage(stasis, buzzWords, aspectRatio);
+    return generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
   }
   if (provider === "wombo") {
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
@@ -808,7 +897,7 @@ export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, 
   } catch (err) {
     if (getCfCreds() && shouldUseCloudflareFallback(err)) {
       try {
-        return await generateCloudflareStasisImage(stasis, buzzWords, aspectRatio);
+        return await generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
       } catch (cfErr) {
         if (isCreditsLimitError(err) && getWomboKey()) {
           return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
