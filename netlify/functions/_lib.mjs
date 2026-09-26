@@ -86,18 +86,41 @@ export function getWomboKey() {
   return (process.env.WOMBO_DREAM_API_KEY || process.env.DREAM_API_KEY || "").trim();
 }
 
+/**
+ * Free Cloudflare Workers AI image fallback (used when xAI fails or has no key).
+ * Needs CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_API_TOKEN (Workers AI Read + Edit).
+ * CF_IMAGE_MODEL is optional (default flux-1-schnell; SDXL also supported).
+ */
+export const CF_DEFAULT_IMAGE_MODEL = "@cf/black-forest-labs/flux-1-schnell";
+export const CF_PROMPT_MAX = 2000;
+
+export function getCfCreds() {
+  const accountId = String(process.env.CLOUDFLARE_ACCOUNT_ID || "").trim();
+  const token = String(process.env.CLOUDFLARE_API_TOKEN || "").trim();
+  return accountId && token ? { accountId, token } : null;
+}
+
+export function getCfImageModel() {
+  return String(process.env.CF_IMAGE_MODEL || "").trim() || CF_DEFAULT_IMAGE_MODEL;
+}
+
 export function getImageProvider() {
   const forced = (process.env.SPELLFORGE_IMAGE_PROVIDER || "").trim().toLowerCase();
   const hasXai = !!getXaiKey();
   const hasWombo = !!getWomboKey();
-  if (forced === "wombo") return hasWombo ? "wombo" : hasXai ? "xai" : "wombo";
-  if (forced === "xai") return hasXai ? "xai" : hasWombo ? "wombo" : "xai";
+  const hasCf = !!getCfCreds();
+  if (forced === "cloudflare" && hasCf) return "cloudflare";
+  if (forced === "wombo") return hasWombo ? "wombo" : hasXai ? "xai" : hasCf ? "cloudflare" : "wombo";
+  if (forced === "xai") return hasXai ? "xai" : hasCf ? "cloudflare" : hasWombo ? "wombo" : "xai";
+  if (!hasXai && hasCf) return "cloudflare";
   if (hasWombo && !hasXai) return "wombo";
   return "xai";
 }
 
 export function isImageApiConfigured() {
-  return getImageProvider() === "wombo" ? !!getWomboKey() : !!getXaiKey();
+  const provider = getImageProvider();
+  if (provider === "cloudflare") return true;
+  return provider === "wombo" ? !!getWomboKey() : !!getXaiKey();
 }
 
 export function getApiKey() {
@@ -505,13 +528,100 @@ export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, ref
   });
 }
 
+/** Prompt for Cloudflare models: same painting prompt, stasis trimmed so the whole thing fits CF_PROMPT_MAX. */
+export function buildCloudflarePrompt(stasis, buzzWords, aspect) {
+  const overhead = buildStasisVisionPrompt("", buzzWords, aspect).length + 2;
+  const body = clipPromptChars(String(stasis || "").trim(), Math.max(200, CF_PROMPT_MAX - overhead));
+  return clipPromptChars(buildStasisVisionPrompt(body, buzzWords, aspect), CF_PROMPT_MAX);
+}
+
+/** Text-to-image via Cloudflare Workers AI REST. Reference images are ignored. Returns a data: URL. */
+export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRatio) {
+  const creds = getCfCreds();
+  if (!creds) {
+    throw new Error(
+      "Cloudflare Workers AI is not configured (set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN)."
+    );
+  }
+  const model = getCfImageModel();
+  const aspect = normalizeAspect(aspectRatio);
+  const payload = { prompt: buildCloudflarePrompt(stasis, buzzWords, aspect) };
+  const isSdxl = /stable-diffusion-xl/i.test(model);
+  if (isSdxl) {
+    const sized = aspectToSize(aspect, 1024);
+    payload.width = Math.max(256, Math.floor(sized.width / 8) * 8);
+    payload.height = Math.max(256, Math.floor(sized.height / 8) * 8);
+  } else if (/flux-1-schnell/i.test(model)) {
+    payload.steps = 4;
+  }
+  const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(
+    creds.accountId
+  )}/ai/run/${model}`;
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${creds.token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const type = String(resp.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+  if (resp.ok && type.startsWith("image/")) {
+    // SDXL (and other binary models) return raw image bytes, usually PNG.
+    const buf = Buffer.from(await resp.arrayBuffer());
+    if (buf.length < 32) throw new Error("Cloudflare Workers AI returned an empty image.");
+    return `data:${type};base64,${buf.toString("base64")}`;
+  }
+  const data = await resp.json().catch(function () {
+    return {};
+  });
+  if (!resp.ok || data.success === false) {
+    const msg = (data.errors && data.errors[0] && data.errors[0].message) || `HTTP ${resp.status}`;
+    throw new Error(`Cloudflare Workers AI: ${msg}`);
+  }
+  const image = data.result && data.result.image;
+  if (!image) throw new Error("Cloudflare Workers AI returned no image.");
+  return String(image).startsWith("data:") ? image : `data:image/jpeg;base64,${image}`;
+}
+
+/** xAI failures that should hand off to the free Cloudflare fallback. */
+export function shouldUseCloudflareFallback(err) {
+  const m = String(err && err.message ? err.message : err || "").toLowerCase();
+  return (
+    isCreditsLimitError(err) ||
+    isInvalidKeyError(err) ||
+    m.includes("no xai api key") ||
+    m.includes("rate limit") ||
+    m.includes("too many requests") ||
+    m.includes("quota")
+  );
+}
+
 export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, referenceImage) {
-  if (getImageProvider() === "wombo") {
+  const provider = getImageProvider();
+  if (provider === "cloudflare") {
+    return generateCloudflareStasisImage(stasis, buzzWords, aspectRatio);
+  }
+  if (provider === "wombo") {
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
   }
   try {
     return await generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
   } catch (err) {
+    if (getCfCreds() && shouldUseCloudflareFallback(err)) {
+      try {
+        return await generateCloudflareStasisImage(stasis, buzzWords, aspectRatio);
+      } catch (cfErr) {
+        if (isCreditsLimitError(err) && getWomboKey()) {
+          return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
+        }
+        throw new Error(
+          `${(err && err.message) || String(err)} (Free Cloudflare fallback also failed: ${
+            (cfErr && cfErr.message) || String(cfErr)
+          })`
+        );
+      }
+    }
     if (isCreditsLimitError(err) && getWomboKey()) {
       return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
     }
