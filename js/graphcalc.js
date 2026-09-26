@@ -3229,6 +3229,41 @@
       });
   }
 
+  /**
+   * Add traced curves as a sketch batch (dark rows, "Clear last sketch" removes them)
+   * and zoom to fit. Used by Convert to curves and by 0-Z's post-generation trace.
+   */
+  function addSketchCurves(exprs) {
+    // Drop empty placeholder rows
+    state.exprs = state.exprs.filter(function (r) {
+      return r.text && String(r.text).trim();
+    });
+    lastSketchIds = [];
+    (exprs || []).forEach(function (curve) {
+      var row = {
+        id: uid(),
+        text: curve,
+        color: "#1a1a2e",
+        opacity: 0.95,
+        visible: true,
+        error: "",
+        kind: "empty",
+        compiled: null,
+        free: [],
+        inTicker: true,
+        fromSketch: true,
+      };
+      state.exprs.push(row);
+      lastSketchIds.push(row.id);
+    });
+    recompileAll();
+    renderList();
+    renderSliders();
+    zoomToFit();
+    scheduleDraw();
+    return lastSketchIds.length;
+  }
+
   function runImageSketch() {
     var api = window.GraphCalcImgTrace;
     if (!api || !api.imageToBezierExprs) {
@@ -3264,33 +3299,7 @@
           return null;
         }
         if (result.preview) showSketchPreview(result.preview);
-        // Drop empty placeholder rows
-        state.exprs = state.exprs.filter(function (r) {
-          return r.text && String(r.text).trim();
-        });
-        lastSketchIds = [];
-        result.exprs.forEach(function (curve) {
-          var row = {
-            id: uid(),
-            text: curve,
-            color: "#1a1a2e",
-            opacity: 0.95,
-            visible: true,
-            error: "",
-            kind: "empty",
-            compiled: null,
-            free: [],
-            inTicker: true,
-            fromSketch: true,
-          };
-          state.exprs.push(row);
-          lastSketchIds.push(row.id);
-        });
-        recompileAll();
-        renderList();
-        renderSliders();
-        zoomToFit();
-        scheduleDraw();
+        addSketchCurves(result.exprs);
 
         var msg =
           "Sketched " +
@@ -3480,6 +3489,7 @@
     pasteDesmos: pasteDesmos,
     zoomToFit: zoomToFit,
     sketchImage: runImageSketch,
+    addSketchCurves: addSketchCurves,
   };
   window.addEventListener("graphcalc-show", onShow);
   window.addEventListener("graphcalc-hide", onHide);

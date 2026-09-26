@@ -23,7 +23,8 @@
     prompt: "",
     parse: { qty: 1, nouns: [], hasTable: false, raw: "" },
     genUrl: "",
-    genEdges: null,
+    genCurves: null, // image → Desmos Bézier curves of the main still (Graph tab tracer)
+    showCurves: true,
     genJob: 0,
     timer: 0,
     previewUrls: {},
@@ -41,6 +42,13 @@
   function $(id) {
     return document.getElementById(id);
   }
+
+  /**
+   * Post-generation image → Desmos step. Same tracer and same defaults as the Graph
+   * tab's "Image → sketch (img2desmos-style)" Convert to curves: detail 7, max 900
+   * curves, 520px trace width, y flipped for math axes.
+   */
+  var DESMOS_OPTS = { detail: 7, maxCurves: 900, maxWidth: 520, flipY: true };
 
   function yValue(index) {
     return COUNT - index;
@@ -826,6 +834,7 @@
         var dh = ih * scFull;
         ctx.drawImage(state.genImg, (w - dw) / 2, (h - dh) / 2, dw, dh);
         ctx.restore();
+        drawDesmosCurves(ctx, (w - dw) / 2, (h - dh) / 2, dw, dh, "#7dd3fc");
         ctx.fillStyle = "#eef3ee";
         ctx.font = "italic 14px Times New Roman, serif";
         ctx.fillText(String(state.prompt || seedSentence()).slice(0, 72) || "standalone", 16, h - 16);
@@ -835,12 +844,7 @@
       var sc = Math.min((w - 48) / iw, (h - 48) / ih);
       ctx.drawImage(state.genImg, 48, 24, iw * sc, ih * sc);
       ctx.restore();
-    }
-    if (state.genEdges) {
-      ctx.save();
-      ctx.globalAlpha = 0.85;
-      ctx.drawImage(state.genEdges, 0, 0, w, h);
-      ctx.restore();
+      drawDesmosCurves(ctx, 48, 24, iw * sc, ih * sc, "#1d4ed8");
     }
 
     var p = state.parse.raw ? state.parse : parsePrompt(seedSentence());
@@ -919,49 +923,75 @@
     return tryNext(0);
   }
 
-  function traceEdges(img, w, h) {
-    var src = document.createElement("canvas");
-    src.width = w;
-    src.height = h;
-    var sctx = src.getContext("2d");
-    var iw = img.naturalWidth || img.width;
-    var ih = img.naturalHeight || img.height;
-    var sc = Math.min(w / iw, h / ih);
-    sctx.drawImage(img, 24, 16, iw * sc, ih * sc);
-    var data;
-    try {
-      data = sctx.getImageData(0, 0, w, h);
-    } catch (err) {
-      return null;
+  /** Stroke the traced Bézier curves over the still, in the rectangle the still was drawn in. */
+  function drawDesmosCurves(ctx, x, y, dw, dh, color) {
+    var c = state.genCurves;
+    if (!c || !state.showCurves || !c.beziers || !c.beziers.length) return;
+    var sx = dw / c.width;
+    var sy = dh / c.height;
+    function px(p) {
+      return x + p.x * sx;
     }
-    var out = sctx.createImageData(w, h);
-    var px = data.data;
-    var ox = out.data;
-    var y;
-    var x;
-    for (y = 1; y < h - 1; y++) {
-      for (x = 1; x < w - 1; x++) {
-        var i = (y * w + x) * 4;
-        var lum = function (xx, yy) {
-          var j = (yy * w + xx) * 4;
-          return px[j] * 0.3 + px[j + 1] * 0.59 + px[j + 2] * 0.11;
-        };
-        var gx = lum(x + 1, y) - lum(x - 1, y);
-        var gy = lum(x, y + 1) - lum(x, y - 1);
-        var mag = Math.sqrt(gx * gx + gy * gy);
-        if (mag > 28) {
-          ox[i] = 29;
-          ox[i + 1] = 78;
-          ox[i + 2] = 216;
-          ox[i + 3] = Math.min(220, mag * 3);
-        }
-      }
+    function py(p) {
+      return y + (c.flipY ? c.height - 1 - p.y : p.y) * sy;
     }
-    var edge = document.createElement("canvas");
-    edge.width = w;
-    edge.height = h;
-    edge.getContext("2d").putImageData(out, 0, 0);
-    return edge;
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.globalAlpha = 0.95;
+    ctx.lineWidth = 1.25;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.beginPath();
+    for (var i = 0; i < c.beziers.length; i++) {
+      var b = c.beziers[i];
+      ctx.moveTo(px(b.p0), py(b.p0));
+      ctx.bezierCurveTo(px(b.p1), py(b.p1), px(b.p2), py(b.p2), px(b.p3), py(b.p3));
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function updateDesmosUi() {
+    var n = state.genCurves && state.genCurves.exprs ? state.genCurves.exprs.length : 0;
+    var open = $("az-desmos-open");
+    if (open) {
+      open.hidden = n === 0;
+      open.textContent = "Open " + n + " curves in Graph";
+    }
+    var toggle = $("az-desmos-toggle");
+    if (toggle) toggle.checked = !!state.showCurves;
+  }
+
+  /** Run the Graph tab's image → Desmos tracer on a finished still. Resolves the result or null. */
+  function traceDesmos(url, job) {
+    var api = window.GraphCalcImgTrace;
+    if (!api || !api.imageToBezierExprs) return Promise.resolve(null);
+    return api
+      .imageToBezierExprs(url, DESMOS_OPTS)
+      .then(function (result) {
+        if (job !== state.genJob) return null;
+        state.genCurves = result && result.exprs && result.exprs.length ? result : null;
+        updateDesmosUi();
+        drawScene();
+        return state.genCurves;
+      })
+      .catch(function (err) {
+        if (job !== state.genJob) return null;
+        state.genCurves = null;
+        updateDesmosUi();
+        if (window.console) console.warn("[0-Z] Desmos trace failed:", err && err.message);
+        return null;
+      });
+  }
+
+  /** Graph tab, with these curves loaded as Desmos expressions (like Convert to curves). */
+  function openCurvesInGraph() {
+    var c = state.genCurves;
+    if (!c || !c.exprs || !c.exprs.length) return;
+    if (window.GalleryTabs && window.GalleryTabs.showTab) window.GalleryTabs.showTab("graphcalc");
+    var gc = window.GraphCalc;
+    if (gc && gc.addSketchCurves) gc.addSketchCurves(c.exprs);
+    else if (gc && gc.pasteDesmos) gc.pasteDesmos(c.exprs.join("\n"));
   }
 
   function pollJob(jobId, left) {
@@ -992,6 +1022,8 @@
       scene;
     var countEl = $("az-fold-count");
     if (countEl) countEl.textContent = "generating main still…";
+    state.genCurves = null;
+    updateDesmosUi();
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -1024,30 +1056,31 @@
         return new Promise(function (resolve) {
           var img = new Image();
           img.onload = function () {
-            if (job === state.genJob) {
-              state.genImg = img;
-              var canvas = $("az-fold");
-              state.genEdges = canvas && state.letterGrid
-                ? traceEdges(img, canvas.width, canvas.height)
-                : null;
-              drawScene();
-              if (countEl) {
-                countEl.textContent = state.letterGrid
-                  ? "main still ready"
-                  : "standalone still ready · saved to Generated";
+            if (job !== state.genJob) return resolve(true);
+            state.genImg = img;
+            drawScene();
+            var ready = state.letterGrid ? "main still ready" : "standalone still ready · saved to Generated";
+            if (countEl) countEl.textContent = ready + " · tracing Desmos curves…";
+            traceDesmos(url, job).then(function (curves) {
+              if (job === state.genJob && countEl) {
+                countEl.textContent = curves
+                  ? ready + " · " + curves.exprs.length + " Desmos curves from " + curves.contourCount + " contours"
+                  : ready + " · no Desmos curves traced";
               }
-            }
-            resolve();
+              resolve(true);
+            });
           };
           img.onerror = function () {
-            resolve();
+            resolve(true);
           };
           img.src = url;
         });
       })
-      .catch(function () {
-        if (job !== state.genJob) return;
-        if (countEl) countEl.textContent = "line work (local)";
+      .catch(function (err) {
+        if (job !== state.genJob) return false;
+        var msg = String((err && err.message) || "failed");
+        if (countEl) countEl.textContent = "generate failed: " + (msg.length > 220 ? msg.slice(0, 220) + "…" : msg);
+        return false;
       });
   }
 
@@ -1094,15 +1127,17 @@
     state.mainReady = false;
     state.mainSeed = seedSentence();
     stopLetterGridJobs();
-    return generateStill(seedSentence()).then(function () {
-      state.mainReady = true;
+    return generateStill(seedSentence()).then(function (ok) {
+      state.mainReady = !!ok;
     });
   }
 
   function generateMainThenPreviews() {
     state.mainReady = false;
     state.mainSeed = seedSentence();
-    return generateStill(seedSentence()).then(function () {
+    return generateStill(seedSentence()).then(function (ok) {
+      // A failed main still means the image provider is down — 37 letter stills would fail too.
+      if (!ok) return;
       state.mainReady = true;
       if (!state.letterGrid) return;
       queuePremonitions(state.pendingPrefer);
@@ -1227,6 +1262,25 @@
         applyPrompt(input.value, true);
       });
     }
+    var openBtn = $("az-desmos-open");
+    if (openBtn && !openBtn.dataset.bound) {
+      openBtn.dataset.bound = "1";
+      openBtn.addEventListener("click", openCurvesInGraph);
+    }
+    var curvesToggle = $("az-desmos-toggle");
+    if (curvesToggle && !curvesToggle.dataset.bound) {
+      curvesToggle.dataset.bound = "1";
+      try {
+        state.showCurves = localStorage.getItem("az-desmos-curves") !== "0";
+      } catch (eC) {}
+      curvesToggle.addEventListener("change", function () {
+        state.showCurves = !!curvesToggle.checked;
+        try {
+          localStorage.setItem("az-desmos-curves", state.showCurves ? "1" : "0");
+        } catch (eS) {}
+        drawScene();
+      });
+    }
     var resumeBtn = $("az-resume");
     if (resumeBtn && !resumeBtn.dataset.bound) {
       resumeBtn.dataset.bound = "1";
@@ -1272,6 +1326,7 @@
     // No generate here: init runs on page load and on every tab open. Stills are
     // generated only from the Generate button (or Enter in the 0-Z prompt).
     updateResumeButton();
+    updateDesmosUi();
   }
 
   window.AzScale = {
@@ -1284,6 +1339,9 @@
         busy: state.previewBusy,
         missing: missingPremonitions().length,
         letterGrid: state.letterGrid,
+        desmosCurves: state.genCurves ? state.genCurves.exprs.length : 0,
+        desmosContours: state.genCurves ? state.genCurves.contourCount : 0,
+        showCurves: state.showCurves,
       };
     },
   };

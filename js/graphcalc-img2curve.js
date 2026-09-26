@@ -441,6 +441,7 @@
       var eps = 0.45 + (11 - detail) * 0.22;
 
       var exprs = [];
+      var beziers = [];
       var flipY = opts.flipY !== false;
       for (var c = 0; c < contours.length && exprs.length < maxCurves; c++) {
         var simplified = rdp(contours[c], eps);
@@ -468,9 +469,10 @@
             y: flipY ? h - 1 - pt.y : pt.y,
           };
         });
-        var beziers = polylineToBeziers(mapped);
-        for (var b = 0; b < beziers.length && exprs.length < maxCurves; b++) {
-          exprs.push(bezierToDesmos(beziers[b]));
+        var segs = polylineToBeziers(mapped);
+        for (var b = 0; b < segs.length && exprs.length < maxCurves; b++) {
+          exprs.push(bezierToDesmos(segs[b]));
+          beziers.push(segs[b]);
         }
       }
 
@@ -490,6 +492,9 @@
 
       return {
         exprs: exprs,
+        // Control points behind each expr (same order), for drawing the curves directly.
+        beziers: beziers,
+        flipY: flipY,
         width: w,
         height: h,
         preview: prev,
