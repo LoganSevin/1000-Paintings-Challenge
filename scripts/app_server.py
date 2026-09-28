@@ -9481,6 +9481,7 @@ def _cap_prompt_chars(text, max_chars=None):
 
 _ALLOWED_STILL_ASPECTS = ("1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3")
 _STASIS_ASPECT = threading.local()
+_STASIS_SOURCE = threading.local()
 
 
 def _normalize_still_aspect(value, default="16:9"):
@@ -9552,6 +9553,16 @@ def build_stasis_vision_prompt(*args, **kwargs):
             str(kwargs.get("stasis") or ""), GEN_STASIS_BODY_MAX
         )
 
+    source = str(getattr(_STASIS_SOURCE, "value", "") or kwargs.get("source") or "")
+    if source == "az":
+        stasis = str(args[0] if args else kwargs.get("stasis") or "").strip()
+        lead = (stasis.split(".")[0] if stasis else stasis).strip() or "a single form"
+        return (
+            f"{lead}. Black ink contour drawing of that exact subject on plain white paper. "
+            "High-contrast black lines only, no color, no wash, no hillside, no mountain unless those words are the subject. "
+            f"The only subject is: {lead}."
+        )
+
     if callable(_orig_build_stasis_vision_prompt):
         prompt = _orig_build_stasis_vision_prompt(*args, **kwargs)
     else:
@@ -9560,15 +9571,16 @@ def build_stasis_vision_prompt(*args, **kwargs):
         if isinstance(buzz, str):
             buzz = [b.strip() for b in buzz.split(",") if b.strip()]
         buzz_s = ", ".join(list(buzz or [])[:16]) or "rich painterly detail"
+        phrase = _aspect_prompt_phrase(_current_stasis_aspect() or "16:9")
         prompt = (
+            f"{phrase} canvas — output this exact aspect ratio, not square unless the ratio is 1:1. "
             "Create one original fine-art painting that embodies this fused vision. "
             "Invent fresh imagery — not a photograph or collage of references.\n\n"
             "STASIS (locked fusion — the scene, mood, and narrative to paint):\n"
             f"{stasis.strip()}\n\n"
             f"BUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): {buzz_s}\n\n"
             "The image should read clearly at thumbnail scale yet reward close viewing. "
-            "Museum-quality, cohesive composition, expressive brushwork, "
-            f"{_aspect_prompt_phrase(_current_stasis_aspect() or '16:9')} frame."
+            "Museum-quality, cohesive composition, expressive brushwork."
         )
     aspect = _normalize_still_aspect(
         kwargs.get("aspect_ratio") or _current_stasis_aspect() or "16:9"
@@ -9610,6 +9622,7 @@ def run_stasis_vision_job(job_id, body, *rest, **kwargs):
     aspect = _normalize_still_aspect(body.get("aspect_ratio") or body.get("aspect") or "16:9")
     body["aspect_ratio"] = aspect
     _STASIS_ASPECT.value = aspect
+    _STASIS_SOURCE.value = str(body.get("source") or "")
     for key in (
         "stasis",
         "prompt",

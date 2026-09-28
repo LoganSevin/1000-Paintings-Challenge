@@ -545,7 +545,7 @@
       var p = JSON.parse(localStorage.getItem(GEN_KEY) || "null");
       if (p && ASPECTS.indexOf(p.aspect) >= 0) return p.aspect;
     } catch (e) {}
-    return "1:1";
+    return "16:9";
   }
 
   function saveAspect(a) {
@@ -829,7 +829,7 @@
     var subject = lastSubject;
     lastSubject = pickSubject(subject);
     if (el.subjectOut) el.subjectOut.textContent = lastSubject;
-    var aspect = ASPECTS.indexOf(el.aspect.value) >= 0 ? el.aspect.value : "1:1";
+    var aspect = ASPECTS.indexOf(el.aspect.value) >= 0 ? el.aspect.value : "16:9";
     var prompt = buildPrompt(tones, subject);
     var jobId = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : "job-" + Date.now();
     var hexes = prompt.names.map(function (n) {

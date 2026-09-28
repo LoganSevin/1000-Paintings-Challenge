@@ -32,6 +32,7 @@ async function runJob(jobId, body, visitorKey) {
     const cfOpts = {
       extraBuzz: body.extra_buzz || body.extra_prompt || "",
       signature: body.signature || body.signature_stamp || "",
+      source: body.source || "",
     };
     const imageUrl = await generateStasisVisionImage(
       stasis,

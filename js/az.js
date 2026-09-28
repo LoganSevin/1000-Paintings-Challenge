@@ -572,11 +572,13 @@
     var seed = seedSentence();
     var stasis =
       seed +
-      ". That subject is the picture. Next letter '" +
+      ". Black ink contour of that exact subject on white paper. Next letter '" +
       ch +
       "' " +
-      (ch === SPACE ? "is a word break — new cluster, same subject." : "nudges the same subject, does not replace it with a landscape.") +
-      " Accurate line-art of that subject. No hillside, mountain, or extra scenery unless the subject is that scenery.";
+      (ch === SPACE ? "is a word break — same subject." : "nudges the same subject, does not replace it with a landscape.") +
+      " Subject is: " +
+      seed +
+      ". No hillside or mountain unless that is the subject.";
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -584,8 +586,9 @@
         stasis: stasis,
         extra_buzz: seed,
         prompt: stasis,
-        buzz_words: ["line art", "contour", seed.slice(0, 48), "next letter " + ch],
-        aspect_ratio: "1:1"
+        buzz_words: ["black line drawing", "white background", seed.slice(0, 48), "next letter " + ch],
+        aspect_ratio: "1:1",
+        source: "az"
       })
     })
       .then(function (r) {
@@ -875,30 +878,15 @@
     var ctx = canvas.getContext("2d");
     drawGrid(ctx, w, h);
 
-    if (state.genUrl && state.genImg && state.genImg.complete) {
-      ctx.save();
-      var iw = state.genImg.naturalWidth || state.genImg.width;
-      var ih = state.genImg.naturalHeight || state.genImg.height;
-      if (!state.letterGrid) {
-        ctx.fillStyle = "#0c1018";
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalAlpha = 1;
-        var scFull = Math.min(w / iw, h / ih);
-        var dw = iw * scFull;
-        var dh = ih * scFull;
-        ctx.drawImage(state.genImg, (w - dw) / 2, (h - dh) / 2, dw, dh);
-        ctx.restore();
-        drawDesmosCurves(ctx, (w - dw) / 2, (h - dh) / 2, dw, dh, "#000");
-        ctx.fillStyle = "#111";
-        ctx.font = "italic 14px Times New Roman, serif";
-        ctx.fillText(String(state.prompt || seedSentence()).slice(0, 72) || "standalone", 16, h - 16);
-        return;
-      }
-      ctx.globalAlpha = 0.92;
-      var sc = Math.min((w - 48) / iw, (h - 48) / ih);
-      ctx.drawImage(state.genImg, 48, 24, iw * sc, ih * sc);
-      ctx.restore();
-      drawDesmosCurves(ctx, 48, 24, iw * sc, ih * sc, "#000");
+    if (state.genCurves && state.showCurves) {
+      var gx = 48;
+      var gy = 24;
+      var gw = Math.max(80, w - 72);
+      var gh = Math.max(80, h - 56);
+      drawDesmosCurves(ctx, gx, gy, gw, gh, "#000");
+      ctx.fillStyle = "#1a2030";
+      ctx.font = "italic 14px Times New Roman, serif";
+      ctx.fillText(String(state.prompt || seedSentence()).slice(0, 72) || "0–Z", 52, h - 16);
       return;
     }
 
@@ -1074,9 +1062,11 @@
     var scene = String(prompt || seedSentence()).trim() || "a single seed form";
     var stasis =
       scene +
-      ". That subject is the entire picture — paint it accurately. " +
-      "Museum line-art: black contours, clear forms, fills. " +
-      "No collage. No hillside, mountain, or extra landscape unless the subject itself is that landscape.";
+      ". Black ink contour drawing of that exact subject on plain white paper. " +
+      "High-contrast black lines only, no color, no shading washes. " +
+      "The subject is: " +
+      scene +
+      ". Do not draw a landscape, hillside, or mountain unless those words are the subject.";
     var countEl = $("az-fold-count");
     if (countEl) countEl.textContent = "generating main still…";
     state.genCurves = null;
@@ -1088,8 +1078,9 @@
         stasis: stasis,
         extra_buzz: scene,
         prompt: stasis,
-        buzz_words: ["line art", "contour", "ink", "fill", scene.slice(0, 48)],
-        aspect_ratio: "16:9"
+        buzz_words: ["black line drawing", "white background", "contour", scene.slice(0, 48)],
+        aspect_ratio: "1:1",
+        source: "az"
       })
     })
       .then(function (r) {

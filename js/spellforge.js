@@ -3334,10 +3334,14 @@
   function productFooterText() {
     var aspect = getAspectRatio();
     var sig = authorshipStampLine();
+    var orient =
+      aspect === "1:1" ? "square" : /^(16:9|4:3|3:2)$/.test(aspect) ? "landscape" : "portrait";
     return (
-      "\n\nCompose for a " +
+      "\n\nOUTPUT ASPECT " +
       aspect +
-      " frame and fill the entire canvas. Do not letterbox.\n" +
+      " " +
+      orient +
+      " — this ratio is mandatory, not 1:1 unless the control is 1:1. Fill the canvas. Do not letterbox.\n" +
       "IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner): write exactly \"" +
       sig +
       "\"."

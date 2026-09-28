@@ -381,13 +381,29 @@ export function aspectToSize(aspect, longSide = 1280) {
   return { width: Math.max(1, Math.round((longSide * aw) / ah)), height: longSide };
 }
 
+export function buildAzLinePrompt(stasis) {
+  const scene = String(stasis || "").trim();
+  const lead = (scene.split(/[.!\n]/)[0] || scene).trim() || "a single form";
+  return (
+    lead +
+    ". Black ink contour drawing of that exact subject on plain white paper. " +
+    "High-contrast black lines only, no color, no wash, no hillside, no mountain unless those words are the subject. " +
+    "The only subject is: " +
+    lead +
+    "."
+  );
+}
+
 export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
+  if (opts.source === "az") return buildAzLinePrompt(stasis);
   const buzz =
     buzzWords?.length > 0
       ? buzzWords.slice(0, 16).join(", ")
       : "rich painterly detail";
   const footer = authorshipFooter(aspectRatio, opts.signature);
+  const frame = aspectPhrase(aspectRatio);
   const prefix =
+    `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1. ` +
     "Create one original fine-art painting that embodies this fused vision. " +
     "Invent fresh imagery — not a photograph or collage of references.\n\n" +
     "STASIS (locked fusion — the scene, mood, and narrative to paint):\n";
@@ -586,7 +602,10 @@ export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, ref
   return withXaiKeyFallback(async function (apiKey) {
     const aspect = normalizeAspect(aspectRatio);
     const ref = String(referenceImage || "").trim();
-    const wrapOpts = { signature: cfOpts.signature || cfOpts.signature_stamp || "" };
+    const wrapOpts = {
+      signature: cfOpts.signature || cfOpts.signature_stamp || "",
+      source: cfOpts.source || "",
+    };
     const fullPrompt = ref
       ? buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
       : buildStasisVisionPrompt(stasis, buzzWords, aspect, wrapOpts);
@@ -827,6 +846,16 @@ function fluxRegions(n, aspect) {
  * Spells get equal, bounded shares, each placed in its own region of one scene.
  */
 export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
+  if (opts.source === "az") {
+    const raw = fluxExtraBuzz((opts && opts.extraBuzz) || stasis);
+    const scene = (raw.split(/[.!\n]/)[0] || raw).trim() || "a single form";
+    return (
+      scene +
+      ". Black ink contour drawing of that exact subject on plain white paper. High-contrast black lines, no color, no hillside, no mountain unless those words are the subject. The only subject is: " +
+      scene +
+      "."
+    );
+  }
   const sf = parseSpellforgeStasis(stasis);
   const gen = sf && sf.subjects.length ? null : parseGenericStasis(stasis);
   const genExtra = gen ? (/^Extra direction[^:\n]*:[ \t]*([^\n]+)/m.exec(String(stasis || "")) || [])[1] : "";

@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
-  <link rel="stylesheet" href="css/colors.css?v=5" />
+  <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -7636,35 +7636,6 @@
             <p class="clr-tones-hint">Three slots. Each has <strong>Add as tone</strong> for the selected Spell swatch (or <kbd>Shift</kbd>-click a swatch). Generate is three-tone and minimal — large shapes, almost no extra detail.</p>
             <ol id="clr-tone-tray" class="clr-tone-tray" aria-label="Tone tray"></ol>
             <span id="clr-tone-msg" class="clr-tone-msg" aria-live="polite"></span>
-            <div class="clr-subject-box">
-              <div class="clr-subject-head">
-                <span class="clr-field-label">Subject roll</span>
-                <button type="button" class="clr-btn clr-btn-sm" id="clr-subject-roll">↻ Roll</button>
-              </div>
-              <p id="clr-subject-readout" class="clr-subject-readout"></p>
-              <label class="clr-toggle">
-                <input type="checkbox" id="clr-apply-roll" checked />
-                Apply subject roll with the prompt
-              </label>
-              <label class="clr-field clr-prompt-wrap">Prompt
-                <textarea id="clr-prompt" class="clr-prompt" rows="2" placeholder="Optional: e.g. a fox in a kitchen. Combined with the roll when the toggle is on."></textarea>
-              </label>
-            </div>
-            <div class="clr-gen-row">
-              <label class="clr-field">Frame
-                <select id="clr-gen-aspect" class="clr-select clr-select-sm">
-                  <option value="1:1">1:1</option>
-                  <option value="4:3">4:3</option>
-                  <option value="3:4">3:4</option>
-                  <option value="16:9">16:9</option>
-                  <option value="9:16">9:16</option>
-                  <option value="3:2">3:2</option>
-                  <option value="2:3">2:3</option>
-                </select>
-              </label>
-              <button type="button" class="clr-btn accent" id="clr-gen-go" disabled>Generate</button>
-              <button type="button" class="clr-btn" id="clr-gen-reroll" hidden>↻ Reroll</button>
-            </div>
             <p id="clr-gen-status" class="clr-gen-status" aria-live="polite"></p>
             <div id="clr-gen-key" class="clr-gen-key" hidden>
               <button type="button" class="clr-btn clr-btn-sm" id="clr-gen-connect">Connect xAI key</button>
@@ -7674,8 +7645,39 @@
         </aside>
       </div>
 
-      <section id="clr-gen-results" class="clr-gen-results" aria-label="3-tone generations" hidden>
+      <section id="clr-gen-dock" class="clr-gen-dock" aria-label="3-tone prompt">
         <h3 class="clr-tones-title">3-tone paintings</h3>
+        <div class="clr-subject-box">
+          <div class="clr-subject-head">
+            <span class="clr-field-label">Subject roll</span>
+            <button type="button" class="clr-btn clr-btn-sm" id="clr-subject-roll">↻ Roll</button>
+          </div>
+          <p id="clr-subject-readout" class="clr-subject-readout"></p>
+          <label class="clr-toggle">
+            <input type="checkbox" id="clr-apply-roll" checked />
+            Apply subject roll with the prompt
+          </label>
+          <label class="clr-field clr-prompt-wrap">Prompt
+            <textarea id="clr-prompt" class="clr-prompt" rows="2" placeholder="Optional: e.g. a fox in a kitchen. Combined with the roll when the toggle is on."></textarea>
+          </label>
+        </div>
+        <div class="clr-gen-row">
+          <label class="clr-field">Frame
+            <select id="clr-gen-aspect" class="clr-select clr-select-sm">
+              <option value="16:9">16:9</option>
+              <option value="1:1">1:1</option>
+              <option value="4:3">4:3</option>
+              <option value="3:4">3:4</option>
+              <option value="9:16">9:16</option>
+              <option value="3:2">3:2</option>
+              <option value="2:3">2:3</option>
+            </select>
+          </label>
+          <button type="button" class="clr-btn accent" id="clr-gen-go" disabled>Generate</button>
+          <button type="button" class="clr-btn" id="clr-gen-reroll" hidden>↻ Reroll</button>
+        </div>
+      </section>
+      <section id="clr-gen-results" class="clr-gen-results" aria-label="3-tone generations" hidden>
         <div id="clr-gen-list" class="clr-gen-list"></div>
       </section>
     </div>
@@ -8803,12 +8805,12 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=13"></script>
+  <script defer src="js/az.js?v=14"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
-  <script defer src="js/colors-gen.js?v=4"></script>
+  <script defer src="js/colors-gen.js?v=5"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -8842,7 +8844,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=109"></script>
+  <script defer src="js/spellforge.js?v=110"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

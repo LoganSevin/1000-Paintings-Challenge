@@ -703,8 +703,15 @@ body.clr-tab-active #panel-colors {
   margin-top: 0.35rem;
 }
 
+#panel-colors .clr-gen-dock {
+  max-width: 82rem;
+  margin: 1.1rem auto 0;
+  padding: 0.75rem 1rem 0.4rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.28);
+}
+
 #panel-colors .clr-gen-results {
-  margin-top: 1.1rem;
+  margin-top: 0.35rem;
 }
 
 #panel-colors .clr-gen-list {
