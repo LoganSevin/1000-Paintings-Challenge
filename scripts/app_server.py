@@ -10324,6 +10324,169 @@ except Exception as _chat_err:
     print(f"[gallery] Chat route failed: {_chat_err}", flush=True)
 
 
+_VENDOR_CHAT_SYSTEM = _STUDIO_CHAT_SYSTEM
+
+
+def _header_ci(handler, name: str) -> str:
+    try:
+        got = handler.headers.get(name) or handler.headers.get(name.lower()) or ""
+    except Exception:
+        got = ""
+    return str(got or "").strip()
+
+
+def _clean_chat_messages(raw) -> list:
+    cleaned = []
+    if not isinstance(raw, list):
+        return cleaned
+    for item in raw[-24:]:
+        if not isinstance(item, dict):
+            continue
+        role = str(item.get("role") or "").strip().lower()
+        if role not in ("user", "assistant"):
+            continue
+        text = str(item.get("content") or item.get("text") or "").strip()[:4000]
+        if not text:
+            continue
+        cleaned.append({"role": role, "content": text})
+    return cleaned
+
+
+def _respond_claude_chat(handler):
+    try:
+        body = handler._read_json()
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    messages = _clean_chat_messages(body.get("messages"))
+    if not messages:
+        return handler._json({"ok": False, "error": "messages array required"}, 400)
+    key = _header_ci(handler, "X-Visitor-Anthropic-Key") or str(
+        os.environ.get("ANTHROPIC_API_KEY") or ""
+    ).strip()
+    if not key:
+        return handler._json(
+            {
+                "ok": False,
+                "error": "Paste an Anthropic key on the Claude tab, or set ANTHROPIC_API_KEY locally.",
+            },
+            400,
+        )
+    system = str(body.get("system") or "").strip() or _VENDOR_CHAT_SYSTEM
+    model = str(os.environ.get("CLAUDE_MODEL") or "claude-sonnet-4-5")
+    try:
+        resp = httpx.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": key,
+                "anthropic-version": "2023-06-01",
+            },
+            json={"model": model, "max_tokens": 1024, "system": system, "messages": messages},
+            timeout=90.0,
+        )
+        data = resp.json() if resp.content else {}
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)[:400]}, 502)
+    if resp.status_code >= 400:
+        err = ""
+        if isinstance(data, dict):
+            err = str((data.get("error") or {}).get("message") or data.get("error") or "")
+        return handler._json(
+            {"ok": False, "error": (err or f"Claude HTTP {resp.status_code}")[:400]},
+            401 if resp.status_code == 401 else 502,
+        )
+    bits = []
+    for block in data.get("content") or []:
+        if isinstance(block, dict) and block.get("text"):
+            bits.append(str(block.get("text")))
+    text = "\n".join(bits).strip()
+    if not text:
+        return handler._json({"ok": False, "error": "Empty reply from Claude"}, 502)
+    return handler._json({"ok": True, "text": text, "model": data.get("model") or model})
+
+
+def _respond_openai_chat(handler):
+    try:
+        body = handler._read_json()
+    except Exception:
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    if not isinstance(body, dict):
+        return handler._json({"ok": False, "error": "Invalid JSON"}, 400)
+    cleaned = _clean_chat_messages(body.get("messages"))
+    if not cleaned:
+        return handler._json({"ok": False, "error": "messages array required"}, 400)
+    key = _header_ci(handler, "X-Visitor-OpenAI-Key") or str(
+        os.environ.get("OPENAI_API_KEY") or ""
+    ).strip()
+    if not key:
+        return handler._json(
+            {
+                "ok": False,
+                "error": "Paste an OpenAI key on the ChatGPT tab, or set OPENAI_API_KEY locally.",
+            },
+            400,
+        )
+    system = str(body.get("system") or "").strip() or _VENDOR_CHAT_SYSTEM
+    model = str(os.environ.get("OPENAI_MODEL") or "gpt-4.1")
+    payload = [{"role": "system", "content": system}] + cleaned
+    try:
+        resp = httpx.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers={"Content-Type": "application/json", "Authorization": "Bearer " + key},
+            json={"model": model, "messages": payload, "temperature": 0.7},
+            timeout=90.0,
+        )
+        data = resp.json() if resp.content else {}
+    except Exception as exc:
+        return handler._json({"ok": False, "error": str(exc)[:400]}, 502)
+    if resp.status_code >= 400:
+        err = ""
+        if isinstance(data, dict):
+            err = str((data.get("error") or {}).get("message") or data.get("error") or "")
+        return handler._json(
+            {"ok": False, "error": (err or f"ChatGPT HTTP {resp.status_code}")[:400]},
+            401 if resp.status_code == 401 else 502,
+        )
+    text = ""
+    choices = data.get("choices") or []
+    if choices and isinstance(choices[0], dict):
+        text = str(((choices[0].get("message") or {}).get("content")) or "").strip()
+    if not text:
+        return handler._json({"ok": False, "error": "Empty reply from ChatGPT"}, 502)
+    return handler._json({"ok": True, "text": text, "model": data.get("model") or model})
+
+
+try:
+    _prev_vendor_chat_post = AppHandler.do_POST
+
+    def _do_post_with_vendor_chats(self):
+        path = _normalize_api_path(urlparse(self.path).path)
+        if path in ("/api/claude-chat", "/api/claude-chat/"):
+            try:
+                return _respond_claude_chat(self)
+            except Exception as exc:
+                try:
+                    return self._json({"ok": False, "error": f"claude chat crashed: {exc}"[:400]}, 500)
+                except Exception:
+                    return None
+        if path in ("/api/openai-chat", "/api/openai-chat/"):
+            try:
+                return _respond_openai_chat(self)
+            except Exception as exc:
+                try:
+                    return self._json({"ok": False, "error": f"chatgpt chat crashed: {exc}"[:400]}, 500)
+                except Exception:
+                    return None
+        return _prev_vendor_chat_post(self)
+
+    AppHandler.do_POST = _do_post_with_vendor_chats
+    print("[gallery] Chat: POST /api/claude-chat and /api/openai-chat", flush=True)
+except Exception as _vchat_err:
+    print(f"[gallery] Vendor chat routes failed: {_vchat_err}", flush=True)
+
+
 RAGDOLL_STATE_PATH = GALLERY / "tabs" / "ragdoll" / "ragdoll_state.json"
 
 

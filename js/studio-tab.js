@@ -18,6 +18,8 @@
     { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },
     { group: "Language", name: "HTML readout", note: "Pages and each panel", href: "#html" },
     { group: "Language", name: "Debug inspector", note: "API payloads from every tab", href: "#debug" },
+    { group: "Language", name: "Claude", note: "Anthropic chat · your key", href: "#claude" },
+    { group: "Language", name: "ChatGPT", note: "OpenAI chat · your key", href: "#chatgpt" },
     { group: "Language", name: "Define invoice", note: "Bill in the vendor meter", href: "#api" },
     { group: "Meter", name: "xAI vendor meter", note: "Maintainer keeps the gauge; studio uncapped", href: "#xai" },
     { group: "Meter", name: "Vendor units", note: "Tokens, image gens, prepaid, keys", href: "#vendor" },

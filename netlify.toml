@@ -137,6 +137,18 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/api/claude-chat"
+  to = "/.netlify/functions/claude-chat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/openai-chat"
+  to = "/.netlify/functions/openai-chat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "paintings/*"
   [headers.values]

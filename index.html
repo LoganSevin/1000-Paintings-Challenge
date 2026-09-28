@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="css/saccade.css?v=1" />
   <link rel="stylesheet" href="css/demand.css?v=1" />
   <link rel="stylesheet" href="css/chat.css?v=1" />
+  <link rel="stylesheet" href="css/vendor-chats.css?v=1" />
   <link rel="stylesheet" href="css/ragdoll.css?v=3" />
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
@@ -291,6 +292,8 @@
         <button type="button" class="tab" data-tab="saccade">Saccade</button>
         <button type="button" class="tab" data-tab="demand">Demand</button>
         <button type="button" class="tab" data-tab="chat">Chat</button>
+        <button type="button" class="tab" data-tab="claude">Claude</button>
+        <button type="button" class="tab" data-tab="chatgpt">ChatGPT</button>
         <button type="button" class="tab" data-tab="ragdoll">Ragdoll</button>
         <button type="button" class="tab" data-tab="particles">Particles</button>
         <button type="button" class="tab" data-tab="live">Live</button>
@@ -6703,6 +6706,56 @@
     </div>
   </section>
 
+  <section id="panel-claude" class="panel" hidden>
+    <div class="cl-shell">
+      <header class="cl-top">
+        <div>
+          <h2>Claude</h2>
+          <p class="cl-hint">
+            Anthropic’s model in the studio. Paste your key — Logan7in unlimited does not bill Claude to the gallery.
+          </p>
+        </div>
+        <button type="button" id="cl-new" class="cl-btn">New chat</button>
+      </header>
+      <div class="cl-keys">
+        <span id="cl-key-state">No Anthropic key in this browser.</span>
+        <button type="button" class="cl-btn" id="cl-connect">Paste key</button>
+        <button type="button" class="cl-btn" id="cl-forget">Forget</button>
+      </div>
+      <div id="cl-log" class="cl-log" aria-live="polite"></div>
+      <form id="cl-form" class="cl-form">
+        <textarea id="cl-input" rows="2" maxlength="4000" placeholder="Ask Claude…" autocomplete="off"></textarea>
+        <button type="submit" id="cl-send" class="cl-send">Send</button>
+      </form>
+      <p id="cl-status" class="cl-status"></p>
+    </div>
+  </section>
+
+  <section id="panel-chatgpt" class="panel" hidden>
+    <div class="cg-shell">
+      <header class="cg-top">
+        <div>
+          <h2>ChatGPT</h2>
+          <p class="cg-hint">
+            OpenAI’s model in the studio. Paste your key — Logan7in unlimited does not bill OpenAI to the gallery.
+          </p>
+        </div>
+        <button type="button" id="cg-new" class="cg-btn">New chat</button>
+      </header>
+      <div class="cg-keys">
+        <span id="cg-key-state">No OpenAI key in this browser.</span>
+        <button type="button" class="cg-btn" id="cg-connect">Paste key</button>
+        <button type="button" class="cg-btn" id="cg-forget">Forget</button>
+      </div>
+      <div id="cg-log" class="cg-log" aria-live="polite"></div>
+      <form id="cg-form" class="cg-form">
+        <textarea id="cg-input" rows="2" maxlength="4000" placeholder="Ask ChatGPT…" autocomplete="off"></textarea>
+        <button type="submit" id="cg-send" class="cg-send">Send</button>
+      </form>
+      <p id="cg-status" class="cg-status"></p>
+    </div>
+  </section>
+
   <section id="panel-ragdoll" class="panel" hidden>
     <div class="rd-shell">
       <header class="rd-top">
@@ -8819,6 +8872,7 @@
   <script defer src="js/saccade.js?v=1"></script>
   <script defer src="js/demand.js?v=1"></script>
   <script defer src="js/chat.js?v=3"></script>
+  <script defer src="js/vendor-chats.js?v=1"></script>
   <script defer src="js/ragdoll.js?v=3"></script>
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=24"></script>
@@ -8839,9 +8893,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=107"></script>
+  <script defer src="js/tabs.js?v=108"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=3"></script>
+  <script defer src="js/studio-tab.js?v=4"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>

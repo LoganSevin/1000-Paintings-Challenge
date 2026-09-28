@@ -81,6 +81,8 @@
     saccade: document.getElementById("panel-saccade"),
     demand: document.getElementById("panel-demand"),
     chat: document.getElementById("panel-chat"),
+    claude: document.getElementById("panel-claude"),
+    chatgpt: document.getElementById("panel-chatgpt"),
     ragdoll: document.getElementById("panel-ragdoll"),
     particles: document.getElementById("panel-particles"),
     live: document.getElementById("panel-live"),
@@ -186,6 +188,8 @@
     saccade: "Saccade — what a stranger’s eyes actually steal from the painting",
     demand: "Demand — Grok-scale asks, ranked for what this gallery can ship",
     chat: "Chat — studio Grok on the same xAI key as generate",
+    claude: "Claude — Anthropic in the studio · your key, not the gallery’s bill",
+    chatgpt: "ChatGPT — OpenAI in the studio · your key, not the gallery’s bill",
     ragdoll: "Ragdoll — pose a paint-stained figure, generate from the pose",
     particles: "Particles — pour and stir paint-dust from a gallery still",
     live: "Live — puppet host on a real TikTok LIVE · comments, gifts, follows",
@@ -302,6 +306,8 @@
     if (name === "newsletter" || name === "dispatch") name = "subscribe";
     if (name === "tab-debug") name = "debug";
     if (name === "24" || name === "24hours" || name === "24-hours" || name === "day") name = "hours";
+    if (name === "anthropic") name = "claude";
+    if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
       enterKidsMode();
       name = "kids-baby";
@@ -479,6 +485,12 @@
     if (name !== "chat") {
       window.dispatchEvent(new Event("chat-hide"));
     }
+    if (name !== "claude") {
+      window.dispatchEvent(new Event("claude-hide"));
+    }
+    if (name !== "chatgpt") {
+      window.dispatchEvent(new Event("chatgpt-hide"));
+    }
     if (name !== "ragdoll") {
       window.dispatchEvent(new Event("ragdoll-hide"));
     }
@@ -531,6 +543,8 @@
     document.body.classList.toggle("sc-tab-active", name === "saccade");
     document.body.classList.toggle("dm-tab-active", name === "demand");
     document.body.classList.toggle("ch-tab-active", name === "chat");
+    document.body.classList.toggle("cl-tab-active", name === "claude");
+    document.body.classList.toggle("cg-tab-active", name === "chatgpt");
     document.body.classList.toggle("rd-tab-active", name === "ragdoll");
     document.body.classList.toggle("ps-tab-active", name === "particles");
     document.body.classList.toggle("lv-tab-active", name === "live");
@@ -933,6 +947,18 @@
         window.StudioChat.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "claude") {
+      window.dispatchEvent(new Event("claude-show"));
+      if (window.ClaudeChat && window.ClaudeChat.onShow) {
+        window.ClaudeChat.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "chatgpt") {
+      window.dispatchEvent(new Event("chatgpt-show"));
+      if (window.ChatGptChat && window.ChatGptChat.onShow) {
+        window.ChatGptChat.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "ragdoll") {
       window.dispatchEvent(new Event("ragdoll-show"));
       if (window.Ragdoll && window.Ragdoll.onShow) {
@@ -1101,6 +1127,8 @@
     if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
     if (tabName === "tab-debug") tabName = "debug";
     if (tabName === "24" || tabName === "24hours" || tabName === "24-hours" || tabName === "day") tabName = "hours";
+    if (tabName === "anthropic") tabName = "claude";
+    if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";

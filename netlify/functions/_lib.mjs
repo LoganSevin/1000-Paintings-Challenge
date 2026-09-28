@@ -29,7 +29,8 @@ export function jsonResponse(body, status = 200) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, X-Visitor-Xai-Key",
+      "Access-Control-Allow-Headers":
+        "Content-Type, X-Visitor-Xai-Key, X-Visitor-Anthropic-Key, X-Visitor-OpenAI-Key",
     },
   });
 }
@@ -39,7 +40,8 @@ export function corsPreflight() {
     status: 204,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, X-Visitor-Xai-Key",
+      "Access-Control-Allow-Headers":
+        "Content-Type, X-Visitor-Xai-Key, X-Visitor-Anthropic-Key, X-Visitor-OpenAI-Key",
       "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     },
   });
