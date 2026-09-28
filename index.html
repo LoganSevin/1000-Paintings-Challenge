@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
+  <link rel="stylesheet" href="css/hours.css?v=1" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -302,6 +303,7 @@
         <button type="button" class="tab" data-tab="bible">Bible</button>
         <button type="button" class="tab" data-tab="slots">Slots</button>
         <button type="button" class="tab" data-tab="colors">Colors</button>
+        <button type="button" class="tab" data-tab="hours">24 Hours</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -7683,6 +7685,25 @@
     </div>
   </section>
 
+  <section id="panel-hours" class="panel" hidden>
+    <div class="hr-shell">
+      <div class="hr-stage">
+        <canvas id="hr-canvas" class="hr-canvas" aria-label="24 hour day painting"></canvas>
+      </div>
+      <aside class="hr-side">
+        <h2>24 Hours</h2>
+        <p class="hr-lede">
+          86,400 seconds. Nested rings for 12h, 6h, 3h, 90m, 45m, 22m, 11m, 2m, 27s, 9s, and 3s.
+          Drag the painting to scrub the day; release to return to now.
+        </p>
+        <p id="hr-clock" class="hr-clock">00:00:00</p>
+        <p id="hr-daysec" class="hr-daysec">0 / 86,400</p>
+        <ul id="hr-layers" class="hr-layers"></ul>
+        <p id="hr-note" class="hr-note"></p>
+      </aside>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -8811,15 +8832,16 @@
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
+  <script defer src="js/hours.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=106"></script>
+  <script defer src="js/tabs.js?v=107"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=2"></script>
+  <script defer src="js/studio-tab.js?v=3"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>

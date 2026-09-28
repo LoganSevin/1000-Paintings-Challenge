@@ -93,6 +93,7 @@
     bible: document.getElementById("panel-bible"),
     slots: document.getElementById("panel-slots"),
     colors: document.getElementById("panel-colors"),
+    hours: document.getElementById("panel-hours"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -197,6 +198,7 @@
     bible: "Bible \u2014 the King James Version, all 66 books",
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
+    hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -299,6 +301,7 @@
     if (name === "printshops" || name === "etsy" || name === "redbubble") name = "print-shops";
     if (name === "newsletter" || name === "dispatch") name = "subscribe";
     if (name === "tab-debug") name = "debug";
+    if (name === "24" || name === "24hours" || name === "24-hours" || name === "day") name = "hours";
     if (name === "kids") {
       enterKidsMode();
       name = "kids-baby";
@@ -512,6 +515,9 @@
     if (name !== "colors") {
       window.dispatchEvent(new Event("colors-hide"));
     }
+    if (name !== "hours") {
+      window.dispatchEvent(new Event("hours-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -537,6 +543,7 @@
     document.body.classList.toggle("bib-tab-active", name === "bible");
     document.body.classList.toggle("sl-tab-active", name === "slots");
     document.body.classList.toggle("clr-tab-active", name === "colors");
+    document.body.classList.toggle("hr-tab-active", name === "hours");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -998,6 +1005,12 @@
         window.Colors.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "hours") {
+      window.dispatchEvent(new Event("hours-show"));
+      if (window.HoursDay && window.HoursDay.onShow) {
+        window.HoursDay.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1087,6 +1100,7 @@
     if (tabName === "printshops" || tabName === "etsy" || tabName === "redbubble") tabName = "print-shops";
     if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
     if (tabName === "tab-debug") tabName = "debug";
+    if (tabName === "24" || tabName === "24hours" || tabName === "24-hours" || tabName === "day") tabName = "hours";
     if (tabName === "rooms") tabName = "places";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";
