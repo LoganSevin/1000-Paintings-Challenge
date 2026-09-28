@@ -276,8 +276,36 @@
     }
   }
 
+  var DISK = { js: [], css: [], html: [] };
+
+  function diskName(path) {
+    return String(path || "").replace(/^.*\//, "") || path;
+  }
+
+  function mergeDisk(kind, loaded) {
+    var seen = {};
+    var out = loaded.slice();
+    out.forEach(function (item) {
+      var n = String(item.name || "").replace(/\?v=.*$/, "");
+      seen[n] = true;
+      seen[item.url] = true;
+    });
+    (DISK[kind] || []).forEach(function (path) {
+      var base = diskName(path);
+      if (seen[base] || seen[path]) return;
+      seen[base] = true;
+      out.push({
+        name: path + " (on disk)",
+        url: path,
+        kind: kind,
+        unloaded: true,
+      });
+    });
+    return out;
+  }
+
   function listJs() {
-    return Array.prototype.map
+    var loaded = Array.prototype.map
       .call(document.scripts, function (s) {
         return s.src;
       })
@@ -287,10 +315,11 @@
       .map(function (src) {
         return { name: fileName(src), url: src, kind: "js" };
       });
+    return mergeDisk("js", loaded);
   }
 
   function listCss() {
-    return Array.prototype.map
+    var loaded = Array.prototype.map
       .call(document.querySelectorAll('link[rel="stylesheet"]'), function (l) {
         return l.href;
       })
@@ -300,6 +329,7 @@
       .map(function (href) {
         return { name: fileName(href), url: href, kind: "css" };
       });
+    return mergeDisk("css", loaded);
   }
 
   function listHtml() {
@@ -324,7 +354,7 @@
         },
       });
     });
-    return rows;
+    return mergeDisk("html", rows);
   }
 
   function loadItem(item) {
@@ -373,7 +403,8 @@
         var btn = document.createElement("button");
         btn.type = "button";
         btn.textContent = item.name;
-        if (current && current.name === item.name) btn.className = "active";
+        if (item.unloaded) btn.className = "src-unloaded";
+        if (current && current.name === item.name) btn.className = (btn.className + " active").trim();
         btn.addEventListener("click", function () {
           openItem(item);
         });
@@ -583,9 +614,26 @@
   }
 
   function boot() {
-    bindPanel("js");
-    bindPanel("css");
-    bindPanel("html");
+    fetch("data/source-index.json", { cache: "no-store" })
+      .then(function (r) {
+        return r.ok ? r.json() : {};
+      })
+      .then(function (d) {
+        if (d && typeof d === "object") {
+          DISK.js = Array.isArray(d.js) ? d.js : [];
+          DISK.css = Array.isArray(d.css) ? d.css : [];
+          DISK.html = Array.isArray(d.html) ? d.html : [];
+        }
+      })
+      .catch(function () {})
+      .then(function () {
+        ["js", "css", "html"].forEach(function (kind) {
+          var panel = document.getElementById("panel-" + kind);
+          var files = panel && panel.querySelector(".src-files");
+          if (files) files.dataset.bound = "";
+          bindPanel(kind);
+        });
+      });
   }
 
   window.SourceTabs = {

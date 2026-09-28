@@ -35,6 +35,7 @@
     js: document.getElementById("panel-js"),
     css: document.getElementById("panel-css"),
     html: document.getElementById("panel-html"),
+    debug: document.getElementById("panel-debug"),
     grok: document.getElementById("panel-grok"),
     tokens: document.getElementById("panel-tokens"),
     chains: document.getElementById("panel-chains"),
@@ -52,7 +53,9 @@
     game: document.getElementById("panel-game"),
     commercial: document.getElementById("panel-commercial"),
     income: document.getElementById("panel-income"),
+    "print-shops": document.getElementById("panel-print-shops"),
     profit: document.getElementById("panel-profit"),
+    subscribe: document.getElementById("panel-subscribe"),
     market: document.getElementById("panel-market"),
     supermarket: document.getElementById("panel-supermarket"),
     banker: document.getElementById("panel-banker"),
@@ -133,9 +136,10 @@
     xai: "xAI vendor meter and optional key — studio use stays unlimited",
     vendor: "Vendor units xAI meters — tokens, image gens, prepaid, keys",
     key: "Keys — see, add, and fund so balance goes over required (required < spend)",
-    js: "JavaScript source — every script this page loads",
-    css: "Stylesheet source — every CSS file this page loads",
-    html: "HTML readout — index.html and each panel’s markup",
+    js: "JavaScript source — every file in js/, loaded or still on disk",
+    css: "Stylesheet source — every file in css/, loaded or still on disk",
+    html: "HTML readout — pages plus each panel’s markup",
+    debug: "Debug — API payload inspector for every tab",
     grok: "Grok is the model — optional cloud stills and captions, not a studio ticket",
     tokens: "Tokens are xAI’s text billing unit — not a studio budget",
     chains: "Spell chains — drag paintings into a callable pipeline, no xAI bill",
@@ -153,7 +157,9 @@
     game: "Brush Dash — fuse 6 paintings into a boss",
     commercial: "Brand partnerships — campaign pieces under " + ARTIST + " authorship",
     income: "Get paid on X · fans tip Cash App · track rent/food/gas",
+    "print-shops": "Print shops — Etsy & Redbubble listing packs from the gallery",
     profit: "Profit — commissions, newsletter, Fiverr, press, xAI auto top-up",
+    subscribe: "Studio Dispatch — 10 stills free, 25 for $5/month",
     market: "Practice only — sim sales & paper trades",
     supermarket: "Art supermarket — aisles, shoppers, receipts → generate",
     banker: "Banker — SIM debit/credit for the supermarket 100 · Luhn · encrypted vault",
@@ -290,6 +296,9 @@
   function showTab(name) {
     if (name === "rooms") name = "places";
     if (name === "cloud-xai") name = "xai";
+    if (name === "printshops" || name === "etsy" || name === "redbubble") name = "print-shops";
+    if (name === "newsletter" || name === "dispatch") name = "subscribe";
+    if (name === "tab-debug") name = "debug";
     if (name === "kids") {
       enterKidsMode();
       name = "kids-baby";
@@ -551,6 +560,9 @@
     document.body.classList.toggle("vd-tab-active", name === "vendor");
     document.body.classList.toggle("ky-tab-active", name === "key");
     document.body.classList.toggle("src-tab-active", name === "js" || name === "css" || name === "html");
+    document.body.classList.toggle("dbg-tab-active", name === "debug");
+    document.body.classList.toggle("pshops-tab-active", name === "print-shops");
+    document.body.classList.toggle("nl-tab-active", name === "subscribe");
     document.body.classList.toggle("gk-tab-active", name === "grok");
     document.body.classList.toggle("tk-tab-active", name === "tokens");
     document.body.classList.toggle("sc-tab-active", name === "chains");
@@ -690,6 +702,13 @@
       hideOtherTabs(name);
     } else if (name === "js" || name === "css" || name === "html") {
       if (window.SourceTabs && window.SourceTabs.onShow) window.SourceTabs.onShow(name);
+      hideOtherTabs(name);
+    } else if (name === "debug") {
+      if (window.TabDebug && window.TabDebug.setMode) window.TabDebug.setMode("debug");
+      hideOtherTabs(name);
+    } else if (name === "print-shops") {
+      hideOtherTabs(name);
+    } else if (name === "subscribe") {
       hideOtherTabs(name);
     } else if (name === "key") {
       if (window.KeyTab && window.KeyTab.onShow) window.KeyTab.onShow();
@@ -1036,10 +1055,6 @@
       }
     } catch (eEmb) {}
     const hash = location.hash.replace("#", "").split("?")[0];
-    if (hash === "subscribe") {
-      location.replace("subscribe.html");
-      return;
-    }
     var storedKids = false;
     try {
       storedKids = sessionStorage.getItem("kidsMode") === "1";
@@ -1069,86 +1084,20 @@
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
     if (tabName === "slot" || tabName === "slot-machine") tabName = "slots";
     if (tabName === "color" || tabName === "colours" || tabName === "colour") tabName = "colors";
+    if (tabName === "printshops" || tabName === "etsy" || tabName === "redbubble") tabName = "print-shops";
+    if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
+    if (tabName === "tab-debug") tabName = "debug";
+    if (tabName === "rooms") tabName = "places";
     if (!tabName && cdroom) tabName = "cardduel";
     if (cdroom && tabName !== "cardduel") tabName = "cardduel";
-    if (
-      tabName === "pulse" ||
-      tabName === "spellforge" ||
-      tabName === "muralwalk" ||
-      tabName === "fleeting-idea" ||
-      tabName === "conceptualizer" ||
-      tabName === "mobile-art-gen" ||
-      tabName === "animate" ||
-      tabName === "characters" ||
-      tabName === "objects" ||
-      tabName === "rooms" ||
-      tabName === "places" ||
-      tabName === "api" ||
-      tabName === "spells" ||
-      tabName === "prompt" ||
-      tabName === "gab" ||
-      tabName === "glimpse" ||
-      tabName === "brew" ||
-      tabName === "ears" ||
-      tabName === "viral" ||
-      tabName === "logan" ||
-      tabName === "movie" ||
-      tabName === "book" ||
-      tabName === "game" ||
-      tabName === "commercial" ||
-      tabName === "income" ||
-      tabName === "profit" ||
-      tabName === "market" ||
-      tabName === "supermarket" ||
-      tabName === "banker" ||
-      tabName === "exchange" ||
-      tabName === "carousel" ||
-      tabName === "ideal" ||
-      tabName === "match" ||
-      tabName === "transfer" ||
-      tabName === "fight" ||
-      tabName === "citations" ||
-      tabName === "plasma" ||
-      tabName === "spellshop" ||
-      tabName === "runes" ||
-      tabName === "dream" ||
-      tabName === "stare" ||
-      tabName === "masks" ||
-      tabName === "modeler" ||
-      tabName === "stock" ||
-      tabName === "adventure" ||
-      tabName === "cardduel" ||
-      tabName === "graphcalc" ||
-      tabName === "puzzle" ||
-      tabName === "saccade" ||
-      tabName === "demand" ||
-      tabName === "chat" ||
-      tabName === "ragdoll" ||
-      tabName === "particles" ||
-      tabName === "live" ||
-      tabName === "zoo" ||
-      tabName === "rig" ||
-      tabName === "handfont" ||
-      tabName === "voice" ||
-      tabName === "az" ||
-      tabName === "0-z" ||
-      tabName === "zeroz" ||
-      tabName === "engrams" ||
-      tabName === "engram" ||
-      tabName === "bible" ||
-      tabName === "slots" ||
-      tabName === "slot" ||
-      tabName === "colors" ||
-      tabName === "houma" ||
-      tabName === "thousand" ||
-      tabName === "moba" ||
-      tabName === "texture" ||
-      tabName === "champions" ||
-      tabName === "maps" ||
-      tabName === "kids" ||
-      isKidsTab(tabName)
-    ) {
-      showTab(tabName === "rooms" ? "places" : tabName);
+    var known =
+      (tabName && panels[tabName]) ||
+      (tabName &&
+        document.querySelector(
+          '.site-tabs .tab[data-tab="' + tabName + '"], .kids-tabs .tab[data-tab="' + tabName + '"]'
+        ));
+    if (known || isKidsTab(tabName) || tabName === "kids") {
+      showTab(tabName);
     }
   }
 

@@ -85,6 +85,11 @@ body.src-tab-active .site-header .subtitle {
   word-break: break-all;
 }
 
+.src-files button.src-unloaded {
+  color: rgba(232, 197, 71, 0.55);
+  font-style: italic;
+}
+
 .src-files button:hover,
 .src-files button.active {
   background: rgba(232, 197, 71, 0.12);

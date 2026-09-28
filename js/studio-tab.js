@@ -13,9 +13,10 @@
     { group: "Look", name: "Fleeting Idea", note: "Overhead projector, layers", href: "#fleeting-idea" },
     { group: "Look", name: "Kids Mode", note: "Last tab; exit code 4200", href: "#kids" },
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
-    { group: "Language", name: "JS source", note: "Read every script this page loads", href: "#js" },
-    { group: "Language", name: "CSS source", note: "Read every stylesheet this page loads", href: "#css" },
-    { group: "Language", name: "HTML readout", note: "index.html and each panel", href: "#html" },
+    { group: "Language", name: "JS source", note: "Read every file in js/", href: "#js" },
+    { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },
+    { group: "Language", name: "HTML readout", note: "Pages and each panel", href: "#html" },
+    { group: "Language", name: "Debug inspector", note: "API payloads from every tab", href: "#debug" },
     { group: "Language", name: "Define invoice", note: "Bill in the vendor meter", href: "#api" },
     { group: "Meter", name: "xAI vendor meter", note: "Maintainer keeps the gauge; studio uncapped", href: "#xai" },
     { group: "Meter", name: "Vendor units", note: "Tokens, image gens, prepaid, keys", href: "#vendor" },
@@ -25,7 +26,9 @@
     { group: "Meter", name: "Cloud xAI", note: "Vendor view, not the studio", href: "#cloud-xai" },
     { group: "Meter", name: "Telemetry", note: "Cloud tries, fuses, describes, tab hits", href: "#telemetry" },
     { group: "Share", name: "Pulse", note: "Feed, feature requests", href: "#pulse" },
-    { group: "Share", name: "Get paid", note: "Donations, print shops", href: "#income" },
+    { group: "Share", name: "Get paid", note: "Donations, Cash App, rent/food/gas", href: "#income" },
+    { group: "Share", name: "Print shops", note: "Etsy & Redbubble listing packs", href: "#print-shops" },
+    { group: "Share", name: "Subscribe", note: "Studio Dispatch — 10 free, 25 for $5", href: "#subscribe" },
   ];
 
   function bind() {

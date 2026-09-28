@@ -1654,6 +1654,14 @@
       if (!btn) return;
       setMode(btn.getAttribute("data-sub"));
     });
+
+    var openBtn = $("dbg-open");
+    if (openBtn && !openBtn.dataset.bound) {
+      openBtn.dataset.bound = "1";
+      openBtn.addEventListener("click", function () {
+        setMode("debug");
+      });
+    }
   }
 
   function onTabChanged(ev) {

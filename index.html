@@ -51,7 +51,8 @@
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=4" />
-  <link rel="stylesheet" href="css/print-shops.css?v=1" />
+  <link rel="stylesheet" href="css/print-shops.css?v=2" />
+  <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
   <link rel="stylesheet" href="css/account-gate.css?v=1" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
@@ -81,7 +82,7 @@
   <link rel="stylesheet" href="css/tokens-tab.css?v=1" />
   <link rel="stylesheet" href="css/vendor-tab.css?v=4" />
   <link rel="stylesheet" href="css/key-tab.css?v=1" />
-  <link rel="stylesheet" href="css/source-tabs.css?v=4" />
+  <link rel="stylesheet" href="css/source-tabs.css?v=5" />
   <link rel="stylesheet" href="css/telemetry-tab.css?v=1" />
   <link rel="stylesheet" href="css/pulse.css?v=3" />
   <link rel="stylesheet" href="css/api-chain.css?v=11" />
@@ -117,11 +118,11 @@
   <link rel="stylesheet" href="css/moba.css?v=8" />
   <link rel="stylesheet" href="css/texture.css?v=2" />
   <link rel="stylesheet" href="css/champions.css?v=13" />
-  <link rel="stylesheet" href="css/kids.css?v=3" />
+  <link rel="stylesheet" href="css/kids.css?v=4" />
   <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/page-chat.css?v=1" />
   <link rel="stylesheet" href="css/tab-presence.css?v=1" />
-  <link rel="stylesheet" href="css/tab-debug.css?v=7" />
+  <link rel="stylesheet" href="css/tab-debug.css?v=8" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
 </head>
@@ -238,6 +239,7 @@
         <button type="button" class="tab" data-tab="js">JS</button>
         <button type="button" class="tab" data-tab="css">CSS</button>
         <button type="button" class="tab" data-tab="html">HTML</button>
+        <button type="button" class="tab" data-tab="debug">Debug</button>
         <button type="button" class="tab" data-tab="grok">Grok</button>
         <button type="button" class="tab" data-tab="tokens">Tokens</button>
         <button type="button" class="tab" data-tab="chains">Spell chains</button>
@@ -260,7 +262,9 @@
         <button type="button" class="tab" data-tab="champions">Champions</button>
         <button type="button" class="tab" data-tab="commercial">Commercial</button>
         <button type="button" class="tab" data-tab="income">Income</button>
+        <button type="button" class="tab" data-tab="print-shops">Print shops</button>
         <button type="button" class="tab" data-tab="profit">Profit</button>
+        <button type="button" class="tab" data-tab="subscribe">Subscribe</button>
         <button type="button" class="tab" data-tab="market">Market (sim)</button>
         <button type="button" class="tab" data-tab="supermarket">Supermarket</button>
         <button type="button" class="tab" data-tab="banker">Banker</button>
@@ -1619,7 +1623,7 @@
     <div class="src-shell">
       <aside class="src-side">
         <h2>JS</h2>
-        <p>Every script this page loads. Click a file to read it. This is the real source, cache stamp included.</p>
+        <p>Every script in <code>js/</code> — loaded files first, then anything still on disk. Click a file to read it. The ?v= number is a cache stamp.</p>
         <input type="search" class="src-search" placeholder="Filter js…" autocomplete="off" />
         <ul class="src-files"></ul>
       </aside>
@@ -1643,7 +1647,7 @@
     <div class="src-shell">
       <aside class="src-side">
         <h2>CSS</h2>
-        <p>Every stylesheet this page loads. The ?v= number is a cache stamp for that file only.</p>
+        <p>Every stylesheet in <code>css/</code> — loaded files first, then anything still on disk. The ?v= number is a cache stamp for that file only.</p>
         <input type="search" class="src-search" placeholder="Filter css…" autocomplete="off" />
         <ul class="src-files"></ul>
       </aside>
@@ -1667,7 +1671,7 @@
     <div class="src-shell">
       <aside class="src-side">
         <h2>HTML</h2>
-        <p>index.html plus each panel’s live markup. This is the readout of the things on the page.</p>
+        <p>index.html, other HTML pages, and each panel’s live markup. This is the readout of the things on the page.</p>
         <input type="search" class="src-search" placeholder="Filter html…" autocomplete="off" />
         <ul class="src-files"></ul>
       </aside>
@@ -1679,6 +1683,17 @@
         </div>
         <pre class="src-readout"></pre>
       </div>
+    </div>
+  </section>
+
+  <section id="panel-debug" class="panel" hidden>
+    <div class="dbg-shell">
+      <h2>Debug</h2>
+      <p>
+        API payload inspector for every site tab. Capture POSTs, see generated stills, ASCII walls.
+        The inspector can also open from the <strong>Debug</strong> sub-tab under the header while you stay on Work.
+      </p>
+      <button type="button" class="dbg-open" id="dbg-open">Open inspector</button>
     </div>
   </section>
 
@@ -3053,24 +3068,7 @@
         <p id="mx-status" class="mx-status" hidden></p>
       </section>
 
-      <section id="print-shops" class="ps-box" aria-label="Etsy and Redbubble">
-        <h3>List the gallery on Etsy &amp; Redbubble</h3>
-        <p>
-          Etsy and Redbubble will not ingest logan7in.art by themselves. Create a shop on each (once), export listing packs here, then upload. Paste your live shop URLs so visitors can jump from the gallery into the stores.
-        </p>
-        <div class="ps-row">
-          <a id="ps-open-etsy-shop" class="btn-primary" href="https://www.etsy.com/sell" target="_blank" rel="noopener">Create Etsy shop</a>
-          <a id="ps-open-rb-shop" class="btn-primary" href="https://www.redbubble.com/portfolio/images/new" target="_blank" rel="noopener">Upload to Redbubble</a>
-          <button type="button" id="ps-export-etsy" class="btn-secondary">Download Etsy CSV</button>
-          <button type="button" id="ps-export-rb" class="btn-secondary">Download Redbubble copy pack</button>
-        </div>
-        <div class="ps-row">
-          <input id="ps-etsy-url" type="url" placeholder="https://www.etsy.com/shop/YourShop" autocomplete="off" />
-          <input id="ps-rb-url" type="url" placeholder="https://www.redbubble.com/people/you/shop" autocomplete="off" />
-          <button type="button" id="ps-save-urls" class="btn-secondary">Save shop URLs</button>
-        </div>
-        <p id="ps-status" class="ps-status"></p>
-      </section>
+      <p class="ri-muted">Etsy &amp; Redbubble listings live in the <a href="#print-shops">Print shops</a> tab.</p>
 
       <div class="ri-grid">
         <div class="ri-card">
@@ -3160,6 +3158,32 @@
     </div>
   </section>
 
+  <section id="panel-print-shops" class="panel" hidden>
+    <div class="ps-shell">
+      <header>
+        <h2>Print shops</h2>
+        <p class="ps-lead">
+          Etsy and Redbubble will not ingest logan7in.art by themselves. Create a shop on each (once),
+          export listing packs here, then upload. Paste your live shop URLs so visitors can jump from the gallery into the stores.
+        </p>
+      </header>
+      <section id="print-shops" class="ps-box" aria-label="Etsy and Redbubble">
+        <div class="ps-row">
+          <a id="ps-open-etsy-shop" class="btn-primary" href="https://www.etsy.com/sell" target="_blank" rel="noopener">Create Etsy shop</a>
+          <a id="ps-open-rb-shop" class="btn-primary" href="https://www.redbubble.com/portfolio/images/new" target="_blank" rel="noopener">Upload to Redbubble</a>
+          <button type="button" id="ps-export-etsy" class="btn-secondary">Download Etsy CSV</button>
+          <button type="button" id="ps-export-rb" class="btn-secondary">Download Redbubble copy pack</button>
+        </div>
+        <div class="ps-row">
+          <input id="ps-etsy-url" type="url" placeholder="https://www.etsy.com/shop/YourShop" autocomplete="off" />
+          <input id="ps-rb-url" type="url" placeholder="https://www.redbubble.com/people/you/shop" autocomplete="off" />
+          <button type="button" id="ps-save-urls" class="btn-secondary">Save shop URLs</button>
+        </div>
+        <p id="ps-status" class="ps-status"></p>
+      </section>
+    </div>
+  </section>
+
   <section id="panel-profit" class="panel" hidden>
     <div class="pf-shell">
       <h2>Profit</h2>
@@ -3220,6 +3244,7 @@
           </form>
           <div class="pf-actions">
             <button type="button" id="pf-copy-sub" class="pf-btn">Copy subscribe link</button>
+            <a class="pf-btn" href="#subscribe">Subscribe tab</a>
             <a class="pf-btn" href="subscribe.html">Open subscribe page</a>
           </div>
           <p id="pf-nl-join" class="pf-status"></p>
@@ -3249,6 +3274,38 @@
           <p>Actors Choice — AAO Convention, New Orleans, Oct 9–12, 2026. $15/hr, all-day, black wardrobe. Confirming does not guarantee booking. A reply draft is in Gmail.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="panel-subscribe" class="panel" hidden>
+    <div class="nl-shell">
+      <h2>Studio Dispatch</h2>
+      <p class="nl-lead">
+        Daily stills from Logan Sevin’s studio. Human-authored work. Free list gets 10 stills a day.
+        <strong>$5 a month</strong> gets 25.
+      </p>
+      <section class="nl-card">
+        <h3>Free — 10 stills a day</h3>
+        <p>Drop your email. You’ll get the morning cut.</p>
+        <form id="nl-form" name="studio-dispatch" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="studio-dispatch" />
+          <p class="hidden" style="position:absolute;left:-9999px"><label>Don’t fill this <input name="bot-field" /></label></p>
+          <label for="nl-email">Email</label>
+          <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          <button type="submit" class="btn-primary">Subscribe free</button>
+        </form>
+        <p id="nl-status" class="nl-status"></p>
+      </section>
+      <section class="nl-card">
+        <h3>Paid — 25 stills a day</h3>
+        <p>$5 / month on Cash App. Put <em>newsletter</em> in the note so it gets tagged.</p>
+        <a class="btn-primary" href="https://cash.app/$Logan7in/5">Pay $5 on Cash App</a>
+      </section>
+      <p class="nl-links">
+        Standalone page: <a href="subscribe.html">subscribe.html</a>
+        ·
+        <a href="#profit">Profit</a>
+      </p>
     </div>
   </section>
 
@@ -8684,15 +8741,16 @@
   <script defer src="js/xai-credits.js?v=5"></script>
   <script defer src="js/account-gate.js?v=1"></script>
   <script defer src="js/annotations.js?v=3"></script>
-  <script defer src="js/gallery-welcome.js?v=10"></script>
-  <script defer src="js/page-chat.js?v=1"></script>
-  <script defer src="js/tab-presence.js?v=1"></script>
+  <script defer src="js/gallery-welcome.js?v=11"></script>
+  <script defer src="js/page-chat.js?v=2"></script>
+  <script defer src="js/tab-presence.js?v=2"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
-  <script defer src="js/tab-debug.js?v=9"></script>
+  <script defer src="js/tab-debug.js?v=10"></script>
   <script defer src="js/gallery-shop.js?v=8"></script>
-  <script defer src="js/print-shops.js?v=1"></script>
+  <script defer src="js/print-shops.js?v=2"></script>
+  <script defer src="js/subscribe.js?v=1"></script>
   <script defer src="js/real-income.js?v=1"></script>
   <script defer src="js/monetize-x.js?v=1"></script>
   <script defer src="js/sale-art-x.js?v=1"></script>
@@ -8749,9 +8807,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=105"></script>
-  <script defer src="js/source-tabs.js?v=4"></script>
-  <script defer src="js/studio-tab.js?v=1"></script>
+  <script defer src="js/tabs.js?v=106"></script>
+  <script defer src="js/source-tabs.js?v=5"></script>
+  <script defer src="js/studio-tab.js?v=2"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>
@@ -8785,6 +8843,7 @@
   <script defer src="js/book.js?v=20"></script>
   <script defer src="js/game.js?v=7"></script>
   <script defer src="js/commercial.js?v=27"></script>
+  <script defer src="js/muralwalk-spell-math.js?v=1"></script>
   <script defer src="js/muralwalk.js?v=125"></script>
   <script defer src="js/fleeting-acquired.js?v=14"></script>
   <script defer src="js/fleeting-walk.js?v=38"></script>

@@ -1,3 +1,27 @@
+#panel-print-shops.panel[hidden] {
+  display: none !important;
+}
+
+#panel-print-shops.panel.active {
+  display: block;
+}
+
+#panel-print-shops .ps-shell {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.1rem 1rem 2rem;
+}
+
+#panel-print-shops .ps-lead {
+  margin: 0 0 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted, #b9c0c8);
+}
+
+#panel-print-shops .ps-box {
+  margin-top: 0;
+}
+
 .ps-box {
   margin-top: 0.85rem;
   padding: 0.85rem 1rem 1rem;

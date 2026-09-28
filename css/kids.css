@@ -32,6 +32,8 @@ body.kids-mode .site-footer,
 body.kids-mode #ann-toggle,
 body.kids-mode .tab-debug,
 body.kids-mode #tab-debug,
+body.kids-mode #tab-debug-host,
+body.kids-mode #site-subtabs,
 body.kids-mode #stats {
   display: none !important;
 }
