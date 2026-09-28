@@ -3322,20 +3322,52 @@
     return clipPromptText(best, PROMPT_BODY_MAX);
   }
 
+  function authorshipStampLine() {
+    var artist =
+      (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin";
+    var stamp =
+      (typeof window.galleryAtomicStamp === "function" && window.galleryAtomicStamp()) ||
+      "";
+    return artist + (stamp ? " · " + stamp : "");
+  }
+
+  function productFooterText() {
+    var aspect = getAspectRatio();
+    var sig = authorshipStampLine();
+    return (
+      "\n\nCompose for a " +
+      aspect +
+      " frame and fill the entire canvas. Do not letterbox.\n" +
+      "IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner): write exactly \"" +
+      sig +
+      "\"."
+    );
+  }
+
+  function withProductFooter(stasis) {
+    var foot = productFooterText();
+    var budget = PROMPT_BODY_MAX - foot.length;
+    return clipPromptText(String(stasis || ""), Math.max(200, budget)) + foot;
+  }
+
   function getGenerationStasisPayload() {
     var nums = getEquippedInOrder();
     var el = document.getElementById("spell-physical-prompt");
+    var body;
     if (physicalUserDirty && el && String(el.value || "").trim()) {
-      return clipPromptText(
+      body = clipPromptText(
         stripAspectTalkFromPrompt(el.value),
         PROMPT_BODY_MAX
       );
+    } else {
+      var meta = collectCombinedMeta(nums);
+      body = clipPromptText(
+        stripAspectTalkFromPrompt(buildPhysicalGenerationPrompt(nums, meta)),
+        PROMPT_BODY_MAX
+      );
     }
-    var meta = collectCombinedMeta(nums);
-    return clipPromptText(
-      stripAspectTalkFromPrompt(buildPhysicalGenerationPrompt(nums, meta)),
-      PROMPT_BODY_MAX
-    );
+    if (!String(body || "").trim()) return "";
+    return withProductFooter(body);
   }
 
   function updatePhysicalPromptCharCount(text) {
@@ -4742,7 +4774,7 @@
       statusEl.textContent =
         "Fusing equipped spells on this device at " + aspect + "…";
     }
-    var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
+    var stasisSend = getGenerationStasisPayload();
     updatePhysicalPromptPreview(); // respects physicalUserDirty
     return window
       .composeStasisVisionLocal({
@@ -4774,7 +4806,7 @@
     applyAspectPreview(aspect);
     // Physical prompt includes bold color locks + originality directive.
     // Aspect ratio is API-only; mag_fresh invents a new product (not image-to-image of your pieces).
-    var stasisSend = stripAspectTalkFromPrompt(getGenerationStasisPayload());
+    var stasisSend = getGenerationStasisPayload();
     if (!String(stasisSend || "").trim()) {
       return Promise.reject(
         new Error("Physical prompt is empty — equip 2–3 spells and rebuild.")
@@ -4903,6 +4935,7 @@
         fused_prompt: stasisSend,
         palette_hex: paletteHex,
         aspect_ratio: aspect,
+        signature: authorshipStampLine(),
         // Fresh original product — do not attach source painting images
         mag_fresh: true,
         fresh_variation: true,

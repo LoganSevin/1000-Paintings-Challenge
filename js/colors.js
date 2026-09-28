@@ -221,6 +221,24 @@
     });
   }
 
+  /** Put a tone in a specific slot (replaces that slot). Returns { ok, slot, reason }. */
+  function addToneAt(slot, tone) {
+    loadPrefs();
+    slot = slot | 0;
+    tone = cleanTone(tone);
+    if (slot < 0 || slot >= TONE_SLOTS) return { ok: false, reason: "invalid" };
+    if (!tone) return { ok: false, reason: "invalid" };
+    for (var k = 0; k < TONE_SLOTS; k++) {
+      if (k !== slot && state.tones[k] && state.tones[k].hex === tone.hex) {
+        return { ok: false, slot: k, reason: "duplicate" };
+      }
+    }
+    state.tones[slot] = tone;
+    savePrefs();
+    emitTones();
+    return { ok: true, slot: slot };
+  }
+
   /** Add to the first empty slot. Returns { ok, slot, reason }. */
   function addTone(tone) {
     loadPrefs();
@@ -258,17 +276,27 @@
     emitTones();
   }
 
-  function addToneFromIndex(absoluteIndex) {
-    var res = addTone(toneFromIndex(absoluteIndex));
-    var hex = toneFromIndex(absoluteIndex).hex;
-    var msg =
-      res.ok
-        ? "Added " + hex + " as tone " + (res.slot + 1) + "."
-        : res.reason === "duplicate"
-          ? hex + " is already tone " + (res.slot + 1) + "."
-          : res.reason === "full"
-            ? "Tone tray is full — remove a tone first."
-            : "";
+  function toneAddMessage(res, hex) {
+    if (res.ok) return "Added " + hex + " as tone " + (res.slot + 1) + ".";
+    if (res.reason === "duplicate") return hex + " is already tone " + (res.slot + 1) + ".";
+    if (res.reason === "full") return "Tone tray is full — remove a tone first.";
+    if (res.reason === "none") return "Tap a swatch first, then Add as tone.";
+    return "";
+  }
+
+  function addToneFromIndex(absoluteIndex, slot) {
+    if (absoluteIndex == null) {
+      var miss = { ok: false, reason: "none" };
+      if (el.toneMsg) {
+        el.toneMsg.textContent = toneAddMessage(miss, "");
+        el.toneMsg.classList.add("clr-err");
+      }
+      return miss;
+    }
+    var tone = toneFromIndex(absoluteIndex);
+    var res = slot == null ? addTone(tone) : addToneAt(slot, tone);
+    var hex = tone.hex;
+    var msg = toneAddMessage(res, hex);
     if (el.toneMsg) {
       el.toneMsg.textContent = msg;
       el.toneMsg.classList.toggle("clr-err", !res.ok);
@@ -572,7 +600,6 @@
     el.hintVMax = $("clr-hint-vmax");
     el.modeNote = $("clr-mode-note");
     el.modeBtns = Array.prototype.slice.call(document.querySelectorAll("#panel-colors .clr-mode-btn"));
-    el.addTone = $("clr-add-tone");
     el.toneMsg = $("clr-tone-msg");
   }
 
@@ -609,11 +636,6 @@
       // Shift-click also drops the swatch into the 3-tone tray.
       if (e.shiftKey) addToneFromIndex(slotAt(state.hPage, state.vPage, i, state.order, state.mode).absoluteIndex);
     });
-    if (el.addTone) {
-      el.addTone.addEventListener("click", function () {
-        if (state.detailIndex != null) addToneFromIndex(state.detailIndex);
-      });
-    }
     el.copyDisp.addEventListener("click", onCopy);
     el.copyOrig.addEventListener("click", onCopy);
     el.modeBtns.forEach(function (btn) {
@@ -686,6 +708,7 @@
     },
     getTones: getTones,
     addTone: addTone,
+    addToneAt: addToneAt,
     addToneFromIndex: addToneFromIndex,
     removeTone: removeTone,
     clearTones: clearTones,

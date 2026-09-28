@@ -50,7 +50,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
-  <link rel="stylesheet" href="css/colors.css?v=4" />
+  <link rel="stylesheet" href="css/colors.css?v=5" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -7558,9 +7558,6 @@
           The strip on each swatch is the original color; the swatch is shown in the chosen channel order.
           Arrow keys turn pages.
         </p>
-        <label class="clr-field clr-prompt-wrap">Prompt
-          <textarea id="clr-prompt" class="clr-prompt" rows="2" placeholder="Optional: what to paint with the 3 tones (e.g. a fox in a kitchen). Leave empty to roll a subject."></textarea>
-        </label>
       </header>
 
       <div class="clr-controls" role="group" aria-label="Color pager controls">
@@ -7632,16 +7629,27 @@
                 <button type="button" class="clr-btn clr-btn-sm accent" id="clr-copy-disp">Copy hex</button></dd>
             </dl>
             <p id="clr-copy-status" class="clr-copy-status" aria-live="polite"></p>
-            <div class="clr-add-tone-row">
-              <button type="button" class="clr-btn accent" id="clr-add-tone">+ Add as tone</button>
-              <span id="clr-tone-msg" class="clr-tone-msg" aria-live="polite"></span>
-            </div>
           </div>
 
           <section class="clr-tones" aria-labelledby="clr-tones-title">
             <h3 id="clr-tones-title" class="clr-tones-title">3-tone generator</h3>
-            <p class="clr-tones-hint">Pick 3 swatches with <strong>Add as tone</strong> or <kbd>Shift</kbd>-click. Generate paints anything at all, using only those 3 tones. No prompt needed.</p>
+            <p class="clr-tones-hint">Three slots. Each has <strong>Add as tone</strong> for the selected Spell swatch (or <kbd>Shift</kbd>-click a swatch). Generate is three-tone and minimal — large shapes, almost no extra detail.</p>
             <ol id="clr-tone-tray" class="clr-tone-tray" aria-label="Tone tray"></ol>
+            <span id="clr-tone-msg" class="clr-tone-msg" aria-live="polite"></span>
+            <div class="clr-subject-box">
+              <div class="clr-subject-head">
+                <span class="clr-field-label">Subject roll</span>
+                <button type="button" class="clr-btn clr-btn-sm" id="clr-subject-roll">↻ Roll</button>
+              </div>
+              <p id="clr-subject-readout" class="clr-subject-readout"></p>
+              <label class="clr-toggle">
+                <input type="checkbox" id="clr-apply-roll" checked />
+                Apply subject roll with the prompt
+              </label>
+              <label class="clr-field clr-prompt-wrap">Prompt
+                <textarea id="clr-prompt" class="clr-prompt" rows="2" placeholder="Optional: e.g. a fox in a kitchen. Combined with the roll when the toggle is on."></textarea>
+              </label>
+            </div>
             <div class="clr-gen-row">
               <label class="clr-field">Frame
                 <select id="clr-gen-aspect" class="clr-select clr-select-sm">
@@ -8795,12 +8803,12 @@
   <script defer src="js/rig.js?v=6"></script>
   <script defer src="js/handfont.js?v=8"></script>
   <script defer src="js/voice.js?v=1"></script>
-  <script defer src="js/az.js?v=12"></script>
+  <script defer src="js/az.js?v=13"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
   <script defer src="js/slots.js?v=5"></script>
-  <script defer src="js/colors.js?v=3"></script>
-  <script defer src="js/colors-gen.js?v=3"></script>
+  <script defer src="js/colors.js?v=4"></script>
+  <script defer src="js/colors-gen.js?v=4"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -8834,7 +8842,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=108"></script>
+  <script defer src="js/spellforge.js?v=109"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

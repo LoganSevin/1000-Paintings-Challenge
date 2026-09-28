@@ -87,8 +87,8 @@
     if (/\bthousand\b/.test(lower)) qty = Math.max(qty, 1000);
     var nouns = [];
     var lexicon = [
-      "apple", "apples", "table", "tables", "tree", "trees", "horse", "bird",
-      "eye", "moon", "star", "flower", "leaf", "house", "bowl", "pear",
+      "apple", "apples", "table", "tables", "tree", "trees", "horse", "pigeon",
+      "bird", "eye", "moon", "star", "flower", "leaf", "house", "bowl", "pear",
       "orange", "grape", "fish", "cat", "dog", "hand", "face", "sun"
     ];
     lexicon.forEach(function (w) {
@@ -512,20 +512,45 @@
       flipY: false,
     })
       .then(function (res) {
-        if (!res || !res.preview) return;
+        if (!res) return;
         var canvas = host.querySelector("canvas.az-desmos");
         if (!canvas) {
           canvas = document.createElement("canvas");
           canvas.className = "az-desmos";
           host.appendChild(canvas);
         }
-        canvas.width = res.preview.width;
-        canvas.height = res.preview.height;
+        var w = (res.preview && res.preview.width) || res.width || 320;
+        var h = (res.preview && res.preview.height) || res.height || 240;
+        canvas.width = w;
+        canvas.height = h;
         var ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.filter = "invert(1) sepia(1) saturate(8) hue-rotate(190deg)";
-        ctx.drawImage(res.preview, 0, 0);
-        ctx.filter = "none";
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = 1.15;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        if (res.beziers && res.beziers.length) {
+          var sx = w / (res.width || w);
+          var sy = h / (res.height || h);
+          ctx.beginPath();
+          for (var i = 0; i < res.beziers.length; i++) {
+            var b = res.beziers[i];
+            ctx.moveTo(b.p0.x * sx, b.p0.y * sy);
+            ctx.bezierCurveTo(
+              b.p1.x * sx,
+              b.p1.y * sy,
+              b.p2.x * sx,
+              b.p2.y * sy,
+              b.p3.x * sx,
+              b.p3.y * sy
+            );
+          }
+          ctx.stroke();
+        } else if (res.preview) {
+          ctx.drawImage(res.preview, 0, 0);
+        }
       })
       .catch(function () {});
   }
@@ -546,19 +571,20 @@
     var key = previewKey(ch);
     var seed = seedSentence();
     var stasis =
-      "Premonition vision: the sentence so far is «" +
-      seedSentence() +
-      "». Show the picture that would appear if the next letter typed is '" +
+      seed +
+      ". That subject is the picture. Next letter '" +
       ch +
-      "'. " +
-      (ch === SPACE ? "A space is a word break." : "Letter " + ch + " is the next influential variable.") +
-      " It must change the scene. Seeded from the first letter 0 when the prompt is empty. Museum line-art, accurate forms, contour and fill.";
+      "' " +
+      (ch === SPACE ? "is a word break — new cluster, same subject." : "nudges the same subject, does not replace it with a landscape.") +
+      " Accurate line-art of that subject. No hillside, mountain, or extra scenery unless the subject is that scenery.";
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         stasis: stasis,
-        buzz_words: ["line art", "premonition", "next letter " + ch],
+        extra_buzz: seed,
+        prompt: stasis,
+        buzz_words: ["line art", "contour", seed.slice(0, 48), "next letter " + ch],
         aspect_ratio: "1:1"
       })
     })
@@ -862,17 +888,18 @@
         var dh = ih * scFull;
         ctx.drawImage(state.genImg, (w - dw) / 2, (h - dh) / 2, dw, dh);
         ctx.restore();
-        drawDesmosCurves(ctx, (w - dw) / 2, (h - dh) / 2, dw, dh, "#7dd3fc");
-        ctx.fillStyle = "#eef3ee";
+        drawDesmosCurves(ctx, (w - dw) / 2, (h - dh) / 2, dw, dh, "#000");
+        ctx.fillStyle = "#111";
         ctx.font = "italic 14px Times New Roman, serif";
         ctx.fillText(String(state.prompt || seedSentence()).slice(0, 72) || "standalone", 16, h - 16);
         return;
       }
-      ctx.globalAlpha = 0.38;
+      ctx.globalAlpha = 0.92;
       var sc = Math.min((w - 48) / iw, (h - 48) / ih);
       ctx.drawImage(state.genImg, 48, 24, iw * sc, ih * sc);
       ctx.restore();
-      drawDesmosCurves(ctx, 48, 24, iw * sc, ih * sc, "#1d4ed8");
+      drawDesmosCurves(ctx, 48, 24, iw * sc, ih * sc, "#000");
+      return;
     }
 
     var p = state.parse.raw ? state.parse : parsePrompt(seedSentence());
@@ -964,9 +991,9 @@
       return y + (c.flipY ? c.height - 1 - p.y : p.y) * sy;
     }
     ctx.save();
-    ctx.strokeStyle = color;
-    ctx.globalAlpha = 0.95;
-    ctx.lineWidth = 1.25;
+    ctx.strokeStyle = color || "#000";
+    ctx.globalAlpha = 1;
+    ctx.lineWidth = 1.35;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.beginPath();
@@ -1044,10 +1071,12 @@
 
   function generateStill(prompt) {
     var job = ++state.genJob;
-    var scene = String(prompt || seedSentence());
+    var scene = String(prompt || seedSentence()).trim() || "a single seed form";
     var stasis =
-      "Museum line-art painting of this exact scene, accurate forms, clear contours, no collage: " +
-      scene;
+      scene +
+      ". That subject is the entire picture — paint it accurately. " +
+      "Museum line-art: black contours, clear forms, fills. " +
+      "No collage. No hillside, mountain, or extra landscape unless the subject itself is that landscape.";
     var countEl = $("az-fold-count");
     if (countEl) countEl.textContent = "generating main still…";
     state.genCurves = null;
@@ -1057,7 +1086,9 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         stasis: stasis,
-        buzz_words: ["line art", "contour", "ink", "fill"],
+        extra_buzz: scene,
+        prompt: stasis,
+        buzz_words: ["line art", "contour", "ink", "fill", scene.slice(0, 48)],
         aspect_ratio: "16:9"
       })
     })

@@ -288,6 +288,59 @@ export const GEN_PROMPT_MAX_CHARS = 8000;
 export const GEN_PROMPT_SAFE_MAX = 7992;
 export const GEN_STASIS_BODY_MAX = 7200;
 
+function pad2(n) {
+  n = Math.floor(Math.abs(Number(n) || 0));
+  return n < 10 ? "0" + n : String(n);
+}
+
+const MONTHS_LONG = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+/** In-canvas signature: "Logan Sevin · 27 September 2026  20:31:00 PDT" */
+export function authorshipSignature(clientStamp) {
+  const artist = "Logan Sevin";
+  let stamp = String(clientStamp || "").trim();
+  if (!stamp) {
+    const d = new Date();
+    stamp =
+      d.getUTCDate() +
+      " " +
+      MONTHS_LONG[d.getUTCMonth()] +
+      " " +
+      d.getUTCFullYear() +
+      "  " +
+      pad2(d.getUTCHours()) +
+      ":" +
+      pad2(d.getUTCMinutes()) +
+      ":" +
+      pad2(d.getUTCSeconds()) +
+      " UTC";
+  }
+  return artist + " · " + stamp;
+}
+
+export function authorshipFooter(aspectRatio, clientStamp) {
+  const frame = aspectPhrase(aspectRatio);
+  const sig = authorshipSignature(clientStamp);
+  return (
+    `\n\nCompose for a ${frame} frame and fill the entire canvas. Do not letterbox.\n` +
+    `IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner like a real painting): write exactly "${sig}". ` +
+    "Do not invent a fake date. Do not omit the clock time."
+  );
+}
+
 export function clipPromptChars(text, max = GEN_PROMPT_SAFE_MAX) {
   const t = String(text || "").trim();
   if (!t) return "";
@@ -328,12 +381,12 @@ export function aspectToSize(aspect, longSide = 1280) {
   return { width: Math.max(1, Math.round((longSide * aw) / ah)), height: longSide };
 }
 
-export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio) {
+export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
   const buzz =
     buzzWords?.length > 0
       ? buzzWords.slice(0, 16).join(", ")
       : "rich painterly detail";
-  const frame = aspectPhrase(aspectRatio);
+  const footer = authorshipFooter(aspectRatio, opts.signature);
   const prefix =
     "Create one original fine-art painting that embodies this fused vision. " +
     "Invent fresh imagery — not a photograph or collage of references.\n\n" +
@@ -341,14 +394,15 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio) {
   const suffix =
     `\n\nBUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
     "The image should read clearly at thumbnail scale yet reward close viewing. " +
-    `Museum-quality, cohesive composition, expressive brushwork. Compose for a ${frame} frame and fill the entire canvas.`;
+    "Museum-quality, cohesive composition, expressive brushwork." +
+    footer;
   const overhead = prefix.length + suffix.length;
   const bodyMax = Math.min(
     GEN_STASIS_BODY_MAX,
     Math.max(400, GEN_PROMPT_SAFE_MAX - overhead)
   );
   const body = clipPromptChars(String(stasis || "").trim(), bodyMax);
-  return clipPromptChars(prefix + body + suffix, GEN_PROMPT_SAFE_MAX);
+  return prefix + body + suffix;
 }
 
 export async function saveJob(store, jobId, data) {
@@ -488,12 +542,12 @@ function xaiImageFromResponse(data) {
   throw new Error("No image data in xAI response.");
 }
 
-export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio) {
+export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
   const buzz =
     buzzWords?.length > 0
       ? buzzWords.slice(0, 16).join(", ")
       : "rich painterly detail";
-  const frame = aspectPhrase(aspectRatio);
+  const footer = authorshipFooter(aspectRatio, opts.signature);
   const prefix =
     "Paint one NEW original fine-art still inspired by the attached overhead-projector composition. " +
     "This must be a finished museum painting, not a photograph of acetate, glass, or the source collage. " +
@@ -501,14 +555,15 @@ export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio) {
     "STASIS (scene to paint):\n";
   const suffix =
     `\n\nBUZZ WORDS: ${buzz}\n\n` +
-    `Museum-quality, cohesive composition, expressive brushwork. Compose for a ${frame} frame and fill the entire canvas.`;
+    "Museum-quality, cohesive composition, expressive brushwork." +
+    footer;
   const overhead = prefix.length + suffix.length;
   const bodyMax = Math.min(
     GEN_STASIS_BODY_MAX,
     Math.max(400, GEN_PROMPT_SAFE_MAX - overhead)
   );
   const body = clipPromptChars(String(stasis || "").trim(), bodyMax);
-  return clipPromptChars(prefix + body + suffix, GEN_PROMPT_SAFE_MAX);
+  return prefix + body + suffix;
 }
 
 async function postXaiImage(url, payload, apiKey) {
@@ -527,13 +582,14 @@ async function postXaiImage(url, payload, apiKey) {
   return xaiImageFromResponse(data);
 }
 
-export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage) {
+export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts = {}) {
   return withXaiKeyFallback(async function (apiKey) {
     const aspect = normalizeAspect(aspectRatio);
     const ref = String(referenceImage || "").trim();
+    const wrapOpts = { signature: cfOpts.signature || cfOpts.signature_stamp || "" };
     const fullPrompt = ref
-      ? buildFlashProjectPrompt(stasis, buzzWords, aspect)
-      : buildStasisVisionPrompt(stasis, buzzWords, aspect);
+      ? buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
+      : buildStasisVisionPrompt(stasis, buzzWords, aspect, wrapOpts);
     const base = {
       model: IMAGE_MODEL,
       prompt: fullPrompt,
@@ -664,9 +720,10 @@ function fluxFraming(aspect) {
 /** Spellforge auto-built stasis -> { subjects[], colors[], styles[], moods[], extra } or null. */
 function parseSpellforgeStasis(stasis) {
   const text = String(stasis || "");
-  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+/.test(text)) return null;
+  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL [IVX]+\s*—/.test(text)) return null;
   const subjects = [];
-  const re = /──\s*INFLUENCE\s+[IV]+[^\n]*──\s*\n([\s\S]*?)(?=\n\s*──\s*INFLUENCE|\n\s*FUSION DIRECTIVE|\n\s*Style DNA|\n\s*Buzz words:|$)/g;
+  const re =
+    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|THE THREE IDENTITIES|Style DNA|Buzz words:|$))/g;
   let m;
   while ((m = re.exec(text))) {
     const d = fluxDescFromSlotBody(m[1]);
@@ -696,8 +753,10 @@ function parseGenericStasis(stasis) {
   for (const sent of fluxSentences(lines.join("\n"))) {
     let t = sent.replace(/^[A-Z0-9 '’&-]{6,}\s*[—:-]\s*/, ""); // drop "THREE-TONE PAINTING — " style headings
     if (!t || FLUX_META_RE.test(t) || FLUX_NEGATIVE_START_RE.test(t)) continue;
-    if (/^subject\s*:/i.test(t)) {
-      t = t.replace(/^subject\s*:\s*(anything at all\s*[—-]\s*this time,\s*)?/i, "");
+    if (/^subject(\s*roll)?\s*:/i.test(t) || /^prompt\s*:/i.test(t)) {
+      t = t
+        .replace(/^subject(\s*roll)?\s*:\s*(anything at all\s*[—-]\s*this time,\s*)?/i, "")
+        .replace(/^prompt\s*(\([^)]*\))?\s*:\s*/i, "");
       subjectFirst.push(t.charAt(0).toUpperCase() + t.slice(1));
       continue;
     }
@@ -866,12 +925,10 @@ export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRat
   const model = getCfImageModel();
   const aspect = normalizeAspect(aspectRatio);
   const payload = { prompt: buildCloudflarePrompt(stasis, buzzWords, aspect, opts) };
-  const isSdxl = /stable-diffusion-xl/i.test(model);
-  if (isSdxl) {
-    const sized = aspectToSize(aspect, 1024);
-    payload.width = Math.max(256, Math.floor(sized.width / 8) * 8);
-    payload.height = Math.max(256, Math.floor(sized.height / 8) * 8);
-  } else if (/flux-1-schnell/i.test(model)) {
+  const sized = aspectToSize(aspect, 1024);
+  payload.width = Math.max(256, Math.floor(sized.width / 8) * 8);
+  payload.height = Math.max(256, Math.floor(sized.height / 8) * 8);
+  if (/flux-1-schnell/i.test(model)) {
     payload.steps = getCfFluxSteps();
   }
   const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(
@@ -1007,7 +1064,7 @@ export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, 
     return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
   }
   try {
-    return await generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage);
+    return await generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts);
   } catch (err) {
     if ((getCfCreds() || getPollinationsKey()) && shouldUseCloudflareFallback(err)) {
       try {

@@ -9589,9 +9589,11 @@ def build_stasis_vision_prompt(*args, **kwargs):
         "Do not write 2024, 2025, or any other year. Do not omit the clock time. "
         "Do not invent a fake date."
     )
-    prompt = str(prompt or "") + sig
-    # Stay a few chars under 8000 — xAI rejects anything over the max
-    return _cap_prompt_chars(prompt, GEN_PROMPT_MAX_CHARS - 8)
+    prompt = str(prompt or "")
+    budget = GEN_PROMPT_MAX_CHARS - 8 - len(sig)
+    if budget < 400:
+        budget = 400
+    return _cap_prompt_chars(prompt, budget) + sig
 
 
 globals()["build_stasis_vision_prompt"] = build_stasis_vision_prompt

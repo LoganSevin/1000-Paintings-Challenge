@@ -42,8 +42,8 @@ body.clr-tab-active #panel-colors {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  max-width: 52rem;
-  margin: 0 0 0.85rem;
+  max-width: none;
+  margin: 0.45rem 0 0;
 }
 
 #panel-colors .clr-prompt {
@@ -565,14 +565,54 @@ body.clr-tab-active #panel-colors {
 #panel-colors .clr-gen-tones li {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   min-height: 2.4rem;
-  padding: 0.25rem 0.35rem;
+  padding: 0.35rem 0.4rem;
   border-radius: 8px;
   border: 1px dashed rgba(201, 162, 39, 0.3);
   background: rgba(0, 0, 0, 0.25);
   font-size: 0.78rem;
   color: var(--text-muted, #9a9288);
+}
+
+#panel-colors .clr-add-slot {
+  margin-left: auto;
+}
+
+#panel-colors .clr-subject-box {
+  margin: 0.55rem 0 0.7rem;
+  padding: 0.55rem 0.55rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+#panel-colors .clr-subject-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+}
+
+#panel-colors .clr-subject-readout {
+  margin: 0.35rem 0 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: #f0e6cc;
+}
+
+#panel-colors .clr-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: rgba(200, 190, 160, 0.88);
+  cursor: pointer;
+}
+
+#panel-colors .clr-toggle input {
+  margin-top: 0.15rem;
 }
 
 #panel-colors .clr-tone-slot.is-filled,

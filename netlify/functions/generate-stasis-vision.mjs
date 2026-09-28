@@ -31,6 +31,7 @@ async function runJob(jobId, body, visitorKey) {
     // Cloudflare fallback only: the user's own Spellforge "Extra buzz" text (xAI path ignores it).
     const cfOpts = {
       extraBuzz: body.extra_buzz || body.extra_prompt || "",
+      signature: body.signature || body.signature_stamp || "",
     };
     const imageUrl = await generateStasisVisionImage(
       stasis,

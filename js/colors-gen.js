@@ -212,17 +212,29 @@
     var userPrompt = "";
     var promptEl = document.getElementById("clr-prompt");
     if (promptEl) userPrompt = String(promptEl.value || "").trim();
+    var applyRoll = true;
+    var rollEl = document.getElementById("clr-apply-roll");
+    if (rollEl) applyRoll = !!rollEl.checked;
+    var subjectLine = "";
+    if (applyRoll && userPrompt) {
+      subjectLine =
+        "SUBJECT ROLL: " + subject + ".\nPROMPT (combine with the roll, still only these three tones): " + userPrompt + "\n";
+    } else if (applyRoll) {
+      subjectLine = "SUBJECT ROLL: " + subject + ". Paint that, still using only the three tones.\n";
+    } else if (userPrompt) {
+      subjectLine = "PROMPT (paint this, still using only the three tones): " + userPrompt + "\n";
+    } else {
+      subjectLine = "SUBJECT ROLL: " + subject + ". Paint that, still using only the three tones.\n";
+    }
     var stasis =
-      "THREE-TONE PAINTING — the palette is the entire brief.\n" +
-      "Use only these three colors as the dominant palette, each clearly present in roughly balanced amounts. " +
-      "Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n" +
+      "THREE-TONE, MINIMAL.\n" +
+      "Only these three colors. Large flat shapes, spare composition, almost no extra detail. " +
+      "Each tone clearly present. Tints and shades of these three only — introduce no other hues.\n" +
       lines.join("\n") +
-      (userPrompt
-        ? "\nPROMPT (paint this, still using only the three tones): " + userPrompt + "\n"
-        : "\nSubject: anything at all — this time, " + subject + ". Invent it freely, in any style or era.\n") +
-      "Let the three tones set the mood, light and composition. " +
-      "No text, letters, labels, color swatches or palette charts anywhere in the image.";
-    var buzz = ["three-tone palette", "limited palette"];
+      "\n" +
+      subjectLine +
+      "Empty space is fine. No text, letters, labels, color swatches or palette charts.";
+    var buzz = ["three-tone", "minimal", "limited palette"];
     names.forEach(function (n) {
       buzz.push(n.name);
       buzz.push(n.hex);
@@ -594,6 +606,18 @@
         li.appendChild(chip);
         li.appendChild(label);
       }
+      var add = document.createElement("button");
+      add.type = "button";
+      add.className = "clr-btn clr-btn-sm clr-add-slot";
+      add.textContent = t ? "Replace as tone" : "Add as tone";
+      add.setAttribute("data-slot", String(i));
+      add.addEventListener("click", function () {
+        var idx = window.Colors && window.Colors.getState ? window.Colors.getState().selected : null;
+        if (window.Colors && window.Colors.addToneFromIndex) {
+          window.Colors.addToneFromIndex(idx, i);
+        }
+      });
+      li.appendChild(add);
       el.tray.appendChild(li);
     });
     var full = tones.every(Boolean);
@@ -605,7 +629,7 @@
       if (!full) {
         el.status.textContent = n ? "Add " + (3 - n) + " more tone" + (3 - n === 1 ? "" : "s") + " to generate." : "";
       } else if (!el.status.textContent || /^Add \d/.test(el.status.textContent)) {
-        el.status.textContent = "Ready — Generate paints anything, in these 3 tones only.";
+        el.status.textContent = "Ready — Generate is three-tone and minimal.";
       }
     }
   }
@@ -801,8 +825,10 @@
       return Promise.resolve(null);
     }
     tones = tones.slice(0, 3);
-    var subject = pickSubject(lastSubject);
-    lastSubject = subject;
+    if (!lastSubject) lastSubject = pickSubject("");
+    var subject = lastSubject;
+    lastSubject = pickSubject(subject);
+    if (el.subjectOut) el.subjectOut.textContent = lastSubject;
     var aspect = ASPECTS.indexOf(el.aspect.value) >= 0 ? el.aspect.value : "1:1";
     var prompt = buildPrompt(tones, subject);
     var jobId = typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : "job-" + Date.now();
@@ -816,6 +842,15 @@
       prompt: prompt.stasis,
       fused_prompt: prompt.stasis,
       buzz_words: prompt.buzz_words,
+      extra_buzz: (function () {
+        var p = document.getElementById("clr-prompt");
+        var t = p ? String(p.value || "").trim() : "";
+        var apply = document.getElementById("clr-apply-roll");
+        var on = apply ? apply.checked : true;
+        if (on && t) return subject + ". " + t;
+        if (on) return subject;
+        return t || subject;
+      })(),
       spells: [],
       spell_details: [],
       palette_hex: hexes,
@@ -828,6 +863,11 @@
       spell_reference_image: "",
       source: "colors",
       product_mode: "three_tone",
+      signature:
+        ((window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin") +
+        ((typeof window.galleryAtomicStamp === "function" && window.galleryAtomicStamp())
+          ? " · " + window.galleryAtomicStamp()
+          : ""),
     };
     lastRequest = body;
     var job = { id: jobId, tones: tones, subject: subject, aspect: aspect, prompt: prompt, url: "" };
@@ -902,6 +942,32 @@
         try {
           localStorage.setItem("colorsPrompt.v1", promptEl.value);
         } catch (eS) {}
+      });
+    }
+    el.subjectOut = $("clr-subject-readout");
+    el.subjectRoll = $("clr-subject-roll");
+    el.applyRoll = $("clr-apply-roll");
+    function paintRoll() {
+      if (!lastSubject) lastSubject = pickSubject("");
+      if (el.subjectOut) el.subjectOut.textContent = lastSubject;
+    }
+    paintRoll();
+    if (el.applyRoll) {
+      try {
+        var savedRoll = localStorage.getItem("colorsApplyRoll.v1");
+        if (savedRoll === "0") el.applyRoll.checked = false;
+        if (savedRoll === "1") el.applyRoll.checked = true;
+      } catch (eR) {}
+      el.applyRoll.addEventListener("change", function () {
+        try {
+          localStorage.setItem("colorsApplyRoll.v1", el.applyRoll.checked ? "1" : "0");
+        } catch (eS2) {}
+      });
+    }
+    if (el.subjectRoll) {
+      el.subjectRoll.addEventListener("click", function () {
+        lastSubject = pickSubject(lastSubject);
+        paintRoll();
       });
     }
     el.aspect.value = loadAspect();
