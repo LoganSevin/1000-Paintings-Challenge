@@ -503,15 +503,43 @@
     });
   }
 
+  function overlayDesmosSketch(host, url) {
+    if (!host || !url || !window.GraphCalcImgTrace) return;
+    GraphCalcImgTrace.imageToBezierExprs(url, {
+      maxWidth: 320,
+      detail: 7,
+      maxCurves: 240,
+      flipY: false,
+    })
+      .then(function (res) {
+        if (!res || !res.preview) return;
+        var canvas = host.querySelector("canvas.az-desmos");
+        if (!canvas) {
+          canvas = document.createElement("canvas");
+          canvas.className = "az-desmos";
+          host.appendChild(canvas);
+        }
+        canvas.width = res.preview.width;
+        canvas.height = res.preview.height;
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = "invert(1) sepia(1) saturate(8) hue-rotate(190deg)";
+        ctx.drawImage(res.preview, 0, 0);
+        ctx.filter = "none";
+      })
+      .catch(function () {});
+  }
+
   function setTileVision(ch, url) {
     var btn = document.querySelector('.az-preview-tile[data-az-next="' + datasetCh(ch) + '"]');
     if (!btn || !url) return;
-    var media = btn.querySelector("img, canvas");
+    var media = btn.querySelector("img");
     var img = document.createElement("img");
     img.alt = ch;
     img.src = url;
     if (media && media.parentNode) media.parentNode.replaceChild(img, media);
     else btn.insertBefore(img, btn.firstChild);
+    overlayDesmosSketch(btn, url);
   }
 
   function fetchPremonition(ch, genId) {

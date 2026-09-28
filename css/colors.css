@@ -38,6 +38,28 @@ body.clr-tab-active #panel-colors {
   color: rgba(200, 190, 160, 0.78);
 }
 
+#panel-colors .clr-prompt-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 52rem;
+  margin: 0 0 0.85rem;
+}
+
+#panel-colors .clr-prompt {
+  width: 100%;
+  min-height: 3.2rem;
+  margin-top: 0.25rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border, #3a3428);
+  border-radius: 8px;
+  background: #0c0d10;
+  color: var(--text, #f5f0e8);
+  font: inherit;
+  font-size: 0.88rem;
+  resize: vertical;
+}
+
 #panel-colors .clr-hint strong {
   color: #e8d5a3;
   font-weight: 600;

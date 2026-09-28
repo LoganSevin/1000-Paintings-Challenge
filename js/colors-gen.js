@@ -209,12 +209,17 @@
         " (RGB " + n.rgb.r + ", " + n.rgb.g + ", " + n.rgb.b + "; closest named color: " + n.nearest + ")"
       );
     });
+    var userPrompt = "";
+    var promptEl = document.getElementById("clr-prompt");
+    if (promptEl) userPrompt = String(promptEl.value || "").trim();
     var stasis =
       "THREE-TONE PAINTING — the palette is the entire brief.\n" +
       "Use only these three colors as the dominant palette, each clearly present in roughly balanced amounts. " +
       "Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n" +
       lines.join("\n") +
-      "\nSubject: anything at all — this time, " + subject + ". Invent it freely, in any style or era.\n" +
+      (userPrompt
+        ? "\nPROMPT (paint this, still using only the three tones): " + userPrompt + "\n"
+        : "\nSubject: anything at all — this time, " + subject + ". Invent it freely, in any style or era.\n") +
       "Let the three tones set the mood, light and composition. " +
       "No text, letters, labels, color swatches or palette charts anywhere in the image.";
     var buzz = ["three-tone palette", "limited palette"];
@@ -888,6 +893,17 @@
     el.results = $("clr-gen-results");
     el.list = $("clr-gen-list");
     if (!el.tray || !el.go || !el.list) return;
+    var promptEl = $("clr-prompt");
+    if (promptEl) {
+      try {
+        promptEl.value = localStorage.getItem("colorsPrompt.v1") || "";
+      } catch (eP) {}
+      promptEl.addEventListener("input", function () {
+        try {
+          localStorage.setItem("colorsPrompt.v1", promptEl.value);
+        } catch (eS) {}
+      });
+    }
     el.aspect.value = loadAspect();
     el.aspect.addEventListener("change", function () {
       saveAspect(el.aspect.value);

@@ -3200,8 +3200,7 @@
       );
       if (!body) body = "(no description)";
       spellParts.push({
-        header:
-          "── INFLUENCE " + roman[s] + " (motif DNA only · ref #" + num + ") ──",
+        header: "SPELL " + roman[s] + " — " + title + " (#" + num + ")",
         body: body,
       });
     }
@@ -3210,17 +3209,16 @@
     var artist =
       (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin";
     var head =
-      "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\n" +
-      "This is NOT a remake, restage, collage, or near-copy of any equipped painting. " +
-      "Do not preserve any source composition, figure pose, camera angle, or layout.\n" +
-      "Borrow only abstract motifs, mood, and texture ideas from the influence texts below, " +
-      "then invent a fourth original scene that has never existed.\n" +
+      "THREE IDENTITIES IN ONE PAINTING.\n" +
+      "Keep Spell I, Spell II, and Spell III as distinct identities — each stays itself " +
+      "(subject, form, palette). They share one scene and interact. " +
+      "Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\n" +
       "Studio author: " +
       artist +
       ".";
     var merge =
-      "FUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. " +
-      "One coherent painting — not three panels, not a grid, not a stacked photo-fusion of the source works.";
+      "FUSION: one canvas, three identities still countable. " +
+      "Spell I remains Spell I. Spell II remains Spell II. Spell III remains Spell III.";
     // No aspect-ratio wording — frame comes only from aspect_ratio API field
     var output =
       "Output: one original finished artwork (product-ready). Fill the canvas fully; no letterboxing; no collage panels of source paintings.";
@@ -3274,9 +3272,7 @@
         parts.push(colorSec);
         parts.push("");
       }
-      parts.push(
-        "INFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):"
-      );
+      parts.push("THE THREE IDENTITIES (keep each one recognizable):");
       parts.push(bodies.join("\n\n"));
       parts.push("");
       parts.push(merge);
@@ -3309,25 +3305,13 @@
     // Prefer keeping color locks + originality head over long source prose
     var attempts = [
       function () {
-        return assemble(null, false, false, false);
+        return assemble(520, true, true, false);
       },
       function () {
-        return assemble(null, true, false, false);
+        return assemble(420, true, true, true);
       },
       function () {
-        return assemble(1400, false, true, true);
-      },
-      function () {
-        return assemble(900, false, true, true);
-      },
-      function () {
-        return assemble(600, true, true, true);
-      },
-      function () {
-        return assemble(400, true, true, true);
-      },
-      function () {
-        return assemble(280, true, true, true);
+        return assemble(320, true, true, true);
       },
     ];
     var best = "";
