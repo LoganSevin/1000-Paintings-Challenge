@@ -138,6 +138,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/coins"
+  to = "/.netlify/functions/painting-coins"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/claude-chat"
   to = "/.netlify/functions/claude-chat"
   status = 200

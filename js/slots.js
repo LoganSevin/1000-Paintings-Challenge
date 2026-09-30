@@ -186,6 +186,18 @@
   function saveCredits() {
     store(CREDITS_KEY, String(Math.floor(state.credits)));
   }
+  // Play credits are shared with the Gallery Coins tab (same key). Re-read storage before
+  // each change so a coin trade made elsewhere is never overwritten by a stale balance.
+  function syncCredits() {
+    var n = parseInt(recall(CREDITS_KEY), 10);
+    if (!isFinite(n) || n < 0) return;
+    if (n !== Math.floor(state.credits)) state.credits = n;
+  }
+  function adjustCredits(delta) {
+    syncCredits();
+    state.credits += delta;
+    saveCredits();
+  }
   function loadPrefs() {
     // v2 key defaults ON; ignore legacy v1 "off" so sound works after the fix.
     var saved = recall(SOUND_KEY);
@@ -1377,8 +1389,7 @@
       var L = state.link;
       var win = L.total || 0;
       if (win > 0) {
-        state.credits += win;
-        saveCredits();
+        adjustCredits(win);
         if (state.inFree) state.freeTotalWin += win;
         setLast("Link +" + Math.round(win), true);
         setMsg("Lock It Link +" + Math.round(win) + " play credits!", "win");
@@ -1671,8 +1682,7 @@
   function applyEval(evalResult, betUsed) {
     var win = evalResult.total;
     if (win > 0) {
-      state.credits += win;
-      saveCredits();
+      adjustCredits(win);
       if (state.inFree) state.freeTotalWin += win;
       setLast("+" + (win % 1 ? win.toFixed(1) : String(Math.round(win))), true);
       setMsg(
@@ -1708,8 +1718,7 @@
       chain = chain.then(function () {
         return openBonus(betUsed).then(function (prize) {
           if (prize.credits > 0) {
-            state.credits += prize.credits;
-            saveCredits();
+            adjustCredits(prize.credits);
             if (state.inFree) state.freeTotalWin += prize.credits;
           }
           var freeGain = Math.max(0, prize.free || 0);
@@ -1766,14 +1775,14 @@
       betUsed = state.freeBet || state.bet;
       state.freeSpins -= 1;
     } else {
+      syncCredits();
       if (state.credits < state.bet) {
         setMsg("Not enough play credits — tap Refill.", "err");
         stopAuto();
         paintHud();
         return;
       }
-      state.credits -= state.bet;
-      saveCredits();
+      adjustCredits(-state.bet);
     }
 
     state.spinning = true;
@@ -1943,14 +1952,25 @@
         paintHud();
       });
     } else {
+      syncCredits();
       paintHud();
       if (state.grid) renderStaticGrid(state.grid);
     }
   }
 
+  function onCreditsChanged() {
+    if (!state.started) return;
+    syncCredits();
+    paintHud();
+  }
+
   function init() {
     cacheEls();
     bind();
+    window.addEventListener("play-credits-changed", onCreditsChanged);
+    window.addEventListener("storage", function (e) {
+      if (e.key === CREDITS_KEY) onCreditsChanged();
+    });
     if (
       /#slots/i.test(location.hash || "") ||
       document.body.getAttribute("data-active-tab") === "slots"

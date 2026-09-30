@@ -106,6 +106,7 @@
   <link rel="stylesheet" href="css/supermarket.css?v=9" />
   <link rel="stylesheet" href="css/banker.css?v=1" />
   <link rel="stylesheet" href="css/exchange.css?v=42" />
+  <link rel="stylesheet" href="css/painting-coins.css?v=1" />
   <link rel="stylesheet" href="css/carousel.css?v=3" />
   <link rel="stylesheet" href="css/ideal.css?v=2" />
   <link rel="stylesheet" href="css/match.css?v=3" />
@@ -271,6 +272,7 @@
         <button type="button" class="tab" data-tab="supermarket">Supermarket</button>
         <button type="button" class="tab" data-tab="banker">Banker</button>
         <button type="button" class="tab" data-tab="exchange">Grand Exchange</button>
+        <button type="button" class="tab" data-tab="coins">Coins</button>
         <button type="button" class="tab" data-tab="carousel">Carousel</button>
         <button type="button" class="tab" data-tab="ideal">Ideal</button>
         <button type="button" class="tab" data-tab="match">Match</button>
@@ -3611,6 +3613,7 @@
         <div><span>Your debit</span><strong id="bk-you-bal">$0</strong></div>
       </div>
       <div class="bk-you" id="bk-you-card"></div>
+      <div class="pc-bank-card" id="pc-bank-card"></div>
       <div class="bk-toolbar">
         <input type="search" id="bk-search" placeholder="Search name, gender, pair…" aria-label="Search accounts" />
         <label class="bk-check"><input type="checkbox" id="bk-reveal" /> Reveal PAN / CVV</label>
@@ -3646,6 +3649,8 @@
             <span class="ge-level-chip">Lv <strong id="ge-world-lv">1</strong></span>
             <div class="ge-xp-bar" title="Experience"><div class="ge-xp-fill" id="ge-world-xp-fill"></div></div>
             <span class="ge-world-cash">SIM: <strong id="ge-world-cash">$0</strong></span>
+            <span class="ge-world-cash pc-ge-chip" title="Gallery Coins you hold (play credits, no cash value)">Coins: <strong id="pc-ge-value">0 cr</strong></span>
+            <button type="button" class="ge-open-exchange pc-ge-open" data-pc-open="">Gallery Coins</button>
           </div>
           <button type="button" class="ge-open-exchange" id="ge-open-exchange">Open Grand Exchange</button>
         </div>
@@ -3966,6 +3971,75 @@
         · Slots <strong id="ge-you-slots">0 / 8</strong>
         · Open market offers <strong id="ge-open">0</strong>
       </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="panel-coins" class="panel" hidden>
+    <div class="pc-shell">
+      <header class="pc-top">
+        <div>
+          <h2>Gallery Coins</h2>
+          <p class="pc-hint">
+            Every item in the gallery is its own coin: the 1000 paintings, Generated visions (Spellforge, 0&ndash;Z,
+            Colors and studio outputs), line sketches, inverted sketches, saved videos, phone uploads &mdash; and anything
+            added later. Buy and sell with the same play credits as Slots.
+          </p>
+        </div>
+        <div class="pc-hud">
+          <div><span>Play credits</span><strong id="pc-credits">100</strong></div>
+          <div><span>Holdings</span><strong id="pc-holdings">0</strong></div>
+          <div><span>Net worth</span><strong id="pc-networth">100</strong></div>
+          <div><span>Market</span><strong id="pc-mode">&hellip;</strong></div>
+          <button type="button" class="pc-refill" id="pc-refill" hidden>Refill 100</button>
+        </div>
+      </header>
+      <p class="pc-disclaimer">
+        Just for fun &mdash; play credits only. No cash value, no cash-out, no payments, not crypto or an investment.
+      </p>
+      <div class="pc-counts" id="pc-counts"></div>
+      <div class="pc-layout">
+        <div class="pc-market">
+          <div class="pc-toolbar">
+            <input type="search" id="pc-search" placeholder="Search ticker (P12, G4000, S7), title, or number&hellip;" autocomplete="off" aria-label="Search coins" />
+            <select id="pc-kind" aria-label="Coin kind"><option value="">All kinds</option></select>
+            <select id="pc-sort" aria-label="Sort coins">
+              <option value="number">Kind &amp; number</option>
+              <option value="price-desc">Price high&ndash;low</option>
+              <option value="price-asc">Price low&ndash;high</option>
+              <option value="gainers">Top gainers</option>
+              <option value="active">Most active</option>
+              <option value="held">My holdings first</option>
+            </select>
+            <label class="pc-check"><input type="checkbox" id="pc-mine" /> My coins</label>
+          </div>
+          <div class="pc-grid" id="pc-grid" role="list" aria-label="Gallery coins"></div>
+          <div class="pc-pager">
+            <button type="button" id="pc-prev">&lsaquo; Prev</button>
+            <span id="pc-page"></span>
+            <button type="button" id="pc-next">Next &rsaquo;</button>
+          </div>
+        </div>
+        <aside class="pc-side">
+          <div class="pc-detail" id="pc-detail"></div>
+          <div class="pc-wallet" id="pc-wallet"></div>
+          <details class="pc-rules">
+            <summary>How coin values work</summary>
+            <ul>
+              <li><b>Tickers:</b> P = painting, G = generated, S = sketch, I = inverted sketch, V = video, U = phone upload
+                (C/O/L/X/F = characters, objects, places, stasis, fallout on the studio PC). Un-numbered items get a
+                stable id hash.</li>
+              <li><b>Base</b> = (mint + first-edition bonus) &times; rarity. Mint: paintings 20, videos 15, uploads 10,
+                generated 8, sketches 6. Earlier numbers get a first-edition bonus (painting #1 +30, fading to +1 by #1000).</li>
+              <li><b>Rarity:</b> #1 and every 1000th Legendary &times;3 &middot; every 100th Epic &times;2 &middot; every 50th or
+                repeating digits (777) Rare &times;1.5 &middot; every 10th or palindromes (121) Uncommon &times;1.2.</li>
+              <li><b>Popularity:</b> +10% per doubling of opens (gallery lightbox or coin page, once per visitor per day), max +50%.</li>
+              <li><b>Demand:</b> +2% per coin bought, &minus;2% per coin sold (all visitors), between &times;0.5 and &times;3.
+                Sells pay a 3% exchange fee, so a quick buy&rarr;sell never makes credits. 1,000 coins max per item.</li>
+              <li>Credits are the same play credits as Slots. Your wallet lives in this browser.</li>
+            </ul>
+          </details>
+        </aside>
       </div>
     </div>
   </section>
@@ -8446,6 +8520,7 @@
           </div>
           <p class="hint lightbox-purchase-hint">Checkout via Cash App — $Logan7in</p>
         </div>
+        <div class="pc-lightbox-coin" id="pc-lightbox-coin" hidden></div>
         <button type="button" id="lightbox-tabloid-print" class="btn-secondary btn-tabloid-print" style="margin-top:1rem;width:100%">Prepare tabloid print</button>
         <button type="button" id="use-as-spell" class="btn-secondary" style="margin-top:1rem;width:100%">Use as spell in Spellforge</button>
       </aside>
@@ -8795,6 +8870,8 @@
   <script defer src="js/banker.js?v=1"></script>
   <script type="module" src="js/ge-artfloor-3d.js?v=50"></script>
   <script defer src="js/exchange.js?v=42"></script>
+  <script defer src="js/painting-coins-math.js?v=1"></script>
+  <script defer src="js/painting-coins.js?v=1"></script>
   <script defer src="js/carousel.js?v=5"></script>
   <script defer src="js/ideal.js?v=2"></script>
   <script defer src="js/match.js?v=6"></script>
@@ -8835,7 +8912,7 @@
   <script defer src="js/az.js?v=14"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=11"></script>
-  <script defer src="js/slots.js?v=5"></script>
+  <script defer src="js/slots.js?v=6"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
   <script defer src="js/hours.js?v=1"></script>
@@ -8845,9 +8922,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=108"></script>
+  <script defer src="js/tabs.js?v=109"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=4"></script>
+  <script defer src="js/studio-tab.js?v=5"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>
@@ -8864,7 +8941,7 @@
 
   <script defer src="js/api-chain.js?v=11"></script>
   <script defer src="js/pulse.js?v=3"></script>
-  <script defer src="js/app.js?v=26"></script>
+  <script defer src="js/app.js?v=27"></script>
   <script defer src="js/spell-timelapse.js?v=8"></script>
   <script defer src="js/stasis-vision-compose.js?v=6"></script>
   <script defer src="js/stasis-walk-floor.js?v=10"></script>
