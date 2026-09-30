@@ -404,10 +404,16 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
       : "rich painterly detail";
   const footer = authorshipFooter(aspectRatio, opts.signature);
   const frame = aspectPhrase(aspectRatio);
+  const spellforgeFusion = /THREE IDENTITIES IN ONE PAINTING/i.test(
+    String(stasis || "")
+  )
+    ? "Spellforge three-spell fusion: show Spell I, Spell II, and Spell III as three equally prominent, immediately recognizable focal identities in this one continuous scene. Give each a clear visible feature, connect them through a shared setting or interaction, and do not omit, hide, or merge away any identity.\n\n"
+    : "";
   const prefix =
     `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1. ` +
     "Create one original fine-art painting that embodies this fused vision. " +
     "Invent fresh imagery — not a photograph or collage of references.\n\n" +
+    spellforgeFusion +
     "STASIS (locked fusion — the scene, mood, and narrative to paint):\n";
   const suffix =
     `\n\nBUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +

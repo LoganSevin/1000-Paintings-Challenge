@@ -19,7 +19,7 @@ python scripts/analyze.py
 python scripts/app_server.py
 ```
 
-Open **http://localhost:8765/** — **Gallery** tab to browse; **Spellforge** tab to cast videos from your paintings.
+Open **http://localhost:8765/** — use **Gallery** to browse, **Spellforge** to generate from paintings, and **Animate** to cast clips. The public static site supports browsing, but does not provide Animate's video-generation API; clip generation requires this local server or a separately deployed Animate API backend.
 
 ## Analysis options
 

@@ -307,6 +307,20 @@
       );
     }
     if (low.indexOf("html instead of json") >= 0) {
+      var hostname = String(window.location.hostname || "").toLowerCase();
+      var localHost =
+        hostname === "localhost" ||
+        hostname === "127.0.0.1" ||
+        hostname === "::1" ||
+        /\.localhost$/.test(hostname);
+      if (!localHost && !window.SPELLFORGE_API_BASE) {
+        return (
+          "Animate clip generation is not available on this hosted site: its /api/animate-cast " +
+          "endpoint is missing. The gallery can still be browsed here, but casting requires the " +
+          "local gallery server at http://localhost:8765/#animate or a deployed Animate API backend. " +
+          "Refreshing this hosted page will not add the missing API."
+        );
+      }
       return msg;
     }
     if (low.indexOf("could not reach") >= 0 || low.indexOf("network") >= 0) {
