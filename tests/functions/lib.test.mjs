@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildStasisVisionPrompt } from "./_lib.mjs";
+import { buildStasisVisionPrompt } from "../../netlify/functions/_lib.mjs";
 
 test("Spellforge stasis prompt explicitly preserves all three identities", () => {
   const stasis = [
