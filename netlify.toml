@@ -4,6 +4,12 @@
 [build]
   command = "npm install"
   publish = "."
+  # Deploy gate: every production deploy costs 15 Netlify credits, so pushes to
+  # main only build when the commit message contains [deploy] (put it in the
+  # squash-merge title or body). Deploy Previews / branch deploys always build.
+  # To ship without a code change: push an empty commit whose message has
+  # [deploy], or use a build hook (hooks bypass this check).
+  ignore = "node ./scripts/netlify-ignore.js"
 
 [[redirects]]
   from = "/subscribe"

@@ -3,7 +3,13 @@
 
   var NAME_KEY = "pageChatName";
   var COLLAPSE_KEY = "pageChatCollapsed";
-  var POLL_MS = 4000;
+  // Poll only while the panel is expanded and the page is visible: every 15s,
+  // backing off to 60s while nothing new arrives; any activity resets it.
+  var POLL_MIN_MS = 15000;
+  var POLL_MAX_MS = 60000;
+  var POLL_BACKOFF = 1.5;
+  var pollDelay = POLL_MIN_MS;
+  var chatStarted = false;
   var MAX_TEXT = 280;
   var ROOM_RE = /^[a-z0-9-]{1,40}$/;
 
@@ -82,6 +88,12 @@
     if (!v) {
       unseen = 0;
       updateBadge();
+      if (chatStarted) {
+        fetchMessages(true);
+        wakePoll();
+      }
+    } else {
+      stopPoll();
       scrollIfStuck();
     }
   }
@@ -242,6 +254,7 @@
     if (roomEl) roomEl.textContent = "#" + room;
     renderAll();
     fetchMessages(false);
+    if (chatStarted) wakePoll();
   }
 
   function fetchMessages(incremental) {
@@ -268,13 +281,36 @@
       });
   }
 
+  function chatActive() {
+    return !document.hidden && !!root && !root.classList.contains("is-collapsed");
+  }
+
+  function stopPoll() {
+    if (pollTimer) clearTimeout(pollTimer);
+    pollTimer = null;
+  }
+
   function schedulePoll() {
-    if (pollTimer) clearInterval(pollTimer);
-    pollTimer = setInterval(function () {
-      if (document.hidden) return;
-      fetchMessages(true);
-      refreshTimes();
-    }, POLL_MS);
+    stopPoll();
+    if (!chatActive()) return;
+    pollTimer = setTimeout(function () {
+      pollTimer = null;
+      if (!chatActive()) return;
+      var before = messages.length;
+      fetchMessages(true).then(function () {
+        pollDelay =
+          messages.length > before
+            ? POLL_MIN_MS
+            : Math.min(POLL_MAX_MS, Math.round(pollDelay * POLL_BACKOFF));
+        refreshTimes();
+        schedulePoll();
+      });
+    }, pollDelay);
+  }
+
+  function wakePoll() {
+    pollDelay = POLL_MIN_MS;
+    schedulePoll();
   }
 
   function postMessage(ev) {
@@ -314,6 +350,7 @@
         if (textInput) textInput.value = "";
         stickBottom = true;
         if (data.message) mergeMessages([data.message], false);
+        wakePoll();
         setStatus("Sent", true);
         setTimeout(function () {
           setStatus("");
@@ -382,14 +419,32 @@
     });
 
     document.addEventListener("visibilitychange", function () {
-      if (!document.hidden) fetchMessages(true);
+      if (document.hidden) {
+        stopPoll();
+        return;
+      }
+      fetchMessages(true);
+      wakePoll();
     });
+
+    if (textInput) {
+      textInput.addEventListener("focus", wakePoll);
+      textInput.addEventListener("input", function () {
+        if (pollDelay > POLL_MIN_MS) wakePoll();
+      });
+    }
+
+    // Relative timestamps ("2m ago") keep ticking locally without network.
+    setInterval(function () {
+      if (!document.hidden) refreshTimes();
+    }, 15000);
   }
 
   function init() {
     bind();
     resetRoom(hashTab());
-    schedulePoll();
+    chatStarted = true;
+    wakePoll();
   }
 
   if (document.readyState === "loading") {

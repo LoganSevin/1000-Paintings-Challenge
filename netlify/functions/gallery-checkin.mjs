@@ -3,14 +3,29 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 
 const TAB_RE = /^[a-z0-9-]{1,40}$/;
 const ID_RE = /^[A-Za-z0-9._-]{8,80}$/;
-const PRESENCE_TTL_MS = 45000;
+// Clients refresh their checkin presence at most every 60s (visible tabs only),
+// so entries live a little longer than that.
+const PRESENCE_TTL_MS = 90000;
 const OPENS_KEY = "tab-opens-v2";
-const PRESENCE_PREFIX = "p/";
+// One aggregate record { id: { tab, seen } } instead of one blob per visitor,
+// so a GET is two blob reads instead of list + N reads.
+const PRESENCE_KEY = "presence-v2";
+const MAX_IDS = 800;
 
 function noStore(body) {
   const res = jsonResponse(body);
   const headers = new Headers(res.headers);
   headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+  return new Response(res.body, { status: res.status, headers });
+}
+
+// GET payload is identical for every visitor (tab open totals + live counts),
+// so let Netlify's CDN answer repeat GETs for 10s without invoking the function.
+function edgeCached(body) {
+  const res = jsonResponse(body);
+  const headers = new Headers(res.headers);
+  headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  headers.set("Netlify-CDN-Cache-Control", "public, s-maxage=10, stale-while-revalidate=20");
   return new Response(res.body, { status: res.status, headers });
 }
 
@@ -52,34 +67,36 @@ async function bumpOpens(store, tab) {
   return opens;
 }
 
-async function loadLive(store, now) {
-  const live = {};
-  let blobs = [];
-  try {
-    const listed = await store.list({ prefix: PRESENCE_PREFIX });
-    blobs = listed && listed.blobs ? listed.blobs : [];
-  } catch (e) {
-    return live;
-  }
-  const expired = [];
-  await Promise.all(
-    blobs.slice(0, 400).map(async (blob) => {
-      try {
-        const info = await store.get(blob.key, { type: "json" });
-        const seen = parseInt(info && info.seen, 10) || 0;
-        const tab = String((info && info.tab) || "").toLowerCase();
-        if (!seen || now - seen > PRESENCE_TTL_MS) {
-          expired.push(blob.key);
-          return;
-        }
-        if (!TAB_RE.test(tab)) return;
-        live[tab] = (live[tab] || 0) + 1;
-      } catch (e) {}
-    })
+function prunePresence(map, now) {
+  const out = {};
+  if (!map || typeof map !== "object" || Array.isArray(map)) return out;
+  const entries = Object.entries(map).sort(
+    (a, b) => (parseInt(b[1] && b[1].seen, 10) || 0) - (parseInt(a[1] && a[1].seen, 10) || 0)
   );
-  expired.slice(0, 40).forEach((key) => {
-    store.delete(key).catch(() => {});
-  });
+  for (const [id, info] of entries) {
+    if (!ID_RE.test(id) || !info || typeof info !== "object") continue;
+    const seen = parseInt(info.seen, 10) || 0;
+    const tab = String(info.tab || "").toLowerCase();
+    if (!seen || now - seen > PRESENCE_TTL_MS || !TAB_RE.test(tab)) continue;
+    out[id] = { tab, seen };
+    if (Object.keys(out).length >= MAX_IDS) break;
+  }
+  return out;
+}
+
+async function loadPresence(store, now) {
+  try {
+    return prunePresence(await store.get(PRESENCE_KEY, { type: "json" }), now);
+  } catch (e) {
+    return {};
+  }
+}
+
+function liveCounts(map) {
+  const live = {};
+  for (const info of Object.values(map || {})) {
+    live[info.tab] = (live[info.tab] || 0) + 1;
+  }
   return live;
 }
 
@@ -99,27 +116,27 @@ export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
   const store = getStore({ name: "gallery-meta", consistency: "strong" });
   const now = Date.now();
-  let opens = {};
-  if (request.method === "POST") {
-    let body = {};
-    try {
-      body = await request.json();
-    } catch (e) {
-      body = {};
-    }
-    const tab = String(body.tab || "").toLowerCase();
-    const id = String(body.id || "").trim();
-    if (TAB_RE.test(tab) && ID_RE.test(id)) {
-      await store.setJSON(PRESENCE_PREFIX + id, { tab, seen: now });
-    }
-    if (TAB_RE.test(tab) && body.bump) {
-      opens = await bumpOpens(store, tab);
-    } else {
-      opens = await loadOpens(store);
-    }
-  } else {
-    opens = await loadOpens(store);
+  if (request.method !== "POST") {
+    const [opens, presence] = await Promise.all([loadOpens(store), loadPresence(store, now)]);
+    return edgeCached({ ok: true, counts: payload(opens, liveCounts(presence)) });
   }
-  const live = await loadLive(store, now);
-  return noStore({ ok: true, counts: payload(opens, live) });
+  let body = {};
+  try {
+    body = await request.json();
+  } catch (e) {
+    body = {};
+  }
+  const tab = String(body.tab || "").toLowerCase();
+  const id = String(body.id || "").trim();
+  // Read-modify-write, like presence.mjs. Low traffic: last writer wins.
+  let presence = await loadPresence(store, now);
+  if (TAB_RE.test(tab) && ID_RE.test(id)) {
+    presence[id] = { tab, seen: now };
+    presence = prunePresence(presence, now);
+    try {
+      await store.setJSON(PRESENCE_KEY, presence);
+    } catch (e) {}
+  }
+  const opens = TAB_RE.test(tab) && body.bump ? await bumpOpens(store, tab) : await loadOpens(store);
+  return noStore({ ok: true, counts: payload(opens, liveCounts(presence)) });
 }

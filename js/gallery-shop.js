@@ -95,9 +95,36 @@
     });
   }
 
+  // /api/market/prices, /api/creator-payouts and /api/gallery-sales-stats only
+  // exist on the local PC server. Skip them on the public host, and stop
+  // calling any of them after its first 404 anywhere else.
+  var pcRouteMissing = {};
+
+  function isPublicHost() {
+    var h = (location.hostname || "").toLowerCase();
+    return (
+      h.indexOf("netlify.app") >= 0 ||
+      h.indexOf("github.io") >= 0 ||
+      h.indexOf("pages.dev") >= 0 ||
+      h === "logan7in.art" ||
+      h === "www.logan7in.art"
+    );
+  }
+
+  function pcRouteOff(route) {
+    return !!pcRouteMissing[route] || isPublicHost();
+  }
+
+  function notePcRoute(route, r) {
+    if (r && r.status === 404) pcRouteMissing[route] = true;
+    return r;
+  }
+
   function loadGaugedPrices() {
+    if (pcRouteOff("market-prices")) return Promise.resolve(null);
     return fetch("/api/market/prices?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) {
+        notePcRoute("market-prices", r);
         return r.ok ? r.json() : null;
       })
       .then(function (data) {
@@ -447,8 +474,10 @@
   }
 
   function loadCreatorPayouts() {
+    if (pcRouteOff("creator-payouts")) return Promise.resolve(null);
     return fetch("/api/creator-payouts?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) {
+        notePcRoute("creator-payouts", r);
         return r.ok ? r.json() : null;
       })
       .then(function (data) {
@@ -485,8 +514,10 @@
   }
 
   function fetchSalesStats() {
+    if (pcRouteOff("sales-stats")) return Promise.resolve(null);
     return fetch("/api/gallery-sales-stats?t=" + Date.now())
       .then(function (res) {
+        notePcRoute("sales-stats", res);
         return res.ok ? res.json() : null;
       })
       .then(function (data) {
@@ -1076,6 +1107,7 @@
     return Promise.all([fetchSalesStats(), loadCreatorPayouts(), loadGaugedPrices()]);
   });
   setInterval(function () {
+    if (document.hidden) return;
     fetchSalesStats();
     loadCreatorPayouts();
     loadGaugedPrices();

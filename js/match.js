@@ -455,7 +455,48 @@
     return Promise.resolve();
   }
 
+  // /api/match/live only exists on the local PC server (start_server.bat).
+  // On the public Netlify host (or after the first 404) skip the network
+  // entirely and show the same offline banner as before.
+  var NET_MISSING_MSG = "Match API missing — restart start_server.bat (need /api/match/live).";
+  var netMissing = false;
+  var net404 = false;
+
+  function isPublicHost() {
+    var h = (location.hostname || "").toLowerCase();
+    return (
+      h.indexOf("netlify.app") >= 0 ||
+      h.indexOf("github.io") >= 0 ||
+      h.indexOf("pages.dev") >= 0 ||
+      h === "logan7in.art" ||
+      h === "www.logan7in.art"
+    );
+  }
+
+  function matchNetMissing() {
+    if (netMissing) return true;
+    var remote =
+      typeof window.galleryApiUrl === "function" || String(window.SPELLFORGE_API_BASE || "").trim();
+    if (!remote && isPublicHost()) netMissing = true;
+    return netMissing;
+  }
+
+  function markNetMissing() {
+    netMissing = true;
+    net404 = true;
+    stopNetworkLoop();
+  }
+
+  function showNetMissing() {
+    // Public host: same text the old loop ended up showing there (the HTML 404
+    // failed JSON parsing). Local PC after a JSON 404: the "missing" hint.
+    renderNetworkBoard(mergePlayersWithSelf([]), {
+      error: net404 ? NET_MISSING_MSG : "Cannot reach /api/match/live — is start_server.bat running?",
+    });
+  }
+
   function uploadSkins(meta, ver, force) {
+    if (matchNetMissing()) return Promise.resolve(null);
     return fetch(apiUrl("/api/match/live"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -466,6 +507,10 @@
       }),
     })
       .then(function (r) {
+        if (r.status === 404) {
+          markNetMissing();
+          return null;
+        }
         return r.json();
       })
       .then(function (d) {
@@ -519,6 +564,10 @@
   }
 
   function postPresence() {
+    if (matchNetMissing()) {
+      showNetMissing();
+      return Promise.resolve(null);
+    }
     // Always show local leaderboard row even before the network answers
     renderNetworkBoard(mergePlayersWithSelf([]), { pending: true });
     return fetch(apiUrl("/api/match/live"), {
@@ -533,9 +582,15 @@
       }),
     })
       .then(function (r) {
-        return r.json().then(function (d) {
-          return { ok: r.ok, status: r.status, d: d };
-        });
+        if (r.status === 404) markNetMissing();
+        return r
+          .json()
+          .catch(function () {
+            return {};
+          })
+          .then(function (d) {
+            return { ok: r.ok, status: r.status, d: d };
+          });
       })
       .then(function (res) {
         var d = res.d || {};
@@ -543,7 +598,7 @@
           renderNetworkBoard(mergePlayersWithSelf([]), {
             error:
               res.status === 404
-                ? "Match API missing — restart start_server.bat (need /api/match/live)."
+                ? NET_MISSING_MSG
                 : (d && d.error) || "Could not reach match server (" + res.status + ").",
           });
           return d;
@@ -568,11 +623,21 @@
   }
 
   function pollNetwork() {
+    if (matchNetMissing()) {
+      showNetMissing();
+      return Promise.resolve();
+    }
     return fetch(apiUrl("/api/match/live") + "?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) {
-        return r.json().then(function (d) {
-          return { ok: r.ok, status: r.status, d: d };
-        });
+        if (r.status === 404) markNetMissing();
+        return r
+          .json()
+          .catch(function () {
+            return {};
+          })
+          .then(function (d) {
+            return { ok: r.ok, status: r.status, d: d };
+          });
       })
       .then(function (res) {
         var d = res.d || {};
@@ -658,17 +723,32 @@
     return d.innerHTML;
   }
 
-  function startNetworkLoop() {
+  function matchVisible() {
+    return !document.hidden && document.body.getAttribute("data-active-tab") === "match";
+  }
+
+  function stopNetworkLoop() {
     if (netTimer) clearInterval(netTimer);
+    netTimer = 0;
+  }
+
+  // Live scoreboard loop runs only while the Match tab is open and the page is
+  // visible (and the match API exists). Leaving sends one last presence so
+  // others see "away"; the server ages the row out after that.
+  function startNetworkLoop() {
+    stopNetworkLoop();
+    if (matchNetMissing()) {
+      showNetMissing();
+      return;
+    }
     postPresence();
     pollNetwork();
     netTimer = setInterval(function () {
-      if (document.body.getAttribute("data-active-tab") === "match") {
-        postPresence();
-      } else {
-        // still heartbeat occasionally so others see "away"
-        postPresence();
+      if (!matchVisible() || netMissing) {
+        stopNetworkLoop();
+        return;
       }
+      postPresence();
     }, 2500);
   }
 
@@ -1544,13 +1624,23 @@
       });
 
     window.addEventListener("tab-changed", function (e) {
-      if (e.detail && e.detail.tab === "match") postPresence();
-      else postPresence();
+      if (e.detail && e.detail.tab === "match") {
+        startNetworkLoop();
+      } else if (netTimer) {
+        stopNetworkLoop();
+        postPresence();
+      }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stopNetworkLoop();
+      else if (matchVisible() && !netTimer) startNetworkLoop();
     });
 
     function start() {
       newGame();
-      startNetworkLoop();
+      if (matchVisible()) startNetworkLoop();
+      else if (matchNetMissing()) showNetMissing();
       var loadSkins = function () {
         // Prefer network skins if server already has a set
         pollNetwork().then(function () {

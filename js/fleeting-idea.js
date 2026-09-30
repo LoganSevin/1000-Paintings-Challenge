@@ -6078,14 +6078,29 @@
     renderObjects();
     syncStageChrome();
     composeMoment();
+    loadAnalyses().then(function () {
+      composeMoment();
+    });
+    // lod1-analyses.json is ~7 MB; only fetch it once this tab is actually shown.
+    if ((location.hash || "").replace(/^#/, "").split("?")[0] === "fleeting-idea") {
+      loadLod1AnalysesForTab();
+    }
+    window.dispatchEvent(new Event("fleeting-idea-ready"));
+  }
+
+  var lod1AnalysesRequested = false;
+
+  function loadLod1AnalysesForTab() {
+    if (lod1AnalysesRequested) return;
+    lod1AnalysesRequested = true;
     Promise.all([loadAnalyses(), loadLod1Analyses()]).then(function () {
       prefetchLod1AnalysesForSlots();
       composeMoment();
     });
-    window.dispatchEvent(new Event("fleeting-idea-ready"));
   }
 
   window.addEventListener("fleeting-idea-show", function () {
+    loadLod1AnalysesForTab();
     setInterfaceHidden(false);
     bindFiHeaderScroll();
     syncHeaderHeight();

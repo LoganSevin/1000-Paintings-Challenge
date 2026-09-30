@@ -214,6 +214,54 @@
     return englishToRunes(String(text || ""));
   }
 
+  function isPublicHost() {
+    var h = (location.hostname || "").toLowerCase();
+    return (
+      h.indexOf("netlify.app") >= 0 ||
+      h.indexOf("github.io") >= 0 ||
+      h.indexOf("pages.dev") >= 0 ||
+      h === "logan7in.art" ||
+      h === "www.logan7in.art"
+    );
+  }
+
+  // lod1-analyses.json is ~7 MB: fetch it once per page (only when Runes
+  // starts), with normal HTTP caching. /api/lod1-analyses exists only on the
+  // local PC server, so the public host goes straight to the static file.
+  var lod1AnalysesPromise = null;
+
+  function loadLod1AnalysesOnce() {
+    if (lod1AnalysesPromise) return lod1AnalysesPromise;
+    var remote =
+      typeof window.galleryApiUrl === "function" || String(window.SPELLFORGE_API_BASE || "").trim();
+    var fromFile = function () {
+      return fetch("data/lod1-analyses.json")
+        .then(function (r) {
+          return r.ok ? r.json() : {};
+        })
+        .then(function (d) {
+          if (d && typeof d === "object") state.lod1Analyses = d;
+        })
+        .catch(function () {});
+    };
+    var fromApi =
+      !remote && isPublicHost()
+        ? Promise.reject(new Error("static host"))
+        : fetch(apiUrl("/api/lod1-analyses"), { cache: "no-store" }).then(function (r) {
+            if (!r.ok) throw new Error("lod1");
+            return r.json();
+          });
+    lod1AnalysesPromise = fromApi
+      .then(function (d) {
+        if (d && typeof d === "object") state.lod1Analyses = d;
+        return true;
+      })
+      .catch(fromFile);
+    return lod1AnalysesPromise;
+  }
+
+  var paintingAnalysesPromise = null;
+
   function loadAnalysisCaches() {
     var tasks = [];
     if (window.loadGalleryData) {
@@ -226,38 +274,22 @@
         })
       );
     }
-    tasks.push(
-      fetch(apiUrl("/api/lod1-analyses"), { cache: "no-store" })
-        .then(function (r) {
-          if (!r.ok) throw new Error("lod1");
-          return r.json();
-        })
-        .then(function (d) {
-          if (d && typeof d === "object") state.lod1Analyses = d;
-          return true;
-        })
-        .catch(function () {
-          return fetch("data/lod1-analyses.json", { cache: "no-store" })
-            .then(function (r) {
-              return r.ok ? r.json() : {};
-            })
-            .then(function (d) {
-              if (d && typeof d === "object") state.lod1Analyses = d;
-            })
-            .catch(function () {});
-        })
-    );
-    tasks.push(
-      fetch("data/analyses.json", { cache: "no-store" })
+    tasks.push(loadLod1AnalysesOnce());
+    if (!paintingAnalysesPromise) {
+      paintingAnalysesPromise = fetch("data/analyses.json")
         .then(function (r) {
           return r.ok ? r.json() : {};
         })
-        .then(function (d) {
-          if (d && typeof d === "object" && Object.keys(state.paintingAnalyses).length < 10) {
-            state.paintingAnalyses = d;
-          }
-        })
-        .catch(function () {})
+        .catch(function () {
+          return {};
+        });
+    }
+    tasks.push(
+      paintingAnalysesPromise.then(function (d) {
+        if (d && typeof d === "object" && Object.keys(state.paintingAnalyses).length < 10) {
+          state.paintingAnalyses = d;
+        }
+      })
     );
     return Promise.all(tasks);
   }

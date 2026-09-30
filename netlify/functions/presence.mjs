@@ -64,6 +64,41 @@ async function loadMap(store) {
   return {};
 }
 
+// Tab-open totals live in gallery-checkin's store. Returning them here lets the
+// presence heartbeat also refresh the eye counts, so gallery-welcome.js does not
+// need its own poll loop.
+const OPENS_STORE = "gallery-meta";
+const OPENS_KEY = "tab-opens-v2";
+
+async function loadOpens() {
+  try {
+    const raw = await getStore({ name: OPENS_STORE, consistency: "strong" }).get(OPENS_KEY, {
+      type: "json",
+    });
+    const out = {};
+    if (!raw || typeof raw !== "object") return out;
+    const src =
+      raw.opens && typeof raw.opens === "object"
+        ? raw.opens
+        : raw.counts && typeof raw.counts === "object"
+          ? raw.counts
+          : raw;
+    for (const [key, value] of Object.entries(src)) {
+      if (!TAB_RE.test(key)) continue;
+      out[key] =
+        value && typeof value === "object" ? parseInt(value.opens, 10) || 0 : parseInt(value, 10) || 0;
+    }
+    return out;
+  } catch (e) {
+    return null;
+  }
+}
+
+function withOpens(body, opens) {
+  if (opens) body.opens = opens;
+  return body;
+}
+
 async function readBody(request) {
   const ct = (request.headers.get("content-type") || "").toLowerCase();
   if (ct.includes("application/json")) {
@@ -89,8 +124,9 @@ export default async function handler(request) {
   const now = Date.now();
 
   if (request.method === "GET") {
-    const map = prune(await loadMap(store), now);
-    return noStore({ ok: true, counts: countsOf(map) });
+    const [raw, opens] = await Promise.all([loadMap(store), loadOpens()]);
+    const map = prune(raw, now);
+    return noStore(withOpens({ ok: true, counts: countsOf(map) }, opens));
   }
 
   if (request.method !== "POST") {
@@ -104,6 +140,7 @@ export default async function handler(request) {
   }
 
   // Read-modify-write. Low traffic: last writer wins after prune+merge.
+  const opensPromise = body.leave ? Promise.resolve(null) : loadOpens();
   let map = prune(await loadMap(store), now);
 
   if (body.leave) {
@@ -123,5 +160,5 @@ export default async function handler(request) {
     return noStore({ ok: false, error: "Store failed" }, 500);
   }
 
-  return noStore({ ok: true, counts: countsOf(map) });
+  return noStore(withOpens({ ok: true, counts: countsOf(map) }, await opensPromise));
 }
