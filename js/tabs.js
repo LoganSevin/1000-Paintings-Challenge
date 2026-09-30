@@ -60,6 +60,7 @@
     supermarket: document.getElementById("panel-supermarket"),
     banker: document.getElementById("panel-banker"),
     exchange: document.getElementById("panel-exchange"),
+    coins: document.getElementById("panel-coins"),
     carousel: document.getElementById("panel-carousel"),
     ideal: document.getElementById("panel-ideal"),
     match: document.getElementById("panel-match"),
@@ -167,6 +168,7 @@
     supermarket: "Art supermarket — aisles, shoppers, receipts → generate",
     banker: "Banker — SIM debit/credit for the supermarket 100 · Luhn · encrypted vault",
     exchange: "Grand Exchange — GE-style buy/sell paintings with the Banker 100 (SIM)",
+    coins: "Gallery Coins — every gallery item is a play-credit coin (no cash value)",
     carousel: "The City — Logan’s Run shelter · 30-year Carousel tiers · time controller",
     ideal: "Ideal — prompt-only image/video. Saves to Generated / Videos",
     match: "Match-3 — stripes, bombs, color poppers",
@@ -306,6 +308,7 @@
     if (name === "newsletter" || name === "dispatch") name = "subscribe";
     if (name === "tab-debug") name = "debug";
     if (name === "24" || name === "24hours" || name === "24-hours" || name === "day") name = "hours";
+    if (name === "coin" || name === "currency" || name === "painting-coins" || name === "gallery-coins") name = "coins";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -1127,6 +1130,7 @@
     if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
     if (tabName === "tab-debug") tabName = "debug";
     if (tabName === "24" || tabName === "24hours" || tabName === "24-hours" || tabName === "day") tabName = "hours";
+    if (tabName === "coin" || tabName === "currency" || tabName === "painting-coins" || tabName === "gallery-coins") tabName = "coins";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";

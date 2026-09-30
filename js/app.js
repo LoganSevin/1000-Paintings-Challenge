@@ -1436,6 +1436,7 @@ function openLightbox(num) {
 
 function showLightboxPainting(num) {
   lightboxNumber = num;
+  window.dispatchEvent(new CustomEvent("gallery-item-open", { detail: { collection: "paintings", number: num } }));
   $("#lightbox-img").src = paintingUrl(num);
   $("#lightbox-img").alt = `Painting ${num}`;
   $("#lightbox-number").textContent = `Painting #${num} of 1000`;
@@ -1444,6 +1445,18 @@ function showLightboxPainting(num) {
 }
 
 function showLightboxAsset(item) {
+  window.dispatchEvent(
+    new CustomEvent("gallery-item-open", {
+      detail: {
+        collection: item.collection,
+        number: item.number ?? null,
+        id: item.id,
+        name: item.name,
+        url: item.url,
+        title: item.title,
+      },
+    })
+  );
   $("#lightbox-img").src = resolveGalleryUrl(item.url);
   $("#lightbox-img").alt = item.title || "Gallery asset";
   const label = item.subtitle ? `${item.title} · ${item.subtitle}` : item.title;
