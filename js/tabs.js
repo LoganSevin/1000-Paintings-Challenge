@@ -96,6 +96,7 @@
     slots: document.getElementById("panel-slots"),
     colors: document.getElementById("panel-colors"),
     hours: document.getElementById("panel-hours"),
+    neural: document.getElementById("panel-neural"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -203,6 +204,7 @@
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
+    neural: "Neural Lab — design a neural network, watch it train in your browser, export Keras / PyTorch / JAX",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -306,6 +308,7 @@
     if (name === "newsletter" || name === "dispatch") name = "subscribe";
     if (name === "tab-debug") name = "debug";
     if (name === "24" || name === "24hours" || name === "24-hours" || name === "day") name = "hours";
+    if (name === "neural-lab" || name === "neurallab" || name === "nn" || name === "micrograd") name = "neural";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -530,6 +533,9 @@
     if (name !== "hours") {
       window.dispatchEvent(new Event("hours-hide"));
     }
+    if (name !== "neural") {
+      window.dispatchEvent(new Event("neural-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -558,6 +564,7 @@
     document.body.classList.toggle("sl-tab-active", name === "slots");
     document.body.classList.toggle("clr-tab-active", name === "colors");
     document.body.classList.toggle("hr-tab-active", name === "hours");
+    document.body.classList.toggle("nn-tab-active", name === "neural");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -1037,6 +1044,12 @@
         window.HoursDay.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "neural") {
+      window.dispatchEvent(new Event("neural-show"));
+      if (window.NeuralLab && window.NeuralLab.onShow) {
+        window.NeuralLab.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1127,6 +1140,7 @@
     if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
     if (tabName === "tab-debug") tabName = "debug";
     if (tabName === "24" || tabName === "24hours" || tabName === "24-hours" || tabName === "day") tabName = "hours";
+    if (tabName === "neural-lab" || tabName === "neurallab" || tabName === "nn" || tabName === "micrograd") tabName = "neural";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";
