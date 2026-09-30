@@ -99,6 +99,13 @@
 
   function applyPayload(data) {
     if (data && data.ok && data.counts) paintAll(data.counts);
+    // presence.mjs also returns tab-open totals; gallery-welcome.js paints the
+    // eye counts from this instead of running its own poll loop.
+    if (data && data.ok && data.opens && typeof data.opens === "object") {
+      try {
+        window.dispatchEvent(new CustomEvent("tab-opens-update", { detail: { opens: data.opens } }));
+      } catch (e) {}
+    }
   }
 
   function heartbeat(tab, force) {
@@ -148,10 +155,20 @@
     } catch (e2) {}
   }
 
-  function schedule() {
+  function stopSchedule() {
     if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  // Heartbeat only runs while the page is visible; hidden tabs make no requests.
+  function schedule() {
+    stopSchedule();
+    if (document.hidden) return;
     timer = setInterval(function () {
-      if (document.hidden) return;
+      if (document.hidden) {
+        stopSchedule();
+        return;
+      }
       heartbeat(currentTab, false);
     }, HEARTBEAT_MS);
   }
@@ -174,15 +191,21 @@
     });
 
     document.addEventListener("visibilitychange", function () {
-      if (document.hidden) return;
+      if (document.hidden) {
+        stopSchedule();
+        return;
+      }
       heartbeat(currentTab, true);
+      schedule();
     });
 
     window.addEventListener("pagehide", leave);
     window.addEventListener("beforeunload", leave);
 
     // If tabs are injected later (overflow menu), refresh heads occasionally.
+    // (DOM only, no network.)
     setInterval(function () {
+      if (document.hidden) return;
       tabButtons().forEach(ensureHead);
       paintAll(counts);
     }, 15000);

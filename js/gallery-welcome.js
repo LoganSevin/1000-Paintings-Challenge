@@ -126,8 +126,67 @@
     });
   }
 
+  // Polling budget (Netlify credits): eye counts normally ride on tab-presence's
+  // visible-only heartbeat (presence.mjs returns tab-open totals). The GET below
+  // is only a fallback when no fresh counts arrived for COUNTS_STALE_MS, and the
+  // checkin presence POST refreshes at most every PRESENCE_POST_MS. Hidden tabs
+  // make no requests at all.
+  var COUNTS_POLL_MS = 30000;
+  var COUNTS_STALE_MS = 25000;
+  var PRESENCE_POST_MS = 60000;
+  var BUMP_HOLD_MS = 20000;
+  var lastCountsAt = 0;
+  var lastPostAt = 0;
+  var lastPostTab = "";
+  var bumpedAt = {};
+  var countsTimer = null;
+  var postTimer = null;
+
+  // Keep a just-bumped tab's optimistic count if a (possibly edge-cached)
+  // payload is still one behind.
+  function holdBumps(next) {
+    var now = Date.now();
+    Object.keys(bumpedAt).forEach(function (tab) {
+      if (now - bumpedAt[tab] > BUMP_HOLD_MS) {
+        delete bumpedAt[tab];
+        return;
+      }
+      var mine = rowOf(tab);
+      var row = next[tab];
+      var theirs =
+        row && typeof row === "object" ? parseInt(row.opens, 10) || 0 : parseInt(row, 10) || 0;
+      if (mine.opens > theirs) {
+        next[tab] = {
+          opens: mine.opens,
+          live: row && typeof row === "object" ? parseInt(row.live, 10) || 0 : mine.live,
+        };
+      }
+    });
+    return next;
+  }
+
   function applyPayload(d) {
-    if (d && d.counts) paintAll(d.counts);
+    if (d && d.counts) {
+      lastCountsAt = Date.now();
+      paintAll(holdBumps(Object.assign({}, d.counts)));
+    }
+  }
+
+  // tab-presence.js heartbeat → { opens: { tab: n } }
+  function applyOpens(opens) {
+    if (!opens || typeof opens !== "object") return;
+    var next = {};
+    Object.keys(counts).forEach(function (tab) {
+      next[tab] = rowOf(tab);
+    });
+    Object.keys(opens).forEach(function (tab) {
+      if (!TAB_RE.test(tab)) return;
+      var row = next[tab] || { opens: 0, live: 0 };
+      row.opens = parseInt(opens[tab], 10) || 0;
+      next[tab] = row;
+    });
+    lastCountsAt = Date.now();
+    paintAll(holdBumps(next));
   }
 
   var lastBumpTab = "";
@@ -153,8 +212,14 @@
       row.opens += 1;
       row.live = Math.max(1, row.live);
       counts[name] = row;
+      bumpedAt[name] = Date.now();
       paintTab(name, row);
+    } else if (name === lastPostTab && Date.now() - lastPostAt < PRESENCE_POST_MS - 5000) {
+      // Same tab, refreshed recently: nothing new to tell the server.
+      return;
     }
+    lastPostTab = name;
+    lastPostAt = Date.now();
     fetch("/api/gallery-checkin", {
       method: "POST",
       cache: "no-store",
@@ -173,12 +238,33 @@
   }
 
   function fetchCounts() {
-    return fetch("/api/gallery-checkin", { cache: "no-store" })
+    if (document.hidden) return Promise.resolve();
+    // Default cache mode so the 10s edge cache on the GET can answer.
+    return fetch("/api/gallery-checkin")
       .then(function (r) {
         return r.ok ? r.json() : null;
       })
       .then(applyPayload)
       .catch(function () {});
+  }
+
+  function stopTimers() {
+    if (countsTimer) clearInterval(countsTimer);
+    if (postTimer) clearInterval(postTimer);
+    countsTimer = postTimer = null;
+  }
+
+  function startTimers() {
+    stopTimers();
+    if (document.hidden) return;
+    countsTimer = setInterval(function () {
+      if (document.hidden) return stopTimers();
+      if (Date.now() - lastCountsAt >= COUNTS_STALE_MS) fetchCounts();
+    }, COUNTS_POLL_MS);
+    postTimer = setInterval(function () {
+      if (document.hidden) return stopTimers();
+      postTab(currentTab, false);
+    }, PRESENCE_POST_MS);
   }
 
   function showWelcome() {
@@ -269,7 +355,10 @@
       if (stat) stat.hidden = true;
     }
     tabButtons().forEach(ensureTally);
-    fetchCounts();
+    window.addEventListener("tab-opens-update", function (e) {
+      applyOpens(e && e.detail && e.detail.opens);
+    });
+    // The bump POST answers with full counts, so no separate initial GET.
     postTab(hashTab(), true);
     showWelcome();
     document.addEventListener(
@@ -314,14 +403,19 @@
       var tab = e && e.detail && e.detail.tab;
       if (!tab || tab === "gallery") showWelcome();
     });
-    setInterval(fetchCounts, 3000);
-    setInterval(function () {
-      postTab(currentTab, false);
-    }, 5000);
+    startTimers();
     document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "hidden") return;
-      fetchCounts();
+      if (document.hidden) {
+        stopTimers();
+        return;
+      }
+      // tab-presence.js sends a heartbeat (with opens) on return; only fall
+      // back to the GET if that does not land.
+      setTimeout(function () {
+        if (!document.hidden && Date.now() - lastCountsAt >= COUNTS_STALE_MS) fetchCounts();
+      }, 3000);
       postTab(currentTab, false);
+      startTimers();
     });
 
     var mega = $("gallery-megaphone");

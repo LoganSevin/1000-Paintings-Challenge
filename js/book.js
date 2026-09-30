@@ -1872,6 +1872,8 @@
   }
 
   function flushUiToProject() {
+    // Nothing to flush before the first seed (fresh visitor who never opened Book).
+    if (!hasSavedProject()) return;
     readSideFromUi("left");
     if (rightPageNum() <= TOTAL_PAGES) readSideFromUi("right");
     persist();
@@ -2121,7 +2123,45 @@
     });
   }
 
+  function hasSavedProject() {
+    if (state.project) return true;
+    if (window.Movie && window.Movie.getProject) {
+      var mp = window.Movie.getProject();
+      if (mp && Array.isArray(mp.segments) && mp.segments.length) return true;
+    }
+    try {
+      var p = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (p && Array.isArray(p.segments) && p.segments.length) return true;
+    } catch (e) {}
+    return false;
+  }
+
+  function bookTabActive() {
+    return (
+      document.body.getAttribute("data-active-tab") === "book" ||
+      (location.hash || "").replace(/^#/, "").split("?")[0] === "book"
+    );
+  }
+
+  // Fresh visitors: seeding waits on Movie's film library (~9 MB of JSON), so
+  // only seed once the Book tab is actually opened.
+  var seedingPromise = null;
+
   function onShow() {
+    if (!hasSavedProject()) {
+      if (!seedingPromise) {
+        seedingPromise = Promise.resolve(seedPages()).then(
+          function () {
+            seedingPromise = null;
+            if (bookTabActive()) onShow();
+          },
+          function () {
+            seedingPromise = null;
+          }
+        );
+      }
+      return;
+    }
     ensureProject();
     renderSpread();
     setStatus(
@@ -2152,7 +2192,7 @@
     if (!$("panel-book")) return;
     loadPrefs();
     bindUi();
-    ensureProject();
+    if (hasSavedProject() || bookTabActive()) ensureProject();
     window.dispatchEvent(new Event("book-ready"));
   }
 

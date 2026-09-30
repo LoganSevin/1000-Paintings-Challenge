@@ -382,7 +382,22 @@
     return raw;
   }
 
+  // Several callers ask for the (static) manifest during startup; share one
+  // request and reuse the result for a few minutes.
+  var lod1ManifestPromise = null;
+  var lod1ManifestAt = 0;
+
   function loadLod1Manifest() {
+    if (lod1ManifestPromise && Date.now() - lod1ManifestAt < 5 * 60 * 1000) return lod1ManifestPromise;
+    lod1ManifestAt = Date.now();
+    lod1ManifestPromise = loadLod1ManifestFresh().catch(function (e) {
+      lod1ManifestPromise = null;
+      throw e;
+    });
+    return lod1ManifestPromise;
+  }
+
+  function loadLod1ManifestFresh() {
     return fetch(LOD1_MANIFEST_URL)
       .then(function (r) {
         return r.ok ? r.json() : null;

@@ -622,10 +622,27 @@
       });
   }
 
+  function isPublicHost() {
+    var h = (location.hostname || "").toLowerCase();
+    return (
+      h.indexOf("netlify.app") >= 0 ||
+      h.indexOf("github.io") >= 0 ||
+      h.indexOf("pages.dev") >= 0 ||
+      h === "logan7in.art" ||
+      h === "www.logan7in.art"
+    );
+  }
+
   function loadLod1AnalysesQuiet() {
-    return fetchWithTimeout(apiUrl("/api/lod1-analyses?t=" + Date.now()), { cache: "no-store" }, 30000)
+    // /api/lod1-analyses exists only on the local PC server.
+    var apiCall =
+      !String(window.SPELLFORGE_API_BASE || "").trim() && isPublicHost()
+        ? Promise.reject(new Error("static host"))
+        : fetchWithTimeout(apiUrl("/api/lod1-analyses?t=" + Date.now()), { cache: "no-store" }, 30000);
+    return apiCall
       .then(function (r) {
-        return r.ok ? r.json() : null;
+        if (!r.ok) throw new Error("lod1 " + r.status);
+        return r.json();
       })
       .then(function (d) {
         if (d && typeof d === "object") state.lod1Analyses = d;
@@ -3152,12 +3169,36 @@
     });
   }
 
+  var restoreStatusShown = false;
+
+  function afterPoolLoaded() {
+    renderAll();
+    if (state.project && !restoreStatusShown) {
+      restoreStatusShown = true;
+      setStatus(
+        "Restored project — " +
+          readyCount() +
+          "/" +
+          state.project.targetClips +
+          " ready · library " +
+          state.pool.length +
+          " images. Resume production or play.",
+        "ok"
+      );
+    }
+  }
+
+  function movieTabActive() {
+    return (
+      document.body.getAttribute("data-active-tab") === "movie" ||
+      (location.hash || "").replace(/^#/, "").split("?")[0] === "movie"
+    );
+  }
+
   function onShow() {
     state.active = true;
     if (!state.poolReady) {
-      loadPool().then(function () {
-        renderAll();
-      });
+      loadPool().then(afterPoolLoaded);
     } else {
       updatePoolHint();
     }
@@ -3178,21 +3219,9 @@
       if (state.project.aspect) state.aspect = state.project.aspect;
       if (state.project.resolution) state.resolution = state.project.resolution;
     }
-    loadPool().then(function () {
-      renderAll();
-      if (state.project) {
-        setStatus(
-          "Restored project — " +
-            readyCount() +
-            "/" +
-            state.project.targetClips +
-            " ready · library " +
-            state.pool.length +
-            " images. Resume production or play.",
-          "ok"
-        );
-      }
-    });
+    // The film library pulls ~9 MB of manifests/analyses; wait until the Movie
+    // tab is shown (onShow) unless the page opened on it.
+    if (movieTabActive()) loadPool().then(afterPoolLoaded);
     window.dispatchEvent(new Event("movie-ready"));
   }
 
