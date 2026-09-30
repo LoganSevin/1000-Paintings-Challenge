@@ -13,6 +13,7 @@
     { group: "Look", name: "Fleeting Idea", note: "Overhead projector, layers", href: "#fleeting-idea" },
     { group: "Look", name: "Kids Mode", note: "Last tab; exit code 4200", href: "#kids" },
     { group: "Look", name: "24 Hours", note: "86,400 seconds — nested rings, idle watch", href: "#hours" },
+    { group: "Look", name: "Neural Lab", note: "Design + train a neural net in the browser; export Keras/PyTorch/JAX", href: "#neural" },
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "JS source", note: "Read every file in js/", href: "#js" },
     { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },
