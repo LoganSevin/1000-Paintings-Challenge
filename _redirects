@@ -4,3 +4,4 @@
 /api/jobs/* /.netlify/functions/job-status/:splat 200
 /api/page-chat /.netlify/functions/page-chat 200
 /api/presence /.netlify/functions/presence 200
+/api/coins /.netlify/functions/painting-coins 200

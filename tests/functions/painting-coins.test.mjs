@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { handleCoins, scopeFor } from "./painting-coins.mjs";
+import { handleCoins, scopeFor } from "../../netlify/functions/painting-coins.mjs";
 import CoinMath from "../../js/painting-coins-math.js";
 
 const M = CoinMath && CoinMath.quote ? CoinMath : CoinMath.default;
