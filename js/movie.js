@@ -628,6 +628,7 @@
       h.indexOf("netlify.app") >= 0 ||
       h.indexOf("github.io") >= 0 ||
       h.indexOf("pages.dev") >= 0 ||
+      h.indexOf("workers.dev") >= 0 ||
       h === "logan7in.art" ||
       h === "www.logan7in.art"
     );
