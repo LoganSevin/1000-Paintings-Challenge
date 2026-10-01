@@ -1,0 +1,28 @@
+# Files NOT uploaded as Cloudflare static assets (gitignore syntax).
+# Free plan limits: 20,000 files per deploy, 25 MiB per file.
+.git
+.github
+.netlify
+.wrangler
+node_modules
+/netlify/
+/cloudflare/
+/scripts/
+/tests/
+.dev.vars*
+.env*
+/wrangler.jsonc
+/package.json
+/package-lock.json
+/requirements.txt
+*.bat
+*.ps1
+*.py
+*.pyc
+__pycache__
+# Served from cf-packs/ by the Worker (cloudflare/packs.mjs):
+/sketches-meta/
+/generated-meta/
+/sketches/json/
+# 32 MB > 25 MiB limit; videofy-export.js falls back to jsDelivr/unpkg for it.
+/js/vendor/ffmpeg/core/ffmpeg-core.wasm

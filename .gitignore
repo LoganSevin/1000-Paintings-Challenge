@@ -55,3 +55,9 @@ sync_to_github.bat
 sync_log.txt
 cleanup_sync.bat
 cleanup_log.txt
+
+# Cloudflare build outputs / local state (cloudflare/build.mjs, wrangler)
+cf-packs/
+/_headers
+.wrangler/
+.dev.vars*
