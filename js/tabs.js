@@ -204,7 +204,7 @@
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
-    lumen: "Lumen — closed lines are fills; clockwise and counter-clockwise flip each side",
+    lumen: "Lumen — closed lines are fills; textures morph inward to a substance; void is the empty space outside",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
