@@ -357,6 +357,57 @@ export function clipPromptChars(text, max = GEN_PROMPT_SAFE_MAX) {
   return cut.replace(/\s+$/g, "") + "…";
 }
 
+/** Index where the client locked the frame and/or the painted signature. */
+function protectedTailAt(text) {
+  const t = String(text || "");
+  let at = -1;
+  for (const mark of ["OUTPUT ASPECT", "IN-CANVAS SIGNATURE", "Compose for a "]) {
+    const i = t.lastIndexOf(mark);
+    if (i >= 0 && (at < 0 || i < at)) at = i;
+  }
+  if (at <= 0) return -1;
+  const nl = t.lastIndexOf("\n", at);
+  return nl >= 0 ? nl : at;
+}
+
+/**
+ * Stay under the API cap without eating the signature, the aspect line, or a
+ * later spell. Extra length comes out of the longest SPELL body.
+ */
+export function fitPromptKeepingTail(text, max = GEN_PROMPT_SAFE_MAX) {
+  let t = String(text || "").trim();
+  if (!t || t.length <= max) return t;
+  const at = protectedTailAt(t);
+  const tail = at > 0 ? t.slice(at).trim() : "";
+  let head = at > 0 ? t.slice(0, at).trim() : t;
+  const budget = tail ? max - tail.length - 2 : max;
+  if (budget < 200) return clipPromptChars(t, max);
+  const parts = head.split(/(?=^SPELL [IVX]+\b)/m);
+  let guard = 0;
+  while (head.length > budget && guard < 24) {
+    guard += 1;
+    let longest = -1;
+    let longestLen = 0;
+    for (let i = 0; i < parts.length; i++) {
+      if (!/^SPELL [IVX]+\b/m.test(parts[i])) continue;
+      if (parts[i].length > longestLen) {
+        longestLen = parts[i].length;
+        longest = i;
+      }
+    }
+    if (longest < 0) break;
+    const lines = parts[longest].split("\n");
+    const header = lines[0];
+    const body = lines.slice(1).join("\n").trim();
+    const overflow = head.length - budget;
+    const nextLen = Math.max(40, body.length - overflow - 1);
+    parts[longest] = header + "\n" + clipPromptChars(body, nextLen);
+    head = parts.join("").replace(/\n{3,}/g, "\n\n").trim();
+  }
+  if (head.length > budget) head = clipPromptChars(head, budget);
+  return tail ? head + "\n\n" + tail : head;
+}
+
 export const ALLOWED_ASPECTS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
 
 export function normalizeAspect(value, fallback = "16:9") {
@@ -370,7 +421,8 @@ export function normalizeAspect(value, fallback = "16:9") {
 export function aspectPhrase(aspect) {
   const a = normalizeAspect(aspect);
   const [w, h] = a.split(":").map(Number);
-  const orient = w === h ? "square" : w > h ? "landscape" : "portrait";
+  // "landscape" / "portrait" make image models paint scenery or a posed sitter.
+  const orient = w === h ? "square" : w > h ? "wide" : "tall";
   return `${a} ${orient}`;
 }
 
@@ -402,18 +454,25 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
     buzzWords?.length > 0
       ? buzzWords.slice(0, 16).join(", ")
       : "rich painterly detail";
-  const footer = authorshipFooter(aspectRatio, opts.signature);
   const frame = aspectPhrase(aspectRatio);
-  const spellforgeFusion = /THREE IDENTITIES IN ONE PAINTING/i.test(
-    String(stasis || "")
-  )
+  const raw = String(stasis || "").trim();
+  const spellforge = /THREE IDENTITIES IN ONE PAINTING/i.test(raw);
+  const spellforgeFusion = spellforge
     ? "Spellforge three-spell fusion: show Spell I, Spell II, and Spell III as three equally prominent, immediately recognizable focal identities in this one continuous scene. Give each a clear visible feature, connect them through a shared setting or interaction, and do not omit, hide, or merge away any identity.\n\n"
     : "";
+  const lead =
+    `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.\n` +
+    spellforgeFusion;
+  // The browser prompt already ends with the frame and the painted signature.
+  // A second museum wrapper is what pushed that ending past 8000 and cut Spell III.
+  if (/IN-CANVAS SIGNATURE/i.test(raw)) {
+    return fitPromptKeepingTail(lead + raw, GEN_PROMPT_SAFE_MAX);
+  }
+  const footer = authorshipFooter(aspectRatio, opts.signature);
   const prefix =
-    `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1. ` +
+    lead +
     "Create one original fine-art painting that embodies this fused vision. " +
     "Invent fresh imagery — not a photograph or collage of references.\n\n" +
-    spellforgeFusion +
     "STASIS (locked fusion — the scene, mood, and narrative to paint):\n";
   const suffix =
     `\n\nBUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
@@ -425,7 +484,7 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
     GEN_STASIS_BODY_MAX,
     Math.max(400, GEN_PROMPT_SAFE_MAX - overhead)
   );
-  const body = clipPromptChars(String(stasis || "").trim(), bodyMax);
+  const body = clipPromptChars(raw, bodyMax);
   return prefix + body + suffix;
 }
 
@@ -738,10 +797,11 @@ function fluxColorNames(text) {
 function fluxFraming(aspect) {
   const a = normalizeAspect(aspect);
   const [w, h] = a.split(":").map(Number);
-  if (w === h) return "Square composition that fills the frame.";
+  if (w === h) return "Square frame filled edge to edge.";
+  // Do not say "landscape". That word makes the fallback paint hills.
   return w > h
-    ? "Wide landscape composition that fills the frame."
-    : "Tall portrait composition that fills the frame.";
+    ? "Wide horizontal frame filled edge to edge, not a square."
+    : "Tall vertical frame filled edge to edge, not a square.";
 }
 
 /** Spellforge auto-built stasis -> { subjects[], colors[], styles[], moods[], extra } or null. */
@@ -750,7 +810,7 @@ function parseSpellforgeStasis(stasis) {
   if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL [IVX]+\s*—/.test(text)) return null;
   const subjects = [];
   const re =
-    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|THE THREE IDENTITIES|Style DNA|Buzz words:|$))/g;
+    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
   let m;
   while ((m = re.exec(text))) {
     const d = fluxDescFromSlotBody(m[1]);
@@ -882,7 +942,12 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
   if (colors.length) tail.push("Dominant colors: " + colors.join(", ") + ".");
   if (moods.length) tail.push("Mood: " + moods.join(", ").toLowerCase().replace(/[.…]+$/, "") + ".");
   tail.push(fluxFraming(aspect));
-  tail.push("No text, no signature, no watermark.");
+  const sig = String((opts && opts.signature) || "").trim();
+  if (sig) {
+    tail.push(`Small painted signature in the lower corner: "${sig}". No watermark.`);
+  } else {
+    tail.push("No watermark.");
+  }
   const tailText = tail.join(" ");
 
   let prompt;
@@ -890,7 +955,8 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
     const subs = sf.subjects.slice(0, 4);
     const n = subs.length;
     const word = FLUX_NUM_WORDS[n] || String(n);
-    const wide = /^Wide/.test(fluxFraming(aspect));
+    const [frameW, frameH] = normalizeAspect(aspect).split(":").map(Number);
+    const wide = frameW > frameH;
     // The user's words lead the prompt verbatim (FLUX weighs the opening most), are restated in the
     // opener, and each item is named again "in equal measure" in the closing line so a later item
     // is not drowned by the first one.
@@ -900,12 +966,13 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
       items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] + " in equal measure" : extra;
     const lead = extra ? (shortExtra ? extra.charAt(0).toUpperCase() + extra.slice(1) : extra) + "." : "";
     const opener =
-      `${medium} of one single seamless ${wide ? "panoramic " : ""}scene` +
+      `${medium} of one single seamless scene` +
+      (wide ? " in a wide horizontal frame" : "") +
       (shortExtra ? `, prominently featuring ${extra}, ${items.length > 1 ? "each" : ""} clearly visible,` : "") +
       (n > 1 ? ` with ${word} equal focal elements of the same size and prominence.` : ` with one clear focal subject.`);
     const unifier =
       n > 1
-        ? `${n === 2 ? "Both" : "All " + word} stand together in the same continuous landscape with equal visual weight` +
+        ? `${n === 2 ? "Both" : "All " + word} stand together in one continuous scene with equal visual weight` +
           (shortExtra ? `, surrounded by ${rotated}.` : ".")
         : shortExtra
           ? `Surrounded by ${rotated}.`
