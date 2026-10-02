@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
+  <link rel="stylesheet" href="css/sine.css?v=1" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -307,6 +308,7 @@
         <button type="button" class="tab" data-tab="slots">Slots</button>
         <button type="button" class="tab" data-tab="colors">Colors</button>
         <button type="button" class="tab" data-tab="hours">24 Hours</button>
+        <button type="button" class="tab" data-tab="sine">Sine</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -7757,6 +7759,44 @@
     </div>
   </section>
 
+  <section id="panel-sine" class="panel" hidden>
+    <div class="sn-shell">
+      <div class="sn-stage">
+        <canvas id="sn-canvas" class="sn-canvas" aria-label="Sine wave light drawing"></canvas>
+        <p id="sn-readout" class="sn-readout"></p>
+      </div>
+      <aside class="sn-side">
+        <h2>Sine</h2>
+        <p class="sn-lede">Draw with light. Each stroke is a sine wave you can morph and move.</p>
+        <div class="sn-modes" role="group" aria-label="Tool">
+          <button type="button" data-sn-mode="draw">Draw</button>
+          <button type="button" data-sn-mode="move">Move</button>
+          <button type="button" data-sn-mode="morph" class="is-on">Morph</button>
+        </div>
+        <label class="sn-field"><span>Cycles</span><input id="sn-freq" type="range" min="0.5" max="36" step="0.1" value="6" /><output>6</output></label>
+        <label class="sn-field"><span>Amplitude</span><input id="sn-amp" type="range" min="1" max="42" step="0.5" value="8" /><output>8</output></label>
+        <label class="sn-field"><span>Phase</span><input id="sn-phase" type="range" min="0" max="360" step="1" value="0" /><output>0</output></label>
+        <label class="sn-field"><span>Harmonic</span><input id="sn-harm" type="range" min="0" max="100" step="1" value="45" /><output>45</output></label>
+        <label class="sn-field"><span>Thickness</span><input id="sn-thick" type="range" min="0.6" max="8" step="0.1" value="2.4" /><output>2.4</output></label>
+        <label class="sn-field"><span>Travel</span><input id="sn-speed" type="range" min="-3" max="4" step="0.1" value="1.6" /><output>1.6</output></label>
+        <label class="sn-field"><span>Hue</span><input id="sn-hue" type="range" min="0" max="360" step="1" value="172" /><output>172</output></label>
+        <div class="sn-swatches" aria-label="Light colors">
+          <button type="button" class="sn-swatch" data-hue="172" title="Sea"></button>
+          <button type="button" class="sn-swatch" data-hue="48" title="Gold"></button>
+          <button type="button" class="sn-swatch" data-hue="322" title="Magenta"></button>
+          <button type="button" class="sn-swatch" data-hue="198" title="Ice"></button>
+          <button type="button" class="sn-swatch" data-hue="128" title="Lime"></button>
+        </div>
+        <div class="sn-actions">
+          <button type="button" id="sn-new">New wave</button>
+          <button type="button" id="sn-undo">Undo</button>
+          <button type="button" id="sn-clear">Clear</button>
+        </div>
+        <p class="sn-hint">Draw lays a new light. Move drags a whole wave. Morph: drag up and down for amplitude, sideways for cycles, or pull the knots to bend the path. Delete removes the selected wave.</p>
+      </aside>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -8840,15 +8880,16 @@
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
   <script defer src="js/hours.js?v=1"></script>
+  <script defer src="js/sine.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=108"></script>
+  <script defer src="js/tabs.js?v=109"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=4"></script>
+  <script defer src="js/studio-tab.js?v=5"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>

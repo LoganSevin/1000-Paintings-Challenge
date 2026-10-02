@@ -96,6 +96,7 @@
     slots: document.getElementById("panel-slots"),
     colors: document.getElementById("panel-colors"),
     hours: document.getElementById("panel-hours"),
+    sine: document.getElementById("panel-sine"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -203,6 +204,7 @@
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
+    sine: "Sine — draw with light, then morph and move each wave",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -306,6 +308,7 @@
     if (name === "newsletter" || name === "dispatch") name = "subscribe";
     if (name === "tab-debug") name = "debug";
     if (name === "24" || name === "24hours" || name === "24-hours" || name === "day") name = "hours";
+    if (name === "sinewave" || name === "sine-wave" || name === "light") name = "sine";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -530,6 +533,9 @@
     if (name !== "hours") {
       window.dispatchEvent(new Event("hours-hide"));
     }
+    if (name !== "sine") {
+      window.dispatchEvent(new Event("sine-hide"));
+    }
     document.body.classList.toggle("ct-tab-active", name === "citations");
     document.body.classList.toggle("mp-tab-active", name === "maps");
     document.body.classList.toggle("stare-tab-active", name === "stare");
@@ -558,6 +564,7 @@
     document.body.classList.toggle("sl-tab-active", name === "slots");
     document.body.classList.toggle("clr-tab-active", name === "colors");
     document.body.classList.toggle("hr-tab-active", name === "hours");
+    document.body.classList.toggle("sn-tab-active", name === "sine");
     document.body.classList.toggle("pl-tab-active", name === "plasma");
     document.body.classList.toggle("ss-tab-active", name === "spellshop");
     document.body.classList.toggle("ru-tab-active", name === "runes");
@@ -1037,6 +1044,12 @@
         window.HoursDay.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "sine") {
+      window.dispatchEvent(new Event("sine-show"));
+      if (window.SineLight && window.SineLight.onShow) {
+        window.SineLight.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1127,6 +1140,7 @@
     if (tabName === "newsletter" || tabName === "dispatch") tabName = "subscribe";
     if (tabName === "tab-debug") tabName = "debug";
     if (tabName === "24" || tabName === "24hours" || tabName === "24-hours" || tabName === "day") tabName = "hours";
+    if (tabName === "sinewave" || tabName === "sine-wave" || tabName === "light") tabName = "sine";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";
