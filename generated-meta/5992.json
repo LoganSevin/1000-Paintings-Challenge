@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "num": 5992,
+  "name": "5992.jpg",
+  "path": "generated/5992.jpg",
+  "dir": "generated",
+  "url": "/generated/5992.jpg",
+  "bytes": 758825,
+  "source": "colors",
+  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #FF968A — light pink (RGB 255, 150, 138; closest named color: light salmon)\n• Tone 2: #FC961B — vivid orange (RGB 252, 150, 27; closest named color: dark orange)\n• Tone 3: #F682AD — light rose pink (RGB 246, 130, 173; closest named color: hot pink)\nSubject: anything at all — this time, a knight facing a dragon. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
+  "saved_at": "2026-09-26T00:48:46Z",
+  "meta": {
+    "source": "colors",
+    "generator": "3-tone",
+    "tones": [
+      {
+        "hex": "#FF968A",
+        "name": "light pink",
+        "nearest": "light salmon",
+        "orig": "#FF968A",
+        "spell": 16750219,
+        "order": "RGB"
+      },
+      {
+        "hex": "#FC961B",
+        "name": "vivid orange",
+        "nearest": "dark orange",
+        "orig": "#FC961B",
+        "spell": 16553500,
+        "order": "RGB"
+      },
+      {
+        "hex": "#F682AD",
+        "name": "light rose pink",
+        "nearest": "hot pink",
+        "orig": "#F682AD",
+        "spell": 16155310,
+        "order": "RGB"
+      }
+    ],
+    "palette_hex": [
+      "#FF968A",
+      "#FC961B",
+      "#F682AD"
+    ],
+    "subject": "a knight facing a dragon",
+    "aspect": "16:9",
+    "spells": []
+  }
+}

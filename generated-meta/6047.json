@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "num": 6047,
+  "name": "6047.jpg",
+  "path": "generated/6047.jpg",
+  "dir": "generated",
+  "url": "/generated/6047.jpg",
+  "bytes": 713770,
+  "source": "colors",
+  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #B6353F — muted red (RGB 182, 53, 63; closest named color: brown)\n• Tone 2: #F6B535 — vivid orange (RGB 246, 181, 53; closest named color: goldenrod)\n• Tone 3: #7FB035 — muted lime (RGB 127, 176, 53; closest named color: yellow green)\nPROMPT (paint this, still using only the three tones): Undecided\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
+  "saved_at": "2026-09-28T04:26:57Z",
+  "meta": {
+    "source": "colors",
+    "generator": "3-tone",
+    "tones": [
+      {
+        "hex": "#B6353F",
+        "name": "muted red",
+        "nearest": "brown",
+        "orig": "#B6353F",
+        "spell": 11941184,
+        "order": "RGB"
+      },
+      {
+        "hex": "#F6B535",
+        "name": "vivid orange",
+        "nearest": "goldenrod",
+        "orig": "#B535F6",
+        "spell": 11875831,
+        "order": "BRG"
+      },
+      {
+        "hex": "#7FB035",
+        "name": "muted lime",
+        "nearest": "yellow green",
+        "orig": "#B0357F",
+        "spell": 11548032,
+        "order": "BRG"
+      }
+    ],
+    "palette_hex": [
+      "#B6353F",
+      "#F6B535",
+      "#7FB035"
+    ],
+    "subject": "geometric crystals growing in a cave",
+    "aspect": "16:9",
+    "spells": []
+  }
+}
