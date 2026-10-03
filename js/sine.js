@@ -11,6 +11,8 @@
 
   var STORE = "l7in_lumen_v2";
   var TAU = Math.PI * 2;
+  // Shared frame for waves, drawn lines, and image traces.
+  var STAGE_INSET = 0.06;
 
   var MAT = {
     silk:    { title: "Silk",    base: [214, 206, 196], thread: [248, 244, 236], shade: [148, 136, 126], alpha: 0.94 },
@@ -71,6 +73,9 @@
     exprs: [],
     tiles: {},
     ready: false,
+    photo: null,
+    imageAspect: 0,
+    view: { scale: 1, ox: 0, oy: 0, aspect: 1.5, user: false },
   };
 
   function $(id) { return document.getElementById(id); }
@@ -84,6 +89,14 @@
       trace: s.trace < 0 ? -1 : 1,
       spin: s.spin,
       label: s.label || "",
+      sketch: !!s.sketch,
+      wave: s.wave ? {
+        kind: s.wave.kind,
+        amp: s.wave.amp,
+        freq: s.wave.freq,
+        phase: s.wave.phase,
+        slope: s.wave.slope,
+      } : undefined,
     };
   }
 
@@ -170,23 +183,6 @@
     } catch (e) {
       return false;
     }
-  }
-
-  function circleShape() {
-    var pts = [];
-    var i;
-    for (i = 0; i < 72; i++) {
-      var a = (i / 72) * TAU;
-      pts.push({ x: 0.5 + Math.cos(a) * 0.22, y: 0.5 + Math.sin(a) * 0.22 });
-    }
-    return {
-      id: state.nextId++,
-      pts: pts,
-      closed: true,
-      trace: 1,
-      spin: 1,
-      label: "circle",
-    };
   }
 
   function selected() {
@@ -317,7 +313,9 @@
   function resize() {
     if (!state.canvas) return;
     var box = cssSize();
-    state.dpr = Math.min(2, window.devicePixelRatio || 1);
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (state.ctx && Math.abs(box.w - state.w) < 0.5 && Math.abs(box.h - state.h) < 0.5 && dpr === state.dpr) return;
+    state.dpr = dpr;
     state.w = box.w;
     state.h = box.h;
     state.canvas.width = Math.round(box.w * state.dpr);
@@ -330,16 +328,89 @@
 
   function localPoint(e) {
     var box = cssSize();
+    var px = e.clientX - box.r.left;
+    var py = e.clientY - box.r.top;
+    var sheet = pxToSheet(px, py);
+    return { x: sheet.x, y: sheet.y, px: px, py: py };
+  }
+
+  function aspectOf() {
+    return state.imageAspect > 0 ? state.imageAspect : 1.5;
+  }
+
+  function sheetToPx(p) {
+    var a = state.view.aspect || aspectOf();
+    var s = state.view.scale || 1;
+    return { x: state.view.ox + p.x * s * a, y: state.view.oy + p.y * s };
+  }
+
+  function pxToSheet(px, py) {
+    var a = state.view.aspect || aspectOf();
+    var s = state.view.scale || 1;
+    return { x: (px - state.view.ox) / (s * a), y: (py - state.view.oy) / s };
+  }
+
+  function contentBounds() {
+    var minX = 0, minY = 0, maxX = 1, maxY = 1;
+    var i, k, p;
+    for (i = 0; i < state.shapes.length; i++) {
+      var pts = state.shapes[i].pts;
+      for (k = 0; k < pts.length; k++) {
+        p = pts[k];
+        if (p.x < minX) minX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y > maxY) maxY = p.y;
+      }
+    }
+    var dx = Math.max(0.04, (maxX - minX) * 0.05);
+    var dy = Math.max(0.04, (maxY - minY) * 0.05);
+    return { minX: minX - dx, minY: minY - dy, maxX: maxX + dx, maxY: maxY + dy };
+  }
+
+  function fitMetrics() {
+    var b = contentBounds();
+    var aspect = aspectOf();
+    var pad = 28;
+    var sw = Math.max(1, state.w);
+    var sh = Math.max(1, state.h);
+    var cw = Math.max(1e-4, b.maxX - b.minX);
+    var ch = Math.max(1e-4, b.maxY - b.minY);
+    var scale = Math.min((sw - pad * 2) / (cw * aspect), (sh - pad * 2) / ch);
+    if (!isFinite(scale) || scale <= 0) scale = 1;
+    var pxW = cw * scale * aspect;
+    var pxH = ch * scale;
     return {
-      x: (e.clientX - box.r.left) / box.w,
-      y: (e.clientY - box.r.top) / box.h,
-      px: e.clientX - box.r.left,
-      py: e.clientY - box.r.top,
+      scale: scale,
+      ox: (sw - pxW) / 2 - b.minX * scale * aspect,
+      oy: (sh - pxH) / 2 - b.minY * scale,
+      aspect: aspect,
     };
   }
 
+  function fitView() {
+    var m = fitMetrics();
+    state.view.scale = m.scale;
+    state.view.ox = m.ox;
+    state.view.oy = m.oy;
+    state.view.aspect = m.aspect;
+    state.view.user = false;
+  }
+
+  function zoomAt(px, py, factor) {
+    var before = pxToSheet(px, py);
+    var aspect = aspectOf();
+    var fitted = fitMetrics().scale;
+    var next = clamp(state.view.scale * factor, fitted * 0.12, fitted * 18);
+    state.view.aspect = aspect;
+    state.view.scale = next;
+    state.view.ox = px - before.x * next * aspect;
+    state.view.oy = py - before.y * next;
+    state.view.user = true;
+  }
+
   function toPx(pts) {
-    return pts.map(function (p) { return { x: p.x * state.w, y: p.y * state.h }; });
+    return pts.map(sheetToPx);
   }
 
   function centroid(pts) {
@@ -836,6 +907,18 @@
   function drawShape(ctx, shape, isSel) {
     var px = toPx(shape.pts);
     if (px.length < 2) return;
+    if (shape.sketch) {
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      strokeLine(ctx, px, false);
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.72)";
+      ctx.lineWidth = 3.4;
+      ctx.stroke();
+      ctx.strokeStyle = isSel ? "#ffffff" : "rgba(255, 255, 255, 0.95)";
+      ctx.lineWidth = isSel ? 1.8 : 1.35;
+      ctx.stroke();
+      return;
+    }
     var area = shape.closed ? shoelace(shape.pts) : 0;
     shape._area = area;
     ctx.lineJoin = "round";
@@ -882,6 +965,10 @@
     if (!ctx) return;
     ctx.clearRect(0, 0, state.w, state.h);
     paintVoid(ctx);
+    if (state.photo && state.view.scale > 0) {
+      var a = state.view.aspect || aspectOf();
+      ctx.drawImage(state.photo, state.view.ox, state.view.oy, state.view.scale * a, state.view.scale);
+    }
     var i;
     for (i = 0; i < state.shapes.length; i++) {
       drawShape(ctx, state.shapes[i], state.shapes[i].id === state.selected);
@@ -906,6 +993,11 @@
     if (!state.canvas) return;
     state.canvas.setPointerCapture(e.pointerId);
     var p = localPoint(e);
+    if (e.button === 1 || e.altKey) {
+      e.preventDefault();
+      state.pointer = { id: e.pointerId, kind: "pan", last: p };
+      return;
+    }
     if (state.mode === "draw") {
       snapshot();
       var stroke = {
@@ -937,6 +1029,13 @@
     var drag = state.pointer;
     if (!drag || drag.id !== e.pointerId) return;
     var p = localPoint(e);
+    if (drag.kind === "pan") {
+      state.view.ox += p.px - drag.last.px;
+      state.view.oy += p.py - drag.last.py;
+      drag.last = p;
+      state.view.user = true;
+      return;
+    }
     if (!drag.snapped && drag.kind !== "draw") {
       snapshot();
       drag.snapped = true;
@@ -981,7 +1080,7 @@
     var i;
     for (i = 0; i <= 120; i++) {
       var u = i / 120;
-      var x = 0.06 + u * 0.88;
+      var x = STAGE_INSET + u * (1 - STAGE_INSET * 2);
       var t = (u - 0.5) * eq.freq * TAU + eq.phase;
       var yv = null;
       var broken = false;
@@ -1027,9 +1126,12 @@
         trace: 1,
         spin: 1,
         label: label,
+        wave: { kind: eq.kind, amp: eq.amp, freq: eq.freq, phase: eq.phase, slope: eq.slope },
       });
     });
     if (groups.length) state.selected = state.shapes[state.shapes.length - 1].id;
+    setStatus(groups.length ? label + " on the sheet." : "That equation has no line to lay.");
+    fitView();
     scheduleSave();
     updateReadout();
   }
@@ -1129,7 +1231,6 @@
       }
       return "<section class='lm-block' id='lm-block-" + key + "'>" +
         "<p class='lm-kicker'>" + title + "</p>" +
-        "<p class='lm-note'>Inside, this runs from the line to the core. Outside, only the line texture is drawn, then empty space.</p>" +
         (laminate ? shells : (
           "<div class='lm-row'>" +
           "<label>On the line<select data-struct='" + key + "' data-key='boundary'>" + matOptions(s.boundary) + "</select></label>" +
@@ -1153,12 +1254,11 @@
       (field.morph === "pulse"
         ? "<label>Pulse along the line<input id='lm-pulse' type='range' min='0.5' max='8' step='0.1' value='" + field.pulse + "'></label>"
         : "") +
-      (transport ? "<p class='lm-note'>Transport carries the line texture to the center and turns it. The core is that same substance, not a second material, and not void.</p>" : "") +
+      (transport ? "<p class='lm-note'>Transport carries the line texture inward. The core is that same substance.</p>" : "") +
       block("cw", "Clockwise texture") +
       block("ccw", "Counter-clockwise texture") +
       "<section class='lm-block' id='lm-block-void'>" +
       "<p class='lm-kicker'>Empty space</p>" +
-      "<p class='lm-note'>Void describes the space the shape does not occupy. It is not inside the fill, and it is not the core.</p>" +
       "<div class='lm-row'>" +
       "<label>Void<select id='lm-void-kind'>" + voidOpts + "</select></label>" +
       "<label>Reach into emptiness<input id='lm-void-reach' type='range' min='0' max='1' step='0.01' value='" + field.void.reach + "'></label>" +
@@ -1224,14 +1324,6 @@
     return (Math.abs(area) * 100).toFixed(1) + "%";
   }
 
-  function mapText(struct) {
-    if (field.morph === "transport") return MAT[struct.boundary].title + " carried to the core";
-    if (field.morph === "laminate") {
-      return shellsOf(struct).map(function (id) { return MAT[id].title; }).join(" · ");
-    }
-    return MAT[struct.boundary].title + " → " + MAT[struct.core].title;
-  }
-
   function measure(shape) {
     var area = shoelace(shape.pts);
     var drawnCw = area > 0;
@@ -1247,64 +1339,20 @@
 
   function updateReadout() {
     var el = $("lm-readout");
-    var card = $("lm-card");
     var s = selected();
-    var line = "Draw until a line touches a line. That loop is the fill.";
-    var html = "<dl><dt>Shape</dt><dd>None selected</dd><dt>Fill</dt><dd>Closes when a line touches a line</dd><dt>Void</dt><dd>" +
-      VOID_KINDS[field.void.kind] + " — empty space, outside</dd></dl>";
+    var line = state.photo ? "Image sheet. Draw on the picture." : "Sketch an image. The window becomes that picture.";
     var tracingCw = false;
     if (s) {
       var m = measure(s);
       tracingCw = m.tracingCw;
-      var cwRole = "—";
-      var ccwRole = "—";
-      if (s.closed && m.inside) {
-        cwRole = m.inside === "cw" ? "inside, core is " + MAT[coreId(field.cw)].title : "outside, then void";
-        ccwRole = m.inside === "ccw" ? "inside, core is " + MAT[coreId(field.ccw)].title : "outside, then void";
-      } else {
-        cwRole = "left of travel";
-        ccwRole = "right of travel";
-      }
-      var sheet =
-        "<table class='lm-sheet'><thead><tr><th>Structure</th><th>Map</th><th>Place</th></tr></thead><tbody>" +
-        "<tr><td>Clockwise</td><td>" + mapText(field.cw) + "</td><td>" + cwRole + "</td></tr>" +
-        "<tr><td>Counter-clockwise</td><td>" + mapText(field.ccw) + "</td><td>" + ccwRole + "</td></tr>" +
-        "<tr><td>Void</td><td>" + VOID_KINDS[field.void.kind] + "</td><td>outside the fill</td></tr>" +
-        "</tbody></table>";
-      if (s.closed && m.inside) {
+      if (s.sketch) line = "Sketch line on the image";
+      else if (s.closed && m.inside) {
         var core = MAT[coreId(field[m.inside])].title;
         line = "Closed · fill " + fmtPct(m.area) + " · " + m.way.toLowerCase() +
           " · core " + core.toLowerCase() + " · void " + field.void.kind + " outside";
-        html =
-          "<dl>" +
-          "<dt>Shape</dt><dd>Closed</dd>" +
-          "<dt>Fill</dt><dd>" + fmtPct(m.area) + " of the stage</dd>" +
-          "<dt>Trajectory</dt><dd>" + m.way + "</dd>" +
-          "<dt>Morphism</dt><dd>" + field.morph + "</dd>" +
-          "<dt>Inward</dt><dd>" + mapText(field[m.inside]) + "</dd>" +
-          "<dt>Core</dt><dd>" + core + " — substance</dd>" +
-          "<dt>Outward</dt><dd>" + MAT[field[m.inside === "cw" ? "ccw" : "cw"].boundary].title + " meets " + field.void.kind + "</dd>" +
-          "<dt>Void</dt><dd>" + VOID_KINDS[field.void.kind] + ", outside the shape</dd>" +
-          "<dt>Spin</dt><dd>" + Number(s.spin).toFixed(2) + " — turns the grain off the line</dd>" +
-          (s.label ? "<dt>Form</dt><dd>" + esc(s.label) + "</dd>" : "") +
-          "</dl>" + sheet;
-      } else {
-        line = "Open line · " + m.way.toLowerCase() + " · no fill until it touches a line";
-        html =
-          "<dl>" +
-          "<dt>Shape</dt><dd>Open line</dd>" +
-          "<dt>Fill</dt><dd>None until the line touches a line</dd>" +
-          "<dt>Trajectory</dt><dd>" + m.way + "</dd>" +
-          "<dt>Morphism</dt><dd>" + field.morph + " — waits for a closed shape</dd>" +
-          "<dt>Left of travel</dt><dd>" + MAT[field.cw.boundary].title + " — clockwise texture</dd>" +
-          "<dt>Right of travel</dt><dd>" + MAT[field.ccw.boundary].title + " — counter-clockwise texture</dd>" +
-          "<dt>Void</dt><dd>" + VOID_KINDS[field.void.kind] + " is the ground around the line</dd>" +
-          (s.label ? "<dt>Form</dt><dd>" + esc(s.label) + "</dd>" : "") +
-          "</dl>" + sheet;
-      }
+      } else line = "Open line · " + m.way.toLowerCase() + " · no fill until it closes";
     }
     if (el) el.textContent = line;
-    if (card) card.innerHTML = html;
     markSides();
     var cwBtn = $("lm-cw");
     var ccwBtn = $("lm-ccw");
@@ -1312,8 +1360,6 @@
     if (ccwBtn) ccwBtn.classList.toggle("is-on", !!(s && !tracingCw));
     var spin = $("lm-spin");
     if (spin && s && document.activeElement !== spin) spin.value = String(s.spin);
-    var box = $("lm-exprs");
-    if (box && document.activeElement !== box) box.value = state.exprs.slice(0, 24).join("\n");
   }
 
   function markSides() {
@@ -1332,12 +1378,6 @@
       ccw.classList.toggle("is-inward", inward === "ccw");
       ccw.classList.toggle("is-outward", inward === "cw");
     }
-  }
-
-  function esc(str) {
-    return String(str).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-    });
   }
 
   function bezierPoints(b, n) {
@@ -1373,67 +1413,79 @@
     return chains;
   }
 
+  function layoutWindow() {
+    if (!state.canvas) return;
+    resize();
+    if (!state.view.user) fitView();
+  }
+
   function traceImage(file) {
     var api = window.GraphCalcImgTrace;
     if (!api || !api.imageToBezierExprs) {
-      setStatus("Curve tracer is not loaded.");
+      setStatus("Sketch tracer is not loaded.");
       return;
     }
-    setStatus("Tracing image into curves…");
+    setStatus("Opening the image…");
     var url = URL.createObjectURL(file);
-    api.imageToBezierExprs(url, { detail: 7, maxCurves: 240, maxWidth: 480, flipY: false })
-      .then(function (result) {
-        URL.revokeObjectURL(url);
-        if (!result || !result.beziers || !result.beziers.length) {
-          setStatus("No curves in that image.");
-          return;
-        }
-        snapshot();
-        var w = result.width || 1;
-        var h = result.height || 1;
-        var chains = chainsFromBeziers(result.beziers);
-        chains.forEach(function (chain) {
+    var img = new Image();
+    var pictured = new Promise(function (resolve, reject) {
+      img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error("image")); };
+      img.src = url;
+    });
+    var traced = api.imageToBezierExprs(url, { detail: 7, maxCurves: 240, maxWidth: 480, flipY: false });
+    pictured.then(function (image) {
+      state.photo = image;
+      state.imageAspect = (image.naturalWidth || 1) / Math.max(1, image.naturalHeight || 1);
+      state.view.user = false;
+      layoutWindow();
+    }).catch(function () {});
+    Promise.all([pictured, traced]).then(function (pair) {
+      URL.revokeObjectURL(url);
+      var result = pair[1];
+      var w = (result && result.width) || 1;
+      var h = (result && result.height) || 1;
+      snapshot();
+      state.shapes = [];
+      state.selected = null;
+      state.exprs = [];
+      var count = 0;
+      if (result && result.beziers && result.beziers.length) {
+        chainsFromBeziers(result.beziers).forEach(function (chain) {
           var pts = [];
           chain.forEach(function (b, idx) {
             var samples = bezierPoints(b, 6);
             if (idx) samples = samples.slice(1);
             samples.forEach(function (p) {
-              pts.push({ x: 0.08 + (p.x / w) * 0.84, y: 0.08 + (p.y / h) * 0.84 });
+              pts.push({ x: p.x / w, y: p.y / h });
             });
           });
           if (pts.length < 3) return;
-          var shape = {
+          count++;
+          state.shapes.push({
             id: state.nextId++,
             pts: pts,
-            closed: dist(pts[0], pts[pts.length - 1]) < 0.04,
+            closed: false,
             trace: 1,
             spin: 0.75,
-            label: "image curve",
-          };
-          if (!shape.closed) {
-            var loop = closeOwn(pts);
-            if (loop) { shape.pts = loop; shape.closed = true; }
-          }
-          state.shapes.push(shape);
+            label: "sketch",
+            sketch: true,
+          });
         });
-        state.exprs = result.exprs || [];
-        state.selected = state.shapes.length ? state.shapes[state.shapes.length - 1].id : null;
-        setStatus(chains.length + " curve chains · " + state.exprs.length + " Desmos segments.");
-        scheduleSave();
-        updateReadout();
-      })
-      .catch(function () {
-        URL.revokeObjectURL(url);
-        setStatus("Could not trace that image.");
-      });
-  }
-
-  function openInGraph() {
-    if (!state.exprs.length) return;
-    if (window.GalleryTabs && window.GalleryTabs.showTab) window.GalleryTabs.showTab("graphcalc");
-    var gc = window.GraphCalc;
-    if (gc && gc.addSketchCurves) gc.addSketchCurves(state.exprs);
-    else if (gc && gc.pasteDesmos) gc.pasteDesmos(state.exprs.join("\n"));
+      }
+      state.selected = count ? state.shapes[state.shapes.length - 1].id : null;
+      fitView();
+      setStatus(count ? count + " sketch lines on the image." : "The image is the sheet. No lines to sketch.");
+      var input = $("lm-file");
+      if (input) input.value = "";
+      scheduleSave();
+      updateReadout();
+    }).catch(function () {
+      URL.revokeObjectURL(url);
+      setStatus("Could not open that image.");
+      var input = $("lm-file");
+      if (input) input.value = "";
+    });
   }
 
   function undo() {
@@ -1492,10 +1544,32 @@
     if (!canvas || canvas.dataset.bound) return;
     canvas.dataset.bound = "1";
     state.canvas = canvas;
+    if (window.ResizeObserver) {
+      var stage = canvas.closest(".lm-stage");
+      if (stage) {
+        var ro = new ResizeObserver(function () { if (state.on) layoutWindow(); });
+        ro.observe(stage);
+      }
+    }
     canvas.addEventListener("pointerdown", pointerDown);
     canvas.addEventListener("pointermove", pointerMove);
     canvas.addEventListener("pointerup", pointerUp);
     canvas.addEventListener("pointercancel", pointerUp);
+    canvas.addEventListener("auxclick", function (e) {
+      if (e.button === 1) e.preventDefault();
+    });
+    canvas.addEventListener("wheel", function (e) {
+      if (!state.on) return;
+      e.preventDefault();
+      var box = cssSize();
+      zoomAt(e.clientX - box.r.left, e.clientY - box.r.top, e.deltaY > 0 ? 1 / 1.18 : 1.18);
+    }, { passive: false });
+    var zoomOut = $("lm-zoom-out");
+    var zoomIn = $("lm-zoom-in");
+    var zoomFit = $("lm-zoom-fit");
+    if (zoomOut) zoomOut.addEventListener("click", function () { zoomAt(state.w / 2, state.h / 2, 1 / 1.2); });
+    if (zoomIn) zoomIn.addEventListener("click", function () { zoomAt(state.w / 2, state.h / 2, 1.2); });
+    if (zoomFit) zoomFit.addEventListener("click", function () { fitView(); });
     document.querySelectorAll("[data-lm-mode]").forEach(function (btn) {
       btn.addEventListener("click", function () { setMode(btn.getAttribute("data-lm-mode")); });
     });
@@ -1531,8 +1605,6 @@
     if (file) file.addEventListener("change", function () {
       if (file.files && file.files[0]) traceImage(file.files[0]);
     });
-    var graph = $("lm-graph");
-    if (graph) graph.addEventListener("click", openInGraph);
     var und = $("lm-undo");
     var clr = $("lm-clear");
     if (und) und.addEventListener("click", undo);
@@ -1583,16 +1655,12 @@
     bind();
     if (!state.ready) {
       state.ready = true;
-      if (!load() || !state.shapes.length) {
-        var demo = circleShape();
-        state.shapes = [demo];
-        state.selected = demo.id;
-      } else if (state.selected == null && state.shapes.length) {
+      if (load() && state.selected == null && state.shapes.length) {
         state.selected = state.shapes[state.shapes.length - 1].id;
       }
     }
     syncControls();
-    resize();
+    layoutWindow();
     start();
     updateReadout();
   }
@@ -1603,7 +1671,7 @@
     save();
   }
 
-  window.addEventListener("resize", function () { if (state.on) resize(); });
+  window.addEventListener("resize", function () { if (state.on) layoutWindow(); });
   window.addEventListener("lumen-show", onShow);
   window.addEventListener("lumen-hide", onHide);
   window.addEventListener("tab-changed", function (e) {

@@ -12,9 +12,25 @@
   margin: 0;
 }
 
+/* Stage fills the viewport under the header, so drawing, waves, and traces share one on-screen box. */
+body.lm-tab-active {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body.lm-tab-active .site-header {
+  flex: 0 0 auto;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
 body.lm-tab-active #panel-lumen.panel.active {
-  min-height: 100dvh;
-  max-height: 100dvh;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  height: auto;
 }
 
 body.lm-tab-active .site-footer,
@@ -35,6 +51,33 @@ body.lm-tab-active .site-header .subtitle {
   position: relative;
   min-width: 0;
   min-height: 0;
+  background: #07080c;
+}
+
+.lm-frame {
+  position: absolute;
+  inset: 0;
+  background: #07080c;
+}
+
+.lm-zoom {
+  position: absolute;
+  z-index: 3;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.lm-zoom button {
+  font: inherit;
+  color: #d5eee8;
+  background: rgba(8, 12, 16, 0.82);
+  border: 1px solid rgba(140, 210, 196, 0.35);
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 2.2rem;
+  padding: 0.32rem 0.5rem;
 }
 
 .lm-canvas {
@@ -49,21 +92,10 @@ body.lm-tab-active .site-header .subtitle {
 .lm-canvas[data-mode="trace"] { cursor: alias; }
 
 .lm-readout {
-  position: absolute;
-  left: 0.8rem;
-  right: 0.8rem;
-  bottom: 0.7rem;
-  margin: 0;
-  padding: 0.45rem 0.7rem;
-  border-radius: 10px;
-  background: rgba(5, 8, 12, 0.72);
+  margin: -0.35rem 0 0.75rem;
   color: rgba(220, 245, 236, 0.9);
   font-size: 0.78rem;
   line-height: 1.35;
-  pointer-events: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .lm-side {
@@ -98,7 +130,9 @@ body.lm-tab-active .site-header .subtitle {
 .lm-modes button,
 .lm-actions button,
 .lm-trace button,
-.lm-prompt button {
+.lm-prompt button,
+.lm-file,
+.lm-eq button {
   font: inherit;
   color: #d5eee8;
   background: transparent;
@@ -107,6 +141,8 @@ body.lm-tab-active .site-header .subtitle {
   cursor: pointer;
   padding: 0.38rem 0.55rem;
 }
+
+.lm-file { display: inline-flex; align-items: center; }
 
 .lm-modes button.is-on,
 .lm-trace button.is-on {
@@ -208,7 +244,8 @@ body.lm-tab-active .site-header .subtitle {
   margin-bottom: 0.7rem;
 }
 
-.lm-eq select { grid-column: 1 / -1; }
+.lm-eq select,
+.lm-eq button { grid-column: 1 / -1; }
 
 .lm-field {
   display: flex;
@@ -280,29 +317,28 @@ body.lm-tab-active .site-header .subtitle {
   border-color: rgba(220, 170, 255, 0.45);
 }
 
-.lm-exprs {
-  width: 100%;
-  min-height: 4.5rem;
-  margin: 0 0 0.5rem;
-  font: 0.72rem ui-monospace, monospace;
-  color: #d8fff4;
-  background: #101820;
-  border: 1px solid rgba(140, 210, 196, 0.28);
-  border-radius: 6px;
-  padding: 0.4rem;
-}
-
 @media (max-width: 800px) {
+  body.lm-tab-active {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
   #panel-lumen.panel.active,
   body.lm-tab-active #panel-lumen.panel.active {
-    min-height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
     max-height: none;
-    overflow: auto;
+    height: auto;
+    overflow: hidden;
   }
 
   .lm-shell {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(18rem, 58dvh) auto;
+    grid-template-rows: minmax(8rem, 1fr) minmax(8rem, 46%);
+    height: 100%;
+    min-height: 0;
   }
 
   .lm-side {
