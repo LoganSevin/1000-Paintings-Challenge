@@ -15,6 +15,7 @@
     { group: "Look", name: "Kids Mode", note: "Last tab; exit code 4200", href: "#kids" },
     { group: "Look", name: "24 Hours", note: "86,400 seconds — nested rings, idle watch", href: "#hours" },
     { group: "Look", name: "Lumen", note: "Closed lines are fills. Textures morph to a substance at the core. Void is empty space outside.", href: "#lumen" },
+    { group: "Look", name: "Codes", note: "Eight-character references from 00000000 to zzzzzzzz", href: "#codes" },
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "JS source", note: "Read every file in js/", href: "#js" },
     { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },

@@ -30,4 +30,4 @@ A code that uses `g–z` stays a data reference. It does not collapse into a col
 | `1b9cfd4f` | Cameos opens with no key wall. `#1b9cfd` at alpha `4f`. |
 | `3c87f1e7` | Grok generates a new Cameos short from the uploaded reference, in the Eve voice. `#3c87f1` at alpha `e7`. |
 
-The statement for `3c87f1e7` is [CAMEOS.md](CAMEOS.md).
+The statement for `3c87f1e7` is [CAMEOS.md](CAMEOS.md). The lookup tab is `#codes`.
