@@ -2,21 +2,18 @@ import {
   corsPreflight,
   jsonResponse,
   listXaiKeys,
+  visitorXaiKey,
   withXaiKeyFallback,
 } from "./_lib.mjs";
 
 const VIDEO_START = "https://api.x.ai/v1/videos/generations";
 const SCRIPT =
-  "CAMEO PORTRAIT of the subject in the reference image. Keep their identity, face, age, hair, skin, and clothing. " +
-  "If several people are in the photo, use the clearest face. Head-and-shoulders close-up. Fixed camera. Quiet background. " +
-  "One continuous take. No cuts, no captions, no subtitles, no on-screen numbers, no music.\n\n" +
-  "Performance, in this order:\n" +
-  '1. They look into the camera and say aloud, clearly, one number at a time: "1, 2, 3, 4, 5, 6."\n' +
-  "2. Then they turn their head and look to their left.\n" +
-  "3. Then they turn and look to their right.\n" +
-  "4. Then they turn and look to their left one more time.\n" +
-  "5. Then they face the camera and hold.\n\n" +
-  "Spoken words are only 1, 2, 3, 4, 5, and 6. The three looks are silent head turns. Lip-sync the count. Same person the whole time.";
+  "A newly generated head-and-shoulders portrait of the person in <IMAGE_0>, with their face, age, hair, skin, and clothes. Quiet room, fixed camera, one continuous take. " +
+  "They face the camera and speak in the voice of <AUDIO_0>, clearly, one number at a time: \"1, 2, 3, 4, 5, 6.\" " +
+  "Then their head turns until they are looking toward the left side of the frame. " +
+  "Then their head turns until they are looking toward the right side of the frame. " +
+  "Then their head turns until they are looking toward the left side of the frame again. " +
+  "Then they face the camera and hold. The spoken words are only those six numbers. The three looks are silent.";
 
 function noKey() {
   return jsonResponse({ error: "Cloud cameo is not available." }, 503);
@@ -35,7 +32,7 @@ async function errorFrom(res) {
   return err;
 }
 
-async function startCameo(image) {
+async function startCameo(image, visitorKey) {
   return withXaiKeyFallback(async function (key) {
     const res = await fetch(VIDEO_START, {
       method: "POST",
@@ -46,7 +43,8 @@ async function startCameo(image) {
       body: JSON.stringify({
         model: "grok-imagine-video-1.5",
         prompt: SCRIPT,
-        image: { url: image },
+        reference_images: [{ url: image }],
+        reference_audios: [{ voice_id: "eve" }],
         duration: 15,
         aspect_ratio: "9:16",
         resolution: "720p",
@@ -56,11 +54,11 @@ async function startCameo(image) {
     const data = await res.json();
     if (!data || !data.request_id) throw new Error("Video service did not start a job.");
     return data.request_id;
-  });
+  }, visitorKey);
 }
 
-async function pollCameo(id) {
-  const keys = listXaiKeys();
+async function pollCameo(id, visitorKey) {
+  const keys = listXaiKeys(visitorKey);
   if (!keys.length) return noKey();
   let lastStatus = 404;
   for (let i = 0; i < keys.length; i++) {
@@ -88,10 +86,11 @@ async function pollCameo(id) {
 
 export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
+  const visitor = visitorXaiKey(request);
   if (request.method === "GET") {
     const id = new URL(request.url).searchParams.get("id") || "";
     if (!/^[\w-]{8,200}$/.test(id)) return jsonResponse({ error: "Job id required." }, 400);
-    return pollCameo(id);
+    return pollCameo(id, visitor);
   }
 
   if (request.method !== "POST") return jsonResponse({ error: "POST required." }, 405);
@@ -111,7 +110,7 @@ export default async function handler(request) {
   }
 
   try {
-    const jobId = await startCameo(image);
+    const jobId = await startCameo(image, visitor);
     return jsonResponse({ ok: true, job_id: jobId, status: "pending" }, 202);
   } catch (e) {
     return jsonResponse({ error: (e && e.message) || "Cameo could not start." }, 500);
