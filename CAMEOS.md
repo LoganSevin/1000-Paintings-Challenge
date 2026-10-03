@@ -1,6 +1,6 @@
 # Cameos
 
-Cameos is a studio tab on logan7in.art. This is the solutions record for `1b9cfd4f`.
+Cameos is a studio tab on logan7in.art. This is the solutions record for `3c87f1e7`. The code space is [CODES.md](CODES.md).
 
 ## Solutions
 
@@ -12,7 +12,7 @@ Cameos is a studio tab on logan7in.art. This is the solutions record for `1b9cfd
 
 **The short.** The generated person counts one through six, looks left, looks right, looks left once more, and holds.
 
-**The page.** The short plays in the stage. Download keeps `cameo.webm`.
+**The page.** The short plays in the stage. Download keeps `cameo.mp4`.
 
 **The open door.** Cameos opens straight onto the work. The connect-a-key box stays off this tab. Make cameo sends the reference to Grok and plays the generated short.
 
@@ -25,4 +25,4 @@ Cameos is a studio tab on logan7in.art. This is the solutions record for `1b9cfd
 - Make cameo returns Grok’s generated clip.
 - The finished short plays in the tab and downloads.
 
-`1b9cfd4f` — Let Cameos run without an API key.
+`3c87f1e7` — Grok generates the Cameos short.
