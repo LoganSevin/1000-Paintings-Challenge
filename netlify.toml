@@ -35,6 +35,9 @@
 [functions."transfer"]
   timeout = 90
 
+[functions."cameo-video"]
+  timeout = 60
+
 [[redirects]]
   from = "/api/health"
   to = "/.netlify/functions/health"
@@ -152,6 +155,12 @@
 [[redirects]]
   from = "/api/openai-chat"
   to = "/.netlify/functions/openai-chat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cameo-video"
+  to = "/.netlify/functions/cameo-video"
   status = 200
   force = true
 

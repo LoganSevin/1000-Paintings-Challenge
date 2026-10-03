@@ -1,5 +1,6 @@
 /**
  * Lumen — a closed line is a fill.
+ * Draw with a sine: the stroke is the path, and the ink is the wave along it.
  * Each travel direction carries a real texture from the boundary inward.
  * The core is a substance. Void names the empty space outside the shape
  * and is never a layer of the fill.
@@ -52,7 +53,7 @@
   }
 
   var field = defaultField();
-  var eq = { kind: "sin", amp: 0.55, freq: 3, phase: 0, slope: 0.4 };
+  var eq = { kind: "sin", amp: 0.06, freq: 3, phase: 0, slope: 0.4 };
   var state = {
     on: false,
     raf: 0,
@@ -96,6 +97,11 @@
         freq: s.wave.freq,
         phase: s.wave.phase,
         slope: s.wave.slope,
+        speed: s.wave.speed == null ? 3.2 : s.wave.speed,
+        ox: s.wave.ox || 0,
+        oy: s.wave.oy || 0,
+        part: s.wave.part || 0,
+        along: !!s.wave.along,
       } : undefined,
     };
   }
@@ -176,7 +182,14 @@
       state.shapes = raw.shapes;
       state.nextId = raw.nextId || state.shapes.length + 1;
       field = adoptField(raw.field);
-      if (raw.eq) eq = raw.eq;
+      if (raw.eq && typeof raw.eq === "object") {
+        if (raw.eq.kind) eq.kind = String(raw.eq.kind);
+        var amp = Number(raw.eq.amp);
+        eq.amp = amp > 0.01 && amp <= 0.2 ? amp : 0.06;
+        if (raw.eq.freq != null) eq.freq = Number(raw.eq.freq);
+        if (raw.eq.phase != null) eq.phase = Number(raw.eq.phase);
+        if (raw.eq.slope != null) eq.slope = Number(raw.eq.slope);
+      }
       if (raw.mode) state.mode = raw.mode;
       if (Array.isArray(raw.exprs)) state.exprs = raw.exprs;
       return true;
@@ -240,11 +253,12 @@
   function nearestOn(pt, shape) {
     var best = null;
     var bestD = 1e9;
-    var pts = shape.pts;
+    var pts = shapePts(shape);
     var i;
     for (i = 0; i < pts.length - (shape.closed ? 0 : 1); i++) {
       var a = pts[i];
       var b = pts[(i + 1) % pts.length];
+      if (!a || !b || a.break || b.break) continue;
       var vx = b.x - a.x, vy = b.y - a.y;
       var l2 = vx * vx + vy * vy || 1e-8;
       var t = clamp(((pt.x - a.x) * vx + (pt.y - a.y) * vy) / l2, 0, 1);
@@ -256,13 +270,14 @@
   }
 
   function pathBetween(shape, i0, i1) {
-    var pts = shape.pts;
+    var pts = shapePts(shape);
     var n = pts.length;
     var out = [];
     var i = i0;
     var guard = 0;
     while (guard++ < n + 2) {
-      out.push(pts[i % n]);
+      var p = pts[i % n];
+      if (p && !p.break) out.push(p);
       if (i % n === i1 % n) break;
       i++;
     }
@@ -291,18 +306,40 @@
     return false;
   }
 
+  function inkPts(shape) {
+    return shapePts(shape).filter(function (p) {
+      return p && !p.break && isFinite(p.x) && isFinite(p.y);
+    }).map(function (p) { return { x: p.x, y: p.y }; });
+  }
+
   function finishStroke(stroke) {
-    var loop = closeOwn(stroke.pts);
+    var ink = stroke.wave ? inkPts(stroke) : stroke.pts;
+    if (ink.length < 2) return;
+    var loop = closeOwn(ink);
     if (loop && loop.length >= 4) {
       stroke.pts = loop;
+      stroke.wave = null;
       stroke.closed = true;
       return;
     }
-    if (stroke.pts.length > 6 && dist(stroke.pts[0], stroke.pts[stroke.pts.length - 1]) < 0.035) {
+    if (ink.length > 6 && dist(ink[0], ink[ink.length - 1]) < 0.045) {
+      stroke.pts = ink;
+      stroke.wave = null;
       stroke.closed = true;
       return;
     }
-    tryBond(stroke);
+    if (!stroke.wave) {
+      tryBond(stroke);
+      return;
+    }
+    var spine = stroke.pts;
+    var wave = stroke.wave;
+    stroke.pts = ink;
+    stroke.wave = null;
+    if (!tryBond(stroke)) {
+      stroke.pts = spine;
+      stroke.wave = wave;
+    }
   }
 
   function cssSize() {
@@ -354,13 +391,15 @@
     var minX = 0, minY = 0, maxX = 1, maxY = 1;
     var i, k, p;
     for (i = 0; i < state.shapes.length; i++) {
-      var pts = state.shapes[i].pts;
+      var shape = state.shapes[i];
+      var pts = shape.pts;
+      var wavePad = shape.wave && shape.wave.along && !shape.closed ? Math.abs(shape.wave.amp || 0) * 1.7 : 0;
       for (k = 0; k < pts.length; k++) {
         p = pts[k];
-        if (p.x < minX) minX = p.x;
-        if (p.y < minY) minY = p.y;
-        if (p.x > maxX) maxX = p.x;
-        if (p.y > maxY) maxY = p.y;
+        if (p.x - wavePad < minX) minX = p.x - wavePad;
+        if (p.y - wavePad < minY) minY = p.y - wavePad;
+        if (p.x + wavePad > maxX) maxX = p.x + wavePad;
+        if (p.y + wavePad > maxY) maxY = p.y + wavePad;
       }
     }
     var dx = Math.max(0.04, (maxX - minX) * 0.05);
@@ -410,7 +449,169 @@
   }
 
   function toPx(pts) {
-    return pts.map(sheetToPx);
+    return pts.map(function (p) {
+      if (!p || p.break) return { break: true };
+      return sheetToPx(p);
+    });
+  }
+
+  function travels(kind) {
+    return kind === "sin" || kind === "cos" || kind === "tan" || kind === "atan";
+  }
+
+  function brushWave() {
+    return {
+      along: true,
+      kind: eq.kind || "sin",
+      amp: eq.amp,
+      freq: eq.freq,
+      phase: eq.phase,
+      slope: eq.slope,
+      speed: travels(eq.kind) ? 1.8 : 0,
+    };
+  }
+
+  function applyBrushToSelected() {
+    var s = selected();
+    if (!s || !s.wave || !s.wave.along || s.closed || s.sketch) return;
+    s.wave = brushWave();
+    s.label = waveLabel(s.wave);
+    scheduleSave();
+    updateReadout();
+  }
+
+  function waveLabel(spec) {
+    var kind = (spec && spec.kind) || "sin";
+    var name = {
+      sin: "Sine", cos: "Cosine", tan: "Tangent",
+      asin: "Arc sine", acos: "Arc cosine", atan: "Arc tangent",
+      linear: "Linear", curve: "Curve",
+    }[kind] || "Sine";
+    return name + " along the stroke";
+  }
+
+  function spineSamples(pts) {
+    if (!pts || pts.length < 2) {
+      return (pts || []).map(function (p) {
+        return { x: p.x, y: p.y, u: 0, nx: 0, ny: -1 };
+      });
+    }
+    var aspect = state.view.aspect || aspectOf();
+    var seg = [];
+    var total = 0;
+    var i;
+    for (i = 1; i < pts.length; i++) {
+      var dx = (pts[i].x - pts[i - 1].x) * aspect;
+      var dy = pts[i].y - pts[i - 1].y;
+      var d = Math.hypot(dx, dy);
+      seg.push(d);
+      total += d;
+    }
+    if (total < 1e-4) return [{ x: pts[0].x, y: pts[0].y, u: 0, nx: 0, ny: -1 }];
+    var step = Math.max(total / 160, 0.004);
+    var out = [];
+    function at(dist) {
+      var walked = 0;
+      var k = 1;
+      while (k < pts.length && walked + seg[k - 1] < dist) {
+        walked += seg[k - 1];
+        k++;
+      }
+      var span = seg[k - 1] || 1;
+      var t = clamp((dist - walked) / span, 0, 1);
+      var a = pts[k - 1];
+      var b = pts[Math.min(k, pts.length - 1)];
+      var pdx = (b.x - a.x) * aspect;
+      var pdy = b.y - a.y;
+      var len = Math.hypot(pdx, pdy) || 1;
+      var tx = pdx / len;
+      var ty = pdy / len;
+      return {
+        x: a.x + (b.x - a.x) * t,
+        y: a.y + (b.y - a.y) * t,
+        u: dist / total,
+        px: -ty,
+        py: tx,
+      };
+    }
+    var prev = null;
+    var dist;
+    for (dist = 0; dist <= total + step * 0.5; dist += step) {
+      var s = at(Math.min(dist, total));
+      if (prev && s.px * prev.px + s.py * prev.py < 0) {
+        s.px *= -1;
+        s.py *= -1;
+      }
+      prev = s;
+      out.push({
+        x: s.x,
+        y: s.y,
+        u: s.u,
+        nx: s.px / aspect,
+        ny: s.py,
+      });
+      if (dist >= total) break;
+    }
+    return out;
+  }
+
+  function alongValue(spec, u, phase) {
+    var kind = spec.kind || "sin";
+    var freq = spec.freq == null ? 3 : spec.freq;
+    var t = u * freq * TAU + phase;
+    if (kind === "linear") return (spec.slope || 0) * (u - 0.5) * 2;
+    if (kind === "curve") {
+      var x = (u - 0.5) * 2;
+      return (spec.slope || 0) * x + x * x - 0.35;
+    }
+    if (kind === "asin") return Math.asin(clamp((u - 0.5) * 2, -1, 1)) / (Math.PI / 2);
+    if (kind === "acos") return (Math.acos(clamp((u - 0.5) * 2, -1, 1)) / Math.PI - 0.5) * 2;
+    if (kind === "atan") return Math.atan(t) / (Math.PI / 2);
+    if (kind === "tan") {
+      var c = Math.cos(t);
+      if (Math.abs(c) < 0.25) return null;
+      return clamp(Math.sin(t) / c, -1.5, 1.5);
+    }
+    if (kind === "cos") return Math.cos(t);
+    return Math.sin(t);
+  }
+
+  function waveAlong(pts, spec, phase) {
+    var spine = spineSamples(pts);
+    if (spine.length < 2) return pts.slice();
+    var amp = spec.amp == null ? 0.06 : spec.amp;
+    var out = [];
+    var i;
+    for (i = 0; i < spine.length; i++) {
+      var v = alongValue(spec, spine[i].u, phase);
+      if (v == null) {
+        if (out.length && !out[out.length - 1].break) out.push({ break: true });
+        continue;
+      }
+      out.push({
+        x: spine[i].x + spine[i].nx * amp * v,
+        y: spine[i].y + spine[i].ny * amp * v,
+      });
+    }
+    if (out.length && out[out.length - 1].break) out.pop();
+    return out.length ? out : pts.slice();
+  }
+
+  // A drawn wave rides the stroke. Sine, cosine, tangent, and arc tangent
+  // travel as phase advances. Closing bakes that pose and stops the travel.
+  function shapePts(shape) {
+    var w = shape.wave;
+    if (!w || shape.closed || shape.sketch) return shape.pts;
+    if (w.along) return waveAlong(shape.pts, w, (w.phase || 0) + state.time * (w.speed || 0));
+    var speed = w.speed == null ? 3.2 : w.speed;
+    var groups = sampleWave(w, (w.phase || 0) + state.time * speed);
+    var part = w.part || 0;
+    var pts = groups[part];
+    if (!pts || pts.length < 2) return [];
+    var ox = w.ox || 0;
+    var oy = w.oy || 0;
+    if (!ox && !oy) return pts;
+    return pts.map(function (p) { return { x: p.x + ox, y: p.y + oy }; });
   }
 
   function centroid(pts) {
@@ -438,10 +639,21 @@
   function strokeLine(ctx, pts, closed) {
     if (!pts.length) return;
     ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
+    var started = false;
+    var gap = false;
     var i;
-    for (i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    if (closed && pts.length > 2) ctx.closePath();
+    for (i = 0; i < pts.length; i++) {
+      if (!pts[i] || pts[i].break) {
+        started = false;
+        gap = true;
+        continue;
+      }
+      if (!started) {
+        ctx.moveTo(pts[i].x, pts[i].y);
+        started = true;
+      } else ctx.lineTo(pts[i].x, pts[i].y);
+    }
+    if (closed && pts.length > 2 && !gap) ctx.closePath();
   }
 
   function leftFacesInside(px, trace) {
@@ -830,6 +1042,7 @@
     for (i = 0; i < n - 1; i++) {
       a = px[i];
       b = px[i + 1];
+      if (!a || !b || a.break || b.break) continue;
       tx = b.x - a.x;
       ty = b.y - a.y;
       len = Math.hypot(tx, ty) || 1;
@@ -865,6 +1078,7 @@
       if (j === i) break;
       var a = px[i];
       var b = px[j];
+      if (!a || !b || a.break || b.break) continue;
       var tx = b.x - a.x, ty = b.y - a.y;
       var len = Math.hypot(tx, ty) || 1;
       tx /= len; ty /= len;
@@ -905,7 +1119,7 @@
   }
 
   function drawShape(ctx, shape, isSel) {
-    var px = toPx(shape.pts);
+    var px = toPx(shapePts(shape));
     if (px.length < 2) return;
     if (shape.sketch) {
       ctx.lineJoin = "round";
@@ -980,8 +1194,9 @@
     var bestD = 22 * 22;
     var i, k;
     for (i = state.shapes.length - 1; i >= 0; i--) {
-      var pts = toPx(state.shapes[i].pts);
+      var pts = toPx(shapePts(state.shapes[i]));
       for (k = 0; k < pts.length; k += 2) {
+        if (!pts[k] || pts[k].break) continue;
         var d = (pts[k].x - px) * (pts[k].x - px) + (pts[k].y - py) * (pts[k].y - py);
         if (d < bestD) { bestD = d; best = state.shapes[i]; }
       }
@@ -991,7 +1206,7 @@
 
   function pointerDown(e) {
     if (!state.canvas) return;
-    state.canvas.setPointerCapture(e.pointerId);
+    try { state.canvas.setPointerCapture(e.pointerId); } catch (err) {}
     var p = localPoint(e);
     if (e.button === 1 || e.altKey) {
       e.preventDefault();
@@ -1000,13 +1215,15 @@
     }
     if (state.mode === "draw") {
       snapshot();
+      var wave = brushWave();
       var stroke = {
         id: state.nextId++,
         pts: [{ x: p.x, y: p.y }],
         closed: false,
         trace: 1,
         spin: 1,
-        label: "drawn",
+        label: waveLabel(wave),
+        wave: wave,
       };
       state.shapes.push(stroke);
       state.pointer = { id: e.pointerId, kind: "draw", shape: stroke, last: p };
@@ -1046,11 +1263,16 @@
     } else if (drag.kind === "move") {
       var dx = p.x - drag.last.x, dy = p.y - drag.last.y;
       drag.shape.pts.forEach(function (pt) { pt.x += dx; pt.y += dy; });
+      if (drag.shape.wave && !drag.shape.wave.along) {
+        drag.shape.wave.ox = (drag.shape.wave.ox || 0) + dx;
+        drag.shape.wave.oy = (drag.shape.wave.oy || 0) + dy;
+      }
       drag.last = p;
     } else if (drag.kind === "trace") {
-      var px = toPx(drag.shape.pts);
+      var px = toPx(shapePts(drag.shape));
       var bestI = 0, bestD = 1e9, i;
       for (i = 0; i < px.length; i++) {
+        if (!px[i] || px[i].break) continue;
         var d = (px[i].x - p.px) * (px[i].x - p.px) + (px[i].y - p.py) * (px[i].y - p.py);
         if (d < bestD) { bestD = d; bestI = i; }
       }
@@ -1075,25 +1297,26 @@
     updateReadout();
   }
 
-  function sampleEquation() {
+  function sampleWave(spec, phase) {
     var groups = [[]];
     var i;
+    var ph = phase == null ? spec.phase : phase;
     for (i = 0; i <= 120; i++) {
       var u = i / 120;
       var x = STAGE_INSET + u * (1 - STAGE_INSET * 2);
-      var t = (u - 0.5) * eq.freq * TAU + eq.phase;
+      var t = (u - 0.5) * spec.freq * TAU + ph;
       var yv = null;
       var broken = false;
-      if (eq.kind === "linear") yv = eq.slope * (u - 0.5) * 2;
-      else if (eq.kind === "curve") yv = eq.slope * (u - 0.5) * 2 + eq.amp * Math.pow((u - 0.5) * 2, 2) - eq.amp * 0.35;
-      else if (eq.kind === "asin") yv = Math.asin(clamp((u - 0.5) * 2, -1, 1)) / (Math.PI / 2);
-      else if (eq.kind === "acos") yv = (Math.acos(clamp((u - 0.5) * 2, -1, 1)) / Math.PI - 0.5) * 2;
-      else if (eq.kind === "atan") yv = Math.atan(t) / (Math.PI / 2);
-      else if (eq.kind === "tan") {
+      if (spec.kind === "linear") yv = spec.slope * (u - 0.5) * 2;
+      else if (spec.kind === "curve") yv = spec.slope * (u - 0.5) * 2 + spec.amp * Math.pow((u - 0.5) * 2, 2) - spec.amp * 0.35;
+      else if (spec.kind === "asin") yv = Math.asin(clamp((u - 0.5) * 2, -1, 1)) / (Math.PI / 2);
+      else if (spec.kind === "acos") yv = (Math.acos(clamp((u - 0.5) * 2, -1, 1)) / Math.PI - 0.5) * 2;
+      else if (spec.kind === "atan") yv = Math.atan(t) / (Math.PI / 2);
+      else if (spec.kind === "tan") {
         var c = Math.cos(t);
         if (Math.abs(c) < 0.2) broken = true;
         else yv = clamp(Math.sin(t) / c, -1.7, 1.7);
-      } else if (eq.kind === "cos") yv = Math.cos(t);
+      } else if (spec.kind === "cos") yv = Math.cos(t);
       else yv = Math.sin(t);
       if (broken || yv == null) {
         if (groups[groups.length - 1].length) groups.push([]);
@@ -1101,45 +1324,21 @@
       }
       groups[groups.length - 1].push({
         x: x,
-        y: clamp(0.5 - eq.amp * yv * 0.38, 0.03, 0.97),
+        y: clamp(0.5 - spec.amp * yv * 0.38, 0.03, 0.97),
       });
     }
     return groups.filter(function (g) { return g.length > 2; });
-  }
-
-  function eqLabel() {
-    if (eq.kind === "linear") return "y = " + eq.slope.toFixed(2) + "x";
-    if (eq.kind === "curve") return "y = " + eq.amp.toFixed(2) + "x² + " + eq.slope.toFixed(2) + "x";
-    if (eq.kind === "asin" || eq.kind === "acos" || eq.kind === "atan") return "y = " + eq.kind + "(x)";
-    return "y = " + eq.amp.toFixed(2) + "·" + eq.kind + "(" + eq.freq.toFixed(1) + "x)";
-  }
-
-  function layEquation() {
-    snapshot();
-    var groups = sampleEquation();
-    var label = eqLabel();
-    groups.forEach(function (pts) {
-      state.shapes.push({
-        id: state.nextId++,
-        pts: pts,
-        closed: false,
-        trace: 1,
-        spin: 1,
-        label: label,
-        wave: { kind: eq.kind, amp: eq.amp, freq: eq.freq, phase: eq.phase, slope: eq.slope },
-      });
-    });
-    if (groups.length) state.selected = state.shapes[state.shapes.length - 1].id;
-    setStatus(groups.length ? label + " on the sheet." : "That equation has no line to lay.");
-    fitView();
-    scheduleSave();
-    updateReadout();
   }
 
   function forceClose() {
     var s = selected();
     if (!s || s.closed || s.pts.length < 3) return;
     snapshot();
+    if (s.wave) {
+      var live = inkPts(s);
+      if (live.length >= 3) s.pts = live;
+      s.wave = null;
+    }
     s.closed = true;
     scheduleSave();
     updateReadout();
@@ -1350,6 +1549,8 @@
         var core = MAT[coreId(field[m.inside])].title;
         line = "Closed · fill " + fmtPct(m.area) + " · " + m.way.toLowerCase() +
           " · core " + core.toLowerCase() + " · void " + field.void.kind + " outside";
+      } else if (s.wave && s.wave.along) {
+        line = waveLabel(s.wave) + (s.wave.speed ? " · traveling" : "");
       } else line = "Open line · " + m.way.toLowerCase() + " · no fill until it closes";
     }
     if (el) el.textContent = line;
@@ -1582,7 +1783,10 @@
       });
     }
     var kind = $("lm-eq-kind");
-    if (kind) kind.addEventListener("change", function () { eq.kind = kind.value; });
+    if (kind) kind.addEventListener("change", function () {
+      eq.kind = kind.value;
+      applyBrushToSelected();
+    });
     ["lm-amp", "lm-freq", "lm-phase", "lm-slope"].forEach(function (id) {
       var el = $(id);
       if (!el) return;
@@ -1591,13 +1795,12 @@
         if (id === "lm-freq") eq.freq = Number(el.value);
         if (id === "lm-phase") eq.phase = Number(el.value);
         if (id === "lm-slope") eq.slope = Number(el.value);
+        applyBrushToSelected();
       });
     });
-    var lay = $("lm-lay");
     var close = $("lm-close");
     var cw = $("lm-cw");
     var ccw = $("lm-ccw");
-    if (lay) lay.addEventListener("click", layEquation);
     if (close) close.addEventListener("click", forceClose);
     if (cw) cw.addEventListener("click", function () { setWant(true); });
     if (ccw) ccw.addEventListener("click", function () { setWant(false); });

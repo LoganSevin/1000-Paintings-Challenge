@@ -5,6 +5,7 @@
     { group: "Make", name: "Generate a vision", note: "Spellforge — cloud if a key can spend, else on-device fuse", href: "#spellforge" },
     { group: "Make", name: "Build a spell chain", note: "Pipeline of paintings, no xAI bill", href: "#chains" },
     { group: "Make", name: "Animate a clip", note: "Cast spells into motion", href: "#animate" },
+    { group: "Make", name: "Make a cameo", note: "Portrait short from any image: count 1–6, look left, right, left", href: "#cameos" },
     { group: "Make", name: "Write a prompt from pictures", note: "Drop images, copy the prompt", href: "#prompt" },
     { group: "Make", name: "Upload from phone", note: "Photos land in Phone / Assets", href: "#transfer" },
     { group: "Look", name: "Browse the gallery", note: "Paintings, donations not sale prices", href: "#gallery" },

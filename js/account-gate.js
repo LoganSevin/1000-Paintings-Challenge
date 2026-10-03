@@ -56,8 +56,8 @@
   function needsVisitorKey(url) {
     var u = String(url || "");
     return (
-      /\/api\/(generate-stasis-vision|blend-spells|redefine-stasis|animate-cast|transfer)/.test(u) ||
-      /\/.netlify\/functions\/(generate-stasis-vision|blend-spells|redefine-stasis|transfer)/.test(u)
+      /\/api\/(generate-stasis-vision|blend-spells|redefine-stasis|animate-cast|cameo-video|transfer)/.test(u) ||
+      /\/.netlify\/functions\/(generate-stasis-vision|blend-spells|redefine-stasis|cameo-video|transfer)/.test(u)
     );
   }
 

@@ -1,0 +1,152 @@
+#panel-cameos.panel[hidden] {
+  display: none !important;
+}
+
+#panel-cameos.panel.active {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.cameo-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  min-height: calc(100dvh - 8rem);
+  background: #07080c;
+  color: #e8f6f4;
+}
+
+.cameo-stage {
+  position: relative;
+  min-height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #05060a;
+  overflow: hidden;
+}
+
+.cameo-still,
+.cameo-video {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 9rem);
+  width: auto;
+  height: auto;
+}
+
+.cameo-still[hidden],
+.cameo-video[hidden],
+.cameo-empty[hidden],
+.cameo-download[hidden] {
+  display: none !important;
+}
+
+.cameo-video {
+  position: relative;
+  z-index: 1;
+  background: #000;
+}
+
+.cameo-empty {
+  margin: 0;
+  padding: 1.5rem;
+  max-width: 22rem;
+  text-align: center;
+  color: rgba(210, 230, 226, 0.62);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.cameo-side {
+  min-height: 0;
+  overflow: auto;
+  padding: 0.9rem 0.95rem 1.4rem;
+  border-left: 1px solid rgba(120, 220, 200, 0.16);
+  background: #0b1016;
+}
+
+.cameo-side h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.cameo-lede,
+.cameo-status {
+  margin: 0 0 0.75rem;
+  color: rgba(210, 230, 226, 0.72);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.cameo-script {
+  margin: 0 0 0.9rem;
+  padding-left: 1.2rem;
+  color: #f4fff8;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.cameo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.cameo-file,
+.cameo-actions button,
+.cameo-download {
+  font: inherit;
+  color: #d5eee8;
+  background: transparent;
+  border: 1px solid rgba(140, 210, 196, 0.28);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0.42rem 0.65rem;
+  text-decoration: none;
+}
+
+.cameo-file {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cameo-actions button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.cameo-actions button:not(:disabled) {
+  color: #04120f;
+  background: #7ef0d2;
+  border-color: #7ef0d2;
+  font-weight: 650;
+}
+
+.cameo-stage.is-over {
+  outline: 2px solid #7ef0d2;
+  outline-offset: -8px;
+}
+
+@media (max-width: 800px) {
+  .cameo-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .cameo-side {
+    border-left: none;
+    border-top: 1px solid rgba(120, 220, 200, 0.16);
+  }
+
+  .cameo-stage {
+    min-height: 16rem;
+  }
+
+  .cameo-still,
+  .cameo-video {
+    max-height: 58vw;
+  }
+}
