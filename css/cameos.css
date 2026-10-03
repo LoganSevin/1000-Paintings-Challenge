@@ -1,3 +1,7 @@
+body[data-active-tab="cameos"] .account-gate {
+  display: none !important;
+}
+
 #panel-cameos.panel[hidden] {
   display: none !important;
 }
@@ -42,10 +46,19 @@
   display: none !important;
 }
 
-.cameo-video {
+.cameo-video,
+.cameo-live {
   position: relative;
   z-index: 1;
   background: #000;
+}
+
+.cameo-live {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 9rem);
+  width: auto;
+  height: auto;
 }
 
 .cameo-empty {

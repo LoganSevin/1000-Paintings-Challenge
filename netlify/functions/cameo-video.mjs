@@ -2,7 +2,6 @@ import {
   corsPreflight,
   jsonResponse,
   listXaiKeys,
-  visitorXaiKey,
   withXaiKeyFallback,
 } from "./_lib.mjs";
 
@@ -20,10 +19,7 @@ const SCRIPT =
   "Spoken words are only 1, 2, 3, 4, 5, and 6. The three looks are silent head turns. Lip-sync the count. Same person the whole time.";
 
 function noKey() {
-  return jsonResponse(
-    { error: "No xAI API key. Connect a key from console.x.ai, or add XAI_API_KEY on Netlify." },
-    500
-  );
+  return jsonResponse({ error: "Cloud cameo is not available." }, 503);
 }
 
 async function errorFrom(res) {
@@ -39,7 +35,7 @@ async function errorFrom(res) {
   return err;
 }
 
-async function startCameo(image, visitorKey) {
+async function startCameo(image) {
   return withXaiKeyFallback(async function (key) {
     const res = await fetch(VIDEO_START, {
       method: "POST",
@@ -60,11 +56,11 @@ async function startCameo(image, visitorKey) {
     const data = await res.json();
     if (!data || !data.request_id) throw new Error("Video service did not start a job.");
     return data.request_id;
-  }, visitorKey);
+  });
 }
 
-async function pollCameo(id, visitorKey) {
-  const keys = listXaiKeys(visitorKey);
+async function pollCameo(id) {
+  const keys = listXaiKeys();
   if (!keys.length) return noKey();
   let lastStatus = 404;
   for (let i = 0; i < keys.length; i++) {
@@ -92,12 +88,10 @@ async function pollCameo(id, visitorKey) {
 
 export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
-  const visitor = visitorXaiKey(request);
-
   if (request.method === "GET") {
     const id = new URL(request.url).searchParams.get("id") || "";
     if (!/^[\w-]{8,200}$/.test(id)) return jsonResponse({ error: "Job id required." }, 400);
-    return pollCameo(id, visitor);
+    return pollCameo(id);
   }
 
   if (request.method !== "POST") return jsonResponse({ error: "POST required." }, 405);
@@ -117,7 +111,7 @@ export default async function handler(request) {
   }
 
   try {
-    const jobId = await startCameo(image, visitor);
+    const jobId = await startCameo(image);
     return jsonResponse({ ok: true, job_id: jobId, status: "pending" }, 202);
   } catch (e) {
     return jsonResponse({ error: (e && e.message) || "Cameo could not start." }, 500);

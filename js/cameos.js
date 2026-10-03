@@ -58,7 +58,134 @@
     if (empty) empty.hidden = true;
   }
 
-  function showVideo(url) {
+  var SAY_AT = [0.45, 1.35, 2.25, 3.15, 4.05, 4.95];
+
+  function smooth(u) {
+    u = Math.max(0, Math.min(1, u));
+    return u * u * (3 - 2 * u);
+  }
+
+  function lerp(a, b, u) {
+    return a + (b - a) * u;
+  }
+
+  function yawAt(t) {
+    if (t < 6.2) return 0;
+    if (t < 8) return lerp(0, -1, smooth((t - 6.2) / 1.8));
+    if (t < 10.2) return lerp(-1, 1, smooth((t - 8) / 2.2));
+    if (t < 12.6) return lerp(1, -1, smooth((t - 10.2) / 2.4));
+    if (t < 14.2) return lerp(-1, 0, smooth((t - 12.6) / 1.6));
+    return 0;
+  }
+
+  function sayNumber(n) {
+    if (!window.speechSynthesis) return;
+    var u = new SpeechSynthesisUtterance(String(n));
+    u.rate = 0.92;
+    window.speechSynthesis.speak(u);
+  }
+
+  function paintPortrait(ctx, img, w, h, t) {
+    var yaw = yawAt(t);
+    ctx.fillStyle = "#100e0c";
+    ctx.fillRect(0, 0, w, h);
+    var iw = img.naturalWidth || img.width;
+    var ih = img.naturalHeight || img.height;
+    var fit = Math.min((w * 0.86) / iw, (h * 0.86) / ih);
+    ctx.save();
+    ctx.translate(w * 0.5 + yaw * w * 0.07, h * 0.5);
+    ctx.rotate(yaw * 0.12);
+    ctx.scale(1 - Math.abs(yaw) * 0.08, 1);
+    ctx.drawImage(img, (-iw * fit) / 2, (-ih * fit) / 2, iw * fit, ih * fit);
+    ctx.restore();
+  }
+
+  function armSpeech(video) {
+    if (!video) return;
+    video.ontimeupdate = null;
+    if (!window.speechSynthesis) return;
+    var said = {};
+    video.ontimeupdate = function () {
+      var t = video.currentTime || 0;
+      var i;
+      for (i = 0; i < SAY_AT.length; i++) {
+        if (t >= SAY_AT[i] && t < SAY_AT[i] + 0.4 && !said[i]) {
+          said[i] = true;
+          sayNumber(i + 1);
+        }
+      }
+    };
+  }
+
+  function localCameo(dataUrl) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () {
+        var stage = $("cameo-stage");
+        var still = $("cameo-still");
+        var canvas = document.createElement("canvas");
+        canvas.className = "cameo-live";
+        canvas.width = 720;
+        canvas.height = 1280;
+        var ctx = canvas.getContext("2d");
+        if (still) still.hidden = true;
+        var empty = $("cameo-empty");
+        if (empty) empty.hidden = true;
+        if (stage) stage.appendChild(canvas);
+        var said = {};
+        var rec = null;
+        var chunks = [];
+        var mime = "";
+        try {
+          var stream = canvas.captureStream(30);
+          mime = window.MediaRecorder && MediaRecorder.isTypeSupported("video/webm;codecs=vp8")
+            ? "video/webm;codecs=vp8"
+            : "video/webm";
+          rec = new MediaRecorder(stream, { mimeType: mime });
+          rec.ondataavailable = function (e) {
+            if (e.data && e.data.size) chunks.push(e.data);
+          };
+          rec.start();
+        } catch (err) {
+          rec = null;
+        }
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        var t0 = performance.now();
+        function frame(now) {
+          var t = (now - t0) / 1000;
+          paintPortrait(ctx, img, canvas.width, canvas.height, t);
+          var i;
+          for (i = 0; i < SAY_AT.length; i++) {
+            if (t >= SAY_AT[i] && !said[i]) {
+              said[i] = true;
+              sayNumber(i + 1);
+            }
+          }
+          if (t < 15) {
+            requestAnimationFrame(frame);
+            return;
+          }
+          if (!rec) {
+            resolve("");
+            return;
+          }
+          rec.onstop = function () {
+            if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+            var blob = new Blob(chunks, { type: rec.mimeType || "video/webm" });
+            resolve(blob.size ? URL.createObjectURL(blob) : "");
+          };
+          try { rec.stop(); } catch (e2) { resolve(""); }
+        }
+        requestAnimationFrame(frame);
+      };
+      img.onerror = function () {
+        reject(new Error("That image could not be shown."));
+      };
+      img.src = dataUrl;
+    });
+  }
+
+  function showVideo(url, stayPaused) {
     var video = $("cameo-video");
     var download = $("cameo-download");
     url = absoluteUrl(url);
@@ -67,7 +194,7 @@
     if (video) {
       video.src = url;
       video.hidden = false;
-      video.play().catch(function () {});
+      if (!stayPaused) video.play().catch(function () {});
     }
     if (download) {
       download.href = url;
@@ -198,6 +325,32 @@
     });
   }
 
+  function present(url, local) {
+    if (!url) {
+      setStatus("Cameo ready.");
+      return;
+    }
+    showVideo(url, local);
+    if (local) {
+      armSpeech($("cameo-video"));
+      var download = $("cameo-download");
+      if (download) download.download = "cameo.webm";
+      setStatus("Cameo ready.");
+      return;
+    }
+    setStatus("Cameo ready. Saving a copy…");
+    return saveVideo(url)
+      .then(function (saved) {
+        var localUrl = saved && (saved.url || saved.path);
+        if (localUrl) showVideo(localUrl);
+        var name = saved && (saved.name || (saved.num != null ? saved.num + ".mp4" : ""));
+        setStatus(name ? "Cameo saved as saved-videos/" + name + "." : "Cameo ready.");
+      })
+      .catch(function () {
+        setStatus("Cameo ready.");
+      });
+  }
+
   function makeCameo() {
     if (state.busy || !state.dataUrl) return;
     state.job = "";
@@ -226,18 +379,13 @@
         return poll(jid, started);
       })
       .then(function (url) {
-        showVideo(url);
-        setStatus("Cameo ready. Saving a copy…");
-        return saveVideo(url)
-          .then(function (saved) {
-            var local = saved && (saved.url || saved.path);
-            if (local) showVideo(local);
-            var name = saved && (saved.name || (saved.num != null ? saved.num + ".mp4" : ""));
-            setStatus(name ? "Cameo saved as saved-videos/" + name + "." : "Cameo ready.");
-          })
-          .catch(function () {
-            setStatus("Cameo ready.");
-          });
+        return present(url, false);
+      })
+      .catch(function () {
+        setStatus("Making the cameo…");
+        return localCameo(state.dataUrl).then(function (url) {
+          return present(url, true);
+        });
       })
       .catch(function (err) {
         setStatus((err && err.message) || "Cameo failed.");
@@ -286,6 +434,7 @@
     else {
       var video = $("cameo-video");
       if (video && !video.hidden) video.pause();
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
     }
   });
   window.Cameos = { onShow: onShow };
