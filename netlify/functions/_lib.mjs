@@ -408,6 +408,129 @@ export function fitPromptKeepingTail(text, max = GEN_PROMPT_SAFE_MAX) {
   return tail ? head + "\n\n" + tail : head;
 }
 
+const SPELL_HEADER_RE = /^SPELL [IVX]+\b/;
+const SPELLFORGE_OUTCOME_LINE_RE =
+  /^(?:FINAL OUTCOME\b|FUSION(?: DIRECTIVE)?:|Output:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b|Compose for a |Style DNA\b|Mood DNA\b|Motif tags\b|Buzz words:|Artist synthesis\b|Extra direction:|MANDATORY\b|THREE IDENTITIES\b|THE THREE IDENTITIES\b|Spellforge three-spell fusion\b|Create one original\b)/;
+const SPELLFORGE_FUSION =
+  "Spellforge three-spell fusion: show Spell I, Spell II, and Spell III as three equally prominent, immediately recognizable focal identities in this one continuous scene. Give each a clear visible feature, connect them through a shared setting or interaction, and do not omit, hide, or merge away any identity.";
+
+/** Pull Spell I–III blocks out, leaving the aspect line and the outcome copy separate. */
+function splitSpellforgeReferences(raw) {
+  const lines = String(raw || "").split("\n");
+  const spells = [];
+  const prelude = [];
+  const outcome = [];
+  let current = null;
+  let seenSpell = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (SPELL_HEADER_RE.test(trimmed)) {
+      if (current) spells.push(current.join("\n").trim());
+      current = [line];
+      seenSpell = true;
+      continue;
+    }
+    if (current && SPELLFORGE_OUTCOME_LINE_RE.test(trimmed)) {
+      spells.push(current.join("\n").trim());
+      current = null;
+      outcome.push(line);
+      continue;
+    }
+    if (current) current.push(line);
+    else if (seenSpell) outcome.push(line);
+    else prelude.push(line);
+  }
+  if (current) spells.push(current.join("\n").trim());
+  const clean = (arr) => arr.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return {
+    prelude: clean(prelude),
+    spells: spells.filter(Boolean),
+    outcome: clean(outcome),
+  };
+}
+
+function peelAspectLines(prelude) {
+  const aspect = [];
+  const other = [];
+  for (const line of String(prelude || "").split("\n")) {
+    if (/canvas —/.test(line)) aspect.push(line);
+    else other.push(line);
+  }
+  return {
+    aspect: aspect.join("\n").trim(),
+    other: other.join("\n").replace(/\n{3,}/g, "\n\n").trim(),
+  };
+}
+
+/**
+ * Detailed Spell I–III references, then the fusion / outcome instruction.
+ * The aspect line stays first. The painted signature stays last.
+ */
+export function orderSpellforgePrompt(raw) {
+  const text = String(raw || "").trim();
+  const at = protectedTailAt(text);
+  const tail = at > 0 ? text.slice(at).trim() : "";
+  const head = at > 0 ? text.slice(0, at).trim() : text;
+  const { prelude, spells, outcome } = splitSpellforgeReferences(head);
+  if (!spells.length) return text;
+  const peeled = peelAspectLines(prelude);
+  let outcomeBody = outcome;
+  if (!/Spellforge three-spell fusion/i.test(outcomeBody + "\n" + peeled.other)) {
+    outcomeBody = [SPELLFORGE_FUSION, outcomeBody].filter(Boolean).join("\n\n");
+  }
+  const parts = [peeled.aspect, spells.join("\n\n"), outcomeBody, peeled.other].filter(Boolean);
+  let ordered = parts.join("\n\n");
+  if (tail) ordered += "\n\n" + tail;
+  return ordered;
+}
+
+/** Keep the three spell texts. Shorten the outcome copy before shortening a spell body. */
+export function fitSpellforgePrompt(text, max = GEN_PROMPT_SAFE_MAX) {
+  const ordered = orderSpellforgePrompt(text);
+  if (!ordered || ordered.length <= max) return ordered;
+  const at = protectedTailAt(ordered);
+  const tail = at > 0 ? ordered.slice(at).trim() : "";
+  const head = at > 0 ? ordered.slice(0, at).trim() : ordered;
+  const budget = tail ? max - tail.length - 2 : max;
+  if (budget < 200) return clipPromptChars(ordered, max);
+  let { prelude, spells, outcome } = splitSpellforgeReferences(head);
+  if (!spells.length) return fitPromptKeepingTail(ordered, max);
+  const peeled = peelAspectLines(prelude);
+  const aspect = peeled.aspect;
+  if (peeled.other) outcome = [outcome, peeled.other].filter(Boolean).join("\n\n");
+  let guard = 0;
+  const join = () =>
+    [aspect, spells.join("\n\n"), outcome].filter(Boolean).join("\n\n").trim();
+  const fusionFloor = SPELLFORGE_FUSION.length;
+  while (join().length > budget && outcome.length > fusionFloor + 80 && guard < 16) {
+    guard += 1;
+    const overflow = join().length - budget;
+    outcome = clipPromptChars(outcome, Math.max(fusionFloor, outcome.length - overflow - 1));
+  }
+  guard = 0;
+  while (join().length > budget && guard < 24) {
+    guard += 1;
+    let longest = -1;
+    let longestLen = 0;
+    for (let i = 0; i < spells.length; i++) {
+      if (spells[i].length > longestLen) {
+        longestLen = spells[i].length;
+        longest = i;
+      }
+    }
+    if (longest < 0) break;
+    const lines = spells[longest].split("\n");
+    const header = lines[0];
+    const body = lines.slice(1).join("\n").trim();
+    const overflow = join().length - budget;
+    const nextLen = Math.max(40, body.length - overflow - 1);
+    spells[longest] = header + "\n" + clipPromptChars(body, nextLen);
+  }
+  let next = join();
+  if (next.length > budget) next = clipPromptChars(next, budget);
+  return tail ? next + "\n\n" + tail : next;
+}
+
 export const ALLOWED_ASPECTS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
 
 export function normalizeAspect(value, fallback = "16:9") {
@@ -456,15 +579,25 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
       : "rich painterly detail";
   const frame = aspectPhrase(aspectRatio);
   const raw = String(stasis || "").trim();
-  const spellforge = /THREE IDENTITIES IN ONE PAINTING/i.test(raw);
-  const spellforgeFusion = spellforge
-    ? "Spellforge three-spell fusion: show Spell I, Spell II, and Spell III as three equally prominent, immediately recognizable focal identities in this one continuous scene. Give each a clear visible feature, connect them through a shared setting or interaction, and do not omit, hide, or merge away any identity.\n\n"
-    : "";
-  const lead =
-    `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.\n` +
-    spellforgeFusion;
-  // The browser prompt already ends with the frame and the painted signature.
-  // A second museum wrapper is what pushed that ending past 8000 and cut Spell III.
+  const aspectLine = `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.`;
+  const spellforge =
+    /THREE IDENTITIES IN ONE PAINTING/i.test(raw) || /^SPELL [IVX]+\s*—/m.test(raw);
+  // Spell I–III stay in front of the outcome sentence. The signature stays on the tail.
+  if (spellforge) {
+    const signed = /IN-CANVAS SIGNATURE/i.test(raw);
+    const outcomeTail = signed
+      ? ""
+      : "FINAL OUTCOME:\n" +
+        "Create one original fine-art painting that embodies this fused vision. " +
+        "Invent fresh imagery — not a photograph or collage of references.\n\n" +
+        `BUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
+        "The image should read clearly at thumbnail scale yet reward close viewing. " +
+        "Museum-quality, cohesive composition, expressive brushwork." +
+        authorshipFooter(aspectRatio, opts.signature);
+    const combined = outcomeTail ? raw + "\n\n" + outcomeTail : raw;
+    return fitSpellforgePrompt(aspectLine + "\n\n" + combined, GEN_PROMPT_SAFE_MAX);
+  }
+  const lead = aspectLine + "\n";
   if (/IN-CANVAS SIGNATURE/i.test(raw)) {
     return fitPromptKeepingTail(lead + raw, GEN_PROMPT_SAFE_MAX);
   }
@@ -810,7 +943,7 @@ function parseSpellforgeStasis(stasis) {
   if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL [IVX]+\s*—/.test(text)) return null;
   const subjects = [];
   const re =
-    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
+    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|FINAL OUTCOME\b|Output:|OUTPUT ASPECT|IN-CANVAS SIGNATURE|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
   let m;
   while ((m = re.exec(text))) {
     const d = fluxDescFromSlotBody(m[1]);
@@ -990,7 +1123,8 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
     const regions = n > 1 ? fluxRegions(n, aspect) : ["At the center"];
     const lcArticle = (c) => c.replace(/^(A|An|The|Two|Three|Several|Many)\b/, (w) => w.toLowerCase());
     const body = cores.map((c, i) => `${i ? regions[i].toLowerCase() : regions[i]}, ${lcArticle(c)}`).join("; ") + ".";
-    prompt = [lead, opener.replace(/,\s+clearly/, ", clearly").replace(/\s+,/g, ","), body, unifier, tailText]
+    // The three spell references lead. The scene outcome follows them.
+    prompt = [body, lead, opener.replace(/,\s+clearly/, ", clearly").replace(/\s+,/g, ","), unifier, tailText]
       .filter(Boolean)
       .join(" ");
   } else {

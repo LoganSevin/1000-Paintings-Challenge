@@ -14,13 +14,17 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
   ].join("\n");
 
   const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
+  const courtyard = prompt.indexOf("sunlit Mediterranean courtyard");
+  const peony = prompt.indexOf("vibrant peony");
+  const coaster = prompt.indexOf("coastal roller coaster");
+  const outcome = prompt.indexOf("Spellforge three-spell fusion");
 
+  assert.match(prompt, /^16:9 wide canvas/);
   assert.match(prompt, /Spellforge three-spell fusion/);
   assert.match(prompt, /Spell I, Spell II, and Spell III/);
   assert.match(prompt, /equally prominent, immediately recognizable/);
-  assert.match(prompt, /sunlit Mediterranean courtyard/);
-  assert.match(prompt, /vibrant peony/);
-  assert.match(prompt, /coastal roller coaster/);
+  assert.ok(courtyard >= 0 && peony > courtyard && coaster > peony);
+  assert.ok(outcome > coaster);
 });
 
 test("non-Spellforge stasis prompts keep the general framing", () => {
@@ -49,10 +53,13 @@ test("a signed Spellforge prompt keeps Spell III and the signature under the cap
     signature: "Logan Sevin · 2 October 2026  05:11:00 PDT",
   });
 
+  const coaster = prompt.indexOf("coastal roller coaster");
+  const outcome = prompt.indexOf("Spellforge three-spell fusion");
+  const signature = prompt.indexOf("Logan Sevin · 2 October 2026");
+
   assert.ok(prompt.length <= 7992);
   assert.match(prompt, /^16:9 wide canvas/);
-  assert.match(prompt, /coastal roller coaster/);
-  assert.match(prompt, /Logan Sevin · 2 October 2026/);
+  assert.ok(coaster >= 0 && outcome > coaster && signature > outcome);
   assert.doesNotMatch(prompt, /\blandscape\b/i);
 });
 
@@ -70,9 +77,13 @@ test("Cloudflare fallback does not ask for a landscape or forbid the signature",
     signature: "Logan Sevin · 2 October 2026  05:11:00 PDT",
   });
 
+  const coaster = prompt.toLowerCase().indexOf("roller coaster");
+  const outcome = prompt.toLowerCase().indexOf("seamless scene");
+
   assert.match(prompt, /courtyard/i);
   assert.match(prompt, /peony/i);
   assert.match(prompt, /roller coaster/i);
+  assert.ok(coaster >= 0 && outcome > coaster);
   assert.match(prompt, /Logan Sevin/);
   assert.match(prompt, /not a square/i);
   assert.doesNotMatch(prompt, /\blandscape\b/i);

@@ -3179,10 +3179,45 @@
   }
 
   /**
-   * The real generation prompt: Spell I–III bodies + merge rules, always ≤ 8000 chars.
-   * Product goal = brand-new fused artwork (not a remake of equipped paintings).
-   * Color locks + originality lead; source texts are motif DNA only.
+   * The real generation prompt: the three detailed Spell I–III references come first.
+   * The final-outcome instruction follows them. Always ≤ 8000 chars with server framing.
    */
+  function fitReferencesBeforeOutcome(text, max) {
+    var t = String(text || "").trim();
+    if (t.length <= max) return t;
+    var mark = t.search(/\nFINAL OUTCOME:/);
+    if (mark < 0) mark = t.search(/^FINAL OUTCOME:/m);
+    if (mark < 0) return clipPromptText(t, max);
+    var refs = t.slice(0, mark).trim();
+    var outcome = t.slice(mark).trim();
+    var minOutcome = Math.min(outcome.length, 320);
+    var outcomeBudget = Math.max(minOutcome, max - refs.length - 2);
+    if (refs.length + 2 + minOutcome > max) outcomeBudget = minOutcome;
+    if (outcome.length > outcomeBudget) outcome = clipPromptText(outcome, outcomeBudget);
+    var room = Math.max(80, max - outcome.length - 2);
+    var blocks = refs.split(/\n(?=SPELL [IVX]+\b)/);
+    var guard = 0;
+    function joined() {
+      return blocks.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
+    }
+    while (joined().length > room && guard < 24) {
+      guard += 1;
+      var longest = 0;
+      for (var i = 1; i < blocks.length; i++) {
+        if (blocks[i].length > blocks[longest].length) longest = i;
+      }
+      var lines = blocks[longest].split("\n");
+      var header = lines[0];
+      var body = lines.slice(1).join("\n").trim();
+      var overflow = joined().length - room;
+      var nextLen = Math.max(80, body.length - overflow - 1);
+      blocks[longest] = header + "\n" + clipPromptText(body, nextLen);
+    }
+    refs = joined();
+    if (refs.length > room) refs = clipPromptText(refs, room);
+    return refs + "\n\n" + outcome;
+  }
+
   function buildPhysicalGenerationPrompt(nums, meta) {
     nums = nums || getEquippedInOrder();
     meta = meta || collectCombinedMeta(nums);
@@ -3257,25 +3292,16 @@
     }
     if (notes) notes = "Artist synthesis notes: " + notes;
 
-    function assemble(bodyBudget, compactColors, trimNotes, trimMeta) {
+    function assemble(compactColors, trimNotes, trimMeta) {
       var colorSec = buildColorLocksSection(compactColors);
       var bodies = spellParts.map(function (sp) {
-        var b = sp.body;
-        if (bodyBudget != null && b.length > bodyBudget) {
-          b = clipPromptText(b, bodyBudget);
-        }
-        return sp.header + "\n" + b;
+        return sp.header + "\n" + sp.body;
       });
-      // Color locks first so they survive length pressure and beat source palette text
-      var parts = [head, ""];
-      if (colorSec) {
-        parts.push(colorSec);
-        parts.push("");
-      }
-      parts.push("THE THREE IDENTITIES (keep each one recognizable):");
-      parts.push(bodies.join("\n\n"));
-      parts.push("");
+      // Detailed references first. Outcome instructions follow them.
+      var parts = [bodies.join("\n\n"), "", "FINAL OUTCOME:", head];
       parts.push(merge);
+      if (colorSec) parts.push(colorSec);
+      parts.push(output);
       if (!trimMeta) {
         if (styles) parts.push(styles);
         if (moods) parts.push(moods);
@@ -3296,30 +3322,18 @@
           trimNotes ? clipPromptText(notes, 400) : clipPromptText(notes, 1200)
         );
       }
-      parts.push("");
-      parts.push(output);
       return parts.join("\n");
     }
 
-    // Progressive fit into PROMPT_BODY_MAX (leaves room for server framing ≤8000)
-    // Prefer keeping color locks + originality head over long source prose
-    var attempts = [
-      function () {
-        return assemble(520, true, true, false);
-      },
-      function () {
-        return assemble(420, true, true, true);
-      },
-      function () {
-        return assemble(320, true, true, true);
-      },
-    ];
-    var best = "";
-    for (var ai = 0; ai < attempts.length; ai++) {
-      best = attempts[ai]();
-      if (best.length <= PROMPT_BODY_MAX) return best;
-    }
-    return clipPromptText(best, PROMPT_BODY_MAX);
+    // Leave room for the aspect line, the fusion sentence, and the painted signature.
+    var referenceBudget = PROMPT_BODY_MAX - 480;
+    var full = assemble(true, false, false);
+    if (full.length <= referenceBudget) return full;
+    var tighter = assemble(true, true, true);
+    return fitReferencesBeforeOutcome(
+      tighter.length < full.length ? tighter : full,
+      referenceBudget
+    );
   }
 
   function authorshipStampLine() {
@@ -3335,7 +3349,7 @@
     var aspect = getAspectRatio();
     var sig = authorshipStampLine();
     var orient =
-      aspect === "1:1" ? "square" : /^(16:9|4:3|3:2)$/.test(aspect) ? "landscape" : "portrait";
+      aspect === "1:1" ? "square" : /^(16:9|4:3|3:2)$/.test(aspect) ? "wide" : "tall";
     return (
       "\n\nOUTPUT ASPECT " +
       aspect +
@@ -3350,8 +3364,10 @@
 
   function withProductFooter(stasis) {
     var foot = productFooterText();
-    var budget = PROMPT_BODY_MAX - foot.length;
-    return clipPromptText(String(stasis || ""), Math.max(200, budget)) + foot;
+    var budget = Math.max(200, PROMPT_BODY_MAX - foot.length);
+    var body = String(stasis || "").trim();
+    if (body.length > budget) body = fitReferencesBeforeOutcome(body, budget);
+    return body + foot;
   }
 
   function getGenerationStasisPayload() {
