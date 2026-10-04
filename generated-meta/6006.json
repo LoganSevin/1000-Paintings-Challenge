@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6006,
-  "name": "6006.jpg",
-  "path": "generated/6006.jpg",
-  "dir": "generated",
-  "url": "/generated/6006.jpg",
-  "bytes": 986895,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Forest (#228B22) (from spells III) — use this exact Forest at #228B22 as a major visible pigment (saturated, not a shy tint",
-  "saved_at": "2026-09-26T01:11:42Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      40,
-      48,
-      695
-    ]
-  }
+  "number": 6006,
+  "title": "Swirling Blue Orbs Over Hills",
+  "description": "A vibrant landscape painting depicts rolling green and golden hills with dark treelines under a dramatic sky. Large blue spheres of varying sizes float throughout a swirling vortex of red, orange, and yellow brushstrokes, with a bright sun visible on the horizon.",
+  "prompt": "A surreal landscape painting featuring rolling hills in shades of green and golden yellow with dark treelines, beneath a dramatic swirling sky of vibrant red, orange, and yellow brushstrokes. Numerous large solid blue spheres and smaller blue dots float throughout the composition, with a bright glowing sun on the horizon. Bold, expressive style with visible brushwork.",
+  "style": "surreal landscape",
+  "mood": "vibrant surreal",
+  "medium": "oil painting",
+  "tags": [
+    "surreal",
+    "landscape",
+    "blue orbs",
+    "swirling sky",
+    "rolling hills",
+    "vibrant colors"
+  ],
+  "colors": [
+    "blue",
+    "orange",
+    "yellow",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:52Z"
 }

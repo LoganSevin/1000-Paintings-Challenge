@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6048,
-  "name": "6048.jpg",
-  "path": "generated/6048.jpg",
-  "dir": "generated",
-  "url": "/generated/6048.jpg",
-  "bytes": 927852,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Pink (#FF4FA3); Blue (#2563EB); Purple (#A855F7); White (#F8FAFC); Yellow (#FACC15); Green (#16A34A). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Swirling Pink and Blue Loops (#1)\nSwirling Pink and Blue Loops\n\nAbstract composition of overlapping circular swirls, organic loops, and fluid tendrils in pink, purple, and blue tones on a white ground. Dynamic brushstrokes create movement a",
-  "saved_at": "2026-09-30T04:20:12Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      1,
-      871,
-      392
-    ]
-  }
+  "number": 6048,
+  "title": "Vibrant Spiral Swirls",
+  "description": "An abstract painting on a white canvas featuring multiple overlapping spiral forms in various sizes. The composition uses fluid brushstrokes and splatters in shades of pink, purple, and blue with accents of yellow and a small blue dot.",
+  "prompt": "Abstract painting on white canvas with multiple overlapping circular spirals and swirls created with fluid expressive brushstrokes. Vibrant composition featuring bright pink, magenta, deep purple, cyan blue and a touch of yellow. Dynamic energy with paint splatters and varying spiral sizes, artistic and colorful modern abstract artwork.",
+  "style": "abstract",
+  "mood": "dynamic energetic",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "spirals",
+    "abstract art",
+    "brushstrokes",
+    "colorful",
+    "swirls",
+    "painting"
+  ],
+  "colors": [
+    "pink",
+    "blue",
+    "purple",
+    "yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:38Z"
 }

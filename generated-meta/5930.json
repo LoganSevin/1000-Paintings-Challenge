@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5930,
-  "name": "5930.jpg",
-  "path": "generated/5930.jpg",
-  "dir": "generated",
-  "url": "/generated/5930.jpg",
-  "bytes": 479533,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Purple (#A855F7); Green (#16A34A); Red (#EF4444); Blue (#2563EB); Black (#0A0A0C); Yellow (#FACC15); White (#F8FAFC); Turquoise (#14B8A6); Sky (#38BDF8); Forest (#228B22). Paint with these hex pigments as dominant hues.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #105557) ──\n",
-  "saved_at": "2026-09-19T04:49:04Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      105557,
-      105727,
-      105849
-    ]
-  }
+  "number": 5930,
+  "title": "Skull Wizard Cat Concert",
+  "description": "A giant green skull wearing red sunglasses sits on a snowy wooden stage with its mouth open, revealing colorful objects inside. A skeletal cat wizard in ornate robes and glasses floats above, holding a glowing turquoise staff amid swirling purple magic and ghostly figures, while two skeleton musicians play saxophone and drums at the base.",
+  "prompt": "A surreal fantasy scene inside a wooden barn with a snowy stage. A giant green skull wearing red sunglasses sits with its mouth open, colorful objects inside. Two skeleton musicians in cloaks play a golden saxophone and a drum set. Above them floats a large anthropomorphic cat wizard with pink ears and glasses, wearing ornate blue and gold robes with a red cape, holding a glowing turquoise magical staff. Swirling purple energy, ghosts, lightning, and pine trees in the background under a dramatic twilight sky.",
+  "style": "fantasy illustration",
+  "mood": "whimsical spooky",
+  "medium": "digital painting",
+  "tags": [
+    "cat wizard",
+    "skeleton band",
+    "giant skull",
+    "magical staff",
+    "snowy stage",
+    "fantasy scene"
+  ],
+  "colors": [
+    "purple",
+    "green",
+    "turquoise",
+    "red"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:20Z"
 }

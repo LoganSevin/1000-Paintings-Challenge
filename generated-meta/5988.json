@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5988,
-  "name": "5988.jpg",
-  "path": "generated/5988.jpg",
-  "dir": "generated",
-  "url": "/generated/5988.jpg",
-  "bytes": 205611,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells II) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • White (#F8FAFC) (from spells II) — use this exact White at #F8FAFC as a major visible pigment (s",
-  "saved_at": "2026-09-25T07:57:53Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400033,
-      672,
-      19
-    ]
-  }
+  "number": 5988,
+  "title": "Vibrant Paint Drip Abstract",
+  "description": "A dynamic abstract composition of vibrant, fluid paint splatters and thick drips flowing downward across a white surface. Bright overlapping colors form an energetic central mass with organic shapes, bubbles, and vertical streams in multiple hues.",
+  "prompt": "abstract painting featuring vibrant fluid paint splatters and thick colorful drips flowing vertically down a white canvas, energetic overlapping layers of bright yellow, lime green, orange, teal, and magenta with organic bubble shapes and dynamic movement, high contrast, expressive acrylic style",
+  "style": "abstract expressionism",
+  "mood": "energetic, vibrant",
+  "medium": "acrylic paint on canvas",
+  "tags": [
+    "abstract",
+    "paint drip",
+    "colorful",
+    "splatters",
+    "fluid",
+    "acrylic"
+  ],
+  "colors": [
+    "yellow",
+    "green",
+    "orange",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:31Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5947,
-  "name": "5947.jpg",
-  "path": "generated/5947.jpg",
-  "dir": "generated",
-  "url": "/generated/5947.jpg",
-  "bytes": 457552,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:16:19Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5947,
+  "title": "Ethereal Tree of Life",
+  "description": "A massive, gnarled white tree with stained glass leaves dominates a cosmic night sky filled with aurora borealis. A cloaked figure with a flowing blue and gold robe floats above an ornate circular fountain, from which waterfalls cascade while the tree's roots form a dragon-like mouth breathing light.",
+  "prompt": "A surreal fantasy scene featuring a massive ancient gnarled white tree with stained glass mosaic leaves against a starry cosmic sky with swirling purple and green aurora borealis. The tree has a dragon-like open mouth with glowing interior. A mysterious cloaked figure in flowing dark blue and gold robes floats gracefully above an ornate circular stone fountain pool at the base. Multiple waterfalls cascade from the branches and into the glowing pool which has intricate golden patterns. Mystical atmosphere with birds and stone statues, intricate details, vibrant yet dark color palette.",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy",
+    "aurora",
+    "tree of life",
+    "magic",
+    "cosmic",
+    "waterfall"
+  ],
+  "colors": [
+    "deep purple",
+    "emerald green",
+    "icy blue",
+    "gold"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:47Z"
 }

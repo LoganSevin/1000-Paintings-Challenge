@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6045,
-  "name": "6045.jpg",
-  "path": "generated/6045.jpg",
-  "dir": "generated",
-  "url": "/generated/6045.jpg",
-  "bytes": 876380,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #B6353F — muted red (RGB 182, 53, 63; closest named color: brown)\n• Tone 2: #F6B535 — vivid orange (RGB 246, 181, 53; closest named color: goldenrod)\n• Tone 3: #7FB035 — muted lime (RGB 127, 176, 53; closest named color: yellow green)\nPROMPT (paint this, still using only the three tones): Facing the Music\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T04:25:36Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#B6353F",
-        "name": "muted red",
-        "nearest": "brown",
-        "orig": "#B6353F",
-        "spell": 11941184,
-        "order": "RGB"
-      },
-      {
-        "hex": "#F6B535",
-        "name": "vivid orange",
-        "nearest": "goldenrod",
-        "orig": "#B535F6",
-        "spell": 11875831,
-        "order": "BRG"
-      },
-      {
-        "hex": "#7FB035",
-        "name": "muted lime",
-        "nearest": "yellow green",
-        "orig": "#B0357F",
-        "spell": 11548032,
-        "order": "BRG"
-      }
-    ],
-    "palette_hex": [
-      "#B6353F",
-      "#F6B535",
-      "#7FB035"
-    ],
-    "subject": "a jazz club at midnight",
-    "aspect": "16:9",
-    "spells": []
-  }
+  "number": 6045,
+  "title": "Vibrant Rural Sunset",
+  "description": "An expressive landscape painting depicts a dramatic sunset with a sky filled with bold strokes of pink, orange, and yellow. Below, rolling hills in deep blues and blacks overlook golden and green fields dotted with small houses and bushes in the foreground.",
+  "prompt": "expressive landscape painting of a dramatic sunset over rolling dark hills, vibrant sky in bold pink orange and yellow brushstrokes, golden and green fields in the foreground with small rural houses and bushes, energetic visible brushwork, warm and cool color contrast",
+  "style": "expressionist",
+  "mood": "vibrant dramatic",
+  "medium": "oil painting",
+  "tags": [
+    "landscape",
+    "sunset",
+    "rural",
+    "hills",
+    "houses",
+    "expressive"
+  ],
+  "colors": [
+    "orange",
+    "pink",
+    "yellow",
+    "dark blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:35Z"
 }

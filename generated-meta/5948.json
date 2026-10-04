@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5948,
-  "name": "5948.jpg",
-  "path": "generated/5948.jpg",
-  "dir": "generated",
-  "url": "/generated/5948.jpg",
-  "bytes": 464834,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:16:52Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5948,
+  "title": "Stained Glass Tree Portal",
+  "description": "A powerful older woman with long braided gray hair and flowing purple robes floats above a circular cosmic pool, her hands extended as she summons or controls the scene. Behind her a massive ancient tree with a dragon-like head rises into a swirling sky of colorful stained glass patterns, with multiple waterfalls cascading down into the pool that reflects a vibrant nebula and a reaching hand.",
+  "prompt": "A powerful older woman with long gray braids wearing flowing purple and gold robes floats dynamically above a circular reflecting pool, her hands outstretched with magical energy. Behind her stands a colossal ancient tree with a dragon head whose branches form a massive stained glass window in the swirling cosmic sky, multiple waterfalls pouring down around her into the pool which reflects a colorful nebula and a giant hand reaching upward, white birds flying, broken columns, ethereal atmosphere, intricate details",
+  "style": "fantasy surrealism",
+  "mood": "mystical epic",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy",
+    "cosmic",
+    "waterfall",
+    "tree",
+    "portal",
+    "magic"
+  ],
+  "colors": [
+    "deep purple",
+    "vibrant blue",
+    "gold",
+    "emerald"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:47Z"
 }

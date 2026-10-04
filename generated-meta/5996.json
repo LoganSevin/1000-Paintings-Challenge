@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5996,
-  "name": "5996.jpg",
-  "path": "generated/5996.jpg",
-  "dir": "generated",
-  "url": "/generated/5996.jpg",
-  "bytes": 965958,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 2× — ONE unified pigment spells I) — use this exact Red at #EF4444 a",
-  "saved_at": "2026-09-26T00:54:45Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      217,
-      717,
-      1000
-    ]
-  }
+  "number": 5996,
+  "title": "Surreal Gathering Under Eclipse",
+  "description": "A surreal scene depicts five people in a dimly lit room with a large table covered in food, books, and objects. In the dramatic sky above, a giant glowing orange moon dominates a swirling vortex, with a floating figure, orbiting spheres, and a large black bird flying through clouds of smoke.",
+  "prompt": "Surreal scene of five people gathered around a table with food, books, and objects in a dark room. A massive glowing orange moon with swirling vortex and orbiting spheres fills the dramatic sky. A nude figure floats near the moon while a large black bird flies through white and orange clouds of smoke. Cinematic lighting, rich textures, symbolic and mysterious atmosphere.",
+  "style": "surrealism",
+  "mood": "mysterious, surreal",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "cosmic",
+    "gathering",
+    "moon",
+    "eclipse",
+    "symbolic"
+  ],
+  "colors": [
+    "orange",
+    "red",
+    "dark blue",
+    "gold"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:40Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5986,
-  "name": "5986.jpg",
-  "path": "generated/5986.jpg",
-  "dir": "generated",
-  "url": "/generated/5986.jpg",
-  "bytes": 351938,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\nMath\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\nMath\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\nMath\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, not a grid, not a stacked photo-fu",
-  "saved_at": "2026-09-19T23:22:40Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5986,
+  "title": "Mystical Equation Table",
+  "description": "A surreal scene shows a wooden table covered in scattered papers and parchments filled with complex mathematical equations and symbols. Three disembodied hands in different colors interact with the items: a blue hand holds a geometric shape at the top left, a purple hand writes with a quill at the bottom, and a golden hand holds a coin over a paper on the right. At the center sits a glowing glass orb containing a black rose, illuminated by a dramatic beam of light from above against a dark, starry background with floating scrolls and tablets.",
+  "prompt": "Surreal fantasy painting of a wooden table covered in scattered papers and parchments filled with complex mathematical equations. Three disembodied hands interact with the scene: a blue hand holds a geometric shape, a purple hand writes with a quill, and a golden hand holds a coin. At the center a glowing glass orb contains a black rose, illuminated by a dramatic beam of light from above. Dark starry background with floating ancient scrolls and tablets covered in formulas, mystical and ethereal atmosphere.",
+  "style": "surreal fantasy",
+  "mood": "mysterious ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "mathematics",
+    "occult",
+    "glowing orb",
+    "disembodied hands",
+    "starry background"
+  ],
+  "colors": [
+    "deep teal",
+    "warm gold",
+    "purple",
+    "copper"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:31Z"
 }

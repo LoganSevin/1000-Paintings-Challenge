@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6017,
-  "name": "6017.jpg",
-  "path": "generated/6017.jpg",
-  "dir": "generated",
-  "url": "/generated/6017.jpg",
-  "bytes": 811633,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Charcoal (#374151) (appears 2× — ONE unified pigment spells I) — use this exact Charcoal at #374151 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells III) — use this exact Green at",
-  "saved_at": "2026-09-27T01:50:06Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      356,
-      834,
-      380
-    ]
-  }
+  "number": 6017,
+  "title": "Silhouette Eclipse Over City",
+  "description": "A massive dark silhouette of a woman's head and shoulders dominates the surreal scene, her face eclipsed by a glowing yellow moon. Below, numerous black silhouettes of people stand in a reflective body of water in front of a vibrant city skyline at sunset.",
+  "prompt": "Surreal digital painting of a giant black silhouette of a woman's head with long flowing hair dominating the sky, her face covered by a bright yellow full moon. In the foreground, many black silhouette figures of people stand in reflective water, some holding canes, with a detailed city skyline featuring skyscrapers in the background under a vibrant pink, orange and yellow sunset sky with dramatic clouds.",
+  "style": "surreal digital painting",
+  "mood": "mysterious surreal",
+  "medium": "digital art",
+  "tags": [
+    "silhouette",
+    "cityscape",
+    "eclipse",
+    "moon",
+    "surreal",
+    "reflection"
+  ],
+  "colors": [
+    "pink",
+    "yellow",
+    "black",
+    "cyan"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:02Z"
 }

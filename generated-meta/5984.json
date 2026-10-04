@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5984,
-  "name": "5984.jpg",
-  "path": "generated/5984.jpg",
-  "dir": "generated",
-  "url": "/generated/5984.jpg",
-  "bytes": 398907,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\n10sin(x)+y^2-5\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\n5cos(y)-x^-1+10\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\n15/3tan(x+y)^2+15\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, ",
-  "saved_at": "2026-09-19T07:44:53Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5984,
+  "title": "Spellforge Product",
+  "description": "A surreal night scene features a large tilted blackboard covered in glowing mathematical equations including 30x(f)^2 - y and integrals. A blue-skinned humanoid figure with white patterned head and multicolored wires extending from its body holds a quill, writing on the board as flames and sparks erupt from its surface. Torn pages with formulas and a wax seal float in the dark foreground.",
+  "prompt": "Surreal night scene with dramatic lighting, a large tilted blackboard filled with glowing white mathematical equations and integrals including 30x(f)^2 - y, a blue-skinned humanoid figure with patterned white head and colorful wires extending from its body, the figure holds a quill writing on the board while flames and sparks erupt from the surface, torn pages with formulas and a wax seal floating in the foreground, dark dramatic sky with colorful horizon glow",
+  "style": "surreal fantasy",
+  "mood": "mystical chaotic",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "mathematics",
+    "blackboard",
+    "ethereal figure",
+    "magical",
+    "night scene"
+  ],
+  "colors": [
+    "deep blue",
+    "purple",
+    "yellow",
+    "orange"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:28Z"
 }

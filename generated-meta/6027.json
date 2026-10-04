@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6027,
-  "name": "6027.jpg",
-  "path": "generated/6027.jpg",
-  "dir": "generated",
-  "url": "/generated/6027.jpg",
-  "bytes": 743888,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Apricot (#CAA979); Coffee (#987962); Silver (#C0B6AB); Ash (#9B9AA1). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — black Terminal with Green text (#400034)\nApricot (#CAA979) Terminal with Coffee (#987962) text\n\nSPELL II — Paper Shadow Black Terminal with Green T… (#400035)\nPaper Shadow Apricot (#CCBCAB) Terminal Frame with Silver (#C0B6AB) Text on a Ash (#9B9AA1) Screen.\n\nFUSION: one ",
-  "saved_at": "2026-09-28T02:42:20Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400034,
-      400035
-    ]
-  }
+  "number": 6027,
+  "title": "Three Birds in Desert",
+  "description": "Three large birds stand in a barren desert landscape. A black starry raven on the left, a brown eagle in the center, and a white eagle on the right with a trail of red footprints leading to it.",
+  "prompt": "surreal painting of three large anthropomorphic birds standing in a barren yellow desert under a pale sky with a white sun, on the left a tall black raven covered in white starry patterns and constellations, in the middle a brown feathered eagle, on the right a white feathered eagle, red stone footprints trailing to the white bird, minimalist composition with strong shadows, painterly style",
+  "style": "surreal painting",
+  "mood": "mysterious surreal",
+  "medium": "digital painting",
+  "tags": [
+    "birds",
+    "desert",
+    "surreal",
+    "eagle",
+    "raven",
+    "symbolic"
+  ],
+  "colors": [
+    "ochre",
+    "black",
+    "brown",
+    "white"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:12Z"
 }

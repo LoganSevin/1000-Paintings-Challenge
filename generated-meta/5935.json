@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5935,
-  "name": "5935.jpg",
-  "path": "generated/5935.jpg",
-  "dir": "generated",
-  "url": "/generated/5935.jpg",
-  "bytes": 467345,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (appears 2× — ONE unified pigment spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I/III) — use this exact Orange at #F9",
-  "saved_at": "2026-09-19T05:03:01Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      102841,
-      499,
-      183
-    ]
-  }
+  "number": 5935,
+  "title": "Cosmic Ballet Dream",
+  "description": "Two ballerinas in green and pink tutus dance gracefully in a swirling cosmic vortex, one holding a broom with golden sparks. A green dragon, blue cat head, green fish, and colorful planets orbit around them on a vibrant geometric tiled floor.",
+  "prompt": "Two graceful ballerinas, one in a sparkling green tutu floating above and one in a layered pink tutu performing a split on the ground, dance together in a vibrant swirling cosmic vortex filled with stars, colorful planets, and nebulae. A small green dragon with wings sits nearby holding a glowing orb, while a blue cat head and a green fish-like creature float in the swirling orange and purple sky above. The scene is set on a colorful geometric tiled floor with intricate patterns, in a highly detailed whimsical fantasy style.",
+  "style": "surreal fantasy",
+  "mood": "whimsical magical",
+  "medium": "digital painting",
+  "tags": [
+    "ballet",
+    "cosmic",
+    "dragon",
+    "surreal",
+    "vortex",
+    "fantasy"
+  ],
+  "colors": [
+    "purple",
+    "teal",
+    "pink",
+    "orange"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:29Z"
 }

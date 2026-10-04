@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6036,
-  "name": "6036.jpg",
-  "path": "generated/6036.jpg",
-  "dir": "generated",
-  "url": "/generated/6036.jpg",
-  "bytes": 642367,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #4DDBAB — emerald (RGB 77, 219, 171; closest named color: medium aquamarine)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nPROMPT (paint this, still using only the three tones): Minimalism\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T03:11:47Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#4DDBAB",
-        "name": "emerald",
-        "nearest": "medium aquamarine",
-        "orig": "#AB4DDB",
-        "spell": 11226588,
-        "order": "GBR"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#4DDBAB",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "an owl in a moonlit tree",
-    "aspect": "9:16",
-    "spells": []
-  }
+  "number": 6036,
+  "title": "Vibrant Split Portrait",
+  "description": "A close-up digital painting of a woman's face turned slightly to the right. Her skin is rendered in bold orange and peach tones, with striking teal eyes, dark eyebrows, and glossy red lips, set against an abstract background divided into warm orange, green, and cool purple sections with visible brushstrokes.",
+  "prompt": "Close-up portrait of a beautiful woman with vibrant orange and peach skin tones, striking teal eyes with long lashes, dark defined eyebrows, and glossy bright red lips. Her face is dramatically lit and turned slightly right, set against an abstract painterly background split between warm orange and green on the left and cool purple on the right with visible expressive brushstrokes and color blocking.",
+  "style": "digital painting",
+  "mood": "bold, artistic",
+  "medium": "digital art",
+  "tags": [
+    "woman",
+    "face",
+    "colorful",
+    "abstract",
+    "digital painting",
+    "brushstrokes"
+  ],
+  "colors": [
+    "orange",
+    "purple",
+    "green",
+    "teal"
+  ],
+  "subject_type": "portrait",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:24Z"
 }

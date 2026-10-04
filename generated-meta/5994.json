@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5994,
-  "name": "5994.jpg",
-  "path": "generated/5994.jpg",
-  "dir": "generated",
-  "url": "/generated/5994.jpg",
-  "bytes": 960516,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 2× — ONE unified pigment spells I) — use this exact Red at #EF4444 a",
-  "saved_at": "2026-09-26T00:50:28Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      217,
-      717,
-      1000
-    ]
-  }
+  "number": 5994,
+  "title": "Fiery Muse Portrait",
+  "description": "A digital painting of a beautiful woman with long, flowing orange-red hair looking to the side with a contemplative expression. Her bare shoulders and chest are visible with one hand resting near her collarbone, while a small silhouette of a warrior stands on a dark boat-like form across her torso against a warm abstract background with orange paint splatters.",
+  "prompt": "A beautiful woman with long flowing vibrant orange-red hair that billows dramatically to the side, pale skin, looking contemplatively to the right with dark eyes and red lips, bare shoulders and chest visible, one hand gently touching her collarbone, a small dark silhouette of a warrior with spear standing on a wooden boat shape across her torso, abstract warm beige and orange background with paint splatters and brush strokes, artistic composition, digital painting style",
+  "style": "digital painting",
+  "mood": "ethereal dramatic",
+  "medium": "digital art",
+  "tags": [
+    "woman",
+    "red hair",
+    "silhouette",
+    "artistic",
+    "fantasy",
+    "painting"
+  ],
+  "colors": [
+    "orange",
+    "red",
+    "beige",
+    "brown"
+  ],
+  "subject_type": "portrait",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:37Z"
 }

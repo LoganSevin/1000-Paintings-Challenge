@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5995,
-  "name": "5995.jpg",
-  "path": "generated/5995.jpg",
-  "dir": "generated",
-  "url": "/generated/5995.jpg",
-  "bytes": 670454,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 2× — ONE unified pigment spells I) — use this exact Red at #EF4444 a",
-  "saved_at": "2026-09-26T00:50:45Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      217,
-      717,
-      1000
-    ]
-  }
+  "number": 5995,
+  "title": "Crimson Figure on the Edge",
+  "description": "A lone figure in a flowing red robe sits on a rocky cliff edge, gazing toward a dramatic sky filled with swirling clouds of fiery orange, yellow, and teal. The foreground shows broken stone fragments under a painterly, atmospheric glow.",
+  "prompt": "A solitary figure wearing a long flowing red robe sits on the edge of a broken rocky cliff, looking out at a vast dramatic sky filled with swirling clouds of bright orange, yellow, and teal. Painterly digital art style with visible brush strokes, atmospheric lighting, broken stone fragments in the foreground, cinematic composition, moody and contemplative atmosphere.",
+  "style": "painterly digital art",
+  "mood": "contemplative, dramatic",
+  "medium": "digital painting",
+  "tags": [
+    "solitary figure",
+    "dramatic sky",
+    "rocky cliff",
+    "fiery clouds",
+    "red robe",
+    "atmospheric"
+  ],
+  "colors": [
+    "orange",
+    "yellow",
+    "red",
+    "teal"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:38Z"
 }

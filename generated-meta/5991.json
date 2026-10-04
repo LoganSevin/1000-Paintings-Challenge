@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 5991,
-  "name": "5991.jpg",
-  "path": "generated/5991.jpg",
-  "dir": "generated",
-  "url": "/generated/5991.jpg",
-  "bytes": 377484,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #FF968A — light pink (RGB 255, 150, 138; closest named color: light salmon)\n• Tone 2: #FC961B — vivid orange (RGB 252, 150, 27; closest named color: dark orange)\n• Tone 3: #F682AD — light rose pink (RGB 246, 130, 173; closest named color: hot pink)\nSubject: anything at all — this time, a lone figure in a vast desert. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-26T00:48:19Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#FF968A",
-        "name": "light pink",
-        "nearest": "light salmon",
-        "orig": "#FF968A",
-        "spell": 16750219,
-        "order": "RGB"
-      },
-      {
-        "hex": "#FC961B",
-        "name": "vivid orange",
-        "nearest": "dark orange",
-        "orig": "#FC961B",
-        "spell": 16553500,
-        "order": "RGB"
-      },
-      {
-        "hex": "#F682AD",
-        "name": "light rose pink",
-        "nearest": "hot pink",
-        "orig": "#F682AD",
-        "spell": 16155310,
-        "order": "RGB"
-      }
-    ],
-    "palette_hex": [
-      "#FF968A",
-      "#FC961B",
-      "#F682AD"
-    ],
-    "subject": "a lone figure in a vast desert",
-    "aspect": "16:9",
-    "spells": []
-  }
+  "number": 5991,
+  "title": "Desert Wanderer",
+  "description": "A solitary figure dressed in dark clothing stands in the middle of a vast desert, holding a long staff. Footprints and scattered rocks lead toward the figure across rolling pink and orange sand dunes under a uniform pale pink sky.",
+  "prompt": "A lone traveler in dark clothes holding a tall staff stands in an endless desert of smooth rolling sand dunes in shades of pink and orange. A trail of footprints and dark rocks leads to the figure across the sand. Vast pale pink sky fills the upper half of the composition, minimalist surreal scene, cinematic composition, soft atmospheric lighting",
+  "style": "surreal landscape",
+  "mood": "lonely serene",
+  "medium": "digital painting",
+  "tags": [
+    "desert",
+    "wanderer",
+    "sand dunes",
+    "minimalist",
+    "surreal",
+    "footprints"
+  ],
+  "colors": [
+    "pink",
+    "orange",
+    "peach",
+    "dark gray"
+  ],
+  "subject_type": "scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:34Z"
 }

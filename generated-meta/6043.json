@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6043,
-  "name": "6043.jpg",
-  "path": "generated/6043.jpg",
-  "dir": "generated",
-  "url": "/generated/6043.jpg",
-  "bytes": 760141,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #4DDBAB — emerald (RGB 77, 219, 171; closest named color: medium aquamarine)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nPROMPT (paint this, still using only the three tones): Abstract Painting\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T04:22:50Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#4DDBAB",
-        "name": "emerald",
-        "nearest": "medium aquamarine",
-        "orig": "#AB4DDB",
-        "spell": 11226588,
-        "order": "GBR"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#4DDBAB",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "a musician playing on a rooftop",
-    "aspect": "9:16",
-    "spells": []
-  }
+  "number": 6043,
+  "title": "Abstract Color Blocks",
+  "description": "An abstract painting featuring large, overlapping blocks and vertical brushstrokes of vibrant color. The composition blends teal, emerald green, deep purple, orange, and lavender with visible texture and paint drips.",
+  "prompt": "abstract painting with bold vertical and horizontal brushstrokes forming overlapping color blocks, featuring vibrant teal, emerald green, deep purple, bright orange, and soft lavender hues with visible texture, paint drips, and splatters on canvas, dynamic composition with strong color contrasts and expressive mark making",
+  "style": "abstract expressionism",
+  "mood": "vibrant energetic",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "abstract",
+    "color field",
+    "brushstrokes",
+    "drips",
+    "modern",
+    "vibrant"
+  ],
+  "colors": [
+    "teal",
+    "purple",
+    "orange",
+    "emerald"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:32Z"
 }

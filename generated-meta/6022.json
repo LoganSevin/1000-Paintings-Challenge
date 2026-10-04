@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6022,
-  "name": "6022.jpg",
-  "path": "generated/6022.jpg",
-  "dir": "generated",
-  "url": "/generated/6022.jpg",
-  "bytes": 732066,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #5EAB12 — chartreuse green (RGB 94, 171, 18; closest named color: olive drab)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nPROMPT (paint this, still using only the three tones): Dog on a bicycle\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T02:32:29Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#5EAB12",
-        "name": "chartreuse green",
-        "nearest": "olive drab",
-        "orig": "#AB5E12",
-        "spell": 11230739,
-        "order": "GRB"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#5EAB12",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "an underwater world",
-    "aspect": "9:16",
-    "spells": []
-  }
+  "number": 6022,
+  "title": "Dog Riding Bicycle",
+  "description": "A tan and white dog with a black nose sits upright on a bicycle, gripping the chrome handlebars with both front paws while looking off to the left. The realistic digital painting shows the dog positioned on the bike's seat against a simple gradient background with subtle paint splatter effects.",
+  "prompt": "A realistic digital painting of a tan and white pit bull type dog sitting upright on a vintage bicycle, gripping the chrome handlebars with both front paws, looking attentively to the left with a focused expression, detailed fur and realistic lighting, simple gradient background with subtle paint texture, high detail, studio lighting",
+  "style": "realistic digital painting",
+  "mood": "curious, playful",
+  "medium": "digital painting",
+  "tags": [
+    "dog",
+    "bicycle",
+    "anthropomorphic",
+    "realistic",
+    "portrait",
+    "animal"
+  ],
+  "colors": [
+    "tan",
+    "white",
+    "brown",
+    "silver"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:07Z"
 }

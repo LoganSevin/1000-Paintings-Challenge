@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 5957,
-  "name": "5957.jpg",
-  "path": "generated/5957.jpg",
-  "dir": "generated",
-  "url": "/generated/5957.jpg",
-  "bytes": 381387,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400017) ──\nVoisin\n\n── INFLUENCE II (motif DNA only · ref #400018) ──\nSevin\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, not a grid, not a stacked photo-fusion of the source works.\nStyle DNA (interpret freely,",
-  "saved_at": "2026-09-19T06:38:03Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400017,
-      400018
-    ]
-  }
+  "number": 5957,
+  "title": "Weaver of Shadows",
+  "description": "A hooded figure kneels before a large wooden loom inside a gothic hall, weaving threads that form a glowing, fiery oval portal. On the stone floor in the foreground sits an hourglass, a butterfly on a wreath, an overturned bucket spilling red liquid, and a scroll with intricate patterns resting on the loom's base.",
+  "prompt": "A hooded figure in dark robes with glowing red patterns kneels before an enormous wooden loom inside a gothic cathedral hall with arched stained glass windows, weaving bright threads that create a fiery glowing oval portal in the air, sparks flying, a large ominous shadow of a horned figure cast on the wall behind, on the stone floor in front an hourglass, a white butterfly on a wreath with candles, an overturned metal bucket spilling red liquid, a scroll with arcane symbols on the loom, atmospheric dark fantasy scene, cinematic lighting, purple and blue tones with orange accents",
+  "style": "dark fantasy",
+  "mood": "mysterious ominous",
+  "medium": "digital painting",
+  "tags": [
+    "loom",
+    "hooded figure",
+    "gothic architecture",
+    "portal",
+    "magic",
+    "dark fantasy"
+  ],
+  "colors": [
+    "purple",
+    "blue",
+    "orange",
+    "red"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:58Z"
 }

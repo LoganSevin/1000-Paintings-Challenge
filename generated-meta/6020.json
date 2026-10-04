@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6020,
-  "name": "6020.jpg",
-  "path": "generated/6020.jpg",
-  "dir": "generated",
-  "url": "/generated/6020.jpg",
-  "bytes": 1028809,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #5EAB12 — chartreuse green (RGB 94, 171, 18; closest named color: olive drab)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nSubject: anything at all — this time, a knight facing a dragon. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T01:55:52Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#5EAB12",
-        "name": "chartreuse green",
-        "nearest": "olive drab",
-        "orig": "#AB5E12",
-        "spell": 11230739,
-        "order": "GRB"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#5EAB12",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "a knight facing a dragon",
-    "aspect": "1:1",
-    "spells": []
-  }
+  "number": 6020,
+  "title": "Knight Facing Dragon",
+  "description": "A knight in full silver armor with a flowing red cape stands on the left, holding a longsword pointed directly into the open mouth of a large purple dragon. The dragon, with orange accents and sharp spines, leans down from the right, its jaws wide around the blade. The background is a vibrant abstract mix of yellow, orange, and purple with paint splatter effects.",
+  "prompt": "A knight in shining silver plate armor and a long red cape stands facing a massive purple dragon with orange highlights. The knight holds a longsword straight into the dragon's open mouth. The dragon leans down aggressively with sharp teeth and spines visible. Dramatic abstract background with yellow, orange and purple paint splatters and brush strokes, dynamic fantasy composition, digital painting style",
+  "style": "digital fantasy illustration",
+  "mood": "epic confrontation",
+  "medium": "digital painting",
+  "tags": [
+    "knight",
+    "dragon",
+    "fantasy",
+    "sword",
+    "confrontation",
+    "armor"
+  ],
+  "colors": [
+    "purple",
+    "yellow",
+    "orange",
+    "silver"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:05Z"
 }

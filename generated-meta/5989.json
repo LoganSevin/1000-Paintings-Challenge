@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5989,
-  "name": "5989.jpg",
-  "path": "generated/5989.jpg",
-  "dir": "generated",
-  "url": "/generated/5989.jpg",
-  "bytes": 222080,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells II) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • White (#F8FAFC) (from spells II) — use this exact White at #F8FAFC as a major visible pigment (s",
-  "saved_at": "2026-09-25T07:58:02Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400033,
-      672,
-      19
-    ]
-  }
+  "number": 5989,
+  "title": "Vibrant Abstract Landscape",
+  "description": "A colorful surreal landscape painting featuring rolling green and yellow hills, stylized trees with rounded colorful foliage, and a bright winding path. Three horizontal white bars with circular cutouts overlay the center of the composition like a graphic interface element.",
+  "prompt": "A vibrant surreal landscape with rolling green and yellow hills, stylized trees with rounded colorful foliage in pink, purple, and blue, and a winding yellow path under a bright sky. The scene has a painterly style with soft blended forms and bold color blocking, overlaid with three horizontal white bars containing circular cutouts in the center like a graphic interface element.",
+  "style": "surreal digital art",
+  "mood": "whimsical vibrant",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "colorful",
+    "landscape",
+    "abstract",
+    "nature",
+    "graphic"
+  ],
+  "colors": [
+    "green",
+    "yellow",
+    "pink",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:33Z"
 }

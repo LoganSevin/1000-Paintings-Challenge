@@ -1,18 +1,26 @@
 {
-  "ok": true,
-  "num": 6011,
-  "name": "6011.jpg",
-  "path": "generated/6011.jpg",
-  "dir": "generated",
-  "url": "/generated/6011.jpg",
-  "bytes": 949852,
-  "source": "az",
-  "description": "0-Z standalone · Roadside Pickup.",
-  "saved_at": "2026-09-26T01:25:36Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Roadside Pickup.",
-    "seed": "Roadside Pickup."
-  }
+  "number": 6011,
+  "title": "Rolling Countryside Landscape",
+  "description": "A vibrant stylized landscape depicts rolling green hills in the foreground, bright yellow fields, a winding blue river, and distant blue mountains under a pale sky. The scene is rendered with bold black outlines and flat areas of color in a graphic illustration style.",
+  "prompt": "Stylized graphic landscape with rolling green hills in foreground, bright yellow agricultural fields, a winding blue river cutting through the middle ground, scattered dark trees and hedgerows, and distant layered blue mountains under a pale sky, rendered with bold black outlines and flat vibrant color fields in a modern illustrative style",
+  "style": "graphic illustration",
+  "mood": "serene vibrant",
+  "medium": "digital painting",
+  "tags": [
+    "landscape",
+    "countryside",
+    "hills",
+    "river",
+    "fields",
+    "mountains"
+  ],
+  "colors": [
+    "green",
+    "yellow",
+    "blue",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:57Z"
 }

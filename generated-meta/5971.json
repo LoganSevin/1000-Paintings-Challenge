@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5971,
-  "name": "5971.jpg",
-  "path": "generated/5971.jpg",
-  "dir": "generated",
-  "url": "/generated/5971.jpg",
-  "bytes": 429472,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Mustard (#EEC75D) (from spells I) — use this exact Mustard at #EEC75D as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Lemon (#DDD95F) (from spells II) — use this exact Lemon at #DDD95F as a major visible pigment (saturated, not a shy t",
-  "saved_at": "2026-09-19T07:00:49Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400021,
-      400020,
-      400019
-    ]
-  }
+  "number": 5971,
+  "title": "Golden Trinity in Alchemy",
+  "description": "A surreal painting depicts a three-headed golden figure with multiple arms, covered in text and symbols, seated in a large copper basin filled with molten gold that drips everywhere. The scene is set inside a stone chamber with walls covered in glowing alchemical and esoteric symbols, a skylight above casting radiant beams, and scattered papers on the floor.",
+  "prompt": "A surreal alchemical scene inside a stone vaulted chamber with walls covered in glowing red and yellow esoteric runes and symbols. At the center, a three-headed golden humanoid figure with multiple arms sits in a large copper basin overflowing with molten glowing gold that drips down the sides and onto the floor. The figure is covered in intricate text and symbols, holding a quill pen in one hand and a book in another, with radiant light beams shining down from a stained glass skylight above. Scattered papers with writing lie on the floor around the basin, dramatic golden hour lighting, highly detailed symbolic painting.",
+  "style": "surreal symbolic",
+  "mood": "mystical esoteric",
+  "medium": "digital painting",
+  "tags": [
+    "alchemical",
+    "trinity",
+    "golden figure",
+    "occult symbols",
+    "molten gold",
+    "three-headed"
+  ],
+  "colors": [
+    "gold",
+    "copper",
+    "yellow",
+    "brown"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:15Z"
 }

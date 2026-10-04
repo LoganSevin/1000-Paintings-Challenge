@@ -1,18 +1,25 @@
 {
-  "ok": true,
-  "num": 6019,
-  "name": "6019.jpg",
-  "path": "generated/6019.jpg",
-  "dir": "generated",
-  "url": "/generated/6019.jpg",
-  "bytes": 663359,
-  "source": "az",
-  "description": "0-Z standalone · Pigeon Forge",
-  "saved_at": "2026-09-28T01:51:03Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Pigeon Forge",
-    "seed": "Pigeon Forge"
-  }
+  "number": 6019,
+  "title": "Desert Landscape Painting",
+  "description": "A minimalist black and white landscape painting featuring a rugged mountain range in the background and a foreground desert plain dotted with yucca and desert shrubs. The upper portion of the canvas shows thick, textured white brushstrokes representing a bright sky.",
+  "prompt": "Minimalist black and white desert landscape painting with a rugged mountain range across the horizon and a foreground plain filled with scattered yucca plants and desert shrubs. The sky is rendered with thick expressive white brushstrokes on a white canvas, creating strong contrast between the bold black ink-like forms of the terrain and the textured sky, in a raw expressive style with visible brushwork.",
+  "style": "minimalist expressionism",
+  "mood": "serene stark",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "landscape",
+    "desert",
+    "mountains",
+    "monochrome",
+    "brushstrokes",
+    "yucca"
+  ],
+  "colors": [
+    "black",
+    "white",
+    "gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:04Z"
 }

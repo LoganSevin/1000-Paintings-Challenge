@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5973,
-  "name": "5973.jpg",
-  "path": "generated/5973.jpg",
-  "dir": "generated",
-  "url": "/generated/5973.jpg",
-  "bytes": 432411,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Mustard (#EEC75D) (from spells I) — use this exact Mustard at #EEC75D as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Lemon (#DDD95F) (from spells II) — use this exact Lemon at #DDD95F as a major visible pigment (saturated, not a shy t",
-  "saved_at": "2026-09-19T07:02:24Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400021,
-      400020,
-      400019
-    ]
-  }
+  "number": 5973,
+  "title": "Forging the Spell",
+  "description": "A surreal steampunk scene shows a mechanical dragon-like creature with bat wings perched on an anvil, its mouth open as it extrudes long strands of yellow pasta. Various tools including a hammer, chisel, and tongs float around it against cracked yellow walls with floating text and numbers.",
+  "prompt": "surreal fantasy scene of a mechanical dragon with large bat-like wings and engraved copper body perched on a blacksmith anvil, its mouth open vomiting long strands of yellow spaghetti that pool on the floor, floating hammer chisel and tongs around it, cracked yellow plaster walls covered in floating random text numbers and symbols, warm golden lighting, whimsical and bizarre atmosphere",
+  "style": "surreal painting",
+  "mood": "whimsical chaotic",
+  "medium": "digital painting",
+  "tags": [
+    "steampunk",
+    "surreal",
+    "dragon",
+    "anvil",
+    "pasta",
+    "fantasy"
+  ],
+  "colors": [
+    "yellow",
+    "brown",
+    "copper",
+    "gold"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:17Z"
 }

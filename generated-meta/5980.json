@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5980,
-  "name": "5980.jpg",
-  "path": "generated/5980.jpg",
-  "dir": "generated",
-  "url": "/generated/5980.jpg",
-  "bytes": 382786,
-  "source": "spellforge",
-  "description": "Mathematics",
-  "saved_at": "2026-09-19T07:35:31Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5980,
+  "title": "Weaving Digital Destiny",
+  "description": "A surreal scene shows a human hand on the left holding a digital pen, interacting with an ornate mechanical loom that weaves a glowing golden infinity symbol. Ancient scrolls unfurl from the loom, dripping molten gold into a reflective pool below, while floating geometric polyhedra and ethereal smoke appear in the dark cosmic background.",
+  "prompt": "A surreal cosmic scene featuring a human hand from the left holding a glowing digital pen, touching an intricate mechanical loom that is actively weaving a bright golden infinity symbol on a loom. Ancient parchment scrolls unroll from the device, dripping liquid gold downwards into a circular reflective pool of molten gold below. Floating transparent geometric polyhedra and ethereal smoke drift in the dark swirling nebula background with purple and blue tones.",
+  "style": "surreal digital painting",
+  "mood": "mystical ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "loom",
+    "infinity",
+    "golden",
+    "scrolls",
+    "polyhedra"
+  ],
+  "colors": [
+    "deep blue",
+    "gold",
+    "purple",
+    "bronze"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:24Z"
 }

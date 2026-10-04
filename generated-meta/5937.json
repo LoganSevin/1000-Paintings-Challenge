@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5937,
-  "name": "5937.jpg",
-  "path": "generated/5937.jpg",
-  "dir": "generated",
-  "url": "/generated/5937.jpg",
-  "bytes": 453326,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (appears 2× — ONE unified pigment spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Orange (#F97316) (appears 2× — ONE unified pigment spells I) — use this exact Orange at #F97316",
-  "saved_at": "2026-09-19T05:06:01Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      102841,
-      101454,
-      100681
-    ]
-  }
+  "number": 5937,
+  "title": "Grim Reaper on Pier",
+  "description": "A skeletal Grim Reaper in a purple robe stands on a wooden pier over colorful swirling water, holding a bloody handgun in one hand and a large ornate clock in the other. The surreal sky features a blue dragon, a scythe-wielding grim reaper silhouette, a green skeleton elephant on a broomstick, multiple hot air balloons, and traditional East Asian buildings floating in the water below.",
+  "prompt": "A skeletal Grim Reaper wearing a flowing purple robe stands on a wooden pier over swirling colorful water, holding a handgun with red blood dripping from it in one hand and a large ornate green and gold clock in the other. In the chaotic sky above, a large blue and orange dragon flies, a green skeleton elephant rides a broomstick, multiple hot air balloons float, and a large grim reaper silhouette with a scythe looms in the clouds. Traditional East Asian pagoda-style buildings float in the water, with vibrant colors, swirling patterns and a dreamlike surreal atmosphere.",
+  "style": "surreal fantasy",
+  "mood": "chaotic surreal",
+  "medium": "digital painting",
+  "tags": [
+    "grim reaper",
+    "surreal",
+    "dragon",
+    "skeleton",
+    "fantasy",
+    "clock"
+  ],
+  "colors": [
+    "blue",
+    "purple",
+    "red",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:31Z"
 }

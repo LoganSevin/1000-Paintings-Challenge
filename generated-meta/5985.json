@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5985,
-  "name": "5985.jpg",
-  "path": "generated/5985.jpg",
-  "dir": "generated",
-  "url": "/generated/5985.jpg",
-  "bytes": 401959,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\nMath\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\nMath\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\nMath\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, not a grid, not a stacked photo-fu",
-  "saved_at": "2026-09-19T09:57:36Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5985,
+  "title": "Abacus and Scroll Machine",
+  "description": "A girl with a long braid stands in a mystical room, holding an abacus while reaching toward a large mechanical device with gears that is unspooling a long scroll filled with equations. The walls and floor are covered in mathematical formulas, with an open book, candle, and scattered papers in the foreground and rows of small machines visible in the background.",
+  "prompt": "A young girl with a long dark braid wearing a patterned robe stands in a purple mystical room filled with mathematical equations covering the walls and floor, she holds an abacus in one hand while reaching toward an ornate mechanical device with large gears that is unspooling a long golden scroll covered in complex formulas and equations, foreground shows an open book, lit candle, and scattered papers, background has rows of small similar machines, dramatic beams of light, ethereal atmosphere, detailed digital painting",
+  "style": "surreal fantasy illustration",
+  "mood": "mysterious ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "mathematics",
+    "steampunk",
+    "mystical",
+    "scroll",
+    "abacus",
+    "equations"
+  ],
+  "colors": [
+    "purple",
+    "gold",
+    "blue",
+    "beige"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:29Z"
 }

@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6044,
-  "name": "6044.jpg",
-  "path": "generated/6044.jpg",
-  "dir": "generated",
-  "url": "/generated/6044.jpg",
-  "bytes": 734331,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #4D58AB — muted blue (RGB 77, 88, 171; closest named color: slate blue)\n• Tone 2: #391BAD — ultramarine (RGB 57, 27, 173; closest named color: rebecca purple)\n• Tone 3: #ECAE39 — orange (RGB 236, 174, 57; closest named color: goldenrod)\nPROMPT (paint this, still using only the three tones): Facing the Music\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T04:24:28Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#4D58AB",
-        "name": "muted blue",
-        "nearest": "slate blue",
-        "orig": "#AB4D58",
-        "spell": 11226457,
-        "order": "GBR"
-      },
-      {
-        "hex": "#391BAD",
-        "name": "ultramarine",
-        "nearest": "rebecca purple",
-        "orig": "#AD391B",
-        "spell": 11352348,
-        "order": "GBR"
-      },
-      {
-        "hex": "#ECAE39",
-        "name": "orange",
-        "nearest": "goldenrod",
-        "orig": "#AE39EC",
-        "spell": 11418093,
-        "order": "BRG"
-      }
-    ],
-    "palette_hex": [
-      "#4D58AB",
-      "#391BAD",
-      "#ECAE39"
-    ],
-    "subject": "a coral reef teeming with life",
-    "aspect": "16:9",
-    "spells": []
-  }
+  "number": 6044,
+  "title": "Vibrant Abstract Landscape",
+  "description": "An expressive abstract landscape painting featuring a body of reflective water in the foreground with orange and yellow vegetation. Bold orange mountains rise against a dynamic sky of layered blue, white, and peach tones with visible brushstrokes and paint splatters.",
+  "prompt": "abstract expressionist landscape painting with bold orange mountains and hills under a dynamic sky of layered blues, whites, and peach tones. A reflective body of water in the foreground shows blue and orange reflections, with bright yellow and orange vegetation along the banks. Visible energetic brushstrokes, paint splatters, and textured impasto details throughout the composition in a vibrant modern style.",
+  "style": "abstract expressionism",
+  "mood": "vibrant energetic",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "landscape",
+    "abstract",
+    "colorful",
+    "impasto",
+    "water",
+    "mountains"
+  ],
+  "colors": [
+    "orange",
+    "blue",
+    "white",
+    "peach"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:32Z"
 }

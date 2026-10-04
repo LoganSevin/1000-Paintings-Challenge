@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6058,
-  "name": "6058.jpg",
-  "path": "generated/6058.jpg",
-  "dir": "generated",
-  "url": "/generated/6058.jpg",
-  "bytes": 286830,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Bugs Bunny (#400039)\nBugs Bunny & Jax from The Amazing Digital Circus\n\nSPELL II — Loony Toons (#400040)\nLoony Toons\n\nSPELL III — Jax; The Amazing Digital Circus (#400042)\nJax; The Amazing Digital Circus\n\nFUSION: one canvas, three identities still countable. Spell I remains Spell I. Spell II remains Spell II. Spell III remains Spell III.\nStyle DNA (interpret freely, invent the scene): text note.\nMotif tags (not a checklist of the original paint",
-  "saved_at": "2026-10-02T11:50:47Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400039,
-      400040,
-      400042
-    ]
-  }
+  "number": 6058,
+  "title": "Bugs Bunny Spell Tonex",
+  "description": "Bugs Bunny stands center stage behind a red round table with a lit candle, smiling widely with arms outstretched. He is surrounded by a chaotic crowd of cartoon characters including a man in a teal jacket, a yellow creature with a top hat playing a flute, a white mouse, a blue bird, and various others looking up at him, set against a glowing blue cityscape under a large golden sun with the text SPELL TONEX above.",
+  "prompt": "A vibrant cartoon scene featuring Bugs Bunny standing triumphantly behind a red round table with a single lit candle, arms outstretched and smiling, surrounded by a dense excited crowd of various cartoon animals and people including a man in a teal jacket, a yellow monster with a top hat playing a flute-like instrument, a white mouse, and a blue bird, all looking up at him, set in a glowing futuristic blue cityscape with dramatic light rays from a large golden sun in the sky, text SPELL TONEX floating above, dynamic composition, detailed and colorful digital illustration style",
+  "style": "digital illustration",
+  "mood": "festive chaotic",
+  "medium": "digital painting",
+  "tags": [
+    "Bugs Bunny",
+    "cartoon characters",
+    "crowd scene",
+    "candle ritual",
+    "cityscape",
+    "Looney Tunes"
+  ],
+  "colors": [
+    "blue",
+    "red",
+    "yellow",
+    "orange"
+  ],
+  "subject_type": "scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:53Z"
 }

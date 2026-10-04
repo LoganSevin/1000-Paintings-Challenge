@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5982,
-  "name": "5982.jpg",
-  "path": "generated/5982.jpg",
-  "dir": "generated",
-  "url": "/generated/5982.jpg",
-  "bytes": 370470,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\nMath\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\nMath\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\nMath\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, not a grid, not a stacked photo-fu",
-  "saved_at": "2026-09-19T07:40:53Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5982,
+  "title": "Astronomer with Celestial Globe",
+  "description": "A woman in a striped dress sits on a wooden stool with her back to the viewer, writing with a quill in an open book resting on a large ornate armillary sphere. The sphere has golden rings with inscriptions and a blue rod, with torn pages and red ink spilling from the book.",
+  "prompt": "A woman with her back to the viewer wearing a striped blue-grey dress sits on a wooden stool writing with a red quill in an open book placed on a large ornate golden armillary sphere with inscribed rings and a blue rod. Torn pages with writing and red ink are spilling from the book. Behind her is a large arched stained glass window showing constellations against a twilight sky, dramatic swirling clouds frame the scene in a detailed fantasy painting style",
+  "style": "fantasy painting",
+  "mood": "mysterious, celestial",
+  "medium": "oil on canvas",
+  "tags": [
+    "armillary sphere",
+    "woman writing",
+    "stained glass",
+    "constellations",
+    "fantasy",
+    "astronomy"
+  ],
+  "colors": [
+    "deep blue",
+    "gold",
+    "crimson",
+    "earthy brown"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:26Z"
 }

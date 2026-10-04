@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6042,
-  "name": "6042.jpg",
-  "path": "generated/6042.jpg",
-  "dir": "generated",
-  "url": "/generated/6042.jpg",
-  "bytes": 299594,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Silver (#C0C0C0); Ash (#B2BEB5); Apricot (#FBCEB1); Coffee (#6F4E37); Pink (#FF4FA3); Yellow (#FACC15); Blue (#2563EB). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Silver and Ash Terminal with apricot tex… (#400037)\nSilver and Ash Terminal with apricot text and a clear coffee monitor.\n\nSPELL III — Abstract Geometric Pastel Composition (#585)\nAbstract Geometric Pastel Composition\n\nThi",
-  "saved_at": "2026-09-28T04:10:29Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400037,
-      585
-    ]
-  }
+  "number": 6042,
+  "title": "Geometric Abstract Painting",
+  "description": "An abstract geometric painting featuring overlapping translucent diamonds and polygons in pastel colors. The composition includes the letters P, L, and I integrated into the shapes above a dark horizontal band with reflections below.",
+  "prompt": "abstract geometric painting with overlapping translucent diamonds and polygons in soft pink, yellow, orange and teal tones, the letters P L and I incorporated into the composition, dark horizontal band across the middle with reflections below, minimalist modern art style on canvas with visible texture",
+  "style": "abstract geometric",
+  "mood": "serene minimalist",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "geometric",
+    "abstract",
+    "overlapping shapes",
+    "translucent",
+    "pastel colors",
+    "lettering"
+  ],
+  "colors": [
+    "pink",
+    "yellow",
+    "orange",
+    "teal"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:29Z"
 }

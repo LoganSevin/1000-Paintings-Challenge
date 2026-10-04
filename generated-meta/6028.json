@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6028,
-  "name": "6028.jpg",
-  "path": "generated/6028.jpg",
-  "dir": "generated",
-  "url": "/generated/6028.jpg",
-  "bytes": 557790,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Apricot (#CAA979); Coffee (#987962); Silver (#C0B6AB); Ash (#9B9AA1). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — black Terminal with Green text (#400034)\nApricot (#CAA979) Terminal with Coffee (#987962) text\n\nSPELL II — Paper Shadow Black Terminal with Green T… (#400035)\nPaper Shadow Apricot (#CCBCAB) Terminal Frame with Silver (#C0B6AB) Text on a Ash (#9B9AA1) Screen.\n\nSPELL III — ",
-  "saved_at": "2026-09-28T02:42:49Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400034,
-      400035,
-      400036
-    ]
-  }
+  "number": 6028,
+  "title": "Spell Coffee Spiller",
+  "description": "Three black crow-like figures stand in a barren landscape. The left crow has 'Spell' written in green on its chest, the middle has 'Coffee' in white, and the right crow is framed in an orange picture frame with 'Spiller' written in white.",
+  "prompt": "Surreal painting of three black crow-like birds standing in a desolate field with scattered flowers under a peach colored sky. The left bird has the word 'Spell' in green on its chest, the center bird has 'Coffee' in white, and the right bird stands inside a bright orange picture frame with the word 'Spiller' in white across its body. Signed 2019.",
+  "style": "surreal painting",
+  "mood": "whimsical eerie",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "crows",
+    "surreal",
+    "text art",
+    "pun",
+    "orange frame",
+    "whimsical"
+  ],
+  "colors": [
+    "black",
+    "orange",
+    "peach",
+    "white"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:15Z"
 }

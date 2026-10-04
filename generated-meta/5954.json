@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5954,
-  "name": "5954.jpg",
-  "path": "generated/5954.jpg",
-  "dir": "generated",
-  "url": "/generated/5954.jpg",
-  "bytes": 294120,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT MAN\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT WOMAN\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat atmospheric camera angle.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coher",
-  "saved_at": "2026-09-19T06:28:08Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5954,
+  "title": "Poolside Plunge",
+  "description": "Two overweight people, a man and a woman, are captured mid-jump into a glowing swimming pool at night. The man wears blue swim trunks while the woman wears a dark purple one-piece swimsuit, both surrounded by ripples, steam, and colorful neon reflections on the water.",
+  "prompt": "Two overweight people, a man with a large belly in blue swim trunks and a woman with braided hair in a dark purple one-piece swimsuit, jumping together into a glowing swimming pool at night, surrounded by steam and colorful neon pink, green and cyan light reflections on the rippling water surface, their reflections visible below, diving board above, dark night background with a red sign, realistic painting style",
+  "style": "realistic digital painting",
+  "mood": "playful surreal",
+  "medium": "digital art",
+  "tags": [
+    "swimming pool",
+    "overweight couple",
+    "night scene",
+    "neon glow",
+    "water reflection",
+    "diving"
+  ],
+  "colors": [
+    "cyan",
+    "magenta",
+    "purple",
+    "yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:54Z"
 }

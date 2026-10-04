@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6025,
-  "name": "6025.jpg",
-  "path": "generated/6025.jpg",
-  "dir": "generated",
-  "url": "/generated/6025.jpg",
-  "bytes": 981654,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Black (#0A0A0C); Green (#16A34A); Yellow (#FACC15); Lime (#84CC16); Purple (#A855F7); Pink (#FF4FA3). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — black Terminal with Green text (#400034)\nblack Terminal with Green text\n\nSPELL III — Vibrant Green Labrador Portrait (#380)\nVibrant Green Labrador Portrait\n\nA stylized close-up portrait of a yellow Labrador rendered in bold lime green hues.",
-  "saved_at": "2026-09-28T02:39:42Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400034,
-      380
-    ]
-  }
+  "number": 6025,
+  "title": "Yellow Labrador in Purple Flowers",
+  "description": "A close-up portrait of a vibrant yellow Labrador retriever with glossy fur, brown eyes, and a black nose, positioned centrally against a dense background of purple flowers including roses and blossoms.",
+  "prompt": "close-up portrait of a vibrant yellow Labrador retriever with glossy textured fur, warm brown eyes, black nose and mouth, floppy ears, looking slightly to the side, set against a lush dense background of various purple flowers including roses and blossoms filling the entire frame, highly detailed fur and petals, vibrant saturated colors, smooth digital painting style",
+  "style": "digital painting",
+  "mood": "vibrant, striking",
+  "medium": "digital art",
+  "tags": [
+    "labrador",
+    "dog portrait",
+    "purple flowers",
+    "vivid colors",
+    "floral background",
+    "digital artwork"
+  ],
+  "colors": [
+    "yellow",
+    "purple",
+    "black",
+    "green"
+  ],
+  "subject_type": "portrait",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:09Z"
 }

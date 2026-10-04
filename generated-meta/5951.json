@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5951,
-  "name": "5951.jpg",
-  "path": "generated/5951.jpg",
-  "dir": "generated",
-  "url": "/generated/5951.jpg",
-  "bytes": 313945,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:20:26Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5951,
+  "title": "Diver at Cosmic Pool",
+  "description": "An overweight woman in a purple swimsuit and red swim cap sits on the edge of a high diving board, looking down into an indoor swimming pool. The pool water features a swirling cosmic vortex with a silhouetted diver at its glowing center, surrounded by colorful nebulae patterns under a purple-lit skylight.",
+  "prompt": "An overweight middle-aged woman wearing a purple one-piece swimsuit and red swim cap sits on the edge of a weathered high diving board in an old indoor swimming pool facility, looking down into the water with a focused expression, her body positioned to dive, below her the pool water transforms into a swirling cosmic vortex with a silhouetted diver falling into a bright central light surrounded by colorful purple blue and green nebula-like patterns, Olympic rings visible on the tiled wall, purple light streaming from a glass skylight above, realistic yet surreal digital painting style",
+  "style": "surreal painting",
+  "mood": "surreal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "swimming pool",
+    "diving board",
+    "cosmic vortex",
+    "overweight woman",
+    "surreal scene",
+    "indoor pool"
+  ],
+  "colors": [
+    "purple",
+    "teal",
+    "blue",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:51Z"
 }

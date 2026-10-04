@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6008,
-  "name": "6008.jpg",
-  "path": "generated/6008.jpg",
-  "dir": "generated",
-  "url": "/generated/6008.jpg",
-  "bytes": 1001355,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (from spells II) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not r",
-  "saved_at": "2026-09-26T01:16:53Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      40,
-      579,
-      476
-    ]
-  }
+  "number": 6008,
+  "title": "Blue Poppies in Swirls",
+  "description": "An abstract painting featuring large, bold blue circular flower forms with visible brushstrokes and green stems. The vibrant background consists of overlapping swirling patterns in yellow, orange, red, and pink, accented with smaller blue dots and circles.",
+  "prompt": "Abstract painting with large expressive blue circular flowers and green stems, set against a dynamic background of swirling yellow, orange, red and pink brushstrokes. Bold visible impasto texture, smaller blue dots and circles scattered throughout the composition, vibrant and energetic color palette with strong contrast between the deep blue floral forms and the warm background swirls.",
+  "style": "abstract expressionism",
+  "mood": "vibrant energetic",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "floral",
+    "abstract",
+    "swirls",
+    "colorful",
+    "poppies",
+    "bold"
+  ],
+  "colors": [
+    "blue",
+    "yellow",
+    "orange",
+    "red"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:55Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5970,
-  "name": "5970.jpg",
-  "path": "generated/5970.jpg",
-  "dir": "generated",
-  "url": "/generated/5970.jpg",
-  "bytes": 433487,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Mustard (#EEC75D) (from spells I) — use this exact Mustard at #EEC75D as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Lemon (#DDD95F) (from spells II) — use this exact Lemon at #DDD95F as a major visible pigment (saturated, not a shy t",
-  "saved_at": "2026-09-19T06:57:55Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400021,
-      400020,
-      400019
-    ]
-  }
+  "number": 5970,
+  "title": "Stasis Ritual",
+  "description": "Three golden humanoid figures sit in a decaying room. The central male figure holds an open book labeled STASIS while yellow liquid drips from his chest; he is flanked by two females, one with wild hair throwing glowing yellow particles and another with a long braid and circular patterns on her back.",
+  "prompt": "Three golden humanoid figures in a decaying derelict room with peeling walls covered in handwritten notes. A central male figure with short hair holds an open book labeled STASIS, yellow liquid dripping from wounds on his chest and neck. To his left a female figure with wild flowing hair throws glowing yellow particles from her raised hand, wearing a golden cape. To his right a female figure with a long thick braid down her back has circular symbols on her skin and touches his shoulder. All three sit in a pool of glowing yellow substance on the floor surrounded by scattered papers, dramatic cinematic lighting with strong yellow highlights and dark shadows.",
+  "style": "surreal painting",
+  "mood": "eerie mystical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "ritual",
+    "golden figures",
+    "decaying room",
+    "book",
+    "yellow liquid"
+  ],
+  "colors": [
+    "gold",
+    "yellow",
+    "brown",
+    "purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:13Z"
 }

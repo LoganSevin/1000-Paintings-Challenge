@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6049,
-  "name": "6049.jpg",
-  "path": "generated/6049.jpg",
-  "dir": "generated",
-  "url": "/generated/6049.jpg",
-  "bytes": 936150,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Yellow (#FACC15); Orange (#F97316); Green (#16A34A). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Vibrant Mediterranean Courtyard (#957)\nVibrant Mediterranean Courtyard\n\nA sunlit alleyway between warm yellow and orange buildings features stone steps, potted flowers, and hanging plants. The scene is bathed in bright daylight with colorful shadows on the cobblestone ground.\n\nStyle: Impr",
-  "saved_at": "2026-09-30T04:21:32Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      957,
-      871,
-      392
-    ]
-  }
+  "number": 6049,
+  "title": "Colorful Mediterranean Alley",
+  "description": "A narrow sunlit alleyway with vibrant yellow and orange buildings lines a steep stone staircase under a clear blue sky. The cobblestone path and steps are adorned with numerous potted plants and flowers in terracotta pots.",
+  "prompt": "A narrow European alley with bright yellow and orange stucco buildings on both sides, featuring a steep stone staircase leading up between them under a clear blue sky. The colorful cobblestone path at the bottom is lined with many terracotta pots containing green plants and vibrant pink, purple, and yellow flowers. Sunlight casts strong shadows across the scene, with hanging flower baskets on the walls and green shutters on the windows.",
+  "style": "photorealistic digital art",
+  "mood": "vibrant sunny",
+  "medium": "digital painting",
+  "tags": [
+    "alleyway",
+    "staircase",
+    "Mediterranean",
+    "colorful buildings",
+    "potted plants",
+    "sunlight"
+  ],
+  "colors": [
+    "orange",
+    "yellow",
+    "blue",
+    "terracotta"
+  ],
+  "subject_type": "scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:38Z"
 }

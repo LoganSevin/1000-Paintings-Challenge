@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5933,
-  "name": "5933.jpg",
-  "path": "generated/5933.jpg",
-  "dir": "generated",
-  "url": "/generated/5933.jpg",
-  "bytes": 445942,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Deep Wine (#440011) (from spells I) — use this exact Wine at #440011 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Blue (#2563EB) (appears 2× — ONE unified pigment spells I) — use this exact Blue at #2563EB as a major visible pigment",
-  "saved_at": "2026-09-19T04:56:07Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      100401,
-      499,
-      105849
-    ]
-  }
+  "number": 5933,
+  "title": "Necromancer's Forest Ritual",
+  "description": "A blue-skinned necromancer in ornate green armor and helmet kneels in a snowy forest clearing, casting a spell from a glowing purple book with swirling magical energy. A large blue and pink monstrous creature with tentacle hair and a giant pink flower on its back floats above, while two zombie-like figures stand in the background and another defeated pink creature lies on the ground.",
+  "prompt": "A blue-skinned necromancer wearing ornate green and black armor with a helmet kneels in a snowy forest at night, holding an open glowing purple spellbook with intricate designs that emits swirling purple magic and sparks. Above him floats a large bizarre blue creature with long black tentacle hair, green scaly torso, and a massive pink flower-like structure on its back, dripping colorful liquid. In the background stand two zombie-like figures in tattered robes and bandages near twisted dark trees with colorful dripping substance. Another defeated pink and blue creature lies on the snowy ground. The night sky features a swirling galaxy, stars, and colorful dripping paint effects from the top of the frame.",
+  "style": "fantasy surrealism",
+  "mood": "chaotic mystical",
+  "medium": "digital painting",
+  "tags": [
+    "necromancer",
+    "fantasy creature",
+    "magic spell",
+    "snowy forest",
+    "zombies",
+    "surreal"
+  ],
+  "colors": [
+    "blue",
+    "pink",
+    "purple",
+    "orange"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:26Z"
 }

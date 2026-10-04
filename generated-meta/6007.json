@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6007,
-  "name": "6007.jpg",
-  "path": "generated/6007.jpg",
-  "dir": "generated",
-  "url": "/generated/6007.jpg",
-  "bytes": 766223,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Purple (#A855F7) (appears 2× — ONE unified pigment spells III) — use this exact Purple at #A855F7 as a major visible pigmen",
-  "saved_at": "2026-09-26T01:14:36Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      40,
-      48,
-      476
-    ]
-  }
+  "number": 6007,
+  "title": "Surreal Blue Orbs Sunset",
+  "description": "A vibrant surreal landscape depicts rolling green and golden fields under a dramatic sky filled with swirling orange, red, and yellow patterns. Numerous floating blue spheres of varying sizes, some with thin connecting lines, dominate the upper portion above a distant purple mountain range and a bright setting sun.",
+  "prompt": "A vibrant surreal landscape with rolling green and golden fields in the foreground, distant purple hills, and a bright yellow sun setting on the horizon. The sky is a swirling vortex of fiery orange, red, and yellow brushstrokes filled with dozens of floating dark blue spheres and orbs of different sizes connected by thin lines, expressive painterly style with visible brushwork.",
+  "style": "surreal expressionism",
+  "mood": "vibrant dreamlike",
+  "medium": "acrylic painting",
+  "tags": [
+    "surreal",
+    "landscape",
+    "floating orbs",
+    "sunset",
+    "swirling sky",
+    "colorful"
+  ],
+  "colors": [
+    "blue",
+    "orange",
+    "yellow",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:55Z"
 }

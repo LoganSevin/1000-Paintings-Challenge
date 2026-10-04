@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6038,
-  "name": "6038.jpg",
-  "path": "generated/6038.jpg",
-  "dir": "generated",
-  "url": "/generated/6038.jpg",
-  "bytes": 787663,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Silver (#C0C0C0); Ash (#B2BEB5); Apricot (#FBCEB1); Coffee (#6F4E37). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Silver and Ash Terminal with apricot tex… (#400037)\nSilver and Ash Terminal with apricot text and a clear coffee monitor.\n\nSPELL II — Dog using paper computer (#400038)\nDog using paper computer\n\nFUSION: one canvas, three identities still countable. Spell I remains Spell I",
-  "saved_at": "2026-09-28T03:13:11Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400037,
-      400038
-    ]
-  }
+  "number": 6038,
+  "title": "Dog Typing Spell Coffee",
+  "description": "A brown and white dog with large ears sits at a desk between two vintage computers. Its front paws rest on a keyboard while a dismembered human foot with red nail polish lies on the desk in front of it. The left monitor displays the text 'Spelll coffee.' in orange letters.",
+  "prompt": "A surreal scene of a brown and white dog with large pointed ears and a black collar sitting upright at a white desk, front paws on a vintage keyboard. To its left is a retro gray CRT monitor on a matching computer base displaying the misspelled text 'Spelll coffee.' in orange. To the right is a beige boxy computer with a damaged screen. A severed human foot with red painted toenails rests on the desk. Soft dramatic lighting, painterly style with visible brushstrokes.",
+  "style": "surreal painting",
+  "mood": "bizarre surreal",
+  "medium": "digital painting",
+  "tags": [
+    "dog",
+    "vintage computer",
+    "surreal",
+    "dismembered foot",
+    "retro tech",
+    "typing"
+  ],
+  "colors": [
+    "brown",
+    "beige",
+    "gray",
+    "orange"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:26Z"
 }

@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6024,
-  "name": "6024.jpg",
-  "path": "generated/6024.jpg",
-  "dir": "generated",
-  "url": "/generated/6024.jpg",
-  "bytes": 846363,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Green (#16A34A); Yellow (#FACC15); Lime (#84CC16); Purple (#A855F7); Pink (#FF4FA3). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL II — Stage Under Sunset Cityscape (#834)\nStage Under Sunset Cityscape\n\nA dramatic outdoor amphitheater performance viewed from behind the audience, framed by a grand stone archway. Silhouetted figures perform on stage against a vibrant city skyline bathed in th",
-  "saved_at": "2026-09-28T02:35:57Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      834,
-      380
-    ]
-  }
+  "number": 6024,
+  "title": "Dog at Sunset Concert",
+  "description": "A large black and brown dog with a collar and tag sits in the foreground amid pink flowers, looking directly at the viewer. Behind the dog, a massive crowd faces a stage under a stone archway with a dramatic sunset, city skyline, and a large yellow sun in the sky.",
+  "prompt": "A large black and brown dog with a silver tag collar sits in the foreground surrounded by pink clouds of flowers, staring at the viewer with big brown eyes. Behind it, a huge outdoor concert crowd faces a stage under an enormous stone archway. Dramatic sunset with a giant glowing yellow sun, orange and red sky, distant city skyline on hills, colorful flowers in foreground, vibrant and surreal atmosphere, detailed painting style.",
+  "style": "digital painting",
+  "mood": "vibrant surreal",
+  "medium": "digital art",
+  "tags": [
+    "dog",
+    "concert",
+    "sunset",
+    "crowd",
+    "archway",
+    "cityscape"
+  ],
+  "colors": [
+    "orange",
+    "pink",
+    "teal",
+    "yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:08Z"
 }

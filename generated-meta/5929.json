@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5929,
-  "name": "5929.jpg",
-  "path": "generated/5929.jpg",
-  "dir": "generated",
-  "url": "/generated/5929.jpg",
-  "bytes": 454452,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Purple (#A855F7) (appears 5× — ONE unified pigment spells I/III) — use this exact Purple at #A855F7 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells I) — use this exact Green at #",
-  "saved_at": "2026-09-19T04:48:51Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      105557,
-      105727,
-      105849
-    ]
-  }
+  "number": 5929,
+  "title": "Surreal Skull Symphony",
+  "description": "A vibrant surreal scene inside a cracked purple room with a large broken ceiling revealing a stormy sea with ships and lightning. A giant green skull wearing red glasses sits with a white cat on its shoulder reading sheet music, while a blue-haired mermaid goddess floats above emitting turquoise energy and small human figures; below, two skeletal grim reapers in black robes play a red spiral drum and a purple saxophone amid flying musical notes and papers.",
+  "prompt": "Surreal fantasy scene in a cracked purple room with broken ceiling showing stormy ocean with ships and lightning. Giant green skull wearing red glasses and blue goggles, white cat on shoulder reading music sheets with red quill. Blue haired mermaid goddess with staff floating in turquoise energy swirl with small human silhouettes. Two skeletal grim reapers in black robes, one playing large red spiral drum, other playing purple saxophone. Flying sheet music and papers everywhere, dramatic lighting, vibrant colors, detailed digital painting style",
+  "style": "surreal fantasy",
+  "mood": "chaotic whimsical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "music",
+    "skull",
+    "mermaid",
+    "grim reaper",
+    "cat"
+  ],
+  "colors": [
+    "purple",
+    "green",
+    "red",
+    "turquoise"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:15Z"
 }

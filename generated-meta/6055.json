@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6055,
-  "name": "6055.jpg",
-  "path": "generated/6055.jpg",
-  "dir": "generated",
-  "url": "/generated/6055.jpg",
-  "bytes": 284433,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Bugs Bunny (#400039)\nBugs Bunny\n\nSPELL II — Loony Toons (#400040)\nLoony Toons\n\nSPELL III — Full Body Portfolio (#400041)\nFull Body Portfolio\n\nFUSION: one canvas, three identities still countable. Spell I remains Spell I. Spell II remains Spell II. Spell III remains Spell III.\nStyle DNA (interpret freely, invent the scene): text note.\nMotif tags (not a checklist of the original paintings): note.\nBuzz words: note, text note, Lucky, Rabbit's, Foo",
-  "saved_at": "2026-10-02T11:34:39Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400039,
-      400040,
-      400041
-    ]
-  }
+  "number": 6055,
+  "title": "Bugs Bunny and Looney Tunes",
+  "description": "Bugs Bunny stands confidently in the center with one leg raised and hands clasped, smiling at the viewer. He is surrounded by other Looney Tunes characters including a smaller Bugs Bunny on the left, Yosemite Sam on the right with arms raised, a red-haired girl, and various small creatures and symbols like hearts, butterflies, and TNT boxes on a colorful painted ground.",
+  "prompt": "A vibrant cartoon painting of Bugs Bunny standing center stage with one leg kicked up and hands together, smiling confidently at the viewer. To his left is a smaller version of himself with arms crossed, to his right is Yosemite Sam in a sombrero with fists raised. Scattered around are a red-haired girl, small creatures, butterflies, hearts, TNT boxes, and a white ball with 'RA' on it, all set against a colorful painterly background with grass and paint drips.",
+  "style": "cartoon",
+  "mood": "playful energetic",
+  "medium": "digital painting",
+  "tags": [
+    "Bugs Bunny",
+    "Looney Tunes",
+    "Yosemite Sam",
+    "cartoon characters",
+    "Warner Bros",
+    "colorful"
+  ],
+  "colors": [
+    "blue",
+    "orange",
+    "red",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:47Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5960,
-  "name": "5960.jpg",
-  "path": "generated/5960.jpg",
-  "dir": "generated",
-  "url": "/generated/5960.jpg",
-  "bytes": 436877,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells III) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\nIf a source description names a different color, REPAINT it into the locked pigments above. Product palette = locks only.\n\nIN",
-  "saved_at": "2026-09-19T06:39:32Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400017,
-      400018,
-      400019
-    ]
-  }
+  "number": 5960,
+  "title": "Cosmic Forge Sorceress",
+  "description": "A blue-skinned sorceress with white markings stands behind a glowing anvil, channeling blue lightning-like energy from her hands into a key. She is surrounded by floating gears, an hourglass, cards, an open spellbook, coins, and mystical symbols in a ruined stone chamber under a swirling cosmic night sky filled with stars and nebulae.",
+  "prompt": "A blue-skinned sorceress with white symbolic markings and glowing eyes stands behind a massive glowing anvil in a ruined stone chamber, channeling bright blue electrical energy from her outstretched hands into a large ornate key hovering above the anvil. Floating around her are large mechanical gears, an hourglass, playing cards, and mystical symbols. In the foreground lies an open ancient spellbook with diagrams, scattered coins, and a large golden astrolabe. The background shows a swirling cosmic night sky with purple and blue nebulae and stars, dramatic lighting, intricate details, fantasy surrealism style",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "sorceress",
+    "cosmic magic",
+    "steampunk",
+    "anvil",
+    "arcane ritual",
+    "fantasy"
+  ],
+  "colors": [
+    "deep blue",
+    "purple",
+    "gold",
+    "silver"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:07Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5983,
-  "name": "5983.jpg",
-  "path": "generated/5983.jpg",
-  "dir": "generated",
-  "url": "/generated/5983.jpg",
-  "bytes": 408131,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\n10sin(x)+y^2-5\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\n5cos(y)-x^-1+10\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\n15/3tan(x+y)^2+15\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, ",
-  "saved_at": "2026-09-19T07:43:51Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5983,
+  "title": "Mystic Math Crystal",
+  "description": "A glowing crystal ball hovers above a dark chalkboard covered in colorful mathematical equations, formulas, and a radiating rainbow spectrum. A lit candle in a brass holder, scattered papers, a drafting compass, and lavender sprigs surround the board against a textured blue background.",
+  "prompt": "A glowing crystal ball filled with floating numbered papers and glowing mathematical symbols hovers above a black chalkboard covered in colorful equations like 10sin(x)+y^2-5 and integrals. A lit candle in an ornate brass holder, crumpled papers, a golden drafting compass, and sprigs of lavender rest on the board which emits a radiant rainbow light burst. Dark textured blue background with subtle technical drawings, surreal and mystical atmosphere.",
+  "style": "surreal digital painting",
+  "mood": "mystical ethereal",
+  "medium": "digital illustration",
+  "tags": [
+    "mathematics",
+    "crystal ball",
+    "chalkboard",
+    "surreal",
+    "candlelight",
+    "magic"
+  ],
+  "colors": [
+    "deep blue",
+    "rainbow",
+    "gold",
+    "purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:27Z"
 }

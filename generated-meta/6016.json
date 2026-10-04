@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6016,
-  "name": "6016.jpg",
-  "path": "generated/6016.jpg",
-  "dir": "generated",
-  "url": "/generated/6016.jpg",
-  "bytes": 207658,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Green (#16A34A) (appears 3× — ONE unified pigment spells I/III) — use this exact Green at #16A34A as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Beige (#F5F0DC) (from spells I) — use this exact Beige at #F5F0DC as a major visible pigm",
-  "saved_at": "2026-09-26T07:34:14Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      866,
-      834,
-      380
-    ]
-  }
+  "number": 6016,
+  "title": "Surreal Clock Tower Landscape",
+  "description": "A massive teal clock tower with a glowing orb base stands at the center of a vibrant green landscape, surrounded by floating colorful spheres, butterflies, and birds. The scene is framed within a large circular portal against a beige background, with a dirt path leading to the tower, rolling hills, standing stones, and a small house in the foreground.",
+  "prompt": "A surreal fantasy landscape featuring a giant teal clock tower with a white clock face and glowing golden orb at its base, centered within a large circular portal. The scene shows rolling green hills, a winding dirt path, ancient standing stones, a small house, and distant mountains. Numerous colorful butterflies, birds, and floating spheres in red, blue, orange and silver drift around the tower against a soft beige sky, in a whimsical dreamlike style.",
+  "style": "surreal fantasy",
+  "mood": "dreamlike whimsical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "clock tower",
+    "floating objects",
+    "butterflies",
+    "fantasy landscape",
+    "circular portal"
+  ],
+  "colors": [
+    "teal",
+    "green",
+    "beige",
+    "orange"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:02Z"
 }

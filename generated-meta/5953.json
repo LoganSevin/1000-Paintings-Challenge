@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5953,
-  "name": "5953.jpg",
-  "path": "generated/5953.jpg",
-  "dir": "generated",
-  "url": "/generated/5953.jpg",
-  "bytes": 317213,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT MAN\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT WOMAN\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat atmospheric camera angle.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coher",
-  "saved_at": "2026-09-19T06:25:35Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5953,
+  "title": "Diving Woman in Pool",
+  "description": "An overweight middle-aged woman with dark curly hair is captured mid-air as she jumps into a swimming pool. She wears a purple one-piece swimsuit with yellow patterns and has a joyful expression on her face.",
+  "prompt": "A highly detailed realistic painting of an overweight middle-aged woman with dark curly hair joyfully jumping into an indoor swimming pool, wearing a purple one-piece swimsuit with yellow patterns, mid-air above the turquoise water creating a splash and ripples, old tiled pool walls with faded murals in the background, dramatic lighting with reflections on wet skin and water surface",
+  "style": "realistic painting",
+  "mood": "joyful dynamic",
+  "medium": "oil painting",
+  "tags": [
+    "swimming pool",
+    "diving woman",
+    "overweight figure",
+    "indoor pool",
+    "water splash",
+    "realism"
+  ],
+  "colors": [
+    "turquoise",
+    "purple",
+    "blue",
+    "ochre"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:53Z"
 }

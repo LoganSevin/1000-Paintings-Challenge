@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5981,
-  "name": "5981.jpg",
-  "path": "generated/5981.jpg",
-  "dir": "generated",
-  "url": "/generated/5981.jpg",
-  "bytes": 345372,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400025) ──\nMath\n\n── INFLUENCE II (motif DNA only · ref #400026) ──\nMath\n\n── INFLUENCE III (motif DNA only · ref #400027) ──\nMath\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, not a grid, not a stacked photo-fu",
-  "saved_at": "2026-09-19T07:35:49Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400025,
-      400026,
-      400027
-    ]
-  }
+  "number": 5981,
+  "title": "Cosmic Heart Ritual",
+  "description": "A pale hand wearing a glowing ring rests on the right edge of a large, ornate cosmic table filled with intricate astrological and alchemical symbols. Above the table floats a large crystalline heart structure containing a glowing galaxy, emitting purple smoke and surrounded by butterflies under a starry sky with aurora borealis and ancient stone arches.",
+  "prompt": "Surreal fantasy scene of a pale hand with a glowing ring touching the edge of a large black cosmic altar table covered in intricate glowing astrological symbols, alchemical circles, and runes. A large crystalline heart structure floats above the table containing a starry galaxy inside, with purple mystical smoke rising from the center. Several white butterflies flutter around the left side of the table. Background shows ancient stone arches with spiral carvings, a starry night sky, and vibrant aurora borealis in teal, purple and orange hues.",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "cosmic",
+    "occult",
+    "heart",
+    "galaxy",
+    "aurora",
+    "alchemy"
+  ],
+  "colors": [
+    "deep blue",
+    "purple",
+    "gold",
+    "teal"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:25Z"
 }

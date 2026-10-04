@@ -1,18 +1,26 @@
 {
-  "ok": true,
-  "num": 6018,
-  "name": "6018.jpg",
-  "path": "generated/6018.jpg",
-  "dir": "generated",
-  "url": "/generated/6018.jpg",
-  "bytes": 671128,
-  "source": "az",
-  "description": "0-Z standalone · Pigeon",
-  "saved_at": "2026-09-28T01:50:35Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Pigeon",
-    "seed": "Pigeon"
-  }
+  "number": 6018,
+  "title": "Desert Mountain Landscape",
+  "description": "A hand-drawn landscape illustration shows a vibrant orange desert foreground dotted with black desert shrubs and grasses. Rolling beige and olive hills lead to distant blue mountain peaks under a vast white sky with faint sketch lines.",
+  "prompt": "Hand-drawn ink and watercolor landscape of an arid desert scene with bright orange foreground filled with black shrubs and grasses, rolling beige and olive hills in the midground, and distant blue mountain range under a large white sky with visible sketch lines, western desert illustration style",
+  "style": "illustration",
+  "mood": "serene, arid",
+  "medium": "ink and watercolor",
+  "tags": [
+    "desert",
+    "landscape",
+    "mountains",
+    "illustration",
+    "western",
+    "ink drawing"
+  ],
+  "colors": [
+    "orange",
+    "beige",
+    "blue",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:02Z"
 }

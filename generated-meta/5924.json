@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5924,
-  "name": "5924.jpg",
-  "path": "generated/5924.jpg",
-  "dir": "generated",
-  "url": "/generated/5924.jpg",
-  "bytes": 378798,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells III) — use this exact Black at #0A0A0C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells III) — use this exact Green at #16",
-  "saved_at": "2026-09-18T20:20:53Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400008,
-      400009,
-      104665
-    ]
-  }
+  "number": 5924,
+  "title": "The Weaver of Runes",
+  "description": "A translucent hooded figure weaves glowing runes into fabric on an ornate wooden loom inside a dark stone chamber. The workspace features an open book of diagrams, scattered tools, a lit candle, and t-shirts with symbols hanging on graffiti-covered brick walls under an aurora-lit night sky visible through arched windows.",
+  "prompt": "A translucent hooded figure stands at an ornate wooden loom in a dark medieval stone chamber, weaving glowing white runes and symbols into sheer fabric that flows across the room, one hand touching the loom while the other rests on the table, foreground shows a large open book with diagrams, scattered tools, a lit candle in a mug, and a t-shirt with intricate circular patterns laid out, background features brick walls covered in white graffiti and hanging t-shirts with symbols, arched windows reveal a green and purple aurora borealis in the night sky, mystical and atmospheric fantasy scene",
+  "style": "fantasy digital art",
+  "mood": "mysterious ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "weaver",
+    "runes",
+    "loom",
+    "fantasy workshop",
+    "aurora",
+    "translucent figure"
+  ],
+  "colors": [
+    "deep blue",
+    "purple",
+    "orange",
+    "stone gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:07Z"
 }

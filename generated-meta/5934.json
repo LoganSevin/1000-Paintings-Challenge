@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5934,
-  "name": "5934.jpg",
-  "path": "generated/5934.jpg",
-  "dir": "generated",
-  "url": "/generated/5934.jpg",
-  "bytes": 407964,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Deep Wine (#440011) (from spells I) — use this exact Wine at #440011 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Blue (#2563EB) (appears 2× — ONE unified pigment spells I) — use this exact Blue at #2563EB as a major visible pigment",
-  "saved_at": "2026-09-19T04:57:41Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      100401,
-      499,
-      183
-    ]
-  }
+  "number": 5934,
+  "title": "Psychedelic Ballet Dancers",
+  "description": "Three blue-skinned ballerinas in pink and teal tutus perform a surreal, intertwined dance pose. They are covered in dripping colorful paint against a cosmic background of swirling purple, teal and orange nebulae, stars, lightning, and floating cannabis leaves.",
+  "prompt": "Three blue-skinned ballerinas with flowing hair perform an intricate intertwined ballet pose, one lifted high while another lies on the swirling floor, all covered in dripping vibrant paint. They wear pink and teal tutus against a dark cosmic nebula background filled with stars, lightning bolts, orange and teal dripping liquid from above, and floating cannabis leaves, in a highly detailed surreal psychedelic style.",
+  "style": "surreal psychedelic",
+  "mood": "trippy ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "ballerinas",
+    "psychedelic",
+    "cosmic",
+    "dripping paint",
+    "cannabis",
+    "surreal"
+  ],
+  "colors": [
+    "purple",
+    "teal",
+    "orange",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:26Z"
 }

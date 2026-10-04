@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6010,
-  "name": "6010.jpg",
-  "path": "generated/6010.jpg",
-  "dir": "generated",
-  "url": "/generated/6010.jpg",
-  "bytes": 749726,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #5EAB12 — chartreuse green (RGB 94, 171, 18; closest named color: olive drab)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nSubject: anything at all — this time, a hot-air balloon race. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-26T01:22:01Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#5EAB12",
-        "name": "chartreuse green",
-        "nearest": "olive drab",
-        "orig": "#AB5E12",
-        "spell": 11230739,
-        "order": "GRB"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#5EAB12",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "a hot-air balloon race",
-    "aspect": "9:16",
-    "spells": []
-  }
+  "number": 6010,
+  "title": "Hot Air Balloons in Sky",
+  "description": "A vibrant scene of numerous colorful hot air balloons floating in a clear blue sky with soft white clouds. The largest balloon is a prominent yellow with orange accents, featuring a wooden basket containing two visible people, surrounded by many smaller balloons in various patterns and hues including purple, red, and striped designs.",
+  "prompt": "A vibrant scene of numerous colorful hot air balloons floating in a clear blue sky with soft white clouds, the largest balloon is a prominent yellow with orange accents featuring a wooden basket with two people, surrounded by many smaller balloons in various patterns and hues including purple red and striped designs, detailed digital painting style",
+  "style": "realistic digital painting",
+  "mood": "serene uplifting",
+  "medium": "digital art",
+  "tags": [
+    "hot air balloons",
+    "sky",
+    "clouds",
+    "festival",
+    "aerial view",
+    "vibrant"
+  ],
+  "colors": [
+    "yellow",
+    "blue",
+    "purple",
+    "orange"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:57Z"
 }

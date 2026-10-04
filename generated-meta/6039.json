@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6039,
-  "name": "6039.jpg",
-  "path": "generated/6039.jpg",
-  "dir": "generated",
-  "url": "/generated/6039.jpg",
-  "bytes": 888496,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Silver (#C0C0C0); Ash (#B2BEB5); Apricot (#FBCEB1); Coffee (#6F4E37); Green (#16A34A); Beige (#F5F0DC); Pink (#FF4FA3); Yellow (#FACC15); Blue (#2563EB). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Silver and Ash Terminal with apricot tex… (#400037)\nSilver and Ash Terminal with apricot text and a clear coffee monitor.\n\nSPELL II — Surreal Dali-inspired Landscape Clock (#866)\nSurreal D",
-  "saved_at": "2026-09-28T03:13:52Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400037,
-      866,
-      585
-    ]
-  }
+  "number": 6039,
+  "title": "Surreal Clock Landscape",
+  "description": "A large circular wall clock with Roman numerals features a detailed surreal painting in its center showing a stone tower on a green rolling hill with a winding stone path. Various small symbolic objects like butterflies, a bat, pocket watch, Poké Ball, globe, and tools are arranged around the clock face.",
+  "prompt": "Highly detailed surreal circular clock with Roman numerals, in the center a painted landscape with a tall stone tower on a lush green hill with winding path leading to it, surrounded by symbolic objects including orange butterflies, a black bat, small pocket watch, red and white Poké Ball, miniature globe, stone, carrot, key, and other tiny items scattered around the dial, whimsical symbolic composition, intricate details, painted style",
+  "style": "surrealism",
+  "mood": "whimsical dreamlike",
+  "medium": "digital painting",
+  "tags": [
+    "surreal clock",
+    "symbolic objects",
+    "tower landscape",
+    "roman numerals",
+    "fantasy art",
+    "still life"
+  ],
+  "colors": [
+    "white",
+    "green",
+    "orange",
+    "gold"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:27Z"
 }

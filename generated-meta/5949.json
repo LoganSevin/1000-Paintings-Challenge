@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5949,
-  "name": "5949.jpg",
-  "path": "generated/5949.jpg",
-  "dir": "generated",
-  "url": "/generated/5949.jpg",
-  "bytes": 414258,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:18:15Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5949,
+  "title": "Floating Shaman in Aurora",
+  "description": "A woman in a shimmering green and gold patterned bodysuit floats upside down in the center of a surreal cosmic scene, arms outstretched. Below her is a glowing circular pool with waterfalls cascading over rocky cliffs into a dark void filled with glowing particles, ghostly figures, twisted trees, and vibrant aurora borealis lights.",
+  "prompt": "A woman wearing a tight green and gold patterned bodysuit and a black cap with a white flower floats upside down in the center of a surreal dreamlike scene, arms gracefully outstretched, surrounded by glowing aurora borealis in purple and green, twisted leafless trees, a circular glowing pool with concentric rings below her, waterfalls cascading from rocky cliffs into a dark void filled with ghostly figures, stars, and ethereal light, mystical and cosmic atmosphere.",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "aurora",
+    "floating figure",
+    "fantasy landscape",
+    "cosmic",
+    "shamanic"
+  ],
+  "colors": [
+    "emerald green",
+    "purple",
+    "gold",
+    "deep blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:50Z"
 }

@@ -1,16 +1,26 @@
 {
-  "ok": true,
-  "num": 5979,
-  "name": "5979.jpg",
-  "path": "generated/5979.jpg",
-  "dir": "generated",
-  "url": "/generated/5979.jpg",
-  "bytes": 325203,
-  "source": "spellforge",
-  "description": "In a luminous twilight realm where ancient forests melt into cosmic oceans, a solitary spellweaver stands upon crystalline waters beneath a swirling aurora sky, her flowing robes transforming into rivers of starlight and blooming ethereal flora while spectral runes and glowing sigils orbit her form, merging the mystical energies of nature, cosmos, and arcane power into one transcendent incantation as fireflies and distant galaxies blend into a single breathing mandala of magic.",
-  "saved_at": "2026-09-19T07:34:57Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": []
-  }
+  "number": 5979,
+  "title": "Mystic Anvil Forge",
+  "description": "A skeletal figure with crossed arms sits on a glowing purple crystal atop a large black anvil. The anvil rests in the center of a swirling purple vortex encircled by a glowing golden ring inscribed with runes, with floating books, moths, and a smoking rose above.",
+  "prompt": "A skeletal figure wearing ornate gauntlets sits with arms crossed atop a large glowing purple crystal which rests on a massive black iron anvil with glowing orange cracks. The anvil is centered within a swirling cosmic vortex of deep purple and blue, encircled by a large golden ring covered in glowing runes. A smoking white rose hangs from the top of the ring. Books, moths, and magical artifacts float around the scene against an aurora-like background, dark fantasy style, intricate details, atmospheric lighting",
+  "style": "fantasy surrealism",
+  "mood": "mysterious arcane",
+  "medium": "digital painting",
+  "tags": [
+    "skeleton",
+    "anvil",
+    "crystal",
+    "runes",
+    "vortex",
+    "fantasy"
+  ],
+  "colors": [
+    "deep purple",
+    "gold",
+    "black",
+    "emerald green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:23Z"
 }

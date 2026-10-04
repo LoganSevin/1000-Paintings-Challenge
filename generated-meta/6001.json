@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6001,
-  "name": "6001.jpg",
-  "path": "generated/6001.jpg",
-  "dir": "generated",
-  "url": "/generated/6001.jpg",
-  "bytes": 917772,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Green (#16A34A) (appears 3× — ONE unified pigment spells I/II/III) — use this exact Green at #16A34A as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells I/II) — use this exact Black ",
-  "saved_at": "2026-09-26T01:06:55Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      690,
-      717,
-      1000
-    ]
-  }
+  "number": 6001,
+  "title": "Alien Emerging from Wall",
+  "description": "A vibrant green alien with a large elongated head, one oversized black eye with a red pupil, and blue lips is breaking through a cracked white wall. It has a long neck, dripping red liquid from its mouth, and a bright pink tentacled appendage with fingers resting on a broken rocky ledge.",
+  "prompt": "A grotesque green alien with a huge elongated head and one massive black eye with red pupil breaking through a cracked white wall, blue lips dripping thick red liquid, long neck, bright pink tentacled arm with fingers resting on a broken rocky outcrop, dramatic lighting, surreal horror style, highly detailed textures",
+  "style": "surreal digital painting",
+  "mood": "eerie surreal",
+  "medium": "digital painting",
+  "tags": [
+    "alien",
+    "surreal",
+    "tentacles",
+    "cracked wall",
+    "horror",
+    "vibrant"
+  ],
+  "colors": [
+    "green",
+    "pink",
+    "red",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:44Z"
 }

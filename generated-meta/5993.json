@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5993,
-  "name": "5993.jpg",
-  "path": "generated/5993.jpg",
-  "dir": "generated",
-  "url": "/generated/5993.jpg",
-  "bytes": 741796,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 2× — ONE unified pigment spells I) — use this exact Red at #EF4444 a",
-  "saved_at": "2026-09-26T00:49:59Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      217,
-      717,
-      1000
-    ]
-  }
+  "number": 5993,
+  "title": "Crimson-haired Renaissance Woman",
+  "description": "A close-up portrait of a young woman with long, wavy, vibrant red-orange hair cascading over her right shoulder. She has fair skin with visible freckles on her chest, striking blue eyes, and wears an ornate off-the-shoulder teal gown with gold floral patterns, lace trim, and wooden bead details.",
+  "prompt": "close-up portrait of a beautiful young woman with long wavy vibrant red-orange hair, fair skin with freckles on her chest and shoulders, striking blue eyes, red lips, wearing an ornate off-the-shoulder teal renaissance gown with gold floral patterns, delicate lace trim, and wooden bead closures, dramatic lighting, dark moody background, highly detailed, realistic",
+  "style": "realistic digital painting",
+  "mood": "elegant, alluring",
+  "medium": "digital art",
+  "tags": [
+    "woman",
+    "red hair",
+    "renaissance dress",
+    "freckles",
+    "portrait",
+    "fantasy"
+  ],
+  "colors": [
+    "teal",
+    "orange-red",
+    "gold",
+    "dark brown"
+  ],
+  "subject_type": "portrait",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:37Z"
 }

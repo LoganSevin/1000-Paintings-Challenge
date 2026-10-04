@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5998,
-  "name": "5998.jpg",
-  "path": "generated/5998.jpg",
-  "dir": "generated",
-  "url": "/generated/5998.jpg",
-  "bytes": 752958,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Crimson (#DC143C) (from spells I) — use this exact Crimson at #DC143C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Orange (#F97316) (from spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy ",
-  "saved_at": "2026-09-26T01:02:00Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      96,
-      717,
-      1000
-    ]
-  }
+  "number": 5998,
+  "title": "Octopus on Sunset Rock",
+  "description": "A large magenta octopus with big black eyes perches on a moss-covered rock in the foreground, overlooking a body of water. In the background is a city skyline with cranes and a bridge under a dramatic orange-red sunset sky dominated by a massive glowing yellow sun.",
+  "prompt": "A giant magenta octopus with large glossy black eyes sits atop a dark rocky outcrop covered in green moss and seaweed, overlooking a calm body of water reflecting the sky. In the distance is a modern city skyline with skyscrapers, construction cranes, and a large suspension bridge, all bathed in the intense orange and red light of a dramatic sunset. A massive glowing yellow sun dominates the fiery sky with scattered clouds, highly detailed digital painting in a surreal style.",
+  "style": "surreal digital art",
+  "mood": "surreal vibrant",
+  "medium": "digital painting",
+  "tags": [
+    "octopus",
+    "cityscape",
+    "sunset",
+    "surreal",
+    "water",
+    "bridge"
+  ],
+  "colors": [
+    "orange",
+    "magenta",
+    "yellow",
+    "red"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:41Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5938,
-  "name": "5938.jpg",
-  "path": "generated/5938.jpg",
-  "dir": "generated",
-  "url": "/generated/5938.jpg",
-  "bytes": 326047,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells I/II/III) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Maroon (#770033) (from spells I) — use this exact Maroon at #770033 as a major visible pig",
-  "saved_at": "2026-09-19T05:10:41Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      100703,
-      270,
-      101995
-    ]
-  }
+  "number": 5938,
+  "title": "Surreal Desert Eye Vision",
+  "description": "A giant stylized human eye floats in a purple sky above a desert landscape, with a red mouse inside its pupil and green vines extending downward. Below, a woman in a flowing red robe and headscarf walks through sand dunes surrounded by transparent bubbles containing smaller red mice and desert scenes, with cacti visible in the background.",
+  "prompt": "Surreal desert scene with a giant stylized human eye floating in a purple sky, a red mouse visible inside the pupil connected by green vines, below a woman in a long flowing red robe and white headscarf walking barefoot through sand dunes, surrounded by transparent bubbles containing smaller red mice and miniature desert scenes, cacti in the background, mystical and dreamlike atmosphere",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "desert",
+    "eye",
+    "mouse",
+    "bubbles",
+    "woman"
+  ],
+  "colors": [
+    "red",
+    "purple",
+    "beige",
+    "green"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:33Z"
 }

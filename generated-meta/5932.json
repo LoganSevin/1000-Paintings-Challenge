@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5932,
-  "name": "5932.jpg",
-  "path": "generated/5932.jpg",
-  "dir": "generated",
-  "url": "/generated/5932.jpg",
-  "bytes": 370153,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells I) — use this exact Black at #0A0A0C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells I/III) — use this exact Red at #EF4444",
-  "saved_at": "2026-09-19T04:53:31Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      102480,
-      499,
-      105849
-    ]
-  }
+  "number": 5932,
+  "title": "Ballet of Desire",
+  "description": "In a dark, theatrical backstage setting with heavy curtains and film reels, a ballerina in a pink tutu dances with a glowing blue holographic male figure projecting from an old movie projector. In the foreground, an open magical book titled 'Desire' emits purple smoke and light, while another ballerina lies motionless on the snowy ground beside a fallen red pointe shoe.",
+  "prompt": "A surreal theatrical scene in a dark backstage with heavy curtains and hanging icicles, an old film projector casting a beam of light that forms a glowing translucent blue male hologram reaching towards a graceful ballerina in a vibrant pink tutu who is dancing on pointe. In the foreground, an open ancient book titled Desire with a dagger through it emits swirling purple and yellow magical smoke, another ballerina in a pink tutu lies lifeless on the snowy ground surrounded by film reels and a red pointe shoe, dramatic volumetric lighting, cinematic atmosphere, fantasy elements.",
+  "style": "fantasy surrealism",
+  "mood": "ethereal dramatic",
+  "medium": "digital painting",
+  "tags": [
+    "ballet",
+    "hologram",
+    "cinematic",
+    "magic",
+    "theater",
+    "surreal"
+  ],
+  "colors": [
+    "deep black",
+    "vibrant pink",
+    "cyan blue",
+    "purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:25Z"
 }

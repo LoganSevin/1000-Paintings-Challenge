@@ -1,18 +1,24 @@
 {
-  "ok": true,
-  "num": 6037,
-  "name": "6037.jpg",
-  "path": "generated/6037.jpg",
-  "dir": "generated",
-  "url": "/generated/6037.jpg",
-  "bytes": 639786,
-  "source": "az",
-  "description": "0-Z standalone · Pig in a blanket",
-  "saved_at": "2026-09-28T03:12:34Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Pig in a blanket",
-    "seed": "Pig in a blanket"
-  }
+  "number": 6037,
+  "title": "Desert Mesa Landscape",
+  "description": "A black and white ink drawing of a vast desert canyon landscape. Layered rocky mesas and buttes rise in the background while the foreground features detailed desert shrubs, grasses, and arid terrain under a large empty sky.",
+  "prompt": "Black and white pen and ink drawing of a wide open desert canyon landscape with layered rocky mesas and buttes in the distance, rolling arid hills, sparse desert vegetation including shrubs and grasses in the foreground, detailed linework with heavy cross hatching and stippling on the rock faces and terrain, empty sky above, western desert scene.",
+  "style": "ink drawing",
+  "mood": "vast desolate",
+  "medium": "pen and ink",
+  "tags": [
+    "landscape",
+    "desert",
+    "mesa",
+    "canyon",
+    "ink drawing",
+    "western"
+  ],
+  "colors": [
+    "black",
+    "white"
+  ],
+  "subject_type": "scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:26Z"
 }

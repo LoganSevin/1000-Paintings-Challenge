@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5927,
-  "name": "5927.jpg",
-  "path": "generated/5927.jpg",
-  "dir": "generated",
-  "url": "/generated/5927.jpg",
-  "bytes": 470684,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells III) — use this exact Black at #0A0A0C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells III) — use this exact Green at #16",
-  "saved_at": "2026-09-18T20:35:44Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400010,
-      400011,
-      104665
-    ]
-  }
+  "number": 5927,
+  "title": "Witch Under Cherry Tree",
+  "description": "A surreal dark fantasy scene featuring a black silhouetted witch with horns and glowing blue patterns, seated on a glowing green root structure. She holds a dripping pink orb containing a couple silhouette against a sunset, with a large black bird perched on a pink cherry blossom branch above her, surrounded by swirling starry skies, floating orbs, butterflies, and pink liquid dripping onto the text 'STASIS DO NOT BREAK THE NOTE'.",
+  "prompt": "A surreal dark fantasy painting of a black silhouetted witch with horns and glowing blue cosmic patterns inside her body, sitting on a large glowing green root system that forms a seat. She holds up her hand with a large dripping pink orb showing a couple silhouette on a beach at sunset. A large black bird perches on a branch of a pink cherry blossom tree growing from her. The background has swirling blue starry night skies with zodiac symbols, floating smaller orbs with scenes, pink petals falling, blue butterflies, and pink liquid dripping down with the text STASIS DO NOT BREAK THE NOTE at the bottom, mystical and eerie atmosphere",
+  "style": "surreal fantasy illustration",
+  "mood": "mystical eerie",
+  "medium": "digital painting",
+  "tags": [
+    "witch",
+    "cherry blossom",
+    "surreal",
+    "fantasy art",
+    "celestial",
+    "dark magic"
+  ],
+  "colors": [
+    "pink",
+    "green",
+    "blue",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:16Z"
 }

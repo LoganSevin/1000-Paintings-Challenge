@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 5990,
-  "name": "5990.jpg",
-  "path": "generated/5990.jpg",
-  "dir": "generated",
-  "url": "/generated/5990.jpg",
-  "bytes": 422161,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #FF968A — light pink (RGB 255, 150, 138; closest named color: light salmon)\n• Tone 2: #FC961B — vivid orange (RGB 252, 150, 27; closest named color: dark orange)\n• Tone 3: #F682AD — light rose pink (RGB 246, 130, 173; closest named color: hot pink)\nSubject: anything at all — this time, a pure abstract composition of shapes and rhythm. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-26T00:48:02Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#FF968A",
-        "name": "light pink",
-        "nearest": "light salmon",
-        "orig": "#FF968A",
-        "spell": 16750219,
-        "order": "RGB"
-      },
-      {
-        "hex": "#FC961B",
-        "name": "vivid orange",
-        "nearest": "dark orange",
-        "orig": "#FC961B",
-        "spell": 16553500,
-        "order": "RGB"
-      },
-      {
-        "hex": "#F682AD",
-        "name": "light rose pink",
-        "nearest": "hot pink",
-        "orig": "#F682AD",
-        "spell": 16155310,
-        "order": "RGB"
-      }
-    ],
-    "palette_hex": [
-      "#FF968A",
-      "#FC961B",
-      "#F682AD"
-    ],
-    "subject": "a pure abstract composition of shapes and rhythm",
-    "aspect": "16:9",
-    "spells": []
-  }
+  "number": 5990,
+  "title": "Abstract Wine Bottle",
+  "description": "An abstract painting featuring a stylized wine bottle in the center, rendered with flat pink, orange, and white shapes against a background divided into soft pink on the left and muted blue tones on the right. Visible brushstrokes, drips, and geometric color blocks create a modern, fragmented composition.",
+  "prompt": "abstract painting of a stylized wine bottle centered on canvas, rendered in flat areas of bright pink, orange, and white with geometric shapes and black details, set against a divided background of soft pink on the left and cool blue tones on the right, visible expressive brushstrokes, paint drips, and textured color fields in a modern contemporary style",
+  "style": "abstract",
+  "mood": "vibrant, modern",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "abstract",
+    "still life",
+    "wine bottle",
+    "color blocks",
+    "brushstrokes",
+    "contemporary"
+  ],
+  "colors": [
+    "pink",
+    "orange",
+    "blue",
+    "white"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:34Z"
 }

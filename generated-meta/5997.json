@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5997,
-  "name": "5997.jpg",
-  "path": "generated/5997.jpg",
-  "dir": "generated",
-  "url": "/generated/5997.jpg",
-  "bytes": 535906,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I) — use this exact Orange at #F97316 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 2× — ONE unified pigment spells I) — use this exact Red at #EF4444 a",
-  "saved_at": "2026-09-26T01:00:20Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      217,
-      717,
-      1000
-    ]
-  }
+  "number": 5997,
+  "title": "Pink Alien on Mossy Rock",
+  "description": "A cute pink octopus-like alien with large black eyes and two antennae sits atop a dark moss-covered rock. The creature is surrounded by floating bright orange squares against a solid teal-green background.",
+  "prompt": "A cute pink octopus-like alien creature with two antennae ending in pink spheres and large glossy black eyes, perched on a dark gray rock covered in green moss. The alien has multiple tentacles and a friendly expression. Bright orange glowing squares of various sizes float all around it against a solid teal green background, whimsical digital painting style.",
+  "style": "digital painting",
+  "mood": "whimsical playful",
+  "medium": "digital illustration",
+  "tags": [
+    "alien",
+    "octopus",
+    "fantasy creature",
+    "floating squares",
+    "mossy rock",
+    "surreal"
+  ],
+  "colors": [
+    "teal",
+    "orange",
+    "pink",
+    "dark gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:39Z"
 }

@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6030,
-  "name": "6030.jpg",
-  "path": "generated/6030.jpg",
-  "dir": "generated",
-  "url": "/generated/6030.jpg",
-  "bytes": 668614,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Silver (#C0C0C0); Ash (#B2BEB5); Apricot (#FBCEB1); Coffee (#6F4E37). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Silver and Ash Terminal with apricot tex… (#400037)\nSilver and Ash Terminal with apricot text and a clear coffee monitor.\n\nSPELL II — Dog using paper computer (#400038)\nDog using paper computer\n\nFUSION: one canvas, three identities still countable. Spell I remains Spell I",
-  "saved_at": "2026-09-28T02:54:19Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400037,
-      400038
-    ]
-  }
+  "number": 6030,
+  "title": "Dog at Computer",
+  "description": "A brown dog wearing a collar sits at a wooden desk, typing on a keyboard with its paws while looking at an Apple iMac monitor. The screen displays the word \"coffee\" in large orange letters, with a white mug and mouse also visible on the desk.",
+  "prompt": "A brown dog with a collar sitting upright at a wooden desk, using its paws to type on a keyboard in front of an Apple iMac computer. The monitor screen shows the word coffee in large orange letters on a white background. A white coffee mug and silver mouse sit on the desk to the left. The dog is focused on the screen, side view, in a cozy indoor setting with soft lighting, digital painting style.",
+  "style": "digital painting",
+  "mood": "whimsical, humorous",
+  "medium": "digital art",
+  "tags": [
+    "dog",
+    "computer",
+    "workspace",
+    "coffee",
+    "apple imac",
+    "humorous"
+  ],
+  "colors": [
+    "brown",
+    "orange",
+    "white",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:17Z"
 }

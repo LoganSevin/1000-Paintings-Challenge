@@ -1,18 +1,25 @@
 {
-  "ok": true,
-  "num": 6033,
-  "name": "6033.jpg",
-  "path": "generated/6033.jpg",
-  "dir": "generated",
-  "url": "/generated/6033.jpg",
-  "bytes": 581292,
-  "source": "az",
-  "description": "0-Z standalone · Pig eating apple",
-  "saved_at": "2026-09-28T02:58:09Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Pig eating apple",
-    "seed": "Pig eating apple"
-  }
+  "number": 6033,
+  "title": "Mountain Valley Ink Sketch",
+  "description": "A black and white ink drawing of a mountainous landscape with rolling hills in the foreground. The scene features layered mountain ranges with bold black outlines, varying shades of gray wash, and clusters of pine trees on the slopes.",
+  "prompt": "A minimalist black and white ink wash landscape featuring dramatic layered mountain ranges with bold expressive brushstrokes and varying gray tones. Rolling hills in the foreground transition into darker shadowed areas, with clusters of stylized pine trees dotting the slopes and valley. Strong contrast between black outlines, white paper, and gray washes creates depth and atmosphere in this expressive nature scene.",
+  "style": "ink wash landscape",
+  "mood": "serene, stark",
+  "medium": "ink on paper",
+  "tags": [
+    "landscape",
+    "mountains",
+    "ink drawing",
+    "monochrome",
+    "pine trees",
+    "valley"
+  ],
+  "colors": [
+    "black",
+    "white",
+    "gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:21Z"
 }

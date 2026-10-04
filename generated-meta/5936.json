@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5936,
-  "name": "5936.jpg",
-  "path": "generated/5936.jpg",
-  "dir": "generated",
-  "url": "/generated/5936.jpg",
-  "bytes": 460709,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (appears 2× — ONE unified pigment spells I) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Orange (#F97316) (appears 3× — ONE unified pigment spells I/III) — use this exact Orange at #F9",
-  "saved_at": "2026-09-19T05:04:07Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      102841,
-      101454,
-      183
-    ]
-  }
+  "number": 5936,
+  "title": "Surreal Clockwork Dreamscape",
+  "description": "A vibrant surreal scene depicts a skeletal grim reaper in a purple robe with gears and clocks, holding a large ornate clock face with a green winged elephant emerging from it. Below, a witch on a broomstick flies through a swirling vortex of hot air balloons, pocket watches, stars, and geometric patterns under a radiant sun with a cosmic colorful sky.",
+  "prompt": "Highly detailed surreal fantasy scene with a skeletal grim reaper in flowing purple robes and gears, tongue out, holding a large golden clock from which a cute green winged elephant with blue head emerges, a witch with long white hair in a teal dress and pointed hat flying on a broomstick with magic sparkles, swirling vortex of colorful hot air balloons shaped like clocks, floating pocket watches, stars, geometric triangles, radiant sun with rays in a psychedelic purple green and orange cosmic sky, intricate details, vibrant colors",
+  "style": "surreal fantasy",
+  "mood": "whimsical psychedelic",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "skeleton",
+    "elephant",
+    "witch",
+    "clocks",
+    "fantasy"
+  ],
+  "colors": [
+    "purple",
+    "green",
+    "orange",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:31Z"
 }

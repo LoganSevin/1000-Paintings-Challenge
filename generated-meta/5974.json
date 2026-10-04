@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5974,
-  "name": "5974.jpg",
-  "path": "generated/5974.jpg",
-  "dir": "generated",
-  "url": "/generated/5974.jpg",
-  "bytes": 432809,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Mustard (#EEC75D) (from spells I) — use this exact Mustard at #EEC75D as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Coffee (#A38766) (from spells II) — use this exact Coffee at #A38766 as a major visible pigment (saturated, not a shy",
-  "saved_at": "2026-09-19T07:03:13Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400021,
-      400020,
-      400019
-    ]
-  }
+  "number": 5974,
+  "title": "Mystic Library Grimoire",
+  "description": "An ancient open book with glowing magical circles and dripping golden liquid rests on a gnarled tree-root stand in a candlelit library. A hooded figure reads by a cracked arched window showing a sunset sky, while bookshelves, hanging lanterns, chains, and scattered papers fill the stone chamber.",
+  "prompt": "A highly detailed fantasy scene inside an ancient stone library with a massive gnarled tree growing through the bookshelves. In the center, an oversized open magical grimoire with glowing spiral runes and golden dripping liquid rests on a root stand. A hooded figure reads a book by a cracked arched window revealing a dramatic sunset. Candles, hanging lanterns, chains, and scattered papers surround the scene, warm candlelight illuminates the atmosphere.",
+  "style": "fantasy illustration",
+  "mood": "mysterious magical",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy",
+    "library",
+    "grimoire",
+    "hooded figure",
+    "magical book",
+    "candlelight"
+  ],
+  "colors": [
+    "golden yellow",
+    "deep brown",
+    "warm orange",
+    "stone gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:19Z"
 }

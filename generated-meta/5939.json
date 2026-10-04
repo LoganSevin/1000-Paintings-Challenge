@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5939,
-  "name": "5939.jpg",
-  "path": "generated/5939.jpg",
-  "dir": "generated",
-  "url": "/generated/5939.jpg",
-  "bytes": 330936,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells I/II/III) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Maroon (#770033) (from spells I) — use this exact Maroon at #770033 as a major visible pig",
-  "saved_at": "2026-09-19T05:11:01Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      100703,
-      270,
-      101995
-    ]
-  }
+  "number": 5939,
+  "title": "Surreal Desert Dreamscape",
+  "description": "A robed figure with a red backpack and mouse-like tail stands on a sand dune holding a small glowing object. In the foreground is a colorful geodesic dome with dripping paint and a glowing green puddle, while above floats a large cluster of transparent bubbles containing miniature desert scenes with cacti and figures, all beneath a giant red eye in the sky.",
+  "prompt": "A surreal desert scene at twilight with rolling sand dunes. In the foreground a colorful geodesic dome with dripping paint sits next to a glowing green puddle. A robed figure with a red backpack and long mouse tail stands on a dune holding a small glowing flower. Above floats a large cluster of iridescent transparent bubbles containing miniature desert landscapes with cacti and tiny figures. A giant red eye with a black pupil floats in the dark starry sky surrounded by constellations.",
+  "style": "surrealism",
+  "mood": "dreamlike mystical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "desert",
+    "bubbles",
+    "psychedelic",
+    "fantasy",
+    "dome"
+  ],
+  "colors": [
+    "orange",
+    "purple",
+    "teal",
+    "red"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:35Z"
 }

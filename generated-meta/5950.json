@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5950,
-  "name": "5950.jpg",
-  "path": "generated/5950.jpg",
-  "dir": "generated",
-  "url": "/generated/5950.jpg",
-  "bytes": 389797,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:18:52Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5950,
+  "title": "Aurora Spirit in Pond",
+  "description": "A large, heavyset purple-skinned woman with a rounded belly stands barefoot in a dark reflective pond, her body covered in glowing white star-like dots. She is surrounded by twisted glowing tree roots, lotus flowers, two white birds in flight, and a dramatic green and pink aurora borealis in the starry night sky, with her dark shadow cast on the water.",
+  "prompt": "A heavyset purple-skinned woman with a large rounded belly and body covered in glowing white dots stands barefoot in a dark pond, surrounded by twisted glowing tree roots and blooming lotus flowers, two white birds flying nearby, her dark shadow visible on the water surface, dramatic green pink and purple aurora borealis swirling in the starry night sky above, ethereal fantasy atmosphere, intricate details, glowing elements",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy",
+    "aurora",
+    "plus size",
+    "night scene",
+    "magical realism",
+    "spirit"
+  ],
+  "colors": [
+    "purple",
+    "green",
+    "pink",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:50Z"
 }

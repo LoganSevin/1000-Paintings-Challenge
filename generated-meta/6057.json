@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 6057,
-  "name": "6057.jpg",
-  "path": "generated/6057.jpg",
-  "dir": "generated",
-  "url": "/generated/6057.jpg",
-  "bytes": 290800,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Bugs Bunny (#400039)\nBugs Bunny & Jax from The Amazing Digital Circus\n\nSPELL II — Loony Toons (#400040)\nLoony Toons\n\nSPELL III — Jax; The Amazing Digital Circus (#400042)\nJax; The Amazing Digital Circus\n\nFUSION: one canvas, three identities still countable. Spell I remains Spell I. Spell II remains Spell II. Spell III remains Spell III.\nStyle DNA (interpret freely, invent the scene): text note.\nMotif tags (not a checklist of the original paint",
-  "saved_at": "2026-10-02T11:38:44Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400039,
-      400040,
-      400042
-    ]
-  }
+  "number": 6057,
+  "title": "Bugs Bunny with Eyeball",
+  "description": "Bugs Bunny stands confidently in the center with one hand on his hip and a wide smile, his large white foot resting on a giant realistic eyeball with a red iris. He is surrounded by multiple smaller versions of himself in various playful poses, some wearing a conductor hat and bow tie, with floating red and green hearts against a blue-green background.",
+  "prompt": "Bugs Bunny standing confidently in the center with a big smile and one hand on his hip, his large white foot resting on a giant realistic eyeball with a red iris and white sclera. Multiple smaller Bugs Bunnies in various playful poses surround him, some wearing a tiny conductor hat and red bow tie, with floating red and green hearts scattered around. Dynamic composition with blue and green background, vibrant cartoon style, detailed digital painting.",
+  "style": "cartoon",
+  "mood": "playful energetic",
+  "medium": "digital painting",
+  "tags": [
+    "Bugs Bunny",
+    "Looney Tunes",
+    "surreal",
+    "cartoon characters",
+    "eyeball",
+    "hearts"
+  ],
+  "colors": [
+    "blue",
+    "red",
+    "white",
+    "brown"
+  ],
+  "subject_type": "scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:47Z"
 }

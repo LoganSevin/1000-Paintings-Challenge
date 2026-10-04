@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5923,
-  "name": "5923.jpg",
-  "path": "generated/5923.jpg",
-  "dir": "generated",
-  "url": "/generated/5923.jpg",
-  "bytes": 409820,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells III) — use this exact Black at #0A0A0C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells III) — use this exact Green at #16",
-  "saved_at": "2026-09-18T20:19:17Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400006,
-      400007,
-      104665
-    ]
-  }
+  "number": 5923,
+  "title": "Demoness by the Lake",
+  "description": "A black silhouette of a horned female demon with glowing red eyes sits on a rock in dark water, holding a flowering branch. The surreal scene features floating crystal pillars, glowing orbs containing figures, koi fish, lotus flowers, pink clouds, and multiple blue eyes in a cracked night sky with a pink sunset horizon.",
+  "prompt": "A surreal fantasy scene at dusk over a calm lake, a black silhouette of a horned female demon with glowing red eyes sits on a rock in the water holding a branch with yellow blossoms, multiple glowing blue orbs float in the water containing miniature figures, green crystal pillars rise from the lake, pink clouds and lotus flowers, koi fish swimming, multiple blue eyes watching from a cracked dark sky, reflective water surface, mystical and symbolic atmosphere",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "demon",
+    "surreal",
+    "fantasy",
+    "night scene",
+    "glowing orbs",
+    "symbolism"
+  ],
+  "colors": [
+    "black",
+    "pink",
+    "blue",
+    "yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:01Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5925,
-  "name": "5925.jpg",
-  "path": "generated/5925.jpg",
-  "dir": "generated",
-  "url": "/generated/5925.jpg",
-  "bytes": 428406,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Black (#0A0A0C) (appears 2× — ONE unified pigment spells III) — use this exact Black at #0A0A0C as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Green (#16A34A) (appears 2× — ONE unified pigment spells III) — use this exact Green at #16",
-  "saved_at": "2026-09-18T20:21:45Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400008,
-      400009,
-      104665
-    ]
-  }
+  "number": 5925,
+  "title": "Horned Muse by the Ruins",
+  "description": "A silhouetted female figure with large curved horns sits on a moss-covered stone ledge, extending her hand toward glowing yellow cherry blossom branches. Behind her are ancient Greek temple ruins overgrown with vines, set against a swirling twilight sky filled with floating bubbles containing silhouetted couples, black birds, and scattered pink petals over reflective water.",
+  "prompt": "A silhouetted woman with large curved horns and long flowing hair sits on a mossy stone platform beside a reflective pool, reaching out to touch glowing yellow cherry blossom branches that float in the air. In the background are ancient Greek temple ruins covered in green vines under a swirling dark blue and purple twilight sky. Black birds fly around while transparent bubbles containing silhouetted romantic couples drift through the scene, with pink petals and sparkles falling into the water that mirrors the entire composition.",
+  "style": "surreal fantasy",
+  "mood": "ethereal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "fantasy",
+    "ruins",
+    "cherry blossoms",
+    "silhouette",
+    "twilight"
+  ],
+  "colors": [
+    "deep blue",
+    "emerald green",
+    "golden yellow",
+    "pink"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:08Z"
 }

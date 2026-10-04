@@ -1,19 +1,26 @@
 {
-  "ok": true,
-  "num": 6051,
-  "name": "6051.jpg",
-  "path": "generated/6051.jpg",
-  "dir": "generated",
-  "url": "/generated/6051.jpg",
-  "bytes": 634257,
-  "source": "spellforge",
-  "description": "THREE IDENTITIES IN ONE PAINTING.\nKeep Spell I, Spell II, and Spell III as distinct identities — each stays itself (subject, form, palette). They share one scene and interact. Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\nStudio author: Logan Sevin.\n\nMANDATORY PRODUCT PALETTE (override all source colors): Silver (#C0C0C0); Ash (#B2BEB5); Apricot (#FBCEB1); Coffee (#6F4E37); Pink (#FF4FA3); Yellow (#FACC15); Blue (#2563EB). Paint with these hex pigments as dominant hues.\n\nTHE THREE IDENTITIES (keep each one recognizable):\nSPELL I — Silver and Ash Terminal with apricot tex… (#400037)\nSilver and Ash Terminal with apricot text and a clear coffee monitor.\n\nSPELL III — Abstract Geometric Pastel Composition (#585)\nAbstract Geometric Pastel Composition\n\nThi",
-  "saved_at": "2026-10-02T10:14:13Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400037,
-      585
-    ]
-  }
+  "number": 6051,
+  "title": "Geometric Abstract Composition",
+  "description": "A vertical abstract painting featuring bold geometric shapes including orange and black triangles, vertical color blocks in peach, grey, and green, and expressive paint drips. Scattered across the composition are vibrant splashes of pink, yellow, and blue with circular forms and organic brushstrokes against a white background.",
+  "prompt": "Vertical abstract geometric painting on white canvas with bold orange and black triangular shapes intersecting vertical color blocks in peach, sage green and grey. Dynamic paint drips running down from the forms. Scattered vibrant yellow circles, pink brushstrokes, and small blue and orange accents creating an energetic modern composition with visible texture and drips.",
+  "style": "abstract geometric",
+  "mood": "vibrant dynamic",
+  "medium": "acrylic on canvas",
+  "tags": [
+    "abstract",
+    "geometric",
+    "colorful",
+    "drips",
+    "shapes",
+    "modern"
+  ],
+  "colors": [
+    "orange",
+    "black",
+    "pink",
+    "yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:40Z"
 }

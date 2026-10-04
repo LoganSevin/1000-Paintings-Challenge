@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5987,
-  "name": "5987.jpg",
-  "path": "generated/5987.jpg",
-  "dir": "generated",
-  "url": "/generated/5987.jpg",
-  "bytes": 202896,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • White (#F8FAFC) (appears 2× — ONE unified pigment spells I/II) — use this exact White at #F8FAFC as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (appears 4× — ONE unified pigment spells II) — use this exact Red at #EF4444",
-  "saved_at": "2026-09-25T06:50:28Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      592,
-      672,
-      19
-    ]
-  }
+  "number": 5987,
+  "title": "Vibrant Paint Splatter",
+  "description": "An abstract composition of colorful paint splatters and drips on a white surface. Bright yellows, greens, oranges, blues and pinks form organic shapes, bubbles, and flowing vertical drips across the canvas.",
+  "prompt": "abstract painting featuring vibrant splatters and drips of yellow, lime green, orange, teal, pink and dark green paint on a white canvas. Organic fluid shapes, bubbles, and vertical paint runs create a dynamic energetic composition with high contrast and luminous color blending in the center",
+  "style": "abstract",
+  "mood": "energetic, dynamic",
+  "medium": "acrylic paint",
+  "tags": [
+    "abstract",
+    "paint splatter",
+    "dripping paint",
+    "colorful",
+    "fluid art",
+    "vibrant"
+  ],
+  "colors": [
+    "yellow",
+    "green",
+    "orange",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:31Z"
 }

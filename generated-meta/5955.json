@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5955,
-  "name": "5955.jpg",
-  "path": "generated/5955.jpg",
-  "dir": "generated",
-  "url": "/generated/5955.jpg",
-  "bytes": 325377,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT MAN \"I Am that Girl!\"\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT WOMAN \"No you ain't\"\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat atmospheric camera angle.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW compos",
-  "saved_at": "2026-09-19T06:29:46Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5955,
+  "title": "Poolside Argument",
+  "description": "Two large women stand in a swimming pool at night, arguing. The pale-skinned woman with a crown and 'I AM THAT GIRL' written on her chest jumps angrily while pointing, facing a dark-skinned woman in a purple swimsuit with 'NO YOU AIN'T' on her chest who gestures back.",
+  "prompt": "Two plus-size women arguing in a swimming pool at dusk, the pale woman with a crown and 'I AM THAT GIRL' written across her chest is jumping and pointing aggressively, the dark-skinned woman in a purple one-piece swimsuit has 'NO YOU AIN'T' written on her chest and points back, both standing in turquoise water creating ripples, a purple unicorn pool float and pink flamingo float nearby, a diving board above, palm trees and a neon 'SPELLFORGE' sign in the background, dramatic cinematic lighting, detailed skin textures, vibrant colors",
+  "style": "surreal digital painting",
+  "mood": "confrontational humorous",
+  "medium": "digital painting",
+  "tags": [
+    "pool party",
+    "plus size women",
+    "argument",
+    "night scene",
+    "crown",
+    "unicorn float"
+  ],
+  "colors": [
+    "teal",
+    "purple",
+    "pink",
+    "gold"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:56Z"
 }

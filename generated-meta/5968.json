@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5968,
-  "name": "5968.jpg",
-  "path": "generated/5968.jpg",
-  "dir": "generated",
-  "url": "/generated/5968.jpg",
-  "bytes": 352637,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Green (#16A34A) (from spells I) — use this exact Green at #16A34A as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Red (#EF4444) (from spells II) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not",
-  "saved_at": "2026-09-19T06:54:49Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400021,
-      400020,
-      400019
-    ]
-  }
+  "number": 5968,
+  "title": "Demonic Blacksmith Forging",
+  "description": "A muscular demonic figure with green and red skin, flaming head, and large blue wings kneels while forging on a red anvil, holding a hammer and emitting red, green, and blue laser beams from his eyes. An open wooden door with purple light and smoky green-red clouds appears in the background, with scattered papers and coins on the ground.",
+  "prompt": "A powerful muscular demon with green and red skin, flaming head inscribed with text, and large blue bat-like wings, kneeling at a red anvil while forging with a hammer, emitting red green and blue laser beams from his eyes, open wooden door with purple glow and smoky green and red clouds in the background, scattered old papers and coins on the ground, dramatic fantasy scene, detailed digital painting",
+  "style": "fantasy digital art",
+  "mood": "epic infernal",
+  "medium": "digital painting",
+  "tags": [
+    "demon",
+    "blacksmith",
+    "fantasy",
+    "anvil",
+    "wings",
+    "forging"
+  ],
+  "colors": [
+    "green",
+    "red",
+    "blue",
+    "purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:15Z"
 }

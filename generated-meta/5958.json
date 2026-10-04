@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5958,
-  "name": "5958.jpg",
-  "path": "generated/5958.jpg",
-  "dir": "generated",
-  "url": "/generated/5958.jpg",
-  "bytes": 377105,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells III) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\nIf a source description names a different color, REPAINT it into the locked pigments above. Product palette = locks only.\n\nIN",
-  "saved_at": "2026-09-19T06:38:34Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400017,
-      400018,
-      400019
-    ]
-  }
+  "number": 5958,
+  "title": "Forging the Magic Anvil",
+  "description": "A hooded blacksmith stands at a stone base holding a hammer and parchment, looking up at a glowing blue crystal being forged on an anvil by a pair of tongs. Blue magical energy drips from the crystal and a floating arcane circle above, surrounded by flying blue birds against a wall covered in glowing runes and symbols.",
+  "prompt": "A hooded blacksmith in a leather apron stands before a massive anvil on a stone base, holding a hammer and ancient parchment with diagrams. A pair of tongs holds a glowing blue crystalline object above the anvil as bright blue magical liquid drips down. A large arcane circle with symbols floats overhead dripping blue energy, while blue ethereal birds fly around a stone wall covered in glowing runes and occult symbols, dramatic fantasy atmosphere.",
+  "style": "fantasy illustration",
+  "mood": "mystical arcane",
+  "medium": "digital painting",
+  "tags": [
+    "blacksmith",
+    "magic crystal",
+    "anvil",
+    "runes",
+    "fantasy",
+    "arcane"
+  ],
+  "colors": [
+    "deep blue",
+    "cyan",
+    "stone gray",
+    "dark purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:59Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5946,
-  "name": "5946.jpg",
-  "path": "generated/5946.jpg",
-  "dir": "generated",
-  "url": "/generated/5946.jpg",
-  "bytes": 400727,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:15:43Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5946,
+  "title": "Mystic Tree of Realms",
+  "description": "A massive, ancient tree with a glowing bulbous trunk and roots extending into a reflective pool stands centrally. Its branches bear colorful stained-glass leaves, while a luminous castle floats in the starry sky above, surrounded by auroras, waterfalls, birds, and ethereal figures.",
+  "prompt": "A colossal fantasy tree with a large glowing bulbous trunk and intricate roots growing into a dark reflective pool of water. Its branches hold colorful stained-glass leaves resembling windows. Waterfalls flow from the sides, a bright castle floats in the starry night sky above the tree, surrounded by swirling aurora borealis, white birds, shooting stars, and glowing ethereal figures. Mystical, cosmic atmosphere with purple and teal tones.",
+  "style": "fantasy surrealism",
+  "mood": "ethereal mystical",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy tree",
+    "aurora borealis",
+    "stained glass",
+    "floating castle",
+    "cosmic scene",
+    "surreal landscape"
+  ],
+  "colors": [
+    "deep purple",
+    "emerald green",
+    "vibrant teal",
+    "golden yellow"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:46Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5952,
-  "name": "5952.jpg",
-  "path": "generated/5952.jpg",
-  "dir": "generated",
-  "url": "/generated/5952.jpg",
-  "bytes": 285774,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nINFLUENCE TEXTS (motif / mood DNA only — invent new subjects & staging):\n── INFLUENCE I (motif DNA only · ref #400015) ──\nEXTREMELY FAT\n\n── INFLUENCE II (motif DNA only · ref #400016) ──\nOMEGA LEVEL FAT\n\n── INFLUENCE III (motif DNA only · ref #400014) ──\nLike really fat.\n\nFUSION DIRECTIVE: Weave influence motifs into a NEW composition and new subjects. One coherent painting — not three panels, no",
-  "saved_at": "2026-09-19T06:23:15Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400015,
-      400016,
-      400014
-    ]
-  }
+  "number": 5952,
+  "title": "Diving into the Pool",
+  "description": "A large overweight man wearing purple swim briefs and a black swim cap is captured mid-air in a belly flop dive above a glowing swimming pool at dusk. The pool water shows concentric ripples and a clear underwater reflection of the man, with a diving board, pool noodles, and a single swim fin visible.",
+  "prompt": "A large overweight man with a black swim cap and purple swim briefs is frozen mid-air performing a belly flop dive directly above a glowing turquoise swimming pool at dusk. The pool water has vibrant concentric ripples spreading from the impact point and shows a clear underwater reflection of the falling man. A weathered diving board with text is visible above, purple pool noodles and a swim fin float in the water. Palm trees, city buildings and a colorful sunset sky fill the background in a highly detailed realistic digital painting style.",
+  "style": "realistic digital painting",
+  "mood": "humorous dramatic",
+  "medium": "digital illustration",
+  "tags": [
+    "diving",
+    "swimming pool",
+    "overweight man",
+    "twilight",
+    "realistic",
+    "reflection"
+  ],
+  "colors": [
+    "teal",
+    "purple",
+    "orange",
+    "blue"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:53Z"
 }

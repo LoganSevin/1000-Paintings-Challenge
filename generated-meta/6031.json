@@ -1,18 +1,26 @@
 {
-  "ok": true,
-  "num": 6031,
-  "name": "6031.jpg",
-  "path": "generated/6031.jpg",
-  "dir": "generated",
-  "url": "/generated/6031.jpg",
-  "bytes": 885472,
-  "source": "az",
-  "description": "0-Z standalone · Pigeon Terminal",
-  "saved_at": "2026-09-28T02:55:49Z",
-  "meta": {
-    "source": "az",
-    "mode": "standalone",
-    "prompt": "Pigeon Terminal",
-    "seed": "Pigeon Terminal"
-  }
+  "number": 6031,
+  "title": "Desert Landscape Vista",
+  "description": "A stylized desert landscape with rolling golden and orange sand dunes under a pale sky with light blue streaks. In the foreground are dark desert shrubs and grasses, with distant blue mountain ranges visible on the horizon.",
+  "prompt": "Stylized desert landscape painting with rolling golden and orange sand dunes in the midground, dark silhouetted desert shrubs and grasses in the foreground, distant blue mountain ranges on the horizon, and a pale sky with light blue brushstroke clouds, bold black ink outlines, vibrant color blocking, expressive and painterly digital art style",
+  "style": "digital illustration",
+  "mood": "serene, arid",
+  "medium": "digital painting",
+  "tags": [
+    "desert",
+    "landscape",
+    "dunes",
+    "mountains",
+    "shrubs",
+    "illustration"
+  ],
+  "colors": [
+    "yellow",
+    "orange",
+    "blue",
+    "black"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:20Z"
 }

@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6034,
-  "name": "6034.jpg",
-  "path": "generated/6034.jpg",
-  "dir": "generated",
-  "url": "/generated/6034.jpg",
-  "bytes": 796348,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #4DDBAB — emerald (RGB 77, 219, 171; closest named color: medium aquamarine)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nPROMPT (paint this, still using only the three tones): Dog on a bicycle\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-28T02:58:44Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#4DDBAB",
-        "name": "emerald",
-        "nearest": "medium aquamarine",
-        "orig": "#AB4DDB",
-        "spell": 11226588,
-        "order": "GBR"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#4DDBAB",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "an alchemist's workshop",
-    "aspect": "9:16",
-    "spells": []
-  }
+  "number": 6034,
+  "title": "Dog Riding Bicycle",
+  "description": "A light brown dog with floppy ears and a black collar sits upright on a silver bicycle, its front paws resting on the black handlebars as it stares directly at the viewer. The background consists of abstract, painterly brushstrokes in vibrant orange, teal, and purple hues.",
+  "prompt": "A light brown dog with floppy ears, dark eyes and a black collar sits upright on a silver bicycle with black handlebars, its front paws placed on the grips as it looks straight at the viewer with a focused expression, vibrant abstract painterly background with bold orange teal and purple brushstrokes, detailed fur and metallic textures, whimsical digital painting style",
+  "style": "digital painting",
+  "mood": "whimsical curious",
+  "medium": "digital art",
+  "tags": [
+    "dog",
+    "bicycle",
+    "portrait",
+    "anthropomorphic",
+    "colorful",
+    "realistic"
+  ],
+  "colors": [
+    "orange",
+    "teal",
+    "brown",
+    "purple"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:50:23Z"
 }

@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5959,
-  "name": "5959.jpg",
-  "path": "generated/5959.jpg",
-  "dir": "generated",
-  "url": "/generated/5959.jpg",
-  "bytes": 416039,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Blue (#2563EB) (from spells III) — use this exact Blue at #2563EB as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\nIf a source description names a different color, REPAINT it into the locked pigments above. Product palette = locks only.\n\nIN",
-  "saved_at": "2026-09-19T06:39:00Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      400017,
-      400018,
-      400019
-    ]
-  }
+  "number": 5959,
+  "title": "Cosmic Time Cauldron",
+  "description": "A large ornate cauldron floats in a cosmic void, glowing with golden light from within as blue liquid drips from its rim. Below it, three hooded spectral figures with clock faces for heads rise from swirling blue energy, surrounded by floating books, gears, hourglasses, and three celestial orbs in the starry sky above.",
+  "prompt": "A surreal cosmic scene featuring a large ornate metallic cauldron floating in a starry nebula, glowing with golden light inside and dripping blue liquid from its rim. Below are three ethereal hooded figures with clock faces instead of heads, emerging from swirling blue energy. Floating around them are open books with pages turning, gears, hourglasses, and envelopes. In the upper sky, three celestial orbs resembling moon phases glow in a beam of light against a dark blue and purple nebula background.",
+  "style": "fantasy surrealism",
+  "mood": "mystical ethereal",
+  "medium": "digital painting",
+  "tags": [
+    "surreal",
+    "cosmic",
+    "steampunk",
+    "time",
+    "occult",
+    "celestial"
+  ],
+  "colors": [
+    "deep blue",
+    "gold",
+    "purple",
+    "cyan"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:59Z"
 }

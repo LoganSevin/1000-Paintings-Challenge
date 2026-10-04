@@ -1,50 +1,26 @@
 {
-  "ok": true,
-  "num": 6009,
-  "name": "6009.jpg",
-  "path": "generated/6009.jpg",
-  "dir": "generated",
-  "url": "/generated/6009.jpg",
-  "bytes": 747742,
-  "source": "colors",
-  "description": "THREE-TONE PAINTING — the palette is the entire brief.\nUse only these three colors as the dominant palette, each clearly present in roughly balanced amounts. Tints, shades and blends of these three are fine for light and depth; introduce no other hues.\n• Tone 1: #5EAB12 — chartreuse green (RGB 94, 171, 18; closest named color: olive drab)\n• Tone 2: #AB5E25 — orange (RGB 171, 94, 37; closest named color: sienna)\n• Tone 3: #5E33AB — muted violet (RGB 94, 51, 171; closest named color: rebecca purple)\nSubject: anything at all — this time, a lighthouse on a cliff. Invent it freely, in any style or era.\nLet the three tones set the mood, light and composition. No text, letters, labels, color swatches or palette charts anywhere in the image.",
-  "saved_at": "2026-09-26T01:18:44Z",
-  "meta": {
-    "source": "colors",
-    "generator": "3-tone",
-    "tones": [
-      {
-        "hex": "#5EAB12",
-        "name": "chartreuse green",
-        "nearest": "olive drab",
-        "orig": "#AB5E12",
-        "spell": 11230739,
-        "order": "GRB"
-      },
-      {
-        "hex": "#AB5E25",
-        "name": "orange",
-        "nearest": "sienna",
-        "orig": "#AB5E25",
-        "spell": 11230758,
-        "order": "RGB"
-      },
-      {
-        "hex": "#5E33AB",
-        "name": "muted violet",
-        "nearest": "rebecca purple",
-        "orig": "#AB5E33",
-        "spell": 11230772,
-        "order": "GBR"
-      }
-    ],
-    "palette_hex": [
-      "#5EAB12",
-      "#AB5E25",
-      "#5E33AB"
-    ],
-    "subject": "a lighthouse on a cliff",
-    "aspect": "16:9",
-    "spells": []
-  }
+  "number": 6009,
+  "title": "Lighthouse on Cliff",
+  "description": "A striped lighthouse with a glowing orange and yellow beam stands atop a steep green cliff beside a small white keeper's house with a red roof. The dramatic coastal scene includes scattered buildings on the hillside, rocky outcrops, and the ocean visible below under a purple misty sky.",
+  "prompt": "A tall red and white striped lighthouse with a bright orange and yellow light beam cutting through the purple misty sky, situated on a steep green grassy cliff with rocky edges. A small white keeper's house with red roof sits beside it. Scattered buildings dot the hillside overlooking the ocean below, in a dramatic painterly digital art style with visible brush strokes.",
+  "style": "digital painting",
+  "mood": "dramatic serene",
+  "medium": "digital illustration",
+  "tags": [
+    "lighthouse",
+    "coastal cliff",
+    "night beam",
+    "seascape",
+    "dramatic sky",
+    "digital art"
+  ],
+  "colors": [
+    "purple",
+    "green",
+    "orange",
+    "white"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:49:55Z"
 }

@@ -1,16 +1,26 @@
 {
-  "ok": true,
-  "num": 5956,
-  "name": "5956.jpg",
-  "path": "generated/5956.jpg",
-  "dir": "generated",
-  "url": "/generated/5956.jpg",
-  "bytes": 385679,
-  "source": "spellforge",
-  "description": "A luminous spectral woman floats within an ancient crumbling temple overgrown by bioluminescent vines and swirling cosmic mist, her translucent form merging with floating runes and shattered mirrors that reflect impossible galaxies, while golden koi swim through veins of liquid starlight that drip from levitating marble columns, all bathed in soft moonlight filtering through a fractured celestial dome where time itself appears to dissolve.",
-  "saved_at": "2026-09-19T06:34:54Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": []
-  }
+  "number": 5956,
+  "title": "Chained Guardian of the Flame",
+  "description": "A muscular dark-skinned man with a golden crown and heavy chains kneels in the center of a dark stone chamber. He holds a large ornate shield glowing with purple swirling magical energy while smoke rises from his mouth, surrounded by scattered gold coins, a broken hourglass, and falling yellow leaves.",
+  "prompt": "A powerful dark-skinned man wearing a golden crown and heavy chains kneels in an ancient stone chamber with arched ceilings and a skylight. He holds a large shield that glows with intense purple swirling magical fire. Smoke rises from his mouth, broken hourglass and gold coins scattered on the floor around him, dramatic rim lighting, moody atmosphere, intricate details, cinematic fantasy style",
+  "style": "fantasy illustration",
+  "mood": "mysterious dramatic",
+  "medium": "digital painting",
+  "tags": [
+    "fantasy",
+    "warrior",
+    "magic shield",
+    "chains",
+    "dungeon",
+    "crown"
+  ],
+  "colors": [
+    "purple",
+    "gold",
+    "crimson",
+    "dark gray"
+  ],
+  "subject_type": "painting",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:48:56Z"
 }
