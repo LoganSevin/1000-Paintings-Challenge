@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v92: do not append local-fuse / visitor-key lock copy to generate errors.
+ * Cache bust v118: Generated visions are a spellbook view, newest G# first.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -10,6 +10,7 @@
   var SHUFFLE_VERSION_KEY = "spellforge_shuffle_version";
   var SHUFFLE_VERSION = "v11-full-arsenal-pages";
   var EQUIP_SAVE_KEY = "spellforge_equipped_v1";
+  var BOOK_VIEW_KEY = "spellforge_book_view_v1";
   var ASPECT_KEY = "spellforge_aspect_v1";
   /** Generated/phone arsenal IDs are GEN_BASE + generated file number (avoids clobbering paintings 1–1000). */
   var GEN_BASE = 100000;
@@ -60,6 +61,13 @@
   var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
   var activePage = 0;
   var pickerQuery = "";
+  /** "generated" presents G# stills newest-first. "all" is the mixed spellbook. */
+  var bookView = "generated";
+  /** Highest G# whose image exists. Null until the first settle. */
+  var generatedCeiling = null;
+  var generatedOrderCache = null;
+  /** G# files found past the static manifest, kept across arsenal reloads. */
+  var discoveredGenNums = [];
   var pendingPickNumber = null;
   var slotDialogBound = false;
   var blendRequestId = 0;
@@ -1283,10 +1291,17 @@
     return parts.join("\n\n");
   }
 
-  function ingestSpellAssets(items) {
-    extraSpells = {};
-    arsenalExtraNums = [];
-    phoneSpellNums = [];
+  function ingestSpellAssets(items, opts) {
+    var append = !!(opts && opts.append);
+    if (!append) {
+      extraSpells = {};
+      arsenalExtraNums = [];
+      phoneSpellNums = [];
+    }
+    var seen = {};
+    if (append) {
+      for (var s = 0; s < arsenalExtraNums.length; s++) seen[arsenalExtraNums[s]] = true;
+    }
     (items || []).forEach(function (it) {
       if (!it) return;
       var genNum = parseInt(it.number, 10);
@@ -1311,6 +1326,17 @@
       var num = base + genNum;
       var analysis = it.analysis || null;
       if (analysis && !analysis.title && it.title) analysis.title = it.title;
+      if (seen[num]) {
+        var prev = extraSpells[num];
+        if (prev && analysis && !prev.analysis) {
+          prev.analysis = analysis;
+          if (analysis.title) prev.title = analysis.title;
+          analyses[String(num)] = analysis;
+          analyses[num] = analysis;
+        }
+        return;
+      }
+      seen[num] = true;
       var defaultTitle =
         source === "phone-upload"
           ? "Phone G#" + genNum
@@ -1344,6 +1370,8 @@
     phoneSpellNums.sort(function (a, b) {
       return b - a;
     });
+    generatedOrderCache = null;
+    if (!append) reappendDiscovered();
   }
 
   function genFileUrl(genNum) {
@@ -1352,6 +1380,213 @@
       return resolveGalleryUrl("/generated/" + genNum + ".jpg");
     }
     return "/generated/" + genNum + ".jpg";
+  }
+
+  function maxIngestedGenNum() {
+    var max = 0;
+    for (var i = 0; i < arsenalExtraNums.length; i++) {
+      var ex = extraSpells[arsenalExtraNums[i]];
+      if (ex && ex.source === "generated" && ex.genNum > max) max = ex.genNum;
+    }
+    return max;
+  }
+
+  function rememberDiscovered(nums) {
+    for (var i = 0; i < nums.length; i++) {
+      if (discoveredGenNums.indexOf(nums[i]) < 0) discoveredGenNums.push(nums[i]);
+    }
+  }
+
+  function reappendDiscovered() {
+    if (!discoveredGenNums.length) return;
+    var items = [];
+    for (var i = 0; i < discoveredGenNums.length; i++) {
+      var n = discoveredGenNums[i];
+      if (extraSpells[GEN_BASE + n]) continue;
+      items.push({
+        number: n,
+        url: genFileUrl(n),
+        source: "generated",
+        title: "Gen G#" + n,
+      });
+    }
+    if (items.length) ingestSpellAssets(items, { append: true });
+  }
+
+  function imageExists(genNum) {
+    return new Promise(function (resolve) {
+      var img = new Image();
+      var done = false;
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        resolve(!!ok);
+      }
+      var timer = setTimeout(function () { finish(false); }, 12000);
+      img.onload = function () {
+        clearTimeout(timer);
+        finish(true);
+      };
+      img.onerror = function () {
+        clearTimeout(timer);
+        finish(false);
+      };
+      img.src = genFileUrl(genNum);
+    });
+  }
+
+  /** Highest G# at or below maxN whose file actually loads. */
+  function findHighestGenerated(maxN) {
+    maxN = maxN | 0;
+    if (maxN < 1) return Promise.resolve(0);
+    return imageExists(maxN).then(function (ok) {
+      if (ok) return maxN;
+      var lo = 1;
+      var hi = maxN - 1;
+      var best = 0;
+      function step() {
+        if (lo > hi) return Promise.resolve(best);
+        var mid = (lo + hi + 1) >> 1;
+        return imageExists(mid).then(function (hit) {
+          if (hit) {
+            best = mid;
+            lo = mid + 1;
+          } else {
+            hi = mid - 1;
+          }
+          return step();
+        });
+      }
+      return step();
+    });
+  }
+
+  /**
+   * Files past the manifest are not listed anywhere static.
+   * Same-origin HEAD finds them. A cross-origin error stops the scan.
+   */
+  function discoverNewerGenerated() {
+    var start = maxIngestedGenNum() + 1;
+    if (start < 2) return Promise.resolve(0);
+    var cap = start + 250;
+    var misses = 0;
+    var found = [];
+    var stopped = false;
+
+    function probe(n) {
+      return fetch(genFileUrl(n), { method: "HEAD", cache: "force-cache" }).then(
+        function (r) {
+          return r.ok ? "hit" : "miss";
+        },
+        function () {
+          return "error";
+        }
+      );
+    }
+
+    function next(n) {
+      if (stopped || n >= cap || misses >= 12) return Promise.resolve(found.length);
+      var group = [];
+      var i;
+      for (i = 0; i < 8 && n + i < cap; i++) group.push(n + i);
+      return Promise.all(group.map(probe)).then(function (results) {
+        var k;
+        for (k = 0; k < results.length; k++) {
+          if (results[k] === "error") {
+            stopped = true;
+            break;
+          }
+          if (results[k] === "hit") {
+            misses = 0;
+            found.push(group[k]);
+          } else {
+            misses++;
+            if (misses >= 12) {
+              stopped = true;
+              break;
+            }
+          }
+        }
+        if (stopped) return found.length;
+        return next(group[group.length - 1] + 1);
+      });
+    }
+
+    return next(start).then(function () {
+      if (!found.length) return 0;
+      rememberDiscovered(found);
+      ingestSpellAssets(
+        found.map(function (n) {
+          return {
+            number: n,
+            url: genFileUrl(n),
+            source: "generated",
+            title: "Gen G#" + n,
+          };
+        }),
+        { append: true }
+      );
+      return found.length;
+    });
+  }
+
+  function dropGeneratedAboveCeiling() {
+    if (generatedCeiling == null) return;
+    var keep = [];
+    var confirmed = {};
+    for (var c = 0; c < discoveredGenNums.length; c++) confirmed[discoveredGenNums[c]] = true;
+    for (var i = 0; i < arsenalExtraNums.length; i++) {
+      var n = arsenalExtraNums[i];
+      var ex = extraSpells[n];
+      if (
+        ex &&
+        ex.source === "generated" &&
+        ex.genNum > generatedCeiling &&
+        !confirmed[ex.genNum]
+      ) {
+        delete extraSpells[n];
+        delete extraSpells[String(n)];
+        delete analyses[n];
+        delete analyses[String(n)];
+        continue;
+      }
+      keep.push(n);
+    }
+    arsenalExtraNums = keep;
+    generatedOrderCache = null;
+  }
+
+  function raiseGeneratedCeiling(ceil, top) {
+    var next = ceil > 0 ? ceil : top || 0;
+    if (!next) return generatedCeiling;
+    if (generatedCeiling == null || next > generatedCeiling) generatedCeiling = next;
+    return generatedCeiling;
+  }
+
+  function settleGeneratedPresentation() {
+    reappendDiscovered();
+    return discoverNewerGenerated()
+      .catch(function () {
+        return 0;
+      })
+      .then(function () {
+        reappendDiscovered();
+        var top = maxIngestedGenNum();
+        if (
+          generatedCeiling != null &&
+          extraSpells[GEN_BASE + generatedCeiling]
+        ) {
+          dropGeneratedAboveCeiling();
+          refreshArsenalStats();
+          return generatedCeiling;
+        }
+        return findHighestGenerated(top).then(function (ceil) {
+          raiseGeneratedCeiling(ceil, top);
+          dropGeneratedAboveCeiling();
+          refreshArsenalStats();
+          return generatedCeiling;
+        });
+      });
   }
 
   function ingestFromLod1Manifest(d, analysisMap) {
@@ -1458,6 +1693,23 @@
           });
         }
 
+        var seenGen = {};
+        for (var seenI = 0; seenI < items.length; seenI++) seenGen[items[seenI].number] = true;
+        Object.keys(lod1A).forEach(function (key) {
+          var extraNum = parseInt(key, 10);
+          if (!extraNum || seenGen[extraNum]) return;
+          var extraAnalysis = lod1A[key];
+          if (!extraAnalysis || typeof extraAnalysis !== "object") return;
+          seenGen[extraNum] = true;
+          items.push({
+            number: extraNum,
+            url: genFileUrl(extraNum),
+            source: "generated",
+            title: extraAnalysis.title || "Gen G#" + extraNum,
+            analysis: extraAnalysis,
+          });
+        });
+
         var sketchItems =
           sketchMan && Array.isArray(sketchMan.items) ? sketchMan.items : [];
         for (var s = 0; s < sketchItems.length; s++) {
@@ -1518,7 +1770,8 @@
                     analysis: it.analysis || null,
                     name: it.name,
                   };
-                })
+                }),
+                { append: true }
               );
             }
             refreshArsenalStats();
@@ -1535,9 +1788,14 @@
   }
 
   function loadSpellAssets(opts) {
+    function done(count) {
+      return settleGeneratedPresentation().then(function () {
+        return typeof count === "number" ? count : arsenalExtraNums.length;
+      });
+    }
     var local =
       location.hostname === "localhost" || location.hostname === "127.0.0.1";
-    if (!local) return loadSpellAssetsFromStatic();
+    if (!local) return loadSpellAssetsFromStatic().then(done);
     var q = "?t=" + Date.now();
     if (opts && opts.skipSketches) q += "&skip_sketches=1";
     var url = apiUrl("/api/transfer/spell-assets" + q);
@@ -1557,12 +1815,12 @@
             arsenalStats.pages = d.pages;
           }
           if (d.arsenal_total) arsenalStats.total = d.arsenal_total;
-          return arsenalExtraNums.length;
+          return done(arsenalExtraNums.length);
         }
-        return loadSpellAssetsFromStatic();
+        return loadSpellAssetsFromStatic().then(done);
       })
       .catch(function () {
-        return loadSpellAssetsFromStatic();
+        return loadSpellAssetsFromStatic().then(done);
       });
   }
 
@@ -1581,10 +1839,119 @@
     return escapeHtml(s).replace(/"/g, "&quot;");
   }
 
+  function loadBookView() {
+    try {
+      var saved = localStorage.getItem(BOOK_VIEW_KEY);
+      if (saved === "all" || saved === "generated") bookView = saved;
+    } catch (e) {}
+  }
+
+  function generatedOrder() {
+    if (generatedOrderCache) return generatedOrderCache;
+    var confirmed = {};
+    for (var c = 0; c < discoveredGenNums.length; c++) confirmed[discoveredGenNums[c]] = true;
+    var list = [];
+    for (var i = 0; i < arsenalExtraNums.length; i++) {
+      var n = arsenalExtraNums[i];
+      var ex = extraSpells[n] || extraSpells[String(n)];
+      if (!ex || ex.source !== "generated") continue;
+      if (
+        generatedCeiling != null &&
+        ex.genNum > generatedCeiling &&
+        !confirmed[ex.genNum]
+      ) {
+        continue;
+      }
+      list.push(n);
+    }
+    list.sort(function (a, b) {
+      var ea = extraSpells[a] || extraSpells[String(a)];
+      var eb = extraSpells[b] || extraSpells[String(b)];
+      var ga = ea && ea.genNum != null ? ea.genNum : a;
+      var gb = eb && eb.genNum != null ? eb.genNum : b;
+      return gb - ga;
+    });
+    generatedOrderCache = list;
+    return list;
+  }
+
+  function currentOrder() {
+    if (bookView === "generated") return generatedOrder();
+    return displayOrder || [];
+  }
+
+  function searchIsActive() {
+    var q = String(pickerQuery || "").trim().toLowerCase();
+    if (!q) return false;
+    if (
+      bookView === "generated" &&
+      (q === "g" || q === "g#" || q === "gen" || q === "generated")
+    ) {
+      return false;
+    }
+    return true;
+  }
+
+  function syncBookViewUi() {
+    var buttons = document.querySelectorAll("[data-spell-view]");
+    var i;
+    for (i = 0; i < buttons.length; i++) {
+      var on = buttons[i].getAttribute("data-spell-view") === bookView;
+      buttons[i].classList.toggle("is-active", on);
+      buttons[i].setAttribute("aria-selected", on ? "true" : "false");
+    }
+    var title = document.getElementById("spell-book-title");
+    var hint = document.getElementById("spell-book-hint");
+    var picker = document.getElementById("spell-picker");
+    var shuffle = document.getElementById("spell-shuffle");
+    var restore = document.getElementById("spell-restore-page");
+    var reshuffle = document.getElementById("spell-reshuffle-all");
+    var actions = document.querySelector(".spell-picker-actions");
+    var generated = bookView === "generated";
+    if (title) title.textContent = generated ? "Generated visions" : "Spellbook";
+    if (hint) {
+      hint.textContent = generated
+        ? "Newest G# stills. Choose one to equip it as a spell."
+        : "Paintings, generated visions, sketches, and phone stills, mixed.";
+    }
+    if (picker) {
+      picker.setAttribute(
+        "aria-label",
+        generated ? "Generated visions" : "Choose paintings (5 by 5)"
+      );
+    }
+    if (actions) actions.hidden = generated;
+    if (shuffle) shuffle.hidden = generated;
+    if (reshuffle) reshuffle.hidden = generated;
+    if (restore && generated) restore.hidden = true;
+  }
+
+  function setBookView(view, opts) {
+    opts = opts || {};
+    if (view !== "all" && view !== "generated") view = "generated";
+    bookView = view;
+    try {
+      localStorage.setItem(BOOK_VIEW_KEY, view);
+    } catch (e) {}
+    if (!opts.keepPage) {
+      activePage = 0;
+      pickerQuery = "";
+      var search = document.getElementById("spell-search");
+      if (search) search.value = "";
+    }
+    pageSnapshotBeforeShuffle = null;
+    generatedOrderCache = null;
+    var rb = document.getElementById("spell-restore-page");
+    if (rb) rb.hidden = true;
+    syncBookViewUi();
+    if (!opts.skipRender) renderGrid();
+  }
+
   function totalPageCount() {
-    // Always derive from real arsenal length (paintings + gen + phone), never hard-cap at 40
-    var n = (displayOrder && displayOrder.length) || arsenalStats.total || TOTAL;
-    return Math.max(1, Math.ceil(n / PAGE_SIZE));
+    var order = currentOrder();
+    var n = order.length;
+    if (!n && bookView !== "generated") n = arsenalStats.total || TOTAL;
+    return Math.max(1, Math.ceil((n || 0) / PAGE_SIZE));
   }
 
   function refreshArsenalStats() {
@@ -1634,18 +2001,20 @@
   }
 
   function itemsOnPage(pageIndex) {
+    var order = currentOrder();
     var start = pageIndex * PAGE_SIZE;
     var out = [];
     for (var i = 0; i < PAGE_SIZE; i++) {
-      var num = displayOrder[start + i];
+      var num = order[start + i];
       if (num != null) out.push(num);
     }
     return out;
   }
 
   function findPageForNumber(num) {
-    var idx = displayOrder.indexOf(num);
-    if (idx < 0) idx = displayOrder.indexOf(parseInt(num, 10));
+    var order = currentOrder();
+    var idx = order.indexOf(num);
+    if (idx < 0) idx = order.indexOf(parseInt(num, 10));
     return idx < 0 ? 0 : Math.floor(idx / PAGE_SIZE);
   }
 
@@ -1654,8 +2023,9 @@
     if (!qRaw) return null;
     var qLow = qRaw.toLowerCase();
     var hits = [];
-    for (var i = 0; i < displayOrder.length; i++) {
-      var num = displayOrder[i];
+    var order = currentOrder();
+    for (var i = 0; i < order.length; i++) {
+      var num = order[i];
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
       // Kind filters: phone / generated / gen / sketch
@@ -1779,36 +2149,68 @@
   }
 
   function updatePageNav() {
-    var searching = pickerQuery.trim().length > 0;
+    var searching = searchIsActive();
     var bar = document.getElementById("spellbook-pager-bar");
     var gridNav = document.getElementById("spellbook-grid-nav");
     var indicator = document.getElementById("spell-page-indicator");
     var prev = document.getElementById("spell-page-prev");
     var next = document.getElementById("spell-page-next");
     var pageJump = document.getElementById("spell-page-jump");
-    var pages = totalPageCount();
+    var loadingGenerated = bookView === "generated" && generatedCeiling == null;
+    var pages = loadingGenerated ? 1 : totalPageCount();
 
     if (bar) bar.hidden = searching;
     if (gridNav) gridNav.hidden = false;
 
     if (indicator && !searching) {
-      indicator.textContent =
-        "Page " + (activePage + 1) + " of " + pages + " · " + arsenalSummaryText();
+      if (loadingGenerated) {
+        indicator.textContent = "Generated visions · loading…";
+      } else if (bookView === "generated") {
+        indicator.textContent =
+          "Generated visions · Page " +
+          (activePage + 1) +
+          " of " +
+          pages +
+          " · " +
+          generatedOrder().length +
+          " stills";
+      } else {
+        indicator.textContent =
+          "Page " + (activePage + 1) + " of " + pages + " · " + arsenalSummaryText();
+      }
     }
     if (pageJump && !searching) {
       pageJump.max = String(pages);
       pageJump.value = String(activePage + 1);
       pageJump.setAttribute("max", String(pages));
     }
-    if (prev) prev.disabled = searching || activePage <= 0;
-    if (next) next.disabled = searching || activePage >= pages - 1;
+    if (prev) prev.disabled = searching || loadingGenerated || activePage <= 0;
+    if (next) next.disabled = searching || loadingGenerated || activePage >= pages - 1;
   }
 
   function updatePickerCount(count) {
     var el = document.getElementById("spell-picker-count");
     if (!el) return;
-    if (pickerQuery.trim()) {
-      el.textContent = count + " matches · " + arsenalSummaryText();
+    if (bookView === "generated" && generatedCeiling == null && !searchIsActive()) {
+      el.textContent = "Generated visions · loading…";
+      return;
+    }
+    if (searchIsActive()) {
+      el.textContent =
+        count +
+        " matches · " +
+        (bookView === "generated"
+          ? generatedOrder().length + " generated"
+          : arsenalSummaryText());
+    } else if (bookView === "generated") {
+      el.textContent =
+        "Generated · Page " +
+        (activePage + 1) +
+        "/" +
+        totalPageCount() +
+        " · " +
+        generatedOrder().length +
+        " stills";
     } else {
       el.textContent =
         "Page " +
@@ -1823,15 +2225,27 @@
   function renderGrid() {
     var picker = document.getElementById("spell-picker");
     if (!picker) return;
+    syncBookViewUi();
 
-    var searching = pickerQuery.trim().length > 0;
+    if (bookView === "generated" && generatedCeiling == null) {
+      picker.classList.add("spell-picker-5x5");
+      picker.innerHTML =
+        '<p class="spell-picker-empty">Loading generated visions…</p>';
+      updatePickerCount(0);
+      updatePageNav();
+      return;
+    }
+
+    var searching = searchIsActive();
     var numbers = searching ? filterBySearch(pickerQuery) : itemsOnPage(activePage);
     picker.classList.toggle("spell-picker-5x5", !searching);
     picker.innerHTML = "";
 
     if (!numbers || !numbers.length) {
       picker.innerHTML =
-        '<p class="spell-picker-empty">No paintings to show. Hard-refresh (Ctrl+Shift+R).</p>';
+        bookView === "generated"
+          ? '<p class="spell-picker-empty">No generated visions to show.</p>'
+          : '<p class="spell-picker-empty">No paintings to show. Hard-refresh (Ctrl+Shift+R).</p>';
       updatePickerCount(0);
       updatePageNav();
       return;
@@ -5904,9 +6318,18 @@
   }
 
   function jumpToPainting(num) {
-    num = resolveArsenalNum(parseInt(num, 10) || 1);
+    var raw = parseInt(num, 10) || 1;
+    num = resolveArsenalNum(raw);
     if (!isValidSpellNum(num)) {
-      num = Math.max(1, Math.min(TOTAL, num));
+      num = Math.max(1, Math.min(TOTAL, raw));
+    }
+    if (bookView === "generated") {
+      var extra = extraSpells[num] || extraSpells[String(num)];
+      var shown =
+        extra &&
+        extra.source === "generated" &&
+        (generatedCeiling == null || extra.genNum <= generatedCeiling);
+      if (!shown) setBookView("all", { keepPage: true, skipRender: true });
     }
     activePage = findPageForNumber(num);
     pickerQuery = "";
@@ -5956,6 +6379,14 @@
     var all = document.getElementById("spell-reshuffle-all");
     if (all) all.onclick = reshuffleAll;
 
+    var viewButtons = document.querySelectorAll("[data-spell-view]");
+    for (var vb = 0; vb < viewButtons.length; vb++) {
+      viewButtons[vb].onclick = function () {
+        setBookView(this.getAttribute("data-spell-view"));
+      };
+    }
+    syncBookViewUi();
+
     bindStasisAndPrompt();
     bindAspectControl();
     bindStasisVisionView();
@@ -5968,7 +6399,7 @@
     var panel = document.getElementById("panel-spellforge");
     if (panel) {
       panel.addEventListener("keydown", function (e) {
-        if (pickerQuery.trim()) return;
+        if (searchIsActive()) return;
         var tag = (e.target.tagName || "").toLowerCase();
         if (tag === "input" || tag === "textarea") return;
         if (e.key === "ArrowLeft") { e.preventDefault(); goPrevPage(); }
@@ -6102,6 +6533,8 @@
   function boot() {
     if (!document.getElementById("panel-spellforge")) return;
     try {
+      loadBookView();
+      syncBookViewUi();
       bindAnimateHandoff();
       loadSpellNotes();
       window.equipSpellPainting = function (num) {

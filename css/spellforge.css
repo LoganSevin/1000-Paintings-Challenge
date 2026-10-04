@@ -1393,6 +1393,56 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   flex-shrink: 0;
 }
 
+.spell-book-head {
+  margin: 0.35rem 0 0.85rem;
+}
+
+.spell-book-views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+}
+
+.spell-view-btn {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.spell-view-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.spell-view-btn.is-active {
+  color: var(--text);
+  border-color: rgba(160, 140, 255, 0.85);
+  background: rgba(120, 100, 220, 0.18);
+}
+
+.spell-book-title {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.spell-book-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.spell-picker-actions[hidden],
+.spell-picker-actions button[hidden] {
+  display: none !important;
+}
+
 .spell-picker-toolbar {
   display: grid;
   grid-template-columns: 1fr auto auto;
