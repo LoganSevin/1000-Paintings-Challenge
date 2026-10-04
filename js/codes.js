@@ -16,6 +16,59 @@
     },
   };
 
+  function clearStills() {
+    var old = $("codes-stills");
+    if (old) old.remove();
+  }
+
+  function renderStills(stills) {
+    clearStills();
+    if (!stills || !stills.length) return;
+    var list = document.createElement("ol");
+    list.id = "codes-stills";
+    list.className = "codes-stills";
+    stills.forEach(function (still) {
+      var item = document.createElement("li");
+      var title = document.createElement("strong");
+      var number = still && still.number != null ? "#" + still.number : "#";
+      title.textContent = number + (still && still.title ? " " + still.title : "");
+      var desc = document.createElement("span");
+      desc.textContent = (still && still.description) || "";
+      item.appendChild(title);
+      item.appendChild(desc);
+      list.appendChild(item);
+    });
+    var stage = document.querySelector("#panel-codes .codes-stage");
+    if (stage) stage.appendChild(list);
+  }
+
+  function applyBook(extra) {
+    if (!extra || typeof extra !== "object") return;
+    Object.keys(extra).forEach(function (code) {
+      if (!/^[0-9a-z]{8}$/.test(code)) return;
+      var row = extra[code];
+      if (!row || typeof row !== "object") return;
+      BOOK[code] = {
+        outcome: String(row.outcome || ""),
+        href: String(row.href || "#codes"),
+        stills: Array.isArray(row.stills) ? row.stills : null,
+      };
+    });
+  }
+
+  function loadBook() {
+    return fetch("data/codes.json", { cache: "no-store" })
+      .then(function (response) {
+        return response.ok ? response.json() : null;
+      })
+      .then(function (data) {
+        applyBook(data);
+        var input = $("codes-input");
+        show(clean(input && input.value));
+      })
+      .catch(function () {});
+  }
+
   function $(id) {
     return document.getElementById(id);
   }
@@ -75,6 +128,7 @@
       swatch.appendChild(ink);
     }
     renderBook(code);
+    clearStills();
     if (code.length !== 8) {
       ink.style.cssText = "";
       read.textContent = "Eight characters, from 0–9 through a–z.";
@@ -92,11 +146,16 @@
       read.appendChild(line);
       if (filed) {
         var out = document.createElement("p");
-        var link = document.createElement("a");
-        link.href = filed.href;
-        link.textContent = filed.outcome;
-        out.appendChild(link);
+        if (filed.href && filed.href !== "#codes") {
+          var link = document.createElement("a");
+          link.href = filed.href;
+          link.textContent = filed.outcome;
+          out.appendChild(link);
+        } else {
+          out.textContent = filed.outcome;
+        }
         read.appendChild(out);
+        renderStills(filed.stills);
       } else {
         var open = document.createElement("p");
         open.textContent = "Open. No statement filed.";
@@ -113,6 +172,7 @@
       var filedLine = document.createElement("p");
       filedLine.textContent = filed.outcome;
       read.appendChild(filedLine);
+      renderStills(filed.stills);
     } else {
       var empty = document.createElement("p");
       empty.textContent = "Open. No statement filed.";
@@ -137,6 +197,7 @@
       });
     }
     show(clean(input.value));
+    loadBook();
   }
 
   function onShow() {

@@ -29,5 +29,9 @@ A code that uses `g–z` stays a data reference. It does not collapse into a col
 | --- | --- |
 | `1b9cfd4f` | Cameos opens with no key wall. `#1b9cfd` at alpha `4f`. |
 | `3c87f1e7` | Grok generates a new Cameos short from the uploaded reference, in the Eve voice. `#3c87f1` at alpha `e7`. |
+| `d41ddde2` | Descriptions for 159 generated stills, #5921–#6079. `#d41ddd` at alpha `e2`. |
+| `7613cc91` | Description for generated still #5920, Surreal Cosmic Sorceress. `#7613cc` at alpha `91`. |
+| `e5a8e7d0` | Descriptions for 133 generated stills, from #5920 to #6058. `#e5a8e7` at alpha `d0`. |
+| `88437714` | Descriptions for 233 generated stills, from #5656 to #5919. `#884377` at alpha `14`. |
 
-The statement for `3c87f1e7` is [CAMEOS.md](CAMEOS.md). The lookup tab is `#codes`.
+The statement for `3c87f1e7` is [CAMEOS.md](CAMEOS.md). Each description publish files its commit code here. The Codes tab keeps that publish’s still titles and descriptions. The lookup tab is `#codes`.
