@@ -7,6 +7,18 @@
     "outcome": "Grok generates a new Cameos short from the uploaded reference, in the Eve voice.",
     "href": "#cameos"
   },
+  "1eb15b62": {
+    "outcome": "Description for generated still #6060, Clock on a Green Hill.",
+    "href": "#codes",
+    "kind": "descriptions",
+    "stills": [
+      {
+        "number": 6060,
+        "title": "Clock on a Green Hill",
+        "description": "A person sees a large circular painting of a clock tower built on a green hill with a winding path, set inside a bigger round scene. The clock face shows Roman numerals and its hands point near ten to two, while butterflies, bats, colored spheres, and stars float in the sky above the hills and mountains."
+      }
+    ]
+  },
   "c9b223f5": {
     "outcome": "Descriptions for 160 generated stills, #5920–#6079.",
     "href": "#codes",
@@ -714,7 +726,7 @@
       },
       {
         "number": 6060,
-        "title": "Surreal Clock Landscape",
+        "title": "Clock on a Green Hill",
         "description": "A person sees a large circular painting of a clock tower built on a green hill with a winding path, set inside a bigger round scene. The clock face shows Roman numerals and its hands point near ten to two, while butterflies, bats, colored spheres, and stars float in the sky above the hills and mountains."
       },
       {
@@ -1516,7 +1528,7 @@
       },
       {
         "number": 6060,
-        "title": "Surreal Clock Landscape",
+        "title": "Clock on a Green Hill",
         "description": "A person sees a large circular painting of a clock tower built on a green hill with a winding path, set inside a bigger round scene. The clock face shows Roman numerals and its hands point near ten to two, while butterflies, bats, colored spheres, and stars float in the sky above the hills and mountains."
       },
       {

@@ -29,6 +29,7 @@ A code that uses `g–z` stays a data reference. It does not collapse into a col
 | --- | --- |
 | `1b9cfd4f` | Cameos opens with no key wall. `#1b9cfd` at alpha `4f`. |
 | `3c87f1e7` | Grok generates a new Cameos short from the uploaded reference, in the Eve voice. `#3c87f1` at alpha `e7`. |
+| `1eb15b62` | Description for generated still #6060, Clock on a Green Hill. `#1eb15b` at alpha `62`. |
 | `c9b223f5` | Descriptions for 160 generated stills, #5920–#6079. `#c9b223` at alpha `f5`. |
 | `d41ddde2` | Descriptions for 159 generated stills, #5921–#6079. `#d41ddd` at alpha `e2`. |
 | `7613cc91` | Description for generated still #5920, Surreal Cosmic Sorceress. `#7613cc` at alpha `91`. |
