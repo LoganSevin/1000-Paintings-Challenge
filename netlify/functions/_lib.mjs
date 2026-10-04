@@ -522,24 +522,6 @@ const SPELLFORGE_OUTCOME_LINE_RE =
 const SPELLFORGE_FUSION =
   "Spellforge three-spell fusion: this is one combination painting. Mix the forms, colors, and subjects of Spell 1, Spell 2, and Spell 3 into a single new scene. Each spell stays visible inside the mix. Do not paint Spell 1 by itself.";
 
-const ROMAN_SPELL_NO = {
-  I: "1",
-  II: "2",
-  III: "3",
-  IV: "4",
-  V: "5",
-  VI: "6",
-  VII: "7",
-  VIII: "8",
-  IX: "9",
-};
-
-function spellNumberLabel(token) {
-  const t = String(token || "").toUpperCase();
-  if (/^[1-9]$/.test(t)) return t;
-  return ROMAN_SPELL_NO[t] || "";
-}
-
 /** Drop a source painting's own image prompt so it cannot replace the combination. */
 function stripSingleSpellPrompts(block) {
   return String(block || "")
@@ -549,7 +531,24 @@ function stripSingleSpellPrompts(block) {
     .trim();
 }
 
-function spellContributionClause(block) {
+/** Word-boundary clip with no ellipsis, so shares can share one sentence. */
+function clipShareEven(share, cap) {
+  let s = String(share || "").replace(/\s+/g, " ").trim();
+  if (!s) return "";
+  if (s.length <= cap) return s.replace(/[.…]+$/, "").trim();
+  let cut = s.slice(0, cap);
+  const sp = cut.lastIndexOf(" ");
+  if (sp > cap * 0.55) cut = cut.slice(0, sp);
+  return cut.replace(/[\s,;:—–-]+$/, "").replace(/[.…]+$/, "").trim();
+}
+
+function equalShareLimit(shares) {
+  const shortest = Math.min(...shares.map((s) => String(s || "").length));
+  return Math.max(140, Math.min(420, shortest || 140));
+}
+
+/** Descriptive text of one spell block, without its header, title repeat, or style lines. */
+function spellShareText(block) {
   const lines = String(block || "")
     .split("\n")
     .map((l) => l.trim())
@@ -559,50 +558,92 @@ function spellContributionClause(block) {
     .replace(/^SPELL\s+(?:[1-9]|[IVX]+)\s*[—–-]\s*/i, "")
     .replace(/\s*\(#\d+\)\s*$/, "")
     .trim();
-  let clause = "";
+  const kept = [];
   for (const line of lines.slice(1)) {
     if (/^(style|tags|mood|generation prompt|source)\s*:/i.test(line)) continue;
+    if (/^(generated still|phone upload|line sketch|inverted sketch)\b/i.test(line)) continue;
+    if (/^\(description pending/i.test(line)) continue;
+    if (/^\(no description\)$/i.test(line)) continue;
     if (title && line.toLowerCase() === title.toLowerCase()) continue;
-    clause = line;
-    break;
+    kept.push(line);
   }
-  return clipPromptChars(clause || title || "its own forms and colors", 160)
-    .replace(/…$/, "")
-    .replace(/[.]+$/, "")
-    .trim();
+  let share = kept.join(" ").replace(/\s+/g, " ").trim();
+  if (!share) share = title || "its own forms and colors";
+  return share.replace(/[.…]+$/, "").trim();
 }
 
-function combinationLead(spells) {
-  if (!spells || spells.length < 2) return "";
-  const bits = spells.slice(0, 3).map((block) => {
-    const header = String(block).split("\n")[0] || "";
-    const m = header.match(/^SPELL\s+([1-9]|[IVX]+)\b/i);
-    const n = m ? spellNumberLabel(m[1]) : "";
-    const clause = spellContributionClause(block);
-    const lower = clause.charAt(0).toLowerCase() + clause.slice(1);
-    return `${n ? `Spell ${n}` : "The next spell"} contributes ${lower}`;
-  });
+/**
+ * One paragraph. Each spell gets the same cap, so a long Spell 1 cannot lead.
+ * The first share keeps its capital. Later shares are lowercased.
+ */
+function conjoinedFromShares(shares) {
+  const clean = (shares || []).map((s) => String(s || "").replace(/\s+/g, " ").trim()).filter(Boolean);
+  if (!clean.length) return "";
+  const cap = equalShareLimit(clean);
+  const bits = clean
+    .map((share, i) => {
+      const bit = clipShareEven(share, cap);
+      if (!bit) return "";
+      return i === 0 ? bit : bit.charAt(0).toLowerCase() + bit.slice(1);
+    })
+    .filter(Boolean);
   return (
-    "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. " +
-    "Do not paint Spell 1 by itself.\n" +
-    bits.join(". ") +
+    "COMBINATION PIECE: paint one combination from this conjoined detail. Do not paint Spell 1 by itself.\n" +
+    "Conjoined detail for one combination painting: " +
+    bits.join(", together with ") +
     "."
   );
 }
 
-/** A long Spell 1 description was being painted by itself. Keep the spells near the same length. */
-function balanceSpellBodies(spells) {
-  if (!spells || spells.length < 2) return spells || [];
-  const shortest = Math.min(...spells.map((s) => s.length));
-  const ceiling = Math.max(520, Math.round(shortest * 1.8));
-  return spells.map((block) => {
-    if (block.length <= ceiling) return block;
-    const lines = block.split("\n");
-    const header = lines[0];
-    const body = lines.slice(1).join("\n").trim();
-    const room = Math.max(80, ceiling - header.length - 1);
-    return header + "\n" + clipPromptChars(body, room);
-  });
+/** Drop an older combination lead so it is not painted in front of the paragraph. */
+function stripOldCombination(text) {
+  return String(text || "")
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter((para) => {
+      if (!para) return false;
+      if (/^COMBINATION PIECE\b/i.test(para)) return false;
+      if (/^Conjoined detail\b/i.test(para)) return false;
+      if (/Spell\s+\d+\s+contributes\b/i.test(para)) return false;
+      return true;
+    })
+    .join("\n\n")
+    .trim();
+}
+
+/** Pull the conjoined paragraph down to `budget` by shortening every share together. */
+function shrinkConjoinedBlock(text, budget) {
+  let next = String(text || "").trim();
+  if (next.length <= budget) return next;
+  const start = next.search(/Conjoined detail for one combination painting:/i);
+  if (start < 0) return clipPromptChars(next, budget);
+  const after = next.slice(start);
+  const endRel = after.search(/\n\s*\n/);
+  let end = endRel < 0 ? next.length : start + endRel;
+  const block = next.slice(start, end);
+  const body = block
+    .replace(/^Conjoined detail for one combination painting:\s*/i, "")
+    .replace(/\.\s*$/, "");
+  const shares = body.split(/,\s*together with\s+/i);
+  let cap = Math.max(...shares.map((s) => s.length), 48);
+  let guard = 0;
+  while (next.length > budget && cap > 48 && guard < 16) {
+    guard += 1;
+    const overflow = next.length - budget;
+    cap = Math.max(48, cap - Math.ceil(overflow / Math.max(1, shares.length)) - 4);
+    const bits = shares
+      .map((share, i) => {
+        const bit = clipShareEven(share, cap);
+        if (!bit) return "";
+        return i === 0 ? bit : bit.charAt(0).toLowerCase() + bit.slice(1);
+      })
+      .filter(Boolean);
+    const para = "Conjoined detail for one combination painting: " + bits.join(", together with ") + ".";
+    next = next.slice(0, start) + para + next.slice(end);
+    end = start + para.length;
+  }
+  if (next.length > budget) return clipPromptChars(next, budget);
+  return next;
 }
 
 function preludeWithoutIdentityBanner(text) {
@@ -622,22 +663,33 @@ function splitSpellforgeReferences(raw) {
   const outcome = [];
   let current = null;
   let seenSpell = false;
+  let inOutcome = false;
   for (const line of lines) {
     const trimmed = line.trim();
-    if (SPELL_HEADER_RE.test(trimmed)) {
+    if (!inOutcome && SPELL_HEADER_RE.test(trimmed)) {
       if (current) spells.push(current.join("\n").trim());
       current = [line];
       seenSpell = true;
       continue;
     }
-    if (current && SPELLFORGE_OUTCOME_LINE_RE.test(trimmed)) {
-      spells.push(current.join("\n").trim());
-      current = null;
+    const outcomeStart = SPELLFORGE_OUTCOME_LINE_RE.test(trimmed);
+    // The identity banner sits in front of the spell blocks. It is not the outcome.
+    if (/^THREE IDENTITIES IN ONE PAINTING\.?$/i.test(trimmed) && !current && !seenSpell) {
+      prelude.push(line);
+      continue;
+    }
+    if (outcomeStart && (current || !seenSpell)) {
+      if (current) {
+        spells.push(current.join("\n").trim());
+        current = null;
+      }
+      inOutcome = true;
+      seenSpell = true;
       outcome.push(line);
       continue;
     }
     if (current) current.push(line);
-    else if (seenSpell) outcome.push(line);
+    else if (inOutcome || seenSpell) outcome.push(line);
     else prelude.push(line);
   }
   if (current) spells.push(current.join("\n").trim());
@@ -663,77 +715,54 @@ function peelAspectLines(prelude) {
 }
 
 /**
- * Detailed Spell I–III references, then the fusion / outcome instruction.
+ * One conjoined paragraph of equal detail, then the fusion / outcome instruction.
+ * Stacked SPELL essays are replaced, not kept behind the paragraph.
  * The aspect line stays first. The painted signature stays last.
  */
 export function orderSpellforgePrompt(raw) {
   const text = String(raw || "").trim();
+  if (!text) return "";
   const at = protectedTailAt(text);
   const tail = at > 0 ? text.slice(at).trim() : "";
   const head = at > 0 ? text.slice(0, at).trim() : text;
   const split = splitSpellforgeReferences(head);
-  let spells = split.spells.map(stripSingleSpellPrompts).filter(Boolean);
-  if (!spells.length) return text;
+  const spells = split.spells.map(stripSingleSpellPrompts).filter(Boolean);
   const peeled = peelAspectLines(split.prelude);
   const other = preludeWithoutIdentityBanner(peeled.other);
-  const hasCombo = /COMBINATION PIECE/i.test(other);
-  const lead = hasCombo ? other : [combinationLead(spells), other].filter(Boolean).join("\n\n");
-  spells = balanceSpellBodies(spells);
+  const hasConjoined = /COMBINATION PIECE|Conjoined detail/i.test(other);
+  if (!spells.length && !hasConjoined) return text;
+
+  let detail;
+  if (spells.length) {
+    const rebuilt = conjoinedFromShares(spells.map(spellShareText));
+    const rest = stripOldCombination(other);
+    detail = [rebuilt, rest].filter(Boolean).join("\n\n");
+  } else {
+    detail = other;
+  }
+
   let outcomeBody = split.outcome;
-  if (!/Spellforge three-spell fusion/i.test(outcomeBody + "\n" + lead)) {
+  if (!/Spellforge three-spell fusion/i.test(`${outcomeBody}\n${detail}`)) {
     outcomeBody = [SPELLFORGE_FUSION, outcomeBody].filter(Boolean).join("\n\n");
   }
-  const parts = [peeled.aspect, lead, spells.join("\n\n"), outcomeBody].filter(Boolean);
+  const parts = [peeled.aspect, detail, outcomeBody].filter(Boolean);
   let ordered = parts.join("\n\n");
   if (tail) ordered += "\n\n" + tail;
   return ordered;
 }
 
-/** Keep the three spell texts. Shorten the outcome copy before shortening a spell body. */
+/** Keep the conjoined paragraph and the signature. Shorten every share together when over the cap. */
 export function fitSpellforgePrompt(text, max = GEN_PROMPT_SAFE_MAX) {
   const ordered = orderSpellforgePrompt(text);
   if (!ordered || ordered.length <= max) return ordered;
   const at = protectedTailAt(ordered);
   const tail = at > 0 ? ordered.slice(at).trim() : "";
-  const head = at > 0 ? ordered.slice(0, at).trim() : ordered;
+  let head = at > 0 ? ordered.slice(0, at).trim() : ordered;
   const budget = tail ? max - tail.length - 2 : max;
   if (budget < 200) return clipPromptChars(ordered, max);
-  let { prelude, spells, outcome } = splitSpellforgeReferences(head);
-  if (!spells.length) return fitPromptKeepingTail(ordered, max);
-  const peeled = peelAspectLines(prelude);
-  const aspect = peeled.aspect;
-  const lead = peeled.other;
-  let guard = 0;
-  const join = () =>
-    [aspect, lead, spells.join("\n\n"), outcome].filter(Boolean).join("\n\n").trim();
-  const fusionFloor = SPELLFORGE_FUSION.length;
-  while (join().length > budget && outcome.length > fusionFloor + 80 && guard < 16) {
-    guard += 1;
-    const overflow = join().length - budget;
-    outcome = clipPromptChars(outcome, Math.max(fusionFloor, outcome.length - overflow - 1));
-  }
-  guard = 0;
-  while (join().length > budget && guard < 24) {
-    guard += 1;
-    let longest = -1;
-    let longestLen = 0;
-    for (let i = 0; i < spells.length; i++) {
-      if (spells[i].length > longestLen) {
-        longestLen = spells[i].length;
-        longest = i;
-      }
-    }
-    if (longest < 0) break;
-    const lines = spells[longest].split("\n");
-    const header = lines[0];
-    const body = lines.slice(1).join("\n").trim();
-    const overflow = join().length - budget;
-    const nextLen = Math.max(40, body.length - overflow - 1);
-    spells[longest] = header + "\n" + clipPromptChars(body, nextLen);
-  }
-  let next = join();
-  if (next.length > budget) next = clipPromptChars(next, budget);
-  return tail ? next + "\n\n" + tail : next;
+  if (/Conjoined detail/i.test(head)) head = shrinkConjoinedBlock(head, budget);
+  if (head.length > budget) head = clipPromptChars(head, budget);
+  return tail ? head + "\n\n" + tail : head;
 }
 
 export const ALLOWED_ASPECTS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
@@ -786,7 +815,10 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
   const raw = String(stasis || "").trim();
   const aspectLine = `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.`;
   const spellforge =
-    /THREE IDENTITIES IN ONE PAINTING/i.test(raw) || /^SPELL (?:[1-9]|[IVX]+)\s*—/m.test(raw);
+    /THREE IDENTITIES IN ONE PAINTING/i.test(raw) ||
+    /^SPELL (?:[1-9]|[IVX]+)\s*—/m.test(raw) ||
+    /COMBINATION PIECE/i.test(raw) ||
+    /Conjoined detail/i.test(raw);
   // Spell I–III stay in front of the outcome sentence. The signature stays on the tail.
   if (spellforge) {
     const signed = /IN-CANVAS SIGNATURE/i.test(raw);
@@ -1208,7 +1240,7 @@ function fluxFraming(aspect) {
 /** Spellforge auto-built stasis -> { subjects[], colors[], styles[], moods[], extra } or null. */
 function parseSpellforgeStasis(stasis) {
   const text = String(stasis || "");
-  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL (?:[1-9]|[IVX]+)\s*—/.test(text)) return null;
+  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL (?:[1-9]|[IVX]+)\s*—|COMBINATION PIECE|Conjoined detail/.test(text)) return null;
   const subjects = [];
   const re =
     /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL (?:[1-9]|[IVX]+)\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL (?:[1-9]|[IVX]+)\s*—|FUSION(?: DIRECTIVE)?:|FINAL OUTCOME\b|Output:|OUTPUT ASPECT|IN-CANVAS SIGNATURE|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
@@ -1216,6 +1248,17 @@ function parseSpellforgeStasis(stasis) {
   while ((m = re.exec(text))) {
     const d = fluxDescFromSlotBody(m[1]);
     if (d.desc && d.desc !== "(no description)") subjects.push(d);
+  }
+  if (!subjects.length) {
+    const conj = /Conjoined detail[^:\n]*:\s*([^\n]+)/i.exec(text);
+    if (conj) {
+      conj[1]
+        .replace(/\.\s*$/, "")
+        .split(/\s*,?\s*together with\s+/i)
+        .map((s) => s.replace(/\s+/g, " ").trim())
+        .filter((s) => s && s !== "(no description)")
+        .forEach((desc) => subjects.push({ title: "", desc }));
+    }
   }
   const line = (label) => {
     const r = new RegExp("^" + label + "[^:\\n]*:[ \\t]*([^\\n]+)", "m").exec(text);

@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v122: the emerging preview keeps every equipped spell in the mix. It does not center Spell 1 or show one tag as a loading percent.
+ * Cache bust v123: the generation prompt is one conjoined paragraph of equal detail from all three spells.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -3681,9 +3681,67 @@
     return lines.join("\n");
   }
 
+  /** Word-boundary clip. No ellipsis, so a share can sit inside one sentence. */
+  function clipShareText(share, cap) {
+    var s = String(share || "").replace(/\s+/g, " ").trim();
+    if (!s) return "";
+    if (s.length <= cap) return s.replace(/[.…]+$/, "").trim();
+    var cut = s.slice(0, cap);
+    var sp = cut.lastIndexOf(" ");
+    if (sp > cap * 0.55) cut = cut.slice(0, sp);
+    return cut.replace(/[\s,;:—–-]+$/, "").replace(/[.…]+$/, "").trim();
+  }
+
   /**
-   * The real generation prompt: the three detailed Spell I–III references come first.
-   * The final-outcome instruction follows them. Always ≤ 8000 chars with server framing.
+   * Shorten every share of the conjoined paragraph by the same amount.
+   * Cutting the end would drop Spell 3 and leave Spell 1 in front.
+   */
+  function shrinkConjoinedParagraph(text, maxLen) {
+    var next = String(text || "").trim();
+    if (next.length <= maxLen) return next;
+    var start = next.search(/Conjoined detail for one combination painting:/i);
+    if (start < 0) return clipPromptText(next, maxLen);
+    var after = next.slice(start);
+    var endRel = after.search(/\n\s*\n/);
+    var end = endRel < 0 ? next.length : start + endRel;
+    var block = next.slice(start, end);
+    var body = block
+      .replace(/^Conjoined detail for one combination painting:\s*/i, "")
+      .replace(/\.\s*$/, "");
+    var shares = body.split(/,\s*together with\s+/i);
+    var cap = 0;
+    for (var i = 0; i < shares.length; i++) {
+      if (shares[i].length > cap) cap = shares[i].length;
+    }
+    var guard = 0;
+    while (next.length > maxLen && cap > 48 && guard < 16) {
+      guard += 1;
+      var overflow = next.length - maxLen;
+      cap = Math.max(
+        48,
+        cap - Math.ceil(overflow / Math.max(1, shares.length)) - 4
+      );
+      var bits = [];
+      for (var j = 0; j < shares.length; j++) {
+        var bit = clipShareText(shares[j], cap);
+        if (!bit) continue;
+        if (bits.length) bit = bit.charAt(0).toLowerCase() + bit.slice(1);
+        bits.push(bit);
+      }
+      var para =
+        "Conjoined detail for one combination painting: " +
+        bits.join(", together with ") +
+        ".";
+      next = next.slice(0, start) + para + next.slice(end);
+      end = start + para.length;
+    }
+    if (next.length > maxLen) return clipPromptText(next, maxLen);
+    return next;
+  }
+
+  /**
+   * One conjoined paragraph of equal detail, then the final-outcome instruction.
+   * Always ≤ 8000 chars with server framing.
    */
   function fitReferencesBeforeOutcome(text, max) {
     var t = String(text || "").trim();
@@ -3698,6 +3756,11 @@
     if (refs.length + 2 + minOutcome > max) outcomeBudget = minOutcome;
     if (outcome.length > outcomeBudget) outcome = clipPromptText(outcome, outcomeBudget);
     var room = Math.max(80, max - outcome.length - 2);
+    if (/Conjoined detail/i.test(refs)) {
+      if (refs.length > room) refs = shrinkConjoinedParagraph(refs, room);
+      if (refs.length > room) refs = clipPromptText(refs, room);
+      return refs + "\n\n" + outcome;
+    }
     var blocks = refs.split(/\n(?=SPELL (?:[1-9]|[IVX]+)\b)/);
     var guard = 0;
     function joined() {
@@ -3732,41 +3795,62 @@
     return stripAspectTalkFromPrompt(kept.join("\n\n").trim());
   }
 
-  function combinationPreface(spellParts) {
-    var bits = [];
-    for (var i = 0; i < spellParts.length; i++) {
-      var header = spellParts[i].header || "";
-      var hm = header.match(/^SPELL\s+([1-9])/);
-      var n = hm ? hm[1] : String(i + 1);
-      var title = header
-        .replace(/^SPELL\s+[1-9]\s+—\s+/, "")
-        .replace(/\s*\(#\d+\)\s*$/, "")
-        .trim();
-      var lines = String(spellParts[i].body || "").split("\n");
-      var clause = "";
+  function descriptiveShare(spellPart) {
+    var header = spellPart.header || "";
+    var title = header
+      .replace(/^SPELL\s+[1-9]\s*[—–-]\s+/i, "")
+      .replace(/\s*\(#\d+\)\s*$/, "")
+      .trim();
+    var paras = String(spellPart.body || "").split(/\n\s*\n/);
+    var kept = [];
+    for (var p = 0; p < paras.length; p++) {
+      var lines = paras[p].split("\n");
+      var useful = [];
       for (var li = 0; li < lines.length; li++) {
         var line = lines[li].trim();
         if (!line) continue;
-        if (/^(style|tags|mood)\s*:/i.test(line)) continue;
+        if (/^(style|tags|mood|generation prompt|source)\s*:/i.test(line)) continue;
+        if (/^(generated still|phone upload|line sketch|inverted sketch)\b/i.test(line)) continue;
+        if (/^\(description pending/i.test(line)) continue;
+        if (/^\(no description\)$/i.test(line)) continue;
         if (title && line.toLowerCase() === title.toLowerCase()) continue;
-        clause = line;
-        break;
+        useful.push(line);
       }
-      if (!clause) clause = title;
-      clause = clause.replace(/\s+/g, " ").trim();
-      if (clause.length > 160) {
-        clause = clause.slice(0, 157).replace(/\s+\S*$/, "");
-      }
-      clause = clause.replace(/[.…]+$/, "");
-      if (clause) clause = clause.charAt(0).toLowerCase() + clause.slice(1);
-      bits.push(
-        "Spell " + n + " contributes " + (clause || "its own forms and colors")
-      );
+      if (useful.length) kept.push(useful.join(" "));
+    }
+    var share = kept.join(" ").replace(/\s+/g, " ").trim();
+    if (!share) share = title || "its own forms and colors";
+    return share.replace(/[.…]+$/, "").trim();
+  }
+
+  /**
+   * One paragraph. Each equipped spell contributes the same amount of detail.
+   * The first share keeps its capital. Later shares are lowercased.
+   * Spell headers stay off the text the model sees.
+   */
+  function conjoinedSpellParagraph(spellParts) {
+    var shares = [];
+    for (var i = 0; i < spellParts.length; i++) {
+      var share = descriptiveShare(spellParts[i]);
+      if (share) shares.push(share);
+    }
+    if (!shares.length) return "";
+    var shortest = shares[0].length;
+    for (var j = 1; j < shares.length; j++) {
+      if (shares[j].length < shortest) shortest = shares[j].length;
+    }
+    var cap = Math.max(140, Math.min(420, shortest));
+    var bits = [];
+    for (var k = 0; k < shares.length; k++) {
+      var bit = clipShareText(shares[k], cap);
+      if (!bit) continue;
+      if (bits.length) bit = bit.charAt(0).toLowerCase() + bit.slice(1);
+      bits.push(bit);
     }
     return (
-      "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. " +
-      "Do not paint Spell 1 by itself.\n" +
-      bits.join(". ") +
+      "COMBINATION PIECE: paint one combination from this conjoined detail. Do not paint Spell 1 by itself.\n" +
+      "Conjoined detail for one combination painting: " +
+      bits.join(", together with ") +
       "."
     );
   }
@@ -3801,7 +3885,7 @@
     }
     var labelList = labels.join(", ").replace(/, ([^,]+)$/, ", and $1");
     var head =
-      "One combination painting. The spells above are the ingredients of this single scene.\n" +
+      "One combination painting. The conjoined detail above is this single scene.\n" +
       "Studio author: " +
       artist +
       ".";
@@ -3849,11 +3933,8 @@
 
     function assemble(compactColors, trimNotes, trimMeta) {
       var colorSec = buildColorLocksSection(compactColors);
-      var bodies = spellParts.map(function (sp) {
-        return sp.header + "\n" + sp.body;
-      });
-      // The combination names every spell first. The detailed references follow, then the outcome.
-      var parts = [combinationPreface(spellParts), "", bodies.join("\n\n"), "", "FINAL OUTCOME:", head];
+      // One paragraph of equal detail. The outcome follows it. No SPELL 1 essay in front.
+      var parts = [conjoinedSpellParagraph(spellParts), "", "FINAL OUTCOME:", head];
       parts.push(merge);
       if (colorSec) parts.push(colorSec);
       parts.push(output);

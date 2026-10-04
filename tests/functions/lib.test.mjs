@@ -21,7 +21,7 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
 
   const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
   const combo = prompt.indexOf("COMBINATION PIECE");
-  const firstSpell = prompt.indexOf("SPELL I —");
+  const detail = prompt.indexOf("Conjoined detail");
   const courtyard = prompt.indexOf("sunlit Mediterranean courtyard");
   const peony = prompt.indexOf("vibrant peony");
   const coaster = prompt.indexOf("coastal roller coaster");
@@ -30,17 +30,19 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
   assert.match(prompt, /^16:9 wide canvas/);
   assert.match(prompt, /COMBINATION PIECE/);
   assert.match(prompt, /Do not paint Spell 1 by itself/);
-  assert.match(prompt, /Spell 2 contributes/);
-  assert.match(prompt, /Spell 3 contributes/);
+  assert.match(prompt, /Conjoined detail/i);
+  assert.match(prompt, /together with/i);
   assert.match(prompt, /Spellforge three-spell fusion/);
   assert.match(prompt, /one combination painting/);
   assert.match(prompt, /Spell 1, Spell 2, and Spell 3/);
-  assert.ok(combo >= 0 && combo < firstSpell);
+  assert.doesNotMatch(prompt, /SPELL I —/);
+  assert.equal((prompt.match(/COMBINATION PIECE/g) || []).length, 1);
+  assert.ok(combo >= 0 && detail > combo);
   assert.ok(courtyard >= 0 && peony > courtyard && coaster > peony);
-  assert.ok(firstSpell > combo && outcome > coaster);
+  assert.ok(outcome > coaster);
 });
 
-test("arabic spell numbers stay three separate references", () => {
+test("arabic spell numbers stay one conjoined paragraph", () => {
   const stasis = [
     "THREE IDENTITIES IN ONE PAINTING.",
     "SPELL 1 — Courtyard (#957)",
@@ -52,17 +54,18 @@ test("arabic spell numbers stay three separate references", () => {
   ].join("\n");
 
   const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
-  const combo = prompt.indexOf("COMBINATION PIECE");
-  const first = prompt.indexOf("SPELL 1 —");
-  const second = prompt.indexOf("SPELL 2 —");
-  const third = prompt.indexOf("SPELL 3 —");
+  const courtyard = prompt.indexOf("sunlit Mediterranean courtyard");
+  const peony = prompt.indexOf("vibrant peony");
+  const coaster = prompt.indexOf("coastal roller coaster");
   const outcome = prompt.indexOf("Spellforge three-spell fusion");
 
-  assert.ok(combo >= 0 && first > combo && second > first && third > second && outcome > third);
-  assert.match(prompt, /Spell 2 contributes/);
-  assert.match(prompt, /Spell 3 contributes/);
-  assert.match(prompt, /Do not paint Spell 1 by itself/);
+  assert.equal((prompt.match(/COMBINATION PIECE/g) || []).length, 1);
+  assert.doesNotMatch(prompt, /SPELL 1 —/);
   assert.doesNotMatch(prompt, /Spell II/);
+  assert.match(prompt, /together with/i);
+  assert.match(prompt, /Conjoined detail/i);
+  assert.match(prompt, /Do not paint Spell 1 by itself/);
+  assert.ok(courtyard >= 0 && peony > courtyard && coaster > peony && outcome > coaster);
 
   const already = buildStasisVisionPrompt(
     "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. Do not paint Spell 1 by itself.\n" +
@@ -72,7 +75,10 @@ test("arabic spell numbers stay three separate references", () => {
     "16:9"
   );
   assert.equal((already.match(/COMBINATION PIECE/g) || []).length, 1);
-  assert.ok(already.indexOf("COMBINATION PIECE") < already.indexOf("SPELL 1 —"));
+  assert.equal((already.match(/sunlit Mediterranean courtyard/g) || []).length, 1);
+  assert.doesNotMatch(already, /SPELL 1 —/);
+  assert.doesNotMatch(already, /Spell II/);
+  assert.match(already, /together with/i);
 });
 
 test("non-Spellforge stasis prompts keep the general framing", () => {
@@ -109,6 +115,9 @@ test("a signed Spellforge prompt keeps Spell III and the signature under the cap
   assert.match(prompt, /^16:9 wide canvas/);
   assert.ok(coaster >= 0 && outcome > coaster && signature > outcome);
   assert.doesNotMatch(prompt, /\blandscape\b/i);
+  assert.doesNotMatch(prompt, /SPELL I —/);
+  assert.match(prompt, /together with/i);
+  assert.ok((prompt.match(/Brushwork continues/g) || []).length < 5);
 });
 
 test("Cloudflare fallback does not ask for a landscape or forbid the signature", () => {
