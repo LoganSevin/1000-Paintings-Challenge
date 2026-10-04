@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v118: Generated visions are a spellbook view, newest G# first.
+ * Cache bust v119: the spellbook opens on the mixed 1000 paintings, with shuffle. Generated is a separate view.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -61,8 +61,8 @@
   var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
   var activePage = 0;
   var pickerQuery = "";
-  /** "generated" presents G# stills newest-first. "all" is the mixed spellbook. */
-  var bookView = "generated";
+  /** "all" is the mixed spellbook (paintings + shuffle). "generated" is the G# view. */
+  var bookView = "all";
   /** Highest G# whose image exists. Null until the first settle. */
   var generatedCeiling = null;
   var generatedOrderCache = null;
@@ -1840,9 +1840,12 @@
   }
 
   function loadBookView() {
+    bookView = "all";
     try {
-      var saved = localStorage.getItem(BOOK_VIEW_KEY);
-      if (saved === "all" || saved === "generated") bookView = saved;
+      // A saved Generated view was hiding the 1000 paintings and the shuffle.
+      if (localStorage.getItem(BOOK_VIEW_KEY) === "generated") {
+        localStorage.removeItem(BOOK_VIEW_KEY);
+      }
     } catch (e) {}
   }
 
@@ -1912,7 +1915,7 @@
     if (hint) {
       hint.textContent = generated
         ? "Newest G# stills. Choose one to equip it as a spell."
-        : "Paintings, generated visions, sketches, and phone stills, mixed.";
+        : "The 1000 paintings, mixed with generated visions, sketches, and phone stills.";
     }
     if (picker) {
       picker.setAttribute(
@@ -1928,10 +1931,11 @@
 
   function setBookView(view, opts) {
     opts = opts || {};
-    if (view !== "all" && view !== "generated") view = "generated";
+    if (view !== "all" && view !== "generated") view = "all";
     bookView = view;
     try {
-      localStorage.setItem(BOOK_VIEW_KEY, view);
+      if (view === "all") localStorage.setItem(BOOK_VIEW_KEY, "all");
+      else localStorage.removeItem(BOOK_VIEW_KEY);
     } catch (e) {}
     if (!opts.keepPage) {
       activePage = 0;
