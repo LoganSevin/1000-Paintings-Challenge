@@ -1894,11 +1894,14 @@
     var eta = $("an-gen-eta");
 
     var elapsed = state.genStartedAt ? (Date.now() - state.genStartedAt) / 1000 : 0;
-    if (job && job.elapsed_sec != null) elapsed = job.elapsed_sec;
-
-    var pct = clamp((elapsed / Math.max(state.genEtaSec, 1)) * 100, 4, 96);
-    if (job && job.status === "done") pct = 100;
-    if (fill) fill.style.width = pct + "%";
+    var etaSec = Math.max(state.genEtaSec, 1);
+    var done = !!(job && job.status === "done");
+    var pct = done ? 100 : castProgressPct(elapsed, etaSec);
+    if (fill) {
+      fill.style.width = pct + "%";
+      fill.classList.toggle("is-finishing", !done && elapsed > etaSec);
+      fill.classList.toggle("is-done", done);
+    }
 
     var phaseLabel = "Rendering motion…";
     if (job) {
@@ -1915,12 +1918,15 @@
     if (phase) phase.textContent = phaseLabel;
 
     if (detail) {
-      detail.textContent =
-        formatClock(elapsed) +
-        " elapsed · ETA ~" +
-        formatClock(Math.max(0, state.genEtaSec - elapsed)) +
-        " · " +
-        currentResolution();
+      detail.textContent = done
+        ? "Clip ready"
+        : elapsed > etaSec
+          ? formatClock(elapsed) + " elapsed · finishing the clip · " + currentResolution()
+          : formatClock(elapsed) +
+            " elapsed · ETA ~" +
+            formatClock(Math.max(0, etaSec - elapsed)) +
+            " · " +
+            currentResolution();
     }
     if (eta) {
       eta.textContent =
@@ -1933,23 +1939,31 @@
     }
   }
 
+  function castProgressPct(elapsedSec, etaSec) {
+    var eta = Math.max(etaSec, 1);
+    if (elapsedSec <= eta) return 4 + (elapsedSec / eta) * 88;
+    return Math.min(99, 92 + (elapsedSec - eta) * 0.85);
+  }
+
   function startGenTimer() {
     stopGenTimer();
     state.genStartedAt = Date.now();
-    updateProgressUi(null);
-    state.genTimerId = setInterval(function () {
-      updateProgressUi(null);
+    function frame() {
+      if (!state.generating) return;
+      updateProgressUi(state.lastGenJob);
       var timer = $("an-gen-timer");
-      if (timer) {
+      if (timer && state.genStartedAt) {
         var elapsed = Math.floor((Date.now() - state.genStartedAt) / 1000);
         timer.textContent = formatClock(elapsed) + " elapsed";
       }
-    }, 500);
+      state.genTimerId = requestAnimationFrame(frame);
+    }
+    state.genTimerId = requestAnimationFrame(frame);
   }
 
   function stopGenTimer() {
     if (state.genTimerId) {
-      clearInterval(state.genTimerId);
+      cancelAnimationFrame(state.genTimerId);
       state.genTimerId = null;
     }
   }
@@ -2082,10 +2096,6 @@
             return Promise.reject(new Error("Generation cancelled."));
           }
           updateProgressUi(job);
-          var timer = $("an-gen-timer");
-          if (timer && job.elapsed_sec != null) {
-            timer.textContent = formatClock(job.elapsed_sec) + " elapsed";
-          }
           if (job.status === "done") {
             var vid = job.video;
             var url = vid && (vid.url || vid.download_url || vid.uri);
@@ -2324,64 +2334,48 @@
       })
       .then(function (result) {
         var rawUrl = absoluteUrl(result.url);
-        // Prefer server auto-saved path; always ensure clip lands in saved-videos/
-        var prefer =
+        var playUrl =
           window.GallerySaveVideo && window.GallerySaveVideo.preferSavedUrl
             ? window.GallerySaveVideo.preferSavedUrl(result.job || result, rawUrl)
             : rawUrl;
-        var savePromise =
-          window.GallerySaveVideo && window.GallerySaveVideo.save
-            ? window.GallerySaveVideo.save(prefer || rawUrl)
-            : Promise.resolve(null);
-        return savePromise
-          .then(function (saved) {
-            var url =
-              (saved && saved.url && absoluteUrl(saved.url)) || prefer || rawUrl;
-            var jobDur =
-              result.job && result.job.duration != null
-                ? normalizeDurationSec(result.job.duration)
-                : duration;
-            updateSegmentById(pendingId, {
-              url: url,
-              pending: false,
-              durationSec: jobDur,
-              thumbUrl: hasSpellVisual
-                ? spellItem.url
-                : primaryCastCharacter() && primaryCastCharacter().preview_url,
-              savedName: saved && saved.name,
-            });
-            state.playheadMs = insertMs;
-            updatePlayheadUi();
-            showLatestVideo(url);
-            setStatus(
-              "Clip ready · " +
-                jobDur +
-                "s @ " +
-                currentResolution() +
-                (saved && saved.name ? " — saved-videos/" + saved.name : "") +
-                " · timeline " +
-                formatMs(timelineUsedMs()) +
-                " / 10:00",
-              "ok"
-            );
-          })
-          .catch(function () {
-            updateSegmentById(pendingId, {
-              url: prefer || rawUrl,
-              pending: false,
-              durationSec: duration,
-              thumbUrl: hasSpellVisual
-                ? spellItem.url
-                : primaryCastCharacter() && primaryCastCharacter().preview_url,
-            });
-            state.playheadMs = insertMs;
-            updatePlayheadUi();
-            showLatestVideo(prefer || rawUrl);
-            setStatus(
-              "Clip ready · " + duration + "s — added to timeline (" + formatMs(timelineUsedMs()) + " used).",
-              "ok"
-            );
+        playUrl = playUrl || rawUrl;
+        var jobDur =
+          result.job && result.job.duration != null
+            ? normalizeDurationSec(result.job.duration)
+            : duration;
+        updateSegmentById(pendingId, {
+          url: playUrl,
+          pending: false,
+          durationSec: jobDur,
+          thumbUrl: hasSpellVisual
+            ? spellItem.url
+            : primaryCastCharacter() && primaryCastCharacter().preview_url,
+        });
+        state.playheadMs = insertMs;
+        updatePlayheadUi();
+        showLatestVideo(playUrl);
+        setStatus(
+          "Clip ready · " +
+            jobDur +
+            "s @ " +
+            currentResolution() +
+            " · timeline " +
+            formatMs(timelineUsedMs()) +
+            " / 10:00",
+          "ok"
+        );
+        if (window.GallerySaveVideo && window.GallerySaveVideo.save && playUrl) {
+          window.GallerySaveVideo.save(playUrl).then(function (saved) {
+            if (!saved || !saved.url) return;
+            var savedUrl = absoluteUrl(saved.url);
+            updateSegmentById(pendingId, { url: savedUrl, savedName: saved.name });
+            var player = $("an-player");
+            if (player && (player.error || player.readyState < 2)) {
+              player.src = savedUrl;
+              player.play().catch(function () {});
+            }
           });
+        }
       })
       .catch(function (err) {
         removeSegmentById(pendingId);
